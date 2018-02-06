@@ -47,15 +47,19 @@ public final class DateUtil {
     }
 
     public static String getMonthOnlyDateString(@NonNull Date date) {
-        return new SimpleDateFormat("MMMM d", Locale.getDefault()).format(date);
+        return getDateStringWithSkeletonPattern(date, "MMMM d");
     }
 
     public static String getMonthOnlyWithoutDayDateString(@NonNull Date date) {
-        return new SimpleDateFormat("MMMM", Locale.getDefault()).format(date);
+        return getDateStringWithSkeletonPattern(date, "MMMM");
     }
 
     private static String getExtraShortDateString(@NonNull Date date) {
-        return new SimpleDateFormat("MMM d", Locale.getDefault()).format(date);
+        return getDateStringWithSkeletonPattern(date, "MMM d");
+    }
+
+    private static String getDateStringWithSkeletonPattern(@NonNull Date date, @NonNull String pattern) {
+        return new SimpleDateFormat(android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault()).format(date);
     }
 
     public static String getShortDateString(@NonNull Date date) {
@@ -86,7 +90,7 @@ public final class DateUtil {
 
     @NonNull public static String yearToStringWithEra(int year) {
         Calendar cal = new GregorianCalendar(year, 1, 1);
-        return new SimpleDateFormat(year < 0 ? "y GG" : "y", Locale.getDefault()).format(cal.getTime());
+        return getDateStringWithSkeletonPattern(cal.getTime(), year < 0 ? "y GG" : "y");
     }
 
     @NonNull public static String getYearDifferenceString(int year) {
