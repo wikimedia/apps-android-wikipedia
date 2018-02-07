@@ -617,4 +617,8 @@ public class DefaultZoomableController
   public int computeVerticalScrollExtent() {
     return (int)mViewBounds.height();
   }
+
+  public Listener getListener() {
+    return mListener;
+  }
 }

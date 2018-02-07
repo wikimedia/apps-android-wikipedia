@@ -222,7 +222,12 @@ public class WikipediaApp extends Application {
                 .setNetworkFetcher(new CacheableOkHttpNetworkFetcher(OkHttpConnectionFactory.getClient()))
                 .setFileCacheFactory(DisabledCache.factory())
                 .build();
-        Fresco.initialize(this, config);
+        try {
+            Fresco.initialize(this, config);
+        } catch (Exception e) {
+            L.e(e);
+            // TODO: Remove when we're able to initialize Fresco in test builds.
+        }
 
         // TODO: Remove when user accounts have been migrated to AccountManager (June 2018)
         AccountUtil.migrateAccountFromSharedPrefs();
