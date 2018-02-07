@@ -26,13 +26,13 @@ public class MultiPointerGestureDetector {
   /** The listener for receiving notifications when gestures occur. */
   public interface Listener {
     /** A callback called right before the gesture is about to start. */
-    void onGestureBegin(MultiPointerGestureDetector detector);
+    public void onGestureBegin(MultiPointerGestureDetector detector);
 
     /** A callback called each time the gesture gets updated. */
-    void onGestureUpdate(MultiPointerGestureDetector detector);
+    public void onGestureUpdate(MultiPointerGestureDetector detector);
 
     /** A callback called right after the gesture has finished. */
-    void onGestureEnd(MultiPointerGestureDetector detector);
+    public void onGestureEnd(MultiPointerGestureDetector detector);
   }
 
   private static final int MAX_POINTERS = 2;
