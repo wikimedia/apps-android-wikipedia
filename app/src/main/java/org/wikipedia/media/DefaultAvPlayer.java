@@ -35,22 +35,16 @@ public class DefaultAvPlayer implements AvPlayer {
         init();
         if (!state.isLoading(path) && !state.isLoaded(path)) {
             state.setLoading(path);
-            player.load(path, new Callback() {
-                @Override
-                public void onSuccess() {
-                    state.setLoaded();
-                    if (state.isPlaying()) {
-                        player.play(new StopCallbackWrapper(callback), new StopErrorCallbackWrapper(errorCallback));
-                    } else {
-                        callback.onSuccess();
-                    }
+            player.load(path, () -> {
+                state.setLoaded();
+                if (state.isPlaying()) {
+                    player.play(new StopCallbackWrapper(callback), new StopErrorCallbackWrapper(errorCallback));
+                } else {
+                    callback.onSuccess();
                 }
-            }, new ErrorCallback() {
-                @Override
-                public void onError() {
-                    state.setInit();
-                    errorCallback.onError();
-                }
+            }, () -> {
+                state.setInit();
+                errorCallback.onError();
             });
         }
     }

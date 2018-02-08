@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
-import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.edit.EditSectionActivity;
@@ -36,16 +35,13 @@ public class EditSummaryFragment extends Fragment {
 
         // ...so that clicking the "Done" button on the keyboard will have the effect of
         // clicking the "Next" button in the actionbar:
-        summaryText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
-                if ((keyEvent != null
-                        && (keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER))
-                        || (actionId == EditorInfo.IME_ACTION_DONE)) {
-                    parentActivity.clickNextButton();
-                }
-                return false;
+        summaryText.setOnEditorActionListener((textView, actionId, keyEvent) -> {
+            if ((keyEvent != null
+                    && (keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER))
+                    || (actionId == EditorInfo.IME_ACTION_DONE)) {
+                parentActivity.clickNextButton();
             }
+            return false;
         });
 
         return editSummaryContainer;
@@ -71,13 +67,10 @@ public class EditSummaryFragment extends Fragment {
      * of the actionbar button(s) is updated.
      */
     public void show() {
-        ViewAnimations.fadeIn(editSummaryContainer, new Runnable() {
-            @Override
-            public void run() {
-                parentActivity.supportInvalidateOptionsMenu();
-                summaryText.requestFocus();
-                showSoftKeyboard(summaryText);
-            }
+        ViewAnimations.fadeIn(editSummaryContainer, () -> {
+            parentActivity.supportInvalidateOptionsMenu();
+            summaryText.requestFocus();
+            showSoftKeyboard(summaryText);
         });
     }
 
@@ -87,12 +80,9 @@ public class EditSummaryFragment extends Fragment {
      * button(s) is updated.
      */
     public void hide() {
-        ViewAnimations.fadeOut(editSummaryContainer, new Runnable() {
-            @Override
-            public void run() {
-                hideSoftKeyboard(parentActivity);
-                parentActivity.supportInvalidateOptionsMenu();
-            }
+        ViewAnimations.fadeOut(editSummaryContainer, () -> {
+            hideSoftKeyboard(parentActivity);
+            parentActivity.supportInvalidateOptionsMenu();
         });
     }
 

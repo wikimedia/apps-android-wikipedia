@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
-import android.widget.FilterQueryProvider;
 import android.widget.TextView;
 
 import org.wikipedia.WikipediaApp;
@@ -32,32 +31,24 @@ public class EditSummaryHandler {
         this.container = container;
         this.summaryEdit = summaryEditText;
 
-        this.container.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                summaryEdit.requestFocus();
-            }
-        });
+        this.container.setOnClickListener((view) -> summaryEdit.requestFocus());
 
         EditSummaryAdapter adapter = new EditSummaryAdapter(container.getContext(), null, true);
         summaryEdit.setAdapter(adapter);
-        adapter.setFilterQueryProvider(new FilterQueryProvider() {
-            @Override
-            public Cursor runQuery(CharSequence charSequence) {
-                ContentProviderClient client = EditSummary.DATABASE_TABLE
-                        .acquireClient(container.getContext().getApplicationContext());
-                Uri uri = EditHistoryContract.Summary.URI;
-                final String[] projection = null;
-                String selection = EditHistoryContract.Summary.SUMMARY.qualifiedName() + " like ?";
-                String[] selectionArgs = new String[] {charSequence + "%"};
-                String order = EditHistoryContract.Summary.ORDER_MRU;
-                try {
-                    return client.query(uri, projection, selection, selectionArgs, order);
-                } catch (RemoteException e) {
-                    throw new RuntimeException(e);
-                } finally {
-                    ContentProviderClientCompat.close(client);
-                }
+        adapter.setFilterQueryProvider((charSequence) -> {
+            ContentProviderClient client = EditSummary.DATABASE_TABLE
+                    .acquireClient(container.getContext().getApplicationContext());
+            Uri uri = EditHistoryContract.Summary.URI;
+            final String[] projection = null;
+            String selection = EditHistoryContract.Summary.SUMMARY.qualifiedName() + " like ?";
+            String[] selectionArgs = new String[] {charSequence + "%"};
+            String order = EditHistoryContract.Summary.ORDER_MRU;
+            try {
+                return client.query(uri, projection, selection, selectionArgs, order);
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            } finally {
+                ContentProviderClientCompat.close(client);
             }
         });
 

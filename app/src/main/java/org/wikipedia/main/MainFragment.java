@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.ActivityNotFoundException;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
@@ -255,12 +254,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                                                       @NonNull HistoryEntry entry) {
         bottomSheetPresenter.show(getChildFragmentManager(),
                 AddToReadingListDialog.newInstance(entry.getTitle(),
-                        AddToReadingListDialog.InvokeSource.FEED,
-                        new DialogInterface.OnDismissListener() {
-                            @Override public void onDismiss(DialogInterface dialogInterface) {
-                                view.updateFooter();
-                            }
-                        }));
+                        AddToReadingListDialog.InvokeSource.FEED, (dialog) -> view.updateFooter()));
     }
 
     @Override
@@ -337,8 +331,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     public void requestUpdateToolbarElevation() {
         Fragment fragment = ((NavTabFragmentPagerAdapter) viewPager.getAdapter()).getCurrentFragment();
-        updateToolbarElevation(fragment instanceof FeedFragment
-                ? ((FeedFragment) fragment).shouldElevateToolbar() : true);
+        updateToolbarElevation(!(fragment instanceof FeedFragment) || ((FeedFragment) fragment).shouldElevateToolbar());
     }
 
     @Override public void onLoading() {

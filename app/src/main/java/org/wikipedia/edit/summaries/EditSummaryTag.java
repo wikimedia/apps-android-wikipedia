@@ -7,7 +7,6 @@ import android.support.annotation.ColorInt;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.LinearLayout.LayoutParams;
 
 import org.wikipedia.R;
@@ -51,12 +50,9 @@ public class EditSummaryTag extends AppCompatTextView {
 
         setPadding(padding, padding, padding, padding);
 
-        setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                selected = !selected;
-                updateState();
-            }
+        setOnClickListener((view) -> {
+            selected = !selected;
+            updateState();
         });
 
         updateState();
