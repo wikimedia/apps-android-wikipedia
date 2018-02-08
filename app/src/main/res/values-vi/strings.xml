@@ -294,8 +294,8 @@
   <string name="reading_list_sort">Sắp xếp</string>
   <string name="reading_list_sort_by_name">Sắp xếp theo tên</string>
   <string name="reading_list_sort_by_name_desc">Sắp xếp theo tên (ngược)</string>
-  <string name="reading_list_sort_by_recent">Sắp xếp theo lúc xem (gần đây nhất)</string>
-  <string name="reading_list_sort_by_recent_desc">Sắp xếp theo lúc xem (lâu nhất)</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Sắp xếp theo lúc xem (gần đây nhất)</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Sắp xếp theo lúc xem (lâu nhất)</string>
   <string name="reading_list_menu_delete">Xóa danh sách</string>
   <string name="reading_list_menu_rename">Đổi tên</string>
   <string name="reading_list_menu_edit_description">Chỉnh sửa miêu tả</string>
@@ -338,6 +338,7 @@
   <string name="reading_list_article_save_in_progress">Bài này đang được tải về. Nó sẽ có sẵn ngoại tuyến khi tải về xong.</string>
   <string name="reading_list_already_contains_selection">Danh sách được chọn đã bao gồm tất cả các trang được chọn.</string>
   <string name="reading_list_added_articles_list_titled">Đã thêm %1$d bài viết vào %2$s</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">Bạn có chắc chắn muốn xóa danh sách đọc %s này ?</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Bài này hiện có sẵn ngoại tuyến.</item>
     <item quantity="other">Các bài này hiện có sẵn ngoại tuyến.</item>
@@ -433,6 +434,7 @@
   <string name="remote_compilation_download">Tải về</string>
   <string name="storage_used_by_compilations">được sử dụng bởi Thư viện Ngoại tuyến</string>
   <string name="storage_other_apps">Ứng dụng khác</string>
+  <string name="offline_compilation_download_time_remaining">còn %d phút</string>
   <string name="compilation_download_widget_button_cancel_hint">Hủy bỏ tải về</string>
   <string name="compilation_download_cancel_confirm">Bạn có chắc chắn muốn hủy bỏ tải về gói bài này?</string>
   <string name="compilation_download_cancel_confirm_yes">Có</string>

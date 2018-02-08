@@ -305,8 +305,10 @@
   <string name="reading_list_sort">정렬</string>
   <string name="reading_list_sort_by_name">이름순</string>
   <string name="reading_list_sort_by_name_desc">이름순 (역순)</string>
-  <string name="reading_list_sort_by_recent">최근순</string>
-  <string name="reading_list_sort_by_recent_desc">적은 빈도로 접근한 최신문서순</string>
+  <string name="reading_list_sort_by_recent">추가한 날짜 순으로 정렬 (최근 순서)</string>
+  <string name="reading_list_sort_by_recent_desc">추가한 날짜 순으로 정렬 (가장 오래된 순서)</string>
+  <string name="reading_list_sort_by_created">만든 날짜 순으로 정렬 (최근 순서)</string>
+  <string name="reading_list_sort_by_created_desc">만든 날짜 순으로 정렬 (가장 오래된 순서)</string>
   <string name="reading_list_menu_delete">목록 삭제</string>
   <string name="reading_list_menu_rename">이름 바꾸기</string>
   <string name="reading_list_menu_edit_description">설명 편집</string>
@@ -351,7 +353,8 @@
   <string name="reading_list_article_save_in_progress">이 문서는 다운로드 중이며, 완료되면 오프라인 상태에서 읽을 수 있습니다.</string>
   <string name="reading_list_already_contains_selection">선택된 목록은 선택된 모든 문서를 이미 포함하고 있습니다.</string>
   <string name="reading_list_added_articles_list_titled">%1$d개의 문서가 %2$s에 추가되었습니다</string>
-    <string name="default_reading_list_name">저장됨</string>
+  <string name="reading_list_delete_confirm">%s 목록을 삭제하시겠습니까?</string>
+  <string name="default_reading_list_name">저장됨</string>
   <string name="no_user_lists_msg">여행 갈 장소, 좋아하는 주제들, 그외의 원하는 용도의 목록을 만드세요</string>
   <string name="reading_list_saved_list_rename">%1$s (사용자가 생성함)</string>
   <string name="split_reading_list_message">읽기 목록 하나 당 문서 1000개의 제한이 있습니다. 이 제한을 초과하는 목록이 있다면 여러 개 목록으로 분할되게 됩니다.</string>

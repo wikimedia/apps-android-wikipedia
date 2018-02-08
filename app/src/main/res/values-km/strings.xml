@@ -3,61 +3,101 @@
   <string name="app_name_prod">វិគីភីឌា</string>
   <string name="app_name_beta">វិគីភីឌាបេតា</string>
   <string name="app_name_alpha">វិគីភីឌាអាល់ហ្វា</string>
+  <string name="wikimedia">វិគីមេឌា</string>
   <string name="search_hint">ស្វែងរកនៅក្នុងវិគីភីឌា</string>
+  <string name="search_hint_search_history">ស្វែងរកប្រវត្តិ</string>
+  <string name="search_hint_search_my_lists">ស្វែងរកក្នុងបញ្ជីខ្ញុំ</string>
+  <string name="search_hint_search_reading_list">ស្វែងរកក្នុងបញ្ជីអំណាន</string>
   <string name="nav_item_history">ប្រវត្តិ</string>
-  <string name="error_network_error" fuzzy="true">គ្មានបណ្ដាញតភ្ជាប់ទេ :(</string>
+  <string name="error_network_error">មិនអាចភ្ជាប់អ៊ីនធើណិតបានទេ។</string>
   <string name="page_error_retry">ព្យាយាមម្ដងទៀត</string>
+  <string name="page_error_back_to_main">បកក្រោយ</string>
   <string name="menu_clear_all_history">ជម្រះ​ប្រវត្តិ</string>
-  <string name="dialog_title_clear_history" fuzzy="true">ជម្រះ​ប្រវត្តិរាវរកអ៊ីនធើណិត?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">តើ​អ្នក​ពិត​ជា​ចង់​សម្អាត​ប្រវត្តិ​ទាំង​អស់ មែន​ទេ?</string>
-    <string name="share_via">ចែក​រំលែក​តាម…</string>
-  <string name="menu_page_other_languages" fuzzy="true">អានជាភាសា​ដទៃ​ទៀត</string>
+  <string name="history_item_deleted">%s ត្រូវបានដកចេញពីប្រវត្តិ</string>
+  <string name="history_items_deleted">អត្ថបទចំនួន %d ត្រូវបានដកចេញពីប្រវត្តិ</string>
+  <string name="history_item_delete_undo">មិន​ធ្វើ​វិញ</string>
+  <string name="dialog_title_clear_history">ជម្រះ​ប្រវត្តិរាវរកអ៊ីនធើណិត</string>
+  <string name="dialog_message_clear_history">តើ​អ្នក​ពិត​ជា​ចង់​សម្អាត​ប្រវត្តិ​រាវរកទាំង​អស់ ហើយបិទថេបដែលកំពុងបើកមែន​ទេ?</string>
+  <string name="dialog_message_clear_history_yes">បាទ / ចាស៎</string>
+  <string name="dialog_message_clear_history_no">ទេ</string>
+  <string name="share_via">ចែកចាយ​តាម</string>
+  <string name="search_redirect_from">បានបញ្ជូនបន្តពី %s</string>
+  <string name="menu_page_show_tabs">បង្ហាញថេប</string>
+  <string name="menu_page_other_languages">ប្ដូរភាសា</string>
   <string name="menu_page_find_in_page">ស្វែងរកក្នុងទំព័រ</string>
+  <string name="menu_page_content_issues">បញ្ហាខ្លឹមសារអត្ថបទ</string>
   <string name="menu_page_font_and_theme">ប្រភេទអក្សរនិងរចនាបថ</string>
-  <string name="menu_page_share" fuzzy="true">ចែក​រំលែក</string>
+  <string name="menu_page_add_to_list">បន្ថែមទៅក្នុងបញ្ជីអំណាន</string>
+  <string name="menu_page_share">ចែក​ចាយតំណភ្ជាប់</string>
+  <string name="menu_long_press_open_page">បើក</string>
+  <string name="menu_long_press_open_in_new_tab">បើកក្នុងថេបថ្មី</string>
+  <string name="menu_long_press_copy_page">ចម្លងអាសយដ្ឋានតំណភ្ជាប់</string>
+  <string name="menu_text_select_copy">ចម្លង</string>
+  <string name="menu_text_select_define">មើលនិយមន័យ</string>
+  <string name="menu_text_select_share">ចែកចាយ</string>
+  <string name="menu_text_select_edit_here">កែប្រែនៅទីនេះ</string>
   <string name="nav_item_nearby">ជិតខាង</string>
+  <string name="nearby_zoom_to_location">ពង្រីកទៅរកទីតាំងមួយនៅលើផែនទី</string>
+  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;អ្នករួមចំណែកនៅ&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">បន្ទាន់សម័យចុង​ក្រោយ​នៅ %s</string>
-  <string name="content_license_html" fuzzy="true">ខ្លឹមសារអត្ថបទផ្ដល់ជូនក្រោមអាជ្ញាបណ្ឌ &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; លើកលែងតែមានបញ្ជាក់ផ្សេងពីនេះ</string>
+  <string name="talk_page_link_text">ការ​ពិភាក្សា</string>
+  <string name="edit_history_link_text">ប្រវត្តិកែប្រែ</string>
+  <string name="map_view_link_text">មើលនៅលើផែនទី</string>
+  <string name="language_count_link_text">អាចប្រើបានជា%dភាសាផ្សេងទៀត</string>
+  <string name="content_license_html">ខ្លឹមសារអត្ថបទផ្ដល់ជូនក្រោមអាជ្ញាប័ណ្ណ &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; លើកលែងតែមានបញ្ជាក់ផ្សេងពីនេះ</string>
+  <string name="edit_save_action_license_logged_in">តាមរយៈការរក្សាទុក អ្នកយល់ព្រមជាមួួយ &lt;a href=\"%1$s\"&gt;លក្ខខណ្ឌប្រើប្រាស់&lt;/a&gt;, និងផ្សព្វផ្សាយការរួមចំណែករបស់អ្នកដោយឥតផ្លាស់ប្ដូរវិញបានក្រោយអាជ្ញាប័ណ្ណ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ។</string>
+  <string name="edit_save_action_license_anon">តាមរយៈការរក្សាទុក អ្នកយល់ព្រមជាមួួយ &lt;a href=\"%1$s\"&gt;លក្ខខណ្ឌប្រើប្រាស់&lt;/a&gt;, និងផ្សព្វផ្សាយការរួមចំណែករបស់អ្នកដោយឥតផ្លាស់ប្ដូរវិញបានក្រោយអាជ្ញាប័ណ្ណ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ។ ការកែប្រែនឹងត្រូវភ្ជាប់នឹងអាសយដ្ឋានIPរបស់ឧបករណ៍របស់អ្នក។ ប្រសិនបើអ្នក&lt;a href=\"https://#login\"&gt;កត់ឈ្មោះចូល&lt;/a&gt; នោះអ្នកនឹងរក្សាឯកជនភាពបានប្រសើរជាង។</string>
   <string name="preference_title_language">ភាសាវិគីភីឌា</string>
   <string name="preference_languages_filter_hint">ស្វែងរក</string>
   <string name="langlinks_filter_hint">ស្វែងរក</string>
   <string name="langlinks_empty">ទំព័រ​នេះ​មិនអាចអានជា​ភាសាដទៃ​ទៀត​ទេ។</string>
   <string name="langlinks_no_match">រកមិនឃើញភាសាត្រូវគ្នាជាមួយពាក្យស្វែងរករបស់អ្នកទេ។</string>
   <string name="langlinks_activity_title">ភាសា​ដទៃ​ទៀត</string>
-  <string name="menu_save_changes">រក្សាទុកបន្លាស់ប្ដូរ</string>
-  <string name="dialog_saving_in_progress">កំពុង​រក្សា​ទុក…</string>
-  <string name="edit_saved_successfully">បាន​រក្សា​ទុក​ការ​កែ​ប្រែ!</string>
-  <string name="dialog_message_edit_failed">កែប្រែ​បាន​បរាជ័យ!</string>
+  <string name="menu_save_changes">បោះផ្សាយបន្លាស់ប្ដូរ</string>
+  <string name="dialog_saving_in_progress">កំពុង​បោះផ្សាយ…</string>
+  <string name="edit_saved_successfully">បោះផ្សាយបានសម្រេច!</string>
+  <string name="dialog_message_edit_failed">បោះផ្សាយមិនបានសម្រេច!</string>
   <string name="dialog_message_edit_failed_retry">ព្យាយាមម្ដងទៀត</string>
   <string name="dialog_message_edit_failed_cancel">បោះបង់</string>
   <string name="dialog_message_leaving_edit">កំណែប្រែរបស់អ្នកមិនទាន់បានរក្សាទុកនៅឡើយទេ។ តើអ្នកប្រាកដហើយថាអ្នកពិតជាចង់ចាកចេញពីទំព័រនេះ?</string>
   <string name="dialog_message_leaving_edit_leave">ចាកចេញ</string>
   <string name="dialog_message_leaving_edit_stay">មិនចាកចេញ</string>
-  <string name="menu_show_toc">តារាង​មាតិកា</string>
+  <string name="menu_show_toc">​មាតិកា</string>
   <string name="search_no_results_found">មិន​មាន​លទ្ធផល</string>
+  <string name="search_reading_list_no_results">រកមិនឃើញលទ្ធផលក្នុង \"%s\"</string>
+  <string name="search_reading_lists_no_results">រកមិនឃើញលទ្ធផលក្នុងបញ្ជីអំណាន</string>
+  <string name="search_history_no_results">រកមិនឃើញលទ្ធផលក្នុងប្រវត្តិ</string>
   <string name="edit_section_captcha_message">ដើម្បីការពារពីស្ប៉ាមស្វ័យប្រវត្តិ សូមវាយបញ្ចូលពាក្យដែលបង្ហាញខាងក្រោម</string>
   <string name="edit_section_captcha_hint">សរសេរតាមពាក្យខាងលើ</string>
   <string name="title_captcha">វាយបញ្ចូល CAPTCHA</string>
   <string name="edit_section_captcha_reload">ចុច CAPTCHA ដើម្បីផ្ទុកឡើងវិញ</string>
-  <string name="nav_item_login" fuzzy="true">កត់ឈ្មោះចូល</string>
+  <string name="nav_item_login">កត់ឈ្មោះចូលវិគីភីឌា</string>
   <string name="login_username_hint">អត្តនាម</string>
   <string name="login_password_hint">ពាក្យ​សម្ងាត់</string>
+  <string name="login_2fa_hint">លេខកូដបញ្ជាក់ទទួលស្គាល់២តង់</string>
   <string name="menu_login">កត់ឈ្មោះចូល</string>
-  <string name="login_activity_title" fuzzy="true">កត់ឈ្មោះចូល​ទៅ​ក្នុងវិគីភីឌា</string>
+  <string name="login_activity_title">កត់ឈ្មោះចូល​ទៅ​ក្នុងវិគីភីឌា</string>
   <string name="login_in_progress_dialog_message">កំពុង​កត់ឈ្មោះ​ចូល…</string>
-  <string name="login_success_toast" fuzzy="true">កត់ឈ្មោះចូល​បាន​សម្រេច!</string>
+  <string name="login_success_toast">កត់ឈ្មោះចូល​បាន​សម្រេច!</string>
   <string name="preference_title_logout">កត់ឈ្មោះចេញ</string>
   <string name="toast_logout_complete">បាន​កត់ឈ្មោះចេញ​ហើយ</string>
-  <string name="history_empty_title">គ្មានទំព័រថ្មីៗនៅទីនេះទេ!</string>
-  <string name="history_empty_message">អ្នកប្រហែលជាបានលុបវាចោលអស់ហើយ។ លើកក្រោយពេលអ្នកចូលមើលទំព័រមួយ អ្នកអាចត្រឡប់ទៅកាន់ទំព័រនោះពីទីនេះ។</string>
+  <string name="history_empty_title">គ្មានអត្ថបទទើបអានថ្មីៗនេះទេ!</string>
+  <string name="history_empty_message">តាមដានអ្វីដែលអ្នកបានអាននៅទីនេះ។</string>
+  <string name="search_empty_message">ស្វែងរកនិងអានសព្វវចនាធិប្បាយសេរីជាភាសារបស់អ្នក</string>
   <string name="wp_stylized">&lt;big&gt;វី&lt;/big&gt;គីភី&lt;big&gt;ឌា&lt;/big&gt;</string>
   <string name="create_account_username_hint">អត្តនាម</string>
+  <string name="login_dont_have_account">តើលោកអ្នក​មិនទាន់មាន​គណនី​សម្រាប់​ប្រើ​ទេ​ឬ?</string>
+  <string name="login_join_wikipedia">ចូលរួមជាមួយវិគីភីឌា</string>
+  <string name="login_forgot_password">អ្នកភ្លេចពាក្យសម្ងាត់ហើយ?</string>
+  <string name="create_account_already_have">តើអ្នកមានគណនីមួយរួចហើយឬ?</string>
   <string name="create_account_activity_title">បង្កើតគណនីមួយ</string>
   <string name="dialog_create_account_checking_progress">កំពុ​ងផ្ទៀង​ផ្ទាត់</string>
   <string name="create_account_email_hint">អ៊ីមែល(ដាក់ក៏បានមិនដាក់ក៏បាន)</string>
   <string name="create_account_password_repeat_hint">ពាក្យ​សម្ងាត់​ម្ដង​ទៀត</string>
   <string name="create_account_passwords_mismatch_error">ពាក្យ​សម្ងាត់​មិន​ត្រូវ​គ្នា</string>
   <string name="create_account_email_error">អាសយដ្ឋាន​អ៊ីមែល​មិន​ត្រឹម​ត្រូវ</string>
+  <string name="create_account_username_error">មានតួអក្សរហាមប្រើក្នុងអត្តនាម</string>
+  <string name="create_account_password_error">ពាក្យសម្ងាត់គ្មានសុពលភាព</string>
   <string name="create_account_generic_error">មិនអាចបង្កើតគណនីបានទេ</string>
   <string name="create_account_next">បន្ទាប់</string>
   <string name="create_account_button">បង្កើតគណនី</string>
@@ -67,15 +107,19 @@
   <string name="zero_webpage_title">សំនួរញឹកញាប់សម្រាប់វិគីភីឌាសូន្យ</string>
   <string name="zero_wikipedia_zero_heading">វិគីភីឌាសូន្យ</string>
   <string name="zero_interstitial_title">ចាកចេញពីវិគីសូន្យ</string>
+  <string name="zero_interstitial_leave_app">អាចអស់ប្រាក់ក្នុងការផ្ញើទិន្នន័យចេញចូល។ តើអ្នកចង់បន្តទៅវិបសាយខាងក្រៅទេ?</string>
   <string name="zero_interstitial_continue">ចាកចេញ</string>
   <string name="zero_interstitial_cancel">មិនចាកចេញ</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">អានបន្ថែម</string>
+  <string name="zero_learn_more">ក្រុមហ៊ុនទូរស័ព្ទរបស់អ្នកផ្ដល់ការប្រើប្រាស់វិគីភីឌាដោយឥតគិតថ្លៃ!</string>
+  <string name="zero_learn_more_learn_more">ស្វែងយល់បន្ថែម</string>
   <string name="zero_learn_more_dismiss">លាក់</string>
   <string name="edit_preview_fetching_dialog_message">កំពុងផ្ទុកការមើលមុន…</string>
   <string name="send_feedback">ផ្ញើមតិយោបល់អំពីកម្មវិធីនេះ</string>
   <string name="create_account_account_created_toast">គណនីបានបង្កើតហើយ!</string>
+  <string name="preferences_privacy_settings_heading">ឯកជនភាព</string>
   <string name="preference_title_eventlogging_opt_in">ផ្ញើរបាយការណ៍ពីបម្រើបម្រាស់</string>
   <string name="preference_summary_eventlogging_opt_in">អនុញ្ញាតអោយវិគីមេឌាប្រមូលព័ត៌មានអំពីរបៀបប្រើប្រាស់កម្មវិធីរបស់អ្នក ដើម្បីជួយកែច្នៃកម្មវិធីនេះអោយកាន់តែប្រសើរ</string>
+  <string name="preference_title_auto_upload_crash_reports">ផ្ញើរបាយការណ៍ពីការគាំង</string>
   <string name="history_search_list_hint">ស្វែងរកប្រវត្តិ</string>
   <string name="error_can_not_process_link">មិនអាចបង្ហាញតំណភ្ជាប់នេះទេ</string>
   <string name="page_protected_autoconfirmed">ទំព័រនេះត្រូវបានការពារពាក់កណ្ដាល។</string>
@@ -83,23 +127,27 @@
   <string name="page_protected_other">ទំព័រនេះត្រូវបានការពារត្រឹមកម្រិតដូចតទៅ៖ %s</string>
   <string name="page_protected_can_not_edit" fuzzy="true">អ្នកគ្មានសិទ្ធិកែប្រែទំព័រនេះទេ</string>
   <string name="page_protected_can_not_edit_title">ទំព័រនេះត្រូវបានការពាររួចហើយ</string>
-  <string name="settings_activity_title" fuzzy="true">ការ​កំណត់</string>
+  <string name="settings_item_preferences">ការកំណត់​</string>
+  <string name="settings_activity_title">ការកំណត់​</string>
   <string name="about_description">អំពីកម្មវិធីវិគីភីឌា</string>
   <string name="privacy_policy_description">គោលការណ៍នៃ​ភាពឯកជន</string>
   <string name="terms_of_use_description">លក្ខខណ្ឌប្រើប្រាស់</string>
-  <string name="about_libraries_heading" fuzzy="true">បណ្ណាល័យដែលបានប្រើ</string>
-  <string name="about_contributors_heading" fuzzy="true">អ្នករួមចំណែក</string>
-  <string name="about_translators_heading" fuzzy="true">អ្នកបកប្រែ</string>
+  <string name="about_libraries_heading">បណ្ណាល័យដែលបានប្រើ</string>
+  <string name="about_contributors_heading">អ្នករួមចំណែក</string>
+  <string name="about_translators_heading">អ្នកបកប្រែ</string>
   <string name="about_translators_translatewiki">កម្មវិធីនេះត្រូវបានបកប្រែដោយអ្នកស្ម័គ្រចិត្តបកប្រែនៅ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;។</string>
+  <string name="about_app_license_heading">អាជ្ញាប័ណ្ណ</string>
   <string name="about_wmf" fuzzy="true">ផលិតផលរបស់ &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;មូលនិធិវិគីភីឌា&lt;/a&gt;</string>
   <string name="about_activity_title">អំពី</string>
   <string name="edit_abandon_confirm">ទំព័រនេះត្រូវបានកែប្រែ។ តើអ្នកប្រាកដជាចង់ចាកចេញដោយមិនរក្សាទុកកំណែប្រែរបស់អ្នកឬ?</string>
+  <string name="edit_abandon_confirm_yes">បាទ / ចាស៎</string>
+  <string name="edit_abandon_confirm_no">ទេ</string>
   <string name="user_blocked_from_editing_title">បានរាំងខ្ទប់</string>
   <string name="user_logged_in_blocked_from_editing">គណនីរបស់អ្នកត្រូវបានហាមឃាត់មិនអោយធ្វើការកែប្រែនៅក្នុងវិគីនេះ។</string>
   <string name="user_anon_blocked_from_editing">អាសយដ្ឋានIPរបស់អ្នកត្រូវបានហាមឃាត់មិនអោយធ្វើការកែប្រែ។</string>
   <string name="edit_how_page_improved">តើអ្នកបានកែលម្អទំព័រនេះដោយរបៀបណា?</string>
   <string name="edit_next">បន្ទាប់</string>
-  <string name="edit_done">រក្សា​ទុក​</string>
+  <string name="edit_done">បោះផ្សាយ</string>
   <string name="edit_preview">មើលជាមុន</string>
   <string name="edit_summary_tag_typo">បានកែតម្រូវកំហុសអក្ខរាវិរុទ្ធ</string>
   <string name="edit_summary_tag_grammar">បានកែតម្រូវវេយ្យាករណ៍</string>
@@ -108,19 +156,18 @@
   <string name="edit_summary_tag_other_hint">របៀបផ្សេងទៀតដែលអ្នកបានកែលម្អទំព័រនេះ</string>
   <string name="find_next">ស្វែងរក​បន្ទាប់</string>
   <string name="find_previous">ស្វែងរក​មុន</string>
-  <string name="abusefilter_title_warn">នេះប្រហែលជាការកែប្រែដែលគ្មានលក្ខណៈស្ថាបនាទេ។ តើអ្នកពិតជាចង់រក្សាវាទុកទេ?</string>
-  <string name="abusefilter_title_disallow">អ្នកមិនអាចរក្សាទុកកំណែប្រែនេះទេ។ សូមត្រឡប់ក្រោយហើយកែប្រែវាម្ដងទៀត។</string>
+  <string name="abusefilter_title_warn" fuzzy="true">នេះប្រហែលជាការកែប្រែដែលគ្មានលក្ខណៈស្ថាបនាទេ។ តើអ្នកពិតជាចង់រក្សាវាទុកទេ?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">អ្នកមិនអាចរក្សាទុកកំណែប្រែនេះទេ។ សូមត្រឡប់ក្រោយហើយកែប្រែវាម្ដងទៀត។</string>
   <string name="dialog_page_issues">បញ្ហារបស់ទំព័រ</string>
   <string name="button_page_issues">បញ្ហារបស់ទំព័រ</string>
   <string name="text_size_select">ទំហំអក្សរ</string>
-  <string name="color_theme_select">រចនាបថ</string>
-  <string name="color_theme_light">ភ្លឺ</string>
-  <string name="color_theme_dark">ងងឹត</string>
   <string name="page_similar_titles">ទំព័រស្រដៀង</string>
   <string name="search_did_you_mean">អ្នកប្រហែលជាចង់រក \"%s\" មែនទេ?</string>
   <string name="search_recent_header">ការស្វែងរកថ្មីៗនេះ៖</string>
   <string name="button_clear_all_recent_searches">ជម្រះការស្វែងរកថ្មីៗនេះ</string>
   <string name="clear_recent_searches_confirm">តើអ្នកប្រកដហើយថាអ្នកចង់ជម្រះប្រវត្តិស្វែងរករបស់អ្នក?</string>
+  <string name="clear_recent_searches_confirm_yes">បាទ / ចាស៎</string>
+  <string name="clear_recent_searches_confirm_no">ទេ</string>
   <string name="table_infobox">ទិន្នន័យបឋម</string>
   <string name="table_other">ព័ត៌មានបន្ថែម</string>
   <string name="table_close">បិទ</string>
@@ -130,4 +177,7 @@
   <string name="dialog_close_description">បិទ</string>
   <string name="preference_title_show_images">បង្ហាញរូបភាព</string>
   <string name="read_more_section">អានបន្ថែម</string>
+  <string name="color_theme_select">រចនាបថ</string>
+  <string name="color_theme_light">ភ្លឺ</string>
+  <string name="color_theme_dark">ងងឹត</string>
 </resources>

@@ -308,8 +308,8 @@
   <string name="reading_list_sort">Ordenar</string>
   <string name="reading_list_sort_by_name">Ordenar por nombre</string>
   <string name="reading_list_sort_by_name_desc">Ordenar por nombre (inverso)</string>
-  <string name="reading_list_sort_by_recent">Ordenar por más reciente</string>
-  <string name="reading_list_sort_by_recent_desc">Ordenar por menos reciente</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Ordenar por más reciente</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Ordenar por menos reciente</string>
   <string name="reading_list_menu_delete">Eliminar la lista</string>
   <string name="reading_list_menu_rename">Cambiar nombre</string>
   <string name="reading_list_menu_edit_description">Editar descripción</string>
@@ -354,7 +354,8 @@
   <string name="reading_list_article_save_in_progress">El artículo se está descargado y estará disponible sin conexión cuándo haya completado.</string>
   <string name="reading_list_already_contains_selection">La lista elegida ya contiene todas las páginas seleccionadas.</string>
   <string name="reading_list_added_articles_list_titled">Se añadieron %1$d artículos a %2$s</string>
-    <string name="default_reading_list_name">Guardados</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">¿Estás seguro de que quieres eliminar esta lista %s de lectura?</string>
+  <string name="default_reading_list_name">Guardados</string>
   <string name="default_reading_list_description">Lista predeterminada de artículos guardados</string>
   <string name="no_user_lists_title">Organiza artículos en listas</string>
   <string name="no_user_lists_msg">Crea listas de sitios para viajar, temas favoritos y mucho más</string>

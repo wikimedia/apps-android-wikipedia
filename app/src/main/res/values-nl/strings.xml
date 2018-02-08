@@ -288,8 +288,8 @@
   <string name="reading_list_sort">Sorteren</string>
   <string name="reading_list_sort_by_name">Sorteren op naam</string>
   <string name="reading_list_sort_by_name_desc">Sorteren op naam (achterstevoren)</string>
-  <string name="reading_list_sort_by_recent">Sorteren op meest recente</string>
-  <string name="reading_list_sort_by_recent_desc">Sorteren op minst recente</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Sorteren op meest recente</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Sorteren op minst recente</string>
   <string name="reading_list_menu_delete">Lijst verwijderen</string>
   <string name="reading_list_menu_rename">Hernoemen</string>
   <string name="reading_list_menu_edit_description">Beschrijving bewerken</string>
@@ -330,7 +330,8 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nee</string>
   <string name="reading_list_article_save_in_progress">Het artikel wordt gedownload, het zal offline beschikbaar zijn eens het volledig is.</string>
-    <plurals name="reading_list_article_offline_message">
+  <string name="reading_list_delete_confirm" fuzzy="true">Weet u zeker dat u deze %s leeslijst wilt verwijderen?</string>
+  <plurals name="reading_list_article_offline_message">
     <item quantity="one">Dit artikel zal nu beschikbaar zijn in een offline-modus.</item>
     <item quantity="other">Deze artikelen zullen nu beschikbaar zijn in een offline-modus.</item>
   </plurals>

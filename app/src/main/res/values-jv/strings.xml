@@ -307,8 +307,8 @@
   <string name="reading_list_sort">Urutaké</string>
   <string name="reading_list_sort_by_name">Urutaké miturut jeneng</string>
   <string name="reading_list_sort_by_name_desc">Urutaké miturut jeneng (kuwalikan)</string>
-  <string name="reading_list_sort_by_recent">Urutaké miturut sing anyar dhéwé</string>
-  <string name="reading_list_sort_by_recent_desc">Urutaké miturut sing lawas dhéwé</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Urutaké miturut sing anyar dhéwé</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Urutaké miturut sing lawas dhéwé</string>
   <string name="reading_list_menu_delete">Busak pratélan</string>
   <string name="reading_list_menu_rename">Ganti jeneng</string>
   <string name="reading_list_menu_edit_description">Besut katerangan</string>
@@ -353,7 +353,8 @@
   <string name="reading_list_article_save_in_progress">Artikelé pinuju diundhuh, lan bakal wis siyap ing njaban jaringan nalika rampung olèhé ngundhuh.</string>
   <string name="reading_list_already_contains_selection">Pratélan sing kapilih wis ngemu kabèh kaca sing kapilih.</string>
   <string name="reading_list_added_articles_list_titled">Nambahaké artikel %1$d ing %2$s</string>
-    <string name="default_reading_list_name">Kasimpen</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">Sampéyan yakin arep mbusak %s dhaftar maca iki?</string>
+  <string name="default_reading_list_name">Kasimpen</string>
   <string name="default_reading_list_description">Pratélan baku tumrap artikel-artikelé panjenengan sing kasimpen</string>
   <string name="no_user_lists_title">Tata artikel dadi pratélan</string>
   <string name="no_user_lists_msg">Gawé pratélan bab papan-papan sing arep kajajahi, rembug-rembung sing kasenengi, lan liya-liyané.</string>

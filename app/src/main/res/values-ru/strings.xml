@@ -308,8 +308,10 @@
   <string name="reading_list_sort">Сортировать</string>
   <string name="reading_list_sort_by_name">Сортировка по названию</string>
   <string name="reading_list_sort_by_name_desc">Сортировка по названию (обратная)</string>
-  <string name="reading_list_sort_by_recent">Сортировка по дате (последние)</string>
-  <string name="reading_list_sort_by_recent_desc">Сортировка по дате (старые)</string>
+  <string name="reading_list_sort_by_recent">Сортировка по дате добавления (новые сверху)</string>
+  <string name="reading_list_sort_by_recent_desc">Сортировка по дате добавления (старые сверху)</string>
+  <string name="reading_list_sort_by_created">Сортировка по дате создания (новые сверху)</string>
+  <string name="reading_list_sort_by_created_desc">Сортировка по дате создания (старые сверху)</string>
   <string name="reading_list_menu_delete">Удалить список</string>
   <string name="reading_list_menu_rename">Переименовать</string>
   <string name="reading_list_menu_edit_description">Редактирование описание</string>
@@ -354,7 +356,8 @@
   <string name="reading_list_article_save_in_progress">Страница скачивается. По завершению загрузки она будет доступна в офлайне.</string>
   <string name="reading_list_already_contains_selection">Указанный список уже содержит все выбранные страницы.</string>
   <string name="reading_list_added_articles_list_titled">Добавлены %1$d статьей в %2$s</string>
-    <string name="default_reading_list_name">Сохранено</string>
+  <string name="reading_list_delete_confirm">Вы уверены, что хотите удалить %s?</string>
+  <string name="default_reading_list_name">Сохранено</string>
   <string name="default_reading_list_description">Стандартный список для ваших сохранённых статьей</string>
   <string name="no_user_lists_title">Сохраняйте подборки статей</string>
   <string name="no_user_lists_msg">Создавайте списки статей о местах, где вы бывали, об интересующих вас темах, и так далее.</string>
@@ -388,12 +391,12 @@
   <string name="view_continue_reading_card_title">Продолжить чтение</string>
   <string name="view_because_you_read_card_title">Потому что вы читали</string>
   <string name="view_random_card_title">Рандомизатор</string>
-  <string name="view_random_card_subtitle">Полистайте случайные статьи для чтения из википедии.</string>
+  <string name="view_random_card_subtitle">Полистайте подборку случайных статей Википедии.</string>
   <string name="view_random_card_action">Бросить кости</string>
   <string name="view_next_random_article">Загрузить другую случайную статью</string>
   <string name="view_main_page_card_title">Сегодня в Википедии</string>
   <string name="view_main_page_card_subtitle">Главная страница на %s</string>
-  <string name="view_main_page_card_action">Посмотреть главную страницу</string>
+  <string name="view_main_page_card_action">Посмотреть Заглавную страницу</string>
   <string name="view_featured_image_card_title">Изображение дня</string>
   <string name="view_featured_image_card_download">Загрузить</string>
   <string name="menu_feed_card_dismiss">Скрыть эту карточку</string>
@@ -409,7 +412,7 @@
     <item quantity="other">%d дня назад</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">сегодня</string>
-  <string name="view_continue_reading_card_subtitle_read_date">Прочитать %s</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Прочитано %s</string>
   <string name="view_announcement_card_negative_action">Нет, спасибо</string>
   <string name="view_offline_card_text">Содержимое не может быть загружено в автономном режиме.</string>
   <string name="view_featured_article_card_title">Избранная статья</string>
@@ -421,13 +424,13 @@
   <string name="feed_configure_menu_deselect_all">Сбросить все</string>
   <string name="feed_item_type_news">Статьи о текущих событиях</string>
   <string name="feed_item_type_on_this_day">Исторические события в этот день</string>
-  <string name="feed_item_type_continue_reading">Быстрая ссылка, чтобы вернуться к чтению статьи, открытой в одной из ваших вкладок</string>
-  <string name="feed_item_type_because_you_read">Предложения, основанные на недавно прочтенных статьей из вашей истории</string>
+  <string name="feed_item_type_continue_reading">Быстрая ссылка для возврата к статье, открытой в одной из ваших вкладок</string>
+  <string name="feed_item_type_because_you_read">Предложения, основанные на недавно прочитанных вами статьях</string>
   <string name="feed_item_type_featured_article">Популярные статьи на википедии</string>
   <string name="feed_item_type_trending">Самые просматриваемые статьи за этот день</string>
   <string name="feed_item_type_featured_image">Избранное изображение дня с Викисклада</string>
   <string name="feed_item_type_main_page">Заглавная страница Википедии с ежедневно обновляемыми избранными материалами</string>
-  <string name="feed_item_type_randomizer">Сгенерировать случайные статьи для чтения</string>
+  <string name="feed_item_type_randomizer">Сгенерировать случайный список статей для чтения</string>
   <string name="feed_configure_onboarding_action">Настроить</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Настройте свою ленту исследований&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Теперь вы можете выбрать, что будет отображаться в ленте, а также определить приоритеты для выбранных типов контента.</string>
   <string name="description_edit_text_hint">Описание</string>
@@ -524,7 +527,7 @@
   <string name="onboarding_explore_title">Новые способы исследований</string>
   <string name="onboarding_explore_text">Путешествуйте по лабиринтам Википедии с помощью постоянно обновляемой ленты исследований. &lt;br/&gt;&lt;b&gt;Настройте&lt;/b&gt; ленту так, чтобы она отвечала вашим интересам — будь то изучение исторических событий, случившихся &lt;b&gt;в этот день&lt;/b&gt;, или положитесь на &lt;b&gt;удачу&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Сохранить в списки для чтения</string>
-  <string name="onboarding_save_to_reading_lists_text">Создавайте подборки статей, которые хотели бы прочесть позже, когда будете офлайн.</string>
+  <string name="onboarding_save_to_reading_lists_text">Создавайте подборки статей, которые хотели бы прочесть позже, без подключения к интернету.</string>
   <string name="onboarding_analytics_title">Отправка анонимных данных</string>
   <string name="onboarding_analytics_offline_text">Помогите улучшить это приложение, сообщив нам, как вы его используете. Собранные данные будут анонимны. &lt;a href=\"#privacy\"&gt;Узнать подробнее&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Отправлять данные использования</string>

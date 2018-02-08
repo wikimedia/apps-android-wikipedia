@@ -287,8 +287,8 @@
   <string name="reading_list_sort">Sortiraj</string>
   <string name="reading_list_sort_by_name">Sortiraj po imenu</string>
   <string name="reading_list_sort_by_name_desc">Sortiraj po imenu (obrnuto)</string>
-  <string name="reading_list_sort_by_recent">Sortiraj po najnovijem</string>
-  <string name="reading_list_sort_by_recent_desc">Sortiraj po najstarijem</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Sortiraj po najnovijem</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Sortiraj po najstarijem</string>
   <string name="reading_list_menu_delete">Obriši spisak</string>
   <string name="reading_list_menu_rename">Preimenuj</string>
   <string name="reading_list_menu_edit_description">Uredi opis</string>
@@ -328,7 +328,10 @@
   <string name="reading_lists_confirm_remote_delete_yes">Da</string>
   <string name="reading_lists_confirm_remote_delete_no">Ne</string>
   <string name="reading_list_article_save_in_progress">Preuzimanje članka je u toku i bit će dostupan van mreže kada se završi.</string>
-    <string name="user_option_sync_label">Postavke</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">Jeste li sigurni da želite obrisati ovaj spisak za %s čitanje?</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">Ovaj članak sad će biti dostupan van mreže.</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">Ovaj članak više neće biti dostupan van mreže.</string>
+  <string name="user_option_sync_label">Postavke</string>
   <string name="notification_button_view_user">Razgovaraj s korisnikom</string>
   <string name="notification_talk_title">Nova poruka na Wikipediji</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; Vam je ostavio/-la poruku na Vašoj stranici za razgovor &lt;strong&gt;%2$s&lt;/strong&gt;</string>

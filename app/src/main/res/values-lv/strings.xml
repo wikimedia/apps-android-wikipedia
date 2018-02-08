@@ -164,8 +164,8 @@
   <string name="reading_list_sort">Kārtot</string>
   <string name="reading_list_sort_by_name">Kārtot pēc nosaukuma</string>
   <string name="reading_list_sort_by_name_desc">Kārtot pēc nosaukuma (pretēji)</string>
-  <string name="reading_list_sort_by_recent">Kārtot pēc visjaunākā</string>
-  <string name="reading_list_sort_by_recent_desc">Kārtot pēc visvecākā</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Kārtot pēc visjaunākā</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Kārtot pēc visvecākā</string>
   <string name="reading_list_menu_delete">Dzēst sarakstu</string>
   <string name="reading_list_menu_rename">Pārsaukt</string>
   <string name="reading_list_menu_edit_description">Labot aprakstu</string>

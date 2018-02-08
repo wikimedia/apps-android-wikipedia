@@ -307,8 +307,8 @@
   <string name="reading_list_sort">Sorter</string>
   <string name="reading_list_sort_by_name">Sorter etter navn</string>
   <string name="reading_list_sort_by_name_desc">Sorter etter navn (omvendt)</string>
-  <string name="reading_list_sort_by_recent">Sorter etter besøkstidspunkt</string>
-  <string name="reading_list_sort_by_recent_desc">Sorter etter besøkstidspunkt (eldste først)</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Sorter etter besøkstidspunkt</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Sorter etter besøkstidspunkt (eldste først)</string>
   <string name="reading_list_menu_delete">Slett listen</string>
   <string name="reading_list_menu_rename">Endre navn</string>
   <string name="reading_list_menu_edit_description">Endre beskrivelse</string>
@@ -353,7 +353,8 @@
   <string name="reading_list_article_save_in_progress">Artikkelen lastes ned og vil bli tilgjengelig offline når den er ferdig.</string>
   <string name="reading_list_already_contains_selection">Den valgte listen inneholder allerede alle de valgte sidene.</string>
   <string name="reading_list_added_articles_list_titled">La til %1$d artikler i %2$s</string>
-    <string name="default_reading_list_name">Lagret</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">Er du sikker på at du ønsker å slette denne listen %s?</string>
+  <string name="default_reading_list_name">Lagret</string>
   <string name="default_reading_list_description">Standardliste for dine lagrede artikler</string>
   <string name="no_user_lists_title">Organiser artikler i lister</string>
   <string name="no_user_lists_msg">Opprett lister for steder du vil reise til, favorittemner og mye mer</string>

@@ -52,9 +52,9 @@
   <string name="langlinks_empty">Αυτή η σελίδα δεν είναι διαθέσιμη σε άλλες γλώσσες</string>
   <string name="langlinks_no_match">Δεν βρέθηκαν γλώσσες να αντιστοιχούν στο ερώτημά σας.</string>
   <string name="langlinks_activity_title">Άλλες γλώσσες</string>
-  <string name="menu_save_changes" fuzzy="true">Αποθήκευση αλλαγών</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">Αποθήκευση…</string>
-  <string name="edit_saved_successfully" fuzzy="true">Η επεξεργασία αποθηκεύτηκε!</string>
+  <string name="menu_save_changes">Δημοσίευση αλλαγών</string>
+  <string name="dialog_saving_in_progress">Δημοσιεύεται…</string>
+  <string name="edit_saved_successfully">Η επεξεργασία δημοσιεύτηκε!</string>
   <string name="dialog_message_edit_failed">Η επεξεργασία απέτυχε!</string>
   <string name="dialog_message_edit_failed_retry">Ξαναπροσπαθήστε</string>
   <string name="dialog_message_edit_failed_cancel">Ακύρωση</string>
@@ -82,7 +82,7 @@
   <string name="preference_title_logout">Αποσύνδεση</string>
   <string name="toast_logout_complete">Αποσύνδεση</string>
   <string name="history_empty_title">Δεν υπάρχουν πρόσφατες σελίδες εδώ.</string>
-  <string name="history_empty_message" fuzzy="true">Πιθανώς να τα διαγράψατε όλα. Την επόμενη φορά που θα μεταβείτε σε μια σελίδα, μπορείτε να επιστρέψετε σε αυτήν από εδώ.</string>
+  <string name="history_empty_message">Ιχνηλατήστε τι έχετε διαβάσει εδώ.</string>
   <string name="search_empty_message">Chercher et lire l\'Encyclopedie gratuite dans Votre langue</string>
   <string name="delete_selected_items">Eliminer les themes selectionnes</string>
   <string name="wp_stylized">&lt;big&gt;Β&lt;/big&gt;ΙΚΙΠΑΙΔΕΙ&lt;big&gt;Α&lt;/big&gt;</string>
@@ -148,7 +148,7 @@
   <string name="about_translators_heading">Μεταφραστές</string>
   <string name="about_translators_translatewiki">Η εφαρμογή αυτή έχει μεταφραστεί από τους εθελοντές μεταφραστές στο &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Άδεια</string>
-  <string name="about_wmf" fuzzy="true">Ένα προϊόν του &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Ιδρύματος Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf">Ένα προϊόν του &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Ιδρύματος Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Σχετικά</string>
   <string name="edit_abandon_confirm">Η σελίδα έχει τροποποιηθεί. Είστε βέβαιοι ότι θέλετε να πραγματοποιήσετε έξοδο χωρίς να αποθηκεύσετε τις αλλαγές σας;</string>
   <string name="edit_abandon_confirm_yes">Oui</string>
@@ -167,8 +167,8 @@
   <string name="edit_summary_tag_other_hint">Άλλοι τρόποι που βελτίωσατε τη σελίδα</string>
   <string name="find_next">Εύρεση επομένου</string>
   <string name="find_previous">Εύρεση προηγουμένου</string>
-  <string name="abusefilter_title_warn" fuzzy="true">Αυτή μπορεί να είναι μια μη εποικοδομητική επεξεργασία. Είσαι σίγουρος ότι θέλεις να την αποθηκεύσεις;</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">Δεν μπορείτε να αποθηκεύσετε αυτή την επεξεργασία. Παρακαλούμε πηγαίνετε πίσω και αλλάξτε την.</string>
+  <string name="abusefilter_title_warn">Αυτή μπορεί να είναι μια μη εποικοδομητική επεξεργασία. Είσαι σίγουρος ότι θέλεις να την δημοσιεύσεις;</string>
+  <string name="abusefilter_title_disallow">Δεν μπορείτε να δημοσιεύσετε αυτή την επεξεργασία. Παρακαλούμε πηγαίνετε πίσω και αλλάξτε την.</string>
   <string name="abusefilter_text_warn">Ένα αυτοματοποιημένο φίλτρο έχει αναγνωρίσει αυτή την επεξεργασία ως δυνητικά μη εποικοδομητική. Μπορεί να περιέχει ένα ή περισσότερα από τα ακόλουθα:&lt;br /&gt;&lt;br /&gt;· Πληκτρολόγηση με όλα κεφαλαία&lt;br /&gt;· Άδειασμα λημμάτων ή spamming&lt;br /&gt;· Άσχετες εξωτερικές συνδέσεις ή εικόνες&lt;br /&gt;· Επανάληψη χαρακτήρων</string>
   <string name="abusefilter_text_disallow">Ένα αυτοματοποιημένο φίλτρο έχει αναγνωρίσει αυτή την επεξεργασία ως δυνητικά μη εποικοδομητική, ή πιθανό βανδαλισμό.&lt;br /&gt;&lt;br /&gt;Η Βικιπαίδεια είναι μια εγκυκλοπαίδεια και μόνο ουδέτερο, αξιοσημείωτο περιεχόμενο ανήκει εδώ.</string>
   <string name="dialog_page_issues">Προβλήματα σελίδας</string>
@@ -198,7 +198,7 @@
   <string name="about_article_section">Γύρω από αυτό το άρθρο</string>
   <string name="menu_gallery_visit_page">Μεταβείτε στη σελίδα αρχείου</string>
   <string name="gallery_error_draw_failed">Δεν θα μπορούσε να αντλήσει από την εικόνα.</string>
-  <string name="license_title" fuzzy="true">Κείμενο της άδειας χρήσης για τη βιβλιοθήκη %s</string>
+  <string name="license_title">Άδεια χρήσης για το %s</string>
   <string name="gallery_menu_share">Κοινοποίηση</string>
   <string name="gallery_share_error">Pas d\'image envoyee:%s</string>
   <string name="gallery_save_progress">Λήψη αρχείου σε εκτέλεση...</string>
@@ -291,41 +291,119 @@
   <string name="reading_list_sort_by_name_desc">Ταξινόμηση κατά όνομα (αντίστροφα)</string>
   <string name="reading_list_menu_delete">Διαγραφή λίστας</string>
   <string name="reading_list_menu_rename">Μετονομασία</string>
+  <string name="reading_list_action_menu_add_to_another_list">Πρόσθεση σε άλλη λίστα</string>
+  <string name="reading_list_name_sample">Η λίστα ανάγνωσής μου</string>
+  <string name="reading_list_name_hint">Όνομα της λίστας</string>
+  <string name="reading_list_description_hint">Περιγραφή (προαιρετική)</string>
+  <string name="reading_list_item_deleted">το %s έχει αφαιρεθεί από τη λίστα</string>
+  <string name="reading_list_items_deleted">τα %d λήμματα αφαιρέθηκαν από τη λίστα</string>
   <string name="reading_list_item_delete_undo">Αναίρεση</string>
   <string name="reading_list_deleted">Διεγράφη η %s</string>
+  <string name="saved_list_empty_title">Δεν υπάρχουν αποθηκευμένες σελίδες ακόμα</string>
+  <string name="reading_lists_empty_message">Προσθέτει λήμματα σε μια λίστα για να τα διαβάσετε αργότερα, ακόμα και όταν είστε εκτός σύνδεσης.</string>
+  <string name="reading_lists_onboarding_intro">Προσθέτει λήμματα σε μια λίστα για να τα διαβάσετε αργότερα, ακόμα και όταν είστε εκτός σύνδεσης!</string>
   <string name="reading_lists_onboarding_for_example">Παραδείγματος χάριν</string>
+  <string name="reading_lists_onboarding_example1">Μέρη για επίσκεψη</string>
   <string name="reading_lists_onboarding_example2">Αγαπημένα ζώα</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">Το διάστημα!</string>
+  <string name="reading_lists_onboarding_example3">Εξερεύνηση του διαστήματος</string>
   <string name="reading_lists_onboarding_got_it">Κατάλαβα</string>
   <string name="reading_list_no_description">Χωρίς περιγραφή...</string>
-    <string name="user_option_sync_label">Προτιμήσεις</string>
+  <string name="reading_list_empty">Δεν έχετε προσθέσει λήμματα σε αυτή τη λίστα</string>
+  <string name="reading_list_article_offline">Διαθέσιμο εκτός σύνδεσης</string>
+  <string name="reading_list_article_make_offline">Κάνετε αυτό το λήμμα διαθέσιμο εκτός σύνδεσης</string>
+  <string name="reading_list_add_to_other_list">Πρόσθεση σε άλλη λίστα ανάγνωσης</string>
+  <string name="reading_list_remove_from_list">Αφαίρεση από το %s</string>
+  <string name="reading_list_remove_from_lists">Αφαίρεση από τις λίστες ανάγνωσης</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Αφαίρεση από τη λίστα εκτός σύνδεσης</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Το λήμμα εμφανίζεται σε πολλαπλές λίστες</string>
+  <string name="reading_list_sync_reminder_action">Ενεργοποίηση</string>
+  <string name="reading_list_login_reminder_title">Λίστες ανάγνωσης Sync</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Ναι</string>
+  <string name="reading_lists_confirm_remote_delete_no">Όχι</string>
+  <string name="default_reading_list_name">Αποθηκεύθηκε</string>
+  <string name="default_reading_list_description">Προεπιλεγμένη λίστα για τα αποθηκευμένα λήμματά σας</string>
+  <string name="no_user_lists_title">Οργάνωση λημμάτων σε λίστες</string>
+  <string name="reading_list_saved_list_rename">%1$s (χρήστης που δημιουργήθηκε)</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">Αυτό το άρθρο δεν θα είναι πλέον διαθέσιμο εκτός σύνδεσης.</string>
+  <string name="user_option_sync_label">Προτιμήσεις</string>
+  <string name="notification_button_view_user">Συζητήστε με τον χρήστη</string>
+  <string name="notification_reverted_title">Ανεστραμμένη επεξεργασία</string>
+  <string name="notification_thanks_title">Έχετε λάβει μια ευχαριστία!</string>
   <string name="notification_channel_name">Sincroniser</string>
-  <string name="notification_channel_description" fuzzy="true">Sincronisant progrès</string>
-  <string name="notification_syncing_title" fuzzy="true">Sincronisant des articles %1$d</string>
+  <string name="notification_channel_description">Εγκατάσταση προόδου</string>
+  <string name="notification_syncing_title">Λήψη των %1$d λήμμα (-άτων)</string>
   <string name="notification_syncing_description" fuzzy="true">%1$d d\'articles laisses</string>
-  <string name="notification_syncing_pause_button" fuzzy="true">PAUSE</string>
-  <string name="notification_syncing_resume_button" fuzzy="true">RESUMER</string>
-  <string name="notification_syncing_cancel_button" fuzzy="true">ANNULER</string>
+  <string name="notification_syncing_pause_button">Παύση</string>
+  <string name="notification_syncing_resume_button">συνέχεια</string>
+  <string name="notification_syncing_cancel_button">Ακύρωση</string>
+  <string name="view_continue_reading_card_title">Συνέχεια ανάγνωσης</string>
+  <string name="view_because_you_read_card_title">Επειδή διαβάζετε</string>
+  <string name="view_random_card_title">Τυχαιοποιητής</string>
   <string name="view_random_card_subtitle">Βρέστε τυχαία άρθρα για να διαβάσετε από την Βικιπαίδεια</string>
   <string name="view_random_card_action">Ρίξτε τον κύβο</string>
   <string name="view_next_random_article">Φορτώσετε ένα άλλο τυχαίο άρθρο</string>
+  <string name="view_main_page_card_title">Σήμερα στη Βικιπαίδεια</string>
+  <string name="view_main_page_card_subtitle">Κύρια σελίδα στο %s</string>
   <string name="view_main_page_card_action">Δέστε την κεντρική σελίδα</string>
+  <string name="view_featured_image_card_title">Η εικόνα της ημέρας</string>
   <string name="view_featured_image_card_download">Λήψη</string>
+  <string name="menu_feed_card_dismiss">Απόκρυψη αυτής της κάρτας</string>
+  <string name="menu_feed_card_dismissed">Η κάρτα αποκρύφθηκε.</string>
+  <string name="menu_feed_overflow_label">Περισσότερες επιλογές</string>
+  <string name="feed_featured_image_share_subject">Προβεβλημμένη εικόνα από τα Wikimedia Commons</string>
+  <string name="feed">Εξερεύνηση</string>
+  <string name="most_read_list_card_title">Τάσεις</string>
+  <string name="view_static_card_icon_content_description">Εικόνα κάρτας</string>
   <string name="view_card_news_title">Στις ειδήσεις</string>
   <string name="view_continue_reading_card_subtitle_today">σήμερα</string>
   <string name="view_continue_reading_card_subtitle_read_date">Διαβάστε %s</string>
+  <string name="view_announcement_card_negative_action">Όχι, ευχαριστώ</string>
+  <string name="view_offline_card_text">Το περιεχόμενο δεν μπορεί να φορτωθεί όταν είστε εκτός σύνδεσης.</string>
+  <string name="view_featured_article_card_title">Προβεβλημένο λήμμα</string>
+  <string name="view_featured_article_footer_save_button_label">Αποθήκευση</string>
+  <string name="view_featured_article_footer_saved_button_label">Αποθηκεύθηκε</string>
   <string name="feed_configure_activity_title" fuzzy="true">Διαμορφώστε τις κάρτες Αναζήτησης</string>
-  <string name="feed_configure_menu_reset" fuzzy="true">Βάλτε ξανά στις προ-επιλογές</string>
+  <string name="feed_configure_menu_reset">Επαναφορά της προεπιλεγμένης προβολής</string>
+  <string name="feed_configure_menu_select_all">Επιλογή όλων</string>
+  <string name="feed_configure_menu_deselect_all">Αποεπιλογή όλων</string>
+  <string name="feed_item_type_news">Λήμματα για τρέχοντα γεγονότα</string>
   <string name="description_edit_help_about_title">Σχετικά</string>
   <string name="description_edit_help_tips_examples">Για παράδειγμα:</string>
   <string name="description_edit_help_tips_example2">Το ψηλότερο βουνό της γης</string>
   <string name="description_edit_help_more_info">Περισσότερες πληροφορίες</string>
+  <string name="description_edit_revert_subtitle">Ευχαριστούμε που επεξεργάζεστε την Βικιπαίδεια!</string>
   <string name="offline_card_sideloading_text">Vous naviguez maintenant sur Wikipedia offline de paquets d\'articles de Votre Bibliothèque Offline</string>
-  <string name="offline_compilations_found_count" fuzzy="true">Στην Βιβλιοθήκη μου Offline (%d)</string>
+  <string name="offline_compilations_title">Βιβλιοθήκη εκτός σύνδεσης</string>
+  <string name="offline_compilations_found_count">Στην βιβλιοθήκη εκτός σύνδεσής μου (%d)</string>
+  <string name="offline_compilations_add">Προσθήκη στην βιβλιοθήκη εκτός σύνδεσής μου</string>
+  <string name="remote_compilations_title">Βιβλιοθήκη εκτός σύνδεσης</string>
+  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
+  <string name="size_gb">%.2f GB</string>
+  <string name="size_mb">%.2f MB</string>
+  <string name="offline_compilation_detail_button_download_v2" fuzzy="true">Λήψη • %1$s</string>
+  <string name="offline_compilation_detail_button_remove">Αφαίρεση</string>
+  <string name="remote_compilation_download">Λήψη</string>
+  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
+  <string name="compilation_download_cancel_confirm_yes">Ναι</string>
+  <string name="compilation_download_cancel_confirm_no">Όχι</string>
+  <string name="compilation_share">Κοινοποίηση</string>
+  <string name="compilation_remove">Αφαίρεση</string>
+  <string name="offline_library_title">Βιβλιοθήκη εκτός σύνδεσης</string>
+  <string name="offline_library_empty_title">Τίποτα στην βιβλιοθήκη εκτός σύνδεσής σας</string>
   <string name="offline_library_empty_description_sideload">\'\'Πακέτα άρθρων\'\' στην βιβλιοθήκη σας Offline είναι σύνολα άρθρων που έχουν ταξινομηθεί από πριν, έτσι μπορείτε να συνεχίστε την ανάγνωση όταν είστε offline &lt;br/&gt;&lt;a href=\'\'https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\'\'&gt; Δείτε περισσότερα&lt;/a&gt;</string>
   <string name="offline_library_packs_hint">Τα πακέτα άρθρων στην βιβλιοθήκη σας παραμένουν διαθέσιμα για ανάγνωση όταν είστε offline. &lt;a href=\'\'https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\'\'Ανακαλύψετε περισσότερα &lt;/a&gt;</string>
   <string name="offline_library_data_usage_hint">Θέλετε να αποθηκεύσετε τα δεδομένα; Επιλέξετε να \'\'Προτιμήστε περιεχόμενο offline\'\' σε Παραμέτρους για να δείξετε διαθέσιμα άρθρα  offline πρώτα, ακόμα και αν είστε online &lt;a href=#settings\'\' &gt; Πηγαίνετε στις Ρυθμίσεις &lt;/a&gt;</string>
+  <string name="offline_library_empty_search">Αναζήτηση της βιβλιοθήκης εκτός σύνδεσης</string>
+  <string name="offline_library_onboarding_button_done">Έγινε</string>
+  <string name="offline_library_onboarding_build_library_title">Χτίστε την βιβλιοθήκη εκτός σύνδεσής σας</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_title">Αδιάκοπη ανάγνωση</string>
+  <string name="offline_library_onboarding_store_knowledge_title">Αποθηκεύστε περισσότερη γνώση</string>
   <string name="offline_library_main_page_hint_html">Η Αρχική Σελίδα παρέχει πρόσβαση στα περιεχόμενα αυτών των άρθρων&lt;br/&gt;&lt;br&gt;. Mπορείτε επίσης να εξερευνήσετε τα περιεχόμενα αυτών των άρθρων στην Βιβλιοθήκη Offline αναζητώντας διαθέσιμα άρθρα ενώ είστε offline.</string>
+  <string name="onboarding_skip">Παράβλεψη</string>
+  <string name="onboarding_continue">Συνέχεια</string>
+  <string name="onboarding_get_started">Ξεκινήστε</string>
+  <string name="onboarding_welcome_title">Η ελεύθερη εγκυκλοπαίδεια</string>
+  <string name="onboarding_explore_title">Νέοι τρόποι να εξερευνήσετε</string>
   <string name="top_on_this_day">Εμπορική κίνηση στο %1$s</string>
   <string name="on_this_day_card_title">Αυτήν την μέρα</string>
   <string name="more_events_text" fuzzy="true">ΠΕΡΙΣΣΟΤΕΡΑ ΑΥΤΗΝ ΤΗΝ ΗΜΕΡΑ</string>

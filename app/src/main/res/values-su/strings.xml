@@ -298,8 +298,8 @@
   <string name="reading_list_sort">Runtuykeun</string>
   <string name="reading_list_sort_by_name">Runtuykeun dumasar ngaran</string>
   <string name="reading_list_sort_by_name_desc">Runtuykeun dumasar ngaran (tibalik)</string>
-  <string name="reading_list_sort_by_recent">Runtuykeun dumasar nu panganyarna</string>
-  <string name="reading_list_sort_by_recent_desc">Ruytuykeun dumasar nu pangheubeulna</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Runtuykeun dumasar nu panganyarna</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Ruytuykeun dumasar nu pangheubeulna</string>
   <string name="reading_list_menu_delete">Pupus daptar</string>
   <string name="reading_list_menu_rename">Robah ngaran</string>
   <string name="reading_list_menu_edit_description">Édit pedaran</string>
@@ -485,4 +485,5 @@
   <string name="more_events_text" fuzzy="true">Kajadian sajarah lianna dina poé ieu</string>
   <string name="events_count_text" fuzzy="true">%1$s kajadian ti %2$s - %3$d</string>
   <string name="this_year">Taun ieu</string>
+  <string name="diff_years">{{PLURAL|one=Taun kamari|%d ka tukang}</string>
 </resources>

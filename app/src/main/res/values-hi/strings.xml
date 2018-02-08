@@ -300,8 +300,8 @@
   <string name="reading_list_sort">छांटें</string>
   <string name="reading_list_sort_by_name">नाम से छांटें</string>
   <string name="reading_list_sort_by_name_desc">नाम से छांटें (उल्टा)</string>
-  <string name="reading_list_sort_by_recent">हाल ही के में से छांटें</string>
-  <string name="reading_list_sort_by_recent_desc">कुछ समय पहले के में से छांटें</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">हाल ही के में से छांटें</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">कुछ समय पहले के में से छांटें</string>
   <string name="reading_list_menu_delete">सूची को मिटायें</string>
   <string name="reading_list_menu_rename">नाम बदलें</string>
   <string name="reading_list_menu_edit_description">विवरण सम्पादित करें</string>
@@ -346,7 +346,8 @@
   <string name="reading_list_article_save_in_progress">लेख का अधोभारण हो रहा है, और यह ऑफलाइन उपलब्ध होगा जब यह पूरा हो जाएगा।</string>
   <string name="reading_list_already_contains_selection">चुनी गयी सूची में चयनित पृष्ठ पहले से ही समाहित हैं।</string>
   <string name="reading_list_added_articles_list_titled">%2$s में %1$d आलेख जोड़े गए</string>
-    <plurals name="reading_list_article_offline_message">
+  <string name="reading_list_delete_confirm" fuzzy="true">क्या आप  \"%s\" को मिटाने हेतु निश्चित हैं?</string>
+  <plurals name="reading_list_article_offline_message">
     <item quantity="one">यह लेख अब ऑफलाइन उपलब्ध होगा।</item>
     <item quantity="other">These articles will now be available offline.</item>
   </plurals>

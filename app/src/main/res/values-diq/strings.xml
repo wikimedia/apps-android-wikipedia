@@ -41,9 +41,9 @@
   <string name="langlinks_filter_hint">Cı geyre</string>
   <string name="langlinks_empty">Na wesiqa zıwanan de binan de çıniya</string>
   <string name="langlinks_activity_title">Zıwanê bini</string>
-  <string name="menu_save_changes" fuzzy="true">Vurnayışa qeyd ke</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">Beno qeyd...</string>
-  <string name="edit_saved_successfully" fuzzy="true">Vırnayış starya!</string>
+  <string name="menu_save_changes">Vırnayışan qeyd ke</string>
+  <string name="dialog_saving_in_progress">Qeyd beno...</string>
+  <string name="edit_saved_successfully">Vurnayış qeyd bi!</string>
   <string name="dialog_message_edit_failed">Vırnayış xırabiya!</string>
   <string name="dialog_message_edit_failed_retry">Fına</string>
   <string name="dialog_message_edit_failed_cancel">Bıtexelne</string>
@@ -61,7 +61,7 @@
   <string name="login_success_toast">Hesab abıya!</string>
   <string name="preference_title_logout">Veciyayış</string>
   <string name="toast_logout_complete">Ronıştış racneya</string>
-  <string name="history_empty_title" fuzzy="true">Perê peyêni çıni yê!</string>
+  <string name="history_empty_title">Pelê peyêni çıniyê</string>
   <string name="history_empty_message" fuzzy="true">Texmina şıma hrme esterıti. Eger kenşıma şınê yu pela se,  şıma şenê etiya ra acınrrsê</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Namey karberi</string>
@@ -151,10 +151,11 @@
   <string name="reading_list_sort">Ratın</string>
   <string name="reading_list_sort_by_name">Gorey nami ratın</string>
   <string name="reading_list_sort_by_name_desc">Gorey nami ratın (çep ra)</string>
-  <string name="reading_list_sort_by_recent">Peyên rasayışi ra ratın</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Peyên rasayışi ra ratın</string>
   <string name="reading_list_item_delete_undo">Peyser biya</string>
   <string name="reading_lists_confirm_remote_delete_yes">Eya</string>
   <string name="reading_lists_confirm_remote_delete_no">Nê</string>
+  <string name="notification_syncing_cancel_button">Bıtexelne</string>
   <string name="view_featured_image_card_download">Ron</string>
   <string name="menu_feed_card_dismiss">Na qert bınımn</string>
   <string name="menu_feed_card_dismissed">Qert nımneyê</string>
@@ -167,7 +168,7 @@
     <item quantity="one">vızêr</item>
     <item quantity="other">%d roca veror</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Ewro</string>
+  <string name="view_continue_reading_card_subtitle_today">ewro</string>
   <string name="view_announcement_card_negative_action">Nê, teşekur</string>
   <string name="description_edit_text_hint" fuzzy="true">Yew şınasnayış bınusê</string>
   <string name="description_edit_save" fuzzy="true">Qeyd kerê</string>

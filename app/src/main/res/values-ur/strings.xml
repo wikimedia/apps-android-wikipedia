@@ -296,8 +296,8 @@
   <string name="reading_list_sort">چھانٹ</string>
   <string name="reading_list_sort_by_name">نام سے ترتیب دیں</string>
   <string name="reading_list_sort_by_name_desc">نام سے ترتیب دیں (الٹا)</string>
-  <string name="reading_list_sort_by_recent">حالیہ تبدیلیوں کے اعتبار سے ترتیب دیں</string>
-  <string name="reading_list_sort_by_recent_desc">حالیہ سرگرمیوں کے اعتبار سے ترتیب دیں</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">حالیہ تبدیلیوں کے اعتبار سے ترتیب دیں</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">حالیہ سرگرمیوں کے اعتبار سے ترتیب دیں</string>
   <string name="reading_list_menu_delete">فہرست کو حذف کریں</string>
   <string name="reading_list_menu_rename">نام تبدیل کریں</string>
   <string name="reading_list_menu_edit_description">وضاحت میں ترمیم کریں</string>
@@ -342,6 +342,7 @@
   <string name="reading_list_article_save_in_progress">یہ مضمون ڈاؤنلوڈ ہو رہا ہے، مکمل ہونے کے بعد یہ آف لائن دستیاب ہوگا۔</string>
   <string name="reading_list_already_contains_selection">منتخب فہرست میں تمام منتخب صفحات موجود ہیں۔</string>
   <string name="reading_list_added_articles_list_titled">%2$s میں %1$d مضامین شامل کیے گئے</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">کیا آپ یقینی طور پراس کو فہرست مطالعہ سے %s حذف کرنا چاہتے ہیں؟</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">یہ مضمون آف لائن دستیاب ہوگا۔</item>
     <item quantity="other">یہ مضامین آف لائن دستیاب ہونگے۔</item>

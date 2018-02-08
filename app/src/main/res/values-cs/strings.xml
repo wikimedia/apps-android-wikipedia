@@ -235,7 +235,7 @@
   <string name="button_add_to_reading_list">Přidat do seznamu k přečtení</string>
   <string name="page_offline_notice_cannot_load_while_offline">Články nelze načítat bez připojení k internetu.</string>
   <string name="page_offline_notice_add_to_reading_list">Rada: Pokud článek přidáte do seznamu k přečtení, stáhne se, jakmile budete znovu připojeni.</string>
-  <string name="page_offline_notice_last_date">Právě čtete offline verzi tohoto článku, která byla uložena %s.</string>
+  <string name="page_offline_notice_last_date">Právě možná čtete neaktuální verzi tohoto článku, která byla uložena %s.</string>
   <string name="button_get_directions">Najít trasu</string>
   <string name="error_no_maps_app">Nepodařilo se najít žádnou aplikaci, která poskytuje navigaci.</string>
   <string name="preference_title_show_link_previews">Zobrazovat náhledy odkazů</string>
@@ -245,7 +245,7 @@
   <string name="location_service_disabled">Služby zjišťování polohy jsou zakázány.</string>
   <string name="enable_location_service">Povolit</string>
   <string name="error_page_does_not_exist">Tato stránka neexistuje</string>
-  <string name="view_wiki_error_message_offline">Nelze se připojit k Internetu</string>
+  <string name="view_wiki_error_message_offline">Nelze se připojit k internetu</string>
   <string name="reference_title">Reference %s</string>
   <string name="crash_report_dialog_title">Omlouváme se, aplikace minule spadla</string>
   <string name="crash_report_dialog_text">Chtěli byste odeslat hlášení o pádu HockeyApp, poskytovateli služeb třetích stran, aby Wikimedia mohla její pád přezkoumat a opravit chybu, která jej způsobila?</string>
@@ -277,8 +277,10 @@
   <string name="reading_list_sort">Seřadit</string>
   <string name="reading_list_sort_by_name">Seřadit podle názvu</string>
   <string name="reading_list_sort_by_name_desc">Seřadit podle názvu (v obráceném pořadí)</string>
-  <string name="reading_list_sort_by_recent">Seřadit podle nejnovějších</string>
-  <string name="reading_list_sort_by_recent_desc">Seřadit podle nejstarších</string>
+  <string name="reading_list_sort_by_recent">Seřadit podle data přidání (od nejnovějších)</string>
+  <string name="reading_list_sort_by_recent_desc">Seřadit podle data přidání (od nejstarších)</string>
+  <string name="reading_list_sort_by_created">Seřadit podle data vytvoření (od nejnovějších)</string>
+  <string name="reading_list_sort_by_created_desc">Seřadit podle data vytvoření (od nejstarších)</string>
   <string name="reading_list_menu_delete">Odstranit seznam</string>
   <string name="reading_list_menu_rename">Přejmenovat</string>
   <string name="reading_list_menu_edit_description">Editovat popis</string>
@@ -289,7 +291,7 @@
   <string name="reading_list_items_deleted">%d článků odebráno ze seznamu</string>
   <string name="reading_list_item_delete_undo">Zpět</string>
   <string name="reading_list_deleted">Seznam %s smazán</string>
-  <string name="saved_list_empty_title">Zatím žádné seznamy ke čtení</string>
+  <string name="saved_list_empty_title">Žádné uložené stránky</string>
   <string name="reading_lists_empty_message">Přidávejte články do seznamů k přečtení později, i když nejste připojeni.</string>
   <string name="reading_lists_onboarding_intro">Přidávejte články do seznamů k přečtení později, i když nejste připojeni!</string>
   <string name="reading_lists_onboarding_for_example">Například</string>
@@ -297,7 +299,8 @@
   <string name="reading_lists_onboarding_example2">Oblíbená zvířata</string>
   <string name="reading_lists_onboarding_example3">Průzkum vesmíru</string>
   <string name="reading_lists_onboarding_got_it">Jasně</string>
-    <string name="user_option_sync_label">Nastavení</string>
+  <string name="reading_list_delete_confirm">Opravdu chcete odstranit „%s“?</string>
+  <string name="user_option_sync_label">Nastavení</string>
   <string name="notification_button_view_user">Diskutovat s uživatelem</string>
   <string name="notification_talk_title">Nová zpráva na Wikipedii</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; vám nechal(a) zprávu na vaší diskusní stránce &lt;strong&gt;%2$s&lt;/strong&gt;</string>
@@ -356,6 +359,7 @@
   <string name="description_edit_revert_subtitle">Děkujeme, že editujete Wikipediiǃ</string>
   <string name="onboarding_welcome_title">Otevřená encyklopedie</string>
   <string name="onboarding_welcome_text">Wikipedie je psána společně dobrovolníky a obsahuje více než 40 miliónů článku v téměř 300 různých jazycích. &lt;a href=\"#about\"&gt;Zjistit více&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Pomozte udělat aplikaci lepší uvědomením nás, jak ji používáte. Data jsou anonymní.</string>
   <string name="top_on_this_day">Populární %1$s</string>
   <string name="on_this_day_card_title">Dnešek v minulosti</string>
   <string name="events_count_text">%1$s událostí z let %2$s–%3$d</string>

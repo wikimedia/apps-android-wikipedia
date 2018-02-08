@@ -224,8 +224,8 @@
   <string name="reading_list_sort">Poredaj</string>
   <string name="reading_list_sort_by_name">Poredaj po nazivu</string>
   <string name="reading_list_sort_by_name_desc">Poredaj po nazivu (obrnuto)</string>
-  <string name="reading_list_sort_by_recent">Poredaj po datumu (prvo najnovije)</string>
-  <string name="reading_list_sort_by_recent_desc">Poredaj po datumu (prvo najstarije)</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Poredaj po datumu (prvo najnovije)</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Poredaj po datumu (prvo najstarije)</string>
   <string name="reading_list_menu_delete" fuzzy="true">Izbriši popis za čitanje</string>
   <string name="reading_list_name_sample">Moj popis za čitanje</string>
   <string name="reading_list_name_hint">Naziv ovog popisa</string>
@@ -239,7 +239,8 @@
   <string name="reading_lists_onboarding_example2">Omiljene životinje</string>
   <string name="reading_lists_onboarding_example3" fuzzy="true">Svemir!</string>
   <string name="reading_lists_onboarding_got_it">U redu</string>
-    <string name="user_option_sync_label">Postavke</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">Želite li zaista obrisati popis za čitanje %s?</string>
+  <string name="user_option_sync_label">Postavke</string>
   <string name="view_continue_reading_card_title">Nastavite čitati</string>
   <string name="view_because_you_read_card_title">Budući da ste pročitali</string>
   <string name="view_random_card_title">Slučajna stranica</string>

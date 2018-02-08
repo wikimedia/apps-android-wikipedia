@@ -270,8 +270,8 @@
   <string name="reading_list_sort">სორტირება</string>
   <string name="reading_list_sort_by_name">დალაგება სახელის მიხედვით</string>
   <string name="reading_list_sort_by_name_desc">სახელით დალაგება (უკანა)</string>
-  <string name="reading_list_sort_by_recent">დალაგება ყველაზე ბოლოების მიხედვით</string>
-  <string name="reading_list_sort_by_recent_desc">დალაგება შედარებით ბოლოების მიხედვით</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">დალაგება ყველაზე ბოლოების მიხედვით</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">დალაგება შედარებით ბოლოების მიხედვით</string>
   <string name="reading_list_menu_delete">სიის წაშლა</string>
   <string name="reading_list_menu_rename">გადარქმევა</string>
   <string name="reading_list_menu_edit_description">აღწერის რედაქტირება</string>
@@ -293,7 +293,8 @@
   <string name="reading_list_sync_reminder_action">ჩართვა</string>
   <string name="reading_lists_confirm_remote_delete_yes">დიახ</string>
   <string name="reading_lists_confirm_remote_delete_no">არა</string>
-    <string name="default_reading_list_name">შენახულია</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">დარწმუნებული ხართ, რომ გსურთ წასაკითხთა ამ %s სიის წაშლა?</string>
+  <string name="default_reading_list_name">შენახულია</string>
   <string name="user_option_sync_label">კონფიგურაცია</string>
   <string name="notification_talk_title">ახალი წერილი ვიკიპედიაზე</string>
   <string name="notification_reverted_title">გაუქმებული რედაქტირება</string>

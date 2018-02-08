@@ -308,8 +308,10 @@
   <string name="reading_list_sort">Подреди</string>
   <string name="reading_list_sort_by_name">Подреди по назив</string>
   <string name="reading_list_sort_by_name_desc">Подреди по назив (обратно)</string>
-  <string name="reading_list_sort_by_recent">Подреди по скорешност</string>
-  <string name="reading_list_sort_by_recent_desc">Подреди по дамнешност</string>
+  <string name="reading_list_sort_by_recent">Подреди по скорешност на додавање</string>
+  <string name="reading_list_sort_by_recent_desc">Подреди по дамнешност на додавање</string>
+  <string name="reading_list_sort_by_created">Подреди по скорешност на создавање</string>
+  <string name="reading_list_sort_by_created_desc">Подреди по дамнешност на создавање</string>
   <string name="reading_list_menu_delete">Избриши список</string>
   <string name="reading_list_menu_rename">Преименувај</string>
   <string name="reading_list_menu_edit_description">Измени опис</string>
@@ -354,7 +356,8 @@
   <string name="reading_list_article_save_in_progress">Преземањето на статијата е во тек. Ќе биде достапна вонмрежно кога ќе заврши.</string>
   <string name="reading_list_already_contains_selection">Избраниот список веќе ги содржи сите одбрани страници.</string>
   <string name="reading_list_added_articles_list_titled">Додадени %1$d статии во %2$s</string>
-    <string name="default_reading_list_name">Зачувано</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">Дали сте сигурни дека сакате да го избришете овој список за читање %s?</string>
+  <string name="default_reading_list_name">Зачувано</string>
   <string name="default_reading_list_description">Стандарден список за вашите зачувани статии</string>
   <string name="no_user_lists_title">Организирајте статии во списоци</string>
   <string name="no_user_lists_msg">Направете списоци за места што сакате да ги посетите, ваши омилени теми и многу друго</string>

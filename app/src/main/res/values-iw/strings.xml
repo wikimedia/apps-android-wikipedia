@@ -308,8 +308,10 @@
   <string name="reading_list_sort">מיון</string>
   <string name="reading_list_sort_by_name">מיון לפי שם</string>
   <string name="reading_list_sort_by_name_desc">מיון לפי שם (אחורה)</string>
-  <string name="reading_list_sort_by_recent">מיון לפי החדש ביותר</string>
-  <string name="reading_list_sort_by_recent_desc">מיון לפי הישן ביותר</string>
+  <string name="reading_list_sort_by_recent">מיון לפי מועד ההוספה (החדש ביותר)</string>
+  <string name="reading_list_sort_by_recent_desc">מיון לפי מועד ההוספה (הישן ביותר)</string>
+  <string name="reading_list_sort_by_created">מיון לפי מועד היצירה (החדש ביותר)</string>
+  <string name="reading_list_sort_by_created_desc">מיון לפי מועד היצירה (הישן ביותר)</string>
   <string name="reading_list_menu_delete">מחיקת רשימה</string>
   <string name="reading_list_menu_rename">שינוי שם</string>
   <string name="reading_list_menu_edit_description">עריכת תיאור</string>
@@ -354,7 +356,8 @@
   <string name="reading_list_article_save_in_progress">הורדת הערך מתבצעת, והוא יהיה זמין ללא חיבור לרשת כשהיא תושלם.</string>
   <string name="reading_list_already_contains_selection">הרשימה שנבחרה כבר מכילה את כל הדפים שנבחרו.</string>
   <string name="reading_list_added_articles_list_titled">נוספו %1$d ערכים לרשימה %2$s</string>
-    <string name="default_reading_list_name">שמורים</string>
+  <string name="reading_list_delete_confirm">למחוק את %s?</string>
+  <string name="default_reading_list_name">שמורים</string>
   <string name="default_reading_list_description">ברירת מחדל לערכים השמורים שלך</string>
   <string name="no_user_lists_title">ארגנו ערכים לרשימות</string>
   <string name="no_user_lists_msg">צרו רשימות למקומות שביקרתם בהם, נושאים שאתם אוהבים, ועוד</string>
@@ -409,7 +412,7 @@
     <item quantity="other">לפני %d ימים</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">היום</string>
-  <string name="view_continue_reading_card_subtitle_read_date">לקרוא את %s</string>
+  <string name="view_continue_reading_card_subtitle_read_date">נקרא %s</string>
   <string name="view_announcement_card_negative_action">לא, תודה</string>
   <string name="view_offline_card_text">לא ניתן לטעון את התוכן ללא חיבור לרשת.</string>
   <string name="view_featured_article_card_title">ערך מומלץ</string>
@@ -536,7 +539,7 @@
   <string name="app_shortcuts_continue_reading">המשך קריאה</string>
   <string name="app_shortcuts_search">חיפוש</string>
   <string name="more_trending_text">עוד דברים דומים</string>
-  <string name="top_on_this_day">מובילים ב %1$s</string>
+  <string name="top_on_this_day">מובילים ב{{GRAMMAR:תחילית|%1$s}}</string>
   <string name="on_this_day_card_title">ביום הזה</string>
   <string name="more_events_text">עוד ביום הזה</string>
   <string name="events_count_text">%1$s אירועים מ%2$s–%3$d</string>

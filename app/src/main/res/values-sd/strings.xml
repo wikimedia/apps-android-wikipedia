@@ -297,8 +297,8 @@
   <string name="reading_list_sort">مرتب ڪريو</string>
   <string name="reading_list_sort_by_name">نالي سان مرتب ڪريو</string>
   <string name="reading_list_sort_by_name_desc">نالي سان مرتب ڪريو (reverse)</string>
-  <string name="reading_list_sort_by_recent">سڀ کان ھاڻوڪي سان مرتب ڪريو</string>
-  <string name="reading_list_sort_by_recent_desc">سڀ کا گھٽ ھاڻوڪي سان مرتب ڪريو</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">سڀ کان ھاڻوڪي سان مرتب ڪريو</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">سڀ کا گھٽ ھاڻوڪي سان مرتب ڪريو</string>
   <string name="reading_list_menu_delete">فھرست ڊاھيو</string>
   <string name="reading_list_menu_rename">ٻيھر نالو ڏيو</string>
   <string name="reading_list_menu_edit_description">تشريح سنواريو</string>
@@ -338,7 +338,8 @@
   <string name="reading_list_article_save_in_progress">ھي مضمون لاٿو پيو وڃي، ۽ اھو مڪمل ٿيڻ کانپوءِ آفلائين موجود ھوندو.</string>
   <string name="reading_list_already_contains_selection">چونڊيل فھرست اڳ ئي چونڊيل صفحا رکي ٿي.</string>
   <string name="reading_list_added_articles_list_titled">%1$d مضمونن کي %2$s کي ۾ وڌو ويو</string>
-    <string name="default_reading_list_name">سانڍيل</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">ڇا توھان کي پڪ آھي تہ توھان ھي پڙھڻ جي فھرست ڊاھڻ ٿا چاھيو %s ؟</string>
+  <string name="default_reading_list_name">سانڍيل</string>
   <string name="default_reading_list_description">توھان جي سانڍيل مضمونن لاءَ  پاڻڏنل فھرست</string>
   <string name="no_user_lists_title">مضمونن کي فھرستن ۾ ترتيب ڏيو</string>
   <string name="no_user_lists_msg">گھمڻ جي جڳھن، پسنديده عنوان، ۽ وغيره لاءِ فھرست ٺاھيو</string>

@@ -308,8 +308,10 @@
   <string name="reading_list_sort">排序</string>
   <string name="reading_list_sort_by_name">按名称排序</string>
   <string name="reading_list_sort_by_name_desc">按名称排序（反向）</string>
-  <string name="reading_list_sort_by_recent">按最近访问排序</string>
-  <string name="reading_list_sort_by_recent_desc">按最早访问排序</string>
+  <string name="reading_list_sort_by_recent">按添加日期排序（最近优先）</string>
+  <string name="reading_list_sort_by_recent_desc">按添加日期排序（最早优先）</string>
+  <string name="reading_list_sort_by_created">按创建日期排序（最近优先）</string>
+  <string name="reading_list_sort_by_created_desc">按创建日期排序（最早优先）</string>
   <string name="reading_list_menu_delete">删除列表</string>
   <string name="reading_list_menu_rename">重命名</string>
   <string name="reading_list_menu_edit_description">编辑描述</string>
@@ -354,6 +356,7 @@
   <string name="reading_list_article_save_in_progress">条目已开始下载，并将在完成时离线可用。</string>
   <string name="reading_list_already_contains_selection">选择的列表已包含所有选择的页面。</string>
   <string name="reading_list_added_articles_list_titled">已添加%1$d个条目至%2$s</string>
+  <string name="reading_list_delete_confirm">您确定要删除%s么？</string>
   <string name="default_reading_list_name">已保存</string>
   <string name="default_reading_list_description">用于您的已保存条目的默认列表</string>
   <string name="no_user_lists_title">组织条目至列表中</string>

@@ -308,8 +308,8 @@
   <string name="reading_list_sort">並べ替え</string>
   <string name="reading_list_sort_by_name">名前順に並べ替え</string>
   <string name="reading_list_sort_by_name_desc">名前順に並べ替え (降順)</string>
-  <string name="reading_list_sort_by_recent">新しい方から並べ替え</string>
-  <string name="reading_list_sort_by_recent_desc">古い方から並べ替え</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">新しい方から並べ替え</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">古い方から並べ替え</string>
   <string name="reading_list_menu_delete">リストを削除</string>
   <string name="reading_list_menu_rename">名前を変更</string>
   <string name="reading_list_menu_edit_description">説明を編集</string>
@@ -354,7 +354,8 @@
   <string name="reading_list_article_save_in_progress">記事がダウンロードされ、完了したら記事をオフラインで利用できるようになります。</string>
   <string name="reading_list_already_contains_selection">選択したリストには、すでに選択したすべてのページが含まれています。</string>
   <string name="reading_list_added_articles_list_titled">%1$dに%2$sを追加しました</string>
-    <string name="default_reading_list_name">保存済み</string>
+  <string name="reading_list_delete_confirm">%s を本当に削除しますか?</string>
+  <string name="default_reading_list_name">保存済み</string>
   <string name="default_reading_list_description">保存したページの既定の一覧</string>
   <string name="no_user_lists_title">記事をリストにまとめる</string>
   <string name="no_user_lists_msg">行ってみたい場所や好きな話題その他いろいろなリストを作ってみる</string>

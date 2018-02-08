@@ -308,8 +308,10 @@
   <string name="reading_list_sort">Ordenar</string>
   <string name="reading_list_sort_by_name">Ordenar por nome</string>
   <string name="reading_list_sort_by_name_desc">Ordenar por nome (inverso)</string>
-  <string name="reading_list_sort_by_recent">Ordenar por mais recente</string>
-  <string name="reading_list_sort_by_recent_desc">Ordenar por menos recente</string>
+  <string name="reading_list_sort_by_recent">Ordenar por data adicionada (mais recente)</string>
+  <string name="reading_list_sort_by_recent_desc">Ordenar por data adicionada (mais antiga)</string>
+  <string name="reading_list_sort_by_created">Ordenar por data de criação (mais recente)</string>
+  <string name="reading_list_sort_by_created_desc">Ordenar por data de criação (mais antiga)</string>
   <string name="reading_list_menu_delete">Eliminar lista</string>
   <string name="reading_list_menu_rename">Alterar o nome</string>
   <string name="reading_list_menu_edit_description">Editar descrição</string>
@@ -354,7 +356,8 @@
   <string name="reading_list_article_save_in_progress">O artigo está a ser descarregado e depois ficará disponível sem acesso à Internet.</string>
   <string name="reading_list_already_contains_selection">A lista escolhida já contém todas as páginas selecionadas.</string>
   <string name="reading_list_added_articles_list_titled">Foram adicionados %1$d artigos a %2$s</string>
-    <string name="default_reading_list_name">Guardados</string>
+  <string name="reading_list_delete_confirm">Tem a certeza de que pretende eliminar %s?</string>
+  <string name="default_reading_list_name">Guardados</string>
   <string name="default_reading_list_description">Lista padrão para os seus artigos guardados</string>
   <string name="no_user_lists_title">Organizar artigos na forma de listas</string>
   <string name="no_user_lists_msg">Criar listas de locais para viajar, tópicos favoritos, e muito mais</string>

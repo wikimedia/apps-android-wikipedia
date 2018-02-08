@@ -308,8 +308,10 @@
   <string name="reading_list_sort">Sortér</string>
   <string name="reading_list_sort_by_name">Sortér efter navn</string>
   <string name="reading_list_sort_by_name_desc">Sortér efter navn (omvendt)</string>
-  <string name="reading_list_sort_by_recent">Sortér efter seneste</string>
-  <string name="reading_list_sort_by_recent_desc">Sortér efter ældste</string>
+  <string name="reading_list_sort_by_recent">Sorter efter dato tilføjet (nyeste)</string>
+  <string name="reading_list_sort_by_recent_desc">Sorter efter dato tilføjet (ældste)</string>
+  <string name="reading_list_sort_by_created">Sorter efter dato oprettet (nyeste)</string>
+  <string name="reading_list_sort_by_created_desc">Sorter efter dato oprettet (ældste)</string>
   <string name="reading_list_menu_delete">Slet liste</string>
   <string name="reading_list_menu_rename">Omdøb</string>
   <string name="reading_list_menu_edit_description">Rediger beskrivelse</string>
@@ -354,7 +356,8 @@
   <string name="reading_list_article_save_in_progress">Artiklen hentes og vil være tilgængelig lokalt når færdig.</string>
   <string name="reading_list_already_contains_selection">Den valgte liste indeholder allerede alle de valgte sider.</string>
   <string name="reading_list_added_articles_list_titled">Tilføjede %1$d artikler til %2$s</string>
-    <string name="default_reading_list_name">Gemt</string>
+  <string name="reading_list_delete_confirm">Er du sikker på, at du ønsker at slette %s?</string>
+  <string name="default_reading_list_name">Gemt</string>
   <string name="default_reading_list_description">Standardliste for dine gemte artikler</string>
   <string name="no_user_lists_title">Organiser artikler i lister</string>
   <string name="no_user_lists_msg">Opret lister for steder at rejse til, favoritemner og meget mere</string>

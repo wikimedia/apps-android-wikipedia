@@ -308,8 +308,10 @@
   <string name="reading_list_sort">Ordenar</string>
   <string name="reading_list_sort_by_name">Ordenar por nome</string>
   <string name="reading_list_sort_by_name_desc">Ordenar por nome (inversu)</string>
-  <string name="reading_list_sort_by_recent">Ordenar por más recién</string>
-  <string name="reading_list_sort_by_recent_desc">Ordenar por menos recién</string>
+  <string name="reading_list_sort_by_recent">Ordenar pola data que s\'añadió (más recién)</string>
+  <string name="reading_list_sort_by_recent_desc">Ordenar pola data que s\'añadió (más antigua)</string>
+  <string name="reading_list_sort_by_created">Ordenar pola data que se creó (más recién)</string>
+  <string name="reading_list_sort_by_created_desc">Ordenar pola data que se creó (más antigua)</string>
   <string name="reading_list_menu_delete">Desaniciar la llista</string>
   <string name="reading_list_menu_rename">Renomar</string>
   <string name="reading_list_menu_edit_description">Editar la descripción</string>
@@ -354,7 +356,8 @@
   <string name="reading_list_article_save_in_progress">L\'artículu ta descargándose, y tará disponible sin conexón cuando se complete.</string>
   <string name="reading_list_already_contains_selection">La llista escoyida yá contien toles páxines seleicionaes.</string>
   <string name="reading_list_added_articles_list_titled">Añadiéronse %1$d artículos a %2$s</string>
-    <string name="default_reading_list_name">Guardaos</string>
+  <string name="reading_list_delete_confirm">¿Tas seguru de que quies desaniciar %s?</string>
+  <string name="default_reading_list_name">Guardaos</string>
   <string name="default_reading_list_description">Llista predeterminada pa los artículos guardaos</string>
   <string name="no_user_lists_title">Organizar artículos en llistes</string>
   <string name="no_user_lists_msg">Crea llistes de sitios onde viaxar, temes favorites y muncho más</string>

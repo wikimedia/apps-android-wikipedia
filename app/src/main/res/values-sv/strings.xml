@@ -308,8 +308,10 @@
   <string name="reading_list_sort">Sortera</string>
   <string name="reading_list_sort_by_name">Sortera efter namn</string>
   <string name="reading_list_sort_by_name_desc">Sortera efter namn (omvänt)</string>
-  <string name="reading_list_sort_by_recent">Sortera efter senaste</string>
-  <string name="reading_list_sort_by_recent_desc">Sortera efter äldsta</string>
+  <string name="reading_list_sort_by_recent">Sortera efter tilläggsdatum (nyaste)</string>
+  <string name="reading_list_sort_by_recent_desc">Sortera efter tilläggsdatum (äldsta)</string>
+  <string name="reading_list_sort_by_created">Sortera efter tilläggsdatum (nyaste)</string>
+  <string name="reading_list_sort_by_created_desc">Sortera efter tilläggsdatum (äldsta)</string>
   <string name="reading_list_menu_delete">Radera lista</string>
   <string name="reading_list_menu_rename">Byt namn</string>
   <string name="reading_list_menu_edit_description">Redigera beskrivning</string>
@@ -354,7 +356,8 @@
   <string name="reading_list_article_save_in_progress">Artikeln laddas ned och kommer att vara tillgänglig offline när den är färdig.</string>
   <string name="reading_list_already_contains_selection">Den valda listan innehåller redan alla markerade sidor.</string>
   <string name="reading_list_added_articles_list_titled">Lade till %1$d artiklar i %2$s</string>
-    <string name="default_reading_list_name">Sparades</string>
+  <string name="reading_list_delete_confirm">Är du säker på att du vill radera %s?</string>
+  <string name="default_reading_list_name">Sparades</string>
   <string name="default_reading_list_description">Standardlista för dina sparade artiklar</string>
   <string name="no_user_lists_title">Organisera artiklar till listor</string>
   <string name="no_user_lists_msg">Skapa listor för platser att åka till, favoritämnen och mycket mer</string>

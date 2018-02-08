@@ -260,8 +260,8 @@
   <string name="reading_list_sort">श्रेणीबद्ध गर्नुहोस्</string>
   <string name="reading_list_sort_by_name">नाम अनुसार श्रेणीबद्ध गर्नुहोस्</string>
   <string name="reading_list_sort_by_name_desc">नाम अनुसार श्रेणीबद्ध गर्नुहोस् (उल्टो क्रममा)</string>
-  <string name="reading_list_sort_by_recent">सबैभन्दा भर्खरैको क्रममा श्रेणीबद्ध गर्नुहोस्</string>
-  <string name="reading_list_sort_by_recent_desc">सबैभन्दा कम भर्खरैको क्रममा श्रेणीबद्ध गर्नुहोस्</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">सबैभन्दा भर्खरैको क्रममा श्रेणीबद्ध गर्नुहोस्</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">सबैभन्दा कम भर्खरैको क्रममा श्रेणीबद्ध गर्नुहोस्</string>
   <string name="reading_list_menu_delete">सूची मेट्नुहोस्</string>
   <string name="reading_list_menu_edit_description">विवरण सम्पादन गर्नुहोस्</string>
   <string name="reading_list_action_menu_remove_from_offline">अफलाइनबाट हटाउनुहोस्</string>
@@ -288,7 +288,8 @@
   <string name="reading_list_confirm_remove_article_from_offline">अफलाइनबाट हटाउनुहोस्</string>
   <string name="reading_lists_confirm_remote_delete_yes">हो</string>
   <string name="reading_lists_confirm_remote_delete_no">होइन</string>
-    <string name="user_option_sync_label">प्राथमिकताहरू</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">के तपाईं साँच्चिकै यो अध्ययन सूचीलाई मेट्न चाहनुहुन्छ %s?</string>
+  <string name="user_option_sync_label">प्राथमिकताहरू</string>
   <string name="notification_button_view_user">प्रयोगकर्तासँग कुरा गर्नुहोस्</string>
   <string name="notification_talk_title">विकिपिडियामा नयाँ सन्देश आएको छ</string>
   <string name="notification_syncing_cancel_button">रद्द गर्नुहोस्</string>

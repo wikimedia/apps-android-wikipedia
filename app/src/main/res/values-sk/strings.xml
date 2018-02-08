@@ -302,8 +302,8 @@
   <string name="reading_list_sort">Zoradiť</string>
   <string name="reading_list_sort_by_name">Zoradiť podľa názvu</string>
   <string name="reading_list_sort_by_name_desc">Zoradiť podľa názvu (v opačnom poradí)</string>
-  <string name="reading_list_sort_by_recent">Zoradiť podľa času poslednej návštevy</string>
-  <string name="reading_list_sort_by_recent_desc">Zoradiť podľa nedávno navštívených (v opačnom poradí)</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Zoradiť podľa času poslednej návštevy</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Zoradiť podľa nedávno navštívených (v opačnom poradí)</string>
   <string name="reading_list_menu_delete">Vymazať zoznam</string>
   <string name="reading_list_menu_rename">Premenovať</string>
   <string name="reading_list_menu_edit_description">Upraviť popis</string>
@@ -344,7 +344,8 @@
   <string name="reading_lists_confirm_remote_delete_yes">Áno</string>
   <string name="reading_lists_confirm_remote_delete_no">Nie</string>
   <string name="reading_list_article_save_in_progress">Článok sa preberá. Keď sa preberanie dokončí, bude dostupný aj bez pripojenia na internet.</string>
-    <string name="default_reading_list_name">Uložené</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">Naozaj chcete tento %s zoznam na prečítanie odstrániť?</string>
+  <string name="default_reading_list_name">Uložené</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Tento článok teraz bude dostupný bez pripojenia.</item>
     <item quantity="other">Tieto články teraz budú dostupné bez pripojenia.</item>
@@ -362,9 +363,9 @@
   <string name="notification_thanks_title">Niekto vám poďakoval!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; vám poďakoval za vašu úpravu stránky &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_channel_name">Synchronizovanie</string>
-  <string name="notification_channel_description" fuzzy="true">Stav synchronizácie</string>
-  <string name="notification_syncing_title">Synchronizuje sa %1$d…</string>
-  <string name="notification_syncing_description">Ostáva %1$d</string>
+  <string name="notification_channel_description">Stav preberania</string>
+  <string name="notification_syncing_title">Preberá sa %1$d {{PLURAL:%1$d|článok|články|článkov}}…</string>
+  <string name="notification_syncing_description">Ostáva %1$d {{PLURAL:%1$d|článok|články|článkov}}</string>
   <string name="notification_syncing_pause_button">Pozastaviť</string>
   <string name="notification_syncing_resume_button">Pokračovať</string>
   <string name="notification_syncing_cancel_button">Zrušiť</string>
@@ -446,10 +447,15 @@
   <string name="offline_compilations_add">Pridať do offline knižnice</string>
   <string name="remote_compilations_title">Offline knižnica</string>
   <string name="remote_compilations_description">Do offline knižnice môžete stiahnuť skupiny článkov, aby ste ich mohli čítať aj bez pripojenia k internetu.</string>
+  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
+  <string name="size_gb">%.2f GB</string>
+  <string name="size_mb">%.2f MB</string>
+  <string name="offline_compilation_detail_button_download_v2">Prevziať • %s</string>
   <string name="offline_compilation_detail_button_remove">Odstrániť</string>
   <string name="remote_compilation_download">Download</string>
   <string name="storage_used_by_compilations">použitých offline knižnicou</string>
   <string name="storage_other_apps">Ostatné aplikácie</string>
+  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
   <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">Ostáva 1 minúta</item>
     <item quantity="other">Ostávajú %d minúty</item>
@@ -487,6 +493,7 @@
   <string name="onboarding_got_it">Rozumiem</string>
   <string name="app_shortcuts_random">Náhodný článok</string>
   <string name="app_shortcuts_continue_reading">Pokračovať v čítaní</string>
+  <string name="app_shortcuts_search">Hľadať</string>
   <string name="more_trending_text">Podobné články</string>
   <string name="top_on_this_day">Najtrendovejšie články dňa %1$s</string>
   <string name="on_this_day_card_title">V tento deň</string>

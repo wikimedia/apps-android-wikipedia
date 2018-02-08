@@ -306,8 +306,8 @@
   <string name="reading_list_sort">Sailkatu</string>
   <string name="reading_list_sort_by_name">Sailkatu izenaren arabera</string>
   <string name="reading_list_sort_by_name_desc">Izenen arabera antolatu (alderantzizkoa)</string>
-  <string name="reading_list_sort_by_recent">Berrienetik zaharrenara ordenatu</string>
-  <string name="reading_list_sort_by_recent_desc">Zaharrenetik berrienera ordenatu</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Berrienetik zaharrenara ordenatu</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Zaharrenetik berrienera ordenatu</string>
   <string name="reading_list_menu_delete">Ezabatu zerrenda</string>
   <string name="reading_list_menu_rename">Izena aldatu</string>
   <string name="reading_list_menu_edit_description">Aldatu deskribapena</string>
@@ -352,7 +352,8 @@
   <string name="reading_list_article_save_in_progress">Artikulua jaisten ari da, bukatzean konexiorik gabe erabiltzeko prest egongo da.</string>
   <string name="reading_list_already_contains_selection">Hautatutako zerrendak aukeratutako orrialde guztiak ditu barne jadanik.</string>
   <string name="reading_list_added_articles_list_titled">%1$d artikuluak gehitu dira %2$s(e)ra.</string>
-    <string name="default_reading_list_name">Gordeta</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">Ziur zaude \"%s\" ezabatu nahi duzula?</string>
+  <string name="default_reading_list_name">Gordeta</string>
   <string name="default_reading_list_description">Zerrenda lehenetsia gordetako artikuluentzat</string>
   <string name="no_user_lists_title">Artikuluak zerrendetan antolatu</string>
   <string name="no_user_lists_msg">Sortu zerrendak bidaiatzeko lekuetarako, gai gogokoentzat, eta askoz gehiagorako</string>
@@ -360,9 +361,15 @@
   <string name="split_reading_list_message">Irakurketa zerrenda bakoitzeko 1000 artikuluen muga dago. Muga gainditu dituzten jada existitzen diren zerrendak beste zerrendatan banatu dira.</string>
   <string name="reading_list_article_limit_message">Ezin da zerrenda honetara gehitu. 1000 artikulu zerrenda bakoitzeko %sgatik mugara iritsi zara.</string>
   <string name="reading_lists_limit_message">Ezin duzu beste zerrenda sortu. 100 irakurketa zerrenden muga kontu bakoitzeko jada asetu duzu.</string>
-    <string name="user_option_sync_label">Hobespenak</string>
-  <string name="reading_list_article_offline_message">Artikulu hauek ez dira eskuragarriak izango konexiorik gabe.</string>
-  <string name="reading_list_article_not_offline_message">Artikulu hauek ez dira eskuragarri izango konexiorik gabe.</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">Artikulu hau konexiorik gabe erabiltzeko eskuragarri dago.</item>
+    <item quantity="other">Artikulu hauek ez dira eskuragarriak izango konexiorik gabe.</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">Artikulu hau ez da eskuragarri izango konexiorik gabe.</item>
+    <item quantity="other">Artikulu hauek ez dira eskuragarri izango konexiorik gabe.</item>
+  </plurals>
+  <string name="user_option_sync_label">Hobespenak</string>
   <string name="notification_button_view_user">Hitz egin erabiltzeari</string>
   <string name="notification_talk_title">Mezu berria Wikipedian</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt;(e) mezu bat utzi dizu zure Talk orrialdean &lt;strong&gt;%2$s&lt;/strong&gt;</string>
@@ -517,7 +524,7 @@
   <string name="onboarding_save_to_reading_lists_title">Gordu irakurketa zerrendan</string>
   <string name="onboarding_save_to_reading_lists_text">Irakurketa zerrendak sortu gero irakurri nahi dituzun artikuluekin, konexiorik gabe egonda ere.</string>
   <string name="onboarding_analytics_title">Datuak anonimoki bidali</string>
-  <string name="onboarding_analytics_offline_text">Lagundu iezaguzu aplikazioa hobetzen zure erabilera azalduz. Bildutako datuak anonimoak izango dira.&lt;a href=\"#offline\"&gt;Gehiago ikasi&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text" fuzzy="true">Lagundu iezaguzu aplikazioa hobetzen zure erabilera azalduz. Bildutako datuak anonimoak izango dira.&lt;a href=\"#offline\"&gt;Gehiago ikasi&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Erabilitako data bidali</string>
   <string name="onboarding_create_account_sync">Zure irakurketa zerrendak sinkronizatu</string>
   <string name="onboarding_create_account_contributions">Zure ekarpenen berri jaso</string>

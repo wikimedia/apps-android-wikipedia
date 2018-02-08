@@ -265,8 +265,8 @@
   <string name="reading_list_sort">வரிசைபடுத்துக</string>
   <string name="reading_list_sort_by_name">பெயரைப் பொறுத்து வரிசைப்படுத்து</string>
   <string name="reading_list_sort_by_name_desc">பெயரைப் பொறுத்து வரிசைப்படுத்து (தலைகீழ்)</string>
-  <string name="reading_list_sort_by_recent">மிகவும் அண்மை வகையில் வரிசைப்படுத்துக</string>
-  <string name="reading_list_sort_by_recent_desc">மீச்சிறு அண்மை வகையில் வரிசைப்படுத்துக</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">மிகவும் அண்மை வகையில் வரிசைப்படுத்துக</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">மீச்சிறு அண்மை வகையில் வரிசைப்படுத்துக</string>
   <string name="reading_list_menu_delete">பட்டியலை நீக்குக</string>
   <string name="reading_list_menu_rename">பெயர் மாற்றுக</string>
   <string name="reading_list_menu_edit_description">குறிப்பை தொகுக்க</string>

@@ -303,8 +303,8 @@
   <string name="reading_list_sort">Сортувати</string>
   <string name="reading_list_sort_by_name">Сортування за назвою</string>
   <string name="reading_list_sort_by_name_desc">Сортування за назвою (зворотнє)</string>
-  <string name="reading_list_sort_by_recent">Сортування по даті (останні)</string>
-  <string name="reading_list_sort_by_recent_desc">Сортувати по даті (старі)</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Сортування по даті (останні)</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Сортувати по даті (старі)</string>
   <string name="reading_list_menu_delete">Видалити список</string>
   <string name="reading_list_menu_rename">Перейменувати</string>
   <string name="reading_list_menu_edit_description">Редагувати опис</string>
@@ -347,6 +347,7 @@
   <string name="reading_list_article_save_in_progress">Стаття завантажується, вона буде доступна в автономному режимі по завершенню.</string>
   <string name="reading_list_already_contains_selection">У списку вже є всі вибрані вами сторінки.</string>
   <string name="reading_list_added_articles_list_titled">Додано %1$d статей до %2$s</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">Ви дійсно хочете вилучити цей список читання %s?</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ця стаття тепер буде доступна автономно.</item>
     <item quantity="other">Ці статті тепер будуть доступні автономно.</item>

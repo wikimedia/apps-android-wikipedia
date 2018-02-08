@@ -306,8 +306,10 @@
   <string name="reading_list_sort">Сортиране</string>
   <string name="reading_list_sort_by_name">Сортиране по име</string>
   <string name="reading_list_sort_by_name_desc">Подреждане по име (обратно)</string>
-  <string name="reading_list_sort_by_recent">Подреждане по най-скорошен</string>
-  <string name="reading_list_sort_by_recent_desc">Подреждане по най-стар</string>
+  <string name="reading_list_sort_by_recent">Подреждане по дата на добавяне (най-скорошни)</string>
+  <string name="reading_list_sort_by_recent_desc">Подреждане по дата на добавяне (най-стари)</string>
+  <string name="reading_list_sort_by_created">Подреждане по дата на създаване (най-скорошни)</string>
+  <string name="reading_list_sort_by_created_desc">Подреждане по дата на създаване (най-стари)</string>
   <string name="reading_list_menu_delete">Изтриване на списъка</string>
   <string name="reading_list_menu_rename">Преименуване</string>
   <string name="reading_list_menu_edit_description">Редактиране на описанието</string>
@@ -352,7 +354,8 @@
   <string name="reading_list_article_save_in_progress">Статията се изтегля и ще бъде налична офлайн, когато е готова.</string>
   <string name="reading_list_already_contains_selection">Избраният списък вече съдържа всичките избрани страници.</string>
   <string name="reading_list_added_articles_list_titled">Добавени %1$d статии в %2$s</string>
-    <string name="default_reading_list_name">Съхранено</string>
+  <string name="reading_list_delete_confirm">Сигурни ли сте, че искате да изтриете %s?</string>
+  <string name="default_reading_list_name">Съхранено</string>
   <string name="default_reading_list_description">Списък по подразбиране за Вашите запазени статии</string>
   <string name="no_user_lists_title">Организирайте статии в списъци</string>
   <string name="no_user_lists_msg">Създавайте списъци с места за пътуване, любими теми и много други</string>

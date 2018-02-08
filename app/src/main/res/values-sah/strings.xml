@@ -302,8 +302,8 @@
   <string name="reading_list_sort">Нардаа</string>
   <string name="reading_list_sort_by_name">Аатынан</string>
   <string name="reading_list_sort_by_name_desc">Аатынан наардааһын (төттөрү)</string>
-  <string name="reading_list_sort_by_recent">Күнүнэн-дьылынан</string>
-  <string name="reading_list_sort_by_recent_desc">Күнүнэн-дьылынан наардааһын (эргэ)</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Күнүнэн-дьылынан</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Күнүнэн-дьылынан наардааһын (эргэ)</string>
   <string name="reading_list_menu_delete">Испииһэги сот</string>
   <string name="reading_list_menu_rename">Аатын уларыт</string>
   <string name="reading_list_menu_edit_description">Ойуулааһыны уларытыы</string>
@@ -348,7 +348,8 @@
   <string name="reading_list_article_save_in_progress">Сирэй хачайданан бүттэҕинэ ситимэ да суох көрүөххэ сөп буолуо.</string>
   <string name="reading_list_already_contains_selection">Талбыт ыстатыйаҥ испииһэккэ хайыы-үйэ баар эбит.</string>
   <string name="reading_list_added_articles_list_titled">%1$d ыстатыйаны манна киллэр: %2$s</string>
-    <string name="default_reading_list_name">Бигэргэннэ</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">Бу тиһилиги чахчы сотоору гынаҕын дуо %s?</string>
+  <string name="default_reading_list_name">Бигэргэннэ</string>
   <string name="default_reading_list_description">Талбыт ыстатыйаларыҥ испииһэгэ</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Бу ыстатыйаны ситимэ суох ааҕыахха сөп буолла.</item>

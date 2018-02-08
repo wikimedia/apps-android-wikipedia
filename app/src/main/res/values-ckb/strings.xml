@@ -288,8 +288,8 @@
   <string name="reading_list_sort">ڕیزکردن</string>
   <string name="reading_list_sort_by_name">ڕیزکردن بەپێی ناو</string>
   <string name="reading_list_sort_by_name_desc">ڕیزکردن بەپێی ناو (پێچەوانە)</string>
-  <string name="reading_list_sort_by_recent">ڕیزکردن بەپێی تازەیی</string>
-  <string name="reading_list_sort_by_recent_desc">ڕیزکردن بەپێی کۆنی</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">ڕیزکردن بەپێی تازەیی</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">ڕیزکردن بەپێی کۆنی</string>
   <string name="reading_list_menu_delete">سڕینەوەی پێڕست</string>
   <string name="reading_list_menu_rename">ناونانەوە</string>
   <string name="reading_list_menu_edit_description">دەستکاریی وەسف</string>
@@ -325,7 +325,10 @@
   <string name="reading_lists_confirm_remote_delete_yes">بەڵێ</string>
   <string name="reading_lists_confirm_remote_delete_no">نەخێر</string>
   <string name="reading_list_article_save_in_progress">وتارەکە خەریکە دادەگیرێت. کاتێک داگرتنەکە تەواو بوو، بۆ خوێندنەوەی بێ ئینتەرنێت بەردەست دەبێت.</string>
-    <string name="user_option_sync_label">ھەڵبژاردەکان</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">دڵنیای کە دەتەوێت ئەم پێڕستی خوێندنەوەیە بسڕدرێتەوە %s ؟</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">ئەم وتارە ئێستا بەبێ ئینتەرنێت بەردەستە</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">ئەم وتارە چی تر بەردەست نابێت بەبێ ئینتەرنێت.</string>
+  <string name="user_option_sync_label">ھەڵبژاردەکان</string>
   <string name="notification_button_view_user">لێدوان بۆ بەکارھێنەر</string>
   <string name="notification_talk_title">پەیامی نوێ لە ویکیپیدیا</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; پەیامێکی جێھێشت لە پەڕەی لێدوانەکەت &lt;strong&gt;%2$s&lt;/strong&gt;</string>

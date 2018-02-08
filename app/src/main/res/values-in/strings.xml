@@ -308,8 +308,8 @@
   <string name="reading_list_sort">Urutkan</string>
   <string name="reading_list_sort_by_name">Urutkan berdasarkan nama</string>
   <string name="reading_list_sort_by_name_desc">Urutkan berdasarkan nama (terbalik)</string>
-  <string name="reading_list_sort_by_recent">Urutkan berdasarkan yang terbaru</string>
-  <string name="reading_list_sort_by_recent_desc">Urutkan berdasarkan yang terlama</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Urutkan berdasarkan yang terbaru</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Urutkan berdasarkan yang terlama</string>
   <string name="reading_list_menu_delete">Hapus daftar</string>
   <string name="reading_list_menu_rename">Ubah nama</string>
   <string name="reading_list_menu_edit_description">Sunting deskripsi</string>
@@ -354,7 +354,8 @@
   <string name="reading_list_article_save_in_progress">Artikel sedang diunduh, dan akan tersedia secara luring saat selesai.</string>
   <string name="reading_list_already_contains_selection">Daftar yang dipilih sudah berisi semua halaman yang dipilih.</string>
   <string name="reading_list_added_articles_list_titled">%1$d ditambahkan ke %2$s</string>
-    <string name="default_reading_list_name">Tersimpan</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">Apakah Anda yakin ingin menghapus %s daftar bacaan ini?</string>
+  <string name="default_reading_list_name">Tersimpan</string>
   <string name="default_reading_list_description">Daftar baku untuk artikel tersimpan Anda</string>
   <string name="no_user_lists_title">Atur artikel ke dalam daftar</string>
   <string name="no_user_lists_msg">Buat daftar untuk tempat yang ingin dikunjungi, topik favorit, dan banyak lagi</string>
@@ -526,7 +527,7 @@
   <string name="onboarding_save_to_reading_lists_title">Simpan ke daftar bacaan</string>
   <string name="onboarding_save_to_reading_lists_text">Buat daftar bacaan dari artikel yang ingin Anda baca nanti, bahkan saat Anda sedang luring.</string>
   <string name="onboarding_analytics_title">Kirim data anonim</string>
-  <string name="onboarding_analytics_offline_text">Bantu membuat aplikasi lebih baik dengan memberi tahu kami bagaimana Anda menggunakannya. Data yang dikumpulkan adalah anonim. &lt;a href=\"#privacy\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text" fuzzy="true">Bantu membuat aplikasi lebih baik dengan memberi tahu kami bagaimana Anda menggunakannya. Data yang dikumpulkan adalah anonim. &lt;a href=\"#privacy\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Kirim data penggunaan</string>
   <string name="onboarding_create_account_sync">Sinkronkan daftar bacaan Anda</string>
   <string name="onboarding_create_account_contributions">Catat kontribusi Anda</string>

@@ -308,8 +308,8 @@
   <string name="reading_list_sort">Isih</string>
   <string name="reading_list_sort_by_name">Isih ikut nama</string>
   <string name="reading_list_sort_by_name_desc">Isih ikut nama (terbalik)</string>
-  <string name="reading_list_sort_by_recent">Isih ikut yang terbaru</string>
-  <string name="reading_list_sort_by_recent_desc">Isih ikut yang terlama</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Isih ikut yang terbaru</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Isih ikut yang terlama</string>
   <string name="reading_list_menu_delete">Padam senarai</string>
   <string name="reading_list_menu_rename">Tukar nama</string>
   <string name="reading_list_menu_edit_description">Sunting keterangan</string>
@@ -354,7 +354,8 @@
   <string name="reading_list_article_save_in_progress">Rencana sedang dimuat turun, dan ia akan tersedia di luar talian apabila selesai.</string>
   <string name="reading_list_already_contains_selection">Senarai yang dipilih sudah mengandungi semua halaman yang dipilih.</string>
   <string name="reading_list_added_articles_list_titled">%1$d ditambahkan ke %2$s</string>
-    <string name="default_reading_list_name">Disimpan</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">Adakah anda benar-benar ingin memadamkan %s senarai bacaan ini?</string>
+  <string name="default_reading_list_name">Disimpan</string>
   <string name="default_reading_list_description">Senarai lalai untuk rencana anda yang disimpan</string>
   <string name="no_user_lists_title">Atur rencana ke dalam senarai</string>
   <string name="no_user_lists_msg">Buat senarai tempat untuk pergi ke, topik kegemaran, dan banyak lagi</string>
@@ -526,7 +527,7 @@
   <string name="onboarding_save_to_reading_lists_title">Simpan ke senarai bacaan</string>
   <string name="onboarding_save_to_reading_lists_text">Buat senarai bacaan dari rencana yang ingin dibaca kemudian, walaupun semasa anda berada di luar talian.</string>
   <string name="onboarding_analytics_title">Hantar data tanpa nama</string>
-  <string name="onboarding_analytics_offline_text">Bantu menjadikan aplikasi lebih baik dengan memberitahu kami bagaimana anda menggunakannya. Data yang dikumpul tidak dikenali. &lt;a href=\"#privacy\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text" fuzzy="true">Bantu menjadikan aplikasi lebih baik dengan memberitahu kami bagaimana anda menggunakannya. Data yang dikumpul tidak dikenali. &lt;a href=\"#privacy\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Hantar data penggunaan</string>
   <string name="onboarding_create_account_sync">Menyegerakkan senarai bacaan Anda</string>
   <string name="onboarding_create_account_contributions">Jejaki sumbangan anda</string>

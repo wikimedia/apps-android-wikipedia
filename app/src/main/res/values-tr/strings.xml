@@ -308,8 +308,8 @@
   <string name="reading_list_sort">Sırala</string>
   <string name="reading_list_sort_by_name">Ada göre sırala</string>
   <string name="reading_list_sort_by_name_desc">Ada göre sırala (tersten)</string>
-  <string name="reading_list_sort_by_recent">Son erişime göre sırala</string>
-  <string name="reading_list_sort_by_recent_desc">Son erişime göre sırala (tersten)</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Son erişime göre sırala</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Son erişime göre sırala (tersten)</string>
   <string name="reading_list_menu_delete">Listeyi sil</string>
   <string name="reading_list_menu_rename">Yeniden adlandır</string>
   <string name="reading_list_menu_edit_description">Tanımı düzenle</string>
@@ -354,6 +354,7 @@
   <string name="reading_list_article_save_in_progress">Madde indiriliyor; işlem tamamlandığında çevrimdışı olarak erişilebilir olacak.</string>
   <string name="reading_list_already_contains_selection">Seçilen liste zaten seçilen sayfaların tümünü içermektedir.</string>
   <string name="reading_list_added_articles_list_titled">%2$s içeriğine %1$d madde eklendi</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">Bu okuma listesini silmek istediğinizden emin misiniz %s?</string>
   <string name="default_reading_list_name">Kaydedildi</string>
   <string name="default_reading_list_description">Kaydedilen maddeleriniz için varsayılan liste</string>
   <string name="no_user_lists_title">Maddeleri listelere göre düzenleyin</string>
@@ -526,7 +527,7 @@
   <string name="onboarding_save_to_reading_lists_title">Okuma listesine kaydet</string>
   <string name="onboarding_save_to_reading_lists_text">Çevrimdışı olduğunuzda bile okumayı istediğiniz maddelerden okuma listeleri oluşturun.</string>
   <string name="onboarding_analytics_title">Anonim veri gönder</string>
-  <string name="onboarding_analytics_offline_text">Uygulamayı nasıl kullandığınızı bilmemize izin vererek daha iyi hâle getirmemize yardım edin. Veriler anonim olarak toplanır. &lt;a href=\"#privacy\"&gt;Daha fazla bilgi edinin&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text" fuzzy="true">Uygulamayı nasıl kullandığınızı bilmemize izin vererek daha iyi hâle getirmemize yardım edin. Veriler anonim olarak toplanır. &lt;a href=\"#privacy\"&gt;Daha fazla bilgi edinin&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Kullanım verisini gönder</string>
   <string name="onboarding_create_account_sync">Okuma listelerinizi senkronize edin</string>
   <string name="onboarding_create_account_contributions">Katkılarınızı takip edin</string>

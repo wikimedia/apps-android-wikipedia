@@ -289,8 +289,8 @@
   <string name="reading_list_sort">Ordina</string>
   <string name="reading_list_sort_by_name">Ordina per nome</string>
   <string name="reading_list_sort_by_name_desc">Ordina per nome (inverso)</string>
-  <string name="reading_list_sort_by_recent">Ordina per più recenti</string>
-  <string name="reading_list_sort_by_recent_desc">Ordina per meno recenti</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Ordina per più recenti</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Ordina per meno recenti</string>
   <string name="reading_list_menu_delete">Cancella elenco</string>
   <string name="reading_list_menu_rename">Rinomina</string>
   <string name="reading_list_menu_edit_description">Modifica descrizione</string>
@@ -323,7 +323,8 @@
   <string name="reading_list_login_reminder_title">Sincronizza elenco di lettura</string>
   <string name="reading_lists_confirm_remote_delete_yes">Sì</string>
   <string name="reading_lists_confirm_remote_delete_no">No</string>
-    <string name="default_reading_list_name">Salvato</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">Sei sicuro di voler cancellare questo %s elenco di lettura?</string>
+  <string name="default_reading_list_name">Salvato</string>
   <string name="default_reading_list_description">Elenco predefinito per le tue voci salvate</string>
   <string name="no_user_lists_title">Organizza voci in elenchi</string>
   <plurals name="reading_list_article_offline_message">

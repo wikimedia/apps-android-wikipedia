@@ -246,7 +246,7 @@
   <string name="reading_list_sort">Sorteer</string>
   <string name="reading_list_sort_by_name">Sorteer volgens naam</string>
   <string name="reading_list_sort_by_name_desc">Sorteer volgens naam (omgekeer)</string>
-  <string name="reading_list_sort_by_recent">Sorteer volgens onlangsste</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Sorteer volgens onlangsste</string>
   <string name="reading_list_menu_delete">Skraplys</string>
   <string name="reading_list_menu_rename">Hernoem</string>
   <string name="reading_list_menu_edit_description">Wysig beskrywing</string>

@@ -191,7 +191,7 @@
   <string name="reading_list_sort">ಅಜಪುಲೇ</string>
   <string name="reading_list_sort_by_name">ಪುದರ್ತ ತರೋ</string>
   <string name="reading_list_sort_by_name_desc">ಪುದರ್ತ ತರೋ(ತಿರ್ಗಾತ್)</string>
-  <string name="reading_list_sort_by_recent">ಇಂಚಿಪೊ ವಿಭಾಗಿಸಾಯಿನಾ</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">ಇಂಚಿಪೊ ವಿಭಾಗಿಸಾಯಿನಾ</string>
   <string name="reading_list_menu_delete" fuzzy="true">ಓದಿನಾ ಲಿಸ್ಟ್ ದೆತ್ತುಂಡು</string>
   <string name="reading_list_menu_rename">ಪೊಸ ಪುದರ್</string>
   <string name="reading_list_action_menu_save_for_offline">offlin ಡ್ ಒರಿಪಾಲೆ</string>

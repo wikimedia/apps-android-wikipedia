@@ -276,7 +276,10 @@
   <string name="color_theme_dark">غامق</string>
   <string name="color_theme_black">أسود</string>
   <string name="color_theme_test_title">مثال للنص</string>
+  <string name="preference_title_app_theme"> شكل التطبيق</string>
   <string name="preference_summary_color_theme">بدّل لاستخدام المظهر التطبيق داكن اللون</string>
+  <string name="text_size_increase">زيادة حجم الخط</string>
+  <string name="text_size_decrease">تقليل حجم الخط</string>
   <string name="text_size_percent_default">%s (افتراضي)</string>
   <string name="nav_item_reading_lists">قوائمي</string>
   <string name="reading_list_untitled">غير معنونة</string>
@@ -296,6 +299,8 @@
   <string name="reading_list_sort_by_name_desc">رتب حسب الاسم (عكسي)</string>
   <string name="reading_list_sort_by_recent">فرز حسب الأحدث</string>
   <string name="reading_list_sort_by_recent_desc">فرز حسب الأقدم</string>
+  <string name="reading_list_sort_by_created">فرز حسب تاريخ الإنشاء (الأحدث)</string>
+  <string name="reading_list_sort_by_created_desc"> فرز حسب تاريخ الإنشاء (الأقدم)</string>
   <string name="reading_list_menu_delete">احذف القائمة</string>
   <string name="reading_list_menu_rename">أعد التسمية</string>
   <string name="reading_list_menu_edit_description">عدل الوصف</string>
@@ -310,7 +315,7 @@
   <string name="reading_list_item_delete_undo">تراجع</string>
   <string name="reading_list_deleted">أزيلت %s</string>
   <string name="saved_list_empty_title">لا توجد قوائم قراءة بعد</string>
-  <string name="reading_lists_empty_message" fuzzy="true">احفظ المقالات التي تتصفحها في شكل قوائم قراءة حتى تتطلع عليهم لاحقا، حتى وإن كنت غير متصل بالشبكة.</string>
+  <string name="reading_lists_empty_message">احفظ المقالات التي تتصفحها في شكل قوائم قراءة حتى تتطلع عليهم لاحقا، حتى وإن كنت غير متصل بالشبكة.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">أنشئ قوائم مطالعة من المقالات التي ترغب في الاطلاع عليها لاحقا، حتى لو كنت غير متصل بالإنترنت!</string>
   <string name="reading_lists_onboarding_for_example">على سبيل المثال</string>
   <string name="reading_lists_onboarding_example1">أماكن للزيارة</string>
@@ -336,7 +341,12 @@
   <string name="reading_lists_confirm_remote_delete_yes">نعم</string>
   <string name="reading_lists_confirm_remote_delete_no">لا</string>
   <string name="reading_list_article_save_in_progress">جارٍ تنزيل المقالة، وستكون متاحةً في وضع عدم الاتصال عن الاكتمال.</string>
-    <plurals name="reading_list_article_offline_message">
+  <string name="reading_list_already_contains_selection">القائمة المختارة تحتوي بالفعل على كل الصفحات المحددة</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">هل أنت متأكد من رغبتك في حذف قائمة القراءة %s هذه؟</string>
+  <string name="default_reading_list_name">تم الحفظ</string>
+  <string name="default_reading_list_description">قائمة افتراضية لمقالاتك المحفوظة</string>
+  <string name="no_user_lists_title">نظم المقالات في قوائم</string>
+  <plurals name="reading_list_article_offline_message">
     <item quantity="one">ستصبح هذه المقالة متاحة في حالة عدم الاتصال.</item>
     <item quantity="other">ستصبح هذه المقالات متاحة في حالة عدم الاتصال</item>
   </plurals>

@@ -301,8 +301,8 @@
   <string name="reading_list_sort">Smizzwer</string>
   <string name="reading_list_sort_by_name">Smizzwer s yisem</string>
   <string name="reading_list_sort_by_name_desc">Smizzwer s yisem (tti)</string>
-  <string name="reading_list_sort_by_recent">Smizwer s wid n melmi kan</string>
-  <string name="reading_list_sort_by_recent_desc">Smizzwer s wid yezrin</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Smizwer s wid n melmi kan</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Smizzwer s wid yezrin</string>
   <string name="reading_list_menu_delete">Kkes tabdart</string>
   <string name="reading_list_menu_rename">Snifel isem</string>
   <string name="reading_list_menu_edit_description">Ẓreg aglam</string>

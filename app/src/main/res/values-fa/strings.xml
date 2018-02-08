@@ -308,8 +308,8 @@
   <string name="reading_list_sort">مرتب‌کردن</string>
   <string name="reading_list_sort_by_name">مرتب بر پایهٔ نام</string>
   <string name="reading_list_sort_by_name_desc">مرتب بر پایهٔ نام (معکوس)</string>
-  <string name="reading_list_sort_by_recent">مرتب بر پایهٔ آخرین</string>
-  <string name="reading_list_sort_by_recent_desc">مرتب بر پایهٔ آخرین (معکوس)</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">مرتب بر پایهٔ آخرین</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">مرتب بر پایهٔ آخرین (معکوس)</string>
   <string name="reading_list_menu_delete">حذف فهرست</string>
   <string name="reading_list_menu_rename">تغییر نام</string>
   <string name="reading_list_menu_edit_description">ویرایش توضیحات</string>
@@ -354,7 +354,8 @@
   <string name="reading_list_article_save_in_progress">بارگیری مقاله در حال انجام است و به صورت آفلاین قابل دسترس خواهد بود.</string>
   <string name="reading_list_already_contains_selection">فهرست انتخاب‌شده همیشه شامل همهٔ صفحات انتخاب‌شده‌ است.</string>
   <string name="reading_list_added_articles_list_titled">%1$d مقاله به %2$s اضافه شد</string>
-    <string name="default_reading_list_name">ذخیره</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">آیا مطمئن هستید که می‌خواهید این فهرست مطالعه را حذف %s کنید؟</string>
+  <string name="default_reading_list_name">ذخیره</string>
   <string name="default_reading_list_description">لیست پیش فرض برای ذخیره مقاله ها</string>
   <string name="no_user_lists_title">سامان‌دادن مقالات در فهرست‌ها</string>
   <string name="no_user_lists_msg">ایجاد فهرستی از جاه‌هایی که قصد سفر یا علاقه دارید.</string>

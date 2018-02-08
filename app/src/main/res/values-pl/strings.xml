@@ -69,14 +69,15 @@
   <string name="login_username_hint">Nazwa użytkownika</string>
   <string name="login_password_hint">Hasło</string>
   <string name="login_2fa_hint">Kod uwierzytelniania dwuskładnikowego</string>
+  <string name="login_2fa_other_workflow_error_msg">Wymagane uwierzytelnianie dwuskładnikowe! Wróć do głównej aktywności i zaloguj się za pomocą tokena 2FA, a następnie spróbuj ponownie.</string>
   <string name="menu_login">Zaloguj się</string>
   <string name="login_activity_title">Logowanie do Wikipedii</string>
   <string name="login_in_progress_dialog_message">Logowanie…</string>
   <string name="login_success_toast">Zalogowano pomyślnie!</string>
   <string name="preference_title_logout">Wyloguj</string>
   <string name="toast_logout_complete">Wylogowany(-a)</string>
-  <string name="history_empty_title" fuzzy="true">Brak ostatnich zmian stron.</string>
-  <string name="history_empty_message" fuzzy="true">Prawdopodobnie usunąłeś je wszystkie. Następnym razem, gdy wejdziesz na stronę, możesz powrócić do niej stąd.</string>
+  <string name="history_empty_title">Brak ostatnio oglądanych artykułów</string>
+  <string name="history_empty_message">Śledź to, co tutaj czytałeś.</string>
   <string name="delete_selected_items">Usuń wybrane elementy</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nazwa użytkownika</string>
@@ -130,6 +131,7 @@
   <string name="about_description">O aplikacji Wikipedia</string>
   <string name="privacy_policy_description">Polityka prywatności</string>
   <string name="terms_of_use_description">Warunki użytkowania</string>
+  <string name="about_wikipedia_url">https://pl.m.wikipedia.org/wiki/Wikipedia:O_Wikipedii</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/pl</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/pl</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.pl</string>
@@ -196,7 +198,7 @@
   <string name="gallery_save_progress">Pobieranie pliku…</string>
   <string name="gallery_save_success">Plik pomyślnie zapisany.</string>
   <string name="gallery_error_video_failed">Nie można odtworzyć filmu wideo.</string>
-  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Do zapisu obrazów w pamięci twojego urządzenia wymagane są uprawnień do zapisu obrazów. Proszę, spróbuj jeszcze raz i przyznaj poproszone uprawnienia.</string>
+  <string name="gallery_save_image_write_permission_rationale">Do zapisu obrazów w pamięci twojego urządzenia wymagane są uprawnień do zapisu obrazów.</string>
   <string name="err_cannot_save_file">Nie można zapisać pliku</string>
   <string name="snippet_share_intro">\"%1$s\" na @Wikipedia: %2$s</string>
   <string name="expand_refs">Kliknij, aby rozwinąć</string>
@@ -213,7 +215,8 @@
   <string name="close_all_tabs_confirm_yes">Tak</string>
   <string name="close_all_tabs_confirm_no">Nie</string>
   <string name="button_close_tab">Zamknij kartę</string>
-  <string name="tool_tip_select_text" fuzzy="true">Naciśnij i przytrzymaj w dowolnym miejscu w tekście, aby zaznaczyć go do kopiowania i udostępnienia.</string>
+  <string name="tool_tip_select_text_title">Aby wybrać, przytrzymaj dłużej</string>
+  <string name="tool_tip_select_text">Naciśnij i przytrzymaj w dowolnym miejscu w tekście, aby zaznaczyć go do kopiowania i udostępnienia.</string>
   <string name="tool_tip_share">Po zaznaczeniu interesującego faktu, spróbuj podzielić się nim w swoich ulubionych sieciach społecznościowych!</string>
   <string name="page_view_in_browser">Otwórz stronę w przeglądarce</string>
   <string name="tool_tip_toc_button">Zobacz spis treści w dowolnym momencie, klikając na ten przycisk lub przesuwając palcem od prawej krawędzi ekranu.</string>
@@ -230,6 +233,7 @@
   <string name="nav_item_donate">Wspomóż Wikipedię</string>
   <string name="error_voice_search_not_available">Przepraszamy, rozpoznawanie mowy nie jest dostępne.</string>
   <string name="enable_location_service">Włącz</string>
+  <string name="location_permissions_enable_prompt">Włącz uprawnienia do lokalizacji, aby zobaczyć miejsca w pobliżu.</string>
   <string name="location_permissions_enable_action">Włącz</string>
   <string name="error_message_generic">Wystąpił błąd</string>
   <string name="view_link_preview_error_button_dismiss">Odrzuć</string>
@@ -246,9 +250,12 @@
   <string name="article_menu_bar_bookmark">Dodaj ten artykuł do listy do przeczytania</string>
   <string name="article_menu_bar_share">Podziel się linkiem do artykułu</string>
   <string name="article_header_edit_hint">Edytuj...</string>
+  <string name="article_header_edit_description">Edytuj opis tytułu</string>
+  <string name="article_header_edit_lead_section">Edytuj wprowadzenie</string>
   <string name="color_theme_select">Skórka</string>
   <string name="color_theme_light">Jasna</string>
   <string name="color_theme_dark">Ciemna</string>
+  <string name="color_theme_test_title">Przykładowy tekst</string>
   <string name="text_size_increase">Zwiększ rozmiar tekstu</string>
   <string name="text_size_decrease">Zmniejsz rozmiar tekstu</string>
   <string name="text_size_percent_default">%s (domyślnie)</string>
@@ -260,11 +267,12 @@
   <string name="reading_list_already_exists">Ten artykuł znajduje się już na tej liście.</string>
   <string name="reading_list_added_view_button">Zobacz listę</string>
   <string name="format_reading_list_statistical_summary_singular">1 artykuł, %1$.2f MB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d artykułów, %2$.2f MB</string>
   <string name="reading_list_sort">Sortuj</string>
   <string name="reading_list_sort_by_name">Sortuj według nazwy</string>
   <string name="reading_list_sort_by_name_desc">Sortuj według nazwy (odwrotnie)</string>
-  <string name="reading_list_sort_by_recent">Sortuj według najnowszych</string>
-  <string name="reading_list_sort_by_recent_desc">Sortuj według najstarszych</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Sortuj według najnowszych</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Sortuj według najstarszych</string>
   <string name="reading_list_menu_delete">Usuń listę</string>
   <string name="reading_list_menu_rename">Zmień nazwę</string>
   <string name="reading_list_menu_edit_description">Edytuj opis</string>
@@ -286,7 +294,8 @@
   <string name="reading_lists_confirm_remote_delete_yes">Tak</string>
   <string name="reading_lists_confirm_remote_delete_no">Nie</string>
   <string name="reading_list_added_articles_list_titled">Dodano %1$d artykułów do %2$s</string>
-    <plurals name="reading_list_article_offline_message">
+  <string name="reading_list_delete_confirm" fuzzy="true">Czy na pewno chcesz usunąć „%s”?</string>
+  <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ten artykuł będzie teraz dostępny w trybie offline.</item>
     <item quantity="other">Te artykuły będą teraz dostępne w trybie offline.</item>
   </plurals>
@@ -296,6 +305,9 @@
   </plurals>
   <string name="user_option_sync_label">Preferencje</string>
   <string name="notification_reverted_title">Wycofana edycja</string>
+  <string name="notification_thanks_title">Otrzymałeś podziękowania!</string>
+  <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; podziękował Ci za edycję na stronie &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_syncing_title">Pobieranie %1$d artykułu(-ów)...</string>
   <string name="notification_syncing_pause_button">Pauza</string>
   <string name="notification_syncing_resume_button">Wznów</string>
   <string name="notification_syncing_cancel_button">Przerwij</string>
@@ -315,8 +327,8 @@
   <string name="most_read_list_card_title">Ostatnio popularne</string>
   <string name="view_static_card_icon_content_description">Ikona karty</string>
   <string name="view_card_news_title">W aktualnościach</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">Wczoraj</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">wczoraj</item>
     <item quantity="other">%d dni temu</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">dzisiaj</string>
@@ -336,6 +348,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_success_saved">Opis opublikowany!</string>
   <string name="description_edit_success_done">Gotowe</string>
+  <string name="description_edit_success_did_you_know">Czy wiesz, że?</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Najlepiej jedna linia, od dwóch do dwunastu wyrazów.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Rozpocznij edycję</string>
   <string name="description_edit_help_tips">Jak tworzyć opisy</string>
@@ -346,6 +359,7 @@
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_reason2">twój wpis wyglądał na eksperyment lub wandalizm.</string>
   <string name="description_edit_revert_history" fuzzy="true">Jeśli jesteś zainteresowany, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>
+  <string name="offline_compilation_download_device_offline">Brak połączenia z Internetem. Upewnij się, że jesteś znów online i spróbuj ponownie.</string>
   <string name="offline_compilations_found_count" fuzzy="true">W mojej bibliotece (%d)</string>
   <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
   <string name="size_gb">%.2f GB</string>

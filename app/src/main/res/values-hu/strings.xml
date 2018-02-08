@@ -303,8 +303,8 @@
   <string name="reading_list_sort">Rendezés</string>
   <string name="reading_list_sort_by_name">Rendezés név szerint</string>
   <string name="reading_list_sort_by_name_desc">Rendezés név szerint (fordítva)</string>
-  <string name="reading_list_sort_by_recent">Rendezés a legújabb szerint</string>
-  <string name="reading_list_sort_by_recent_desc">Rendezés a legrégebbi szerint</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Rendezés a legújabb szerint</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Rendezés a legrégebbi szerint</string>
   <string name="reading_list_menu_delete">Lista törlése</string>
   <string name="reading_list_menu_rename">Átnevezés</string>
   <string name="reading_list_menu_edit_description">Leírás szerkesztése</string>
@@ -349,7 +349,8 @@
   <string name="reading_list_article_save_in_progress">A cikk letöltése folyamatban, a letöltés befejeztével offline is elérhető lesz.</string>
   <string name="reading_list_already_contains_selection">A megadott lista már tartalmazza a kiválasztott oldalak mindegyikét.</string>
   <string name="reading_list_added_articles_list_titled">%1$d szócikk hozzáadva ide: %2$s</string>
-    <plurals name="reading_list_article_offline_message">
+  <string name="reading_list_delete_confirm" fuzzy="true">Biztosan szeretnéd törölni ezt %s az olvasólistát?</string>
+  <plurals name="reading_list_article_offline_message">
     <item quantity="one">A szócikk mostantól kapcsolat nélkül is elérhető.</item>
     <item quantity="other">A szócikkek mostantól kapcsolat nélkül is elérhetők.</item>
   </plurals>
@@ -504,7 +505,7 @@
   <string name="onboarding_save_to_reading_lists_title">Mentés olvasólistára</string>
   <string name="onboarding_save_to_reading_lists_text">Készíts olvasólistákat olyan szócikkekből, amiket később szeretnél elolvasni, akár internetkapcsolat nélkül is!</string>
   <string name="onboarding_analytics_title">Névtelen adatok küldése</string>
-  <string name="onboarding_analytics_offline_text">Segíts jobbá tenni az alkalmazást a használati adatok megosztásával. A begyűjtött adatok anonimak. &lt;a href=\"#privacy\"&gt;Tudj meg többet&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text" fuzzy="true">Segíts jobbá tenni az alkalmazást a használati adatok megosztásával. A begyűjtött adatok anonimak. &lt;a href=\"#privacy\"&gt;Tudj meg többet&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Felhasználási adatok küldése</string>
   <string name="onboarding_create_account_sync">Szinkronizálja az olvasási listáit</string>
   <string name="onboarding_create_account_contributions">Hozzájárulásaid nyomon követése</string>

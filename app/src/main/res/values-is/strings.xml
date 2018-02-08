@@ -308,8 +308,8 @@
   <string name="reading_list_sort">Raða</string>
   <string name="reading_list_sort_by_name">Raða eftir nafni</string>
   <string name="reading_list_sort_by_name_desc">Raða eftir nafni (öfugt)</string>
-  <string name="reading_list_sort_by_recent">Raða eftir nýjasta</string>
-  <string name="reading_list_sort_by_recent_desc">Raða eftir elsta</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Raða eftir nýjasta</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Raða eftir elsta</string>
   <string name="reading_list_menu_delete">Eyða lista</string>
   <string name="reading_list_menu_rename">Endurnefna</string>
   <string name="reading_list_menu_edit_description">Breyta lýsingu</string>
@@ -354,6 +354,7 @@
   <string name="reading_list_article_save_in_progress">Verið er að sækja þessa grein og verður hún tiltæk án nettengingar þegar því er lokið.</string>
   <string name="reading_list_already_contains_selection">Valinn listi inniheldur nú þegar allar völdu síðurnar.</string>
   <string name="reading_list_added_articles_list_titled">Bætti %1$d greinum við %2$s</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">Ertu viss að þú viljir eyða \"%s\"?</string>
   <string name="default_reading_list_name">Vistað</string>
   <string name="default_reading_list_description">Sjálfgefinn listi fyrir vistuðu greinarnar þínar</string>
   <string name="no_user_lists_title">Skipuleggja greinar í lista</string>
@@ -526,7 +527,7 @@
   <string name="onboarding_save_to_reading_lists_title">Vista í leslista</string>
   <string name="onboarding_save_to_reading_lists_text">Búðu til leslista með greinum til að lesa þær síðar, jafnvel án nettengingar.</string>
   <string name="onboarding_analytics_title">Senda nafnlaus gögn</string>
-  <string name="onboarding_analytics_offline_text">Hjálpaðu okkur að bæta forritið með því að leyfa okkur að sjá hvernig þú notar það. Gögnum er safnað án persónuauðkenna. &lt;a href=\"#privacy\"&gt;Vita meira&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text" fuzzy="true">Hjálpaðu okkur að bæta forritið með því að leyfa okkur að sjá hvernig þú notar það. Gögnum er safnað án persónuauðkenna. &lt;a href=\"#privacy\"&gt;Vita meira&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Senda upplýsingar um notkun</string>
   <string name="onboarding_create_account_sync">Samstilltu leslistana þína</string>
   <string name="onboarding_create_account_contributions">Halda utan um framlögin þín</string>

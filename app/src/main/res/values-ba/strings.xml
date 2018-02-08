@@ -225,8 +225,8 @@
   <string name="reading_list_sort">Сортҡа айырыу</string>
   <string name="reading_list_sort_by_name">Исем буйынса айырыу</string>
   <string name="reading_list_sort_by_name_desc">Атама буйынса айырыу (киреһенсә)</string>
-  <string name="reading_list_sort_by_recent">Дата буйынса айырыу (һуңғылары)</string>
-  <string name="reading_list_sort_by_recent_desc">Дата буйынса айырыу (иҫкеләре)</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Дата буйынса айырыу (һуңғылары)</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Дата буйынса айырыу (иҫкеләре)</string>
   <string name="reading_list_menu_delete" fuzzy="true">Уҡыу исемлеген юйырға</string>
   <string name="reading_list_name_sample">Уҡыу исемлегем</string>
   <string name="reading_list_name_hint">Был исемлек атамаһы</string>
@@ -241,6 +241,7 @@
   <string name="reading_lists_onboarding_example2">Яратҡан хайуандар</string>
   <string name="reading_lists_onboarding_example3" fuzzy="true">Йыһан!</string>
   <string name="reading_lists_onboarding_got_it">Аңланым</string>
-    <string name="user_option_sync_label">Көйләүҙәр</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">Был уҡыу теҙмәһен ысынлап юйырға теләйһегеҙме %s?</string>
+  <string name="user_option_sync_label">Көйләүҙәр</string>
   <string name="storage_used_by_compilations">үҙаллы китапхана тарафынан ҡулланыла</string>
 </resources>

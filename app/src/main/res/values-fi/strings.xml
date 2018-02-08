@@ -305,8 +305,8 @@
   <string name="reading_list_sort">Lajittele</string>
   <string name="reading_list_sort_by_name">Lajittele nimen mukaan</string>
   <string name="reading_list_sort_by_name_desc">Lajittele nimen mukaan käänteisesti</string>
-  <string name="reading_list_sort_by_recent">Lajittele viimeisimmän käytön mukaan</string>
-  <string name="reading_list_sort_by_recent_desc">Lajittele varhaisimman käytön mukaan</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Lajittele viimeisimmän käytön mukaan</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Lajittele varhaisimman käytön mukaan</string>
   <string name="reading_list_menu_delete">Poista lista</string>
   <string name="reading_list_menu_rename">Nimeä uudelleen</string>
   <string name="reading_list_menu_edit_description">Muokkaa kuvausta</string>
@@ -323,8 +323,8 @@
   <string name="reading_list_item_delete_undo">Kumoa</string>
   <string name="reading_list_deleted">%s poistettu</string>
   <string name="saved_list_empty_title">Lukuluetteloita ei vielä ole</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Tallenna artikkelit lukuluetteloiksi, jotta voit tarkastella niitä myöhemmin. Voit lukea lukuluettelossa olevia artikkeleja myös ilman verkkoyhteyttä.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Luo lukuluetteloja artikkeleista, jotka haluat lukea myöhemmin. Voit lukea niitä jopa ilman verkkoyhteyttä!</string>
+  <string name="reading_lists_empty_message">Lisää artikkelit luetteloon, jotta voit tarkastella niitä myöhemmin. Voit lukea lukuluettelossa olevia artikkeleja myös ilman verkkoyhteyttä.</string>
+  <string name="reading_lists_onboarding_intro">Lisää artikkeleita listaan, joita haluat lukea myöhemmin. Voit lukea niitä jopa ilman verkkoyhteyttä!</string>
   <string name="reading_lists_onboarding_for_example">Esimerkiksi</string>
   <string name="reading_lists_onboarding_example1">Vierailemisen arvoiset paikat</string>
   <string name="reading_lists_onboarding_example2">Suosikkieläimet</string>
@@ -350,7 +350,8 @@
   <string name="reading_list_article_save_in_progress">Artikkelia ladataan ja se tulee käytettäväksi offline-tilassa kun lataus on valmis.</string>
   <string name="reading_list_already_contains_selection">Valittu luettelo sisältää jo kaikki valitut sivut.</string>
   <string name="reading_list_added_articles_list_titled">Lisättiin %1$d artikkelia luetteloon %2$s</string>
-    <string name="default_reading_list_name">Tallennettu</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">Haluatko varmasti poistaa tämän %s lukulistan?</string>
+  <string name="default_reading_list_name">Tallennettu</string>
   <string name="default_reading_list_description">Oletuslista tallennetuille artikkeleillesi</string>
   <string name="no_user_lists_title">Järjestä artikkelit luetteloihin</string>
   <string name="no_user_lists_msg">Luo luetteloita matkakohteista, suosikkiaiheista ja paljon muuta</string>
@@ -461,6 +462,7 @@
   <string name="offline_compilation_download_device_offline">Ei Internet-yhteyttä. Varmista, että yhteytesi toimii ja yritä sitten uudelleen.</string>
   <string name="offline_read_permission_rationale">Käyttöoikeus laitteesi ulkoiseen muistiin vaaditaan selaamiseen ilman verkkoyhteyttä.</string>
   <string name="offline_read_permission_error">Laitteen muistin lukemisen käyttö-oikeutta ei ole myönnetty.</string>
+  <string name="offline_card_sideloading_text">Selaat nyt Wikipediaa yhteydettömässä tilassa Offline-kirjastosi artikkelipakettien kanssa.</string>
   <string name="offline_my_compilations">Hallinnoi yhteydettömän tilan kirjastoani</string>
   <string name="offline_compilations_title">Yhteydettömän tilan kirjasto</string>
   <string name="offline_compilations_search_by_name">Etsi artikkelipaketeista nimen perusteella</string>
@@ -510,7 +512,7 @@
   <string name="onboarding_save_to_reading_lists_title">Tallenna lukuluetteloon</string>
   <string name="onboarding_save_to_reading_lists_text">Luo lukuluetteloja artikkeleista, joita haluat lukea myöhemmin, jopa silloin kun olet olet offline-tilassa.</string>
   <string name="onboarding_analytics_title">Lähetä dataa nimettömästi</string>
-  <string name="onboarding_analytics_offline_text">Auta tekemään sovelluksesta parempi antamalla meidän tietää kuinka käytät sitä. Kerätyt tiedot ovat nimettömiä. &lt;a href=\"#privacy\"&gt;Opi lisää&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text" fuzzy="true">Auta tekemään sovelluksesta parempi antamalla meidän tietää kuinka käytät sitä. Kerätyt tiedot ovat nimettömiä. &lt;a href=\"#privacy\"&gt;Opi lisää&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Lähetä dataa tavasta, jolla käytät sovellusta</string>
   <string name="onboarding_create_account_sync">Synkronoi lukuluettelosi</string>
   <string name="onboarding_create_account_contributions">Seuraa tekemiäsi muokkauksia</string>

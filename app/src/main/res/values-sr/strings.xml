@@ -287,8 +287,8 @@
   <string name="reading_list_sort">Сортирај</string>
   <string name="reading_list_sort_by_name">Сортирај по имену</string>
   <string name="reading_list_sort_by_name_desc">Сортирај по имену (обрнуто)</string>
-  <string name="reading_list_sort_by_recent">Сортирај по датуму (прво новије)</string>
-  <string name="reading_list_sort_by_recent_desc">Сортирај по датуму (прво старије)</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Сортирај по датуму (прво новије)</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Сортирај по датуму (прво старије)</string>
   <string name="reading_list_menu_delete">Избриши списак</string>
   <string name="reading_list_menu_rename">Преименуј</string>
   <string name="reading_list_menu_edit_description">Уреди опис</string>
@@ -322,7 +322,8 @@
   <string name="reading_list_login_reminder_title">Синхронизујте списак за читање</string>
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
-    <string name="default_reading_list_name">Сачувано</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">Заиста желите да избришете овај %s списак за читање?</string>
+  <string name="default_reading_list_name">Сачувано</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Овај чланак ће бити доступан офлајн.</item>
     <item quantity="other">Ови чланаци ће бити доступни офлајн.</item>

@@ -308,8 +308,8 @@
   <string name="reading_list_sort">Ordena</string>
   <string name="reading_list_sort_by_name">Ordena per nom</string>
   <string name="reading_list_sort_by_name_desc">Ordena per nom (invers)</string>
-  <string name="reading_list_sort_by_recent">Ordena per més recent</string>
-  <string name="reading_list_sort_by_recent_desc">Ordena per menys recent</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Ordena per més recent</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Ordena per menys recent</string>
   <string name="reading_list_menu_delete">Elimina la llista</string>
   <string name="reading_list_menu_rename">Reanomena</string>
   <string name="reading_list_menu_edit_description">Modifica la descripció</string>
@@ -354,7 +354,8 @@
   <string name="reading_list_article_save_in_progress">S\'està baixant l\'article. Estarà disponible fora de línia quan acabi.</string>
   <string name="reading_list_already_contains_selection">La llista triada ja conté totes les pàgines seleccionades.</string>
   <string name="reading_list_added_articles_list_titled">S\'han afegit %1$d articles a %2$s</string>
-    <string name="default_reading_list_name">Desats</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">Esteu segur que voleu suprimir aquesta llista %s de lectura?</string>
+  <string name="default_reading_list_name">Desats</string>
   <string name="default_reading_list_description">Llista per defecte d’articles desats</string>
   <string name="no_user_lists_title">Organitzar articles en llistes</string>
   <string name="no_user_lists_msg">Crear llistes per llocs on viatjar, temes favorits, i molt més</string>
@@ -526,7 +527,7 @@
   <string name="onboarding_save_to_reading_lists_title">Afegeix a la llista de lectura</string>
   <string name="onboarding_save_to_reading_lists_text">Crea llistes de lectures a partir d\'articles que vulguis llegir en un altre moment, encara que estiguis fora de línia.</string>
   <string name="onboarding_analytics_title">Envia dades anònimes</string>
-  <string name="onboarding_analytics_offline_text">Ajudan\'s a fer una aplicació millor explicant-nos com la fas servir tu. Les dades es recopilen de forma anònima. &lt;a href=\"#privacy\"&gt;Aprèn més&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text" fuzzy="true">Ajudan\'s a fer una aplicació millor explicant-nos com la fas servir tu. Les dades es recopilen de forma anònima. &lt;a href=\"#privacy\"&gt;Aprèn més&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Envia les dades d\'ús</string>
   <string name="onboarding_create_account_sync">Sincronitza les vostres llistes de lectura</string>
   <string name="onboarding_create_account_contributions">Estigueu al dia de les vostres contribucions</string>

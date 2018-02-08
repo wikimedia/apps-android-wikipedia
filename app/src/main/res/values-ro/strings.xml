@@ -225,8 +225,8 @@
   <string name="reading_list_sort">Sortare</string>
   <string name="reading_list_sort_by_name">Sortare după titlu</string>
   <string name="reading_list_sort_by_name_desc">Sortare după titlu (invers)</string>
-  <string name="reading_list_sort_by_recent">Sortare după dată</string>
-  <string name="reading_list_sort_by_recent_desc">Sortare după cea mai veche dată</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Sortare după dată</string>
+  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Sortare după cea mai veche dată</string>
   <string name="reading_list_menu_delete" fuzzy="true">Șterge lista de lecturi</string>
   <string name="reading_list_name_sample">Lista mea de lecturi</string>
   <string name="reading_list_name_hint">Numele listei</string>
@@ -242,7 +242,8 @@
   <string name="reading_lists_onboarding_example2">Animale preferate</string>
   <string name="reading_lists_onboarding_example3" fuzzy="true">Cosmos!</string>
   <string name="reading_lists_onboarding_got_it">Am înțeles</string>
-    <string name="user_option_sync_label">Preferințe</string>
+  <string name="reading_list_delete_confirm" fuzzy="true">Sigur doriți să ștergeți această listă %s de lecturi?</string>
+  <string name="user_option_sync_label">Preferințe</string>
   <string name="view_continue_reading_card_title">Continuă lectura</string>
   <string name="view_because_you_read_card_title">Pentru că ați citit</string>
   <string name="view_random_card_title">Aleatoriu</string>
