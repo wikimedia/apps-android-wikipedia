@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
-import android.text.Spanned;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -48,8 +47,8 @@ public class OnboardingView extends LinearLayout {
         textView.setText(id);
     }
 
-    public void setText(Spanned spanned) {
-        textView.setText(spanned);
+    public void setText(@NonNull CharSequence text) {
+        textView.setText(text);
     }
 
     public void setPositiveAction(@StringRes int id) {
