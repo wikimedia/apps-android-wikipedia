@@ -6,7 +6,6 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Handler;
-import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatDelegate;
@@ -57,7 +56,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 import java.util.UUID;
 
 import retrofit2.Call;
@@ -68,7 +66,7 @@ import static org.wikipedia.util.DimenUtil.getFontSizeFromSp;
 import static org.wikipedia.util.ReleaseUtil.getChannel;
 
 public class WikipediaApp extends Application {
-    private static final int EVENT_LOG_TESTING_ID = new Random().nextInt(Integer.MAX_VALUE);
+    private static int EVENT_LOG_TESTING_ID = -1;
 
     private final RemoteConfig remoteConfig = new RemoteConfig();
     private final Map<Class<?>, DatabaseClient<?>> databaseClients = Collections.synchronizedMap(new HashMap<Class<?>, DatabaseClient<?>>());
@@ -311,19 +309,28 @@ public class WikipediaApp extends Application {
     }
 
     /**
-     * Get an integer-valued random ID. This is typically used to determine global EventLogging
-     * sampling, that is, whether the user's instance of the app sends any events or not. This is a
-     * pure technical measure which is necessary to prevent overloading EventLogging with too many
-     * events. This value will persist for the lifetime of the app.
+     * Determines whether the current user belongs in a particular sampling bucket. This is
+     * determined by taking the last four hex digits of the appInstallID and testing them modulo
+     * the sampling rate that is provided.
      *
      * Don't use this method when running to determine whether or not the user falls into a control
      * or test group in any kind of tests (such as A/B tests), as that would introduce sampling
      * biases which would invalidate the test.
-     * @return Integer ID for event log sampling.
+     * @return Whether the current user is part of the requested sampling rate bucket.
      */
-    @IntRange(from = 0)
-    public int getEventLogSamplingID() {
-        return EVENT_LOG_TESTING_ID;
+    @SuppressWarnings("magicnumber")
+    public boolean isUserInSamplingGroup(int sampleRate) {
+        if (EVENT_LOG_TESTING_ID == -1) {
+            String installID = getAppInstallID();
+            if (installID.length() > 4) {
+                try {
+                    EVENT_LOG_TESTING_ID = Integer.parseInt(installID.substring(installID.length() - 4), 16);
+                } catch (NumberFormatException e) {
+                    L.w(e);
+                }
+            }
+        }
+        return EVENT_LOG_TESTING_ID % sampleRate == 0 || ReleaseUtil.isDevRelease();
     }
 
     /**
@@ -409,12 +416,7 @@ public class WikipediaApp extends Application {
     }
 
     private CrashReporter.AutoUploadConsentAccessor consentAccessor() {
-        return new CrashReporter.AutoUploadConsentAccessor() {
-            @Override
-            public boolean isAutoUploadPermitted() {
-                return Prefs.isCrashReportAutoUploadEnabled();
-            }
-        };
+        return Prefs::isCrashReportAutoUploadEnabled;
     }
 
     private void enableWebViewDebugging() {
