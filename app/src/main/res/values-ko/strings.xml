@@ -342,11 +342,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">오프라인에서 제거</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">글이 여러 목록으로 표시됩니다</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s 문서는 모든 읽기 목록에 대해 오프라인에서 더 이상 읽을 수 없습니다:</string>
-  <string name="reading_list_sync_reminder_title">읽기 목록 동기화가 꺼져 있습니다</string>
-  <string name="reading_list_sync_reminder_text">앱 설정에서 동기화를 허용하면 읽기 목록을 위키백과 계정과 동기화할 수 있습니다.</string>
-  <string name="reading_list_sync_reminder_action">켜기</string>
   <string name="reading_list_login_reminder_title">읽기 목록 동기화</string>
-  <string name="reading_list_login_reminder_text">읽기 목록이 이제 위키백과 계정에 저장됩니다. 계정에 로그인만 하면 읽기 목록이 자동으로 동기화됩니다.</string>
   <string name="reading_lists_confirm_remote_delete">과거에 동기화된 읽기 목록을 원격 기억 장치에서 삭제합니다. 진행하시겠습니까?</string>
   <string name="reading_lists_confirm_remote_delete_yes">예</string>
   <string name="reading_lists_confirm_remote_delete_no">아니오</string>

@@ -341,11 +341,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Kendu lineaz kanpotik</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikulua zerrenda anitzetan agertzen da</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ez da erabilgarri egongo konexiorik gabe hurrengo zerrendetan:</string>
-  <string name="reading_list_sync_reminder_title">Irakurtze zerrenden sinkronizazioa itzali da</string>
-  <string name="reading_list_sync_reminder_text">Zure irakurketa-zerrendak zure Wikipedia kontuarekin sinkroniza daitezke aplikazioen ezarpenetan sinkronizatzen baduzu.</string>
-  <string name="reading_list_sync_reminder_action">Piztu</string>
   <string name="reading_list_login_reminder_title">Zure irakurketa zerrendak sinkronizatu</string>
-  <string name="reading_list_login_reminder_text">Zure irakurketa-zerrendak zure Wikipedia kontuan gorde daitezke. Besterik gabe, saioa hasi zure kontuan, eta zure irakurketa-zerrendak automatikoki sinkronizatuko dira.</string>
   <string name="reading_lists_confirm_remote_delete">Honek aurreko sinkronizatutako irakurketen zerrendak ezabatuko ditu urruneko biltegitik. Jarraitu?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Bai</string>
   <string name="reading_lists_confirm_remote_delete_no">Ez</string>

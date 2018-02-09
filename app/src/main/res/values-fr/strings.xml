@@ -345,11 +345,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Indisponible en mode déconnecté</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Article présent dans plusieurs listes</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ne sera plus disponible en mode déconnecté dans toutes les listes de lecture :</string>
-  <string name="reading_list_sync_reminder_title">La synchronisation des listes de lecture est désactivée</string>
-  <string name="reading_list_sync_reminder_text">Vos listes de lecture peuvent être synchronisées avec votre compte Wikipédia si vous autorisez la synchronisation dans les paramètres de l’application.</string>
-  <string name="reading_list_sync_reminder_action">Activer</string>
   <string name="reading_list_login_reminder_title">Synchroniser les listes de lecture</string>
-  <string name="reading_list_login_reminder_text">Vos listes de lecture peuvent maintenant être enregistrées dans votre compte Wikipédia. Connectez-vous simplement à votre compte, et vos listes de lecture seront synchronisées automatiquement.</string>
   <string name="reading_lists_confirm_remote_delete">Cela supprimera du stockage distant toutes les listes de lecture synchronisées précédemment. Continuer ?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Oui</string>
   <string name="reading_lists_confirm_remote_delete_no">Non</string>

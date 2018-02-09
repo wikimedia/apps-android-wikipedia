@@ -336,11 +336,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Kkes seg uskar war ruqqna</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Amagrad yettban-d di ddeqs n tebdarin</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ur yettili ara deg uskar war tuqqna di tebdarin ntɣuri meṛṛa:</string>
-  <string name="reading_list_sync_reminder_title">Amtawi n tebdarin n tɣuri yensa</string>
-  <string name="reading_list_sync_reminder_text">Tibdarin-ik n tɣuri ad mtawint ar Wikipedia ma yella tmuddeḍ tasiregt n umtawi deg iɣewwaṛen n usnas.</string>
-  <string name="reading_list_sync_reminder_action">Rmed</string>
   <string name="reading_list_login_reminder_title">Mtawi tibdarin n tɣuri</string>
-  <string name="reading_list_login_reminder_text">Tibdarin-ik n tɣuri zemrent ad ttwaskelsent tura deg umiḍan-ik Wikipedia. Qqen ar umiḍan, akked tibdarin-ik n tɣuri ad mtawint s wudem awurman.</string>
   <string name="reading_lists_confirm_remote_delete">Ayagi ad yekkes seg usekles anmeggag akk tibdarin n tɣuri yemtawin yakan. Kemmel?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ih</string>
   <string name="reading_lists_confirm_remote_delete_no">Uhu</string>

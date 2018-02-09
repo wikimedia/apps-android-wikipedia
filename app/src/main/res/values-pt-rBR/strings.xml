@@ -345,11 +345,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Remover do modo offline</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">O artigo aparece em várias listas</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s não estará mais disponível off-line para todas as listas de leitura:</string>
-  <string name="reading_list_sync_reminder_title">A sincronização da lista de leitura está desativada</string>
-  <string name="reading_list_sync_reminder_text">Suas listas de leitura podem ser sincronizadas com a sua conta Wikipedia se você permitir a sincronização nas configurações do aplicativo.</string>
-  <string name="reading_list_sync_reminder_action">Ativar</string>
   <string name="reading_list_login_reminder_title">Sincronizar listas de leitura</string>
-  <string name="reading_list_login_reminder_text">Suas listas de leitura podem agora ser salvas na sua conta Wikipedia. Basta acessar sua conta e suas listas de leitura serão sincronizadas automaticamente.</string>
   <string name="reading_lists_confirm_remote_delete">Isso eliminará todas as listas de leitura previamente sincronizadas do armazenamento remoto. Prosseguir?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Sim</string>
   <string name="reading_lists_confirm_remote_delete_no">Não</string>

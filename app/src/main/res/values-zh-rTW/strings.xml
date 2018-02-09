@@ -345,11 +345,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">從離線移除</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">出現在多個清單的條目</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s 不再於所有閱讀清單提供離線內容：</string>
-  <string name="reading_list_sync_reminder_title">同步閱讀清單功能為停用</string>
-  <string name="reading_list_sync_reminder_text">若您允許在應用程式設定的同步功能，您的閱讀清單可被同步至您的維基百科帳號。</string>
-  <string name="reading_list_sync_reminder_action">啟動</string>
   <string name="reading_list_login_reminder_title">同步閱讀清單</string>
-  <string name="reading_list_login_reminder_text">閱讀清單現在可儲存至您的維基百科帳號。只要有登入帳號，您的閱讀清單就可自動同步。</string>
   <string name="reading_lists_confirm_remote_delete">這將會刪除之前來自於遠端儲存庫設備的任何已同步閱讀清單。確定要處理嗎？</string>
   <string name="reading_lists_confirm_remote_delete_yes">是</string>
   <string name="reading_lists_confirm_remote_delete_no">否</string>

@@ -319,18 +319,12 @@
   <string name="reading_list_confirm_remove_article_from_offline">Ukloni iz vanmrežnih</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Članak se nalazi na nekoliko spiskova</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s više neće biti dostupan van mreže za sljedeće spiskove za čitanje:</string>
-  <string name="reading_list_sync_reminder_title">Sinhronizacija spiskova za čitanje je isključena</string>
-  <string name="reading_list_sync_reminder_text">Spiskove za čitanje možete sinhronizirati sa svojim računom na Wikipediji ako dozvolite sinhroniziranje u postavkama aplikacije.</string>
-  <string name="reading_list_sync_reminder_action">Uključi</string>
   <string name="reading_list_login_reminder_title">Sinhroniziraj spiskove za čitanje</string>
-  <string name="reading_list_login_reminder_text">Spiskove za čitanje od sada možete sačuvati na svoj račun na Wikipediji. Jednostavno se prijavite na svoj račun i spiskovi za čitanje automatski će se sinhronizirati.</string>
   <string name="reading_lists_confirm_remote_delete">Ovim ćete obrisati prethodno sinhonizirane spiskove s daljinskog skladištenja? Da nastavim?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Da</string>
   <string name="reading_lists_confirm_remote_delete_no">Ne</string>
   <string name="reading_list_article_save_in_progress">Preuzimanje članka je u toku i bit će dostupan van mreže kada se završi.</string>
   <string name="reading_list_delete_confirm" fuzzy="true">Jeste li sigurni da želite obrisati ovaj spisak za %s čitanje?</string>
-  <string name="reading_list_article_offline_message" fuzzy="true">Ovaj članak sad će biti dostupan van mreže.</string>
-  <string name="reading_list_article_not_offline_message" fuzzy="true">Ovaj članak više neće biti dostupan van mreže.</string>
   <string name="user_option_sync_label">Postavke</string>
   <string name="notification_button_view_user">Razgovaraj s korisnikom</string>
   <string name="notification_talk_title">Nova poruka na Wikipediji</string>

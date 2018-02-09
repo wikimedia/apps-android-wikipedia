@@ -291,8 +291,6 @@
   <string name="reading_list_confirm_remove_article_from_offline">ထွၼ်ပႅတ်ႈ ၵႃႈတီႈ ဢမ်ႇမီးၼႅင်ႈ</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">ပွင်ႈလိၵ်ႈၼႆႉ မီးဝႆႉ တီႈၼႂ်း သဵၼ်ႈမၢႆ လၢႆဢၼ်</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ၼႆႉ တေဢမ်ႇၸၢင်ႈၸႂ်ႉ ၽွင်းႁၢမ်းၼႅင်ႈ တွၼ်ႈတႃႇ သဵၼ်ႈမၢႆလူတင်းသဵင်ႈ:</string>
-  <string name="reading_list_article_offline_message" fuzzy="true">ၽွင်းဢမ်ႇမီးၼႅင်ႈၵေႃႈ ပွင်ႈလိၵ်ႈၼႆႉ တေလူလႆႈယဝ်ႉ။</string>
-  <string name="reading_list_article_not_offline_message" fuzzy="true">ပွင်ႈလိၵ်ႈၼႆ့ တေဢမ်ႇလူလႆႈ ၽွင်းဢမ်ႇမီးၼႅင်ႈ။</string>
   <string name="user_option_sync_label">ငဝ်ႈၵုမ်းပိူင်</string>
   <string name="notification_button_view_user">လၢတ်ႈတေႃႇၸူး ၽူႈၸႂ်ႉတိုဝ်း</string>
   <string name="notification_talk_title">ၶၢဝ်ႇသၢၼ်ဢၼ်မႂ်ႇ ၵႃႈတီႈ ဝီႇၶီႇၽီးတီးယႃး</string>

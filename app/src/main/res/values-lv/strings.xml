@@ -178,7 +178,6 @@
   <string name="reading_lists_onboarding_example3">Kosmosa izpēte</string>
   <string name="reading_lists_onboarding_got_it">Sapratu</string>
   <string name="reading_list_remove_from_list">Noņemt no %s</string>
-  <string name="reading_list_sync_reminder_action">Ieslēgt</string>
   <string name="default_reading_list_name">Saglabāts</string>
   <string name="user_option_sync_label">Izvēles</string>
   <string name="notification_reverted_title">Atcelts labojums</string>

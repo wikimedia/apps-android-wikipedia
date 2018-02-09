@@ -154,7 +154,6 @@
   <string name="reading_list_remove_from_list">Odstrani s seznama %s</string>
   <string name="reading_list_remove_from_lists">Odstrani z bralnih seznamov</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Članek je na večih seznamih</string>
-  <string name="reading_list_sync_reminder_action">Vklopi</string>
   <string name="reading_lists_confirm_remote_delete_yes">Da</string>
   <string name="reading_lists_confirm_remote_delete_no">Ne</string>
   <string name="user_option_sync_label">Nastavitve</string>

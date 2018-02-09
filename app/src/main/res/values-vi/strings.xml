@@ -327,11 +327,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Xóa khỏi bộ nhớ ngoại tuyến</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Bài nằm trong nhiều danh sách</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s hiện không còn có sẵn ngoại tuyến cho danh sách đọc nào:</string>
-  <string name="reading_list_sync_reminder_title">Đồng bộ hóa danh sách đọc đang tắt</string>
-  <string name="reading_list_sync_reminder_text">Các danh sách đọc của bạn sẽ được đồng bộ hóa với tài khoản Wikipedia của bạn nếu bạn bật đồng bộ hóa trong tùy chọn.</string>
-  <string name="reading_list_sync_reminder_action">Bật</string>
   <string name="reading_list_login_reminder_title">Đồng bộ hóa các danh sách đọc</string>
-  <string name="reading_list_login_reminder_text">Bạn hiện có thể lưu các danh sách đọc vào tài khoản Wikipedia của bạn. Chỉ việc đăng nhập vào tài khoản của bạn, thì các danh sách đọc của bạn sẽ được đồng bộ hóa tự động.</string>
   <string name="reading_lists_confirm_remote_delete">Điều này sẽ xóa tất cả những danh sách đọc được đồng bộ hóa trước đây khỏi lưu trữ từ xa. Bạn có muốn tiếp tục?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Có</string>
   <string name="reading_lists_confirm_remote_delete_no">Không</string>

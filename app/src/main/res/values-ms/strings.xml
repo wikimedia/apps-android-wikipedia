@@ -343,11 +343,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Padam dari luar talian</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Rencana muncul dalam beberapa senarai</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s tidak lagi akan tersedia di luar talian untuk semua senarai baca:</string>
-  <string name="reading_list_sync_reminder_title">Penyegerakan senarai bacaan dimatikan</string>
-  <string name="reading_list_sync_reminder_text">Senarai bacaan anda boleh disegerakkan ke akaun Wikipedia anda jika anda membenarkan penyegerakan dalam tetapan aplikasi.</string>
-  <string name="reading_list_sync_reminder_action">Hidupkan</string>
   <string name="reading_list_login_reminder_title">Menyegerakkan senarai bacaan</string>
-  <string name="reading_list_login_reminder_text">Senarai bacaan anda kini boleh disimpan ke akaun Wikipedia anda. Hanya log masuk ke akaun anda, dan senarai bacaan anda akan disegerakkan secara automatik.</string>
   <string name="reading_lists_confirm_remote_delete">Ini akan memadam sebarang senarai bacaan diselaraskan sebelumnya dari storan jauh. Teruskan?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ya</string>
   <string name="reading_lists_confirm_remote_delete_no">Tidak</string>

@@ -321,19 +321,13 @@
   <string name="reading_list_confirm_remove_article_from_offline">Ne c\'haller ket e gaout er mod digevreet</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Pennadoù o tont wel e meur a roll</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">Ne c\'haller ket mui kaout %s er mod digevreet en holl rolloù lenn :</string>
-  <string name="reading_list_sync_reminder_title">Diweredekaet sinkronelaat ar rolloù lenn</string>
-  <string name="reading_list_sync_reminder_text">Ho rolloù lenn a c\'hall bezañ sinkronelaet gant ho kont Wikipedia ma\'z aotreit ar sinkronelaat en arventennoù an arload.</string>
-  <string name="reading_list_sync_reminder_action">Enaouiñ</string>
   <string name="reading_list_login_reminder_title">Sinkronelaat ar rolloù lenn</string>
-  <string name="reading_list_login_reminder_text">Ho rolloù lenn a c\'hall bremañ bezañ enrollet en ho kont Wikipedia.\nKevreit ouzh ho kont ha netra ken hag ho rolloù lenn a vo sinkronelaet ent emgefreek.</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ya</string>
   <string name="reading_lists_confirm_remote_delete_no">Ket</string>
   <string name="reading_list_article_save_in_progress">Emañ ar pennad o pellgargañ ha gallout a reot kaout anezhañ pa vo echuet.</string>
   <string name="reading_list_already_contains_selection">Er roll emañ an holl bajennoù dibabet dija.</string>
   <string name="reading_list_added_articles_list_titled">%1$d pennad ouzhpennet da %2$s</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">Ha sur eo hoc\'h eus c\'hoant da zilemel ar roll-mañ %s?</string>
   <string name="default_reading_list_name">Enrollet</string>
-  <string name="reading_list_article_offline_message">{[PLURAL|one=Gallout a reot gwelet ar pennad-mañ ezlinenn hiviziken|Gallout a reot gwelet ar pennadoù-mañ ezlinenn hiviziken.</string>
   <plurals name="reading_list_article_not_offline_message">
     <item quantity="one">Ne c\'hallor ket gwelet ar pennadoù-mañ ezlinenn pelloc\'h</item>
     <item quantity="other">e c\'hallor ket gwelet ar pennad-mañ ezlinenn pelloc\'h.</item>

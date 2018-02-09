@@ -321,9 +321,6 @@
   <string name="reading_list_confirm_remove_article_from_offline">Aus der Offline-Lëscht eraushuelen</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikel ass a verschiddene Lëschten</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ass fir keng Lieslëscht méi offline disponibel:</string>
-  <string name="reading_list_sync_reminder_title">Synchronisatioun vun der Lieslëscht ass ausgeschalt</string>
-  <string name="reading_list_sync_reminder_text">Är Lieslëschte kënne mat Ärem Wikipedia-Benotzerkont synchroniséiert gi wann Dir d\'Synchronisatioun an den Astellunge vun der App erlaabt.</string>
-  <string name="reading_list_sync_reminder_action">Aschalten</string>
   <string name="reading_list_login_reminder_title">Lieslëschte synchroniséieren</string>
   <string name="reading_lists_confirm_remote_delete_yes">Jo</string>
   <string name="reading_lists_confirm_remote_delete_no">Neen</string>

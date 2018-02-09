@@ -108,5 +108,6 @@ public final class ViewUtil {
         });
     }
 
-    private ViewUtil() { }
+    private ViewUtil() {
+    }
 }

@@ -332,11 +332,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">أزل من وضع عدم الاتصال</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">المقالة تظهر في عدة قوائم</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s لن تكون متاحة بدون اتصال في جميع قوائم القراءة:</string>
-  <string name="reading_list_sync_reminder_title">تم إيقاف مزامنة قائمة القراءة</string>
-  <string name="reading_list_sync_reminder_text">يُمكن مزامنة قوائم قراءتك مع حسابك في ويكيبيديا إذا سمحت بالمزامنة في إعدادات التطبيق.</string>
-  <string name="reading_list_sync_reminder_action">تشغيل</string>
   <string name="reading_list_login_reminder_title">مزامنة قوائم القراءة</string>
-  <string name="reading_list_login_reminder_text">يُمكن الآن حفظ قوائم قراءتك في حسابك في ويكيبيديا. ببساطة سجّل دخولك لحسابك، وستتم مزامنة قوائم قراءتك آليًّا.</string>
   <string name="reading_lists_confirm_remote_delete">هذا سيؤدي لحذف أي قوائم قراءة مزامنة سابقًا من وحدة التخزين عن بعد. أترغب في المتابعة؟</string>
   <string name="reading_lists_confirm_remote_delete_yes">نعم</string>
   <string name="reading_lists_confirm_remote_delete_no">لا</string>

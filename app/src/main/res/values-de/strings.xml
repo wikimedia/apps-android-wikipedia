@@ -345,11 +345,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Von der Offlineliste entfernen</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Der Artikel erscheint in mehreren Listen</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ist für keine Leseliste mehr offline verfügbar:</string>
-  <string name="reading_list_sync_reminder_title">Die Synchronisierung von Leselisten ist ausgeschaltet</string>
-  <string name="reading_list_sync_reminder_text">Deine Leselisten können mit deinem Wikipedia-Benutzerkonto synchronisiert werden, wenn du dies in den App-Einstellungen erlaubst.</string>
-  <string name="reading_list_sync_reminder_action">Anschalten</string>
   <string name="reading_list_login_reminder_title">Leselisten synchronisieren</string>
-  <string name="reading_list_login_reminder_text">Deine Leselisten können jetzt in dein Wikipedia-Benutzerkonto gespeichert werden. Melde dich einfach bei deinem Benutzerkonto an und deine Leselisten werden automatisch synchronisiert.</string>
   <string name="reading_lists_confirm_remote_delete">Dies wird alle bisherigen synchronisierten Leselisten aus dem Fernspeicher löschen. Fortfahren?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nein</string>

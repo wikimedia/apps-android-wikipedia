@@ -4,10 +4,12 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
+import android.text.Spanned;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.wikipedia.R;
+import org.wikipedia.page.LinkMovementMethodExt;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,6 +33,7 @@ public class OnboardingView extends LinearLayout {
         setOrientation(VERTICAL);
         inflate(context, R.layout.view_onboarding, this);
         ButterKnife.bind(this);
+        textView.setMovementMethod(LinkMovementMethodExt.getInstance());
     }
 
     public void setCallback(@Nullable Callback callback) {
@@ -43,6 +46,10 @@ public class OnboardingView extends LinearLayout {
 
     public void setText(@StringRes int id) {
         textView.setText(id);
+    }
+
+    public void setText(Spanned spanned) {
+        textView.setText(spanned);
     }
 
     public void setPositiveAction(@StringRes int id) {

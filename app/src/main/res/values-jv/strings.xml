@@ -342,11 +342,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Busak saka njaban jaringan</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikel katon ing manéka pratélan</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s bakal ora ana manèh ing njaban jaringan tumrap kabèh pratélan wacan:</string>
-  <string name="reading_list_sync_reminder_title">Sinkronisasi pratélan wacan dipatèni</string>
-  <string name="reading_list_sync_reminder_text">Pratélan wacané panjenengan bisa disinkronisasi nyang akun Wikipédiané panjenengan yèn panjenengan ngurubaké sinkronisasi ing setèlan aplikasi.</string>
-  <string name="reading_list_sync_reminder_action">Urubaké</string>
   <string name="reading_list_login_reminder_title">Sinkronisasi pratélan wacan</string>
-  <string name="reading_list_login_reminder_text">Pratélan wacané panjenengan bokmanawa bisa disimpen ing akun Wikipédiané panjenengan saiki. Cukup mlebu log nyang akuné panjenengan, lan pratélan wacané panjenengan bakal otomatis kasinkronisasi.</string>
   <string name="reading_lists_confirm_remote_delete">Tumindak iki bakal mbusak pratélan wacan sing disinkronisasi sadurungé saka panyimpenan adoh. Bacutaké?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Iya</string>
   <string name="reading_lists_confirm_remote_delete_no">Ora</string>

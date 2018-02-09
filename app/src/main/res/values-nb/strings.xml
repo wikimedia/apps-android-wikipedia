@@ -342,11 +342,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Fjern fra offline</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikkelen finnes i flere lister</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s vil ikke lenger være tilgjengelig offline via noen av leselistene:</string>
-  <string name="reading_list_sync_reminder_title">Synkronisering av leselister er ikke skrudd på</string>
-  <string name="reading_list_sync_reminder_text">Leselistene dine kan synkroniseres med Wikipedia-kontoen din hvis du tillater synkronisering i app-innstillingene.</string>
-  <string name="reading_list_sync_reminder_action">Skru på</string>
   <string name="reading_list_login_reminder_title">Synkroniser leselister</string>
-  <string name="reading_list_login_reminder_text">Leselistene dine kan nå lagres til Wikipedia-kontoen din. Logg inn med kontoen din, så blir leselistene synkronisert  automatisk.</string>
   <string name="reading_lists_confirm_remote_delete">Dette vil slette alle tidligere synkroniserte leselister fra fjernlageret. Vil du fortsette?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nei</string>

@@ -339,11 +339,7 @@
   <string name="reading_list_remove_from_lists">Poista lukuluetteloista</string>
   <string name="reading_list_confirm_remove_article_from_offline">Poista offlinesta</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikkeli löytyy useammasta luettelosta</string>
-  <string name="reading_list_sync_reminder_title">Lukulistojen synkronointi on pois käytöstä</string>
-  <string name="reading_list_sync_reminder_text">Lukuluettelosi voidaan synkronoida Wikipedia-tunnuksellesi, jos sallit synkronoinnin sovelluksen asetuksissa.</string>
-  <string name="reading_list_sync_reminder_action">Ota käyttöön</string>
   <string name="reading_list_login_reminder_title">Synkronoi lukulistat</string>
-  <string name="reading_list_login_reminder_text">Lukuluettelosi voidaan nyt tallentaa Wikipedia-tunnuksellesi. Kirjaudu sisään tunnuksellesi ja lukuluettelosi synkronoidaan automaattisesti.</string>
   <string name="reading_lists_confirm_remote_delete">Tämä poistaa kaikki aiemmin synkronoidut lukuluettelot etätallennusvarannosta. Jatketaanko?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Kyllä</string>
   <string name="reading_lists_confirm_remote_delete_no">Ei</string>

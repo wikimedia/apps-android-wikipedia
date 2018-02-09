@@ -343,11 +343,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Çevrimdışı erişimden sil</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Madde birden çok listede yer alıyor</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s artık şu listelerde çevrimdışı erişilebilir olmayacak:</string>
-  <string name="reading_list_sync_reminder_title">Okuma listesi senkronizasyonu kapatıldı</string>
-  <string name="reading_list_sync_reminder_text">Eğer uygulama ayarlarından senkronizasyon izni verirseniz, okuma listeleriniz Vikipedi hesabınızla senkronize edilebilir.</string>
-  <string name="reading_list_sync_reminder_action">Aç</string>
   <string name="reading_list_login_reminder_title">Okuma listelerini senkronize et</string>
-  <string name="reading_list_login_reminder_text">Artık okuma listeleriniz Vikipedi hesabınıza kaydedilebilir. Basitçe hesabınıza giriş yapın; okuma listeleriniz otomatik olarak senkronize edilecek.</string>
   <string name="reading_lists_confirm_remote_delete">Bu, daha önce dış depoplamadan senkronize edilmiş tüm okumla listelerini silecek. Devam edilsin mi?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Evet</string>
   <string name="reading_lists_confirm_remote_delete_no">Hayır</string>
