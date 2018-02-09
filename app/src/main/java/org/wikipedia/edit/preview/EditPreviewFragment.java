@@ -1,7 +1,6 @@
 package org.wikipedia.edit.preview;
 
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -114,12 +113,9 @@ public class EditPreviewFragment extends Fragment {
             final EditSummaryTag tag = new EditSummaryTag(getActivity());
             tag.setText(tempResources.getString(i));
             tag.setTag(i);
-            tag.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    funnel.logEditSummaryTap((Integer) view.getTag());
-                    tag.setSelected(!tag.getSelected());
-                }
+            tag.setOnClickListener((view) -> {
+                funnel.logEditSummaryTap((Integer) view.getTag());
+                tag.setSelected(!tag.getSelected());
             });
             editSummaryTagsContainer.addView(tag);
             summaryTags.add(tag);
@@ -128,15 +124,12 @@ public class EditPreviewFragment extends Fragment {
         otherTag = new EditSummaryTag(getActivity());
         otherTag.setText(tempResources.getString(R.string.edit_summary_tag_other));
         editSummaryTagsContainer.addView(otherTag);
-        otherTag.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                funnel.logEditSummaryTap(R.string.edit_summary_tag_other);
-                if (otherTag.getSelected()) {
-                    otherTag.setSelected(false);
-                } else {
-                    parentActivity.showCustomSummary();
-                }
+        otherTag.setOnClickListener((view) -> {
+            funnel.logEditSummaryTap(R.string.edit_summary_tag_other);
+            if (otherTag.getSelected()) {
+                otherTag.setSelected(false);
+            } else {
+                parentActivity.showCustomSummary();
             }
         });
 
@@ -196,22 +189,13 @@ public class EditPreviewFragment extends Fragment {
 
                 @Override
                 public void onInternalLinkClicked(@NonNull final PageTitle title) {
-                    showLeavingEditDialogue(new Runnable() {
-                        @Override
-                        public void run() {
-                            startActivity(PageActivity.newIntentForNewTab(getContext(), new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title));
-                        }
-                    });
+                    showLeavingEditDialogue(() -> startActivity(PageActivity.newIntentForNewTab(getContext(),
+                            new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title)));
                 }
 
                 @Override
                 public void onExternalLinkClicked(@NonNull final Uri uri) {
-                    showLeavingEditDialogue(new Runnable() {
-                        @Override
-                        public void run() {
-                            handleExternalLink(getContext(), uri);
-                        }
-                    });
+                    showLeavingEditDialogue(() -> handleExternalLink(getContext(), uri));
                 }
 
                 /**
@@ -223,13 +207,10 @@ public class EditPreviewFragment extends Fragment {
                     //Ask the user if they really meant to leave the edit workflow
                     final AlertDialog leavingEditDialog = new AlertDialog.Builder(getActivity())
                             .setMessage(R.string.dialog_message_leaving_edit)
-                            .setPositiveButton(R.string.dialog_message_leaving_edit_leave, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    //They meant to leave; close dialogue and run specified action
-                                    dialog.dismiss();
-                                    runnable.run();
-                                }
+                            .setPositiveButton(R.string.dialog_message_leaving_edit_leave, (dialog, which) -> {
+                                //They meant to leave; close dialogue and run specified action
+                                dialog.dismiss();
+                                runnable.run();
                             })
                             .setNegativeButton(R.string.dialog_message_leaving_edit_stay, null)
                             .create();
@@ -241,32 +222,18 @@ public class EditPreviewFragment extends Fragment {
                     return parentActivity.getPageTitle().getWikiSite();
                 }
             });
-            bridge.addListener("imageClicked", new CommunicationBridge.JSEventListener() {
-                @Override
-                public void onMessage(String messageType, JSONObject messagePayload) {
-                    // TODO: do something when an image is clicked in Preview.
-                }
+            bridge.addListener("imageClicked", (messageType, messagePayload) -> {
+                // TODO: do something when an image is clicked in Preview.
             });
-            bridge.addListener("mediaClicked", new CommunicationBridge.JSEventListener() {
-                @Override
-                public void onMessage(String messageType, JSONObject messagePayload) {
-                    // TODO: do something when a video is clicked in Preview.
-                }
+            bridge.addListener("mediaClicked", (messageType, messagePayload) -> {
+                // TODO: do something when a video is clicked in Preview.
             });
-            bridge.addListener("referenceClicked", new CommunicationBridge.JSEventListener() {
-                @Override
-                public void onMessage(String messageType, JSONObject messagePayload) {
-                    // TODO: do something when a reference is clicked in Preview.
-                }
+            bridge.addListener("referenceClicked", (messageType, messagePayload) -> {
+                // TODO: do something when a reference is clicked in Preview.
             });
         }
 
-        ViewAnimations.fadeIn(previewContainer, new Runnable() {
-            @Override
-            public void run() {
-                parentActivity.supportInvalidateOptionsMenu();
-            }
-        });
+        ViewAnimations.fadeIn(previewContainer, () -> parentActivity.supportInvalidateOptionsMenu());
         ViewAnimations.fadeOut(getActivity().findViewById(R.id.edit_section_container));
 
         JSONObject payload = new JSONObject();
@@ -363,12 +330,7 @@ public class EditPreviewFragment extends Fragment {
      */
     public void hide() {
         View editSectionContainer = getActivity().findViewById(R.id.edit_section_container);
-        ViewAnimations.crossFade(previewContainer, editSectionContainer, new Runnable() {
-            @Override
-            public void run() {
-                parentActivity.supportInvalidateOptionsMenu();
-            }
-        });
+        ViewAnimations.crossFade(previewContainer, editSectionContainer, () -> parentActivity.supportInvalidateOptionsMenu());
     }
 
     public boolean isActive() {

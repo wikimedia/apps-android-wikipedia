@@ -1,7 +1,6 @@
 package org.wikipedia.edit;
 
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -189,20 +188,12 @@ public class EditSectionActivity extends BaseActivity {
             handleAbuseFilter();
         }
 
-        errorView.setRetryClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                errorView.setVisibility(View.GONE);
-                fetchSectionText();
-            }
+        errorView.setRetryClickListener((v) -> {
+            errorView.setVisibility(View.GONE);
+            fetchSectionText();
         });
 
-        errorView.setBackClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        errorView.setBackClickListener((v) -> onBackPressed());
 
         setConditionalTextDirection(sectionText, title.getWikiSite().languageCode());
 
@@ -258,17 +249,14 @@ public class EditSectionActivity extends BaseActivity {
                 getString(R.string.terms_of_use_url),
                 getString(R.string.cc_by_sa_3_url))));
 
-        editLicenseText.setMovementMethod(new LinkMovementMethodExt(new LinkMovementMethodExt.UrlHandler() {
-            @Override
-            public void onUrlClick(@NonNull String url, @Nullable String notUsed) {
-                if (url.equals("https://#login")) {
-                    funnel.logLoginAttempt();
-                    Intent loginIntent = LoginActivity.newIntent(EditSectionActivity.this,
-                            LoginFunnel.SOURCE_EDIT, funnel.getSessionToken());
-                    startActivityForResult(loginIntent, Constants.ACTIVITY_REQUEST_LOGIN);
-                } else {
-                    handleExternalLink(EditSectionActivity.this, Uri.parse(url));
-                }
+        editLicenseText.setMovementMethod(new LinkMovementMethodExt((@NonNull String url, @Nullable String notUsed) -> {
+            if (url.equals("https://#login")) {
+                funnel.logLoginAttempt();
+                Intent loginIntent = LoginActivity.newIntent(EditSectionActivity.this,
+                        LoginFunnel.SOURCE_EDIT, funnel.getSessionToken());
+                startActivityForResult(loginIntent, Constants.ACTIVITY_REQUEST_LOGIN);
+            } else {
+                handleExternalLink(EditSectionActivity.this, Uri.parse(url));
             }
         }));
     }
@@ -392,20 +380,14 @@ public class EditSectionActivity extends BaseActivity {
         final AlertDialog retryDialog = new AlertDialog.Builder(EditSectionActivity.this)
                 .setTitle(R.string.dialog_message_edit_failed)
                 .setMessage(t.getLocalizedMessage())
-                .setPositiveButton(R.string.dialog_message_edit_failed_retry, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        getEditTokenThenSave(false);
-                        dialog.dismiss();
-                        progressDialog.dismiss();
-                    }
+                .setPositiveButton(R.string.dialog_message_edit_failed_retry, (dialog, which) -> {
+                    getEditTokenThenSave(false);
+                    dialog.dismiss();
+                    progressDialog.dismiss();
                 })
-                .setNegativeButton(R.string.dialog_message_edit_failed_cancel, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                        progressDialog.dismiss();
-                    }
+                .setNegativeButton(R.string.dialog_message_edit_failed_cancel, (dialog, which) -> {
+                    dialog.dismiss();
+                    progressDialog.dismiss();
                 }).create();
         retryDialog.show();
     }
@@ -428,29 +410,16 @@ public class EditSectionActivity extends BaseActivity {
             builder.setTitle(R.string.user_blocked_from_editing_title);
             if (AccountUtil.isLoggedIn()) {
                 builder.setMessage(R.string.user_logged_in_blocked_from_editing);
-                builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                });
+                builder.setPositiveButton(android.R.string.ok, (dialog, i) -> dialog.dismiss());
             } else {
                 builder.setMessage(R.string.user_anon_blocked_from_editing);
-                builder.setPositiveButton(R.string.nav_item_login, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                        Intent loginIntent = LoginActivity.newIntent(EditSectionActivity.this,
-                                LoginFunnel.SOURCE_BLOCKED);
-                        startActivity(loginIntent);
-                    }
+                builder.setPositiveButton(R.string.nav_item_login, (dialog, i) -> {
+                    dialog.dismiss();
+                    Intent loginIntent = LoginActivity.newIntent(EditSectionActivity.this,
+                            LoginFunnel.SOURCE_BLOCKED);
+                    startActivity(loginIntent);
                 });
-                builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                });
+                builder.setNegativeButton(android.R.string.cancel, (dialog, i) -> dialog.dismiss());
             }
             builder.show();
         } else {
@@ -476,12 +445,7 @@ public class EditSectionActivity extends BaseActivity {
         }
 
         hideSoftKeyboard(this);
-        ViewAnimations.fadeIn(abusefilterContainer, new Runnable() {
-            @Override
-            public void run() {
-                supportInvalidateOptionsMenu();
-            }
-        });
+        ViewAnimations.fadeIn(abusefilterContainer, this::supportInvalidateOptionsMenu);
 
         if (progressDialog.isShowing()) {
             progressDialog.dismiss();
@@ -491,12 +455,7 @@ public class EditSectionActivity extends BaseActivity {
 
     private void cancelAbuseFilter() {
         abusefilterEditResult = null;
-        ViewAnimations.fadeOut(abusefilterContainer, new Runnable() {
-            @Override
-            public void run() {
-                supportInvalidateOptionsMenu();
-            }
-        });
+        ViewAnimations.fadeOut(abusefilterContainer, this::supportInvalidateOptionsMenu);
     }
 
     /**
@@ -570,12 +529,7 @@ public class EditSectionActivity extends BaseActivity {
         v.setTag(item);
         v.setClickable(true);
         v.setEnabled(item.isEnabled());
-        v.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onOptionsItemSelected((MenuItem) view.getTag());
-            }
-        });
+        v.setOnClickListener((view) -> onOptionsItemSelected((MenuItem) view.getTag()));
 
         v.setBackgroundColor(ContextCompat.getColor(this, item.isEnabled()
                 ? (editPreviewFragment.isActive() ? R.color.accent50
@@ -647,18 +601,10 @@ public class EditSectionActivity extends BaseActivity {
         if (highlightText == null || !TextUtils.isGraphic(highlightText)) {
             return;
         }
-        sectionText.post(new Runnable() {
-            @Override
-            public void run() {
-                sectionContainer.fullScroll(View.FOCUS_DOWN);
-                final int scrollDelayMs = 500;
-                sectionText.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        setHighlight(highlightText);
-                    }
-                }, scrollDelayMs);
-            }
+        sectionText.post(() -> {
+            sectionContainer.fullScroll(View.FOCUS_DOWN);
+            final int scrollDelayMs = 500;
+            sectionText.postDelayed(() -> setHighlight(highlightText), scrollDelayMs);
         });
     }
 
@@ -713,19 +659,11 @@ public class EditSectionActivity extends BaseActivity {
         if (sectionTextModified) {
             AlertDialog.Builder alert = new AlertDialog.Builder(this);
             alert.setMessage(getString(R.string.edit_abandon_confirm));
-            alert.setPositiveButton(getString(R.string.edit_abandon_confirm_yes), new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int id) {
-                    dialog.dismiss();
-                    finish();
-                }
+            alert.setPositiveButton(getString(R.string.edit_abandon_confirm_yes), (dialog, id) -> {
+                dialog.dismiss();
+                finish();
             });
-            alert.setNegativeButton(getString(R.string.edit_abandon_confirm_no), new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int id) {
-                    dialog.dismiss();
-                }
-            });
+            alert.setNegativeButton(getString(R.string.edit_abandon_confirm_no), (dialog, id) -> dialog.dismiss());
             alert.create().show();
         } else {
             finish();
