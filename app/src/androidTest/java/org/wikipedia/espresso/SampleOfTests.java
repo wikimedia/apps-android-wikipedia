@@ -13,14 +13,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wikipedia.R;
 import org.wikipedia.espresso.onboarding.OnBoardingTest;
+import org.wikipedia.espresso.page.PageActivityTest;
 import org.wikipedia.espresso.search.SearchTest;
 import org.wikipedia.espresso.util.CompareTools;
 import org.wikipedia.espresso.util.ScreenshotTools;
 import org.wikipedia.main.MainActivity;
 
 import static org.wikipedia.espresso.Constants.WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER;
+import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_1000;
 import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_2000;
-import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_500;
 import static org.wikipedia.espresso.util.ViewTools.pressBack;
 import static org.wikipedia.espresso.util.ViewTools.rotateScreen;
 import static org.wikipedia.espresso.util.ViewTools.viewIsDisplayed;
@@ -55,17 +56,20 @@ public class SampleOfTests {
         waitFor(WAIT_FOR_2000);
         ScreenshotTools.snap("FeedPage_Portrait");
 
-        SearchTest.searchKeywordAndGo("Cat");
+        SearchTest.searchKeywordAndGo("Barack Obama");
 
         if (!viewIsDisplayed(R.id.page_toc_drawer)) {
-            waitFor(WAIT_FOR_500);
+            waitFor(WAIT_FOR_1000);
         }
-
+        PageActivityTest.testArticleLoad(getActivity());
         // TODO: find a better way to generate reference images
         // Reference images should be put under /assets/espresso folder
         Assert.assertTrue("Matching percentage should be higher than " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare(getActivity(), "FeedPage") > WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
         Assert.assertTrue("Matching percentage should be higher than " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare(getActivity(), "SearchSuggestionPage") > WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
         Assert.assertTrue("Matching percentage should be higher than " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare(getActivity(), "SearchPage") > WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
+        Assert.assertTrue("Matching percentage should be higher than " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare(getActivity(), "Barack") > WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
+        //Assert.assertTrue("Matching percentage should be higher than " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare(getActivity(), "ArticleSwipeUpNoActionBar") > WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
+        //Assert.assertTrue("Matching percentage should be higher than " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare(getActivity(), "ArticleSwipeDownActionBarAndTabSeen") > WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
     }
 
     private Activity getActivity() {
