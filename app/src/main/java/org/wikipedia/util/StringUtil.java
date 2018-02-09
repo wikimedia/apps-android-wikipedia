@@ -76,10 +76,10 @@ public final class StringUtil {
         int len = str.length();
         int start = 0;
         int end = len - 1;
-        while (Character.isWhitespace(str.charAt(start)) && start < len) {
+        while (start < len && Character.isWhitespace(str.charAt(start))) {
             start++;
         }
-        while (Character.isWhitespace(str.charAt(end)) && end > 0) {
+        while (end > 0 && Character.isWhitespace(str.charAt(end))) {
             end--;
         }
         if (end > start) {
