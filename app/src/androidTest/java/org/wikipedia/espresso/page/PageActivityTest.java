@@ -19,7 +19,9 @@ import static org.hamcrest.Matchers.anything;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_1000;
 import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_2000;
+import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_3000;
 import static org.wikipedia.espresso.util.ViewTools.childAtPosition;
+import static org.wikipedia.espresso.util.ViewTools.pressBack;
 import static org.wikipedia.espresso.util.ViewTools.viewIsDisplayed;
 import static org.wikipedia.espresso.util.ViewTools.waitFor;
 
@@ -41,21 +43,22 @@ public final class PageActivityTest {
         while (!viewIsDisplayed(R.id.view_page_header_image)) {
             waitFor(WAIT_FOR_2000);
         }
+        waitFor(WAIT_FOR_3000);
         ScreenshotTools.snap("Barack");
-
         onView(withId(R.id.view_page_header_image))
                 .perform(swipeUp());
-
         onView(withId(R.id.page_fragment))
                 .perform(swipeUp());
-        ScreenshotTools.snap("ArticleSwipeUpNoActionBar");
-
         onView(withId(R.id.page_fragment))
                 .perform(swipeUp());
         onView(withId(R.id.page_fragment))
                 .perform(swipeDown());
         ScreenshotTools.snap("ArticleSwipeDownActionBarAndTabSeen");
 
+        while (!viewIsDisplayed(R.id.fragment_feed_feed)) {
+            // press back until back to the feed page
+            pressBack();
+        }
     }
 
     private PageActivityTest() {

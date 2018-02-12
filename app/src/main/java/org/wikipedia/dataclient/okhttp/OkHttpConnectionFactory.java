@@ -51,6 +51,7 @@ public final class OkHttpConnectionFactory {
                 .addInterceptor(new CacheControlRequestInterceptor())
                 .addInterceptor(new CacheDelegateInterceptor(CacheDelegate.internalCache(SAVE_CACHE), CacheDelegate.internalCache(NET_CACHE)))
                 .addInterceptor(new WikipediaZeroResponseInterceptor(WikipediaApp.getInstance().getWikipediaZeroHandler()))
+                .addInterceptor(new MockInstrumentationInterceptor())
                 .build();
     }
 

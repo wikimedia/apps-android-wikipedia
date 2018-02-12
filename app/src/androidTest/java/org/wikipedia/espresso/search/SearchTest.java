@@ -22,6 +22,7 @@ import static org.hamcrest.Matchers.anything;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_1000;
+import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_2000;
 import static org.wikipedia.espresso.util.ViewTools.childAtPosition;
 import static org.wikipedia.espresso.util.ViewTools.viewIsDisplayed;
 import static org.wikipedia.espresso.util.ViewTools.waitFor;
@@ -34,6 +35,7 @@ public final class SearchTest {
         while (!viewIsDisplayed(R.id.search_container)) {
             waitFor(WAIT_FOR_1000);
         }
+        waitFor(WAIT_FOR_2000);
 
         ViewInteraction linearLayout = onView(
                 allOf(withId(R.id.search_container),
@@ -91,6 +93,9 @@ public final class SearchTest {
         while (!viewIsDisplayed(R.id.search_results_list)) {
             waitFor(WAIT_FOR_1000);
         }
+
+        //Also hold to populate
+        waitFor(WAIT_FOR_2000);
 
         // take screenshot
         ScreenshotTools.snap("SearchSuggestionPage");

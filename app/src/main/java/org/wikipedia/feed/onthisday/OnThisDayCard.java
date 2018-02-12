@@ -29,7 +29,10 @@ public class OnThisDayCard extends Card {
         this.date = DateUtil.getDefaultDateFor(age);
         this.wiki = wiki;
         this.age = age;
-        int randomIndex = new Random().nextInt(events.size() - 1);
+        int randomIndex = 0;
+        if (events.size() > 1) {
+            randomIndex = new Random().nextInt(events.size() - 1);
+        }
         eventShownOnCard = events.get(randomIndex);
         this.nextYear = randomIndex + 1 < events.size() ? events.get(randomIndex + 1).year() : eventShownOnCard.year();
     }
