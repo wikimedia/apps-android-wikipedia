@@ -323,6 +323,8 @@
   <string name="reading_lists_confirm_remote_delete_no">نەخێر</string>
   <string name="reading_list_article_save_in_progress">وتارەکە خەریکە دادەگیرێت. کاتێک داگرتنەکە تەواو بوو، بۆ خوێندنەوەی بێ ئینتەرنێت بەردەست دەبێت.</string>
   <string name="reading_list_delete_confirm" fuzzy="true">دڵنیای کە دەتەوێت ئەم پێڕستی خوێندنەوەیە بسڕدرێتەوە %s ؟</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">ئەم وتارە ئێستا بەبێ ئینتەرنێت بەردەستە</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">ئەم وتارە چی تر بەردەست نابێت بەبێ ئینتەرنێت.</string>
   <string name="user_option_sync_label">ھەڵبژاردەکان</string>
   <string name="notification_button_view_user">لێدوان بۆ بەکارھێنەر</string>
   <string name="notification_talk_title">پەیامی نوێ لە ویکیپیدیا</string>

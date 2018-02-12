@@ -299,7 +299,12 @@
   <string name="reading_lists_onboarding_example2">Oblíbená zvířata</string>
   <string name="reading_lists_onboarding_example3">Průzkum vesmíru</string>
   <string name="reading_lists_onboarding_got_it">Jasně</string>
+  <string name="reading_lists_sync_reminder_title">Zapnout synchronizaci seznamů čtení?</string>
+  <string name="reading_lists_sync_reminder_text"><![CDATA[Články uložené v seznamech čtení mohou být nyní synchronizovány s vaším účtem na Wikipedii. <a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists">Více informací</a>]]></string>
+  <string name="reading_lists_sync_reminder_action">Povolit synchronizace</string>
+  <string name="reading_lists_login_reminder_text">Seznamy čtení mohou být nyní synchronizovány napříč zařízeními. Přihlaste se do svého účtu na Wikipedii a povolte ukládání vašich seznamů.</string>
   <string name="reading_list_delete_confirm">Opravdu chcete odstranit „%s“?</string>
+  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synchronizace seznamů čtení&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Seznamy čtení mohou být nyní synchronizovány skrze zařízení. Přihlašte se na svůj účet na Wikipedii a povolte ukládání svých vlastních seznamů.</string>
   <string name="user_option_sync_label">Nastavení</string>
   <string name="notification_button_view_user">Diskutovat s uživatelem</string>
   <string name="notification_talk_title">Nová zpráva na Wikipedii</string>
@@ -359,7 +364,7 @@
   <string name="description_edit_revert_subtitle">Děkujeme, že editujete Wikipediiǃ</string>
   <string name="onboarding_welcome_title">Otevřená encyklopedie</string>
   <string name="onboarding_welcome_text">Wikipedie je psána společně dobrovolníky a obsahuje více než 40 miliónů článku v téměř 300 různých jazycích. &lt;a href=\"#about\"&gt;Zjistit více&lt;/a&gt;</string>
-  <string name="onboarding_analytics_offline_text">Pomozte udělat aplikaci lepší uvědomením nás, jak ji používáte. Data jsou anonymní.</string>
+  <string name="onboarding_analytics_offline_text">Pomozte udělat aplikaci lepší uvědomením nás, jak ji používáte. Data jsou anonymní. &lt;a href=\"#privacy\"&gt;Zjistit více&lt;/a&gt;</string>
   <string name="top_on_this_day">Populární %1$s</string>
   <string name="on_this_day_card_title">Dnešek v minulosti</string>
   <string name="events_count_text">%1$s událostí z let %2$s–%3$d</string>

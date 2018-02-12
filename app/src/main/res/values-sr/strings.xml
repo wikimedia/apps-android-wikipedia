@@ -168,6 +168,8 @@
   <string name="edit_summary_tag_other_hint">Други начини на које сте побољшали страницу</string>
   <string name="find_next">Пронађи следеће</string>
   <string name="find_previous">Пронађи претходно</string>
+  <string name="find_first_occurence">Ово је прво појављивање</string>
+  <string name="find_last_occurence">Ово је последње појављивање</string>
   <string name="abusefilter_title_warn">Ово је можда неконструктивна измена. Да ли сте сигурни да желите да је објавите?</string>
   <string name="abusefilter_title_disallow">Не можете да објавите ову измену. Вратите се назад и промените је.</string>
   <string name="abusefilter_text_warn">Аутоматски филтер је препознао ову измену као потенцијално неконструктивну. Можда је узрок једна или више од следећих ставки:&lt;br /&gt;&lt;br /&gt;· Писање великим словима&lt;br /&gt;· Брисање целокупног садржаја или спамовање&lt;br /&gt;· Ирелевантне спољашње везе или слике&lt;br /&gt;· Понављајући карактери</string>
@@ -318,6 +320,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Уклони са офлајна</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Чланак се појављује на више спискова</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s више неће да буде доступна офлајн за све спискове за читање:</string>
+  <string name="reading_lists_sync_reminder_action">Омогући синхронизацију</string>
   <string name="reading_list_login_reminder_title">Синхронизујте списак за читање</string>
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
@@ -348,6 +351,8 @@
   <string name="view_because_you_read_card_title">Будући да сте прочитали</string>
   <string name="view_random_card_title">Случајан чланак</string>
   <string name="view_random_card_subtitle">Прелистајте случајне чланке с Википедије.</string>
+  <string name="view_random_card_action">Баци коцку</string>
+  <string name="view_next_random_article">Следећи насумични чланак</string>
   <string name="view_main_page_card_title">Данас на Википедији</string>
   <string name="view_main_page_card_subtitle">Главна страна на датум %s</string>
   <string name="view_main_page_card_action">Главна страна</string>
@@ -373,6 +378,7 @@
   <string name="view_featured_article_footer_save_button_label">Сачувај</string>
   <string name="view_featured_article_footer_saved_button_label">Сачувано</string>
   <string name="feed_configure_menu_select_all">Изабери све</string>
+  <string name="feed_item_type_on_this_day">Историјски догађаји на данашњи дан</string>
   <string name="feed_configure_onboarding_action">Прилагоди</string>
   <string name="description_edit_text_hint">Опис наслова</string>
   <string name="description_edit_save">Објави</string>
@@ -425,6 +431,7 @@
   <string name="offline_library_empty_search">Претражите офлајн библиотеку</string>
   <string name="offline_library_onboarding_button_done">Готово</string>
   <string name="offline_library_onboarding_build_library_title">Изградите Вашу офлајн библиотеку</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_title">Неометано читање</string>
   <string name="onboarding_skip">Прескочи</string>
   <string name="onboarding_continue">Настави</string>
   <string name="onboarding_get_started">Почните!</string>

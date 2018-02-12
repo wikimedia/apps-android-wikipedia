@@ -171,6 +171,8 @@
   <string name="edit_summary_tag_other_hint">Más módok, ahogy javítottad a lapot</string>
   <string name="find_next">Következő keresése</string>
   <string name="find_previous">Előző keresése</string>
+  <string name="find_first_occurence">Ez az első találat</string>
+  <string name="find_last_occurence">Ez az utolsó találat</string>
   <string name="abusefilter_title_warn">Ez a szerkesztés nem biztos, hogy javított a lapon. Biztosan közzé akarod tenni?</string>
   <string name="abusefilter_title_disallow">Nem teheted közzé ezt a szerkesztést. Lépj vissza és változtass rajta.</string>
   <string name="abusefilter_text_warn">Egy automatikus szűrő potenciálisan nem konstruktívnak találta a szerkesztésedet. Az alábbiak közül egyet vagy többet tartalmazhat:&lt;br /&gt;&lt;br /&gt;· Csupa nagybetűs szöveg&lt;br /&gt;· A szócikk teljes tartalmának eltávolítása vagy spam&lt;br /&gt;· Irreleváns külső linkek vagy képek&lt;br /&gt;· Karakterismétlés</string>
@@ -303,8 +305,10 @@
   <string name="reading_list_sort">Rendezés</string>
   <string name="reading_list_sort_by_name">Rendezés név szerint</string>
   <string name="reading_list_sort_by_name_desc">Rendezés név szerint (fordítva)</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Rendezés a legújabb szerint</string>
-  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Rendezés a legrégebbi szerint</string>
+  <string name="reading_list_sort_by_recent">Rendezés a hozzáadás dátuma szerint (legújabb)</string>
+  <string name="reading_list_sort_by_recent_desc">Rendezés a hozzáadás dátuma szerint (legrégebbi)</string>
+  <string name="reading_list_sort_by_created">Rendezés a létrehozás dátuma szerint (legújabb)</string>
+  <string name="reading_list_sort_by_created_desc">Rendezés a létrehozás dátuma szerint (legrégebbi)</string>
   <string name="reading_list_menu_delete">Lista törlése</string>
   <string name="reading_list_menu_rename">Átnevezés</string>
   <string name="reading_list_menu_edit_description">Leírás szerkesztése</string>
@@ -338,14 +342,27 @@
   <string name="reading_list_confirm_remove_article_from_offline">Eltávolítás a kapcsolat nélküliből</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">A szócikk több listán is rajta van</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s többé nem lesz elérhető kapcsolat nélkül egyik olvasólistánál sem:</string>
+  <string name="reading_lists_sync_reminder_title">Bekapcsolod az olvasólisták szinkronizálását?</string>
+  <string name="reading_lists_sync_reminder_text"><![CDATA[Az olvasólistákra mentett szócikkek mostantól szinkronizálhatók a Wikipédia-fiókoddal. <a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Offline_olvasás">További információk</>]]></string>
+  <string name="reading_lists_sync_reminder_action">Szinkronizálás engedélyezése</string>
   <string name="reading_list_login_reminder_title">Olvasólisták szinkronizálása</string>
+  <string name="reading_lists_login_reminder_text">Az olvasási listák mostantól szinkronizálhatók a különböző eszközeid között. Jelentkezz be a Wikipédia-fiókodba és engedélyezd a listáid mentését.</string>
   <string name="reading_lists_confirm_remote_delete">Ez törli az összes korábban szinkronizált olvasólistát a távoli tárolóból. Folytatod?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Igen</string>
   <string name="reading_lists_confirm_remote_delete_no">Nem</string>
   <string name="reading_list_article_save_in_progress">A cikk letöltése folyamatban, a letöltés befejeztével offline is elérhető lesz.</string>
   <string name="reading_list_already_contains_selection">A megadott lista már tartalmazza a kiválasztott oldalak mindegyikét.</string>
   <string name="reading_list_added_articles_list_titled">%1$d szócikk hozzáadva ide: %2$s</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">Biztosan szeretnéd törölni ezt %s az olvasólistát?</string>
+  <string name="reading_list_delete_confirm">Biztosan szeretnéd törölni a(z) %s olvasólistát?</string>
+  <string name="default_reading_list_name">Elmentve</string>
+  <string name="default_reading_list_description">Alapértelmezett lista a mentett szócikkeidnek</string>
+  <string name="no_user_lists_title">Rendezd listákba a szócikkeket</string>
+  <string name="no_user_lists_msg">Készíts listát a felkeresendő helyeknek, kedvenc témáidnak és sok minden másnak</string>
+  <string name="reading_list_saved_list_rename">%1$s (felhasználó által létrehozva)</string>
+  <string name="split_reading_list_message">Egy olvasólista mostantól legfeljebb 1000 szócikket tartalmazhatnak. Az ennél nagyobb listák több listára lettek bontva.</string>
+  <string name="reading_list_article_limit_message">Nem adhatsz hozzá szócikket ehhez a listához. Elérted a listánkénti 1000 szócikkes határt a(z) „%s” listánál.</string>
+  <string name="reading_lists_limit_message">Nem készíthetsz új olvasólistát. Elérted a fiókonkénti 100 listás határt.</string>
+  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Szinkronizáld az olvasólistáidat&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Az olvasási listák mostantól szinkronizálhatók a különböző eszközeid között. Jelentkezz be a Wikipédia-fiókodba és engedélyezd a listáid mentését.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">A szócikk mostantól kapcsolat nélkül is elérhető.</item>
     <item quantity="other">A szócikkek mostantól kapcsolat nélkül is elérhetők.</item>
@@ -363,9 +380,9 @@
   <string name="notification_thanks_title">Megköszönték a szerkesztésedet!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; megköszönte a szerkesztésedet a(z) &lt;strong&gt;%2$s&lt;/strong&gt; lapon.</string>
   <string name="notification_channel_name">Szinkronizálás</string>
-  <string name="notification_channel_description" fuzzy="true">Szinkronizálás állapota</string>
-  <string name="notification_syncing_title" fuzzy="true">%1$d szócikk szinkronizálása…</string>
-  <string name="notification_syncing_description" fuzzy="true">%1$d szócikk maradt</string>
+  <string name="notification_channel_description">Letöltés állapota</string>
+  <string name="notification_syncing_title">%1$d szócikk letöltése…</string>
+  <string name="notification_syncing_description">%1$d szócikk maradt</string>
   <string name="notification_syncing_pause_button">Szünet</string>
   <string name="notification_syncing_resume_button">Folytatás</string>
   <string name="notification_syncing_cancel_button">Mégsem</string>
@@ -423,7 +440,7 @@
   <string name="description_edit_help_wikidata_guide">Wikidata-útmutató leírások készítéséről</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/hu</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Köszönjük a folyamatos érdeklődésedet a leírások szerkesztése iránt! További szerkesztéshez kérjük jelentkezz be a Wikipédia-fiókoddal.</string>
+  <string name="description_edit_anon_limit">Köszönjük a folyamatos érdeklődésedet a leírások szerkesztése iránt! További szerkesztéshez kérjük jelentkezz be a Wikipédia&#8211;fiókoddal.</string>
   <string name="description_edit_license_notice">A címleírás szerkesztésével elfogadom a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlanul a &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; licenc alá helyezem a szerkesztésemet.</string>
   <string name="description_edit_success_saved">Leírás közzétéve!</string>
   <string name="description_edit_success_encouragement">Éppen mindenkinek jobbá tetted a Wikipédiát</string>
@@ -439,7 +456,7 @@
   <string name="description_edit_help_about_title">A címleírásokról</string>
   <string name="description_edit_help_description">A címleírások összefoglalják egy cikk tartalmát, hogy az olvasók gyorsan megérthessék, miről szól.</string>
   <string name="description_edit_help_tips">Tanácsok leírás létrehozásához</string>
-  <string name="description_edit_help_tips_description">A leírások ideális esetben nem hosszabbak egy sornál, 2-12 szavasak. Nem kezdődnek nagybetűvel, csak ha az első szó mondat közepén is nagybetűvel írandó.</string>
+  <string name="description_edit_help_tips_description">A leírások ideális esetben nem hosszabbak egy sornál, 2&#8211;12 szavasak. Nem kezdődnek nagybetűvel, csak ha az első szó mondat közepén is nagybetűvel írandó.</string>
   <string name="description_edit_help_tips_examples">Például:</string>
   <string name="description_edit_help_tips_example1">Leonardo da Vinci festménye</string>
   <string name="description_edit_help_tips_example1_hint">címleírás a Mona Lisáról szóló cikkhez</string>
@@ -463,10 +480,16 @@
   <string name="offline_compilations_add">Hozzáadás a kapcsolat nélküli könyvtárhoz</string>
   <string name="remote_compilations_title">Offline könyvtár</string>
   <string name="remote_compilations_description">A kapcsolati nélküli könyvtárral cikkcsomagokat tölthetsz le, hogy akkor is el tudd azokat olvasni, ha nem érhető el internetkapcsolat.</string>
+  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
+  <string name="size_gb">%.2f GB</string>
+  <string name="size_mb">%.2f MB</string>
+  <string name="offline_compilation_detail_button_download_v2">Letöltés • %s</string>
   <string name="offline_compilation_detail_button_remove">Eltávolítás</string>
   <string name="remote_compilation_download">Letöltés</string>
+  <string name="storage_size_free_v2">%s szabad</string>
   <string name="storage_used_by_compilations">a kapcsolat nélküli könyvtár használja</string>
   <string name="storage_other_apps">Más alkalmazások</string>
+  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
   <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">még 1 perc</item>
     <item quantity="other">még %d perc</item>
@@ -501,7 +524,7 @@
   <string name="onboarding_save_to_reading_lists_title">Mentés olvasólistára</string>
   <string name="onboarding_save_to_reading_lists_text">Készíts olvasólistákat olyan szócikkekből, amiket később szeretnél elolvasni, akár internetkapcsolat nélkül is!</string>
   <string name="onboarding_analytics_title">Névtelen adatok küldése</string>
-  <string name="onboarding_analytics_offline_text" fuzzy="true">Segíts jobbá tenni az alkalmazást a használati adatok megosztásával. A begyűjtött adatok anonimak. &lt;a href=\"#privacy\"&gt;Tudj meg többet&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Segíts jobbá tenni az alkalmazást a használati adatok megosztásával. A begyűjtött adatok anonimak. &lt;a href=\"#privacy\"&gt;Tudj meg többet&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Felhasználási adatok küldése</string>
   <string name="onboarding_create_account_sync">Szinkronizálja az olvasási listáit</string>
   <string name="onboarding_create_account_contributions">Hozzájárulásaid nyomon követése</string>

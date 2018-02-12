@@ -334,7 +334,7 @@
   <string name="reading_list_article_save_in_progress">Bài này đang được tải về. Nó sẽ có sẵn ngoại tuyến khi tải về xong.</string>
   <string name="reading_list_already_contains_selection">Danh sách được chọn đã bao gồm tất cả các trang được chọn.</string>
   <string name="reading_list_added_articles_list_titled">Đã thêm %1$d bài viết vào %2$s</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">Bạn có chắc chắn muốn xóa danh sách đọc %s này ?</string>
+  <string name="reading_list_delete_confirm">Bạn có chắc chắn muốn xóa %s?</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Bài này hiện có sẵn ngoại tuyến.</item>
     <item quantity="other">Các bài này hiện có sẵn ngoại tuyến.</item>

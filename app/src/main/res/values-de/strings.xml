@@ -345,7 +345,11 @@
   <string name="reading_list_confirm_remove_article_from_offline">Von der Offlineliste entfernen</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Der Artikel erscheint in mehreren Listen</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ist für keine Leseliste mehr offline verfügbar:</string>
+  <string name="reading_lists_sync_reminder_title">Synchronisierung von Leselisten anschalten?</string>
+  <string name="reading_lists_sync_reminder_text"><![CDATA[Artikel, die in Leselisten gespeichert sind, können jetzt mit deinem Wikipedia-Benutzerkonto synchronisiert werden. <a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists">Mehr erfahren</a>]]></string>
+  <string name="reading_lists_sync_reminder_action">Synchronisierung aktivieren</string>
   <string name="reading_list_login_reminder_title">Leselisten synchronisieren</string>
+  <string name="reading_lists_login_reminder_text">Leselisten können jetzt zwischen Geräten synchronisiert werden. Melde dich bei deinem Wikipedia-Benutzerkonto an und erlaube die Speicherung deiner Listen.</string>
   <string name="reading_lists_confirm_remote_delete">Dies wird alle bisherigen synchronisierten Leselisten aus dem Fernspeicher löschen. Fortfahren?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nein</string>
@@ -361,6 +365,7 @@
   <string name="split_reading_list_message">Es gibt eine Begrenzung auf 1000 Artikel pro Leseliste. Vorhandene Listen mit mehr als dieser Anzahl wurden in mehrere Listen aufgeteilt.</string>
   <string name="reading_list_article_limit_message">Der Artikel konnte nicht zu dieser Liste hinzugefügt werden. Du hast für „%s“ die maximale Anzahl von 1000 Artikeln pro Liste erreicht.</string>
   <string name="reading_lists_limit_message">Es können keine weiteren Listen erstellt werden. Du hast die maximale Anzahl von 100 Leselisten pro Benutzerkonto erreicht.</string>
+  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Leselisten synchronisieren&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Leselisten können jetzt zwischen Geräten synchronisiert werden. Melde dich bei deinem Wikipedia-Benutzerkonto an und erlaube die Speicherung deiner Listen.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Dieser Artikel ist jetzt offline verfügbar.</item>
     <item quantity="other">Diese Artikel sind jetzt offline verfügbar.</item>

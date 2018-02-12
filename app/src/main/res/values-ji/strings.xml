@@ -7,12 +7,14 @@
   <string name="search_hint">זוכן וויקיפעדיע</string>
   <string name="search_hint_search_history">זוך־היסטאריע</string>
   <string name="search_hint_search_my_lists">זוכן מיינע ליסטעס</string>
+  <string name="search_hint_search_reading_list">זוכן ליין־ליסטע</string>
   <string name="nav_item_history">היסטאריע</string>
   <string name="error_network_error">מין קען נישט פארבינדן מיט דער אינטערנעץ.א.</string>
   <string name="page_error_retry">פרובירן ווידער</string>
   <string name="page_error_back_to_main">צוריקגיין</string>
   <string name="menu_clear_all_history">אפראמען היסטאריע</string>
   <string name="history_item_deleted">%s אראפגענומען פון היסטאריע</string>
+  <string name="history_items_deleted">%d ארטיקלען אוועקגענומען פון היסטאריע</string>
   <string name="history_item_delete_undo">צוריקשטעלן</string>
   <string name="dialog_title_clear_history">אפראמען בלעטערן היסטאריע</string>
   <string name="dialog_message_clear_history">דאס וועט אויסמעקן אלע אייערע נאכקוקן היסטאריע און צומאכן אפענע טאבן. זענט איר זיכער?</string>
@@ -72,9 +74,11 @@
   <string name="preference_title_logout">אַרויסלאָגירן</string>
   <string name="toast_logout_complete">אַרויסלאגירט</string>
   <string name="history_empty_title">קיין לעצטיקע געוויזענע בלעטער נישט דא.</string>
+  <string name="delete_selected_items">אויסמעקן אויסגעקליבענע אביעקטן</string>
   <string name="wp_stylized">&lt;big&gt;וו&lt;/big&gt;יקיפעדי&lt;big&gt;ע&lt;/big&gt;</string>
   <string name="create_account_username_hint">באַניצער נאָמען</string>
   <string name="login_dont_have_account">איר האט נישט קיין קאנטע?</string>
+  <string name="login_join_wikipedia">צוטרעטן וויקיפעדיע</string>
   <string name="login_forgot_password">פֿאַרגעסן אײַער פאַסווארט?</string>
   <string name="create_account_already_have">האסטו שוין א קאנטע?</string>
   <string name="create_account_activity_title">שאַפֿן אַ קאנטע</string>
@@ -83,6 +87,7 @@
   <string name="create_account_password_repeat_hint">איבערחזרען פאסווארט</string>
   <string name="create_account_passwords_mismatch_error">פאסווערטער שטימען נישט</string>
   <string name="create_account_email_error">אומגילטיקער ע־פאסט אדרעס</string>
+  <string name="create_account_username_error">אומגילטיקע כאראקטערן אין באניצער־נאמען</string>
   <string name="create_account_password_error">דאס פאסווארט איז אומגילטיק</string>
   <string name="create_account_generic_error">מען קען נישט באשאפֿן קאנטע</string>
   <string name="create_account_next">נעקסט</string>
@@ -123,6 +128,8 @@
   <string name="about_app_license_heading">לייסענס</string>
   <string name="about_wmf">א פראדוקט פון דער &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;וויקימעדיע פֿונדאציע&lt;/a&gt;</string>
   <string name="about_activity_title">וועגן</string>
+  <string name="edit_abandon_confirm_yes">יא</string>
+  <string name="edit_abandon_confirm_no">ניין</string>
   <string name="user_blocked_from_editing_title">בלאקירט</string>
   <string name="edit_how_page_improved">וויאזוי האט איר פארבעסערט דעם בלאט?</string>
   <string name="edit_next">נעקסט</string>
@@ -143,6 +150,8 @@
   <string name="search_recent_header">לעצטיקע זוכן:</string>
   <string name="button_clear_all_recent_searches">אפראמען לעצטיקע זוכן</string>
   <string name="clear_recent_searches_confirm">איר ווילט טאקע אפראמען אייער זוך־היסטאריע?</string>
+  <string name="clear_recent_searches_confirm_yes">יא</string>
+  <string name="clear_recent_searches_confirm_no">ניין</string>
   <string name="table_infobox">גיכע פאקטן</string>
   <string name="table_other">נאך אינפֿאָרמאַציע</string>
   <string name="table_close">פארמאכן</string>
@@ -153,6 +162,7 @@
   <string name="dialog_close_description">פארמאכן</string>
   <string name="preference_title_show_images">ווייזן בילדער</string>
   <string name="read_more_section">לייענט ווײטער</string>
+  <string name="about_article_section">וועגן דעם ארטיקל</string>
   <string name="menu_gallery_visit_page">גיין צו טעקע־בלאט</string>
   <string name="gallery_error_draw_failed">מען קען נישט צייכענען דאס בילד</string>
   <string name="license_title">ליצענץ פאר %s</string>
@@ -188,12 +198,16 @@
   <string name="color_theme_select">טעמע</string>
   <string name="color_theme_light">העל</string>
   <string name="color_theme_dark">טונקל</string>
+  <string name="color_theme_black">שווארץ</string>
+  <string name="color_theme_test_title">ביישפיל־טעקסט</string>
   <string name="nav_item_reading_lists">מיינע ליסטעס</string>
   <string name="reading_list_sort">סארטירן</string>
   <string name="reading_lists_onboarding_for_example">צום ביישפיל</string>
   <string name="reading_lists_onboarding_example3">קאסמאס אויספֿארשונג</string>
   <string name="reading_lists_onboarding_got_it">פארשטאנען</string>
   <string name="user_option_sync_label">פרעפֿערענצן</string>
+  <string name="notification_syncing_cancel_button">אַנולירן</string>
+  <string name="view_continue_reading_card_title">לייענען ווײטער</string>
   <string name="view_featured_image_card_download">אַראָפלאָדן</string>
   <string name="menu_feed_card_dismiss">באהאלטן די קארטע</string>
   <string name="view_continue_reading_card_subtitle_today">הײנט</string>
@@ -206,5 +220,6 @@
   <string name="description_edit_help_about_wikidata">װעגן װיקידאַטן</string>
   <string name="description_edit_success_done">ערליידיקט</string>
   <string name="description_edit_help_about_title">וועגן</string>
+  <string name="description_edit_help_tips_examples">צום ביישפיל:</string>
   <string name="description_edit_help_more_info">נאך אינפֿאָרמאַציע</string>
 </resources>

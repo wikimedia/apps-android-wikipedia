@@ -308,8 +308,10 @@
   <string name="reading_list_sort">Ordena</string>
   <string name="reading_list_sort_by_name">Ordena per nom</string>
   <string name="reading_list_sort_by_name_desc">Ordena per nom (invers)</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Ordena per més recent</string>
-  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Ordena per menys recent</string>
+  <string name="reading_list_sort_by_recent">Ordena per data d\'addició (més noves)</string>
+  <string name="reading_list_sort_by_recent_desc">Ordena per data d\'addició (més antigues)</string>
+  <string name="reading_list_sort_by_created">Ordena per data de creació (més noves)</string>
+  <string name="reading_list_sort_by_created_desc">Ordena per data de creació (més antigues)</string>
   <string name="reading_list_menu_delete">Elimina la llista</string>
   <string name="reading_list_menu_rename">Reanomena</string>
   <string name="reading_list_menu_edit_description">Modifica la descripció</string>
@@ -343,6 +345,8 @@
   <string name="reading_list_confirm_remove_article_from_offline">Suprimeix del mode fora de línia</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">L\'article apareix en múltiples llistes</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ja no estarà disponible fora de línia a totes les llistes de lectura:</string>
+  <string name="reading_lists_sync_reminder_title">Voleu activar la sincronització de les llistes de lectura?</string>
+  <string name="reading_lists_sync_reminder_action">Habilita la sincronització</string>
   <string name="reading_list_login_reminder_title">Sincronitza les llistes de lectura</string>
   <string name="reading_lists_confirm_remote_delete">Això suprimirà qualsevol llista de lectura que s\'hagi sincronitzat prèviament a l\'emmagatzematge remot. Voleu procedir?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Sí</string>
@@ -350,7 +354,7 @@
   <string name="reading_list_article_save_in_progress">S\'està baixant l\'article. Estarà disponible fora de línia quan acabi.</string>
   <string name="reading_list_already_contains_selection">La llista triada ja conté totes les pàgines seleccionades.</string>
   <string name="reading_list_added_articles_list_titled">S\'han afegit %1$d articles a %2$s</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">Esteu segur que voleu suprimir aquesta llista %s de lectura?</string>
+  <string name="reading_list_delete_confirm">Esteu segur que voleu suprimir %s?</string>
   <string name="default_reading_list_name">Desats</string>
   <string name="default_reading_list_description">Llista per defecte d’articles desats</string>
   <string name="no_user_lists_title">Organitzar articles en llistes</string>
@@ -523,7 +527,7 @@
   <string name="onboarding_save_to_reading_lists_title">Afegeix a la llista de lectura</string>
   <string name="onboarding_save_to_reading_lists_text">Crea llistes de lectures a partir d\'articles que vulguis llegir en un altre moment, encara que estiguis fora de línia.</string>
   <string name="onboarding_analytics_title">Envia dades anònimes</string>
-  <string name="onboarding_analytics_offline_text" fuzzy="true">Ajudan\'s a fer una aplicació millor explicant-nos com la fas servir tu. Les dades es recopilen de forma anònima. &lt;a href=\"#privacy\"&gt;Aprèn més&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Ajudeu a millorar l’aplicació permitint-nos conèixer com la feu servir. Les dades recollides són anònimes. &lt;a href=\"#privacy\"&gt;Més informació&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Envia les dades d\'ús</string>
   <string name="onboarding_create_account_sync">Sincronitza les vostres llistes de lectura</string>
   <string name="onboarding_create_account_contributions">Estigueu al dia de les vostres contribucions</string>

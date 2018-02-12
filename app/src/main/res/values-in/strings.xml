@@ -310,6 +310,8 @@
   <string name="reading_list_sort_by_name_desc">Urutkan berdasarkan nama (terbalik)</string>
   <string name="reading_list_sort_by_recent" fuzzy="true">Urutkan berdasarkan yang terbaru</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">Urutkan berdasarkan yang terlama</string>
+  <string name="reading_list_sort_by_created">Urutkan menurut tanggal dibuat (terbaru)</string>
+  <string name="reading_list_sort_by_created_desc">Urutkan menurut tanggal dibuat (terlama)</string>
   <string name="reading_list_menu_delete">Hapus daftar</string>
   <string name="reading_list_menu_rename">Ubah nama</string>
   <string name="reading_list_menu_edit_description">Sunting deskripsi</string>

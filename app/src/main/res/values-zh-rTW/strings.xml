@@ -345,7 +345,11 @@
   <string name="reading_list_confirm_remove_article_from_offline">從離線移除</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">出現在多個清單的條目</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s 不再於所有閱讀清單提供離線內容：</string>
+  <string name="reading_lists_sync_reminder_title">開啟閱讀清單同步？</string>
+  <string name="reading_lists_sync_reminder_text"><![CDATA[條目已儲存至閱讀清單，現在已可同步至您的百科帳號。<a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#离线阅读和数据">了解更多</a>]]></string>
+  <string name="reading_lists_sync_reminder_action">啟用同步</string>
   <string name="reading_list_login_reminder_title">同步閱讀清單</string>
+  <string name="reading_lists_login_reminder_text">閱讀清單現已具有跨裝置同步的功能。登入您的維基百科帳號，來允許儲存您的清單。</string>
   <string name="reading_lists_confirm_remote_delete">這將會刪除之前來自於遠端儲存庫設備的任何已同步閱讀清單。確定要處理嗎？</string>
   <string name="reading_lists_confirm_remote_delete_yes">是</string>
   <string name="reading_lists_confirm_remote_delete_no">否</string>
@@ -356,11 +360,12 @@
   <string name="default_reading_list_name">已儲存</string>
   <string name="default_reading_list_description">您的已儲存條目之預設清單</string>
   <string name="no_user_lists_title">組織條目至清單</string>
-  <string name="no_user_lists_msg">建立想要去旅行的地點、喜愛的主題，以及更多其它事物的清單</string>
+  <string name="no_user_lists_msg">建立前往旅行的地點、喜愛的主題，以及更多其它事物的清單</string>
   <string name="reading_list_saved_list_rename">%1$s（使用者已建立）</string>
   <string name="split_reading_list_message">在各閱讀清單裡含有 1000 個條目的上限限制。現有清單在超過此限制時，會被拆分成多個清單。</string>
   <string name="reading_list_article_limit_message">無法添加至此清單。您已達到在「%s」方面各清單的最多 1000 個條目上限。</string>
   <string name="reading_lists_limit_message">無法建立其它清單。您已達到各使用者的最多 100 個閱讀清單上限。</string>
+  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;同步閱讀清單&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;閱讀清單現已具有跨裝置同步的功能。登入您的維基百科帳號，來允許儲存您的清單。</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">此條目現可離線閱讀。</item>
     <item quantity="other">這些條目現可離線閱讀。</item>

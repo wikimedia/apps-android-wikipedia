@@ -308,8 +308,10 @@
   <string name="reading_list_sort">Ordenar</string>
   <string name="reading_list_sort_by_name">Ordenar por nombre</string>
   <string name="reading_list_sort_by_name_desc">Ordenar por nombre (inverso)</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Ordenar por más reciente</string>
-  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Ordenar por menos reciente</string>
+  <string name="reading_list_sort_by_recent">Ordenar por fecha de adición (más recientes)</string>
+  <string name="reading_list_sort_by_recent_desc">Ordenar por fecha de adición (más antiguos)</string>
+  <string name="reading_list_sort_by_created">Ordenar por fecha de creación (más recientes)</string>
+  <string name="reading_list_sort_by_created_desc">Ordenar por fecha de creación (más antiguos)</string>
   <string name="reading_list_menu_delete">Eliminar la lista</string>
   <string name="reading_list_menu_rename">Cambiar nombre</string>
   <string name="reading_list_menu_edit_description">Editar descripción</string>
@@ -343,14 +345,16 @@
   <string name="reading_list_confirm_remove_article_from_offline">Quitar de listas sin conexión</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">El artículo aparece en varias listas</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ya no estará disponible sin conexión en ninguna lista de lectura:</string>
+  <string name="reading_lists_sync_reminder_action">Activar sincronización</string>
   <string name="reading_list_login_reminder_title">Sincronizar listas de lectura</string>
+  <string name="reading_lists_login_reminder_text">Ahora es posible sincronizar las listas de lectura entre varios dispositivos. Accede a tu cuenta de Wikipedia y permite que se guarden tus listas.</string>
   <string name="reading_lists_confirm_remote_delete">Esto eliminará cualquier lista de lectura previamente sincronizada del almacenamiento remoto. ¿Procedemos?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Sí</string>
   <string name="reading_lists_confirm_remote_delete_no">No</string>
   <string name="reading_list_article_save_in_progress">El artículo se está descargado y estará disponible sin conexión cuándo haya completado.</string>
   <string name="reading_list_already_contains_selection">La lista elegida ya contiene todas las páginas seleccionadas.</string>
   <string name="reading_list_added_articles_list_titled">Se añadieron %1$d artículos a %2$s</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">¿Estás seguro de que quieres eliminar esta lista %s de lectura?</string>
+  <string name="reading_list_delete_confirm">¿Confirmas que quieres eliminar %s?</string>
   <string name="default_reading_list_name">Guardados</string>
   <string name="default_reading_list_description">Lista predeterminada de artículos guardados</string>
   <string name="no_user_lists_title">Organiza artículos en listas</string>

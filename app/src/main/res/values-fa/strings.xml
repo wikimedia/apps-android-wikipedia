@@ -310,6 +310,8 @@
   <string name="reading_list_sort_by_name_desc">مرتب بر پایهٔ نام (معکوس)</string>
   <string name="reading_list_sort_by_recent" fuzzy="true">مرتب بر پایهٔ آخرین</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">مرتب بر پایهٔ آخرین (معکوس)</string>
+  <string name="reading_list_sort_by_created">مرتب بر پایهٔ تاریخ ایجاد شده (جدیدترین)</string>
+  <string name="reading_list_sort_by_created_desc">مرتب بر پایهٔ تاریخ ایجاد شده (قدیمی‌ترین)</string>
   <string name="reading_list_menu_delete">حذف فهرست</string>
   <string name="reading_list_menu_rename">تغییر نام</string>
   <string name="reading_list_menu_edit_description">ویرایش توضیحات</string>

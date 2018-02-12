@@ -310,6 +310,8 @@
   <string name="reading_list_sort_by_name_desc">Isih ikut nama (terbalik)</string>
   <string name="reading_list_sort_by_recent" fuzzy="true">Isih ikut yang terbaru</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">Isih ikut yang terlama</string>
+  <string name="reading_list_sort_by_created">Isih mengikut tarikh diciptakan (terbaru)</string>
+  <string name="reading_list_sort_by_created_desc">Isih mengikut tarikh diciptakan (terlama)</string>
   <string name="reading_list_menu_delete">Padam senarai</string>
   <string name="reading_list_menu_rename">Tukar nama</string>
   <string name="reading_list_menu_edit_description">Sunting keterangan</string>
