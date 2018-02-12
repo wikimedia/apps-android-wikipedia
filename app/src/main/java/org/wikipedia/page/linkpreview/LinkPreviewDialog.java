@@ -95,7 +95,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         WikipediaApp app = WikipediaApp.getInstance();
         pageTitle = getArguments().getParcelable("title");
         entrySource = getArguments().getInt("entrySource");
@@ -270,7 +270,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private retrofit2.Callback<PageSummary> linkPreviewCallback
             = new retrofit2.Callback<PageSummary>() {
-        @Override public void onResponse(Call<PageSummary> call, Response<PageSummary> rsp) {
+        @Override public void onResponse(@NonNull Call<PageSummary> call, @NonNull Response<PageSummary> rsp) {
             if (!isAdded()) {
                 return;
             }
@@ -289,12 +289,12 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
             } else {
                 titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
                 showError(null);
-                logError(summary.hasError() ? summary.getError() : null,
+                logError(summary != null && summary.hasError() ? summary.getError() : null,
                         "Page summary network request failed");
             }
         }
 
-        @Override public void onFailure(Call<PageSummary> call, Throwable caught) {
+        @Override public void onFailure(@NonNull Call<PageSummary> call, @NonNull Throwable caught) {
             L.e(caught);
             if (!isAdded()) {
                 return;
