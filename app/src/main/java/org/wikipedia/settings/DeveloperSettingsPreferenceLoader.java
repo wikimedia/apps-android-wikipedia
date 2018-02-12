@@ -102,8 +102,17 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
 
         findPreference(R.string.preference_key_add_articles)
                 .setOnPreferenceChangeListener((preference, newValue) -> {
+                    int index = -1;
+                    int listNameLength = "Test reading list".length();
                     if (!newValue.toString().trim().equals("") && !newValue.toString().trim().equals("0")) {
-                        createTestReadingList("Test reading list", Integer.valueOf(newValue.toString().trim()));
+                        List<ReadingList> lists = ReadingListDbHelper.instance().getAllListsWithoutContents();
+                        for (ReadingList list : lists) {
+                            if (list.title().contains("Test reading list")) {
+                                String trimmedListTitle = list.title().substring(listNameLength).trim();
+                                index = (trimmedListTitle.isEmpty()) ? 0 : (Integer.valueOf(trimmedListTitle) > index ? Integer.valueOf(trimmedListTitle) : index);
+                            }
+                        }
+                        createTestReadingList(index == -1 ? "Test reading list" : "Test reading list " + (index + 1), Integer.valueOf(newValue.toString().trim()));
                     }
                     return true;
                 });
@@ -114,8 +123,40 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                         return true;
                     }
                     int numOfLists = Integer.valueOf(newValue.toString().trim());
+                    String listName = "Reading list ";
                     for (int i = 1; i <= numOfLists; i++) {
-                        createTestReadingList("Reading list " + i, 10);
+                        createTestReadingList(listName + i, 10);
+                    }
+                    return true;
+                });
+
+        findPreference(R.string.preference_key_delete_reading_lists)
+                .setOnPreferenceChangeListener((preference, newValue) -> {
+                    if (newValue.toString().trim().equals("") || newValue.toString().trim().equals("0")) {
+                        return true;
+                    }
+                    int numOfLists = Integer.valueOf(newValue.toString().trim());
+                    List<ReadingList> lists = ReadingListDbHelper.instance().getAllLists();
+                    for (ReadingList list : lists) {
+                        if (list.title().contains("Reading list") && numOfLists > 0) {
+                            ReadingListDbHelper.instance().deleteList(list);
+                            numOfLists--;
+                        }
+                    }
+                    return true;
+                });
+        findPreference(R.string.preference_key_delete_test_reading_lists)
+                .setOnPreferenceChangeListener((preference, newValue) -> {
+                    if (newValue.toString().trim().equals("") || newValue.toString().trim().equals("0")) {
+                        return true;
+                    }
+                    int numOfLists = Integer.valueOf(newValue.toString().trim());
+                    List<ReadingList> lists = ReadingListDbHelper.instance().getAllLists();
+                    for (ReadingList list : lists) {
+                        if (list.title().contains("Test reading list") && numOfLists > 0) {
+                            ReadingListDbHelper.instance().deleteList(list);
+                            numOfLists--;
+                        }
                     }
                     return true;
                 });
