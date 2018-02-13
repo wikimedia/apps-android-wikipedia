@@ -84,6 +84,10 @@ public final class FeedbackUtil {
         visitInExternalBrowser(context, Uri.parse(context.getString(R.string.about_wikipedia_url)));
     }
 
+    public static void showAndroidAppFAQ(Context context) {
+        visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_faq_url)));
+    }
+
     public static void setToolbarButtonLongPressToast(View... views) {
         for (View v : views) {
             v.setOnLongClickListener(TOOLBAR_LONG_CLICK_LISTENER);

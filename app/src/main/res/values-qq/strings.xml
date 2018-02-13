@@ -122,7 +122,11 @@
   <string name="create_account_account_created_toast">Message shown in a small toast when account creation is successful.\n* {{msg-mw|Accountcreatedtext|message}}</string>
   <string name="preferences_heading_storage_and_syncing">Section title for preferences related to syncing and storing user data</string>
   <string name="preference_title_sync_reading_lists">Title of preference that, when checked, enables syncing the user\'s reading lists across devices</string>
+  <string name="preference_title_sync_reading_lists_from_account">Title of preference that, when checked, enables syncing the user\'s reading lists across devices from this account</string>
   <string name="preference_summary_sync_reading_lists">Description of preference that, when checked, enables syncing the user\'s reading lists across devices</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Description of preference that, when checked, enables syncing the user\'s reading lists across devices from this account. The %s symbol is replaced with the username if logged in</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Title of a warning dialog when turning off the reading list sync. The %s symbol is replaced with the username if logged in</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Description of a warning dialog when turning off the reading list sync. The %s symbol is replaced with the username.</string>
   <string name="preferences_privacy_settings_heading">Section title for privacy related settings\n{{Identical|Privacy}}</string>
   <string name="preference_title_eventlogging_opt_in">Title of preference that when checked enables data collection of user behavior.\n\nShown in the preferences screen along with the following:\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}\n* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}</string>
   <string name="preference_summary_eventlogging_opt_in">Description of preference that when checked enables data collection of user behavior.</string>
@@ -145,6 +149,7 @@
   <string name="about_wikipedia_url">URL leading to the About Wikipedia page. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://de.wikipedia.org/wiki/Wikipedia:Über_Wikipedia\nPlease test the URL to make sure it works.</string>
   <string name="privacy_policy_url">URL leading to the Wikimedia Foundation privacy policy. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/de\nPlease test the URL to make sure it works.</string>
   <string name="offline_reading_and_data_url">URL leading to the Offline reading and data section of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site please do so.</string>
+  <string name="android_app_faq_url">URL leading to the page of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site please do so.</string>
   <string name="terms_of_use_url">URL leading to the Wikimedia Foundation terms of use. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://m.wikimediafoundation.org/wiki/Terms_of_Use/de\nPlease test the URL to make sure it works</string>
   <string name="cc_by_sa_3_url">URL for details about the Creative Commons CC BY-SA 3.0 license. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
   <string name="cc_0_url">URL for details about the Creative Commons CC0 license. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
@@ -357,6 +362,27 @@
   <string name="reading_list_already_contains_selection">Message shown to the user when the user tries to add pages to a reading list but the list already contains all of the chosen pages.</string>
   <string name="reading_list_added_articles_list_titled">Message shown when the user adds articles to a named reading list.  The %1$d symbol is replaced with the number of articles added, and the %2$s symbol is replaced with the list name.</string>
   <string name="reading_list_delete_confirm">Confirmation message shown when deleting a reading list. The \"%s\" symbol is replaced with the name of the list.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Title of warning message shown to a user to login for enabling syncing of reading lists.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Warning message shown to a user to login for enabling syncing of reading lists.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Negative answer to cancel the current process.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Affirmative answer to confirm and redirect to the login page.</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Title of warning message shown to a user when the user turns OFF syncing on one of their devices.</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Warning message shown to a user when the user turns OFF syncing on one of their devices.</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">Negative answer to dismiss the dialog.</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Affirmative answer to confirm and redirect to the settings page.</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Title of warning message shown to a user who is logged in who has not opted-in to syncing enters this screen at the first time.</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Warning message shown to a user who is logged in who has not opted-in to syncing enters this screen at the first time, also contains a link to mediawiki FAQ page. (Please preserve the anchor tag in its exact form.)</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">An option shows on dialog that does not allow to receive the message again.</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Affirmative answer to confirm and redirect to the settings page.</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Negative answer to dismiss the dialog.</string>
+  <string name="reading_list_login_option_reminder_dialog_title">Title of warning message shown to a user to merge or delete the local reading lists articles with the synced reading lists after the user logs in</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Warning message shown to a user to merge or delete the local reading lists articles with the synced reading list after the user logs in</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">>Affirmative answer to add the local reading lists articles with the other synced reading lists</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Negative answer to confirm that removes reading lists from device</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Title of warning message shown to a user to keep articles after the user logs out</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Warning message shown to a user to keep articles after the user logs out</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">>Affirmative answer to confirm that keeps articles from device</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Negative answer to confirm that removes articles from device</string>
   <string name="default_reading_list_name">Title for default list</string>
   <string name="default_reading_list_description">Short description of the default reading list where articles are saved.</string>
   <string name="no_user_lists_title">Suggestion string for users to Organize articles into lists</string>

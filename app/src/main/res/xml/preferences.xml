@@ -28,9 +28,8 @@
         android:title="@string/preferences_heading_storage_and_syncing">
         <SwitchPreferenceCompat
             android:key="@string/preference_key_sync_reading_lists"
-            android:defaultValue="true"
-            android:title="@string/preference_title_sync_reading_lists"
-            android:summary="@string/preference_summary_sync_reading_lists" />
+            android:defaultValue="false"
+            android:title="@string/preference_title_sync_reading_lists_from_account"/>
         <SwitchPreferenceCompat
             android:key="@string/preference_key_prefer_offline_content"
             android:defaultValue="false"

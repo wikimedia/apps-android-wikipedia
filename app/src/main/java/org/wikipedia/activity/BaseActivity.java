@@ -14,8 +14,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.preference.SwitchPreferenceCompat;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.view.DraweeTransition;
@@ -25,12 +25,15 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.crash.CrashReportActivity;
+import org.wikipedia.events.CheckSyncStatusEvent;
 import org.wikipedia.events.NetworkConnectEvent;
 import org.wikipedia.events.SplitLargeListsEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.events.WikipediaZeroEnterEvent;
 import org.wikipedia.offline.Compilation;
 import org.wikipedia.offline.OfflineManager;
+import org.wikipedia.readinglist.ReadingListCheckSetupStatusTask;
+import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
@@ -186,12 +189,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private void showStoragePermissionSnackbar() {
         Snackbar snackbar = FeedbackUtil.makeSnackbar(this,
                 getString(R.string.offline_read_permission_rationale), FeedbackUtil.LENGTH_DEFAULT);
-        snackbar.setAction(R.string.page_error_retry, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                requestStoragePermission();
-            }
-        });
+        snackbar.setAction(R.string.page_error_retry, (v) -> requestStoragePermission());
         snackbar.show();
     }
 
@@ -234,6 +232,48 @@ public abstract class BaseActivity extends AppCompatActivity {
                     .setMessage(R.string.split_reading_list_message)
                     .setPositiveButton(android.R.string.ok, null)
                     .show();
+        }
+
+        @Subscribe public void on(CheckSyncStatusEvent event) {
+            if (event.isSyncDisable() && Prefs.isReadingListSyncEnabled()) {
+                ReadingListSyncBehaviorDialogs.detectedMultipleSyncSettingsDialog(BaseActivity.this,
+                        () -> Prefs.setReadingListSyncEnabled(false));
+            } else {
+                ReadingListCheckSetupStatusTask checkSetupStatusTask = new ReadingListCheckSetupStatusTask() {
+                    @Override
+                    public void onFinish(@Nullable Void result) {
+                        if (isDestroyed()) {
+                            return;
+                        }
+
+                        Prefs.setReadingListSyncEnabled(true);
+
+                        if (event.getPreferenceOfSyncReadingLists() != null) {
+                            ((SwitchPreferenceCompat) event.getPreferenceOfSyncReadingLists()).setChecked(true);
+                        }
+                    }
+
+                    @Override
+                    public void onCatch(Throwable caught) {
+                        if (isDestroyed()) {
+                            return;
+                        }
+
+                        if (Prefs.isReadingListSyncEnabled()) {
+                            // QUESTION: should we keep the dialog been cancelable?
+                            ReadingListSyncBehaviorDialogs.detectedMultipleSyncSettingsDialog(BaseActivity.this,
+                                    () -> Prefs.setReadingListSyncEnabled(false));
+                        } else {
+                            Prefs.setReadingListSyncEnabled(false);
+                        }
+
+                        if (event.getPreferenceOfSyncReadingLists() != null) {
+                            ((SwitchPreferenceCompat) event.getPreferenceOfSyncReadingLists()).setChecked(false);
+                        }
+                    }
+                };
+                checkSetupStatusTask.execute();
+            }
         }
     }
 

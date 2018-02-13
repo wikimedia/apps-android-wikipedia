@@ -21,7 +21,11 @@ import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.createaccount.CreateAccountActivity;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.readinglist.ReadingListCheckSetupStatusTask;
+import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
+import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.NonEmptyValidator;
@@ -162,6 +166,44 @@ public class LoginActivity extends BaseActivity {
         startActivityForResult(intent, CreateAccountActivity.ACTION_CREATE_ACCOUNT);
     }
 
+    private void showSyncOptionDialogWhenLogin() {
+        ReadingListCheckSetupStatusTask checkSetupStatusTask = new ReadingListCheckSetupStatusTask() {
+            @Override
+            public void onFinish(@Nullable Void result) {
+                if (isDestroyed()) {
+                    return;
+                }
+
+                Prefs.setReadingListSyncEnabled(true);
+                // if we cannot get any random page, then we don't have any article stored in the db
+                if (ReadingListDbHelper.instance().getRandomPage() != null) {
+                    ReadingListSyncBehaviorDialogs.mergeAndSyncDialog(LoginActivity.this, () -> manualSyncAndFinish());
+                } else {
+                    manualSyncAndFinish();
+                }
+            }
+
+            @Override
+            public void onCatch(Throwable caught) {
+                if (isDestroyed()) {
+                    return;
+                }
+
+                Prefs.setReadingListSyncEnabled(false);
+                if (Prefs.isShowDialogPromptOptInSyncReadingListsEnabled()) {
+                    ReadingListSyncBehaviorDialogs.promptTurnSyncOnDialog(LoginActivity.this,
+                            getLayoutInflater(), !loginSource.equals(LoginFunnel.SOURCE_SETTING), () -> finish());
+                }
+            }
+        };
+        checkSetupStatusTask.execute();
+    }
+
+    private void manualSyncAndFinish() {
+        ReadingListSyncAdapter.manualSync();
+        finish();
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -216,15 +258,14 @@ public class LoginActivity extends BaseActivity {
                     Bundle extras = getIntent().getExtras();
                     AccountAuthenticatorResponse response = extras == null
                             ? null
-                            : extras.<AccountAuthenticatorResponse>getParcelable(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE);
+                            : extras.getParcelable(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE);
                     AccountUtil.updateAccount(response, result);
 
                     hideSoftKeyboard(LoginActivity.this);
                     setResult(RESULT_LOGIN_SUCCESS);
 
-                    ReadingListSyncAdapter.manualSync();
+                    showSyncOptionDialogWhenLogin();
 
-                    finish();
                 } else if (result.fail()) {
                     String message = result.getMessage();
                     FeedbackUtil.showMessage(LoginActivity.this, message);

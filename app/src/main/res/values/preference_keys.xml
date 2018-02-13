@@ -77,4 +77,6 @@
     <string name="preference_key_reading_lists_last_sync_time">readingListsLastSyncTime</string>
     <string name="preference_key_reading_lists_deleted_ids">readingListsDeletedIds</string>
     <string name="preference_key_reading_list_pages_deleted_ids">readingListPagesDeletedIds</string>
+    <string name="preference_key_show_dialog_prompt_to_opt_in_sync_reading_lists">dialogPromptOptInSyncReadingLists</string>
+    <string name="preference_key_should_show_prompted_sync_reading_lists_dialog_for_first_time">shouldShowPromptedSyncReadingListsDialogForFirstTime</string>
 </resources>

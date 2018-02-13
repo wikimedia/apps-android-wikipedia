@@ -15,6 +15,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.events.CheckSyncStatusEvent;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
@@ -112,6 +113,7 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
                 || !(Prefs.isReadingListSyncEnabled()
                 || Prefs.isReadingListsRemoteDeletePending())) {
             L.d("Skipping sync of reading lists.");
+
             if (extras.containsKey(SYNC_EXTRAS_REFRESHING)) {
                 SavedPageSyncService.sendSyncEvent();
             }
@@ -409,18 +411,14 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
             }
 
         } catch (Throwable t) {
-            /*
-            // In case we want to automatically setup lists for the user:
             if (client.isErrorType(t, "not-set-up")) {
                 try {
-                    L.d("Setting up remote reading lists...");
-                    client.setup(getCsrfToken(wiki, csrfToken));
-                    shouldRetry = true;
+                    WikipediaApp.getInstance().getBus().post(new CheckSyncStatusEvent(true));
                 } catch (Throwable caught) {
                     t = caught;
                 }
             }
-            */
+
             if (client.isErrorType(t, "notloggedin")) {
                 try {
                     L.d("Server doesn't believe we're logged in, so logging in...");
