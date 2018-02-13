@@ -20,6 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
+    private static final String TEXT_OF_TEST_READING_LIST = "Test reading list";
+    private static final String TEXT_OF_READING_LIST = "Reading list";
+
     @NonNull private final Context context;
 
     @NonNull private final Preference.OnPreferenceChangeListener setRestBaseManuallyChangeListener
@@ -102,18 +105,13 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
 
         findPreference(R.string.preference_key_add_articles)
                 .setOnPreferenceChangeListener((preference, newValue) -> {
-                    int index = -1;
-                    int listNameLength = "Test reading list".length();
-                    if (!newValue.toString().trim().equals("") && !newValue.toString().trim().equals("0")) {
-                        List<ReadingList> lists = ReadingListDbHelper.instance().getAllListsWithoutContents();
-                        for (ReadingList list : lists) {
-                            if (list.title().contains("Test reading list")) {
-                                String trimmedListTitle = list.title().substring(listNameLength).trim();
-                                index = (trimmedListTitle.isEmpty()) ? 0 : (Integer.valueOf(trimmedListTitle) > index ? Integer.valueOf(trimmedListTitle) : index);
-                            }
-                        }
-                        createTestReadingList(index == -1 ? "Test reading list" : "Test reading list " + (index + 1), Integer.valueOf(newValue.toString().trim()));
+                    if (newValue.toString().trim().equals("") || newValue.toString().trim().equals("0")) {
+                        return true;
                     }
+
+                    int numberOfArticles = Integer.valueOf(newValue.toString().trim());
+                    createTestReadingList(TEXT_OF_TEST_READING_LIST, 1, numberOfArticles);
+
                     return true;
                 });
 
@@ -122,11 +120,10 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                     if (newValue.toString().trim().equals("") || newValue.toString().trim().equals("0")) {
                         return true;
                     }
+
                     int numOfLists = Integer.valueOf(newValue.toString().trim());
-                    String listName = "Reading list ";
-                    for (int i = 1; i <= numOfLists; i++) {
-                        createTestReadingList(listName + i, 10);
-                    }
+                    createTestReadingList(TEXT_OF_READING_LIST, numOfLists, 10);
+
                     return true;
                 });
 
@@ -136,13 +133,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                         return true;
                     }
                     int numOfLists = Integer.valueOf(newValue.toString().trim());
-                    List<ReadingList> lists = ReadingListDbHelper.instance().getAllLists();
-                    for (ReadingList list : lists) {
-                        if (list.title().contains("Reading list") && numOfLists > 0) {
-                            ReadingListDbHelper.instance().deleteList(list);
-                            numOfLists--;
-                        }
-                    }
+                    deleteTestReadingList(TEXT_OF_READING_LIST, numOfLists);
                     return true;
                 });
         findPreference(R.string.preference_key_delete_test_reading_lists)
@@ -151,13 +142,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                         return true;
                     }
                     int numOfLists = Integer.valueOf(newValue.toString().trim());
-                    List<ReadingList> lists = ReadingListDbHelper.instance().getAllLists();
-                    for (ReadingList list : lists) {
-                        if (list.title().contains("Test reading list") && numOfLists > 0) {
-                            ReadingListDbHelper.instance().deleteList(list);
-                            numOfLists--;
-                        }
-                    }
+                    deleteTestReadingList(TEXT_OF_TEST_READING_LIST, numOfLists);
                     return true;
                 });
     }
@@ -199,14 +184,39 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
         WikipediaApp.getInstance().resetWikiSite();
     }
 
-    private void createTestReadingList(String title, int listSize) {
-        ReadingList list = ReadingListDbHelper.instance().createList(title, "");
-        List<ReadingListPage> pages = new ArrayList<>();
-        for (int i = 0; i < listSize; i++) {
-            PageTitle pageTitle = new PageTitle("" + (i + 1), WikipediaApp.getInstance().getWikiSite());
-            pages.add(new ReadingListPage(pageTitle));
+    private void createTestReadingList(String listName, int numOfLists, int numOfArticles) {
+        int index = 0;
+
+        List<ReadingList> lists = ReadingListDbHelper.instance().getAllListsWithoutContents();
+        for (int i = lists.size() - 1; i >= 0; i--) {
+            ReadingList lastReadingList = lists.get(i);
+            if (lastReadingList.title().contains(listName)) {
+                String trimmedListTitle = lastReadingList.title().substring(listName.length()).trim();
+                index = (trimmedListTitle.isEmpty()) ? index : (Integer.valueOf(trimmedListTitle) > index ? Integer.valueOf(trimmedListTitle) : index);
+                break;
+            }
         }
-        ReadingListDbHelper.instance().addPagesToList(list, pages, true);
+
+        for (int i = 0; i < numOfLists; i++) {
+            index += 1;
+            ReadingList list = ReadingListDbHelper.instance().createList(listName + " " + index, "");
+            List<ReadingListPage> pages = new ArrayList<>();
+            for (int j = 0; j < numOfArticles; j++) {
+                PageTitle pageTitle = new PageTitle("" + (j + 1), WikipediaApp.getInstance().getWikiSite());
+                pages.add(new ReadingListPage(pageTitle));
+            }
+            ReadingListDbHelper.instance().addPagesToList(list, pages, true);
+        }
+    }
+
+    private void deleteTestReadingList(String listName, int numOfLists) {
+        List<ReadingList> lists = ReadingListDbHelper.instance().getAllLists();
+        for (ReadingList list : lists) {
+            if (list.title().contains(listName) && numOfLists > 0) {
+                ReadingListDbHelper.instance().deleteList(list);
+                numOfLists--;
+            }
+        }
     }
 
     private void setUpCookies(@NonNull PreferenceCategory cat) {
