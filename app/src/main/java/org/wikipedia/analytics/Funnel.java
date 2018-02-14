@@ -9,14 +9,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.UUID;
 
 /** Schemas for this abstract funnel are expected to have appInstallID and sessionToken fields. When
  * these fields are not present or differently named, preprocess* or get*Field should be overridden. */
-/*package*/ abstract class Funnel {
+abstract class Funnel {
     protected static final int SAMPLE_LOG_1K = 1000;
     protected static final int SAMPLE_LOG_100 = 100;
     protected static final int SAMPLE_LOG_10 = 10;
@@ -125,28 +124,24 @@ import java.util.UUID;
      */
     protected void log(@Nullable WikiSite wiki, Object... params) {
         int rate = getSampleRate();
-        if (rate != SAMPLE_LOG_DISABLE) {
-            boolean chosen = app.getEventLogSamplingID() % rate == 0 || ReleaseUtil.isDevRelease();
+        if (rate != SAMPLE_LOG_DISABLE && app.isUserInSamplingGroup(rate)) {
+            JSONObject eventData = new JSONObject();
 
-            if (chosen) {
-                JSONObject eventData = new JSONObject();
-
-                //Build the string which is logged to debug EventLogging code
-                String logString = this.getClass().getSimpleName() + ": Sending event";
-                for (int i = 0; i < params.length; i += 2) {
-                    preprocessData(eventData, params[i].toString(), params[i + 1]);
-                    logString += ", event_" + params[i] + " = " + params[i + 1];
-                }
-                L.d(logString);
-
-                EventLoggingEvent event = new EventLoggingEvent(
-                        schemaName,
-                        revision,
-                        wiki == null ? app.getWikiSite().dbName() : wiki.dbName(),
-                        preprocessData(eventData)
-                );
-                EventLoggingService.getInstance().log(event.getData());
+            //Build the string which is logged to debug EventLogging code
+            String logString = this.getClass().getSimpleName() + ": Sending event";
+            for (int i = 0; i < params.length; i += 2) {
+                preprocessData(eventData, params[i].toString(), params[i + 1]);
+                logString += ", event_" + params[i] + " = " + params[i + 1];
             }
+            L.d(logString);
+
+            EventLoggingEvent event = new EventLoggingEvent(
+                    schemaName,
+                    revision,
+                    wiki == null ? app.getWikiSite().dbName() : wiki.dbName(),
+                    preprocessData(eventData)
+            );
+            EventLoggingService.getInstance().log(event.getData());
         }
     }
 
