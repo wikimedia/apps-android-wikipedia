@@ -15,7 +15,10 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.events.CheckSyncStatusEvent;
+import org.wikipedia.events.ReadingListsEnableDialogEvent;
+import org.wikipedia.events.ReadingListsEnabledStatusEvent;
+import org.wikipedia.events.ReadingListsMergeLocalDialogEvent;
+import org.wikipedia.events.ReadingListsNoLongerSyncedEvent;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
@@ -49,6 +52,13 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
 
     public ReadingListSyncAdapter(Context context, boolean autoInitialize, boolean allowParallelSyncs) {
         super(context, autoInitialize, allowParallelSyncs);
+    }
+
+    public static void setSyncEnabledWithSetup() {
+        Prefs.setReadingListSyncEnabled(true);
+        Prefs.setReadingListsRemoteSetupPending(true);
+        Prefs.setReadingListsRemoteDeletePending(false);
+        ReadingListSyncAdapter.manualSync();
     }
 
     public static void manualSyncWithDeleteList(@NonNull ReadingList list) {
@@ -111,6 +121,7 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
                 || isDisabledByRemoteConfig()
                 || !AccountUtil.isLoggedIn()
                 || !(Prefs.isReadingListSyncEnabled()
+                || Prefs.shouldShowReadingListSyncMergePrompt()
                 || Prefs.isReadingListsRemoteDeletePending())) {
             L.d("Skipping sync of reading lists.");
 
@@ -119,11 +130,6 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
             }
             return;
         }
-
-        // TODO: handle this:
-        // If the current user name is not the same as the stored reading list user name, then
-        // we should delete the current list collection and resync it from the server.
-        //Prefs.setReadingListsCurrentUser(AccountUtil.getUserName());
 
         L.d("Begin sync of reading lists...");
 
@@ -164,6 +170,25 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
                 // ...Or are we scheduled for setup?
                 client.setup(getCsrfToken(wiki, csrfToken));
                 Prefs.setReadingListsRemoteSetupPending(false);
+            }
+
+            if (Prefs.shouldShowReadingListSyncMergePrompt()) {
+                Prefs.shouldShowReadingListSyncMergePrompt(false);
+                for (ReadingList list : allLocalLists) {
+                    for (ReadingListPage page : list.pages()) {
+                        if (page.remoteId() <= 0) {
+                            // At least one page in our collection is not synced.
+                            // We therefore need to ask the user if we want to merge unsynced pages
+                            // with the remote collection, or delete them.
+                            // However, let's issue a request to the changes endpoint, so that
+                            // it can throw an exception if lists are not set up for the user.
+                            client.getChangesSince(DateUtil.getIso8601DateFormat().format(new Date()));
+                            // Exception wasn't thrown, so post the bus event.
+                            WikipediaApp.getInstance().getBus().post(new ReadingListsMergeLocalDialogEvent());
+                            return;
+                        }
+                    }
+                }
             }
 
             //-----------------------------------------------
@@ -224,6 +249,9 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
                 L.d("Fetching all lists from server...");
                 remoteListsModified = client.getAllLists();
             }
+
+            // Notify any event consumers that reading lists are, in fact, enabled.
+            WikipediaApp.getInstance().getBus().post(new ReadingListsEnabledStatusEvent());
 
             // First, update our list hierarchy to match the remote hierarchy.
             for (RemoteReadingList remoteList : remoteListsModified) {
@@ -412,10 +440,15 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
 
         } catch (Throwable t) {
             if (client.isErrorType(t, "not-set-up")) {
-                try {
-                    WikipediaApp.getInstance().getBus().post(new CheckSyncStatusEvent(true));
-                } catch (Throwable caught) {
-                    t = caught;
+                Prefs.setReadingListSyncEnabled(false);
+                if (TextUtils.isEmpty(lastSyncTime)) {
+                    // This means that it's our first time attempting to sync, and we see that
+                    // syncing isn't enabled on the server. So, let's prompt the user to enable it:
+                    WikipediaApp.getInstance().getBus().post(new ReadingListsEnableDialogEvent());
+                } else {
+                    // This can only mean that our reading lists have been torn down (disabled) by
+                    // another client, so we need to notify the user of this development.
+                    WikipediaApp.getInstance().getBus().post(new ReadingListsNoLongerSyncedEvent());
                 }
             }
 

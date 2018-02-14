@@ -368,4 +368,8 @@
         <item name="android:textColor">?attr/material_theme_secondary_color</item>
     </style>
 
+    <style name="DialogTitleAppearance" parent="@style/RtlOverlay.DialogWindowTitle.AppCompat">
+        <item name="android:textColor">?attr/material_theme_primary_color</item>
+    </style>
+
 </resources>

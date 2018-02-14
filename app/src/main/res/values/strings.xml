@@ -392,7 +392,7 @@
     <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Cancel</string>
     <string name="reading_list_preference_login_to_enable_sync_dialog_login">Log in</string>
     <string name="reading_list_turned_sync_off_dialog_title">Reading list sync turned off</string>
-    <string name="reading_list_turned_sync_off_dialog_text">Reading list sync is off for your account, and saved articles on your logged in devices are no longer being backed up. Turn on reading list sync in Settings.</string>
+    <string name="reading_list_turned_sync_off_dialog_text">Reading list sync is off for your account, and saved articles on your logged-in devices are no longer being backed up. Turn on reading list sync in Settings.</string>
     <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
     <string name="reading_list_turned_sync_off_dialog_settings">Settings</string>
     <string name="reading_list_prompt_turned_sync_on_dialog_title">Turn on reading list sync?</string>

@@ -341,6 +341,10 @@ public class ReadingListDbHelper {
         }
     }
 
+    public boolean isEmpty() {
+        return getRandomPage() == null;
+    }
+
     @Nullable
     public ReadingListPage getRandomPage() {
         SQLiteDatabase db = getReadableDatabase();

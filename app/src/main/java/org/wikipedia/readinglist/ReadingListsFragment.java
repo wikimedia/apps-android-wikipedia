@@ -32,7 +32,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.concurrency.CallbackTask;
-import org.wikipedia.events.CheckSyncStatusEvent;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.onboarding.OnboardingView;
@@ -42,7 +41,6 @@ import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.StringUtil;
@@ -116,7 +114,7 @@ public class ReadingListsFragment extends Fragment {
 
         swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(getContext(), R.attr.colorAccent));
         swipeRefreshLayout.setOnRefreshListener(() -> {
-            WikipediaApp.getInstance().getBus().post(new CheckSyncStatusEvent());
+            Prefs.setReadingListSyncEnabled(true);
             ReadingListSyncAdapter.manualSyncWithRefresh();
         });
         // TODO: remove when ready.
@@ -144,7 +142,6 @@ public class ReadingListsFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        maybeShowOnboarding();
         updateLists();
     }
 
@@ -200,6 +197,7 @@ public class ReadingListsFragment extends Fragment {
     }
 
     private void updateLists(@Nullable final String searchQuery) {
+        maybeShowOnboarding();
         CallbackTask.execute(() -> ReadingListDbHelper.instance().getAllLists(), new CallbackTask.DefaultCallback<List<ReadingList>>() {
             @Override
             public void success(List<ReadingList> lists) {
@@ -527,7 +525,9 @@ public class ReadingListsFragment extends Fragment {
     private class SyncReminderOnboardingCallback implements OnboardingView.Callback {
         @Override
         public void onPositiveAction() {
-            startActivity(SettingsActivity.newIntent(getContext()));
+            Prefs.shouldShowReadingListSyncMergePrompt(true);
+            ReadingListSyncAdapter.setSyncEnabledWithSetup();
+            maybeShowOnboarding();
         }
 
         @Override
