@@ -202,8 +202,8 @@ public final class ShareUtil {
         Intent queryIntent = new Intent(targetIntent);
         if (targetIntent.getAction().equals(Intent.ACTION_VIEW)) {
             // To avoid using the Wikipedia app externally opens the wikipedia.org links,
-            // we can create a blank page for intent choose to fetch browser apps list, and use the list for our "true" external links
-            queryIntent.setData(Uri.parse("about:blank"));
+            // we can put a non-wikipedia link for intent choose to fetch browser apps list, and use the list for our "true" external links
+            queryIntent.setData(Uri.parse("https://not.a.website/"));
         }
         for (ResolveInfo intentActivity : queryIntentActivities(queryIntent, context)) {
             if (!isIntentActivityBlacklisted(intentActivity, packageNameBlacklistRegex)) {
