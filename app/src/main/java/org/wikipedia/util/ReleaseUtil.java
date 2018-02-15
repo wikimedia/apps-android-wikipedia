@@ -52,7 +52,7 @@ public final class ReleaseUtil {
         return channel;
     }
 
-    public static int calculateReleaseType() {
+    private static int calculateReleaseType() {
         if (BuildConfig.APPLICATION_ID.contains("beta")) {
             return RELEASE_BETA;
         }
