@@ -26,7 +26,6 @@ import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
@@ -59,6 +58,10 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
         Prefs.setReadingListsRemoteSetupPending(true);
         Prefs.setReadingListsRemoteDeletePending(false);
         ReadingListSyncAdapter.manualSync();
+    }
+
+    public static boolean isDisabledByRemoteConfig() {
+        return WikipediaApp.getInstance().getRemoteConfig().getConfig().optBoolean("disableReadingListSync", false);
     }
 
     public static void manualSyncWithDeleteList(@NonNull ReadingList list) {
@@ -117,8 +120,7 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
     @Override
     public void onPerformSync(Account account, Bundle extras, String authority,
                               ContentProviderClient provider, SyncResult syncResult) {
-        if (!ReleaseUtil.isPreBetaRelease()  // TODO: remove when ready for beta/production
-                || isDisabledByRemoteConfig()
+        if (isDisabledByRemoteConfig()
                 || !AccountUtil.isLoggedIn()
                 || !(Prefs.isReadingListSyncEnabled()
                 || Prefs.shouldShowReadingListSyncMergePrompt()
@@ -568,9 +570,5 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
     private RemoteReadingListEntry remoteEntryFromLocalPage(@NonNull ReadingListPage localPage) {
         PageTitle title = ReadingListPage.toPageTitle(localPage);
         return new RemoteReadingListEntry(title.getWikiSite().scheme() + "://" + title.getWikiSite().authority(), title.getPrefixedText());
-    }
-
-    private boolean isDisabledByRemoteConfig() {
-        return WikipediaApp.getInstance().getRemoteConfig().getConfig().optBoolean("disableReadingListSync", false);
     }
 }

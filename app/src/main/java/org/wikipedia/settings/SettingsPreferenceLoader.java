@@ -17,7 +17,6 @@ import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.theme.ThemeFittingRoomActivity;
-import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.StringUtil;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
@@ -33,8 +32,7 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
     public void loadPreferences() {
         loadPreferences(R.xml.preferences);
 
-        // TODO: remove when reading list syncing is ready for beta/prod.
-        if (!ReleaseUtil.isPreBetaRelease()) {
+        if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
             findPreference(R.string.preference_category_storage_sync).setVisible(false);
             findPreference(R.string.preference_key_sync_reading_lists).setVisible(false);
         }

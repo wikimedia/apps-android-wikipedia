@@ -21,8 +21,8 @@ import org.wikipedia.captcha.CaptchaHandler;
 import org.wikipedia.captcha.CaptchaResult;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.NonEmptyValidator;
 import org.wikipedia.views.WikiErrorView;
@@ -80,8 +80,7 @@ public class CreateAccountActivity extends BaseActivity {
         setContentView(R.layout.activity_create_account);
         ButterKnife.bind(this);
 
-        // TODO: remove when ready for beta/production.
-        if (!ReleaseUtil.isPreBetaRelease()) {
+        if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
             onboardingContainer.setVisibility(View.GONE);
         }
 

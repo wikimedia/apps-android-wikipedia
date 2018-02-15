@@ -42,7 +42,6 @@ import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.DrawableItemDecoration;
@@ -117,8 +116,7 @@ public class ReadingListsFragment extends Fragment {
             Prefs.setReadingListSyncEnabled(true);
             ReadingListSyncAdapter.manualSyncWithRefresh();
         });
-        // TODO: remove when ready.
-        if (!ReleaseUtil.isPreBetaRelease()) {
+        if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
             swipeRefreshLayout.setEnabled(false);
         }
         return view;
@@ -497,10 +495,9 @@ public class ReadingListsFragment extends Fragment {
     private void maybeShowOnboarding() {
         onboardingContainer.removeAllViews();
 
-        // TODO: remove pre-beta flag when ready.
         if (AccountUtil.isLoggedIn() && !Prefs.isReadingListSyncEnabled()
                 && Prefs.isReadingListSyncReminderEnabled()
-                && ReleaseUtil.isPreBetaRelease()) {
+                && !ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
             OnboardingView onboardingView = new OnboardingView(getContext());
             onboardingView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.base20));
             onboardingView.setTitle(R.string.reading_lists_sync_reminder_title);
@@ -510,7 +507,7 @@ public class ReadingListsFragment extends Fragment {
             onboardingView.setCallback(new SyncReminderOnboardingCallback());
 
         } else if (!AccountUtil.isLoggedIn() && Prefs.isReadingListLoginReminderEnabled()
-                && ReleaseUtil.isPreBetaRelease()) {
+                && !ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
             OnboardingView onboardingView = new OnboardingView(getContext());
             onboardingView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.base20));
             onboardingView.setTitle(R.string.reading_list_login_reminder_title);
