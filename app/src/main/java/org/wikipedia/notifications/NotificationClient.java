@@ -20,6 +20,7 @@ import retrofit2.Response;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
@@ -109,11 +110,13 @@ public final class NotificationClient {
     @VisibleForTesting interface Service {
         String ACTION = "w/api.php?format=json&formatversion=2&action=";
 
+        @Headers("Cache-Control: no-cache")
         @GET(ACTION + "query&meta=notifications&notfilter=!read&notprop=list")
         @NonNull
         Call<MwQueryResponse> getNotifications(@Query("notwikis") @NonNull String wikiList);
 
         @FormUrlEncoded
+        @Headers("Cache-Control: no-cache")
         @POST(ACTION + "echomarkread")
         Call<MwQueryResponse> markRead(@Field("token") @NonNull String token, @Field("list") @NonNull String idList);
     }

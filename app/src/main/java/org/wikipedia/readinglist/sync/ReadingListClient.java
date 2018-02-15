@@ -18,6 +18,7 @@ import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
@@ -206,54 +207,65 @@ public class ReadingListClient {
     private interface Service {
 
         @POST("data/lists/setup")
+        @Headers("Cache-Control: no-cache")
         @NonNull
         Call<Void> setup(@Query("csrf_token") String token);
 
         @POST("data/lists/teardown")
+        @Headers("Cache-Control: no-cache")
         @NonNull
         Call<Void> tearDown(@Query("csrf_token") String token);
 
         @GET("data/lists/")
+        @Headers("Cache-Control: no-cache")
         @NonNull
         Call<SyncedReadingLists> getLists(@Query("next") String next);
 
         @POST("data/lists/")
+        @Headers("Cache-Control: no-cache")
         @NonNull
         Call<SyncedReadingLists.RemoteIdResponse> createList(@Query("csrf_token") String token,
                                                              @Body RemoteReadingList list);
 
         @PUT("data/lists/{id}")
+        @Headers("Cache-Control: no-cache")
         @NonNull
         Call<Void> updateList(@Path("id") long listId, @Query("csrf_token") String token,
                               @Body RemoteReadingList list);
 
         @DELETE("data/lists/{id}")
+        @Headers("Cache-Control: no-cache")
         @NonNull
         Call<Void> deleteList(@Path("id") long listId, @Query("csrf_token") String token);
 
         @GET("data/lists/changes/since/{date}")
+        @Headers("Cache-Control: no-cache")
         @NonNull
         Call<SyncedReadingLists> getChangesSince(@Path("date") String iso8601Date,
                                                  @Query("next") String next);
 
         @GET("data/lists/pages/{project}/{title}")
+        @Headers("Cache-Control: no-cache")
         @NonNull
         Call<SyncedReadingLists> getListsContaining(@Path("project") String project,
                                                     @Path("title") String title,
                                                     @Query("next") String next);
 
         @GET("data/lists/{id}/entries/")
+        @Headers("Cache-Control: no-cache")
         @NonNull
         Call<SyncedReadingLists> getListEntries(@Path("id") long listId,
                                                 @Query("next") String next);
 
         @POST("data/lists/{id}/entries/")
+        @Headers("Cache-Control: no-cache")
         @NonNull
         Call<SyncedReadingLists.RemoteIdResponse> addEntryToList(@Path("id") long listId,
                                                                  @Query("csrf_token") String token,
                                                                  @Body RemoteReadingListEntry entry);
 
         @DELETE("data/lists/{id}/entries/{entry_id}")
+        @Headers("Cache-Control: no-cache")
         @NonNull
         Call<Void> deleteEntryFromList(@Path("id") long listId, @Path("entry_id") long entryId,
                                        @Query("csrf_token") String token);

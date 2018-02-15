@@ -24,6 +24,7 @@ import java.io.IOException;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 
 public class CsrfTokenClient {
     static final String ANON_TOKEN = "+\\";
@@ -216,6 +217,7 @@ public class CsrfTokenClient {
     }
 
     @VisibleForTesting interface Service {
+        @Headers("Cache-Control: no-cache")
         @GET("w/api.php?action=query&format=json&formatversion=2&meta=tokens&type=csrf")
         Call<MwQueryResponse> request();
     }
