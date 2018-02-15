@@ -122,7 +122,11 @@
   <string name="create_account_account_created_toast">Benutzerkonto erstellt!</string>
   <string name="preferences_heading_storage_and_syncing">Speicher und Synchronisierung</string>
   <string name="preference_title_sync_reading_lists">Leselisten synchronisieren</string>
+  <string name="preference_title_sync_reading_lists_from_account">Leselisten für dieses Benutzerkonto synchronisieren</string>
   <string name="preference_summary_sync_reading_lists">Wikimedia erlauben, deine Leselisten bei jeder Anmeldung zu synchronisieren.</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Erlaube der Wikimedia die Synchronisierung von Leselisten mit deinem Wikipedia-Benutzerkonto %s</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Synchronisierte Leselisten von deinem Benutzerkonto %s entfernen?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Dies wird alle früher synchronisierten Leselisten vollständig aus dem Fernspeicher löschen. Alle synchronisierten Listen aus deinem Benutzerkonto %s entfernen?</string>
   <string name="preferences_privacy_settings_heading">Datenschutz</string>
   <string name="preference_title_eventlogging_opt_in">Nutzungsberichte senden</string>
   <string name="preference_summary_eventlogging_opt_in">Wikimedia erlauben, Informationen über die Verwendung der App zu sammeln, um sie zu verbessern.</string>
@@ -145,6 +149,7 @@
   <string name="about_wikipedia_url">https://de.m.wikipedia.org/wiki/Wikipedia:Über_Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/de</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/de</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/de</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.de</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.de</string>
@@ -346,7 +351,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Der Artikel erscheint in mehreren Listen</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ist für keine Leseliste mehr offline verfügbar:</string>
   <string name="reading_lists_sync_reminder_title">Synchronisierung von Leselisten anschalten?</string>
-  <string name="reading_lists_sync_reminder_text"><![CDATA[Artikel, die in Leselisten gespeichert sind, können jetzt mit deinem Wikipedia-Benutzerkonto synchronisiert werden. <a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists">Mehr erfahren</a>]]></string>
+  <string name="reading_lists_sync_reminder_text">Artikel, die in Leselisten gespeichert sind, können jetzt mit deinem Wikipedia-Benutzerkonto synchronisiert werden. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Mehr erfahren&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Synchronisierung aktivieren</string>
   <string name="reading_list_login_reminder_title">Leselisten synchronisieren</string>
   <string name="reading_lists_login_reminder_text">Leselisten können jetzt zwischen Geräten synchronisiert werden. Melde dich bei deinem Wikipedia-Benutzerkonto an und erlaube die Speicherung deiner Listen.</string>
@@ -357,6 +362,27 @@
   <string name="reading_list_already_contains_selection">Die ausgewählte Liste enthält bereits alle der ausgewählten Seiten.</string>
   <string name="reading_list_added_articles_list_titled">%1$d Artikel zu %2$s hinzugefügt</string>
   <string name="reading_list_delete_confirm">Bist du sicher, dass du %s löschen möchtest?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Melde dich an, um die Synchronisierung zu aktivieren.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Melde dich an, um die Speicherung deiner Leselisten in deinem Benutzerkonto zu erlauben.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Abbrechen</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Anmelden</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Synchronisierung von Leselisten ausgeschaltet</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Die Synchronisierung von Leselisten ist für dein Benutzerkonto ausgeschaltet und gespeicherte Artikel werden auf deinen angemeldeten Geräten nicht mehr gesichert. Schalte die Synchronisierung von Leselisten in den Einstellungen an.</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">Okay</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Einstellungen</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Synchronisierung von Leselisten anschalten?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">In Leselisten gespeicherte Artikel können jetzt mit deinem Wikipedia-Benutzerkonto synchronisiert werden. &lt;a href=\"#faq\"&gt;Mehr erfahren&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Diese Nachricht nicht erneut anzeigen</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Synchronisierung aktivieren</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nein danke</string>
+  <string name="reading_list_login_option_reminder_dialog_title">Artikel für Leselisten gefunden</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Auf deiner Wikipedia-App sind gespeicherte Artikel in Leselisten vorhanden. Möchtest du sie behalten und sie mit synchronisierten Leselisten in deinem Benutzerkonto zusammenführen?</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">Ja, zu meinen Leselisten hinzufügen</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Nein, in der App gespeicherte Artikel löschen</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Gespeicherte Artikel auf dem Gerät behalten?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Es sind mit deinem Wikipedia-Benutzerkonto synchronisierte Artikel vorhanden. Möchtest du sie nach der Abmeldung auf diesem Gerät behalten?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Ja, Artikel auf dem Gerät behalten</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Nein, Artikel vom Gerät löschen</string>
   <string name="default_reading_list_name">Gespeichert</string>
   <string name="default_reading_list_description">Standardliste für deine gespeicherten Artikel</string>
   <string name="no_user_lists_title">Organisiere Artikel in Listen</string>

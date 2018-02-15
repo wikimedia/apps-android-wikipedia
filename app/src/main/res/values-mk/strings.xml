@@ -122,7 +122,11 @@
   <string name="create_account_account_created_toast">Сметката е создадена!</string>
   <string name="preferences_heading_storage_and_syncing">Склад и усогласување</string>
   <string name="preference_title_sync_reading_lists">Усогласи списоци за читање</string>
+  <string name="preference_title_sync_reading_lists_from_account">Усогласи списоци за читање за оваа сметка</string>
   <string name="preference_summary_sync_reading_lists">Дозволете ѝ на Викимедија да ги усогласува вашите списоци за читање кога ќе се највите</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Дозволи Викимедија да услогласува списоци за читање на вашата сметка %s на Википедија</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Да отстранам усогласени списоци за читање од вашата сметка %s?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Со ова целосно ќе се избришат сите претходно усогласени списоци за читање од далечински склад. Дали да ги избришам сите усогласени списоци за читање од вашата сметка %s?</string>
   <string name="preferences_privacy_settings_heading">Лични податоци</string>
   <string name="preference_title_eventlogging_opt_in">Испраќај извештаи за употребата</string>
   <string name="preference_summary_eventlogging_opt_in">Ѝ овозможува на Викимедија да собира информации за тоа како го користите прилогот, за да може да го подобри</string>
@@ -145,6 +149,7 @@
   <string name="about_wikipedia_url">https://mk.wikipedia.org/wiki/Википедија:За_Википедија</string>
   <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_Policy/mk?uselang=mk</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/mk?uselang=mk</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.mk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.mk</string>
@@ -346,7 +351,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Статијата се јавува во повеќе списоци</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s повеќе нема да биде достапно вонмрежно за сите списоци за читање:</string>
   <string name="reading_lists_sync_reminder_title">Да го вклучам усогласувањето на списоците за читање?</string>
-  <string name="reading_lists_sync_reminder_text"><![CDATA[Статиите зачувани во списоците за читање сега можат да се усогласат со вашата сметка на Википедија. <a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists">Дознајте повеќе</a>]]></string>
+  <string name="reading_lists_sync_reminder_text">Статиите зачувани во списоците за читање сега можат да се усогласат со вашата сметка на Википедија. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дознајте повеќе&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Овозможи усогласување</string>
   <string name="reading_list_login_reminder_title">Усогласи списоци за читање</string>
   <string name="reading_lists_login_reminder_text">Сега списоците за читање можат да се усогласат низ разни уреди. Најавете се на сметката на Википедија и дозволете да ви се зачуваат списоците.</string>
@@ -357,6 +362,27 @@
   <string name="reading_list_already_contains_selection">Избраниот список веќе ги содржи сите одбрани страници.</string>
   <string name="reading_list_added_articles_list_titled">Додадени %1$d статии во %2$s</string>
   <string name="reading_list_delete_confirm">Дали сте сигурни дека сакате да го избришете %s?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Најавете се за да го овозможите усогласувањето</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Најавете се за да дозволите списоците за читање да се зачуваат во вашата сметка.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Откажи</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Најава</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Усогласувањето на списоците за читање е исклучено</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Усогласувањето на списоците за читање е исклучено, а зачуваните статии на уредите од кои сте се најавиле повеќе не се во резерва. Вклучете ги списоците за читање во Поставките.</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">ОК</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Поставки</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Да го вклучам усогласувањето на списоците за читање?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Статиите зачувани во списоци за читање сега можат да се усогласат со вашата сметка на Википедија. &lt;a href=\"#faq\"&gt;Дознајте повеќе&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Не прикажувај повеќе</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Овозможи усогласување</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Не, благодарам</string>
+  <string name="reading_list_login_option_reminder_dialog_title">Пронајдени статии во списоци за читање</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Има статии во списоци за читање зачувани на вашиот Википедиин прилог. Дали сакате да ги задржите и да ги споите со списоците за читање усогласени на вашата сметка?</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">Да, додај ги во списоците за читање</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Не, избриши ги статиите зачувани во прилогот</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Да ги задржам зачуваните статии на уредот?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Има статии усогласени со вашата сметка на Википедија. Дали сакате да ги задржите на овој уред откако ќе се одјавите?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Да, задржи ги статиите на уредот</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Не, избриши ги статиите од уредот</string>
   <string name="default_reading_list_name">Зачувано</string>
   <string name="default_reading_list_description">Стандарден список за вашите зачувани статии</string>
   <string name="no_user_lists_title">Организирајте статии во списоци</string>

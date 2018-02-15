@@ -142,8 +142,11 @@
   <string name="about_description">Σχετικά με την εφαρμογή της Βικιπαίδειας</string>
   <string name="privacy_policy_description">Πολιτική ιδιωτικού απορρήτου</string>
   <string name="terms_of_use_description">Όροι χρήσης</string>
+  <string name="about_wikipedia_url">https://el.m.wikipedia.org/wiki/Βικιπαίδεια:Σχετικά</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.el</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/3.0/</string>
   <string name="about_libraries_heading">Βιβλιοθήκες που χρησιμοποιούνται</string>
   <string name="about_contributors_heading">Συνεισφέροντες</string>
   <string name="about_translators_heading">Μεταφραστές</string>
@@ -336,6 +339,12 @@
   <string name="reading_lists_confirm_remote_delete_no">Όχι</string>
   <string name="reading_list_added_articles_list_titled">Προστέθηκαν %1$d λήμματα στο %2$s</string>
   <string name="reading_list_delete_confirm">Είστε σίγουρος ότι θέλετε να διαγράψετε το %s;</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Ακύρωση</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Είσοδος</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">Εντάξει</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Ρυθμίσεις</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Μην μου το ξαναεμφανίσεις πάλι</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Όχι, ευχαριστώ</string>
   <string name="default_reading_list_name">Αποθηκεύθηκε</string>
   <string name="default_reading_list_description">Προεπιλεγμένη λίστα για τα αποθηκευμένα λήμματά σας</string>
   <string name="no_user_lists_title">Οργάνωση λημμάτων σε λίστες</string>
@@ -408,12 +417,15 @@
   <string name="description_edit_help_title">Βοήθεια: περιγραφές τίτλων</string>
   <string name="description_edit_help_about_wikidata">Σχετικά με τα Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Οδηγός των Wikidata για περιγραφές συγγραφής</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/el</string>
+  <string name="description_edit_anon_limit">Ευχαριστούμε για το συνεχιζόμενο ενδιαφέρον σας στις περιγραφές επεξεργασίας! Για να κάνετε πρόσθετες επεξεργασίες, παρακαλώ συνδεθείτε στον λογαριασμό σας στη Βικιπαίδεια.</string>
   <string name="description_edit_success_saved">Η περιγραφή δημοσιεύτηκε</string>
   <string name="description_edit_success_encouragement">Μόλις κάνατε την Βικιπαίδεια καλύτερη για τον καθένα</string>
   <string name="description_edit_success_done">Έγινε</string>
   <string name="description_edit_success_did_you_know">Γνωρίζατε ότι...;</string>
   <string name="description_edit_success_article_edit_hint">Μπορείτε να επεξεργαστείτε επίσης λήμματα με αυτή την εφαρμογή. Προσπαθήστε να διορθώσετε ορθογραφικά λάθη και μικρές προτάσεις κλικάροντας στην εικόνα ^1 την επόμενη φορά</string>
   <string name="description_edit_tutorial_title_descriptions">Περιγραφές τίτλου</string>
+  <string name="description_edit_tutorial_keep_it_short">Κρατήστε το σύντομο</string>
   <string name="description_edit_tutorial_button_label_start_editing">Ξεκινήστε την επεξεργασία</string>
   <string name="description_edit_help_about_title">Σχετικά</string>
   <string name="description_edit_help_tips">Συμβουλές για την δημιουργία περιγραφών</string>
@@ -424,9 +436,11 @@
   <string name="description_edit_help_tips_example2_hint">περιγραφή τίτλου για ένα λήμμα σχετικά με το Όρος Έβερεστ</string>
   <string name="description_edit_help_more_info">Περισσότερες πληροφορίες</string>
   <string name="description_edit_revert_subtitle">Ευχαριστούμε που επεξεργάζεστε την Βικιπαίδεια!</string>
+  <string name="offline_compilation_download_device_offline">Χωρίς σύνδεση στο διαδίκτυο. Όταν θα έχετε πάλι σύνδεση στο διαδίκτυο, προσπαθήστε πάλι.</string>
   <string name="offline_card_sideloading_text">Vous naviguez maintenant sur Wikipedia offline de paquets d\'articles de Votre Bibliothèque Offline</string>
   <string name="offline_my_compilations">Διαχείρηση της βιβλιοθήκης εκτός σύνδεσής μου</string>
   <string name="offline_compilations_title">Βιβλιοθήκη εκτός σύνδεσης</string>
+  <string name="offline_compilations_search_by_name">Αναζήτηση πακέτων λημμάτων ανά όνομα</string>
   <string name="offline_compilations_found_count">Στην βιβλιοθήκη εκτός σύνδεσής μου (%d)</string>
   <string name="offline_compilations_add">Προσθήκη στην βιβλιοθήκη εκτός σύνδεσής μου</string>
   <string name="remote_compilations_title">Βιβλιοθήκη εκτός σύνδεσης</string>

@@ -289,8 +289,8 @@
   <string name="reading_list_sort">Ordina</string>
   <string name="reading_list_sort_by_name">Ordina per nome</string>
   <string name="reading_list_sort_by_name_desc">Ordina per nome (inverso)</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Ordina per più recenti</string>
-  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Ordina per meno recenti</string>
+  <string name="reading_list_sort_by_recent">Ordina per data di aggiunta (più recenti)</string>
+  <string name="reading_list_sort_by_recent_desc">Ordina per data di aggiunta (più vecchi)</string>
   <string name="reading_list_menu_delete">Cancella elenco</string>
   <string name="reading_list_menu_rename">Rinomina</string>
   <string name="reading_list_menu_edit_description">Modifica descrizione</string>
@@ -318,10 +318,16 @@
   <string name="reading_list_remove_from_list">Rimuovi da %s</string>
   <string name="reading_list_remove_from_lists">Rimuovi dall\'elenco di lettura</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Voce appare in più elenchi</string>
+  <string name="reading_lists_sync_reminder_action">Attiva sincronizzazione</string>
   <string name="reading_list_login_reminder_title">Sincronizza elenco di lettura</string>
   <string name="reading_lists_confirm_remote_delete_yes">Sì</string>
   <string name="reading_lists_confirm_remote_delete_no">No</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">Sei sicuro di voler cancellare questo %s elenco di lettura?</string>
+  <string name="reading_list_delete_confirm">Sei sicuro di voler cancellare %s?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Annulla</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Entra</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Impostazioni</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No, grazie</string>
   <string name="default_reading_list_name">Salvato</string>
   <string name="default_reading_list_description">Elenco predefinito per le tue voci salvate</string>
   <string name="no_user_lists_title">Organizza voci in elenchi</string>

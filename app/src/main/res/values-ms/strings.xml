@@ -122,7 +122,11 @@
   <string name="create_account_account_created_toast">Akaun dicipta!</string>
   <string name="preferences_heading_storage_and_syncing">Storan dan penyegerakan</string>
   <string name="preference_title_sync_reading_lists">Menyegerakkan senarai bacaan</string>
+  <string name="preference_title_sync_reading_lists_from_account">Segerakkan senarai bacaan untuk akaun ini</string>
   <string name="preference_summary_sync_reading_lists">Benarkan Wikimedia untuk menyegerakkan senarai bacaan anda apabila anda log masuk</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Benarkan Wikimedia menyegerakkan senarai bacaan ke akaun Wikipedia anda %s</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Buang senarai bacaan yang diselaraskan dari akaun anda %s?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Ini akan memadam semua senarai bacaan yang diselaraskan sebelum ini dari storan jauh. Buang semua senarai yang disegerakkan dari akaun anda %s?</string>
   <string name="preferences_privacy_settings_heading">Privasi</string>
   <string name="preference_title_eventlogging_opt_in">Laporkan penggunaan</string>
   <string name="preference_summary_eventlogging_opt_in">Benarkan Wikimedia untuk mengumpul maklumat mengenai cara penggunaan aplikasi demi peningkatan kualiti aplikasi</string>
@@ -145,6 +149,7 @@
   <string name="about_wikipedia_url">https://ms.m.wikipedia.org/wiki/Wikipedia:Perihal</string>
   <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ms</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ms</string>
@@ -308,8 +313,8 @@
   <string name="reading_list_sort">Isih</string>
   <string name="reading_list_sort_by_name">Isih ikut nama</string>
   <string name="reading_list_sort_by_name_desc">Isih ikut nama (terbalik)</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Isih ikut yang terbaru</string>
-  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Isih ikut yang terlama</string>
+  <string name="reading_list_sort_by_recent">Isih mengikut tarikh ditambah (terbaru)</string>
+  <string name="reading_list_sort_by_recent_desc">Isih mengikut tarikh ditambah (terlama)</string>
   <string name="reading_list_sort_by_created">Isih mengikut tarikh diciptakan (terbaru)</string>
   <string name="reading_list_sort_by_created_desc">Isih mengikut tarikh diciptakan (terlama)</string>
   <string name="reading_list_menu_delete">Padam senarai</string>
@@ -345,14 +350,39 @@
   <string name="reading_list_confirm_remove_article_from_offline">Padam dari luar talian</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Rencana muncul dalam beberapa senarai</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s tidak lagi akan tersedia di luar talian untuk semua senarai baca:</string>
+  <string name="reading_lists_sync_reminder_title">Hidupkan penyegerakan senarai bacaan?</string>
+  <string name="reading_lists_sync_reminder_text">Rencana yang disimpan untuk membaca senarai kini boleh diselaraskan ke akaun Wikipedia anda. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_action">Dayakan penyegerakan</string>
   <string name="reading_list_login_reminder_title">Menyegerakkan senarai bacaan</string>
+  <string name="reading_lists_login_reminder_text">Senarai bacaan kini boleh disegerakkan merentas peranti. Masuk ke akaun Wikipedia anda dan izinkan senarai anda disimpan.</string>
   <string name="reading_lists_confirm_remote_delete">Ini akan memadam sebarang senarai bacaan diselaraskan sebelumnya dari storan jauh. Teruskan?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ya</string>
   <string name="reading_lists_confirm_remote_delete_no">Tidak</string>
   <string name="reading_list_article_save_in_progress">Rencana sedang dimuat turun, dan ia akan tersedia di luar talian apabila selesai.</string>
   <string name="reading_list_already_contains_selection">Senarai yang dipilih sudah mengandungi semua halaman yang dipilih.</string>
   <string name="reading_list_added_articles_list_titled">%1$d ditambahkan ke %2$s</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">Adakah anda benar-benar ingin memadamkan %s senarai bacaan ini?</string>
+  <string name="reading_list_delete_confirm">Adakah anda benar-benar ingin memadamkan %s?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Log masuk untuk mendayakan penyegerakan</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Log masuk untuk membolehkan senarai bacaan anda disimpan ke akaun anda.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Batalkan</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Log masuk</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Penyegerakan senarai bacaan dimatikan</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Penyegerakan senarai bacaan dimatikan untuk akaun anda, dan artikel yang disimpan pada peranti log masuk anda tidak lagi disandarkan. Hidupkan penyegerakan senarai bacaan dalam Tetapan.</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Tetapan</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Hidupkan penyegerakan senarai bacaan?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Rencana yang disimpan untuk membaca senarai kini boleh diselaraskan ke akaun Wikipedia anda. &lt;a href=\"#faq\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Jangan tunjukkan saya lagi ini</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Dayakan penyegerakan</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Tak apalah</string>
+  <string name="reading_list_login_option_reminder_dialog_title">Rencana senarai bacaan yang dijumpai</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Terdapat rencana senarai bacaan yang disimpan ke aplikasi Wikipedia anda. Adakah anda ingin menyimpannya dan bergabung dengan senarai membaca yang disegerakkan ke akaun anda?</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">Ya, tambahkan ke senarai bacaan saya</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Tidak, padamkan rencana yang disimpan di aplikasinya</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Simpan rencana yang disimpan pada peranti?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Terdapat rencana yang diselaraskan ke akaun Wikipedia anda. Adakah anda ingin menyimpannya pada peranti ini selepas anda log keluar?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Ya, simpan rencana pada peranti</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Tidak, padamkan rencana dari peranti</string>
   <string name="default_reading_list_name">Disimpan</string>
   <string name="default_reading_list_description">Senarai lalai untuk rencana anda yang disimpan</string>
   <string name="no_user_lists_title">Atur rencana ke dalam senarai</string>
@@ -361,6 +391,7 @@
   <string name="split_reading_list_message">Terdapat had 1000 rencana setiap senarai bacaan. Senarai sedia ada dengan lebih daripada had ini telah dibahagikan kepada beberapa senarai.</string>
   <string name="reading_list_article_limit_message">Tidak dapat menambah ke senarai ini. Anda telah mencapai had 1.000 rencanabagi setiap senarai untuk senarai \"%s\".</string>
   <string name="reading_lists_limit_message">Tidak dapat membuat senarai lain. Anda telah mencapai had 100 senarai bacaan setiap akaun.</string>
+  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Segerakkan senarai bacaan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Senarai bacaan kini boleh disegerakkan merentas peranti. Masuk ke akaun Wikipedia anda dan izinkan senarai anda disimpan.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Rencana ini kini boleh didapati di luar talian.</item>
     <item quantity="other">Rencana-rencana ini kini boleh didapati di luar talian.</item>
@@ -525,7 +556,7 @@
   <string name="onboarding_save_to_reading_lists_title">Simpan ke senarai bacaan</string>
   <string name="onboarding_save_to_reading_lists_text">Buat senarai bacaan dari rencana yang ingin dibaca kemudian, walaupun semasa anda berada di luar talian.</string>
   <string name="onboarding_analytics_title">Hantar data tanpa nama</string>
-  <string name="onboarding_analytics_offline_text" fuzzy="true">Bantu menjadikan aplikasi lebih baik dengan memberitahu kami bagaimana anda menggunakannya. Data yang dikumpul tidak dikenali. &lt;a href=\"#privacy\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Bantu menjadikan aplikasi lebih baik dengan memberitahu kami bagaimana anda menggunakannya. Data yang dikumpul tidak dikenali. &lt;a href=\"#privacy\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Hantar data penggunaan</string>
   <string name="onboarding_create_account_sync">Menyegerakkan senarai bacaan Anda</string>
   <string name="onboarding_create_account_contributions">Jejaki sumbangan anda</string>

@@ -122,7 +122,11 @@
   <string name="create_account_account_created_toast">账户已创建！</string>
   <string name="preferences_heading_storage_and_syncing">存储与同步</string>
   <string name="preference_title_sync_reading_lists">同步阅读列表</string>
+  <string name="preference_title_sync_reading_lists_from_account">为此账户同步阅读列表</string>
   <string name="preference_summary_sync_reading_lists">允许维基媒体在您登录时，同步您的阅读列表</string>
+  <string name="preference_summary_sync_reading_lists_from_account">允许维基媒体同步阅读列表到您的维基百科帐户%s</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">从您的账户%s移除同步的阅读列表么？</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">这将从远程存储中完全删除所有此前同步的阅读列表。从您的账户%s移除所有同步列表么？</string>
   <string name="preferences_privacy_settings_heading">隐私</string>
   <string name="preference_title_eventlogging_opt_in">发送使用情况报告</string>
   <string name="preference_summary_eventlogging_opt_in">允许维基媒体基金会收集关于您使用该应用的信息，以改进该应用</string>
@@ -145,6 +149,7 @@
   <string name="about_wikipedia_url">https://zh.m.wikipedia.org/wiki/Wikipedia:关于</string>
   <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Special:MyLanguage/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#离线阅读和数据</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh</string>
   <string name="terms_of_use_url">https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.zh</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh</string>
@@ -346,7 +351,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">出现在多个列表中的条目</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s将不再用于所有阅读列表中的离线内容：</string>
   <string name="reading_lists_sync_reminder_title">打开阅读列表同步？</string>
-  <string name="reading_lists_sync_reminder_text"><![CDATA[保存到阅读列表的条目现在可以同步到您的维基百科账户。<a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists">了解更多</a>]]></string>
+  <string name="reading_lists_sync_reminder_text">保存到阅读列表的条目现在可以同步到您的维基百科账户。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;了解更多&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">启用同步</string>
   <string name="reading_list_login_reminder_title">同步阅读列表</string>
   <string name="reading_lists_login_reminder_text">阅读列表现在可以跨设备同步。登录您的维基百科账户并允许保存您的列表吧。</string>
@@ -357,6 +362,27 @@
   <string name="reading_list_already_contains_selection">选择的列表已包含所有选择的页面。</string>
   <string name="reading_list_added_articles_list_titled">已添加%1$d个条目至%2$s</string>
   <string name="reading_list_delete_confirm">您确定要删除%s么？</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">登录以启用同步</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">登录以允许您的阅读列表保存到您的帐户中。</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">取消</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">登录</string>
+  <string name="reading_list_turned_sync_off_dialog_title">阅读列表同步已关闭</string>
+  <string name="reading_list_turned_sync_off_dialog_text">阅读列表同步已为您的账户关闭，并且在您登录的设备上保存的条目不再进行备份。在设置中打开阅读列表同步。</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">确定</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">设置</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">打开阅读列表同步？</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">保存到阅读列表的条目现在可以同步到您的维基百科账户。&lt;a href=\"#faq\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">不要向我再次显示</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">启用同步</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">不用了，谢谢</string>
+  <string name="reading_list_login_option_reminder_dialog_title">找到的阅读列表条目</string>
+  <string name="reading_list_login_option_reminder_dialog_text">这些是保存到您的维基百科应用的阅读列表。您是否希望保留它们，并合并到同步至您账户的阅读列表？</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">是，将他们添加到我的阅读列表</string>
+  <string name="reading_list_login_option_reminder_dialog_no">否，删除保存在应用上的条目</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">在设备上保留已保存的条目么？</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">这些是同步到您维基百科账户的条目。您是否希望在退出后，在此设备上保留它们？</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">是，将条目保留到设备</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">否，从设备中删除条目</string>
   <string name="default_reading_list_name">已保存</string>
   <string name="default_reading_list_description">用于您的已保存条目的默认列表</string>
   <string name="no_user_lists_title">组织条目至列表中</string>

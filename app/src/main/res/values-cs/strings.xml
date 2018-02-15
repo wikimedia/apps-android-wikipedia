@@ -50,7 +50,7 @@
   <string name="preference_title_language">Jazyk Wikipedie</string>
   <string name="preference_languages_filter_hint">Hledat</string>
   <string name="langlinks_filter_hint">Hledat</string>
-  <string name="langlinks_empty">Tato stránka není k dispozici v jiných jazycích</string>
+  <string name="langlinks_empty">Tato stránka není k dispozici v jiných jazycích.</string>
   <string name="langlinks_no_match">Nenalezeny žádné jazyky odpovídající vašemu dotazu.</string>
   <string name="langlinks_activity_title">Jiné jazyky</string>
   <string name="menu_save_changes">Zveřejnit změny</string>
@@ -300,11 +300,11 @@
   <string name="reading_lists_onboarding_example3">Průzkum vesmíru</string>
   <string name="reading_lists_onboarding_got_it">Jasně</string>
   <string name="reading_lists_sync_reminder_title">Zapnout synchronizaci seznamů čtení?</string>
-  <string name="reading_lists_sync_reminder_text"><![CDATA[Články uložené v seznamech čtení mohou být nyní synchronizovány s vaším účtem na Wikipedii. <a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists">Více informací</a>]]></string>
+  <string name="reading_lists_sync_reminder_text">Články uložené v seznamech čtení mohou být nyní synchronizovány s vaším účtem na Wikipedii. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Více informací&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Povolit synchronizace</string>
   <string name="reading_lists_login_reminder_text">Seznamy čtení mohou být nyní synchronizovány napříč zařízeními. Přihlaste se do svého účtu na Wikipedii a povolte ukládání vašich seznamů.</string>
   <string name="reading_list_delete_confirm">Opravdu chcete odstranit „%s“?</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synchronizace seznamů čtení&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Seznamy čtení mohou být nyní synchronizovány skrze zařízení. Přihlašte se na svůj účet na Wikipedii a povolte ukládání svých vlastních seznamů.</string>
+  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synchronizace seznamů čtení&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Seznamy čtení mohou být nyní synchronizovány napříč zařízení. Přihlašte se na svůj účet na Wikipedii a povolte ukládání svých vlastních seznamů.</string>
   <string name="user_option_sync_label">Nastavení</string>
   <string name="notification_button_view_user">Diskutovat s uživatelem</string>
   <string name="notification_talk_title">Nová zpráva na Wikipedii</string>
