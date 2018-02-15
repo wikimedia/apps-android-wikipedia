@@ -143,20 +143,22 @@ public class PageTitle implements Parcelable {
 
         String[] parts = text.split(":", -1);
         if (parts.length > 1) {
-            if (Arrays.asList(Locale.getISOLanguages()).contains(parts[0])) {
+            String namespaceOrLanguage = parts[0];
+            if (Arrays.asList(Locale.getISOLanguages()).contains(namespaceOrLanguage)) {
                 this.namespace = null;
-                this.text = parts[1];
+                this.wiki = WikiSite.forLanguageCode(namespaceOrLanguage);
             } else {
-                this.namespace = parts[0];
-                this.text = TextUtils.join(":", Arrays.copyOfRange(parts, 1, parts.length));
+                this.wiki = wiki;
+                this.namespace = namespaceOrLanguage;
             }
+            this.text = TextUtils.join(":", Arrays.copyOfRange(parts, 1, parts.length));
         } else {
+            this.wiki = wiki;
             this.namespace = null;
             this.text = parts[0];
         }
 
         this.thumbUrl = thumbUrl;
-        this.wiki = wiki;
         this.properties = properties;
     }
 
