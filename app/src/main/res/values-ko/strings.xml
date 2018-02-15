@@ -342,7 +342,10 @@
   <string name="reading_list_confirm_remove_article_from_offline">오프라인에서 제거</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">글이 여러 목록으로 표시됩니다</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s 문서는 모든 읽기 목록에 대해 오프라인에서 더 이상 읽을 수 없습니다:</string>
+  <string name="reading_lists_sync_reminder_title">읽기 목록 동기화를 켜시겠습니까?</string>
+  <string name="reading_lists_sync_reminder_action">동기화 사용</string>
   <string name="reading_list_login_reminder_title">읽기 목록 동기화</string>
+  <string name="reading_lists_login_reminder_text">지금 읽기 목록을 여러 장치 간에 동기화할 수 있습니다. 위키백과 계정으로 로그인하면 목록을 저장할 수 있습니다.</string>
   <string name="reading_lists_confirm_remote_delete">과거에 동기화된 읽기 목록을 원격 기억 장치에서 삭제합니다. 진행하시겠습니까?</string>
   <string name="reading_lists_confirm_remote_delete_yes">예</string>
   <string name="reading_lists_confirm_remote_delete_no">아니오</string>
@@ -356,6 +359,7 @@
   <string name="split_reading_list_message">읽기 목록 하나 당 문서 1000개의 제한이 있습니다. 이 제한을 초과하는 목록이 있다면 여러 개 목록으로 분할되게 됩니다.</string>
   <string name="reading_list_article_limit_message">이 목록에 추가할 수 없습니다. \"%s\"에 대해 목록 당 1,000개 문서 제한에 도달했습니다.</string>
   <string name="reading_lists_limit_message">다른 목록을 만들 수 없습니다. 계정 당 100개 읽기 목록 제한에 도달했습니다.</string>
+  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;읽기 목록 동기화&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;지금 읽기 목록을 여러 장치 간에 동기화할 수 있습니다. 위키백과 계정으로 로그인하면 목록을 저장할 수 있습니다.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">이 글은 이제 오프라인에서 읽을 수 있습니다.</item>
     <item quantity="other">이 글들은 이제 오프라인에서 읽을 수 있습니다.</item>

@@ -122,7 +122,9 @@
   <string name="create_account_account_created_toast">Учётная запись создана!</string>
   <string name="preferences_heading_storage_and_syncing">Хранилище и синхронизация</string>
   <string name="preference_title_sync_reading_lists">Синхронизировать список для чтения</string>
+  <string name="preference_title_sync_reading_lists_from_account">Синхронизировать списки для чтения для этой учётной записи</string>
   <string name="preference_summary_sync_reading_lists">Разрешить Викимедиа синхронизировать ваш список для чтения при авторизации</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Разрешить Викимедиа синхронизировать списки для чтения для учётной записи %s в Википедии</string>
   <string name="preferences_privacy_settings_heading">Конфиденциальность</string>
   <string name="preference_title_eventlogging_opt_in">Отправлять отчёты об использовании</string>
   <string name="preference_summary_eventlogging_opt_in">Разрешить Викимедиа собирать информацию о том, как вы используете приложение. Это позволит сделать его лучше.</string>
@@ -145,6 +147,7 @@
   <string name="about_wikipedia_url">https://ru.m.wikipedia.org/wiki/Википедия:Описание</string>
   <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Чтение_в_офлайне_и_данные</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Условия_использования</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ru</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
@@ -345,6 +348,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Удалить из офлайн-режима</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">статья появляется в многочисленных списках</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s больше не будет доступна в офлайн-режиме во всех списках для чтения:</string>
+  <string name="reading_lists_sync_reminder_action">Включить синхронизацию</string>
   <string name="reading_list_login_reminder_title">Синхронизировать список для чтения</string>
   <string name="reading_lists_confirm_remote_delete">Это удалит все ранее синхронизированные списки для чтения из удалённого хранилища. Продолжить?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
@@ -353,6 +357,12 @@
   <string name="reading_list_already_contains_selection">Указанный список уже содержит все выбранные страницы.</string>
   <string name="reading_list_added_articles_list_titled">Добавлены %1$d статьей в %2$s</string>
   <string name="reading_list_delete_confirm">Вы уверены, что хотите удалить %s?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Войдите, чтоб включить синхронизацию</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Отмена</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Войти</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Настройки</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Нет, спасибо</string>
   <string name="default_reading_list_name">Сохранено</string>
   <string name="default_reading_list_description">Стандартный список для ваших сохранённых статьей</string>
   <string name="no_user_lists_title">Сохраняйте подборки статей</string>

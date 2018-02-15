@@ -122,7 +122,11 @@
   <string name="create_account_account_created_toast">¡Cuenta creada!</string>
   <string name="preferences_heading_storage_and_syncing">Almacenamientu y sincronización</string>
   <string name="preference_title_sync_reading_lists">Sincronizar llistes de llectura</string>
+  <string name="preference_title_sync_reading_lists_from_account">Sincronizar les llistes de llectura d\'esta cuenta</string>
   <string name="preference_summary_sync_reading_lists">Permitir que Wikimedia sincronice les llistes de llectura al aniciar sesión</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Permite a Wikimedia sincronizar les llistes de llectura de la cuenta de Wikipedia %s</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">¿Desaniciar les llistes de llectura sincronizaes de la to cuenta %s?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Esto desaniciará dafechu del almacenamientu remotu toles llistes de llectura sincronizaes anteriormente. ¿Desaniciar toles llistes sincronizaes de la to cuenta %s?</string>
   <string name="preferences_privacy_settings_heading">Intimidá</string>
   <string name="preference_title_eventlogging_opt_in">Unviar informes d\'usu</string>
   <string name="preference_summary_eventlogging_opt_in">Permite a Wikimedia collechar información tocante a cómo uses la app p\'ameyorala</string>
@@ -145,6 +149,7 @@
   <string name="about_wikipedia_url">https://ast.m.wikipedia.org/wiki/Wikipedia:Tocante_a</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -345,7 +350,11 @@
   <string name="reading_list_confirm_remove_article_from_offline">Quitar de les llistes sin conexón</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">L\'artículu apaez en delles llistes</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s yá nun tará disponible sin conexón pa nenguna llista de llectura:</string>
+  <string name="reading_lists_sync_reminder_title">¿Activar la sincronización de llistes de llectura?</string>
+  <string name="reading_lists_sync_reminder_text">Los artículos guardaos en llistes de llectura agora pueden sincronizase cola to cuenta de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saber más&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_action">Activar sincronización</string>
   <string name="reading_list_login_reminder_title">Sincronizar llistes de llectura</string>
+  <string name="reading_lists_login_reminder_text">Agora pueden sincronizase les llistes de llectura ente preseos. Anicia sesión na to cuenta de Wikipedia y permite guardar les tos llistes.</string>
   <string name="reading_lists_confirm_remote_delete">Esto desaniciará del almacenamientu remotu cualquier llista de llectura sincronizada con anterioidá. ¿Siguir?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Sí</string>
   <string name="reading_lists_confirm_remote_delete_no">Non</string>
@@ -353,6 +362,27 @@
   <string name="reading_list_already_contains_selection">La llista escoyida yá contien toles páxines seleicionaes.</string>
   <string name="reading_list_added_articles_list_titled">Añadiéronse %1$d artículos a %2$s</string>
   <string name="reading_list_delete_confirm">¿Tas seguru de que quies desaniciar %s?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Anicia sesión p\'activar la sincronización</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Anicia sesión pa permitir guardar les llistes de llectura na to cuenta.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Encaboxar</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Aniciar sesión</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Ta desactivada la sincronización de la llista de llectura</string>
+  <string name="reading_list_turned_sync_off_dialog_text">La sincronización de llistes de llectura ta desactivada na to cuenta, y los artículos guardaos n\'otros preseos yá nun tán guardándose. Activa la sincronización de llistes de llectura na Configuración.</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">Aceutar</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Configuración</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">¿Activar la sincronización de llistes de llectura?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Los artículos guardaos en llistes de llectura agora pueden sincronizase cola to cuenta de Wikipedia. &lt;a href=\"#faq\"&gt;Saber más&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Nun volver a amosame esto</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Activar sincronización</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Non, gracies</string>
+  <string name="reading_list_login_option_reminder_dialog_title">Alcontráronse artículos de llistes de llectura</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Hai artículos de llistes de llectura guardaos na app de Wikipedia. ¿Quies caltenelos y amestalos a llistes de llectura sincronizaes cola to cuenta?</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">Si, amestalos a les mios llistes de llectura</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Non, desaniciar los artículos guardaos na app</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">¿Caltener los artículos guardaos nel preséu?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Hai artículos sincronizaos cola to cuenta de Wikipedia. ¿Quies caltenelos nesti preséu cuando zarres la sesión?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Si, caltener los artículos nel preséu</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Non, desaniciar los artículos del preséu</string>
   <string name="default_reading_list_name">Guardaos</string>
   <string name="default_reading_list_description">Llista predeterminada pa los artículos guardaos</string>
   <string name="no_user_lists_title">Organizar artículos en llistes</string>
@@ -361,6 +391,7 @@
   <string name="split_reading_list_message">Hai una llende de mil artículos per llista de llectura. Les llistes que superaben esta llende xebráronse en delles llistes.</string>
   <string name="reading_list_article_limit_message">Nun pueden añadise elementos a esta llista. Algamóse la llende de 1000 artículos per llista pa «%s».</string>
   <string name="reading_lists_limit_message">Nun puedes crear otra llista. Algamasti la llende de 100 llistes de llectura per cuenta.</string>
+  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sincronizar llistes de llectura&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Les llistes de llectura agora pueden sincronizase ente preseos. Anicia sesión cola to cuenta de Wikipedia y permite guardar les llistes.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Esti artículu agora tará disponible sin conexón.</item>
     <item quantity="other">Estos artículos agora tarán disponibles sin conexón.</item>

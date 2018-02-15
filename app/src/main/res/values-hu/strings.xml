@@ -343,7 +343,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">A szócikk több listán is rajta van</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s többé nem lesz elérhető kapcsolat nélkül egyik olvasólistánál sem:</string>
   <string name="reading_lists_sync_reminder_title">Bekapcsolod az olvasólisták szinkronizálását?</string>
-  <string name="reading_lists_sync_reminder_text"><![CDATA[Az olvasólistákra mentett szócikkek mostantól szinkronizálhatók a Wikipédia-fiókoddal. <a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Offline_olvasás">További információk</>]]></string>
+  <string name="reading_lists_sync_reminder_text">Az olvasólistákra mentett szócikkek mostantól szinkronizálhatók a Wikipédia-fiókoddal. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Offline_olvasás\"&gt;További információk&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Szinkronizálás engedélyezése</string>
   <string name="reading_list_login_reminder_title">Olvasólisták szinkronizálása</string>
   <string name="reading_lists_login_reminder_text">Az olvasási listák mostantól szinkronizálhatók a különböző eszközeid között. Jelentkezz be a Wikipédia-fiókodba és engedélyezd a listáid mentését.</string>
@@ -440,7 +440,7 @@
   <string name="description_edit_help_wikidata_guide">Wikidata-útmutató leírások készítéséről</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/hu</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Köszönjük a folyamatos érdeklődésedet a leírások szerkesztése iránt! További szerkesztéshez kérjük jelentkezz be a Wikipédia&#8211;fiókoddal.</string>
+  <string name="description_edit_anon_limit">Köszönjük a folyamatos érdeklődésedet a leírások szerkesztése iránt! További szerkesztéshez kérjük jelentkezz be a Wikipédia-fiókoddal.</string>
   <string name="description_edit_license_notice">A címleírás szerkesztésével elfogadom a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlanul a &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; licenc alá helyezem a szerkesztésemet.</string>
   <string name="description_edit_success_saved">Leírás közzétéve!</string>
   <string name="description_edit_success_encouragement">Éppen mindenkinek jobbá tetted a Wikipédiát</string>
@@ -456,7 +456,7 @@
   <string name="description_edit_help_about_title">A címleírásokról</string>
   <string name="description_edit_help_description">A címleírások összefoglalják egy cikk tartalmát, hogy az olvasók gyorsan megérthessék, miről szól.</string>
   <string name="description_edit_help_tips">Tanácsok leírás létrehozásához</string>
-  <string name="description_edit_help_tips_description">A leírások ideális esetben nem hosszabbak egy sornál, 2&#8211;12 szavasak. Nem kezdődnek nagybetűvel, csak ha az első szó mondat közepén is nagybetűvel írandó.</string>
+  <string name="description_edit_help_tips_description">A leírások ideális esetben nem hosszabbak egy sornál, 2–12 szavasak. Nem kezdődnek nagybetűvel, csak ha az első szó mondat közepén is nagybetűvel írandó.</string>
   <string name="description_edit_help_tips_examples">Például:</string>
   <string name="description_edit_help_tips_example1">Leonardo da Vinci festménye</string>
   <string name="description_edit_help_tips_example1_hint">címleírás a Mona Lisáról szóló cikkhez</string>

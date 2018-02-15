@@ -345,7 +345,11 @@
   <string name="reading_list_confirm_remove_article_from_offline">Fjern fra offline</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artiklen forekommer i flere lister</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s vil ikke længere være tilgængelig offline for alle læselister:</string>
+  <string name="reading_lists_sync_reminder_title">Aktiver synkronisering af læseliste?</string>
+  <string name="reading_lists_sync_reminder_text">Artikler gemt i læselister kan nu synkroniseres med din Wikipediakonto. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Få yderligere information&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_action">Aktiver synkronisering</string>
   <string name="reading_list_login_reminder_title">Synkr. læselister</string>
+  <string name="reading_lists_login_reminder_text">Læselister kan nu synkroniseres på tværs af enheder. Log ind på din Wikipediakonto og tillad at dine lister gemmes.</string>
   <string name="reading_lists_confirm_remote_delete">Dette vil slette tidligere synkroniserede læselister fra det eksterne lager. Fortsæt?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nej</string>
@@ -361,6 +365,7 @@
   <string name="split_reading_list_message">Der er en begrænsning på 1.000 artikler per læseliste. Eksisterende lister med mere end denne begrænsning er blevet delt i flere lister.</string>
   <string name="reading_list_article_limit_message">Kan ikke tilføje til listen. Du har nået begrænsningen på 1.000 artikler per liste for »%s«.</string>
   <string name="reading_lists_limit_message">Kan ikke oprette en anden liste. Du har nået begrænsningen på 100 læselister per konto.</string>
+  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synkroniser læselister&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Læselister kan nu synkroniseres på tværs af enheder. Log ind på din Wikipediakonto og tillad at dine lister gemmes.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Denne artikel vil nu være tilgængelig lokalt.</item>
     <item quantity="other">Disse artikler vil nu være tilgængelige lokalt.</item>

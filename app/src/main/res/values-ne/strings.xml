@@ -262,6 +262,7 @@
   <string name="reading_list_sort_by_name_desc">नाम अनुसार श्रेणीबद्ध गर्नुहोस् (उल्टो क्रममा)</string>
   <string name="reading_list_sort_by_recent" fuzzy="true">सबैभन्दा भर्खरैको क्रममा श्रेणीबद्ध गर्नुहोस्</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">सबैभन्दा कम भर्खरैको क्रममा श्रेणीबद्ध गर्नुहोस्</string>
+  <string name="reading_list_sort_by_created_desc">मिति अनुसार बनाइएको क्रमबद्ध (पुरानो)</string>
   <string name="reading_list_menu_delete">सूची मेट्नुहोस्</string>
   <string name="reading_list_menu_edit_description">विवरण सम्पादन गर्नुहोस्</string>
   <string name="reading_list_action_menu_remove_from_offline">अफलाइनबाट हटाउनुहोस्</string>

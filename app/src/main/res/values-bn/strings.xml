@@ -337,7 +337,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">হ্যাঁ</string>
   <string name="reading_lists_confirm_remote_delete_no">না</string>
   <string name="reading_list_added_articles_list_titled">%2$s-এ %1$dটি নিবন্ধ যোগ হয়েছে</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">আপনি কি নিশ্চিতভাবে এই %s পড়ার তালিকা অপসারণ করতে চান?</string>
+  <string name="reading_list_delete_confirm">আপনি কি নিশ্চিতভাবে এই %s অপসারণ করতে চান?</string>
   <string name="default_reading_list_name">সংরক্ষিত</string>
   <string name="reading_list_saved_list_rename">%1$s (ব্যবহারকারী তৈরি করেছেন)</string>
   <plurals name="reading_list_article_offline_message">

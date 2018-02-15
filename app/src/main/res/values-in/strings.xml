@@ -122,7 +122,11 @@
   <string name="create_account_account_created_toast">Akun dibuat!</string>
   <string name="preferences_heading_storage_and_syncing">Penyimpanan dan sinkronisasi</string>
   <string name="preference_title_sync_reading_lists">Sinkronkan daftar bacaan</string>
+  <string name="preference_title_sync_reading_lists_from_account">Sinkronkan daftar bacaan untuk akun ini</string>
   <string name="preference_summary_sync_reading_lists">Izinkan Wikimedia menyinkronkan daftar bacaan Anda saat Anda masuk log</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Izinkan Wikimedia menyelaraskan daftar bacaan ke akun Wikipedia Anda %s</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Hapus daftar bacaan yang disinkronkan dari akun Anda %s?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Ini akan menghapus semua daftar bacaan yang disinkronkan sebelumnya dari penyimpanan jarak jauh. Hapus semua daftar yang disinkronkan dari akun Anda %s?</string>
   <string name="preferences_privacy_settings_heading">Privasi</string>
   <string name="preference_title_eventlogging_opt_in">Kirim laporan penggunaan</string>
   <string name="preference_summary_eventlogging_opt_in">Izinkan Wikimedia untuk mengumpulkan informasi tentang bagaimana Anda menggunakan aplikasi untuk membuat aplikasi yang lebih baik</string>
@@ -145,6 +149,7 @@
   <string name="about_wikipedia_url">https://id.m.wikipedia.org/wiki/Wikipedia:Perihal</string>
   <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/id#Baca_secara_luring_dan_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/id</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/id</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.id</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -308,8 +313,8 @@
   <string name="reading_list_sort">Urutkan</string>
   <string name="reading_list_sort_by_name">Urutkan berdasarkan nama</string>
   <string name="reading_list_sort_by_name_desc">Urutkan berdasarkan nama (terbalik)</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Urutkan berdasarkan yang terbaru</string>
-  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Urutkan berdasarkan yang terlama</string>
+  <string name="reading_list_sort_by_recent">Urutkan menurut tanggal ditambahkan (terbaru)</string>
+  <string name="reading_list_sort_by_recent_desc">Urutkan menurut tanggal ditambahkan (terlama)</string>
   <string name="reading_list_sort_by_created">Urutkan menurut tanggal dibuat (terbaru)</string>
   <string name="reading_list_sort_by_created_desc">Urutkan menurut tanggal dibuat (terlama)</string>
   <string name="reading_list_menu_delete">Hapus daftar</string>
@@ -345,14 +350,39 @@
   <string name="reading_list_confirm_remove_article_from_offline">Hapus dari luring</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikel muncul dalam beberapa daftar</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s tidak lagi tersedia secara luring untuk semua daftar bacaan:</string>
+  <string name="reading_lists_sync_reminder_title">Aktifkan sinkronisasi daftar bacaan?</string>
+  <string name="reading_lists_sync_reminder_text">Artikel yang disimpan ke daftar bacaan sekarang dapat disinkronkan ke akun Wikipedia Anda. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_action">Aktifkan sinkronisasi</string>
   <string name="reading_list_login_reminder_title">Sinkronkan daftar bacaan</string>
+  <string name="reading_lists_login_reminder_text">Daftar bacaan sekarang dapat disinkronkan di seluruh perangkat. Masuk log ke akun Wikipedia Anda dan biarkan daftar Anda disimpan.</string>
   <string name="reading_lists_confirm_remote_delete">Ini akan menghapus daftar bacaan yang disinkronkan sebelumnya dari penyimpanan jarak jauh. Lanjutkan?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ya</string>
   <string name="reading_lists_confirm_remote_delete_no">Tidak</string>
   <string name="reading_list_article_save_in_progress">Artikel sedang diunduh, dan akan tersedia secara luring saat selesai.</string>
   <string name="reading_list_already_contains_selection">Daftar yang dipilih sudah berisi semua halaman yang dipilih.</string>
   <string name="reading_list_added_articles_list_titled">%1$d ditambahkan ke %2$s</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">Apakah Anda yakin ingin menghapus %s daftar bacaan ini?</string>
+  <string name="reading_list_delete_confirm">Apakah Anda yakin ingin menghapus %s?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Masuk log untuk mengaktifkan sinkronisasi</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Masuk log untuk membolehkan daftar bacaan Anda disimpan ke akun Anda.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Batal</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Masuk log</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Sinkronisasi daftar bacaan dimatikan</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Sinkronisasi daftar baca tidak aktif untuk akun Anda, dan artikel tersimpan di perangkat yang Anda masuk tidak lagi dicadangkan. Aktifkan sinkronisasi daftar bacaan di Pengaturan.</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Pengaturan</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Aktifkan sinkronisasi daftar bacaan?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Artikel yang disimpan ke daftar bacaan sekarang dapat disinkronkan ke akun Wikipedia Anda. &lt;a href=\"#faq\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Jangan tunjukkan ini lagi</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Aktifkan sinkronisasi</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Tidak, terima kasih</string>
+  <string name="reading_list_login_option_reminder_dialog_title">Artikel daftar bacaan ditemukan</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Ada artikel daftar bacaan yang disimpan ke aplikasi Wikipedia Anda. Apakah Anda ingin menyimpannya dan bergabung dengan daftar bacaan yang disinkronkan ke akun Anda?</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">Ya, tambahkan ke daftar bacaan saya</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Tidak, hapus artikel yang tersimpan di aplikasi</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Simpan artikel tersimpan di perangkat?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Ada artikel yang disinkronkan ke akun Wikipedia Anda. Apakah Anda ingin menyimpannya di perangkat ini setelah keluar log?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Ya, simpan artikel di perangkat</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Tidak, hapus artikel dari perangkat</string>
   <string name="default_reading_list_name">Tersimpan</string>
   <string name="default_reading_list_description">Daftar baku untuk artikel tersimpan Anda</string>
   <string name="no_user_lists_title">Atur artikel ke dalam daftar</string>
@@ -361,6 +391,7 @@
   <string name="split_reading_list_message">Ada batas 1000 artikel per daftar bacaan. Daftar yang ada dengan lebih dari batas ini telah dipecah menjadi beberapa daftar.</string>
   <string name="reading_list_article_limit_message">Tidak dapat menambahkan ke daftar ini. Anda telah mencapai batas 1.000 artikel per daftar untuk daftar \"%s\".</string>
   <string name="reading_lists_limit_message">Tidak bisa membuat daftar lain. Anda telah mencapai batas 100 daftar bacaan per akun.</string>
+  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sinkronkan daftar bacaan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Daftar bacaan sekarang dapat disinkronkan di seluruh perangkat. Masuk log ke akun Wikipedia Anda dan biarkan daftar Anda disimpan.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Artikel ini sekarang akan tersedia secara luring.</item>
     <item quantity="other">Artikel-artikel ini sekarang akan tersedia secara luring.</item>
@@ -525,7 +556,7 @@
   <string name="onboarding_save_to_reading_lists_title">Simpan ke daftar bacaan</string>
   <string name="onboarding_save_to_reading_lists_text">Buat daftar bacaan dari artikel yang ingin Anda baca nanti, bahkan saat Anda sedang luring.</string>
   <string name="onboarding_analytics_title">Kirim data anonim</string>
-  <string name="onboarding_analytics_offline_text" fuzzy="true">Bantu membuat aplikasi lebih baik dengan memberi tahu kami bagaimana Anda menggunakannya. Data yang dikumpulkan adalah anonim. &lt;a href=\"#privacy\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Bantu membuat aplikasi lebih baik dengan memberi tahu kami bagaimana Anda menggunakannya. Data yang dikumpulkan bersifat anonim. &lt;a href=\"#privacy\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Kirim data penggunaan</string>
   <string name="onboarding_create_account_sync">Sinkronkan daftar bacaan Anda</string>
   <string name="onboarding_create_account_contributions">Catat kontribusi Anda</string>
