@@ -14,7 +14,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.preference.SwitchPreferenceCompat;
 import android.view.MenuItem;
 
 import com.facebook.drawee.drawable.ScalingUtils;
@@ -25,15 +24,17 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.crash.CrashReportActivity;
-import org.wikipedia.events.CheckSyncStatusEvent;
 import org.wikipedia.events.NetworkConnectEvent;
+import org.wikipedia.events.ReadingListsEnableDialogEvent;
+import org.wikipedia.events.ReadingListsMergeLocalDialogEvent;
+import org.wikipedia.events.ReadingListsNoLongerSyncedEvent;
 import org.wikipedia.events.SplitLargeListsEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.events.WikipediaZeroEnterEvent;
 import org.wikipedia.offline.Compilation;
 import org.wikipedia.offline.OfflineManager;
-import org.wikipedia.readinglist.ReadingListCheckSetupStatusTask;
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
+import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
@@ -45,13 +46,17 @@ import org.wikipedia.util.log.L;
 import java.util.List;
 
 public abstract class BaseActivity extends AppCompatActivity {
-    private EventBusMethods busMethods;
+    private static EventBusMethodsExclusive EXCLUSIVE_BUS_METHODS;
+
+    private EventBusMethodsNonExclusive localBusMethods;
+    private EventBusMethodsExclusive exclusiveBusMethods;
     private NetworkStateReceiver networkStateReceiver = new NetworkStateReceiver();
 
     @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        busMethods = new EventBusMethods();
-        WikipediaApp.getInstance().getBus().register(busMethods);
+        localBusMethods = new EventBusMethodsNonExclusive();
+        exclusiveBusMethods = new EventBusMethodsExclusive();
+        WikipediaApp.getInstance().getBus().register(localBusMethods);
 
         setTheme();
         removeSplashBackground();
@@ -64,19 +69,34 @@ public abstract class BaseActivity extends AppCompatActivity {
         // Conditionally execute all recurring tasks
         new RecurringTasksExecutor(WikipediaApp.getInstance()).run();
 
+        if (Prefs.isReadingListsFirstTimeSync()) {
+            Prefs.setReadingListsFirstTimeSync(false);
+            Prefs.setReadingListSyncEnabled(true);
+            ReadingListSyncAdapter.manualSyncWithForce();
+        }
+
         IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         registerReceiver(networkStateReceiver, filter);
     }
 
     @Override protected void onDestroy() {
         unregisterReceiver(networkStateReceiver);
-        WikipediaApp.getInstance().getBus().unregister(busMethods);
-        busMethods = null;
+        WikipediaApp.getInstance().getBus().unregister(localBusMethods);
+        localBusMethods = null;
+        if (EXCLUSIVE_BUS_METHODS == exclusiveBusMethods) {
+            unregisterExclusiveBusMethods();
+        }
+        exclusiveBusMethods = null;
         super.onDestroy();
     }
 
     @Override protected void onResume() {
         super.onResume();
+
+        // allow this activity's exclusive bus methods to override any existing ones.
+        unregisterExclusiveBusMethods();
+        EXCLUSIVE_BUS_METHODS = exclusiveBusMethods;
+        WikipediaApp.getInstance().getBus().register(EXCLUSIVE_BUS_METHODS);
 
         // The UI is likely shown, giving the user the opportunity to exit and making a crash loop
         // less probable.
@@ -209,7 +229,26 @@ public abstract class BaseActivity extends AppCompatActivity {
         getWindow().setBackgroundDrawable(null);
     }
 
-    private class EventBusMethods {
+    private void unregisterExclusiveBusMethods() {
+        if (EXCLUSIVE_BUS_METHODS != null) {
+            WikipediaApp.getInstance().getBus().unregister(EXCLUSIVE_BUS_METHODS);
+            EXCLUSIVE_BUS_METHODS = null;
+        }
+    }
+
+    /**
+     * Bus methods that should be caught by all created activities.
+     */
+    private class EventBusMethodsNonExclusive {
+        @Subscribe public void on(ThemeChangeEvent event) {
+            recreate();
+        }
+    }
+
+    /**
+     * Bus methods that should be caught only by the topmost activity.
+     */
+    private class EventBusMethodsExclusive {
         // todo: reevaluate lifecycle. the bus is active when this activity is paused and we show ui
         @Subscribe public void on(WikipediaZeroEnterEvent event) {
             if (Prefs.isZeroTutorialEnabled()) {
@@ -223,10 +262,6 @@ public abstract class BaseActivity extends AppCompatActivity {
             SavedPageSyncService.enqueue();
         }
 
-        @Subscribe public void on(ThemeChangeEvent event) {
-            recreate();
-        }
-
         @Subscribe public void on(SplitLargeListsEvent event) {
             new AlertDialog.Builder(BaseActivity.this)
                     .setMessage(R.string.split_reading_list_message)
@@ -234,47 +269,16 @@ public abstract class BaseActivity extends AppCompatActivity {
                     .show();
         }
 
-        @Subscribe public void on(CheckSyncStatusEvent event) {
-            if (event.isSyncDisable() && Prefs.isReadingListSyncEnabled()) {
-                ReadingListSyncBehaviorDialogs.detectedMultipleSyncSettingsDialog(BaseActivity.this,
-                        () -> Prefs.setReadingListSyncEnabled(false));
-            } else {
-                ReadingListCheckSetupStatusTask checkSetupStatusTask = new ReadingListCheckSetupStatusTask() {
-                    @Override
-                    public void onFinish(@Nullable Void result) {
-                        if (isDestroyed()) {
-                            return;
-                        }
+        @Subscribe public void on(ReadingListsNoLongerSyncedEvent event) {
+            ReadingListSyncBehaviorDialogs.detectedRemoteTornDownDialog(BaseActivity.this);
+        }
 
-                        Prefs.setReadingListSyncEnabled(true);
+        @Subscribe public void on(ReadingListsMergeLocalDialogEvent event) {
+            ReadingListSyncBehaviorDialogs.mergeExistingListsOnLoginDialog(BaseActivity.this);
+        }
 
-                        if (event.getPreferenceOfSyncReadingLists() != null) {
-                            ((SwitchPreferenceCompat) event.getPreferenceOfSyncReadingLists()).setChecked(true);
-                        }
-                    }
-
-                    @Override
-                    public void onCatch(Throwable caught) {
-                        if (isDestroyed()) {
-                            return;
-                        }
-
-                        if (Prefs.isReadingListSyncEnabled()) {
-                            // QUESTION: should we keep the dialog been cancelable?
-                            ReadingListSyncBehaviorDialogs.detectedMultipleSyncSettingsDialog(BaseActivity.this,
-                                    () -> Prefs.setReadingListSyncEnabled(false));
-                        } else {
-                            Prefs.setReadingListSyncEnabled(false);
-                        }
-
-                        if (event.getPreferenceOfSyncReadingLists() != null) {
-                            ((SwitchPreferenceCompat) event.getPreferenceOfSyncReadingLists()).setChecked(false);
-                        }
-                    }
-                };
-                checkSetupStatusTask.execute();
-            }
+        @Subscribe public void on(ReadingListsEnableDialogEvent event) {
+            ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(BaseActivity.this);
         }
     }
-
 }

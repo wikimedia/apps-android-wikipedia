@@ -41,7 +41,6 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.offline.LocalCompilationsActivity;
 import org.wikipedia.offline.OfflineTutorialActivity;
 import org.wikipedia.random.RandomActivity;
-import org.wikipedia.readinglist.ReadingListCheckSetupStatusTask;
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
@@ -535,41 +534,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         overflowView.show(anchor, overflowCallback);
     }
 
-    private void showSyncOptionDialogWhenLogout() {
-        // if we cannot get any random page, then we don't have any article stored in the db
-        if (ReadingListDbHelper.instance().getRandomPage() != null) {
-            ReadingListCheckSetupStatusTask checkSetupStatusTask = new ReadingListCheckSetupStatusTask() {
-                @Override
-                public void onFinish(@Nullable Void result) {
-                    if (!isAdded()) {
-                        return;
-                    }
-
-                    Prefs.setReadingListsLastSyncTime(null);
-                    ReadingListSyncBehaviorDialogs.removeExistListsDialog(getActivity(), () -> logoutAndShowMessage());
-                }
-
-                @Override
-                public void onCatch(Throwable caught) {
-                    if (!isAdded()) {
-                        return;
-                    }
-
-                    logoutAndShowMessage();
-                }
-            };
-            checkSetupStatusTask.execute();
-        } else {
-            logoutAndShowMessage();
-        }
-    }
-
-    private void logoutAndShowMessage() {
-        WikipediaApp.getInstance().logOut();
-        FeedbackUtil.showMessage(FeedFragment.this, R.string.toast_logout_complete);
-        Prefs.setReadingListSyncEnabled(false);
-    }
-
     private class OverflowCallback implements ExploreOverflowView.Callback {
         @Override
         public void loginClick() {
@@ -599,7 +563,14 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void logoutClick() {
-            showSyncOptionDialogWhenLogout();
+            WikipediaApp.getInstance().logOut();
+            FeedbackUtil.showMessage(FeedFragment.this, R.string.toast_logout_complete);
+
+            if (Prefs.isReadingListSyncEnabled() && !ReadingListDbHelper.instance().isEmpty()) {
+                ReadingListSyncBehaviorDialogs.removeExistingListsOnLogoutDialog(getActivity());
+            }
+            Prefs.setReadingListsLastSyncTime(null);
+            Prefs.setReadingListSyncEnabled(false);
         }
 
         @Override

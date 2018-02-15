@@ -78,6 +78,8 @@
     <style name="AlertDialogDark" parent="Theme.AppCompat.Dialog.Alert">
         <item name="colorAccent">@color/accent75</item>
         <item name="android:colorBackground">?attr/paper_color</item>
+        <item name="android:textColorPrimary">?attr/material_theme_secondary_color</item>
+        <item name="android:windowTitleStyle">@style/DialogTitleAppearance</item>
     </style>
 
     <style name="LongPressAlertDialogDark" parent="AlertDialogDark">

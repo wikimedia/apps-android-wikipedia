@@ -14,7 +14,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
-import org.wikipedia.events.CheckSyncStatusEvent;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.theme.ThemeFittingRoomActivity;
@@ -127,16 +126,13 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
             if (AccountUtil.isLoggedIn()) {
                 if (newValue == Boolean.TRUE) {
                     ((SwitchPreferenceCompat) preference).setChecked(true);
-                    Prefs.setReadingListSyncEnabled(true);
-                    Prefs.setReadingListsRemoteSetupPending(true);
-                    Prefs.setReadingListsRemoteDeletePending(false);
-                    ReadingListSyncAdapter.manualSync();
+                    ReadingListSyncAdapter.setSyncEnabledWithSetup();
                 } else {
                     new AlertDialog.Builder(getActivity())
                             .setTitle(getActivity().getString(R.string.preference_dialog_of_turning_off_reading_list_sync_title, AccountUtil.getUserName()))
                             .setMessage(getActivity().getString(R.string.preference_dialog_of_turning_off_reading_list_sync_text, AccountUtil.getUserName()))
                             .setPositiveButton(R.string.reading_lists_confirm_remote_delete_yes, new DeleteRemoteListsYesListener(preference))
-                            .setNegativeButton(R.string.reading_lists_confirm_remote_delete_no, new DeleteRemoteListsNoListener(preference))
+                            .setNegativeButton(R.string.reading_lists_confirm_remote_delete_no, null)
                             .show();
                 }
             } else {
@@ -145,13 +141,12 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
                         .setMessage(R.string.reading_list_preference_login_to_enable_sync_dialog_text)
                         .setPositiveButton(R.string.reading_list_preference_login_to_enable_sync_dialog_login,
                                 (dialogInterface, i) -> {
-                                    dialogInterface.dismiss();
                                     Intent loginIntent = LoginActivity.newIntent(getActivity(),
-                                            LoginFunnel.SOURCE_SETTING);
+                                            LoginFunnel.SOURCE_SETTINGS);
 
                                     getActivity().startActivity(loginIntent);
                                 })
-                        .setNegativeButton(R.string.reading_list_preference_login_to_enable_sync_dialog_cancel, (dialogInterface, i) -> dialogInterface.dismiss())
+                        .setNegativeButton(R.string.reading_list_preference_login_to_enable_sync_dialog_cancel, null)
                         .show();
             }
             // clicks are handled and preferences updated accordingly; don't pass the result through
@@ -166,8 +161,6 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
         } else {
             syncReadingListsPref.setSummary(getActivity().getString(R.string.preference_summary_sync_reading_lists_from_account, ""));
         }
-
-        WikipediaApp.getInstance().getBus().post(new CheckSyncStatusEvent(syncReadingListsPref));
     }
 
     private final class OfflineLibraryEnableListener implements Preference.OnPreferenceChangeListener {
@@ -191,22 +184,6 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
             Prefs.setReadingListSyncEnabled(false);
             Prefs.setReadingListsRemoteSetupPending(false);
             Prefs.setReadingListsRemoteDeletePending(true);
-            ReadingListSyncAdapter.manualSync();
-        }
-    }
-
-    private static final class DeleteRemoteListsNoListener implements DialogInterface.OnClickListener {
-        private Preference preference;
-
-        private DeleteRemoteListsNoListener(Preference preference) {
-            this.preference = preference;
-        }
-
-        @Override public void onClick(DialogInterface dialog, int which) {
-            ((SwitchPreferenceCompat) preference).setChecked(true);
-            Prefs.setReadingListSyncEnabled(true);
-            Prefs.setReadingListsRemoteSetupPending(true);
-            Prefs.setReadingListsRemoteDeletePending(false);
             ReadingListSyncAdapter.manualSync();
         }
     }
