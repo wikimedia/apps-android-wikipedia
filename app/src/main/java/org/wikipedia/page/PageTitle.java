@@ -20,6 +20,7 @@ import org.wikipedia.util.log.L;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Arrays;
+import java.util.Locale;
 
 import static org.wikipedia.util.UriUtil.decodeURL;
 
@@ -142,8 +143,13 @@ public class PageTitle implements Parcelable {
 
         String[] parts = text.split(":", -1);
         if (parts.length > 1) {
-            this.namespace = parts[0];
-            this.text = TextUtils.join(":", Arrays.copyOfRange(parts, 1, parts.length));
+            if (Arrays.asList(Locale.getISOLanguages()).contains(parts[0])) {
+                this.namespace = null;
+                this.text = parts[1];
+            } else {
+                this.namespace = parts[0];
+                this.text = TextUtils.join(":", Arrays.copyOfRange(parts, 1, parts.length));
+            }
         } else {
             this.namespace = null;
             this.text = parts[0];
@@ -273,6 +279,8 @@ public class PageTitle implements Parcelable {
     }
 
     public String getPrefixedText() {
+
+        // TODO: find a better way to check if the namespace is a ISO Alpha2 Code (two digits country code)
         return namespace == null ? getText() : StringUtil.addUnderscores(namespace) + ":" + getText();
     }
 
