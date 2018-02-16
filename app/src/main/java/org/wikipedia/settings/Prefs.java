@@ -655,10 +655,10 @@ public final class Prefs {
     }
 
     public static void addReadingListsDeletedIds(@NonNull Set<Long> set) {
+        final int maxStoredIds = 256;
         Set<Long> currentSet = getReadingListsDeletedIds();
         currentSet.addAll(set);
-        // TODO: constrain size?
-        setReadingListsDeletedIds(currentSet);
+        setReadingListsDeletedIds(currentSet.size() < maxStoredIds ? currentSet : set);
     }
 
     public static void setReadingListsDeletedIds(@NonNull Set<Long> set) {
@@ -680,10 +680,10 @@ public final class Prefs {
     }
 
     public static void addReadingListPagesDeletedIds(@NonNull Set<String> set) {
+        final int maxStoredIds = 256;
         Set<String> currentSet = getReadingListPagesDeletedIds();
         currentSet.addAll(set);
-        // TODO: constrain size?
-        setReadingListPagesDeletedIds(currentSet);
+        setReadingListPagesDeletedIds(currentSet.size() < maxStoredIds ? currentSet : set);
     }
 
     public static void setReadingListPagesDeletedIds(@NonNull Set<String> set) {

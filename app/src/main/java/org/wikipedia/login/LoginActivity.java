@@ -28,6 +28,8 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.views.NonEmptyValidator;
 import org.wikipedia.views.WikiErrorView;
 
+import java.util.Collections;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -169,6 +171,8 @@ public class LoginActivity extends BaseActivity {
         // on the server side.
         Prefs.setReadingListSyncEnabled(true);
         Prefs.shouldShowReadingListSyncMergePrompt(true);
+        Prefs.setReadingListPagesDeletedIds(Collections.emptySet());
+        Prefs.setReadingListsDeletedIds(Collections.emptySet());
         ReadingListSyncAdapter.manualSyncWithForce();
         finish();
     }
