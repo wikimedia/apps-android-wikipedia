@@ -2,6 +2,7 @@ package org.wikipedia.analytics;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -9,6 +10,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.UUID;
@@ -20,7 +22,6 @@ abstract class Funnel {
     protected static final int SAMPLE_LOG_100 = 100;
     protected static final int SAMPLE_LOG_10 = 10;
     protected static final int SAMPLE_LOG_ALL = 1;
-    protected static final int SAMPLE_LOG_DISABLE = 0;
 
     private static final String DEFAULT_APP_INSTALL_ID_KEY = "appInstallID";
     private static final String DEFAULT_SESSION_TOKEN_KEY = "sessionToken";
@@ -84,7 +85,7 @@ abstract class Funnel {
 
     /** Invoked by {@link #preprocessData(JSONObject)}. */
     protected void preprocessAppInstallID(@NonNull JSONObject eventData) {
-        preprocessData(eventData, getAppInstallIDField(), getAppInstallID());
+        preprocessData(eventData, getAppInstallIDField(), app.getAppInstallID());
     }
 
     /** Invoked by {@link #preprocessData(JSONObject)}. */
@@ -123,8 +124,8 @@ abstract class Funnel {
      *                      depending on what they are logging.
      */
     protected void log(@Nullable WikiSite wiki, Object... params) {
-        int rate = getSampleRate();
-        if (rate != SAMPLE_LOG_DISABLE && app.isUserInSamplingGroup(rate)) {
+        if (ReleaseUtil.isDevRelease()
+                || isUserInSamplingGroup(app.getAppInstallID(), getSampleRate())) {
             JSONObject eventData = new JSONObject();
 
             //Build the string which is logged to debug EventLogging code
@@ -150,8 +151,31 @@ abstract class Funnel {
      * funnel (the name of which is defined as "[schema name]_rate"), with a fallback to the
      * hard-coded sampling rate passed into the constructor.
      */
-    protected int getSampleRate() {
+    private int getSampleRate() {
         return app.getRemoteConfig().getConfig().optInt(sampleRateRemoteParamName, sampleRate);
+    }
+
+    /**
+     * Determines whether the current user belongs in a particular sampling bucket. This is
+     * determined by taking the last four hex digits of the appInstallID and testing them modulo
+     * the sampling rate that is provided.
+     *
+     * Don't use this method when running to determine whether or not the user falls into a control
+     * or test group in any kind of tests (such as A/B tests), as that would introduce sampling
+     * biases which would invalidate the test.
+     * @return Whether the current user is part of the requested sampling rate bucket.
+     */
+    @SuppressWarnings("magicnumber")
+    @VisibleForTesting
+    protected static boolean isUserInSamplingGroup(@NonNull String appInstallID, int sampleRate) {
+        try {
+            int lastFourDigits = Integer.parseInt(appInstallID.substring(appInstallID.length() - 4), 16);
+            return lastFourDigits % sampleRate == 0;
+        } catch (Exception e) {
+            // Should never happen, but don't crash just in case.
+            L.logRemoteError(e);
+            return false;
+        }
     }
 
     /** @return The application installation identifier field used by {@link #preprocessAppInstallID}. */
@@ -162,11 +186,6 @@ abstract class Funnel {
     /** @return The session identifier field used by {@link #preprocessSessionToken}. */
     @NonNull protected String getSessionTokenField() {
         return DEFAULT_SESSION_TOKEN_KEY;
-    }
-
-    /** @return The application installation identifier used by {@link #preprocessAppInstallID}. */
-    @Nullable protected String getAppInstallID() {
-        return getApp().getAppInstallID();
     }
 
     /** @return The session identifier used by {@link #preprocessSessionToken}. */
