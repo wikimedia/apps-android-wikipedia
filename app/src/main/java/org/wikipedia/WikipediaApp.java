@@ -66,8 +66,6 @@ import static org.wikipedia.util.DimenUtil.getFontSizeFromSp;
 import static org.wikipedia.util.ReleaseUtil.getChannel;
 
 public class WikipediaApp extends Application {
-    private static int EVENT_LOG_TESTING_ID = -1;
-
     private final RemoteConfig remoteConfig = new RemoteConfig();
     private final Map<Class<?>, DatabaseClient<?>> databaseClients = Collections.synchronizedMap(new HashMap<Class<?>, DatabaseClient<?>>());
     private Handler mainThreadHandler;
@@ -306,31 +304,6 @@ public class WikipediaApp extends Application {
             Prefs.setAppInstallId(id);
         }
         return id;
-    }
-
-    /**
-     * Determines whether the current user belongs in a particular sampling bucket. This is
-     * determined by taking the last four hex digits of the appInstallID and testing them modulo
-     * the sampling rate that is provided.
-     *
-     * Don't use this method when running to determine whether or not the user falls into a control
-     * or test group in any kind of tests (such as A/B tests), as that would introduce sampling
-     * biases which would invalidate the test.
-     * @return Whether the current user is part of the requested sampling rate bucket.
-     */
-    @SuppressWarnings("magicnumber")
-    public boolean isUserInSamplingGroup(int sampleRate) {
-        if (EVENT_LOG_TESTING_ID == -1) {
-            String installID = getAppInstallID();
-            if (installID.length() > 4) {
-                try {
-                    EVENT_LOG_TESTING_ID = Integer.parseInt(installID.substring(installID.length() - 4), 16);
-                } catch (NumberFormatException e) {
-                    L.w(e);
-                }
-            }
-        }
-        return EVENT_LOG_TESTING_ID % sampleRate == 0 || ReleaseUtil.isDevRelease();
     }
 
     /**
