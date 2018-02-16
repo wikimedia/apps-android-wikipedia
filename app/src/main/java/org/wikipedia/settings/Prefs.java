@@ -481,7 +481,7 @@ public final class Prefs {
     }
 
     public static boolean isReadingListSyncEnabled() {
-        return getBoolean(R.string.preference_key_sync_reading_lists, true);
+        return getBoolean(R.string.preference_key_sync_reading_lists, false);
     }
 
     public static void setReadingListSyncEnabled(boolean enabled) {
