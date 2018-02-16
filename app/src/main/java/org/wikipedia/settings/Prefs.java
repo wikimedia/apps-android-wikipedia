@@ -654,11 +654,15 @@ public final class Prefs {
         return set;
     }
 
-    public static void setReadingListsDeletedIds(@NonNull Set<Long> set) {
+    public static void addReadingListsDeletedIds(@NonNull Set<Long> set) {
         Set<Long> currentSet = getReadingListsDeletedIds();
         currentSet.addAll(set);
         // TODO: constrain size?
-        setString(R.string.preference_key_reading_lists_deleted_ids, GsonMarshaller.marshal(currentSet));
+        setReadingListsDeletedIds(currentSet);
+    }
+
+    public static void setReadingListsDeletedIds(@NonNull Set<Long> set) {
+        setString(R.string.preference_key_reading_lists_deleted_ids, GsonMarshaller.marshal(set));
     }
 
     @NonNull public static Set<String> getReadingListPagesDeletedIds() {
@@ -675,11 +679,15 @@ public final class Prefs {
         return set;
     }
 
-    public static void setReadingListPagesDeletedIds(@NonNull Set<String> set) {
+    public static void addReadingListPagesDeletedIds(@NonNull Set<String> set) {
         Set<String> currentSet = getReadingListPagesDeletedIds();
         currentSet.addAll(set);
         // TODO: constrain size?
-        setString(R.string.preference_key_reading_list_pages_deleted_ids, GsonMarshaller.marshal(currentSet));
+        setReadingListPagesDeletedIds(currentSet);
+    }
+
+    public static void setReadingListPagesDeletedIds(@NonNull Set<String> set) {
+        setString(R.string.preference_key_reading_list_pages_deleted_ids, GsonMarshaller.marshal(set));
     }
 
     public static boolean shouldShowReadingListSyncEnablePrompt() {

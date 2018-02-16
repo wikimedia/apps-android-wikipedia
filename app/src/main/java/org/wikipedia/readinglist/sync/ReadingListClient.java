@@ -44,12 +44,17 @@ public class ReadingListClient {
         return lastDateHeader;
     }
 
-    public void setup(@NonNull String csrfToken) throws Throwable {
+    /**
+     * Sets up reading list syncing on the server, and returns true if the setup was successful,
+     * or false if syncing is already set up.
+     */
+    public boolean setup(@NonNull String csrfToken) throws Throwable {
         try {
             cachedService.service(wiki).setup(csrfToken).execute();
+            return true;
         } catch (Throwable t) {
             if (isErrorType(t, "already-set-up")) {
-                return;
+                return false;
             }
             throw t;
         }

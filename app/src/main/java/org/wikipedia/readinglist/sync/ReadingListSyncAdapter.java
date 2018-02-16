@@ -68,7 +68,7 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
         if (list.remoteId() <= 0) {
             return;
         }
-        Prefs.setReadingListsDeletedIds(Collections.singleton(list.remoteId()));
+        Prefs.addReadingListsDeletedIds(Collections.singleton(list.remoteId()));
         manualSync();
     }
 
@@ -83,7 +83,7 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
             }
         }
         if (!ids.isEmpty()) {
-            Prefs.setReadingListPagesDeletedIds(ids);
+            Prefs.addReadingListPagesDeletedIds(ids);
             manualSync();
         }
     }
@@ -170,7 +170,11 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
                 return;
             } else if (Prefs.isReadingListsRemoteSetupPending()) {
                 // ...Or are we scheduled for setup?
-                client.setup(getCsrfToken(wiki, csrfToken));
+                if (client.setup(getCsrfToken(wiki, csrfToken))) {
+                    // Set up for the first time, which means that we don't need to ask whether
+                    // the user wants to merge local lists.
+                    Prefs.shouldShowReadingListSyncMergePrompt(false);
+                }
                 Prefs.setReadingListsRemoteSetupPending(false);
             }
 
