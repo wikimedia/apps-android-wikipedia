@@ -50,7 +50,7 @@ public class SyncedReadingLists {
 
         public RemoteReadingList(@NonNull String name, @Nullable String description) {
             this.name = Normalizer.normalize(name, Normalizer.Form.NFC);
-            this.description = Normalizer.normalize(description, Normalizer.Form.NFC);
+            this.description = Normalizer.normalize(StringUtils.defaultString(description), Normalizer.Form.NFC);
         }
 
         public long id() {
