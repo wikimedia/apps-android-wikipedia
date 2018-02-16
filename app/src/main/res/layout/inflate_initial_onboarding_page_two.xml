@@ -7,5 +7,5 @@
     android:orientation="vertical"
     app:centeredImage="@drawable/ic_illustration_reading_list_offline"
     app:imageSize="160dp"
-    app:primaryText="@string/onboarding_save_to_reading_lists_title"
-    app:secondaryText="@string/onboarding_save_to_reading_lists_text" />
+    app:primaryText="@string/onboarding_reading_list_sync_title"
+    app:secondaryText="@string/onboarding_reading_list_sync_text_v2" />
