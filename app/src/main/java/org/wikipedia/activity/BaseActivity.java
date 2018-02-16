@@ -23,6 +23,7 @@ import com.squareup.otto.Subscribe;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.crash.CrashReportActivity;
 import org.wikipedia.events.NetworkConnectEvent;
 import org.wikipedia.events.ReadingListsEnableDialogEvent;
@@ -69,7 +70,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         // Conditionally execute all recurring tasks
         new RecurringTasksExecutor(WikipediaApp.getInstance()).run();
 
-        if (Prefs.isReadingListsFirstTimeSync()) {
+        if (Prefs.isReadingListsFirstTimeSync() && AccountUtil.isLoggedIn()) {
             Prefs.setReadingListsFirstTimeSync(false);
             Prefs.setReadingListSyncEnabled(true);
             ReadingListSyncAdapter.manualSyncWithForce();
