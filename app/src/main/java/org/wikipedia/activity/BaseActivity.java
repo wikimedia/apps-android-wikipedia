@@ -1,12 +1,15 @@
 package org.wikipedia.activity;
 
+import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -128,6 +131,8 @@ public abstract class BaseActivity extends AppCompatActivity {
                     onOfflineCompilationsError(new RuntimeException(getString(R.string.offline_read_permission_error)));
                     if (PermissionUtil.shouldShowWritePermissionRationale(this)) {
                         showStoragePermissionSnackbar();
+                    } else {
+                        showAppSettingSnackbar();
                     }
                 }
                 break;
@@ -172,11 +177,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public void searchOfflineCompilationsWithPermission(boolean force) {
         if (!PermissionUtil.hasWriteExternalStoragePermission(this)) {
-            if (PermissionUtil.shouldShowWritePermissionRationale(this)) {
-                requestStoragePermission();
-            } else {
-                onOfflineCompilationsError(new RuntimeException(getString(R.string.offline_read_permission_error)));
-            }
+           requestStoragePermission();
         } else {
             searchOfflineCompilations(force);
         }
@@ -203,6 +204,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     private void requestStoragePermission() {
+        Prefs.setAskedForPermissionOnce(Manifest.permission.WRITE_EXTERNAL_STORAGE);
         PermissionUtil.requestWriteStorageRuntimePermissions(BaseActivity.this,
                 Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION);
     }
@@ -212,6 +214,20 @@ public abstract class BaseActivity extends AppCompatActivity {
                 getString(R.string.offline_read_permission_rationale), FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.page_error_retry, (v) -> requestStoragePermission());
         snackbar.show();
+    }
+
+    private void showAppSettingSnackbar() {
+        Snackbar snackbar = FeedbackUtil.makeSnackbar(this,
+                getString(R.string.offline_read_final_rationale), FeedbackUtil.LENGTH_DEFAULT);
+        snackbar.setAction(R.string.app_settings, (v) -> goToSystemAppSettings());
+        snackbar.show();
+    }
+
+    private void goToSystemAppSettings() {
+        Intent appSettings = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + getPackageName()));
+        appSettings.addCategory(Intent.CATEGORY_DEFAULT);
+        appSettings.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(appSettings);
     }
 
     private class NetworkStateReceiver extends BroadcastReceiver {

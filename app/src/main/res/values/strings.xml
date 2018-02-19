@@ -18,6 +18,7 @@
     <string name="history_item_deleted">%s removed from history</string>
     <string name="history_items_deleted">%d articles removed from history</string>
     <string name="history_item_delete_undo">Undo</string>
+    <string name="app_settings">App settings</string>
 
     <!-- Saved pages -->
     <string name="dialog_title_clear_history">Clear browsing history</string>
@@ -554,6 +555,7 @@
     <!-- Offline -->
     <string name="offline_compilation_download_device_offline">No internet connection. Make sure you\'re back online, then try again.</string>
     <string name="offline_read_permission_rationale">Permission to access storage on your device is required for offline browsing.</string>
+    <string name="offline_read_final_rationale">Permission to access storage on your device is required to use the Offline Library.</string>
     <string name="offline_read_permission_error">Permission not granted to read from device storage.</string>
     <string name="offline_card_sideloading_text">You are now browsing Wikipedia offline from article packs in your Offline Library.</string>
     <string name="offline_my_compilations">Manage my offline library</string>
