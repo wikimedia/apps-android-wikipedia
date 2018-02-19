@@ -522,6 +522,8 @@
   <string name="onboarding_explore_text">Vikipedi tavşan deliğine, sürekli Keşfet akışı ile dalın. &lt;br/&gt; Akışınızı ilgileriniz göre &lt;b&gt;özelleştirin&lt;/b&gt; – &lt;b&gt;Tarihte bugün&lt;/b&gt; ile tarihsel olaylar hakkında bilgi alın ya da &lt;b&gt;Rastgele&lt;/b&gt; ile zar atın.</string>
   <string name="onboarding_save_to_reading_lists_title">Okuma listesine kaydet</string>
   <string name="onboarding_save_to_reading_lists_text">Çevrimdışı olduğunuzda bile okumayı istediğiniz maddelerden okuma listeleri oluşturun.</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Okuma listelerinin senkronizasyonu</string>
+  <string name="onboarding_reading_list_sync_text" fuzzy="true">Daha sonra, çevrimdışı olsanız bile okumak istediğiniz maddelerden okuma listeleri oluşturun. Okuma listelerinizi yedekleyip saklamak için Vikipedi hesabınızda &lt;a href=\"#login\"&gt;oturum açın veya yeni hesap oluşturun&lt;/a&gt;.</string>
   <string name="onboarding_analytics_title">Anonim veri gönder</string>
   <string name="onboarding_analytics_offline_text" fuzzy="true">Uygulamayı nasıl kullandığınızı bilmemize izin vererek daha iyi hâle getirmemize yardım edin. Veriler anonim olarak toplanır. &lt;a href=\"#privacy\"&gt;Daha fazla bilgi edinin&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Kullanım verisini gönder</string>

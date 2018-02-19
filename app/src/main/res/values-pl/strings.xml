@@ -378,6 +378,8 @@
   <string name="onboarding_get_started">Rozpocznij edycję</string>
   <string name="onboarding_explore_title">Nowe metody eksploracji</string>
   <string name="onboarding_explore_text" fuzzy="true">Odkrywaj wyróżnione artykuły, najpopularniejsze tematy i czytaj sugestie na kanale feed Explore.</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Zsynchronizowane listy do przeczytania</string>
+  <string name="onboarding_reading_list_sync_text" fuzzy="true">Stwórz listę artykułów, które chcesz przeczytać później. Możesz to zrobić nawet jeśli nie masz połączenia z Internetem.&lt;a href=\"#login\"&gt; Zaloguj się lub stwórz konto by utrzymać swoje listy.</string>
   <string name="onboarding_analytics_title">Wyślij anonimowo dane</string>
   <string name="onboarding_analytics_switch_title">Wyślij używane dane</string>
   <string name="onboarding_create_account_sync">Zzynchronizuj swoje listy czytania</string>

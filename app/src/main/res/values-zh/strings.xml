@@ -555,6 +555,9 @@
   <string name="onboarding_explore_text">通过不断更新的探索订阅源扑进维基百科的怀抱。&lt;br/&gt;&lt;b&gt;自定义&lt;/b&gt;您感兴趣内容的订阅源——无论是了解有关&lt;b&gt;历史上的今天&lt;/b&gt;，还是&lt;b&gt;随机&lt;/b&gt;掷骰子。</string>
   <string name="onboarding_save_to_reading_lists_title">保存至阅读列表</string>
   <string name="onboarding_save_to_reading_lists_text">从您希望稍后阅读的条目创建阅读列表，即便当您离线时。</string>
+  <string name="onboarding_reading_list_sync_title">阅读列表与同步</string>
+  <string name="onboarding_reading_list_sync_text">从您希望日后阅读的条目创建阅读列表，即便您处于离线状态。&lt;a href=\"#login\"&gt;登录或创建&lt;/a&gt;您的维基百科账户来保持您的阅读列表备份。</string>
+  <string name="onboarding_reading_list_sync_text_v2">您可以从您希望日后阅读的条目制作阅读列表，即便您处于离线状态。&lt;br/&gt;登录至您的维基百科账户以同步您的阅读列表。&lt;a href=\"#login\"&gt;加入维基百科&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">发送匿名数据</string>
   <string name="onboarding_analytics_offline_text">通过让我们知道您如何使用它，帮助应用做得更好。数据收集是匿名的。&lt;a href=\"#privacy\"&gt;了解更多&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">发送使用数据</string>

@@ -122,7 +122,10 @@
   <string name="create_account_account_created_toast">S\'ha creat el vostre compte d\'usuari!</string>
   <string name="preferences_heading_storage_and_syncing">Emmagatzemament i sincronització</string>
   <string name="preference_title_sync_reading_lists">Sincronitza les llistes de lectura</string>
+  <string name="preference_title_sync_reading_lists_from_account">Sincronitza les llistes de lectura d\'aquest compte</string>
   <string name="preference_summary_sync_reading_lists">Permet que Wikimedia sincronitzi les llistes de lectura en iniciar la sessió</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Permet que Wikimedia sincronitzi les llistes de lectura del vostre compte de Viquipèdia %s</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Voleu suprimir les llistes de lectura sincronitzades del vostre compte %s?</string>
   <string name="preferences_privacy_settings_heading">Privadesa</string>
   <string name="preference_title_eventlogging_opt_in">Envia informes sobre l\'ús de l\'aplicació</string>
   <string name="preference_summary_eventlogging_opt_in">Permetre a Viquimedia recollir informació sobre com utilitzeu l\'aplicació, a fi de poder-la millorar</string>
@@ -355,6 +358,23 @@
   <string name="reading_list_already_contains_selection">La llista triada ja conté totes les pàgines seleccionades.</string>
   <string name="reading_list_added_articles_list_titled">S\'han afegit %1$d articles a %2$s</string>
   <string name="reading_list_delete_confirm">Esteu segur que voleu suprimir %s?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Inicieu una sessió per habilitar la sincronització</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Inicieu una sessió per permetre desar les llistes de lectura al vostre compte.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Cancel·la</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Inicia una sessió</string>
+  <string name="reading_list_turned_sync_off_dialog_title">S\'ha desactivat la sincronització de les llistes de lectura</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">D\'acord</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Configuració</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Voleu activar la sincronització de les llistes de lectura?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">No m\'ho tornis a mostrar</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Habilita la sincronització</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No, gràcies</string>
+  <string name="reading_list_login_option_reminder_dialog_title">S\'han trobat articles de llistes de lectura</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">Sí, afegeix-les a les meves llistes de lectura</string>
+  <string name="reading_list_login_option_reminder_dialog_no">No, elimina els articles desats a l\'aplicació</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Voleu conservar els articles desats al dispositiu?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Sí, conserva els articles en el dispositiu</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">No, elimina els articles del dispositiu</string>
   <string name="default_reading_list_name">Desats</string>
   <string name="default_reading_list_description">Llista per defecte d’articles desats</string>
   <string name="no_user_lists_title">Organitzar articles en llistes</string>
@@ -526,6 +546,8 @@
   <string name="onboarding_explore_text">Capbussat a l\'univers de la Viquipèdia amb el canal Exploreu actualitzat contínuament. &lt;br/&gt;&lt;b&gt;Personalitza&lt;/b&gt; el canal amb els teus interessos, llegeix sobre els esdeveniments històrics de &lt;b&gt;Un dia com avui&lt;/b&gt; o juga als daus amb l\'&lt;b&gt;Article a l\'atzar&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Afegeix a la llista de lectura</string>
   <string name="onboarding_save_to_reading_lists_text">Crea llistes de lectures a partir d\'articles que vulguis llegir en un altre moment, encara que estiguis fora de línia.</string>
+  <string name="onboarding_reading_list_sync_title">Llistes de lectura amb sincronització</string>
+  <string name="onboarding_reading_list_sync_text">Crea llistes de lectura d\'articles que voleu llegir més endavant, fins i tot si esteu fora de línia. &lt;a href=\"#login\"&gt;Inicieu una sessió o creeu un compte&lt;/a&gt; a la Viquipèdia per a conservar una còpia de les vostres llistes de lectura.</string>
   <string name="onboarding_analytics_title">Envia dades anònimes</string>
   <string name="onboarding_analytics_offline_text">Ajudeu a millorar l’aplicació permitint-nos conèixer com la feu servir. Les dades recollides són anònimes. &lt;a href=\"#privacy\"&gt;Més informació&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Envia les dades d\'ús</string>

@@ -122,7 +122,11 @@
   <string name="create_account_account_created_toast">Aðgangur búinn til!</string>
   <string name="preferences_heading_storage_and_syncing">Geymsla og samstilling</string>
   <string name="preference_title_sync_reading_lists">Samstilla leslista</string>
+  <string name="preference_title_sync_reading_lists_from_account">Samstilla leslista á þessum notandaaðgangi</string>
   <string name="preference_summary_sync_reading_lists">Leyfa Wikimedia að samstilla leslista þína þegar þú skráir þig inn</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Leyfa Wikimedia að samstilla leslista við %s Wikipedia-aðganginn þinn</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Fjarlægja samstillta leslista af þessum notandaaðgangi %s?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Þetta mun eyða öllum áður samstilltum leslistum af fjartengdu gagnageymslunni. Fjarlægja alla samstillta leslista af notandaaðgangi %s?</string>
   <string name="preferences_privacy_settings_heading">Gagnaleynd</string>
   <string name="preference_title_eventlogging_opt_in">Senda notkunarskýrslur</string>
   <string name="preference_summary_eventlogging_opt_in">Leyfa Wikimedia til að safna upplýsingum um hvernig þú notar forritið svo hægt sé að gera það betra</string>
@@ -145,6 +149,7 @@
   <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -308,8 +313,10 @@
   <string name="reading_list_sort">Raða</string>
   <string name="reading_list_sort_by_name">Raða eftir nafni</string>
   <string name="reading_list_sort_by_name_desc">Raða eftir nafni (öfugt)</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Raða eftir nýjasta</string>
-  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Raða eftir elsta</string>
+  <string name="reading_list_sort_by_recent">Raða eftir dagsetningu (nýjast)</string>
+  <string name="reading_list_sort_by_recent_desc">Raða eftir dagsetningu (elst)</string>
+  <string name="reading_list_sort_by_created">Raða eftir hvenær búið til (nýjast)</string>
+  <string name="reading_list_sort_by_created_desc">Raða eftir hvenær búið til (elst)</string>
   <string name="reading_list_menu_delete">Eyða lista</string>
   <string name="reading_list_menu_rename">Endurnefna</string>
   <string name="reading_list_menu_edit_description">Breyta lýsingu</string>
@@ -343,14 +350,39 @@
   <string name="reading_list_confirm_remove_article_from_offline">Fjarlægja úr ónettengdum aðgangi</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Greinin er á mörgum listum</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s verður ekki lengur tiltækt án nettengingar úr öllum leslistum:</string>
+  <string name="reading_lists_sync_reminder_title">Kveikja á samstillingu leslista?</string>
+  <string name="reading_lists_sync_reminder_text">Nú er hægt að samstilla greinar sem vistaðar hafa verið í leslista við Wikipedia-aðganginn þinn. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Læra meira&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_action">Virkja samstillingu</string>
   <string name="reading_list_login_reminder_title">Samstilla leslista</string>
+  <string name="reading_lists_login_reminder_text">Nú er hægt að samstilla leslista á milli tækja. Skráðu þig inn á Wikipedia-aðganginn þinn og leyfðu vistun á leslistunum þínum.</string>
   <string name="reading_lists_confirm_remote_delete">Þetta mun eyða öllum áður samstilltum leslistum af fjartengdu gagnageymslunni. Halda áfram?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Já</string>
   <string name="reading_lists_confirm_remote_delete_no">Nei</string>
   <string name="reading_list_article_save_in_progress">Verið er að sækja þessa grein og verður hún tiltæk án nettengingar þegar því er lokið.</string>
   <string name="reading_list_already_contains_selection">Valinn listi inniheldur nú þegar allar völdu síðurnar.</string>
   <string name="reading_list_added_articles_list_titled">Bætti %1$d greinum við %2$s</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">Ertu viss að þú viljir eyða \"%s\"?</string>
+  <string name="reading_list_delete_confirm">Ertu viss um að þú viljir eyða %s?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Skráðu inn til að virkja samstillingu</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Skráðu þig inn til að leyfa vistun leslista inn á aðganginn þinn.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Hætta við</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Skrá inn</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Slökkt er á samstillingu leslista</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Slökkt er á samstillingu leslista við aðganginn þinn. og er því ekki lengur tekið öryggisafrit af vistuðum greinum á tækjunum þínum. Kveiktu á samstillingu leslista í stillingunum.</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">Í lagi</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Stillingar</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Kveikja á samstillingu leslista?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Nú er hægt að samstilla greinar sem vistaðar hafa verið í leslista við Wikipedia-aðganginn þinn. &lt;a href=\"#faq\"&gt;Læra meira&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ekki sýna þessi skilaboð aftur</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Virkja samstillingu</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nei, takk</string>
+  <string name="reading_list_login_option_reminder_dialog_title">Greinar á leslista fundust</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Það eru leslistar sem vistaðir hafa verið í Wikipedia-forritið þitt. Myndirðu vilja halda þeim og sameina við leslista sem samstilltir eru við aðganginn þinn?</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">Já, bæta þeim á leslistana mína</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Nei, eyða greinum vistuðum í forritinu</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Halda vistuðum greinum á tæki?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Það eru greinar sem samstilltar hafa verið við Wikipedia-aðganginn þinn. Myndirðu vilja halda þeim á þessu tæki eftir að þú skráir þig út?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Já, halda greinum á tæki</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Nei, eyða greinum af tæki</string>
   <string name="default_reading_list_name">Vistað</string>
   <string name="default_reading_list_description">Sjálfgefinn listi fyrir vistuðu greinarnar þínar</string>
   <string name="no_user_lists_title">Skipuleggja greinar í lista</string>
@@ -359,6 +391,7 @@
   <string name="split_reading_list_message">Leslistar eru takmarkaðir við 1000 greinar. Fyrirliggjandi listum sem hafa fleiri greinar en þau mörk, hefur verið skipt upp í fleiri lista.</string>
   <string name="reading_list_article_limit_message">Get ekki bætt á þennan lista. Þú hefur náð 1.000 greina takmörkum á hvern lista fyrir \"%s\".</string>
   <string name="reading_lists_limit_message">Get ekki búið til annan lista. Þú hefur náð 100 leslista takmörkum á hvern notandaaðgang.</string>
+  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Samstilling leslista&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Nú er hægt að samstilla leslista á milli tækja. Skráðu þig inn á Wikipedia-aðganginn þinn og leyfðu vistun á leslistunum þínum.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Þessi grein verður núna tiltæk án nettengingar.</item>
     <item quantity="other">Þessar greinar verða núna tiltækar án nettengingar.</item>
@@ -522,8 +555,11 @@
   <string name="onboarding_explore_text">Hentu þér út í djúpu Wikipedia-laugina með \'Uppgötva\'-streymi sem er uppfært í sífellu. &lt;br/&gt;Þú getur &lt;b&gt;sérsniðið&lt;/b&gt; streymið eftir áhugamálum þínum – hvort sem það er til að læra um sögulega atburði í &lt;b&gt;Á þessum degi&lt;/b&gt;, eða með því að taka áhættuna í &lt;b&gt;Slembið&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Vista í leslista</string>
   <string name="onboarding_save_to_reading_lists_text">Búðu til leslista með greinum til að lesa þær síðar, jafnvel án nettengingar.</string>
+  <string name="onboarding_reading_list_sync_title">Leslistar með samstillingu</string>
+  <string name="onboarding_reading_list_sync_text">Búðu til leslista með greinum til að lesa þær síðar, jafnvel án nettengingar. &lt;a href=\"#login\"&gt;Skráðu þig inn eða nýskráðu þig&lt;/a&gt; á Wikipedia-notandaaðganginn þinn til að halda leslistunum þínum afrituðum.</string>
+  <string name="onboarding_reading_list_sync_text_v2">Þú getur búið til leslista úr greinum til að lesa þær síðar, jafnvel án nettengingar. &lt;br/&gt;Skráðu þig inn á Wikipedia-notandaaðganginn þinn til að samstilla leslistana þína. &lt;a href=\"#login\"&gt;Skráðu þig á Wikipedia&lt;/a&gt; \</string>
   <string name="onboarding_analytics_title">Senda nafnlaus gögn</string>
-  <string name="onboarding_analytics_offline_text" fuzzy="true">Hjálpaðu okkur að bæta forritið með því að leyfa okkur að sjá hvernig þú notar það. Gögnum er safnað án persónuauðkenna. &lt;a href=\"#privacy\"&gt;Vita meira&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Hjálpaðu okkur að bæta forritið með því að leyfa okkur að sjá hvernig þú notar það. Gögnum er safnað án persónuauðkenna. &lt;a href=\"#privacy\"&gt;Vita meira&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Senda upplýsingar um notkun</string>
   <string name="onboarding_create_account_sync">Samstilltu leslistana þína</string>
   <string name="onboarding_create_account_contributions">Halda utan um framlögin þín</string>

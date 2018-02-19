@@ -507,6 +507,8 @@
   <string name="onboarding_explore_text" fuzzy="true">Selaa suositeltuja artikkeleita, trendikkäitä aiheita ja lukuehdotuksia Tutki-syötteessä.</string>
   <string name="onboarding_save_to_reading_lists_title">Tallenna lukuluetteloon</string>
   <string name="onboarding_save_to_reading_lists_text">Luo lukuluetteloja artikkeleista, joita haluat lukea myöhemmin, jopa silloin kun olet olet offline-tilassa.</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Synkronoidut lukuluettelot</string>
+  <string name="onboarding_reading_list_sync_text" fuzzy="true">Luo lukuluetteloita artikkeleista, joita haluat lukea myöhemmin. Pystyt lukemaan lukuluetteloon tallentamiasi artikkeleita myös ilman internet-yhteyttä. &lt;a href=\"#login\"&gt;Kirjaudu sisään&lt;/a&gt; Wikipedia-tilillesi varmuuskopioidaksesi lukuluettelot käytettäviksi kaikilla laitteillasi.</string>
   <string name="onboarding_analytics_title">Lähetä dataa nimettömästi</string>
   <string name="onboarding_analytics_offline_text" fuzzy="true">Auta tekemään sovelluksesta parempi antamalla meidän tietää kuinka käytät sitä. Kerätyt tiedot ovat nimettömiä. &lt;a href=\"#privacy\"&gt;Opi lisää&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Lähetä dataa tavasta, jolla käytät sovellusta</string>

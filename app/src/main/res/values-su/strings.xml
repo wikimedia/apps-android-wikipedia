@@ -468,6 +468,8 @@
   <string name="onboarding_get_started">Mitembeyan</string>
   <string name="onboarding_explore_title">Cara anyar pikeun ngalanglang</string>
   <string name="onboarding_explore_text" fuzzy="true">Panggihan artikel petingan, jejer nu keur trén, sarta saran artikel di eupan Langlangan.</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Daptar bacaan kalawan singkronisasi</string>
+  <string name="onboarding_reading_list_sync_text" fuzzy="true">Jieun daptar bacaan tina artikel anu ku anjeun rék di baca engké, malah mah mun keur oflén. &lt;a href=\"#login\"&gt;Asup log atawa jieun&lt;/a&gt; akun Wikipédia anjeun supaya daptar bacaan anjeun dicadangkeun.</string>
   <string name="onboarding_analytics_title">Kirim data anonim</string>
   <string name="onboarding_analytics_switch_title">Kirim data pamakéan</string>
   <string name="onboarding_create_account_sync">Singkronkeun daptar bacaan anjeun</string>

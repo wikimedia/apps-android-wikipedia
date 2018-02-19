@@ -122,7 +122,11 @@
   <string name="create_account_account_created_toast">Konto oprettet!</string>
   <string name="preferences_heading_storage_and_syncing">Lagring og synkronisering</string>
   <string name="preference_title_sync_reading_lists">Synkroniser læselister</string>
+  <string name="preference_title_sync_reading_lists_from_account">Synkroniser læselister for denne konto</string>
   <string name="preference_summary_sync_reading_lists">Tillad Wikimedia at synkronisere dine læselister når du logger på</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Tillad Wikimedia at synkronisere læselister med din Wikipediakonto %s</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Fjern synkroniserede læselister fra din konto %s?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Dette vil fuldstændig slette alle tidligere synkroniserede læselister fra eksternt lager. Fjern alle synkroniserede lister fra din konto %s?</string>
   <string name="preferences_privacy_settings_heading">Privatliv</string>
   <string name="preference_title_eventlogging_opt_in">Send anvendelsesrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillad Wikimedia at indsamle oplysninger om, hvordan du bruger app\'en, for at gøre den bedre.</string>
@@ -145,6 +149,7 @@
   <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.da</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.da</string>
@@ -357,6 +362,24 @@
   <string name="reading_list_already_contains_selection">Den valgte liste indeholder allerede alle de valgte sider.</string>
   <string name="reading_list_added_articles_list_titled">Tilføjede %1$d artikler til %2$s</string>
   <string name="reading_list_delete_confirm">Er du sikker på, at du ønsker at slette %s?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Log ind for at aktivere synkronsering</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Log ind for at tillade at dine læselister gemmes på din konto.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Annuller</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Log på</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Synkronisering af læseliste er deaktiveret</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Synkronisering af læseliste er deaktiveret for din konto og gemte artikler på din enhed bliver ikke længere sikkerehdskopieret. Aktiver synkronisering af læselister under indstillinger.</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">O.k.</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Indstillinger</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Aktiver synkronisering af læselister?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Artikler gemt i læselister kan nu synkroniseres med din Wikipediakonto. &lt;a href=\"#faq\"&gt;Læs mere&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Vis ikke dette igen</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Aktiver synkronisering</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nej tak</string>
+  <string name="reading_list_login_option_reminder_dialog_title">Fundne læselisteartikler</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Der er læselisteartikler gemt i dit Wikipediaprogram. Ønsker du at beholde dem og sammenføje med læselister synkroniseret til din konto?</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">Ja, tilføj dem til mine læselister</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Nej, slet artikler gemt i programmet</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Bevar gemte artikler på enheden?</string>
   <string name="default_reading_list_name">Gemt</string>
   <string name="default_reading_list_description">Standardliste for dine gemte artikler</string>
   <string name="no_user_lists_title">Organiser artikler i lister</string>
@@ -529,6 +552,8 @@
   <string name="onboarding_explore_text">Dyk ned i Wikipedias harehul med en konstant opdateret udforskningskilde. &lt;br/&gt; &lt;b&gt;Tilpas&lt;/b&gt; nyhedskilden til dine interesser – om det er historiske hændelser &lt;b&gt;På denne dag&lt;/b&gt;, eller et kast med terningen med &lt;b&gt;Vilkårlig&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Gem til læselister</string>
   <string name="onboarding_save_to_reading_lists_text">Opret læselister fra artikler du ønsker at læse senere, selv når du ikke er på nettet.</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Læselister med synkronisering</string>
+  <string name="onboarding_reading_list_sync_text" fuzzy="true">Opret læselister med artikler du ønsker at læse senere, selv uden adgang til internettet. &lt;a href=\"#login\"&gt;Log ind eller opret&lt;/a&gt; din Wikipediakonto for at sikre sikkerhedskopiering af dine læselister.</string>
   <string name="onboarding_analytics_title">Send anonyme data</string>
   <string name="onboarding_analytics_offline_text">Hjælp med at gøre programmet bedre ved at fortælle os hvordan du bruger den. Data indsamles anonymt. &lt;a href=\"#privacy\"&gt;Lær mere&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Send brugsdata</string>

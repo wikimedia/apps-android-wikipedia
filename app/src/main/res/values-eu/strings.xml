@@ -552,6 +552,8 @@
   <string name="onboarding_explore_text">Murgildu zaitez Wikipedian etengabe Arakatzaile ezarpena eguneratuz.&lt;br/&gt; &lt;b&gt;Pertsonalizatu&lt;/b&gt; zure interesetako jarioa – bai gertakari historikoen inguruan ikasteko &lt;b&gt;Egun honetan&lt;/b&gt;, zein dadoa botaz &lt;b&gt;Ausazkoa&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Gordu irakurketa zerrendan</string>
   <string name="onboarding_save_to_reading_lists_text">Irakurketa zerrendak sortu gero irakurri nahi dituzun artikuluekin, konexiorik gabe egonda ere.</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Sinkronizatutako irakurketa zerrendak</string>
+  <string name="onboarding_reading_list_sync_text" fuzzy="true">Geroago irakurri nahi dituzun artikuluen irakurketa zerrenda sortu, baita konexiorik gabe zaudenean ere. &lt;a href=\"#login\"&gt;Log in or create&lt;/a&gt; zure Wikipedia kontuan irakurketa zerrendak gordetzeko.</string>
   <string name="onboarding_analytics_title">Datuak anonimoki bidali</string>
   <string name="onboarding_analytics_offline_text">Lagundu iezaguzu aplikazioa hobetzen zure erabilera azalduz. Bildutako datuak anonimoak izango dira.&lt;a href=\"#offline\"&gt;Gehiago ikasi&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Erabilitako data bidali</string>

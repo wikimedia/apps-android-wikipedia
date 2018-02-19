@@ -524,6 +524,8 @@
   <string name="onboarding_explore_text">תצללו לוויקיפדיה עם ההזנה המתעדכנת שלנו. &lt;br/&gt;  תתאימו את ההזנה למה שמעניין אתכם – למידה על מה שקרה &lt;b&gt;היום בהיסטוריה&lt;/b&gt;, או &lt;b&gt;תגרילו משהו אקראי&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">לשמור לרשימת קריאה</string>
   <string name="onboarding_save_to_reading_lists_text">צרו רשימות קריאה מערכים שאתם רוצים לקרוא מאוחר יותר, אפילו בלי חיבור לרשת.</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">רשימת קריאה עם סנכרון</string>
+  <string name="onboarding_reading_list_sync_text" fuzzy="true">צרו רשימות קריאה מערכים שאתם רוצים לקרוא מאוחר יותר, גם אם אינכם מחוברים. &lt;a href=\"#login\"&gt;נא להיכנס לחשבון הוויקיפדיה שלך או ליצור אותו&lt;/a&gt; כדי לשמור גיבוי של רשימות הקריאה שלך.</string>
   <string name="onboarding_analytics_title">שליחת נתונים אלמוניים</string>
   <string name="onboarding_analytics_offline_text">עזרו לנו לשפר את האפליקציה על־ידי זה שתאפשרו לנו ללמוד איך אתם משתמשים בה. איסוף הנתונים נעשה באלמוניות. &lt;a href=\"#privacy\"&gt;מידע נוסף&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">שליחת נתוני שימוש</string>

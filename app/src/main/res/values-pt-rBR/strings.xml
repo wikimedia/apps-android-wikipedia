@@ -555,6 +555,9 @@
   <string name="onboarding_explore_text">Mergulhe o buraco de coelho da Wikipédia com uma atualização constante Explore feed. &lt;br/&gt; &lt;b&gt;Customizar&lt;/b&gt; A alimentação de seus interesses - seja aprendendo sobre eventos históricos &lt;b&gt;Neste dia&lt;/b&gt;, ou rolando os dados com &lt;b&gt;Aleatória&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Salvar nas listas de leitura</string>
   <string name="onboarding_save_to_reading_lists_text">Crie listas de leitura a partir dos artigos que pretende ler mais tarde, mesmo quando estiver sem acesso à internet.</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Listas de leitura sincronizadas</string>
+  <string name="onboarding_reading_list_sync_text" fuzzy="true">Crie listas de leitura de artigos que você deseja ler mais tarde, mesmo quando você está desconectado. &lt;a href=\"#login\"&gt;Faça login ou crie&lt;/a&gt; sua conta de Wikipedia para manter suas listas de leitura protegidas.</string>
+  <string name="onboarding_reading_list_sync_text_v2">Pode criar listas de leitura dos artigos que pretende ler mais tarde, mesmo quando estiver sem acesso à Internet. &lt;br/&gt;Entre na sua conta da Wikipédia para sincronizar as suas listas de leitura. &lt;a href=\"#login\"&gt;Junte-se à Wikipédia&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Enviar dados anônimos</string>
   <string name="onboarding_analytics_offline_text">Ajude a melhorar o aplicativo, informando-nos como você o usa. Os dados coletados são anônimos. &lt;a href=\"#privacy\"&gt;Learn more&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Enviar dados de uso</string>

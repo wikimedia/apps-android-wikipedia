@@ -522,6 +522,8 @@
   <string name="onboarding_explore_text">Mergúllese no pozo sen fondo da Wikipedia cunha canle Explorar en constante actualización. &lt;br/&gt; &lt;b&gt;Personalice&lt;/b&gt; a canle coas súas preferencias – se quere aprender sobre acontecementos históricos &lt;b&gt;Neste dia&lt;/b&gt;, ou lanzar os dados con &lt;b&gt;Aleatorio&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Gardar nas listas de lectura</string>
   <string name="onboarding_save_to_reading_lists_text">Crear listas de lectura a partir dos artigos que quere ler máis tarde, mesmo cando estea sen conexión a Internet.</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Listas de lectura sincronizadas</string>
+  <string name="onboarding_reading_list_sync_text" fuzzy="true">Crear listas de lectura a partir de artigos que queres ler máis tarde, incluso cando esteas sen conexión. &lt;a href=\"#login\"&gt;Inicia sesión ou crea&lt;/a&gt; a túa conta de Wikipedia para mantener as túas listas de lectura sincronizadas.</string>
   <string name="onboarding_analytics_title">Enviar os datos de maneira anónima</string>
   <string name="onboarding_analytics_offline_text">Permita que saibamos como utiliza a aplicación para axudar a mellorala. Os datos recompilados son anónimos. &lt;a href=\"#privacy\"&gt;Máis información&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Envíar datos de uso</string>

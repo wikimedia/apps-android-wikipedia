@@ -467,6 +467,8 @@
   <string name="onboarding_get_started">Bdu</string>
   <string name="onboarding_explore_title">Tarryin-nniden n usnirem</string>
   <string name="onboarding_explore_text" fuzzy="true">Wali imagraden ufrinen, isental imaynutenakked isumar n tɣuri di tnelli n usnirem.</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Tibdarin n tɣuri s umtawi</string>
+  <string name="onboarding_reading_list_sync_text" fuzzy="true">Rnu tibdarin n tɣuri s s yimagraden ara teɣreḍ ticki, ɣas s war tuqqna. &lt;a href=\"#login\"&gt;qqen neɣ rnu&lt;/a&gt; amiḍan-ik Wikipedia akken ad tḥ€rzeḍ tibdarin-ik n tɣuri ttwaskelsent.</string>
   <string name="onboarding_analytics_title">Azen isefka udrigen</string>
   <string name="onboarding_analytics_switch_title">Azen isefka n useqdec</string>
   <string name="onboarding_create_account_sync">Mtawi tibdarin-ik n tɣuri</string>

@@ -75,7 +75,7 @@
   <string name="login_username_hint">使用者名稱</string>
   <string name="login_password_hint">密碼</string>
   <string name="login_2fa_hint">雙因素認證代碼</string>
-  <string name="login_2fa_other_workflow_error_msg">需要雙因素認證！請返回主活動頁面並以您的 2FA 權杖登入後再重試。</string>
+  <string name="login_2fa_other_workflow_error_msg">需要雙因素認證！請返回主操作頁面並以您的 2FA 令牌登入後再重試。</string>
   <string name="menu_login">登入</string>
   <string name="login_activity_title">登入維基百科</string>
   <string name="login_in_progress_dialog_message">正在登入…</string>
@@ -452,7 +452,7 @@
   <string name="feed_item_type_news">有關目前事件的條目</string>
   <string name="feed_item_type_on_this_day">在歷史上的今天之事件</string>
   <string name="feed_item_type_continue_reading">快速連結返回至您分頁裡來閱讀一個所開啓條目</string>
-  <string name="feed_item_type_because_you_read">基於在您的歷史裡近期所閱讀條目之建設</string>
+  <string name="feed_item_type_because_you_read">基於在您的瀏覽歷史裡近期曾閱讀過的條目，所提出的建議</string>
   <string name="feed_item_type_featured_article">在維基百科上的每日典範條目</string>
   <string name="feed_item_type_trending">每日最多瀏覽的條目</string>
   <string name="feed_item_type_featured_image">來自維基共享資源的每日特色圖片</string>
@@ -555,6 +555,9 @@
   <string name="onboarding_explore_text">一腳跳進不斷更新探索訊息來源的維基百科兔子洞裡頭。&lt;br/&gt; &lt;b&gt;自行定義&lt;/b&gt;訊息來源在您感興趣的項目 – 無論是在&lt;b&gt;歷史上的今天&lt;/b&gt;學習歷史事件，或是擲骰產生的&lt;b&gt;隨機&lt;/b&gt;內容。</string>
   <string name="onboarding_save_to_reading_lists_title">儲存至閱讀清單</string>
   <string name="onboarding_save_to_reading_lists_text">建立感興趣條目的閱讀清單，讓您即使在離線時也可閱讀。</string>
+  <string name="onboarding_reading_list_sync_title">帶同步的閱讀清單</string>
+  <string name="onboarding_reading_list_sync_text">從條目建立您想在稍後閱讀的閱讀清單，這在您即使是在離線的狀態之下仍可用。&lt;a href=\"#login\"&gt;登入或建立&lt;/a&gt;您的維基百科帳號以保留您的閱讀清單備份。</string>
+  <string name="onboarding_reading_list_sync_text_v2">您可從您想要事後閱讀的條目來建立閱讀清單，讓您即使在離線時也可使用。&lt;br/&gt;登入您的維基百科帳號來同步您的閱讀清單。&lt;a href=\"#login\"&gt;加入維基百科&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">寄送匿名資料</string>
   <string name="onboarding_analytics_offline_text">請讓我們了解您是如何使用它，以讓應用程式能變得更好，另外資料收集都是採用匿名方式的。&lt;a href=\"#privacy\"&gt;了解更多&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">傳送使用情況資料</string>

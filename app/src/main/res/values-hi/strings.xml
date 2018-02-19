@@ -343,6 +343,9 @@
   <string name="reading_list_already_contains_selection">चुनी गयी सूची में चयनित पृष्ठ पहले से ही समाहित हैं।</string>
   <string name="reading_list_added_articles_list_titled">%2$s में %1$d आलेख जोड़े गए</string>
   <string name="reading_list_delete_confirm" fuzzy="true">क्या आप  \"%s\" को मिटाने हेतु निश्चित हैं?</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">सेटिंग्स</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">पठन सूची को सिंक करना चालू करें?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">हाँ, डिवाइस पर आलेख रखें</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">यह लेख अब ऑफलाइन उपलब्ध होगा।</item>
     <item quantity="other">These articles will now be available offline.</item>
@@ -482,6 +485,8 @@
   <string name="onboarding_get_started">शुरू करें</string>
   <string name="onboarding_explore_title">अन्वेषण के नए तरीके</string>
   <string name="onboarding_explore_text" fuzzy="true">अन्वेषण प्रदाय पर विशेष रुप से प्रदर्शित लेख, रुझान वाले विषयों की खोज और सुझावों को ढूंढें।</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">सिंक के साथ पढ़ने वाली सूचियां</string>
+  <string name="onboarding_reading_list_sync_text" fuzzy="true">उन लेखों की पठन सूचियां बनाएं जिन्हें आप बाद में पढ़ना चाहते हैं, तब भी जब आप ऑफ़लाइन हो। अपनी पठन सूचियों को बैक अप रखने के लिए अपने विकिपीडिया खाते में &lt;a href=\"#login\"&gt; लॉग इन करें या खाता बनाएं &lt;/a&gt;।</string>
   <string name="onboarding_analytics_title">अनाम डेटा भेजें</string>
   <string name="onboarding_analytics_switch_title">उपयोग किया गया डेटा भेजें</string>
   <string name="onboarding_create_account_sync">\nअपनी पठन सूचियों को सिंक करें</string>

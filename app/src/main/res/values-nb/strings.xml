@@ -503,6 +503,8 @@
   <string name="onboarding_welcome_title">Den frie encyklopedien</string>
   <string name="onboarding_explore_title">Nye måter å utforske</string>
   <string name="onboarding_explore_text" fuzzy="true">Utforsk gode og utmerkede artikler, aktuelle temaer, og leseforslag i Utforsker.</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Leselister med synkronisering</string>
+  <string name="onboarding_reading_list_sync_text" fuzzy="true">Lag leselister over artikler du vil lese senere, selv når du er offline. &lt;a href=\"#login\"&gt;Logg inn eller opprett&lt;/a&gt; en Wikipedia-konto for å sikkerhetskopiere listene.</string>
   <string name="onboarding_analytics_title">Send anonyme data</string>
   <string name="onboarding_analytics_switch_title">Send bruksdata</string>
   <string name="onboarding_create_account_sync">Synkroniser leselistene dine</string>

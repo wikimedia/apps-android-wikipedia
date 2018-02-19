@@ -507,6 +507,8 @@
   <string name="onboarding_explore_text" fuzzy="true">Golèk artikel pilihan, rembug mumbul, lan saran wacan ing lebon Djalah.</string>
   <string name="onboarding_save_to_reading_lists_title">Simpen ing pratélan wewacan</string>
   <string name="onboarding_save_to_reading_lists_text">Gawé pratélan wacan saka artikel sing arep diwaca mengko, kepara nalika ing njaban jaringan.</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Pratélan wacan mawa sinkronisasi</string>
+  <string name="onboarding_reading_list_sync_text" fuzzy="true">Gawé pratélan wacan saka artikel sing arep panjenengan waca ing tembé, masiya ing njaban jaringan. &lt;a href=\"#login\"&gt;Mlebua log utawa gawéa&lt;/a&gt; akun Wikipédiané panjenengan supaya pratélan wacané panjenengan bisa disèrepaké.</string>
   <string name="onboarding_analytics_title">Kirim dhata anonim</string>
   <string name="onboarding_analytics_switch_title">Kirim dhata pangguna</string>
   <string name="onboarding_create_account_sync">Sinkronaké pratélan wacané panjenengan</string>

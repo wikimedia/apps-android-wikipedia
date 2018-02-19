@@ -459,6 +459,7 @@
   <string name="onboarding_get_started">شروع کریں</string>
   <string name="onboarding_explore_title">اکتشاف کی نئی راہیں</string>
   <string name="onboarding_explore_text" fuzzy="true">اکتشاف فیڈ میں منتخب مضامین، مقبول عام موضوعات اور مطالعے کی تجویزیں دیکھیں۔</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">مطالعاتی فہرستیں مع مطابقت پزیری</string>
   <string name="onboarding_analytics_title">گمنام ڈیٹا بھیجیں</string>
   <string name="onboarding_analytics_switch_title">استعمال شدہ ڈیٹا بھیجیں</string>
   <string name="onboarding_create_account_sync">مطالعہ کی فہرستوں کو باہم مطابق کریں</string>

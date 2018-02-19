@@ -341,6 +341,7 @@
   <string name="reading_list_delete_confirm">Είστε σίγουρος ότι θέλετε να διαγράψετε το %s;</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Ακύρωση</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Είσοδος</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Ο συγχρονισμός λίστας ανάγνωσης είναι απενεργοποιημένος για το λογαριασμό σας και τα αποθηκευμένα άρθρα στις συνδεδεμένες συσκευές δεν υποστηρίζονται πλέον. Ενεργοποιήστε τον συγχρονισμό λίστας ανάγνωσης στις Ρυθμίσεις</string>
   <string name="reading_list_turned_sync_off_dialog_ok">Εντάξει</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Ρυθμίσεις</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Μην μου το ξαναεμφανίσεις πάλι</string>
@@ -483,6 +484,7 @@
   <string name="onboarding_welcome_title">Η ελεύθερη εγκυκλοπαίδεια</string>
   <string name="onboarding_explore_title">Νέοι τρόποι να εξερευνήσετε</string>
   <string name="onboarding_save_to_reading_lists_title">Αποθήκευση στις λίστες ανάγνωσης</string>
+  <string name="onboarding_reading_list_sync_text_v2">Μπορείτε να δημιουργήσετε λίστες ανάγνωσης από άρθρα που θέλετε να διαβάσετε αργότερα, ακόμα και όταν είστε εκτός σύνδεσης. &lt;br/&gt; Συνδεθείτε στον λογαριασμό σας στη Wikipedia για να συγχρονίσετε τις λίστες ανάγνωσης. &lt;a href=\"#login\"&gt; Εγγραφείτε στο Wikipedia &lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Αποστολή ανώνυμων δεδομένων</string>
   <string name="onboarding_analytics_switch_title">Αποστολή δεδομένων χρήσης</string>
   <string name="onboarding_create_account_contributions">Ιχνηλατήστε τις συνεισφορές σας</string>

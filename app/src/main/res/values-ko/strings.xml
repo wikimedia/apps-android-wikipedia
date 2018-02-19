@@ -122,7 +122,11 @@
   <string name="create_account_account_created_toast">계정을 만들었습니다!</string>
   <string name="preferences_heading_storage_and_syncing">보관 및 동기화</string>
   <string name="preference_title_sync_reading_lists">읽기 목록 동기화</string>
+  <string name="preference_title_sync_reading_lists_from_account">이 계정의 읽기 목록을 동기화합니다</string>
   <string name="preference_summary_sync_reading_lists">로그인할 때 위키미디어가 읽기 목록을 동기화할 수 있게 합니다</string>
+  <string name="preference_summary_sync_reading_lists_from_account">위키백과가 읽기 목록을 %s 위키백과 계정에 동기화할 수 있게 합니다</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">%s 계정에서 동기화된 읽기 목록을 제거하시겠습니까?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">이전에 원격 기억 장치에 동기화된 모든 읽기 목록을 완전히 삭제합니다. %s 계정에 동기화된 모든 목록을 제거하시겠습니까?</string>
   <string name="preferences_privacy_settings_heading">개인정보</string>
   <string name="preference_title_eventlogging_opt_in">사용 보고서 보내기</string>
   <string name="preference_summary_eventlogging_opt_in">위키미디어가 더 나은 앱을 만들기 위해 당신이 어떻게 앱을 사용하는지에 대한 정보를 모을 수 있습니다</string>
@@ -144,6 +148,7 @@
   <string name="terms_of_use_description">이용 약관</string>
   <string name="about_wikipedia_url">https://ko.m.wikipedia.org/wiki/위키백과:소개</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ko#오프라인 읽기 및 데이터</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ko</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ko</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ko</string>
   <string name="about_libraries_heading">사용된 라이브러리</string>
@@ -353,6 +358,27 @@
   <string name="reading_list_already_contains_selection">선택된 목록은 선택된 모든 문서를 이미 포함하고 있습니다.</string>
   <string name="reading_list_added_articles_list_titled">%1$d개의 문서가 %2$s에 추가되었습니다</string>
   <string name="reading_list_delete_confirm">%s 목록을 삭제하시겠습니까?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">동기화를 사용하려면 로그인하세요</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">읽기 목록을 계정에 저장할 수 있게 하려면 로그인하십시오.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">취소</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">로그인</string>
+  <string name="reading_list_turned_sync_off_dialog_title">읽기 목록 동기화가 꺼져 있습니다</string>
+  <string name="reading_list_turned_sync_off_dialog_text">계정에 읽기 목록 동기화 꺼져 있으며 로그인된 장치에 저장된 문서들은 더 이상 백업되지 않습니다. 설정에서 읽기 목록 동기화를 켜십시오.</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">확인</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">설정</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">읽기 목록 동기화를 켜시겠습니까?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">읽기 목록에 저장왼 문서는 지금 위키백과 계정에 동기화할 수 있습니다. &lt;a href=\"#faq\"&gt;더 알아보기&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">더 이상 표시하지 않음</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">동기화 사용</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">괜찮습니다</string>
+  <string name="reading_list_login_option_reminder_dialog_title">읽기 문서 목록을 찾았습니다</string>
+  <string name="reading_list_login_option_reminder_dialog_text">위키백과에 저장된 읽기 목록 문서가 있습니다. 이 문서들을 보관하고 계정에 동기화된 읽기 목록으로 병합하시겠습니까?</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">예, 내 읽기 목록에 추가합니다</string>
+  <string name="reading_list_login_option_reminder_dialog_no">아니요, 앱에 저장된 문서를 삭제합니다</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">저장된 문서를 장치에 보관할까요?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">위키백과 계정에 동기화된 문서가 있습니다. 로그아웃한 뒤에 이 문서들을 이 장치에 보관하시겠습니까?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">예, 장치에 문서를 보관합니다</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">아니요, 장치에서 문서를 삭제합니다</string>
   <string name="default_reading_list_name">저장됨</string>
   <string name="no_user_lists_msg">여행 갈 장소, 좋아하는 주제들, 그외의 원하는 용도의 목록을 만드세요</string>
   <string name="reading_list_saved_list_rename">%1$s (사용자가 생성함)</string>
@@ -520,6 +546,9 @@
   <string name="onboarding_explore_text">늘 업데이트되는 둘러보기 피드로 위키백과를 탐험하세요. &lt;br/&gt; 피드를 당신의 관심사에 &lt;b&gt;맞춤 관리하세요&lt;/b&gt; – 그것이 &lt;b&gt;오늘의 역사&lt;/b&gt;에 대한 역사적 사건을 배우는 것이든, &lt;b&gt;임의 문서로&lt;/b&gt; 주사위를 던지는 것이든요.</string>
   <string name="onboarding_save_to_reading_lists_title">읽기 목록에 저장</string>
   <string name="onboarding_save_to_reading_lists_text">나중에 읽고 싶은 글들을 읽기 목록으로 만듭니다. 오프라인에서도 이용이 가능합니다.</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">읽기 목록 동기화</string>
+  <string name="onboarding_reading_list_sync_text" fuzzy="true">나중에 오프라인 상태에서도 읽을 수 있도록 문서의 읽기 목록을 만듭니다. 읽기 목록을 보관하려면 위키백과 계정을 &lt;a href=\"#login\"&gt;만들거나 로그인&lt;/a&gt;하십시오.</string>
+  <string name="onboarding_reading_list_sync_text_v2">나중에, 오프라인 상태에서도 읽을 수 있도록 문서의 읽기 목록을 만들 수 있습니다.&lt;br/&gt;읽기 목록을 동기화하려면 위키백과 계정에 로그인하십시오. &lt;a href=\"#login\"&gt;위키백과 가입&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">익명 데이터 보내기</string>
   <string name="onboarding_analytics_offline_text">앱 개선 지원을 위해 앱을 어떻게 사용하는지 알려주세요. 수집된 데이터는 익명으로 처리됩니다. &lt;a href=\"#privacy\"&gt;더 알아보기&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">사용 데이터 보내기</string>

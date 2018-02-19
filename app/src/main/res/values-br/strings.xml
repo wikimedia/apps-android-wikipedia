@@ -467,6 +467,7 @@
   <string name="onboarding_skip">Lezel a-gostez</string>
   <string name="onboarding_continue">Kenderc\'hel</string>
   <string name="onboarding_explore_title">Doareoù ergerzhet nevez</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Rolloù lenn gant sinkronelaat</string>
   <string name="onboarding_analytics_title">Kas roadennoù dizanv</string>
   <string name="onboarding_analytics_switch_title">Kas ar roadennoù implijout</string>
   <string name="onboarding_create_account_sync">Sinkronelaat ho rolloù lenn</string>

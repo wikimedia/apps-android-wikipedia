@@ -425,6 +425,8 @@
   <string name="onboarding_get_started">Započnite</string>
   <string name="onboarding_explore_title">Novi načini za istraživanje</string>
   <string name="onboarding_explore_text" fuzzy="true">Otkrijte odabrane članke, aktualne teme i prijedloge za čitanje na ekranu \"Istraži\".</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Spiskovi za čitanje sa sinhroniziranjem</string>
+  <string name="onboarding_reading_list_sync_text" fuzzy="true">Napravite spiskove za čitanje od članaka koje želite pročitati kasnije, čak i kad niste na mreži. &lt;a href=\"#login\"&gt;Prijavite se ili napravite&lt;/a&gt; račun na Wikipediji da biste imali pričuvnu kopiju spiskova.</string>
   <string name="onboarding_analytics_title">Šalji anonimne podatke</string>
   <string name="onboarding_analytics_switch_title">Šalji podatke o upotrebi</string>
   <string name="onboarding_create_account_sync">Sinhronizirajte spiskove za čitanje</string>

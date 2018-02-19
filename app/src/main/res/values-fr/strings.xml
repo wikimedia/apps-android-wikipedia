@@ -555,6 +555,8 @@
   <string name="onboarding_explore_text">Plongez dans le terrier de Wikipédia avec un fil Explorer continuellement mis à jour. &lt;br/&gt; &lt;b&gt;Personnalisez&lt;/b&gt; le fil selon vos intérêts — si c’est d’apprendre les événements historiques &lt;b&gt;Sur cette journée&lt;/b&gt;, ou de choisir aléatoirement avec &lt;b&gt;Aléatoire&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Enregistrer dans les listes de lecture</string>
   <string name="onboarding_save_to_reading_lists_text">Créer des listes de lecture pour les articles que vous voulez lire plus tard, même hors connexion.</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Listes de lecture avec synchronisation</string>
+  <string name="onboarding_reading_list_sync_text" fuzzy="true">Créer des listes de lecture avec les articles que vous voulez lire plus tard, même hors connexion. &lt;a href=\"#login\"&gt;Connectez-vous ou créez&lt;/a&gt; votre compte Wikipédia pour conserver vos listes de lecture sauvegardées.</string>
   <string name="onboarding_analytics_title">Envoyer les données de manière anonyme</string>
   <string name="onboarding_analytics_offline_text">Aide à améliorer l’application en nous faisant savoir comment vous l’utilisez. Les données collectées sont anonymes. &lt;a href=\"#privacy\"&gt;En savoir plus&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Envoyer les données d’utilisation</string>

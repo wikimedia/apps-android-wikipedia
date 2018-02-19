@@ -555,6 +555,9 @@
   <string name="onboarding_explore_text">Bucea nel universu de Wikipedia cola canal Esplorar, siempres anovándose.&lt;br&gt;&lt;b&gt;Personaliza&lt;/b&gt; la canal colo que t\'interese (por casu, conocer los acontecimientos históricos n\'&lt;b&gt;Un día como güei&lt;/b&gt;, o xugar a los daos con &lt;b&gt;Al debalu&lt;/b&gt;).</string>
   <string name="onboarding_save_to_reading_lists_title">Guardar en llistes de llectura</string>
   <string name="onboarding_save_to_reading_lists_text">Crea llistes de llectura colos artículos que desees lleer sero, inclusive cuando teas ensin conexón.</string>
+  <string name="onboarding_reading_list_sync_title">Llistes de llectura con sincronización</string>
+  <string name="onboarding_reading_list_sync_text">Crear llistes de llectura a partir d\'artículos que quies lleer sero, inclusive cuando teas ensin conexón. &lt;a href=\"#login\"&gt;Anicia sesión o crea&lt;/a&gt; una cuenta de Wikipedia pa tener copia de seguranza de les llistes de llectura.</string>
+  <string name="onboarding_reading_list_sync_text_v2">Puedes facer llistes de llectura a partir d\'artículos que quies lleer sero, inclusive cuando teas ensin conexón. &lt;br/&gt;Anicia sesión cola to cuenta de Wikipedia pa sincronizar les llistes de llectura. &lt;a href=\"#login\"&gt;Xúnite a Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Unviar datos anónimos</string>
   <string name="onboarding_analytics_offline_text">Ayuda a ameyorar l\'aplicación informándonos de como la uses. Los datos recoyíos son anónimos. &lt;a href=\"#privacy\"&gt;Lleer más&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Unviar datos d\'usu</string>

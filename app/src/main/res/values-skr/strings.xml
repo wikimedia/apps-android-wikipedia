@@ -195,6 +195,10 @@
   <string name="reading_list_no_description">وضاحت کائنی۔۔۔</string>
   <string name="reading_lists_confirm_remote_delete_yes">جیا</string>
   <string name="reading_lists_confirm_remote_delete_no">کو</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">منسوخ</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">لاگ ان تھیوو</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">ٹھیک ہے</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">ترتیباں</string>
   <string name="default_reading_list_name">محفوظ تھی ڳیا</string>
   <string name="user_option_sync_label">ترجیحات</string>
   <string name="notification_syncing_pause_button">اجھکو</string>

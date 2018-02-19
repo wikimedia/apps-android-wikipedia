@@ -331,7 +331,10 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Aloggen</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Astellungen</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Mir dëst net méi weisen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nee, merci</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Gespäichert Artikelen um Apparat halen?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Jo, Artikelen um Apparat halen</string>
   <string name="default_reading_list_name">Gespäichert</string>
   <string name="default_reading_list_description">Standard-Lëscht fir Är gespäichert Artikelen</string>
   <string name="no_user_lists_title">Artikelen a Lëschten organiséieren</string>
@@ -460,6 +463,7 @@
   <string name="onboarding_get_started">Fir unzefänken</string>
   <string name="onboarding_welcome_title">Déi fräi Enzyklopedie</string>
   <string name="onboarding_save_to_reading_lists_title">Op d\'Lieslëschte späicheren</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Lieslëschten mat Synchroniséierung</string>
   <string name="onboarding_analytics_title">Anonymiséiert Donnéeë schécken</string>
   <string name="onboarding_create_account_sync">Synchroniséiert Är Lieslëschten</string>
   <string name="onboarding_create_account_preferences">Späichert Är Astellungen</string>

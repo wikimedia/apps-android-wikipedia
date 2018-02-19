@@ -555,6 +555,9 @@
   <string name="onboarding_explore_text">Mergulhe no poço sem fundo da Wikipédia com um feed Explorar em constante atualização. &lt;br/&gt; &lt;b&gt;Personalize&lt;/b&gt; o feed com as suas preferências – quer seja acontecimentos históricos &lt;b&gt;Neste dia&lt;/b&gt;, ou assuntos ao calhas com &lt;b&gt;Aleatório&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Guardar nas listas de leitura</string>
   <string name="onboarding_save_to_reading_lists_text">Crie listas de leitura a partir dos artigos que pretende ler mais tarde, mesmo quando estiver sem acesso à Internet.</string>
+  <string name="onboarding_reading_list_sync_title">Listas de leitura com sincronização</string>
+  <string name="onboarding_reading_list_sync_text">Crie listas de leitura com os artigos que pretende ler mais tarde, mesmo sem acesso à Internet. &lt;a href=\"#login\"&gt;Inicie sessão ou crie&lt;/a&gt; a sua conta na Wikipédia para manter cópias de segurança das suas listas de leitura.</string>
+  <string name="onboarding_reading_list_sync_text_v2">Pode criar listas de leitura dos artigos que pretende ler mais tarde, mesmo quando estiver sem acesso à Internet. &lt;br/&gt;Entre na sua conta da Wikipédia para sincronizar as suas listas de leitura. &lt;a href=\"#login\"&gt;Junte-se à Wikipédia&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Enviar dados anónimos</string>
   <string name="onboarding_analytics_offline_text">Ajude a melhorar a aplicação, informando-nos como a utiliza. Os dados coletados são anónimos. &lt;a href=\"#privacy\"&gt;Saiba mais&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Enviar dados de utilização</string>

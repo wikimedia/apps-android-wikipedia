@@ -477,6 +477,8 @@
   <string name="onboarding_welcome_title">Аһаҕас энциклопедия</string>
   <string name="onboarding_explore_title">Көрөргө саҥа ньымалар</string>
   <string name="onboarding_explore_text" fuzzy="true">Explore лиэнтэҕэ талба ыстатыйалары, араас тиэмэлэри уонна биллэриилэри көрө олор.</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Синхроннаах ааҕыы испииһэгэ</string>
+  <string name="onboarding_reading_list_sync_text" fuzzy="true">Ааҕыаххын баҕарар ыстатыйаларыҥ испииһэгин оҥорон ситимэ да суох кэлин көр.&lt;a href=\"#login\"&gt;Бикипиэдьийэҕэр киир эбэтэр бэлиэтэн&lt;/a&gt; уонна ааҕыы испииһэгин оҥоһун.</string>
   <string name="onboarding_analytics_title">Ааты эппэккэ ыытыы</string>
   <string name="onboarding_analytics_switch_title">Ыытарга</string>
   <string name="onboarding_create_account_sync">Ааҕыы испииһэгин хардары-таары тэҥнээһин (синхроннааһын)</string>

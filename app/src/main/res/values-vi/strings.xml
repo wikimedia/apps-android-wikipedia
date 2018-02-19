@@ -454,6 +454,8 @@
   <string name="onboarding_get_started">Bắt đầu</string>
   <string name="onboarding_explore_title">Cách thám hiểm mới</string>
   <string name="onboarding_explore_text" fuzzy="true">Khám phá các bài viết chọn lọc, đề tài thịnh hành, và gợi ý đọc bài trong nguồn cấp Thám hiểm.</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Danh sách đọc có thể đồng bộ hóa</string>
+  <string name="onboarding_reading_list_sync_text" fuzzy="true">Tạo các danh sách đọc có những bài bạn muốn đọc sau, ngay cả khi ngoại tuyến. &lt;a href=\"#login\"&gt;Đăng nhập vào hoặc mở&lt;/a&gt; tài khoản Wikipedia sao lưu các danh sách đọc của bạn.</string>
   <string name="onboarding_analytics_title">Gửi dữ liệu vô danh</string>
   <string name="onboarding_analytics_switch_title">Gửi dữ liệu về cách dùng</string>
   <string name="onboarding_create_account_sync">Đồng bộ hóa các danh sách đọc</string>

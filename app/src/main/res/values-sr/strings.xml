@@ -324,7 +324,7 @@
   <string name="reading_list_login_reminder_title">Синхронизујте списак за читање</string>
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">Заиста желите да избришете овај %s списак за читање?</string>
+  <string name="reading_list_delete_confirm">Заиста желите да избришете %s?</string>
   <string name="default_reading_list_name">Сачувано</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Овај чланак ће бити доступан офлајн.</item>
@@ -354,8 +354,8 @@
   <string name="view_random_card_action">Баци коцку</string>
   <string name="view_next_random_article">Следећи насумични чланак</string>
   <string name="view_main_page_card_title">Данас на Википедији</string>
-  <string name="view_main_page_card_subtitle">Главна страна на датум %s</string>
-  <string name="view_main_page_card_action">Главна страна</string>
+  <string name="view_main_page_card_subtitle">Главна страница на датум %s</string>
+  <string name="view_main_page_card_action">Главна страница</string>
   <string name="view_featured_image_card_title">Слика дана</string>
   <string name="view_featured_image_card_download">Преузми</string>
   <string name="menu_feed_card_dismiss">Сакрији</string>
