@@ -95,6 +95,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     private SearchCallback searchActionModeCallback = new SearchCallback();
     private MultiSelectActionModeCallback multiSelectActionModeCallback = new MultiSelectCallback();
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
+    private boolean toolbarExpanded = true;
 
     @NonNull private List<ReadingListPage> displayedPages = new ArrayList<>();
     private String currentSearchQuery;
@@ -244,6 +245,9 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         headerImageView.setReadingList(readingList);
         ReadingList.sort(readingList, Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC));
         setSearchQuery(currentSearchQuery);
+        if (!toolbarExpanded) {
+            toolBarLayout.setTitle(readingList.title());
+        }
         if (!articleLimitMessageShown && readingList.pages().size() >= Constants.MAX_READING_LIST_ARTICLE_LIMIT) {
             String message = String.format(getString(R.string.reading_list_article_limit_message), readingList.title());
             FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show();
@@ -357,7 +361,6 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                 text -> {
                     readingList.title(text.toString());
                     ReadingListDbHelper.instance().updateList(readingList, true);
-
                     update();
                     funnel.logModifyList(readingList, 0);
                 }).show();
@@ -617,10 +620,12 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                 showOverflowMenu = false;
                 toolBarLayout.setTitle("");
                 getAppCompatActivity().supportInvalidateOptionsMenu();
+                toolbarExpanded = true;
             } else if (verticalOffset <= -appBarLayout.getTotalScrollRange() && !showOverflowMenu) {
                 showOverflowMenu = true;
                 toolBarLayout.setTitle(readingList != null ? readingList.title() : null);
                 getAppCompatActivity().supportInvalidateOptionsMenu();
+                toolbarExpanded = false;
             }
         }
     }
