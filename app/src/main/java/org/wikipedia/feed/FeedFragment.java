@@ -515,12 +515,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(),
                 getString(R.string.menu_feed_card_dismissed),
                 FeedbackUtil.LENGTH_DEFAULT);
-        snackbar.setAction(R.string.feed_undo_dismiss_card, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                coordinator.undoDismissCard(card, position);
-            }
-        });
+        snackbar.setAction(R.string.feed_undo_dismiss_card, (v) -> coordinator.undoDismissCard(card, position));
         snackbar.show();
     }
 

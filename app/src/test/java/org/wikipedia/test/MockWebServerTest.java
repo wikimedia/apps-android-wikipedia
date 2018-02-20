@@ -10,10 +10,7 @@ import org.wikipedia.dataclient.okhttp.CacheControlRequestInterceptor;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.json.GsonUtil;
 
-import java.util.function.Predicate;
-
 import okhttp3.Dispatcher;
-import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.mockwebserver.MockResponse;
 import retrofit2.Retrofit;
@@ -29,11 +26,7 @@ public abstract class MockWebServerTest {
 
         // Most tests do not expect cached responses.
         //noinspection Since15
-        builder.interceptors().removeIf(new Predicate<Interceptor>() {
-            @Override public boolean test(Interceptor interceptor) {
-                return interceptor instanceof CacheControlRequestInterceptor;
-            }
-        });
+        builder.interceptors().removeIf((interceptor) -> interceptor instanceof CacheControlRequestInterceptor);
 
         okHttpClient = builder.dispatcher(new Dispatcher(new ImmediateExecutorService())).build();
         server.setUp();

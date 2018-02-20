@@ -53,7 +53,7 @@ class NearbyClient {
                     // noinspection ConstantConditions
                     cb.failure(call, new MwException(response.body().getError()));
                 } else {
-                    cb.success(call, new NearbyResult(wiki, new ArrayList<NearbyPage>()));
+                    cb.success(call, new NearbyResult(wiki, new ArrayList<>()));
                 }
             }
 

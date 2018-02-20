@@ -63,11 +63,7 @@ public enum Namespace implements EnumCode {
     GADGET_DEFINITION_TALK(2303),
     TOPIC(2600);
 
-    public static final CodeEnum<Namespace> CODE_ENUM = new CodeEnum<Namespace>() {
-        @NonNull @Override public Namespace enumeration(int code) {
-            return of(code);
-        }
-    };
+    public static final CodeEnum<Namespace> CODE_ENUM = Namespace::of;
 
     private static final int TALK_MASK = 0x1;
     private static final EnumCodeMap<Namespace> MAP = new EnumCodeMap<>(Namespace.class);

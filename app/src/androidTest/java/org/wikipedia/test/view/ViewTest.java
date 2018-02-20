@@ -122,11 +122,7 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
     }
 
     protected void requestFocus(@NonNull final View view) {
-        runOnMainSync(new Runnable() {
-            @Override public void run() {
-                view.requestFocus();
-            }
-        });
+        runOnMainSync(view::requestFocus);
     }
 
     protected void assertText(@NonNull View subject, @IdRes int id, @NonNull TestStr text) {

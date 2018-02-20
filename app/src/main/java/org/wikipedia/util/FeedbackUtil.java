@@ -30,12 +30,9 @@ import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 public final class FeedbackUtil {
     public static final int LENGTH_DEFAULT = (int) TimeUnit.SECONDS.toMillis(5);
     private static final int SNACKBAR_MAX_LINES = 5;
-    private static View.OnLongClickListener TOOLBAR_LONG_CLICK_LISTENER = new View.OnLongClickListener() {
-        @Override
-        public boolean onLongClick(View v) {
-            showToolbarButtonToast(v);
-            return true;
-        }
+    private static View.OnLongClickListener TOOLBAR_LONG_CLICK_LISTENER = (v) -> {
+        showToolbarButtonToast(v);
+        return true;
     };
 
     public static void showError(Activity activity, Throwable e) {

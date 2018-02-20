@@ -1,6 +1,5 @@
 package org.wikipedia.search;
 
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -163,12 +162,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
         searchResultsFragment = (SearchResultsFragment)childFragmentManager.findFragmentById(
                 R.id.fragment_search_results);
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+        toolbar.setNavigationOnClickListener((v) -> onBackPressed());
 
         initSearchView();
         initLangButton();
@@ -485,18 +479,15 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
 
     private void showLangPreferenceDialog() {
         LanguagePreferenceDialog langPrefDialog = new LanguagePreferenceDialog(getContext(), true);
-        langPrefDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                if (getActivity() == null) {
-                    return;
-                }
+        langPrefDialog.setOnDismissListener((dialog) -> {
+            if (getActivity() == null) {
+                return;
+            }
 
-                langButton.setText(app.getAppOrSystemLanguageCode().toUpperCase(Locale.ENGLISH));
-                formatLangButtonText();
-                if (!TextUtils.isEmpty(query)) {
-                    startSearch(query, true);
-                }
+            langButton.setText(app.getAppOrSystemLanguageCode().toUpperCase(Locale.ENGLISH));
+            formatLangButtonText();
+            if (!TextUtils.isEmpty(query)) {
+                startSearch(query, true);
             }
         });
         langPrefDialog.show();

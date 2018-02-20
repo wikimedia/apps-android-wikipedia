@@ -153,15 +153,12 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
 
     private void checkAndShowOnboarding() {
         boolean isOnboarding = PrefsOnboardingStateMachine.getInstance().isReadingListTutorialEnabled();
-        onboardingButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onboardingContainer.setVisibility(View.GONE);
-                listsContainer.setVisibility(View.VISIBLE);
-                PrefsOnboardingStateMachine.getInstance().setReadingListTutorial();
-                if (readingLists.isEmpty()) {
-                    showCreateListDialog();
-                }
+        onboardingButton.setOnClickListener((v) -> {
+            onboardingContainer.setVisibility(View.GONE);
+            listsContainer.setVisibility(View.VISIBLE);
+            PrefsOnboardingStateMachine.getInstance().setReadingListTutorial();
+            if (readingLists.isEmpty()) {
+                showCreateListDialog();
             }
         });
         listsContainer.setVisibility(isOnboarding ? View.GONE : View.VISIBLE);
@@ -169,11 +166,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private void updateLists() {
-        CallbackTask.execute(new CallbackTask.Task<List<ReadingList>>() {
-            @Override public List<ReadingList> execute() {
-                return ReadingListDbHelper.instance().getAllLists();
-            }
-        }, new CallbackTask.DefaultCallback<List<ReadingList>>() {
+        CallbackTask.execute(() -> ReadingListDbHelper.instance().getAllLists(), new CallbackTask.DefaultCallback<List<ReadingList>>() {
             @Override
             public void success(List<ReadingList> lists) {
                 if (getActivity() == null) {

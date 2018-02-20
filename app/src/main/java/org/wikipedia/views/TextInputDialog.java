@@ -103,43 +103,31 @@ public final class TextInputDialog extends AlertDialog {
         super(context);
 
         setButton(BUTTON_POSITIVE, getContext().getString(android.R.string.ok),
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        //DeviceUtil.hideSoftKeyboard(editText);
-                        if (callback != null) {
-                            callback.onSuccess(editText.getText());
-                        }
+                (dialog,  which) -> {
+                    //DeviceUtil.hideSoftKeyboard(editText);
+                    if (callback != null) {
+                        callback.onSuccess(editText.getText());
                     }
                 });
 
         setButton(BUTTON_NEGATIVE, getContext().getString(android.R.string.cancel),
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        //DeviceUtil.hideSoftKeyboard(editText);
-                        if (callback != null) {
-                            callback.onCancel();
-                        }
+                (dialog,  which) -> {
+                    //DeviceUtil.hideSoftKeyboard(editText);
+                    if (callback != null) {
+                        callback.onCancel();
                     }
                 });
 
-        setOnShowListener(new DialogInterface.OnShowListener() {
-            @Override
-            public void onShow(DialogInterface dialogInterface) {
-                editText.requestFocus();
-                DeviceUtil.showSoftKeyboard(editText);
-                if (callback != null) {
-                    callback.onShow(TextInputDialog.this);
-                }
+        setOnShowListener((dialog) -> {
+            editText.requestFocus();
+            DeviceUtil.showSoftKeyboard(editText);
+            if (callback != null) {
+                callback.onShow(TextInputDialog.this);
             }
         });
 
-        setOnDismissListener(new OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
+        setOnDismissListener((dialog) -> {
                 //DeviceUtil.hideSoftKeyboard(editText);
-            }
         });
     }
 

@@ -171,7 +171,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private WikipediaApp app;
 
     @NonNull
-    private final SwipeRefreshLayout.OnRefreshListener pageRefreshListener = () -> refreshPage();
+    private final SwipeRefreshLayout.OnRefreshListener pageRefreshListener = this::refreshPage;
 
     @NonNull
     private final TabLayout.OnTabSelectedListener pageActionTabListener
@@ -1068,12 +1068,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private void showTabList() {
         // Doesn't seem to be a way around doing a post() here...
         // Without post(), the tab picker layout is inflated with wrong dimensions.
-        webView.post(new Runnable() {
-            @Override
-            public void run() {
-                tabsProvider.enterTabMode(true);
-            }
-        });
+        webView.post(() -> tabsProvider.enterTabMode(true));
     }
 
     protected void clearActivityActionBarTitle() {

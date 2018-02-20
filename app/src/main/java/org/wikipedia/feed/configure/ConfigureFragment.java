@@ -176,14 +176,18 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
 
         @Override public void onViewAttachedToWindow(ConfigureItemHolder holder) {
             super.onViewAttachedToWindow(holder);
-            holder.getView().setDragHandleTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
+            holder.getView().setDragHandleTouchListener((v, event) -> {
+                switch (event.getActionMasked()) {
+                    case MotionEvent.ACTION_DOWN:
                         itemTouchHelper.startDrag(holder);
-                    }
-                    return false;
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        v.performClick();
+                        break;
+                    default:
+                        break;
                 }
+                return false;
             });
             holder.getView().setCallback(ConfigureFragment.this);
         }

@@ -1,6 +1,5 @@
 package org.wikipedia.history;
 
-import android.content.DialogInterface;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -176,13 +175,10 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                 new AlertDialog.Builder(getContext())
                         .setTitle(R.string.dialog_title_clear_history)
                         .setMessage(R.string.dialog_message_clear_history)
-                        .setPositiveButton(R.string.dialog_message_clear_history_yes, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                // Clear history!
-                                new DeleteAllHistoryTask(app).execute();
-                                onClearHistoryClick();
-                        }
+                        .setPositiveButton(R.string.dialog_message_clear_history_yes, (dialog, which) -> {
+                            // Clear history!
+                            new DeleteAllHistoryTask(app).execute();
+                            onClearHistoryClick();
                         })
                         .setNegativeButton(R.string.dialog_message_clear_history_no, null).create().show();
                 return true;
@@ -272,15 +268,12 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                 : String.format(getString(R.string.history_items_deleted), entries.size());
         Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(), message,
                 FeedbackUtil.LENGTH_DEFAULT);
-        snackbar.setAction(R.string.history_item_delete_undo, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatabaseClient<HistoryEntry> client = app.getDatabaseClient(HistoryEntry.class);
-                for (HistoryEntry entry : entries) {
-                    client.upsert(entry, PageHistoryContract.PageWithImage.SELECTION);
-                }
-                adapter.notifyDataSetChanged();
+        snackbar.setAction(R.string.history_item_delete_undo, (v) -> {
+            DatabaseClient<HistoryEntry> client = app.getDatabaseClient(HistoryEntry.class);
+            for (HistoryEntry entry : entries) {
+                client.upsert(entry, PageHistoryContract.PageWithImage.SELECTION);
             }
+            adapter.notifyDataSetChanged();
         });
         snackbar.show();
     }

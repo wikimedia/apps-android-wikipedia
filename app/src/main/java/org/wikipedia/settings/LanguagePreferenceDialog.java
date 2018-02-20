@@ -9,7 +9,6 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -59,17 +58,14 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
         languagesList = findViewById(R.id.preference_languages_list);
         EditText languagesFilter = findViewById(R.id.preference_languages_filter);
 
-        languagesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String lang = (String) languagesList.getAdapter().getItem(i);
-                if (!lang.equals(app.getAppOrSystemLanguageCode())) {
-                    app.setAppLanguageCode(lang);
-                    app.setMruLanguageCode(lang);
-                    funnel.logSelect();
-                }
-                dismiss();
+        languagesList.setOnItemClickListener((adapterView, view, i, l) -> {
+            String lang = (String) languagesList.getAdapter().getItem(i);
+            if (!lang.equals(app.getAppOrSystemLanguageCode())) {
+                app.setAppLanguageCode(lang);
+                app.setMruLanguageCode(lang);
+                funnel.logSelect();
             }
+            dismiss();
         });
 
         languagesList.setAdapter(new LanguagesAdapter(languageCodes, app));

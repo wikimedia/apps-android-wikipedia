@@ -2,7 +2,6 @@ package org.wikipedia.gallery;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.Animatable;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -316,32 +315,26 @@ public class GalleryItemFragment extends Fragment {
             mediaController = new MediaController(parentActivity);
             updateProgressBar(true, true, 0);
             videoView.setMediaController(mediaController);
-            videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                @Override
-                public void onPrepared(MediaPlayer mp) {
-                    updateProgressBar(false, true, 0);
-                    // ...update the parent activity, which will trigger us to start playing!
-                    parentActivity.layOutGalleryDescription();
-                    // hide the video thumbnail, since we're about to start playback
-                    videoThumbnail.setVisibility(View.GONE);
-                    videoPlayButton.setVisibility(View.GONE);
-                    // and start!
-                    videoView.start();
-                    loading = false;
-                }
+            videoView.setOnPreparedListener((mp) -> {
+                updateProgressBar(false, true, 0);
+                // ...update the parent activity, which will trigger us to start playing!
+                parentActivity.layOutGalleryDescription();
+                // hide the video thumbnail, since we're about to start playback
+                videoThumbnail.setVisibility(View.GONE);
+                videoPlayButton.setVisibility(View.GONE);
+                // and start!
+                videoView.start();
+                loading = false;
             });
-            videoView.setOnErrorListener(new MediaPlayer.OnErrorListener() {
-                @Override
-                public boolean onError(MediaPlayer mp, int what, int extra) {
-                    updateProgressBar(false, true, 0);
-                    FeedbackUtil.showMessage(getActivity(),
-                            R.string.gallery_error_video_failed);
-                    videoView.setVisibility(View.GONE);
-                    videoThumbnail.setVisibility(View.VISIBLE);
-                    videoPlayButton.setVisibility(View.VISIBLE);
-                    loading = false;
-                    return true;
-                }
+            videoView.setOnErrorListener((mp, what, extra) -> {
+                updateProgressBar(false, true, 0);
+                FeedbackUtil.showMessage(getActivity(),
+                        R.string.gallery_error_video_failed);
+                videoView.setVisibility(View.GONE);
+                videoThumbnail.setVisibility(View.VISIBLE);
+                videoPlayButton.setVisibility(View.VISIBLE);
+                loading = false;
+                return true;
             });
             videoView.setVideoURI(Uri.parse(galleryItem.getUrl()));
         }

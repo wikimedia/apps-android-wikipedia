@@ -16,100 +16,84 @@ public class SaneAsyncTaskTest {
     @Test public void testFinishHandling() {
         final TestLatch latch = new TestLatch();
         final Integer returned = 42;
-        runOnMainSync(new Runnable() {
-            @Override public void run() {
-                new SaneAsyncTask<Integer>() {
-                    @Override public void onFinish(Integer result) {
-                        assertThat(returned, is(result));
-                        latch.countDown();
-                    }
-
-                    @Override public void onCatch(Throwable caught) {
-                        fail("Exception called despite success");
-                    }
-
-                    @Override public Integer performTask() throws Throwable {
-                        return returned;
-                    }
-                }.execute();
+        runOnMainSync(() -> new SaneAsyncTask<Integer>() {
+            @Override public void onFinish(Integer result) {
+                assertThat(returned, is(result));
+                latch.countDown();
             }
-        });
+
+            @Override public void onCatch(Throwable caught) {
+                fail("Exception called despite success");
+            }
+
+            @Override public Integer performTask() throws Throwable {
+                return returned;
+            }
+        }.execute());
         latch.await();
     }
 
     @Test public void testExceptionHandling() {
         final TestLatch latch = new TestLatch();
         final Throwable thrown = new Exception();
-        runOnMainSync(new Runnable() {
-            @Override public void run() {
-                new SaneAsyncTask<Void>() {
-                    @Override public void onFinish(Void result) {
-                        fail("onFinish called despite exception");
-                    }
-
-                    @Override public void onCatch(Throwable caught) {
-                        assertThat(caught, is(thrown));
-                        latch.countDown();
-                    }
-
-                    @Override public Void performTask() throws Throwable {
-                        throw thrown;
-                    }
-                }.execute();
+        runOnMainSync(() -> new SaneAsyncTask<Void>() {
+            @Override public void onFinish(Void result) {
+                fail("onFinish called despite exception");
             }
-        });
+
+            @Override public void onCatch(Throwable caught) {
+                assertThat(caught, is(thrown));
+                latch.countDown();
+            }
+
+            @Override public Void performTask() throws Throwable {
+                throw thrown;
+            }
+        }.execute());
         latch.await();
     }
 
     @Test public void testAppropriateThreadFinish() {
         final TestLatch latch = new TestLatch();
-        runOnMainSync(new Runnable() {
-            @Override public void run() {
-                new SaneAsyncTask<Void>() {
-                    @Override public void onBeforeExecute() {
-                        assertUiThread();
-                    }
-
-                    @Override public void onFinish(Void result) {
-                        assertUiThread();
-                        latch.countDown();
-                    }
-
-                    @Override public Void performTask() throws Throwable {
-                        assertNotUiThread();
-                        return null;
-                    }
-                }.execute();
+        runOnMainSync(() -> new SaneAsyncTask<Void>() {
+            @Override public void onBeforeExecute() {
+                assertUiThread();
             }
-        });
+
+            @Override public void onFinish(Void result) {
+                assertUiThread();
+                latch.countDown();
+            }
+
+            @Override public Void performTask() throws Throwable {
+                assertNotUiThread();
+                return null;
+            }
+        }.execute());
         latch.await();
     }
 
     @Test public void testAppropriateThreadException() {
         final TestLatch latch = new TestLatch();
-        runOnMainSync(new Runnable() {
-            @Override public void run() {
-                new SaneAsyncTask<Void>() {
-                    @Override public void onBeforeExecute() {
-                        assertUiThread();
-                    }
-
-                    @Override public void onFinish(Void result) {
-                        fail("onFinish called even when there is an exception");
-                    }
-
-                    @Override public void onCatch(Throwable caught) {
-                        assertUiThread();
-                        latch.countDown();
-                    }
-
-                    @Override public Void performTask() throws Throwable {
-                        assertNotUiThread();
-                        throw new Exception();
-                    }
-                }.execute();
+        runOnMainSync(() -> new SaneAsyncTask<Void>() {
+            @Override public void onBeforeExecute() {
+                assertUiThread();
             }
-        });
+
+            @Override public void onFinish(Void result) {
+                fail("onFinish called even when there is an exception");
+            }
+
+            @Override public void onCatch(Throwable caught) {
+                assertUiThread();
+                latch.countDown();
+            }
+
+            @Override public Void performTask() throws Throwable {
+                assertNotUiThread();
+                throw new Exception();
+            }
+        }.execute());
         latch.await();
     }
 
