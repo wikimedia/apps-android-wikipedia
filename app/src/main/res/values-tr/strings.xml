@@ -389,8 +389,8 @@
   <string name="no_user_lists_title">Maddeleri listelere göre düzenleyin</string>
   <string name="no_user_lists_msg">Seyahat edilecek yerler, favori konular ve daha pek çok şey için listeler oluşturun</string>
   <string name="reading_list_saved_list_rename">%1$s (kullanıcı oluşturuldu)</string>
-  <string name="split_reading_list_message">Okuma listesi başına 1000 madde sınırı vardır. Bu sınırı aşan mevcut listeler birden fazla listeye ayrılmıştır.</string>
-  <string name="reading_list_article_limit_message">Bu listeye eklenemedi. \"%s\" için liste başına 1000 madde sınırına ulaştınız.</string>
+  <string name="split_reading_list_message">Okuma listesi başına %d madde sınırı vardır. Bu sınırı aşan mevcut listeler birden fazla listeye ayrılmıştır.</string>
+  <string name="reading_list_article_limit_message">Bu listeye eklenemedi. \"%1$s\" için liste başına %2$d madde sınırına ulaştınız.</string>
   <string name="reading_lists_limit_message">Başka bir liste oluşturamazsınız. Hesap başına 100 okuma listesi sınırına ulaştınız.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Okuma listelerini senkronize et&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Okuma listeleri artık cihazlar arasında senkronize edilebilir. Wikipedia hesabınıza giriş yapın ve listelerinizin kaydedilmesine izin verin.</string>
   <plurals name="reading_list_article_offline_message">

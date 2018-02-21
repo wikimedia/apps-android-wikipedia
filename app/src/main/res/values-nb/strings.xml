@@ -355,8 +355,8 @@
   <string name="no_user_lists_title">Organiser artikler i lister</string>
   <string name="no_user_lists_msg">Opprett lister for steder du vil reise til, favorittemner og mye mer</string>
   <string name="reading_list_saved_list_rename">%1$s (bruker opprettet)</string>
-  <string name="split_reading_list_message">Det er en begrensning på 1000 artikler per leseliste. Eksisterende lister som overskrider denne grensa har blitt delt opp i flere lister.</string>
-  <string name="reading_list_article_limit_message">Kan ikke legge til denne lista. Du har nådd grensa på 1000 artikler per liste for «%s».</string>
+  <string name="split_reading_list_message">Det er en begrensning på %d artikler per leseliste. Eksisterende lister som overskrider denne grensa har blitt delt opp i flere lister.</string>
+  <string name="reading_list_article_limit_message">Kan ikke legge til denne lista. Du har nådd grensa på %2$d artikler per liste for «%1$s».</string>
   <string name="reading_lists_limit_message">Kan ikke opprette ny liste. Du har nådd grensa på 100 leselister per konto.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Denne artikkelen vil nå være tilgjengelig offline.</item>

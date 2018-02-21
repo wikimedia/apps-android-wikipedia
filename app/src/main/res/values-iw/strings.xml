@@ -358,8 +358,8 @@
   <string name="no_user_lists_title">ארגנו ערכים לרשימות</string>
   <string name="no_user_lists_msg">צרו רשימות למקומות שביקרתם בהם, נושאים שאתם אוהבים, ועוד</string>
   <string name="reading_list_saved_list_rename">%1$s (נוצרה על־ידי המשתמש)</string>
-  <string name="split_reading_list_message">יש מגבלה של 1000 ערכים לרשימת קריאה. רשימות קיימות שחורגות מהמגבלה הזאת פוצלו לרשימות מרובות.</string>
-  <string name="reading_list_article_limit_message">אי־אפשר להוסיף לרשימה הזאת הגעת למגבלה של 1000 ערכים ברשימה \"%s\".</string>
+  <string name="split_reading_list_message">יש מגבלה של %d ערכים לרשימת קריאה. רשימות קיימות שחורגות מהמגבלה הזאת פוצלו לרשימות מרובות.</string>
+  <string name="reading_list_article_limit_message">אי־אפשר להוסיף לרשימה הזאת הגעת למגבלה של %2$d ערכים ברשימה \"%1$s\".</string>
   <string name="reading_lists_limit_message">לא ניתן ליצור עוד רשימה. הגעת למגבלה של 100 רשימות קריאה לחשבון.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">הערך הזה יהיה זמין ללא חיבור לרשת.</item>

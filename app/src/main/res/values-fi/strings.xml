@@ -382,7 +382,7 @@
   <string name="no_user_lists_title">Järjestä artikkelit luetteloihin</string>
   <string name="no_user_lists_msg">Luo luetteloita matkakohteista, suosikkiaiheista ja paljon muuta</string>
   <string name="reading_list_saved_list_rename">%1$s (käyttäjän luoma)</string>
-  <string name="reading_list_article_limit_message">Ei voida lisätä tähän listaan. Olet saavuttanut 1,000 artikkelin rajan per lista listalle \"%s\".</string>
+  <string name="reading_list_article_limit_message">Ei voida lisätä tähän listaan. Olet saavuttanut %2$d artikkelin rajan per lista listalle \"%1$s\".</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Tämä artikkeli on nyt saatavilla offline-tilassa.</item>
     <item quantity="other">Nämä artikkelit ovat nyt saatavilla offline-tilassa.</item>

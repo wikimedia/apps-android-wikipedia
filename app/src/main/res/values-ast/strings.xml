@@ -389,8 +389,8 @@
   <string name="no_user_lists_title">Organizar artículos en llistes</string>
   <string name="no_user_lists_msg">Crea llistes de sitios onde viaxar, temes favorites y muncho más</string>
   <string name="reading_list_saved_list_rename">%1$s (creada pol usuariu)</string>
-  <string name="split_reading_list_message">Hai una llende de mil artículos per llista de llectura. Les llistes que superaben esta llende xebráronse en delles llistes.</string>
-  <string name="reading_list_article_limit_message">Nun pueden añadise elementos a esta llista. Algamóse la llende de 1000 artículos per llista pa «%s».</string>
+  <string name="split_reading_list_message">Hai una llende de %d artículos per llista de llectura. Les llistes que superaben esta llende xebráronse en delles llistes.</string>
+  <string name="reading_list_article_limit_message">Nun pueden añadise elementos a esta llista. Algamóse la llende de %2$d artículos per llista pa «%1$s».</string>
   <string name="reading_lists_limit_message">Nun puedes crear otra llista. Algamasti la llende de 100 llistes de llectura per cuenta.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sincronizar llistes de llectura&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Les llistes de llectura agora pueden sincronizase ente preseos. Anicia sesión cola to cuenta de Wikipedia y permite guardar les llistes.</string>
   <plurals name="reading_list_article_offline_message">

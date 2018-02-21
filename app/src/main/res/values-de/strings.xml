@@ -389,8 +389,8 @@
   <string name="no_user_lists_title">Organisiere Artikel in Listen</string>
   <string name="no_user_lists_msg">Erstelle Listen für Reiseziele, Lieblingsthemen und vieles mehr</string>
   <string name="reading_list_saved_list_rename">%1$s (vom Benutzer erstellt)</string>
-  <string name="split_reading_list_message">Es gibt eine Begrenzung auf 1000 Artikel pro Leseliste. Vorhandene Listen mit mehr als dieser Anzahl wurden in mehrere Listen aufgeteilt.</string>
-  <string name="reading_list_article_limit_message">Der Artikel konnte nicht zu dieser Liste hinzugefügt werden. Du hast für „%s“ die maximale Anzahl von 1000 Artikeln pro Liste erreicht.</string>
+  <string name="split_reading_list_message">Es gibt eine Begrenzung auf %d Artikel pro Leseliste. Vorhandene Listen mit mehr als dieser Anzahl wurden in mehrere Listen aufgeteilt.</string>
+  <string name="reading_list_article_limit_message">Der Artikel konnte nicht zu dieser Liste hinzugefügt werden. Du hast für „%1$s“ die maximale Anzahl von %2$d Artikeln pro Liste erreicht.</string>
   <string name="reading_lists_limit_message">Es können keine weiteren Listen erstellt werden. Du hast die maximale Anzahl von 100 Leselisten pro Benutzerkonto erreicht.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Leselisten synchronisieren&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Leselisten können jetzt zwischen Geräten synchronisiert werden. Melde dich bei deinem Wikipedia-Benutzerkonto an und erlaube die Speicherung deiner Listen.</string>
   <plurals name="reading_list_article_offline_message">

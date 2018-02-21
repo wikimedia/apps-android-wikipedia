@@ -359,8 +359,8 @@
   <string name="no_user_lists_title">Rendezd listákba a szócikkeket</string>
   <string name="no_user_lists_msg">Készíts listát a felkeresendő helyeknek, kedvenc témáidnak és sok minden másnak</string>
   <string name="reading_list_saved_list_rename">%1$s (felhasználó által létrehozva)</string>
-  <string name="split_reading_list_message">Egy olvasólista mostantól legfeljebb 1000 szócikket tartalmazhatnak. Az ennél nagyobb listák több listára lettek bontva.</string>
-  <string name="reading_list_article_limit_message">Nem adhatsz hozzá szócikket ehhez a listához. Elérted a listánkénti 1000 szócikkes határt a(z) „%s” listánál.</string>
+  <string name="split_reading_list_message">Egy olvasólista mostantól legfeljebb %d szócikket tartalmazhatnak. Az ennél nagyobb listák több listára lettek bontva.</string>
+  <string name="reading_list_article_limit_message">Nem adhatsz hozzá szócikket ehhez a listához. Elérted a listánkénti %2$d szócikkes határt a(z) „%1$s” listánál.</string>
   <string name="reading_lists_limit_message">Nem készíthetsz új olvasólistát. Elérted a fiókonkénti 100 listás határt.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Szinkronizáld az olvasólistáidat&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Az olvasási listák mostantól szinkronizálhatók a különböző eszközeid között. Jelentkezz be a Wikipédia-fiókodba és engedélyezd a listáid mentését.</string>
   <plurals name="reading_list_article_offline_message">

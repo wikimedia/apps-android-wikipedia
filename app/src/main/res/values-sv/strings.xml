@@ -389,8 +389,8 @@
   <string name="no_user_lists_title">Organisera artiklar till listor</string>
   <string name="no_user_lists_msg">Skapa listor för platser att åka till, favoritämnen och mycket mer</string>
   <string name="reading_list_saved_list_rename">%1$s (skapad av användare)</string>
-  <string name="split_reading_list_message">Det finns en gräns på 1000 artiklar per läslista. Befintliga listor med fler än denna gräns har delats upp i flera listor.</string>
-  <string name="reading_list_article_limit_message">Kan inte lägga till i denna lista. Du har nått gränsen på 1 000 artiklar per lista för \"%s\".</string>
+  <string name="split_reading_list_message">Det finns en gräns på %d artiklar per läslista. Befintliga listor med fler än denna gräns har delats upp i flera listor.</string>
+  <string name="reading_list_article_limit_message">Kan inte lägga till i denna lista. Du har nått gränsen på %2$d artiklar per lista för \"%1$s\".</string>
   <string name="reading_lists_limit_message">Kan inte skapa en till lista. Du har nått gränsen på 100 läslistor per konto.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synkronisera läslistor&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Läslistor kan nu synkroniseras över enheter. Logga in till ditt Wikipedia-konto och tillåt dina listor att sparas.</string>
   <plurals name="reading_list_article_offline_message">

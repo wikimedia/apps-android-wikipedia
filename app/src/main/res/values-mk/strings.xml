@@ -389,8 +389,8 @@
   <string name="no_user_lists_title">Организирајте статии во списоци</string>
   <string name="no_user_lists_msg">Направете списоци за места што сакате да ги посетите, ваши омилени теми и многу друго</string>
   <string name="reading_list_saved_list_rename">%1$s (направена од корисник)</string>
-  <string name="split_reading_list_message">Секој список на читање прима највеќе 1000 статии. Постоечките списоци со повеќе статии се разделени.</string>
-  <string name="reading_list_article_limit_message">Не можам да го дополнам списоков. Ја достигнавте границата од 1.000 статии по список за „%s“.</string>
+  <string name="split_reading_list_message">Секој список на читање прима највеќе %d статии. Постоечките списоци со повеќе статии се разделени.</string>
+  <string name="reading_list_article_limit_message">Не можам да го дополнам списоков. Ја достигнавте границата од %2$d статии по список за „%1$s“.</string>
   <string name="reading_lists_limit_message">Не можете да направите друг список. Ја достигнавте границата од 100 списоци по сметка.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Усогласување на списоци за читање&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Списоците за читање можат да се усогласат низ сите уреди. Најавете се со сметката на Википедија и дозволете зачувување на списоците.</string>
   <plurals name="reading_list_article_offline_message">

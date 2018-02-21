@@ -358,8 +358,8 @@
   <string name="no_user_lists_title">سامان‌دادن مقالات در فهرست‌ها</string>
   <string name="no_user_lists_msg">ایجاد فهرستی از جاه‌هایی که قصد سفر یا علاقه دارید.</string>
   <string name="reading_list_saved_list_rename">%1$s (کاربر ساخته)</string>
-  <string name="split_reading_list_message">محدودیت ۱۰۰۰ مقاله برای هر فهرست وجود دارد. فهرستی که بیش از ۱۰۰۰ مقاله داشته باشد به چند فهرست تقسیم می‌شود.</string>
-  <string name="reading_list_article_limit_message">امکان افزودن به این فهرست نیست. به محدودیت ۱۰۰۰ مقاله برای فهرست  «%s» رسیدید.</string>
+  <string name="split_reading_list_message">محدودیت %d مقاله برای هر فهرست وجود دارد. فهرستی که بیش از مقاله داشته باشد به چند فهرست تقسیم می‌شود.</string>
+  <string name="reading_list_article_limit_message">امکان افزودن به این فهرست نیست. به محدودیت %2$d مقاله برای فهرست  «%1$s» رسیدید.</string>
   <string name="reading_lists_limit_message">امکان ایجاد فهرست دیگر نیست. شما به محدودیت ایجاد ۱۰۰ فهرست خواندن برای هر حساب کاربری رسیدید.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">اکنون در حالت آفلاین مقاله در دسترس است.</item>

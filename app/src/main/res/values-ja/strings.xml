@@ -356,8 +356,8 @@
   <string name="no_user_lists_title">記事をリストにまとめる</string>
   <string name="no_user_lists_msg">行ってみたい場所や好きな話題その他いろいろなリストを作ってみる</string>
   <string name="reading_list_saved_list_rename">%1$s (ユーザーによる作成)</string>
-  <string name="split_reading_list_message">あとで読むリストに登録できる項目数は1,000件以下です。既存のリストでこの上限をオーバーしたものは分割されました。</string>
-  <string name="reading_list_article_limit_message">リストに追加できません。「%s」はリスト項目の上限1,000件に達しました。</string>
+  <string name="split_reading_list_message">あとで読むリストに登録できる項目数は%d件以下です。既存のリストでこの上限をオーバーしたものは分割されました。</string>
+  <string name="reading_list_article_limit_message">リストに追加できません。「%1$s」はリスト項目の上限%2$d件に達しました。</string>
   <string name="reading_lists_limit_message">これ以上リストを作成できません。は1アカウント当たりのあとで読むリストの上限100件に達しました。</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">この記事は現在オフラインで利用できるようになります。</item>

@@ -342,7 +342,7 @@
   <string name="default_reading_list_description">Standard-Lëscht fir Är gespäichert Artikelen</string>
   <string name="no_user_lists_title">Artikelen a Lëschten organiséieren</string>
   <string name="reading_list_saved_list_rename">%1$s_(vum Benotzer gemaach)</string>
-  <string name="reading_list_article_limit_message">Net méiglech op dës Lëscht ze setzen. dir hutt d\'Limitt vun 1 000 Artikele pro Lëscht fir \"%s\" erreecht.</string>
+  <string name="reading_list_article_limit_message">Net méiglech op dës Lëscht ze setzen. dir hutt d\'Limitt vun %2$d Artikele pro Lëscht fir \"%1$s\" erreecht.</string>
   <string name="reading_lists_limit_message">Et ka soss keng Lëscht ugeluecht ginn. Dir hutt d\'Limitt vun 100 Lieslëschten erreecht.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Dësen Artikel ass elo offline disponibel.</item>

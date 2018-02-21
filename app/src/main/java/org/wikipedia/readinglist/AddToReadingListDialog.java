@@ -208,7 +208,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private void addAndDismiss(final ReadingList readingList, final PageTitle title) {
 
         if (readingList.pages().size() >= Constants.MAX_READING_LIST_ARTICLE_LIMIT) {
-            String message = String.format(getString(R.string.reading_list_article_limit_message), readingList.title());
+            String message = getString(R.string.reading_list_article_limit_message, readingList.title(), Constants.MAX_READING_LIST_ARTICLE_LIMIT);
             FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show();
             dismiss();
             return;
@@ -241,7 +241,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private void addAndDismiss(final ReadingList readingList, final List<PageTitle> titles) {
 
         if ((readingList.pages().size() + titles.size()) > Constants.MAX_READING_LIST_ARTICLE_LIMIT) {
-            String message = String.format(getString(R.string.reading_list_article_limit_message), readingList.title());
+            String message = getString(R.string.reading_list_article_limit_message, readingList.title(), Constants.MAX_READING_LIST_ARTICLE_LIMIT);
             FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show();
             dismiss();
             return;

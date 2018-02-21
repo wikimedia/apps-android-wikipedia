@@ -389,8 +389,8 @@
   <string name="no_user_lists_title">組織條目至清單</string>
   <string name="no_user_lists_msg">建立前往旅行的地點、喜愛的主題，以及更多其它事物的清單</string>
   <string name="reading_list_saved_list_rename">%1$s（使用者已建立）</string>
-  <string name="split_reading_list_message">在各閱讀清單裡含有 1000 個條目的上限限制。現有清單在超過此限制時，會被拆分成多個清單。</string>
-  <string name="reading_list_article_limit_message">無法添加至此清單。您已達到在「%s」方面各清單的最多 1000 個條目上限。</string>
+  <string name="split_reading_list_message">在各閱讀清單裡含有 %d 個條目的上限限制。現有清單在超過此限制時，會被拆分成多個清單。</string>
+  <string name="reading_list_article_limit_message">無法添加至此清單。您已達到在「%1$s」方面各清單的最多 %2$d 個條目上限。</string>
   <string name="reading_lists_limit_message">無法建立其它清單。您已達到各使用者的最多 100 個閱讀清單上限。</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;同步閱讀清單&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;閱讀清單現已具有跨裝置同步的功能。登入您的維基百科帳號，來允許儲存您的清單。</string>
   <plurals name="reading_list_article_offline_message">

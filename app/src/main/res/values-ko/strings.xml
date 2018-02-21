@@ -383,8 +383,8 @@
   <string name="default_reading_list_name">저장됨</string>
   <string name="no_user_lists_msg">여행 갈 장소, 좋아하는 주제들, 그외의 원하는 용도의 목록을 만드세요</string>
   <string name="reading_list_saved_list_rename">%1$s (사용자가 생성함)</string>
-  <string name="split_reading_list_message">읽기 목록 하나 당 문서 1000개의 제한이 있습니다. 이 제한을 초과하는 목록이 있다면 여러 개 목록으로 분할되게 됩니다.</string>
-  <string name="reading_list_article_limit_message">이 목록에 추가할 수 없습니다. \"%s\"에 대해 목록 당 1,000개 문서 제한에 도달했습니다.</string>
+  <string name="split_reading_list_message">읽기 목록 하나 당 문서 %d개의 제한이 있습니다. 이 제한을 초과하는 목록이 있다면 여러 개 목록으로 분할되게 됩니다.</string>
+  <string name="reading_list_article_limit_message">이 목록에 추가할 수 없습니다. \"%1$s\"에 대해 목록 당 %2$d개 문서 제한에 도달했습니다.</string>
   <string name="reading_lists_limit_message">다른 목록을 만들 수 없습니다. 계정 당 100개 읽기 목록 제한에 도달했습니다.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;읽기 목록 동기화&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;지금 읽기 목록을 여러 장치 간에 동기화할 수 있습니다. 위키백과 계정으로 로그인하면 목록을 저장할 수 있습니다.</string>
   <plurals name="reading_list_article_offline_message">

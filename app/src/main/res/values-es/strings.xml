@@ -368,8 +368,8 @@
   <string name="no_user_lists_title">Organiza artículos en listas</string>
   <string name="no_user_lists_msg">Crea listas de sitios para viajar, temas favoritos y mucho más</string>
   <string name="reading_list_saved_list_rename">%1$s (creado por el usuario)</string>
-  <string name="split_reading_list_message">Existe un límite de mil artículos por lista de lectura. Las listas que superaban este límite se han dividido en varias listas.</string>
-  <string name="reading_list_article_limit_message">No se pueden añadir elementos a esta lista. Se alcanzó el límite de 1000 artículos por lista para «%s».</string>
+  <string name="split_reading_list_message">Existe un límite de %d artículos por lista de lectura. Las listas que superaban este límite se han dividido en varias listas.</string>
+  <string name="reading_list_article_limit_message">No se pueden añadir elementos a esta lista. Se alcanzó el límite de %2$d artículos por lista para «%1$s».</string>
   <string name="reading_lists_limit_message">No se puede crear otra lista. Se alcanzó el límite de 100 listas de lectura por cuenta.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Este artículo ahora estará disponible sin conexión.</item>

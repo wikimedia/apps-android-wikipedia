@@ -385,8 +385,8 @@
   <string name="no_user_lists_title">Organiser artikler i lister</string>
   <string name="no_user_lists_msg">Opret lister for steder at rejse til, favoritemner og meget mere</string>
   <string name="reading_list_saved_list_rename">%1$s (bruger oprettet)</string>
-  <string name="split_reading_list_message">Der er en begrænsning på 1.000 artikler per læseliste. Eksisterende lister med mere end denne begrænsning er blevet delt i flere lister.</string>
-  <string name="reading_list_article_limit_message">Kan ikke tilføje til listen. Du har nået begrænsningen på 1.000 artikler per liste for »%s«.</string>
+  <string name="split_reading_list_message">Der er en begrænsning på %d artikler per læseliste. Eksisterende lister med mere end denne begrænsning er blevet delt i flere lister.</string>
+  <string name="reading_list_article_limit_message">Kan ikke tilføje til listen. Du har nået begrænsningen på %2$d artikler per liste for »%1$s«.</string>
   <string name="reading_lists_limit_message">Kan ikke oprette en anden liste. Du har nået begrænsningen på 100 læselister per konto.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synkroniser læselister&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Læselister kan nu synkroniseres på tværs af enheder. Log ind på din Wikipediakonto og tillad at dine lister gemmes.</string>
   <plurals name="reading_list_article_offline_message">

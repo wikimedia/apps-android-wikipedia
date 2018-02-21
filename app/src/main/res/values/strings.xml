@@ -414,8 +414,8 @@
     <string name="no_user_lists_title">Organize articles into lists</string>
     <string name="no_user_lists_msg">Create lists for places to travel to, favorite topics, and much more</string>
     <string name="reading_list_saved_list_rename">%1$s (user created)</string>
-    <string name="split_reading_list_message">There is a limit of 1000 articles per reading list. Existing lists with more than this limit have been split into multiple lists.</string>
-    <string name="reading_list_article_limit_message">Can\'t add to this list. You\'ve reached the limit of 1,000 articles per list for \"%s\".</string>
+    <string name="split_reading_list_message">There is a limit of %d articles per reading list. Existing lists with more than this limit have been split into multiple lists.</string>
+    <string name="reading_list_article_limit_message">Can\'t add to this list. You\'ve reached the limit of %2$d articles per list for \"%1$s\".</string>
     <string name="reading_lists_limit_message">Can\'t create another list. You\'ve reached the limit of 100 reading lists per account.</string>
     <string name="feed_reading_lists_sync_onboarding_text"><![CDATA[<strong>Sync reading lists</strong><br /><br />Reading lists can now be synced across devices. Log in to your Wikipedia account and allow your lists to be saved.]]></string>
     <plurals name="reading_list_article_offline_message">
