@@ -2,13 +2,10 @@ package org.wikipedia.media;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.robolectric.RobolectricTestRunner;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-@RunWith(RobolectricTestRunner.class)
 public class StateTest {
     private static final String PATH_A = "http://pathA";
     private static final String PATH_B = "http://pathB";

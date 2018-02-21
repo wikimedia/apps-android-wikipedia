@@ -5,14 +5,12 @@ import android.support.annotation.NonNull;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.robolectric.RobolectricTestRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 
-@RunWith(RobolectricTestRunner.class) public class ImageTagParserTest {
+public class ImageTagParserTest {
     private static final PixelDensityDescriptor DESCRIPTOR_1X = new PixelDensityDescriptor(1);
     private static final PixelDensityDescriptor DESCRIPTOR_1_5X = new PixelDensityDescriptor(1.5f);
 
