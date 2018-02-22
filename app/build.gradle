@@ -57,7 +57,7 @@ android {
         targetSdkVersion 27
         versionCode 225
         testApplicationId 'org.wikipedia.test'
-        testInstrumentationRunner 'org.wikipedia.test.AndroidTestRunner'
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
 
         javaCompileOptions {
@@ -101,7 +101,6 @@ android {
             versionName computeVersionName('dev')
             applicationIdSuffix 'dev'
             signingConfig signingConfigs.debug
-            testInstrumentationRunner 'org.wikipedia.test.AndroidTestRunner'
             dimension 'default'
         }
         prod {
@@ -118,7 +117,6 @@ android {
             versionName computeVersionName('alpha')
             applicationIdSuffix 'alpha'
             signingConfig signingConfigs.debug
-            testInstrumentationRunner 'org.wikipedia.test.AndroidTestRunner'
             dimension 'default'
         }
         beta {
@@ -164,7 +162,6 @@ android {
 
 apply from: '../gradle/src/test.gradle'
 apply from: '../gradle/src/checkstyle.gradle'
-apply from: '../gradle/src/screenshot.gradle'
 
 dependencies {
 
