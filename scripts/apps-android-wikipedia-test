@@ -12,4 +12,4 @@ else
 fi
 
 scripts/missing-qq.py
-./gradlew clean checkstyle assembleAlphaRelease lintAlphaRelease testAlphaRelease compileAlphaReleaseAndroidTestSources
+./gradlew clean checkstyle assembleAlphaRelease lintAlphaRelease testAlphaRelease assembleAndroidTest
