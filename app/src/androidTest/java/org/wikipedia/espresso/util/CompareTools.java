@@ -1,6 +1,5 @@
 package org.wikipedia.espresso.util;
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -14,6 +13,7 @@ import org.wikipedia.util.log.L;
 import java.io.FileInputStream;
 import java.io.InputStream;
 
+import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static org.wikipedia.espresso.Constants.WIKIPEDIA_APP_TEST_ASSET_FOLDER;
 import static org.wikipedia.espresso.Constants.WIKIPEDIA_APP_TEST_COMPARE_NUMBER;
 import static org.wikipedia.espresso.Constants.WIKIPEDIA_APP_TEST_FOLDER;
@@ -21,7 +21,7 @@ import static org.wikipedia.espresso.Constants.WIKIPEDIA_APP_TEST_FOLDER;
 @RunWith(AndroidJUnit4.class)
 public final class CompareTools {
 
-    public static int compare(Activity activity, String fileName) {
+    public static int compare(String fileName) {
 
         try {
             // source file comes from local folder of device
@@ -29,7 +29,7 @@ public final class CompareTools {
             Bitmap sourceBitmap = BitmapFactory.decodeStream(sourceInputStream);
 
             // reference file comes from asset folder of the app
-            InputStream referenceInputStream = activity.getAssets().open(WIKIPEDIA_APP_TEST_ASSET_FOLDER + fileName + ".png");
+            InputStream referenceInputStream = getInstrumentation().getContext().getAssets().open(WIKIPEDIA_APP_TEST_ASSET_FOLDER + fileName + ".png");
             Bitmap referenceBitmap = BitmapFactory.decodeStream(referenceInputStream);
 
             int compareResult = compareTwoBitmaps("COMPARISON_OF_" + fileName, sourceBitmap, referenceBitmap);
