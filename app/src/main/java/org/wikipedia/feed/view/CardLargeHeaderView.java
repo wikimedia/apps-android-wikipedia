@@ -79,16 +79,13 @@ public class CardLargeHeaderView extends ConstraintLayout {
     private class ImageLoadListener implements FaceAndColorDetectImageView.OnImageLoadListener {
         @Override
         public void onImageLoaded(final int bmpHeight, @Nullable final PointF faceLocation, @ColorInt final int mainColor) {
-            post(new Runnable() {
-                @Override
-                public void run() {
-                    if (!ViewCompat.isAttachedToWindow(CardLargeHeaderView.this)) {
-                        return;
-                    }
-                    animateBackgroundColor(CardLargeHeaderView.this, mainColor);
-                    if (faceLocation != null) {
-                        imageView.getHierarchy().setActualImageFocusPoint(faceLocation);
-                    }
+            post(() -> {
+                if (!ViewCompat.isAttachedToWindow(CardLargeHeaderView.this)) {
+                    return;
+                }
+                animateBackgroundColor(CardLargeHeaderView.this, mainColor);
+                if (faceLocation != null) {
+                    imageView.getHierarchy().setActualImageFocusPoint(faceLocation);
                 }
             });
         }

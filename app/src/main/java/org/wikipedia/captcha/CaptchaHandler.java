@@ -105,8 +105,7 @@ public class CaptchaHandler {
         if (savedInstanceState != null
                 && savedInstanceState.containsKey("token")
                 && savedInstanceState.containsKey("captcha")) {
-            handleCaptcha(savedInstanceState.getString("token"),
-                    (CaptchaResult) savedInstanceState.getParcelable("captcha"));
+            handleCaptcha(savedInstanceState.getString("token"), savedInstanceState.getParcelable("captcha"));
         }
     }
 

@@ -1,7 +1,6 @@
 package org.wikipedia.search;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,7 +14,6 @@ import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -51,22 +49,13 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
         ButterKnife.bind(this, rootView);
 
         parentFragment = (Parent) getParentFragment();
-        deleteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new AlertDialog.Builder(getContext())
-                        .setMessage(getString(R.string.clear_recent_searches_confirm))
-                        .setPositiveButton(
-                                getString(R.string.clear_recent_searches_confirm_yes),
-                                new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int id) {
-                                        new DeleteAllRecentSearchesTask(WikipediaApp.getInstance()).execute();
-                                    }
-                                })
-                        .setNegativeButton(getString(R.string.clear_recent_searches_confirm_no), null)
-                        .create().show();
-            }
+        deleteButton.setOnClickListener((view) -> {
+            new AlertDialog.Builder(getContext())
+                    .setMessage(getString(R.string.clear_recent_searches_confirm))
+                    .setPositiveButton(
+                            getString(R.string.clear_recent_searches_confirm_yes), (dialog, id) -> new DeleteAllRecentSearchesTask(WikipediaApp.getInstance()).execute())
+                    .setNegativeButton(getString(R.string.clear_recent_searches_confirm_no), null)
+                    .create().show();
         });
         FeedbackUtil.setToolbarButtonLongPressToast(deleteButton);
 
@@ -87,12 +76,9 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
         adapter = new RecentSearchesAdapter(getContext(), null, true);
         recentSearchesList.setAdapter(adapter);
 
-        recentSearchesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                RecentSearch entry = (RecentSearch) view.getTag();
-                parentFragment.switchToSearch(entry.getText());
-            }
+        recentSearchesList.setOnItemClickListener((parent, view, position, id) -> {
+            RecentSearch entry = (RecentSearch) view.getTag();
+            parentFragment.switchToSearch(entry.getText());
         });
 
         LoaderManager supportLoaderManager = getLoaderManager();

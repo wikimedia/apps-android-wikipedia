@@ -30,7 +30,6 @@ import com.mapbox.mapboxsdk.constants.MyLocationTracking;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
-import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Projection;
 import com.mapbox.services.android.telemetry.MapboxTelemetry;
 import com.mapbox.services.android.telemetry.location.LocationEngine;
@@ -228,45 +227,34 @@ public class NearbyFragment extends Fragment {
     }
 
     private void initializeMap() {
-        mapView.getMapAsync(new OnMapReadyCallback() {
-            @Override
-            public void onMapReady(@NonNull MapboxMap mapboxMap) {
-                if (!isAdded()) {
-                    return;
-                }
-                NearbyFragment.this.mapboxMap = mapboxMap;
+        mapView.getMapAsync((@NonNull MapboxMap mapboxMap) -> {
+            if (!isAdded()) {
+                return;
+            }
+            NearbyFragment.this.mapboxMap = mapboxMap;
 
-                enableUserLocationMarker();
-                mapboxMap.getTrackingSettings().setMyLocationTrackingMode(MyLocationTracking.TRACKING_NONE);
+            enableUserLocationMarker();
+            mapboxMap.getTrackingSettings().setMyLocationTrackingMode(MyLocationTracking.TRACKING_NONE);
 
-                mapboxMap.setOnScrollListener(new MapboxMap.OnScrollListener() {
-                    @Override
-                    public void onScroll() {
-                        fetchNearbyPages();
-                    }
-                });
-                mapboxMap.setOnMarkerClickListener(new MapboxMap.OnMarkerClickListener() {
-                    @Override
-                    public boolean onMarkerClick(@NonNull Marker marker) {
-                        NearbyPage page = findNearbyPageFromMarker(marker);
-                        if (page != null) {
-                            PageTitle title = new PageTitle(page.getTitle(), lastResult.getWiki(), page.getThumbUrl());
-                            onLoadPage(title, HistoryEntry.SOURCE_NEARBY, page.getLocation());
-                            return true;
-                        } else {
-                            return false;
-                        }
-                    }
-                });
-
-                if (lastCameraPos != null) {
-                    mapboxMap.setCameraPosition(lastCameraPos);
+            mapboxMap.setOnScrollListener(this::fetchNearbyPages);
+            mapboxMap.setOnMarkerClickListener((@NonNull Marker marker) -> {
+                NearbyPage page = findNearbyPageFromMarker(marker);
+                if (page != null) {
+                    PageTitle title = new PageTitle(page.getTitle(), lastResult.getWiki(), page.getThumbUrl());
+                    onLoadPage(title, HistoryEntry.SOURCE_NEARBY, page.getLocation());
+                    return true;
                 } else {
-                    goToUserLocationOrPromptPermissions();
+                    return false;
                 }
-                if (lastResult != null) {
-                    showNearbyPages(lastResult);
-                }
+            });
+
+            if (lastCameraPos != null) {
+                mapboxMap.setCameraPosition(lastCameraPos);
+            } else {
+                goToUserLocationOrPromptPermissions();
+            }
+            if (lastResult != null) {
+                showNearbyPages(lastResult);
             }
         });
     }
@@ -355,12 +343,9 @@ public class NearbyFragment extends Fragment {
         Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(),
                 getString(R.string.location_service_disabled),
                 FeedbackUtil.LENGTH_DEFAULT);
-        snackbar.setAction(R.string.enable_location_service, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        snackbar.setAction(R.string.enable_location_service, (v) -> {
                 Intent settingsIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                 getContext().startActivity(settingsIntent);
-            }
         });
         snackbar.show();
     }
@@ -369,12 +354,7 @@ public class NearbyFragment extends Fragment {
         Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(),
                 getString(R.string.location_permissions_enable_prompt),
                 FeedbackUtil.LENGTH_DEFAULT);
-        snackbar.setAction(R.string.location_permissions_enable_action, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                requestLocationRuntimePermissions(GO_TO_LOCATION_PERMISSION_REQUEST);
-            }
-        });
+        snackbar.setAction(R.string.location_permissions_enable_action, (v) -> requestLocationRuntimePermissions(GO_TO_LOCATION_PERMISSION_REQUEST));
         snackbar.show();
     }
 

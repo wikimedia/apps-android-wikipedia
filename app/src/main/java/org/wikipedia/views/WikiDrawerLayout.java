@@ -52,29 +52,26 @@ public class WikiDrawerLayout extends FixedDrawerLayout {
      * @param width Width in pixels.
      */
     public void setDragEdgeWidth(final int width) {
-        this.post(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    // Use a little bit of reflection to set a private member in DrawerLayout that extends the
-                    // "drag edge" from which the drawer can be pulled by the user.
-                    // A bit hacky, but what are you gonna do...
-                    View pullOutView = getChildAt(1);
-                    int absGravity = GravityCompat.getAbsoluteGravity(((LayoutParams)pullOutView.getLayoutParams()).gravity,
-                                                                      ViewCompat.getLayoutDirection(pullOutView));
-                    // Determine whether to modify the left or right dragger, based on RTL/LTR orientation
-                    @SuppressLint("RtlHardcoded")
-                    Field mDragger = (absGravity & Gravity.HORIZONTAL_GRAVITY_MASK) == Gravity.LEFT
-                            ? WikiDrawerLayout.this.getClass().getSuperclass().getSuperclass().getDeclaredField("mLeftDragger")
-                            : WikiDrawerLayout.this.getClass().getSuperclass().getSuperclass().getDeclaredField("mRightDragger");
-                    mDragger.setAccessible(true);
-                    ViewDragHelper dragHelper = (ViewDragHelper) mDragger.get(WikiDrawerLayout.this);
-                    Field edgeWidth = dragHelper.getClass().getDeclaredField("mEdgeSize");
-                    edgeWidth.setAccessible(true);
-                    edgeWidth.setInt(dragHelper, width);
-                } catch (Exception e) {
-                    L.e("Setting the draggable zone for the drawer failed!", e);
-                }
+        this.post(() -> {
+            try {
+                // Use a little bit of reflection to set a private member in DrawerLayout that extends the
+                // "drag edge" from which the drawer can be pulled by the user.
+                // A bit hacky, but what are you gonna do...
+                View pullOutView = getChildAt(1);
+                int absGravity = GravityCompat.getAbsoluteGravity(((LayoutParams)pullOutView.getLayoutParams()).gravity,
+                                                                  ViewCompat.getLayoutDirection(pullOutView));
+                // Determine whether to modify the left or right dragger, based on RTL/LTR orientation
+                @SuppressLint("RtlHardcoded")
+                Field mDragger = (absGravity & Gravity.HORIZONTAL_GRAVITY_MASK) == Gravity.LEFT
+                        ? WikiDrawerLayout.this.getClass().getSuperclass().getSuperclass().getDeclaredField("mLeftDragger")
+                        : WikiDrawerLayout.this.getClass().getSuperclass().getSuperclass().getDeclaredField("mRightDragger");
+                mDragger.setAccessible(true);
+                ViewDragHelper dragHelper = (ViewDragHelper) mDragger.get(WikiDrawerLayout.this);
+                Field edgeWidth = dragHelper.getClass().getDeclaredField("mEdgeSize");
+                edgeWidth.setAccessible(true);
+                edgeWidth.setInt(dragHelper, width);
+            } catch (Exception e) {
+                L.e("Setting the draggable zone for the drawer failed!", e);
             }
         });
     }

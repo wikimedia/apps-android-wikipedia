@@ -72,13 +72,10 @@ public class DownloadManagerObserver {
                                        @NonNull final DialogInterface.OnClickListener onRemoveClick) {
         new AlertDialog.Builder(context)
                 .setMessage(R.string.compilation_remove_confirm)
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        remove(compilation);
-                        OfflineManager.instance().remove(compilation);
-                        onRemoveClick.onClick(dialogInterface, i);
-                    }
+                .setPositiveButton(android.R.string.yes, (dialog, i) -> {
+                    remove(compilation);
+                    OfflineManager.instance().remove(compilation);
+                    onRemoveClick.onClick(dialog, i);
                 })
                 .setNegativeButton(android.R.string.no, null)
                 .show();

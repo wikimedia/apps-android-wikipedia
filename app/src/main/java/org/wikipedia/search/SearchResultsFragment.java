@@ -102,12 +102,9 @@ public class SearchResultsFragment extends Fragment {
         SearchResultAdapter adapter = new SearchResultAdapter(inflater);
         searchResultsList.setAdapter(adapter);
 
-        searchErrorView.setRetryClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                searchErrorView.setVisibility(View.GONE);
-                startSearch(currentSearchTerm, true);
-            }
+        searchErrorView.setRetryClickListener((v) -> {
+            searchErrorView.setVisibility(View.GONE);
+            startSearch(currentSearchTerm, true);
         });
 
         searchHandler = new Handler(new SearchHandlerCallback());
@@ -288,14 +285,11 @@ public class SearchResultsFragment extends Fragment {
 
         // scroll to top, but post it to the message queue, because it should be done
         // after the data set is updated.
-        searchResultsList.post(new Runnable() {
-            @Override
-            public void run() {
-                if (!isAdded()) {
-                    return;
-                }
-                searchResultsList.setSelectionAfterHeaderView();
+        searchResultsList.post(() -> {
+            if (!isAdded()) {
+                return;
             }
+            searchResultsList.setSelectionAfterHeaderView();
         });
 
         if (resultList.isEmpty()) {

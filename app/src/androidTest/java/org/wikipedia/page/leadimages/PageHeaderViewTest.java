@@ -190,11 +190,7 @@ public class PageHeaderViewTest extends ViewTest {
         final int positive = 100;
         ViewHelpers.setupView(subject).setExactWidthDp(positive).setExactHeightDp(positive).layout();
 
-        runOnMainSync(new Runnable() {
-            @Override public void run() {
-                assertThat(subject.copyBitmap(), notNullValue());
-            }
-        });
+        runOnMainSync(() -> assertThat(subject.copyBitmap(), notNullValue()));
     }
 
     @Test public void testSetImageFocus() {
@@ -255,43 +251,23 @@ public class PageHeaderViewTest extends ViewTest {
     }
 
     private void showText() {
-        runOnMainSync(new Runnable() {
-            @Override public void run() {
-                subject.showText();
-            }
-        });
+        runOnMainSync(() -> subject.showText());
     }
 
     private void showTextImage() {
-        runOnMainSync(new Runnable() {
-            @Override public void run() {
-                subject.showTextImage();
-            }
-        });
+        runOnMainSync(() -> subject.showTextImage());
     }
 
     private void setTitle(@Nullable final CharSequence text) {
-        runOnMainSync(new Runnable() {
-            @Override public void run() {
-                subject.setTitle(text);
-            }
-        });
+        runOnMainSync(() -> subject.setTitle(text));
     }
 
     private void setSubtitle(@Nullable final CharSequence text) {
-        runOnMainSync(new Runnable() {
-            @Override public void run() {
-                subject.setSubtitle(text);
-            }
-        });
+        runOnMainSync(() -> subject.setSubtitle(text));
     }
 
     private void setPronunciation(@Nullable final String url) {
-        runOnMainSync(new Runnable() {
-            @Override public void run() {
-                subject.setPronunciation(url);
-            }
-        });
+        runOnMainSync(() -> subject.setPronunciation(url));
     }
 
     private void setUpTypical() {

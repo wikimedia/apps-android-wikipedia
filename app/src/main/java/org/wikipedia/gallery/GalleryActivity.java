@@ -372,29 +372,26 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
      * the result. For external links, they will be bounced out to the Browser.
      */
     private LinkMovementMethodExt linkMovementMethod =
-            new LinkMovementMethodExt(new LinkMovementMethodExt.UrlHandler() {
-        @Override
-        public void onUrlClick(@NonNull String url, @Nullable String notUsed) {
-            L.v("Link clicked was " + url);
-            url = resolveProtocolRelativeUrl(url);
-            if (url.startsWith("/wiki/")) {
-                PageTitle title = app.getWikiSite().titleForInternalLink(url);
+        new LinkMovementMethodExt((@NonNull String url, @Nullable String notUsed) -> {
+        L.v("Link clicked was " + url);
+        url = resolveProtocolRelativeUrl(url);
+        if (url.startsWith("/wiki/")) {
+            PageTitle title = app.getWikiSite().titleForInternalLink(url);
+            showLinkPreview(title);
+        } else {
+            Uri uri = Uri.parse(url);
+            String authority = uri.getAuthority();
+            if (authority != null && WikiSite.supportedAuthority(authority)
+                && uri.getPath().startsWith("/wiki/")) {
+                PageTitle title = new WikiSite(uri).titleForUri(uri);
                 showLinkPreview(title);
             } else {
-                Uri uri = Uri.parse(url);
-                String authority = uri.getAuthority();
-                if (authority != null && WikiSite.supportedAuthority(authority)
-                    && uri.getPath().startsWith("/wiki/")) {
-                    PageTitle title = new WikiSite(uri).titleForUri(uri);
-                    showLinkPreview(title);
-                } else {
-                    // if it's a /w/ URI, turn it into a full URI and go external
-                    if (url.startsWith("/w/")) {
-                        url = String.format("%1$s://%2$s", app.getWikiSite().scheme(),
-                                app.getWikiSite().authority()) + url;
-                    }
-                    handleExternalLink(GalleryActivity.this, Uri.parse(url));
+                // if it's a /w/ URI, turn it into a full URI and go external
+                if (url.startsWith("/w/")) {
+                    url = String.format("%1$s://%2$s", app.getWikiSite().scheme(),
+                            app.getWikiSite().authority()) + url;
                 }
+                handleExternalLink(GalleryActivity.this, Uri.parse(url));
             }
         }
     });
@@ -437,12 +434,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         // GalleryItemFragment to attempt to reload its image.
         // TODO: Find a way to remove this workaround
         if (backOnError) {
-            errorView.setRetryClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onBackPressed();
-                }
-            });
+            errorView.setRetryClickListener((v) -> onBackPressed());
         }
 
         errorView.setError(caught);

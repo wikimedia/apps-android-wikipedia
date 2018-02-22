@@ -3,7 +3,6 @@ package org.wikipedia.offline;
 import android.annotation.TargetApi;
 import android.app.DownloadManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -95,12 +94,9 @@ public class CompilationDownloadControlView extends LinearLayout {
     void onCancelClicked() {
         new AlertDialog.Builder(getContext())
                 .setMessage(R.string.compilation_download_cancel_confirm)
-                .setPositiveButton(R.string.compilation_download_cancel_confirm_yes, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        if (callback != null) {
-                            callback.onCancel();
-                        }
+                .setPositiveButton(R.string.compilation_download_cancel_confirm_yes, (dialog, i) -> {
+                    if (callback != null) {
+                        callback.onCancel();
                     }
                 })
                 .setNegativeButton(R.string.compilation_download_cancel_confirm_no, null)

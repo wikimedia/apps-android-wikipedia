@@ -20,20 +20,12 @@ import static org.wikipedia.util.UriUtil.handleExternalLink;
 public class SwitchPreferenceWithLinks extends SwitchPreferenceCompat {
 
     private LinkMovementMethodExt movementMethod
-            = new LinkMovementMethodExt(new LinkMovementMethodExt.UrlHandler() {
-        @Override
-        public void onUrlClick(@NonNull String url, @Nullable String titleString) {
-            handleExternalLink(getContext(), Uri.parse(url));
-        }
-    });
+            = new LinkMovementMethodExt((@NonNull String url, @Nullable String titleString) -> handleExternalLink(getContext(), Uri.parse(url)));
 
-    private View.OnClickListener onClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            SwitchPreferenceWithLinks sw = SwitchPreferenceWithLinks.this;
-            sw.setChecked(!sw.isChecked());
-            sw.callChangeListener(sw.isChecked());
-        }
+    private View.OnClickListener onClickListener = (v) -> {
+        SwitchPreferenceWithLinks sw = SwitchPreferenceWithLinks.this;
+        sw.setChecked(!sw.isChecked());
+        sw.callChangeListener(sw.isChecked());
     };
 
     public SwitchPreferenceWithLinks(Context ctx, AttributeSet attrs, int defStyle) {

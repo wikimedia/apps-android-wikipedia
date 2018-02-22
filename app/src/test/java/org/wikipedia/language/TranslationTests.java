@@ -11,7 +11,6 @@ import org.junit.Test;
 import org.wikipedia.util.log.L;
 
 import java.io.File;
-import java.io.FileFilter;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -49,13 +48,7 @@ public class TranslationTests {
 
     @Test public void testAllTranslations() throws Throwable {
         // todo: flag usage of templates {{}}.
-        File[] resDirs = RES_BASE.listFiles(new FileFilter() {
-            @Override public boolean accept(File pathname) {
-                return pathname.isDirectory()
-                        && pathname.getName().startsWith("values")
-                        && !hasBadName(pathname);
-            }
-        });
+        File[] resDirs = RES_BASE.listFiles((File pathname) -> pathname.isDirectory() && pathname.getName().startsWith("values") && !hasBadName(pathname));
         for (File dir : resDirs) {
             String lang = dir.getName().contains("-") ? dir.getName().substring(dir.getName().indexOf("-") + 1) : "en";
             Locale locale = new Locale(lang);

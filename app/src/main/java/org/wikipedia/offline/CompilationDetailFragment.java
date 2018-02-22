@@ -1,6 +1,5 @@
 package org.wikipedia.offline;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -88,12 +87,7 @@ public class CompilationDetailFragment extends DownloadObserverFragment {
         downloadButton.setText(getString(R.string.offline_compilation_detail_button_download_v2,
                 bytesToUserVisibleUnit(getContext(), compilation.size())));
 
-        controls.setCallback(new CompilationDownloadControlView.Callback() {
-            @Override
-            public void onCancel() {
-                getDownloadObserver().remove(compilation);
-            }
-        });
+        controls.setCallback(() -> getDownloadObserver().remove(compilation));
 
         mainPageButton.setText(MainPageNameData.valueFor(WikipediaApp.getInstance().getAppLanguageCode()));
         updateDownloadState(true, null);
@@ -133,12 +127,7 @@ public class CompilationDetailFragment extends DownloadObserverFragment {
     }
 
     @OnClick(R.id.button_compilation_detail_remove) void onRemoveClick() {
-        getDownloadObserver().removeWithConfirmation(getActivity(), compilation, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                getAppCompatActivity().finish();
-            }
-        });
+        getDownloadObserver().removeWithConfirmation(getActivity(), compilation, (dialog, which) -> getAppCompatActivity().finish());
     }
 
     private AppCompatActivity getAppCompatActivity() {

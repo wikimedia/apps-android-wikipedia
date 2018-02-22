@@ -228,15 +228,12 @@ public class BottomContentView extends LinearLayoutOverWebView
     }
 
     private void perturb() {
-        webView.post(new Runnable() {
-            @Override
-            public void run() {
-                if (!parentFragment.isAdded()) {
-                    return;
-                }
-                // trigger a manual scroll event to update our position relative to the WebView.
-                onScrollChanged(webView.getScrollY(), webView.getScrollY(), false);
+        webView.post(() -> {
+            if (!parentFragment.isAdded()) {
+                return;
             }
+            // trigger a manual scroll event to update our position relative to the WebView.
+            onScrollChanged(webView.getScrollY(), webView.getScrollY(), false);
         });
     }
 
