@@ -3,8 +3,6 @@ package org.wikipedia.savedpages;
 import android.support.annotation.NonNull;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.html.ImageTagParser;
 import org.wikipedia.html.PixelDensityDescriptorParser;
@@ -20,7 +18,7 @@ import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-@RunWith(RobolectricTestRunner.class) public class PageImageUrlParserTest {
+public class PageImageUrlParserTest {
     @NonNull private final PageImageUrlParser subject = new PageImageUrlParser(new ImageTagParser(),
             new PixelDensityDescriptorParser());
 

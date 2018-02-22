@@ -4,8 +4,6 @@ import android.support.annotation.NonNull;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.mwapi.page.MwMobileViewPageLead;
 import org.wikipedia.dataclient.page.BasePageLeadTest;
 import org.wikipedia.dataclient.page.PageClient;
@@ -22,7 +20,7 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.fail;
 import static org.wikipedia.json.GsonUnmarshaller.unmarshal;
 
-@RunWith(RobolectricTestRunner.class) public class RbPageLeadTest extends BasePageLeadTest {
+public class RbPageLeadTest extends BasePageLeadTest {
     private PageClient subject;
 
     @Before @Override public void setUp() throws Throwable {

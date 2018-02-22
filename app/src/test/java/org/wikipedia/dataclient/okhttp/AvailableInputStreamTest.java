@@ -1,8 +1,6 @@
 package org.wikipedia.dataclient.okhttp;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.test.TestFileUtil;
 
 import java.io.ByteArrayInputStream;
@@ -10,7 +8,7 @@ import java.io.ByteArrayInputStream;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-@RunWith(RobolectricTestRunner.class) public class AvailableInputStreamTest {
+public class AvailableInputStreamTest {
 
     @SuppressWarnings("checkstyle:magicnumber")
     @Test public void testAvailableInputStream() throws Throwable {
