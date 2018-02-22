@@ -16,6 +16,7 @@
   <string name="history_item_deleted">%s togs bort från historiken</string>
   <string name="history_items_deleted">%d artiklar togs bort från historiken</string>
   <string name="history_item_delete_undo">Ångra</string>
+  <string name="app_settings">Appinställningar</string>
   <string name="dialog_title_clear_history">Rensa webbhistoriken</string>
   <string name="dialog_message_clear_history">Detta kommer att radera all webbhistorik och stänga alla öppna flikar. Är du säker?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
@@ -501,6 +502,7 @@
   <string name="description_edit_revert_history">Om du är intresserad kan du se &lt;a href=\"%1$s\"&gt;redigeringshistoriken&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">Ingen Internetanslutning. Se till att du är online igen och försök sedan igen.</string>
   <string name="offline_read_permission_rationale">Behörighet för att skriva till lagringsutrymmet på din enhet krävs för att läsa artiklar offline.</string>
+  <string name="offline_read_final_rationale">Behörighet för åtkomst till lagringsutrymmet på din enhet krävs för att använda offlinebiblioteket.</string>
   <string name="offline_read_permission_error">Behörighet för att läsa från enhetslagringen krävs.</string>
   <string name="offline_card_sideloading_text">Du läser nu Wikipedia offline från artiklar i ditt offlinebibliotek.</string>
   <string name="offline_my_compilations">Hantera mitt offlinebibliotek</string>
@@ -555,8 +557,9 @@
   <string name="onboarding_explore_text">Gör en djupdykning i Wikipedia genom att uppdatera utforskningsflödet. &lt;br/&gt; &lt;b&gt;Anpassa&lt;/b&gt; flödet för att möta dina intressen – såvida det handlar om historiska händelser &lt;b&gt;på denna dag&lt;/b&gt; eller kasta tärningen med &lt;b&gt;slumpartikel&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Spara till läslistor</string>
   <string name="onboarding_save_to_reading_lists_text">Skapa läslistor av artiklar du vill läsa senare, även när du är offline.</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">Läslistor med synkronisering</string>
-  <string name="onboarding_reading_list_sync_text" fuzzy="true">Skapa läslistor från artiklar du vill läsa senare, även när du inte har någon uppkoppling. &lt;a href=\"#login\"&gt;Logga in eller skapa&lt;/a&gt; ditt Wikipedia-konto för att säkerhetskopiera dina läslistor.</string>
+  <string name="onboarding_reading_list_sync_title">Läslistor med synkronisering</string>
+  <string name="onboarding_reading_list_sync_text">Skapa läslistor från artiklar du vill läsa senare, även när du inte har någon uppkoppling. &lt;a href=\"#login\"&gt;Logga in eller skapa&lt;/a&gt; ditt Wikipedia-konto för att säkerhetskopiera dina läslistor.</string>
+  <string name="onboarding_reading_list_sync_text_v2">Du kan skapa läslistor från artiklar du vill läsa senare, även när du inte har någon uppkoppling. &lt;br/&gt;Logga in på ditt Wikipedia-konto för att synkronisera dina läslistor. &lt;a href=\"#login\"&gt;Registrera dig på Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Skicka anonym data</string>
   <string name="onboarding_analytics_offline_text">Hjälp till att göra appen bättre genom att låta oss veta hur du använder den. Data som samlas in är anonym. &lt;a href=\"#privacy\"&gt;Läs mer&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Skicka användningsdata</string>

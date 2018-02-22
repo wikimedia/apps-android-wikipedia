@@ -16,6 +16,7 @@
   <string name="history_item_deleted">%s rimosso dalla cronologia</string>
   <string name="history_items_deleted">%d voci rimosse dalla cronologia</string>
   <string name="history_item_delete_undo">Annulla</string>
+  <string name="app_settings">Impostazioni applicazione</string>
   <string name="dialog_title_clear_history">Cancella cronologia di navigazione</string>
   <string name="dialog_message_clear_history">Questo cancellerà tutta la tua cronologia di navigazione e chiuderà tutte le schede attualmente aperte. Sei sicuro?</string>
   <string name="dialog_message_clear_history_yes">Sì</string>

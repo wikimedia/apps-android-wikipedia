@@ -16,6 +16,7 @@
   <string name="history_item_deleted">Статья \"%s\" удалена из истории просмотров</string>
   <string name="history_items_deleted">%d статей удалено из истории просмотров</string>
   <string name="history_item_delete_undo">Вернуть</string>
+  <string name="app_settings">Настройки приложения</string>
   <string name="dialog_title_clear_history">Очистить историю просмотров</string>
   <string name="dialog_message_clear_history">Будет удалена вся история посещения страниц и закрыты все открытые вкладки. Продолжить?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
@@ -126,6 +127,7 @@
   <string name="preference_summary_sync_reading_lists">Разрешить Викимедиа синхронизировать ваш список для чтения при авторизации</string>
   <string name="preference_summary_sync_reading_lists_from_account">Разрешить Викимедиа синхронизировать списки для чтения для учётной записи %s в Википедии</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Удалить синхронизированные списки для чтения из вашей учётной записи %s?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Это полностью удалит все ранее синхронизированные списки чтения из удаленного хранилища. Удалите все синхронизированные списки из своей учетной записи %s?</string>
   <string name="preferences_privacy_settings_heading">Конфиденциальность</string>
   <string name="preference_title_eventlogging_opt_in">Отправлять отчёты об использовании</string>
   <string name="preference_summary_eventlogging_opt_in">Разрешить Викимедиа собирать информацию о том, как вы используете приложение. Это позволит сделать его лучше.</string>
@@ -350,8 +352,10 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">статья появляется в многочисленных списках</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s больше не будет доступна в офлайн-режиме во всех списках для чтения:</string>
   <string name="reading_lists_sync_reminder_title">Включить синхронизацию списков для чтения?</string>
+  <string name="reading_lists_sync_reminder_text">Статьи, сохраненные в списках чтения, теперь могут быть синхронизированы с вашей учетной записью Википедии. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Узнать больше&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Включить синхронизацию</string>
   <string name="reading_list_login_reminder_title">Синхронизировать список для чтения</string>
+  <string name="reading_lists_login_reminder_text">Списки чтения теперь могут быть синхронизированы между устройствами. Войдите в свою учетную запись в Википедии и позвольте сохранять списки.</string>
   <string name="reading_lists_confirm_remote_delete">Это удалит все ранее синхронизированные списки для чтения из удалённого хранилища. Продолжить?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
   <string name="reading_lists_confirm_remote_delete_no">Нет</string>
@@ -360,11 +364,26 @@
   <string name="reading_list_added_articles_list_titled">Добавлены %1$d статьей в %2$s</string>
   <string name="reading_list_delete_confirm">Вы уверены, что хотите удалить %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Войдите, чтоб включить синхронизацию</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Войдите в систему, чтобы ваши списки чтения были сохранены в вашей учетной записи.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Отмена</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Войти</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Синхронизация списка чтения отключена</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Синхронизация списка рассылки отключена для вашей учетной записи, и сохраненные статьи на ваших зарегистрированных в системе устройствах больше не копируются. Включите синхронизацию списка чтения в настройках</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Настройки</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Включить синхронизацию списка чтения?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Статьи, сохраненные в списках чтения, теперь могут быть синхронизированы с вашей учетной записью Википедии. &lt;a href=\"#faq\"&gt;Узнать больше&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Не показывай мне это снова</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Включить синхронизацию</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Нет, спасибо</string>
+  <string name="reading_list_login_option_reminder_dialog_title">Найдены списки статей</string>
+  <string name="reading_list_login_option_reminder_dialog_text">В вашем приложении в Википедии сохранены статьи списка чтения. Хотите сохранить их и объединить с списками чтения, синхронизированными с вашей учетной записью?</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">Да, добавьте их в мои списки чтения</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Нет, удалите статьи сохраненные в приложении.</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Сохранять сохраненные статьи на устройстве?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Есть статьи синхронизированные с вашей учетной записью Википедии. Вы хотите оставить их на этом устройстве после выхода из системы?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Да, сохраняйте статьи на устройстве</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Нет, удалять статьи с устройства</string>
   <string name="default_reading_list_name">Сохранено</string>
   <string name="default_reading_list_description">Стандартный список для ваших сохранённых статьей</string>
   <string name="no_user_lists_title">Сохраняйте подборки статей</string>

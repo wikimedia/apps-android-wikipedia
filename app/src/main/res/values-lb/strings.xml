@@ -117,6 +117,7 @@
   <string name="create_account_account_created_toast">Benotzerkont ugeluecht!</string>
   <string name="preferences_heading_storage_and_syncing">Späicher a Synchronisatioun</string>
   <string name="preference_title_sync_reading_lists">Lieslëschte synchroniséieren</string>
+  <string name="preference_title_sync_reading_lists_from_account">Lieschlëschte fir dëse Benotzerkont synchroniséieren</string>
   <string name="preference_summary_sync_reading_lists">Wikimedia erlaben Är Lieslëschten ze synchroniséiere wann Dir Iech aloggt.</string>
   <string name="preferences_privacy_settings_heading">Dateschutz</string>
   <string name="preference_title_eventlogging_opt_in">Rapporten iwwer d\'Benotze schécken</string>
@@ -331,8 +332,10 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Aloggen</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Astellungen</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Synchronisatioun vu Lieslëschten aschalten?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Mir dëst net méi weisen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nee, merci</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Neen, Artikelen déi an der App gespäichert si läschen</string>
   <string name="reading_list_logout_option_reminder_dialog_title">Gespäichert Artikelen um Apparat halen?</string>
   <string name="reading_list_logout_option_reminder_dialog_yes">Jo, Artikelen um Apparat halen</string>
   <string name="default_reading_list_name">Gespäichert</string>

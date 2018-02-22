@@ -16,6 +16,7 @@
   <string name="history_item_deleted">%s removido do histórico</string>
   <string name="history_items_deleted">%d artigos removidos do histórico</string>
   <string name="history_item_delete_undo">Desfazer</string>
+  <string name="app_settings">Definições da aplicação</string>
   <string name="dialog_title_clear_history">Limpar histórico de navegação</string>
   <string name="dialog_message_clear_history">Isto eliminará todo o seu histórico de navegação e fechará todos os separadores abertos. Tem a certeza?</string>
   <string name="dialog_message_clear_history_yes">Sim</string>
@@ -501,6 +502,7 @@
   <string name="description_edit_revert_history">Se tiver interesse, consulte o &lt;a href=\"%1$s\"&gt;histórico de edições&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">Não há ligação à Internet. Certifique-se de que tem ligação e tente novamente.</string>
   <string name="offline_read_permission_rationale">É necessário ter permissão de acesso ao armazenamento do seu dispositivo para a navegação sem acesso à Internet.</string>
+  <string name="offline_read_final_rationale">É necessário ter permissão de acesso ao armazenamento do seu dispositivo para usar a biblioteca sem acesso à Internet.</string>
   <string name="offline_read_permission_error">Não foi concedida permissão para ler do armazenamento do dispositivo.</string>
   <string name="offline_card_sideloading_text">Está agora a navegar na Wikipédia sem acesso à Internet com pacotes de artigos da sua biblioteca offline.</string>
   <string name="offline_my_compilations">Gerir a minha biblioteca offline</string>

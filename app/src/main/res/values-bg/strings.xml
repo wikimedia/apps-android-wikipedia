@@ -16,6 +16,7 @@
   <string name="history_item_deleted">%s е премахната от историята</string>
   <string name="history_items_deleted">%d статии са премахнати от историята</string>
   <string name="history_item_delete_undo">Отмяна</string>
+  <string name="app_settings">Настройки на приложението</string>
   <string name="dialog_title_clear_history">Изчистване на историята</string>
   <string name="dialog_message_clear_history">Това ще изтрие цялата история на сърфиране и ще затвори всички отворени раздели. Сигурни ли сте?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
@@ -498,6 +499,7 @@
   <string name="description_edit_revert_history">Ако се интересувате, прегледайте &lt;a href=\"%1$s\"&gt;историята на редакциите&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">Няма връзка с Интернет. Уверете се, че сте свързани, след което опитайте отново.</string>
   <string name="offline_read_permission_rationale">Нужно е разрешение за достъп на съхранението на устройството Ви за офлайн разглеждане.</string>
+  <string name="offline_read_final_rationale">Нужно е разрешение за достъп на съхранението на устройството Ви за използване на Офлайн Библиотеката.</string>
   <string name="offline_read_permission_error">Не е позволено четенето от съхранението на устройството.</string>
   <string name="offline_card_sideloading_text">В момента разглеждате офлайн Уикипедия от пакети статии във Вашата офлайн библиотека.</string>
   <string name="offline_my_compilations">Управление на моята офлайн библиотека</string>

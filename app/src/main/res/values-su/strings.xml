@@ -16,6 +16,7 @@
   <string name="history_item_deleted">%s dipupus tina daptar</string>
   <string name="history_items_deleted">%d artikel dipupus tina daptar</string>
   <string name="history_item_delete_undo">Bolaykeun</string>
+  <string name="app_settings">Pangaturan aplikasi</string>
   <string name="dialog_title_clear_history">Pupus jujutan panyungsian</string>
   <string name="dialog_message_clear_history">Ieu bakal mupus sakumna jujutan sungsian anjeun, sarta nutup tab nu kiwari kabuka kénéh. Yakin ieu téh?</string>
   <string name="dialog_message_clear_history_yes">Nya</string>
@@ -122,7 +123,10 @@
   <string name="create_account_account_created_toast">Akun geus dijieun!</string>
   <string name="preferences_heading_storage_and_syncing">Paneundeunan jeung singkronisasi</string>
   <string name="preference_title_sync_reading_lists">Singkronkeun daptar bacaan</string>
+  <string name="preference_title_sync_reading_lists_from_account">Singkronkeun daptar bacaan pikeun ieu akun</string>
   <string name="preference_summary_sync_reading_lists">Widian Wikimédia nyingkronkeun daptar bacaan anjeun nalika anjeun asup log</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Widian Wikimédia ngarepokkeun daptar bacaeun kana akun Wikipédia anjeun %s</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Pupus daptar bacaeun nu disingkronkeun tina akun anjeun %s?</string>
   <string name="preferences_privacy_settings_heading">Privasi</string>
   <string name="preference_title_eventlogging_opt_in">Kirim laporan pamakéan</string>
   <string name="preference_summary_eventlogging_opt_in">Heugbaékeun Wikimédia pikeun ngumpulkeun info ngeunaan cara anjeun migunakeun aplikasi sangkan aplikasi jadi leuwih hadé</string>
@@ -278,6 +282,9 @@
   <string name="color_theme_select">Téma</string>
   <string name="color_theme_light">Caang</string>
   <string name="color_theme_dark">Poék</string>
+  <string name="color_theme_black">Hideung</string>
+  <string name="color_theme_test_title">Téks conto</string>
+  <string name="preference_title_app_theme">Téma aplikasi</string>
   <string name="preference_summary_color_theme">Alihkeun maké téma aplikasi nu warna poék</string>
   <string name="text_size_increase">Gedéan ukuran téks</string>
   <string name="text_size_decrease">Leutikan ukuran téks</string>
@@ -356,6 +363,13 @@
   <string name="notification_reverted">Éditan anjeun na artikel &lt;strong&gt;%2$s&lt;/strong&gt; geus dibalikkeun deui ku &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Anjeun geus dinuhunkeun!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; nganuhunkeun pikeun éditan anjeun dina kaca &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_channel_name">Nyingkronkeun</string>
+  <string name="notification_channel_description">Ronjatan undeuran</string>
+  <string name="notification_syncing_title">Keur ngundeur %1$d artikel...</string>
+  <string name="notification_syncing_description">%1$d artikel sésa</string>
+  <string name="notification_syncing_pause_button">Tunda</string>
+  <string name="notification_syncing_resume_button">Teruskeun</string>
+  <string name="notification_syncing_cancel_button">Bolay</string>
   <string name="view_continue_reading_card_title">Tuluykeun maca</string>
   <string name="view_because_you_read_card_title">Sabab anjeun maca</string>
   <string name="view_random_card_title">Kaca acak</string>
@@ -363,6 +377,7 @@
   <string name="view_next_random_article">Puat artikel acak lianna</string>
   <string name="view_main_page_card_title">Poé ieu na Wikipédia</string>
   <string name="view_main_page_card_subtitle">Tepas na %s</string>
+  <string name="view_main_page_card_action">Tempo tepas</string>
   <string name="view_featured_image_card_title">Gambar poé ieu</string>
   <string name="view_featured_image_card_download">Undeur</string>
   <string name="menu_feed_card_dismiss">Sumputkeun ieu kartu</string>
@@ -377,14 +392,20 @@
     <item quantity="one">Kamari</item>
     <item quantity="other">%d poé ka tukang</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Poé ieu</string>
+  <string name="view_continue_reading_card_subtitle_today">poé ieu</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Dibaca %s</string>
   <string name="view_announcement_card_negative_action">Teu kudu, nuhun</string>
   <string name="view_offline_card_text">Kontén teu bisa dipuat nalika oflén.</string>
   <string name="view_featured_article_card_title">Artikel petingan</string>
   <string name="view_featured_article_footer_save_button_label">Simpen</string>
   <string name="view_featured_article_footer_saved_button_label">Kasimpen</string>
-  <string name="feed_configure_activity_title" fuzzy="true">Konfigurasikeun kartu Langlangan</string>
-  <string name="feed_configure_menu_reset" fuzzy="true">Balikkeun kana setélan buhun</string>
+  <string name="feed_configure_activity_title">Luyukeun eupan</string>
+  <string name="feed_configure_menu_reset">Balikkeun pidangan baku</string>
+  <string name="feed_configure_menu_select_all">Pilih kabéh</string>
+  <string name="feed_configure_menu_deselect_all">Tong pilih kabéh</string>
+  <string name="feed_item_type_news">Artikel ngeunaan kajadian kiwari</string>
+  <string name="feed_item_type_on_this_day">Kajadian dina sajarah poé ieu</string>
+  <string name="feed_configure_onboarding_action">Luyukeun</string>
   <string name="description_edit_text_hint">\nPedaran judul</string>
   <string name="description_edit_save">Medalkeun</string>
   <string name="description_edit_add_description">Tambahkeun pedaran judul</string>

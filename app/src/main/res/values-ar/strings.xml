@@ -16,6 +16,7 @@
   <string name="history_item_deleted">أزيلت %s من القائمة</string>
   <string name="history_items_deleted">أُزيلت %d مقالة من التاريخ</string>
   <string name="history_item_delete_undo">رجوع</string>
+  <string name="app_settings">إعدادات التطبيق</string>
   <string name="dialog_title_clear_history">مسح تاريخ التصفح</string>
   <string name="dialog_message_clear_history">هذا سيحذف تاريخ تصفحك كاملا، وسيغلق أي تبويبات مفتوحة. هل أنت متأكد؟</string>
   <string name="dialog_message_clear_history_yes">نعم</string>

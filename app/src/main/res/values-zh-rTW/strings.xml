@@ -16,6 +16,7 @@
   <string name="history_item_deleted">%s已從歷史移除</string>
   <string name="history_items_deleted">%d個條目已從歷史移除</string>
   <string name="history_item_delete_undo">還原</string>
+  <string name="app_settings">應用程式設定</string>
   <string name="dialog_title_clear_history">清除瀏覽歷史</string>
   <string name="dialog_message_clear_history">這樣做會刪除所有歷史記錄，並且關閉所有目前開啟的分頁。您確定嗎？</string>
   <string name="dialog_message_clear_history_yes">是</string>
@@ -500,7 +501,8 @@
   <string name="description_edit_revert_reason2">您的貢獻內容看起來像是試驗性質的，或是有心破壞。</string>
   <string name="description_edit_revert_history">若您有興趣，請查看&lt;a href=\"%1$s\"&gt;編輯歷史&lt;/a&gt;。</string>
   <string name="offline_compilation_download_device_offline">網路無法連接。請確定您有重新上線並再重試一次。</string>
-  <string name="offline_read_permission_rationale">需要可在您裝置上儲存庫的權限才能離線瀏覽。</string>
+  <string name="offline_read_permission_rationale">需要可存取在您裝置上儲存庫的權限才能離線瀏覽。</string>
+  <string name="offline_read_final_rationale">需要可存取在您裝置上儲存庫的權限才能使用離線圖書館。</string>
   <string name="offline_read_permission_error">未授予從裝置儲存庫讀取的權限。</string>
   <string name="offline_card_sideloading_text">您正在您的離線圖書館瀏覽來自於條目包的離線維基百科。</string>
   <string name="offline_my_compilations">管理我的離線圖書館</string>

@@ -355,6 +355,10 @@
   <string name="reading_list_already_contains_selection">La lista elegida ya contiene todas las páginas seleccionadas.</string>
   <string name="reading_list_added_articles_list_titled">Se añadieron %1$d artículos a %2$s</string>
   <string name="reading_list_delete_confirm">¿Confirmas que quieres eliminar %s?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Accede para activar la sincronización</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Cancelar</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Acceder</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">Aceptar</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Configuración</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">No mostrar de nuevo</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Activar sincronización</string>

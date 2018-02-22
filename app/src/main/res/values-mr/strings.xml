@@ -6,11 +6,17 @@
   <string name="wikimedia">विकिमिडिया</string>
   <string name="search_hint">विकिपीडिया मध्ये शोधा</string>
   <string name="search_hint_search_history">इतिहास शोधा</string>
+  <string name="search_hint_search_my_lists">माझ्या याद्यांमध्ये शोधा</string>
+  <string name="search_hint_search_reading_list">माझ्या वाचन याद्यांमध्ये शोधा</string>
   <string name="nav_item_history">इतिहास</string>
   <string name="error_network_error">आंतरजालाशी जुळू शकत नाही.</string>
   <string name="page_error_retry">पुन्हा प्रयत्न करा</string>
   <string name="page_error_back_to_main">परत जा</string>
   <string name="menu_clear_all_history">इतिहास साफ करा</string>
+  <string name="history_item_deleted">%s इतिहासामधून काढले</string>
+  <string name="history_items_deleted">%d लेख इतिहासामधून काढले</string>
+  <string name="history_item_delete_undo">उलटवा</string>
+  <string name="app_settings">मांडण्या (सेटींग्ज) लागु करा</string>
   <string name="dialog_title_clear_history">न्याहाळकाचा इतिहास मिटवा</string>
   <string name="dialog_message_clear_history">याने आपला न्याहाळकाचा इतिहास वगळल्या जाईल व चालू असलेल्या सर्व कळी बंद होतील. आपण ते नक्की करता काय?</string>
   <string name="dialog_message_clear_history_yes">होय</string>
@@ -33,9 +39,13 @@
   <string name="menu_text_select_edit_here">येथे संपादन करा</string>
   <string name="nav_item_nearby">जवळपास</string>
   <string name="nearby_zoom_to_location">नकाशावर एका ठिकाणी झूम करा</string>
+  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; योगदान</string>
   <string name="last_updated_text">शेवटचे अद्यतन %s</string>
   <string name="talk_page_link_text">चर्चा</string>
-  <string name="content_license_html" fuzzy="true">जेथे जेथे विशेषत्वाने नोंदविलेले नाही तेथील आशय हा &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; या परवान्यांतर्गत उपलब्ध आहे असे समजावे.</string>
+  <string name="edit_history_link_text">संपादनांचा इतिहास</string>
+  <string name="map_view_link_text">नकाशावर बघा</string>
+  <string name="language_count_link_text" fuzzy="true">%d इतर भाषेत उपलब्ध</string>
+  <string name="content_license_html">जेथे जेथे विशेषत्वाने नोंदविलेले नाही तेथील आशय हा &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; या परवान्यांतर्गत उपलब्ध आहे असे समजावे.</string>
   <string name="edit_save_action_license_logged_in">हा मजकूर जतन करण्याच्या कृतीने,&lt;a href=\"%1$s\"&gt;विकिमिडिया फाउंडेशनच्या \'वापरण्याच्या अटी\' आपण मान्य करीत आहात&lt;/a&gt;, व आपले योगदान आपण \'न परताव्याच्या अटींच्या\' अधिन राहून &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; या परवान्यांतर्गत मुक्त करीत आहात.</string>
   <string name="edit_save_action_license_anon">हा मजकूर जतन करण्याच्या कृतीने,&lt;a href=\"%1$s\"&gt;विकिमिडिया फाउंडेशनच्या \'वापरण्याच्या अटी\' आपण मान्य करीत आहात&lt;/a&gt;, व आपले योगदान आपण \'न परताव्याच्या अटींच्या\' अधिन राहून &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; या परवान्यांतर्गत मुक्त करीत आहात.आपली संपादने ही आपल्या उपकरणाच्या अंकपत्त्याच्या अंगिभूत राहतील.जर आपण &lt;a href=\"https://#login\"&gt;सनोंद प्रवेश घेतला तर&lt;/a&gt;,आपणास अधिक गुप्तता मिळू शकेल.</string>
   <string name="preference_title_language">विकिपीडिया भाषा</string>
@@ -44,9 +54,9 @@
   <string name="langlinks_empty">हे पान इतर भाषांमध्ये उपलब्ध नाही आहे</string>
   <string name="langlinks_no_match">आपल्या शोधत असलेली भाषा सापडली नाही.</string>
   <string name="langlinks_activity_title">इतर भाषा</string>
-  <string name="menu_save_changes" fuzzy="true">बदल जतन करा</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">जतन करीत आहे…</string>
-  <string name="edit_saved_successfully" fuzzy="true">संपादन जतन झाले!</string>
+  <string name="menu_save_changes">आपले बदल प्रकाशित करा</string>
+  <string name="dialog_saving_in_progress">प्रकाशन होत आहे…</string>
+  <string name="edit_saved_successfully">संपादन जतन झाले!</string>
   <string name="dialog_message_edit_failed">संपादन होऊ शकले नाही!</string>
   <string name="dialog_message_edit_failed_retry">पुन्हा प्रयत्न करा</string>
   <string name="dialog_message_edit_failed_cancel">रद्द करा</string>
@@ -55,6 +65,9 @@
   <string name="dialog_message_leaving_edit_stay">तेथेच रहा</string>
   <string name="menu_show_toc">अनुक्रमणिका</string>
   <string name="search_no_results_found">परिणाम सापडले नाही</string>
+  <string name="search_reading_list_no_results">%s येथे कसलेही‌ परिणाम दिसले नाहीत</string>
+  <string name="search_reading_lists_no_results">वाचनयादी मध्ये कसलेही परिणाम सापडले नाहीत</string>
+  <string name="search_history_no_results">इतिहासात कोणतेच परिणाम सापडले नाहीत</string>
   <string name="edit_section_captcha_message">स्वयंचलित स्पॅम पासून संरक्षणाचे दृष्टीने, कृपया खाली दिसणारे शब्द टाका</string>
   <string name="edit_section_captcha_hint">वरील शब्द पुन्हा वापरा</string>
   <string name="title_captcha">कॅपचा टाका</string>
@@ -62,22 +75,32 @@
   <string name="nav_item_login">विकिपीडियात सनोंद-प्रवेश करा</string>
   <string name="login_username_hint">सदस्यनाव</string>
   <string name="login_password_hint">परवलीचा शब्द</string>
+  <string name="login_2fa_hint">दोन पातळ्यांवर वैधता करणारा संकेत</string>
+  <string name="login_2fa_other_workflow_error_msg">दोन पातळ्यांवर वैधता तपासणे आवश्यक !  मुख्य क्रियेवर परत जाऊन तुमच्या 2FA टोकनानी पुऩा सनोंद प्रवेश करा, आणि मग पुऩा प्रयत्न करा.</string>
   <string name="menu_login">सनोंद-प्रवेश करा</string>
   <string name="login_activity_title">विकिपीडियात सनोंद-प्रवेश करा</string>
   <string name="login_in_progress_dialog_message">तुमचा प्रवेश नोंदवत आहे…</string>
   <string name="login_success_toast">यशस्वीरित्या सनोंद प्रवेशित!</string>
   <string name="preference_title_logout">सनोंद-निर्गम</string>
   <string name="toast_logout_complete">सनोंद-निर्गमित</string>
-  <string name="history_empty_title" fuzzy="true">अलीकडील पाने येथे नाहीत!</string>
-  <string name="history_empty_message" fuzzy="true">त्यातील आपण बहुतेक सर्वच वगळले आहेत. पुढील वेळेस आपल्यास कोणतेही पान हवे असेल तर तेथे, आपण येथून जाउ शकता.</string>
+  <string name="history_empty_title">अलीकडील पाने येथे नाहीत!</string>
+  <string name="history_empty_message">आपण येथे काय वाचत आहात त्याचा मागोवा घ्या</string>
+  <string name="search_empty_message">शोधा आणि वाचा, तुमच्या भाषेतला मुक्त विकीपिडीया!</string>
+  <string name="delete_selected_items">शोधलेला मजकूर काढून टाका</string>
   <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपीडि&lt;big&gt;या&lt;/big&gt;</string>
   <string name="create_account_username_hint">सदस्यनाम</string>
+  <string name="login_dont_have_account">आपले सदस्यखाते नाही काय? $1.</string>
+  <string name="login_join_wikipedia">विकीपिडीया सदस्य व्हा</string>
+  <string name="login_forgot_password">आपला परवलीचा शब्द विसरलात?</string>
+  <string name="create_account_already_have">पूर्वीचे खाते आहे? $1</string>
   <string name="create_account_activity_title">नवीन खाते तयार करा</string>
   <string name="dialog_create_account_checking_progress">सत्यापित होत आहे</string>
   <string name="create_account_email_hint">अंकपत्ता (‌वैकल्पिक)</string>
   <string name="create_account_password_repeat_hint">परवलीचा शब्द पुन्हा टाका</string>
   <string name="create_account_passwords_mismatch_error">परवलीचे शब्द जुळत नाही</string>
   <string name="create_account_email_error">अवैध विपत्रपत्ता</string>
+  <string name="create_account_username_error">सदस्यनावामध्ये अवैध अक्षरे</string>
+  <string name="create_account_password_error">तुमचा परवलीचा शब्द अवैध आहे</string>
   <string name="create_account_generic_error">खाते तयार करु शकत नाही</string>
   <string name="create_account_next">पुढे</string>
   <string name="create_account_button">खाते बनवा</string>
@@ -98,6 +121,13 @@
   <string name="edit_preview_fetching_dialog_message">झलक दाखवत आहे…</string>
   <string name="send_feedback">अॅपबद्दलची प्रतिक्रिया पाठवा</string>
   <string name="create_account_account_created_toast">खाते उघडले!</string>
+  <string name="preferences_heading_storage_and_syncing">साठवणूक आणि देवाण-घेवाण</string>
+  <string name="preference_title_sync_reading_lists">माझ्या वाचन यादीचे देवाण-घेवाण होत आहे</string>
+  <string name="preference_title_sync_reading_lists_from_account">ह्या खात्यासाठीच्या वाचानयादीची देवाण-घेवाण होत आहे.</string>
+  <string name="preference_summary_sync_reading_lists">तुम्ही सनोंद-प्रवेश केल्यावर विकीमिडीयाला तुमच्या वाचनयादीची देवाण-घेवाण आपसूकच करण्यासाठी परवानगी द्या</string>
+  <string name="preference_summary_sync_reading_lists_from_account">%s ह्या विकीमिडीया खात्याच्या वाचन यादीची देवाण-घेवाण करण्यासाठी विकीमिडीयाला परवानगी द्या</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">%s ह्या तुमच्या खात्याच्या वाचन यादीची देवाण-घेवाण बंद केली जात आहे?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">यामुळे तुमच्या %s या खात्याशी संबंधीत सर्व वाचन याद्यांची देवाण-घेवाण दूरच्या साठवणूकीवरून काढून टाकण्यात येईल, तुम्ही तयार आहात का?</string>
   <string name="preferences_privacy_settings_heading">गोपनीयता</string>
   <string name="preference_title_eventlogging_opt_in">वापराचा अहवाल पाठवा</string>
   <string name="preference_summary_eventlogging_opt_in">विकिपीडियास आपण हे अॅप कसे वापरता याबद्दल माहिती घेण्यास परवानगी द्या जेणेकरुन ते अॅप अधिक चांगले करता येईल.</string>

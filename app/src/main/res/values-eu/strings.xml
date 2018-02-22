@@ -554,6 +554,7 @@
   <string name="onboarding_save_to_reading_lists_text">Irakurketa zerrendak sortu gero irakurri nahi dituzun artikuluekin, konexiorik gabe egonda ere.</string>
   <string name="onboarding_reading_list_sync_title" fuzzy="true">Sinkronizatutako irakurketa zerrendak</string>
   <string name="onboarding_reading_list_sync_text" fuzzy="true">Geroago irakurri nahi dituzun artikuluen irakurketa zerrenda sortu, baita konexiorik gabe zaudenean ere. &lt;a href=\"#login\"&gt;Log in or create&lt;/a&gt; zure Wikipedia kontuan irakurketa zerrendak gordetzeko.</string>
+  <string name="onboarding_reading_list_sync_text_v2">Gero irakurri nahi dituzun artikuluen irakurketa-zerrendak egin ditzakezu, nahiz eta offline egon. &lt;br/&gt;Hasi saioa zure Wikipedian kontuan zure irakurketa-zerrendak sinkronizatzeko. &lt;a href=\"#login\"&gt;Wikipediara batu&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Datuak anonimoki bidali</string>
   <string name="onboarding_analytics_offline_text">Lagundu iezaguzu aplikazioa hobetzen zure erabilera azalduz. Bildutako datuak anonimoak izango dira.&lt;a href=\"#offline\"&gt;Gehiago ikasi&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Erabilitako data bidali</string>

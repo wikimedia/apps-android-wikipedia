@@ -16,6 +16,7 @@
   <string name="history_item_deleted">Článek %s odebrán z historie</string>
   <string name="history_items_deleted">%d článků odebráno z historie</string>
   <string name="history_item_delete_undo">Vrátit</string>
+  <string name="app_settings">Nastavení aplikace</string>
   <string name="dialog_title_clear_history">Vymazat historii prohlížení</string>
   <string name="dialog_message_clear_history">Tímto smažete celou svoji historii prohlížení a zavřete všechny nyní otevřené karty. Jste si jisti?</string>
   <string name="dialog_message_clear_history_yes">Ano</string>
@@ -310,7 +311,7 @@
   <string name="reading_lists_login_reminder_text">Seznamy čtení mohou být nyní synchronizovány napříč zařízeními. Přihlaste se do svého účtu na Wikipedii a povolte ukládání vašich seznamů.</string>
   <string name="reading_list_delete_confirm">Opravdu chcete odstranit „%s“?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Přihlašte se, abyste mohl/a povolit synchronizace</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Přihlašte se, abyste povolil/a ukládání seznamů čtení k vašemu účtu.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Přihlaste se, abyste povolil/a ukládání seznamů čtení k vašemu účtu.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Zrušit</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Přihlásit se</string>
   <string name="reading_list_turned_sync_off_dialog_title">Synchronizace seznamů čtení povolena</string>
@@ -324,12 +325,12 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ne, děkuji</string>
   <string name="reading_list_login_option_reminder_dialog_title">Nalezeny články v seznamu čtení</string>
   <string name="reading_list_login_option_reminder_dialog_text">Na vaší aplikaci Wikipedie jsou uložené články. Chtěl/a byste je ponechat a sloučit se seznamy čtení, které jsou synchronizovány do vašeho účtu?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Ano, přidat {{PLURAL:$1|článek|články}} do tohoto seznamu čtení</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">Ano, přidat články do tohoto seznamu čtení</string>
   <string name="reading_list_login_option_reminder_dialog_no">Ne, odstranit články uložené v aplikaci</string>
   <string name="reading_list_logout_option_reminder_dialog_title">Ponechat uložené články na zařízení?</string>
   <string name="reading_list_logout_option_reminder_dialog_text">Zde jsou články synchronizovány k vašemu účtu na Wikipedii. Chcete je na tomto zařízení po odhlášení ponechat?</string>
   <string name="reading_list_logout_option_reminder_dialog_yes">Ano, zanechat články v zařízení</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Ne, odstranit {{PLURAL:$1|článek|články}} ze zařízení</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Ne, odstranit články ze zařízení</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synchronizace seznamů čtení&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Seznamy čtení mohou být nyní synchronizovány napříč zařízení. Přihlašte se na svůj účet na Wikipedii a povolte ukládání svých vlastních seznamů.</string>
   <string name="user_option_sync_label">Nastavení</string>
   <string name="notification_button_view_user">Diskutovat s uživatelem</string>
@@ -388,9 +389,10 @@
   <string name="description_edit_tutorial_button_label_start_editing">Začít s úpravami</string>
   <string name="description_edit_tutorial_promise">Tímto slibuji, že této funkce nezneužiji.</string>
   <string name="description_edit_revert_subtitle">Děkujeme, že editujete Wikipediiǃ</string>
+  <string name="offline_read_final_rationale">Povolení k přístupu do úložného prostoru vašeho zařízení je požadováno, abyste mohli používat Offline Knihovnu</string>
   <string name="onboarding_welcome_title">Otevřená encyklopedie</string>
   <string name="onboarding_welcome_text">Wikipedie je psána společně dobrovolníky a obsahuje více než 40 miliónů článku v téměř 300 různých jazycích. &lt;a href=\"#about\"&gt;Zjistit více&lt;/a&gt;</string>
-  <string name="onboarding_reading_list_sync_text_v2">Můžete si vytvářet seznamy čtení z článků, které chcete číst, i když nejste přihlášení. &lt;br/&gt;Přihlašte se do svého účtu na Wikipedii, abyste mohl/a vaše seznamy čtení synchronizovat. &lt;a href=\"#login\"&gt;Připojit se k Wikipedii&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_text_v2">Můžete si vytvářet seznamy čtení z článků, které chcete číst, i když nejste přihlášení. &lt;br/&gt;Přihlaste se do svého účtu na Wikipedii, abyste mohl/a své seznamy čtení synchronizovat. &lt;a href=\"#login\"&gt;Připojit se k Wikipedii&lt;/a&gt;</string>
   <string name="onboarding_analytics_offline_text">Pomozte udělat aplikaci lepší uvědomením nás, jak ji používáte. Data jsou anonymní. &lt;a href=\"#privacy\"&gt;Zjistit více&lt;/a&gt;</string>
   <string name="top_on_this_day">Populární %1$s</string>
   <string name="on_this_day_card_title">Dnešek v minulosti</string>

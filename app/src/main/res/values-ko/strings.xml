@@ -16,6 +16,7 @@
   <string name="history_item_deleted">%s 문서가 역사에서 제거되었습니다</string>
   <string name="history_items_deleted">%d개의 문서가 역사에서 제거되었습니다</string>
   <string name="history_item_delete_undo">실행 취소</string>
+  <string name="app_settings">앱 설정</string>
   <string name="dialog_title_clear_history">방문 기록 지우기</string>
   <string name="dialog_message_clear_history">모든 방문 기록을 지우고 현재 열려 있는 모든 탭을 닫습니다. 계속하시겠습니까?</string>
   <string name="dialog_message_clear_history_yes">예</string>

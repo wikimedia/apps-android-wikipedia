@@ -16,6 +16,7 @@
   <string name="history_item_deleted">%s poistettu historiasta</string>
   <string name="history_items_deleted">%d artikkelia poistettu historiasta</string>
   <string name="history_item_delete_undo">Kumoa</string>
+  <string name="app_settings">Sovellusasetukset</string>
   <string name="dialog_title_clear_history">Tyhjennä selaushistoria</string>
   <string name="dialog_message_clear_history">Tämä tyhjentää koko selaushistoriasi ja sulkee kaikki avoimet välilehdet. Oletko varma?</string>
   <string name="dialog_message_clear_history_yes">Kyllä</string>
@@ -122,7 +123,11 @@
   <string name="create_account_account_created_toast">Käyttäjätunnus luotu!</string>
   <string name="preferences_heading_storage_and_syncing">Tallennustila &amp; synkronointi</string>
   <string name="preference_title_sync_reading_lists">Synkronoi lukulistat</string>
+  <string name="preference_title_sync_reading_lists_from_account">Synkronoi lukulistat tälle tilille</string>
   <string name="preference_summary_sync_reading_lists">Salli Wikimedian synkronoida lukulistasi, kun kirjaudut sisään</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Salli Wikimedian synkronoida lukulistat Wikipedia-tilillesi %s</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Poista synkronoidut lukulistat tililtäsi %s?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Tämä tulee poistamaan kaikki aikaisemmin synkronoimasi lukulistat etämuistiltasi. Poista kaikki synkronoinut luettelot %s?</string>
   <string name="preferences_privacy_settings_heading">Yksityisyys</string>
   <string name="preference_title_eventlogging_opt_in">Lähetä käyttöraportteja</string>
   <string name="preference_summary_eventlogging_opt_in">Salli Wikimedian kerätä tietoja sovelluksen käyttötottumuksista käyttäjäkokemuksen parantamiseksi.</string>
@@ -305,8 +310,10 @@
   <string name="reading_list_sort">Lajittele</string>
   <string name="reading_list_sort_by_name">Lajittele nimen mukaan</string>
   <string name="reading_list_sort_by_name_desc">Lajittele nimen mukaan käänteisesti</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Lajittele viimeisimmän käytön mukaan</string>
-  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Lajittele varhaisimman käytön mukaan</string>
+  <string name="reading_list_sort_by_recent">Lajittele lisäämispäivän mukaan (uusin)</string>
+  <string name="reading_list_sort_by_recent_desc">Lajittele lisäämispäivän mukaan (vanhin)</string>
+  <string name="reading_list_sort_by_created">Lajittele luomispäivän mukaan (uusin)</string>
+  <string name="reading_list_sort_by_created_desc">Lajittele luomispäivän mukaan (vanhin)</string>
   <string name="reading_list_menu_delete">Poista lista</string>
   <string name="reading_list_menu_rename">Nimeä uudelleen</string>
   <string name="reading_list_menu_edit_description">Muokkaa kuvausta</string>
@@ -339,19 +346,43 @@
   <string name="reading_list_remove_from_lists">Poista lukuluetteloista</string>
   <string name="reading_list_confirm_remove_article_from_offline">Poista offlinesta</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikkeli löytyy useammasta luettelosta</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s ei enää ole käytettävissä offline-tilassa kaikille lukulistoille:</string>
+  <string name="reading_lists_sync_reminder_title">Ota lukulistan synkronointi käyttöön?</string>
+  <string name="reading_lists_sync_reminder_action">Ota synkronointi käyttöön</string>
   <string name="reading_list_login_reminder_title">Synkronoi lukulistat</string>
+  <string name="reading_lists_login_reminder_text">Lukulistoja voidaan nyt synkronoida eri laitteiden poikki. Kirjaudu Wikipedia-tilillesi ja \nsalli luetteloiden tallentaminen.</string>
   <string name="reading_lists_confirm_remote_delete">Tämä poistaa kaikki aiemmin synkronoidut lukuluettelot etätallennusvarannosta. Jatketaanko?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Kyllä</string>
   <string name="reading_lists_confirm_remote_delete_no">Ei</string>
   <string name="reading_list_article_save_in_progress">Artikkelia ladataan ja se tulee käytettäväksi offline-tilassa kun lataus on valmis.</string>
   <string name="reading_list_already_contains_selection">Valittu luettelo sisältää jo kaikki valitut sivut.</string>
   <string name="reading_list_added_articles_list_titled">Lisättiin %1$d artikkelia luetteloon %2$s</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">Haluatko varmasti poistaa tämän %s lukulistan?</string>
+  <string name="reading_list_delete_confirm">Haluatko varmasti poistaa %s?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Kirjaudu sisään ottaaksesi synkronoinnin käyttöön</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Kirjaudu sisään salliaksesi lukulistojesi tallentamisen tiliisi.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Peruuta</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Kirjaudu sisään</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Lukulistojen synkronointi pois käytöstä</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Lukulistojen synkronointi on pois päältä tilillesi, ja tallennettuja artikkeleita sisäänkirjautuneissa laitteissasi ei enää varmuuskopioida. Kytke lukulistojen synkronointi päälle asetuksista.</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Asetukset</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Ota lukulistan synkronointi käyttöön?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Artikkelit, jotka on tallennettu lukulistoihin, voidaan nyt synkronoida Wikipedia-tiliisi. &lt;a href=\"#faq\"&gt;Lisätietoja&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Älä näytä tätä uudelleen</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Ota synkronointi käyttöön</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ei kiitos</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">Kyllä, lisää ne lukulistoihini</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Ei, poista sovelluksessa tallennetut artikkelit</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Säilytä tallennetut artikkelit laitteessa?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Nämä ovat artikkeleita, jotka on synkronoitu Wikipedia-tiliisi. Haluaisitko säilyttää ne tässä laitteessa sen jälkeen kun kirjaudut ulos?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Kyllä, säilytä artikkelit laitteessa</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Ei, poista artikkelit laitteesta</string>
   <string name="default_reading_list_name">Tallennettu</string>
   <string name="default_reading_list_description">Oletuslista tallennetuille artikkeleillesi</string>
   <string name="no_user_lists_title">Järjestä artikkelit luetteloihin</string>
   <string name="no_user_lists_msg">Luo luetteloita matkakohteista, suosikkiaiheista ja paljon muuta</string>
   <string name="reading_list_saved_list_rename">%1$s (käyttäjän luoma)</string>
+  <string name="reading_list_article_limit_message">Ei voida lisätä tähän listaan. Olet saavuttanut 1,000 artikkelin rajan per lista listalle \"%s\".</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Tämä artikkeli on nyt saatavilla offline-tilassa.</item>
     <item quantity="other">Nämä artikkelit ovat nyt saatavilla offline-tilassa.</item>
@@ -507,10 +538,11 @@
   <string name="onboarding_explore_text" fuzzy="true">Selaa suositeltuja artikkeleita, trendikkäitä aiheita ja lukuehdotuksia Tutki-syötteessä.</string>
   <string name="onboarding_save_to_reading_lists_title">Tallenna lukuluetteloon</string>
   <string name="onboarding_save_to_reading_lists_text">Luo lukuluetteloja artikkeleista, joita haluat lukea myöhemmin, jopa silloin kun olet olet offline-tilassa.</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">Synkronoidut lukuluettelot</string>
+  <string name="onboarding_reading_list_sync_title">Synkronoidut lukuluettelot</string>
   <string name="onboarding_reading_list_sync_text" fuzzy="true">Luo lukuluetteloita artikkeleista, joita haluat lukea myöhemmin. Pystyt lukemaan lukuluetteloon tallentamiasi artikkeleita myös ilman internet-yhteyttä. &lt;a href=\"#login\"&gt;Kirjaudu sisään&lt;/a&gt; Wikipedia-tilillesi varmuuskopioidaksesi lukuluettelot käytettäviksi kaikilla laitteillasi.</string>
+  <string name="onboarding_reading_list_sync_text_v2">Voit tehdä lukulistoja artikkeleista, joita haluat lukea myöhemmin, jopa silloin kun olet offline-tilassa. &lt;br/&gt;Kirjaudu Wikipedia-tilillesi synkronoidaksesi lukulistojasi. &lt;a href=\"#login\"&gt;Liity Wikipediaan&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Lähetä dataa nimettömästi</string>
-  <string name="onboarding_analytics_offline_text" fuzzy="true">Auta tekemään sovelluksesta parempi antamalla meidän tietää kuinka käytät sitä. Kerätyt tiedot ovat nimettömiä. &lt;a href=\"#privacy\"&gt;Opi lisää&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Auta tekemään sovelluksesta parempi antamalla meidän tietää kuinka käytät sitä. Kerätyt tiedot ovat nimettömiä. &lt;a href=\"#privacy\"&gt;Opi lisää&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Lähetä dataa tavasta, jolla käytät sovellusta</string>
   <string name="onboarding_create_account_sync">Synkronoi lukuluettelosi</string>
   <string name="onboarding_create_account_contributions">Seuraa tekemiäsi muokkauksia</string>

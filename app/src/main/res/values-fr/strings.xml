@@ -16,6 +16,7 @@
   <string name="history_item_deleted">%s supprimé de l’historique</string>
   <string name="history_items_deleted">%d articles supprimés de l’historique</string>
   <string name="history_item_delete_undo">Annuler</string>
+  <string name="app_settings">Paramètres de l’application</string>
   <string name="dialog_title_clear_history">Effacer l’historique de navigation</string>
   <string name="dialog_message_clear_history">Cela supprimera tout l’historique de navigation, et fermera tous les onglets ouverts actuellement. Êtes-vous sûr ?</string>
   <string name="dialog_message_clear_history_yes">Oui</string>
@@ -501,6 +502,7 @@
   <string name="description_edit_revert_history">Si vous êtes intéressé, voyez l’&lt;a href=\"%1$s\"&gt;historique des modifications&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">Aucune connexion internet. Assurez-vous que vous êtes bien reconnecté, puis réessayez.</string>
   <string name="offline_read_permission_rationale">Le droit d’accéder au stockage sur votre appareil est nécessaire pour la navigation hors connexion.</string>
+  <string name="offline_read_final_rationale">Le droit d’accéder au stockage sur votre appareil est nécessaire pour utiliser la Bibliothèque hors connexion.</string>
   <string name="offline_read_permission_error">Droit non accordé pour lire sur le stockage de l’appareil.</string>
   <string name="offline_card_sideloading_text">Vous naviguez maintenant sur Wikimédia hors connexion sur des paquets d’articles dans votre bibliothèque hors connexion.</string>
   <string name="offline_my_compilations">Gérer ma bibliothèque hors connexion</string>
@@ -555,8 +557,9 @@
   <string name="onboarding_explore_text">Plongez dans le terrier de Wikipédia avec un fil Explorer continuellement mis à jour. &lt;br/&gt; &lt;b&gt;Personnalisez&lt;/b&gt; le fil selon vos intérêts — si c’est d’apprendre les événements historiques &lt;b&gt;Sur cette journée&lt;/b&gt;, ou de choisir aléatoirement avec &lt;b&gt;Aléatoire&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Enregistrer dans les listes de lecture</string>
   <string name="onboarding_save_to_reading_lists_text">Créer des listes de lecture pour les articles que vous voulez lire plus tard, même hors connexion.</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">Listes de lecture avec synchronisation</string>
-  <string name="onboarding_reading_list_sync_text" fuzzy="true">Créer des listes de lecture avec les articles que vous voulez lire plus tard, même hors connexion. &lt;a href=\"#login\"&gt;Connectez-vous ou créez&lt;/a&gt; votre compte Wikipédia pour conserver vos listes de lecture sauvegardées.</string>
+  <string name="onboarding_reading_list_sync_title">Listes de lecture avec synchronisation</string>
+  <string name="onboarding_reading_list_sync_text">Créer des listes de lecture avec les articles que vous voulez lire plus tard, même hors connexion. &lt;a href=\"#login\"&gt;Connectez-vous ou créez&lt;/a&gt; votre compte Wikipédia pour conserver vos listes de lecture sauvegardées.</string>
+  <string name="onboarding_reading_list_sync_text_v2">Vous pouvez créer des listes de lecture depuis les articles que vous voulez lire ultérieurement, même hors connexion. &lt;br/&gt;Connectez-vous à votre compte Wikipédia pour synchroniser vos listes de lecture. &lt;a href=\"#login\"&gt;Rejoindre Wikipédia&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Envoyer les données de manière anonyme</string>
   <string name="onboarding_analytics_offline_text">Aide à améliorer l’application en nous faisant savoir comment vous l’utilisez. Les données collectées sont anonymes. &lt;a href=\"#privacy\"&gt;En savoir plus&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Envoyer les données d’utilisation</string>

@@ -16,6 +16,7 @@
   <string name="history_item_deleted">%s е отстранета од историјата</string>
   <string name="history_items_deleted">%d статии се отстранети од историјата</string>
   <string name="history_item_delete_undo">Врати</string>
+  <string name="app_settings">Поставки за прилогот</string>
   <string name="dialog_title_clear_history">Исчисти историја на прелистување</string>
   <string name="dialog_message_clear_history">Со ова ќе ја избришете сета историја на прелистување и ќе ги затворите сите отворени јазичиња. Дали сте сигурни?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
@@ -501,6 +502,7 @@
   <string name="description_edit_revert_history">Ако сте заинтересирани, погледајте ја &lt;a href=\"%1$s\"&gt;историјата на уредување&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">Не сте поврзани со семрежјето. Навратете се кога ќе добиете линија.</string>
   <string name="offline_read_permission_rationale">Се бара дозвола за зачувување на вашиот уред за да можете да прелистувате вонмрежно.</string>
+  <string name="offline_read_final_rationale">Се бара дозвола за зачувување на вашиот уред за да можете да ја користите Вонмрежната библиотека.</string>
   <string name="offline_read_permission_error">Прилогот не доби дозвола за читање од складот на уредот.</string>
   <string name="offline_card_sideloading_text">Сега ја прелистувате Википедија вонмрежно со пакети статии од вашата вонмрежна библиотека.</string>
   <string name="offline_my_compilations">Раковод. со мојата вонмрежна библиотека</string>

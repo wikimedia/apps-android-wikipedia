@@ -16,6 +16,7 @@
   <string name="history_item_deleted">%s dihapus dari sejarah</string>
   <string name="history_items_deleted">%d rencana dipadamkan dari sejarah</string>
   <string name="history_item_delete_undo">Nyahbuat</string>
+  <string name="app_settings">Tetapan aplikasi</string>
   <string name="dialog_title_clear_history">Padamkan sejarah pelayaran</string>
   <string name="dialog_message_clear_history">Ini akan menghapuskan kesemua sejarah pelayaran anda serta menutup sebarang tab yang masih terbuka. Adakah anda pasti?</string>
   <string name="dialog_message_clear_history_yes">Ya</string>
@@ -501,6 +502,7 @@
   <string name="description_edit_revert_history">Jika anda berminat, lihat &lt;a href=\"%1$s\"&gt;sejarah suntingan&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">Tiada sambungan internet. Pastikan anda kembali dalam talian, kemudian cuba lagi.</string>
   <string name="offline_read_permission_rationale">Kebenaran untuk mengakses storan pada peranti anda diperlukan untuk melayari luar talian.</string>
+  <string name="offline_read_final_rationale">Kebenaran untuk mengakses storan pada peranti anda diperlukan untuk menggunakan Perpustakaan Luar Talian.</string>
   <string name="offline_read_permission_error">Kebenaran tidak diberikan untuk baca dari storan peranti.</string>
   <string name="offline_card_sideloading_text">Anda kini melayari Wikipedia luar talian dari pek rencana dalam Perpustakaan Luar Talian anda.</string>
   <string name="offline_my_compilations">Uruskan pustaka luar talian saya</string>
@@ -555,8 +557,9 @@
   <string name="onboarding_explore_text">Dengarkan lubang kelinci Wikipedia dengan mengemas kini suapan Jelajah secara berterusan. &lt;br/&gt; &lt;b&gt;Ubahsuai&lt;/b&gt; suapan untuk minat anda – sama ada pembelajaran tentang peristiwa sejarah &lt;b&gt;Pada hari ini&lt;/b&gt;, atau membaling dadu dengan &lt;b&gt;Rawak&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Simpan ke senarai bacaan</string>
   <string name="onboarding_save_to_reading_lists_text">Buat senarai bacaan dari rencana yang ingin dibaca kemudian, walaupun semasa anda berada di luar talian.</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">Senarai bacaan dengan penyegerakan</string>
-  <string name="onboarding_reading_list_sync_text" fuzzy="true">Buat senarai bacaan dari artikel yang ingin dibaca kemudian, walaupun semasa anda berada di luar talian. &lt;a href=\"#login\"&gt;Log masuk atau buat&lt;/a&gt; akaun Wikipedia anda untuk memastikan senarai bacaan anda disokong.</string>
+  <string name="onboarding_reading_list_sync_title">Senarai bacaan dengan penyegerakan</string>
+  <string name="onboarding_reading_list_sync_text">Buat senarai bacaan dari artikel yang ingin dibaca kemudian, walaupun semasa anda berada di luar talian. &lt;a href=\"#login\"&gt;Log masuk atau buat&lt;/a&gt; akaun Wikipedia anda untuk memastikan senarai bacaan anda disokong.</string>
+  <string name="onboarding_reading_list_sync_text_v2">Anda boleh membuat senarai bacaan dari artikel yang ingin dibaca kemudian, walaupun semasa anda berada di luar talian. &lt;br/&gt;Log masuk ke akaun Wikipedia anda untuk menyegerakkan senarai bacaan anda. &lt;a href=\"#login\"&gt;Sertai Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Hantar data tanpa nama</string>
   <string name="onboarding_analytics_offline_text">Bantu menjadikan aplikasi lebih baik dengan memberitahu kami bagaimana anda menggunakannya. Data yang dikumpul tidak dikenali. &lt;a href=\"#privacy\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Hantar data penggunaan</string>

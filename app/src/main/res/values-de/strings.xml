@@ -16,6 +16,7 @@
   <string name="history_item_deleted">%s aus dem Verlauf gelöscht</string>
   <string name="history_items_deleted">%d Artikel aus dem Verlauf gelöscht</string>
   <string name="history_item_delete_undo">Rückgängig</string>
+  <string name="app_settings">App-Einstellungen</string>
   <string name="dialog_title_clear_history">Browsing-Verlauf löschen</string>
   <string name="dialog_message_clear_history">Dies löscht deinen gesamten Browsing-Verlauf und schließt alle derzeit geöffneten Registerkarten. Bist du sicher?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
@@ -501,6 +502,7 @@
   <string name="description_edit_revert_history">Falls du interessiert bist, sieh dir die &lt;a href=\"%1$s\"&gt;Versionsgeschichte&lt;/a&gt; an.</string>
   <string name="offline_compilation_download_device_offline">Keine Internetverbindung. Stelle sicher, dass du wieder online bist und versuche es erneut.</string>
   <string name="offline_read_permission_rationale">Zum Offline-Browsen ist eine Berechtigung für den Zugriff auf den Speicher deines Gerätes erforderlich.</string>
+  <string name="offline_read_final_rationale">Es ist die Berechtigung zum Zugriff auf deinen Gerätespeicher erforderlich, um die Offline-Bibliothek zu nutzen.</string>
   <string name="offline_read_permission_error">Die Berechtigung zum Lesen vom Gerätespeicher wurde nicht gewährt.</string>
   <string name="offline_card_sideloading_text">Du durchstöberst jetzt Wikipedia offline aufgrund der Artikelpakete in deiner Offline-Bibliothek.</string>
   <string name="offline_my_compilations">Meine Offline-Bibliothek verwalten</string>

@@ -16,6 +16,7 @@
   <string name="history_item_deleted">%s fjarlægt úr breytingaskrá</string>
   <string name="history_items_deleted">%d greinar fjarlægðar úr ferilskrá</string>
   <string name="history_item_delete_undo">Afturkalla</string>
+  <string name="app_settings">Stillingar forrits</string>
   <string name="dialog_title_clear_history">Hreinsa vafurferil</string>
   <string name="dialog_message_clear_history">Þetta mun eyða öllum ferli vafurs þíns um vefinn og loka öllum opnum flipum. Ertu alveg viss?</string>
   <string name="dialog_message_clear_history_yes">Já</string>
@@ -501,6 +502,7 @@
   <string name="description_edit_revert_history">Ef þú hefur áhuga, skoðaðu þá &lt;a href=\"%1$s\"&gt;breytingaferilinn&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">Engin internettenging. Þegar nettengingu hefur verið komið á, geturðu prófað aftur.</string>
   <string name="offline_read_permission_rationale">Til að vafra án nettengingar er nauðsynlegt að hafa heimild til að skrifa í gagnageymslu tækisins.</string>
+  <string name="offline_read_final_rationale">Til að nota safn án nettengingar er nauðsynlegt að hafa heimild til að skrifa í gagnageymslu tækisins.</string>
   <string name="offline_read_permission_error">Ekki er heimilað að lesa úr gagnageymslu tækisins.</string>
   <string name="offline_card_sideloading_text">Þú ert núna að vafra um Wikipedia án nettengingar með greinapökkum úr ónettengda safninu þínu.</string>
   <string name="offline_my_compilations">Sýsla með ónettengda safnið mitt</string>

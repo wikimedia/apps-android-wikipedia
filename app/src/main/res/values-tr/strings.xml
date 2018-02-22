@@ -16,6 +16,7 @@
   <string name="history_item_deleted">%s, tarayıcı geçmişinden silindi.</string>
   <string name="history_items_deleted">%d madde geçmişten silindi</string>
   <string name="history_item_delete_undo">Geri al</string>
+  <string name="app_settings">Uygulama ayarları</string>
   <string name="dialog_title_clear_history">Göz atma geçmişini temizle</string>
   <string name="dialog_message_clear_history">Bu işlem, tüm tarama geçmişinizi silecek ve bütün açık sekmelerinizi kapatacak. Emin misiniz?</string>
   <string name="dialog_message_clear_history_yes">Evet</string>
@@ -112,7 +113,7 @@
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Wikipedia Zero\'dan çıkılıyor</string>
   <string name="zero_interstitial_leave_app">Veri ücretleri uygulanabilir. Dış bağlantıya gidilsin mi?</string>
-  <string name="zero_interstitial_continue">Devam et</string>
+  <string name="zero_interstitial_continue">Ayrıl</string>
   <string name="zero_interstitial_cancel">İptal</string>
   <string name="zero_learn_more">Kablosuz taşıyıcınız Vikipedi içeriğine ücretsiz erişim sağlamaktadır!</string>
   <string name="zero_learn_more_learn_more">Daha fazla bilgi</string>
@@ -122,7 +123,11 @@
   <string name="create_account_account_created_toast">Hesap oluşturuldu!</string>
   <string name="preferences_heading_storage_and_syncing">Depolama ve senkronizasyon</string>
   <string name="preference_title_sync_reading_lists">Okuma listelerini senkronize et</string>
+  <string name="preference_title_sync_reading_lists_from_account">Bu hesap için okuma listelerini senkronize et</string>
   <string name="preference_summary_sync_reading_lists">Oturum açtığınızda okuma listelerinizin senkronize edilmesi için Wikimedia\'ya izin verin</string>
+  <string name="preference_summary_sync_reading_lists_from_account">%s Wikimedia\'nın, okuma listelerini hesabınıza senkronize etmesine izin verin.</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">%s Senkronize edilmiş okuma listelerini hesabınızdan kaldırın?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">%s Senkronize woken tüm okuma listelerini listeden kaldırmak istediğinize emin misiniz?</string>
   <string name="preferences_privacy_settings_heading">Gizlilik</string>
   <string name="preference_title_eventlogging_opt_in">Kullanım raporlarını gönder</string>
   <string name="preference_summary_eventlogging_opt_in">Uygulamayı daha iyi hale getirmek için uygulamanın nasıl kullanıldığı hakkında bilgi toplaması için Wikimedia\'ya izin ver</string>
@@ -145,6 +150,7 @@
   <string name="about_wikipedia_url">https://tr.m.wikipedia.org/wiki/Vikipedi:Hakkında</string>
   <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.tr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.tr</string>
@@ -308,8 +314,10 @@
   <string name="reading_list_sort">Sırala</string>
   <string name="reading_list_sort_by_name">Ada göre sırala</string>
   <string name="reading_list_sort_by_name_desc">Ada göre sırala (tersten)</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Son erişime göre sırala</string>
-  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Son erişime göre sırala (tersten)</string>
+  <string name="reading_list_sort_by_recent">Son erişime göre sırala</string>
+  <string name="reading_list_sort_by_recent_desc">Son erişime göre sırala (tersten)</string>
+  <string name="reading_list_sort_by_created">Oluşturulan tarihe göre sıralandı (en yeni)</string>
+  <string name="reading_list_sort_by_created_desc">Oluşturulan tarihe göre sıralandı (en eski)</string>
   <string name="reading_list_menu_delete">Listeyi sil</string>
   <string name="reading_list_menu_rename">Yeniden adlandır</string>
   <string name="reading_list_menu_edit_description">Tanımı düzenle</string>
@@ -343,14 +351,39 @@
   <string name="reading_list_confirm_remove_article_from_offline">Çevrimdışı erişimden sil</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Madde birden çok listede yer alıyor</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s artık şu listelerde çevrimdışı erişilebilir olmayacak:</string>
+  <string name="reading_lists_sync_reminder_title">Okuma listesi senkronizasyonunu etkinleştirilsin mi?</string>
+  <string name="reading_lists_sync_reminder_text">Okuma listelerine kaydedilen makaleler artık Wikipedia hesabınıza senkronize edilebilir.  &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Daha fazla bilgi edin&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_action">Senkronizasyonu etkinleştir</string>
   <string name="reading_list_login_reminder_title">Okuma listelerini senkronize et</string>
+  <string name="reading_lists_login_reminder_text">Okuma listeleri artık cihazlar arasında senkronize edilebilir. Vikipedi hesabınıza giriş yapın ve listelerinizin kaydedilmesine izin verin.</string>
   <string name="reading_lists_confirm_remote_delete">Bu, daha önce dış depoplamadan senkronize edilmiş tüm okumla listelerini silecek. Devam edilsin mi?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Evet</string>
   <string name="reading_lists_confirm_remote_delete_no">Hayır</string>
   <string name="reading_list_article_save_in_progress">Madde indiriliyor; işlem tamamlandığında çevrimdışı olarak erişilebilir olacak.</string>
   <string name="reading_list_already_contains_selection">Seçilen liste zaten seçilen sayfaların tümünü içermektedir.</string>
   <string name="reading_list_added_articles_list_titled">%2$s içeriğine %1$d madde eklendi</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">Bu okuma listesini silmek istediğinizden emin misiniz %s?</string>
+  <string name="reading_list_delete_confirm">Bu okuma listesini silmek istediğinizden emin misiniz %s?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Senkronizasyonu etkinleştirmek için giriş yapın</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Okuma listelerinizin hesabınıza kaydedilmesini sağlamak için giriş yapın.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Çıkış</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Giriş yap</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Okuma listesi senkronizasyonu kapalı</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Okuma listesi senkronizasyonu hesabınız için kapalı ve oturum açmış cihazlarınızdaki kaydedilmiş makaleler artık yedeklenmiyor. Ayarlardan okuma listesi senkronizasyonunu açın.</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">TAMAM</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Ayarlar</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Okuma listesi senkronizasyonunu aç?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Okuma listelerine kaydedilen makaleler artık Wikipedia hesabınıza senkronize edilebilir.&lt;a href=\"#faq\"&gt;Daha  bilgi alın&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Bir daha gösterme</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Senkronizasyonu etkinleştir</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Hayır teşekkürler</string>
+  <string name="reading_list_login_option_reminder_dialog_title">Okunan liste maddeleleri bulundu</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Vikipedi uygulamanıza kaydedilen okuma listesi makaleleri var. Bunları saklamak ve hesabınıza senkronize edilen okuma listeleri ile birleştirmek ister misiniz?</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">Evet, bunları okuma listeme ekleye</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Hayır, uygulamada kayıtlı maddeleri sil</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Kaydedilen makaleleri cihaza sakla?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Wikipedia hesabınıza senkronize edilen makaleler var. Çıkış yaptıktan sonra onları bu cihazda tutmak ister misiniz?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Evet, maddeleri cihazda sakla</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Hayır, cihazdan makaleleri sil</string>
   <string name="default_reading_list_name">Kaydedildi</string>
   <string name="default_reading_list_description">Kaydedilen maddeleriniz için varsayılan liste</string>
   <string name="no_user_lists_title">Maddeleri listelere göre düzenleyin</string>
@@ -359,6 +392,7 @@
   <string name="split_reading_list_message">Okuma listesi başına 1000 madde sınırı vardır. Bu sınırı aşan mevcut listeler birden fazla listeye ayrılmıştır.</string>
   <string name="reading_list_article_limit_message">Bu listeye eklenemedi. \"%s\" için liste başına 1000 madde sınırına ulaştınız.</string>
   <string name="reading_lists_limit_message">Başka bir liste oluşturamazsınız. Hesap başına 100 okuma listesi sınırına ulaştınız.</string>
+  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Okuma listelerini senkronize et&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Okuma listeleri artık cihazlar arasında senkronize edilebilir. Wikipedia hesabınıza giriş yapın ve listelerinizin kaydedilmesine izin verin.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Bu maddeye artık çevrimdışı olarak erişilebilir.</item>
     <item quantity="other">Bu maddelere artık çevrimdışı olarak erişilebilir.</item>
@@ -468,6 +502,7 @@
   <string name="description_edit_revert_history">Eğer ilgeliniyorsanız, &lt;a href=\"%1$s\"&gt;değişiklik geçmişine&lt;/a&gt; bakabilirsiniz.</string>
   <string name="offline_compilation_download_device_offline">İnternet bağlantısı yok. Çevrimiçi olduğunuzdan emin olunca yeniden deneyin.</string>
   <string name="offline_read_permission_rationale">Çevrimdışı gözatma için cihazınızın belleğine erişim izni olması gerekmektedir.</string>
+  <string name="offline_read_final_rationale">Çevrimdışı Kitaplığı kullanmak için cihazınızdaki depolama alanına erişim izni gerekiyor.</string>
   <string name="offline_read_permission_error">Cihaz hafızasına erişim için izin verilmedi.</string>
   <string name="offline_card_sideloading_text">Çevrimdışı Kitaplığınızdaki madde paketlerinden Çevrimdışı Vikipedi\'ye göz atıyorsunuz.</string>
   <string name="offline_my_compilations">Çevrimdışı kütüphanemi yönet</string>
@@ -522,10 +557,11 @@
   <string name="onboarding_explore_text">Vikipedi tavşan deliğine, sürekli Keşfet akışı ile dalın. &lt;br/&gt; Akışınızı ilgileriniz göre &lt;b&gt;özelleştirin&lt;/b&gt; – &lt;b&gt;Tarihte bugün&lt;/b&gt; ile tarihsel olaylar hakkında bilgi alın ya da &lt;b&gt;Rastgele&lt;/b&gt; ile zar atın.</string>
   <string name="onboarding_save_to_reading_lists_title">Okuma listesine kaydet</string>
   <string name="onboarding_save_to_reading_lists_text">Çevrimdışı olduğunuzda bile okumayı istediğiniz maddelerden okuma listeleri oluşturun.</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">Okuma listelerinin senkronizasyonu</string>
-  <string name="onboarding_reading_list_sync_text" fuzzy="true">Daha sonra, çevrimdışı olsanız bile okumak istediğiniz maddelerden okuma listeleri oluşturun. Okuma listelerinizi yedekleyip saklamak için Vikipedi hesabınızda &lt;a href=\"#login\"&gt;oturum açın veya yeni hesap oluşturun&lt;/a&gt;.</string>
+  <string name="onboarding_reading_list_sync_title">Okuma listelerinin senkronizasyonu</string>
+  <string name="onboarding_reading_list_sync_text">Daha sonra, çevrimdışı olsanız bile okumak istediğiniz maddelerden okuma listeleri oluşturun. Okuma listelerinizi yedekleyip saklamak için Vikipedi hesabınızda &lt;a href=\"#login\"&gt;oturum açın veya yeni hesap oluşturun&lt;/a&gt;.</string>
+  <string name="onboarding_reading_list_sync_text_v2">Çevrimdışı olduğunuzda bile, daha sonra okumak istediğiniz maddeleri okuyabilirsiniz. &lt;br/&gt;Okuma listelerinizi senkronize etmek için Wikipedia hesabınıza giriş yapın. &lt;a href=\"#login\"&gt;Wikipedia\'ya katıl&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Anonim veri gönder</string>
-  <string name="onboarding_analytics_offline_text" fuzzy="true">Uygulamayı nasıl kullandığınızı bilmemize izin vererek daha iyi hâle getirmemize yardım edin. Veriler anonim olarak toplanır. &lt;a href=\"#privacy\"&gt;Daha fazla bilgi edinin&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Uygulamayı nasıl kullandığınızı bilmemize izin vererek daha iyi hâle getirmemize yardım edin. Veriler anonim olarak toplanır. &lt;a href=\"#privacy\"&gt;Daha fazla bilgi edinin&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Kullanım verisini gönder</string>
   <string name="onboarding_create_account_sync">Okuma listelerinizi senkronize edin</string>
   <string name="onboarding_create_account_contributions">Katkılarınızı takip edin</string>

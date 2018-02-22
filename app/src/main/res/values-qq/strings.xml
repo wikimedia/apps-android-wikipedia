@@ -16,6 +16,7 @@
   <string name="history_item_deleted">Message shown when an article is removed from the browsing history. The \"%s\" symbol is replaced with the name of the article.</string>
   <string name="history_items_deleted">Message shown when multiple articles are removed from the browsing history. The \"%d\" symbol is replaced with the number of articles removed.</string>
   <string name="history_item_delete_undo">Button label to undo the operation of deleting an item from the browsing history.\n{{Identical|Undo}}</string>
+  <string name="app_settings">Button text to take user to app settings screen</string>
   <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history.</string>
   <string name="dialog_message_clear_history">Message for the dialog box that asks if the user wants to clear their browsing history, as well close any tabs that are open.</string>
   <string name="dialog_message_clear_history_yes">Affirmative answer to clear the browsing history, as well close any tabs that are open.\n{{Identical|Yes}}</string>
@@ -365,7 +366,7 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Title of warning message shown to a user to login for enabling syncing of reading lists.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Warning message shown to a user to login for enabling syncing of reading lists.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Negative answer to cancel the current process.\n{{Identical|Cancel}}</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Affirmative answer to confirm and redirect to the login page.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Affirmative answer to confirm and redirect to the login page.\n{{Identical|Log in}}</string>
   <string name="reading_list_turned_sync_off_dialog_title">Title of warning message shown to a user when the user turns OFF syncing on one of their devices.</string>
   <string name="reading_list_turned_sync_off_dialog_text">Warning message shown to a user when the user turns OFF syncing on one of their devices.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">Negative answer to dismiss the dialog.\n{{Identical|OK}}</string>
@@ -374,7 +375,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_text">Warning message shown to a user who is logged in who has not opted-in to syncing enters this screen at the first time, also contains a link to mediawiki FAQ page. (Please preserve the anchor tag in its exact form.)</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">An option shows on dialog that does not allow to receive the message again.</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Affirmative answer to confirm and redirect to the settings page.</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Negative answer to dismiss the dialog.</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Negative answer to dismiss the dialog.\n{{Identical|No thanks}}</string>
   <string name="reading_list_login_option_reminder_dialog_title">Title of warning message shown to a user to merge or delete the local reading lists articles with the synced reading lists after the user logs in</string>
   <string name="reading_list_login_option_reminder_dialog_text">Warning message shown to a user to merge or delete the local reading lists articles with the synced reading list after the user logs in</string>
   <string name="reading_list_login_option_reminder_dialog_yes">&gt;Affirmative answer to add the local reading lists articles with the other synced reading lists</string>
@@ -501,6 +502,7 @@
   <string name="description_edit_revert_history">Message that allows the user to go to the edit history associated with the article. (Please preserve the anchor tag in its exact form)</string>
   <string name="offline_compilation_download_device_offline">Message shown when the user attempts to download an article pack but the device is offline.</string>
   <string name="offline_read_permission_rationale">Message explaining why we need permission to access the device storage when reading articles in offline mode.</string>
+  <string name="offline_read_final_rationale">Message explaining why we need permission to access the device storage when reading articles in offline mode.</string>
   <string name="offline_read_permission_error">Error shown when the app could not read from the internal or external storage of the device due to permission not being granted.</string>
   <string name="offline_card_sideloading_text">Message shown in the Feed card that informs the user that they are now browsing Wikipedia from article packs in offline mode.</string>
   <string name="offline_my_compilations">Button label for the user to navigate to the offline library screen.</string>
@@ -575,8 +577,6 @@
   <string name="events_count_text">Label indicating the number of events that occurred in a certain range of years. The \"%1$s\" symbol is replaced with the number of events, \"%2$s\" is the beginning year, and \"%3$d\" is the ending year</string>
   <string name="this_year">Text to say, \'This year\'</string>
   <string name="back_to_top">Button label for scrolling the content to the top.</string>
-  <string name="app_settings">Button text to take user to app settings screen</string>
-  <string name="offline_read_final_rationale">Message explaining why we need permission to access the device storage when reading articles in offline mode.</string>
   <plurals name="diff_years">
     <item quantity="one">Text indicating that the event occured one year ago.</item>
     <item quantity="other">Text indicating that the event occured two or more years ago.\"%d\" is the number of years.</item>
