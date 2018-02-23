@@ -26,7 +26,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FeedFunnel;
 import org.wikipedia.feed.configure.ConfigureActivity;
-import org.wikipedia.feed.featured.FeaturedArticleCardView;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
@@ -82,8 +81,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         void onFeedSelectPage(HistoryEntry entry);
         void onFeedSelectPageFromExistingTab(HistoryEntry entry);
         void onFeedAddPageToList(HistoryEntry entry);
-        void onFeedAddFeaturedPageToList(FeaturedArticleCardView view, HistoryEntry entry);
-        void onFeedRemovePageFromList(FeaturedArticleCardView view, HistoryEntry entry);
+        void onFeedRemovePageFromList(HistoryEntry entry);
         void onFeedSharePage(HistoryEntry entry);
         void onFeedNewsItemSelected(NewsItemCard card, HorizontalScrollingListCardItemView view);
         void onFeedShareImage(FeaturedImageCard card);
@@ -350,16 +348,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public void onAddFeaturedPageToList(@NonNull FeaturedArticleCardView view, @NonNull HistoryEntry entry) {
+        public void onRemovePageFromList(@NonNull HistoryEntry entry) {
             if (getCallback() != null) {
-                getCallback().onFeedAddFeaturedPageToList(view, entry);
-            }
-        }
-
-        @Override
-        public void onRemoveFeaturedPageFromList(@NonNull FeaturedArticleCardView view, @NonNull HistoryEntry entry) {
-            if (getCallback() != null) {
-                getCallback().onFeedRemovePageFromList(view, entry);
+                getCallback().onFeedRemovePageFromList(entry);
             }
         }
 

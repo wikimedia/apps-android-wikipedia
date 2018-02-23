@@ -30,7 +30,6 @@ import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.feed.FeedFragment;
-import org.wikipedia.feed.featured.FeaturedArticleCardView;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.news.NewsActivity;
@@ -250,19 +249,10 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                         AddToReadingListDialog.InvokeSource.FEED));
     }
 
-    @Override public void onFeedAddFeaturedPageToList(@NonNull final FeaturedArticleCardView view,
-                                                      @NonNull HistoryEntry entry) {
-        bottomSheetPresenter.show(getChildFragmentManager(),
-                AddToReadingListDialog.newInstance(entry.getTitle(),
-                        AddToReadingListDialog.InvokeSource.FEED, (dialog) -> view.updateFooter()));
-    }
-
     @Override
-    public void onFeedRemovePageFromList(@NonNull FeaturedArticleCardView view,
-                                         @NonNull HistoryEntry entry) {
+    public void onFeedRemovePageFromList(@NonNull HistoryEntry entry) {
         FeedbackUtil.showMessage(getActivity(),
                 getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
-        view.updateFooter();
     }
 
     @Override public void onFeedSharePage(HistoryEntry entry) {

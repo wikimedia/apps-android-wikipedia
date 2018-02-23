@@ -28,6 +28,7 @@ public class ListCardItemView extends FrameLayout {
     public interface Callback {
         void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry);
         void onAddPageToList(@NonNull HistoryEntry entry);
+        void onRemovePageFromList(@NonNull HistoryEntry entry);
         void onSharePage(@NonNull HistoryEntry entry);
     }
 

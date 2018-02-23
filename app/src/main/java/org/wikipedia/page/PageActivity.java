@@ -46,6 +46,7 @@ import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView;
+import org.wikipedia.events.ArticleSavedOrDeletedEvent;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.feed.mainpage.MainPageClient;
 import org.wikipedia.gallery.GalleryActivity;
@@ -55,6 +56,7 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.page.tabs.TabsProvider.TabPosition;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.settings.SettingsActivity;
@@ -903,6 +905,17 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         @Subscribe public void on(ChangeTextSizeEvent event) {
             if (pageFragment != null && pageFragment.getWebView() != null) {
                 pageFragment.updateFontSize();
+            }
+        }
+
+        @Subscribe public void on(@NonNull ArticleSavedOrDeletedEvent event) {
+            if (pageFragment == null || !pageFragment.isAdded()) {
+                return;
+            }
+            for (ReadingListPage page : event.getPages()) {
+                if (page.title().equals(pageFragment.getTitleOriginal().getDisplayText())) {
+                    pageFragment.updateBookmarkAndMenuOptionsFromDao();
+                }
             }
         }
     }

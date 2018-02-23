@@ -118,6 +118,11 @@ public class MostReadFragment extends Fragment {
         }
 
         @Override
+        public void onRemovePageFromList(@NonNull HistoryEntry entry) {
+            // TODO
+        }
+
+        @Override
         public void onSharePage(@NonNull HistoryEntry entry) {
             ShareUtil.shareText(getActivity(), entry.getTitle());
         }
