@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import org.wikipedia.feed.FeedCoordinatorBase;
 import org.wikipedia.feed.announcement.AnnouncementCardView;
 import org.wikipedia.feed.continuereading.ContinueReadingCardView;
-import org.wikipedia.feed.featured.FeaturedArticleCardView;
 import org.wikipedia.feed.image.FeaturedImageCardView;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
@@ -26,9 +25,8 @@ import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecyclerAdapter<Card, T> {
     public interface Callback extends ItemTouchHelperSwipeAdapter.Callback,
-            ListCardItemView.Callback, CardHeaderView.Callback,
-            FeaturedImageCardView.Callback, SearchCardView.Callback, NewsListCardView.Callback,
-            AnnouncementCardView.Callback, FeaturedArticleCardView.Callback,
+            ListCardItemView.Callback, CardHeaderView.Callback,  FeaturedImageCardView.Callback,
+            SearchCardView.Callback, NewsListCardView.Callback, AnnouncementCardView.Callback,
             RandomCardView.Callback, OfflineCompilationCardView.Callback, ListCardView.Callback,
             ContinueReadingCardView.Callback {
         void onShowCard(@Nullable Card card);

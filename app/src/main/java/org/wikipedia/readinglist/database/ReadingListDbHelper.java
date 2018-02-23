@@ -11,6 +11,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.ReadingListContract;
 import org.wikipedia.database.contract.ReadingListPageContract;
+import org.wikipedia.events.ArticleSavedOrDeletedEvent;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.savedpages.SavedPageSyncService;
@@ -179,6 +180,8 @@ public class ReadingListDbHelper {
                 insertPageInDb(db, list, page);
             }
             db.setTransactionSuccessful();
+
+            WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(pages.toArray(new ReadingListPage[]{})));
         } finally {
             db.endTransaction();
         }
@@ -211,6 +214,8 @@ public class ReadingListDbHelper {
     private void addPageToList(SQLiteDatabase db, @NonNull ReadingList list, @NonNull PageTitle title) {
         ReadingListPage protoPage = new ReadingListPage(title);
         insertPageInDb(db, list, protoPage);
+
+        WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(protoPage));
     }
 
     public void markPagesForDeletion(@NonNull ReadingList list, @NonNull List<ReadingListPage> pages) {
@@ -229,6 +234,8 @@ public class ReadingListDbHelper {
             if (queueForSync) {
                 ReadingListSyncAdapter.manualSyncWithDeletePages(list, pages);
             }
+
+            WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(pages.toArray(new ReadingListPage[]{})));
         } finally {
             db.endTransaction();
         }

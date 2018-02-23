@@ -34,7 +34,6 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.concurrency.CallbackTask;
-import org.wikipedia.events.ArticleSavedOrDeletedEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.main.MainActivity;
@@ -339,7 +338,6 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             ReadingListDbHelper.instance().addPagesToList(readingList, newPages, true);
             readingList.pages().addAll(newPages);
             updateReadingListData();
-            WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(pages.toArray(new ReadingListPage[pages.size()])));
         });
         snackbar.show();
     }
@@ -469,7 +467,6 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             funnel.logDeleteItem(readingList, 0);
             showDeleteItemsUndoSnackbar(readingList, selectedPages);
             update();
-            WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(selectedPages.toArray(new ReadingListPage[selectedPages.size()])));
         }
     }
 
@@ -514,7 +511,6 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         readingList.pages().remove(page);
         funnel.logDeleteItem(readingList, 0);
         update();
-        WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(page));
     }
 
     private void delete() {
