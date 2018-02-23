@@ -22,6 +22,7 @@ import static android.support.test.espresso.action.ViewActions.swipeUp;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.hamcrest.Matchers.anything;
 import static org.hamcrest.core.AllOf.allOf;
+import static org.wikipedia.espresso.util.CompareTools.assertScreenshotWithinTolerance;
 import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_1000;
 import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_2000;
 import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_3000;
@@ -41,9 +42,9 @@ public final class PageActivityTest {
             Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
     @Test
-    public void testArticleLoad() {
+    public void testArticleLoad() throws Exception {
 
-        SearchTest.searchKeywordAndGo("Barack Obama");
+        SearchTest.searchKeywordAndGo("Barack Obama", true);
 
         whileWithMaxSteps(
                 () -> !viewIsDisplayed(R.id.search_results_list),
@@ -62,7 +63,7 @@ public final class PageActivityTest {
                 () -> waitFor(WAIT_FOR_2000));
 
         waitFor(WAIT_FOR_3000);
-        ScreenshotTools.snap("Barack");
+        ScreenshotTools.snap("PageActivityWithObama");
         onView(withId(R.id.view_page_header_image))
                 .perform(swipeUp());
         onView(withId(R.id.page_fragment))
@@ -72,6 +73,10 @@ public final class PageActivityTest {
         onView(withId(R.id.page_fragment))
                 .perform(swipeDown());
         ScreenshotTools.snap("ArticleSwipeDownActionBarAndTabSeen");
+        assertScreenshotWithinTolerance("PageActivityWithObama");
+        assertScreenshotWithinTolerance("SearchSuggestionPage");
+        assertScreenshotWithinTolerance("SearchPage");
+        //assertScreenshotWithinTolerance("ArticleSwipeDownActionBarAndTabSeen");
 
     }
 }
