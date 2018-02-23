@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.AppLanguageSelectFunnel;
@@ -106,6 +107,21 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
         super.cancel();
     }
 
+    @Nullable private String getCanonicalName(@NonNull String code) {
+        String canonicalName = null;
+        if (siteInfoList != null) {
+            for (SiteMatrixClient.SiteInfo info : siteInfoList) {
+                if (code.equals(info.code())) {
+                    canonicalName = info.localName();
+                }
+            }
+        }
+        if (TextUtils.isEmpty(canonicalName)) {
+            canonicalName = app.getAppLanguageCanonicalName(code);
+        }
+        return canonicalName;
+    }
+
     private final class LanguagesAdapter extends BaseAdapter {
         @NonNull private final List<String> originalLanguageCodes;
         @NonNull private final List<String> languageCodes;
@@ -117,11 +133,11 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
 
         void setFilterText(String filter) {
             this.languageCodes.clear();
-            filter = filter.toLowerCase(Locale.getDefault());
+            filter = StringUtils.stripAccents(filter).toLowerCase(Locale.getDefault());
             for (String code : originalLanguageCodes) {
-                String localizedName = defaultString(app.getAppLanguageLocalizedName(code));
-                String canonicalName = defaultString(app.getAppLanguageCanonicalName(code));
-                if (code != null && code.contains(filter)
+                String localizedName = StringUtils.stripAccents(defaultString(app.getAppLanguageLocalizedName(code)));
+                String canonicalName = StringUtils.stripAccents(defaultString(getCanonicalName(code)));
+                if (code.contains(filter)
                         || localizedName.toLowerCase(Locale.getDefault()).contains(filter)
                         || canonicalName.toLowerCase(Locale.getDefault()).contains(filter)) {
                     this.languageCodes.add(code);
@@ -158,14 +174,7 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
 
             localizedNameTextView.setText(app.getAppLanguageLocalizedName(languageCode));
 
-            String canonicalName = null;
-            if (siteInfoList != null) {
-                for (SiteMatrixClient.SiteInfo info : siteInfoList) {
-                    if (languageCode.equals(info.code())) {
-                        canonicalName = info.localName();
-                    }
-                }
-            }
+            String canonicalName = getCanonicalName(languageCode);
             if (progressBar.getVisibility() != View.VISIBLE) {
                 canonicalNameTextView.setText(TextUtils.isEmpty(canonicalName)
                         ? app.getAppLanguageCanonicalName(languageCode) : canonicalName);
