@@ -57,7 +57,7 @@ android {
         targetSdkVersion 27
         versionCode 225
         testApplicationId 'org.wikipedia.test'
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
         vectorDrawables.useSupportLibrary = true
 
         javaCompileOptions {

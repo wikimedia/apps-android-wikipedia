@@ -1,20 +1,16 @@
 package org.wikipedia.espresso;
 
-
 import android.app.Activity;
-import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
 
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wikipedia.R;
-import org.wikipedia.dataclient.okhttp.MockInstrumentationInterceptor;
 import org.wikipedia.espresso.feed.ExploreFeedTest;
 import org.wikipedia.espresso.onboarding.OnBoardingTest;
 import org.wikipedia.espresso.page.PageActivityTest;
@@ -35,12 +31,6 @@ public class InstrumentationTestSuite {
 
     @Before
     public void setUp() {
-        MockInstrumentationInterceptor.setInstrumentationContext(InstrumentationRegistry.getContext());
-    }
-
-    @After
-    public void tearDown() {
-        MockInstrumentationInterceptor.setInstrumentationContext(null);
     }
 
     @Test

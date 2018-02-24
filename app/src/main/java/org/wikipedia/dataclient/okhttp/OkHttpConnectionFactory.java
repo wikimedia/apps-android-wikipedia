@@ -27,7 +27,7 @@ public final class OkHttpConnectionFactory {
     @NonNull public static final Cache SAVE_CACHE = new Cache(new File(WikipediaApp.getInstance().getFilesDir(),
             CACHE_DIR_NAME), SAVED_PAGE_CACHE_SIZE);
 
-    @NonNull private static final OkHttpClient CLIENT = createClient();
+    @NonNull private static OkHttpClient CLIENT = createClient();
 
     @NonNull public static OkHttpClient getClient() {
         return CLIENT;
@@ -51,7 +51,7 @@ public final class OkHttpConnectionFactory {
                 .addInterceptor(new CacheControlRequestInterceptor())
                 .addInterceptor(new CacheDelegateInterceptor(CacheDelegate.internalCache(SAVE_CACHE), CacheDelegate.internalCache(NET_CACHE)))
                 .addInterceptor(new WikipediaZeroResponseInterceptor(WikipediaApp.getInstance().getWikipediaZeroHandler()))
-                .addInterceptor(new MockInstrumentationInterceptor())
+                .addInterceptor(new TestStubInterceptor())
                 .build();
     }
 
