@@ -27,15 +27,14 @@ import static org.wikipedia.espresso.util.ViewTools.rotateScreen;
 import static org.wikipedia.espresso.util.ViewTools.setTextInTextView;
 import static org.wikipedia.espresso.util.ViewTools.viewIsDisplayed;
 import static org.wikipedia.espresso.util.ViewTools.waitFor;
+import static org.wikipedia.espresso.util.ViewTools.whileWithMaxSteps;
 
 @RunWith(AndroidJUnit4.class)
 @SuppressWarnings("checkstyle:magicnumber")
 public final class ExploreFeedTest {
 
     public static void testExploreFeed(Activity activity) {
-        while (!viewIsDisplayed(R.id.fragment_feed_feed)) {
-            waitFor(WAIT_FOR_2000);
-        }
+        waitUntilFeedDisplayed();
 
         //Todo: Remove the code to dismiss Announcement cards by adding logic to not display any announcement cards
         while (true) {
@@ -53,9 +52,8 @@ public final class ExploreFeedTest {
         }
 
         testCards("");
-        while (!viewIsDisplayed(R.id.fragment_feed_feed)) {
-            waitFor(WAIT_FOR_2000);
-        }
+
+        waitUntilFeedDisplayed();
 
         rotateScreen(activity, ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
         waitFor(WAIT_FOR_2000);
@@ -68,9 +66,8 @@ public final class ExploreFeedTest {
 
 
     private static void testCards(String postFix) {
-        while (!viewIsDisplayed(R.id.fragment_feed_feed)) {
-            waitFor(WAIT_FOR_2000);
-        }
+        waitUntilFeedDisplayed();
+
         //Scrool further and scroll back to required position to ensure display of view on top of screen
         onView(withId(R.id.fragment_feed_feed)).perform(RecyclerViewActions.scrollToPosition(7));
         onView(withId(R.id.fragment_feed_feed)).perform(RecyclerViewActions.scrollToPosition(5));
@@ -117,6 +114,12 @@ public final class ExploreFeedTest {
         onView(withId(R.id.fragment_feed_feed)).perform(RecyclerViewActions.scrollToPosition(1));
         setDate();
         ScreenshotTools.snap("News" + postFix);
+    }
+
+    private static void waitUntilFeedDisplayed() {
+        whileWithMaxSteps(
+                () -> !viewIsDisplayed(R.id.fragment_feed_feed),
+                () -> waitFor(WAIT_FOR_2000));
     }
 
     private static void setDate() {

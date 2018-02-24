@@ -1,6 +1,5 @@
 package org.wikipedia.espresso.page;
 
-
 import android.app.Activity;
 import android.support.test.espresso.DataInteraction;
 import android.support.test.runner.AndroidJUnit4;
@@ -8,6 +7,7 @@ import android.support.test.runner.AndroidJUnit4;
 import org.junit.runner.RunWith;
 import org.wikipedia.R;
 import org.wikipedia.espresso.util.ScreenshotTools;
+import org.wikipedia.espresso.util.ViewTools;
 
 import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
@@ -21,17 +21,17 @@ import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_1000;
 import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_2000;
 import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_3000;
 import static org.wikipedia.espresso.util.ViewTools.childAtPosition;
-import static org.wikipedia.espresso.util.ViewTools.pressBack;
 import static org.wikipedia.espresso.util.ViewTools.viewIsDisplayed;
 import static org.wikipedia.espresso.util.ViewTools.waitFor;
+import static org.wikipedia.espresso.util.ViewTools.whileWithMaxSteps;
 
 @RunWith(AndroidJUnit4.class)
 public final class PageActivityTest {
     public static void testArticleLoad(Activity activity) {
 
-        while (!viewIsDisplayed(R.id.search_results_list)) {
-            waitFor(WAIT_FOR_1000);
-        }
+        whileWithMaxSteps(
+                () -> !viewIsDisplayed(R.id.search_results_list),
+                () -> waitFor(WAIT_FOR_1000));
 
         DataInteraction view = onData(anything())
                 .inAdapterView(allOf(withId(R.id.search_results_list),
@@ -40,9 +40,11 @@ public final class PageActivityTest {
                                 1)))
                 .atPosition(0);
         view.perform(click());
-        while (!viewIsDisplayed(R.id.view_page_header_image)) {
-            waitFor(WAIT_FOR_2000);
-        }
+
+        whileWithMaxSteps(
+                () -> !viewIsDisplayed(R.id.view_page_header_image),
+                () -> waitFor(WAIT_FOR_2000));
+
         waitFor(WAIT_FOR_3000);
         ScreenshotTools.snap("Barack");
         onView(withId(R.id.view_page_header_image))
@@ -55,10 +57,9 @@ public final class PageActivityTest {
                 .perform(swipeDown());
         ScreenshotTools.snap("ArticleSwipeDownActionBarAndTabSeen");
 
-        while (!viewIsDisplayed(R.id.fragment_feed_feed)) {
-            // press back until back to the feed page
-            pressBack();
-        }
+        whileWithMaxSteps(
+                () -> !viewIsDisplayed(R.id.fragment_feed_feed),
+                ViewTools::pressBack);
     }
 
     private PageActivityTest() {

@@ -18,11 +18,12 @@ import org.wikipedia.espresso.onboarding.OnBoardingTest;
 import org.wikipedia.espresso.page.PageActivityTest;
 import org.wikipedia.espresso.search.SearchTest;
 import org.wikipedia.espresso.util.CompareTools;
+import org.wikipedia.espresso.util.ViewTools;
 import org.wikipedia.main.MainActivity;
 
 import static org.wikipedia.espresso.Constants.SCREENSHOT_COMPARE_PERCENT_TOLERANCE;
-import static org.wikipedia.espresso.util.ViewTools.pressBack;
 import static org.wikipedia.espresso.util.ViewTools.viewIsDisplayed;
+import static org.wikipedia.espresso.util.ViewTools.whileWithMaxSteps;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
@@ -45,19 +46,20 @@ public class InstrumentationTestSuite {
         // run OnBoarding on every tests
         OnBoardingTest.runOnBoarding();
 
-        while (!viewIsDisplayed(R.id.fragment_feed_feed)) {
-            // press back until back to the feed page
-            pressBack();
-        }
+        // press back until back to the feed page
+        whileWithMaxSteps(
+                () -> !viewIsDisplayed(R.id.fragment_feed_feed),
+                ViewTools::pressBack);
+
         ExploreFeedTest.testExploreFeed(getActivity());
         SearchTest.searchKeywordAndGo("Barack Obama");
 
         PageActivityTest.testArticleLoad(getActivity());
 
-        while (!viewIsDisplayed(R.id.fragment_feed_feed)) {
-            // press back until back to the feed page
-            pressBack();
-        }
+        // press back until back to the feed page
+        whileWithMaxSteps(
+                () -> !viewIsDisplayed(R.id.fragment_feed_feed),
+                ViewTools::pressBack);
 
         assertScreenshotWithinTolerance("FeaturedArticle");
         assertScreenshotWithinTolerance("FeaturedArticle_Landscape");

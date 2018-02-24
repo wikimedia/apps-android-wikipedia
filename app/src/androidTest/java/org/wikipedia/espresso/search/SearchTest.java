@@ -26,15 +26,16 @@ import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_2000;
 import static org.wikipedia.espresso.util.ViewTools.childAtPosition;
 import static org.wikipedia.espresso.util.ViewTools.viewIsDisplayed;
 import static org.wikipedia.espresso.util.ViewTools.waitFor;
+import static org.wikipedia.espresso.util.ViewTools.whileWithMaxSteps;
 
 @RunWith(AndroidJUnit4.class)
 public final class SearchTest {
 
     public static void searchKeywordAndGo(@NonNull String keyword) {
 
-        while (!viewIsDisplayed(R.id.search_container)) {
-            waitFor(WAIT_FOR_1000);
-        }
+        whileWithMaxSteps(
+                () -> !viewIsDisplayed(R.id.search_container),
+                () -> waitFor(WAIT_FOR_1000));
         waitFor(WAIT_FOR_2000);
 
         ViewInteraction linearLayout = onView(
@@ -90,9 +91,9 @@ public final class SearchTest {
         searchAutoComplete.perform(replaceText(keyword), closeSoftKeyboard());
 
         // hold until the result fetch
-        while (!viewIsDisplayed(R.id.search_results_list)) {
-            waitFor(WAIT_FOR_1000);
-        }
+        whileWithMaxSteps(
+                () -> !viewIsDisplayed(R.id.search_results_list),
+                () -> waitFor(WAIT_FOR_1000));
 
         //Also hold to populate
         waitFor(WAIT_FOR_2000);
@@ -101,7 +102,6 @@ public final class SearchTest {
         ScreenshotTools.snap("SearchSuggestionPage");
 
     }
-
 
     private SearchTest() { }
 }

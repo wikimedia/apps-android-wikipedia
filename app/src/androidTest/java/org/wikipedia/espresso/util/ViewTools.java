@@ -35,6 +35,28 @@ public final class ViewTools {
     public static final int WAIT_FOR_500 = 500;
 
 
+    public interface WhileCondition {
+        boolean condition();
+    }
+    public interface WhileBody {
+        void body();
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    public static void whileWithMaxSteps(WhileCondition condition, WhileBody body) {
+        whileWithMaxSteps(condition, body, 5);
+    }
+
+    public static void whileWithMaxSteps(WhileCondition condition, WhileBody body, int maxSteps) {
+        int steps = 0;
+        while (condition.condition() && ++steps < maxSteps) {
+            body.body();
+        }
+        if (steps >= maxSteps) {
+            throw new RuntimeException("Loop condition exceeded maximum steps.");
+        }
+    }
+
     public static boolean viewIsDisplayed(int viewId) {
         final boolean[] isDisplayed = {true};
 
