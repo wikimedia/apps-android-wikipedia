@@ -18,7 +18,7 @@ import org.wikipedia.espresso.search.SearchTest;
 import org.wikipedia.espresso.util.CompareTools;
 import org.wikipedia.main.MainActivity;
 
-import static org.wikipedia.espresso.Constants.WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER;
+import static org.wikipedia.espresso.Constants.SCREENSHOT_COMPARE_PERCENT_TOLERANCE;
 import static org.wikipedia.espresso.util.ViewTools.pressBack;
 import static org.wikipedia.espresso.util.ViewTools.viewIsDisplayed;
 
@@ -34,7 +34,7 @@ public class InstrumentationTestSuite {
     }
 
     @Test
-    public void instrumentationTests() {
+    public void instrumentationTests() throws Exception {
 
         // run OnBoarding on every tests
         OnBoardingTest.runOnBoarding();
@@ -53,24 +53,28 @@ public class InstrumentationTestSuite {
             pressBack();
         }
 
-        Assert.assertTrue("Matching percentage should be " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare("FeaturedArticle") == WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
-        Assert.assertTrue("Matching percentage should be " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare("FeaturedArticle_Landscape") == WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
-        Assert.assertTrue("Matching percentage should be " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare("FeaturedImage") == WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
-        Assert.assertTrue("Matching percentage should be " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare("FeaturedImage_Landscape") == WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
-        Assert.assertTrue("Matching percentage should be " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare("MainPage") == WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
-        Assert.assertTrue("Matching percentage should be " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare("MainPage_Landscape") == WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
-        Assert.assertTrue("Matching percentage should be " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare("News") == WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
-        Assert.assertTrue("Matching percentage should be " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare("News_Landscape") == WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
-        Assert.assertTrue("Matching percentage should be " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare("OnThisDay") == WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
-        Assert.assertTrue("Matching percentage should be " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare("OnThisDay_Landscape") == WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
-        Assert.assertTrue("Matching percentage should be " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare("Randomizer") == WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
-        Assert.assertTrue("Matching percentage should be " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare("Randomizer_Landscape") == WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
-        Assert.assertTrue("Matching percentage should be " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare("Trending") == WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
-        Assert.assertTrue("Matching percentage should be " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare("Trending_Landscape") == WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
-        Assert.assertTrue("Matching percentage should be " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare("SearchSuggestionPage") == WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
-        Assert.assertTrue("Matching percentage should be " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare("SearchPage") == WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
-        Assert.assertTrue("Matching percentage should be " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare("Barack") == WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
-        // Assert.assertTrue("Matching percentage should be higher than " + WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER, CompareTools.compare(getActivity(), "ArticleSwipeDownActionBarAndTabSeen") > WIKIPEDIA_APP_TEST_COMPARE_ALLOWANCE_NUMBER);
+        assertScreenshotWithinTolerance("FeaturedArticle");
+        assertScreenshotWithinTolerance("FeaturedArticle_Landscape");
+        assertScreenshotWithinTolerance("FeaturedImage");
+        assertScreenshotWithinTolerance("FeaturedImage_Landscape");
+        assertScreenshotWithinTolerance("MainPage");
+        assertScreenshotWithinTolerance("MainPage_Landscape");
+        assertScreenshotWithinTolerance("News");
+        assertScreenshotWithinTolerance("News_Landscape");
+        assertScreenshotWithinTolerance("OnThisDay");
+        assertScreenshotWithinTolerance("OnThisDay_Landscape");
+        assertScreenshotWithinTolerance("Randomizer");
+        assertScreenshotWithinTolerance("Randomizer_Landscape");
+        assertScreenshotWithinTolerance("Trending");
+        assertScreenshotWithinTolerance("Trending_Landscape");
+        assertScreenshotWithinTolerance("SearchSuggestionPage");
+        assertScreenshotWithinTolerance("SearchPage");
+        assertScreenshotWithinTolerance("Barack");
+    }
+
+    private void assertScreenshotWithinTolerance(String screenshotName) throws Exception {
+        Assert.assertTrue("Screenshot " + screenshotName + " difference above tolerance.",
+                CompareTools.compareScreenshotAgainstReference(screenshotName) > SCREENSHOT_COMPARE_PERCENT_TOLERANCE);
     }
 
     private Activity getActivity() {

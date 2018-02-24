@@ -62,6 +62,8 @@ public final class ExploreFeedTest {
         testCards("_Landscape");
         rotateScreen(activity, ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         waitFor(WAIT_FOR_2000);
+
+        onView(withId(R.id.fragment_feed_feed)).perform(RecyclerViewActions.scrollToPosition(0));
     }
 
 

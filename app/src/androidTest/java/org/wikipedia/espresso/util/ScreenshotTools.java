@@ -19,8 +19,8 @@ import java.io.OutputStream;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.matcher.ViewMatchers.isRoot;
-import static org.wikipedia.espresso.Constants.WIKIPEDIA_APP_TEST_FOLDER;
-import static org.wikipedia.espresso.Constants.WIKIPEDIA_APP_TEST_IMAGE_QUALITY;
+import static org.wikipedia.espresso.Constants.SCREENSHOT_COMPRESSION_QUALITY;
+import static org.wikipedia.espresso.Constants.TEST_OUTPUT_FOLDER;
 
 @RunWith(AndroidJUnit4.class)
 public final class ScreenshotTools {
@@ -36,19 +36,19 @@ public final class ScreenshotTools {
 
     public static void saveImageIntoDisk(String fileName, Bitmap bitmap) {
 
-        File folder = new File(Environment.getExternalStorageDirectory() + WIKIPEDIA_APP_TEST_FOLDER);
+        File folder = new File(Environment.getExternalStorageDirectory() + TEST_OUTPUT_FOLDER);
         if (!folder.exists()) {
             folder.mkdir();
         }
 
-        String path = Environment.getExternalStorageDirectory().getAbsolutePath() + WIKIPEDIA_APP_TEST_FOLDER + fileName + ".png";
+        String path = Environment.getExternalStorageDirectory().getAbsolutePath() + TEST_OUTPUT_FOLDER + fileName + ".png";
 
         OutputStream out = null;
         File imageFile = new File(path);
 
         try {
             out = new FileOutputStream(imageFile);
-            bitmap.compress(Bitmap.CompressFormat.PNG, WIKIPEDIA_APP_TEST_IMAGE_QUALITY, out);
+            bitmap.compress(Bitmap.CompressFormat.PNG, SCREENSHOT_COMPRESSION_QUALITY, out);
             out.flush();
         } catch (FileNotFoundException e) {
             L.d("File Error FileNotFoundException => " + e);
