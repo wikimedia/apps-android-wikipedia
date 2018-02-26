@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Environment;
 import android.support.test.runner.AndroidJUnit4;
 
+import org.junit.Assert;
 import org.junit.runner.RunWith;
 import org.wikipedia.util.MathUtil;
 import org.wikipedia.util.log.L;
@@ -14,11 +15,17 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
+import static org.wikipedia.espresso.Constants.SCREENSHOT_COMPARE_PERCENT_TOLERANCE;
 import static org.wikipedia.espresso.Constants.TEST_ASSET_FOLDER;
 import static org.wikipedia.espresso.Constants.TEST_OUTPUT_FOLDER;
 
 @RunWith(AndroidJUnit4.class)
 public final class CompareTools {
+
+    public static void assertScreenshotWithinTolerance(String screenshotName) throws Exception {
+        Assert.assertTrue("Screenshot " + screenshotName + " difference above tolerance.",
+                CompareTools.compareScreenshotAgainstReference(screenshotName) > SCREENSHOT_COMPARE_PERCENT_TOLERANCE);
+    }
 
     public static int compareScreenshotAgainstReference(String fileName) throws Exception {
         // source file comes from local folder of device

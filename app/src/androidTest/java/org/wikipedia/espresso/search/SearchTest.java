@@ -34,19 +34,12 @@ public final class SearchTest {
     public static void searchKeywordAndGo(@NonNull String keyword) {
 
         whileWithMaxSteps(
-                () -> !viewIsDisplayed(R.id.search_container),
+                () -> !viewIsDisplayed(R.id.page_toolbar_button_search),
                 () -> waitFor(WAIT_FOR_1000));
         waitFor(WAIT_FOR_2000);
 
-        ViewInteraction linearLayout = onView(
-                allOf(withId(R.id.search_container),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.fragment_feed_feed),
-                                        0),
-                                0),
-                        isDisplayed()));
-        linearLayout.perform(click());
+        ViewInteraction layout = onView(withId(R.id.page_toolbar_button_search));
+        layout.perform(click());
 
         ViewInteraction frameLayout = onView(
                 allOf(withId(R.id.search_lang_button_container), withContentDescription("Wikipedia language"),

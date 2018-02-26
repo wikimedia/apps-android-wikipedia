@@ -1,13 +1,18 @@
 package org.wikipedia.espresso.page;
 
-import android.app.Activity;
+import android.Manifest;
 import android.support.test.espresso.DataInteraction;
+import android.support.test.rule.ActivityTestRule;
+import android.support.test.rule.GrantPermissionRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import org.junit.Rule;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wikipedia.R;
+import org.wikipedia.espresso.search.SearchTest;
 import org.wikipedia.espresso.util.ScreenshotTools;
-import org.wikipedia.espresso.util.ViewTools;
+import org.wikipedia.page.PageActivity;
 
 import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
@@ -27,7 +32,18 @@ import static org.wikipedia.espresso.util.ViewTools.whileWithMaxSteps;
 
 @RunWith(AndroidJUnit4.class)
 public final class PageActivityTest {
-    public static void testArticleLoad(Activity activity) {
+
+    @Rule
+    public ActivityTestRule<PageActivity> mActivityTestRule = new ActivityTestRule<>(PageActivity.class);
+
+    @Rule
+    public GrantPermissionRule runtimePermissionRule = GrantPermissionRule.grant(
+            Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+    @Test
+    public void testArticleLoad() {
+
+        SearchTest.searchKeywordAndGo("Barack Obama");
 
         whileWithMaxSteps(
                 () -> !viewIsDisplayed(R.id.search_results_list),
@@ -57,12 +73,5 @@ public final class PageActivityTest {
                 .perform(swipeDown());
         ScreenshotTools.snap("ArticleSwipeDownActionBarAndTabSeen");
 
-        whileWithMaxSteps(
-                () -> !viewIsDisplayed(R.id.fragment_feed_feed),
-                ViewTools::pressBack);
     }
-
-    private PageActivityTest() {
-    }
-
 }
