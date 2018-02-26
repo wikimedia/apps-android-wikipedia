@@ -44,13 +44,13 @@ public class PrefixSearchClient {
             @Override
             public void onResponse(@NonNull Call<PrefixSearchResponse> call,
                                    @NonNull Response<PrefixSearchResponse> response) {
-                if (response.body().success() && response.body().query().pages() != null) {
+                if (response.body() != null && response.body().success() && response.body().query().pages() != null) {
                     // noinspection ConstantConditions
                     List<MwQueryPage> pages = response.body().query().pages();
                     // noinspection ConstantConditions
                     cb.success(call, new SearchResults(pages, wiki, response.body().continuation(),
                             response.body().suggestion()));
-                } else if (response.body().hasError()) {
+                } else if (response.body() != null && response.body().hasError()) {
                     // noinspection ConstantConditions
                     cb.failure(call, new MwException(response.body().getError()));
                 } else {
