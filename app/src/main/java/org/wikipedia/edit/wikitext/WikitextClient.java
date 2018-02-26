@@ -34,10 +34,10 @@ public class WikitextClient {
             @Override
             public void onResponse(Call<MwQueryResponse> call, Response<MwQueryResponse> response) {
                 // noinspection ConstantConditions
-                if (response.body().success() && response.body().query().wikitext() != null) {
+                if (response.body() != null && response.body().success() && response.body().query().wikitext() != null) {
                     // noinspection ConstantConditions
                     cb.success(call, response.body().query().pages().get(0).title(), response.body().query().wikitext());
-                } else if (response.body().hasError()) {
+                } else if (response.body() != null && response.body().hasError()) {
                     // noinspection ConstantConditions
                     cb.failure(call, new MwException(response.body().getError()));
                 } else {
