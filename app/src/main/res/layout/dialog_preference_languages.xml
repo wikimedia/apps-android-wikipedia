@@ -4,7 +4,13 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-
+    <ProgressBar
+        android:id="@+id/preference_languages_progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-7dp"
+        android:indeterminate="true"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal" />
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,6 +27,7 @@
                 android:maxLines="1"
                 android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
+
     <ListView android:id="@+id/preference_languages_list"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
