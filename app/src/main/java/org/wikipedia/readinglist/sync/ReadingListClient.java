@@ -198,16 +198,24 @@ public class ReadingListClient {
                 break;
             }
 
-            Response<SyncedReadingLists.RemoteIdResponseBatch> response
-                    = cachedService.service(wiki).addEntriesToList(listId, csrfToken, new RemoteReadingListEntryBatch(currentBatch)).execute();
-            SyncedReadingLists.RemoteIdResponseBatch idResponse = response.body();
-            if (idResponse == null) {
-                throw new IOException("Incorrect response format.");
-            }
-            saveLastDateHeader(response);
+            try {
+                Response<SyncedReadingLists.RemoteIdResponseBatch> response
+                        = cachedService.service(wiki).addEntriesToList(listId, csrfToken, new RemoteReadingListEntryBatch(currentBatch)).execute();
+                SyncedReadingLists.RemoteIdResponseBatch idResponse = response.body();
+                if (idResponse == null) {
+                    throw new IOException("Incorrect response format.");
+                }
+                saveLastDateHeader(response);
 
-            for (SyncedReadingLists.RemoteIdResponse id : idResponse.batch()) {
-                ids.add(id.id());
+                for (SyncedReadingLists.RemoteIdResponse id : idResponse.batch()) {
+                    ids.add(id.id());
+                }
+            } catch (Throwable t) {
+                if (isErrorType(t, "entry-limit")) {
+                    // TODO: handle more meaningfully than ignoring, for now.
+                    break;
+                }
+                throw t;
             }
         }
         return ids;
