@@ -44,6 +44,7 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
     private static final String SYNC_EXTRAS_FORCE_FULL_SYNC = "forceFullSync";
     private static final String SYNC_EXTRAS_REFRESHING = "refreshing";
     private static final String SYNC_EXTRAS_RETRYING = "retrying";
+    private static boolean IN_PROGRESS;
 
     public ReadingListSyncAdapter(Context context, boolean autoInitialize) {
         super(context, autoInitialize);
@@ -51,6 +52,10 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
 
     public ReadingListSyncAdapter(Context context, boolean autoInitialize, boolean allowParallelSyncs) {
         super(context, autoInitialize, allowParallelSyncs);
+    }
+
+    public static boolean inProgress() {
+        return IN_PROGRESS;
     }
 
     public static void setSyncEnabledWithSetup() {
@@ -150,6 +155,7 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
         boolean shouldRetryWithForce = false;
 
         try {
+            IN_PROGRESS = true;
             boolean syncEverything = false;
 
             if (extras.containsKey(SYNC_EXTRAS_FORCE_FULL_SYNC)
@@ -501,6 +507,8 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
                 }
                 manualSync(b);
             }
+            IN_PROGRESS = false;
+            SavedPageSyncService.enqueue();
             L.d("Finished sync of reading lists.");
         }
     }
