@@ -33,6 +33,7 @@ import static org.hamcrest.core.AllOf.allOf;
 public final class ViewTools {
 
     public static final int WAIT_FOR_6000 = 6000;
+    public static final int WAIT_FOR_5000 = 5000;
     public static final int WAIT_FOR_2000 = 2000;
     public static final int WAIT_FOR_3000 = 3000;
     public static final int WAIT_FOR_1000 = 1000;
@@ -42,6 +43,7 @@ public final class ViewTools {
     public interface WhileCondition {
         boolean condition();
     }
+
     public interface WhileBody {
         void body();
     }
