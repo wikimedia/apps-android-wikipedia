@@ -418,28 +418,42 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
             }
 
             for (ReadingList localList : allLocalLists) {
+                List<ReadingListPage> localPages = new ArrayList<>();
+                List<RemoteReadingListEntry> newEntries = new ArrayList<>();
                 for (ReadingListPage localPage : localList.pages()) {
                     if (localPage.remoteId() < 1) {
-                        L.d("Creating new remote page " + localPage.title());
-                        RemoteReadingListEntry entryForRemote = remoteEntryFromLocalPage(localPage);
-                        try {
-                            // TODO: optimization opportunity once server starts supporting batch adds.
-                            localPage.remoteId(client.addPageToList(getCsrfToken(wiki, csrfToken), localList.remoteId(), entryForRemote));
-                        } catch (Throwable t) {
-                            // TODO: optimization opportunity -- if the server can return the ID
-                            // of the existing page, then we wouldn't need to do a hard sync.
-
-                            // If the page already exists in the remote list, this means that
-                            // the contents of this list have diverged from the remote list,
-                            // so let's force a full sync.
-                            if (client.isErrorType(t, "duplicate-page")) {
-                                shouldRetryWithForce = true;
-                                break;
-                            } else {
-                                throw t;
-                            }
+                        localPages.add(localPage);
+                        newEntries.add(remoteEntryFromLocalPage(localPage));
+                    }
+                }
+                if (newEntries.isEmpty()) {
+                    continue;
+                }
+                try {
+                    if (localPages.size() == 1) {
+                        L.d("Creating new remote page " + localPages.get(0).title());
+                        localPages.get(0).remoteId(client.addPageToList(getCsrfToken(wiki, csrfToken), localList.remoteId(), newEntries.get(0)));
+                        ReadingListDbHelper.instance().updatePage(localPages.get(0));
+                    } else {
+                        L.d("Creating " + newEntries.size() + " new remote pages");
+                        List<Long> ids = client.addPagesToList(getCsrfToken(wiki, csrfToken), localList.remoteId(), newEntries);
+                        for (int i = 0; i < ids.size(); i++) {
+                            localPages.get(i).remoteId(ids.get(i));
                         }
-                        ReadingListDbHelper.instance().updatePage(localPage);
+                        ReadingListDbHelper.instance().updatePages(localPages);
+                    }
+                } catch (Throwable t) {
+                    // TODO: optimization opportunity -- if the server can return the ID
+                    // of the existing page, then we wouldn't need to do a hard sync.
+
+                    // If the page already exists in the remote list, this means that
+                    // the contents of this list have diverged from the remote list,
+                    // so let's force a full sync.
+                    if (client.isErrorType(t, "duplicate-page")) {
+                        shouldRetryWithForce = true;
+                        break;
+                    } else {
+                        throw t;
                     }
                 }
             }

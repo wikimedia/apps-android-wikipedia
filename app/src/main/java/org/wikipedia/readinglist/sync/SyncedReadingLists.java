@@ -124,11 +124,29 @@ public class SyncedReadingLists {
         }
     }
 
+    public static class RemoteReadingListEntryBatch {
+        @SuppressWarnings("unused") private RemoteReadingListEntry[] batch;
+
+        public RemoteReadingListEntryBatch() { }
+
+        public RemoteReadingListEntryBatch(@NonNull List<RemoteReadingListEntry> entries) {
+            this.batch = entries.toArray(new RemoteReadingListEntry[]{});
+        }
+    }
+
     public class RemoteIdResponse {
         @SuppressWarnings("unused") @Required private long id;
 
         public long id() {
             return id;
+        }
+    }
+
+    public class RemoteIdResponseBatch {
+        @SuppressWarnings("unused") @Required private RemoteIdResponse[] batch;
+
+        public RemoteIdResponse[] batch() {
+            return batch;
         }
     }
 }
