@@ -4,7 +4,6 @@
 import copy
 import os
 import json
-import unicodecsv as csv
 import codecs
 from urllib2 import urlopen
 from jinja2 import Environment, FileSystemLoader
@@ -25,7 +24,9 @@ NORWEGIAN_BOKMAL_LANG = "nb"
 #   contains characters outside the Unicode BMP. Android
 #   hard crashes on these. Let's ignore these fellas
 #   for now.
-OSTRICH_WIKIS = [u"got"]
+# - "mo" -> Moldovan, which automatically redirects to Romanian (ro),
+#   which already exists in our list.
+OSTRICH_WIKIS = [u"got", "mo"]
 
 
 # Represents a single wiki, along with arbitrary properties of that wiki
@@ -57,29 +58,24 @@ class WikiList(object):
         out.close()
 
 
-def build_wiki(lang, english_name, local_name, total_pages=0):
+def build_wiki(lang, english_name, local_name):
     wiki = Wiki(lang)
     wiki.props["english_name"] = english_name
     wiki.props["local_name"] = local_name
-    wiki.props["total_pages"] = total_pages
     return wiki
 
 
-def list_from_wikistats():
-    URL = u"https://wikistats.wmflabs.org/api.php?action=dump&table=wikipedias&format=csv&s=good"
+def list_from_sitematrix():
+    QUERY_API_URL = 'https://www.mediawiki.org/w/api.php?action=sitematrix' \
+        '&format=json&smtype=language&smlangprop=code%7Cname%7Clocalname'
 
     print(u"Fetching languages")
-    data = csv.reader(urlopen(URL))
+    data = json.load(urlopen(QUERY_API_URL))
     wikis = []
 
-    is_first = True
-    for row in data:
-        if is_first:
-            is_first = False
-            continue  # skip headers
-        wiki = build_wiki(lang=row[2], english_name=row[1], local_name=row[10],
-                          total_pages=row[3])
-        wikis.append(wiki)
+    for key, value in data[u"sitematrix"].items():
+        if type(value) is dict:
+            wikis.append(build_wiki(value[u"code"], value[u"localname"], value[u"name"]))
 
     return wikis
 
@@ -92,8 +88,7 @@ def filter_supported_wikis(wikis):
 # Apply manual tweaks to the list of wikis before they're populated.
 def preprocess_wikis(wikis):
     # Add TestWiki.
-    wikis.append(build_wiki(lang="test", english_name="Test", local_name="Test",
-                 total_pages=0))
+    wikis.append(build_wiki(lang="test", english_name="Test", local_name="Test"))
 
     return wikis
 
@@ -165,7 +160,7 @@ def chain(*funcs):
 
 
 chain(
-    list_from_wikistats,
+    list_from_sitematrix,
     filter_supported_wikis,
     preprocess_wikis,
     WikiList,
