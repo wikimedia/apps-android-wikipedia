@@ -4,7 +4,7 @@
 import lxml
 import lxml.builder as lb
 import json
-from urllib2 import urlopen
+import requests
 
 
 QUERY_API_URL = 'https://www.mediawiki.org/w/api.php?action=sitematrix' \
@@ -21,7 +21,7 @@ def add_lang(key, local_name, eng_name):
     lang_eng_names.append(eng_name)
 
 
-data = json.load(urlopen(QUERY_API_URL))
+data = json.loads(requests.get(QUERY_API_URL).text)
 
 for key, value in data[u"sitematrix"].items():
     if type(value) is not dict:

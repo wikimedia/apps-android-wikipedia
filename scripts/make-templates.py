@@ -5,7 +5,7 @@ import copy
 import os
 import json
 import codecs
-from urllib2 import urlopen
+import requests
 from jinja2 import Environment, FileSystemLoader
 
 
@@ -70,7 +70,7 @@ def list_from_sitematrix():
         '&format=json&smtype=language&smlangprop=code%7Cname%7Clocalname'
 
     print(u"Fetching languages")
-    data = json.load(urlopen(QUERY_API_URL))
+    data = json.loads(requests.get(QUERY_API_URL).text)
     wikis = []
 
     for key, value in data[u"sitematrix"].items():
@@ -123,7 +123,7 @@ def populate_aliases(wikis):
         print(u"Fetching Special Page and File alias for %s" % wiki.lang)
         url = u"https://%s.wikipedia.org/w/api.php" % wiki.lang + \
               u"?action=query&meta=siteinfo&format=json&siprop=namespaces"
-        data = json.load(urlopen(url))
+        data = json.loads(requests.get(url).text)
         # according to https://www.mediawiki.org/wiki/Manual:Namespace
         # -1 seems to be the ID for Special Pages
         wiki.props[u"special_alias"] = data[u"query"][u"namespaces"][u"-1"][u"*"]
@@ -138,7 +138,7 @@ def populate_main_pages(wikis):
         print(u"Fetching Main Page for %s" % wiki.lang)
         url = u"https://%s.wikipedia.org/w/api.php" % wiki.lang + \
               u"?action=query&meta=siteinfo&format=json&siprop=general"
-        data = json.load(urlopen(url))
+        data = json.loads(requests.get(url).text)
         wiki.props[u"main_page_name"] = data[u"query"][u"general"][u"mainpage"]
     return wikis
 
