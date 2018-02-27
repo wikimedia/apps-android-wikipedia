@@ -67,6 +67,10 @@
         <item name="actionModeStyle">@style/ActionModeGreen</item>
     </style>
 
+    <style name="AlertDialogButtonStyle">
+        <item name="android:textAlignment">textEnd</item>
+    </style>
+
     <style name="ActionModeGreen" parent="Widget.AppCompat.ActionMode">
         <item name="background">@color/green50</item>
     </style>
