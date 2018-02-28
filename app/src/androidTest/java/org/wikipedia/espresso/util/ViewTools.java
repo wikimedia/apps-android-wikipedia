@@ -1,6 +1,7 @@
 package org.wikipedia.espresso.util;
 
 import android.app.Activity;
+import android.support.test.annotation.UiThreadTest;
 import android.support.test.espresso.UiController;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.action.ViewActions;
@@ -65,6 +66,13 @@ public final class ViewTools {
                 .check(matches(isDisplayed()));
 
         return isDisplayed[0];
+    }
+
+    @UiThreadTest
+    public static void hidePhoneNavBarInScreenshots(Activity activity) {
+        View decorView = activity.getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+        decorView.setSystemUiVisibility(uiOptions);
     }
 
     public static Matcher<View> childAtPosition(

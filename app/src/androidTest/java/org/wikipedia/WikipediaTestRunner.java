@@ -1,5 +1,7 @@
 package org.wikipedia;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnitRunner;
 
@@ -12,6 +14,7 @@ public class WikipediaTestRunner extends AndroidJUnitRunner {
     @Override
     public void onStart() {
         TestStubInterceptor.setCallback(new MockInstrumentationInterceptor(InstrumentationRegistry.getContext()));
+        clearAppInfo();
         disableOnboarding();
 
         super.onStart();
@@ -26,4 +29,12 @@ public class WikipediaTestRunner extends AndroidJUnitRunner {
         PrefsIoUtil.setBoolean(R.string.preference_key_feed_customize_onboarding_card_enabled, false);
         PrefsIoUtil.setBoolean(R.string.preference_key_offline_onboarding_card_enabled, false);
     }
+
+    private void clearAppInfo() {
+        SharedPreferences prefs =
+                PreferenceManager.getDefaultSharedPreferences(WikipediaApp.getInstance());
+        prefs.edit().clear().commit();
+        WikipediaApp.getInstance().deleteDatabase("wikipedia.db");
+    }
 }
+
