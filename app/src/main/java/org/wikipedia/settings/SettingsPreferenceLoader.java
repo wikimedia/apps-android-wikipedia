@@ -17,6 +17,7 @@ import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.theme.ThemeFittingRoomActivity;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.StringUtil;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
@@ -33,7 +34,7 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
         loadPreferences(R.xml.preferences);
 
         if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
-            findPreference(R.string.preference_category_storage_sync).setVisible(false);
+            findPreference(R.string.preference_category_sync).setVisible(false);
             findPreference(R.string.preference_key_sync_reading_lists).setVisible(false);
         }
 
@@ -55,9 +56,12 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
             return true;
         });
 
-        Preference offlineLibPref = findPreference(R.string.preference_key_enable_offline_library);
-        offlineLibPref.setOnPreferenceChangeListener(new OfflineLibraryEnableListener());
-        offlineLibPref.setSummary(StringUtil.fromHtml(getPreferenceHost().getString(R.string.preference_summary_enable_offline_library)));
+        if (ReleaseUtil.isPreBetaRelease()) {
+            loadPreferences(R.xml.preferences_experimental);
+            Preference offlineLibPref = findPreference(R.string.preference_key_enable_offline_library);
+            offlineLibPref.setOnPreferenceChangeListener(new OfflineLibraryEnableListener());
+            offlineLibPref.setSummary(StringUtil.fromHtml(getPreferenceHost().getString(R.string.preference_summary_enable_offline_library)));
+        }
 
         loadPreferences(R.xml.preferences_about);
 
@@ -157,7 +161,7 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
         if (AccountUtil.isLoggedIn()) {
             syncReadingListsPref.setSummary(getActivity().getString(R.string.preference_summary_sync_reading_lists_from_account, AccountUtil.getUserName()));
         } else {
-            syncReadingListsPref.setSummary(getActivity().getString(R.string.preference_summary_sync_reading_lists_from_account, ""));
+            syncReadingListsPref.setSummary(R.string.preference_summary_sync_reading_lists);
         }
     }
 
