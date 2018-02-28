@@ -41,6 +41,13 @@ public abstract class SearchActionModeCallback implements ActionMode.Callback {
                 return true;
             }
         });
+
+        searchView.setOnQueryTextFocusChangeListener((view, isFocus) -> {
+            if (!isFocus) {
+                mode.finish();
+            }
+        });
+
         return true;
     }
 
