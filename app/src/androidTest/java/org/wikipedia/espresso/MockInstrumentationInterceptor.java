@@ -25,10 +25,10 @@ public class MockInstrumentationInterceptor implements TestStubInterceptor.Callb
 
     private static Map<String, String> RESPONSE_MAP = new HashMap<>();
     static {
-        RESPONSE_MAP.put("feed/featured", "espresso/aggregate_feed_response.json");
-        RESPONSE_MAP.put("feed/announcements", "espresso/dynamic_announcement_response.json");
-        RESPONSE_MAP.put("mobile-sections-lead/Barack_Obama", "espresso/lead_section_response_obama.json");
-        RESPONSE_MAP.put("https://upload.wikimedia.org/wikipedia/commons", "espresso/empty_image_response.json");
+        RESPONSE_MAP.put("feed/featured", "espresso/json/aggregate_feed_response.json");
+        RESPONSE_MAP.put("feed/announcements", "espresso/json/dynamic_announcement_response.json");
+        RESPONSE_MAP.put("mobile-sections-lead/Barack_Obama", "espresso/json/lead_section_response_obama.json");
+        RESPONSE_MAP.put("https://upload.wikimedia.org/wikipedia/commons", "espresso/json/empty_image_response.json");
     }
 
     public MockInstrumentationInterceptor(@NonNull Context context) {

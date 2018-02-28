@@ -86,7 +86,8 @@ public final class CompareTools {
             }
         }
 
-        ScreenshotTools.saveImageIntoDisk(comparisonDifferenceFileName, compareResult);
+        // TODO: Open it if we decide to use the files in a report. (e.g.: HTML report)
+        // ScreenshotTools.saveImageIntoDisk(comparisonDifferenceFileName, compareResult);
         return MathUtil.percentage(diffPixels, totalPixels);
     }
 
