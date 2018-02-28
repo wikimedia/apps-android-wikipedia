@@ -8,11 +8,6 @@
                 android:title="@string/preference_title_language">
         </org.wikipedia.settings.PreferenceMultiLine>
         <SwitchPreferenceCompat
-            android:key="@string/preference_key_show_images"
-            android:defaultValue="true"
-            android:title="@string/preference_title_show_images"
-            android:summary="@string/preference_summary_show_images" />
-        <SwitchPreferenceCompat
             android:key="@string/preference_key_show_link_previews"
             android:defaultValue="true"
             android:title="@string/preference_title_show_link_previews"
@@ -24,22 +19,25 @@
             android:summary="@string/preference_summary_color_theme"/>
     </PreferenceCategory>
     <PreferenceCategory
-        android:key="@string/preference_category_storage_sync"
-        android:title="@string/preferences_heading_storage_and_syncing">
+        android:key="@string/preference_category_sync"
+        android:title="@string/preferences_heading_syncing">
         <SwitchPreferenceCompat
             android:key="@string/preference_key_sync_reading_lists"
             android:defaultValue="false"
             android:title="@string/preference_title_sync_reading_lists_from_account"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/preferences_heading_data_usage">
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_show_images"
+            android:defaultValue="true"
+            android:title="@string/preference_title_show_images"
+            android:summary="@string/preference_summary_show_images" />
         <SwitchPreferenceCompat
             android:key="@string/preference_key_prefer_offline_content"
             android:defaultValue="false"
             android:title="@string/preference_title_prefer_offline_content"
             android:summary="@string/preference_summary_prefer_offline_content" />
-        <org.wikipedia.settings.SwitchPreferenceWithLinks
-            android:key="@string/preference_key_enable_offline_library"
-            android:defaultValue="false"
-            android:title="@string/preference_title_enable_offline_library"
-            android:summary="@string/preference_summary_enable_offline_library" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/preferences_privacy_settings_heading">
         <SwitchPreferenceCompat
