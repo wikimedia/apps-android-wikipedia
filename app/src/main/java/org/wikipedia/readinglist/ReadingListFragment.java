@@ -56,6 +56,7 @@ import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.SwipeableItemTouchHelperCallback;
 import org.wikipedia.views.TextInputDialog;
+import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -798,6 +799,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             actionMode = mode;
             recyclerView.stopScroll();
             appBarLayout.setExpanded(false, false);
+            ViewUtil.finishActionModeWhenTappingOnView(getView(), actionMode);
             return super.onCreateActionMode(mode, menu);
         }
 

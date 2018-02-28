@@ -47,6 +47,7 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.TextInputDialog;
+import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -461,6 +462,10 @@ public class ReadingListsFragment extends Fragment {
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             actionMode = mode;
+
+            ViewUtil.finishActionModeWhenTappingOnView(getView(), actionMode);
+            ViewUtil.finishActionModeWhenTappingOnView(emptyContainer, actionMode);
+
             return super.onCreateActionMode(mode, menu);
         }
 
