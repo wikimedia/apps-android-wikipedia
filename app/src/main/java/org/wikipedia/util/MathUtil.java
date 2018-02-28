@@ -1,7 +1,5 @@
 package org.wikipedia.util;
 
-import android.support.annotation.NonNull;
-
 public final class MathUtil {
 
     private static final int PERCENTAGE_BASE = 100;
@@ -29,8 +27,8 @@ public final class MathUtil {
         }
     }
 
-    public static int percentage(@NonNull float numerator, @NonNull float denominator) {
-        return (int) (numerator / denominator * PERCENTAGE_BASE);
+    public static float percentage(float numerator, float denominator) {
+        return numerator / denominator * PERCENTAGE_BASE;
     }
 
     private MathUtil() {

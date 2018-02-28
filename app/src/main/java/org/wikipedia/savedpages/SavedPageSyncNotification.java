@@ -116,7 +116,7 @@ public final class SavedPageSyncNotification extends BroadcastReceiver {
 
         notificationIcon = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? R.drawable.ic_file_download_white_24dp : R.mipmap.launcher;
         notificationTitle = String.format(context.getString(R.string.notification_syncing_title), total);
-        notificationInfo = MathUtil.percentage(progress, total) + "%";
+        notificationInfo = (int)MathUtil.percentage(progress, total) + "%";
         notificationDescription = String.format(context.getString(R.string.notification_syncing_description), total - progress);
 
         builder.setSmallIcon(notificationIcon)
