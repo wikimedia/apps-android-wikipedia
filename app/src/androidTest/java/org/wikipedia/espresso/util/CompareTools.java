@@ -24,7 +24,7 @@ public final class CompareTools {
 
     public static void assertScreenshotWithinTolerance(String screenshotName) throws Exception {
         Assert.assertTrue("Screenshot " + screenshotName + " difference above tolerance.",
-                CompareTools.compareScreenshotAgainstReference(screenshotName) > SCREENSHOT_COMPARE_PERCENT_TOLERANCE);
+                CompareTools.compareScreenshotAgainstReference(screenshotName) <= SCREENSHOT_COMPARE_PERCENT_TOLERANCE);
     }
 
     public static int compareScreenshotAgainstReference(String fileName) throws Exception {
@@ -87,7 +87,9 @@ public final class CompareTools {
         }
 
         // TODO: Open it if we decide to use the files in a report. (e.g.: HTML report)
-        // ScreenshotTools.saveImageIntoDisk(comparisonDifferenceFileName, compareResult);
+        if (diffPixels > 0) {
+            ScreenshotTools.saveImageIntoDisk(comparisonDifferenceFileName, compareResult);
+        }
         return MathUtil.percentage(diffPixels, totalPixels);
     }
 

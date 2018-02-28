@@ -87,41 +87,37 @@ public class ExploreFeedTest {
     private static void testCards(String postFix) {
         waitUntilFeedDisplayed();
 
-        onView(withId(R.id.fragment_feed_feed)).perform(RecyclerViewActions.scrollToPosition(11));
+        onView(withId(R.id.fragment_feed_feed)).perform(RecyclerViewActions.scrollToPosition(10));
+        waitFor(1000);
 
         onView(withId(R.id.fragment_feed_feed)).perform(RecyclerViewActions.scrollToPosition(7));
-        waitFor(500);
         setDate();
-        waitFor(2000);
+        waitFor(1000);
         ScreenshotTools.snap("FeaturedImage" + postFix);
 
         onView(withId(R.id.fragment_feed_feed)).perform(RecyclerViewActions.scrollToPosition(6));
-        waitFor(500);
         setDate();
-        waitFor(2000);
+        waitFor(1000);
         ScreenshotTools.snap("FeaturedArticle" + postFix);
 
         onView(withId(R.id.fragment_feed_feed)).perform(RecyclerViewActions.scrollToPosition(5));
-        //Wait for page load
-        waitFor(500);
         setDate();
-        waitFor(2000);
+        waitFor(1000);
         ScreenshotTools.snap("Randomizer" + postFix);
 
         onView(withId(R.id.fragment_feed_feed)).perform(RecyclerViewActions.scrollToPosition(4));
-        waitFor(500);
         setDate();
-        waitFor(2000);
+        waitFor(1000);
         ScreenshotTools.snap("MainPage" + postFix);
 
         onView(withId(R.id.fragment_feed_feed)).perform(RecyclerViewActions.scrollToPosition(3));
-        waitFor(500);
+        setDate();
+        waitFor(1000);
         ScreenshotTools.snap("Trending" + postFix);
 
         onView(withId(R.id.fragment_feed_feed)).perform(RecyclerViewActions.scrollToPosition(2));
-        waitFor(500);
         setDate();
-        waitFor(2000);
+        waitFor(1000);
         ScreenshotTools.snap("OnThisDay" + postFix);
 
         onView(withId(R.id.fragment_feed_feed)).perform(RecyclerViewActions.scrollToPosition(1));
