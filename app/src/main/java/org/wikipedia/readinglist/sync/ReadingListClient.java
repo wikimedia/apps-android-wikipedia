@@ -26,6 +26,7 @@ import retrofit2.http.Query;
 
 import static org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingList;
 import static org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntry;
+import static org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntryBatch;
 
 public class ReadingListClient {
     @NonNull private final WikiCachedService<Service> cachedService = new RbCachedService<>(Service.class);
@@ -183,6 +184,35 @@ public class ReadingListClient {
         return idResponse.id();
     }
 
+    public List<Long> addPagesToList(@NonNull String csrfToken, long listId, @NonNull List<RemoteReadingListEntry> entries) throws Throwable {
+        final int maxBatchSize = 50;
+        int batchIndex = 0;
+        List<Long> ids = new ArrayList<>();
+        List<RemoteReadingListEntry> currentBatch = new ArrayList<>();
+        while (true) {
+            currentBatch.clear();
+            while (batchIndex < entries.size() && currentBatch.size() < maxBatchSize) {
+                currentBatch.add(entries.get(batchIndex++));
+            }
+            if (currentBatch.isEmpty()) {
+                break;
+            }
+
+            Response<SyncedReadingLists.RemoteIdResponseBatch> response
+                    = cachedService.service(wiki).addEntriesToList(listId, csrfToken, new RemoteReadingListEntryBatch(currentBatch)).execute();
+            SyncedReadingLists.RemoteIdResponseBatch idResponse = response.body();
+            if (idResponse == null) {
+                throw new IOException("Incorrect response format.");
+            }
+            saveLastDateHeader(response);
+
+            for (SyncedReadingLists.RemoteIdResponse id : idResponse.batch()) {
+                ids.add(id.id());
+            }
+        }
+        return ids;
+    }
+
     public void deletePageFromList(@NonNull String csrfToken, long listId, long entryId) throws Throwable {
         Response response = cachedService.service(wiki).deleteEntryFromList(listId, entryId, csrfToken).execute();
         saveLastDateHeader(response);
@@ -268,6 +298,13 @@ public class ReadingListClient {
         Call<SyncedReadingLists.RemoteIdResponse> addEntryToList(@Path("id") long listId,
                                                                  @Query("csrf_token") String token,
                                                                  @Body RemoteReadingListEntry entry);
+
+        @POST("data/lists/{id}/entries/batch")
+        @Headers("Cache-Control: no-cache")
+        @NonNull
+        Call<SyncedReadingLists.RemoteIdResponseBatch> addEntriesToList(@Path("id") long listId,
+                                                                        @Query("csrf_token") String token,
+                                                                        @Body RemoteReadingListEntryBatch batch);
 
         @DELETE("data/lists/{id}/entries/{entry_id}")
         @Headers("Cache-Control: no-cache")

@@ -294,6 +294,19 @@ public class ReadingListDbHelper {
         }
     }
 
+    public void updatePages(@NonNull List<ReadingListPage> pages) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+        try {
+            for (ReadingListPage page : pages) {
+                updatePageInDb(db, page);
+            }
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+    }
+
     public void updatePage(@NonNull ReadingListPage page) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
