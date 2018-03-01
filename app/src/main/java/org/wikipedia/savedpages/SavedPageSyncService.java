@@ -22,6 +22,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
+import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
@@ -63,11 +64,19 @@ public class SavedPageSyncService extends JobIntentService {
     }
 
     public static void enqueue() {
+        if (ReadingListSyncAdapter.inProgress()) {
+            return;
+        }
         WikipediaApp.getInstance().getMainThreadHandler().removeCallbacks(ENQUEUE_RUNNABLE);
         WikipediaApp.getInstance().getMainThreadHandler().postDelayed(ENQUEUE_RUNNABLE, ENQUEUE_DELAY_MILLIS);
     }
 
     @Override protected void onHandleWork(@NonNull Intent intent) {
+        if (ReadingListSyncAdapter.inProgress()) {
+            // Reading list sync was started in the meantime, so bail.
+            return;
+        }
+
         List<ReadingListPage> pagesToSave = ReadingListDbHelper.instance().getAllPagesToBeSaved();
         List<ReadingListPage> pagesToUnsave = ReadingListDbHelper.instance().getAllPagesToBeUnsaved();
         List<ReadingListPage> pagesToDelete = ReadingListDbHelper.instance().getAllPagesToBeDeleted();
@@ -186,6 +195,11 @@ public class SavedPageSyncService extends JobIntentService {
                     // to make sure we've fixed any other errors with saving pages.
                     L.logRemoteError(e);
                 }
+            }
+
+            if (ReadingListSyncAdapter.inProgress()) {
+                // Reading list sync was started in the meantime, so bail.
+                break;
             }
 
             if (success) {
