@@ -32,13 +32,17 @@ public final class ScreenshotTools {
     }
 
     public static void saveImageIntoDisk(String fileName, Bitmap bitmap) {
+        saveImageIntoDisk(TEST_OUTPUT_FOLDER, fileName, bitmap);
+    }
 
-        File folder = new File(Environment.getExternalStorageDirectory() + TEST_OUTPUT_FOLDER);
+    public static void saveImageIntoDisk(String folderName, String fileName, Bitmap bitmap) {
+
+        File folder = new File(Environment.getExternalStorageDirectory() + folderName);
         if (!folder.exists()) {
             folder.mkdir();
         }
 
-        String path = Environment.getExternalStorageDirectory().getAbsolutePath() + TEST_OUTPUT_FOLDER + fileName + ".png";
+        String path = Environment.getExternalStorageDirectory().getAbsolutePath() + folderName + fileName + ".png";
 
         OutputStream out = null;
         File imageFile = new File(path);

@@ -14,14 +14,16 @@ import java.nio.ByteBuffer;
 
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static org.wikipedia.espresso.Constants.SCREENSHOT_COMPARE_PERCENT_TOLERANCE;
-import static org.wikipedia.espresso.Constants.TEST_ASSET_FOLDER;
+import static org.wikipedia.espresso.Constants.TEST_COMPARISON_OUTPUT_FOLDER;
 import static org.wikipedia.espresso.Constants.TEST_OUTPUT_FOLDER;
+import static org.wikipedia.espresso.Constants.TEST_SCREENSHOTS_ASSET_FOLDER;
 
 @SuppressWarnings("checkstyle:magicnumber")
 public final class CompareTools {
 
     public static void assertScreenshotWithinTolerance(String screenshotName) throws Exception {
-        Assert.assertTrue("Screenshot \"" + screenshotName + "\" difference above tolerance. Please run tests locally and check COMPARISON output image.",
+        Assert.assertTrue("Screenshot \"" + screenshotName + "\" difference above tolerance. Please run tests locally and check output image in the "
+                        + TEST_COMPARISON_OUTPUT_FOLDER + " folder.",
                 CompareTools.compareScreenshotAgainstReference(screenshotName) <= SCREENSHOT_COMPARE_PERCENT_TOLERANCE);
     }
 
@@ -31,10 +33,10 @@ public final class CompareTools {
         Bitmap sourceBitmap = BitmapFactory.decodeStream(sourceInputStream);
 
         // reference file comes from asset folder of the app
-        InputStream referenceInputStream = getInstrumentation().getContext().getAssets().open(TEST_ASSET_FOLDER + fileName + ".png");
+        InputStream referenceInputStream = getInstrumentation().getContext().getAssets().open(TEST_SCREENSHOTS_ASSET_FOLDER + fileName + ".png");
         Bitmap referenceBitmap = BitmapFactory.decodeStream(referenceInputStream);
 
-        float compareResult = compareTwoBitmaps("COMPARISON_OF_" + fileName, sourceBitmap, referenceBitmap);
+        float compareResult = compareTwoBitmaps(fileName, sourceBitmap, referenceBitmap);
         // TODO: Create a formal tests result instead of output a log
         L.d("Comparison of screenshot \"" + fileName + "\": " + compareResult + "% difference.");
 
@@ -91,7 +93,7 @@ public final class CompareTools {
 
         // TODO: Open it if we decide to use the files in a report. (e.g.: HTML report)
         if (diffPixels > 0) {
-            ScreenshotTools.saveImageIntoDisk(comparisonDifferenceFileName, resultBitmap);
+            ScreenshotTools.saveImageIntoDisk(TEST_COMPARISON_OUTPUT_FOLDER, comparisonDifferenceFileName, resultBitmap);
         }
         return MathUtil.percentage(diffPixels, totalPixels);
     }

@@ -54,7 +54,7 @@ public final class ReadingListsTest {
             Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
     @Test
-    public void testReadinglists() throws Exception {
+    public void testReadingLists() throws Exception {
         navigateToReadingListsFromExploreTab();
 
         if (viewIsDisplayed(R.id.view_onboarding_action_negative)) {

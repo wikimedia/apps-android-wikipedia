@@ -1,6 +1,7 @@
 package org.wikipedia;
 
 import android.content.SharedPreferences;
+import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnitRunner;
@@ -10,12 +11,17 @@ import org.wikipedia.espresso.MockInstrumentationInterceptor;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.PrefsIoUtil;
 
+import java.io.File;
+
+import static org.wikipedia.espresso.Constants.TEST_COMPARISON_OUTPUT_FOLDER;
+
 public class WikipediaTestRunner extends AndroidJUnitRunner {
     @Override
     public void onStart() {
         TestStubInterceptor.setCallback(new MockInstrumentationInterceptor(InstrumentationRegistry.getContext()));
         clearAppInfo();
         disableOnboarding();
+        cleanUpComparisonResults();
 
         super.onStart();
     }
@@ -37,6 +43,24 @@ public class WikipediaTestRunner extends AndroidJUnitRunner {
                 PreferenceManager.getDefaultSharedPreferences(WikipediaApp.getInstance());
         prefs.edit().clear().commit();
         WikipediaApp.getInstance().deleteDatabase("wikipedia.db");
+    }
+
+    private void cleanUpComparisonResults() {
+        File folder = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + TEST_COMPARISON_OUTPUT_FOLDER);
+        if (folder.exists()) {
+            try {
+                File[] files = folder.listFiles();
+                for (File file : files) {
+                    if (file.isFile()) {
+                        if (!file.delete()) {
+                            throw new RuntimeException("Cannot delete file: " + file.getName() + " while cleaning up");
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("Failed to clean up comparison result files: " + e);
+            }
+        }
     }
 }
 
