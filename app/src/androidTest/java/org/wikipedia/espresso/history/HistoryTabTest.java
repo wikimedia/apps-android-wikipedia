@@ -48,7 +48,7 @@ import static org.wikipedia.espresso.util.ViewTools.whileWithMaxSteps;
 public class HistoryTabTest {
 
     @Rule
-    public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(MainActivity.class);
 
     @Rule
     public GrantPermissionRule runtimePermissionRule = GrantPermissionRule.grant(
@@ -62,7 +62,7 @@ public class HistoryTabTest {
 
         PageActivityTest pageActivityTest = new PageActivityTest();
         Intent intent = new Intent();
-        pageActivityTest.mActivityTestRule.launchActivity(intent);
+        pageActivityTest.activityTestRule.launchActivity(intent);
         waitFor(WAIT_FOR_1000);
 
         pressBack();

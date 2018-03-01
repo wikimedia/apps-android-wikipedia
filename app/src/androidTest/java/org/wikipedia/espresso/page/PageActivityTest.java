@@ -32,7 +32,7 @@ import static org.wikipedia.espresso.util.ViewTools.whileWithMaxSteps;
 public final class PageActivityTest {
 
     @Rule
-    public ActivityTestRule<PageActivity> mActivityTestRule = new ActivityTestRule<>(PageActivity.class);
+    public ActivityTestRule<PageActivity> activityTestRule = new ActivityTestRule<>(PageActivity.class);
 
     @Rule
     public GrantPermissionRule runtimePermissionRule = GrantPermissionRule.grant(

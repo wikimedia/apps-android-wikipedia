@@ -23,6 +23,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayingAtLeast;
 import static android.support.test.espresso.matcher.ViewMatchers.isRoot;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.core.AllOf.allOf;
 
 @SuppressWarnings("checkstyle:magicnumber")
@@ -69,6 +70,15 @@ public final class ViewTools {
         return isDisplayed[0];
     }
 
+    public static boolean viewWithTextIsDisplayed(String text) {
+        final boolean[] isDisplayed = {true};
+
+        onView(withText(text))
+                .withFailureHandler((Throwable error, Matcher<View> viewMatcher) -> isDisplayed[0] = false)
+                .check(matches(isDisplayed()));
+
+        return isDisplayed[0];
+    }
     public static Matcher<View> childAtPosition(
             final Matcher<View> parentMatcher, final int position) {
 
