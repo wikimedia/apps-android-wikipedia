@@ -450,7 +450,7 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
                     }
                 } catch (Throwable t) {
                     // TODO: optimization opportunity -- if the server can return the ID
-                    // of the existing page, then we wouldn't need to do a hard sync.
+                    // of the existing page(s), then we wouldn't need to do a hard sync.
 
                     // If the page already exists in the remote list, this means that
                     // the contents of this list have diverged from the remote list,
@@ -458,6 +458,8 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
                     if (client.isErrorType(t, "duplicate-page")) {
                         shouldRetryWithForce = true;
                         break;
+                    } else if (client.isErrorType(t, "entry-limit")) {
+                        // TODO: handle more meaningfully than ignoring, for now.
                     } else {
                         throw t;
                     }
