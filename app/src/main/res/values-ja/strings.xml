@@ -122,7 +122,7 @@
   <string name="create_account_account_created_toast">アカウントを作成しました!</string>
   <string name="preferences_heading_storage_and_syncing">保存領域と同期</string>
   <string name="preference_title_sync_reading_lists">あとで読むリストの同期</string>
-  <string name="preference_summary_sync_reading_lists">ウィキメディアにログインするたび、あとで読むリストの同期を許可</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">ウィキメディアにログインするたび、あとで読むリストの同期を許可</string>
   <string name="preferences_privacy_settings_heading">プライバシー</string>
   <string name="preference_title_eventlogging_opt_in">利用状況レポートを送信</string>
   <string name="preference_summary_eventlogging_opt_in">アプリの改善に役立てるため、ウィキメディア財団がアプリの使用情報を収集することを許可する</string>

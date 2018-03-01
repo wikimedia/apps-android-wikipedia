@@ -393,7 +393,7 @@
   <string name="no_user_lists_msg">Text explaining the advantages of creating reading lists, to users</string>
   <string name="reading_list_saved_list_rename">\"%1$s\" _[string indicating that the list was created by user]</string>
   <string name="split_reading_list_message">Message shown to users with large reading lists, informing them that this update will enforce a limit on the number of articles per list and hence will be splitting already existing lists that contain more than the limit. The %d symbol is replaced with the maximum number of articles per list.</string>
-  <string name="reading_list_article_limit_message">Message shown to the users when the limit for maimum number of articles in a list is reached, denoted by the \"%2$d\" symbol, informing them that they will not be able to add anymore to that list, named \"%1$s\".</string>
+  <string name="reading_list_article_limit_message">Message shown to the users when the limit for maximum number of articles in a list is reached, denoted by the \"%2$d\" symbol, informing them that they will not be able to add anymore to that list, named \"%1$s\".</string>
   <string name="reading_lists_limit_message">Message shown to the users when the limit for maimum number of reading lists is reached, informing them that they will not be able to create anymore lists</string>
   <string name="feed_reading_lists_sync_onboarding_text">User education message suggesting the users to log in to reap the benefits of synced reading lists</string>
   <plurals name="reading_list_article_offline_message">
@@ -440,7 +440,7 @@
   <string name="view_card_news_title">Feed card title for news articles.</string>
   <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">Subtitle for a day old \"continue reading\" card. The word should be in lowercase if appropriate for the language.</item>
-    <item quantity="other">Subtitle for a \"continue reading\" card two or more days old. The first word should have an initial uppercase letter if appropriate for the language. Example: [[phabricator:F4695814]]. Use the %d parameter to insert the number of days passed since the content (an article) was last seen.</item>
+    <item quantity="other">Subtitle for a \"continue reading\" card two or more days old. The first word should have an initial uppercase letter if appropriate for the language. Example: [[phab:F4695814]]. Use the %d parameter to insert the number of days passed since the content (an article) was last seen.</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Shown on cards in the feed when the card has today\'s date. The word should be in lowercase if appropriate for the language.\n{{Identical|Today}}</string>
   <string name="view_continue_reading_card_subtitle_read_date">Subtitle for number of days passed since the article was last seen and shown on cards in the feed. Use the %s parameter to insert the number of days passed since the content (an article) was last seen. The word \"read\" is past tense.</string>

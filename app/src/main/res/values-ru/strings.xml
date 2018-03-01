@@ -46,8 +46,8 @@
   <string name="map_view_link_text">Посмотреть на карте</string>
   <string name="language_count_link_text">Доступно на %d других языках</string>
   <string name="content_license_html">Содержимое доступно в соответствии с лицензией &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, если не указано иное</string>
-  <string name="edit_save_action_license_logged_in">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\" &gt;условиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;условиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Правки будут привязаны в IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуйтесь&lt;/a&gt;, то сможете получить более высокий уровень конфиденциальности.</string>
+  <string name="edit_save_action_license_logged_in">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\" &gt;условиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;условиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Правки будут привязаны в IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуйтесь&lt;/a&gt;, то сможете получить более высокий уровень конфиденциальности.</string>
   <string name="preference_title_language">Язык Википедии</string>
   <string name="preference_languages_filter_hint">Найти</string>
   <string name="langlinks_filter_hint">Поиск</string>
@@ -123,11 +123,11 @@
   <string name="create_account_account_created_toast">Учётная запись создана!</string>
   <string name="preferences_heading_storage_and_syncing">Хранилище и синхронизация</string>
   <string name="preference_title_sync_reading_lists">Синхронизировать список для чтения</string>
-  <string name="preference_title_sync_reading_lists_from_account">Синхронизировать списки для чтения для этой учётной записи</string>
-  <string name="preference_summary_sync_reading_lists">Разрешить Викимедиа синхронизировать ваш список для чтения при авторизации</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Разрешить Викимедиа синхронизировать списки для чтения для учётной записи %s в Википедии</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Удалить синхронизированные списки для чтения из вашей учётной записи %s?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Это полностью удалит все ранее синхронизированные списки чтения из удаленного хранилища. Удалите все синхронизированные списки из своей учетной записи %s?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Включить чтения синхронизация списка</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Синхронизация списков чтения на разных устройствах путем их сохранения для учётной записи в Википедии</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Синхронизировать чтения через разные устройства, сохраняя для учётной записи «%s» в Википедии</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Удалить синхронизированные списки для чтения «%s»?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Это полностью удалит все ранее синхронизированные списки чтения из удаленного хранилища. Удалите все синхронизированные списки из своей учетной записи «%s»?</string>
   <string name="preferences_privacy_settings_heading">Конфиденциальность</string>
   <string name="preference_title_eventlogging_opt_in">Отправлять отчёты об использовании</string>
   <string name="preference_summary_eventlogging_opt_in">Разрешить Викимедиа собирать информацию о том, как вы используете приложение. Это позволит сделать его лучше.</string>
@@ -361,7 +361,7 @@
   <string name="reading_lists_confirm_remote_delete_no">Нет</string>
   <string name="reading_list_article_save_in_progress">Страница скачивается. По завершению загрузки она будет доступна в офлайне.</string>
   <string name="reading_list_already_contains_selection">Указанный список уже содержит все выбранные страницы.</string>
-  <string name="reading_list_added_articles_list_titled">Добавлены %1$d статьей в %2$s</string>
+  <string name="reading_list_added_articles_list_titled">В список «%2$s» были добавлены статьи (%1$d)</string>
   <string name="reading_list_delete_confirm">Вы уверены, что хотите удалить %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Войдите, чтоб включить синхронизацию</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Войдите в систему, чтобы ваши списки чтения были сохранены в вашей учетной записи.</string>
@@ -377,21 +377,22 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Включить синхронизацию</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Нет, спасибо</string>
   <string name="reading_list_login_option_reminder_dialog_title">Найдены списки статей</string>
-  <string name="reading_list_login_option_reminder_dialog_text">В вашем приложении в Википедии сохранены статьи списка чтения. Хотите сохранить их и объединить с списками чтения, синхронизированными с вашей учетной записью?</string>
+  <string name="reading_list_login_option_reminder_dialog_text" fuzzy="true">Статьи были сохранены в списка чтения пока вы вышли из системы. Хотите сохранить их и объединить с списками чтения, синхронизированными с вашей учетной записью?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Да, добавьте их в мои списки чтения</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Нет, удалите статьи сохраненные в приложении.</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Сохранять сохраненные статьи на устройстве?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Есть статьи синхронизированные с вашей учетной записью Википедии. Вы хотите оставить их на этом устройстве после выхода из системы?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Да, сохраняйте статьи на устройстве</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Нет, удалять статьи с устройства</string>
+  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">Нет, удалите статьи</string>
+  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Сохранять сохраненные статьи в приложении?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text" fuzzy="true">Есть статьи синхронизированные с вашей учетной записью Википедии. Вы хотите оставить их на этом устройстве после выхода из системы?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">Да, сохраняйте статьи на устройстве</string>
+  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">Нет, удалять статьи с устройства</string>
   <string name="default_reading_list_name">Сохранено</string>
-  <string name="default_reading_list_description">Стандартный список для ваших сохранённых статьей</string>
+  <string name="default_reading_list_description">Список по умолчанию для сохранённых вами статей</string>
   <string name="no_user_lists_title">Сохраняйте подборки статей</string>
   <string name="no_user_lists_msg">Создавайте списки статей о местах, где вы бывали, об интересующих вас темах, и так далее.</string>
   <string name="reading_list_saved_list_rename">%1$s (создано участником)</string>
   <string name="split_reading_list_message">Размер списка для чтения ограничен размером в %d статей. Существующие списки, превышающие этот лимит, были разделены на несколько списков.</string>
   <string name="reading_list_article_limit_message">Невозможно добавить в текущий список. Вы исчерпали лимит %2$d статей для \"%1$s\".</string>
   <string name="reading_lists_limit_message">Невозможно создать новый список. Вы достигли лимита в 100 списков для одной учётной записи.</string>
+  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Списки чтения с синхронизацией&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Списки чтения теперь могут быть синхронизированы между устройствами. Войдите в свою учетную запись в Википедии и позвольте сохранять списки.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Эта статья теперь будет доступна в офлайн-режиме.</item>
     <item quantity="other">Эти статьи теперь будут доступны в офлайн-режиме.</item>
@@ -435,8 +436,8 @@
   <string name="view_static_card_icon_content_description">Значок карточки</string>
   <string name="view_card_news_title">В новостях</string>
   <plurals name="view_continue_reading_card_subtitle">
-    <item quantity="one">%d день назад</item>
-    <item quantity="other">%d дня назад</item>
+    <item quantity="one">вчера</item>
+    <item quantity="other">%d день назад</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">сегодня</string>
   <string name="view_continue_reading_card_subtitle_read_date">Прочитано %s</string>
@@ -453,7 +454,7 @@
   <string name="feed_item_type_on_this_day">Исторические события в этот день</string>
   <string name="feed_item_type_continue_reading">Быстрая ссылка для возврата к статье, открытой в одной из ваших вкладок</string>
   <string name="feed_item_type_because_you_read">Предложения, основанные на недавно прочитанных вами статьях</string>
-  <string name="feed_item_type_featured_article">Популярные статьи на википедии</string>
+  <string name="feed_item_type_featured_article">Избранная статья дня в Википедии</string>
   <string name="feed_item_type_trending">Самые просматриваемые статьи за этот день</string>
   <string name="feed_item_type_featured_image">Избранное изображение дня с Викисклада</string>
   <string name="feed_item_type_main_page">Заглавная страница Википедии с ежедневно обновляемыми избранными материалами</string>
@@ -501,6 +502,7 @@
   <string name="description_edit_revert_history">Если интересно, взгляните на &lt;a href=\"%1$s\"&gt;историю изменений&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">Нет соединения с интернетом. Убедитесь, что вы снова в сети, а затем повторите попытку.</string>
   <string name="offline_read_permission_rationale">Для автономного просмотра требуется разрешение на запись в хранилище вашего устройства.</string>
+  <string name="offline_read_final_rationale">Для доступа к хранилищу на вашем устройстве требуется использовать автономную библиотеку.</string>
   <string name="offline_read_permission_error">Не предоставлено разрешение для чтения из хранилища устройства.</string>
   <string name="offline_card_sideloading_text">Теперь вы просматриваете Википедию в автономном режиме — с помощью пакетов статей в своей автономной библиотеке.</string>
   <string name="offline_my_compilations">Управление моей автономной библиотекой</string>
@@ -555,8 +557,9 @@
   <string name="onboarding_explore_text">Путешествуйте по лабиринтам Википедии с помощью постоянно обновляемой ленты исследований. &lt;br/&gt;&lt;b&gt;Настройте&lt;/b&gt; ленту так, чтобы она отвечала вашим интересам — будь то изучение исторических событий, случившихся &lt;b&gt;в этот день&lt;/b&gt;, или положитесь на &lt;b&gt;удачу&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Сохранить в списки для чтения</string>
   <string name="onboarding_save_to_reading_lists_text">Создавайте подборки статей, которые хотели бы прочесть позже, без подключения к интернету.</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">Списки для чтения с синхронизацией</string>
-  <string name="onboarding_reading_list_sync_text" fuzzy="true">Создавайте списки для чтения из статей, которые вы хотите прочитать, даже если вы находитесь в офлайне. &lt;a href=\"#login\"&gt;Авторизуйтесь или создайте учётную запись в Википедии&lt;/a&gt; для сохранения списков для чтения.</string>
+  <string name="onboarding_reading_list_sync_title">Списки для чтения с синхронизацией</string>
+  <string name="onboarding_reading_list_sync_text">Создавайте списки для чтения из статей, которые вы хотите прочитать позже, даже если вы находитесь в офлайне. &lt;a href=\"#login\"&gt;Авторизуйтесь или создайте учётную запись&lt;/a&gt; в Википедии для сохранения списков для чтения.</string>
+  <string name="onboarding_reading_list_sync_text_v2">Вы можете создавать списки для чтения из статей, которые вы хотите прочитать позже, даже если вы находитесь в офлайне. &lt;br/&gt;Авторизуйтесь с помощью учётной записи Википедии для синхронизации ваших списков для чтения&lt;a href=\"#login\"&gt;Происоединяйтесь к Википедии&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Отправка анонимных данных</string>
   <string name="onboarding_analytics_offline_text">Помогите улучшить это приложение, сообщив нам, как вы его используете. Собранные данные будут анонимны. &lt;a href=\"#privacy\"&gt;Узнать подробнее&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Отправлять данные использования</string>

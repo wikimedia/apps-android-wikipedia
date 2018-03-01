@@ -44,7 +44,7 @@
   <string name="talk_page_link_text">चर्चा</string>
   <string name="edit_history_link_text">संपादनांचा इतिहास</string>
   <string name="map_view_link_text">नकाशावर बघा</string>
-  <string name="language_count_link_text" fuzzy="true">%d इतर भाषेत उपलब्ध</string>
+  <string name="language_count_link_text">%d इतर भाषेत उपलब्ध आहे</string>
   <string name="content_license_html">जेथे जेथे विशेषत्वाने नोंदविलेले नाही तेथील आशय हा &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; या परवान्यांतर्गत उपलब्ध आहे असे समजावे.</string>
   <string name="edit_save_action_license_logged_in">हा मजकूर जतन करण्याच्या कृतीने,&lt;a href=\"%1$s\"&gt;विकिमिडिया फाउंडेशनच्या \'वापरण्याच्या अटी\' आपण मान्य करीत आहात&lt;/a&gt;, व आपले योगदान आपण \'न परताव्याच्या अटींच्या\' अधिन राहून &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; या परवान्यांतर्गत मुक्त करीत आहात.</string>
   <string name="edit_save_action_license_anon">हा मजकूर जतन करण्याच्या कृतीने,&lt;a href=\"%1$s\"&gt;विकिमिडिया फाउंडेशनच्या \'वापरण्याच्या अटी\' आपण मान्य करीत आहात&lt;/a&gt;, व आपले योगदान आपण \'न परताव्याच्या अटींच्या\' अधिन राहून &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; या परवान्यांतर्गत मुक्त करीत आहात.आपली संपादने ही आपल्या उपकरणाच्या अंकपत्त्याच्या अंगिभूत राहतील.जर आपण &lt;a href=\"https://#login\"&gt;सनोंद प्रवेश घेतला तर&lt;/a&gt;,आपणास अधिक गुप्तता मिळू शकेल.</string>
@@ -123,11 +123,11 @@
   <string name="create_account_account_created_toast">खाते उघडले!</string>
   <string name="preferences_heading_storage_and_syncing">साठवणूक आणि देवाण-घेवाण</string>
   <string name="preference_title_sync_reading_lists">माझ्या वाचन यादीचे देवाण-घेवाण होत आहे</string>
-  <string name="preference_title_sync_reading_lists_from_account">ह्या खात्यासाठीच्या वाचानयादीची देवाण-घेवाण होत आहे.</string>
-  <string name="preference_summary_sync_reading_lists">तुम्ही सनोंद-प्रवेश केल्यावर विकीमिडीयाला तुमच्या वाचनयादीची देवाण-घेवाण आपसूकच करण्यासाठी परवानगी द्या</string>
-  <string name="preference_summary_sync_reading_lists_from_account">%s ह्या विकीमिडीया खात्याच्या वाचन यादीची देवाण-घेवाण करण्यासाठी विकीमिडीयाला परवानगी द्या</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">%s ह्या तुमच्या खात्याच्या वाचन यादीची देवाण-घेवाण बंद केली जात आहे?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">यामुळे तुमच्या %s या खात्याशी संबंधीत सर्व वाचन याद्यांची देवाण-घेवाण दूरच्या साठवणूकीवरून काढून टाकण्यात येईल, तुम्ही तयार आहात का?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">ह्या खात्यासाठीच्या वाचानयादीची देवाण-घेवाण होत आहे.</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">तुम्ही सनोंद-प्रवेश केल्यावर विकीमिडीयाला तुमच्या वाचनयादीची देवाण-घेवाण आपसूकच करण्यासाठी परवानगी द्या</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">%s ह्या विकीमिडीया खात्याच्या वाचन यादीची देवाण-घेवाण करण्यासाठी विकीमिडीयाला परवानगी द्या</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">%s ह्या तुमच्या खात्याच्या वाचन यादीची देवाण-घेवाण बंद केली जात आहे?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">यामुळे तुमच्या %s या खात्याशी संबंधीत सर्व वाचन याद्यांची देवाण-घेवाण दूरच्या साठवणूकीवरून काढून टाकण्यात येईल, तुम्ही तयार आहात का?</string>
   <string name="preferences_privacy_settings_heading">गोपनीयता</string>
   <string name="preference_title_eventlogging_opt_in">वापराचा अहवाल पाठवा</string>
   <string name="preference_summary_eventlogging_opt_in">विकिपीडियास आपण हे अॅप कसे वापरता याबद्दल माहिती घेण्यास परवानगी द्या जेणेकरुन ते अॅप अधिक चांगले करता येईल.</string>
@@ -138,13 +138,19 @@
   <string name="page_protected_autoconfirmed">हे पान अर्ध-सुरक्षित आहे.</string>
   <string name="page_protected_sysop">हे पान पूर्णत: सुरक्षित आहे.</string>
   <string name="page_protected_other">हे पान खालील स्तरांपर्यंत सुरक्षित आहे:%s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">तुम्हाला हे पान संपादन करण्याची परवानगी नाही</string>
+  <string name="page_protected_can_not_edit">तुम्हाला सध्या हे पान संपादन करण्याची परवानगी नाही</string>
+  <string name="page_protected_can_not_edit_anon">तुम्हाला हे पान सध्या निनावी म्हणून संपादन करण्याची परवानगी नाही (हे पान संपादण्यासाठी सनोंद प्रवेश करा)</string>
   <string name="page_protected_can_not_edit_title">पान संरक्षित आहे</string>
   <string name="settings_item_preferences">सेटिंग्स</string>
   <string name="settings_activity_title">सेटिंग्स</string>
   <string name="about_description">विकिपीडिया अॅपविषयी</string>
   <string name="privacy_policy_description">गुप्तता नीती</string>
   <string name="terms_of_use_description">वापराच्या अटी</string>
+  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">वापरलेले ग्रंथभंडार</string>
   <string name="about_contributors_heading">योगदानकर्ते</string>
   <string name="about_translators_heading">भाषांतरकार</string>
@@ -170,8 +176,10 @@
   <string name="edit_summary_tag_other_hint">या पानाचे सुधारणेसाठी इतर मार्ग</string>
   <string name="find_next">पुढील शोधा</string>
   <string name="find_previous">मागील शोधा</string>
-  <string name="abusefilter_title_warn" fuzzy="true">हे एक अरचनात्मक संपादन असू शकते. हे जतन करण्याबाबत आपण खात्री देता काय?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">आपण हे संपादन जतन करु शकत नाही.कृपया परत जाउन ते बदला.</string>
+  <string name="find_first_occurence">हे पहिल्यांदा घडले आहे</string>
+  <string name="find_last_occurence">हे शेवटी घडले आहे.</string>
+  <string name="abusefilter_title_warn">हे एक अरचनात्मक संपादन असू शकते. हे जतन करण्याबाबत आपण खात्री देता काय?</string>
+  <string name="abusefilter_title_disallow">आपण हे संपादन जतन करु शकत नाही.कृपया परत जाउन ते बदला.</string>
   <string name="abusefilter_text_warn">हे संपादन स्वयंचलित गाळणीने  \'उच्चपातळीचे अरचनात्मक\' असे नोंदविलेले आहे.यात खालीलपैकी एक वा एकाधिक असू शकते &lt;br /&gt;&lt;br /&gt;· सर्व अक्षरे ठळक&lt;br /&gt;लेख कोरा करणे किंवा उत्पात&lt;br /&gt;·असंबंधित दुवे किंवा चित्रे&lt;br /&gt;·त्याच वर्णांची वारंवारिता</string>
   <string name="abusefilter_text_disallow">हे संपादन स्वयंचलित गाळणीने  \'उच्चपातळीचे अरचनात्मक\' किंवा \'उच्चपातळीचा उत्पात\' असे नोंदविलेले आहे.&lt;br /&gt;&lt;br /&gt;विकिपीडिया हा विश्वकोश आहे व त्यात फक्त तटस्थ व लिखाणायोग्य आशय असतो.</string>
   <string name="dialog_page_issues">पानाची समस्या</string>
@@ -198,6 +206,7 @@
   <string name="preference_title_show_images">चित्रे दाखवा</string>
   <string name="preference_summary_show_images">पानांत चित्रे भारण करणे सक्षम वा अक्षम करा.जर आपला आंतरजाल अनुबंध हळू चालत असेल, किंवा जर आपला डाटा प्लॅन मर्यादित असेल तर या मांडणीला अनचेक करा.</string>
   <string name="read_more_section">अधिक वाचा</string>
+  <string name="about_article_section">या लेखाबद्दल</string>
   <string name="menu_gallery_visit_page">संचिका पानावर जा</string>
   <string name="gallery_error_draw_failed">चित्र काढता आले नाही.</string>
   <string name="license_title">%s साठी परवाना</string>
@@ -223,7 +232,8 @@
   <string name="close_all_tabs_confirm_yes">होय</string>
   <string name="close_all_tabs_confirm_no">नाही</string>
   <string name="button_close_tab">कळ बंद करा</string>
-  <string name="tool_tip_select_text" fuzzy="true">मजकूरात कोठेही, त्याची प्रत करण्यास किंवा त्यास कोणास पाठविण्यासाठी झोतात आणण्यास, दाबून धरुन ठेवा.</string>
+  <string name="tool_tip_select_text_title">निवडण्यासाठी जास्तवेळ दाबा</string>
+  <string name="tool_tip_select_text">मजकूरात कोठेही, त्याची प्रत करण्यास किंवा त्यास कोणास पाठविण्यासाठी दाबून धरुन ठेवा.</string>
   <string name="tool_tip_share">एखादे आवडते तथ्य प्रकाशझोतात आणल्यावर, त्यास आपल्या आवडत्या नेटवर्कवर सहभाग करण्याच्या प्रयत्न करा.</string>
   <string name="page_view_in_browser">न्याहाळकात पान बघा</string>
   <string name="tool_tip_toc_button">कधीही आशय सारणी बघण्यास या कळीस थपकवा, किंवा पटलाच्या उजव्या बाजूकडून सरकवा.</string>
@@ -233,6 +243,11 @@
   <string name="address_copied">पत्ता टांचणफळ्यावर(क्लिपबोर्ड) नकलविला.</string>
   <string name="text_copied">मजकूर टांचणफळ्यावर(क्लिपबोर्ड) नकलविला.</string>
   <string name="button_continue_to_article">लेख वाचा</string>
+  <string name="button_add_to_reading_list">वाचनयादीत जोडा</string>
+  <string name="page_offline_notice_cannot_load_while_offline">इंटरनेट कनेक्शन नसताना हा लेख दाखवला जाऊ शकत नाही.</string>
+  <string name="page_offline_notice_add_to_reading_list">पर्याय: ह्या लेखाला आपल्या वाचन यादीत जोडा जेणेकरून जेव्हा इंटरनेट कनेक्शन उपलब्ध होईल तेव्हा तो लेख आपसूकच उतरवून घेतला जाईल.</string>
+  <string name="page_offline_notice_last_date">तुम्ही ह्या लेखाची %s येथे उतरवून ठेवलेली ओफ़लाईन प्रत वाचत आहात</string>
+  <string name="page_offline_notice_compilation_download_date">तुम्ही ह्या लेखाची %1$s•%2$s आवृत्ती वाचत आहात</string>
   <string name="button_get_directions">दिशा मिळवा</string>
   <string name="error_no_maps_app">दिशानिर्देशाचे कोणतेही उपकरण सापडले नाही.</string>
   <string name="preference_title_show_link_previews">दुव्याची झलक दाखवा</string>
@@ -241,6 +256,20 @@
   <string name="error_voice_search_not_available">माफ करा, आवाज ओळखणे उपलब्ध नाही</string>
   <string name="location_service_disabled">स्थाननिर्धारण सेवा अक्षम करण्यात आलेली आहे.</string>
   <string name="enable_location_service">चालू करा</string>
+  <string name="location_permissions_enable_prompt">जवळपासची ठिकाणे पहाण्यासाठी लोकेशन सेवा सुरु करा.</string>
+  <string name="location_permissions_enable_action">चालू करा</string>
+  <string name="error_webview_updating">अंड्रोईड व्यवस्थेचा वेबव्हू सध्या अद्यतन होत आहे. थोड्या वेळाने पुन्हा प्रयत्न करा.</string>
+  <string name="multi_select_items_selected">%d निवडले आहे</string>
+  <string name="error_message_generic">त्रुटी घडली</string>
+  <string name="view_link_preview_error_button_dismiss">खारीज करा</string>
+  <string name="error_page_does_not_exist">हे पान अस्तित्वात नाही.</string>
+  <string name="view_wiki_error_message_offline">इंटरनेट सेवा उपलब्ध नाहीत.</string>
+  <string name="reference_title">संदर्भ %s</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">चित्र फ़िकट करा (गडद थिम)</string>
+  <string name="preference_title_prefer_offline_content">ऑफलाइन मजकूर निवडा</string>
+  <string name="preference_summary_prefer_offline_content">लेख ऑफलाइन साठवून ठेवा जेणेकरून त्याच लेखांना परत नव्याने उतरवून घेताला लागणारा डेटा वाचेल आणि आपला डेटाचा वापर कमी होईल.</string>
+  <string name="preference_title_enable_offline_library">ऑफलाइन ग्रंथालय चालू करा</string>
+  <string name="preference_summary_enable_offline_library">विकीपिडीया लेखांच्या संचापर्यंत पोहोचा (.ZIM म्हणून दाखविलेल्या फ़ाईल्स) ह्या फ़ाईल्स तुम्ही लेख ऑफलाइन साठविताना तयार झालेल्या असतात.  &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Find out more&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">माफ करा, मागील वेळी अॅप्स कोसळले होते</string>
   <string name="crash_report_dialog_dont_send_button">पुढे जा</string>
   <string name="crash_report_dialog_always_send_button">नेहमी पाठवा</string>
@@ -257,6 +286,11 @@
   <string name="color_theme_select">देखावा</string>
   <string name="color_theme_light">फिकट</string>
   <string name="color_theme_dark">गडद</string>
+  <string name="color_theme_black">काळे</string>
+  <string name="color_theme_test_title">साधा मजकूर</string>
+  <string name="preference_title_app_theme">अॅप थीम</string>
+  <string name="text_size_increase">टंकाचा आकार वाढवा</string>
+  <string name="text_size_decrease">टंकाचा आकार कमी करा</string>
   <string name="nav_item_reading_lists">माझ्या याद्या</string>
   <string name="reading_list_untitled">विनाशिर्षक</string>
   <string name="reading_list_save_to">वाचन यादीत जतन करा</string>
@@ -286,7 +320,7 @@
   <string name="reading_lists_onboarding_got_it">समजले</string>
   <string name="reading_lists_confirm_remote_delete_yes">होय</string>
   <string name="reading_lists_confirm_remote_delete_no">नाही</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">आपणास खात्री आहे काय कि आपणास ही %s वाचन यादी वगळायची आहे?</string>
+  <string name="reading_list_delete_confirm">आपणास खात्री आहे काय कि आपणास %s वगळायचे आहे?</string>
   <string name="reading_list_article_limit_message">या यादीत जोडू शकत नाही. आपण \"%1$s\" पैकी %2$d लेखांच्या मर्यादेवर पोचला आहात.</string>
   <string name="reading_lists_limit_message">दुसरी यादी तयार करू शकत नाही.प्रत्येक खात्यासाठी असणाऱ्या १०० वाचन यादींच्या मर्यादेवर आपण पोचला आहात.</string>
   <string name="user_option_sync_label">पसंतीक्रम</string>

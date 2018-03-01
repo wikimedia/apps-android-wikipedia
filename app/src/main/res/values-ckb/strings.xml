@@ -121,7 +121,7 @@
   <string name="send_feedback">ناردنی فیدباکی ئاپ</string>
   <string name="create_account_account_created_toast">ھەژمار دروست کرا!</string>
   <string name="preference_title_sync_reading_lists">خەزێنەکردنی پێڕستی خوێندنەوە</string>
-  <string name="preference_summary_sync_reading_lists">ڕێگە بە ویکیپیدیا بدە بۆ خەزێنەکردنی پێڕستی خوێندنەوەکەت لەکاتی ھاتنە ژوورەوەت</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">ڕێگە بە ویکیپیدیا بدە بۆ خەزێنەکردنی پێڕستی خوێندنەوەکەت لەکاتی ھاتنە ژوورەوەت</string>
   <string name="preferences_privacy_settings_heading">تایبەتێتی</string>
   <string name="preference_title_eventlogging_opt_in">ناردنی ڕاپۆرتەکانی بەکارھێنان</string>
   <string name="preference_summary_eventlogging_opt_in">ڕێگە بە بە ویکیمیدیا بدە بۆ کۆکردنەوەی زانیاری لەبارەی چۆنیەتی بەکارھێنانی ئاپەکە لەلایەن تۆوە، بە مەبەستی باشترکردنی ئاپەکە</string>

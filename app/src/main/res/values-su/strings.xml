@@ -123,10 +123,10 @@
   <string name="create_account_account_created_toast">Akun geus dijieun!</string>
   <string name="preferences_heading_storage_and_syncing">Paneundeunan jeung singkronisasi</string>
   <string name="preference_title_sync_reading_lists">Singkronkeun daptar bacaan</string>
-  <string name="preference_title_sync_reading_lists_from_account">Singkronkeun daptar bacaan pikeun ieu akun</string>
-  <string name="preference_summary_sync_reading_lists">Widian Wikimédia nyingkronkeun daptar bacaan anjeun nalika anjeun asup log</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Widian Wikimédia ngarepokkeun daptar bacaeun kana akun Wikipédia anjeun %s</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Pupus daptar bacaeun nu disingkronkeun tina akun anjeun %s?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Singkronkeun daptar bacaan pikeun ieu akun</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Widian Wikimédia nyingkronkeun daptar bacaan anjeun nalika anjeun asup log</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Widian Wikimédia ngarepokkeun daptar bacaeun kana akun Wikipédia anjeun %s</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Pupus daptar bacaeun nu disingkronkeun tina akun anjeun %s?</string>
   <string name="preferences_privacy_settings_heading">Privasi</string>
   <string name="preference_title_eventlogging_opt_in">Kirim laporan pamakéan</string>
   <string name="preference_summary_eventlogging_opt_in">Heugbaékeun Wikimédia pikeun ngumpulkeun info ngeunaan cara anjeun migunakeun aplikasi sangkan aplikasi jadi leuwih hadé</string>

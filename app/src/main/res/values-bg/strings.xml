@@ -123,11 +123,11 @@
   <string name="create_account_account_created_toast">Сметката е създадена!</string>
   <string name="preferences_heading_storage_and_syncing">Съхранение и синхронизация</string>
   <string name="preference_title_sync_reading_lists">Синхронизация на списъците за четене</string>
-  <string name="preference_title_sync_reading_lists_from_account">Синхронизиране на списъци за четене за тази сметка</string>
-  <string name="preference_summary_sync_reading_lists">Позволяване на Уикимедия да синхронизира списъците Ви за четене, когато влезете в системата</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Позволяване на Уикимедия да синхронизира списъци за четене със сметката Ви в Уикипедия %s</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Премахване на синхронизираните списъци за четене от Вашата сметка %s?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Това ще изтрие напълно всички синхронизирани списъци за четене от външната памет. Премахване на всички синхронизирани списъци от сметката Ви %s?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Синхронизиране на списъци за четене за тази сметка</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Позволяване на Уикимедия да синхронизира списъците Ви за четене, когато влезете в системата</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Позволяване на Уикимедия да синхронизира списъци за четене със сметката Ви в Уикипедия %s</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Премахване на синхронизираните списъци за четене от Вашата сметка %s?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Това ще изтрие напълно всички синхронизирани списъци за четене от външната памет. Премахване на всички синхронизирани списъци от сметката Ви %s?</string>
   <string name="preferences_privacy_settings_heading">Поверителност</string>
   <string name="preference_title_eventlogging_opt_in">Изпращане на доклади за употребата</string>
   <string name="preference_summary_eventlogging_opt_in">Позволяване на Уикимедия да събира информация за това как използвате приложението, с цел подобряването му</string>
@@ -375,19 +375,19 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Включване на синхронизиране</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Не, благодаря</string>
   <string name="reading_list_login_option_reminder_dialog_title">Открити статии в списъци за четене</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Има статии в списъци за четене, запазени в Уикипедия приложението Ви. Желаете ли да ги запазите и да ги слеете със списъците за четене, синхронизирани в сметката Ви?</string>
+  <string name="reading_list_login_option_reminder_dialog_text" fuzzy="true">Има статии в списъци за четене, запазени в Уикипедия приложението Ви. Желаете ли да ги запазите и да ги слеете със списъците за четене, синхронизирани в сметката Ви?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Да, добавяне към списъците ми за четене</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Не, изтриване на съхранените статии в приложението</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Задържане на съхранените статии на устройството?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Тези статии са синхронизирани със сметката Ви в Уикипедия. Желаете ли да ги запазите на това устройство, след като излезете?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Да, задържане на статиите на устройството</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Не, изтриване на статиите от устройството</string>
+  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">Не, изтриване на съхранените статии в приложението</string>
+  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Задържане на съхранените статии на устройството?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text" fuzzy="true">Тези статии са синхронизирани със сметката Ви в Уикипедия. Желаете ли да ги запазите на това устройство, след като излезете?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">Да, задържане на статиите на устройството</string>
+  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">Не, изтриване на статиите от устройството</string>
   <string name="default_reading_list_name">Съхранено</string>
   <string name="default_reading_list_description">Списък по подразбиране за Вашите запазени статии</string>
   <string name="no_user_lists_title">Организирайте статии в списъци</string>
   <string name="no_user_lists_msg">Създавайте списъци с места за пътуване, любими теми и много други</string>
   <string name="reading_list_saved_list_rename">%1$s (направен от потребител)</string>
-  <string name="split_reading_list_message">Има ограничение от %d статии за списък за четене. Съществуващите списъци с повече от това ограничение бяха разделени на няколко списъка.</string>
+  <string name="split_reading_list_message">Има ограничение от %d статии на списък за четене. Съществуващите списъци с повече от това ограничение бяха разделени на няколко списъка.</string>
   <string name="reading_list_article_limit_message">Не може да бъде добавено към този списък. Достигнали сте ограничението от %2$d статии на списък за „%1$s“.</string>
   <string name="reading_lists_limit_message">Не може да бъде създаден друг списък. Достигнали сте ограничението от 100 списъка за четене на сметка.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Синхронизиране на списъци за четене&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Списъците за четене вече могат да се синхронизират между устройства. Влезте в сметката си в Уикипедия, за да позволите съхранението на списъците си.</string>

@@ -44,8 +44,8 @@
   <string name="map_view_link_text">Diskwel war ur gartenn</string>
   <string name="language_count_link_text">A c\'haller kaout e %d yezh all</string>
   <string name="content_license_html">An endalc\'had a c\'haller kaout e &lt;a  href=\"%1$s\"&gt; aotre-implijout CC BY-SA 3.0&lt;/a&gt; nemet e vefe merket ar c\'hontrol</string>
-  <string name="edit_save_action_license_logged_in">Pa\'z enrollit e tegemerit an &lt;a href=\"%1$s\"&gt;Amplegadoù implijout&lt;/a&gt;,ha lakaat a rit ho tegasadennoù dindan an aotre-implijout &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; en ur doare didorradus.</string>
-  <string name="edit_save_action_license_anon">Pa\'z enrollit e tegemerit an &lt;a href=\"%1$s\"&gt;Amplegadoù implijout&lt;/a&gt;, ha lakaat a rit ho tegasadennoù dindan aotre-implijout &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; en un doare didorradus. Ar c\'hemmoù a vo deroet da chomlec\'h IP hoc\'h ardivink. M\'ho peus &lt;a href=\"https://#login\"&gt;kevreit&lt;/a&gt; ho po muioc\'h a zegasadennoù e kuzhut.</string>
+  <string name="edit_save_action_license_logged_in">Pa\'z enrollit e tegemerit an &lt;a href=\"%1$s\"&gt;Amplegadoù implijout&lt;/a&gt;,ha lakaat a rit ho tegasadennoù dindan an aotre-implijout &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; en ur doare didorradus.</string>
+  <string name="edit_save_action_license_anon">Pa\'z enrollit e tegemerit an &lt;a href=\"%1$s\"&gt;Amplegadoù implijout&lt;/a&gt;, ha lakaat a rit ho tegasadennoù dindan aotre-implijout &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; en un doare didorradus. Ar c\'hemmoù a vo deroet da chomlec\'h IP hoc\'h ardivink. M\'ho peus &lt;a href=\"https://#login\"&gt;kevreit&lt;/a&gt; ho po muioc\'h a zegasadennoù e kuzhut.</string>
   <string name="preference_title_language">Yezh Wikipedia</string>
   <string name="preference_languages_filter_hint">Klask</string>
   <string name="langlinks_filter_hint">Klask</string>
@@ -121,7 +121,7 @@
   <string name="create_account_account_created_toast">Kont krouet !</string>
   <string name="preferences_heading_storage_and_syncing">Stokañ ha sinkronelaat</string>
   <string name="preference_title_sync_reading_lists">Sinkronelaat ar rolloù lenn</string>
-  <string name="preference_summary_sync_reading_lists">Reiñ tro da Wikipedia da sinkronelaat ho rolloù lenn pa gevreit</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Reiñ tro da Wikipedia da sinkronelaat ho rolloù lenn pa gevreit</string>
   <string name="preferences_privacy_settings_heading">Prevezded</string>
   <string name="preference_title_eventlogging_opt_in">Kas danevelloù implij</string>
   <string name="preference_summary_eventlogging_opt_in">Aotren Wikipedia da zastum titouroù diwar-benn an doare ma implijit an arload evit gwellaat anezhañ</string>

@@ -43,7 +43,7 @@
   <string name="talk_page_link_text">Размовы</string>
   <string name="content_license_html">Змесціва даступна ў адпаведнасці з &lt;a class=\"external\" rel=\"nofollow\" href=\"%1$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;, калі не пазначана іншае</string>
   <string name="edit_save_action_license_logged_in">Захоўваючы змены, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;Ўмовамі выкарыстання&lt;/a&gt;, а таксама згаджаецеся на няадзыўныя публікацыю па ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Захоўваючы змены, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі выкарыстання&lt;/a&gt;, а таксама згаджаецеся на няадзыўную публікацыю па ліцэнзіі &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Праўкі будуць прывязаныя ў IP-адрасу вашай прылады. Калі Вы &lt;a href=\"https://#login\"&gt;аўтарызуйцеся&lt;/a&gt;, то зможаце атрымаць больш высокі ўзровень прыватнасці.</string>
+  <string name="edit_save_action_license_anon">Захоўваючы змены, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі выкарыстання&lt;/a&gt;, а таксама згаджаецеся на няадзыўную публікацыю па ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Праўкі будуць прывязаныя ў IP-адрасу вашай прылады. Калі Вы &lt;a href=\"https://#login\"&gt;аўтарызуйцеся&lt;/a&gt;, то зможаце атрымаць больш высокі ўзровень прыватнасці.</string>
   <string name="preference_title_language">Мова Вікіпедыі</string>
   <string name="preference_languages_filter_hint">Пошук</string>
   <string name="langlinks_filter_hint">Пошук</string>
@@ -119,7 +119,7 @@
   <string name="create_account_account_created_toast">Рахунак створаны!</string>
   <string name="preferences_heading_storage_and_syncing">Сховішча і сінхранізацыя</string>
   <string name="preference_title_sync_reading_lists">Сінхранізаваць спіс для чытання</string>
-  <string name="preference_summary_sync_reading_lists">Дазволіць Вікімедыя сінхранізаваць Ваш спіс для чытання пры аўтарызацыі</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Дазволіць Вікімедыя сінхранізаваць Ваш спіс для чытання пры аўтарызацыі</string>
   <string name="preferences_privacy_settings_heading">Канфідэнцыяльнасць</string>
   <string name="preference_title_eventlogging_opt_in">Адпраўляць справаздачы аб выкарыстанні</string>
   <string name="preference_summary_eventlogging_opt_in">Дазвольце Вікімэдыі збіраць інфармацыю аб тым, як вы выкарыстоўваеце прыкладанне, каб зрабіць дадатак лепш</string>

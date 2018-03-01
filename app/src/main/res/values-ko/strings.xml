@@ -122,12 +122,14 @@
   <string name="send_feedback">앱 피드백 보내기</string>
   <string name="create_account_account_created_toast">계정을 만들었습니다!</string>
   <string name="preferences_heading_storage_and_syncing">보관 및 동기화</string>
+  <string name="preferences_heading_syncing">동기화</string>
+  <string name="preferences_heading_data_usage">데이터 사용률</string>
   <string name="preference_title_sync_reading_lists">읽기 목록 동기화</string>
-  <string name="preference_title_sync_reading_lists_from_account">이 계정의 읽기 목록을 동기화합니다</string>
-  <string name="preference_summary_sync_reading_lists">로그인할 때 위키미디어가 읽기 목록을 동기화할 수 있게 합니다</string>
-  <string name="preference_summary_sync_reading_lists_from_account">위키백과가 읽기 목록을 %s 위키백과 계정에 동기화할 수 있게 합니다</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">%s 계정에서 동기화된 읽기 목록을 제거하시겠습니까?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">이전에 원격 기억 장치에 동기화된 모든 읽기 목록을 완전히 삭제합니다. %s 계정에 동기화된 모든 목록을 제거하시겠습니까?</string>
+  <string name="preference_title_sync_reading_lists_from_account">읽기 목록 동기화 활성화</string>
+  <string name="preference_summary_sync_reading_lists">위키백과 계정에 읽기 목록을 저장하여 각기 다른 장치 간에 읽기 목록을 동기화합니다</string>
+  <string name="preference_summary_sync_reading_lists_from_account">읽기 목록을 위키백과 계정 \"%s\"에 저장하여 각기 다른 장치 간에 읽기 목록을 동기화합니다</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\"에서 동기화된 읽기 목록을 제거하시겠습니까?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">이전에 원격 기억 장치에 동기화된 모든 읽기 목록을 완전히 삭제합니다. \"%s\" 계정에 동기화된 모든 목록을 제거하시겠습니까?</string>
   <string name="preferences_privacy_settings_heading">개인정보</string>
   <string name="preference_title_eventlogging_opt_in">사용 보고서 보내기</string>
   <string name="preference_summary_eventlogging_opt_in">위키미디어가 더 나은 앱을 만들기 위해 당신이 어떻게 앱을 사용하는지에 대한 정보를 모을 수 있습니다</string>
@@ -349,6 +351,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">글이 여러 목록으로 표시됩니다</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s 문서는 모든 읽기 목록에 대해 오프라인에서 더 이상 읽을 수 없습니다:</string>
   <string name="reading_lists_sync_reminder_title">읽기 목록 동기화를 켜시겠습니까?</string>
+  <string name="reading_lists_sync_reminder_text">읽기 목록에 저장된 문서들은 지금 위키백과 계정에 동기화할 수 있습니다. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;더 알아보기&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">동기화 사용</string>
   <string name="reading_list_login_reminder_title">읽기 목록 동기화</string>
   <string name="reading_lists_login_reminder_text">지금 읽기 목록을 여러 장치 간에 동기화할 수 있습니다. 위키백과 계정으로 로그인하면 목록을 저장할 수 있습니다.</string>
@@ -373,14 +376,16 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">동기화 사용</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">괜찮습니다</string>
   <string name="reading_list_login_option_reminder_dialog_title">읽기 문서 목록을 찾았습니다</string>
-  <string name="reading_list_login_option_reminder_dialog_text">위키백과에 저장된 읽기 목록 문서가 있습니다. 이 문서들을 보관하고 계정에 동기화된 읽기 목록으로 병합하시겠습니까?</string>
+  <string name="reading_list_login_option_reminder_dialog_text">로그아웃하는 동안 읽기 목록에 문서들을 저장했습니다. 계정의 읽기 목록에 해당 문서들을 추가하시겠습니까?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">예, 내 읽기 목록에 추가합니다</string>
-  <string name="reading_list_login_option_reminder_dialog_no">아니요, 앱에 저장된 문서를 삭제합니다</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">저장된 문서를 장치에 보관할까요?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">위키백과 계정에 동기화된 문서가 있습니다. 로그아웃한 뒤에 이 문서들을 이 장치에 보관하시겠습니까?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">예, 장치에 문서를 보관합니다</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">아니요, 장치에서 문서를 삭제합니다</string>
+  <string name="reading_list_login_option_reminder_dialog_no">아니요, 문서를 삭제합니다</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">저장된 문서를 앱에 보관할까요?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">현재 읽기 목록에 저장된 문서가 있습니다. 로그아웃한 뒤에 이 문서들을 보관하시겠습니까?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">예, 목록에 문서를 보관합니다</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">아니요, 목록에서 문서를 삭제합니다</string>
   <string name="default_reading_list_name">저장됨</string>
+  <string name="default_reading_list_description">저장된 문서를 위한 기본 목록</string>
+  <string name="no_user_lists_title">문서를 목록으로 정리하세요</string>
   <string name="no_user_lists_msg">여행 갈 장소, 좋아하는 주제들, 그외의 원하는 용도의 목록을 만드세요</string>
   <string name="reading_list_saved_list_rename">%1$s (사용자가 생성함)</string>
   <string name="split_reading_list_message">읽기 목록 하나 당 문서 %d개의 제한이 있습니다. 이 제한을 초과하는 목록이 있다면 여러 개 목록으로 분할되게 됩니다.</string>
@@ -413,7 +418,7 @@
   <string name="view_continue_reading_card_title">계속 읽기</string>
   <string name="view_because_you_read_card_title">읽었던 글 관련 추천</string>
   <string name="view_random_card_title">임의 문서 보기</string>
-  <string name="view_random_card_subtitle" fuzzy="true">위키백과의 임의 문서 읽기</string>
+  <string name="view_random_card_subtitle">위키백과로부터 읽을 임의의 문서를 넘겨보십시오.</string>
   <string name="view_random_card_action">주사위 던지기</string>
   <string name="view_next_random_article">다른 임의 문서 불러오기</string>
   <string name="view_main_page_card_title">오늘의 위키백과</string>

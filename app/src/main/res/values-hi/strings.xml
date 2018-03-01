@@ -122,7 +122,7 @@
   <string name="create_account_account_created_toast">खाता निर्मित!</string>
   <string name="preferences_heading_storage_and_syncing">स्टोरेज और सिंक</string>
   <string name="preference_title_sync_reading_lists">अपनी पढ़ने वाली सूचियों को सिंक करें</string>
-  <string name="preference_summary_sync_reading_lists">लॉग-इन होते ही विकिपीडिया पढ़ने वाली सूचियां सिंक कर सके, इसकी अनुमति दें</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">लॉग-इन होते ही विकिपीडिया पढ़ने वाली सूचियां सिंक कर सके, इसकी अनुमति दें</string>
   <string name="preferences_privacy_settings_heading">गोपनीयता</string>
   <string name="preference_title_eventlogging_opt_in">उपयोग रिपोर्ट भेजें</string>
   <string name="preference_summary_eventlogging_opt_in">विकिमीडिया को जानकारी इकट्ठा करने की अनुमति दें कि आप कैसे एप को प्रयोग करते हैं ताकि एप को बेहतर बनाया जा सके</string>
@@ -345,7 +345,7 @@
   <string name="reading_list_delete_confirm" fuzzy="true">क्या आप  \"%s\" को मिटाने हेतु निश्चित हैं?</string>
   <string name="reading_list_turned_sync_off_dialog_settings">सेटिंग्स</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">पठन सूची को सिंक करना चालू करें?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">हाँ, डिवाइस पर आलेख रखें</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">हाँ, डिवाइस पर आलेख रखें</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">यह लेख अब ऑफलाइन उपलब्ध होगा।</item>
     <item quantity="other">These articles will now be available offline.</item>

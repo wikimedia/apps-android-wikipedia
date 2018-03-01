@@ -123,11 +123,11 @@
   <string name="create_account_account_created_toast">Сметката е создадена!</string>
   <string name="preferences_heading_storage_and_syncing">Склад и усогласување</string>
   <string name="preference_title_sync_reading_lists">Усогласи списоци за читање</string>
-  <string name="preference_title_sync_reading_lists_from_account">Усогласи списоци за читање за оваа сметка</string>
-  <string name="preference_summary_sync_reading_lists">Дозволете ѝ на Викимедија да ги усогласува вашите списоци за читање кога ќе се највите</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Дозволи Викимедија да услогласува списоци за читање на вашата сметка %s на Википедија</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Да отстранам усогласени списоци за читање од вашата сметка %s?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Со ова целосно ќе се избришат сите претходно усогласени списоци за читање од далечински склад. Дали да ги избришам сите усогласени списоци за читање од вашата сметка %s?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Усогласи списоци за читање за оваа сметка</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Дозволете ѝ на Викимедија да ги усогласува вашите списоци за читање кога ќе се највите</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Дозволи Викимедија да услогласува списоци за читање на вашата сметка %s на Википедија</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Да отстранам усогласени списоци за читање од вашата сметка %s?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Со ова целосно ќе се избришат сите претходно усогласени списоци за читање од далечински склад. Дали да ги избришам сите усогласени списоци за читање од вашата сметка %s?</string>
   <string name="preferences_privacy_settings_heading">Лични податоци</string>
   <string name="preference_title_eventlogging_opt_in">Испраќај извештаи за употребата</string>
   <string name="preference_summary_eventlogging_opt_in">Ѝ овозможува на Викимедија да собира информации за тоа како го користите прилогот, за да може да го подобри</string>
@@ -377,13 +377,13 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Овозможи усогласување</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Не, благодарам</string>
   <string name="reading_list_login_option_reminder_dialog_title">Пронајдени статии во списоци за читање</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Има статии во списоци за читање зачувани на вашиот Википедиин прилог. Дали сакате да ги задржите и да ги споите со списоците за читање усогласени на вашата сметка?</string>
+  <string name="reading_list_login_option_reminder_dialog_text" fuzzy="true">Има статии во списоци за читање зачувани на вашиот Википедиин прилог. Дали сакате да ги задржите и да ги споите со списоците за читање усогласени на вашата сметка?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Да, додај ги во списоците за читање</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Не, избриши ги статиите зачувани во прилогот</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Да ги задржам зачуваните статии на уредот?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Има статии усогласени со вашата сметка на Википедија. Дали сакате да ги задржите на овој уред откако ќе се одјавите?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Да, задржи ги статиите на уредот</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Не, избриши ги статиите од уредот</string>
+  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">Не, избриши ги статиите зачувани во прилогот</string>
+  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Да ги задржам зачуваните статии на уредот?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text" fuzzy="true">Има статии усогласени со вашата сметка на Википедија. Дали сакате да ги задржите на овој уред откако ќе се одјавите?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">Да, задржи ги статиите на уредот</string>
+  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">Не, избриши ги статиите од уредот</string>
   <string name="default_reading_list_name">Зачувано</string>
   <string name="default_reading_list_description">Стандарден список за вашите зачувани статии</string>
   <string name="no_user_lists_title">Организирајте статии во списоци</string>

@@ -46,8 +46,8 @@
   <string name="map_view_link_text">Tarkastele kartalla</string>
   <string name="language_count_link_text">Saatavilla %d muulla kielellä</string>
   <string name="content_license_html">Sisältö on saatavilla &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssillä, ellei toisin ilmoiteta</string>
-  <string name="edit_save_action_license_logged_in">Tallentamalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti.</string>
-  <string name="edit_save_action_license_anon">Tallentamalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti. Muokkauksesi yhdistetään laitteesi IP-osoitteeseen. Mikäli &lt;a href=\"https://#login\"&gt;kirjaudut sisään&lt;/a&gt;, tietosuojasi paranee.</string>
+  <string name="edit_save_action_license_logged_in">Tallentamalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti.</string>
+  <string name="edit_save_action_license_anon">Tallentamalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti. Muokkauksesi yhdistetään laitteesi IP-osoitteeseen. Mikäli &lt;a href=\"https://#login\"&gt;kirjaudut sisään&lt;/a&gt;, tietosuojasi paranee.</string>
   <string name="preference_title_language">Wikipedian kieli</string>
   <string name="preference_languages_filter_hint">Haku</string>
   <string name="langlinks_filter_hint">Haku</string>
@@ -123,11 +123,11 @@
   <string name="create_account_account_created_toast">Käyttäjätunnus luotu!</string>
   <string name="preferences_heading_storage_and_syncing">Tallennustila &amp; synkronointi</string>
   <string name="preference_title_sync_reading_lists">Synkronoi lukulistat</string>
-  <string name="preference_title_sync_reading_lists_from_account">Synkronoi lukulistat tälle tilille</string>
-  <string name="preference_summary_sync_reading_lists">Salli Wikimedian synkronoida lukulistasi, kun kirjaudut sisään</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Salli Wikimedian synkronoida lukulistat Wikipedia-tilillesi %s</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Poista synkronoidut lukulistat tililtäsi %s?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Tämä tulee poistamaan kaikki aikaisemmin synkronoimasi lukulistat etämuistiltasi. Poista kaikki synkronoinut luettelot %s?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Synkronoi lukulistat tälle tilille</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Salli Wikimedian synkronoida lukulistasi, kun kirjaudut sisään</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Salli Wikimedian synkronoida lukulistat Wikipedia-tilillesi %s</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Poista synkronoidut lukulistat tililtäsi %s?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Tämä tulee poistamaan kaikki aikaisemmin synkronoimasi lukulistat etämuistiltasi. Poista kaikki synkronoinut luettelot %s?</string>
   <string name="preferences_privacy_settings_heading">Yksityisyys</string>
   <string name="preference_title_eventlogging_opt_in">Lähetä käyttöraportteja</string>
   <string name="preference_summary_eventlogging_opt_in">Salli Wikimedian kerätä tietoja sovelluksen käyttötottumuksista käyttäjäkokemuksen parantamiseksi.</string>
@@ -148,8 +148,9 @@
   <string name="privacy_policy_description">Tietosuojakäytäntö</string>
   <string name="terms_of_use_description">Käyttöehdot</string>
   <string name="about_wikipedia_url">https://fi.m.wikipedia.org/wiki/Wikipedia:Tietoja</string>
-  <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia Apps/Android FAQ/fi</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/fi</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.fi</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fi</string>
@@ -269,6 +270,7 @@
   <string name="reference_title">Viite %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Kuvien himmentäminen (tummassa teemassa)</string>
   <string name="preference_title_prefer_offline_content">Suosi yhteydettömän tilan sisältöä</string>
+  <string name="preference_summary_prefer_offline_content">Säästä datan käyttöä lataamalla offline-tilassa käytettävissä olevat artikkelit mieluummin kuin aina ladata viimeisin versio artikkelista</string>
   <string name="preference_title_enable_offline_library">Ota käyttöön Offline-kirjasto</string>
   <string name="crash_report_dialog_title">Pahoittelut, sovellus kaatui viime kerralla</string>
   <string name="crash_report_dialog_text">Haluaisitko lähettää kaatumisilmoituksen HockeyAppiin / kolmannen osapuolen palveluntarjoajalle, jotta Wikimedia voi käydä läpi kaatumisesi ja korjata sen aiheuttaneen ongelman?</string>
@@ -372,11 +374,11 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Ota synkronointi käyttöön</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ei kiitos</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Kyllä, lisää ne lukulistoihini</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Ei, poista sovelluksessa tallennetut artikkelit</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Säilytä tallennetut artikkelit laitteessa?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Nämä ovat artikkeleita, jotka on synkronoitu Wikipedia-tiliisi. Haluaisitko säilyttää ne tässä laitteessa sen jälkeen kun kirjaudut ulos?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Kyllä, säilytä artikkelit laitteessa</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Ei, poista artikkelit laitteesta</string>
+  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">Ei, poista sovelluksessa tallennetut artikkelit</string>
+  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Säilytä tallennetut artikkelit laitteessa?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text" fuzzy="true">Nämä ovat artikkeleita, jotka on synkronoitu Wikipedia-tiliisi. Haluaisitko säilyttää ne tässä laitteessa sen jälkeen kun kirjaudut ulos?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">Kyllä, säilytä artikkelit laitteessa</string>
+  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">Ei, poista artikkelit laitteesta</string>
   <string name="default_reading_list_name">Tallennettu</string>
   <string name="default_reading_list_description">Oletuslista tallennetuille artikkeleillesi</string>
   <string name="no_user_lists_title">Järjestä artikkelit luetteloihin</string>
@@ -448,6 +450,7 @@
   <string name="feed_item_type_main_page">Wikipedian etusivu suositellulla artikkelilla</string>
   <string name="feed_item_type_randomizer">Tuota satunnaisia ​​artikkeleita luettavaksi</string>
   <string name="feed_configure_onboarding_action">Mukauta</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Mukauta Tutki-syötettä&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Voit nyt valita mitä haluat näyttää syötteessäsi, ja myös priorisoida suosikki sisältötyyppisi.</string>
   <string name="description_edit_text_hint">Otsikkokuvaus</string>
   <string name="description_edit_save">Julkaise</string>
   <string name="description_edit_add_description">Lisää otsikkokuvaus</string>
@@ -457,6 +460,7 @@
   <string name="description_edit_help_about_wikidata">Tietoa Wikidatasta</string>
   <string name="description_edit_help_wikidata_guide">Opas Wikidata-kuvauksien kirjoittamiseen</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/fi</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Kiitos jatkuvasta mielenkiinnostasi kuvausten muokkaamiseen! Tehdäksesi lisämuokkauksia, kirjaudu sisään Wikipedia-tilillesi.</string>
   <string name="description_edit_license_notice">Muuttamalla otsikkokuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssin ehtojen mukaisesti.</string>
   <string name="description_edit_success_saved">Kuvaus julkaistu!</string>
@@ -488,6 +492,7 @@
   <string name="description_edit_revert_history">Jos olet kiinnostunut, katso &lt;a href=\"%1$s\"&gt;muokkaushistoria&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">Ei Internet-yhteyttä. Varmista, että yhteytesi toimii ja yritä sitten uudelleen.</string>
   <string name="offline_read_permission_rationale">Käyttöoikeus laitteesi ulkoiseen muistiin vaaditaan selaamiseen ilman verkkoyhteyttä.</string>
+  <string name="offline_read_final_rationale">Käyttöoikeus laitteesi muistiin vaaditaan Offline-kirjaston käyttämiseen.</string>
   <string name="offline_read_permission_error">Laitteen muistin lukemisen käyttö-oikeutta ei ole myönnetty.</string>
   <string name="offline_card_sideloading_text">Selaat nyt Wikipediaa yhteydettömässä tilassa Offline-kirjastosi artikkelipakettien kanssa.</string>
   <string name="offline_my_compilations">Hallinnoi yhteydettömän tilan kirjastoani</string>
@@ -518,7 +523,7 @@
   <string name="compilation_share">Jaa</string>
   <string name="compilation_remove">Poista</string>
   <string name="compilation_remove_confirm">Haluatko poistaa tämän yhteydettömän tilan kirjastostasi?</string>
-  <string name="offline_library_title">Offline kirjasto</string>
+  <string name="offline_library_title">Offline-kirjasto</string>
   <string name="offline_library_empty_title">Yhteydettömän tilan kirjastossasi ei ole mitään</string>
   <string name="offline_library_empty_search">Etsi yhteydettömän tilan kirjastosta</string>
   <string name="offline_library_search_results_state">Hakutulokset yhteydettömän tilan kirjastostasi</string>

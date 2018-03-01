@@ -16,6 +16,7 @@
   <string name="history_item_deleted">ইতিহাস থেকে %s সরানো হয়েছে</string>
   <string name="history_items_deleted">ইতিহাস থেকে %dটি নিবন্ধ সরানো হয়েছে</string>
   <string name="history_item_delete_undo">পূর্বাবস্থা</string>
+  <string name="app_settings">অ্যাপ সেটিং</string>
   <string name="dialog_title_clear_history">ব্রাউজ ইতিহাস অপসারণ করবেন</string>
   <string name="dialog_message_clear_history">এটি আপনার সব ব্রাউজ করা ইতিহাস মুছে দিবে, এবং বর্তমানে খোলা সব ট্যাব বন্ধ করবে। আপনি কি নিশ্চিত?</string>
   <string name="dialog_message_clear_history_yes">হ্যাঁ</string>

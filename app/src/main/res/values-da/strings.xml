@@ -122,11 +122,11 @@
   <string name="create_account_account_created_toast">Konto oprettet!</string>
   <string name="preferences_heading_storage_and_syncing">Lagring og synkronisering</string>
   <string name="preference_title_sync_reading_lists">Synkroniser læselister</string>
-  <string name="preference_title_sync_reading_lists_from_account">Synkroniser læselister for denne konto</string>
-  <string name="preference_summary_sync_reading_lists">Tillad Wikimedia at synkronisere dine læselister når du logger på</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Tillad Wikimedia at synkronisere læselister med din Wikipediakonto %s</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Fjern synkroniserede læselister fra din konto %s?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Dette vil fuldstændig slette alle tidligere synkroniserede læselister fra eksternt lager. Fjern alle synkroniserede lister fra din konto %s?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Synkroniser læselister for denne konto</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Tillad Wikimedia at synkronisere dine læselister når du logger på</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Tillad Wikimedia at synkronisere læselister med din Wikipediakonto %s</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Fjern synkroniserede læselister fra din konto %s?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Dette vil fuldstændig slette alle tidligere synkroniserede læselister fra eksternt lager. Fjern alle synkroniserede lister fra din konto %s?</string>
   <string name="preferences_privacy_settings_heading">Privatliv</string>
   <string name="preference_title_eventlogging_opt_in">Send anvendelsesrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillad Wikimedia at indsamle oplysninger om, hvordan du bruger app\'en, for at gøre den bedre.</string>
@@ -376,17 +376,17 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Aktiver synkronisering</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nej tak</string>
   <string name="reading_list_login_option_reminder_dialog_title">Fundne læselisteartikler</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Der er læselisteartikler gemt i dit Wikipediaprogram. Ønsker du at beholde dem og sammenføje med læselister synkroniseret til din konto?</string>
+  <string name="reading_list_login_option_reminder_dialog_text" fuzzy="true">Der er læselisteartikler gemt i dit Wikipediaprogram. Ønsker du at beholde dem og sammenføje med læselister synkroniseret til din konto?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Ja, tilføj dem til mine læselister</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Nej, slet artikler gemt i programmet</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Bevar gemte artikler på enheden?</string>
+  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">Nej, slet artikler gemt i programmet</string>
+  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Bevar gemte artikler på enheden?</string>
   <string name="default_reading_list_name">Gemt</string>
   <string name="default_reading_list_description">Standardliste for dine gemte artikler</string>
   <string name="no_user_lists_title">Organiser artikler i lister</string>
   <string name="no_user_lists_msg">Opret lister for steder at rejse til, favoritemner og meget mere</string>
   <string name="reading_list_saved_list_rename">%1$s (bruger oprettet)</string>
   <string name="split_reading_list_message">Der er en begrænsning på %d artikler per læseliste. Eksisterende lister med mere end denne begrænsning er blevet delt i flere lister.</string>
-  <string name="reading_list_article_limit_message">Kan ikke tilføje til listen. Du har nået begrænsningen på %2$d artikler per liste for »%1$s«.</string>
+  <string name="reading_list_article_limit_message" fuzzy="true">Kan ikke tilføje til listen. Du har nået begrænsningen på %2$d artikler per liste for »%1$s«.</string>
   <string name="reading_lists_limit_message">Kan ikke oprette en anden liste. Du har nået begrænsningen på 100 læselister per konto.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synkroniser læselister&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Læselister kan nu synkroniseres på tværs af enheder. Log ind på din Wikipediakonto og tillad at dine lister gemmes.</string>
   <plurals name="reading_list_article_offline_message">

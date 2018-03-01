@@ -123,11 +123,11 @@
   <string name="create_account_account_created_toast">账户已创建！</string>
   <string name="preferences_heading_storage_and_syncing">存储与同步</string>
   <string name="preference_title_sync_reading_lists">同步阅读列表</string>
-  <string name="preference_title_sync_reading_lists_from_account">为此账户同步阅读列表</string>
-  <string name="preference_summary_sync_reading_lists">允许维基媒体在您登录时，同步您的阅读列表</string>
-  <string name="preference_summary_sync_reading_lists_from_account">允许维基媒体同步阅读列表到您的维基百科帐户%s</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">从您的账户%s移除同步的阅读列表么？</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">这将从远程存储中完全删除所有此前同步的阅读列表。从您的账户%s移除所有同步列表么？</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">为此账户同步阅读列表</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">允许维基媒体在您登录时，同步您的阅读列表</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">允许维基媒体同步阅读列表到您的维基百科帐户%s</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">从您的账户%s移除同步的阅读列表么？</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">这将从远程存储中完全删除所有此前同步的阅读列表。从您的账户%s移除所有同步列表么？</string>
   <string name="preferences_privacy_settings_heading">隐私</string>
   <string name="preference_title_eventlogging_opt_in">发送使用情况报告</string>
   <string name="preference_summary_eventlogging_opt_in">允许维基媒体基金会收集关于您使用该应用的信息，以改进该应用</string>
@@ -377,13 +377,13 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">启用同步</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">不用了，谢谢</string>
   <string name="reading_list_login_option_reminder_dialog_title">找到的阅读列表条目</string>
-  <string name="reading_list_login_option_reminder_dialog_text">这些是保存到您的维基百科应用的阅读列表。您是否希望保留它们，并合并到同步至您账户的阅读列表？</string>
+  <string name="reading_list_login_option_reminder_dialog_text" fuzzy="true">这些是保存到您的维基百科应用的阅读列表。您是否希望保留它们，并合并到同步至您账户的阅读列表？</string>
   <string name="reading_list_login_option_reminder_dialog_yes">是，将他们添加到我的阅读列表</string>
-  <string name="reading_list_login_option_reminder_dialog_no">否，删除保存在应用上的条目</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">在设备上保留已保存的条目么？</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">这些是同步到您维基百科账户的条目。您是否希望在退出后，在此设备上保留它们？</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">是，将条目保留到设备</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">否，从设备中删除条目</string>
+  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">否，删除保存在应用上的条目</string>
+  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">在设备上保留已保存的条目么？</string>
+  <string name="reading_list_logout_option_reminder_dialog_text" fuzzy="true">这些是同步到您维基百科账户的条目。您是否希望在退出后，在此设备上保留它们？</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">是，将条目保留到设备</string>
+  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">否，从设备中删除条目</string>
   <string name="default_reading_list_name">已保存</string>
   <string name="default_reading_list_description">用于您的已保存条目的默认列表</string>
   <string name="no_user_lists_title">组织条目至列表中</string>

@@ -294,6 +294,14 @@
   <string name="reading_lists_confirm_remote_delete_no">Nie</string>
   <string name="reading_list_added_articles_list_titled">Dodano %1$d artykułów do %2$s</string>
   <string name="reading_list_delete_confirm" fuzzy="true">Czy na pewno chcesz usunąć „%s”?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Anuluj</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Zaloguj się</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Ustawienia</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nie, dziękuję</string>
+  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Zachować na urządzeniu zapisane artykuły?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">Tak, zachowaj artykuły na urządzeniu</string>
+  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">Nie, usuń artykuły z urządzenia</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ten artykuł będzie teraz dostępny w trybie offline.</item>
     <item quantity="other">Te artykuły będą teraz dostępne w trybie offline.</item>

@@ -16,6 +16,7 @@
   <string name="history_item_deleted">%s historiatik kendu da</string>
   <string name="history_items_deleted">%d artikulu kendu dira historiatik</string>
   <string name="history_item_delete_undo">Desegin</string>
+  <string name="app_settings">App ezarpenak</string>
   <string name="dialog_title_clear_history">Garbitu nabigatze-historia</string>
   <string name="dialog_message_clear_history">Honek zure arakatze-historia guztia ezabatuko du eta uneko irekitako fitxak itxi egingo dira. Ziur zaude?</string>
   <string name="dialog_message_clear_history_yes">Bai</string>
@@ -122,11 +123,11 @@
   <string name="create_account_account_created_toast">Kontua sortua!</string>
   <string name="preferences_heading_storage_and_syncing">Biltegiratzea eta sinkronizazioa</string>
   <string name="preference_title_sync_reading_lists">Zure irakurketa zerrendak sinkronizatu</string>
-  <string name="preference_title_sync_reading_lists_from_account">Kontu honetarako irakurketa zerrendak sinkronizatu</string>
-  <string name="preference_summary_sync_reading_lists">Utzi Wikimediari zure irakurketa zerrendak sinkronizatzen saioa hasten duzunean</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Utzi Wikipediak sinkroniza ditzala irakurketa zerrendak zure %s Wikipedia kontura</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Zure %s kontutik kendu nahi dituzu sinkronizatutako irakurketa zerrendak?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Aurretik sinkronizatutako irakurketa zerrendak ezabatu egingo dira urruneko biltegitik. Kendu nahi dituzu sinkronizatutako zerrenda guztiak %s kontutik?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Kontu honetarako irakurketa zerrendak sinkronizatu</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Utzi Wikimediari zure irakurketa zerrendak sinkronizatzen saioa hasten duzunean</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Utzi Wikipediak sinkroniza ditzala irakurketa zerrendak zure %s Wikipedia kontura</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Zure %s kontutik kendu nahi dituzu sinkronizatutako irakurketa zerrendak?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Aurretik sinkronizatutako irakurketa zerrendak ezabatu egingo dira urruneko biltegitik. Kendu nahi dituzu sinkronizatutako zerrenda guztiak %s kontutik?</string>
   <string name="preferences_privacy_settings_heading">Pribatutasuna</string>
   <string name="preference_title_eventlogging_opt_in">Erabilera txostenak bidali</string>
   <string name="preference_summary_eventlogging_opt_in">Baimendu Wikimediari zure aplikazioaren erabileraren inguruko informazioa jasotzen, aplikazioa hobetzeko.</string>
@@ -374,13 +375,13 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Sinkronizazioa ahalbidetu</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ez, eskerrik asko</string>
   <string name="reading_list_login_option_reminder_dialog_title">Irakurketa zerrendako artikuluak aurkitu dira</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Zure Wikipedia aplikazioan irakurketa zerrendako artikuluak gorde dira. Zure kontuarekin sinkronizatutako irakurketen zerrendak gorde eta bateratu nahi dituzu?</string>
+  <string name="reading_list_login_option_reminder_dialog_text" fuzzy="true">Zure Wikipedia aplikazioan irakurketa zerrendako artikuluak gorde dira. Zure kontuarekin sinkronizatutako irakurketen zerrendak gorde eta bateratu nahi dituzu?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Bai, gehitu itzazu nire irakurketa zerrendetara</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Ez, ezaba itzazu aplikazioan gordetako artikuluak</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Gordetako artikuluak gailuan mantendu nahi dituzu?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Zure Wikipedia kontuan sinkronizatutako artikuluak daude. Saioa itxi eta gero, gailuan mantendu nahiko zenituzke?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Bai, mantendu itzazu artikuluak gailuan.</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Ez, ezaba itzazu artikuluak gailutik</string>
+  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">Ez, ezaba itzazu aplikazioan gordetako artikuluak</string>
+  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Gordetako artikuluak gailuan mantendu nahi dituzu?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text" fuzzy="true">Zure Wikipedia kontuan sinkronizatutako artikuluak daude. Saioa itxi eta gero, gailuan mantendu nahiko zenituzke?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">Bai, mantendu itzazu artikuluak gailuan.</string>
+  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">Ez, ezaba itzazu artikuluak gailutik</string>
   <string name="default_reading_list_name">Gordeta</string>
   <string name="default_reading_list_description">Zerrenda lehenetsia gordetako artikuluentzat</string>
   <string name="no_user_lists_title">Artikuluak zerrendetan antolatu</string>
@@ -498,6 +499,7 @@
   <string name="description_edit_revert_history">Interesaturik bazaude, ikus &lt;a href=\"%1$s\"&gt;edit history&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">Ez dago interneterako konexiorik. Behin ziurtatuta konexioa daukazula, saiatu zaitez berriro.</string>
   <string name="offline_read_permission_rationale">Zeure gailuko memorian konexiorik gabe sartzeko baimena.</string>
+  <string name="offline_read_final_rationale">Offline liburutegia erabiltzeko zeure gailuko memorian konexiorik gabe sartzeko baimena eman behar duzu.</string>
   <string name="offline_read_permission_error">Ez daukazu baimenik gailuaren memoriatik irakurtzeko.</string>
   <string name="offline_card_sideloading_text">Oraintxe ari zara deskonektatu gabeko artikuluetatik kanpoko Liburutegiko artikulu-paketeetatik Wikipedia erabiltzen.</string>
   <string name="offline_my_compilations">Nire offline bildumak kudeatu</string>
@@ -552,8 +554,8 @@
   <string name="onboarding_explore_text">Murgildu zaitez Wikipedian etengabe Arakatzaile ezarpena eguneratuz.&lt;br/&gt; &lt;b&gt;Pertsonalizatu&lt;/b&gt; zure interesetako jarioa – bai gertakari historikoen inguruan ikasteko &lt;b&gt;Egun honetan&lt;/b&gt;, zein dadoa botaz &lt;b&gt;Ausazkoa&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Gordu irakurketa zerrendan</string>
   <string name="onboarding_save_to_reading_lists_text">Irakurketa zerrendak sortu gero irakurri nahi dituzun artikuluekin, konexiorik gabe egonda ere.</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">Sinkronizatutako irakurketa zerrendak</string>
-  <string name="onboarding_reading_list_sync_text" fuzzy="true">Geroago irakurri nahi dituzun artikuluen irakurketa zerrenda sortu, baita konexiorik gabe zaudenean ere. &lt;a href=\"#login\"&gt;Log in or create&lt;/a&gt; zure Wikipedia kontuan irakurketa zerrendak gordetzeko.</string>
+  <string name="onboarding_reading_list_sync_title">Sinkronizatutako irakurketa zerrendak</string>
+  <string name="onboarding_reading_list_sync_text">Geroago irakurri nahi dituzun artikuluen irakurketa zerrenda sortu, baita konexiorik gabe zaudenean ere. &lt;a href=\"#login\"&gt;Log in or create&lt;/a&gt; zure Wikipedia kontuan irakurketa zerrendak gordetzeko.</string>
   <string name="onboarding_reading_list_sync_text_v2">Gero irakurri nahi dituzun artikuluen irakurketa-zerrendak egin ditzakezu, nahiz eta offline egon. &lt;br/&gt;Hasi saioa zure Wikipedian kontuan zure irakurketa-zerrendak sinkronizatzeko. &lt;a href=\"#login\"&gt;Wikipediara batu&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Datuak anonimoki bidali</string>
   <string name="onboarding_analytics_offline_text">Lagundu iezaguzu aplikazioa hobetzen zure erabilera azalduz. Bildutako datuak anonimoak izango dira.&lt;a href=\"#offline\"&gt;Gehiago ikasi&lt;/a&gt;</string>

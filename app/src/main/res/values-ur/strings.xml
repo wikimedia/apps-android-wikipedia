@@ -122,7 +122,7 @@
   <string name="create_account_account_created_toast">کھاتہ بن چکا ہے!</string>
   <string name="preferences_heading_storage_and_syncing">ذخیرہ اندوزی اور مطابقت پزیری</string>
   <string name="preference_title_sync_reading_lists">مطالعہ کی فہرستوں کو باہم مطابق کریں</string>
-  <string name="preference_summary_sync_reading_lists">ویکیمیڈیا کو اس بات کی اجازت ہے کہ وہ آپ کے لاگ ان ہونے پر مطالعہ کی فہرستوں کو باہم مطابق کر دے</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">ویکیمیڈیا کو اس بات کی اجازت ہے کہ وہ آپ کے لاگ ان ہونے پر مطالعہ کی فہرستوں کو باہم مطابق کر دے</string>
   <string name="preferences_privacy_settings_heading">نجی نوعیت</string>
   <string name="preference_title_eventlogging_opt_in">استعمال کی رپورٹ بھیجیں</string>
   <string name="preference_summary_eventlogging_opt_in">ویکیمیڈیا کو اجازت دیں کہ وہ آپ کے اس ایپ کے استعمال کی معلومات حاصل کرے تاکہ اس اطلاقیے کو مزید بہتر بنایا جا سکے۔</string>

@@ -45,8 +45,8 @@
   <string name="map_view_link_text">Переглянути на карті</string>
   <string name="language_count_link_text">Доступно %d іншими мовами</string>
   <string name="content_license_html">Вміст доступний згідно з &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; якщо не вказано інше</string>
-  <string name="edit_save_action_license_logged_in">Зберігаючи, Ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та безповоротно публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Зберігаючи, Ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та беззастережно публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Редагування будуть пов\'язані з IP-адресою Вашого пристрою. Якщо Ви &lt;a href=\"https://#login\"&gt;увійдете в систему&lt;/a&gt;, то матимете більше приватності.</string>
+  <string name="edit_save_action_license_logged_in">Зберігаючи, Ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та безповоротно публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Зберігаючи, Ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та беззастережно публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Редагування будуть пов\'язані з IP-адресою Вашого пристрою. Якщо Ви &lt;a href=\"https://#login\"&gt;увійдете в систему&lt;/a&gt;, то матимете більше приватності.</string>
   <string name="preference_title_language">Мова Вікіпедії</string>
   <string name="preference_languages_filter_hint">Пошук</string>
   <string name="langlinks_filter_hint">Пошук</string>
@@ -122,11 +122,11 @@
   <string name="create_account_account_created_toast">Створено обліковий запис!</string>
   <string name="preferences_heading_storage_and_syncing">Збереження та синхронізація</string>
   <string name="preference_title_sync_reading_lists">Синхронізувати список читання</string>
-  <string name="preference_title_sync_reading_lists_from_account">Синхронізовувати списки читання для цього облікового запису</string>
-  <string name="preference_summary_sync_reading_lists">Дозволити Вікіпедії синхронізовувати списки читання після авторизації</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Синхронізовувати списки читання для цього облікового запису</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Дозволити Вікіпедії синхронізовувати списки читання після авторизації</string>
   <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Дозволити Вікімедіа синхронізовувати списки читання з обліковим записом Вікіпедії %S</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Видалити синхронізовані списки читання з вашого облікового запису %s?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Це повністю видалить всі раніше синхронізовані списки збережені віддалено. Видалити всі списки з %s?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Видалити синхронізовані списки читання з вашого облікового запису %s?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Це повністю видалить всі раніше синхронізовані списки збережені віддалено. Видалити всі списки з %s?</string>
   <string name="preferences_privacy_settings_heading">Конфіденційність</string>
   <string name="preference_title_eventlogging_opt_in">Надсилати звіти про використання</string>
   <string name="preference_summary_eventlogging_opt_in">Дозволити Вікімедіа збір інформації про те, як Ви використовуєте додаток, щоб зробити його кращим</string>

@@ -16,6 +16,7 @@
   <string name="history_item_deleted">הערך %s הוסר מההיסטוריה</string>
   <string name="history_items_deleted">%d ערכים הוסרו מההיסטוריה</string>
   <string name="history_item_delete_undo">ביטול</string>
+  <string name="app_settings">הגדרות האפליקציה</string>
   <string name="dialog_title_clear_history">לנקות את היסטוריית הגלישה</string>
   <string name="dialog_message_clear_history">זה ימחק את כל היסטוריית הגלישה שלך ויסגור את כל הלשוניות שפתוחות עכשיו. לעשות את זה?</string>
   <string name="dialog_message_clear_history_yes">כן</string>
@@ -45,8 +46,8 @@
   <string name="map_view_link_text">הצגה על מפה</string>
   <string name="language_count_link_text">זמין בעוד %d שפות</string>
   <string name="content_license_html">התוכן זמין לפי תנאי &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; אלא אם צוין אחרת</string>
-  <string name="edit_save_action_license_logged_in">שמירת השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">שמירת השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;. העריכות תיוחסנה לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך יותר פרטיות.</string>
+  <string name="edit_save_action_license_logged_in">שמירת השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">שמירת השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. העריכות תיוחסנה לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך יותר פרטיות.</string>
   <string name="preference_title_language">שפת הוויקיפדיה</string>
   <string name="preference_languages_filter_hint">חיפוש</string>
   <string name="langlinks_filter_hint">חיפוש</string>
@@ -122,7 +123,10 @@
   <string name="create_account_account_created_toast">החשבון נוצר!</string>
   <string name="preferences_heading_storage_and_syncing">אחסון וסנכרון</string>
   <string name="preference_title_sync_reading_lists">סנכרון רשימות קריאה</string>
-  <string name="preference_summary_sync_reading_lists">לאפשר לוויקימדיה לסנכרן את רשימות הקריאה שלך בעת כניסה לחשבון</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">סנכרון רשימות קריאה עבור החשבון הזה</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">לאפשר לוויקימדיה לסנכרן את רשימות הקריאה שלך בעת כניסה לחשבון</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">לאפשר לויקימדיה לסנכרן רשימות קריאה לחשבון הוויקיפדיה שלך %s</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">להסיר את רשימות הקריאה המסונכרנות מהחשבון שלך %s?</string>
   <string name="preferences_privacy_settings_heading">פרטיות</string>
   <string name="preference_title_eventlogging_opt_in">לשלוח דיווחי שימוש</string>
   <string name="preference_summary_eventlogging_opt_in">לאפשר לוויקימדיה לאסוף מידע על השימוש שלך באפליקציה כדי לשפר אותה</string>
@@ -358,7 +362,7 @@
   <string name="no_user_lists_title">ארגנו ערכים לרשימות</string>
   <string name="no_user_lists_msg">צרו רשימות למקומות שביקרתם בהם, נושאים שאתם אוהבים, ועוד</string>
   <string name="reading_list_saved_list_rename">%1$s (נוצרה על־ידי המשתמש)</string>
-  <string name="split_reading_list_message">יש מגבלה של %d ערכים לרשימת קריאה. רשימות קיימות שחורגות מהמגבלה הזאת פוצלו לרשימות מרובות.</string>
+  <string name="split_reading_list_message" fuzzy="true">יש מגבלה של %d ערכים לרשימת קריאה. רשימות קיימות שחורגות מהמגבלה הזאת פוצלו לרשימות מרובות.</string>
   <string name="reading_list_article_limit_message">אי־אפשר להוסיף לרשימה הזאת הגעת למגבלה של %2$d ערכים ברשימה \"%1$s\".</string>
   <string name="reading_lists_limit_message">לא ניתן ליצור עוד רשימה. הגעת למגבלה של 100 רשימות קריאה לחשבון.</string>
   <plurals name="reading_list_article_offline_message">

@@ -119,7 +119,7 @@
   <string name="create_account_account_created_toast">Đã mở tài khoản thành công!</string>
   <string name="preferences_heading_storage_and_syncing">Lưu trữ và đồng bộ</string>
   <string name="preference_title_sync_reading_lists">Đồng bộ hóa các danh sách đọc</string>
-  <string name="preference_summary_sync_reading_lists">Cho phép Wikimedia đồng bộ hóa các danh sách đọc của bạn khi bạn đăng nhập</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Cho phép Wikimedia đồng bộ hóa các danh sách đọc của bạn khi bạn đăng nhập</string>
   <string name="preferences_privacy_settings_heading">Riêng tư</string>
   <string name="preference_title_eventlogging_opt_in">Gửi báo cáo sử dụng</string>
   <string name="preference_summary_eventlogging_opt_in">Cho phép Wikimedia thu thập thông tin về cách bạn sử dụng ứng dụng để giúp cải thiện ứng dụng</string>

@@ -122,7 +122,7 @@
   <string name="create_account_account_created_toast">Konto opprettet!</string>
   <string name="preferences_heading_storage_and_syncing">Lagring og synkronisering</string>
   <string name="preference_title_sync_reading_lists">Synkroniser leselister</string>
-  <string name="preference_summary_sync_reading_lists">Tillater at Wikimedia synkroniserer leselistene dine når du logger inn</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Tillater at Wikimedia synkroniserer leselistene dine når du logger inn</string>
   <string name="preferences_privacy_settings_heading">Personvern</string>
   <string name="preference_title_eventlogging_opt_in">Send bruksrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillatt Wikimedia å samle informasjon om hvordan du bruker appen for å forbedre den</string>

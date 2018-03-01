@@ -123,11 +123,11 @@
   <string name="create_account_account_created_toast">Aðgangur búinn til!</string>
   <string name="preferences_heading_storage_and_syncing">Geymsla og samstilling</string>
   <string name="preference_title_sync_reading_lists">Samstilla leslista</string>
-  <string name="preference_title_sync_reading_lists_from_account">Samstilla leslista á þessum notandaaðgangi</string>
-  <string name="preference_summary_sync_reading_lists">Leyfa Wikimedia að samstilla leslista þína þegar þú skráir þig inn</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Leyfa Wikimedia að samstilla leslista við %s Wikipedia-aðganginn þinn</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Fjarlægja samstillta leslista af þessum notandaaðgangi %s?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Þetta mun eyða öllum áður samstilltum leslistum af fjartengdu gagnageymslunni. Fjarlægja alla samstillta leslista af notandaaðgangi %s?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Samstilla leslista á þessum notandaaðgangi</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Leyfa Wikimedia að samstilla leslista þína þegar þú skráir þig inn</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Leyfa Wikimedia að samstilla leslista við %s Wikipedia-aðganginn þinn</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Fjarlægja samstillta leslista af þessum notandaaðgangi %s?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Þetta mun eyða öllum áður samstilltum leslistum af fjartengdu gagnageymslunni. Fjarlægja alla samstillta leslista af notandaaðgangi %s?</string>
   <string name="preferences_privacy_settings_heading">Gagnaleynd</string>
   <string name="preference_title_eventlogging_opt_in">Senda notkunarskýrslur</string>
   <string name="preference_summary_eventlogging_opt_in">Leyfa Wikimedia til að safna upplýsingum um hvernig þú notar forritið svo hægt sé að gera það betra</string>
@@ -377,20 +377,20 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Virkja samstillingu</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nei, takk</string>
   <string name="reading_list_login_option_reminder_dialog_title">Greinar á leslista fundust</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Það eru leslistar sem vistaðir hafa verið í Wikipedia-forritið þitt. Myndirðu vilja halda þeim og sameina við leslista sem samstilltir eru við aðganginn þinn?</string>
+  <string name="reading_list_login_option_reminder_dialog_text" fuzzy="true">Það eru leslistar sem vistaðir hafa verið í Wikipedia-forritið þitt. Myndirðu vilja halda þeim og sameina við leslista sem samstilltir eru við aðganginn þinn?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Já, bæta þeim á leslistana mína</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Nei, eyða greinum vistuðum í forritinu</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Halda vistuðum greinum á tæki?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Það eru greinar sem samstilltar hafa verið við Wikipedia-aðganginn þinn. Myndirðu vilja halda þeim á þessu tæki eftir að þú skráir þig út?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Já, halda greinum á tæki</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Nei, eyða greinum af tæki</string>
+  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">Nei, eyða greinum vistuðum í forritinu</string>
+  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Halda vistuðum greinum á tæki?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text" fuzzy="true">Það eru greinar sem samstilltar hafa verið við Wikipedia-aðganginn þinn. Myndirðu vilja halda þeim á þessu tæki eftir að þú skráir þig út?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">Já, halda greinum á tæki</string>
+  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">Nei, eyða greinum af tæki</string>
   <string name="default_reading_list_name">Vistað</string>
   <string name="default_reading_list_description">Sjálfgefinn listi fyrir vistuðu greinarnar þínar</string>
   <string name="no_user_lists_title">Skipuleggja greinar í lista</string>
   <string name="no_user_lists_msg">Útbúðu lista yfir staði til að heimsækja, eftirlætisumræðuefni og margt fleira</string>
   <string name="reading_list_saved_list_rename">%1$s (gert af notanda)</string>
-  <string name="split_reading_list_message">Leslistar eru takmarkaðir við %d greinar. Fyrirliggjandi listum sem hafa fleiri greinar en þau mörk, hefur verið skipt upp í fleiri lista.</string>
-  <string name="reading_list_article_limit_message">Get ekki bætt á þennan lista. Þú hefur náð %2$d greina takmörkum á hvern lista fyrir \"%1$s\".</string>
+  <string name="split_reading_list_message" fuzzy="true">Leslistar eru takmarkaðir við %d greinar. Fyrirliggjandi listum sem hafa fleiri greinar en þau mörk, hefur verið skipt upp í fleiri lista.</string>
+  <string name="reading_list_article_limit_message" fuzzy="true">Get ekki bætt á þennan lista. Þú hefur náð %2$d greina takmörkum á hvern lista fyrir \"%1$s\".</string>
   <string name="reading_lists_limit_message">Get ekki búið til annan lista. Þú hefur náð 100 leslista takmörkum á hvern notandaaðgang.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Samstilling leslista&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Nú er hægt að samstilla leslista á milli tækja. Skráðu þig inn á Wikipedia-aðganginn þinn og leyfðu vistun á leslistunum þínum.</string>
   <plurals name="reading_list_article_offline_message">

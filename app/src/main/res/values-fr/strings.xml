@@ -46,8 +46,8 @@
   <string name="map_view_link_text">Afficher sur une carte</string>
   <string name="language_count_link_text">Disponible dans %d autres langues</string>
   <string name="content_license_html">Le contenu est disponible sous &lt;a href=\"%1$s\"&gt;licence CC BY-SA 3.0&lt;/a&gt; sauf indication contraire</string>
-  <string name="edit_save_action_license_logged_in">En enregistrant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez définitivement vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">En enregistrant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez définitivement vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.\nLes modifications seront attribuées à l’adresse IP de votre équipement. Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt;, vous aurez davantage de confidentialité.</string>
+  <string name="edit_save_action_license_logged_in">En enregistrant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez définitivement vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">En enregistrant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez définitivement vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.\nLes modifications seront attribuées à l’adresse IP de votre équipement. Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt;, vous aurez davantage de confidentialité.</string>
   <string name="preference_title_language">Langue de Wikipédia</string>
   <string name="preference_languages_filter_hint">Rechercher</string>
   <string name="langlinks_filter_hint">Rechercher</string>
@@ -123,11 +123,11 @@
   <string name="create_account_account_created_toast">Compte créé !</string>
   <string name="preferences_heading_storage_and_syncing">Stockage et synchronisation</string>
   <string name="preference_title_sync_reading_lists">Synchroniser les listes de lecture</string>
-  <string name="preference_title_sync_reading_lists_from_account">Synchroniser les listes de lecture pour ce compte</string>
-  <string name="preference_summary_sync_reading_lists">Permettre à Wikipédia de synchroniser vos listes de lecture quand vous vous connectez</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Permettre à Wikimédia de synchroniser les listes de lecture vers votre compte Wikipédia %s</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Supprimer les listes de lecture synchronisées de votre compte %s ?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Cela supprimera complètement toutes les listes de lecture synchronisées précédemment du stockage distant. Supprimer toutes les listes synchronisées de votre compte %s ?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Synchroniser les listes de lecture pour ce compte</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Permettre à Wikipédia de synchroniser vos listes de lecture quand vous vous connectez</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Permettre à Wikimédia de synchroniser les listes de lecture avec votre compte Wikipédia %s</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Supprimer les listes de lecture synchronisées de votre compte %s ?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Cela supprimera complètement toutes les listes de lecture synchronisées précédemment du stockage distant. Supprimer toutes les listes synchronisées de votre compte %s ?</string>
   <string name="preferences_privacy_settings_heading">Confidentialité</string>
   <string name="preference_title_eventlogging_opt_in">Envoyer les rapports d’utilisation</string>
   <string name="preference_summary_eventlogging_opt_in">Permettre à Wikimédia de recueillir des informations sur la manière dont vous utilisez l’application, pour l’améliorer</string>
@@ -149,7 +149,7 @@
   <string name="terms_of_use_description">Conditions d’utilisation</string>
   <string name="about_wikipedia_url">https://fr.m.wikipedia.org/wiki/Wikipédia:À_propos_de_Wikipédia</string>
   <string name="privacy_policy_url">https://meta.m.wikimedia.org/wiki/Privacy_policy/fr</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.fr</string>
@@ -248,7 +248,7 @@
   <string name="button_continue_to_article">Lire l’article</string>
   <string name="button_add_to_reading_list">Ajouter à la liste de lecture</string>
   <string name="page_offline_notice_cannot_load_while_offline">L’article ne peut pas être chargé hors connexion.</string>
-  <string name="page_offline_notice_add_to_reading_list">Astuce: ajoutez l’article à une liste de lecture et il sera téléchargé une fois que vous serez à nouveau connecté.</string>
+  <string name="page_offline_notice_add_to_reading_list">Astuce : ajoutez l’article à une liste de lecture et il sera téléchargé une fois que vous serez à nouveau connecté.</string>
   <string name="page_offline_notice_last_date">Vous lisez une version hors ligne sauvegardée le %s.</string>
   <string name="page_offline_notice_compilation_download_date">Vous lisez la version hors connexion de cet article, depuis %1$s • %2$s.</string>
   <string name="button_get_directions">Obtenir les directions</string>
@@ -293,7 +293,7 @@
   <string name="color_theme_black">Noir</string>
   <string name="color_theme_test_title">Texte d\'exemple</string>
   <string name="color_theme_test_text">Charger le diaporeme pour faire changer le volume du texte qui est utilise pour lire des articles. Afin de determiner le volume du texte, a l\'aide du reste d\'application, changer le volume du texte dans le systeme.</string>
-  <string name="preference_title_app_theme">Theme d\'App</string>
+  <string name="preference_title_app_theme">Thème de l\'application</string>
   <string name="preference_summary_color_theme">Basculer pour utiliser le thème couleur sombre de l’application</string>
   <string name="text_size_increase">Agrandir le texte</string>
   <string name="text_size_decrease">Réduire la taille du texte</string>
@@ -377,13 +377,13 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Activer la synchronisation</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Non merci</string>
   <string name="reading_list_login_option_reminder_dialog_title">Articles de liste de lecture trouvés</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Il y a des articles de liste de lecture enregistrés dans votre application Wikipédia. Voulez-vous les conserver et les fusionner avec les listes de lecture synchronisées dans votre compte ?</string>
+  <string name="reading_list_login_option_reminder_dialog_text" fuzzy="true">Il y a des articles de liste de lecture enregistrés dans votre application Wikipédia. Voulez-vous les conserver et les fusionner avec les listes de lecture synchronisées dans votre compte ?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Oui, les ajouter à mes listes de lecture</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Non, supprimer les articles enregistrés dans l’application</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Conserver les articles enregistrés dans l’appareil ?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Il y a des articles synchronisés dans votre compte Wikipédia. Voulez-vous les garder sur cet appareil après vous être déconnecté ?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Oui, conserver les articles dans l’appareil</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Non, supprimer les articles de l’appareil</string>
+  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">Non, supprimer les articles enregistrés dans l’application</string>
+  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Conserver les articles enregistrés dans l’appareil ?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text" fuzzy="true">Il y a des articles synchronisés dans votre compte Wikipédia. Voulez-vous les garder sur cet appareil après vous être déconnecté ?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">Oui, conserver les articles dans l’appareil</string>
+  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">Non, supprimer les articles de l’appareil</string>
   <string name="default_reading_list_name">Enregistré</string>
   <string name="default_reading_list_description">Liste par défaut pour vos articles enregistrés</string>
   <string name="no_user_lists_title">Ranger des articles dans des listes</string>
@@ -422,7 +422,7 @@
   <string name="view_random_card_subtitle">Voltiger à travers des articles aléatoires à lire depuis Wikipédia.</string>
   <string name="view_random_card_action">Lancer les dés</string>
   <string name="view_next_random_article">Charger un autre article aléatoire</string>
-  <string name="view_main_page_card_title">Aujourd\'hui sur Wikipedia</string>
+  <string name="view_main_page_card_title">Aujourd\'hui sur Wikipédia</string>
   <string name="view_main_page_card_subtitle">Page principale le %s</string>
   <string name="view_main_page_card_action">Afficher la page principale</string>
   <string name="view_featured_image_card_title">Image du jour</string>

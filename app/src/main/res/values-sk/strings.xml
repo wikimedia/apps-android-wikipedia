@@ -121,7 +121,7 @@
   <string name="create_account_account_created_toast">Účet bol vytvorený!</string>
   <string name="preferences_heading_storage_and_syncing">Úložisko a synchronizácia</string>
   <string name="preference_title_sync_reading_lists">Synchronizovať zoznamy na prečítanie</string>
-  <string name="preference_summary_sync_reading_lists">Povolí Wikimedii synchronizovať vaše zoznamy na prečítanie keď ste prihlásení</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Povolí Wikimedii synchronizovať vaše zoznamy na prečítanie keď ste prihlásení</string>
   <string name="preferences_privacy_settings_heading">Súkromie</string>
   <string name="preference_title_eventlogging_opt_in">Odosielať správu o používaní</string>
   <string name="preference_summary_eventlogging_opt_in">Povoliť Wikimedii zbierať informácie o vašom používaní aplikácie. Pomáha nám to skvalitniť aplikáciu.</string>

@@ -123,11 +123,11 @@
   <string name="create_account_account_created_toast">Konto har skapats!</string>
   <string name="preferences_heading_storage_and_syncing">Lagring och synkning</string>
   <string name="preference_title_sync_reading_lists">Synkroniserar läslistor</string>
-  <string name="preference_title_sync_reading_lists_from_account">Synkronisera läslistor för detta konto</string>
-  <string name="preference_summary_sync_reading_lists">Tillåt Wikimedia att synkronisera dina läslistor när du loggar in</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Tillåt att Wiimedia synkroniserar läslistor till ditt Wikipedia-konto %s</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Ta bort synkroniserade läslistor från ditt konto %s?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Detta kommer att radera alla tidigare synkroniserade läslistor från fjärrlagringen helt och hållet. Ta bort alla synkroniserade listor från ditt konto %s?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Synkronisera läslistor för detta konto</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Tillåt Wikimedia att synkronisera dina läslistor när du loggar in</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Tillåt att Wiimedia synkroniserar läslistor till ditt Wikipedia-konto %s</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Ta bort synkroniserade läslistor från ditt konto %s?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Detta kommer att radera alla tidigare synkroniserade läslistor från fjärrlagringen helt och hållet. Ta bort alla synkroniserade listor från ditt konto %s?</string>
   <string name="preferences_privacy_settings_heading">Integritet</string>
   <string name="preference_title_eventlogging_opt_in">Skicka användningsrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillåt Wikimedia att samla in information om hur du använder appen. Informationen används för att göra appen bättre.</string>
@@ -377,13 +377,13 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Aktivera synkronisering</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nej tack</string>
   <string name="reading_list_login_option_reminder_dialog_title">Artiklar i läslistor hittades</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Det finns artiklar i läslistor som har sparats i din Wikipedia-app. Vill du behålla och sammanfoga dem med läslistorna som är synkroniserade till ditt konto?</string>
+  <string name="reading_list_login_option_reminder_dialog_text" fuzzy="true">Det finns artiklar i läslistor som har sparats i din Wikipedia-app. Vill du behålla och sammanfoga dem med läslistorna som är synkroniserade till ditt konto?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Ja, lägg till dem i mina läslistor</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Nej, radera artiklar som är sparade på appen</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Behåll sparade artiklar på enheten?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Det finns synkroniserade artiklar på ditt Wikipedia-konto. Vill du behålla dem på denna enhet efter du loggar ut?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Ja, behåll artiklar på enheten</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Nej, radera artiklar från enheten</string>
+  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">Nej, radera artiklar som är sparade på appen</string>
+  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Behåll sparade artiklar på enheten?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text" fuzzy="true">Det finns synkroniserade artiklar på ditt Wikipedia-konto. Vill du behålla dem på denna enhet efter du loggar ut?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">Ja, behåll artiklar på enheten</string>
+  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">Nej, radera artiklar från enheten</string>
   <string name="default_reading_list_name">Sparades</string>
   <string name="default_reading_list_description">Standardlista för dina sparade artiklar</string>
   <string name="no_user_lists_title">Organisera artiklar till listor</string>

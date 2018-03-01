@@ -122,10 +122,10 @@
   <string name="create_account_account_created_toast">S\'ha creat el vostre compte d\'usuari!</string>
   <string name="preferences_heading_storage_and_syncing">Emmagatzemament i sincronització</string>
   <string name="preference_title_sync_reading_lists">Sincronitza les llistes de lectura</string>
-  <string name="preference_title_sync_reading_lists_from_account">Sincronitza les llistes de lectura d\'aquest compte</string>
-  <string name="preference_summary_sync_reading_lists">Permet que Wikimedia sincronitzi les llistes de lectura en iniciar la sessió</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Permet que Wikimedia sincronitzi les llistes de lectura del vostre compte de Viquipèdia %s</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Voleu suprimir les llistes de lectura sincronitzades del vostre compte %s?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Sincronitza les llistes de lectura d\'aquest compte</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Permet que Wikimedia sincronitzi les llistes de lectura en iniciar la sessió</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Permet que Wikimedia sincronitzi les llistes de lectura del vostre compte de Viquipèdia %s</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Voleu suprimir les llistes de lectura sincronitzades del vostre compte %s?</string>
   <string name="preferences_privacy_settings_heading">Privadesa</string>
   <string name="preference_title_eventlogging_opt_in">Envia informes sobre l\'ús de l\'aplicació</string>
   <string name="preference_summary_eventlogging_opt_in">Permetre a Viquimedia recollir informació sobre com utilitzeu l\'aplicació, a fi de poder-la millorar</string>
@@ -371,17 +371,17 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No, gràcies</string>
   <string name="reading_list_login_option_reminder_dialog_title">S\'han trobat articles de llistes de lectura</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Sí, afegeix-les a les meves llistes de lectura</string>
-  <string name="reading_list_login_option_reminder_dialog_no">No, elimina els articles desats a l\'aplicació</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Voleu conservar els articles desats al dispositiu?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Sí, conserva els articles en el dispositiu</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">No, elimina els articles del dispositiu</string>
+  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">No, elimina els articles desats a l\'aplicació</string>
+  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Voleu conservar els articles desats al dispositiu?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">Sí, conserva els articles en el dispositiu</string>
+  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">No, elimina els articles del dispositiu</string>
   <string name="default_reading_list_name">Desats</string>
   <string name="default_reading_list_description">Llista per defecte d’articles desats</string>
   <string name="no_user_lists_title">Organitzar articles en llistes</string>
   <string name="no_user_lists_msg">Crear llistes per llocs on viatjar, temes favorits, i molt més</string>
   <string name="reading_list_saved_list_rename">%1$s (creat per l’usuari)</string>
   <string name="split_reading_list_message">Hi ha un límit de fins a %d articles per llista de lectura. Les llistes de lectura anteriors que tenien més articles que aquest límit s\'han partit en diferents llistes.</string>
-  <string name="reading_list_article_limit_message">No podeu afegir elements a aquesta llista. Heu assolit el límit de %2$d articles per llista per a «%1$s».</string>
+  <string name="reading_list_article_limit_message" fuzzy="true">No podeu afegir elements a aquesta llista. Heu assolit el límit de %2$d articles per llista per a «%1$s».</string>
   <string name="reading_lists_limit_message">No es pot crear una altra llista. Heu assolit el límit de 100 llistes de lectura per compte.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Aquest article estarà disponible fora de línia a partir d\'ara.</item>
@@ -407,7 +407,7 @@
   <string name="notification_syncing_resume_button">Reprèn</string>
   <string name="notification_syncing_cancel_button">Cancel·la</string>
   <string name="view_continue_reading_card_title">Continua llegint</string>
-  <string name="view_because_you_read_card_title">Com has llegit</string>
+  <string name="view_because_you_read_card_title">Com que has llegit</string>
   <string name="view_random_card_title">A l\'atzar</string>
   <string name="view_random_card_subtitle">Volteu per articles a l\'atzar per llegir de la Viquipèdia</string>
   <string name="view_random_card_action">Llença el deu</string>

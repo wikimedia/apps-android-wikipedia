@@ -46,8 +46,8 @@
   <string name="map_view_link_text">Haritada görüntüle</string>
   <string name="language_count_link_text">%d farklı dilde mevcut</string>
   <string name="content_license_html">Aksi belirtilmediği sürece içerik &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansı altında kullanılabilir.</string>
-  <string name="edit_save_action_license_logged_in">Kaydederek, &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz.</string>
-  <string name="edit_save_action_license_anon">Kaydederek, &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz. Değişiklikleriniz cihazınızın IP adresiyle kaydedilecek. Eğer &lt;a href=\"https://#login\"&gt;giriş yaparsanız&lt;/a&gt; daha fazla gizliliğe sahip olursunuz.</string>
+  <string name="edit_save_action_license_logged_in">Kaydederek, &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz.</string>
+  <string name="edit_save_action_license_anon">Kaydederek, &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz. Değişiklikleriniz cihazınızın IP adresiyle kaydedilecek. Eğer &lt;a href=\"https://#login\"&gt;giriş yaparsanız&lt;/a&gt; daha fazla gizliliğe sahip olursunuz.</string>
   <string name="preference_title_language">Vikipedi dili</string>
   <string name="preference_languages_filter_hint">Ara</string>
   <string name="langlinks_filter_hint">Ara</string>
@@ -123,11 +123,11 @@
   <string name="create_account_account_created_toast">Hesap oluşturuldu!</string>
   <string name="preferences_heading_storage_and_syncing">Depolama ve senkronizasyon</string>
   <string name="preference_title_sync_reading_lists">Okuma listelerini senkronize et</string>
-  <string name="preference_title_sync_reading_lists_from_account">Bu hesap için okuma listelerini senkronize et</string>
-  <string name="preference_summary_sync_reading_lists">Oturum açtığınızda okuma listelerinizin senkronize edilmesi için Wikimedia\'ya izin verin</string>
-  <string name="preference_summary_sync_reading_lists_from_account">%s Wikimedia\'nın, okuma listelerini hesabınıza senkronize etmesine izin verin.</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">%s Senkronize edilmiş okuma listelerini hesabınızdan kaldırın?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">%s Senkronize woken tüm okuma listelerini listeden kaldırmak istediğinize emin misiniz?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Bu hesap için okuma listelerini senkronize et</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Oturum açtığınızda okuma listelerinizin senkronize edilmesi için Wikimedia\'ya izin verin</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">%s Wikimedia\'nın, okuma listelerini hesabınıza senkronize etmesine izin verin.</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">%s Senkronize edilmiş okuma listelerini hesabınızdan kaldırın?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">%s Senkronize woken tüm okuma listelerini listeden kaldırmak istediğinize emin misiniz?</string>
   <string name="preferences_privacy_settings_heading">Gizlilik</string>
   <string name="preference_title_eventlogging_opt_in">Kullanım raporlarını gönder</string>
   <string name="preference_summary_eventlogging_opt_in">Uygulamayı daha iyi hale getirmek için uygulamanın nasıl kullanıldığı hakkında bilgi toplaması için Wikimedia\'ya izin ver</string>
@@ -377,19 +377,19 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Senkronizasyonu etkinleştir</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Hayır teşekkürler</string>
   <string name="reading_list_login_option_reminder_dialog_title">Okunan liste maddeleleri bulundu</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Vikipedi uygulamanıza kaydedilen okuma listesi makaleleri var. Bunları saklamak ve hesabınıza senkronize edilen okuma listeleri ile birleştirmek ister misiniz?</string>
+  <string name="reading_list_login_option_reminder_dialog_text" fuzzy="true">Vikipedi uygulamanıza kaydedilen okuma listesi makaleleri var. Bunları saklamak ve hesabınıza senkronize edilen okuma listeleri ile birleştirmek ister misiniz?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Evet, bunları okuma listeme ekleye</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Hayır, uygulamada kayıtlı maddeleri sil</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Kaydedilen makaleleri cihaza sakla?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Wikipedia hesabınıza senkronize edilen makaleler var. Çıkış yaptıktan sonra onları bu cihazda tutmak ister misiniz?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Evet, maddeleri cihazda sakla</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Hayır, cihazdan makaleleri sil</string>
+  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">Hayır, uygulamada kayıtlı maddeleri sil</string>
+  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Kaydedilen makaleleri cihaza sakla?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text" fuzzy="true">Wikipedia hesabınıza senkronize edilen makaleler var. Çıkış yaptıktan sonra onları bu cihazda tutmak ister misiniz?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">Evet, maddeleri cihazda sakla</string>
+  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">Hayır, cihazdan makaleleri sil</string>
   <string name="default_reading_list_name">Kaydedildi</string>
   <string name="default_reading_list_description">Kaydedilen maddeleriniz için varsayılan liste</string>
   <string name="no_user_lists_title">Maddeleri listelere göre düzenleyin</string>
   <string name="no_user_lists_msg">Seyahat edilecek yerler, favori konular ve daha pek çok şey için listeler oluşturun</string>
   <string name="reading_list_saved_list_rename">%1$s (kullanıcı oluşturuldu)</string>
-  <string name="split_reading_list_message">Okuma listesi başına %d madde sınırı vardır. Bu sınırı aşan mevcut listeler birden fazla listeye ayrılmıştır.</string>
+  <string name="split_reading_list_message" fuzzy="true">Okuma listesi başına %d madde sınırı vardır. Bu sınırı aşan mevcut listeler birden fazla listeye ayrılmıştır.</string>
   <string name="reading_list_article_limit_message">Bu listeye eklenemedi. \"%1$s\" için liste başına %2$d madde sınırına ulaştınız.</string>
   <string name="reading_lists_limit_message">Başka bir liste oluşturamazsınız. Hesap başına 100 okuma listesi sınırına ulaştınız.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Okuma listelerini senkronize et&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Okuma listeleri artık cihazlar arasında senkronize edilebilir. Wikipedia hesabınıza giriş yapın ve listelerinizin kaydedilmesine izin verin.</string>
@@ -472,7 +472,7 @@
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/tr</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Tanımları düzenlemeye olan ilginiz için teşekkürler! Daha fazla değişiklik yapmak için lütfen Vikipedi hesabınıza giriş yapın.</string>
-  <string name="description_edit_license_notice">Başlık tanımını değiştirerek &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarımı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; lisansıyla yayımlamayı kabul ediyorum.</string>
+  <string name="description_edit_license_notice">Başlık tanımını değiştirerek &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarımı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansıyla yayımlamayı kabul ediyorum.</string>
   <string name="description_edit_success_saved">Açıklama yayımlandı!</string>
   <string name="description_edit_success_encouragement">Vikipedi\'yi herkes için daha iyi hâle getirdin</string>
   <string name="description_edit_success_done">Tamam</string>

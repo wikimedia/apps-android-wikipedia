@@ -117,7 +117,7 @@
   <string name="create_account_account_created_toast">खाता बनावल गइल!</string>
   <string name="preferences_heading_storage_and_syncing">भंडार आ सिंकिंग</string>
   <string name="preference_title_sync_reading_lists">जुड़ल लिस्ट सिंक करीं</string>
-  <string name="preference_summary_sync_reading_lists">विकिमीडिया के एलाऊ करीं की जब आप खाता में प्रवेश करीं तब आपके रीडिंग लिस्ट के सिंक करे</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">विकिमीडिया के एलाऊ करीं की जब आप खाता में प्रवेश करीं तब आपके रीडिंग लिस्ट के सिंक करे</string>
   <string name="preferences_privacy_settings_heading">प्राइवेसी</string>
   <string name="preference_title_eventlogging_opt_in">इस्तेमाल के रपट भेजीं</string>
   <string name="preference_summary_eventlogging_opt_in">आप एह एप के कइसे इस्तेमाल करीं ले एकरे बारे में जानकारी एकट्ठा करे खातिर विकिमीडिया के अनुमती देईं जवना से एप के अउरी बेहतर बनावल जा सके</string>

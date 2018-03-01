@@ -117,7 +117,7 @@
   <string name="create_account_account_created_toast">Konto kreesis!</string>
   <string name="preferences_heading_storage_and_syncing">Konservo e sinkronigo</string>
   <string name="preference_title_sync_reading_lists">Sinkronigo di lekteba listi</string>
-  <string name="preference_summary_sync_reading_lists">Permisez Wikipedio sinkronigar vua listi pri lektado se tu facos \'log in\'</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Permisez Wikipedio sinkronigar vua listi pri lektado se tu facos \'log in\'</string>
   <string name="preferences_privacy_settings_heading">Privateso</string>
   <string name="preference_title_eventlogging_opt_in">Sendez informi pri l\'uzado</string>
   <string name="preference_summary_eventlogging_opt_in">Permisar Wikipedio kolektar informi pri vua uzo dil \'app\' por perfektigar ol</string>

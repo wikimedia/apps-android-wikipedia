@@ -46,8 +46,8 @@
   <string name="map_view_link_text">Ver num mapa</string>
   <string name="language_count_link_text">Disponível noutras %d línguas</string>
   <string name="content_license_html">O conteúdo é disponibilizado ao abrigo da &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; salvo indicação em contrário</string>
-  <string name="edit_save_action_license_logged_in">Ao gravar, concorda com as &lt;a href=\"%1$s\"&gt;Condições de utilização&lt;/a&gt; e em publicar irrevogavelmente a sua contribuição ao abrigo da licença &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Ao gravar, concorda com as &lt;a href=\"%1$s\"&gt;Condições de utilização&lt;/a&gt;, e em publicar irrevogavelmente a sua contribuição ao abrigo da licença &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;. As edições serão atribuídas ao endereço IP do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;iniciar uma sessão&lt;/a&gt; terá mais privacidade.</string>
+  <string name="edit_save_action_license_logged_in">Ao gravar, concorda com as &lt;a href=\"%1$s\"&gt;Condições de utilização&lt;/a&gt; e em publicar irrevogavelmente a sua contribuição ao abrigo da licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Ao gravar, concorda com as &lt;a href=\"%1$s\"&gt;Condições de utilização&lt;/a&gt;, e em publicar irrevogavelmente a sua contribuição ao abrigo da licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. As edições serão atribuídas ao endereço IP do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;iniciar uma sessão&lt;/a&gt; terá mais privacidade.</string>
   <string name="preference_title_language">Língua da Wikipédia</string>
   <string name="preference_languages_filter_hint">Pesquisar</string>
   <string name="langlinks_filter_hint">Pesquisar</string>
@@ -123,11 +123,11 @@
   <string name="create_account_account_created_toast">Conta criada!</string>
   <string name="preferences_heading_storage_and_syncing">Armazenamento e sincronização</string>
   <string name="preference_title_sync_reading_lists">Sincronizar listas de leitura</string>
-  <string name="preference_title_sync_reading_lists_from_account">Sincronizar as listas de leitura para esta conta</string>
-  <string name="preference_summary_sync_reading_lists">Permitir que a Wikimedia sincronize as suas listas de leitura quando iniciar uma sessão</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Permitir que a Wikimedia sincronize as listas de leitura para a sua conta da Wikipédia %s</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Deseja remover as listas de leitura sincronizadas da sua conta %s?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Isto eliminará completamente do armazenamento remoto todas as listas de leitura sincronizadas anteriormente. Remover todas as listas sincronizadas da sua conta %s?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Sincronizar as listas de leitura para esta conta</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Permitir que a Wikimedia sincronize as suas listas de leitura quando iniciar uma sessão</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Permitir que a Wikimedia sincronize as listas de leitura para a sua conta da Wikipédia %s</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Deseja remover as listas de leitura sincronizadas da sua conta %s?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Isto eliminará completamente do armazenamento remoto todas as listas de leitura sincronizadas anteriormente. Remover todas as listas sincronizadas da sua conta %s?</string>
   <string name="preferences_privacy_settings_heading">Privacidade</string>
   <string name="preference_title_eventlogging_opt_in">Enviar relatórios de utilização</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que a Wikimedia recolha informações sobre o uso da aplicação para melhorá-la</string>
@@ -368,22 +368,22 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Cancelar</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Entrar</string>
   <string name="reading_list_turned_sync_off_dialog_title">A sincronização das listas de leitura está desligada</string>
-  <string name="reading_list_turned_sync_off_dialog_text">A sincronização das listas de leitura está desativada para a sua conta, e os artigos guardados nos seus dispositivos ligados não estão mais a ser copiados em segurança. Ative a sincronização das listas de leitura nas Configurações.</string>
+  <string name="reading_list_turned_sync_off_dialog_text">A sincronização das listas de leitura está desativada para a sua conta, e os artigos guardados nos seus dispositivos ligados já não estão a ser salvaguardados. Ative a sincronização das listas de leitura nas Configurações.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">Aceitar</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Configurações</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Deseja ativar a sincronização das listas de leitura?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">Os artigos guardados nas listas de leitura podem agora ser sincronizados à sua conta da Wikipédia. &lt;a href=\"#faq\"&gt;Saiba mais&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Os artigos guardados nas listas de leitura podem agora ser sincronizados para a sua conta da Wikipédia. &lt;a href=\"#faq\"&gt;Saiba mais&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Não mostrar novamente</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Ativar sincronização</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Não, obrigado</string>
   <string name="reading_list_login_option_reminder_dialog_title">Foram encontrados os artigos da lista de leitura</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Há artigos guardados da lista de leitura na sua aplicação Wikipédia. Deseja mantê-los e fundi-los com as listas de leitura sincronizadas com a sua conta?</string>
+  <string name="reading_list_login_option_reminder_dialog_text" fuzzy="true">Há artigos de listas de leitura guardados na sua aplicação Wikipédia. Deseja mantê-los e fundi-los nas listas de leitura que forem sincronizadas com a sua conta?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Sim, desejo adicioná-los às minhas listas de leitura</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Não, eliminar os artigos guardados na aplicação</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Deseja manter os artigos guardados no dispositivo?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Existem artigos sincronizados com a sua conta da Wikipédia. Deseja mantê-los neste dispositivo depois de sair?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Sim, manter os artigos no dispositivo</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Não, eliminar os artigos do dispositivo</string>
+  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">Não, eliminar os artigos guardados na aplicação</string>
+  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Deseja manter os artigos guardados no dispositivo?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text" fuzzy="true">Existem artigos sincronizados com a sua conta da Wikipédia. Deseja mantê-los neste dispositivo depois de sair?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">Sim, manter os artigos no dispositivo</string>
+  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">Não, eliminar os artigos do dispositivo</string>
   <string name="default_reading_list_name">Guardados</string>
   <string name="default_reading_list_description">Lista padrão para os seus artigos guardados</string>
   <string name="no_user_lists_title">Organizar artigos na forma de listas</string>

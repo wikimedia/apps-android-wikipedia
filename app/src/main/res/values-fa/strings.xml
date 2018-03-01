@@ -16,6 +16,7 @@
   <string name="history_item_deleted">%s از تاریخچه حذف شد</string>
   <string name="history_items_deleted">%d مقاله‌ها از تاریخچه حذف شدند</string>
   <string name="history_item_delete_undo">بازگردانی</string>
+  <string name="app_settings">تنظیمات اپلیکیشن</string>
   <string name="dialog_title_clear_history">پاک‌کردن تاریخچه جستجو</string>
   <string name="dialog_message_clear_history">این کار تاریخچهٔ مرورگر شما را حذف می‌کند و همهٔ برگه‌های باز را می‌بندد. آیا مطمئن هستید؟</string>
   <string name="dialog_message_clear_history_yes">بله</string>
@@ -122,7 +123,7 @@
   <string name="create_account_account_created_toast">حساب ساخته شد!</string>
   <string name="preferences_heading_storage_and_syncing">ذخیره و همسازسازی</string>
   <string name="preference_title_sync_reading_lists">همسازسازی فهرست‌های مطالعه</string>
-  <string name="preference_summary_sync_reading_lists">اجازه به ویکی‌مدیا برای همسازسازی فهرست‌های مطالعه وقتی که وارد سامانه شدید</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">اجازه به ویکی‌مدیا برای همسازسازی فهرست‌های مطالعه وقتی که وارد سامانه شدید</string>
   <string name="preferences_privacy_settings_heading">حریم شخصی</string>
   <string name="preference_title_eventlogging_opt_in">فرستادن گزارش‌های رفتارهای کاربری</string>
   <string name="preference_summary_eventlogging_opt_in">به ویکی‌مدیا اجازه می‌دهید که اطلاعات مربوط به استفادۀ شما از این نرم‌افزار را برای بهبود نرم‌افزار، تدوین نماید</string>
@@ -308,8 +309,8 @@
   <string name="reading_list_sort">مرتب‌کردن</string>
   <string name="reading_list_sort_by_name">مرتب بر پایهٔ نام</string>
   <string name="reading_list_sort_by_name_desc">مرتب بر پایهٔ نام (معکوس)</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">مرتب بر پایهٔ آخرین</string>
-  <string name="reading_list_sort_by_recent_desc" fuzzy="true">مرتب بر پایهٔ آخرین (معکوس)</string>
+  <string name="reading_list_sort_by_recent">مرتب بر پایهٔ تاریخ افزوده‌شدن (تازه‌ترین)</string>
+  <string name="reading_list_sort_by_recent_desc">مرتب بر پایهٔ تاریخ افزوده‌شدن (قدیمی‌ترین)</string>
   <string name="reading_list_sort_by_created">مرتب بر پایهٔ تاریخ ایجاد شده (جدیدترین)</string>
   <string name="reading_list_sort_by_created_desc">مرتب بر پایهٔ تاریخ ایجاد شده (قدیمی‌ترین)</string>
   <string name="reading_list_menu_delete">حذف فهرست</string>
@@ -353,6 +354,19 @@
   <string name="reading_list_already_contains_selection">فهرست انتخاب‌شده همیشه شامل همهٔ صفحات انتخاب‌شده‌ است.</string>
   <string name="reading_list_added_articles_list_titled">%1$d مقاله به %2$s اضافه شد</string>
   <string name="reading_list_delete_confirm" fuzzy="true">آیا مطمئن هستید که می‌خواهید این فهرست مطالعه را حذف %s کنید؟</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">لغو</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">ورود</string>
+  <string name="reading_list_turned_sync_off_dialog_title">همساز‌سازی فهرست مطالعه خاموش شده‌است</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">تأیید</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">تنظیمات</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">فعال‌کردن همسان‌سازی</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">نه ممنون</string>
+  <string name="reading_list_login_option_reminder_dialog_title">فهرست مطالعه مقاله یافت شد</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">شما، آنها را به فهرست مطالعهٔ من افزودید</string>
+  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">نه، حذف مقالات ذخیره شده در اپلیکیشن</string>
+  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">مقالات ذخیره شده در دستگاه نگهداری شوند؟</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">بله، مقالات را بر روی دستگاه نگهدار</string>
+  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">نه، مقالات را از روی دستگاه حذف کن</string>
   <string name="default_reading_list_name">ذخیره</string>
   <string name="default_reading_list_description">لیست پیش فرض برای ذخیره مقاله ها</string>
   <string name="no_user_lists_title">سامان‌دادن مقالات در فهرست‌ها</string>

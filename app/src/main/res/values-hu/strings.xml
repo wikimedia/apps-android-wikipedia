@@ -122,7 +122,7 @@
   <string name="create_account_account_created_toast">Fiók létrehozva!</string>
   <string name="preferences_heading_storage_and_syncing">Tárolás és szinkronizálás</string>
   <string name="preference_title_sync_reading_lists">Olvasólisták szinkronizálása</string>
-  <string name="preference_summary_sync_reading_lists">Ha bejelentkezel, az olvasási listáid szinkronizálva lesznek</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Ha bejelentkezel, az olvasási listáid szinkronizálva lesznek</string>
   <string name="preferences_privacy_settings_heading">Adatküldés</string>
   <string name="preference_title_eventlogging_opt_in">Használati jelentés küldése</string>
   <string name="preference_summary_eventlogging_opt_in">A Wikimédia adatokat gyűjthet arról, hogy hogyan használod az appot, hogy még jobbá tehessük.</string>

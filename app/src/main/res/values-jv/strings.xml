@@ -122,7 +122,7 @@
   <string name="create_account_account_created_toast">Akun wis kagawé!</string>
   <string name="preferences_heading_storage_and_syncing">Panyimpenan lan sinkronisasi</string>
   <string name="preference_title_sync_reading_lists">Sinkronisasi pratélan wacan</string>
-  <string name="preference_summary_sync_reading_lists">Idini Wikimédia saperlu nyinkronisasi pratélan wacan nalika panjenengan mlebu log</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Idini Wikimédia saperlu nyinkronisasi pratélan wacan nalika panjenengan mlebu log</string>
   <string name="preferences_privacy_settings_heading">Priangga</string>
   <string name="preference_title_eventlogging_opt_in">Kirim lapuran pangguna</string>
   <string name="preference_summary_eventlogging_opt_in">Idinaké Wikimedia nglumpukaké informasi ngenani anggoné panjenengan nganggo aplikasiné murih luwih beciké</string>
@@ -356,7 +356,7 @@
   <string name="no_user_lists_msg">Gawé pratélan bab papan-papan sing arep kajajahi, rembug-rembung sing kasenengi, lan liya-liyané.</string>
   <string name="reading_list_saved_list_rename">%1$s (digawé panganggo)</string>
   <string name="split_reading_list_message">Ana watesan %d artikel ing saben pratélan wewacan. Pratélan-pratélan sing ana sing isiné munjuli watesan mau wis kapérang dadi sawenèh pratélan.</string>
-  <string name="reading_list_article_limit_message">Ora bisa muwuhi pratélan iki. Panjenengan wis nyandhak watesan %2$d artikel ing saben pratélan tumrap pratélan \"%1$s\".</string>
+  <string name="reading_list_article_limit_message" fuzzy="true">Ora bisa muwuhi pratélan iki. Panjenengan wis nyandhak watesan %2$d artikel ing saben pratélan tumrap pratélan \"%1$s\".</string>
   <string name="reading_lists_limit_message">Ora bisa nggawé pratélan liyané. Panjenengan wis nyandhak watesan 100 pratélan wewacan ing saben akun.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Artikel iki saiki bakal ana nalika ing njaban jaringan.</item>

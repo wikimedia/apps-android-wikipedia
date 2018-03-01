@@ -45,8 +45,8 @@
   <string name="map_view_link_text">Sken ɣef tkarḍa</string>
   <string name="language_count_link_text">Yella di %d n tutlayin nniḍen</string>
   <string name="content_license_html">Agbur yella daw n &lt;a href=\"%1$s\"&gt;turagt CC BY-SA 3.0&lt;/a&gt; alama yettwammel akken-nniḍen</string>
-  <string name="edit_save_action_license_logged_in">Su jerred, ad tqebleḍ &lt;a href=\"%1$s\"&gt;Tiwtilin n useqdec &lt;/a&gt;, udiɣ ad tserseḍ ilebda ittekkiyen-ik daw n turagt &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">S ujerred, ad tqebleḍ &lt;a href=\"%1$s\"&gt;tiwtilin n useqdec&lt;/a&gt;, udiɣ ad tserseḍ ilebda ittekkiyen-ikdaw n turagt &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.\nAkk ayen tbeddleḍ ad ittunefk i tensa IP n yibenk-ik. Ma yella &lt;a href=\"https://#login\"&gt;teqqneḍ&lt;/a&gt;, ad yili ɣur-k ugar n tbaḍnit.</string>
+  <string name="edit_save_action_license_logged_in">Su jerred, ad tqebleḍ &lt;a href=\"%1$s\"&gt;Tiwtilin n useqdec &lt;/a&gt;, udiɣ ad tserseḍ ilebda ittekkiyen-ik daw n turagt &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">S ujerred, ad tqebleḍ &lt;a href=\"%1$s\"&gt;tiwtilin n useqdec&lt;/a&gt;, udiɣ ad tserseḍ ilebda ittekkiyen-ikdaw n turagt &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Akk ayen tbeddleḍ ad ittunefk i tensa IP n yibenk-ik. Ma yella &lt;a href=\"https://#login\"&gt;teqqneḍ&lt;/a&gt;, ad yili ɣur-k ugar n tbaḍnit.</string>
   <string name="preference_title_language">Tutlayt n wikipedia</string>
   <string name="preference_languages_filter_hint">Nadi</string>
   <string name="langlinks_filter_hint">Nadi</string>
@@ -122,7 +122,7 @@
   <string name="create_account_account_created_toast">Amiḍan yettwarna!</string>
   <string name="preferences_heading_storage_and_syncing">Asekles d umtawi</string>
   <string name="preference_title_sync_reading_lists">Mtawi tibdarin n tɣuri</string>
-  <string name="preference_summary_sync_reading_lists">Eǧǧ Wikimedia ad imtawi tibdarin-ik n tɣuri ticki teqqneḍ</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Eǧǧ Wikimedia ad imtawi tibdarin-ik n tɣuri ticki teqqneḍ</string>
   <string name="preferences_privacy_settings_heading">Tabaḍnit</string>
   <string name="preference_title_eventlogging_opt_in">Azen ineqqisen n useqdec</string>
   <string name="preference_summary_eventlogging_opt_in">Eǧǧ Wikimedia ad yelqeḍ talɣut ɣef wamek tseqdaceḍ asnas akken ad t-terreḍ igarrez ugar.</string>

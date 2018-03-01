@@ -122,7 +122,7 @@
   <string name="create_account_account_created_toast">Conta creada!</string>
   <string name="preferences_heading_storage_and_syncing">Almacenamento e sincronización</string>
   <string name="preference_title_sync_reading_lists">Sincronizar as listas de lectura</string>
-  <string name="preference_summary_sync_reading_lists">Permitir a Wikipedia sincronizar as súas listas de lectura cando se conecte</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Permitir a Wikipedia sincronizar as súas listas de lectura cando se conecte</string>
   <string name="preferences_privacy_settings_heading">Privacidade</string>
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que a Wikimedia recompile información acerca de como utiliza a aplicación para facela mellor</string>
@@ -356,8 +356,8 @@
   <string name="no_user_lists_title">Organizar os artigos no formato de listas</string>
   <string name="no_user_lists_msg">Crear as listas dos locais para viaxar, temas favoritos, e moito máis</string>
   <string name="reading_list_saved_list_rename">%1$s (creada polo usuario)</string>
-  <string name="split_reading_list_message">Hai un límite de %d artigos por cada lista de lectura. As listas existentes cun valor superior a este foron divididas en varias listas.</string>
-  <string name="reading_list_article_limit_message">Non se pode engadir a esta lista. Alcanzou o límite de %2$d artigos por lista para \"%1$s\".</string>
+  <string name="split_reading_list_message" fuzzy="true">Hai un límite de %d artigos por cada lista de lectura. As listas existentes cun valor superior a este foron divididas en varias listas.</string>
+  <string name="reading_list_article_limit_message" fuzzy="true">Non se pode engadir a esta lista. Alcanzou o límite de %2$d artigos por lista para \"%1$s\".</string>
   <string name="reading_lists_limit_message">Non se pode crear outra lista. Alcanzou o límite de 100 listas de lectura por conta.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Agora este artigo estará dispoñible sen conexión.</item>
