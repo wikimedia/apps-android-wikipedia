@@ -39,7 +39,7 @@ public class ThemeFittingRoomFragment extends Fragment {
         busMethods = new EventBusMethods();
         WikipediaApp.getInstance().getBus().register(busMethods);
 
-        testImage.loadImage(R.drawable.wikipedia_globe_263dp);
+        testImage.loadImage(R.drawable.w_nav_mark);
         updateTextSize();
         return view;
     }
