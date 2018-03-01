@@ -15,10 +15,7 @@ import org.wikipedia.espresso.util.ScreenshotTools;
 import org.wikipedia.page.PageActivity;
 
 import static android.support.test.espresso.Espresso.onData;
-import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.action.ViewActions.swipeDown;
-import static android.support.test.espresso.action.ViewActions.swipeUp;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.hamcrest.Matchers.anything;
 import static org.hamcrest.core.AllOf.allOf;
@@ -64,19 +61,15 @@ public final class PageActivityTest {
 
         waitFor(WAIT_FOR_3000);
         ScreenshotTools.snap("PageActivityWithObama");
-        onView(withId(R.id.view_page_header_image))
-                .perform(swipeUp());
-        onView(withId(R.id.page_fragment))
-                .perform(swipeUp());
-        onView(withId(R.id.page_fragment))
-                .perform(swipeUp());
-        onView(withId(R.id.page_fragment))
-                .perform(swipeDown());
+
+        //Todo: Create espresso.screenshots to show hide/show of tab layout and actionBar
+        runComparisons();
+    }
+
+    private void runComparisons() throws Exception {
         ScreenshotTools.snap("ArticleSwipeDownActionBarAndTabSeen");
         assertScreenshotWithinTolerance("PageActivityWithObama");
         assertScreenshotWithinTolerance("SearchSuggestionPage");
         assertScreenshotWithinTolerance("SearchPage");
-        //assertScreenshotWithinTolerance("ArticleSwipeDownActionBarAndTabSeen");
-
     }
 }

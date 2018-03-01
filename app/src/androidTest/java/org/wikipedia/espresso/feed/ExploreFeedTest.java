@@ -3,7 +3,6 @@ package org.wikipedia.espresso.feed;
 import android.Manifest;
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
-import android.support.test.annotation.UiThreadTest;
 import android.support.test.espresso.NoMatchingViewException;
 import android.support.test.espresso.PerformException;
 import android.support.test.espresso.ViewInteraction;
@@ -12,7 +11,6 @@ import android.support.test.rule.ActivityTestRule;
 import android.support.test.rule.GrantPermissionRule;
 import android.support.test.runner.AndroidJUnit4;
 
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,7 +24,6 @@ import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.wikipedia.espresso.util.CompareTools.assertScreenshotWithinTolerance;
-import static org.wikipedia.espresso.util.ViewTools.hidePhoneNavBarInScreenshots;
 import static org.wikipedia.espresso.util.ViewTools.rotateScreen;
 import static org.wikipedia.espresso.util.ViewTools.setTextInTextView;
 import static org.wikipedia.espresso.util.ViewTools.viewIsDisplayed;
@@ -38,17 +35,11 @@ import static org.wikipedia.espresso.util.ViewTools.whileWithMaxSteps;
 public class ExploreFeedTest {
 
     @Rule
-    public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(MainActivity.class);
 
     @Rule
     public GrantPermissionRule runtimePermissionRule = GrantPermissionRule.grant(
             Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-
-    @Before
-    @UiThreadTest
-    public void setUp() {
-        hidePhoneNavBarInScreenshots(mActivityTestRule.getActivity());
-    }
 
     @Test
     public void testExploreFeed() throws Exception {
@@ -64,6 +55,10 @@ public class ExploreFeedTest {
         rotateScreen(getActivity(), ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         waitFor(2000);
 
+        runComparisons();
+    }
+
+    private void runComparisons() throws Exception {
         assertScreenshotWithinTolerance("FeaturedArticle");
         assertScreenshotWithinTolerance("FeaturedArticle_Landscape");
         assertScreenshotWithinTolerance("FeaturedImage");
@@ -81,7 +76,7 @@ public class ExploreFeedTest {
     }
 
     private Activity getActivity() {
-        return mActivityTestRule.getActivity();
+        return activityTestRule.getActivity();
     }
 
     private static void testCards(String postFix) {
