@@ -1,6 +1,8 @@
 package org.wikipedia.espresso.util;
 
 import android.app.Activity;
+import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.test.annotation.UiThreadTest;
 import android.support.test.espresso.UiController;
 import android.support.test.espresso.ViewAction;
@@ -21,15 +23,16 @@ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isAssignableFrom;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayingAtLeast;
 import static android.support.test.espresso.matcher.ViewMatchers.isRoot;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.hamcrest.core.AllOf.allOf;
 
 @RunWith(AndroidJUnit4.class)
+@SuppressWarnings("checkstyle:magicnumber")
 public final class ViewTools {
 
     public static final int WAIT_FOR_6000 = 6000;
-    public static final int WAIT_FOR_5000 = 5000;
     public static final int WAIT_FOR_2000 = 2000;
     public static final int WAIT_FOR_3000 = 3000;
     public static final int WAIT_FOR_1000 = 1000;
@@ -207,6 +210,53 @@ public final class ViewTools {
             @Override
             public void describeTo(final Description description) {
                 description.appendText("Element at hierarchy position " + position);
+            }
+        };
+    }
+
+    public static ViewAction selectTab(final int tab) {
+        return new ViewAction() {
+            @Override
+            public Matcher<View> getConstraints() {
+                return isDisplayingAtLeast(90);
+            }
+
+            @Override
+            public String getDescription() {
+                return "Select a tab in TabLayout";
+            }
+
+            @Override
+            public void perform(UiController uiController, View view) {
+                uiController.loopMainThreadUntilIdle();
+                if (view instanceof TabLayout) {
+                    TabLayout tabLayout = (TabLayout) view;
+                    tabLayout.getTabAt(tab).select();
+                } else if (view instanceof BottomNavigationView) {
+                    BottomNavigationView tabLayout = (BottomNavigationView) view;
+                    tabLayout.setSelectedItemId(tab);
+                }
+                uiController.loopMainThreadUntilIdle();
+            }
+        };
+    }
+
+    public static ViewAction clickChildViewWithId(final int id) {
+        return new ViewAction() {
+            @Override
+            public Matcher<View> getConstraints() {
+                return null;
+            }
+
+            @Override
+            public String getDescription() {
+                return "Click on a child view with specified id.";
+            }
+
+            @Override
+            public void perform(UiController uiController, View view) {
+                View v = view.findViewById(id);
+                v.performClick();
             }
         };
     }

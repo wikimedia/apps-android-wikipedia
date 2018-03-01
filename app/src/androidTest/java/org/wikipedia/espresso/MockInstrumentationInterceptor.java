@@ -27,8 +27,11 @@ public class MockInstrumentationInterceptor implements TestStubInterceptor.Callb
     static {
         RESPONSE_MAP.put("feed/featured", "espresso/json/aggregate_feed_response.json");
         RESPONSE_MAP.put("feed/announcements", "espresso/json/dynamic_announcement_response.json");
-        RESPONSE_MAP.put("mobile-sections-lead/Barack_Obama", "espresso/json/lead_section_response_obama.json");
+        RESPONSE_MAP.put("/mobile-sections-lead/Barack_Obama", "espresso/json/lead_section_response_obama.json");
         RESPONSE_MAP.put("https://upload.wikimedia.org/wikipedia/commons", "espresso/json/empty_image_response.json");
+        RESPONSE_MAP.put("mobile-sections-remaining/Barack_Obama", "espresso/json/remaining_sections_response_obama.json");
+        RESPONSE_MAP.put("api.php?action=sitematrix&format=json&smtype=language&smlangprop=code%7Cname%7Clocalname", "espresso/json/search_language_list_response.json");
+        RESPONSE_MAP.put("srprop=&sroffset=0&srlimit=1&gpslimit=20&pithumbsize=320&gpssearch=Barack%20Obama&srsearch=Barack%20Obama", "espresso/json/obama_article_search_respose.json");
     }
 
     public MockInstrumentationInterceptor(@NonNull Context context) {

@@ -1,15 +1,14 @@
 package org.wikipedia.espresso.search;
 
 import android.support.annotation.NonNull;
-import android.support.test.espresso.DataInteraction;
 import android.support.test.espresso.ViewInteraction;
 import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.runner.RunWith;
 import org.wikipedia.R;
 import org.wikipedia.espresso.util.ScreenshotTools;
+import org.wikipedia.espresso.util.ViewTools;
 
-import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
@@ -18,7 +17,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withClassName;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static org.hamcrest.Matchers.anything;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_1000;
@@ -31,7 +30,7 @@ import static org.wikipedia.espresso.util.ViewTools.whileWithMaxSteps;
 @RunWith(AndroidJUnit4.class)
 public final class SearchTest {
 
-    public static void searchKeywordAndGo(@NonNull String keyword) {
+    public static void searchKeywordAndGo(@NonNull String keyword, boolean shouldTakeScreenshot) {
 
         whileWithMaxSteps(
                 () -> !viewIsDisplayed(R.id.page_toolbar_button_search),
@@ -60,17 +59,16 @@ public final class SearchTest {
                                 0),
                         isDisplayed()));
         plainPasteEditText.perform(replaceText("test"), closeSoftKeyboard());
+        waitFor(WAIT_FOR_2000);
 
         // take screenshot
-        ScreenshotTools.snap("SearchPage");
-
-        DataInteraction linearLayout2 = onData(anything())
-                .inAdapterView(allOf(withId(R.id.preference_languages_list),
-                        childAtPosition(
-                                withClassName(is("android.widget.LinearLayout")),
-                                1)))
-                .atPosition(0);
-        linearLayout2.perform(click());
+        if (shouldTakeScreenshot) {
+            ScreenshotTools.snap("SearchPage");
+        }
+        onView(
+                allOf(
+                        ViewTools.matchPosition(allOf(withText("Test")), 1),
+                        isDisplayed())).perform(click());
 
         ViewInteraction searchAutoComplete = onView(
                 allOf(withId(R.id.search_src_text),
@@ -92,9 +90,11 @@ public final class SearchTest {
         waitFor(WAIT_FOR_2000);
 
         // take screenshot
-        ScreenshotTools.snap("SearchSuggestionPage");
-
+        if (shouldTakeScreenshot) {
+            ScreenshotTools.snap("SearchSuggestionPage");
+        }
     }
 
-    private SearchTest() { }
+    private SearchTest() {
+    }
 }
