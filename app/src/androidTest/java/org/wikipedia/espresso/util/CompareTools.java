@@ -3,10 +3,8 @@ package org.wikipedia.espresso.util;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
-import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Assert;
-import org.junit.runner.RunWith;
 import org.wikipedia.util.MathUtil;
 import org.wikipedia.util.log.L;
 
@@ -19,7 +17,6 @@ import static org.wikipedia.espresso.Constants.SCREENSHOT_COMPARE_PERCENT_TOLERA
 import static org.wikipedia.espresso.Constants.TEST_ASSET_FOLDER;
 import static org.wikipedia.espresso.Constants.TEST_OUTPUT_FOLDER;
 
-@RunWith(AndroidJUnit4.class)
 @SuppressWarnings("checkstyle:magicnumber")
 public final class CompareTools {
 

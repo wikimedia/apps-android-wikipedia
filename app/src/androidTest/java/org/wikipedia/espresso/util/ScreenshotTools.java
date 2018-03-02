@@ -4,11 +4,9 @@ import android.graphics.Bitmap;
 import android.os.Environment;
 import android.support.test.espresso.UiController;
 import android.support.test.espresso.ViewAction;
-import android.support.test.runner.AndroidJUnit4;
 import android.view.View;
 
 import org.hamcrest.Matcher;
-import org.junit.runner.RunWith;
 import org.wikipedia.util.log.L;
 
 import java.io.File;
@@ -22,7 +20,6 @@ import static android.support.test.espresso.matcher.ViewMatchers.isRoot;
 import static org.wikipedia.espresso.Constants.SCREENSHOT_COMPRESSION_QUALITY;
 import static org.wikipedia.espresso.Constants.TEST_OUTPUT_FOLDER;
 
-@RunWith(AndroidJUnit4.class)
 public final class ScreenshotTools {
 
     public static void takeScreenshot(String fileName, View view) {
