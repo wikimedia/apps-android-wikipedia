@@ -45,6 +45,7 @@ import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
@@ -248,8 +249,8 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         if (!toolbarExpanded) {
             toolBarLayout.setTitle(readingList.title());
         }
-        if (!articleLimitMessageShown && readingList.pages().size() >= Constants.MAX_READING_LIST_ARTICLE_LIMIT) {
-            String message = getString(R.string.reading_list_article_limit_message, readingList.title(), Constants.MAX_READING_LIST_ARTICLE_LIMIT);
+        if (!articleLimitMessageShown && readingList.pages().size() >= SiteInfoClient.getMaxPagesPerReadingList()) {
+            String message = getString(R.string.reading_list_article_limit_message, readingList.title(), SiteInfoClient.getMaxPagesPerReadingList());
             FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show();
             articleLimitMessageShown = true;
         }
