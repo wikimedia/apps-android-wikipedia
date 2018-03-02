@@ -7,9 +7,9 @@
         <item name="longPreferenceStyle">@style/LongPreference</item>
         <item name="intPreferenceStyle">@style/IntPreference</item>
         <item name="android:buttonStyle">@style/App.Button</item>
-        <item name="android:windowBackground">@drawable/splash_bg</item>
         <item name="android:windowActivityTransitions" tools:targetApi="21" >true</item>
         <item name="android:windowContentTransitions" tools:targetApi="21" >true</item>
+        <item name="android:windowBackground">@null</item>
 
         <!-- System status bar color. May be overridden in onCreate. -->
         <item name="android:statusBarColor" tools:targetApi="21">?attr/main_status_bar_color</item>
@@ -24,6 +24,10 @@
         <item name="autoCompleteTextViewStyle">@style/SearchViewEditTextStyle</item>
         <item name="android:listViewStyle">@style/ListView</item>
         <item name="android:textViewStyle">@style/RtlAwareTextView</item>
+    </style>
+
+    <style name="AppTheme.Splash">
+        <item name="android:windowBackground">@drawable/splash_bg</item>
     </style>
 
     <style name="AppTheme.Page">
