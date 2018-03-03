@@ -10,7 +10,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wikipedia.R;
-import org.wikipedia.espresso.search.SearchTest;
+import org.wikipedia.espresso.search.SearchBehaviors;
 import org.wikipedia.espresso.util.ScreenshotTools;
 import org.wikipedia.page.PageActivity;
 
@@ -41,7 +41,7 @@ public final class PageActivityTest {
     @Test
     public void testArticleLoad() throws Exception {
 
-        SearchTest.searchKeywordAndGo("Barack Obama", true);
+        SearchBehaviors.searchKeywordAndGo("Barack Obama", true);
 
         whileWithMaxSteps(
                 () -> !viewIsDisplayed(R.id.search_results_list),
