@@ -19,8 +19,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.squareup.otto.Subscribe;
-
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -44,20 +42,23 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.log.L;
 
-public abstract class BaseActivity extends AppCompatActivity {
-    private static EventBusMethodsExclusive EXCLUSIVE_BUS_METHODS;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 
-    private EventBusMethodsNonExclusive localBusMethods;
-    private EventBusMethodsExclusive exclusiveBusMethods;
+public abstract class BaseActivity extends AppCompatActivity {
+    private static ExclusiveBusConsumer EXCLUSIVE_BUS_METHODS;
+
+    private ExclusiveBusConsumer exclusiveBusMethods;
     private NetworkStateReceiver networkStateReceiver = new NetworkStateReceiver();
     private boolean previousNetworkState = DeviceUtil.isOnline();
+    private CompositeDisposable disposables = new CompositeDisposable();
+    private Disposable exclusiveDisposable;
 
     @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        localBusMethods = new EventBusMethodsNonExclusive();
-        exclusiveBusMethods = new EventBusMethodsExclusive();
-        WikipediaApp.getInstance().getBus().register(localBusMethods);
-
+        exclusiveBusMethods = new ExclusiveBusConsumer();
+        disposables.add(WikipediaApp.getInstance().getBus().subscribe(new NonExclusiveBusConsumer()));
         setTheme();
         removeSplashBackground();
 
@@ -81,12 +82,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override protected void onDestroy() {
         unregisterReceiver(networkStateReceiver);
-        WikipediaApp.getInstance().getBus().unregister(localBusMethods);
-        localBusMethods = null;
+        disposables.dispose();
         if (EXCLUSIVE_BUS_METHODS == exclusiveBusMethods) {
             unregisterExclusiveBusMethods();
         }
-        exclusiveBusMethods = null;
         super.onDestroy();
     }
 
@@ -96,7 +95,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         // allow this activity's exclusive bus methods to override any existing ones.
         unregisterExclusiveBusMethods();
         EXCLUSIVE_BUS_METHODS = exclusiveBusMethods;
-        WikipediaApp.getInstance().getBus().register(EXCLUSIVE_BUS_METHODS);
+        exclusiveDisposable = WikipediaApp.getInstance().getBus().subscribe(EXCLUSIVE_BUS_METHODS);
 
         // The UI is likely shown, giving the user the opportunity to exit and making a crash loop
         // less probable.
@@ -200,55 +199,51 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     private void unregisterExclusiveBusMethods() {
-        if (EXCLUSIVE_BUS_METHODS != null) {
-            WikipediaApp.getInstance().getBus().unregister(EXCLUSIVE_BUS_METHODS);
+        if (EXCLUSIVE_BUS_METHODS != null && exclusiveDisposable != null) {
+            exclusiveDisposable.dispose();
+            exclusiveDisposable = null;
             EXCLUSIVE_BUS_METHODS = null;
         }
     }
 
     /**
-     * Bus methods that should be caught by all created activities.
+     * Bus consumer that should be registered by all created activities.
      */
-    private class EventBusMethodsNonExclusive {
-        @Subscribe public void on(ThemeChangeEvent event) {
-            recreate();
+    private class NonExclusiveBusConsumer implements Consumer<Object> {
+        @Override
+        public void accept(Object event) throws Exception {
+            if (event instanceof ThemeChangeEvent) {
+                BaseActivity.this.recreate();
+            }
         }
     }
 
     /**
      * Bus methods that should be caught only by the topmost activity.
      */
-    private class EventBusMethodsExclusive {
-        // todo: reevaluate lifecycle. the bus is active when this activity is paused and we show ui
-        @Subscribe public void on(WikipediaZeroEnterEvent event) {
-            if (Prefs.isZeroTutorialEnabled()) {
-                Prefs.setZeroTutorialEnabled(false);
-                WikipediaApp.getInstance().getWikipediaZeroHandler()
-                        .showZeroTutorialDialog(BaseActivity.this);
+    private class ExclusiveBusConsumer implements Consumer<Object> {
+        @Override
+        public void accept(Object event) throws Exception {
+            if (event instanceof WikipediaZeroEnterEvent) {
+                if (Prefs.isZeroTutorialEnabled()) {
+                    Prefs.setZeroTutorialEnabled(false);
+                    WikipediaApp.getInstance().getWikipediaZeroHandler()
+                            .showZeroTutorialDialog(BaseActivity.this);
+                }
+            } else if (event instanceof NetworkConnectEvent) {
+                SavedPageSyncService.enqueue();
+            } else if (event instanceof SplitLargeListsEvent) {
+                new AlertDialog.Builder(BaseActivity.this)
+                        .setMessage(getString(R.string.split_reading_list_message, SiteInfoClient.getMaxPagesPerReadingList()))
+                        .setPositiveButton(android.R.string.ok, null)
+                        .show();
+            } else if (event instanceof ReadingListsNoLongerSyncedEvent) {
+                ReadingListSyncBehaviorDialogs.detectedRemoteTornDownDialog(BaseActivity.this);
+            } else if (event instanceof ReadingListsMergeLocalDialogEvent) {
+                ReadingListSyncBehaviorDialogs.mergeExistingListsOnLoginDialog(BaseActivity.this);
+            } else if (event instanceof ReadingListsEnableDialogEvent) {
+                ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(BaseActivity.this);
             }
-        }
-
-        @Subscribe public void on(NetworkConnectEvent event) {
-            SavedPageSyncService.enqueue();
-        }
-
-        @Subscribe public void on(SplitLargeListsEvent event) {
-            new AlertDialog.Builder(BaseActivity.this)
-                    .setMessage(getString(R.string.split_reading_list_message, SiteInfoClient.getMaxPagesPerReadingList()))
-                    .setPositiveButton(android.R.string.ok, null)
-                    .show();
-        }
-
-        @Subscribe public void on(ReadingListsNoLongerSyncedEvent event) {
-            ReadingListSyncBehaviorDialogs.detectedRemoteTornDownDialog(BaseActivity.this);
-        }
-
-        @Subscribe public void on(ReadingListsMergeLocalDialogEvent event) {
-            ReadingListSyncBehaviorDialogs.mergeExistingListsOnLoginDialog(BaseActivity.this);
-        }
-
-        @Subscribe public void on(ReadingListsEnableDialogEvent event) {
-            ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(BaseActivity.this);
         }
     }
 }

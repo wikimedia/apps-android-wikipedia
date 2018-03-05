@@ -9,8 +9,6 @@ import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
 
-import com.squareup.otto.Subscribe;
-
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.ArticleSavedOrDeletedEvent;
@@ -33,6 +31,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticleCard>
@@ -45,7 +45,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     @BindView(R.id.view_featured_article_card_article_subtitle) GoneIfEmptyTextView articleSubtitleView;
     @BindView(R.id.view_featured_article_card_extract) TextView extractView;
     @BindView(R.id.view_featured_article_card_text_container) View textContainerView;
-    @NonNull private final EventBusMethods eventBusMethods = new EventBusMethods();
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     public FeaturedArticleCardView(Context context) {
         super(context);
@@ -74,12 +74,12 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        WikipediaApp.getInstance().getBus().register(eventBusMethods);
+        disposables.add(WikipediaApp.getInstance().getBus().subscribe(new EventBusConsumer()));
     }
 
     @Override
     protected void onDetachedFromWindow() {
-        WikipediaApp.getInstance().getBus().unregister(eventBusMethods);
+        disposables.clear();
         super.onDetachedFromWindow();
     }
 
@@ -206,15 +206,17 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         }
     }
 
-    private class EventBusMethods {
-        @Subscribe
-        public void on(@NonNull ArticleSavedOrDeletedEvent event) {
-            if (getCard() == null) {
-                return;
-            }
-            for (ReadingListPage page : event.getPages()) {
-                if (page.title().equals(getCard().articleTitle())) {
-                    footer(getCard());
+    private class EventBusConsumer implements Consumer<Object> {
+        @Override
+        public void accept(Object event) throws Exception {
+            if (event instanceof ArticleSavedOrDeletedEvent) {
+                if (getCard() == null) {
+                    return;
+                }
+                for (ReadingListPage page : ((ArticleSavedOrDeletedEvent) event).getPages()) {
+                    if (page.title().equals(getCard().articleTitle())) {
+                        footer(getCard());
+                    }
                 }
             }
         }

@@ -31,8 +31,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.squareup.otto.Subscribe;
-
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -84,6 +82,7 @@ import io.reactivex.Completable;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.CacheControl;
 import retrofit2.Call;
@@ -108,8 +107,6 @@ public class ReadingListFragment extends Fragment implements
     @BindView(R.id.reading_list_swipe_refresh) SwipeRefreshLayout swipeRefreshLayout;
     @BindView(R.id.floating_queue_view) FloatingQueueView floatingQueueView;
     private Unbinder unbinder;
-
-    @NonNull private final EventBusMethods eventBusMethods = new EventBusMethods();
     private CompositeDisposable disposables = new CompositeDisposable();
 
     @Nullable private ReadingList readingList;
@@ -181,7 +178,7 @@ public class ReadingListFragment extends Fragment implements
 
         readingListId = getArguments().getLong(EXTRA_READING_LIST_ID);
 
-        WikipediaApp.getInstance().getBus().register(eventBusMethods);
+        disposables.add(WikipediaApp.getInstance().getBus().subscribe(new EventBusConsumer()));
 
         floatingQueueView.setCallback(this);
         swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent));
@@ -215,7 +212,6 @@ public class ReadingListFragment extends Fragment implements
 
     @Override public void onDestroyView() {
         disposables.clear();
-        WikipediaApp.getInstance().getBus().unregister(eventBusMethods);
         recyclerView.setAdapter(null);
         appBarLayout.removeOnOffsetChangedListener(appBarListener);
         unbinder.unbind();
@@ -957,19 +953,17 @@ public class ReadingListFragment extends Fragment implements
         }
     }
 
-    private class EventBusMethods {
-        @Subscribe public void on(@NonNull ReadingListSyncEvent event) {
-            if (isAdded()) {
+    private class EventBusConsumer implements Consumer<Object> {
+        @Override
+        public void accept(Object event) throws Exception {
+            if (event instanceof ReadingListSyncEvent) {
                 updateReadingListData();
-            }
-        }
-
-        @Subscribe
-        public void on(@NonNull PageDownloadEvent event) {
-            int pagePosition = getPagePositionInList(event.getPage());
-            if (pagePosition != -1) {
-                displayedPages.get(pagePosition).downloadProgress(event.getPage().downloadProgress());
-                adapter.notifyItemChanged(pagePosition + 1);
+            } else if (event instanceof PageDownloadEvent) {
+                int pagePosition = getPagePositionInList(((PageDownloadEvent) event).getPage());
+                if (pagePosition != -1) {
+                    displayedPages.get(pagePosition).downloadProgress(((PageDownloadEvent) event).getPage().downloadProgress());
+                    adapter.notifyItemChanged(pagePosition + 1);
+                }
             }
         }
     }

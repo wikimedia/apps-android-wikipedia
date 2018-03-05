@@ -12,8 +12,6 @@ import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.squareup.otto.Subscribe;
-
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
@@ -30,6 +28,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
 import butterknife.Unbinder;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
 
 public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     @BindView(R.id.buttonDecreaseTextSize) TextView buttonDecreaseTextSize;
@@ -55,6 +55,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     private WikipediaApp app;
     private Unbinder unbinder;
     private AppearanceChangeFunnel funnel;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     private boolean updatingFont = false;
 
@@ -102,7 +103,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
-        app.getBus().register(this);
+        disposables.add(app.getBus().subscribe(new EventBusConsumer()));
         funnel = new AppearanceChangeFunnel(app, app.getWikiSite());
     }
 
@@ -115,7 +116,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        app.getBus().unregister(this);
+        disposables.clear();
     }
 
     @Override
@@ -125,11 +126,6 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
             // noinspection ConstantConditions
             callback().onCancel();
         }
-    }
-
-    @Subscribe public void on(WebViewInvalidateEvent event) {
-        updatingFont = false;
-        updateComponents();
     }
 
     @OnCheckedChanged(R.id.theme_chooser_dark_mode_dim_images_switch)
@@ -220,6 +216,16 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
                 updatingFont = true;
                 updateFontSize();
                 funnel.logFontSizeChange(currentMultiplier, Prefs.getTextSizeMultiplier());
+            }
+        }
+    }
+
+    private class EventBusConsumer implements Consumer<Object> {
+        @Override
+        public void accept(Object event) throws Exception {
+            if (event instanceof WebViewInvalidateEvent) {
+                updatingFont = false;
+                updateComponents();
             }
         }
     }

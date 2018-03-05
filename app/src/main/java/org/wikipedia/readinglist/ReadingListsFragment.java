@@ -28,8 +28,6 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.otto.Subscribe;
-
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -68,6 +66,7 @@ import butterknife.Unbinder;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_NAME_ASC;
@@ -91,7 +90,6 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
     private List<ReadingList> readingLists = new ArrayList<>();
 
     private ReadingListsFunnel funnel = new ReadingListsFunnel();
-    private EventBusMethods eventBusMethods = new EventBusMethods();
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private ReadingListAdapter adapter = new ReadingListAdapter();
@@ -136,7 +134,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
             }
         });
 
-        WikipediaApp.getInstance().getBus().register(eventBusMethods);
+        disposables.add(WikipediaApp.getInstance().getBus().subscribe(new EventBusConsumer()));
 
         contentContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
         emptyContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
@@ -158,7 +156,6 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
     @Override
     public void onDestroyView() {
         disposables.clear();
-        WikipediaApp.getInstance().getBus().unregister(eventBusMethods);
         readingListView.setAdapter(null);
         unbinder.unbind();
         unbinder = null;
@@ -581,21 +578,21 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         }
     }
 
-    private class EventBusMethods {
-        @Subscribe public void on(ReadingListSyncEvent event) {
-            readingListView.post(() -> {
-                if (isAdded()) {
-                    updateLists();
-                }
-            });
-        }
-
-        @Subscribe
-        public void on(ArticleSavedOrDeletedEvent event) {
-            if (event.isAdded()) {
-                if (Prefs.getReadingListsPageSaveCount() < SAVE_COUNT_LIMIT) {
-                    showReadingListsSyncDialog();
-                    Prefs.setReadingListsPageSaveCount(Prefs.getReadingListsPageSaveCount() + 1);
+    private class EventBusConsumer implements Consumer<Object> {
+        @Override
+        public void accept(Object event) throws Exception {
+            if (event instanceof ReadingListSyncEvent) {
+                readingListView.post(() -> {
+                    if (isAdded()) {
+                        updateLists();
+                    }
+                });
+            } else if (event instanceof ArticleSavedOrDeletedEvent) {
+                if (((ArticleSavedOrDeletedEvent) event).isAdded()) {
+                    if (Prefs.getReadingListsPageSaveCount() < SAVE_COUNT_LIMIT) {
+                        showReadingListsSyncDialog();
+                        Prefs.setReadingListsPageSaveCount(Prefs.getReadingListsPageSaveCount() + 1);
+                    }
                 }
             }
         }

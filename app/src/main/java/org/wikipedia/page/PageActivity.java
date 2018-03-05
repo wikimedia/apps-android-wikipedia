@@ -34,9 +34,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.squareup.otto.Bus;
-import com.squareup.otto.Subscribe;
-
 import net.hockeyapp.android.metrics.MetricsManager;
 
 import org.apache.commons.lang3.StringUtils;
@@ -70,7 +67,6 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.ThrowableUtil;
-import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
@@ -80,6 +76,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_SETTINGS;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
@@ -116,10 +114,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     private PageFragment pageFragment;
 
     private WikipediaApp app;
-    @Nullable private Bus bus;
-    private EventBusMethods busMethods;
     private ActionMode currentActionMode;
     private boolean hasSavedInstanceState;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     private PageToolbarHideHandler toolbarHideHandler;
 
@@ -160,8 +157,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         unbinder = ButterKnife.bind(this);
 
-        busMethods = new EventBusMethods();
-        registerBus();
+        disposables.add(app.getBus().subscribe(new EventBusConsumer()));
 
         updateProgressBar(false, true, 0);
 
@@ -810,7 +806,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         if (unbinder != null) {
             unbinder.unbind();
         }
-        unregisterBus();
+        disposables.clear();
         super.onDestroy();
     }
 
@@ -836,20 +832,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     protected void clearActionBarTitle() {
         getSupportActionBar().setTitle("");
-    }
-
-    private void registerBus() {
-        bus = app.getBus();
-        bus.register(busMethods);
-        L.d("Registered bus.");
-    }
-
-    private void unregisterBus() {
-        if (bus != null) {
-            bus.unregister(busMethods);
-        }
-        bus = null;
-        L.d("Unregistered bus.");
     }
 
     private void handleSettingsActivityResult(int resultCode) {
@@ -944,20 +926,21 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         return pageFragment.getTabLayout();
     }
 
-    private class EventBusMethods {
-        @Subscribe public void on(ChangeTextSizeEvent event) {
-            if (pageFragment != null && pageFragment.getWebView() != null) {
-                pageFragment.updateFontSize();
-            }
-        }
-
-        @Subscribe public void on(@NonNull ArticleSavedOrDeletedEvent event) {
-            if (pageFragment == null || !pageFragment.isAdded() || pageFragment.getTitleOriginal() == null) {
-                return;
-            }
-            for (ReadingListPage page : event.getPages()) {
-                if (page.title().equals(pageFragment.getTitleOriginal().getDisplayText())) {
-                    pageFragment.updateBookmarkAndMenuOptionsFromDao();
+    private class EventBusConsumer implements Consumer<Object> {
+        @Override
+        public void accept(Object event) throws Exception {
+            if (event instanceof ChangeTextSizeEvent) {
+                if (pageFragment != null && pageFragment.getWebView() != null) {
+                    pageFragment.updateFontSize();
+                }
+            } else if (event instanceof ArticleSavedOrDeletedEvent) {
+                if (pageFragment == null || !pageFragment.isAdded() || pageFragment.getTitleOriginal() == null) {
+                    return;
+                }
+                for (ReadingListPage page : ((ArticleSavedOrDeletedEvent) event).getPages()) {
+                    if (page.title().equals(pageFragment.getTitleOriginal().getDisplayText())) {
+                        pageFragment.updateBookmarkAndMenuOptionsFromDao();
+                    }
                 }
             }
         }

@@ -18,12 +18,11 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
-import com.squareup.otto.Bus;
 
 import org.wikipedia.analytics.FunnelManager;
 import org.wikipedia.analytics.SessionFunnel;
 import org.wikipedia.auth.AccountUtil;
-import org.wikipedia.concurrency.ThreadSafeBus;
+import org.wikipedia.concurrency.RxBus;
 import org.wikipedia.connectivity.NetworkConnectivityReceiver;
 import org.wikipedia.crash.CrashReporter;
 import org.wikipedia.crash.hockeyapp.HockeyAppCrashReporter;
@@ -83,7 +82,7 @@ public class WikipediaApp extends Application {
     private WikiSite wiki;
     private CrashReporter crashReporter;
     private RefWatcher refWatcher;
-    private Bus bus;
+    private RxBus bus;
     private Theme currentTheme = Theme.getFallback();
     private List<Tab> tabList = new ArrayList<>();
 
@@ -107,7 +106,7 @@ public class WikipediaApp extends Application {
         return refWatcher;
     }
 
-    public Bus getBus() {
+    public RxBus getBus() {
         return bus;
     }
 
@@ -168,7 +167,7 @@ public class WikipediaApp extends Application {
         // See Javadocs and http://developer.android.com/tools/support-library/index.html#rev23-4-0
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
 
-        bus = new ThreadSafeBus();
+        bus = new RxBus();
 
         ViewAnimations.init(getResources());
         currentTheme = unmarshalCurrentTheme();
