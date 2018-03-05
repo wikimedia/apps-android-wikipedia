@@ -122,8 +122,12 @@
   <string name="send_feedback">إرسال الملاحظات على التطبيق</string>
   <string name="create_account_account_created_toast">تم إنشاء الحساب!</string>
   <string name="preferences_heading_storage_and_syncing">التخزين والمزامنة</string>
+  <string name="preferences_heading_syncing">مزامنة</string>
+  <string name="preferences_heading_data_usage">استخدام البيانات</string>
+  <string name="preferences_heading_experimental">تجريبيّ</string>
   <string name="preference_title_sync_reading_lists">مزامنة قوائم القراءة</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">السماح لويكيبيديا بمزامنة قائمة قراءتك حين تسجيل الدخول</string>
+  <string name="preference_title_sync_reading_lists_from_account">تمكين مزامنة قائمة القراءة</string>
+  <string name="preference_summary_sync_reading_lists">مزامنة قائمة قراءتك عبر الأجهزة المختلفة من خلال حفظها إلى حساب ويكيبيديا الخاص بك</string>
   <string name="preferences_privacy_settings_heading">الخصوصية</string>
   <string name="preference_title_eventlogging_opt_in">إرسال تقارير الاستخدام</string>
   <string name="preference_summary_eventlogging_opt_in">السماح لويكيميديا بجمع المعلومات حول كيفية استخدام التطبيق لتحسينه</string>

@@ -299,9 +299,10 @@
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Ustawienia</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nie, dziękuję</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Nie, usuń artykuły</string>
   <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Zachować na urządzeniu zapisane artykuły?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">Tak, zachowaj artykuły na urządzeniu</string>
-  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">Nie, usuń artykuły z urządzenia</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Tak, zachowaj artykuły na listach</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Nie, usuń artykuły z list</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ten artykuł będzie teraz dostępny w trybie offline.</item>
     <item quantity="other">Te artykuły będą teraz dostępne w trybie offline.</item>

@@ -117,12 +117,15 @@
   <string name="send_feedback">Poslat názor na aplikaci</string>
   <string name="create_account_account_created_toast">Účet založen!</string>
   <string name="preferences_heading_storage_and_syncing">Úložiště a synchronizace</string>
+  <string name="preferences_heading_syncing">Synchronizace</string>
+  <string name="preferences_heading_data_usage">Používání dat</string>
+  <string name="preferences_heading_experimental">Experimentální</string>
   <string name="preference_title_sync_reading_lists">Synchronizovat seznamy k přečtení</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Synchronizovat seznamy čtení pro tento účet</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Dovolit Wikimedia synchronizovat vaše seznamy k přečtení, když se přihlásíte</string>
-  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Povolit Wikimedii synchronizaci seznamů čtení na vašem účtu na Wikipedii %s?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Odstranit synchronizované seznamy čtení z vašeho účtu %s?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Tato akce odstraní všechny předtím uložené a synchronizované seznamy čtení. Odstranit všechny synchronizované seznamy z vašeho účtu %s?</string>
+  <string name="preference_title_sync_reading_lists_from_account">Povolit synchronizaci seznamů čtení</string>
+  <string name="preference_summary_sync_reading_lists">Synchronizovat seznamy čtení skrze různá zařízení jejich uložením do vašeho účtu na Wikipedii</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Synchronizovat seznamy čtení skrze rozdílná zařízení pomocí jejich uložení na vašem účtu na Wikipedii %s?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Odstranit synchronizované seznamy čtení z %s?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Tato akce odstraní všechny předtím synchronizované seznamy čtení z úložného prostoru. Odstranit všechny synchronizované seznamy z vašeho účtu %s?</string>
   <string name="preferences_privacy_settings_heading">Soukromí</string>
   <string name="preference_title_eventlogging_opt_in">Odesílat zprávy o využití</string>
   <string name="preference_summary_eventlogging_opt_in">Umožnit nadaci Wikimedia sbírat informace o tom, jak aplikaci používáte, abychom ji mohli zlepšovat</string>
@@ -324,13 +327,13 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Povolit synchronizace</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ne, děkuji</string>
   <string name="reading_list_login_option_reminder_dialog_title">Nalezeny články v seznamu čtení</string>
-  <string name="reading_list_login_option_reminder_dialog_text" fuzzy="true">Na vaší aplikaci Wikipedie jsou uložené články. Chtěl/a byste je ponechat a sloučit se seznamy čtení, které jsou synchronizovány do vašeho účtu?</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Články byly uloženy na seznam čtení, když jste nebyl/a přihlášena. Chcete je přidat do seznamů čtení na vašem účtu?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Ano, přidat články do tohoto seznamu čtení</string>
-  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">Ne, odstranit články uložené v aplikaci</string>
-  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Ponechat uložené články na zařízení?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text" fuzzy="true">Zde jsou články synchronizovány k vašemu účtu na Wikipedii. Chcete je na tomto zařízení po odhlášení ponechat?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">Ano, zanechat články v zařízení</string>
-  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">Ne, odstranit články ze zařízení</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Ne, odstranit články</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Ponechat uložené články v aplikaci?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Zde jsou články uložené v seznamech čtení. Chcete je v nich po odhlášení ponechat?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Ano, ponechat články v seznamech</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Ne, odstranit články ze seznamů</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synchronizace seznamů čtení&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Seznamy čtení mohou být nyní synchronizovány napříč zařízení. Přihlašte se na svůj účet na Wikipedii a povolte ukládání svých vlastních seznamů.</string>
   <string name="user_option_sync_label">Nastavení</string>
   <string name="notification_button_view_user">Diskutovat s uživatelem</string>
