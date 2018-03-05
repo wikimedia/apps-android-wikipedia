@@ -116,9 +116,11 @@
   <string name="send_feedback">Feedback vun der App schécken</string>
   <string name="create_account_account_created_toast">Benotzerkont ugeluecht!</string>
   <string name="preferences_heading_storage_and_syncing">Späicher a Synchronisatioun</string>
+  <string name="preferences_heading_syncing">Synchronisatioun</string>
+  <string name="preferences_heading_experimental">Experimentell</string>
   <string name="preference_title_sync_reading_lists">Lieslëschte synchroniséieren</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Lieschlëschte fir dëse Benotzerkont synchroniséieren</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Wikimedia erlaben Är Lieslëschten ze synchroniséiere wann Dir Iech aloggt.</string>
+  <string name="preference_title_sync_reading_lists_from_account">Synchronisatioun vun de Lieschlëschten aschalten</string>
+  <string name="preference_summary_sync_reading_lists">Synchroniséiert Lieslëschten tëscht verschiddenen Apparater duerch d\'Späichere dovun an Ärem Wikipedia-Benotzerkont</string>
   <string name="preferences_privacy_settings_heading">Dateschutz</string>
   <string name="preference_title_eventlogging_opt_in">Rapporten iwwer d\'Benotze schécken</string>
   <string name="preference_summary_eventlogging_opt_in">Wikimedia erlaben Informatiounen iwwer d\'Benotze vun der App ze sammele fir se ze verbesseren.</string>
@@ -337,9 +339,10 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Mir dëst net méi weisen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Synchronisatioun aktivéieren</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nee, merci</string>
-  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">Neen, Artikelen déi an der App gespäichert si läschen</string>
-  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Gespäichert Artikelen um Apparat halen?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">Jo, Artikelen um Apparat halen</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Neen, Artikele läschen</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Gespäichert Artikelen an der App halen?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Jo, Artikelen op de Lëschten halen</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Neen, Artikele vun de Lëschte läschen</string>
   <string name="default_reading_list_name">Gespäichert</string>
   <string name="default_reading_list_description">Standard-Lëscht fir Är gespäichert Artikelen</string>
   <string name="no_user_lists_title">Artikelen a Lëschten organiséieren</string>

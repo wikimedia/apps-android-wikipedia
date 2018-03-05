@@ -122,8 +122,14 @@
   <string name="send_feedback">فرستادن بازخورد برنامه</string>
   <string name="create_account_account_created_toast">حساب ساخته شد!</string>
   <string name="preferences_heading_storage_and_syncing">ذخیره و همسازسازی</string>
+  <string name="preferences_heading_syncing">همگام‌سازی</string>
+  <string name="preferences_heading_data_usage">مصرف دیتا</string>
+  <string name="preferences_heading_experimental">آزمایشی</string>
   <string name="preference_title_sync_reading_lists">همسازسازی فهرست‌های مطالعه</string>
+  <string name="preference_title_sync_reading_lists_from_account">فعال‌کردن همگام‌سازی فهرست مطالعه</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">اجازه به ویکی‌مدیا برای همسازسازی فهرست‌های مطالعه وقتی که وارد سامانه شدید</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">فهرست‌های خواندن از \"%s\" حذف شود؟</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">این کار همه فهرست‌های خواندن که پیشتر در حافظه همسان‌سازی شده را کاملاً حذف می‌کند. همه فهرست‌های همسان‌سازی شده از حساب کاربری شما \"%s\" پاک شود؟</string>
   <string name="preferences_privacy_settings_heading">حریم شخصی</string>
   <string name="preference_title_eventlogging_opt_in">فرستادن گزارش‌های رفتارهای کاربری</string>
   <string name="preference_summary_eventlogging_opt_in">به ویکی‌مدیا اجازه می‌دهید که اطلاعات مربوط به استفادۀ شما از این نرم‌افزار را برای بهبود نرم‌افزار، تدوین نماید</string>
@@ -346,24 +352,33 @@
   <string name="reading_list_confirm_remove_article_from_offline">حذف از آفلاین</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">مقاله در چندین فهرست دیده می‌شود</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s دیگر به صورت آفلاین برای همهٔ فهرست‌های خواند موجود نیست:</string>
+  <string name="reading_lists_sync_reminder_text">مقاله‌های ذخیره‌شده در فهرست‌های خواندن شما اکنون می‌تواند در حساب کاربری ویکی‌پدیای شما همسان‌سازی شود. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_action">فعال‌کردن همسان‌سازی</string>
   <string name="reading_list_login_reminder_title">همسازسازی فهرست‌های مطالعه</string>
+  <string name="reading_lists_login_reminder_text">فهرست‌های خواندن اکنون می‌تواند در دستگاه‌های مختلف همسان‌سازی شود. به حساب کاربری ویکی‌پدیای خود وارد شود و اجازه ذخیره فهرست‌های خود را دهید.</string>
   <string name="reading_lists_confirm_remote_delete">اینکار فهرست‌های مطالعه‌ای که همساز کردید را حذف می‌کند. انجام شود؟</string>
   <string name="reading_lists_confirm_remote_delete_yes">بله</string>
   <string name="reading_lists_confirm_remote_delete_no">خیر</string>
   <string name="reading_list_article_save_in_progress">بارگیری مقاله در حال انجام است و به صورت آفلاین قابل دسترس خواهد بود.</string>
   <string name="reading_list_already_contains_selection">فهرست انتخاب‌شده همیشه شامل همهٔ صفحات انتخاب‌شده‌ است.</string>
   <string name="reading_list_added_articles_list_titled">%1$d مقاله به %2$s اضافه شد</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">آیا مطمئن هستید که می‌خواهید این فهرست مطالعه را حذف %s کنید؟</string>
+  <string name="reading_list_delete_confirm">آیا مطمئن هستید که می‌خواهید %s را حذف کنید؟</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">برای فعال‌کردن همسان‌سازی وارد شوید</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">برای اجازه ذخیره‌شدن فهرست‌های مطالعه در حساب کاربری خود وارد شوید.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">لغو</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">ورود</string>
   <string name="reading_list_turned_sync_off_dialog_title">همساز‌سازی فهرست مطالعه خاموش شده‌است</string>
+  <string name="reading_list_turned_sync_off_dialog_text">همسان‌سازی فهرست خواندن برای حساب کاربری شما غیرفعال است و مقاله‌های ذخیره‌شده در دستگاه‌های واردشده دیگر همسان‌سازی نمی‌شود. همسان‌سازی فهرست‌های خواندن را در تنظمیات فعال کنید.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">تأیید</string>
   <string name="reading_list_turned_sync_off_dialog_settings">تنظیمات</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">همسان‌سازی فهرست خواندن فعال شود؟</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">مقاله‌های ذخیره‌شده در فهرست‌های خواندن شما اکنون می‌تواند در حساب کاربری ویکی‌پدیای شما همسان‌سازی شود. &lt;a href=\"#faq\"&gt;بیشتر بدانید&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">این را دوباره به من نشان نده</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">فعال‌کردن همسان‌سازی</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">نه ممنون</string>
   <string name="reading_list_login_option_reminder_dialog_title">فهرست مطالعه مقاله یافت شد</string>
   <string name="reading_list_login_option_reminder_dialog_yes">شما، آنها را به فهرست مطالعهٔ من افزودید</string>
-  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">نه، حذف مقالات ذخیره شده در اپلیکیشن</string>
+  <string name="reading_list_login_option_reminder_dialog_no">نه، حذف مقاله‌ها ذخیره شده در اپلیکیشن</string>
   <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">مقالات ذخیره شده در دستگاه نگهداری شوند؟</string>
   <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">بله، مقالات را بر روی دستگاه نگهدار</string>
   <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">نه، مقالات را از روی دستگاه حذف کن</string>

@@ -122,12 +122,15 @@
   <string name="send_feedback">傳送應用程式意見回饋</string>
   <string name="create_account_account_created_toast">已建立帳號！</string>
   <string name="preferences_heading_storage_and_syncing">儲存庫和同步</string>
+  <string name="preferences_heading_syncing">同步</string>
+  <string name="preferences_heading_data_usage">資料使用</string>
+  <string name="preferences_heading_experimental">試驗</string>
   <string name="preference_title_sync_reading_lists">同步閱讀清單</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">為此帳號同步閱讀清單</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">允許當您登入時讓維基媒體同步您的閱讀清單</string>
-  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">允許維基媒體基金會來同步您的閱讀清單至您的維基百科帳號 %s 上</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">從您的帳號 %s 來移除已同步的閱讀清單？</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">這將會從遠端儲存庫設備上來完全刪除所有之前已同步的閱讀清單，要從您的帳號 %s 移除所有已同步清單嗎？</string>
+  <string name="preference_title_sync_reading_lists_from_account">啟用閱讀清單同步</string>
+  <string name="preference_summary_sync_reading_lists">透過儲存至您的維基百科帳號上，來橫跨不同裝置同步閱讀清單</string>
+  <string name="preference_summary_sync_reading_lists_from_account">透過儲存至您的維基百科帳號「%s」上，來橫跨不同裝置同步閱讀清單</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">從您的帳號「%s」來移除已同步的閱讀清單？</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">這將會從遠端儲存庫設備上來完全刪除所有之前已同步的閱讀清單，要從您的帳號「%s」移除所有已同步清單嗎？</string>
   <string name="preferences_privacy_settings_heading">隱私</string>
   <string name="preference_title_eventlogging_opt_in">傳送使用情況報告</string>
   <string name="preference_summary_eventlogging_opt_in">允許維基媒體收集有關您如何使用該應用程式使應用程式更好的資訊</string>
@@ -377,13 +380,13 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">啟用同步</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">不用了，謝謝</string>
   <string name="reading_list_login_option_reminder_dialog_title">已找出閱讀清單條目</string>
-  <string name="reading_list_login_option_reminder_dialog_text" fuzzy="true">這些是已儲存在您維基百科應用程式上的閱讀清單條目，您想要保留它們並與已同步閱讀清單來合併至您的帳號上？</string>
+  <string name="reading_list_login_option_reminder_dialog_text">當您登出時，條目已儲存至閱讀清單。您想要添加它們至您帳號裡的閱讀清單裡嗎？</string>
   <string name="reading_list_login_option_reminder_dialog_yes">是的，添加它們至我的閱讀清單</string>
-  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">不，刪除儲存在應用程式上的條目</string>
-  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">保留在裝置上的已儲存條目？</string>
-  <string name="reading_list_logout_option_reminder_dialog_text" fuzzy="true">這些條目已同步到您的維基百科帳號，您想要在登出後讓它們保留在您的裝置上嗎？</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">是的，保留條目在裝置上</string>
-  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">不，從裝置上刪除條目</string>
+  <string name="reading_list_login_option_reminder_dialog_no">不，刪除條目</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">保留在應用程式上的已儲存條目？</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">這些條目目前儲存在閱讀清單，您想要在登出後保留它們嗎？</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">是的，保留條目在清單上</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">不，從清單上刪除條目</string>
   <string name="default_reading_list_name">已儲存</string>
   <string name="default_reading_list_description">您的已儲存條目之預設清單</string>
   <string name="no_user_lists_title">組織條目至清單</string>

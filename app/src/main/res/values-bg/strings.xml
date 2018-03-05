@@ -122,11 +122,14 @@
   <string name="send_feedback">Изпращане на отзив за приложението</string>
   <string name="create_account_account_created_toast">Сметката е създадена!</string>
   <string name="preferences_heading_storage_and_syncing">Съхранение и синхронизация</string>
+  <string name="preferences_heading_syncing">Синхронизиране</string>
+  <string name="preferences_heading_data_usage">Използване на данните</string>
+  <string name="preferences_heading_experimental">Експериментални</string>
   <string name="preference_title_sync_reading_lists">Синхронизация на списъците за четене</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Синхронизиране на списъци за четене за тази сметка</string>
+  <string name="preference_title_sync_reading_lists_from_account">Включване на синхронизация за списъци за четене</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">Позволяване на Уикимедия да синхронизира списъците Ви за четене, когато влезете в системата</string>
   <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Позволяване на Уикимедия да синхронизира списъци за четене със сметката Ви в Уикипедия %s</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Премахване на синхронизираните списъци за четене от Вашата сметка %s?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Премахване на синхронизираните списъци за четене от „%s“?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Това ще изтрие напълно всички синхронизирани списъци за четене от външната памет. Премахване на всички синхронизирани списъци от сметката Ви %s?</string>
   <string name="preferences_privacy_settings_heading">Поверителност</string>
   <string name="preference_title_eventlogging_opt_in">Изпращане на доклади за употребата</string>
@@ -377,11 +380,11 @@
   <string name="reading_list_login_option_reminder_dialog_title">Открити статии в списъци за четене</string>
   <string name="reading_list_login_option_reminder_dialog_text" fuzzy="true">Има статии в списъци за четене, запазени в Уикипедия приложението Ви. Желаете ли да ги запазите и да ги слеете със списъците за четене, синхронизирани в сметката Ви?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Да, добавяне към списъците ми за четене</string>
-  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">Не, изтриване на съхранените статии в приложението</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Не, изтриване на статиите</string>
   <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Задържане на съхранените статии на устройството?</string>
   <string name="reading_list_logout_option_reminder_dialog_text" fuzzy="true">Тези статии са синхронизирани със сметката Ви в Уикипедия. Желаете ли да ги запазите на това устройство, след като излезете?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">Да, задържане на статиите на устройството</string>
-  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">Не, изтриване на статиите от устройството</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Да, задържане на статиите в списъците</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Не, изтриване на статиите от списъците</string>
   <string name="default_reading_list_name">Съхранено</string>
   <string name="default_reading_list_description">Списък по подразбиране за Вашите запазени статии</string>
   <string name="no_user_lists_title">Организирайте статии в списъци</string>

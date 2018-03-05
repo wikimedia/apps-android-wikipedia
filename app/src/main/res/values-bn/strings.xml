@@ -17,11 +17,11 @@
   <string name="history_items_deleted">ইতিহাস থেকে %dটি নিবন্ধ সরানো হয়েছে</string>
   <string name="history_item_delete_undo">পূর্বাবস্থা</string>
   <string name="app_settings">অ্যাপ সেটিং</string>
-  <string name="dialog_title_clear_history">ব্রাউজ ইতিহাস অপসারণ করবেন</string>
+  <string name="dialog_title_clear_history">ব্রাউজ করার ইতিহাস অপসারণ করবেন</string>
   <string name="dialog_message_clear_history">এটি আপনার সব ব্রাউজ করা ইতিহাস মুছে দিবে, এবং বর্তমানে খোলা সব ট্যাব বন্ধ করবে। আপনি কি নিশ্চিত?</string>
   <string name="dialog_message_clear_history_yes">হ্যাঁ</string>
   <string name="dialog_message_clear_history_no">না</string>
-  <string name="share_via">শেয়ার</string>
+  <string name="share_via">এর মাধ্যমে শেয়ার</string>
   <string name="search_redirect_from">%s থেকে পুনর্নির্দেশিত</string>
   <string name="menu_page_show_tabs">ট্যাবসমূহ দেখান</string>
   <string name="menu_page_other_languages">ভাষা পরিবর্তন করুন</string>
@@ -108,9 +108,9 @@
   <string name="zero_charged_verbiage">উইকিপিডিয়ায় বিনামূল্যে প্রবেশাধিকার আর সক্রিয় নয়।</string>
   <string name="zero_warn_when_leaving">উইকিপিডিয়া জিরো প্রস্থানের সময় সতর্ক করো</string>
   <string name="zero_warn_when_leaving_summary">যদি আপনার মোবাইল অপারেটর উইকিপিডিয়া জিরো অংশীদারিত্বের মাধ্যমে উইকিপিডিয়া অ্যাপ্লিকেশনের জন্য তথ্য প্রবেশাধিকার চার্জ গ্রহণ না করে, তাহলে এই সেটিং টিকচিহ্ন দিয়ে রাখলে কখন আপনি উইকিপিডিয়া অ্যাপ্লিকেশন ছেড়ে যাচ্ছেন এবং আপনার থেকে চার্জ গ্রহণ করা হতে পারে তা আপনাকে জানাতে সাহায্য করবে।</string>
-  <string name="zero_webpage_title">উইকিপিডিয়া জিরো</string>
+  <string name="zero_webpage_title">উইকিপিডিয়া জিরো প্রাজিপ্র</string>
   <string name="zero_wikipedia_zero_heading">উইকিপিডিয়া জিরো</string>
-  <string name="zero_interstitial_title">উইকিপিডিয়া জিরো প্রস্থান হচ্ছে</string>
+  <string name="zero_interstitial_title">উইকিপিডিয়া জিরো থেকে প্রস্থান হচ্ছে</string>
   <string name="zero_interstitial_leave_app">ডেটা চার্জ প্রযোজ্য হতে পারে। বাহ্যিক সাইটে যাওয়া অব্যাহত রাখবেন?</string>
   <string name="zero_interstitial_continue">অগ্রসর হোন</string>
   <string name="zero_interstitial_cancel">এখানে থাকুন</string>
@@ -121,6 +121,8 @@
   <string name="send_feedback">অ্যাপ সম্পর্কে প্রতিক্রিয়া জানান</string>
   <string name="create_account_account_created_toast">অ্যাকাউন্ট তৈরি করা হয়েছে!</string>
   <string name="preferences_heading_storage_and_syncing">স্টোরেজ ও সিঙ্ক</string>
+  <string name="preferences_heading_data_usage">ডাটা ব্যাবহার</string>
+  <string name="preferences_heading_experimental">পরীক্ষামূলক</string>
   <string name="preference_title_sync_reading_lists">পড়ার তালিকাগুলি সিঙ্ক করুন</string>
   <string name="preferences_privacy_settings_heading">গোপনীয়তা</string>
   <string name="preference_title_eventlogging_opt_in">ব্যবহারের রিপোর্ট পাঠান</string>
@@ -339,6 +341,7 @@
   <string name="reading_lists_confirm_remote_delete_no">না</string>
   <string name="reading_list_added_articles_list_titled">%2$s-এ %1$dটি নিবন্ধ যোগ হয়েছে</string>
   <string name="reading_list_delete_confirm">আপনি কি নিশ্চিতভাবে এই %s অপসারণ করতে চান?</string>
+  <string name="reading_list_login_option_reminder_dialog_no">না, নিবন্ধগুলি মুছুন</string>
   <string name="default_reading_list_name">সংরক্ষিত</string>
   <string name="reading_list_saved_list_rename">%1$s (ব্যবহারকারী তৈরি করেছেন)</string>
   <plurals name="reading_list_article_offline_message">

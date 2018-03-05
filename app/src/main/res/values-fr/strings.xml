@@ -122,12 +122,15 @@
   <string name="send_feedback">Envoyer un avis sur l’application</string>
   <string name="create_account_account_created_toast">Compte créé !</string>
   <string name="preferences_heading_storage_and_syncing">Stockage et synchronisation</string>
+  <string name="preferences_heading_syncing">Synchronisation</string>
+  <string name="preferences_heading_data_usage">Utilisation des données</string>
+  <string name="preferences_heading_experimental">Expérimental</string>
   <string name="preference_title_sync_reading_lists">Synchroniser les listes de lecture</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Synchroniser les listes de lecture pour ce compte</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Permettre à Wikipédia de synchroniser vos listes de lecture quand vous vous connectez</string>
-  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Permettre à Wikimédia de synchroniser les listes de lecture avec votre compte Wikipédia %s</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Supprimer les listes de lecture synchronisées de votre compte %s ?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Cela supprimera complètement toutes les listes de lecture synchronisées précédemment du stockage distant. Supprimer toutes les listes synchronisées de votre compte %s ?</string>
+  <string name="preference_title_sync_reading_lists_from_account">Activer la synchronisation des listes de lecture</string>
+  <string name="preference_summary_sync_reading_lists">Synchroniser les listes de lecture entre différents appareils en les enregistrant dans votre compte Wikipédia</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Synchroniser les listes de lecture entre différents appareils en les enregistrant dans votre compte Wikipédia « %s »</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Supprimer les listes de lecture synchronisées de votre compte « %s » ?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Cela supprimera complètement toutes les listes de lecture synchronisées précédemment du stockage distant. Supprimer toutes les listes synchronisées de votre compte « %s » ?</string>
   <string name="preferences_privacy_settings_heading">Confidentialité</string>
   <string name="preference_title_eventlogging_opt_in">Envoyer les rapports d’utilisation</string>
   <string name="preference_summary_eventlogging_opt_in">Permettre à Wikimédia de recueillir des informations sur la manière dont vous utilisez l’application, pour l’améliorer</string>
@@ -377,13 +380,13 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Activer la synchronisation</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Non merci</string>
   <string name="reading_list_login_option_reminder_dialog_title">Articles de liste de lecture trouvés</string>
-  <string name="reading_list_login_option_reminder_dialog_text" fuzzy="true">Il y a des articles de liste de lecture enregistrés dans votre application Wikipédia. Voulez-vous les conserver et les fusionner avec les listes de lecture synchronisées dans votre compte ?</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Des articles ont été enregistrés dans la liste de lecture pendant que vous étiez déconnecté. Voulez-vous les ajouter aux listes de lecture dans votre compte ?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Oui, les ajouter à mes listes de lecture</string>
-  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">Non, supprimer les articles enregistrés dans l’application</string>
-  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Conserver les articles enregistrés dans l’appareil ?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text" fuzzy="true">Il y a des articles synchronisés dans votre compte Wikipédia. Voulez-vous les garder sur cet appareil après vous être déconnecté ?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">Oui, conserver les articles dans l’appareil</string>
-  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">Non, supprimer les articles de l’appareil</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Non, supprimer les articles</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Conserver les articles enregistrés dans l’application ?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Il y a des articles actuellement enregistrés dans les listes de lecture. Voulez-vous les conserver là après déconnexion ?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Oui, conserver les articles dans les listes</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Non, supprimer les articles des listes</string>
   <string name="default_reading_list_name">Enregistré</string>
   <string name="default_reading_list_description">Liste par défaut pour vos articles enregistrés</string>
   <string name="no_user_lists_title">Ranger des articles dans des listes</string>

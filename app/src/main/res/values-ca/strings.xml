@@ -16,6 +16,7 @@
   <string name="history_item_deleted">%s eliminat de l\'historial</string>
   <string name="history_items_deleted">%d articles eliminats de l\'historial</string>
   <string name="history_item_delete_undo">Desfés</string>
+  <string name="app_settings">Configuració de l\'aplicació</string>
   <string name="dialog_title_clear_history">Esborra l\'historial de navegació</string>
   <string name="dialog_message_clear_history">Això esborrarà tot el vostre historial de navegació i tancarà totes les pestanyes ara obertes. N\'esteu segur?</string>
   <string name="dialog_message_clear_history_yes">Sí</string>
@@ -121,8 +122,11 @@
   <string name="send_feedback">Envieu els vostres comentaris sobre l\'aplicació</string>
   <string name="create_account_account_created_toast">S\'ha creat el vostre compte d\'usuari!</string>
   <string name="preferences_heading_storage_and_syncing">Emmagatzemament i sincronització</string>
+  <string name="preferences_heading_syncing">Sincronització</string>
+  <string name="preferences_heading_data_usage">Ús de dades</string>
+  <string name="preferences_heading_experimental">Experimental</string>
   <string name="preference_title_sync_reading_lists">Sincronitza les llistes de lectura</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Sincronitza les llistes de lectura d\'aquest compte</string>
+  <string name="preference_title_sync_reading_lists_from_account">Habilita la sincronització de les llistes de lectura</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">Permet que Wikimedia sincronitzi les llistes de lectura en iniciar la sessió</string>
   <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Permet que Wikimedia sincronitzi les llistes de lectura del vostre compte de Viquipèdia %s</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Voleu suprimir les llistes de lectura sincronitzades del vostre compte %s?</string>

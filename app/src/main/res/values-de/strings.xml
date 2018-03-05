@@ -122,12 +122,15 @@
   <string name="send_feedback">App-Rückmeldung senden</string>
   <string name="create_account_account_created_toast">Benutzerkonto erstellt!</string>
   <string name="preferences_heading_storage_and_syncing">Speichern und Synchronisierung</string>
+  <string name="preferences_heading_syncing">Synchronisierung</string>
+  <string name="preferences_heading_data_usage">Datennutzung</string>
+  <string name="preferences_heading_experimental">Experimentell</string>
   <string name="preference_title_sync_reading_lists">Leselisten synchronisieren</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Leselisten für dieses Benutzerkonto synchronisieren</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Wikimedia erlauben, deine Leselisten bei jeder Anmeldung zu synchronisieren.</string>
-  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Wikimedia erlauben, die Leselisten mit deinem Wikipedia-Benutzerkonto %s zu synchronisieren.</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Synchronisierte Leselisten von deinem Benutzerkonto %s entfernen?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Dies wird alle früher synchronisierten Leselisten vollständig aus dem Fernspeicher löschen. Alle synchronisierten Listen aus deinem Benutzerkonto %s entfernen?</string>
+  <string name="preference_title_sync_reading_lists_from_account">Synchronisierung von Leselisten aktivieren</string>
+  <string name="preference_summary_sync_reading_lists">Synchronisiere Leselisten zwischen unterschiedlichen Geräten durch das Speichern der Listen in dein Wikipedia-Benutzerkonto</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Synchronisiere Leselisten zwischen unterschiedlichen Geräten durch das Speichern der Listen in dein Wikipedia-Benutzerkonto „%s“</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Synchronisierte Leselisten von „%s“ entfernen?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Dies wird alle früher synchronisierten Leselisten vollständig aus dem Fernspeicher löschen. Alle synchronisierten Listen aus deinem Benutzerkonto „%s“ entfernen?</string>
   <string name="preferences_privacy_settings_heading">Datenschutz</string>
   <string name="preference_title_eventlogging_opt_in">Nutzungsberichte senden</string>
   <string name="preference_summary_eventlogging_opt_in">Wikimedia erlauben, Informationen über die Verwendung der App zu sammeln, um sie zu verbessern.</string>
@@ -377,13 +380,13 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Synchronisierung aktivieren</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nein danke</string>
   <string name="reading_list_login_option_reminder_dialog_title">Artikel für Leselisten gefunden</string>
-  <string name="reading_list_login_option_reminder_dialog_text" fuzzy="true">Auf deiner Wikipedia-App sind gespeicherte Artikel in Leselisten vorhanden. Möchtest du sie behalten und sie mit synchronisierten Leselisten in deinem Benutzerkonto zusammenführen?</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Artikel waren in der Leseliste gespeichert, während du abgemeldet warst. Möchtest du sie zu den Leselisten in deinem Benutzerkonto hinzufügen?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Ja, zu meinen Leselisten hinzufügen</string>
-  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">Nein, in der App gespeicherte Artikel löschen</string>
-  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Gespeicherte Artikel auf dem Gerät behalten?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text" fuzzy="true">Es sind mit deinem Wikipedia-Benutzerkonto synchronisierte Artikel vorhanden. Möchtest du sie nach der Abmeldung auf diesem Gerät behalten?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">Ja, Artikel auf dem Gerät behalten</string>
-  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">Nein, Artikel vom Gerät löschen</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Nein, Artikel löschen</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Gespeicherte Artikel in der App behalten?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Es sind derzeit in Leselisten gespeicherte Artikel vorhanden. Möchtest du sie nach der Abmeldung behalten?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Ja, Artikel in den Listen behalten</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Nein, Artikel aus den Listen löschen</string>
   <string name="default_reading_list_name">Gespeichert</string>
   <string name="default_reading_list_description">Standardliste für deine gespeicherten Artikel</string>
   <string name="no_user_lists_title">Artikel in Listen organisieren</string>

@@ -14,7 +14,7 @@
   <string name="page_error_back_to_main">Text for the back button that goes to the last page visited when tapped.\n{{Identical|Go back}}</string>
   <string name="menu_clear_all_history">Menu item text for clearing your reading history.\n{{Identical|Clear history}}</string>
   <string name="history_item_deleted">Message shown when an article is removed from the browsing history. The \"%s\" symbol is replaced with the name of the article.</string>
-  <string name="history_items_deleted">Message shown when multiple articles are removed from the browsing history. The \"%d\" symbol is replaced with the number of articles removed.</string>
+  <string name="history_items_deleted">%d নিবন্ধগুলি ইতিহাস থেকে সরানো হয়েছে</string>
   <string name="history_item_delete_undo">Button label to undo the operation of deleting an item from the browsing history.\n{{Identical|Undo}}</string>
   <string name="app_settings">Button text to take user to app settings screen</string>
   <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history.</string>

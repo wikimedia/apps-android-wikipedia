@@ -122,12 +122,15 @@
   <string name="send_feedback">Aplikazioari buruzko feedbacka eman</string>
   <string name="create_account_account_created_toast">Kontua sortua!</string>
   <string name="preferences_heading_storage_and_syncing">Biltegiratzea eta sinkronizazioa</string>
+  <string name="preferences_heading_syncing">Sinkronizatzen</string>
+  <string name="preferences_heading_data_usage">Data erabilera</string>
+  <string name="preferences_heading_experimental">Esperimentala</string>
   <string name="preference_title_sync_reading_lists">Zure irakurketa zerrendak sinkronizatu</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Kontu honetarako irakurketa zerrendak sinkronizatu</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Utzi Wikimediari zure irakurketa zerrendak sinkronizatzen saioa hasten duzunean</string>
-  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Utzi Wikipediak sinkroniza ditzala irakurketa zerrendak zure %s Wikipedia kontura</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Zure %s kontutik kendu nahi dituzu sinkronizatutako irakurketa zerrendak?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Aurretik sinkronizatutako irakurketa zerrendak ezabatu egingo dira urruneko biltegitik. Kendu nahi dituzu sinkronizatutako zerrenda guztiak %s kontutik?</string>
+  <string name="preference_title_sync_reading_lists_from_account">Kontu honetarako irakurketa zerrendak sinkronizatzea ahalbidetu</string>
+  <string name="preference_summary_sync_reading_lists">Utzi zure irakurketa zerrendak gailuen zehar sinkronizatzen, zure Wikipedia kontuan gordez</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Utzi Wikipediak sinkroniza ditzala irakurketa zerrendak zure \"%s\" Wikipedia kontura gordez</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Zure %s kontutik kendu nahi dituzu sinkronizatutako irakurketa zerrendak?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Aurretik sinkronizatutako irakurketa zerrendak ezabatu egingo dira urruneko biltegitik. Kendu nahi dituzu sinkronizatutako zerrenda guztiak \"%s\" kontutik?</string>
   <string name="preferences_privacy_settings_heading">Pribatutasuna</string>
   <string name="preference_title_eventlogging_opt_in">Erabilera txostenak bidali</string>
   <string name="preference_summary_eventlogging_opt_in">Baimendu Wikimediari zure aplikazioaren erabileraren inguruko informazioa jasotzen, aplikazioa hobetzeko.</string>
@@ -375,9 +378,9 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Sinkronizazioa ahalbidetu</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ez, eskerrik asko</string>
   <string name="reading_list_login_option_reminder_dialog_title">Irakurketa zerrendako artikuluak aurkitu dira</string>
-  <string name="reading_list_login_option_reminder_dialog_text" fuzzy="true">Zure Wikipedia aplikazioan irakurketa zerrendako artikuluak gorde dira. Zure kontuarekin sinkronizatutako irakurketen zerrendak gorde eta bateratu nahi dituzu?</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Artikuluak zure irakurketa zerrendetan gorde dira saiotik kanpo egon zarenean. Zure kontuko irakurketen zerrendetan gorde eta gehitu nahi dituzu?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Bai, gehitu itzazu nire irakurketa zerrendetara</string>
-  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">Ez, ezaba itzazu aplikazioan gordetako artikuluak</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Ez, ezaba itzazu artikuluak</string>
   <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Gordetako artikuluak gailuan mantendu nahi dituzu?</string>
   <string name="reading_list_logout_option_reminder_dialog_text" fuzzy="true">Zure Wikipedia kontuan sinkronizatutako artikuluak daude. Saioa itxi eta gero, gailuan mantendu nahiko zenituzke?</string>
   <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">Bai, mantendu itzazu artikuluak gailuan.</string>

@@ -122,12 +122,15 @@
   <string name="send_feedback">Kirim umpan balik aplikasi</string>
   <string name="create_account_account_created_toast">Akun dibuat!</string>
   <string name="preferences_heading_storage_and_syncing">Penyimpanan dan sinkronisasi</string>
+  <string name="preferences_heading_syncing">Sinkronisasi</string>
+  <string name="preferences_heading_data_usage">Penggunaan data</string>
+  <string name="preferences_heading_experimental">Eksperimental</string>
   <string name="preference_title_sync_reading_lists">Sinkronkan daftar bacaan</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Sinkronkan daftar bacaan untuk akun ini</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Izinkan Wikimedia menyinkronkan daftar bacaan Anda saat Anda masuk log</string>
-  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Izinkan Wikimedia menyelaraskan daftar bacaan ke akun Wikipedia Anda %s</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Hapus daftar bacaan yang disinkronkan dari akun Anda %s?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Ini akan menghapus semua daftar bacaan yang disinkronkan sebelumnya dari penyimpanan jarak jauh. Hapus semua daftar yang disinkronkan dari akun Anda %s?</string>
+  <string name="preference_title_sync_reading_lists_from_account">Aktifkan sinkronisasi daftar bacaan</string>
+  <string name="preference_summary_sync_reading_lists">Sinkronkan daftar bacaan di berbagai perangkat dengan menyimpannya ke akun Wikipedia Anda</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Sinkronkan daftar bacaan di berbagai perangkat dengan menyimpannya ke akun Wikipedia Anda \"%s\"</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Hapus daftar bacaan yang disinkronkan dari \"%s\"?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Ini akan menghapus semua daftar bacaan yang disinkronkan sebelumnya dari penyimpanan jarak jauh. Hapus semua daftar yang disinkronkan dari akun Anda \"%s\"?</string>
   <string name="preferences_privacy_settings_heading">Privasi</string>
   <string name="preference_title_eventlogging_opt_in">Kirim laporan penggunaan</string>
   <string name="preference_summary_eventlogging_opt_in">Izinkan Wikimedia untuk mengumpulkan informasi tentang bagaimana Anda menggunakan aplikasi untuk membuat aplikasi yang lebih baik</string>
@@ -377,13 +380,13 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Aktifkan sinkronisasi</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Tidak, terima kasih</string>
   <string name="reading_list_login_option_reminder_dialog_title">Artikel daftar bacaan ditemukan</string>
-  <string name="reading_list_login_option_reminder_dialog_text" fuzzy="true">Ada artikel daftar bacaan yang disimpan ke aplikasi Wikipedia Anda. Apakah Anda ingin menyimpannya dan bergabung dengan daftar bacaan yang disinkronkan ke akun Anda?</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Artikel disimpan ke daftar bacaan saat Anda keluar log. Apakah Anda ingin menambahkannya ke daftar bacaan di akun Anda?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Ya, tambahkan ke daftar bacaan saya</string>
-  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">Tidak, hapus artikel yang tersimpan di aplikasi</string>
-  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Simpan artikel tersimpan di perangkat?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text" fuzzy="true">Ada artikel yang disinkronkan ke akun Wikipedia Anda. Apakah Anda ingin menyimpannya di perangkat ini setelah keluar log?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">Ya, simpan artikel di perangkat</string>
-  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">Tidak, hapus artikel dari perangkat</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Tidak, hapus artikel</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Simpan artikel tersimpan di aplikasi?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Ada artikel yang saat ini tersimpan dalam daftar bacaan. Apakah Anda ingin menyimpannya di sana setelah keluar log?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Ya, simpan artikel dalam daftar</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Tidak, hapus artikel dari daftar</string>
   <string name="default_reading_list_name">Tersimpan</string>
   <string name="default_reading_list_description">Daftar baku untuk artikel tersimpan Anda</string>
   <string name="no_user_lists_title">Atur artikel ke dalam daftar</string>
