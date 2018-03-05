@@ -2,9 +2,7 @@ package org.wikipedia.espresso.search;
 
 import android.support.annotation.NonNull;
 import android.support.test.espresso.ViewInteraction;
-import android.support.test.runner.AndroidJUnit4;
 
-import org.junit.runner.RunWith;
 import org.wikipedia.R;
 import org.wikipedia.espresso.util.ScreenshotTools;
 import org.wikipedia.espresso.util.ViewTools;
@@ -27,8 +25,7 @@ import static org.wikipedia.espresso.util.ViewTools.viewIsDisplayed;
 import static org.wikipedia.espresso.util.ViewTools.waitFor;
 import static org.wikipedia.espresso.util.ViewTools.whileWithMaxSteps;
 
-@RunWith(AndroidJUnit4.class)
-public final class SearchTest {
+public final class SearchBehaviors {
 
     public static void searchKeywordAndGo(@NonNull String keyword, boolean shouldTakeScreenshot) {
 
@@ -95,6 +92,6 @@ public final class SearchTest {
         }
     }
 
-    private SearchTest() {
+    private SearchBehaviors() {
     }
 }

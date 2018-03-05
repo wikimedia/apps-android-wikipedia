@@ -13,7 +13,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wikipedia.R;
 import org.wikipedia.espresso.page.PageActivityTest;
-import org.wikipedia.espresso.search.SearchTest;
+import org.wikipedia.espresso.search.SearchBehaviors;
 import org.wikipedia.espresso.util.ScreenshotTools;
 import org.wikipedia.espresso.util.ViewTools;
 import org.wikipedia.main.MainActivity;
@@ -233,7 +233,7 @@ public final class ReadingListsTest {
         pageActivityTest.activityTestRule.launchActivity(intent);
         waitFor(WAIT_FOR_6000);
 
-        SearchTest.searchKeywordAndGo("Barack Obama", false);
+        SearchBehaviors.searchKeywordAndGo("Barack Obama", false);
         whileWithMaxSteps(
                 () -> !viewIsDisplayed(R.id.search_results_list),
                 () -> waitFor(WAIT_FOR_1000),
