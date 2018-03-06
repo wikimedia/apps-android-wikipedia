@@ -45,6 +45,7 @@ import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.search.RecentSearch;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.RemoteConfig;
+import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ReleaseUtil;
@@ -268,6 +269,8 @@ public class WikipediaApp extends Application {
         if (wiki == null) {
             String lang = Prefs.getMediaWikiBaseUriSupportsLangCode() ? getAppOrSystemLanguageCode() : "";
             wiki = WikiSite.forLanguageCode(lang);
+            // Kick off a task to retrieve the site info for the current wiki
+            new SiteInfoClient().request(wiki, null);
         }
         return wiki;
     }

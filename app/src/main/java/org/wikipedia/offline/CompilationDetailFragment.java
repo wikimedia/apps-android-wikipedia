@@ -19,7 +19,7 @@ import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.staticdata.MainPageNameData;
+import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
@@ -89,7 +89,7 @@ public class CompilationDetailFragment extends DownloadObserverFragment {
 
         controls.setCallback(() -> getDownloadObserver().remove(compilation));
 
-        mainPageButton.setText(MainPageNameData.valueFor(WikipediaApp.getInstance().getAppLanguageCode()));
+        mainPageButton.setText(SiteInfoClient.getMainPageForLang(WikipediaApp.getInstance().getAppLanguageCode()));
         updateDownloadState(true, null);
         return view;
     }

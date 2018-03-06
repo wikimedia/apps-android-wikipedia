@@ -42,6 +42,7 @@ import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
@@ -281,7 +282,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         @Subscribe public void on(SplitLargeListsEvent event) {
             new AlertDialog.Builder(BaseActivity.this)
-                    .setMessage(getString(R.string.split_reading_list_message, Constants.MAX_READING_LIST_ARTICLE_LIMIT))
+                    .setMessage(getString(R.string.split_reading_list_message, SiteInfoClient.getMaxPagesPerReadingList()))
                     .setPositiveButton(android.R.string.ok, null)
                     .show();
         }

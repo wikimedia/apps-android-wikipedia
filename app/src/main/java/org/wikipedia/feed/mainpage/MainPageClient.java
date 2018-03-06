@@ -8,7 +8,7 @@ import org.wikipedia.feed.dataclient.DummyClient;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.offline.OfflineManager;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.staticdata.MainPageNameData;
+import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.log.L;
 
@@ -22,8 +22,7 @@ public class MainPageClient extends DummyClient {
     @NonNull
     public static PageTitle getMainPageTitle() {
         WikipediaApp app = WikipediaApp.getInstance();
-        PageTitle title = new PageTitle(MainPageNameData
-                .valueFor(app.getAppOrSystemLanguageCode()), app.getWikiSite());
+        PageTitle title = new PageTitle(SiteInfoClient.getMainPageForLang(app.getAppOrSystemLanguageCode()), app.getWikiSite());
         if (OfflineManager.hasCompilation() && !DeviceUtil.isOnline()) {
             try {
                 title = new PageTitle(OfflineManager.instance().getMainPageTitle(), app.getWikiSite());

@@ -14,6 +14,7 @@ import org.wikipedia.model.BaseModel;
 import org.wikipedia.nearby.NearbyPage;
 import org.wikipedia.notifications.Notification;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.settings.SiteInfo;
 import org.wikipedia.useroption.dataclient.UserInfo;
 
 import java.util.ArrayList;
@@ -35,6 +36,8 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
     @SuppressWarnings("unused") @Nullable private MarkReadResponse echomarkread;
     @SuppressWarnings("unused,NullableProblems")
     @Nullable private NotificationList notifications;
+    @SuppressWarnings("unused") @SerializedName("general")
+    @Nullable private SiteInfo generalSiteInfo;
 
     @Nullable public List<MwQueryPage> pages() {
         return pages;
@@ -143,6 +146,10 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
             }
         }
         return result;
+    }
+
+    @Nullable public SiteInfo siteInfo() {
+        return generalSiteInfo;
     }
 
     @Override

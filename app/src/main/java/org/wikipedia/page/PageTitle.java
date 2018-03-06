@@ -13,7 +13,7 @@ import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.crash.RemoteLogException;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.staticdata.MainPageNameData;
+import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
@@ -130,7 +130,7 @@ public class PageTitle implements Parcelable {
         // FIXME: Does not handle mainspace articles with a colon in the title well at all
         if (TextUtils.isEmpty(text)) {
             // If empty, this refers to the main page.
-            text = MainPageNameData.valueFor(wiki.languageCode());
+            text = SiteInfoClient.getMainPageForLang(wiki.languageCode());
         }
 
         String[] fragParts = text.split("#", -1);
@@ -235,7 +235,7 @@ public class PageTitle implements Parcelable {
         if (properties != null) {
             return properties.isMainPage();
         }
-        String mainPageTitle = MainPageNameData.valueFor(getWikiSite().languageCode());
+        String mainPageTitle = SiteInfoClient.getMainPageForLang(getWikiSite().languageCode());
         return mainPageTitle.equals(getDisplayText());
     }
 

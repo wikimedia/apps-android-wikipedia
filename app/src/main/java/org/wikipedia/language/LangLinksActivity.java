@@ -23,7 +23,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.staticdata.MainPageNameData;
+import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.ViewAnimations;
 import org.wikipedia.views.WikiErrorView;
@@ -200,7 +200,7 @@ public class LangLinksActivity extends BaseActivity {
                     for (String dialect : Arrays.asList(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE,
                             AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
 
-                        it.add(new PageTitle((title.isMainPage()) ? MainPageNameData.valueFor(dialect) : link.getText(),
+                        it.add(new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(dialect) : link.getText(),
                                 WikiSite.forLanguageCode(dialect)));
                     }
                 }
@@ -235,7 +235,7 @@ public class LangLinksActivity extends BaseActivity {
 
             for (String languageCode : chineseLanguageCodes) {
                 if (!title.getWikiSite().languageCode().contains(languageCode)) {
-                    languageEntries.add(new PageTitle((title.isMainPage()) ? MainPageNameData.valueFor(languageCode) : title.getText(),
+                    languageEntries.add(new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(languageCode) : title.getText(),
                             WikiSite.forLanguageCode(languageCode)));
                 }
             }
