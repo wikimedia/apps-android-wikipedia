@@ -25,6 +25,8 @@ import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.wikipedia.espresso.util.CompareTools.assertScreenshotWithinTolerance;
+import static org.wikipedia.espresso.util.InstrumentationViewUtils.switchToBlackMode;
+import static org.wikipedia.espresso.util.InstrumentationViewUtils.switchToDarkMode;
 import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_2000;
 import static org.wikipedia.espresso.util.ViewTools.rotateScreen;
 import static org.wikipedia.espresso.util.ViewTools.setTextInTextView;
@@ -47,17 +49,30 @@ public class ExploreFeedTest {
     public void testExploreFeed() throws Exception {
         waitUntilFeedDisplayed();
 
-        testCards("");
+        runTests("");
+
+        switchToDarkMode();
+
+        runTests("_Dark");
+
+        switchToBlackMode();
+
+        runTests("_Black");
+
+        runComparisons();
+
+    }
+
+    private void runTests(String mode) {
+        testCards("" + mode);
 
         waitUntilFeedDisplayed();
 
         rotateScreen(getActivity(), ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
         waitFor(2000);
-        testCards("_Landscape");
+        testCards("_Landscape" + mode);
         rotateScreen(getActivity(), ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         waitFor(2000);
-
-        runComparisons();
     }
 
     private void runComparisons() throws Exception {
