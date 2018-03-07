@@ -10,6 +10,7 @@ import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.rule.GrantPermissionRule;
 import android.support.test.runner.AndroidJUnit4;
+import android.text.TextUtils;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -86,7 +87,19 @@ public class ExploreFeedTest {
         waitFor(1000);
 
         onView(withId(R.id.fragment_feed_feed)).perform(RecyclerViewActions.scrollToPosition(7));
-        setDate();
+        waitFor(1000);
+
+        //Only condition where the 0th view doesn't have the date view, 1st has.
+        if (TextUtils.isEmpty(postFix)) {
+            ViewInteraction colorButton = onView(
+                    allOf(
+                            ViewTools.matchPosition(allOf(withId(R.id.view_card_header_subtitle)), 1),
+                            isDisplayed()));
+            colorButton.perform(setTextInTextView("Feb 5, 2017"));
+        } else {
+            setDate();
+        }
+        setDayText();
         waitFor(1000);
         ScreenshotTools.snap("FeaturedImage" + postFix);
 
@@ -102,6 +115,7 @@ public class ExploreFeedTest {
 
         onView(withId(R.id.fragment_feed_feed)).perform(RecyclerViewActions.scrollToPosition(4));
         setDate();
+        setStaticCardDate();
         waitFor(1000);
         ScreenshotTools.snap("MainPage" + postFix);
 
@@ -112,11 +126,14 @@ public class ExploreFeedTest {
 
         onView(withId(R.id.fragment_feed_feed)).perform(RecyclerViewActions.scrollToPosition(2));
         setDate();
+        setDayText();
         waitFor(1000);
         ScreenshotTools.snap("OnThisDay" + postFix);
 
         onView(withId(R.id.fragment_feed_feed)).perform(RecyclerViewActions.scrollToPosition(1));
         setDate();
+        setDayText();
+        waitFor(1000);
         ScreenshotTools.snap("News" + postFix);
     }
 
@@ -124,6 +141,24 @@ public class ExploreFeedTest {
         whileWithMaxSteps(
                 () -> !viewIsDisplayed(R.id.fragment_feed_feed),
                 () -> waitFor(2000));
+    }
+
+    private static void setDayText() {
+        if (viewIsDisplayed(R.id.day)) {
+            onView(withId(R.id.day)).perform(setTextInTextView("February 5"));
+        }
+    }
+
+    private static void setStaticCardDate() {
+        try {
+            ViewInteraction colorButton = onView(
+                    allOf(
+                            ViewTools.matchPosition(allOf(withId(R.id.view_static_card_subtitle)), 0),
+                            isDisplayed()));
+            colorButton.perform(setTextInTextView("Main page on Feb 5, 2017"));
+        } catch (NoMatchingViewException | PerformException e) {
+            return;
+        }
     }
 
     private static void setDate() {
