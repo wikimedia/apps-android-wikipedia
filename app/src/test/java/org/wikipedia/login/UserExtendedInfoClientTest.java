@@ -9,8 +9,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.test.MockWebServerTest;
 
-import java.util.Set;
-
 import retrofit2.Call;
 
 import static org.mockito.Matchers.any;
@@ -65,7 +63,7 @@ public class UserExtendedInfoClientTest extends MockWebServerTest {
 
     private void assertCallbackSuccess(@NonNull Call<MwQueryResponse> call,
                                        @NonNull UserExtendedInfoClient.Callback cb) {
-        verify(cb).success(eq(call), any(Integer.class), any(Set.class));
+        verify(cb).success(eq(call), any(Integer.class), any(UserExtendedInfoClient.ListUserResponse.class));
         //noinspection unchecked
         verify(cb, never()).failure(any(Call.class), any(Throwable.class));
     }
@@ -74,7 +72,7 @@ public class UserExtendedInfoClientTest extends MockWebServerTest {
                                        @NonNull UserExtendedInfoClient.Callback cb,
                                        @NonNull Class<? extends Throwable> throwable) {
         //noinspection unchecked
-        verify(cb, never()).success(any(Call.class), any(Integer.class), any(Set.class));
+        verify(cb, never()).success(any(Call.class), any(Integer.class), any(UserExtendedInfoClient.ListUserResponse.class));
         verify(cb).failure(eq(call), isA(throwable));
     }
 

@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatDelegate;
+import android.text.TextUtils;
 import android.view.Window;
 import android.webkit.WebView;
 
@@ -39,7 +40,7 @@ import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.AcceptLanguageUtil;
 import org.wikipedia.language.AppLanguageState;
-import org.wikipedia.login.UserIdClient;
+import org.wikipedia.login.UserExtendedInfoClient;
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.search.RecentSearch;
@@ -78,7 +79,7 @@ public class WikipediaApp extends Application {
     private Database database;
     private String userAgent;
     private WikiSite wiki;
-    private UserIdClient userIdClient = new UserIdClient();
+    private UserExtendedInfoClient userInfoClient = new UserExtendedInfoClient();
     private CrashReporter crashReporter;
     private RefWatcher refWatcher;
     private Bus bus;
@@ -418,13 +419,14 @@ public class WikipediaApp extends Application {
     }
 
     private void getUserIdForLanguage(@NonNull final String code) {
-        if (!AccountUtil.isLoggedIn()) {
+        if (!AccountUtil.isLoggedIn() || TextUtils.isEmpty(AccountUtil.getUserName())) {
             return;
         }
         final WikiSite wikiSite = WikiSite.forLanguageCode(code);
-        userIdClient.request(wikiSite, new UserIdClient.Callback() {
+        userInfoClient.request(wikiSite, AccountUtil.getUserName(), new UserExtendedInfoClient.Callback() {
             @Override
-            public void success(@NonNull Call<MwQueryResponse> call, int id) {
+            public void success(@NonNull Call<MwQueryResponse> call, int id,
+                                @NonNull UserExtendedInfoClient.ListUserResponse user) {
                 if (AccountUtil.isLoggedIn()) {
                     AccountUtil.putUserIdForLanguage(code, id);
                     L.v("Found user ID " + id + " for " + code);
