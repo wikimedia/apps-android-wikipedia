@@ -148,6 +148,7 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
 
         WikiSite wiki = WikipediaApp.getInstance().getWikiSite();
         ReadingListClient client = new ReadingListClient(wiki);
+        ReadingListSyncNotification readingListSyncNotification = ReadingListSyncNotification.getInstance();
 
         String lastSyncTime = Prefs.getReadingListsLastSyncTime();
         boolean shouldSendSyncEvent = extras.containsKey(SYNC_EXTRAS_REFRESHING);
@@ -265,8 +266,13 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
             // Notify any event consumers that reading lists are, in fact, enabled.
             WikipediaApp.getInstance().getBus().post(new ReadingListsEnabledStatusEvent());
 
+            // setup syncing indicator for remote to local
+            int remoteItemsTotal = remoteListsModified.size();
+            int remoteItemsSynced = 0;
+
             // First, update our list hierarchy to match the remote hierarchy.
             for (RemoteReadingList remoteList : remoteListsModified) {
+                readingListSyncNotification.setNotificationProgress(getContext(), remoteItemsTotal, remoteItemsSynced++);
                 // Find the remote list in our local lists...
                 ReadingList localList = null;
                 boolean upsertNeeded = false;
@@ -397,8 +403,15 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
                 pageIdsDeleted.remove(id);
             }
 
+
+            // setup syncing indicator for local to remote
+            int localItemsTotal = allLocalLists.size();
+            int localItemsSynced = 0;
+
             // Determine whether any remote lists need to be created or updated
             for (ReadingList localList : allLocalLists) {
+                readingListSyncNotification.setNotificationProgress(getContext(), localItemsTotal, localItemsSynced++);
+
                 RemoteReadingList remoteList =
                         new RemoteReadingList(localList.title(), localList.description());
 
@@ -496,6 +509,7 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
             Prefs.setReadingListsLastSyncTime(lastSyncTime);
             Prefs.setReadingListsDeletedIds(listIdsDeleted);
             Prefs.setReadingListPagesDeletedIds(pageIdsDeleted);
+            readingListSyncNotification.cancelNotification(getContext());
 
             if (shouldSendSyncEvent) {
                 SavedPageSyncService.sendSyncEvent();

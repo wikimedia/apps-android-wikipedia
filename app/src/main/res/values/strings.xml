@@ -451,6 +451,10 @@
     <string name="notification_syncing_pause_button">Pause</string>
     <string name="notification_syncing_resume_button">Resume</string>
     <string name="notification_syncing_cancel_button">Cancel</string>
+    <string name="notification_syncing_reading_list_channel_name">Syncing Reading List(s)</string>
+    <string name="notification_syncing_reading_list_channel_description">Syncing Reading Lists progress</string>
+    <string name="notification_syncing_reading_list_title">Syncing %1$d list(s)&#8230;</string>
+    <string name="notification_syncing_reading_list_description">%1$d list(s) left</string>
     <!-- /Notifications -->
 
     <!-- The Feed -->
