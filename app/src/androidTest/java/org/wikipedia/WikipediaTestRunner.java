@@ -22,7 +22,6 @@ public class WikipediaTestRunner extends AndroidJUnitRunner {
         clearAppInfo();
         disableOnboarding();
         cleanUpComparisonResults();
-
         super.onStart();
     }
 
@@ -43,6 +42,7 @@ public class WikipediaTestRunner extends AndroidJUnitRunner {
                 PreferenceManager.getDefaultSharedPreferences(WikipediaApp.getInstance());
         prefs.edit().clear().commit();
         WikipediaApp.getInstance().deleteDatabase("wikipedia.db");
+        WikipediaApp.getInstance().logOut();
     }
 
     private void cleanUpComparisonResults() {

@@ -24,6 +24,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.wikipedia.espresso.util.CompareTools.assertScreenshotWithinTolerance;
+import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_2000;
 import static org.wikipedia.espresso.util.ViewTools.rotateScreen;
 import static org.wikipedia.espresso.util.ViewTools.setTextInTextView;
 import static org.wikipedia.espresso.util.ViewTools.viewIsDisplayed;
@@ -123,7 +124,7 @@ public class ExploreFeedTest {
     private static void waitUntilFeedDisplayed() {
         whileWithMaxSteps(
                 () -> !viewIsDisplayed(R.id.fragment_feed_feed),
-                () -> waitFor(2000));
+                () -> waitFor(WAIT_FOR_2000));
     }
 
     private static void setDate() {
