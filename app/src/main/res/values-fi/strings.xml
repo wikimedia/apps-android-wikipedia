@@ -88,8 +88,8 @@
   <string name="search_empty_message">Etsi ja lue vapaata tietosanakirjaa omalla kielelläsi</string>
   <string name="delete_selected_items">Poista valitut kohteet</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="create_account_username_hint">Käyttäjätunnus</string>
-  <string name="login_dont_have_account">Eikö sinulla ole käyttäjätunnusta?</string>
+  <string name="create_account_username_hint">Käyttäjänimi</string>
+  <string name="login_dont_have_account">Eikö sinulla ole tiliä?</string>
   <string name="login_join_wikipedia">Luo tunnus Wikipediaan</string>
   <string name="login_forgot_password">Unohditko salasanasi?</string>
   <string name="create_account_already_have">Onko sinulla jo tunnus?</string>

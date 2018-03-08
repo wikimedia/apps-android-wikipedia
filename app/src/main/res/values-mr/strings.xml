@@ -122,9 +122,12 @@
   <string name="send_feedback">अॅपबद्दलची प्रतिक्रिया पाठवा</string>
   <string name="create_account_account_created_toast">खाते उघडले!</string>
   <string name="preferences_heading_storage_and_syncing">साठवणूक आणि देवाण-घेवाण</string>
+  <string name="preferences_heading_syncing">देवाण-घेवाण</string>
+  <string name="preferences_heading_data_usage">डाटा वापर</string>
+  <string name="preferences_heading_experimental">प्रायोगिक</string>
   <string name="preference_title_sync_reading_lists">माझ्या वाचन यादीचे देवाण-घेवाण होत आहे</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">ह्या खात्यासाठीच्या वाचानयादीची देवाण-घेवाण होत आहे.</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">तुम्ही सनोंद-प्रवेश केल्यावर विकीमिडीयाला तुमच्या वाचनयादीची देवाण-घेवाण आपसूकच करण्यासाठी परवानगी द्या</string>
+  <string name="preference_title_sync_reading_lists_from_account">ह्या खात्यासाठीच्या वाचानयादीची देवाण-घेवाण होत आहे.</string>
+  <string name="preference_summary_sync_reading_lists">तुमच्या वेगवेगळ्या डिव्हाईसवर नोंद-प्रवेश केल्यावर तुमच्या वाचनयादीची देवाण-घेवाण आपसूकच करण्यासाठी परवानगी द्या</string>
   <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">%s ह्या विकीमिडीया खात्याच्या वाचन यादीची देवाण-घेवाण करण्यासाठी विकीमिडीयाला परवानगी द्या</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">%s ह्या तुमच्या खात्याच्या वाचन यादीची देवाण-घेवाण बंद केली जात आहे?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">यामुळे तुमच्या %s या खात्याशी संबंधीत सर्व वाचन याद्यांची देवाण-घेवाण दूरच्या साठवणूकीवरून काढून टाकण्यात येईल, तुम्ही तयार आहात का?</string>

@@ -128,8 +128,8 @@
   <string name="preference_title_sync_reading_lists">Синхронизировать список для чтения</string>
   <string name="preference_title_sync_reading_lists_from_account">Включить синхронизацию списка для чтения</string>
   <string name="preference_summary_sync_reading_lists">Синхронизирует списки для чтения на разных устройствах путём их сохранения в вашей учётной записи в Википедии</string>
-  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Синхронизировать чтения через разные устройства, сохраняя для учётной записи «%s» в Википедии</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Удалить синхронизированные списки для чтения «%s»?</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Синхронизирует списки для чтения на разных устройствах путём их сохранения в вашей учётной записи Википедии «%s»</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Удалить синхронизированные списки для чтения «%s»?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Это полностью удалит все ранее синхронизированные списки чтения из удаленного хранилища. Удалите все синхронизированные списки из своей учетной записи «%s»?</string>
   <string name="preferences_privacy_settings_heading">Конфиденциальность</string>
   <string name="preference_title_eventlogging_opt_in">Отправлять отчёты об использовании</string>
@@ -382,10 +382,10 @@
   <string name="reading_list_login_option_reminder_dialog_title">Найдены списки статей</string>
   <string name="reading_list_login_option_reminder_dialog_text" fuzzy="true">Статьи были сохранены в списка чтения пока вы вышли из системы. Хотите сохранить их и объединить с списками чтения, синхронизированными с вашей учетной записью?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Да, добавьте их в мои списки чтения</string>
-  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">Нет, удалите статьи</string>
-  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Сохранять сохраненные статьи в приложении?</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Нет, удалите статьи</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Сохранять сохраненные статьи в приложении?</string>
   <string name="reading_list_logout_option_reminder_dialog_text" fuzzy="true">Есть статьи синхронизированные с вашей учетной записью Википедии. Вы хотите оставить их на этом устройстве после выхода из системы?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">Да, сохраняйте статьи на устройстве</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Да, сохранять статьи в списках</string>
   <string name="reading_list_logout_option_reminder_dialog_no">Нет, удалить статьи из списков</string>
   <string name="default_reading_list_name">Сохранено</string>
   <string name="default_reading_list_description">Список по умолчанию для сохранённых вами статей</string>

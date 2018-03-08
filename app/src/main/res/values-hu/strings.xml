@@ -121,6 +121,7 @@
   <string name="send_feedback">Visszajelzés küldése az alkalmazásról</string>
   <string name="create_account_account_created_toast">Fiók létrehozva!</string>
   <string name="preferences_heading_storage_and_syncing">Tárolás és szinkronizálás</string>
+  <string name="preferences_heading_syncing">Szinkronizálás</string>
   <string name="preference_title_sync_reading_lists">Olvasólisták szinkronizálása</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">Ha bejelentkezel, az olvasási listáid szinkronizálva lesznek</string>
   <string name="preferences_privacy_settings_heading">Adatküldés</string>
@@ -354,6 +355,10 @@
   <string name="reading_list_already_contains_selection">A megadott lista már tartalmazza a kiválasztott oldalak mindegyikét.</string>
   <string name="reading_list_added_articles_list_titled">%1$d szócikk hozzáadva ide: %2$s</string>
   <string name="reading_list_delete_confirm">Biztosan szeretnéd törölni a(z) %s olvasólistát?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Jelentkezz be a szinkronizálás engedélyezéséhez</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Mégse</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Bejelentkezés</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Beállítások</string>
   <string name="default_reading_list_name">Elmentve</string>
   <string name="default_reading_list_description">Alapértelmezett lista a mentett szócikkeidnek</string>
   <string name="no_user_lists_title">Rendezd listákba a szócikkeket</string>

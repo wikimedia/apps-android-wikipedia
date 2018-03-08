@@ -16,6 +16,7 @@
   <string name="history_item_deleted">%s fjernet fra historikken</string>
   <string name="history_items_deleted">%d artikler fjernet fra historikken</string>
   <string name="history_item_delete_undo">Fortryd</string>
+  <string name="app_settings">Programindstillinger</string>
   <string name="dialog_title_clear_history">Ryd browserhistorikken</string>
   <string name="dialog_message_clear_history">Dette vil slette hele browserhistorikken og lukke alle åbne faner. Er du sikker?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
@@ -121,12 +122,15 @@
   <string name="send_feedback">Send feedback</string>
   <string name="create_account_account_created_toast">Konto oprettet!</string>
   <string name="preferences_heading_storage_and_syncing">Lagring og synkronisering</string>
+  <string name="preferences_heading_syncing">Synkroniserer</string>
+  <string name="preferences_heading_data_usage">Dataforbrug</string>
+  <string name="preferences_heading_experimental">Eksperimentel</string>
   <string name="preference_title_sync_reading_lists">Synkroniser læselister</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Synkroniser læselister for denne konto</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Tillad Wikimedia at synkronisere dine læselister når du logger på</string>
-  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Tillad Wikimedia at synkronisere læselister med din Wikipediakonto %s</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Fjern synkroniserede læselister fra din konto %s?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Dette vil fuldstændig slette alle tidligere synkroniserede læselister fra eksternt lager. Fjern alle synkroniserede lister fra din konto %s?</string>
+  <string name="preference_title_sync_reading_lists_from_account">Aktiver synkronisering af læselister</string>
+  <string name="preference_summary_sync_reading_lists">Synkroniser læselister på tværs af forskellige enheder ved at gemme dem på din Wikipediakonto</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Synkroniser læselister på tværs af forskellige enheder ved at gemme dem på din Wikipediakonto »%s«</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Fjern synkroniserede læselister fra din »%s«?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Dette vil fuldstændig slette alle tidligere synkroniserede læselister fra eksternt lager. Fjern alle synkroniserede lister fra din konto »%s«?</string>
   <string name="preferences_privacy_settings_heading">Privatliv</string>
   <string name="preference_title_eventlogging_opt_in">Send anvendelsesrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillad Wikimedia at indsamle oplysninger om, hvordan du bruger app\'en, for at gøre den bedre.</string>
@@ -376,17 +380,20 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Aktiver synkronisering</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nej tak</string>
   <string name="reading_list_login_option_reminder_dialog_title">Fundne læselisteartikler</string>
-  <string name="reading_list_login_option_reminder_dialog_text" fuzzy="true">Der er læselisteartikler gemt i dit Wikipediaprogram. Ønsker du at beholde dem og sammenføje med læselister synkroniseret til din konto?</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Artikler blev gemt til læselisten mens du ikke var logget ind. Ønsker du at tilføje dem til læselisterne i din konto?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Ja, tilføj dem til mine læselister</string>
-  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">Nej, slet artikler gemt i programmet</string>
-  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Bevar gemte artikler på enheden?</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Nej, slet artikler</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Bevar gemte artikler i programmet?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Der er artikler gemt i læselister. Ønsker du at bevare dem der efter, at du er logget ud?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Ja, bevar artiklerne i listerne</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Nej, slet artiklerne fra listerne</string>
   <string name="default_reading_list_name">Gemt</string>
   <string name="default_reading_list_description">Standardliste for dine gemte artikler</string>
   <string name="no_user_lists_title">Organiser artikler i lister</string>
   <string name="no_user_lists_msg">Opret lister for steder at rejse til, favoritemner og meget mere</string>
   <string name="reading_list_saved_list_rename">%1$s (bruger oprettet)</string>
   <string name="split_reading_list_message">Der er en begrænsning på %d artikler per læseliste. Eksisterende lister med mere end denne begrænsning er blevet delt i flere lister.</string>
-  <string name="reading_list_article_limit_message" fuzzy="true">Kan ikke tilføje til listen. Du har nået begrænsningen på %2$d artikler per liste for »%1$s«.</string>
+  <string name="reading_list_article_limit_message">Kan ikke tilføje til denne liste. Du har nået begrænsningen på %2$d artikler per liste for »%1$s«.</string>
   <string name="reading_lists_limit_message">Kan ikke oprette en anden liste. Du har nået begrænsningen på 100 læselister per konto.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synkroniser læselister&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Læselister kan nu synkroniseres på tværs af enheder. Log ind på din Wikipediakonto og tillad at dine lister gemmes.</string>
   <plurals name="reading_list_article_offline_message">
@@ -498,6 +505,7 @@
   <string name="description_edit_revert_history">Er du interesseret, så se &lt;a href=\"%1$s\"&gt;redigeringshistorikken&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">Ingen internetforbindelse. Sikr dig at du har forbindelse og prøv så igen.</string>
   <string name="offline_read_permission_rationale">Tilladelse til at tilgå lageret på din enhed er krævet for at læse artikler lokalt.</string>
+  <string name="offline_read_final_rationale">Tilladelse til at tilgå lageret på din enhed er krævet for at bruge lokalt bibliotek.</string>
   <string name="offline_read_permission_error">Der er ikke givet tilladelse til at læse fra enhedslageret.</string>
   <string name="offline_card_sideloading_text">Du læser nu Wikipedia lokalt fra artikelpakker i dit lokale bibliotek.</string>
   <string name="offline_my_compilations">Håndter mit lokale bibliotek</string>
@@ -552,8 +560,9 @@
   <string name="onboarding_explore_text">Dyk ned i Wikipedias harehul med en konstant opdateret udforskningskilde. &lt;br/&gt; &lt;b&gt;Tilpas&lt;/b&gt; nyhedskilden til dine interesser – om det er historiske hændelser &lt;b&gt;På denne dag&lt;/b&gt;, eller et kast med terningen med &lt;b&gt;Vilkårlig&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Gem til læselister</string>
   <string name="onboarding_save_to_reading_lists_text">Opret læselister fra artikler du ønsker at læse senere, selv når du ikke er på nettet.</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">Læselister med synkronisering</string>
-  <string name="onboarding_reading_list_sync_text" fuzzy="true">Opret læselister med artikler du ønsker at læse senere, selv uden adgang til internettet. &lt;a href=\"#login\"&gt;Log ind eller opret&lt;/a&gt; din Wikipediakonto for at sikre sikkerhedskopiering af dine læselister.</string>
+  <string name="onboarding_reading_list_sync_title">Læselister med synkronisering</string>
+  <string name="onboarding_reading_list_sync_text">Opret læselister med artikler du ønsker at læse senere, selv uden adgang til internettet. &lt;a href=\"#login\"&gt;Log ind eller opret&lt;/a&gt; din Wikipediakonto for at sikre sikkerhedskopiering af dine læselister.</string>
+  <string name="onboarding_reading_list_sync_text_v2">Du kan lave læselister med artikler, du ønsker at læse senere, selv når du er uden internetadgang. &lt;br/&gt;Log ind på din Wikipediakonto for at synkronisere dine læselister.&lt;a href=\"#login\"&gt;Opret konto på Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Send anonyme data</string>
   <string name="onboarding_analytics_offline_text">Hjælp med at gøre programmet bedre ved at fortælle os hvordan du bruger den. Data indsamles anonymt. &lt;a href=\"#privacy\"&gt;Lær mere&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Send brugsdata</string>

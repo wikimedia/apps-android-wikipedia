@@ -403,7 +403,7 @@
   <string name="view_card_news_title">Actualidade</string>
   <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">onte</item>
-    <item quantity="other">fai %d días</item>
+    <item quantity="other">hai %d días</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">hoxe</string>
   <string name="view_continue_reading_card_subtitle_read_date">Lido %s</string>

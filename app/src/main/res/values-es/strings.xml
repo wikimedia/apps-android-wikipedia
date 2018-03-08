@@ -121,6 +121,8 @@
   <string name="send_feedback">Enviar comentarios sobre la aplicación</string>
   <string name="create_account_account_created_toast">Se creó la cuenta.</string>
   <string name="preferences_heading_storage_and_syncing">Almacenamiento y sincronización</string>
+  <string name="preferences_heading_syncing">Sincronización</string>
+  <string name="preferences_heading_data_usage">Uso de datos</string>
   <string name="preference_title_sync_reading_lists">Sincronizar listas de lectura</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">Permitir a Wikimedia sincronizar mis listas de lectura cuando haya accedido</string>
   <string name="preferences_privacy_settings_heading">Privacidad</string>
