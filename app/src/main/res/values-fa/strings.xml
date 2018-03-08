@@ -127,7 +127,8 @@
   <string name="preferences_heading_experimental">آزمایشی</string>
   <string name="preference_title_sync_reading_lists">همسازسازی فهرست‌های مطالعه</string>
   <string name="preference_title_sync_reading_lists_from_account">فعال‌کردن همگام‌سازی فهرست مطالعه</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">اجازه به ویکی‌مدیا برای همسازسازی فهرست‌های مطالعه وقتی که وارد سامانه شدید</string>
+  <string name="preference_summary_sync_reading_lists">همسان‌سازی فهرست خواند بین چند دستگاه متفاوت با ذخیرهٔ آنها در حساب کاربری ویکی‌پدیا</string>
+  <string name="preference_summary_sync_reading_lists_from_account">همسان‌سازی فهرست خواند بین چند دستگاه متفاوت با ذخیرهٔ آنها در حساب کاربری «%s» در ویکی‌پدیا</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">فهرست‌های خواندن از \"%s\" حذف شود؟</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">این کار همه فهرست‌های خواندن که پیشتر در حافظه همسان‌سازی شده را کاملاً حذف می‌کند. همه فهرست‌های همسان‌سازی شده از حساب کاربری شما \"%s\" پاک شود؟</string>
   <string name="preferences_privacy_settings_heading">حریم شخصی</string>
@@ -152,6 +153,7 @@
   <string name="about_wikipedia_url">https://fa.m.wikipedia.org/wiki/ویکی‌پدیا:آشنایی_با_دانشنامه</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="offline_reading_and_data_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fa</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -352,6 +354,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">حذف از آفلاین</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">مقاله در چندین فهرست دیده می‌شود</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s دیگر به صورت آفلاین برای همهٔ فهرست‌های خواند موجود نیست:</string>
+  <string name="reading_lists_sync_reminder_title">همسان‌سازی فهرست خواندن فعال شود؟</string>
   <string name="reading_lists_sync_reminder_text">مقاله‌های ذخیره‌شده در فهرست‌های خواندن شما اکنون می‌تواند در حساب کاربری ویکی‌پدیای شما همسان‌سازی شود. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">فعال‌کردن همسان‌سازی</string>
   <string name="reading_list_login_reminder_title">همسازسازی فهرست‌های مطالعه</string>
@@ -377,11 +380,13 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">فعال‌کردن همسان‌سازی</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">نه ممنون</string>
   <string name="reading_list_login_option_reminder_dialog_title">فهرست مطالعه مقاله یافت شد</string>
+  <string name="reading_list_login_option_reminder_dialog_text">مقاله در زمانی که شما از برنامه خارج شده بودید به فهرست خواندن‌ها اضافه شد. آیا مایلید آنها را به حساب کاربری خود اضافه‌کنید؟</string>
   <string name="reading_list_login_option_reminder_dialog_yes">شما، آنها را به فهرست مطالعهٔ من افزودید</string>
   <string name="reading_list_login_option_reminder_dialog_no">نه، حذف مقاله‌ها ذخیره شده در اپلیکیشن</string>
-  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">مقالات ذخیره شده در دستگاه نگهداری شوند؟</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">بله، مقالات را بر روی دستگاه نگهدار</string>
-  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">نه، مقالات را از روی دستگاه حذف کن</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">مقالات ذخیره شده در اپلیکیشن نگهداری شوند؟</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">اکنون تعدادی مقاله در فهرست خواندن ذخیره شده‌است. آیا قصد دارید بعد از خروج از سامانه آنها را نگهدارید؟</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">بله، مقالات را در فهرست نگهداری شود</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">نه، مقالات را از فهرست حذف کن</string>
   <string name="default_reading_list_name">ذخیره</string>
   <string name="default_reading_list_description">لیست پیش فرض برای ذخیره مقاله ها</string>
   <string name="no_user_lists_title">سامان‌دادن مقالات در فهرست‌ها</string>
@@ -390,6 +395,7 @@
   <string name="split_reading_list_message">محدودیت %d مقاله برای هر فهرست وجود دارد. فهرستی که بیش از مقاله داشته باشد به چند فهرست تقسیم می‌شود.</string>
   <string name="reading_list_article_limit_message">امکان افزودن به این فهرست نیست. به محدودیت %2$d مقاله برای فهرست  «%1$s» رسیدید.</string>
   <string name="reading_lists_limit_message">امکان ایجاد فهرست دیگر نیست. شما به محدودیت ایجاد ۱۰۰ فهرست خواندن برای هر حساب کاربری رسیدید.</string>
+  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;همگام‌سازی لیست خواندان‌ها&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; فهرست خواندن‌ها همکنون می تواند در تمامی ابزار‌ها یکسان شود. به حساب کاربری خود وارد شوید و اجازه ذخیره به فهرست را بدهید.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">اکنون در حالت آفلاین مقاله در دسترس است.</item>
     <item quantity="other">اکنون در حالت آفلاین این مقالات در دسترس هستند.</item>
@@ -499,6 +505,7 @@
   <string name="description_edit_revert_history">اگر مشتاق هستید می‌توانید &lt;a href=\"%1$s\"&gt;تاریخچهٔ ویرایش&lt;/a&gt; را مشاهده کنید.</string>
   <string name="offline_compilation_download_device_offline">ارتباط اینترنتی موجود نیست. مطمئن شوید که آنلاین هستید و دوباره بازگردید.</string>
   <string name="offline_read_permission_rationale">برای ذخیره نسخهٔ آفلاین نیازمند اجازه ذخیره بر روی دستگاهتان است.</string>
+  <string name="offline_read_final_rationale">اجازه دسترسی به حافظه دستگاه شما جهت استفاده از کتابخانه آفلاین مورد نیاز است.</string>
   <string name="offline_read_permission_error">اجازه برای خواندن از حافظه دستگاه داده‌نشد.</string>
   <string name="offline_card_sideloading_text">الان در حال جستجوی ویکی‌پدیا به صورت آفلاین هستید بر پایهٔ بستهٔ مقالات کتابخانهٔ آفلاینتان.</string>
   <string name="offline_my_compilations">مدیریت کتابخانهٔ آفلاین</string>
@@ -553,8 +560,9 @@
   <string name="onboarding_explore_text">جستجو در ویکی‌پدیا با به‌روزرسانی مداوم فید جستجو.&lt;br/&gt; &lt;b&gt;شخصی‌سازی&lt;/b&gt; فید به صورت دلخواه- به نحوی که در مورد رویدادهای تاریخی &lt;b&gt;در این روز &lt;/b&gt; یا جستجوی &lt;b&gt;تصادفی&lt;/b&gt;</string>
   <string name="onboarding_save_to_reading_lists_title">افزودن به لیست خواندنیها</string>
   <string name="onboarding_save_to_reading_lists_text">تهیه لیست خواندنیها برای مقاله هایی که مایلید در آینده مطالعه نمائید، همچنین هنگامی که آفلاین هستید.</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">مطالعهٔ فهرست با همسان‌سازی</string>
-  <string name="onboarding_reading_list_sync_text" fuzzy="true">ایجاد فهرست‌های مطالعه از مقالاتی که شما قصد مطالعهٔ آنها را برای بعدا دارید، با وجودی که آفلاین هستید &lt;a href=\"#login\"&gt;به سامانه وارد شوید&lt;/a&gt; یا حساب کاربری ویکی‌پدیا ایجاد کنید تا از فهرست‌های خواند پشتیبانی داشته باشید.</string>
+  <string name="onboarding_reading_list_sync_title">مطالعهٔ فهرست با همسان‌سازی</string>
+  <string name="onboarding_reading_list_sync_text">ایجاد فهرست‌های مطالعه از مقالاتی که شما قصد مطالعهٔ آنها را برای بعدا دارید، با وجودی که آفلاین هستید &lt;a href=\"#login\"&gt;به سامانه وارد شوید&lt;/a&gt; یا حساب کاربری ویکی‌پدیا ایجاد کنید تا از فهرست‌های خواند پشتیبانی داشته باشید.</string>
+  <string name="onboarding_reading_list_sync_text_v2">شما می‌توانید فهرستی از مقالاتی که بعد خواهید خواند را بسازید، حتی زمانی که برخط نیستید. برای همگام‌سازی به حساب کاربری خود وارد شوید. &lt;a href=\"#login\"&gt;به ویکی‌پدیا ملحق شوید.&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">ارسال اطلاعات ناشناس</string>
   <string name="onboarding_analytics_offline_text">ما را مطلع کنید که چگونه از این برنامه استفاده می کنید تا یاریمان نمایید آن را بهبود بخشیم. جمع آوری داده ها بصورت ناشناس انجام می گیرد. &lt;a href=\"#privacy\"&gt;اطلاعات بیشتر&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">ارسال داده مصرفی</string>

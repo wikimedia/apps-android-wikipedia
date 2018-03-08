@@ -334,6 +334,8 @@
   <string name="reading_list_logout_option_reminder_dialog_text">Zde jsou články uložené v seznamech čtení. Chcete je v nich po odhlášení ponechat?</string>
   <string name="reading_list_logout_option_reminder_dialog_yes">Ano, ponechat články v seznamech</string>
   <string name="reading_list_logout_option_reminder_dialog_no">Ne, odstranit články ze seznamů</string>
+  <string name="split_reading_list_message">Existuje limit %d článků pro seznamy čtení. Existující seznamy, které mají více než tento počet článků, byly rozděleny do více seznamů.</string>
+  <string name="reading_list_article_limit_message">Nebylo možno přidat do tohoto seznamu. Překročil/a jste limit %2$d článků do seznamu pro %1$s.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synchronizace seznamů čtení&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Seznamy čtení mohou být nyní synchronizovány napříč zařízení. Přihlašte se na svůj účet na Wikipedii a povolte ukládání svých vlastních seznamů.</string>
   <string name="user_option_sync_label">Nastavení</string>
   <string name="notification_button_view_user">Diskutovat s uživatelem</string>
