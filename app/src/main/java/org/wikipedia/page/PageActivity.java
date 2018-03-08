@@ -69,6 +69,7 @@ import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
+import org.wikipedia.views.ViewUtil;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 import org.wikipedia.wiktionary.WiktionaryDialog;
 
@@ -781,6 +782,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             Menu menu = mode.getMenu();
             menu.clear();
             mode.getMenuInflater().inflate(R.menu.menu_text_select, menu);
+            ViewUtil.setCloseButtonInActionMode(pageFragment.getContext(), mode);
             pageFragment.onActionModeShown(mode);
         }
     }

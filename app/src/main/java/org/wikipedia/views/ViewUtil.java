@@ -2,6 +2,7 @@ package org.wikipedia.views;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.net.Uri;
@@ -14,10 +15,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewManager;
 import android.view.animation.Animation;
+import android.widget.ImageView;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 
+import org.wikipedia.R;
 import org.wikipedia.util.DimenUtil;
 
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
@@ -54,6 +57,13 @@ public final class ViewUtil {
                 .setUri(isImageDownloadEnabled() && !TextUtils.isEmpty(url) ? Uri.parse(url) : null)
                 .setAutoPlayAnimations(true)
                 .build());
+    }
+
+    public static void setCloseButtonInActionMode(@NonNull Context context, @NonNull android.view.ActionMode actionMode) {
+        View view = View.inflate(context, R.layout.view_action_mode_close_button, null);
+        actionMode.setCustomView(view);
+        ImageView closeButton = view.findViewById(R.id.close_button);
+        closeButton.setOnClickListener(v -> actionMode.finish());
     }
 
     @NonNull
