@@ -8,6 +8,7 @@ import android.support.test.runner.AndroidJUnitRunner;
 
 import org.wikipedia.dataclient.okhttp.TestStubInterceptor;
 import org.wikipedia.espresso.MockInstrumentationInterceptor;
+import org.wikipedia.espresso.util.ConfigurationTools;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.PrefsIoUtil;
 
@@ -18,6 +19,7 @@ import static org.wikipedia.espresso.Constants.TEST_COMPARISON_OUTPUT_FOLDER;
 public class WikipediaTestRunner extends AndroidJUnitRunner {
     @Override
     public void onStart() {
+        deviceRequirementsCheck();
         TestStubInterceptor.setCallback(new MockInstrumentationInterceptor(InstrumentationRegistry.getContext()));
         clearAppInfo();
         disableOnboarding();
@@ -61,6 +63,11 @@ public class WikipediaTestRunner extends AndroidJUnitRunner {
                 throw new RuntimeException("Failed to clean up comparison result files: " + e);
             }
         }
+    }
+
+    private void deviceRequirementsCheck() {
+        new ConfigurationTools(InstrumentationRegistry.getContext())
+                .checkDeviceConfigurations();
     }
 }
 
