@@ -11,6 +11,7 @@ import org.wikipedia.espresso.MockInstrumentationInterceptor;
 import org.wikipedia.espresso.util.ConfigurationTools;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.PrefsIoUtil;
+import org.wikipedia.util.log.L;
 
 import java.io.File;
 
@@ -60,7 +61,7 @@ public class WikipediaTestRunner extends AndroidJUnitRunner {
                     }
                 }
             } catch (Exception e) {
-                throw new RuntimeException("Failed to clean up comparison result files: " + e);
+                L.d("Failed to clean up comparison result files: " + e);
             }
         }
     }
