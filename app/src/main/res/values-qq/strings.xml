@@ -589,6 +589,9 @@
   <string name="reading_lists_menu_create_list">Menu option offering user an option to create a new reading list.</string>
   <string name="reading_lists_menu_sort_by">Heading for a list of suggested sort options. </string>
   <string name="reading_list_sort_ellipsis">Menu option suggesting that the user can sort the reading listsin many ways.</string>
+  <string name="reading_lists_refresh_sync_option">Menu option suggesting that the user can manually sync using this option.</string>
+  <string name="reading_lists_login_reminder_text_with_link">Text for a tutorial card that reminds the user that logging in will enable syncing of reading lists, with a link to the synced reading lists FAQ page that explains the procedure in detail.</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Affirmative answer to confirm and redirect to the login / Sign up page.\n{{Identical|Log in/Sign up}}</string>
   <plurals name="diff_years">
     <item quantity="one">Text indicating that the event occured one year ago.</item>
     <item quantity="other">Text indicating that the event occured two or more years ago.\"%d\" is the number of years.</item>

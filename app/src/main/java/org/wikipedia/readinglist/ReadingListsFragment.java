@@ -113,12 +113,8 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         contentContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
         emptyContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
         ((ViewGroup)emptyContainer.getChildAt(0)).getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
-
-        swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent));
-        swipeRefreshLayout.setOnRefreshListener(() -> {
-            Prefs.setReadingListSyncEnabled(true);
-            ReadingListSyncAdapter.manualSyncWithRefresh();
-        });
+        swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(getContext(), R.attr.colorAccent));
+        swipeRefreshLayout.setOnRefreshListener(this::refreshSync);
         if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
             swipeRefreshLayout.setEnabled(false);
         }
@@ -151,10 +147,13 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         inflater.inflate(R.menu.menu_reading_lists, menu);
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.menu_search_lists:
+                ((AppCompatActivity) requireActivity())
+                        .startSupportActionMode(searchActionModeCallback);
+                return true;
             case R.id.menu_sort:
                 bottomSheetPresenter.show(getChildFragmentManager(),
                         SortReadingListsDialog.newInstance(Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC)));
@@ -171,9 +170,8 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
                             updateLists();
                         }).show();
                 return true;
-            case R.id.menu_search_lists:
-                ((AppCompatActivity) requireActivity())
-                        .startSupportActionMode(searchActionModeCallback);
+            case R.id.refresh:
+                refreshSync();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -197,6 +195,16 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
                 break;
         }
         sortLists();
+    }
+
+    private void refreshSync() {
+        if (!AccountUtil.isLoggedIn()) {
+            ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(getActivity());
+            swipeRefreshLayout.setRefreshing(false);
+        } else {
+            Prefs.setReadingListSyncEnabled(true);
+            ReadingListSyncAdapter.manualSyncWithRefresh();
+        }
     }
 
     @Override

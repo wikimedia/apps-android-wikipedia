@@ -1,6 +1,7 @@
 package org.wikipedia.readinglist;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -9,6 +10,8 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import org.wikipedia.R;
+import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.login.LoginActivity;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
@@ -53,6 +56,36 @@ public final class ReadingListSyncBehaviorDialogs {
                         (dialogInterface, i) -> {
                             Prefs.shouldShowReadingListSyncMergePrompt(true);
                             ReadingListSyncAdapter.setSyncEnabledWithSetup();
+                        })
+                .setNegativeButton(R.string.reading_list_prompt_turned_sync_on_dialog_no_thanks, null)
+                .setOnDismissListener((dialog) -> {
+                    Prefs.shouldShowReadingListSyncEnablePrompt(!checkbox.isChecked());
+                })
+                .show();
+    }
+
+    static void promptLogInToSyncDialog(@NonNull Activity activity) {
+        if (!Prefs.shouldShowReadingListSyncEnablePrompt()) {
+            return;
+        }
+        View view = activity.getLayoutInflater().inflate(R.layout.dialog_with_checkbox, null);
+        TextView message = view.findViewById(R.id.dialog_message);
+        CheckBox checkbox = view.findViewById(R.id.dialog_checkbox);
+        message.setText(StringUtil.fromHtml(activity.getString(R.string.reading_lists_login_reminder_text_with_link)));
+        message.setMovementMethod(new LinkMovementMethodExt(
+                (@NonNull String url, @Nullable String notUsed) -> {
+                    FeedbackUtil.showAndroidAppFAQ(activity);
+                }));
+        new AlertDialog.Builder(activity)
+                .setCancelable(false)
+                .setTitle(R.string.reading_list_login_reminder_title)
+                .setView(view)
+                .setPositiveButton(R.string.reading_list_preference_login_or_signup_to_enable_sync_dialog_login,
+                        (dialogInterface, i) -> {
+                            Intent loginIntent = LoginActivity.newIntent(activity,
+                                    LoginFunnel.SOURCE_READING_MANUAL_SYNC);
+
+                            activity.startActivity(loginIntent);
                         })
                 .setNegativeButton(R.string.reading_list_prompt_turned_sync_on_dialog_no_thanks, null)
                 .setOnDismissListener((dialog) -> {
