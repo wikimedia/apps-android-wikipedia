@@ -79,7 +79,7 @@ import static org.wikipedia.util.L10nUtil.getStringsForArticleLanguage;
  */
 public class PageFragmentLoadState {
     private interface ErrorCallback {
-        void call(@Nullable Throwable error);
+        void call(@NonNull Throwable error);
     }
 
     private boolean loading;
@@ -234,7 +234,7 @@ public class PageFragmentLoadState {
     }
 
     @VisibleForTesting
-    protected void commonSectionFetchOnCatch(Throwable caught, int startSequenceNum) {
+    protected void commonSectionFetchOnCatch(@NonNull Throwable caught, int startSequenceNum) {
         if (!sequenceNumber.inSync(startSequenceNum)) {
             return;
         }
@@ -267,7 +267,7 @@ public class PageFragmentLoadState {
             @Override
             public void onMessage(JSONObject payload) {
                 try {
-                    if (!sequenceNumber.inSync(payload.getInt("sequence"))) {
+                    if (model.getTitle() == null || !sequenceNumber.inSync(payload.getInt("sequence"))) {
                         return;
                     }
                     int sequence = payload.getInt("sequence");
@@ -292,7 +292,7 @@ public class PageFragmentLoadState {
                 }
 
                 try {
-                    if (!sequenceNumber.inSync(payload.getInt("sequence"))) {
+                    if (model.getPage() == null || !sequenceNumber.inSync(payload.getInt("sequence"))) {
                         return;
                     }
                     if (payload.has("sections")) {
@@ -363,6 +363,9 @@ public class PageFragmentLoadState {
     }
 
     private void pageLoadWebViewReady() {
+        if (model.getTitle() == null) {
+            return;
+        }
         // stage any section-specific link target from the title, since the title may be
         // replaced (normalized)
         sectionTargetFromTitle = model.getTitle().getFragment();
