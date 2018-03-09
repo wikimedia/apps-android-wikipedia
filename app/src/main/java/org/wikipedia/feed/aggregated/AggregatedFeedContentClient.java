@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.RetrofitFactory;
+import org.wikipedia.feed.FeedCoordinator;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.featured.FeaturedArticleCard;
 import org.wikipedia.feed.image.FeaturedImageCard;
@@ -171,7 +172,7 @@ public class AggregatedFeedContentClient {
                     && wiki.equals(aggregatedClient.wiki)) {
                 List<Card> cards = new ArrayList<>();
                 getCardFromResponse(aggregatedClient.aggregatedResponse, wiki, age, cards);
-                cb.success(cards);
+                FeedCoordinator.postCardsToCallback(cb, cards);
             } else {
                 aggregatedClient.requestAggregated(wiki, age, this);
             }
@@ -196,7 +197,7 @@ public class AggregatedFeedContentClient {
                 getCardFromResponse(aggregatedClient.aggregatedResponse, wiki, age, cards);
             }
             if (cb != null) {
-                cb.success(cards);
+                FeedCoordinator.postCardsToCallback(cb, cards);
             }
         }
 

@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.feed.FeedCoordinator;
 import org.wikipedia.feed.announcement.Announcement;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.model.Card;
@@ -18,7 +19,7 @@ public class OnboardingClient implements FeedClient {
     @Override public void request(@NonNull Context context, @NonNull WikiSite wiki, int age,
                                   @NonNull FeedClient.Callback cb) {
         List<Card> cards = getCards(context);
-        cb.success(age < cards.size() ? Collections.singletonList(cards.get(age)) : Collections.emptyList());
+        FeedCoordinator.postCardsToCallback(cb, age < cards.size() ? Collections.singletonList(cards.get(age)) : Collections.emptyList());
     }
 
     private List<Card> getCards(@NonNull Context context) {

@@ -8,6 +8,7 @@ import android.text.TextUtils;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.RetrofitFactory;
+import org.wikipedia.feed.FeedCoordinator;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.settings.Prefs;
@@ -40,7 +41,7 @@ public class AnnouncementClient implements FeedClient {
         Retrofit retrofit = RetrofitFactory.newInstance(endpoint, wiki);
         Service service = retrofit.create(Service.class);
         call = request(service);
-        call.enqueue(new CallbackAdapter(cb));
+        call.enqueue(new CallbackAdapter(cb, true));
     }
 
     @Override
@@ -72,9 +73,11 @@ public class AnnouncementClient implements FeedClient {
     @VisibleForTesting
     static class CallbackAdapter implements retrofit2.Callback<AnnouncementList> {
         @NonNull private final Callback cb;
+        private final boolean postDelayed;
 
-        CallbackAdapter(@NonNull Callback cb) {
+        CallbackAdapter(@NonNull Callback cb, boolean postDelayed) {
             this.cb = cb;
+            this.postDelayed = postDelayed;
         }
 
         @Override public void onResponse(Call<AnnouncementList> call,
@@ -84,7 +87,11 @@ public class AnnouncementClient implements FeedClient {
             if (content != null) {
                 cards.addAll(buildCards(content.items()));
             }
-            cb.success(cards);
+            if (postDelayed) {
+                FeedCoordinator.postCardsToCallback(cb, cards);
+            } else {
+                cb.success(cards);
+            }
         }
 
         @Override public void onFailure(Call<AnnouncementList> call, Throwable caught) {
