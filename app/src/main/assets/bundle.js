@@ -375,7 +375,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     // append the content to the DOM now, so that we can obtain
     // dimension measurements for items.
     document.getElementById( "content" ).appendChild( content );
-    document.getElementById( "loading_sections").className = "loading";
 
     applySectionTransforms(content, true);
 
@@ -475,7 +474,6 @@ function displayRemainingSections(json, sequence, scrollY, fragment) {
     if (scrollY > 0 && !scrolled) {
         window.scrollTo( 0, scrollY );
     }
-    document.getElementById( "loading_sections").className = "";
     transformer.transform( "hideTables", document );
     lazyLoadTransformer.loadPlaceholders();
     bridge.sendMessage( "pageLoadComplete", { "sequence": sequence });
@@ -1371,7 +1369,7 @@ var nodeTypeIsElementOrText = function nodeTypeIsElementOrText(node) {
 
 /**
  * Removes leading and trailing whitespace and normalizes other whitespace - i.e. ensures
- * non-breaking spaces, tabs, etc are replaced with regular breaking spaces. 
+ * non-breaking spaces, tabs, etc are replaced with regular breaking spaces.
  * @param  {!string} string
  * @return {!string}
  */
@@ -2191,7 +2189,7 @@ var extractLeadIntroductionNodes = function extractLeadIntroductionNodes(eligibl
 
 /**
  * Locate first eligible paragraph. We don't want paragraphs from somewhere in the middle of a
- * table, so only paragraphs which are direct children of `containerID` element are considered. 
+ * table, so only paragraphs which are direct children of `containerID` element are considered.
  * @param  {!Document} document
  * @param  {!string} containerID ID of the section under examination.
  * @return {?HTMLParagraphElement}

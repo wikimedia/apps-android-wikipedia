@@ -122,7 +122,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     // append the content to the DOM now, so that we can obtain
     // dimension measurements for items.
     document.getElementById( "content" ).appendChild( content );
-    document.getElementById( "loading_sections").className = "loading";
 
     applySectionTransforms(content, true);
 
@@ -222,7 +221,6 @@ function displayRemainingSections(json, sequence, scrollY, fragment) {
     if (scrollY > 0 && !scrolled) {
         window.scrollTo( 0, scrollY );
     }
-    document.getElementById( "loading_sections").className = "";
     transformer.transform( "hideTables", document );
     lazyLoadTransformer.loadPlaceholders();
     bridge.sendMessage( "pageLoadComplete", { "sequence": sequence });
