@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 
 import org.wikipedia.R;
+import org.wikipedia.util.log.L;
 
 /** {@link RecyclerView} that invokes a callback when the number of columns should be updated. */
 public class AutoFitRecyclerView extends RecyclerView {
@@ -60,6 +61,17 @@ public class AutoFitRecyclerView extends RecyclerView {
         if (this.columns != cols) {
             this.columns = cols;
             callback.onColumns(this.columns);
+        }
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        // https://issuetracker.google.com/issues/37034096
+        // TODO: check again in Sep 2018
+        try {
+            super.onLayout(changed, l, t, r, b);
+        } catch (Exception e) {
+            L.logRemoteErrorIfProd(e);
         }
     }
 
