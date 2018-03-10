@@ -33,6 +33,7 @@ import static org.wikipedia.Constants.ACCEPT_HEADER_PREFIX;
 
 public class AggregatedFeedContentClient {
     @Nullable private Call<AggregatedFeedContent> call;
+    @Nullable private WikiSite wiki;
     @Nullable private AggregatedFeedContent aggregatedResponse;
     private int aggregatedResponseAge = -1;
 
@@ -106,24 +107,16 @@ public class AggregatedFeedContentClient {
         }
     }
 
-    void setAggregatedResponse(@Nullable AggregatedFeedContent content, int age) {
+    void setAggregatedResponse(@Nullable AggregatedFeedContent content, int age, @Nullable WikiSite wiki) {
         aggregatedResponse = content;
         this.aggregatedResponseAge = age;
-    }
-
-    @Nullable AggregatedFeedContent getCurrentResponse() {
-        return aggregatedResponse;
-    }
-
-    int getCurrentAge() {
-        return aggregatedResponseAge;
+        this.wiki = wiki;
     }
 
     void requestAggregated(@NonNull WikiSite wiki, int age, @NonNull retrofit2.Callback<AggregatedFeedContent> cb) {
         cancel();
         UtcDate date = DateUtil.getUtcRequestDateFor(age);
-        String endpoint = String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), wiki.scheme(),
-                wiki.authority());
+        String endpoint = String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), wiki.scheme(), wiki.authority());
         Retrofit retrofit = RetrofitFactory.newInstance(endpoint, wiki);
         AggregatedFeedContentClient.Service service = retrofit.create(Service.class);
         call = service.get(date.year(), date.month(), date.date());
@@ -172,16 +165,16 @@ public class AggregatedFeedContentClient {
         public void request(@NonNull Context context, @NonNull WikiSite wiki, int age, @NonNull Callback cb) {
             this.cb = cb;
             this.age = age;
-            if (aggregatedClient.getCurrentAge() == age
-                    && aggregatedClient.getCurrentResponse() != null
-                    && wiki.equals(this.wiki)) {
+            this.wiki = wiki;
+            if (aggregatedClient.aggregatedResponseAge == age
+                    && aggregatedClient.aggregatedResponse != null
+                    && wiki.equals(aggregatedClient.wiki)) {
                 List<Card> cards = new ArrayList<>();
-                getCardFromResponse(aggregatedClient.getCurrentResponse(), wiki, age, cards);
+                getCardFromResponse(aggregatedClient.aggregatedResponse, wiki, age, cards);
                 cb.success(cards);
             } else {
                 aggregatedClient.requestAggregated(wiki, age, this);
             }
-            this.wiki = wiki;
         }
 
         @Override
@@ -197,10 +190,10 @@ public class AggregatedFeedContentClient {
                 }
                 return;
             }
-            aggregatedClient.setAggregatedResponse(content, age);
+            aggregatedClient.setAggregatedResponse(content, age, wiki);
             List<Card> cards = new ArrayList<>();
-            if (aggregatedClient.getCurrentResponse() != null) {
-                getCardFromResponse(aggregatedClient.getCurrentResponse(), wiki, age, cards);
+            if (aggregatedClient.aggregatedResponse != null) {
+                getCardFromResponse(aggregatedClient.aggregatedResponse, wiki, age, cards);
             }
             if (cb != null) {
                 cb.success(cards);
