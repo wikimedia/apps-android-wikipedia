@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/menu_search_lists"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_search_lists"
         android:icon="@drawable/ic_search_white_24dp"
         android:title="@string/search_hint"
         app:showAsAction="ifRoom" />
-    <item android:id="@+id/menu_sort_options"
-          android:icon="@drawable/ic_sort_white_24dp"
-          android:title="@string/reading_list_sort"
-          app:showAsAction="always">
-        <menu>
-            <item android:id="@+id/menu_sort_by_name"
-                android:title="@string/reading_list_sort_by_name" />
-            <item android:id="@+id/menu_sort_by_recent"
-                android:title="@string/reading_list_sort_by_created" />
-        </menu>
-    </item>
+    <item
+        android:id="@+id/menu_sort"
+        android:title="@string/reading_list_sort_ellipsis"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/create_list"
+        android:title="@string/reading_lists_menu_create_list"
+        app:showAsAction="never" />
 </menu>
