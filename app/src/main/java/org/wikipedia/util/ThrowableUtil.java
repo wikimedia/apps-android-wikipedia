@@ -86,7 +86,7 @@ public final class ThrowableUtil {
         return caught instanceof HttpStatusException && ((HttpStatusException) caught).code() == 404;
     }
 
-    private static boolean isNetworkError(@NonNull Throwable e) {
+    public static boolean isNetworkError(@NonNull Throwable e) {
         return ThrowableUtil.throwableContainsException(e, HttpStatusException.class)
                 || ThrowableUtil.throwableContainsException(e, UnknownHostException.class)
                 || ThrowableUtil.throwableContainsException(e, TimeoutException.class)
