@@ -16,6 +16,7 @@
   <string name="history_item_deleted">%s eliminado do historial</string>
   <string name="history_items_deleted">%d artigos eliminados do historial</string>
   <string name="history_item_delete_undo">Desfacer</string>
+  <string name="app_settings">Configuración da aplicación</string>
   <string name="dialog_title_clear_history">Limpar historial de navegación</string>
   <string name="dialog_message_clear_history">Isto borrará todo o seu historial de navegación, e pechará calquera lapela aberta. Está seguro?</string>
   <string name="dialog_message_clear_history_yes">Si</string>
@@ -121,8 +122,15 @@
   <string name="send_feedback">Enviar comentarios sobre a aplicación</string>
   <string name="create_account_account_created_toast">Conta creada!</string>
   <string name="preferences_heading_storage_and_syncing">Almacenamento e sincronización</string>
+  <string name="preferences_heading_syncing">Sincronización</string>
+  <string name="preferences_heading_data_usage">Uso de datos</string>
+  <string name="preferences_heading_experimental">Experimental</string>
   <string name="preference_title_sync_reading_lists">Sincronizar as listas de lectura</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Permitir a Wikipedia sincronizar as súas listas de lectura cando se conecte</string>
+  <string name="preference_title_sync_reading_lists_from_account">Habilita a sincronización das listas de lectura</string>
+  <string name="preference_summary_sync_reading_lists">Sincronice as listas de lectura en dispositivos diferentes gardándoas na súa conta de Wikipedia</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Sincronice as listas de lectura en dispositivos diferentes gardándoas na súa conta de Wikikepdia \"%s\"</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Borrar as listas de lectura sincronizadas da súa conta \"%s\"?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Isto eliminará completamente do almacenamento remoto tódalas listas de lectura sincronizadas anteriormente. Borrar tódalas listas sincronizadas da súa conta \"%s\"?</string>
   <string name="preferences_privacy_settings_heading">Privacidade</string>
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que a Wikimedia recompile información acerca de como utiliza a aplicación para facela mellor</string>
@@ -145,6 +153,7 @@
   <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/gl</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/gl</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/gl</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.gl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.gl</string>
@@ -308,8 +317,10 @@
   <string name="reading_list_sort">Ordenar</string>
   <string name="reading_list_sort_by_name">Ordenar por nome</string>
   <string name="reading_list_sort_by_name_desc">Ordenar por nome (inverso)</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Ordenar polas máis recentes</string>
-  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Ordenar polas menos recentes</string>
+  <string name="reading_list_sort_by_recent">Ordenar por data de engadido (máis novas)</string>
+  <string name="reading_list_sort_by_recent_desc">Ordenar por data de engadido (máis antigas)</string>
+  <string name="reading_list_sort_by_created">Ordenar por data de creación (máis recentes)</string>
+  <string name="reading_list_sort_by_created_desc">Ordenar por data de creación (máis antigas)</string>
   <string name="reading_list_menu_delete">Eliminar a lista</string>
   <string name="reading_list_menu_rename">Renomear</string>
   <string name="reading_list_menu_edit_description">Editar a descrición</string>
@@ -343,22 +354,48 @@
   <string name="reading_list_confirm_remove_article_from_offline">Quitar das listas sen conexión</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">O artigo aparece en varias listas</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s xa non estará dispoñible sen conexión en ningunha lista de lectura:</string>
+  <string name="reading_lists_sync_reminder_title">Desexa activar a sincronización das listas de lectura?</string>
+  <string name="reading_lists_sync_reminder_text">Agora os artigos gardados nas listas de lectura poden sincronizarse coa súa conta de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;saber máis.&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_action">Activar sincronización</string>
   <string name="reading_list_login_reminder_title">Sincronizar as listas de lectura</string>
+  <string name="reading_lists_login_reminder_text">Agora é posible sincronizar as listas de lectura entre varios dispositivos. Acceda á súa conta de Wikipedia e permita que se garden as súas listas.</string>
   <string name="reading_lists_confirm_remote_delete">Isto eliminará calquera lista de lectura previamente sincronizada do almacenamento remoto. Proceder?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Si</string>
   <string name="reading_lists_confirm_remote_delete_no">Non</string>
   <string name="reading_list_article_save_in_progress">O artigo está sendo descargado, e estará dispoñible sen conexión cando se remate.</string>
   <string name="reading_list_already_contains_selection">A lista escollida xa contén tódalas páxinas seleccionadas.</string>
   <string name="reading_list_added_articles_list_titled">Engadidos %1$d artigos a %2$s</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">Está seguro de que quere eliminar esta lista %s de lectura?</string>
+  <string name="reading_list_delete_confirm">Está seguro de que quere eliminar %s?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Acceda para activar a sincronización</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Acceda para permitir que as súas listas de lectura se garden na súa conta.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Cancelar</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Acceder</string>
+  <string name="reading_list_turned_sync_off_dialog_title">A sincronización das listas de lectura está desactivada</string>
+  <string name="reading_list_turned_sync_off_dialog_text">A sincronización das listas de lectura está desactivada para a súa conta, e os artigos gardados nos seus dispositivos ligados xa non van ser actualizados. Active a sincronización das listas de lectura na Configuración.</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">Aceptar</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Configuración</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Activar a sincronización das listas de lectura?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Os artigos gardados nas listas de lectura agora poden ser sincronizados coa súa conta de Wikipedia. &lt;a href=\"#faq\"&gt;Saiba máis&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Non amosar de novo</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Activar a sincronización</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Non, grazas</string>
+  <string name="reading_list_login_option_reminder_dialog_title">Atopáronse artigos de lista de lectura</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Os artigos foron gardados na súa lista de lectura mentres estaba desconectado. Quere engadilos ás listas de lectura da súa conta?</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">Si, engadilos nas miñas listas de lectura</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Non, borrar os artigos</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Conservar os artigos gardados na aplicación?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Actualmente hai artigos gardados nas listas de lectura. Quere que se manteñan despois de desconectarse?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Si, manter os artigos nas listas</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Non, borrar os artigos das listas</string>
   <string name="default_reading_list_name">Gardado</string>
   <string name="default_reading_list_description">Lista por defecto dos seus artigos gardados</string>
   <string name="no_user_lists_title">Organizar os artigos no formato de listas</string>
   <string name="no_user_lists_msg">Crear as listas dos locais para viaxar, temas favoritos, e moito máis</string>
   <string name="reading_list_saved_list_rename">%1$s (creada polo usuario)</string>
-  <string name="split_reading_list_message" fuzzy="true">Hai un límite de %d artigos por cada lista de lectura. As listas existentes cun valor superior a este foron divididas en varias listas.</string>
-  <string name="reading_list_article_limit_message" fuzzy="true">Non se pode engadir a esta lista. Alcanzou o límite de %2$d artigos por lista para \"%1$s\".</string>
+  <string name="split_reading_list_message">Hai un límite de %d artigos por cada lista de lectura. As listas existentes cun valor superior a este foron divididas en varias listas.</string>
+  <string name="reading_list_article_limit_message">Non se pode engadir a esta lista. Alcanzou o límite de %2$d artigos por lista para \"%1$s\".</string>
   <string name="reading_lists_limit_message">Non se pode crear outra lista. Alcanzou o límite de 100 listas de lectura por conta.</string>
+  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sincronización das listas de lectura&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;As listas de lectura agora poden sincronizarse entre dispositivos. Entre coa súa conta de Wikipedia e permita que as súas listas sexan gardadas.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Agora este artigo estará dispoñible sen conexión.</item>
     <item quantity="other">Agora estes artigos estarán dispoñibles sen conexión.</item>

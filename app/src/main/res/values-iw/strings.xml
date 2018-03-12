@@ -122,11 +122,15 @@
   <string name="send_feedback">לשלוח משוב על האפליקציה</string>
   <string name="create_account_account_created_toast">החשבון נוצר!</string>
   <string name="preferences_heading_storage_and_syncing">אחסון וסנכרון</string>
+  <string name="preferences_heading_syncing">סנכרון</string>
+  <string name="preferences_heading_data_usage">שימוש בנתונים</string>
+  <string name="preferences_heading_experimental">ניסיוני</string>
   <string name="preference_title_sync_reading_lists">סנכרון רשימות קריאה</string>
   <string name="preference_title_sync_reading_lists_from_account">הפעלת סנכרון רשימות קריאה</string>
   <string name="preference_summary_sync_reading_lists">סנכרון רשימות קריאה במכשירים שונים באמצעות שמירתם לחשבון הוויקיפדיה שלך</string>
   <string name="preference_summary_sync_reading_lists_from_account">סנכרון רשימות קריאה במכשירים שונים באמצעות שמירתם לחשבון הוויקיפדיה שלך \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">להסיר את רשימות הקריאה המסונכרנות שלך מהחשבון \"%s\"?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">זה ימחק לגמריאת כל רשימות הקריאה שסונכרנו בעבר מאחסון מרוחק. להסיר את כל הרשימות המסונכרנות מהחשבון שלך \"%s\"?</string>
   <string name="preferences_privacy_settings_heading">פרטיות</string>
   <string name="preference_title_eventlogging_opt_in">לשלוח דיווחי שימוש</string>
   <string name="preference_summary_eventlogging_opt_in">לאפשר לוויקימדיה לאסוף מידע על השימוש שלך באפליקציה כדי לשפר אותה</string>
@@ -349,7 +353,11 @@
   <string name="reading_list_confirm_remove_article_from_offline">הסרה מקריאה ללא חיבור לרשת</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">הערך מופיע במספר רשימות</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">הערך %s לא יהיה זמין מחוץ לרשת בכל רשימות הקריאה:</string>
+  <string name="reading_lists_sync_reminder_title">להפעיל סנכרון רשימות קריאה?</string>
+  <string name="reading_lists_sync_reminder_text">עכשיו אפשר לסנכרן ערכים שנשמרו לרשימות קריאה לחשבון הוויקיפדיה שלך. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_action">הפעלת סנכרון</string>
   <string name="reading_list_login_reminder_title">סנכרן רשימות קריאה</string>
+  <string name="reading_lists_login_reminder_text">עכשיו אפשר לסנכרן רשימות קריאה במכשירים שונים. נא להיכנס לחשבון הוויקיפדיה שלך ולאפשר את שמירת רשימות הקריאה שלך.</string>
   <string name="reading_lists_confirm_remote_delete">זה ימחק כל רשימות מעקב מסונכרנות קודמות מהזיכרון בשליטה מרחוק. האם ברצונך להמשיך?</string>
   <string name="reading_lists_confirm_remote_delete_yes">כן</string>
   <string name="reading_lists_confirm_remote_delete_no">לא</string>
@@ -357,6 +365,27 @@
   <string name="reading_list_already_contains_selection">הרשימה שנבחרה כבר מכילה את כל הדפים שנבחרו.</string>
   <string name="reading_list_added_articles_list_titled">נוספו %1$d ערכים לרשימה %2$s</string>
   <string name="reading_list_delete_confirm">למחוק את %s?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">נא להיכנס לשם הפעלת הסנכרון</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">נא להיכנס כדי לאפשר את השמירה של רשימות הקריאה שלך לחשבון שלך.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">ביטול</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">כניסה לחשבון</string>
+  <string name="reading_list_turned_sync_off_dialog_title">סנכרון רשימות הקריאה כובה</string>
+  <string name="reading_list_turned_sync_off_dialog_text">סנכרון רשימות הקריאה כבוי בשביל החשבון שלך, וערכים שמורים במכשירים שנכנסת בהם לחשבון לא מגובים יותר. אפשר להפעיל את סנכרון רשימות הקריאה בהגדרות.</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">אישור</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">הגדרות</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">להפעיל את סנכרון רשימות הקריאה?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">עכשיו אפשר לסנכרן רשימות קריאה בחשבון הוויקיפדיה שלך. &lt;a href=\"#faq\"&gt;מידע נוסף&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">אל תראו לי את זה שוב</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">הפעלת סנכרון</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">לא, תודה</string>
+  <string name="reading_list_login_option_reminder_dialog_title">נמצאו ערכים מרשימת הקריאה</string>
+  <string name="reading_list_login_option_reminder_dialog_text">נשמרו ערכים לרשימת הקריאה שלך בזמן שהיית מחוץ לחשבון. האם ברצונך להוסיף אותם לרשימת הקריאה בחשבון שלך?</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">כן, להוסיף אותם לרשימות הקריאה שלי</string>
+  <string name="reading_list_login_option_reminder_dialog_no">לא, למחוק את הערכים</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">לשמור את הערכים השמורים באפליקציה?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">יש ערכים ששמורים עכשיו ברשימות הקריאה שלך. האם לשמור אותם אחרי יציאתך מהחשבון?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">כן, לשמור ערכים ברשימות</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">לא, למחוק ערכים מהרשימות</string>
   <string name="default_reading_list_name">שמורים</string>
   <string name="default_reading_list_description">ברירת מחדל לערכים השמורים שלך</string>
   <string name="no_user_lists_title">ארגנו ערכים לרשימות</string>
@@ -365,6 +394,7 @@
   <string name="split_reading_list_message">יש מגבלה של %d ערכים לרשימת קריאה. רשימות קיימות שחורגות מהמגבלה הזאת פוצלו לרשימות מרובות.</string>
   <string name="reading_list_article_limit_message">אי־אפשר להוסיף לרשימה הזאת הגעת למגבלה של %2$d ערכים ברשימה \"%1$s\".</string>
   <string name="reading_lists_limit_message">לא ניתן ליצור עוד רשימה. הגעת למגבלה של 100 רשימות קריאה לחשבון.</string>
+  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;סנכרון רשימות קריאה&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;עכשיו אפשר לסנכרן רשימות קריאה במכשירים שונים. נא להיכנס לחשבון הוויקיפדיה שלך ולאפשר לשמור את הרשימות שלך.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">הערך הזה יהיה זמין ללא חיבור לרשת.</item>
     <item quantity="other">הערכים האלה יהין זמינים ללא חיבור לרשת.</item>
@@ -474,6 +504,7 @@
   <string name="description_edit_revert_history">אם זה מעניין אותך, ר\' את &lt;a href=\"%1$s\"&gt;היסטוריית העריכות&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">אין חיבור אינטרנט. נא לוודא שיש חיבור לרשת ולנסות שוב.</string>
   <string name="offline_read_permission_rationale">ההרשאה לגשת לאחסון במכשיר שלך נחוצה בשביל דפדוף ללא חיבור לרשת.</string>
+  <string name="offline_read_final_rationale">השראה לגשת לאחסון במכשיר שלך נדרשת לשימוש בספרייה הלא־מקוונת שלך.</string>
   <string name="offline_read_permission_error">לא ניתנה הרשאה לקרוא מאחסון המכשיר.</string>
   <string name="offline_card_sideloading_text">עכשיו אתם גולשים בוויקיפדיה ללא חיבור לרשת מתוך חבילות ערכים בספרייה הלא־מקוונת שלכם.</string>
   <string name="offline_my_compilations">ניהול הספרייה הלא מקוונת שלי</string>
@@ -530,6 +561,7 @@
   <string name="onboarding_save_to_reading_lists_text">צרו רשימות קריאה מערכים שאתם רוצים לקרוא מאוחר יותר, אפילו בלי חיבור לרשת.</string>
   <string name="onboarding_reading_list_sync_title">רשימת קריאה עם סנכרון</string>
   <string name="onboarding_reading_list_sync_text">צרו רשימות קריאה מערכים שאתם רוצים לקרוא מאוחר יותר, גם אם אינכם מחוברים. &lt;a href=\"#login\"&gt;נא להיכנס לחשבון הוויקיפדיה שלך או ליצור אותו&lt;/a&gt; כדי לשמור גיבוי של רשימות הקריאה שלך.</string>
+  <string name="onboarding_reading_list_sync_text_v2">אפשר ליצור רשימות קריאה מערכים שברצונך לקרוא מאוחר יותר, גם ללא חיבור לרשת. &lt;br/&gt;יש להיכנס לחשבון הוויקיפדיה שלך כדי לסנכרן את רשימות הקריאה שלך &lt;a href=\"#login\"&gt;הצטרפות לוויקיפדיה&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">שליחת נתונים אלמוניים</string>
   <string name="onboarding_analytics_offline_text">עזרו לנו לשפר את האפליקציה על־ידי זה שתאפשרו לנו ללמוד איך אתם משתמשים בה. איסוף הנתונים נעשה באלמוניות. &lt;a href=\"#privacy\"&gt;מידע נוסף&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">שליחת נתוני שימוש</string>

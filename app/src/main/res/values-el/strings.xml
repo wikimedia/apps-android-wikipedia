@@ -42,9 +42,9 @@
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;συνεισφέροντες του OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Τελευταία ενημέρωση %s</string>
   <string name="talk_page_link_text">Συζήτηση</string>
-  <string name="edit_history_link_text">Να εκδώσετε το ιστορικό</string>
+  <string name="edit_history_link_text">Ιστορικό επεξεργασίας</string>
   <string name="map_view_link_text">Δέστε σε έναν χάρτη</string>
-  <string name="language_count_link_text">Διαθέσιμο σε %d (ποσοστό)σε άλλες γλώσσες</string>
+  <string name="language_count_link_text">Διαθέσιμο σε %d άλλες γλώσσες</string>
   <string name="content_license_html">Το περιεχόμενο είναι διαθέσιμο υπό την &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; εκτός εάν σημειώνεται διαφορετικά</string>
   <string name="edit_save_action_license_logged_in">Με την αποθήκευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt;, και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Με την αποθήκευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt;, και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Επεξεργασίες σας θα αναφέρονται στην διεύθυνση IP της συσκευής σας. Αν &lt;a href=\"https://#login\"&gt;συνδεθείτε&lt;/a&gt;, θα έχετε μεγαλύτερη ιδιωτικότητα.</string>
@@ -122,11 +122,14 @@
   <string name="send_feedback">Αποστολή σχολίων για την εφαρμογή</string>
   <string name="create_account_account_created_toast">Ο λογαριασμός δημιουργήθηκε!</string>
   <string name="preferences_heading_storage_and_syncing">Αποθήκευση και συγχρονισμός</string>
+  <string name="preferences_heading_syncing">Συγχρονισμός</string>
+  <string name="preferences_heading_data_usage">Χρήση δεδομένων</string>
+  <string name="preferences_heading_experimental">Πειραματικό</string>
   <string name="preference_title_sync_reading_lists">Συγχρονισμός λιστών ανάγνωσης</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Συγχρονισμός λιστών ανάγνωσης για αυτό το λογαριασμό</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Επιτρέψτε στη Βικιπαίδεια να συγχρονίζει τις λίστες ανάγνωσής σας όταν συνδέεστε</string>
-  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Επιτρέψετε στο Wikimedia το συγχρονισμό των λιστών ανάγνωσης για το λογαριασμό σας στη Wikipedia %s</string>
-  <string name="preferences_privacy_settings_heading">Απόρρητο</string>
+  <string name="preference_title_sync_reading_lists_from_account">Ενεργοποίηση συγχρονισμού λιστών ανάγνωσης</string>
+  <string name="preference_summary_sync_reading_lists">Συγχρονισμός των λιστών ανάγνωσης μεταξύ διαφόρων συσκευών αποθηκεύοντάς τις στον λογαριασμό σας στη Βικιπαίδεια</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Συγχρονισμός των λιστών ανάγνωσης μεταξύ διαφορετικών συσκευών αποθηκεύοντάς τις στο λογαριασμός σας στη Βικιπαίδεια \"%s\"</string>
+  <string name="preferences_privacy_settings_heading">Ιδιωτικότητα</string>
   <string name="preference_title_eventlogging_opt_in">Στείλτε εκθέσεις χρήσης</string>
   <string name="preference_summary_eventlogging_opt_in">Επιτρέψτε στο Wikimedia να συλλέξει πληροφορίες για το πως χρησιμοποιείτε την εφαρμογή ώστε να τη βελτιώσει</string>
   <string name="preference_title_auto_upload_crash_reports">Αποστολή αναφορών κατάρρευσης</string>
@@ -146,7 +149,7 @@
   <string name="privacy_policy_description">Πολιτική ιδιωτικότητας</string>
   <string name="terms_of_use_description">Όροι χρήσης</string>
   <string name="about_wikipedia_url">https://el.m.wikipedia.org/wiki/Βικιπαίδεια:Σχετικά</string>
-  <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="privacy_policy_url">https://. wikimediafoundation.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.el</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/3.0/</string>
@@ -204,7 +207,7 @@
   <string name="preference_title_show_images">Προβολή εικόνων</string>
   <string name="preference_summary_show_images">Ενεργοποιήσετε ή να απενεργοποιήσετε τη φόρτωση εικόνων σε σελίδες. Απενεργοποιήστε αυτή τη ρύθμιση, εάν η σύνδεσή σας στο Διαδίκτυο είναι αργή, ή αν το σχέδιο δεδομένων σας (διαθέσιμα Mb) είναι περιορισμένο.</string>
   <string name="read_more_section">Διαβάστε περισσότερα</string>
-  <string name="about_article_section">Γύρω από αυτό το άρθρο</string>
+  <string name="about_article_section">Σχετικά με αυτό το λήμμα</string>
   <string name="menu_gallery_visit_page">Μεταβείτε στη σελίδα αρχείου</string>
   <string name="gallery_error_draw_failed">Δεν θα μπορούσε να αντλήσει από την εικόνα.</string>
   <string name="license_title">Άδεια χρήσης για το %s</string>
@@ -241,7 +244,7 @@
   <string name="address_copied">Η διεύθυνση αντιγράφτηκε στο πρόχειρο.</string>
   <string name="text_copied">Το κείμενο αντιγράφτηκε στο πρόχειρο.</string>
   <string name="button_continue_to_article">Ανάγνωση λήμματος</string>
-  <string name="button_add_to_reading_list">Προσθήκη στη λίστα ανάγνωσης</string>
+  <string name="button_add_to_reading_list">Προσθήκη σε λίστα ανάγνωσης</string>
   <string name="page_offline_notice_cannot_load_while_offline">Το λήμμα δεν μπορεί να φορτωθεί χωρίς σύνδεση.</string>
   <string name="page_offline_notice_add_to_reading_list">Υπόδειξη: Προσθέστε το λήμμα σε μια λίστα ανάγνωσης και θα κατεβεί μόλις ξανασυνδεθείτε.</string>
   <string name="page_offline_notice_last_date">Διαβάζετε μια εκτός σύνδεσης έκδοση αυτού του λήμματος αποθηκευμένη στις %s.</string>
@@ -273,7 +276,7 @@
   <string name="crash_report_activity_title">Σφάλμα εφαρμογής</string>
   <string name="crash_report_relaunch">Ξεκινήσετε από την αρχή</string>
   <string name="crash_report_quit">Έξοδος</string>
-  <string name="article_menu_bar_bookmark">Προσθέστε αυτό το άρθρο σε λίστα ανάγνωσης</string>
+  <string name="article_menu_bar_bookmark">Προσθέστε αυτό το λήμμα  σε λίστα ανάγνωσης</string>
   <string name="article_menu_bar_share">Κοινοποιήστε τον σύνδεσμο του λήμματος</string>
   <string name="article_header_edit_hint">Επεξεργασία...</string>
   <string name="article_header_edit_description">Επεξεργασία περιγραφής τίτλου</string>
@@ -296,9 +299,9 @@
   <string name="reading_list_added_to_named">Προστέθηκε στη %s.</string>
   <string name="reading_list_already_exists">Το λήμμα είναι ήδη σε αυτή τη λίστα.</string>
   <string name="reading_list_added_view_button">Προβολή λίστας.</string>
-  <string name="format_reading_list_statistical_summary_singular">1 άρθρο, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d άρθρο, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d 1 λημμάτων που είναι διαθέσιμα εκτός σύνδεσης, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_summary_singular">1 λήμμα, %1$.2f MB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d λήμματα, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d 1 λημμάτων διαθέσιμα εκτός σύνδεσης, %2$.2f MB</string>
   <string name="reading_list_sort">Ταξινόμηση</string>
   <string name="reading_list_sort_by_name">Ταξινόμηση κατά όνομα</string>
   <string name="reading_list_sort_by_name_desc">Ταξινόμηση κατά όνομα (αντίστροφα)</string>
@@ -375,15 +378,15 @@
   <string name="notification_syncing_resume_button">συνέχεια</string>
   <string name="notification_syncing_cancel_button">Ακύρωση</string>
   <string name="view_continue_reading_card_title">Συνέχεια ανάγνωσης</string>
-  <string name="view_because_you_read_card_title">Επειδή διαβάζετε</string>
+  <string name="view_because_you_read_card_title">Επειδή διαβάσατε</string>
   <string name="view_random_card_title">Τυχαιοποιητής</string>
-  <string name="view_random_card_subtitle">Βρέστε τυχαία άρθρα για να διαβάσετε από την Βικιπαίδεια</string>
-  <string name="view_random_card_action">Ρίξτε τον κύβο</string>
-  <string name="view_next_random_article">Φορτώσετε ένα άλλο τυχαίο άρθρο</string>
+  <string name="view_random_card_subtitle">Βρείτε τυχαία λήμματα για να διαβάσετε από την Βικιπαίδεια</string>
+  <string name="view_random_card_action">Ρίξτε το ζάρι</string>
+  <string name="view_next_random_article">Φορτώσετε ένα άλλο τυχαίο λήμμα</string>
   <string name="view_main_page_card_title">Σήμερα στη Βικιπαίδεια</string>
   <string name="view_main_page_card_subtitle">Κύρια σελίδα στο %s</string>
-  <string name="view_main_page_card_action">Δέστε την κεντρική σελίδα</string>
-  <string name="view_featured_image_card_title">Η εικόνα της ημέρας</string>
+  <string name="view_main_page_card_action">Δείτε την κεντρική σελίδα</string>
+  <string name="view_featured_image_card_title">Εικόνα της ημέρας</string>
   <string name="view_featured_image_card_download">Λήψη</string>
   <string name="menu_feed_card_dismiss">Απόκρυψη αυτής της κάρτας</string>
   <string name="menu_feed_card_dismissed">Η κάρτα αποκρύφθηκε.</string>
@@ -412,7 +415,7 @@
   <string name="feed_item_type_on_this_day">Γεγονότα στην ιστορία αυτή την ημέρα</string>
   <string name="feed_item_type_because_you_read">Προτάσεις βασισμένες σε ένα πρόσφατα διαβασμένο άρθρο από το ιστορικό σας</string>
   <string name="feed_item_type_featured_article">Καθημερινό προβεβλημμένο λήμμα στη Βικιπαίδεια</string>
-  <string name="feed_item_type_trending">Καθημερινά άρθρα με τις περισσότερες προβολές</string>
+  <string name="feed_item_type_trending">Καθημερινά λήμματα με τις περισσότερες προβολές</string>
   <string name="feed_item_type_featured_image">Καθημερινή προβεβλημμένη εικόνα από τα Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Κύρια σελίδα της Βικιπαίδειας με καθημερινό προβεβλημμένο περιεχόμενο</string>
   <string name="feed_item_type_randomizer">Δημιουργία τυχαίων άρθρων για ανάγνωση</string>
@@ -502,7 +505,7 @@
   <string name="app_shortcuts_continue_reading">Συνέχεια ανάγνωσης</string>
   <string name="app_shortcuts_search">Αναζήτηση</string>
   <string name="more_trending_text">Περισσότερα σαν αυτό</string>
-  <string name="top_on_this_day">Εμπορική κίνηση στο %1$s</string>
+  <string name="top_on_this_day">Ανερχόμενα στις %1$s</string>
   <string name="on_this_day_card_title">Αυτήν την μέρα</string>
   <string name="more_events_text">Περισσότερα αυτή την ημέρα</string>
   <string name="events_count_text">%1$s συμβάντα από %2$s–%3$d</string>

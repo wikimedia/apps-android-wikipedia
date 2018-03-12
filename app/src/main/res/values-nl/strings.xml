@@ -122,7 +122,7 @@
   <string name="create_account_account_created_toast">Account aangemaakt!</string>
   <string name="preferences_heading_storage_and_syncing">Opslag en synchronisatie</string>
   <string name="preference_title_sync_reading_lists">Leeslijsten sychroniseren</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Sta Wikipedia toe uw leeslijsten te synchroniseren wanneer u zich aanmeld</string>
+  <string name="preference_summary_sync_reading_lists">Leeslijsten tussen verschillende apparaten synchroniseren door deze op uw account op te slaan</string>
   <string name="preferences_privacy_settings_heading">Privacy</string>
   <string name="preference_title_eventlogging_opt_in">Gebruiksrapporten verzenden</string>
   <string name="preference_summary_eventlogging_opt_in">Geef Wikimedia toestemming om informatie te verzamelen over hoe u de app gebruikt om de app te kunnen verbeteren</string>
