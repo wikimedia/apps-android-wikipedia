@@ -61,6 +61,7 @@ public class FeedView extends AutoFitRecyclerView {
         setVerticalScrollBarEnabled(true);
         recyclerLayoutManager = new StaggeredGridLayoutManager(getColumns(),
                 StaggeredGridLayoutManager.VERTICAL);
+        setItemAnimator(new FeedItemAnimator());
         setLayoutManager(recyclerLayoutManager);
         addItemDecoration(new MarginItemDecoration(getContext(),
                 R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical,

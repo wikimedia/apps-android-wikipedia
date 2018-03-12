@@ -187,6 +187,9 @@
             <!-- Testing -->
             <property name="ignoreAnnotationCanonicalNames" value="Rule" />
             <property name="ignoreAnnotationCanonicalNames" value="VisibleForTesting" />
+
+            <!-- General -->
+            <property name="packageAllowed" value="true"/>
         </module>
         <!-- Miscellaneous other checks.                   -->
         <!-- See http://checkstyle.sf.net/config_misc.html -->
