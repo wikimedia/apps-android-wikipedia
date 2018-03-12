@@ -5,13 +5,19 @@
   <string name="app_name_alpha">Wîkîpediya Alfa</string>
   <string name="wikimedia">Wîkîmediya</string>
   <string name="search_hint">Li Wîkîpediyayê bigere</string>
+  <string name="search_hint_search_history">Dîroka lêgerînê</string>
+  <string name="search_hint_search_my_lists">Di lîsteyên min de bigere</string>
+  <string name="search_hint_search_reading_list">Di lîsteya xwendinê de bigere</string>
   <string name="nav_item_history">Dîrok</string>
   <string name="error_network_error">Ji înternetê re nikara bê girêdan.</string>
   <string name="page_error_retry">Dîsa hewl bide</string>
   <string name="page_error_back_to_main">Vegere</string>
   <string name="menu_clear_all_history">Dîrokê paqij bike</string>
+  <string name="history_item_deleted">%s ji dîroka gerokê hate rakirin</string>
   <string name="dialog_title_clear_history">Dîroka lêgerînê jê bibe</string>
-    <string name="share_via">Bi awayê $ parve bike</string>
+  <string name="dialog_message_clear_history_yes">Erê</string>
+  <string name="dialog_message_clear_history_no">Na</string>
+  <string name="share_via">Bi awayê $ parve bike</string>
   <string name="menu_page_show_tabs">Hilpêkînan nîşan bide</string>
   <string name="menu_page_other_languages">Ziman biguherîne</string>
   <string name="menu_page_find_in_page">Di nav rûpelê de bibîne</string>
@@ -28,9 +34,9 @@
   <string name="langlinks_filter_hint">Lêgerîn</string>
   <string name="langlinks_empty">Ev rûpel bi zimanên din tune ye.</string>
   <string name="langlinks_activity_title">Zimanên din</string>
-  <string name="menu_save_changes">Guhertinan tomar bike</string>
-  <string name="dialog_saving_in_progress">Tê tomarkirin…</string>
-  <string name="edit_saved_successfully">Guherandin hate tomarkirin!</string>
+  <string name="menu_save_changes">Guhertinan biweşîne</string>
+  <string name="dialog_saving_in_progress">Tê weşandin...</string>
+  <string name="edit_saved_successfully">Guherandin hate weşandin!</string>
   <string name="dialog_message_edit_failed">Guherandin biser neket!</string>
   <string name="dialog_message_edit_failed_retry">Dîsa hewl bide</string>
   <string name="dialog_message_edit_failed_cancel">Betal bike</string>
@@ -45,11 +51,15 @@
   <string name="login_password_hint">Şîfre</string>
   <string name="menu_login">Têkeve</string>
   <string name="login_activity_title">Têkeve Wîkîpediyayê</string>
-  <string name="login_success_toast">Têketin serkevtî bû!</string>
+  <string name="login_success_toast">Têketin serkeftî bû!</string>
   <string name="preference_title_logout">Derkeve</string>
-  <string name="history_empty_title" fuzzy="true">Li vir rûpelên dawî tune ne!</string>
-  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;ÎKÎPEDI&lt;big&gt;YA&lt;/big&gt;</string>
+  <string name="history_empty_title">Rûpelên ku te di demên dawî de dîtibe tine ne!</string>
+  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;ÎKÎPEDIY&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Navê bikarhêner</string>
+  <string name="login_dont_have_account">Hesabek te tine ye?</string>
+  <string name="login_join_wikipedia">Beşdarê Wîkîpediyayê bibe</string>
+  <string name="login_forgot_password">Te şîfreya xwe ji bîr kir?</string>
+  <string name="create_account_already_have">Hesabê te jixwe heye?</string>
   <string name="create_account_activity_title">Hesabekî çêke</string>
   <string name="dialog_create_account_checking_progress">Tê rastandin</string>
   <string name="create_account_email_hint">E-name (heke bixwazî)</string>
@@ -63,19 +73,21 @@
   <string name="zero_wikipedia_zero_heading">Wîkîpediya Zero</string>
   <string name="zero_interstitial_continue">Jê derkeve</string>
   <string name="zero_interstitial_cancel">Li vir bimîne</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Zêdetir bixwîne</string>
+  <string name="zero_learn_more_learn_more">Zêdetir hîn bibe</string>
   <string name="create_account_account_created_toast">Hesab hate çêkirin!</string>
   <string name="history_search_list_hint">Dîroka lêgerînê</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">Mafê te bo guherandina vê rûpelê tune ye</string>
-  <string name="page_protected_can_not_edit_title">Ev rûpel hatiye parastin</string>
+  <string name="page_protected_can_not_edit">Bibore, hesabê te vêga ne xwediyê mafên bo guherandina vê rûpelê ye.</string>
+  <string name="page_protected_can_not_edit_title">Ev rûpel parastî ye</string>
   <string name="about_description">Di derbarê sepana Wîkîpediyayê de</string>
   <string name="privacy_policy_description">Siyaseta taybetîtiyê</string>
   <string name="terms_of_use_description">Mercên bikaranînê</string>
   <string name="about_translators_heading">Wergêr</string>
   <string name="about_app_license_heading">Destûr</string>
   <string name="about_activity_title">Derbarê</string>
+  <string name="edit_abandon_confirm_yes">Erê</string>
+  <string name="edit_abandon_confirm_no">Na</string>
   <string name="edit_next">Pêşve</string>
-  <string name="edit_done">Tomar bike</string>
+  <string name="edit_done">Biweşîne</string>
   <string name="edit_preview">Pêşdîtin</string>
   <string name="edit_summary_tag_grammar">Rêziman sererast kir</string>
   <string name="edit_summary_tag_links">Girêdan lê hatin zêdekirin</string>
@@ -83,7 +95,6 @@
   <string name="dialog_page_issues">Pirsgirêkên rûpelê</string>
   <string name="button_page_issues">Pirsgirêkên rûpelê</string>
   <string name="text_size_select">Mezinahiya tîpan</string>
-  <string name="color_theme_dark">Tarî</string>
   <string name="search_did_you_mean">Mebesta te \"%s\" bû?</string>
   <string name="search_recent_header">Lêgerînên dawî:</string>
   <string name="button_clear_all_recent_searches">Lêgerînên dawî paqij bike</string>
@@ -112,20 +123,26 @@
   <string name="crash_report_relaunch">Cardin dest pê bike</string>
   <string name="crash_report_quit">Derkeve</string>
   <string name="article_menu_bar_share">Girêdana gotarê parve bike</string>
+  <string name="color_theme_dark">Tarî</string>
+  <string name="color_theme_black">Reş</string>
   <string name="reading_list_added_view_button">Lîsteyê bibîne</string>
   <string name="reading_list_sort_by_name">Li gorî nav rêz bike</string>
   <string name="reading_list_name_sample">Lîsteya min a xwendinê</string>
   <string name="reading_list_name_hint">Navê vê lîsteyê</string>
   <string name="reading_lists_onboarding_for_example">Wek mînak</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Betal bike</string>
+  <string name="notification_syncing_cancel_button">Betal bike</string>
   <string name="view_continue_reading_card_title">Xwendinê bidomîne</string>
   <string name="view_featured_image_card_title">Wêneyê rojê</string>
   <string name="view_featured_image_card_download">Daxe</string>
-  <string name="menu_feed_card_dismiss" fuzzy="true">Vê pêşniyariyê veşêre</string>
+  <string name="menu_feed_card_dismiss">Vê kartê biveşêre</string>
   <string name="view_card_news_title">Di nûçeyan de</string>
   <plurals name="view_continue_reading_card_subtitle">
-    <item quantity="one">Doh</item>
+    <item quantity="one">doh</item>
     <item quantity="other">berî %d rojan</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Îro</string>
-  <string name="description_edit_save">Tomar bike</string>
+  <string name="view_continue_reading_card_subtitle_today">îro</string>
+  <string name="view_featured_article_footer_save_button_label">Tomar bike</string>
+  <string name="description_edit_save">Biweșîne</string>
+  <string name="description_edit_cancel_hint">Betal bike</string>
 </resources>

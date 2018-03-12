@@ -502,6 +502,7 @@
   <string name="description_edit_revert_history">만약 관심이 있으시다면, &lt;a href=\"%1$s\"&gt; 문서 역사&lt;/a&gt;를 보십시오.</string>
   <string name="offline_compilation_download_device_offline">인터넷이 연결되지 않았습니다. 온라인 상태로 복귀한 다음 다시 시도하십시오.</string>
   <string name="offline_read_permission_rationale">장치에서 저장소의 접근 권한은 오프라인 탐색에 필요합니다.</string>
+  <string name="offline_read_final_rationale">오프라인 라이브러리를 사용하려면 장치에서 저장소의 접근 권한이 필요합니다.</string>
   <string name="offline_read_permission_error">기억 장치로부터 읽을 권한이 부여되지 않았습니다.</string>
   <string name="offline_card_sideloading_text">지금 오프라인 라이브러리의 문서 묶음을 오프라인 상태에서 둘러보고 있습니다.</string>
   <string name="offline_my_compilations">내 오프라인 라이브러리 관리</string>
@@ -554,7 +555,7 @@
   <string name="onboarding_save_to_reading_lists_title">읽기 목록에 저장</string>
   <string name="onboarding_save_to_reading_lists_text">나중에 읽고 싶은 글들을 읽기 목록으로 만듭니다. 오프라인에서도 이용이 가능합니다.</string>
   <string name="onboarding_reading_list_sync_title" fuzzy="true">읽기 목록 동기화</string>
-  <string name="onboarding_reading_list_sync_text" fuzzy="true">나중에 오프라인 상태에서도 읽을 수 있도록 문서의 읽기 목록을 만듭니다. 읽기 목록을 보관하려면 위키백과 계정을 &lt;a href=\"#login\"&gt;만들거나 로그인&lt;/a&gt;하십시오.</string>
+  <string name="onboarding_reading_list_sync_text">나중에 오프라인 상태에서도 읽을 수 있도록 문서의 읽기 목록을 만듭니다. 읽기 목록을 보관하려면 위키백과 계정을 &lt;a href=\"#login\"&gt;만들거나 로그인&lt;/a&gt;하십시오.</string>
   <string name="onboarding_reading_list_sync_text_v2">나중에, 오프라인 상태에서도 읽을 수 있도록 문서의 읽기 목록을 만들 수 있습니다.&lt;br/&gt;읽기 목록을 동기화하려면 위키백과 계정에 로그인하십시오. &lt;a href=\"#login\"&gt;위키백과 가입&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">익명 데이터 보내기</string>
   <string name="onboarding_analytics_offline_text">앱 개선 지원을 위해 앱을 어떻게 사용하는지 알려주세요. 수집된 데이터는 익명으로 처리됩니다. &lt;a href=\"#privacy\"&gt;더 알아보기&lt;/a&gt;</string>

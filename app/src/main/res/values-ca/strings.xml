@@ -385,7 +385,7 @@
   <string name="no_user_lists_msg">Crear llistes per llocs on viatjar, temes favorits, i molt més</string>
   <string name="reading_list_saved_list_rename">%1$s (creat per l’usuari)</string>
   <string name="split_reading_list_message">Hi ha un límit de fins a %d articles per llista de lectura. Les llistes de lectura anteriors que tenien més articles que aquest límit s\'han partit en diferents llistes.</string>
-  <string name="reading_list_article_limit_message" fuzzy="true">No podeu afegir elements a aquesta llista. Heu assolit el límit de %2$d articles per llista per a «%1$s».</string>
+  <string name="reading_list_article_limit_message">No podeu afegir elements a aquesta llista. Heu assolit el límit de %2$d articles per llista per a «%1$s».</string>
   <string name="reading_lists_limit_message">No es pot crear una altra llista. Heu assolit el límit de 100 llistes de lectura per compte.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Aquest article estarà disponible fora de línia a partir d\'ara.</item>

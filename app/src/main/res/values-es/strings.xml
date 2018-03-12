@@ -123,8 +123,11 @@
   <string name="preferences_heading_storage_and_syncing">Almacenamiento y sincronización</string>
   <string name="preferences_heading_syncing">Sincronización</string>
   <string name="preferences_heading_data_usage">Uso de datos</string>
+  <string name="preferences_heading_experimental">Experimental</string>
   <string name="preference_title_sync_reading_lists">Sincronizar listas de lectura</string>
+  <string name="preference_title_sync_reading_lists_from_account">Activar sincronización de listas de lectura</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">Permitir a Wikimedia sincronizar mis listas de lectura cuando haya accedido</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">¿Quieres quitar las listas de lectura sincronizadas de «%s»?</string>
   <string name="preferences_privacy_settings_heading">Privacidad</string>
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que Wikimedia recopile información acerca de cómo utiliza la aplicación para mejorarla</string>
@@ -365,13 +368,14 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">No mostrar de nuevo</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Activar sincronización</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No, gracias</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Hay artículos guardados en listas de lectura. ¿Quieres conservarlos ahí tras salir de tu cuenta?</string>
   <string name="default_reading_list_name">Guardados</string>
   <string name="default_reading_list_description">Lista predeterminada de artículos guardados</string>
   <string name="no_user_lists_title">Organiza artículos en listas</string>
   <string name="no_user_lists_msg">Crea listas de sitios para viajar, temas favoritos y mucho más</string>
   <string name="reading_list_saved_list_rename">%1$s (creado por el usuario)</string>
   <string name="split_reading_list_message">Existe un límite de %d artículos por lista de lectura. Las listas que superaban este límite se han dividido en varias listas.</string>
-  <string name="reading_list_article_limit_message" fuzzy="true">No se pueden añadir elementos a esta lista. Se alcanzó el límite de %2$d artículos por lista para «%1$s».</string>
+  <string name="reading_list_article_limit_message">No se pueden añadir elementos a esta lista. Se alcanzó el límite de %2$d artículos por lista para «%1$s».</string>
   <string name="reading_lists_limit_message">No se puede crear otra lista. Se alcanzó el límite de 100 listas de lectura por cuenta.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Este artículo ahora estará disponible sin conexión.</item>

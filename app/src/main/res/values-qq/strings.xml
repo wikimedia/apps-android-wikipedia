@@ -371,7 +371,7 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Negative answer to cancel the current process.\n{{Identical|Cancel}}</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Affirmative answer to confirm and redirect to the login page.\n{{Identical|Log in}}</string>
   <string name="reading_list_turned_sync_off_dialog_title">Title of warning message shown to a user when the user turns OFF syncing on one of their devices.</string>
-  <string name="reading_list_turned_sync_off_dialog_text">Warning message shown to a user when the user turns OFF syncing on one of their devices.</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Warning message shown to a user when the user turns OFF syncing on one of their devices.\n\n\"Settings\" is {{msg-wm|Wikipedia-android-strings-settings item preferences}}.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">Negative answer to dismiss the dialog.\n{{Identical|OK}}</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Affirmative answer to confirm and redirect to the settings page.\n{{Identical|Settings}}</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Title of warning message shown to a user who is logged in who has not opted-in to syncing enters this screen at the first time.</string>
