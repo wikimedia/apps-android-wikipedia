@@ -3,8 +3,11 @@ package org.wikipedia.feed;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.feed.aggregated.AggregatedFeedContentClient;
 import org.wikipedia.feed.announcement.AnnouncementClient;
+import org.wikipedia.feed.dataclient.FeedClient;
+import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.offline.OfflineCardClient;
 import org.wikipedia.feed.offline.OfflineCompilationClient;
 import org.wikipedia.feed.onboarding.OnboardingClient;
@@ -45,5 +48,23 @@ public class FeedCoordinator extends FeedCoordinatorBase {
 
         conditionallyAddPendingClient(new OfflineCardClient(), age == 0 && !online);
 
+    }
+
+    public static void postCardsToCallback(@NonNull FeedClient.Callback cb, @NonNull List<Card> cards) {
+        CallbackTask.execute(() -> {
+            final int delayMillis = 150;
+            Thread.sleep(delayMillis);
+            return null;
+        }, new CallbackTask.Callback<Void>() {
+            @Override
+            public void success(Void result) {
+                cb.success(cards);
+            }
+
+            @Override
+            public void failure(Throwable caught) {
+                cb.error(caught);
+            }
+        });
     }
 }

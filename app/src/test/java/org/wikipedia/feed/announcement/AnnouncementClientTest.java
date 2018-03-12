@@ -116,6 +116,6 @@ public class AnnouncementClientTest extends MockWebServerTest {
 
     private void request(@NonNull Callback cb) {
         Call<AnnouncementList> call = client.request(service(AnnouncementClient.Service.class));
-        call.enqueue(new AnnouncementClient.CallbackAdapter(cb));
+        call.enqueue(new AnnouncementClient.CallbackAdapter(cb, false));
     }
 }

@@ -27,6 +27,7 @@ public abstract class FeedCoordinatorBase {
     public interface FeedUpdateListener {
         void insert(Card card, int pos);
         void remove(Card card, int pos);
+        void reachedEndWithoutCards();
     }
 
     @NonNull private Context context;
@@ -179,13 +180,18 @@ public abstract class FeedCoordinatorBase {
 
     private class ClientRequestCallback implements FeedClient.Callback {
         @Override public void success(@NonNull List<? extends Card> cardList) {
+            boolean atLeastOneAppended = false;
             for (Card card : cardList) {
                 if (!isCardHidden(card)) {
                     appendCard(card);
+                    atLeastOneAppended = true;
                 }
             }
             //noinspection ConstantConditions
             requestNextCard(wiki);
+            if (pendingClients.isEmpty() && !atLeastOneAppended && updateListener != null) {
+                updateListener.reachedEndWithoutCards();
+            }
         }
 
         @Override public void error(@NonNull Throwable caught) {

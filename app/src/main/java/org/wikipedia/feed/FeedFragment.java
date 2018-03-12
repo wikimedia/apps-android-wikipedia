@@ -140,6 +140,13 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                     }
                 }
             }
+
+            @Override
+            public void reachedEndWithoutCards() {
+                if (isAdded()) {
+                    feedAdapter.notifyItemChanged(feedAdapter.getItemCount() - 1);
+                }
+            }
         });
 
         feedHeader.setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.main_toolbar_color));

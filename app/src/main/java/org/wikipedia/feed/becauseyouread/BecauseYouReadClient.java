@@ -6,8 +6,8 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.feed.FeedCoordinator;
 import org.wikipedia.feed.dataclient.FeedClient;
-import org.wikipedia.feed.model.Card;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.bottomcontent.MainPageReadMoreTopicTask;
 import org.wikipedia.search.FullTextSearchClient;
@@ -66,8 +66,8 @@ public class BecauseYouReadClient extends FullTextSearchClient implements FeedCl
                                           @NonNull SearchResults results) {
                 SearchResults filteredResults = SearchResults
                         .filter(results, entry.getTitle().getText(), false);
-                cb.success(filteredResults.getResults().isEmpty()
-                        ? Collections.<Card>emptyList()
+                FeedCoordinator.postCardsToCallback(cb, filteredResults.getResults().isEmpty()
+                        ? Collections.emptyList()
                         : Collections.singletonList(toBecauseYouReadCard(results, entry)));
             }
 
