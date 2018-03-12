@@ -117,6 +117,7 @@
     <string name="create_account_generic_error">Could not create account</string>
     <string name="create_account_next">Next</string>
     <string name="create_account_button">Create account</string>
+    <string name="create_account_name_unavailable">The user name \"%s\" is not available. Please choose a different name.</string>
     <string name="preferences_general_heading">General</string>
     <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
     <string name="zero_charged_verbiage">Free access to Wikipedia is no longer active.</string>

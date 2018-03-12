@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.TextInputLayout;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.View;
@@ -20,12 +22,14 @@ import org.wikipedia.captcha.CaptchaHandler;
 import org.wikipedia.captcha.CaptchaResult;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.login.UserExtendedInfoClient;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.NonEmptyValidator;
 import org.wikipedia.views.WikiErrorView;
 
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
 import butterknife.BindView;
@@ -72,6 +76,8 @@ public class CreateAccountActivity extends BaseActivity {
     private CreateAccountResult createAccountResult;
     private CreateAccountFunnel funnel;
     private WikiSite wiki;
+    private UserNameTextWatcher userNameTextWatcher = new UserNameTextWatcher();
+    private UserNameVerifyRunnable userNameVerifyRunnable = new UserNameVerifyRunnable();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -113,6 +119,8 @@ public class CreateAccountActivity extends BaseActivity {
             }
             return false;
         });
+
+        usernameInput.getEditText().addTextChangedListener(userNameTextWatcher);
 
         if (savedInstanceState != null && savedInstanceState.containsKey("result")) {
             createAccountResult = savedInstanceState.getParcelable("result");
@@ -235,6 +243,12 @@ public class CreateAccountActivity extends BaseActivity {
         super.onStop();
     }
 
+    @Override
+    public void onDestroy() {
+        usernameInput.getEditText().removeTextChangedListener(userNameTextWatcher);
+        super.onDestroy();
+    }
+
     private void clearErrors() {
         usernameInput.setErrorEnabled(false);
         passwordInput.setErrorEnabled(false);
@@ -314,5 +328,56 @@ public class CreateAccountActivity extends BaseActivity {
     private void showError(@NonNull Throwable caught) {
         errorView.setError(caught);
         errorView.setVisibility(View.VISIBLE);
+    }
+
+    private class UserNameTextWatcher implements TextWatcher {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
+
+        @Override
+        public void onTextChanged(CharSequence text, int start, int before, int count) {
+            usernameInput.removeCallbacks(userNameVerifyRunnable);
+            usernameInput.setErrorEnabled(false);
+            if (TextUtils.isEmpty(text.toString())) {
+                return;
+            }
+            userNameVerifyRunnable.setUserName(text.toString());
+            usernameInput.postDelayed(userNameVerifyRunnable, TimeUnit.SECONDS.toMillis(1));
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+        }
+    }
+
+    private class UserNameVerifyRunnable implements Runnable {
+        private String userName;
+
+        public void setUserName(@NonNull String userName) {
+            this.userName = userName;
+        }
+
+        public void run() {
+            new UserExtendedInfoClient().request(wiki, userName, new UserExtendedInfoClient.Callback() {
+                @Override
+                public void success(@NonNull Call<MwQueryResponse> call, int id,
+                                    @NonNull UserExtendedInfoClient.ListUserResponse user) {
+                    if (isDestroyed()) {
+                        return;
+                    }
+                    if (user.canCreate()) {
+                        usernameInput.setErrorEnabled(false);
+                    } else {
+                        usernameInput.setError(getString(R.string.create_account_name_unavailable, userName));
+                    }
+                }
+
+                @Override
+                public void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
+                    // silently ignore.
+                }
+            });
+        }
     }
 }

@@ -2,14 +2,15 @@ package org.wikipedia.dataclient.mwapi;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.util.ArraySet;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.gallery.ImageInfo;
 import org.wikipedia.gallery.VideoInfo;
 import org.wikipedia.json.PostProcessingTypeAdapter;
+import org.wikipedia.login.UserExtendedInfoClient;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.nearby.NearbyPage;
 import org.wikipedia.notifications.Notification;
@@ -18,18 +19,16 @@ import org.wikipedia.settings.SiteInfo;
 import org.wikipedia.useroption.dataclient.UserInfo;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapter.PostProcessable {
     @SuppressWarnings("unused") @Nullable private List<MwQueryPage> pages;
     @SuppressWarnings("unused") @Nullable private List<Redirect> redirects;
     @SuppressWarnings("unused") @Nullable private List<ConvertedTitle> converted;
     @SuppressWarnings("unused") @SerializedName("userinfo") private UserInfo userInfo;
-    @SuppressWarnings("unused") @Nullable private List<ListUsersResponse> users;
+    @SuppressWarnings("unused") @Nullable private List<UserExtendedInfoClient.ListUserResponse> users;
     @SuppressWarnings("unused") @Nullable private Tokens tokens;
     @SuppressWarnings("unused,NullableProblems") @SerializedName("authmanagerinfo")
     @Nullable private MwAuthManagerInfo amInfo;
@@ -75,16 +74,16 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         return captchaId;
     }
 
-    @NonNull public Set<String> getGroupsFor(@NonNull String userName) {
+    @Nullable public UserExtendedInfoClient.ListUserResponse getUserResponse(@NonNull String userName) {
         if (users != null) {
-            for (ListUsersResponse user : users) {
-                final Set<String> groups = user.getGroupsFor(userName);
-                if (groups != null) {
-                    return groups;
+            for (UserExtendedInfoClient.ListUserResponse user : users) {
+                // MediaWiki user names are case sensitive, but the first letter is always capitalized.
+                if (StringUtils.capitalize(userName).equals(user.name())) {
+                    return user;
                 }
             }
         }
-        return Collections.emptySet();
+        return null;
     }
 
     @NonNull public Map<String, ImageInfo> images() {
@@ -220,20 +219,6 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
 
         @Nullable public String from() {
             return from;
-        }
-    }
-
-    private static class ListUsersResponse {
-        @SuppressWarnings("unused") @SerializedName("name") @Nullable private String name;
-        @SuppressWarnings("unused") @Nullable private List<String> groups;
-
-        @Nullable Set<String> getGroupsFor(@NonNull String userName) {
-            if (userName.equals(name) && groups != null) {
-                Set<String> groupNames = new ArraySet<>();
-                groupNames.addAll(groups);
-                return Collections.unmodifiableSet(groupNames);
-            }
-            return null;
         }
     }
 

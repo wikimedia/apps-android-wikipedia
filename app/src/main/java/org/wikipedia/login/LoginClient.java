@@ -22,7 +22,6 @@ import org.wikipedia.util.log.L;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -155,9 +154,9 @@ public class LoginClient {
         UserExtendedInfoClient infoClient = new UserExtendedInfoClient();
         infoClient.request(wiki, userName, new UserExtendedInfoClient.Callback() {
             @Override
-            public void success(@NonNull Call<MwQueryResponse> call, int id, @NonNull Set<String> groups) {
+            public void success(@NonNull Call<MwQueryResponse> call, int id, @NonNull UserExtendedInfoClient.ListUserResponse user) {
                 loginResult.setUserId(id);
-                loginResult.setGroups(groups);
+                loginResult.setGroups(user.getGroups());
                 cb.success(loginResult);
 
                 L.v("Found user ID " + id + " for " + wiki.subdomain());
