@@ -7,7 +7,9 @@ import android.graphics.Canvas;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.view.ActionMode;
 import android.text.TextUtils;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewManager;
@@ -105,6 +107,24 @@ public final class ViewUtil {
             public void onAnimationEnd(Animator animation) {
                 view.setVisibility(View.GONE);
             }
+        });
+    }
+
+    public static void finishActionModeWhenTappingOnView(@NonNull View view, @Nullable ActionMode actionMode) {
+        view.setOnTouchListener((v, event) -> {
+            switch (event.getActionMasked()) {
+                case MotionEvent.ACTION_DOWN:
+                    if (actionMode != null) {
+                        actionMode.finish();
+                    }
+                    break;
+                case MotionEvent.ACTION_UP:
+                    v.performClick();
+                    break;
+                default:
+                    break;
+            }
+            return false;
         });
     }
 
