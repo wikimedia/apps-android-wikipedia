@@ -34,6 +34,9 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.concurrency.CallbackTask;
+import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
+import org.wikipedia.dataclient.page.PageClientFactory;
+import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.main.MainActivity;
@@ -46,6 +49,8 @@ import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SiteInfoClient;
+import org.wikipedia.util.DeviceUtil;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
@@ -66,6 +71,9 @@ import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import okhttp3.CacheControl;
+import retrofit2.Call;
+import retrofit2.Response;
 
 import static org.wikipedia.readinglist.ReadingListActivity.EXTRA_READING_LIST_ID;
 
@@ -646,11 +654,40 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                     ? R.drawable.ic_download_started : R.drawable.ic_download_circle_gray_24dp,
                     !page.offline() || page.saving());
             getView().setSecondaryActionHint(R.string.reading_list_article_make_offline);
+            showViewInGreyIfNotCached(page, getView());
         }
 
         @Override
         public void onSwipe() {
             deleteSinglePage(page);
+        }
+    }
+
+    private void showViewInGreyIfNotCached(ReadingListPage page, PageItemView view) {
+
+        if ((page.offline() && !page.saving()) || DeviceUtil.isOnline()) {
+            view.setTextGrayedOut(false);
+            return;
+        }
+
+        // TODO: Should we check all the page if it is cached instead of only checking lead section?
+        try {
+            PageTitle pageTitle = ReadingListPage.toPageTitle(page);
+            PageClientFactory.create(pageTitle.getWikiSite(), pageTitle.namespace())
+                    .lead(CacheControl.FORCE_CACHE, null, pageTitle.getPrefixedText(), DimenUtil.calculateLeadImageWidth())
+                    .enqueue(new retrofit2.Callback<PageLead>() {
+                        @Override public void onResponse(@NonNull Call<PageLead> call, @NonNull Response<PageLead> rsp) {
+                            view.setTextGrayedOut((rsp.raw().cacheResponse() == null
+                                    || rsp.raw().networkResponse() != null)
+                                    && !OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(rsp.headers().get(OfflineCacheInterceptor.SAVE_HEADER)));
+                        }
+
+                        @Override public void onFailure(@NonNull Call<PageLead> call, @NonNull Throwable t) {
+                            view.setTextGrayedOut(!DeviceUtil.isOnline());
+                        }
+                    });
+        } catch (Exception e) {
+            view.setTextGrayedOut(!DeviceUtil.isOnline());
         }
     }
 

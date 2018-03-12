@@ -5,6 +5,7 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -15,6 +16,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.R;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ResourceUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -157,5 +159,15 @@ public class PageItemView<T> extends FrameLayout {
         // TODO: animate?
         containerView.setBackgroundColor(getThemedColor(getContext(),
                 selected ? R.attr.multi_select_background_color : R.attr.paper_color));
+    }
+
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    public void setTextGrayedOut(boolean isNotCached) {
+        titleView.setTextColor(isNotCached
+                ? ContextCompat.getColor(getContext(), R.color.base30) : ResourceUtil.getThemedColor(getContext(), R.attr.primary_text_color));
+        descriptionView.setTextColor(isNotCached
+                ? ContextCompat.getColor(getContext(), R.color.base50) : ResourceUtil.getThemedColor(getContext(), R.attr.secondary_text_color));
+        imageView.setAlpha(isNotCached ? 0.5f : 1.0f);
     }
 }
