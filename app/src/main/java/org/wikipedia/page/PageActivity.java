@@ -66,6 +66,7 @@ import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
@@ -132,7 +133,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         try {
             setContentView(R.layout.activity_page);
         } catch (Exception e) {
-            if (e.getMessage().contains("WebView")) {
+            if (e.getMessage().contains("WebView")
+                    || ThrowableUtil.getInnermostThrowable(e).getMessage().contains("WebView")) {
                 // If the system failed to inflate our activity because of the WebView (which could
                 // be one of several types of exceptions), it likely means that the system WebView
                 // is in the process of being updated. In this case, show the user a message and
