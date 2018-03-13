@@ -9,6 +9,7 @@ import org.mockito.ArgumentCaptor;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.test.MockWebServerTest;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.zero.ZeroConfigClient.Callback;
 import org.wikipedia.zero.ZeroConfigClient.Service;
 
@@ -106,16 +107,12 @@ public class ZeroConfigClientTest extends MockWebServerTest {
     }
 
     private void assertRequestIssued(@NonNull RecordedRequest req, @NonNull String userAgent) {
-        assertThat(req.getPath(), containsString(encodeSpaces(userAgent)));
+        assertThat(req.getPath(), containsString(UriUtil.encodeURL(userAgent).replace("+", "%20")));
     }
 
     private void assertCallbackFailure(@NonNull Call<ZeroConfig> call, @NonNull Callback cb) {
         //noinspection unchecked
         verify(cb, never()).success(any(Call.class), any(ZeroConfig.class));
         verify(cb).failure(eq(call), any(Throwable.class));
-    }
-
-    @NonNull private String encodeSpaces(@NonNull String string) {
-        return string.replace(" ", "%20");
     }
 }
