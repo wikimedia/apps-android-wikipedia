@@ -15,6 +15,7 @@ import org.wikipedia.feed.image.FeaturedImageCardView;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.news.NewsListCardView;
+import org.wikipedia.feed.offline.OfflineCard;
 import org.wikipedia.feed.offline.OfflineCardView;
 import org.wikipedia.feed.offline.OfflineCompilationCardView;
 import org.wikipedia.feed.random.RandomCardView;
@@ -45,16 +46,18 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
         this.callback = callback;
     }
 
-    @Override public DefaultViewHolder<T> onCreateViewHolder(ViewGroup parent, int viewType) {
+    @NonNull
+    @Override public DefaultViewHolder<T> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new DefaultViewHolder<>(newView(parent.getContext(), viewType));
     }
 
-    @Override public void onBindViewHolder(DefaultViewHolder<T> holder, int position) {
+    @Override public void onBindViewHolder(@NonNull DefaultViewHolder<T> holder, int position) {
         Card item = item(position);
         T view = holder.getView();
 
         if (coordinator.finished()
                 && position == getItemCount() - 1
+                && !(item instanceof OfflineCard)
                 && callback != null) {
             callback.onRequestMore();
         }
@@ -67,7 +70,7 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
         }
     }
 
-    @Override public void onViewAttachedToWindow(DefaultViewHolder<T> holder) {
+    @Override public void onViewAttachedToWindow(@NonNull DefaultViewHolder<T> holder) {
         super.onViewAttachedToWindow(holder);
         if (holder.getView() instanceof SearchCardView) {
             adjustSearchView((SearchCardView) holder.getView());
@@ -78,7 +81,7 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
         }
     }
 
-    @Override public void onViewDetachedFromWindow(DefaultViewHolder<T> holder) {
+    @Override public void onViewDetachedFromWindow(@NonNull DefaultViewHolder<T> holder) {
         holder.getView().setCallback(null);
         super.onViewDetachedFromWindow(holder);
     }
@@ -87,23 +90,19 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
         return item(position).type().code();
     }
 
-    public int getItemPosition(@NonNull Card card) {
-        return items().indexOf(card);
-    }
-
     @NonNull private T newView(@NonNull Context context, int viewType) {
         //noinspection unchecked
         return (T) CardType.of(viewType).newView(context);
     }
 
     @Override
-    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+    public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
         this.feedView = (FeedView) recyclerView;
     }
 
     @Override
-    public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
+    public void onDetachedFromRecyclerView(@NonNull RecyclerView recyclerView) {
         super.onDetachedFromRecyclerView(recyclerView);
         this.feedView = null;
     }
