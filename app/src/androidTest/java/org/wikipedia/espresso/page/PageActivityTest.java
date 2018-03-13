@@ -20,6 +20,8 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.hamcrest.Matchers.anything;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.wikipedia.espresso.util.CompareTools.assertScreenshotWithinTolerance;
+import static org.wikipedia.espresso.util.InstrumentationViewUtils.switchPageModeToBlack;
+import static org.wikipedia.espresso.util.InstrumentationViewUtils.switchPageModeToDark;
 import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_1000;
 import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_2000;
 import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_3000;
@@ -41,6 +43,20 @@ public final class PageActivityTest {
     @Test
     public void testArticleLoad() throws Exception {
 
+        testPage();
+        switchPageModeToDark();
+        waitFor(WAIT_FOR_1000);
+        ScreenshotTools.snap("PageActivityWithObama_Dark");
+        switchPageModeToBlack();
+        waitFor(WAIT_FOR_1000);
+        ScreenshotTools.snap("PageActivityWithObama_Black");
+
+
+        //Todo: Create espresso.screenshots to show hide/show of tab layout and actionBar
+        runComparisons();
+    }
+
+    private void testPage() {
         SearchBehaviors.searchKeywordAndGo("Barack Obama", true);
 
         whileWithMaxSteps(
@@ -62,13 +78,12 @@ public final class PageActivityTest {
         waitFor(WAIT_FOR_3000);
         ScreenshotTools.snap("PageActivityWithObama");
 
-        //Todo: Create espresso.screenshots to show hide/show of tab layout and actionBar
-        runComparisons();
     }
 
     private void runComparisons() throws Exception {
-        ScreenshotTools.snap("ArticleSwipeDownActionBarAndTabSeen");
         assertScreenshotWithinTolerance("PageActivityWithObama");
+        assertScreenshotWithinTolerance("PageActivityWithObama_Dark");
+        assertScreenshotWithinTolerance("PageActivityWithObama_Black");
         assertScreenshotWithinTolerance("SearchSuggestionPage");
         assertScreenshotWithinTolerance("SearchPage");
     }

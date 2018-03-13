@@ -31,6 +31,8 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.wikipedia.espresso.util.CompareTools.assertScreenshotWithinTolerance;
+import static org.wikipedia.espresso.util.InstrumentationViewUtils.switchToBlackMode;
+import static org.wikipedia.espresso.util.InstrumentationViewUtils.switchToDarkMode;
 import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_1000;
 import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_2000;
 import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_500;
@@ -51,6 +53,15 @@ public class CustomizefeedTest {
 
     @Test
     public void customizeFeed() throws Exception {
+        runTests("");
+        switchToDarkMode();
+        runTests("_Dark");
+        switchToBlackMode();
+        runTests("_Black");
+        runComparisons();
+    }
+
+    private void runTests(String mode) {
         whileWithMaxSteps(
                 () -> !viewIsDisplayed(R.id.fragment_feed_feed),
                 () -> waitFor(WAIT_FOR_2000));
@@ -73,17 +84,17 @@ public class CustomizefeedTest {
                         isDisplayed()));
         appCompatTextView2.perform(click());
         waitFor(WAIT_FOR_500);
-        ScreenshotTools.snap("CustomizeFeed1Of2");
+        ScreenshotTools.snap("CustomizeFeed1Of2" + mode);
         waitFor(WAIT_FOR_500);
         onView(withId(R.id.content_types_recycler)).perform(RecyclerViewActions.scrollToPosition(8));
         waitFor(WAIT_FOR_500);
-        ScreenshotTools.snap("CustomizeFeed2Of2");
+        ScreenshotTools.snap("CustomizeFeed2Of2" + mode);
         waitFor(WAIT_FOR_500);
         onView(withId(R.id.content_types_recycler)).perform(RecyclerViewActions.scrollToPosition(0));
         waitFor(WAIT_FOR_1000);
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
         waitFor(WAIT_FOR_2000);
-        ScreenshotTools.snap("CustomizeOverflowMenu");
+        ScreenshotTools.snap("CustomizeOverflowMenu" + mode);
         ViewInteraction appCompatTextView3 = onView(
                 allOf(withId(R.id.title), withText("Deselect all"),
                         childAtPosition(
@@ -94,7 +105,7 @@ public class CustomizefeedTest {
                         isDisplayed()));
         appCompatTextView3.perform(click());
         waitFor(WAIT_FOR_2000);
-        ScreenshotTools.snap("CustomizeDeselectAll");
+        ScreenshotTools.snap("CustomizeDeselectAll" + mode);
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
         ViewInteraction appCompatTextView4 = onView(
                 allOf(withId(R.id.title), withText("Select all"),
@@ -106,7 +117,7 @@ public class CustomizefeedTest {
                         isDisplayed()));
         appCompatTextView4.perform(click());
         waitFor(WAIT_FOR_2000);
-        ScreenshotTools.snap("CustomizeSelectAll");
+        ScreenshotTools.snap("CustomizeSelectAll" + mode);
         waitFor(WAIT_FOR_2000);
         onView(withId(R.id.content_types_recycler)).perform(
                 RecyclerViewActions.actionOnItemAtPosition(0, ViewTools.clickChildViewWithId(R.id.feed_content_type_checkbox)));
@@ -160,14 +171,23 @@ public class CustomizefeedTest {
                                 1),
                         isDisplayed()));
         textView2.check(matches(withText("In the news")));
-        runComparisons();
     }
 
     private void runComparisons() throws Exception {
         assertScreenshotWithinTolerance("CustomizeFeed1Of2");
+        assertScreenshotWithinTolerance("CustomizeFeed1Of2_Dark");
+        assertScreenshotWithinTolerance("CustomizeFeed1Of2_Black");
         assertScreenshotWithinTolerance("CustomizeFeed2Of2");
+        assertScreenshotWithinTolerance("CustomizeFeed2Of2_Dark");
+        assertScreenshotWithinTolerance("CustomizeFeed2Of2_Black");
         assertScreenshotWithinTolerance("CustomizeSelectAll");
+        assertScreenshotWithinTolerance("CustomizeSelectAll_Dark");
+        assertScreenshotWithinTolerance("CustomizeSelectAll_Black");
         assertScreenshotWithinTolerance("CustomizeDeselectAll");
+        assertScreenshotWithinTolerance("CustomizeDeselectAll_Dark");
+        assertScreenshotWithinTolerance("CustomizeDeselectAll_Black");
         assertScreenshotWithinTolerance("CustomizeOverflowMenu");
+        assertScreenshotWithinTolerance("CustomizeOverflowMenu_Dark");
+        assertScreenshotWithinTolerance("CustomizeOverflowMenu_Black");
     }
 }

@@ -54,9 +54,6 @@ public class SettingsScreenTest {
                 () -> !viewWithTextIsDisplayed("General"),
                 () -> waitFor(WAIT_FOR_2000));
 
-        ScreenshotTools.snap("SettingsScreen1of3");
-
-
         //Click App Theme
         ViewInteraction recyclerView = onView(
                 allOf(withId(R.id.list),
@@ -64,6 +61,7 @@ public class SettingsScreenTest {
                                 withId(android.R.id.list_container),
                                 0)));
         recyclerView.perform(actionOnItemAtPosition(3, click()));
+
         waitFor(WAIT_FOR_2000);
         ScreenshotTools.snap("AppThemeChangeScreenLight");
 
@@ -79,30 +77,6 @@ public class SettingsScreenTest {
         waitFor(WAIT_FOR_2000);
         ScreenshotTools.snap("AppThemeChangeScreenDark");
 
-        ViewInteraction appCompatTextView4 = onView(
-                allOf(withId(R.id.button_theme_black), withText("Black"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withClassName(is("android.widget.LinearLayout")),
-                                        2),
-                                0),
-                        isDisplayed()));
-        appCompatTextView4.perform(click());
-
-        waitFor(WAIT_FOR_2000);
-        ScreenshotTools.snap("AppThemeChangeScreenBlack");
-
-        ViewInteraction appCompatTextView5 = onView(
-                allOf(withId(R.id.button_theme_light), withText("Light"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withClassName(is("android.widget.LinearLayout")),
-                                        0),
-                                0),
-                        isDisplayed()));
-        appCompatTextView5.perform(click());
-        waitFor(WAIT_FOR_500);
-
         ViewInteraction view = onView(
                 allOf(withId(R.id.touch_outside),
                         childAtPosition(
@@ -115,22 +89,67 @@ public class SettingsScreenTest {
         view.perform(click());
         waitFor(WAIT_FOR_1000);
 
-        onView(withId(R.id.list)).perform(RecyclerViewActions.scrollToPosition(10));
-        waitFor(WAIT_FOR_1000);
-        ScreenshotTools.snap("SettingsScreen2of3");
+        takeSettingsPageScreenshots("_Dark");
+        recyclerView.perform(actionOnItemAtPosition(3, click()));
+        waitFor(WAIT_FOR_2000);
 
-        onView(withId(R.id.list)).perform(RecyclerViewActions.scrollToPosition(18));
-        waitFor(WAIT_FOR_1000);
-        ScreenshotTools.snap("SettingsScreen3of3");
+        ViewInteraction appCompatTextView4 = onView(
+                allOf(withId(R.id.button_theme_black), withText("Black"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withClassName(is("android.widget.LinearLayout")),
+                                        2),
+                                0),
+                        isDisplayed()));
+        appCompatTextView4.perform(click());
 
+        waitFor(WAIT_FOR_2000);
+        ScreenshotTools.snap("AppThemeChangeScreenBlack");
+        view.perform(click());
+        waitFor(WAIT_FOR_1000);
+
+        takeSettingsPageScreenshots("_Black");
+        recyclerView.perform(actionOnItemAtPosition(3, click()));
+
+        ViewInteraction appCompatTextView5 = onView(
+                allOf(withId(R.id.button_theme_light), withText("Light"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withClassName(is("android.widget.LinearLayout")),
+                                        0),
+                                0),
+                        isDisplayed()));
+        appCompatTextView5.perform(click());
+        waitFor(WAIT_FOR_500);
+
+        view.perform(click());
+        waitFor(WAIT_FOR_1000);
+        takeSettingsPageScreenshots("");
         runComparisons();
 
     }
 
+    private void takeSettingsPageScreenshots(String mode) {
+        ScreenshotTools.snap("SettingsScreen1of3" + mode);
+        onView(withId(R.id.list)).perform(RecyclerViewActions.scrollToPosition(10));
+        waitFor(WAIT_FOR_1000);
+        ScreenshotTools.snap("SettingsScreen2of3" + mode);
+        onView(withId(R.id.list)).perform(RecyclerViewActions.scrollToPosition(18));
+        waitFor(WAIT_FOR_1000);
+        ScreenshotTools.snap("SettingsScreen3of3" + mode);
+        onView(withId(R.id.list)).perform(RecyclerViewActions.scrollToPosition(0));
+    }
+
     private void runComparisons() throws Exception {
         assertScreenshotWithinTolerance("SettingsScreen1of3");
+        assertScreenshotWithinTolerance("SettingsScreen1of3_Dark");
+        assertScreenshotWithinTolerance("SettingsScreen1of3_Black");
         assertScreenshotWithinTolerance("SettingsScreen2of3");
+        assertScreenshotWithinTolerance("SettingsScreen2of3_Dark");
+        assertScreenshotWithinTolerance("SettingsScreen2of3_Black");
         assertScreenshotWithinTolerance("SettingsScreen3of3");
+        assertScreenshotWithinTolerance("SettingsScreen3of3_Dark");
+        assertScreenshotWithinTolerance("SettingsScreen3of3_Black");
         assertScreenshotWithinTolerance("AppThemeChangeScreenLight");
         assertScreenshotWithinTolerance("AppThemeChangeScreenDark");
         assertScreenshotWithinTolerance("AppThemeChangeScreenBlack");

@@ -33,6 +33,8 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.wikipedia.espresso.util.CompareTools.assertScreenshotWithinTolerance;
+import static org.wikipedia.espresso.util.InstrumentationViewUtils.switchToBlackMode;
+import static org.wikipedia.espresso.util.InstrumentationViewUtils.switchToDarkMode;
 import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_1000;
 import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_2000;
 import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_500;
@@ -57,8 +59,26 @@ public class HistoryTabTest {
 
     @Test
     public void testHistoryTab() throws Exception {
+        runTests("");
+
+        waitFor(WAIT_FOR_2000);
+
+        switchToDarkMode();
+
+        waitFor(WAIT_FOR_1000);
+        runTests("_Dark");
+        switchToBlackMode();
+
+        waitFor(WAIT_FOR_1000);
+
+        runTests("_Black");
+
+        runComparisons();
+    }
+
+    private void runTests(String mode) throws Exception {
         //Empty tab
-        testEmptyHistoryTab();
+        testEmptyHistoryTab(mode);
 
         PageActivityTest pageActivityTest = new PageActivityTest();
         Intent intent = new Intent();
@@ -70,33 +90,7 @@ public class HistoryTabTest {
                 () -> !viewIsDisplayed(R.id.fragment_main_nav_tab_layout),
                 () -> waitFor(WAIT_FOR_2000));
 
-        onView(withId(R.id.fragment_main_nav_tab_layout))
-                .perform(selectTab(NavTab.HISTORY.code()))
-                .check(matches(isDisplayed()));
-        waitFor(WAIT_FOR_1000);
-        setDate();
-        waitFor(WAIT_FOR_1000);
-        ScreenshotTools.snap("HistoryTab");
-
-        waitFor(WAIT_FOR_1000);
-        onView(withId(R.id.history_list))
-                .perform(actionOnItemAtPosition(0, longClick()));
-        waitFor(WAIT_FOR_1000);
-        setDate();
-        waitFor(WAIT_FOR_1000);
-        ScreenshotTools.snap("HistoryTabItemSelected");
-        ViewInteraction actionMenuItemView2 = onView(
-                allOf(withId(R.id.menu_delete_selected), withContentDescription("Delete selected items"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.action_mode_bar),
-                                        1),
-                                0),
-                        isDisplayed()));
-        actionMenuItemView2.perform(click());
-        waitFor(WAIT_FOR_500);
-        ScreenshotTools.snap("HistoryItemDeleteSnackBar");
-
+        deleteItem(mode, true);
         ViewInteraction appCompatButton = onView(
                 allOf(withId(R.id.snackbar_action), withText("Undo"),
                         childAtPosition(
@@ -109,12 +103,52 @@ public class HistoryTabTest {
         waitFor(WAIT_FOR_500);
         setDate();
         waitFor(WAIT_FOR_500);
-        ScreenshotTools.snap("HistoryItemAfterUndo");
-
-        runComparisons();
+        ScreenshotTools.snap("HistoryItemAfterUndo" + mode);
+        waitFor(WAIT_FOR_500);
+        onView(withId(R.id.fragment_main_nav_tab_layout))
+                .perform(selectTab(NavTab.EXPLORE.code()))
+                .check(matches(isDisplayed()));
+        deleteItem("", false);
+        onView(withId(R.id.fragment_main_nav_tab_layout))
+                .perform(selectTab(NavTab.EXPLORE.code()))
+                .check(matches(isDisplayed()));
     }
 
-    public void testEmptyHistoryTab() throws Exception {
+    private void deleteItem(String mode, boolean takeScreenshot) {
+        onView(withId(R.id.fragment_main_nav_tab_layout))
+                .perform(selectTab(NavTab.HISTORY.code()))
+                .check(matches(isDisplayed()));
+        waitFor(WAIT_FOR_1000);
+        setDate();
+        waitFor(WAIT_FOR_1000);
+        if (takeScreenshot) {
+            ScreenshotTools.snap("HistoryTab" + mode);
+        }
+        waitFor(WAIT_FOR_1000);
+        onView(withId(R.id.history_list))
+                .perform(actionOnItemAtPosition(0, longClick()));
+        waitFor(WAIT_FOR_1000);
+        setDate();
+        waitFor(WAIT_FOR_1000);
+        if (takeScreenshot) {
+            ScreenshotTools.snap("HistoryTabItemSelected" + mode);
+        }
+        ViewInteraction actionMenuItemView2 = onView(
+                allOf(withId(R.id.menu_delete_selected), withContentDescription("Delete selected items"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(R.id.action_mode_bar),
+                                        1),
+                                0),
+                        isDisplayed()));
+        actionMenuItemView2.perform(click());
+        waitFor(WAIT_FOR_500);
+        if (takeScreenshot) {
+            ScreenshotTools.snap("HistoryItemDeleteSnackBar" + mode);
+        }
+    }
+
+    public void testEmptyHistoryTab(String mode) throws Exception {
 
         whileWithMaxSteps(
                 () -> !viewIsDisplayed(R.id.fragment_feed_feed),
@@ -124,17 +158,27 @@ public class HistoryTabTest {
                 .perform(selectTab(NavTab.HISTORY.code()))
                 .check(matches(isDisplayed()));
         waitFor(WAIT_FOR_1000);
-        ScreenshotTools.snap("EmptyHistoryTab");
+        ScreenshotTools.snap("EmptyHistoryTab" + mode);
         waitFor(WAIT_FOR_1000);
 
     }
 
     private void runComparisons() throws Exception {
         assertScreenshotWithinTolerance("EmptyHistoryTab");
+        assertScreenshotWithinTolerance("EmptyHistoryTab_Dark");
+        assertScreenshotWithinTolerance("EmptyHistoryTab_Black");
         assertScreenshotWithinTolerance("HistoryTab");
+        assertScreenshotWithinTolerance("HistoryTab_Dark");
+        assertScreenshotWithinTolerance("HistoryTab_Black");
         assertScreenshotWithinTolerance("HistoryTabItemSelected");
+        assertScreenshotWithinTolerance("HistoryTabItemSelected_Dark");
+        assertScreenshotWithinTolerance("HistoryTabItemSelected_Black");
         assertScreenshotWithinTolerance("HistoryItemDeleteSnackBar");
+        assertScreenshotWithinTolerance("HistoryItemDeleteSnackBar_Dark");
+        assertScreenshotWithinTolerance("HistoryItemDeleteSnackBar_Black");
         assertScreenshotWithinTolerance("HistoryItemAfterUndo");
+        assertScreenshotWithinTolerance("HistoryItemAfterUndo_Dark");
+        assertScreenshotWithinTolerance("HistoryItemAfterUndo_Black");
     }
 
     private static void setDate() {
