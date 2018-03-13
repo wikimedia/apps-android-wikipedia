@@ -893,6 +893,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
             @Override
             public void onDestroyActionMode(ActionMode mode) {
+                if (webView == null || !isAdded()) {
+                    return;
+                }
                 findInPageActionMode = null;
                 funnel.setPageHeight(webView.getContentHeight());
                 funnel.logDone();
