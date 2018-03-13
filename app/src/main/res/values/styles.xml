@@ -299,21 +299,18 @@
 
     <style name="SimpleDraweeViewPlaceholder">
         <item name="actualImageScaleType">centerCrop</item>
-        <item name="placeholderImage">@drawable/checkerboard</item>
-        <item name="placeholderImageScaleType">centerCrop</item>
-        <item name="failureImage">@drawable/checkerboard</item>
-        <item name="failureImageScaleType">centerCrop</item>
+        <item name="placeholderImage">@drawable/ic_image_gray_24dp</item>
+        <item name="placeholderImageScaleType">fitCenter</item>
+        <item name="failureImage">@drawable/ic_image_gray_24dp</item>
+        <item name="failureImageScaleType">fitCenter</item>
         <item name="fadeDuration">0</item>
-
-        <!-- Draw translucent images on a white background. -->
-        <item name="backgroundImage">@android:color/white</item>
+        <item name="backgroundImage">@color/base80</item>
     </style>
 
     <style name="SimpleDraweeViewPlaceholder.Article">
         <item name="placeholderImage">@drawable/ic_image_gray_opaque_24dp</item>
-        <item name="placeholderImageScaleType">fitCenter</item>
         <item name="failureImage">@drawable/ic_image_gray_opaque_24dp</item>
-        <item name="failureImageScaleType">fitCenter</item>
+        <item name="backgroundImage">@android:color/white</item>
     </style>
 
     <style name="SimpleDraweeViewPlaceholder.ReadingListThumbnail">

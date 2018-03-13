@@ -9,7 +9,7 @@ transformer.register( "hideImages", function( content ) {
             continue;
         }
         // Just replace the src of the image with a placeholder image from our assets.
-        img.src = "file:///android_asset/checkerboard.png";
+        img.src = "file:///android_asset/image_placeholder.png";
         img.srcset = "";
     }
 } );
