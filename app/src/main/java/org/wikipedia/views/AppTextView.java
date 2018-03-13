@@ -32,7 +32,13 @@ public class AppTextView extends ConfigurableTextView {
                 setText(text);
             }
         }
-        return super.dispatchTouchEvent(event);
+        try {
+            // Workaround for some obscure AOSP crashes when highlighting text.
+            return super.dispatchTouchEvent(event);
+        } catch (Exception e) {
+            // ignore
+        }
+        return true;
     }
 
     @Override
