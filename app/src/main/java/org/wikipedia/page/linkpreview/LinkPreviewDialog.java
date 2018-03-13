@@ -169,8 +169,8 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     @Override public void onResume() {
         super.onResume();
-        if (overlayView == null) {
-            ViewGroup containerView = getDialog().findViewById(R.id.container);
+        ViewGroup containerView = getDialog().findViewById(R.id.container);
+        if (overlayView == null && containerView != null) {
             overlayView = new LinkPreviewOverlayView(getContext());
             overlayView.setCallback(new OverlayViewCallback());
             overlayView.setPrimaryButtonText(getStringForArticleLanguage(pageTitle, R.string.button_continue_to_article));
@@ -184,8 +184,10 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         thumbnailGallery.setGalleryViewListener(null);
         toolbarView.setOnClickListener(null);
         overflowButton.setOnClickListener(null);
-        overlayView.setCallback(null);
-        overlayView = null;
+        if (overlayView != null) {
+            overlayView.setCallback(null);
+            overlayView = null;
+        }
         super.onDestroyView();
     }
 
