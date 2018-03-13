@@ -39,6 +39,7 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
     @NonNull private FeedCoordinatorBase coordinator;
     @Nullable private FeedView feedView;
     @Nullable private Callback callback;
+    private Card lastCardReloadTrigger = null;
 
     public FeedAdapter(@NonNull FeedCoordinatorBase coordinator, @Nullable Callback callback) {
         super(coordinator.getCards());
@@ -58,8 +59,12 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
         if (coordinator.finished()
                 && position == getItemCount() - 1
                 && !(item instanceof OfflineCard)
+                && item != lastCardReloadTrigger
                 && callback != null) {
             callback.onRequestMore();
+            lastCardReloadTrigger = item;
+        } else {
+            lastCardReloadTrigger = null;
         }
 
         //noinspection unchecked

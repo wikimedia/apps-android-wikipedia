@@ -27,7 +27,7 @@ public abstract class FeedCoordinatorBase {
     public interface FeedUpdateListener {
         void insert(Card card, int pos);
         void remove(Card card, int pos);
-        void reachedEndWithoutCards();
+        void finished(boolean shouldUpdatePreviousCard);
     }
 
     @NonNull private Context context;
@@ -189,8 +189,8 @@ public abstract class FeedCoordinatorBase {
             }
             //noinspection ConstantConditions
             requestNextCard(wiki);
-            if (pendingClients.isEmpty() && !atLeastOneAppended && updateListener != null) {
-                updateListener.reachedEndWithoutCards();
+            if (pendingClients.isEmpty() && updateListener != null) {
+                updateListener.finished(!atLeastOneAppended);
             }
         }
 
