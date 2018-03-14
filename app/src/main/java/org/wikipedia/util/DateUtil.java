@@ -30,6 +30,10 @@ public final class DateUtil {
         return simpleDateFormat;
     }
 
+    public static SimpleDateFormat getIso8601LocalDateFormat() {
+        return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.ROOT);
+    }
+
     public static String getFeedCardDateString(int age) {
         return getFeedCardDateString(new UtcDate(age).baseCalendar());
     }
