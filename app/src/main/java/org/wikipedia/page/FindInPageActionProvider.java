@@ -2,16 +2,19 @@ package org.wikipedia.page;
 
 import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.SearchView;
 import android.view.ActionProvider;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.wikipedia.R;
 import org.wikipedia.analytics.FindInPageFunnel;
 import org.wikipedia.util.DeviceUtil;
+import org.wikipedia.util.ResourceUtil;
 
 public class FindInPageActionProvider extends ActionProvider {
     @NonNull private final PageFragment fragment;
@@ -22,9 +25,9 @@ public class FindInPageActionProvider extends ActionProvider {
     private TextView findInPageMatch;
 
     private String searchQuery;
-    private boolean lastOccurenceSearchFlag;
-    private boolean isFirstOccurence;
-    private boolean isLastOccurence;
+    private boolean lastOccurrenceSearchFlag;
+    private boolean isFirstOccurrence;
+    private boolean isLastOccurrence;
 
     public FindInPageActionProvider(@NonNull PageFragment fragment,
                                     @NonNull FindInPageFunnel funnel) {
@@ -54,7 +57,7 @@ public class FindInPageActionProvider extends ActionProvider {
             if (!pageFragmentValid() || searchQuery == null) {
                 return true;
             }
-            if (isLastOccurence) {
+            if (isLastOccurrence) {
                 Toast.makeText(fragment.getContext(), fragment.getResources().getString(R.string.find_last_occurence), Toast.LENGTH_SHORT).show();
             } else {
                 fragment.hideSoftKeyboard();
@@ -62,7 +65,7 @@ public class FindInPageActionProvider extends ActionProvider {
                 funnel.addFindPrev();
                 fragment.getWebView().clearMatches();
                 fragment.getWebView().findAllAsync(searchQuery);
-                lastOccurenceSearchFlag = true;
+                lastOccurrenceSearchFlag = true;
             }
             return true;
         });
@@ -80,7 +83,7 @@ public class FindInPageActionProvider extends ActionProvider {
             if (!pageFragmentValid()) {
                 return true;
             }
-            if (isFirstOccurence) {
+            if (isFirstOccurrence) {
                 Toast.makeText(fragment.getContext(), fragment.getResources().getString(R.string.find_first_occurence), Toast.LENGTH_SHORT).show();
             } else {
                 fragment.hideSoftKeyboard();
@@ -93,13 +96,14 @@ public class FindInPageActionProvider extends ActionProvider {
         });
 
         findInPageMatch = view.findViewById(R.id.find_in_page_match);
+        View closeButton = view.findViewById(R.id.close_button);
+        closeButton.setOnClickListener(v -> fragment.closeFindInPage());
 
         SearchView searchView = view.findViewById(R.id.find_in_page_input);
         searchView.setQueryHint(fragment.getContext().getString(R.string.menu_page_find_in_page));
         searchView.setFocusable(true);
         searchView.requestFocusFromTouch();
         searchView.setOnQueryTextListener(searchQueryListener);
-        searchView.setOnCloseListener(searchCloseListener);
         searchView.setIconified(false);
         searchView.setMaxWidth(Integer.MAX_VALUE);
         searchView.setInputType(EditorInfo.TYPE_CLASS_TEXT);
@@ -108,6 +112,11 @@ public class FindInPageActionProvider extends ActionProvider {
         View searchEditPlate = searchView
                 .findViewById(android.support.v7.appcompat.R.id.search_plate);
         searchEditPlate.setBackgroundColor(Color.TRANSPARENT);
+        // remove the close icon in search view
+        ImageView searchCloseButton = searchView
+                .findViewById(android.support.v7.appcompat.R.id.search_close_btn);
+        searchCloseButton.setEnabled(false);
+        searchCloseButton.setImageDrawable(null);
         return view;
     }
 
@@ -137,14 +146,6 @@ public class FindInPageActionProvider extends ActionProvider {
         }
     };
 
-    private final SearchView.OnCloseListener searchCloseListener = new SearchView.OnCloseListener() {
-        @Override
-        public boolean onClose() {
-            fragment.closeFindInPage();
-            return false;
-        }
-    };
-
     private boolean pageFragmentValid() {
         return fragment.getWebView() != null;
     }
@@ -157,25 +158,27 @@ public class FindInPageActionProvider extends ActionProvider {
             if (numberOfMatches > 0) {
                 findInPageMatch.setText(fragment.getString(R.string.find_in_page_result,
                         activeMatchOrdinal + 1, numberOfMatches));
+                findInPageMatch.setTextColor(ResourceUtil.getThemedColor(fragment.getContext(), R.attr.page_toolbar_icon_color));
                 findInPageNext.setEnabled(true);
                 findInPagePrev.setEnabled(true);
 
-                isFirstOccurence = activeMatchOrdinal == 0;
-                isLastOccurence = activeMatchOrdinal + 1 == numberOfMatches;
+                isFirstOccurrence = activeMatchOrdinal == 0;
+                isLastOccurrence = activeMatchOrdinal + 1 == numberOfMatches;
             } else {
                 findInPageMatch.setText("0/0");
+                findInPageMatch.setTextColor(ContextCompat.getColor(fragment.getContext(), R.color.red50));
                 findInPageNext.setEnabled(false);
                 findInPagePrev.setEnabled(false);
 
-                isFirstOccurence = false;
-                isLastOccurence = false;
+                isFirstOccurrence = false;
+                isLastOccurrence = false;
             }
             findInPageMatch.setVisibility(View.VISIBLE);
 
-            if (lastOccurenceSearchFlag) {
+            if (lastOccurrenceSearchFlag) {
                 // Go one occurrence back from the first one so it shows the last one.
                 fragment.getWebView().findNext(false);
-                lastOccurenceSearchFlag = false;
+                lastOccurrenceSearchFlag = false;
             }
         });
 

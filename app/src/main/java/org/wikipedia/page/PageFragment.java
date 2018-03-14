@@ -877,6 +877,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 MenuItem menuItem = menu.add(R.string.menu_page_find_in_page);
                 menuItem.setActionProvider(findInPageActionProvider);
                 menuItem.expandActionView();
+
                 return true;
             }
 

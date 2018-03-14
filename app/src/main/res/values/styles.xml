@@ -34,8 +34,8 @@
         <item name="actionModeStyle">@style/PageActionModeStyle</item>
         <item name="searchViewStyle">@style/PageSearchViewStyle</item>
         <item name="autoCompleteTextViewStyle">@style/PageSearchViewEditTextStyle</item>
-        <item name="actionModeCloseDrawable">@drawable/ic_arrow_back_themed_24dp</item>
         <item name="actionOverflowButtonStyle">@style/ActionButtonOverflow</item>
+        <item name="actionModeCloseButtonStyle">@style/ActionModeCloseButtonStyle</item>
     </style>
 
     <style name="AppTheme.ActionBar">
@@ -49,6 +49,12 @@
         <item name="actionBarTheme">@style/PageToolbarTheme</item>
         <item name="actionBarStyle">@style/PageToolbarStyle</item>
         <item name="autoCompleteTextViewStyle">@style/PageSearchViewEditTextStyle</item>
+    </style>
+
+    <style name="ActionModeCloseButtonStyle">
+        <item name="android:visibility">gone</item>
+        <item name="android:layout_marginStart">-48dp</item>
+        <item name="actionModeCloseDrawable">@drawable/ic_arrow_back_themed_24dp</item>
     </style>
 
     <style name="AppTheme.TranslucentStatus">

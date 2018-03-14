@@ -19,6 +19,9 @@
         android:layout_gravity="center_vertical"
         android:imeOptions="actionSearch|flagNoExtractUi"
         app:cabEnabled="false"
+        app:iconifiedByDefault="false"
+        app:searchIcon="@null"
+        app:closeIcon="@null"
         android:maxLines="1" />
 
     <TextView
@@ -31,6 +34,12 @@
         android:textColor="?attr/page_toolbar_icon_color"
         tools:text="99/99"
         style="?android:textAppearanceSmall"/>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/base70"
+        android:layout_marginStart="16dp"/>
 
     <ImageView
         style="@style/Widget.AppCompat.ImageButton"
@@ -49,4 +58,13 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/find_next"
         app:srcCompat="@drawable/ic_expand_more_themed_24dp"/>
+
+    <ImageView
+        style="@style/Widget.AppCompat.ImageButton"
+        android:id="@+id/close_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/dialog_close_description"
+        app:srcCompat="@drawable/ic_close_themed_24dp"/>
 </LinearLayout>

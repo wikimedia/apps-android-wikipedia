@@ -145,6 +145,7 @@ public class TabsProvider {
             Animation anim = loadPageContentViewAnimation();
             fragment.getView().startAnimation(anim);
             layoutTabList(onTabModeEntered);
+            ViewUtil.setCloseButtonInActionMode(fragment.getContext(), tabActionMode);
 
             return true;
         }
