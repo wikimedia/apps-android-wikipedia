@@ -6,6 +6,7 @@ import android.text.TextUtils;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.page.PageTitle;
 
 import java.text.BreakIterator;
@@ -17,19 +18,29 @@ public class LinkPreviewContents {
     private static final int EXTRACT_MAX_SENTENCES = 2;
 
     private final PageTitle title;
+    private final String extract;
+
     public PageTitle getTitle() {
         return title;
     }
 
-    private final String extract;
     public String getExtract() {
         return extract;
     }
 
-    public LinkPreviewContents(@NonNull PageSummary pageSummary, @NonNull WikiSite wiki) {
+    LinkPreviewContents(@NonNull PageSummary pageSummary, @NonNull WikiSite wiki) {
         title = new PageTitle(pageSummary.getTitle(), wiki);
-        extract = makeStringFromSentences(getSentences(removeParens(pageSummary.getExtract()), title.getWikiSite()), EXTRACT_MAX_SENTENCES);
+        extract = createExtract(pageSummary, title.getWikiSite());
         title.setThumbUrl(pageSummary.getThumbnailUrl());
+    }
+
+    private static String createExtract(@NonNull PageSummary pageSummary, @NonNull WikiSite wikiSite) {
+        if (pageSummary instanceof RbPageSummary) {
+            return pageSummary.getExtract();
+        }
+        String noParens = removeParens(pageSummary.getExtract());
+        List<String> sentences = getSentences(noParens, wikiSite);
+        return makeStringFromSentences(sentences, EXTRACT_MAX_SENTENCES);
     }
 
     /**
@@ -38,7 +49,7 @@ public class LinkPreviewContents {
      * @return New string that is the same as the original string, but without any
      * content in parentheses.
      */
-    public static String removeParens(@Nullable String text) {
+    private static String removeParens(@Nullable String text) {
         if (text == null) {
             return "";
         }
@@ -84,7 +95,7 @@ public class LinkPreviewContents {
      * @param wiki WikiSite that will provide the language of the given text.
      * @return List of sentences.
      */
-    public static List<String> getSentences(String text, WikiSite wiki) {
+    private static List<String> getSentences(String text, WikiSite wiki) {
         List<String> sentenceList = new ArrayList<>();
         BreakIterator iterator = BreakIterator.getSentenceInstance(new Locale(wiki.languageCode()));
         // feed the text into the iterator, with line breaks removed:
@@ -106,7 +117,7 @@ public class LinkPreviewContents {
         return sentenceList;
     }
 
-    private String makeStringFromSentences(List<String> sentences, int maxSentences) {
+    private static String makeStringFromSentences(List<String> sentences, int maxSentences) {
         return TextUtils.join(" ", sentences.subList(0, Math.min(maxSentences, sentences.size())));
     }
 }
