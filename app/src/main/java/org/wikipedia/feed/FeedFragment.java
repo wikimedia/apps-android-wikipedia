@@ -54,6 +54,7 @@ import org.wikipedia.views.ExploreOverflowView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 import static android.app.Activity.RESULT_OK;
@@ -64,6 +65,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     @BindView(R.id.feed_swipe_refresh_layout) SwipeRefreshLayout swipeRefreshLayout;
     @BindView(R.id.fragment_feed_feed) FeedView feedView;
     @BindView(R.id.fragment_feed_header) View feedHeader;
+    @BindView(R.id.fragment_feed_empty_container) View emptyContainer;
     private Unbinder unbinder;
     private FeedAdapter<?> feedAdapter;
     private WikipediaApp app;
@@ -142,9 +144,16 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             }
 
             @Override
-            public void reachedEndWithoutCards() {
-                if (isAdded()) {
-                    feedAdapter.notifyItemChanged(feedAdapter.getItemCount() - 1);
+            public void finished(boolean shouldUpdatePreviousCard) {
+                if (!isAdded()) {
+                    return;
+                }
+                if (feedAdapter.getItemCount() < 2) {
+                    emptyContainer.setVisibility(View.VISIBLE);
+                } else {
+                    if (shouldUpdatePreviousCard) {
+                        feedAdapter.notifyItemChanged(feedAdapter.getItemCount() - 1);
+                    }
                 }
             }
         });
@@ -279,6 +288,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         return false;
     }
 
+    @OnClick(R.id.fragment_feed_customize_button) void onCustomizeClick() {
+        showConfigureActivity(-1);
+    }
+
     public void scrollToTop() {
         feedView.smoothScrollToPosition(0);
     }
@@ -293,6 +306,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
     private void refresh() {
         funnel.refresh(coordinator.getAge());
+        emptyContainer.setVisibility(View.GONE);
         coordinator.reset();
         feedAdapter.notifyDataSetChanged();
         coordinator.more(app.getWikiSite());
