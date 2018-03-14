@@ -1,6 +1,5 @@
 var bridge = require("./bridge");
 var transformer = require("./transformer");
-var clickHandlerSetup = require("./onclick");
 var pagelib = require("wikimedia-page-library");
 var lazyLoadViewportDistanceMultiplier = 2; // Load images on the current screen up to one ahead.
 var lazyLoadTransformer = new pagelib.LazyLoadTransformer(window, lazyLoadViewportDistanceMultiplier);
@@ -176,9 +175,6 @@ function applySectionTransforms( content, isLeadSection ) {
         }
         pagelib.RedLinks.hideRedLinks( document );
         transformer.transform( "anchorPopUpMediaTransforms", content );
-        transformer.transform( "hideIPA", content );
-    } else {
-        clickHandlerSetup.addIPAonClick( content );
     }
 
     pagelib.ThemeTransform.classifyElements( content );
