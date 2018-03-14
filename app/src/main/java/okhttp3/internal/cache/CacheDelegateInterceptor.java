@@ -19,7 +19,6 @@ package okhttp3.internal.cache;
 import org.wikipedia.dataclient.okhttp.cache.CacheDelegateStrategy;
 
 import java.io.IOException;
-
 import okhttp3.Headers;
 import okhttp3.Interceptor;
 import okhttp3.Protocol;
@@ -47,10 +46,10 @@ import static okhttp3.internal.Util.discard;
 /** Serves requests from the cache and writes responses to the cache. Copied from the OkHttp
  repository (https://github.com/square/okhttp) to allow a custom cache strategy.
 
- Last synchronized with OkHttp at the "parent-3.9.1" tag
- (last change: "Improve handling of HEAD requests with a Content-Length specified" (23b6f75))
+ Last synchronized with OkHttp at the "parent-3.10.0" tag
+ (last change: "304 Not Modified overrides Content-Encoding and breaks cache" (78f49fb))
 
- https://github.com/square/okhttp/blob/parent-3.9.1/okhttp/src/main/java/okhttp3/internal/cache/CacheInterceptor.java
+ https://github.com/square/okhttp/blob/parent-3.10.0/okhttp/src/main/java/okhttp3/internal/cache/CacheInterceptor.java
 
  Deviations are marked with "Change:". */
 public final class CacheDelegateInterceptor implements Interceptor {
@@ -182,9 +181,8 @@ public final class CacheDelegateInterceptor implements Interceptor {
 
   private static Response stripBody(Response response) {
     return response != null && response.body() != null
-            ? response.newBuilder().body(null).build()
-            : response;
-
+        ? response.newBuilder().body(null).build()
+        : response;
   }
 
   /**
@@ -261,17 +259,15 @@ public final class CacheDelegateInterceptor implements Interceptor {
       if ("Warning".equalsIgnoreCase(fieldName) && value.startsWith("1")) {
         continue; // Drop 100-level freshness warnings.
       }
-      if (!isEndToEnd(fieldName) || networkHeaders.get(fieldName) == null) {
+      if (isContentSpecificHeader(fieldName) || !isEndToEnd(fieldName)
+              || networkHeaders.get(fieldName) == null) {
         Internal.instance.addLenient(result, fieldName, value);
       }
     }
 
     for (int i = 0, size = networkHeaders.size(); i < size; i++) {
       String fieldName = networkHeaders.name(i);
-      if ("Content-Length".equalsIgnoreCase(fieldName)) {
-        continue; // Ignore content-length headers of validating responses.
-      }
-      if (isEndToEnd(fieldName)) {
+      if (!isContentSpecificHeader(fieldName) && isEndToEnd(fieldName)) {
         Internal.instance.addLenient(result, fieldName, networkHeaders.value(i));
       }
     }
@@ -292,5 +288,15 @@ public final class CacheDelegateInterceptor implements Interceptor {
         && !"Trailers".equalsIgnoreCase(fieldName)
         && !"Transfer-Encoding".equalsIgnoreCase(fieldName)
         && !"Upgrade".equalsIgnoreCase(fieldName);
+  }
+
+  /**
+   * Returns true if {@code fieldName} is content specific and therefore should always be used
+   * from cached headers.
+   */
+  static boolean isContentSpecificHeader(String fieldName) {
+    return "Content-Length".equalsIgnoreCase(fieldName)
+        || "Content-Encoding".equalsIgnoreCase(fieldName)
+        || "Content-Type".equalsIgnoreCase(fieldName);
   }
 }
