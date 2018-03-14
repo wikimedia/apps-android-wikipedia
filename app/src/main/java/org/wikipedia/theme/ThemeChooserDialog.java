@@ -75,12 +75,12 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
                 if (!fromUser) {
                     return;
                 }
-                float currentSize = app.getFontSize(getDialog().getWindow());
+                int currentMultiplier = Prefs.getTextSizeMultiplier();
                 boolean changed = app.setFontSizeMultiplier(textSizeSeekBar.getValue());
                 if (changed) {
                     updatingFont = true;
                     updateFontSize();
-                    funnel.logFontSizeChange(currentSize, app.getFontSize(getDialog().getWindow()));
+                    funnel.logFontSizeChange(currentMultiplier, Prefs.getTextSizeMultiplier());
                 }
             }
 
@@ -208,7 +208,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         @Override
         public void onClick(View view) {
             boolean changed = false;
-            float currentSize = app.getFontSize(getDialog().getWindow());
+            int currentMultiplier = Prefs.getTextSizeMultiplier();
             if (action == FontSizeAction.INCREASE) {
                 changed = app.setFontSizeMultiplier(Prefs.getTextSizeMultiplier() + 1);
             } else if (action == FontSizeAction.DECREASE) {
@@ -219,7 +219,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
             if (changed) {
                 updatingFont = true;
                 updateFontSize();
-                funnel.logFontSizeChange(currentSize, app.getFontSize(getDialog().getWindow()));
+                funnel.logFontSizeChange(currentMultiplier, Prefs.getTextSizeMultiplier());
             }
         }
     }
