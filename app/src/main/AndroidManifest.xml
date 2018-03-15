@@ -134,12 +134,7 @@
         <activity
             android:name=".settings.AboutActivity"
             android:label="@string/about_activity_title"
-            android:theme="@style/AppTheme.ActionBar"
-            android:exported="false">
-            <intent-filter>
-                <action android:name=".settings.AboutActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
+            android:theme="@style/AppTheme.ActionBar">
         </activity>
         <activity
             android:name=".language.LangLinksActivity"
@@ -169,7 +164,6 @@
             android:theme="@style/AppTheme.FullScreen" />
         <activity
             android:name=".settings.LicenseActivity"
-            android:exported="true"
             android:theme="@style/AppTheme.ActionBar"
             tools:ignore="GoogleAppIndexingUrlError">
             <intent-filter>
