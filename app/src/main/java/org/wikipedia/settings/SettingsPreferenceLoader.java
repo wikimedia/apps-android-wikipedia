@@ -40,9 +40,6 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
 
         if (!Prefs.isZeroTutorialEnabled()) {
             loadPreferences(R.xml.preferences_zero);
-
-            findPreference(R.string.preference_key_zero_interstitial)
-                    .setOnPreferenceChangeListener(new ShowZeroInterstitialListener());
         }
 
         findPreference(R.string.preference_key_sync_reading_lists)
@@ -110,15 +107,6 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
     private void updateLanguagePrefSummary() {
         Preference languagePref = findPreference(R.string.preference_key_language);
         languagePref.setSummary(WikipediaApp.getInstance().getAppOrSystemLanguageLocalizedName());
-    }
-
-    private static class ShowZeroInterstitialListener implements Preference.OnPreferenceChangeListener {
-        @Override public boolean onPreferenceChange(Preference preference, Object newValue) {
-            if (newValue == Boolean.FALSE) {
-                WikipediaApp.getInstance().getWikipediaZeroHandler().getZeroFunnel().logExtLinkAlways();
-            }
-            return true;
-        }
     }
 
     private final class SyncReadingListsListener implements Preference.OnPreferenceChangeListener {

@@ -121,18 +121,12 @@ public final class UriUtil {
                 .getWikipediaZeroHandler();
 
         if (!zeroHandler.isZeroEnabled()) {
-            if (!StringUtils.isEmpty(zeroHandler.getXCarrier())) {
-                // User is potentially zero-rated based on IP, but not on a whitelisted wiki (this
-                // is rare)
-                zeroHandler.getZeroFunnel().logExtLink();
-            }
             visitInExternalBrowser(context, uri);
             return;
         }
 
         if (!Prefs.isShowZeroInterstitialEnabled()) {
             visitInExternalBrowser(context, uri);
-            zeroHandler.getZeroFunnel().logExtLinkAuto();
             return;
         }
 
