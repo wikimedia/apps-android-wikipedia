@@ -7,10 +7,11 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.database.ReadingList;
+import org.wikipedia.settings.Prefs;
 
 public class ReadingListsFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppReadingLists";
-    private static final int REV_ID = 15520526;
+    private static final int REV_ID = 17837080;
 
     public ReadingListsFunnel() {
         super(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID);
@@ -59,6 +60,12 @@ public class ReadingListsFunnel extends Funnel {
                 "itemcount", list.pages().size(),
                 "listcount", listCount
         );
+    }
+
+    @Override
+    protected JSONObject preprocessData(@NonNull JSONObject eventData) {
+        preprocessData(eventData, "synced", Prefs.isReadingListSyncEnabled());
+        return super.preprocessData(eventData);
     }
 
     @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) { }

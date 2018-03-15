@@ -7,7 +7,7 @@ import org.wikipedia.WikipediaApp;
 
 public class CreateAccountFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppCreateAccount";
-    private static final int REVISION = 9135391;
+    private static final int REVISION = 17836914;
 
     private final String requestSource;
 
@@ -52,13 +52,5 @@ public class CreateAccountFunnel extends Funnel {
     protected JSONObject preprocessData(@NonNull JSONObject eventData) {
         preprocessData(eventData, "source", requestSource);
         return super.preprocessData(eventData);
-    }
-
-    @Override protected void preprocessAppInstallID(@NonNull JSONObject eventData) { }
-
-    @NonNull
-    @Override
-    protected String getSessionTokenField() {
-        return "createAccountSessionToken";
     }
 }

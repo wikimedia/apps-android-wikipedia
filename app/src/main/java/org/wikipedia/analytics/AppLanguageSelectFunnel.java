@@ -7,7 +7,7 @@ import org.wikipedia.WikipediaApp;
 
 public class AppLanguageSelectFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppLangSelect";
-    private static final int REV_ID = 12588733;
+    private static final int REV_ID = 17836913;
 
     private final boolean initiatedFromSearchBar;
     private final String previousLanguage;

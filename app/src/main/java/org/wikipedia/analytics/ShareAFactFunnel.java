@@ -10,7 +10,7 @@ import org.wikipedia.settings.Prefs;
 // https://meta.wikimedia.org/wiki/Schema:MobileWikiAppShareAFact
 public class ShareAFactFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppShareAFact";
-    private static final int REV_ID = 12588711;
+    private static final int REV_ID = 17837019;
 
     /**
      * The length value of 99 is somewhat arbitrary right now. We need to restrict the
@@ -34,12 +34,6 @@ public class ShareAFactFunnel extends Funnel {
         preprocessData(eventData, "tutorialFeatureEnabled", true);
         preprocessData(eventData, "tutorialShown", calculateTutorialsShown());
         return super.preprocessData(eventData);
-    }
-
-    @NonNull
-    @Override
-    protected String getSessionTokenField() {
-        return "shareSessionToken";
     }
 
     private void logAction(String action, String text, ShareMode shareMode) {

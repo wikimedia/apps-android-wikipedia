@@ -14,7 +14,7 @@ public class GalleryFunnel extends TimedFunnel {
     public static final int SOURCE_FEED_FEATURED_IMAGE = 3;
 
     private static final String SCHEMA_NAME = "MobileWikiAppMediaGallery";
-    private static final int REV_ID = 12588701;
+    private static final int REV_ID = 17836947;
 
     private final int source;
 
@@ -27,12 +27,6 @@ public class GalleryFunnel extends TimedFunnel {
     protected JSONObject preprocessData(@NonNull JSONObject eventData) {
         preprocessData(eventData, "source", source);
         return super.preprocessData(eventData);
-    }
-
-    @NonNull
-    @Override
-    protected String getSessionTokenField() {
-        return "gallerySessionToken";
     }
 
     private void logGalleryAction(String action, PageTitle currentPageTitle, String currentMediaTitle) {

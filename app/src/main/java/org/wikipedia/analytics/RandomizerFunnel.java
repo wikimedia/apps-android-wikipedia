@@ -8,7 +8,7 @@ import org.wikipedia.dataclient.WikiSite;
 
 public class RandomizerFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppRandomizer";
-    private static final int REV_ID = 17490463;
+    private static final int REV_ID = 17836997;
 
     private final int source;
     private int numSwipesForward;

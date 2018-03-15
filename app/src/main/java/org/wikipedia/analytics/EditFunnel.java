@@ -1,7 +1,6 @@
 package org.wikipedia.analytics;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import org.json.JSONObject;
 import org.wikipedia.R;
@@ -11,19 +10,13 @@ import org.wikipedia.page.PageTitle;
 
 public class EditFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppEdit";
-    private static final int REV_ID = 16256587;
+    private static final int REV_ID = 17837072;
 
     private final PageTitle title;
 
     public EditFunnel(@NonNull WikipediaApp app, @NonNull PageTitle title) {
         super(app, SCHEMA_NAME, REV_ID, title.getWikiSite());
         this.title = title;
-    }
-
-    @Nullable
-    @Override
-    public String getSessionToken() {
-        return super.getSessionToken();
     }
 
     public void logStart() {
@@ -150,20 +143,8 @@ public class EditFunnel extends Funnel {
 
     @Override
     protected JSONObject preprocessData(@NonNull JSONObject eventData) {
-        if (AccountUtil.isLoggedIn()) {
-            // noinspection ConstantConditions
-            preprocessData(eventData, "userID",
-                    AccountUtil.getUserIdForLanguage(title.getWikiSite().languageCode()));
-        }
+        preprocessData(eventData, "anon", !AccountUtil.isLoggedIn());
         preprocessData(eventData, "pageNS", title.getNamespace());
         return super.preprocessData(eventData);
-    }
-
-    @Override protected void preprocessAppInstallID(@NonNull JSONObject eventData) { }
-
-    @NonNull
-    @Override
-    protected String getSessionTokenField() {
-        return "editSessionToken";
     }
 }

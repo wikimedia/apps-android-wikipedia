@@ -8,7 +8,7 @@ import org.wikipedia.dataclient.WikiSite;
 
 public class ToCInteractionFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppToCInteraction";
-    private static final int REV_ID = 14585319;
+    private static final int REV_ID = 17837028;
 
     private final int pageId;
     private final int numSections;

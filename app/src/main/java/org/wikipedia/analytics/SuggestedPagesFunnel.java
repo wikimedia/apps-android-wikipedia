@@ -12,7 +12,7 @@ import java.util.List;
 
 public class SuggestedPagesFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppArticleSuggestions";
-    private static final int REV_ID = 15302212;
+    private static final int REV_ID = 17837021;
     private static final int READ_MORE_SOURCE_FULL_TEXT = 0;
     private static final int READ_MORE_SOURCE_MORELIKE = 1;
 
