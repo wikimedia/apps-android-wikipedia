@@ -102,9 +102,7 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
     private void overridePackageName() {
         Preference aboutPref = findPreference("about");
         aboutPref.setOnPreferenceClickListener((preference) -> {
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setClass(getActivity(), AboutActivity.class);
-            getActivity().startActivity(intent);
+            getActivity().startActivity(new Intent(getActivity(), AboutActivity.class));
             return true;
         });
     }
