@@ -21,7 +21,6 @@ import android.support.v7.app.AlertDialog;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.analytics.WikipediaZeroUsageFunnel;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.events.WikipediaZeroEnterEvent;
 import org.wikipedia.main.MainActivity;
@@ -31,7 +30,6 @@ import org.wikipedia.util.log.L;
 import okhttp3.Headers;
 import retrofit2.Call;
 
-import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class WikipediaZeroHandler {
@@ -44,7 +42,6 @@ public class WikipediaZeroHandler {
     private boolean zeroEnabled = false;
     private volatile boolean acquiringCarrierMessage = false;
     @Nullable private ZeroConfig zeroConfig;
-    @NonNull private WikipediaZeroUsageFunnel zeroFunnel;
 
     @NonNull private String zeroCarrierString = "";
     @NonNull private String zeroCarrierMetaString = "";
@@ -57,7 +54,6 @@ public class WikipediaZeroHandler {
 
     public WikipediaZeroHandler(@NonNull WikipediaApp app) {
         this.app = app;
-        this.zeroFunnel = new WikipediaZeroUsageFunnel(app, "", "");
     }
 
     public boolean isZeroEnabled() {
@@ -65,13 +61,8 @@ public class WikipediaZeroHandler {
     }
 
     @Nullable
-    public ZeroConfig getZeroConfig() {
+    private ZeroConfig getZeroConfig() {
         return zeroConfig;
-    }
-
-    @NonNull
-    public WikipediaZeroUsageFunnel getZeroFunnel() {
-        return zeroFunnel;
     }
 
     public String getXCarrier() {
@@ -101,19 +92,15 @@ public class WikipediaZeroHandler {
                 : context.getString(R.string.zero_interstitial_leave_app));
         alert.setPositiveButton(context.getString(R.string.zero_interstitial_continue), (DialogInterface dialog, int id) -> {
             visitInExternalBrowser(context, uri);
-            zeroHandler.getZeroFunnel().logExtLinkConf();
         });
         if (customPartnerInfoText != null && customPartnerInfoUrl != null) {
             alert.setNeutralButton(customPartnerInfoText, (DialogInterface dialog, int which) -> {
                     visitInExternalBrowser(context, customPartnerInfoUrl);
             });
         }
-        alert.setNegativeButton(context.getString(R.string.zero_interstitial_cancel), (DialogInterface dialog, int id) -> {
-            zeroHandler.getZeroFunnel().logExtLinkBack();
-        });
+        alert.setNegativeButton(context.getString(R.string.zero_interstitial_cancel), null);
         AlertDialog ad = alert.create();
         ad.show();
-        zeroHandler.getZeroFunnel().logExtLinkWarn();
     }
 
     public void onHeaderCheck(@NonNull Headers headers) {
@@ -152,9 +139,7 @@ public class WikipediaZeroHandler {
                 .setMessage(R.string.zero_learn_more)
                 .setPositiveButton(R.string.zero_learn_more_dismiss, null)
                 .setNegativeButton(R.string.zero_learn_more_learn_more, (DialogInterface dialog, int id) -> {
-                            visitInExternalBrowser(app,
-                                    (Uri.parse(app.getString(R.string.zero_webpage_url))));
-                            zeroFunnel.logExtLinkMore();
+                            visitInExternalBrowser(app, (Uri.parse(app.getString(R.string.zero_webpage_url))));
                         }).create().show();
     }
 
@@ -181,8 +166,6 @@ public class WikipediaZeroHandler {
                     zeroCarrierMetaString = xCarrierMetaFromHeader; // ex. "wap"; default ""
                     zeroConfig = config;
                     zeroEnabled = true;
-                    zeroFunnel = new WikipediaZeroUsageFunnel(app, zeroCarrierString,
-                            defaultString(zeroCarrierMetaString));
                     app.getBus().post(new WikipediaZeroEnterEvent());
                     if (zeroConfig.hashCode() != Prefs.zeroConfigHashCode()) {
                         notifyEnterZeroNetwork(app, zeroConfig);
