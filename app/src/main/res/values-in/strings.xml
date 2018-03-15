@@ -104,6 +104,7 @@
   <string name="create_account_generic_error">Tidak dapat membuat akun</string>
   <string name="create_account_next">Selanjutnya</string>
   <string name="create_account_button">Buat akun baru</string>
+  <string name="create_account_name_unavailable">Nama pengguna \"%s\" tidak tersedia. Silakan pilih nama yang berbeda.</string>
   <string name="preferences_general_heading">Umum</string>
   <string name="wikipedia_app_faq">Pertanyaan yang sering ditanyakan</string>
   <string name="zero_charged_verbiage">Akses gratis ke Wikipedia tidak lagi aktif.</string>
@@ -462,6 +463,7 @@
   <string name="feed_item_type_featured_image">Gambar pilihan harian dari Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Halaman utama Wikipedia dengan isi pilihan harian</string>
   <string name="feed_item_type_randomizer">Menghasilkan sembarang artikel untuk dibaca</string>
+  <string name="feed_empty_message">Tidak ada apa-apa di umpan Jelajahi Anda</string>
   <string name="feed_configure_onboarding_action">Sesuaikan</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Sesuaikan umpan Jelajahi Anda&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Anda sekarang dapat memilih apa yang akan ditampilkan pada umpan Anda, dan juga memprioritaskan jenis konten favorit Anda.</string>
   <string name="description_edit_text_hint">Deskripsi judul</string>

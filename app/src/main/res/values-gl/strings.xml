@@ -104,6 +104,7 @@
   <string name="create_account_generic_error">Non se puido crear a conta</string>
   <string name="create_account_next">Seguinte</string>
   <string name="create_account_button">Crear unha conta</string>
+  <string name="create_account_name_unavailable">O nome de usuario \"%s\" non está dispoñible. Por favor, escolla un nome diferente.</string>
   <string name="preferences_general_heading">Xeral</string>
   <string name="wikipedia_app_faq">Preguntas frecuentes sobre a aplicación da Wikipedia</string>
   <string name="zero_charged_verbiage">O acceso libra á Wikipedia Zero xa non está activo.</string>
@@ -505,6 +506,7 @@
   <string name="description_edit_revert_history">Se está interesado, consulte o &lt;a href=\"%1$s\"&gt;historial de edición&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">Sen conexión a Internet. Revise que está conectado e probe de novo.</string>
   <string name="offline_read_permission_rationale">É necesario ter permiso para acceder ó almacenamento no seu dispositivo para a navegación sen liña.</string>
+  <string name="offline_read_final_rationale">É preciso ter permiso de acceso ao almacenamento do seu dispositivo para usar a Biblioteca sen conexión.</string>
   <string name="offline_read_permission_error">Non tes permiso para ler dende o almacenamento deste dispositivo.</string>
   <string name="offline_card_sideloading_text">Esta navigando en Wikipedia sen liña dende os paquetes de artigos da súa Biblioteca fóra de liña.</string>
   <string name="offline_my_compilations">Xestionar a miña biblioteca sen conexión</string>
@@ -559,8 +561,9 @@
   <string name="onboarding_explore_text">Mergúllese no pozo sen fondo da Wikipedia cunha canle Explorar en constante actualización. &lt;br/&gt; &lt;b&gt;Personalice&lt;/b&gt; a canle coas súas preferencias – se quere aprender sobre acontecementos históricos &lt;b&gt;Neste dia&lt;/b&gt;, ou lanzar os dados con &lt;b&gt;Aleatorio&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Gardar nas listas de lectura</string>
   <string name="onboarding_save_to_reading_lists_text">Crear listas de lectura a partir dos artigos que quere ler máis tarde, mesmo cando estea sen conexión a Internet.</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">Listas de lectura sincronizadas</string>
-  <string name="onboarding_reading_list_sync_text" fuzzy="true">Crear listas de lectura a partir de artigos que queres ler máis tarde, incluso cando esteas sen conexión. &lt;a href=\"#login\"&gt;Inicia sesión ou crea&lt;/a&gt; a túa conta de Wikipedia para mantener as túas listas de lectura sincronizadas.</string>
+  <string name="onboarding_reading_list_sync_title">Listas de lectura con sincronización</string>
+  <string name="onboarding_reading_list_sync_text">Crear listas de lectura a partir de artigos que quere ler máis tarde, incluso cando estas sen conexión. &lt;a href=\"#login\"&gt;Inicie sesión ou cree&lt;/a&gt; a súa conta de Wikipedia para conservar unha copia das súas listas de lectura.</string>
+  <string name="onboarding_reading_list_sync_text_v2">Pode crear listas de lectura dos artigos que quere ler máis tarde, incluso cando estea sen acceso a Internet. &lt;br/&gt;Conéctese á súa conta de Wikipedia para sincronizar as súas listas de lectura. &lt;a href=\"#login\"&gt;Acceder a Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Enviar os datos de maneira anónima</string>
   <string name="onboarding_analytics_offline_text">Permita que saibamos como utiliza a aplicación para axudar a mellorala. Os datos recompilados son anónimos. &lt;a href=\"#privacy\"&gt;Máis información&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Envíar datos de uso</string>

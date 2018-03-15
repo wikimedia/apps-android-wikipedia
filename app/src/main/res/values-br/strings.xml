@@ -16,6 +16,7 @@
   <string name="history_item_deleted">%s lamet eus ar roll-istor</string>
   <string name="history_items_deleted">%d pennad tennet eus ar roll-istor</string>
   <string name="history_item_delete_undo">Dizober</string>
+  <string name="app_settings">Arventennoù an arload</string>
   <string name="dialog_title_clear_history">Diverkañ istor ar merdeiñ ?</string>
   <string name="dialog_message_clear_history">An dra-se a zilamo istor ar merdeiñ hag a serro an holl ivinelloù zo digor bremañ. Ha suc\'h oc\'h ?</string>
   <string name="dialog_message_clear_history_yes">Ya</string>
@@ -41,6 +42,7 @@
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; Izili</string>
   <string name="last_updated_text">Hizivadenn ziwezhañ %1$s</string>
   <string name="talk_page_link_text">Kaozeal</string>
+  <string name="edit_history_link_text">Istor ar c\'hemmoù</string>
   <string name="map_view_link_text">Diskwel war ur gartenn</string>
   <string name="language_count_link_text">A c\'haller kaout e %d yezh all</string>
   <string name="content_license_html">An endalc\'had a c\'haller kaout e &lt;a  href=\"%1$s\"&gt; aotre-implijout CC BY-SA 3.0&lt;/a&gt; nemet e vefe merket ar c\'hontrol</string>
@@ -120,8 +122,15 @@
   <string name="send_feedback">Kasit hoc\'h evezhiadennoù diwar-benn an arload</string>
   <string name="create_account_account_created_toast">Kont krouet !</string>
   <string name="preferences_heading_storage_and_syncing">Stokañ ha sinkronelaat</string>
+  <string name="preferences_heading_syncing">Sinkronelaat</string>
+  <string name="preferences_heading_data_usage">Implij ar roadennoù</string>
+  <string name="preferences_heading_experimental">Arnodel</string>
   <string name="preference_title_sync_reading_lists">Sinkronelaat ar rolloù lenn</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Reiñ tro da Wikipedia da sinkronelaat ho rolloù lenn pa gevreit</string>
+  <string name="preference_title_sync_reading_lists_from_account">Gweredekaat sinkroneladur ar rolloù lenn</string>
+  <string name="preference_summary_sync_reading_lists">Sinkronelaat ar rolloù lenn etre ardivinkoù a bep seurt en ur enrollañ anezho en ho kont wikipedia</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Sinkronelaat ar rolloù lenn etre ardinvikoù a bep seurt en ur enrollañ anezho en ho kont Wikipedia « %s »</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Lemel ar rolloù lenn sinkronelaet diouzh ho kont « %s » ?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Gant an dra-se e vo lamet ar rolloù lenn sinkronelaet a-raok penn-da-benn diouzh ar pellskotañ. Lemel an holl rolloù sinkronelaet diouzh ho kont « %s » ?</string>
   <string name="preferences_privacy_settings_heading">Prevezded</string>
   <string name="preference_title_eventlogging_opt_in">Kas danevelloù implij</string>
   <string name="preference_summary_eventlogging_opt_in">Aotren Wikipedia da zastum titouroù diwar-benn an doare ma implijit an arload evit gwellaat anezhañ</string>
@@ -144,6 +153,7 @@
   <string name="about_wikipedia_url">https://fr.m.wikipedia.org/wiki/Wikipédia:Diwar_benn_Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">http://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">http://creativecommons.org/publicdomain/mark/1.0/</string>
@@ -282,6 +292,7 @@
   <string name="color_theme_dark">Teñval</string>
   <string name="color_theme_black">Du</string>
   <string name="color_theme_test_title">Testenn skouer</string>
+  <string name="preference_title_app_theme">Tem an arload</string>
   <string name="preference_summary_color_theme">Lezel a-gostez evit implijout tem teñval kenañ an arload</string>
   <string name="text_size_increase">Brasaat ment an destenn</string>
   <string name="text_size_decrease">Bihanaat ment an destenn</string>
@@ -340,14 +351,18 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Pennadoù o tont wel e meur a roll</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">Ne c\'haller ket mui kaout %s er mod digevreet en holl rolloù lenn :</string>
   <string name="reading_lists_sync_reminder_title">Gweredekaat sinkroneladur ar roll lenn ?</string>
+  <string name="reading_lists_sync_reminder_text">Ar pennadoù enrollet e rolloù lenn a c\'hall bremañ bezañ sinkronelaet gant ho kont Wikipedia &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Evit gouzout hiroc\'h&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Gweredekaat ar sinkroneladur</string>
   <string name="reading_list_login_reminder_title">Sinkronelaat ar rolloù lenn</string>
+  <string name="reading_lists_login_reminder_text">Ar rolloù lenn a c\'hall bremañ bezañ sinkronelaet etre ardivinkoù. Kevreit ouzh ho kont Wikipedia ha roit aotre da enrollañ ho rolloù.</string>
+  <string name="reading_lists_confirm_remote_delete">Gant an dra-se e vo lamet an holl rolloù lenn sinkronelaet a-raok diouzh ar pellstokañ. Kenderc\'hel ?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ya</string>
   <string name="reading_lists_confirm_remote_delete_no">Ket</string>
   <string name="reading_list_article_save_in_progress">Emañ ar pennad o pellgargañ ha gallout a reot kaout anezhañ pa vo echuet.</string>
   <string name="reading_list_already_contains_selection">Er roll emañ an holl bajennoù dibabet dija.</string>
   <string name="reading_list_added_articles_list_titled">%1$d pennad ouzhpennet da %2$s</string>
   <string name="reading_list_delete_confirm">Ha sur eo hoc\'h eus c\'hoant da zilemel %s ?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Kevreit evit gweredekaat ar sinkronelaat</string>
   <string name="default_reading_list_name">Enrollet</string>
   <string name="default_reading_list_description">Roll dre ziouer evit ho pennadoù enrollet</string>
   <string name="no_user_lists_title">Renkañ pennadoù er rolloù</string>

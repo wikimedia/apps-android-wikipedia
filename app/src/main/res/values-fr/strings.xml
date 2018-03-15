@@ -104,6 +104,7 @@
   <string name="create_account_generic_error">Impossible de créer le compte</string>
   <string name="create_account_next">Suivant</string>
   <string name="create_account_button">Créer un compte</string>
+  <string name="create_account_name_unavailable">Le nom d\'utilisateur \"%s\" n\'est pas disponible. Veuillez choisir un autre nom.</string>
   <string name="preferences_general_heading">Général</string>
   <string name="wikipedia_app_faq">FAQ des applis Wikipédia</string>
   <string name="zero_charged_verbiage">L’accès libre à Wikipédia Zéro n’est plus actif.</string>
@@ -462,6 +463,7 @@
   <string name="feed_item_type_featured_image">Image du jour en vedette de Wikimédia Communs</string>
   <string name="feed_item_type_main_page">Page d’accueil de Wikipédia avec le contenu vedette du jour</string>
   <string name="feed_item_type_randomizer">Générer des articles aléatoires à lire</string>
+  <string name="feed_empty_message">Il n\'y a rien dans votre flux Explore</string>
   <string name="feed_configure_onboarding_action">Personnaliser</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personnaliser votre fil d’exploration&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Vous pouvez maintenant choisir ce que vous voulez montrer sur votre fil, et aussi prioriser vos types de contenu favoris.</string>
   <string name="description_edit_text_hint">Description du titre</string>

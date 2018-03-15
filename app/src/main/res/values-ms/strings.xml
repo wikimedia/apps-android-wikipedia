@@ -104,6 +104,7 @@
   <string name="create_account_generic_error">Akaun tidak dapat dibuka</string>
   <string name="create_account_next">Seterusnya</string>
   <string name="create_account_button">Buka akaun</string>
+  <string name="create_account_name_unavailable">Nama pengguna \"%s\" tidak tersedia. Sila pilih nama lain.</string>
   <string name="preferences_general_heading">Umum</string>
   <string name="wikipedia_app_faq">Soalan Lazim Aplikasi Wikipedia</string>
   <string name="zero_charged_verbiage">Akses percuma ke Wikipedia tidak lagi aktif.</string>
@@ -462,6 +463,7 @@
   <string name="feed_item_type_featured_image">Imej pilihan harian dari Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Halaman utama Wikipedia dengan kandungan pilihan harian</string>
   <string name="feed_item_type_randomizer">Menjana rencana rawak untuk dibaca</string>
+  <string name="feed_empty_message">Tiada apa-apa pada suapan Jelajah anda</string>
   <string name="feed_configure_onboarding_action">Ubah suai</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Ubahsuai suapan Jelajah anda&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Anda kini boleh memilih apa yang akan dipaparkan pada suapan anda, dan juga mengutamakan jenis kandungan kegemaran anda.</string>
   <string name="description_edit_text_hint">Huraian tajuk</string>

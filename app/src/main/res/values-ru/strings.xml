@@ -104,6 +104,7 @@
   <string name="create_account_generic_error">Невозможно создать учётную запись</string>
   <string name="create_account_next">Далее</string>
   <string name="create_account_button">Создать учётную запись</string>
+  <string name="create_account_name_unavailable">Имя пользователя \"%s\" недоступно. Пожалуйста, укажите иное имя.</string>
   <string name="preferences_general_heading">Общие</string>
   <string name="wikipedia_app_faq">Частые вопросы по приложению Википедии</string>
   <string name="zero_charged_verbiage">Свободный доступ к Википедии больше не является активным.</string>
@@ -462,6 +463,7 @@
   <string name="feed_item_type_featured_image">Избранное изображение дня с Викисклада</string>
   <string name="feed_item_type_main_page">Заглавная страница Википедии с ежедневно обновляемыми избранными материалами</string>
   <string name="feed_item_type_randomizer">Сгенерировать случайный список статей для чтения</string>
+  <string name="feed_empty_message">Ваша лента исследований пуста</string>
   <string name="feed_configure_onboarding_action">Настроить</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Настройте свою ленту исследований&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Теперь вы можете выбрать, что будет отображаться в ленте, а также определить приоритеты для выбранных типов контента.</string>
   <string name="description_edit_text_hint">Описание</string>

@@ -103,6 +103,7 @@
   <string name="create_account_generic_error">Kunne ikke opprette konto</string>
   <string name="create_account_next">Neste</string>
   <string name="create_account_button">Opprett konto</string>
+  <string name="create_account_name_unavailable">Brukernavnet »%s« er ikke tilgjengelig. Vennligst velg et annet navn.</string>
   <string name="preferences_general_heading">Generelt</string>
   <string name="wikipedia_app_faq">Ofte stilte spørsmål om Wikipedia-appen</string>
   <string name="zero_charged_verbiage">Gratis tilgang til Wikipedia er ikke lenger aktiv.</string>

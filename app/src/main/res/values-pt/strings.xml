@@ -104,6 +104,7 @@
   <string name="create_account_generic_error">Não foi possível criar conta</string>
   <string name="create_account_next">Seguinte</string>
   <string name="create_account_button">Criar conta</string>
+  <string name="create_account_name_unavailable">O nome de utilizador \"%s\" não está disponível. Escolha um nome diferente, por favor.</string>
   <string name="preferences_general_heading">Geral</string>
   <string name="wikipedia_app_faq">Perguntas frequentes sobre a aplicação Wikipédia</string>
   <string name="zero_charged_verbiage">O acesso gratuito à Wikipédia já não está ativo.</string>

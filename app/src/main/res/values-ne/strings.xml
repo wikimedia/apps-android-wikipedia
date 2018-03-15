@@ -16,6 +16,7 @@
   <string name="history_item_deleted">%s लाई इतिहासबाट हटाइयो</string>
   <string name="history_items_deleted">%d वटा लेखहरूलाई इतिहासबाट हटाइयो</string>
   <string name="history_item_delete_undo">अन्डू गर्नुहोस्</string>
+  <string name="app_settings">एप सेटिङहरू</string>
   <string name="dialog_title_clear_history">ब्राउजिङ् इतिहास खाली गर्नुहोस्</string>
   <string name="dialog_message_clear_history">यसले तपाईँको सबै हेरेको इतिहास मेटाउने छ,हाल खुल्ला सबै ट्याबहरू बन्द हुनेछन्। निश्चित हुनुहुन्छ ?</string>
   <string name="dialog_message_clear_history_yes">हो</string>
@@ -116,6 +117,7 @@
   <string name="send_feedback">अनुप्रयोगबारे प्रतिक्रिया पठाउनुहोस्</string>
   <string name="create_account_account_created_toast">खाता सिर्जना गरियो!</string>
   <string name="preferences_heading_storage_and_syncing">भण्डारण र समक्रमण</string>
+  <string name="preferences_heading_syncing">सिङ्कगर्दै</string>
   <string name="preference_title_sync_reading_lists">अध्ययन सूची समक्रमण गर्दै</string>
   <string name="preferences_privacy_settings_heading">गोपनीयता</string>
   <string name="preference_title_eventlogging_opt_in">उपयोगसम्बन्धी प्रतिवेदनहरू पठाउनुहोस्</string>
@@ -164,6 +166,8 @@
   <string name="edit_summary_tag_other_hint">तपाईँले पृष्ठमा सुधार गर्नुभएका अन्य तरिकाहरू</string>
   <string name="find_next">अर्को खोज्नुहोस्</string>
   <string name="find_previous">पछिल्लो खोज्नुहोस्</string>
+  <string name="find_first_occurence">यो पहिलो घटना हो</string>
+  <string name="find_last_occurence">यो अन्तिम घटना हो</string>
   <string name="abusefilter_title_warn">यो रचनात्मक सम्पादन नहुन सक्छ। तपाईँ प्रकाशन गर्न निश्चित हुनुहुन्छ?</string>
   <string name="abusefilter_title_disallow">यस सम्पादनलाई प्रकाशन गर्न सक्नुहुन्न। कृपया पछाडि जानुहोस् र यसलाई परिवर्तन गर्नुहोस्।</string>
   <string name="dialog_page_issues">पृष्ठका समस्याहरू</string>
@@ -230,6 +234,7 @@
   <string name="error_voice_search_not_available">माफ गर्नुहोस्, आवाज पहिचान उपलब्ध छैन।</string>
   <string name="location_service_disabled">स्थान सेवाहरू असक्षम पारिएको छ।</string>
   <string name="enable_location_service">सक्षम पार्नुहोस्</string>
+  <string name="location_permissions_enable_action">खोल्नुहोस्</string>
   <string name="view_link_preview_error_button_dismiss">खारेज गर्नुहोस्</string>
   <string name="error_page_does_not_exist">यो पृष्ठ अवस्थित छैन</string>
   <string name="view_wiki_error_message_offline">इन्टरनेटमा जडान हुन सकेन</string>
@@ -283,6 +288,7 @@
   <string name="reading_lists_onboarding_example2">मनपर्ने जनावरहरू</string>
   <string name="reading_lists_onboarding_example3">अन्तरिक्षको अन्वेषण</string>
   <string name="reading_lists_onboarding_got_it">मैले बुझेँ</string>
+  <string name="reading_list_no_description">कुनै वर्णन छैन…</string>
   <string name="reading_list_add_to_other_list">अर्को अध्ययन सूचीमा थप गर्नुहोस्</string>
   <string name="reading_list_remove_from_list">%s बाट हटाउनुहोस्</string>
   <string name="reading_list_remove_from_lists">अध्ययन सूचीहरूबाट हटाउनुहोस्</string>
@@ -290,9 +296,16 @@
   <string name="reading_lists_confirm_remote_delete_yes">हो</string>
   <string name="reading_lists_confirm_remote_delete_no">होइन</string>
   <string name="reading_list_delete_confirm" fuzzy="true">के तपाईं साँच्चिकै यो अध्ययन सूचीलाई मेट्न चाहनुहुन्छ %s?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">रद्द गर्नुहोस्</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">प्रवेश (लग इन) गर्नुहोस्</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">हुन्छ</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">सेटिङ्हरू</string>
+  <string name="default_reading_list_name">सङ्ग्रह गरिएको</string>
   <string name="user_option_sync_label">प्राथमिकताहरू</string>
   <string name="notification_button_view_user">प्रयोगकर्तासँग कुरा गर्नुहोस्</string>
   <string name="notification_talk_title">विकिपिडियामा नयाँ सन्देश आएको छ</string>
+  <string name="notification_syncing_pause_button">रोक्नुहोस्</string>
+  <string name="notification_syncing_resume_button">पुनः निरन्तरता दिनुहोस्</string>
   <string name="notification_syncing_cancel_button">रद्द गर्नुहोस्</string>
   <string name="view_continue_reading_card_title">पढ्ने कार्य जारी राख्नुहोस्</string>
   <string name="view_because_you_read_card_title">तपाईंले यो लेख पढ्नुभएको हुनाले</string>
@@ -320,6 +333,8 @@
   <string name="view_featured_article_card_title">विशेष लेख</string>
   <string name="view_featured_article_footer_save_button_label">संग्रह गर्नुहोस्</string>
   <string name="view_featured_article_footer_saved_button_label">सुरक्षित गरिएको</string>
+  <string name="feed_configure_menu_select_all">सबै चयन गर्नुहोस्</string>
+  <string name="feed_configure_menu_deselect_all">कुनै पनि नछान्ने</string>
   <string name="description_edit_text_hint">शीर्षकको विवरण</string>
   <string name="description_edit_save">प्रकाशन गर्नुहोस्</string>
   <string name="description_edit_add_description">शीर्षकको विवरण थप्नुहोस्</string>
@@ -328,6 +343,9 @@
   <string name="description_edit_help_about_wikidata">विकिडेटाको बारेमा</string>
   <string name="description_edit_success_saved">विवरण प्रकाशित भयो!</string>
   <string name="description_edit_success_done">सम्पन्न भयो</string>
+  <string name="description_edit_success_did_you_know">के तपाईँलाई थाह छ?</string>
+  <string name="description_edit_tutorial_keep_it_short">यसलाई छोटो राख्नुहोस्</string>
+  <string name="description_edit_tutorial_button_label_start_editing">सम्पादन सुरु गर्नुहोस्</string>
   <string name="description_edit_help_about_title">बारेमा</string>
   <string name="description_edit_help_tips_example2">पृथ्वीको सबैभन्दा अग्लो हिमाल</string>
   <string name="description_edit_help_more_info">थप जानकारी</string>
@@ -342,11 +360,15 @@
   <string name="offline_library_title">अफलाइन पुस्तकालय</string>
   <string name="offline_library_onboarding_button_done">भयो</string>
   <string name="onboarding_skip">छोड्नुहोस्</string>
+  <string name="onboarding_continue">निरन्तरता दिनुहोस्</string>
   <string name="onboarding_get_started">सुरु गर्नुहोस्</string>
+  <string name="onboarding_welcome_title">स्वतन्त्र र खुल्ला  ज्ञानकोष</string>
   <string name="onboarding_explore_title">अन्वेषण गर्ने नयाँ तरिका</string>
   <string name="onboarding_explore_text" fuzzy="true">अन्वेषण नामक फिडमा विशेष लेख, प्रचलनमा रहेका शीर्षक र अध्ययनसम्बन्धी सुझावहरू फेला पार्नुहोस्।</string>
   <string name="onboarding_got_it">मैले बुझेँ</string>
   <string name="app_shortcuts_continue_reading">पढ्ने कार्य जारी राख्नुहोस्</string>
   <string name="app_shortcuts_search">खोज्नुहोस्</string>
   <string name="on_this_day_card_title">आजको दिनमा</string>
+  <string name="this_year">यस वर्ष</string>
+  <string name="back_to_top">सुरुमा फर्कनुहोस्</string>
 </resources>

@@ -99,6 +99,7 @@
   <string name="create_account_generic_error">Nepodařilo se vytvořit uživatelský účet</string>
   <string name="create_account_next">Další</string>
   <string name="create_account_button">Vytvořit účet</string>
+  <string name="create_account_name_unavailable">Uživatelské jméno \"%s\" není k dispozici. Zvolte si prosím jiné.</string>
   <string name="preferences_general_heading">Obecné</string>
   <string name="wikipedia_app_faq">FAQ aplikace Wikipedie</string>
   <string name="zero_charged_verbiage">Přístup k Wikipedii zdarma již není aktivní.</string>
@@ -372,6 +373,7 @@
   <string name="view_announcement_card_negative_action">Ne, děkuji</string>
   <string name="view_featured_article_card_title">Nejlepší článek</string>
   <string name="view_featured_article_footer_save_button_label">Uložit</string>
+  <string name="feed_empty_message">Nic není na vašem Explore feed</string>
   <string name="description_edit_text_hint">Popis titulku</string>
   <string name="description_edit_save">Zveřejnit</string>
   <string name="description_edit_add_description">Přidat popis titulku</string>

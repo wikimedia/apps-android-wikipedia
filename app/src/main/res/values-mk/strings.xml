@@ -104,6 +104,7 @@
   <string name="create_account_generic_error">Не можам да направам корисничка сметка</string>
   <string name="create_account_next">Следно</string>
   <string name="create_account_button">Направи сметка</string>
+  <string name="create_account_name_unavailable">Корисничкото име „%s“ е недостапно. Изберете друго.</string>
   <string name="preferences_general_heading">Општи</string>
   <string name="wikipedia_app_faq">ЧПП за прилогот „Википедија“</string>
   <string name="zero_charged_verbiage">Бесплатниот пристап до Википедија повеќе не е активен.</string>
@@ -462,6 +463,7 @@
   <string name="feed_item_type_featured_image">Слика на денот од Ризницата</string>
   <string name="feed_item_type_main_page">Главна страница на Википедија со содржини на денот</string>
   <string name="feed_item_type_randomizer">Дава случајни статии за читање</string>
+  <string name="feed_empty_message">Нема ништо во тековникот „Истражи“</string>
   <string name="feed_configure_onboarding_action">Прилагоди</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Прилагодете си го тековникот „Истражи“&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Можете да изберете што да се прикажува во тековникот и да им дадете предност на вашите омилени видови содржини.</string>
   <string name="description_edit_text_hint">Опис на насловот</string>

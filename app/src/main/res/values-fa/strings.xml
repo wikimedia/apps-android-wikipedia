@@ -104,6 +104,7 @@
   <string name="create_account_generic_error">امکان ساختن حساب کاربری وجود ندارد</string>
   <string name="create_account_next">بعدی</string>
   <string name="create_account_button">ایجاد حساب کاربری</string>
+  <string name="create_account_name_unavailable">نام کاربری 《%s》 موجود نیست. لطفا نام دیگری را انتخاب کنید.</string>
   <string name="preferences_general_heading">عمومی</string>
   <string name="wikipedia_app_faq">پاسخ پرسش‌های رایج ویکی‌پدیا</string>
   <string name="zero_charged_verbiage">دسترسی مجانی به ویکی‌پدیا دیگر فعال نیست.</string>
@@ -462,6 +463,7 @@
   <string name="feed_item_type_featured_image">تصویر روز ویکی‌انبار</string>
   <string name="feed_item_type_main_page">صفحهٔ اصلی ویکی‌پدیا با متن مقالهٔ روز</string>
   <string name="feed_item_type_randomizer">مقالهٔ تصادفی برای خواندن</string>
+  <string name="feed_empty_message">در خوراک جستجویتان چیزی وجود ندارد.</string>
   <string name="feed_configure_onboarding_action">سفارشی‌کردن</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;شخصی‌سازی فید جستجویتان&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; الان امکان انتخاب مواردی که در فیدتان نشان‌داده شود را دارید و همچنین اولویت‌بندی کردن نوع محتوی را می‌توانید انجام دهید.</string>
   <string name="description_edit_text_hint">توضیحات عنوان</string>

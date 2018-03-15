@@ -104,6 +104,7 @@
   <string name="create_account_generic_error">Hesap oluşturulamadı</string>
   <string name="create_account_next">İleri</string>
   <string name="create_account_button">Hesap oluştur</string>
+  <string name="create_account_name_unavailable">\"%s\" kullanıcı adı mevcut değil. Lütfen farklı bir kullanıcı adı seçin.</string>
   <string name="preferences_general_heading">Genel</string>
   <string name="wikipedia_app_faq">Vikipedi Uygulaması SSS</string>
   <string name="zero_charged_verbiage">Vikipedi\'ye ücretsiz erişim artık etkin değil.</string>
@@ -122,11 +123,14 @@
   <string name="send_feedback">Uygulama geri bildirimi gönder</string>
   <string name="create_account_account_created_toast">Hesap oluşturuldu!</string>
   <string name="preferences_heading_storage_and_syncing">Depolama ve senkronizasyon</string>
+  <string name="preferences_heading_syncing">Senkronize ediliyor</string>
+  <string name="preferences_heading_data_usage">Veri kullanımı</string>
+  <string name="preferences_heading_experimental">Deneysel</string>
   <string name="preference_title_sync_reading_lists">Okuma listelerini senkronize et</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Bu hesap için okuma listelerini senkronize et</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Oturum açtığınızda okuma listelerinizin senkronize edilmesi için Wikimedia\'ya izin verin</string>
-  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">%s Wikimedia\'nın, okuma listelerini hesabınıza senkronize etmesine izin verin.</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">%s Senkronize edilmiş okuma listelerini hesabınızdan kaldırın?</string>
+  <string name="preference_title_sync_reading_lists_from_account">Okuma listesi senkronizasyonunu etkinleştir</string>
+  <string name="preference_summary_sync_reading_lists">Farklı cihazlarda okuma listelerini, Vikipedi hesabınıza kaydederek senkronize edin</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Okuma listelerini \"%s\" adlı Vikipedi hesabınıza kaydederek farklı cihazlarda senkronize edin</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Senkronize edilen okuma listeleri \"%s\" hesabından kaldırılsın mı?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">%s Senkronize woken tüm okuma listelerini listeden kaldırmak istediğinize emin misiniz?</string>
   <string name="preferences_privacy_settings_heading">Gizlilik</string>
   <string name="preference_title_eventlogging_opt_in">Kullanım raporlarını gönder</string>
