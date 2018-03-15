@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 // https://meta.wikimedia.org/wiki/Schema:MobileWikiAppDailyStats
 public class DailyStatsFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppDailyStats";
-    private static final int SCHEMA_REVISION = 12637385;
+    private static final int SCHEMA_REVISION = 17836915;
 
     public DailyStatsFunnel(WikipediaApp app) {
         super(app, SCHEMA_NAME, SCHEMA_REVISION, Funnel.SAMPLE_LOG_100);

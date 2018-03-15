@@ -9,7 +9,7 @@ import org.wikipedia.util.ReleaseUtil;
 
 public class PageScrollFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppPageScroll";
-    private static final int REV_ID = 14591606;
+    private static final int REV_ID = 17836977;
 
     private final int pageId;
     private int viewportHeight;

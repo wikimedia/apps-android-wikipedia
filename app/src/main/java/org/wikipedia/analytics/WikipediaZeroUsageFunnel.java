@@ -100,6 +100,4 @@ public class WikipediaZeroUsageFunnel extends TimedFunnel {
     }
 
     @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) { }
-
-    @Override protected void preprocessAppInstallID(@NonNull JSONObject eventData) { }
 }

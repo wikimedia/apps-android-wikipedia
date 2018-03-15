@@ -9,7 +9,7 @@ import org.wikipedia.util.ReleaseUtil;
 
 public class LinkPreviewFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppLinkPreview";
-    private static final int REV_ID = 15730939;
+    private static final int REV_ID = 17836926;
     private static final int PROD_LINK_PREVIEW_VERSION = 3;
     private final int source;
 
@@ -23,12 +23,6 @@ public class LinkPreviewFunnel extends TimedFunnel {
         preprocessData(eventData, "version", PROD_LINK_PREVIEW_VERSION);
         preprocessData(eventData, "source", source);
         return super.preprocessData(eventData);
-    }
-
-    @NonNull
-    @Override
-    protected String getSessionTokenField() {
-        return "previewSessionToken";
     }
 
     public void logLinkClick() {

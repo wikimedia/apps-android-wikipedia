@@ -10,7 +10,7 @@ import java.util.List;
 
 public class OfflineLibraryFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppOfflineLibrary";
-    private static final int REV_ID = 17649221;
+    private static final int REV_ID = 17836955;
 
     private final int source;
     private int shareCount;
