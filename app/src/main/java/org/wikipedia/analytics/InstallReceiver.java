@@ -46,8 +46,18 @@ public final class InstallReceiver extends BroadcastReceiver {
      * the app contained a "referrer" query parameter, then the contents of this parameter
      * will be passed to this receiver.
      *
-     * For a breakdown of the structure of the referrer string, please refer to this task:
-     * https://phabricator.wikimedia.org/T103460
+     * The structure for the "referrer" parameter shall be as follows:
+     *
+     *      referrer_url=foo&utm_medium=bar&utm_campaign=baz&utm_source=baz
+     *
+     * referrer_url: the original url from which the link was clicked.
+     * utm_medium: the "medium" from which this install came, e.g. "sitenotice"
+     * utm_campaign: name of the campaign from which this install came, e.g. "fundraising2017"
+     * utm_source: name of the specific source in the campaign from which this install came, e.g. "popup1"
+     *
+     * The string containing all of the above parameters is then Urlencoded and passed as the
+     * "referrer" parameter in the real URL that leads to the Play Store, which then gets passed
+     * down to the app when it's installed.
      *
      * @param ctx Context in which this intent is received.
      * @param intent Intent that contains referrer data from the Play Store.
@@ -60,25 +70,27 @@ public final class InstallReceiver extends BroadcastReceiver {
         }
 
         String refUrl = null;
-        String refCampaignId = null;
-        String refCampaignInstallId = null;
+        String refUtmMedium = null;
+        String refUtmCampaign = null;
+        String refUtmSource = null;
         String refChannel = null;
         try {
             // build a proper dummy URI with the referrer appended to it, so that we can parse it.
             Uri uri = Uri.parse("/?" + referrerStr);
             refUrl = uri.getQueryParameter(InstallReferrerFunnel.PARAM_REFERRER_URL);
-            refCampaignId = uri.getQueryParameter(InstallReferrerFunnel.PARAM_CAMPAIGN_ID);
-            refCampaignInstallId = uri.getQueryParameter(InstallReferrerFunnel.PARAM_CAMPAIGN_INSTALL_ID);
+            refUtmMedium = uri.getQueryParameter(InstallReferrerFunnel.PARAM_UTM_MEDIUM);
+            refUtmCampaign = uri.getQueryParameter(InstallReferrerFunnel.PARAM_UTM_CAMPAIGN);
+            refUtmSource = uri.getQueryParameter(InstallReferrerFunnel.PARAM_UTM_SOURCE);
             refChannel = uri.getQueryParameter(InstallReferrerFunnel.PARAM_CHANNEL);
         } catch (UnsupportedOperationException e) {
             // Can be thrown by getQueryParameter() if the referrer is malformed.
             // Don't worry about it.
         }
         // log the event only if at least one of the parameters is nonempty
-        if (!TextUtils.isEmpty(refUrl) || !TextUtils.isEmpty(refCampaignId)
-                || !TextUtils.isEmpty(refCampaignInstallId)) {
+        if (!TextUtils.isEmpty(refUrl) || !TextUtils.isEmpty(refUtmMedium)
+                || !TextUtils.isEmpty(refUtmCampaign) || !TextUtils.isEmpty(refUtmSource)) {
             InstallReferrerFunnel funnel = new InstallReferrerFunnel(WikipediaApp.getInstance());
-            funnel.logInstall(refUrl, refCampaignId, refCampaignInstallId);
+            funnel.logInstall(refUrl, refUtmMedium, refUtmCampaign, refUtmSource);
         }
         if (!TextUtils.isEmpty(refUrl) && ShareUtil.canOpenUrlInApp(ctx, refUrl)) {
             openPageFromUrl(ctx, refUrl);
