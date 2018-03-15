@@ -131,7 +131,7 @@ class ToCHandler {
         headerView.setOnClickListener((v) -> {
             scrollToSection(page.getSections().get(0));
             wasClicked = true;
-            funnel.logClick(0, page.getTitle().getDisplayText());
+            funnel.logClick(0, headerView.getText().toString());
             hide();
         });
 
@@ -141,7 +141,7 @@ class ToCHandler {
             Section section = (Section) parent.getAdapter().getItem(position);
             scrollToSection(section);
             wasClicked = true;
-            funnel.logClick(position, section.getHeading());
+            funnel.logClick(position, StringUtil.fromHtml(section.getHeading()).toString());
             hide();
         });
 
