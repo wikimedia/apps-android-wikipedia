@@ -586,6 +586,9 @@
   <string name="events_count_text">Label indicating the number of events that occurred in a certain range of years. The \"%1$s\" symbol is replaced with the number of events, \"%2$s\" is the beginning year, and \"%3$d\" is the ending year</string>
   <string name="this_year">Text to say, \'This year\'</string>
   <string name="back_to_top">Button label for scrolling the content to the top.</string>
+  <string name="reading_lists_menu_create_list">Menu option offering user an option to create a new reading list.</string>
+  <string name="reading_lists_menu_sort_by">Heading for a list of suggested sort options. </string>
+  <string name="reading_list_sort_ellipsis">Menu option suggesting that the user can sort the reading listsin many ways.</string>
   <plurals name="diff_years">
     <item quantity="one">Text indicating that the event occured one year ago.</item>
     <item quantity="other">Text indicating that the event occured two or more years ago.\"%d\" is the number of years.</item>

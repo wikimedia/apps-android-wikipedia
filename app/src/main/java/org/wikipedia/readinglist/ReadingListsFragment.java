@@ -35,6 +35,7 @@ import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.onboarding.OnboardingView;
+import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
@@ -58,7 +59,7 @@ import butterknife.Unbinder;
 
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
-public class ReadingListsFragment extends Fragment {
+public class ReadingListsFragment extends Fragment implements SortReadingListsDialog.Callback {
     private Unbinder unbinder;
     @BindView(R.id.reading_list_content_container) ViewGroup contentContainer;
     @BindView(R.id.reading_list_list) RecyclerView readingListView;
@@ -149,24 +150,30 @@ public class ReadingListsFragment extends Fragment {
         inflater.inflate(R.menu.menu_reading_lists, menu);
     }
 
-    @Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        super.onPrepareOptionsMenu(menu);
-        MenuItem sortByNameItem = menu.findItem(R.id.menu_sort_by_name);
-        MenuItem sortByRecentItem = menu.findItem(R.id.menu_sort_by_recent);
-        int sortMode = Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC);
-        sortByNameItem.setTitle(sortMode == ReadingList.SORT_BY_NAME_ASC ? R.string.reading_list_sort_by_name_desc : R.string.reading_list_sort_by_name);
-        sortByRecentItem.setTitle(sortMode == ReadingList.SORT_BY_RECENT_DESC ? R.string.reading_list_sort_by_created_desc : R.string.reading_list_sort_by_created);
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_sort_by_name:
-                setSortMode(ReadingList.SORT_BY_NAME_ASC, ReadingList.SORT_BY_NAME_DESC);
+            case R.id.menu_sort:
+                //open bottom sheet
+                ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
+                bottomSheetPresenter.show(getChildFragmentManager(),
+                        SortReadingListsDialog.newInstance(Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC)));
                 return true;
-            case R.id.menu_sort_by_recent:
-                setSortMode(ReadingList.SORT_BY_RECENT_DESC, ReadingList.SORT_BY_RECENT_ASC);
+            case R.id.create_list:
+                String title = getString(R.string.reading_list_name_sample);
+                List<String> existingTitles = new ArrayList<>();
+                for (ReadingList tempList : readingLists) {
+                    existingTitles.add(tempList.title());
+                }
+                ReadingListTitleDialog.readingListTitleDialog(getContext(), title,
+                        existingTitles, text -> {
+                            ReadingList list = ReadingListDbHelper.instance().createList(text.toString(), "");
+                            readingLists.add(list);
+                            readingListView.getAdapter().notifyDataSetChanged();
+                            updateEmptyState(null);
+                            readingListView.smoothScrollToPosition(readingLists.size() - 1);
+                        }).show();
                 return true;
             case R.id.menu_search_lists:
                 ((AppCompatActivity) getActivity())
@@ -174,6 +181,28 @@ public class ReadingListsFragment extends Fragment {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void sortListsBy(int option) {
+        switch (option) {
+            case ReadingList.SORT_BY_NAME_DESC:
+                Prefs.setReadingListSortMode(ReadingList.SORT_BY_NAME_DESC);
+                sortLists();
+                break;
+            case ReadingList.SORT_BY_RECENT_ASC:
+                Prefs.setReadingListSortMode(ReadingList.SORT_BY_RECENT_ASC);
+                sortLists();
+                break;
+            case ReadingList.SORT_BY_RECENT_DESC:
+                Prefs.setReadingListSortMode(ReadingList.SORT_BY_RECENT_DESC);
+                sortLists();
+                break;
+            case ReadingList.SORT_BY_NAME_ASC:
+            default:
+                Prefs.setReadingListSortMode(ReadingList.SORT_BY_NAME_ASC);
+                sortLists();
+                break;
         }
     }
 
@@ -261,6 +290,11 @@ public class ReadingListsFragment extends Fragment {
             emptyMessage.setText(getString(R.string.reading_lists_empty_message));
             emptyImage.setImageDrawable(ContextCompat.getDrawable(emptyImage.getContext(), R.drawable.no_lists));
         }
+    }
+
+    @Override
+    public void onSortOptionClick(int position) {
+        sortListsBy(position);
     }
 
     private class ReadingListItemHolder extends RecyclerView.ViewHolder {
@@ -439,18 +473,6 @@ public class ReadingListsFragment extends Fragment {
             updateLists();
         });
         snackbar.show();
-    }
-
-    private void setSortMode(int sortModeAsc, int sortModeDesc) {
-        int sortMode = Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC);
-        if (sortMode != sortModeAsc) {
-            sortMode = sortModeAsc;
-        } else {
-            sortMode = sortModeDesc;
-        }
-        Prefs.setReadingListSortMode(sortMode);
-        sortLists();
-        getActivity().invalidateOptionsMenu();
     }
 
     private void sortLists() {

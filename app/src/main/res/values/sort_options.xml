@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sort_options">
+        <item>@string/reading_list_sort_by_name</item>
+        <item>@string/reading_list_sort_by_name_desc</item>
+        <item>@string/reading_list_sort_by_created</item>
+        <item>@string/reading_list_sort_by_created_desc</item>
+    </string-array>
+</resources>

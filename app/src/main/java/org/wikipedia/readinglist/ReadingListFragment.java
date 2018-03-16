@@ -171,7 +171,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_reading_lists, menu);
+        inflater.inflate(R.menu.menu_reading_list, menu);
         if (showOverflowMenu) {
             inflater.inflate(R.menu.menu_reading_list_item, menu);
         }

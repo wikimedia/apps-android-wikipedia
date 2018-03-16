@@ -341,6 +341,7 @@
     <string name="format_reading_list_statistical_detail_singular">%1$d of 1 articles available offline, %2$.2f MB</string>
     <string name="format_reading_list_statistical_detail_plural">%1$d of %2$d articles available offline, %3$.2f MB</string>
     <string name="reading_list_sort">Sort</string>
+    <string name="reading_list_sort_ellipsis">Sort by…</string>
     <string name="reading_list_sort_by_name">Sort by name</string>
     <string name="reading_list_sort_by_name_desc">Sort by name (reverse)</string>
     <string name="reading_list_sort_by_recent">Sort by date added (newest)</string>
@@ -422,6 +423,8 @@
     <string name="reading_list_article_limit_message">Can\'t add to this list. You\'ve reached the limit of %2$d articles per list for \"%1$s\".</string>
     <string name="reading_lists_limit_message">Can\'t create another list. You\'ve reached the limit of 100 reading lists per account.</string>
     <string name="feed_reading_lists_sync_onboarding_text"><![CDATA[<strong>Sync reading lists</strong><br /><br />Reading lists can now be synced across devices. Log in to your Wikipedia account and allow your lists to be saved.]]></string>
+    <string name="reading_lists_menu_create_list">Create new list</string>
+    <string name="reading_lists_menu_sort_by">Sort by</string>
     <plurals name="reading_list_article_offline_message">
         <item quantity="one">This article will now be available offline.</item>
         <item quantity="other">These articles will now be available offline.</item>
