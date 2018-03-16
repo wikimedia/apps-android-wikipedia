@@ -80,6 +80,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
     private ReadingListItemCallback listItemCallback = new ReadingListItemCallback();
     private ReadingListsSearchCallback searchActionModeCallback = new ReadingListsSearchCallback();
     @Nullable private ActionMode actionMode;
+    private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
     @NonNull public static ReadingListsFragment newInstance() {
         return new ReadingListsFragment();
@@ -155,8 +156,6 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_sort:
-                //open bottom sheet
-                ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
                 bottomSheetPresenter.show(getChildFragmentManager(),
                         SortReadingListsDialog.newInstance(Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC)));
                 return true;
@@ -168,11 +167,8 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
                 }
                 ReadingListTitleDialog.readingListTitleDialog(getContext(), title,
                         existingTitles, text -> {
-                            ReadingList list = ReadingListDbHelper.instance().createList(text.toString(), "");
-                            readingLists.add(list);
-                            readingListView.getAdapter().notifyDataSetChanged();
-                            updateEmptyState(null);
-                            readingListView.smoothScrollToPosition(readingLists.size() - 1);
+                            ReadingListDbHelper.instance().createList(text.toString(), "");
+                            updateLists();
                         }).show();
                 return true;
             case R.id.menu_search_lists:
@@ -188,22 +184,19 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         switch (option) {
             case ReadingList.SORT_BY_NAME_DESC:
                 Prefs.setReadingListSortMode(ReadingList.SORT_BY_NAME_DESC);
-                sortLists();
                 break;
             case ReadingList.SORT_BY_RECENT_ASC:
                 Prefs.setReadingListSortMode(ReadingList.SORT_BY_RECENT_ASC);
-                sortLists();
                 break;
             case ReadingList.SORT_BY_RECENT_DESC:
                 Prefs.setReadingListSortMode(ReadingList.SORT_BY_RECENT_DESC);
-                sortLists();
                 break;
             case ReadingList.SORT_BY_NAME_ASC:
             default:
                 Prefs.setReadingListSortMode(ReadingList.SORT_BY_NAME_ASC);
-                sortLists();
                 break;
         }
+        sortLists();
     }
 
     @Override
