@@ -99,14 +99,14 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_reading_lists, container, false);
         unbinder = ButterKnife.bind(this, view);
 
         searchEmptyView.setEmptyText(R.string.search_reading_lists_no_results);
         readingListView.setLayoutManager(new LinearLayoutManager(getContext()));
         readingListView.setAdapter(adapter);
-        readingListView.addItemDecoration(new DrawableItemDecoration(getContext(), R.attr.list_separator_drawable));
+        readingListView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable));
 
         WikipediaApp.getInstance().getBus().register(eventBusMethods);
 
@@ -114,7 +114,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         emptyContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
         ((ViewGroup)emptyContainer.getChildAt(0)).getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
 
-        swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(getContext(), R.attr.colorAccent));
+        swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent));
         swipeRefreshLayout.setOnRefreshListener(() -> {
             Prefs.setReadingListSyncEnabled(true);
             ReadingListSyncAdapter.manualSyncWithRefresh();
@@ -165,14 +165,14 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
                 for (ReadingList tempList : readingLists) {
                     existingTitles.add(tempList.title());
                 }
-                ReadingListTitleDialog.readingListTitleDialog(getContext(), title,
+                ReadingListTitleDialog.readingListTitleDialog(requireContext(), title,
                         existingTitles, text -> {
                             ReadingListDbHelper.instance().createList(text.toString(), "");
                             updateLists();
                         }).show();
                 return true;
             case R.id.menu_search_lists:
-                ((AppCompatActivity) getActivity())
+                ((AppCompatActivity) requireActivity())
                         .startSupportActionMode(searchActionModeCallback);
                 return true;
             default:
@@ -314,22 +314,22 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         }
 
         @Override
-        public ReadingListItemHolder onCreateViewHolder(ViewGroup parent, int pos) {
+        public ReadingListItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int pos) {
             ReadingListItemView view = new ReadingListItemView(getContext());
             return new ReadingListItemHolder(view);
         }
 
         @Override
-        public void onBindViewHolder(ReadingListItemHolder holder, int pos) {
+        public void onBindViewHolder(@NonNull ReadingListItemHolder holder, int pos) {
             holder.bindItem(readingLists.get(pos));
         }
 
-        @Override public void onViewAttachedToWindow(ReadingListItemHolder holder) {
+        @Override public void onViewAttachedToWindow(@NonNull ReadingListItemHolder holder) {
             super.onViewAttachedToWindow(holder);
             holder.getView().setCallback(listItemCallback);
         }
 
-        @Override public void onViewDetachedFromWindow(ReadingListItemHolder holder) {
+        @Override public void onViewDetachedFromWindow(@NonNull ReadingListItemHolder holder) {
             holder.getView().setCallback(null);
             super.onViewDetachedFromWindow(holder);
         }
@@ -341,7 +341,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
             if (actionMode != null) {
                 actionMode.finish();
             }
-            startActivity(ReadingListActivity.newIntent(getContext(), readingList));
+            startActivity(ReadingListActivity.newIntent(requireContext(), readingList));
         }
 
         @Override
@@ -355,7 +355,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
                 existingTitles.add(list.title());
             }
             existingTitles.remove(readingList.title());
-            ReadingListTitleDialog.readingListTitleDialog(getContext(), readingList.title(),
+            ReadingListTitleDialog.readingListTitleDialog(requireContext(), readingList.title(),
                     existingTitles, text -> {
                         readingList.title(text.toString());
                         readingList.dirty(true);
@@ -373,7 +373,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
                 L.w("Attempted to edit description of default list.");
                 return;
             }
-            TextInputDialog.newInstance(getContext(), new TextInputDialog.DefaultCallback() {
+            TextInputDialog.newInstance(requireContext(), new TextInputDialog.DefaultCallback() {
                 @Override
                 public void onShow(@NonNull TextInputDialog dialog) {
                     dialog.setHint(R.string.reading_list_description_hint);
@@ -394,7 +394,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
 
         @Override
         public void onDelete(@NonNull ReadingList readingList) {
-            AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+            AlertDialog.Builder alert = new AlertDialog.Builder(requireActivity());
             alert.setMessage(getString(R.string.reading_list_delete_confirm, readingList.title()));
             alert.setPositiveButton(android.R.string.yes, (dialog, id) -> deleteList(readingList));
             alert.setNegativeButton(android.R.string.no, null);
@@ -424,10 +424,10 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
     }
 
     private void maybeDeleteListFromIntent() {
-        if (getActivity().getIntent().hasExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)) {
-            String titleToDelete = getActivity().getIntent()
+        if (requireActivity().getIntent().hasExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)) {
+            String titleToDelete = requireActivity().getIntent()
                     .getStringExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST);
-            getActivity().getIntent().removeExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST);
+            requireActivity().getIntent().removeExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST);
             for (ReadingList list : readingLists) {
                 if (list.title().equals(titleToDelete)) {
                     deleteList(list);
@@ -498,7 +498,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
 
         @Override
         protected String getSearchHintString() {
-            return getContext().getResources().getString(R.string.search_hint_search_my_lists);
+            return requireContext().getResources().getString(R.string.search_hint_search_my_lists);
         }
     }
 
@@ -518,8 +518,8 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         if (AccountUtil.isLoggedIn() && !Prefs.isReadingListSyncEnabled()
                 && Prefs.isReadingListSyncReminderEnabled()
                 && !ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
-            OnboardingView onboardingView = new OnboardingView(getContext());
-            onboardingView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.base20));
+            OnboardingView onboardingView = new OnboardingView(requireContext());
+            onboardingView.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.base20));
             onboardingView.setTitle(R.string.reading_lists_sync_reminder_title);
             onboardingView.setText(StringUtil.fromHtml(getString(R.string.reading_lists_sync_reminder_text)));
             onboardingView.setPositiveAction(R.string.reading_lists_sync_reminder_action);
@@ -528,8 +528,8 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
 
         } else if (!AccountUtil.isLoggedIn() && Prefs.isReadingListLoginReminderEnabled()
                 && !ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
-            OnboardingView onboardingView = new OnboardingView(getContext());
-            onboardingView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.base20));
+            OnboardingView onboardingView = new OnboardingView(requireContext());
+            onboardingView.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.base20));
             onboardingView.setTitle(R.string.reading_list_login_reminder_title);
             onboardingView.setText(R.string.reading_lists_login_reminder_text);
             onboardingView.setNegativeAction(R.string.reading_lists_onboarding_got_it);
