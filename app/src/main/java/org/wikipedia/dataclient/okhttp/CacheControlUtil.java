@@ -7,10 +7,6 @@ import org.apache.commons.lang3.StringUtils;
 // ugly code. there are no seams into CacheControl and CacheControl(Builder) does not preserve all
 // directives
 final class CacheControlUtil {
-    @NonNull static String forceNetRequest(@NonNull String cacheControl) {
-        return replaceDirective(cacheControl, "no-cache", "no-cache");
-    }
-
     @NonNull static String replaceMaxStale(@NonNull String cacheControl, int maxStale) {
         return replaceDirective(cacheControl, "max-stale(=[0-9]*)?", "max-stale=" + maxStale);
     }

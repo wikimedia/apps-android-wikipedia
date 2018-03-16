@@ -12,7 +12,7 @@ import android.webkit.WebViewClient;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.page.PageViewModel;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
@@ -38,7 +38,7 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
     private static final String HEADER_CONTENT_TYPE = "content-type";
     private static final String CONTENT_TYPE_OGG = "application/ogg";
 
-    @NonNull public abstract WikiSite getWikiSite();
+    @NonNull public abstract PageViewModel getModel();
 
     @SuppressWarnings("deprecation") @Override
     public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
@@ -89,8 +89,11 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
     @NonNull private Response request(String url) throws IOException {
         return OkHttpConnectionFactory.getClient().newCall(new Request.Builder()
                 .url(url)
+                .cacheControl(getModel().getCacheControl())
                 // TODO: Find a common way to set this header between here and RetrofitFactory.
-                .header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(getWikiSite()))
+                .header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(getModel().getTitle().getWikiSite()))
+                .header(OfflineCacheInterceptor.SAVE_HEADER, getModel().shouldSaveOffline()
+                        ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : OfflineCacheInterceptor.SAVE_HEADER_NONE)
                 .build())
                 .execute();
     }

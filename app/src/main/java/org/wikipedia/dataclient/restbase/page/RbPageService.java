@@ -3,7 +3,7 @@ package org.wikipedia.dataclient.restbase.page;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.dataclient.okhttp.cache.SaveHeader;
+import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.restbase.RbDefinition;
 
 import java.util.Map;
@@ -47,7 +47,7 @@ public interface RbPageService {
     })
     @GET("page/mobile-sections-lead/{title}")
     @NonNull Call<RbPageLead> lead(@Nullable @Header("Cache-Control") String cacheControl,
-                                   @Header(SaveHeader.FIELD) Boolean save,
+                                   @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
                                    @NonNull @Path("title") String title);
 
     /**
@@ -58,7 +58,7 @@ public interface RbPageService {
     @Headers(ACCEPT_HEADER_MOBILE_SECTIONS)
     @GET("page/mobile-sections-remaining/{title}")
     @NonNull Call<RbPageRemaining> sections(@Nullable @Header("Cache-Control") String cacheControl,
-                                            @Header(SaveHeader.FIELD) Boolean save,
+                                            @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
                                             @NonNull @Path("title") String title);
 
     // todo: this Content Service-only endpoint is under page/ but that implementation detail should

@@ -1,4 +1,4 @@
-package org.wikipedia.dataclient.okhttp.cache;
+package org.wikipedia.dataclient.okhttp;
 
 import org.junit.Test;
 import org.wikipedia.Constants;
@@ -8,17 +8,17 @@ import okhttp3.Request;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-public class CacheDelegateStrategyTest {
+public class OfflineCacheInterceptorTest {
     @Test public void testIsCacheableTrue() {
         Request req = new Request.Builder()
                 .url(Constants.WIKIPEDIA_URL)
-                .addHeader(SaveHeader.FIELD, SaveHeader.VAL_ENABLED)
+                .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
                 .build();
-        assertThat(CacheDelegateStrategy.isCacheable(req), is(true));
+        assertThat(OfflineCacheInterceptor.isCacheableForOffline(req), is(true));
     }
 
     @Test public void testIsCacheableFalse() {
         Request req = new Request.Builder().url(Constants.WIKIPEDIA_URL).build();
-        assertThat(CacheDelegateStrategy.isCacheable(req), is(false));
+        assertThat(OfflineCacheInterceptor.isCacheableForOffline(req), is(false));
     }
 }

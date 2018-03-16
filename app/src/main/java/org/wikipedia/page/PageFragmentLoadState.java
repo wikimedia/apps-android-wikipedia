@@ -26,7 +26,7 @@ import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
-import org.wikipedia.dataclient.page.PageClient;
+import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.edit.EditHandler;
@@ -398,15 +398,15 @@ public class PageFragmentLoadState {
         app.getSessionFunnel().leadSectionFetchStart();
         PageClientFactory
                 .create(model.getTitle().getWikiSite(), model.getTitle().namespace())
-                .lead(model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK : null,
-                        model.shouldSaveOffline() ? PageClient.CacheOption.SAVE : PageClient.CacheOption.CACHE,
+                .lead(model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
                         model.getTitle().getPrefixedText(), calculateLeadImageWidth())
                 .enqueue(new retrofit2.Callback<PageLead>() {
                     @Override public void onResponse(@NonNull Call<PageLead> call, @NonNull Response<PageLead> rsp) {
                         app.getSessionFunnel().leadSectionFetchEnd();
                         PageLead lead = rsp.body();
                         pageLoadLeadSectionComplete(lead, startSequenceNum);
-                        if (rsp.raw().cacheResponse() != null) {
+                        if ((rsp.raw().cacheResponse() != null && rsp.raw().networkResponse() == null)
+                                || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(rsp.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
                             showPageOfflineMessage(rsp.raw().header("date", ""));
                         }
                     }
@@ -730,7 +730,7 @@ public class PageFragmentLoadState {
         Request request = PageClientFactory
                 .create(model.getTitle().getWikiSite(), model.getTitle().namespace())
                 .sections(model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK : null,
-                        model.shouldSaveOffline() ? PageClient.CacheOption.SAVE : PageClient.CacheOption.CACHE,
+                        model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
                         model.getTitle().getPrefixedText())
                 .request();
 

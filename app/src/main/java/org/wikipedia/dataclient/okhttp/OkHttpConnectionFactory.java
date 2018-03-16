@@ -1,7 +1,6 @@
 package org.wikipedia.dataclient.okhttp;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
@@ -15,17 +14,16 @@ import okhttp3.CacheDelegate;
 import okhttp3.CookieJar;
 import okhttp3.JavaNetCookieJar;
 import okhttp3.OkHttpClient;
-import okhttp3.internal.cache.CacheDelegateInterceptor;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 public final class OkHttpConnectionFactory {
     private static final String CACHE_DIR_NAME = "okhttp-cache";
     private static final long NET_CACHE_SIZE = 64 * 1024 * 1024;
-    @VisibleForTesting @NonNull public static final Cache NET_CACHE = new Cache(new File(WikipediaApp.getInstance().getCacheDir(),
+    @NonNull private static final Cache NET_CACHE = new Cache(new File(WikipediaApp.getInstance().getCacheDir(),
             CACHE_DIR_NAME), NET_CACHE_SIZE);
     private static final long SAVED_PAGE_CACHE_SIZE = NET_CACHE_SIZE * 1024;
-    @NonNull public static final Cache SAVE_CACHE = new Cache(new File(WikipediaApp.getInstance().getFilesDir(),
-            CACHE_DIR_NAME), SAVED_PAGE_CACHE_SIZE);
+    @NonNull public static final CacheDelegate SAVE_CACHE = new CacheDelegate(new Cache(new File(WikipediaApp.getInstance().getFilesDir(),
+            CACHE_DIR_NAME), SAVED_PAGE_CACHE_SIZE));
 
     @NonNull private static OkHttpClient CLIENT = createClient();
 
@@ -49,7 +47,7 @@ public final class OkHttpConnectionFactory {
                 .addInterceptor(new CommonHeaderRequestInterceptor())
                 .addInterceptor(new DefaultMaxStaleRequestInterceptor())
                 .addInterceptor(new CacheControlRequestInterceptor())
-                .addInterceptor(new CacheDelegateInterceptor(CacheDelegate.internalCache(SAVE_CACHE), CacheDelegate.internalCache(NET_CACHE)))
+                .addInterceptor(new OfflineCacheInterceptor(SAVE_CACHE))
                 .addInterceptor(new WikipediaZeroResponseInterceptor(WikipediaApp.getInstance().getWikipediaZeroHandler()))
                 .addInterceptor(new TestStubInterceptor())
                 .build();

@@ -28,30 +28,18 @@ public class MwPageClient implements PageClient {
 
     @SuppressWarnings("unchecked")
     @NonNull @Override public Call<? extends PageLead> lead(@Nullable CacheControl cacheControl,
-                                                            @NonNull CacheOption cacheOption,
+                                                            @Nullable String saveOfflineHeader,
                                                             @NonNull String title,
                                                             int leadImageWidth) {
         return service.lead(cacheControl == null ? null : cacheControl.toString(),
-                optional(cacheOption.save()), title, leadImageWidth);
+                saveOfflineHeader, title, leadImageWidth);
     }
 
     @SuppressWarnings("unchecked")
     @NonNull @Override public Call<? extends PageRemaining> sections(@Nullable CacheControl cacheControl,
-                                                                     @NonNull CacheOption cacheOption,
+                                                                     @Nullable String saveOfflineHeader,
                                                                      @NonNull String title) {
         return service.sections(cacheControl == null ? null : cacheControl.toString(),
-                optional(cacheOption.save()), title);
-    }
-
-    /**
-     * Optional boolean Retrofit parameter.
-     * We don't want to send the query parameter at all when it's false since the presence of the
-     * alone is enough to trigger the truthy behavior.
-     */
-    private Boolean optional(boolean param) {
-        if (param) {
-            return true;
-        }
-        return null;
+                saveOfflineHeader, title);
     }
 }

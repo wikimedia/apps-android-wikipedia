@@ -4,11 +4,16 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.readinglist.database.ReadingListPage;
+import org.wikipedia.settings.Prefs;
+
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.CacheControl;
 
 /**
  * Shared data between PageFragment and PageFragmentLoadState
  */
-class PageViewModel {
+public class PageViewModel {
     @Nullable private Page page;
     @Nullable private PageTitle title;
     @Nullable private PageTitle titleOriginal;
@@ -71,5 +76,11 @@ class PageViewModel {
 
     public boolean shouldForceNetwork() {
         return forceNetwork;
+    }
+
+    public CacheControl getCacheControl() {
+        return shouldForceNetwork() ? CacheControl.FORCE_NETWORK : Prefs.preferOfflineContent()
+                        ? new CacheControl.Builder().maxStale(Integer.MAX_VALUE, TimeUnit.SECONDS).maxAge(Integer.MAX_VALUE, TimeUnit.SECONDS).build()
+                        : new CacheControl.Builder().maxAge(Integer.MAX_VALUE, TimeUnit.SECONDS).build();
     }
 }

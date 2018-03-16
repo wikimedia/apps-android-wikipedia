@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 
 import org.junit.Test;
 import org.wikipedia.Constants;
-import org.wikipedia.dataclient.okhttp.cache.SaveHeader;
+import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.test.MockWebServerTest;
 
 import okhttp3.CacheControl;
@@ -17,52 +17,52 @@ import static org.hamcrest.Matchers.nullValue;
 
 public abstract class BasePageClientTest extends MockWebServerTest {
     @Test public void testLeadCacheControl() throws Throwable {
-        Call<?> call = subject().lead(CacheControl.FORCE_NETWORK, PageClient.CacheOption.CACHE, "", 0);
+        Call<?> call = subject().lead(CacheControl.FORCE_NETWORK, null, "", 0);
         assertThat(call.request().header("Cache-Control"), containsString("no-cache"));
     }
 
     @Test public void testLeadNoCacheControl() throws Throwable {
-        Call<?> call = subject().lead(null, PageClient.CacheOption.CACHE, "", 0);
+        Call<?> call = subject().lead(null, null, "", 0);
         assertThat(call.request().header("Cache-Control"), nullValue());
     }
 
     @Test public void testLeadCacheOptionCache() throws Throwable {
-        Call<?> call = subject().lead(null, PageClient.CacheOption.CACHE, "", 0);
-        assertThat(call.request().header(SaveHeader.FIELD), nullValue());
+        Call<?> call = subject().lead(null, null, "", 0);
+        assertThat(call.request().header(OfflineCacheInterceptor.SAVE_HEADER), nullValue());
     }
 
     @Test public void testLeadCacheOptionSave() throws Throwable {
-        Call<?> call = subject().lead(null, PageClient.CacheOption.SAVE, "", 0);
-        assertThat(call.request().header(SaveHeader.FIELD), is(SaveHeader.VAL_ENABLED));
+        Call<?> call = subject().lead(null, OfflineCacheInterceptor.SAVE_HEADER_SAVE, "", 0);
+        assertThat(call.request().header(OfflineCacheInterceptor.SAVE_HEADER), is(OfflineCacheInterceptor.SAVE_HEADER_SAVE));
     }
 
     @Test public void testLeadTitle() throws Throwable {
-        Call<?> call = subject().lead(null, PageClient.CacheOption.CACHE, "title", 0);
+        Call<?> call = subject().lead(null, null, "title", 0);
         assertThat(call.request().url().toString(), containsString("title"));
     }
 
     @Test public void testSectionsCacheControl() throws Throwable {
-        Call<?> call = subject().sections(CacheControl.FORCE_NETWORK, PageClient.CacheOption.CACHE, "");
+        Call<?> call = subject().sections(CacheControl.FORCE_NETWORK, null, "");
         assertThat(call.request().header("Cache-Control"), containsString("no-cache"));
     }
 
     @Test public void testSectionsNoCacheControl() throws Throwable {
-        Call<?> call = subject().sections(null, PageClient.CacheOption.CACHE, "");
+        Call<?> call = subject().sections(null, null, "");
         assertThat(call.request().header("Cache-Control"), nullValue());
     }
 
     @Test public void testSectionsCacheOptionCache() throws Throwable {
-        Call<?> call = subject().sections(null, PageClient.CacheOption.CACHE, "");
-        assertThat(call.request().header(SaveHeader.FIELD), nullValue());
+        Call<?> call = subject().sections(null, null, "");
+        assertThat(call.request().header(OfflineCacheInterceptor.SAVE_HEADER), nullValue());
     }
 
     @Test public void testSectionsCacheOptionSave() throws Throwable {
-        Call<?> call = subject().sections(null, PageClient.CacheOption.SAVE, "");
-        assertThat(call.request().header(SaveHeader.FIELD), is(SaveHeader.VAL_ENABLED));
+        Call<?> call = subject().sections(null, OfflineCacheInterceptor.SAVE_HEADER_SAVE, "");
+        assertThat(call.request().header(OfflineCacheInterceptor.SAVE_HEADER), is(OfflineCacheInterceptor.SAVE_HEADER_SAVE));
     }
 
     @Test public void testSectionsTitle() throws Throwable {
-        Call<?> call = subject().sections(null, PageClient.CacheOption.CACHE, "title");
+        Call<?> call = subject().sections(null, null, "title");
         assertThat(call.request().url().toString(), containsString("title"));
     }
 
