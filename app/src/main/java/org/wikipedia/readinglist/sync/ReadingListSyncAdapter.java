@@ -290,10 +290,15 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
                         localList = list;
                         break;
                     } else if (StringUtil.normalizedEquals(list.title(), remoteList.name())) {
-                        list.remoteId(remoteList.id());
-                        upsertNeeded = true;
                         localList = list;
+                        localList.remoteId(remoteList.id());
+                        upsertNeeded = true;
+                        break;
                     }
+                }
+                if (remoteList.isDefault() && localList != null && !localList.isDefault()) {
+                    L.logRemoteError(new RuntimeException("Unexpected: remote default list corresponds to local non-default list."));
+                    localList = ReadingListDbHelper.instance().getDefaultList();
                 }
 
                 if (remoteList.isDeleted()) {
@@ -310,7 +315,12 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
                 if (localList == null) {
                     // A new list needs to be created locally.
                     L.d("Creating local list " + remoteList.name());
-                    localList = ReadingListDbHelper.instance().createList(remoteList.name(), remoteList.description());
+                    if (remoteList.isDefault()) {
+                        L.logRemoteError(new RuntimeException("Unexpected: local default list no longer matches remote."));
+                        localList = ReadingListDbHelper.instance().getDefaultList();
+                    } else {
+                        localList = ReadingListDbHelper.instance().createList(remoteList.name(), remoteList.description());
+                    }
                     localList.remoteId(remoteList.id());
                     allLocalLists.add(localList);
                     upsertNeeded = true;

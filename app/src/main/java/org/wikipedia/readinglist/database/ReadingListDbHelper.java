@@ -359,6 +359,8 @@ public class ReadingListDbHelper {
             }
             markPagesForDeletion(list, list.pages(), false);
         }
+        // Ensure that we have a default list, in the unlikely case that it got deleted/corrupted.
+        getDefaultList();
     }
 
     public boolean isEmpty() {
@@ -468,14 +470,14 @@ public class ReadingListDbHelper {
     }
 
     @NonNull
-    private ReadingList getDefaultList() {
+    public ReadingList getDefaultList() {
         List<ReadingList> lists = getAllListsWithoutContents();
         for (ReadingList list : lists) {
             if (list.isDefault()) {
                 return list;
             }
         }
-        L.logRemoteErrorIfProd(new RuntimeException("Recreating default list (should not happen)."));
+        L.logRemoteError(new RuntimeException("Recreating default list (should not happen)."));
         return createDefaultList(getWritableDatabase());
     }
 

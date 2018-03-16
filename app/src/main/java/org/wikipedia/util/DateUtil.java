@@ -87,7 +87,7 @@ public final class DateUtil {
     }
 
     public static Date getHttpLastModifiedDate(@NonNull String dateStr) throws ParseException {
-        SimpleDateFormat df = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ROOT);
+        SimpleDateFormat df = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH);
         df.setTimeZone(TimeZone.getTimeZone("UTC"));
         return df.parse(dateStr);
     }
