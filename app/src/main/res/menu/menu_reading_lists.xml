@@ -15,4 +15,8 @@
         android:id="@+id/create_list"
         android:title="@string/reading_lists_menu_create_list"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/refresh"
+        android:title="@string/reading_lists_refresh_sync_option"
+        app:showAsAction="never" />
 </menu>

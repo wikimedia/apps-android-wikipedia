@@ -15,6 +15,7 @@ public class LoginFunnel extends Funnel {
     public static final String SOURCE_SYSTEM = "system";
     public static final String SOURCE_ONBOARDING = "onboarding";
     public static final String SOURCE_SETTINGS = "settings";
+    public static final String SOURCE_READING_MANUAL_SYNC = "reading_lists_manual_sync";
 
     public LoginFunnel(WikipediaApp app) {
         super(app, SCHEMA_NAME, REVISION);

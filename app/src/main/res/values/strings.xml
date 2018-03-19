@@ -383,6 +383,7 @@
     <string name="reading_list_confirm_remove_article_from_offline_message">%s will no longer be available offline for all reading lists:</string>
     <string name="reading_lists_sync_reminder_title">Turn on reading list syncing?</string>
     <string name="reading_lists_sync_reminder_text"><![CDATA[Articles saved to reading lists can now be synced to your Wikipedia account. <a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists">Learn more</a>]]></string>
+    <string name="reading_lists_login_reminder_text_with_link"><![CDATA[Reading lists can now be synced across devices. Log in to your Wikipedia account and allow your lists to be saved. <a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists">Learn more</a>]]></string>
     <string name="reading_lists_sync_reminder_action">Enable syncing</string>
     <string name="reading_list_login_reminder_title">Sync reading lists</string>
     <string name="reading_lists_login_reminder_text">Reading lists can now be synced across devices. Log in to your Wikipedia account and allow your lists to be saved.</string>
@@ -425,6 +426,8 @@
     <string name="feed_reading_lists_sync_onboarding_text"><![CDATA[<strong>Sync reading lists</strong><br /><br />Reading lists can now be synced across devices. Log in to your Wikipedia account and allow your lists to be saved.]]></string>
     <string name="reading_lists_menu_create_list">Create new list</string>
     <string name="reading_lists_menu_sort_by">Sort by</string>
+    <string name="reading_lists_refresh_sync_option">Refresh sync</string>
+    <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Log in / sign up</string>
     <plurals name="reading_list_article_offline_message">
         <item quantity="one">This article will now be available offline.</item>
         <item quantity="other">These articles will now be available offline.</item>
