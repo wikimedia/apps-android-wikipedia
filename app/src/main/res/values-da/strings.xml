@@ -316,6 +316,7 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d af 1 artikler tilgængelige offline, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d of %2$d artikler tilgængelige offline, %3$.2f MB</string>
   <string name="reading_list_sort">Sortér</string>
+  <string name="reading_list_sort_ellipsis">Sorter efter ...</string>
   <string name="reading_list_sort_by_name">Sortér efter navn</string>
   <string name="reading_list_sort_by_name_desc">Sortér efter navn (omvendt)</string>
   <string name="reading_list_sort_by_recent">Sorter efter dato tilføjet (nyeste)</string>
@@ -397,6 +398,8 @@
   <string name="reading_list_article_limit_message">Kan ikke tilføje til denne liste. Du har nået begrænsningen på %2$d artikler per liste for »%1$s«.</string>
   <string name="reading_lists_limit_message">Kan ikke oprette en anden liste. Du har nået begrænsningen på 100 læselister per konto.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synkroniser læselister&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Læselister kan nu synkroniseres på tværs af enheder. Log ind på din Wikipediakonto og tillad at dine lister gemmes.</string>
+  <string name="reading_lists_menu_create_list">Opret ny liste</string>
+  <string name="reading_lists_menu_sort_by">Sorter efter</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Denne artikel vil nu være tilgængelig lokalt.</item>
     <item quantity="other">Disse artikler vil nu være tilgængelige lokalt.</item>
@@ -420,6 +423,10 @@
   <string name="notification_syncing_pause_button">Pause</string>
   <string name="notification_syncing_resume_button">Genoptag</string>
   <string name="notification_syncing_cancel_button">Afbryd</string>
+  <string name="notification_syncing_reading_list_channel_name">Synkroniserer læselister</string>
+  <string name="notification_syncing_reading_list_channel_description">Status på synkronisering af læselister</string>
+  <string name="notification_syncing_reading_list_title">Synkroniserer %1$d lister …</string>
+  <string name="notification_syncing_reading_list_description">%1$d lister tilbage</string>
   <string name="view_continue_reading_card_title">Fortsæt læsning</string>
   <string name="view_because_you_read_card_title">Fordi du læste</string>
   <string name="view_random_card_title">Tilfældighedsgenerator</string>
@@ -463,6 +470,7 @@
   <string name="feed_item_type_featured_image">Dagens anbefalet billede fra Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Hovedside på Wikipedia med dagens anbefalet indhold</string>
   <string name="feed_item_type_randomizer">Vis vilkårlig artikel</string>
+  <string name="feed_empty_message">Der er ingenting i din udforskningsnyhedskilde</string>
   <string name="feed_configure_onboarding_action">Tilpas</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Tilpas din udforskning&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu vælge, hvad der skal vises på din nyhedskilde og også prioritere dit favoritindhold.</string>
   <string name="description_edit_text_hint">Titelbeskrivelse</string>

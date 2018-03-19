@@ -303,6 +303,7 @@
   <string name="format_reading_list_statistical_summary_plural">%1$d λήμματα, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d 1 λημμάτων διαθέσιμα εκτός σύνδεσης, %2$.2f MB</string>
   <string name="reading_list_sort">Ταξινόμηση</string>
+  <string name="reading_list_sort_ellipsis">Ταξινόμηση κατά...</string>
   <string name="reading_list_sort_by_name">Ταξινόμηση κατά όνομα</string>
   <string name="reading_list_sort_by_name_desc">Ταξινόμηση κατά όνομα (αντίστροφα)</string>
   <string name="reading_list_sort_by_recent">Ταξινόμηση ανά ημερομηνία προσθήκης (νεότερη)</string>
@@ -342,6 +343,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Αφαίρεση από τη λίστα εκτός σύνδεσης</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Το λήμμα εμφανίζεται σε πολλαπλές λίστες</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">Το %s δεν θα είναι πλέον διαθέσιμο εκτός σύνδεσης για όλες τις λίστες ανάγνωσης:</string>
+  <string name="reading_lists_sync_reminder_action">Ενεργοποίηση συγχρονισμού</string>
   <string name="reading_list_login_reminder_title">Λίστες ανάγνωσης Sync</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ναι</string>
   <string name="reading_lists_confirm_remote_delete_no">Όχι</string>
@@ -354,12 +356,16 @@
   <string name="reading_list_turned_sync_off_dialog_settings">Ρυθμίσεις</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Μην μου το ξαναεμφανίσεις πάλι</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Όχι, ευχαριστώ</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Ναι, κρατήστε τα άρθρα στις λίστες</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Όχι, διαγράψτε τα άρθρα από τις λίστες</string>
   <string name="default_reading_list_name">Αποθηκεύθηκε</string>
   <string name="default_reading_list_description">Προεπιλεγμένη λίστα για τα αποθηκευμένα λήμματά σας</string>
   <string name="no_user_lists_title">Οργάνωση λημμάτων σε λίστες</string>
   <string name="no_user_lists_msg">Δημιουργήστε λίστες για σημεία για ταξίδια, αγαπημένα θέματα και πολλά περισσότερα</string>
   <string name="reading_list_saved_list_rename">%1$s (χρήστης που δημιουργήθηκε)</string>
   <string name="split_reading_list_message">Υπάρχει ένα όριο %d λημμάτων ανά λίστα ανάγνωσης. Οι υπάρχουσες λίστες που υπερβαίνουν αυτό το όριο έχουν διασπαστεί σε πολλαπλές λίστες.</string>
+  <string name="reading_lists_menu_create_list">Δημιουργία νέας λίστας</string>
+  <string name="reading_lists_menu_sort_by">Ταξινόμηση κατά</string>
   <plurals name="reading_list_article_not_offline_message">
     <item quantity="one">Αυτό το λήμμα δεν θα είναι πλέον διαθέσιμο εκτός σύνδεσης.</item>
     <item quantity="other">Αυτά τα λήμματα δεν θα είναι πλέον διαθέσιμα εκτός σύνδεσης.</item>

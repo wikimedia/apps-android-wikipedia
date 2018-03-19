@@ -285,6 +285,7 @@
   <string name="reading_list_already_exists">Tento článek už v tomto seznamu je.</string>
   <string name="reading_list_added_view_button">Zobrazit seznam</string>
   <string name="reading_list_sort">Seřadit</string>
+  <string name="reading_list_sort_ellipsis">Seřadit podle...</string>
   <string name="reading_list_sort_by_name">Seřadit podle názvu</string>
   <string name="reading_list_sort_by_name_desc">Seřadit podle názvu (v obráceném pořadí)</string>
   <string name="reading_list_sort_by_recent">Seřadit podle data přidání (od nejnovějších)</string>
@@ -338,6 +339,8 @@
   <string name="split_reading_list_message">Existuje limit %d článků pro seznamy čtení. Existující seznamy, které mají více než tento počet článků, byly rozděleny do více seznamů.</string>
   <string name="reading_list_article_limit_message">Nebylo možno přidat do tohoto seznamu. Překročil/a jste limit %2$d článků do seznamu pro %1$s.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synchronizace seznamů čtení&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Seznamy čtení mohou být nyní synchronizovány napříč zařízení. Přihlašte se na svůj účet na Wikipedii a povolte ukládání svých vlastních seznamů.</string>
+  <string name="reading_lists_menu_create_list">Vytvořit nový seznam</string>
+  <string name="reading_lists_menu_sort_by">Seřadit podle</string>
   <string name="user_option_sync_label">Nastavení</string>
   <string name="notification_button_view_user">Diskutovat s uživatelem</string>
   <string name="notification_talk_title">Nová zpráva na Wikipedii</string>
@@ -346,6 +349,10 @@
   <string name="notification_reverted">&lt;em&gt;%1$s&lt;/em&gt; zrušil(a) vaši úpravu článku &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_thanks_title">Obdržel(a) jste poděkování!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; vám poděkoval(a) za vaši úpravu stránky &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_syncing_reading_list_channel_name">Synchronizace seznamu/ů čtení</string>
+  <string name="notification_syncing_reading_list_channel_description">Synchronizace seznamů čtení</string>
+  <string name="notification_syncing_reading_list_title">Synchronizace %1$d seznamu/ů...</string>
+  <string name="notification_syncing_reading_list_description">%1$d seznam/y/ů chybí</string>
   <string name="view_continue_reading_card_title">Pokračovat ve čtení</string>
   <string name="view_because_you_read_card_title">Protože čtete</string>
   <string name="view_random_card_title">Náhodný článek</string>

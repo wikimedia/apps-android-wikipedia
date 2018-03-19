@@ -104,7 +104,7 @@
   <string name="create_account_generic_error">امکان ساختن حساب کاربری وجود ندارد</string>
   <string name="create_account_next">بعدی</string>
   <string name="create_account_button">ایجاد حساب کاربری</string>
-  <string name="create_account_name_unavailable">نام کاربری 《%s》 موجود نیست. لطفا نام دیگری را انتخاب کنید.</string>
+  <string name="create_account_name_unavailable">نام کاربری «%s» موجود نیست. لطفا نام دیگری را انتخاب کنید.</string>
   <string name="preferences_general_heading">عمومی</string>
   <string name="wikipedia_app_faq">پاسخ پرسش‌های رایج ویکی‌پدیا</string>
   <string name="zero_charged_verbiage">دسترسی مجانی به ویکی‌پدیا دیگر فعال نیست.</string>

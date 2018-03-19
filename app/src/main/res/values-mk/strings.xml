@@ -316,6 +316,7 @@
   <string name="format_reading_list_statistical_detail_singular">Вонмрежно достапна %1$d од 1 статија, %2$.2f МБ</string>
   <string name="format_reading_list_statistical_detail_plural">Вонмрежно достапни %1$d од %2$d статии, %3$.2f МБ</string>
   <string name="reading_list_sort">Подреди</string>
+  <string name="reading_list_sort_ellipsis">Подреди по…</string>
   <string name="reading_list_sort_by_name">Подреди по назив</string>
   <string name="reading_list_sort_by_name_desc">Подреди по назив (обратно)</string>
   <string name="reading_list_sort_by_recent">Подреди по скорешност на додавање</string>
@@ -397,6 +398,8 @@
   <string name="reading_list_article_limit_message">Не можам да го дополнам списоков. Ја достигнавте границата од %2$d статии по список за „%1$s“.</string>
   <string name="reading_lists_limit_message">Не можете да направите друг список. Ја достигнавте границата од 100 списоци по сметка.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Усогласување на списоци за читање&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Списоците за читање можат да се усогласат низ сите уреди. Најавете се со сметката на Википедија и дозволете зачувување на списоците.</string>
+  <string name="reading_lists_menu_create_list">Создај нов список</string>
+  <string name="reading_lists_menu_sort_by">Подреди по</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Статијава сега ќе биде достапна вонмрежно.</item>
     <item quantity="other">Статииве сега ќе бидат достапни вонмрежно.</item>
@@ -420,6 +423,10 @@
   <string name="notification_syncing_pause_button">Паузирај</string>
   <string name="notification_syncing_resume_button">Продолжи</string>
   <string name="notification_syncing_cancel_button">Откажи</string>
+  <string name="notification_syncing_reading_list_channel_name">Усогласување на списоци за читање</string>
+  <string name="notification_syncing_reading_list_channel_description">Напредок на усогласувањето на списоци за читање</string>
+  <string name="notification_syncing_reading_list_title">Усогласувам %1$d списоци…</string>
+  <string name="notification_syncing_reading_list_description">Преостануваат %1$d списоци</string>
   <string name="view_continue_reading_card_title">Продолжете со читање</string>
   <string name="view_because_you_read_card_title">Бидејќи читавте</string>
   <string name="view_random_card_title">Случаен избирач</string>

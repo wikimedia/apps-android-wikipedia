@@ -14,6 +14,7 @@
   <string name="page_error_back_to_main">Vegere</string>
   <string name="menu_clear_all_history">Dîrokê paqij bike</string>
   <string name="history_item_deleted">%s ji dîroka gerokê hate rakirin</string>
+  <string name="history_item_delete_undo">Betal bike</string>
   <string name="dialog_title_clear_history">Dîroka lêgerînê jê bibe</string>
   <string name="dialog_message_clear_history_yes">Erê</string>
   <string name="dialog_message_clear_history_no">Na</string>
@@ -98,6 +99,8 @@
   <string name="search_did_you_mean">Mebesta te \"%s\" bû?</string>
   <string name="search_recent_header">Lêgerînên dawî:</string>
   <string name="button_clear_all_recent_searches">Lêgerînên dawî paqij bike</string>
+  <string name="clear_recent_searches_confirm_yes">Erê</string>
+  <string name="clear_recent_searches_confirm_no">Na</string>
   <string name="table_other">Zêdetir agahî</string>
   <string name="table_close">Bigre</string>
   <string name="widget_title_featured_page">Rûpela bijarte ya îro:</string>
@@ -113,6 +116,8 @@
   <string name="gallery_fair_use_license">Bikaranîna dadmend</string>
   <string name="gallery_uploader_unknown">Barker nenas e</string>
   <string name="menu_new_tab">Hilpekîna nû</string>
+  <string name="close_all_tabs_confirm_yes">Erê</string>
+  <string name="close_all_tabs_confirm_no">Na</string>
   <string name="button_close_tab">Hilpekînê bigre</string>
   <string name="format_error_server_message">Peyam:\"%s\"</string>
   <string name="button_continue_to_article">Gotarê bixwîne</string>
@@ -129,7 +134,10 @@
   <string name="reading_list_sort_by_name">Li gorî nav rêz bike</string>
   <string name="reading_list_name_sample">Lîsteya min a xwendinê</string>
   <string name="reading_list_name_hint">Navê vê lîsteyê</string>
+  <string name="reading_list_item_delete_undo">Betal bike</string>
   <string name="reading_lists_onboarding_for_example">Wek mînak</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Erê</string>
+  <string name="reading_lists_confirm_remote_delete_no">Na</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Betal bike</string>
   <string name="notification_syncing_cancel_button">Betal bike</string>
   <string name="view_continue_reading_card_title">Xwendinê bidomîne</string>
@@ -143,6 +151,9 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">îro</string>
   <string name="view_featured_article_footer_save_button_label">Tomar bike</string>
+  <string name="view_featured_article_footer_saved_button_label">Hat tomarkirin</string>
   <string name="description_edit_save">Biweșîne</string>
   <string name="description_edit_cancel_hint">Betal bike</string>
+  <string name="compilation_download_cancel_confirm_yes">Erê</string>
+  <string name="compilation_download_cancel_confirm_no">Na</string>
 </resources>

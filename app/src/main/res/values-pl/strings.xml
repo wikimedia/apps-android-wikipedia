@@ -13,6 +13,7 @@
   <string name="menu_clear_all_history">Wyczyść historię</string>
   <string name="history_item_deleted">Usunięto %s z historii</string>
   <string name="history_item_delete_undo">Cofnij</string>
+  <string name="app_settings">Ustawienia aplikacji</string>
   <string name="dialog_title_clear_history">Wyczyść historię przeglądania</string>
   <string name="dialog_message_clear_history">Nastąpi usunięcie całej historii odwiedzin stron oraz zamknięcie otwartych kart. Kontynuować?</string>
   <string name="dialog_message_clear_history_yes">Tak</string>
@@ -37,6 +38,7 @@
   <string name="nearby_zoom_to_location">Przybliż lokalizacje na mapie</string>
   <string name="last_updated_text">Ostatnia aktualizacja %s</string>
   <string name="talk_page_link_text">Dyskusja</string>
+  <string name="edit_history_link_text">Historia edycji</string>
   <string name="map_view_link_text">Zobacz na mapie</string>
   <string name="language_count_link_text">Dostępne w %d innych językach</string>
   <string name="content_license_html">O ile nie zaznaczono inaczej, treść dostępna jest na licencji &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
@@ -96,6 +98,7 @@
   <string name="create_account_generic_error">Nie można utworzyć konta</string>
   <string name="create_account_next">Dalej</string>
   <string name="create_account_button">Utwórz konto</string>
+  <string name="create_account_name_unavailable">Nazwa użytkownika „%s” nie jest dostępna. Proszę wybrać inną nazwę.</string>
   <string name="preferences_general_heading">Ogólne</string>
   <string name="wikipedia_app_faq">FAQ dotyczące aplikacji Wikipedii</string>
   <string name="zero_charged_verbiage">Darmowy dostęp do Wikipedii nie jest dłużej aktywny.</string>
@@ -113,6 +116,8 @@
   <string name="edit_preview_fetching_dialog_message">Ładowanie podglądu…</string>
   <string name="send_feedback">Wyślij opinię o aplikacji</string>
   <string name="create_account_account_created_toast">Konto zostało utworzone!</string>
+  <string name="preferences_heading_data_usage">Użycie danych</string>
+  <string name="preferences_heading_experimental">Eksperymentalne</string>
   <string name="preferences_privacy_settings_heading">Prywatność</string>
   <string name="preference_title_eventlogging_opt_in">Wysyłaj informacje o użytkowaniu</string>
   <string name="preference_summary_eventlogging_opt_in">Pozwala Wikimedii zbierać informacje o tym, w jaki sposób korzystasz z tej aplikacji, aby ją ulepszać</string>
@@ -256,6 +261,7 @@
   <string name="color_theme_light">Jasna</string>
   <string name="color_theme_dark">Ciemna</string>
   <string name="color_theme_test_title">Przykładowy tekst</string>
+  <string name="preference_title_app_theme">Motyw aplikacji</string>
   <string name="text_size_increase">Zwiększ rozmiar tekstu</string>
   <string name="text_size_decrease">Zmniejsz rozmiar tekstu</string>
   <string name="text_size_percent_default">%s (domyślnie)</string>
@@ -264,15 +270,17 @@
   <string name="reading_list_save_to">Zapisz listę do przeczytania</string>
   <string name="reading_list_create_new">Utwórz nową</string>
   <string name="reading_list_entry_empty">Wprowadź tytuł.</string>
+  <string name="reading_list_added_to_named">Dodano do %s.</string>
   <string name="reading_list_already_exists">Ten artykuł znajduje się już na tej liście.</string>
   <string name="reading_list_added_view_button">Zobacz listę</string>
   <string name="format_reading_list_statistical_summary_singular">1 artykuł, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artykułów, %2$.2f MB</string>
   <string name="reading_list_sort">Sortuj</string>
+  <string name="reading_list_sort_ellipsis">Sortuj według:</string>
   <string name="reading_list_sort_by_name">Sortuj według nazwy</string>
   <string name="reading_list_sort_by_name_desc">Sortuj według nazwy (odwrotnie)</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Sortuj według najnowszych</string>
-  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Sortuj według najstarszych</string>
+  <string name="reading_list_sort_by_recent">Sortuj według daty dodania (od najnowszych)</string>
+  <string name="reading_list_sort_by_recent_desc">Sortuj według daty dodania (od najstarszych)</string>
   <string name="reading_list_menu_delete">Usuń listę</string>
   <string name="reading_list_menu_rename">Zmień nazwę</string>
   <string name="reading_list_menu_edit_description">Edytuj opis</string>
@@ -281,7 +289,7 @@
   <string name="reading_list_description_hint">Opis (opcjonalnie)</string>
   <string name="reading_list_item_delete_undo">Cofnij</string>
   <string name="saved_list_empty_title">Nie zapisano jeszcze żadnych stron</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Twórz listy artykułów, które chcesz przeczytać później, nawet gdy jesteś offline!</string>
+  <string name="reading_lists_onboarding_intro">Dodaj artykuły do listy stron, które chcesz przeczytać później, nawet gdy jesteś offline!</string>
   <string name="reading_lists_onboarding_for_example">Na przykład</string>
   <string name="reading_lists_onboarding_example1">Miejsca do odwiedzenia</string>
   <string name="reading_lists_onboarding_example2">Ulubione zwierzęta</string>
@@ -289,20 +297,25 @@
   <string name="reading_lists_onboarding_got_it">Wszystko jasne</string>
   <string name="reading_list_no_description">Brak opisu...</string>
   <string name="reading_list_empty">Na tej liście nie ma dodanych artykułów.</string>
+  <string name="reading_list_article_offline">Dostępne online</string>
+  <string name="reading_list_article_make_offline">Artykuł będzie dostępny offline</string>
   <string name="reading_list_remove_from_list">Usuń z %s</string>
   <string name="reading_lists_confirm_remote_delete_yes">Tak</string>
   <string name="reading_lists_confirm_remote_delete_no">Nie</string>
   <string name="reading_list_added_articles_list_titled">Dodano %1$d artykułów do %2$s</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">Czy na pewno chcesz usunąć „%s”?</string>
+  <string name="reading_list_delete_confirm">Czy na pewno chcesz usunąć „%s”?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Anuluj</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Zaloguj się</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Ustawienia</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nie, dziękuję</string>
   <string name="reading_list_login_option_reminder_dialog_no">Nie, usuń artykuły</string>
-  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Zachować na urządzeniu zapisane artykuły?</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Zachować w aplikacji zapisane artykuły?</string>
   <string name="reading_list_logout_option_reminder_dialog_yes">Tak, zachowaj artykuły na listach</string>
   <string name="reading_list_logout_option_reminder_dialog_no">Nie, usuń artykuły z list</string>
+  <string name="default_reading_list_name">Zapisane</string>
+  <string name="reading_lists_menu_create_list">Utwórz nową listę</string>
+  <string name="reading_lists_menu_sort_by">Sortuj według</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ten artykuł będzie teraz dostępny w trybie offline.</item>
     <item quantity="other">Te artykuły będą teraz dostępne w trybie offline.</item>
@@ -332,6 +345,7 @@
   <string name="menu_feed_card_dismiss">Ukryj tę kartę</string>
   <string name="menu_feed_overflow_label">Więcej opcji</string>
   <string name="feed_featured_image_share_subject">Najlepsze zdjęcia z Wikimedia Commons</string>
+  <string name="feed">Odkrywaj</string>
   <string name="most_read_list_card_title">Ostatnio popularne</string>
   <string name="view_static_card_icon_content_description">Ikona karty</string>
   <string name="view_card_news_title">W aktualnościach</string>
@@ -343,8 +357,10 @@
   <string name="view_announcement_card_negative_action">Nie, dziękuję</string>
   <string name="view_featured_article_card_title">Wyróżniony artykuł</string>
   <string name="view_featured_article_footer_save_button_label">Zapisz</string>
+  <string name="view_featured_article_footer_saved_button_label">Zapisane</string>
   <string name="feed_configure_menu_select_all">Zaznacz wszystko</string>
   <string name="feed_configure_menu_deselect_all">Odznacz wszystko</string>
+  <string name="feed_configure_onboarding_action">Dostosuj</string>
   <string name="description_edit_text_hint">Opis tytułu</string>
   <string name="description_edit_save">Opublikuj</string>
   <string name="description_edit_add_description">Dodaj opis tytułu</string>
@@ -373,6 +389,7 @@
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
   <string name="offline_compilation_detail_button_remove">Usuń</string>
+  <string name="remote_compilation_download">Pobierz</string>
   <string name="storage_other_apps">Inne aplikacje</string>
   <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
   <string name="compilation_download_widget_button_cancel_hint">Anuluj pobieranie</string>
@@ -385,6 +402,7 @@
   <string name="onboarding_skip">Pomiń</string>
   <string name="onboarding_continue">Kontynuuj</string>
   <string name="onboarding_get_started">Rozpocznij edycję</string>
+  <string name="onboarding_welcome_title">Wolna encyklopedia</string>
   <string name="onboarding_explore_title">Nowe metody eksploracji</string>
   <string name="onboarding_explore_text" fuzzy="true">Odkrywaj wyróżnione artykuły, najpopularniejsze tematy i czytaj sugestie na kanale feed Explore.</string>
   <string name="onboarding_reading_list_sync_title" fuzzy="true">Zsynchronizowane listy do przeczytania</string>
@@ -394,6 +412,7 @@
   <string name="onboarding_create_account_sync">Zzynchronizuj swoje listy czytania</string>
   <string name="onboarding_create_account_contributions">Śledź swój wkład</string>
   <string name="onboarding_create_account_preferences">Zapisz swoje preferencje</string>
+  <string name="app_shortcuts_random">Losowa strona</string>
   <string name="app_shortcuts_continue_reading">Czytaj dalej</string>
   <string name="app_shortcuts_search">Szukaj</string>
   <string name="back_to_top">Powrót do góry</string>

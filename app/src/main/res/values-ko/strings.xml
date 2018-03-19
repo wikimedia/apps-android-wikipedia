@@ -274,6 +274,7 @@
   <string name="preference_title_prefer_offline_content">오프라인 콘텐츠 선호</string>
   <string name="preference_summary_prefer_offline_content">항상 최신판 문서를 불러오지 말고 가능한 문서는 오프라인을 불러와 데이터 사용 절약</string>
   <string name="preference_title_enable_offline_library">오프라인 라이브러리 사용</string>
+  <string name="preference_summary_enable_offline_library">오프라인 상태일 때 읽을 수 있도록 장치에 다운로드한 위키백과 문서 묶음(.ZIM 파일로 표시)에 접근합니다. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;더 알아보기&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">죄송합니다, 지난 번에 앱이 충돌했습니다</string>
   <string name="crash_report_dialog_text">위키 백과가 충돌을 보고 그 오류를 수정하기 위해 하키앱/타 서비스 제공자에 충돌 보고를 전송 하시겠습니까?</string>
   <string name="crash_report_dialog_dont_send_button">넘어가기</string>
@@ -313,6 +314,7 @@
   <string name="format_reading_list_statistical_detail_singular">1개의 문서 중 %1$d개를 오프라인에서 읽을 수 있음, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%2$d개의 문서 중 %1$d개를 오프라인에서 읽을 수 있음, %3$.2f MB</string>
   <string name="reading_list_sort">정렬</string>
+  <string name="reading_list_sort_ellipsis">정렬 기준...</string>
   <string name="reading_list_sort_by_name">이름순</string>
   <string name="reading_list_sort_by_name_desc">이름순 (역순)</string>
   <string name="reading_list_sort_by_recent">추가한 날짜 순으로 정렬 (최근 순서)</string>
@@ -394,6 +396,8 @@
   <string name="reading_list_article_limit_message">이 목록에 추가할 수 없습니다. \"%1$s\"에 대해 목록 당 %2$d개 문서 제한에 도달했습니다.</string>
   <string name="reading_lists_limit_message">다른 목록을 만들 수 없습니다. 계정 당 100개 읽기 목록 제한에 도달했습니다.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;읽기 목록 동기화&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;지금 읽기 목록을 여러 장치 간에 동기화할 수 있습니다. 위키백과 계정으로 로그인하면 목록을 저장할 수 있습니다.</string>
+  <string name="reading_lists_menu_create_list">새 목록 만들기</string>
+  <string name="reading_lists_menu_sort_by">정렬 기준</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">이 글은 이제 오프라인에서 읽을 수 있습니다.</item>
     <item quantity="other">이 글들은 이제 오프라인에서 읽을 수 있습니다.</item>
@@ -417,6 +421,10 @@
   <string name="notification_syncing_pause_button">일시 정지</string>
   <string name="notification_syncing_resume_button">재개</string>
   <string name="notification_syncing_cancel_button">취소</string>
+  <string name="notification_syncing_reading_list_channel_name">읽기 목록을 동기화하는 중</string>
+  <string name="notification_syncing_reading_list_channel_description">읽기 목록 동기화 진행</string>
+  <string name="notification_syncing_reading_list_title">목록 %1$d개를 동기화하는 중...</string>
+  <string name="notification_syncing_reading_list_description">목록 %1$d개 남음</string>
   <string name="view_continue_reading_card_title">계속 읽기</string>
   <string name="view_because_you_read_card_title">읽었던 글 관련 추천</string>
   <string name="view_random_card_title">임의 문서 보기</string>
@@ -536,6 +544,8 @@
   <string name="compilation_remove_confirm">오프라인 라이브러리에서 이 항목을 제거하시겠습니까?</string>
   <string name="offline_library_title">오프라인 라이브러리</string>
   <string name="offline_library_empty_title">오프라인 라이브러리에 아무 것도 없습니다</string>
+  <string name="offline_library_empty_description_sideload">오프라인 라이브러리의 \"문서 묶음\"은 장치 상의 편리한 저장소를 위해 미리 패키지된 문서 묶음이므로 오프라인 상태에서 읽기를 계속할 수 있습니다.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;더 알아보기&lt;/a&gt;</string>
+  <string name="offline_library_packs_hint">라이브러리의 문서 묶음은 오프라인 상태일 때 읽을 수 있습니다. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;더 알아보기&lt;/a&gt;</string>
   <string name="offline_library_data_usage_hint">데이터 사용을 절약하고 싶으신가요? 설정에서 \"오프라인 콘텐츠\n선호\"를 선택하면 인터넷에 연결되어 있더라도 가능하면 오프라인 문서를 우선 보여줍니다. &lt;a href=\"#settings\"&gt;설정으로 이동&lt;/a&gt;</string>
   <string name="offline_library_empty_search">오프라인 라이브러리 검색</string>
   <string name="offline_library_search_results_state">오프라인 라이브러리의 검색 결과</string>

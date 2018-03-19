@@ -316,6 +316,7 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d dari 1 rencana tersedia di luar talian, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d dari %2$d rencana tersedia di luar talian, %3$.2f MB</string>
   <string name="reading_list_sort">Isih</string>
+  <string name="reading_list_sort_ellipsis">Isih mengikut...</string>
   <string name="reading_list_sort_by_name">Isih ikut nama</string>
   <string name="reading_list_sort_by_name_desc">Isih ikut nama (terbalik)</string>
   <string name="reading_list_sort_by_recent">Isih mengikut tarikh ditambah (terbaru)</string>
@@ -397,6 +398,8 @@
   <string name="reading_list_article_limit_message">Tidak dapat menambah ke senarai ini. Anda telah mencapai had %2$d rencanabagi setiap senarai untuk senarai \"%1$s\".</string>
   <string name="reading_lists_limit_message">Tidak dapat membuat senarai lain. Anda telah mencapai had 100 senarai bacaan setiap akaun.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Segerakkan senarai bacaan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Senarai bacaan kini boleh disegerakkan merentas peranti. Masuk ke akaun Wikipedia anda dan izinkan senarai anda disimpan.</string>
+  <string name="reading_lists_menu_create_list">Cipta senarai baru</string>
+  <string name="reading_lists_menu_sort_by">Isih mengikut</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Rencana ini kini boleh didapati di luar talian.</item>
     <item quantity="other">Rencana-rencana ini kini boleh didapati di luar talian.</item>
@@ -420,6 +423,10 @@
   <string name="notification_syncing_pause_button">Jedakan</string>
   <string name="notification_syncing_resume_button">Teruskan</string>
   <string name="notification_syncing_cancel_button">Batalkan</string>
+  <string name="notification_syncing_reading_list_channel_name">Menyegerakkan Senarai Bacaan</string>
+  <string name="notification_syncing_reading_list_channel_description">Kemajuan Penyegerakkan Senarai Bacaan</string>
+  <string name="notification_syncing_reading_list_title">Menyegerakkan %1$d senarai...</string>
+  <string name="notification_syncing_reading_list_description">%1$d senarai yang tersisa</string>
   <string name="view_continue_reading_card_title">Teruskan membaca</string>
   <string name="view_because_you_read_card_title">Kerana anda membaca</string>
   <string name="view_random_card_title">Rencana sembarang</string>

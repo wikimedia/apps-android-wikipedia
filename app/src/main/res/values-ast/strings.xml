@@ -104,6 +104,7 @@
   <string name="create_account_generic_error">Nun pudo crease la cuenta</string>
   <string name="create_account_next">Siguiente</string>
   <string name="create_account_button">Crear una cuenta</string>
+  <string name="create_account_name_unavailable">El nome d\'usuariu «%s» nun ta disponible. Escueyi un nome distintu.</string>
   <string name="preferences_general_heading">Xeneral</string>
   <string name="wikipedia_app_faq">EMF de la App Wikipedia</string>
   <string name="zero_charged_verbiage">L\'accesu llibre a Wikipedia yá nun ta activu.</string>
@@ -315,6 +316,7 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d de 1 artículu disponible sin conexón, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d de %2$d artículos disponibles sin conexón, %3$.2f MB</string>
   <string name="reading_list_sort">Ordenar</string>
+  <string name="reading_list_sort_ellipsis">Ordenar por…</string>
   <string name="reading_list_sort_by_name">Ordenar por nome</string>
   <string name="reading_list_sort_by_name_desc">Ordenar por nome (inversu)</string>
   <string name="reading_list_sort_by_recent">Ordenar pola data que s\'añadió (más recién)</string>
@@ -396,6 +398,8 @@
   <string name="reading_list_article_limit_message">Nun pueden añadise elementos a esta llista. Algamóse la llende de %2$d artículos per llista pa «%1$s».</string>
   <string name="reading_lists_limit_message">Nun puedes crear otra llista. Algamasti la llende de 100 llistes de llectura per cuenta.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sincronizar llistes de llectura&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Les llistes de llectura agora pueden sincronizase ente preseos. Anicia sesión cola to cuenta de Wikipedia y permite guardar les llistes.</string>
+  <string name="reading_lists_menu_create_list">Crear una llista nueva</string>
+  <string name="reading_lists_menu_sort_by">Ordenar por</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Esti artículu agora tará disponible sin conexón.</item>
     <item quantity="other">Estos artículos agora tarán disponibles sin conexón.</item>
@@ -419,6 +423,10 @@
   <string name="notification_syncing_pause_button">Posar</string>
   <string name="notification_syncing_resume_button">Siguir</string>
   <string name="notification_syncing_cancel_button">Encaboxar</string>
+  <string name="notification_syncing_reading_list_channel_name">Sincronizando llista(es) de llectura</string>
+  <string name="notification_syncing_reading_list_channel_description">Progresu de sincronización de llistes de llectura</string>
+  <string name="notification_syncing_reading_list_title">Sincronizando %1$d llistes…</string>
+  <string name="notification_syncing_reading_list_description">Queden %1$d llistes</string>
   <string name="view_continue_reading_card_title">Siguir lleyendo</string>
   <string name="view_because_you_read_card_title">Porque lleísti</string>
   <string name="view_random_card_title">Al debalu</string>
@@ -462,6 +470,7 @@
   <string name="feed_item_type_featured_image">Imaxe destacada del día en Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Páxina principal de Wikipedia col conteníu destacáu del día</string>
   <string name="feed_item_type_randomizer">Xenerar artículos al debalu pa lleer</string>
+  <string name="feed_empty_message">Nun hai nada na canal Esplorar</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalizar la canal Esplorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora puedes esbillar lo que desees ver na to canal, y tamién dar prioridá a les tos tribes de conteníu favorites.</string>
   <string name="description_edit_text_hint">Descripción del títulu</string>

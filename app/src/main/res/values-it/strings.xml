@@ -288,6 +288,7 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d di 1 voce disponibile offline, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d di %2$d voci disponibili offline, %3$.2f MB</string>
   <string name="reading_list_sort">Ordina</string>
+  <string name="reading_list_sort_ellipsis">Ordina per…</string>
   <string name="reading_list_sort_by_name">Ordina per nome</string>
   <string name="reading_list_sort_by_name_desc">Ordina per nome (inverso)</string>
   <string name="reading_list_sort_by_recent">Ordina per data di aggiunta (più recenti)</string>
@@ -332,6 +333,8 @@
   <string name="default_reading_list_name">Salvato</string>
   <string name="default_reading_list_description">Elenco predefinito per le tue voci salvate</string>
   <string name="no_user_lists_title">Organizza voci in elenchi</string>
+  <string name="reading_lists_menu_create_list">Crea nuovo elenco</string>
+  <string name="reading_lists_menu_sort_by">Ordina per</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Questa voce ora è disponibile non in linea.</item>
     <item quantity="other">Queste voci ora sono disponibili non in linea.</item>

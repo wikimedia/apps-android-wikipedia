@@ -316,6 +316,7 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d de 1 article disponible hors ligne, %2$.2f Mio</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d article(s) sur %2$d articles disponible(s) hors ligne, %3$.2f Mio</string>
   <string name="reading_list_sort">Trier</string>
+  <string name="reading_list_sort_ellipsis">Trier par...</string>
   <string name="reading_list_sort_by_name">Trier par nom</string>
   <string name="reading_list_sort_by_name_desc">Trier par nom (inverse)</string>
   <string name="reading_list_sort_by_recent">Trier selon la date d’ajout (la plus récente)</string>
@@ -397,6 +398,8 @@
   <string name="reading_list_article_limit_message">Impossible d’ajouter à cette liste. Vous avez atteint la limite de %2$d articles par liste pour « %1$s ».</string>
   <string name="reading_lists_limit_message">Impossible de créer une autre liste. Vous avez atteint la limite de 100 listes de lecture par compte.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synchroniser les listes de lecture&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Les listes de lecture peuvent maintenant être synchronisées entre appareils. Connectez-vous à votre compte Wikipédia et permettez à vos listes d’être enregistrées.</string>
+  <string name="reading_lists_menu_create_list">Créer une nouvelle liste</string>
+  <string name="reading_lists_menu_sort_by">Trier par</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Cet article est désormais disponible hors connexion.</item>
     <item quantity="other">Ces articles sont désormais disponibles hors connexion.</item>
@@ -420,6 +423,10 @@
   <string name="notification_syncing_pause_button">Pause</string>
   <string name="notification_syncing_resume_button">Reprise</string>
   <string name="notification_syncing_cancel_button">Annulation</string>
+  <string name="notification_syncing_reading_list_channel_name">Synchronisation de liste(s) de lecture</string>
+  <string name="notification_syncing_reading_list_channel_description">Synchronisation des listes de lecture en cours</string>
+  <string name="notification_syncing_reading_list_title">Synchronisation de %1$d liste(s)…</string>
+  <string name="notification_syncing_reading_list_description">reste %1$d liste(s)</string>
   <string name="view_continue_reading_card_title">Continuer à lire</string>
   <string name="view_because_you_read_card_title">Parce que vous avez lu</string>
   <string name="view_random_card_title">Aléatoire</string>

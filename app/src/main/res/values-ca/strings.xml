@@ -104,6 +104,7 @@
   <string name="create_account_generic_error">No s\'ha pogut crear el compte</string>
   <string name="create_account_next">Següent</string>
   <string name="create_account_button">Crea un compte</string>
+  <string name="create_account_name_unavailable">El nom d’usuari «%s» no és disponible. Trieu-ne un altre.</string>
   <string name="preferences_general_heading">General</string>
   <string name="wikipedia_app_faq">PMF de l\'aplicació de la Viquipèdia</string>
   <string name="zero_charged_verbiage">L\'accés gratuït a la Viquipèdia ja no és actiu.</string>
@@ -127,9 +128,9 @@
   <string name="preferences_heading_experimental">Experimental</string>
   <string name="preference_title_sync_reading_lists">Sincronitza les llistes de lectura</string>
   <string name="preference_title_sync_reading_lists_from_account">Habilita la sincronització de les llistes de lectura</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Permet que Wikimedia sincronitzi les llistes de lectura en iniciar la sessió</string>
-  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Permet que Wikimedia sincronitzi les llistes de lectura del vostre compte de Viquipèdia %s</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Voleu suprimir les llistes de lectura sincronitzades del vostre compte %s?</string>
+  <string name="preference_summary_sync_reading_lists">Sincronitza les llistes de lectura entre diferents dispositius desant-les en el vostre compte de la Viquipèdia</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Sincronitza les llistes de lectura entre diferents dispositius desant-les en el vostre compte de la Viquipèdia «%s»</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Voleu suprimir les llistes de lectura sincronitzades de «%s»?</string>
   <string name="preferences_privacy_settings_heading">Privadesa</string>
   <string name="preference_title_eventlogging_opt_in">Envia informes sobre l\'ús de l\'aplicació</string>
   <string name="preference_summary_eventlogging_opt_in">Permetre a Viquimedia recollir informació sobre com utilitzeu l\'aplicació, a fi de poder-la millorar</string>
@@ -313,6 +314,7 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d d\'1 article disponible fora de línia, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d de %2$d articles disponibles fora de línia, %3$.2f MB</string>
   <string name="reading_list_sort">Ordena</string>
+  <string name="reading_list_sort_ellipsis">Ordena per…</string>
   <string name="reading_list_sort_by_name">Ordena per nom</string>
   <string name="reading_list_sort_by_name_desc">Ordena per nom (invers)</string>
   <string name="reading_list_sort_by_recent">Ordena per data d\'addició (més noves)</string>
@@ -375,10 +377,10 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No, gràcies</string>
   <string name="reading_list_login_option_reminder_dialog_title">S\'han trobat articles de llistes de lectura</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Sí, afegeix-les a les meves llistes de lectura</string>
-  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">No, elimina els articles desats a l\'aplicació</string>
-  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Voleu conservar els articles desats al dispositiu?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">Sí, conserva els articles en el dispositiu</string>
-  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">No, elimina els articles del dispositiu</string>
+  <string name="reading_list_login_option_reminder_dialog_no">No, elimina els articles</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Voleu conservar els articles desats a l\'aplicació?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Sí, conserva els articles en les llistes</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">No, elimina els articles de les llistes</string>
   <string name="default_reading_list_name">Desats</string>
   <string name="default_reading_list_description">Llista per defecte d’articles desats</string>
   <string name="no_user_lists_title">Organitzar articles en llistes</string>
@@ -387,6 +389,8 @@
   <string name="split_reading_list_message">Hi ha un límit de fins a %d articles per llista de lectura. Les llistes de lectura anteriors que tenien més articles que aquest límit s\'han partit en diferents llistes.</string>
   <string name="reading_list_article_limit_message">No podeu afegir elements a aquesta llista. Heu assolit el límit de %2$d articles per llista per a «%1$s».</string>
   <string name="reading_lists_limit_message">No es pot crear una altra llista. Heu assolit el límit de 100 llistes de lectura per compte.</string>
+  <string name="reading_lists_menu_create_list">Crea una llista nova</string>
+  <string name="reading_lists_menu_sort_by">Ordena per</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Aquest article estarà disponible fora de línia a partir d\'ara.</item>
     <item quantity="other">Aquests articles estaran disponibles fora de línia a partir d\'ara.</item>
@@ -410,6 +414,10 @@
   <string name="notification_syncing_pause_button">Pausa</string>
   <string name="notification_syncing_resume_button">Reprèn</string>
   <string name="notification_syncing_cancel_button">Cancel·la</string>
+  <string name="notification_syncing_reading_list_channel_name">Sincronització de llistes de lectura</string>
+  <string name="notification_syncing_reading_list_channel_description">Progrés de sincronització de llistes de lectura</string>
+  <string name="notification_syncing_reading_list_title">S’estan sincronitzant %1$d llistes…</string>
+  <string name="notification_syncing_reading_list_description">Queden %1$d llistes</string>
   <string name="view_continue_reading_card_title">Continua llegint</string>
   <string name="view_because_you_read_card_title">Com que has llegit</string>
   <string name="view_random_card_title">A l\'atzar</string>
@@ -453,6 +461,7 @@
   <string name="feed_item_type_featured_image">Imatge destacada del dia a Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Pàgina principal de la Viquipèdia amb contingut destacat del dia</string>
   <string name="feed_item_type_randomizer">Genera articles a l\'atzar per llegir</string>
+  <string name="feed_empty_message">No hi ha res al canal Explora</string>
   <string name="feed_configure_onboarding_action">Personalitza</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalitza el teu canal Explora&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Ara pots escollir quin contingut veus al teu canal i configurar-lo al teu gust.</string>
   <string name="description_edit_text_hint">Descripció de títol</string>

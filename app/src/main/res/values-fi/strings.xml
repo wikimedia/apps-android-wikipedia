@@ -104,6 +104,7 @@
   <string name="create_account_generic_error">Tunnusta ei voitu luoda</string>
   <string name="create_account_next">Seuraava</string>
   <string name="create_account_button">Luo tunnus</string>
+  <string name="create_account_name_unavailable">Käyttäjänimi \"%s\" ei ole käytettävissä. Valitse toinen nimi.</string>
   <string name="preferences_general_heading">Yleiset</string>
   <string name="wikipedia_app_faq">Wikipedia-sovelluksen UKK</string>
   <string name="zero_charged_verbiage">Ilmainen pääsy Wikipediaan ei ole enää käytössä.</string>
@@ -315,6 +316,7 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d yhdestä artikkelista on saatavilla offline-tilassa vieden %2$.2f Mt tilaa</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d kaikkiaan %2$d artikkelista on saatavilla offline-tilassa vieden %3$.2f Mt tilaa</string>
   <string name="reading_list_sort">Lajittele</string>
+  <string name="reading_list_sort_ellipsis">Lajitteluperuste</string>
   <string name="reading_list_sort_by_name">Lajittele nimen mukaan</string>
   <string name="reading_list_sort_by_name_desc">Lajittele nimen mukaan käänteisesti</string>
   <string name="reading_list_sort_by_recent">Lajittele lisäämispäivän mukaan (uusin)</string>
@@ -396,6 +398,9 @@
   <string name="reading_list_article_limit_message">Ei voida lisätä tähän listaan. Olet saavuttanut %2$d artikkelin rajan per lista listalle \"%1$s\".</string>
   <string name="reading_lists_limit_message">Ei voida luoda toista listaa. Olet saavuttanut 100 lukulistan rajan per tili.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synkronoi lukulistat&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Lukulistoja voi nyt synkronoida laitteiden poikki. Kirjaudu Wikipedia-tilillesi ja salli listojesi tallentua.</string>
+  <string name="reading_lists_menu_create_list">Luo uusi luettelo</string>
+  <string name="reading_lists_menu_sort_by">Lajitteluperuste</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Kirjaudu sisään /rekisteröidy</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Tämä artikkeli on nyt saatavilla offline-tilassa.</item>
     <item quantity="other">Nämä artikkelit ovat nyt saatavilla offline-tilassa.</item>
@@ -419,6 +424,8 @@
   <string name="notification_syncing_pause_button">Tauko</string>
   <string name="notification_syncing_resume_button">Jatka</string>
   <string name="notification_syncing_cancel_button">Peruuta</string>
+  <string name="notification_syncing_reading_list_title">Synkronoidaan %1$d lista(a)…</string>
+  <string name="notification_syncing_reading_list_description">%1$d lista(a) jäljellä</string>
   <string name="view_continue_reading_card_title">Jatka lukemista</string>
   <string name="view_because_you_read_card_title">Koska luit</string>
   <string name="view_random_card_title">Satunnaistaminen</string>
@@ -462,6 +469,7 @@
   <string name="feed_item_type_featured_image">Päivän kuva Wikimedia Commonsista</string>
   <string name="feed_item_type_main_page">Wikipedian etusivu suositellulla artikkelilla</string>
   <string name="feed_item_type_randomizer">Tuota satunnaisia ​​artikkeleita luettavaksi</string>
+  <string name="feed_empty_message">Tutki-syötteessäsi ei ole mitään</string>
   <string name="feed_configure_onboarding_action">Mukauta</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Mukauta Tutki-syötettä&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Voit nyt valita mitä haluat näyttää syötteessäsi, ja myös priorisoida suosikki sisältötyyppisi.</string>
   <string name="description_edit_text_hint">Otsikkokuvaus</string>

@@ -314,6 +314,7 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d от 1 статия е достъпна офлайн, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d от %2$d статии са достъпни офлайн, %3$.2f MB</string>
   <string name="reading_list_sort">Сортиране</string>
+  <string name="reading_list_sort_ellipsis">Подреждане по...</string>
   <string name="reading_list_sort_by_name">Сортиране по име</string>
   <string name="reading_list_sort_by_name_desc">Подреждане по име (обратно)</string>
   <string name="reading_list_sort_by_recent">Подреждане по дата на добавяне (най-скорошни)</string>
@@ -395,6 +396,8 @@
   <string name="reading_list_article_limit_message">Не може да бъде добавено към този списък. Достигнали сте ограничението от %2$d статии на списък за „%1$s“.</string>
   <string name="reading_lists_limit_message">Не може да бъде създаден друг списък. Достигнали сте ограничението от 100 списъка за четене на сметка.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Синхронизиране на списъци за четене&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Списъците за четене вече могат да се синхронизират между устройства. Влезте в сметката си в Уикипедия, за да позволите съхранението на списъците си.</string>
+  <string name="reading_lists_menu_create_list">Създаване на нов списък</string>
+  <string name="reading_lists_menu_sort_by">Подреждане по</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Тази статия вече е налична офлайн.</item>
     <item quantity="other">Тези статии вече са налични офлайн.</item>

@@ -162,6 +162,7 @@
   <string name="reading_list_added_to_named">Pievienots %s.</string>
   <string name="reading_list_added_view_button">Skatīt sarakstu</string>
   <string name="reading_list_sort">Kārtot</string>
+  <string name="reading_list_sort_ellipsis">Kārtot pēc...</string>
   <string name="reading_list_sort_by_name">Kārtot pēc nosaukuma</string>
   <string name="reading_list_sort_by_name_desc">Kārtot pēc nosaukuma (pretēji)</string>
   <string name="reading_list_sort_by_recent" fuzzy="true">Kārtot pēc visjaunākā</string>
@@ -179,6 +180,8 @@
   <string name="reading_lists_onboarding_got_it">Sapratu</string>
   <string name="reading_list_remove_from_list">Noņemt no %s</string>
   <string name="default_reading_list_name">Saglabāts</string>
+  <string name="reading_lists_menu_create_list">Izveidot jaunu sarakstu</string>
+  <string name="reading_lists_menu_sort_by">Kārtot pēc</string>
   <string name="user_option_sync_label">Izvēles</string>
   <string name="notification_reverted_title">Atcelts labojums</string>
   <string name="view_continue_reading_card_title">Turpini lasīt</string>

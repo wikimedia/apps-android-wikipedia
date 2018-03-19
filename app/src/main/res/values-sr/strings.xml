@@ -174,8 +174,8 @@
   <string name="abusefilter_title_disallow">Не можете да објавите ову измену. Вратите се назад и промените је.</string>
   <string name="abusefilter_text_warn">Аутоматски филтер је препознао ову измену као потенцијално неконструктивну. Можда је узрок једна или више од следећих ставки:&lt;br /&gt;&lt;br /&gt;· Писање великим словима&lt;br /&gt;· Брисање целокупног садржаја или спамовање&lt;br /&gt;· Ирелевантне спољашње везе или слике&lt;br /&gt;· Понављајући карактери</string>
   <string name="abusefilter_text_disallow">Аутоматски филтер је препознао ову измену као потенцијално неконструктивну или могући вандализам.&lt;br /&gt;&lt;br /&gt;Википедија је енциклопедија и само неутралан, значајан садржај може да се уноси.</string>
-  <string name="dialog_page_issues">Проблеми са страницом</string>
-  <string name="button_page_issues">Проблеми са страницом</string>
+  <string name="dialog_page_issues">Проблеми странице</string>
+  <string name="button_page_issues">Проблеми странице</string>
   <string name="text_size_select">Величина фонта</string>
   <string name="page_similar_titles">Сличне странице</string>
   <string name="search_did_you_mean">Да ли сте мислили „%s“?</string>

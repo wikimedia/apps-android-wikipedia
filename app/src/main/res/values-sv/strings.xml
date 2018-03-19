@@ -47,7 +47,7 @@
   <string name="language_count_link_text">Tillgänglig på %d andra språk</string>
   <string name="content_license_html">Innehållet är tillgängligt under &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; om inget annat anges</string>
   <string name="edit_save_action_license_logged_in">Genom att spara godkänner du &lt;a href=\"%1$s\"&gt;Användarvillkoren&lt;/a&gt;, och att oåterkalleligen släppa ditt bidrag med licensen &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Genom att spara samtycker till &lt;a href=\"%1$s\"&gt;användarvillkoren&lt;/a&gt; och att oåterkalleligt släppa dina bidrag under licensen &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redigeringar kommer att tillskrivas till din enhets IP-adress. Om du &lt;a href=\"https://#login\"&gt;loggar in&lt;/a&gt; kommer du få mer integritet.</string>
+  <string name="edit_save_action_license_anon">Genom att spara samtycker till &lt;a href=\"%1$s\"&gt;Användarvillkoren&lt;/a&gt; och att oåterkalleligt släppa dina bidrag under licensen &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redigeringar kommer att tillskrivas till din enhets IP-adress. Om du &lt;a href=\"https://#login\"&gt;loggar in&lt;/a&gt; kommer du få mer integritet.</string>
   <string name="preference_title_language">Wikipediaspråk</string>
   <string name="preference_languages_filter_hint">Sök</string>
   <string name="langlinks_filter_hint">Sök</string>
@@ -104,6 +104,7 @@
   <string name="create_account_generic_error">Kan inte skapa konto</string>
   <string name="create_account_next">Nästa</string>
   <string name="create_account_button">Skapa konto</string>
+  <string name="create_account_name_unavailable">Användarnamnet \"%s\" är inte tillgängligt. Var god välj ett annat namn.</string>
   <string name="preferences_general_heading">Allmänt</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="zero_charged_verbiage">Fri tillgång till Wikipedia är inte längre aktiv.</string>
@@ -310,17 +311,18 @@
   <string name="reading_list_added_to_named">Lades till i %s.</string>
   <string name="reading_list_already_exists">Denna artikel är redan i den listan.</string>
   <string name="reading_list_added_view_button">Visa lista</string>
-  <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artiklar, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d av 1 artikel tillgänglig offline, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d av %2$d artiklar tillgängliga offline, %3$.2f MB</string>
   <string name="reading_list_sort">Sortera</string>
+  <string name="reading_list_sort_ellipsis">Sortera efter...</string>
   <string name="reading_list_sort_by_name">Sortera efter namn</string>
   <string name="reading_list_sort_by_name_desc">Sortera efter namn (omvänt)</string>
   <string name="reading_list_sort_by_recent">Sortera efter tilläggsdatum (nyaste)</string>
   <string name="reading_list_sort_by_recent_desc">Sortera efter tilläggsdatum (äldsta)</string>
-  <string name="reading_list_sort_by_created">Sortera efter tilläggsdatum (nyaste)</string>
-  <string name="reading_list_sort_by_created_desc">Sortera efter tilläggsdatum (äldsta)</string>
+  <string name="reading_list_sort_by_created">Sortera efter skapandedatum (nyaste)</string>
+  <string name="reading_list_sort_by_created_desc">Sortera efter skapandedatum (äldsta)</string>
   <string name="reading_list_menu_delete">Radera lista</string>
   <string name="reading_list_menu_rename">Byt namn</string>
   <string name="reading_list_menu_edit_description">Redigera beskrivning</string>
@@ -336,7 +338,7 @@
   <string name="reading_list_items_deleted">%d artiklar togs bort från listan</string>
   <string name="reading_list_item_delete_undo">Ångra</string>
   <string name="reading_list_deleted">%s raderades</string>
-  <string name="saved_list_empty_title">Inga läslistor ännu</string>
+  <string name="saved_list_empty_title">Inga sparade sidor ännu</string>
   <string name="reading_lists_empty_message">Lägg till artiklar i en lista att läsa senare, även när du är offline.</string>
   <string name="reading_lists_onboarding_intro">Lägg till artiklar i en lista för att läsa senare, även när du är offline.</string>
   <string name="reading_lists_onboarding_for_example">Till exempel</string>
@@ -356,6 +358,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s kommer inte längre vara tillgänglig offline för alla läslistor:</string>
   <string name="reading_lists_sync_reminder_title">Aktivera synkronisering av läslistor?</string>
   <string name="reading_lists_sync_reminder_text">Artiklar som har sparats i läslistor kan nu synkroniseras till ditt Wikipedia-konto. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Läs mer&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Läslistor kan nu synkroniseras över enheter. Logga in till ditt Wikipedia-konto och tillåt dina listor att sparas. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Läs mer&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Aktivera synkronisering</string>
   <string name="reading_list_login_reminder_title">Synkronisera läslistor</string>
   <string name="reading_lists_login_reminder_text">Läslistor kan nu synkroniseras över enheter. Logga in på ditt Wikipedia-konto och tillåt dina listor att sparas.</string>
@@ -396,6 +399,10 @@
   <string name="reading_list_article_limit_message">Kan inte lägga till i denna lista. Du har nått gränsen på %2$d artiklar per lista för \"%1$s\".</string>
   <string name="reading_lists_limit_message">Kan inte skapa en till lista. Du har nått gränsen på 100 läslistor per konto.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synkronisera läslistor&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Läslistor kan nu synkroniseras över enheter. Logga in till ditt Wikipedia-konto och tillåt dina listor att sparas.</string>
+  <string name="reading_lists_menu_create_list">Skapa ny lista</string>
+  <string name="reading_lists_menu_sort_by">Sortera efter</string>
+  <string name="reading_lists_refresh_sync_option">Uppdatera synkronisering</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Logga in / registrera</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Denna artikel kommer nu vara tillgänglig offline.</item>
     <item quantity="other">Dessa artiklar kommer nu vara tillgängliga offline.</item>
@@ -419,6 +426,10 @@
   <string name="notification_syncing_pause_button">Pausa</string>
   <string name="notification_syncing_resume_button">Återuppta</string>
   <string name="notification_syncing_cancel_button">Avbryt</string>
+  <string name="notification_syncing_reading_list_channel_name">Synkroniserar läslista/-listor</string>
+  <string name="notification_syncing_reading_list_channel_description">Förlopp för synkronisering av läslistor</string>
+  <string name="notification_syncing_reading_list_title">Synkroniserar %1$d lista/listor…</string>
+  <string name="notification_syncing_reading_list_description">%1$d lista/listor kvar</string>
   <string name="view_continue_reading_card_title">Fortsätt läs</string>
   <string name="view_because_you_read_card_title">Eftersom du läste</string>
   <string name="view_random_card_title">Randomiserare</string>
@@ -442,7 +453,7 @@
     <item quantity="one">igår</item>
     <item quantity="other">%d dagar sedan</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Idag</string>
+  <string name="view_continue_reading_card_subtitle_today">idag</string>
   <string name="view_continue_reading_card_subtitle_read_date">Läst %s</string>
   <string name="view_announcement_card_negative_action">Nej tack</string>
   <string name="view_offline_card_text">Innehåll kan inte läsas in offline.</string>
@@ -462,6 +473,7 @@
   <string name="feed_item_type_featured_image">Dagens utmärkta bild från Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Wikipedias huvudsida med dagens utmärkta innehåll</string>
   <string name="feed_item_type_randomizer">Generera slumpartiklar att läsa</string>
+  <string name="feed_empty_message">Det finns ingenting i ditt utforskningsflöde.</string>
   <string name="feed_configure_onboarding_action">Anpassa</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Anpassa ditt utforskningsflöde&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu välja vad som ska visas i ditt flöde och även prioritera dina favoritinnehållstyper.</string>
   <string name="description_edit_text_hint">Titelbeskrivning</string>
@@ -503,7 +515,7 @@
   <string name="description_edit_revert_reason1">ditt bidrag följde inte ett av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">ditt bidrag såg ut som ett experiment eller vandalism</string>
   <string name="description_edit_revert_history">Om du är intresserad kan du se &lt;a href=\"%1$s\"&gt;redigeringshistoriken&lt;/a&gt;.</string>
-  <string name="offline_compilation_download_device_offline">Ingen Internetanslutning. Se till att du är online igen och försök sedan igen.</string>
+  <string name="offline_compilation_download_device_offline">Ingen Internetanslutning. Se till att du åter är online och försök sedan igen.</string>
   <string name="offline_read_permission_rationale">Behörighet för att skriva till lagringsutrymmet på din enhet krävs för att läsa artiklar offline.</string>
   <string name="offline_read_final_rationale">Behörighet för åtkomst till lagringsutrymmet på din enhet krävs för att använda offlinebiblioteket.</string>
   <string name="offline_read_permission_error">Behörighet för att läsa från enhetslagringen krävs.</string>
@@ -557,7 +569,7 @@
   <string name="onboarding_welcome_title">Den fria encyklopedin</string>
   <string name="onboarding_welcome_text">Wikipedia skrivs tillsammans av frivilliga och består av fler än 40 miljoner artiklar på nästan 300 olika språk. &lt;a href=\"#about\"&gt;Läs mer&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Nya sätt att utforska</string>
-  <string name="onboarding_explore_text">Gör en djupdykning i Wikipedia genom att uppdatera utforskningsflödet. &lt;br/&gt; &lt;b&gt;Anpassa&lt;/b&gt; flödet för att möta dina intressen – såvida det handlar om historiska händelser &lt;b&gt;på denna dag&lt;/b&gt; eller kasta tärningen med &lt;b&gt;slumpartikel&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Gör en djupdykning i Wikipedia genom att uppdatera utforskningsflödet. &lt;br/&gt; &lt;b&gt;Anpassa&lt;/b&gt; flödet för att möta dina intressen – vare sig det handlar om historiska händelser &lt;b&gt;på denna dag&lt;/b&gt; eller kasta tärningen och få en &lt;b&gt;slumpartikel&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Spara till läslistor</string>
   <string name="onboarding_save_to_reading_lists_text">Skapa läslistor av artiklar du vill läsa senare, även när du är offline.</string>
   <string name="onboarding_reading_list_sync_title">Läslistor med synkronisering</string>

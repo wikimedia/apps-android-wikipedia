@@ -316,6 +316,7 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d dari 1 artikel tersedia luring, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d dari %2$d artikel tersedia luring, %3$.2f MB</string>
   <string name="reading_list_sort">Urutkan</string>
+  <string name="reading_list_sort_ellipsis">Urut berdasarkan...</string>
   <string name="reading_list_sort_by_name">Urutkan berdasarkan nama</string>
   <string name="reading_list_sort_by_name_desc">Urutkan berdasarkan nama (terbalik)</string>
   <string name="reading_list_sort_by_recent">Urutkan menurut tanggal ditambahkan (terbaru)</string>
@@ -397,6 +398,8 @@
   <string name="reading_list_article_limit_message">Tidak dapat menambahkan ke daftar ini. Anda telah mencapai batas %2$d artikel per daftar untuk daftar \"%1$s\".</string>
   <string name="reading_lists_limit_message">Tidak bisa membuat daftar lain. Anda telah mencapai batas 100 daftar bacaan per akun.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sinkronkan daftar bacaan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Daftar bacaan sekarang dapat disinkronkan di seluruh perangkat. Masuk log ke akun Wikipedia Anda dan biarkan daftar Anda disimpan.</string>
+  <string name="reading_lists_menu_create_list">Buat daftar baru</string>
+  <string name="reading_lists_menu_sort_by">Urut berdasarkan</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Artikel ini sekarang akan tersedia secara luring.</item>
     <item quantity="other">Artikel-artikel ini sekarang akan tersedia secara luring.</item>
@@ -420,6 +423,10 @@
   <string name="notification_syncing_pause_button">Jeda</string>
   <string name="notification_syncing_resume_button">Lanjutkan</string>
   <string name="notification_syncing_cancel_button">Batal</string>
+  <string name="notification_syncing_reading_list_channel_name">Menyinkronkan Daftar Bacaan</string>
+  <string name="notification_syncing_reading_list_channel_description">Kemajuan Sinkronisasi Daftar Bacaan</string>
+  <string name="notification_syncing_reading_list_title">Menyinkronkan %1$d daftar...</string>
+  <string name="notification_syncing_reading_list_description">%1$d daftar tersisa</string>
   <string name="view_continue_reading_card_title">Lanjutkan membaca</string>
   <string name="view_because_you_read_card_title">Karena Anda membaca</string>
   <string name="view_random_card_title">Artikel sembarang</string>

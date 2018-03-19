@@ -103,6 +103,7 @@
   <string name="create_account_generic_error">No se pudo crear la cuenta</string>
   <string name="create_account_next">Siguiente</string>
   <string name="create_account_button">Crear cuenta</string>
+  <string name="create_account_name_unavailable">No está disponible el nombre de usuario «%s». Elige otro.</string>
   <string name="preferences_general_heading">General</string>
   <string name="wikipedia_app_faq">Preguntas frecuentes</string>
   <string name="zero_charged_verbiage">El acceso gratuito a Wikipedia ya no está activo.</string>
@@ -126,7 +127,7 @@
   <string name="preferences_heading_experimental">Experimental</string>
   <string name="preference_title_sync_reading_lists">Sincronizar listas de lectura</string>
   <string name="preference_title_sync_reading_lists_from_account">Activar sincronización de listas de lectura</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Permitir a Wikimedia sincronizar mis listas de lectura cuando haya accedido</string>
+  <string name="preference_summary_sync_reading_lists">Guardar las listas de lectura en mi cuenta de Wikipedia y sincronizarlas en varios dispositivos</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">¿Quieres quitar las listas de lectura sincronizadas de «%s»?</string>
   <string name="preferences_privacy_settings_heading">Privacidad</string>
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
@@ -311,6 +312,7 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d de 1 artículos disponibles sin conexión, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d de %2$d artículos disponibles sin conexión, %3$.2f MB</string>
   <string name="reading_list_sort">Ordenar</string>
+  <string name="reading_list_sort_ellipsis">Ordenar por…</string>
   <string name="reading_list_sort_by_name">Ordenar por nombre</string>
   <string name="reading_list_sort_by_name_desc">Ordenar por nombre (inverso)</string>
   <string name="reading_list_sort_by_recent">Ordenar por fecha de adición (más recientes)</string>
@@ -377,6 +379,8 @@
   <string name="split_reading_list_message">Existe un límite de %d artículos por lista de lectura. Las listas que superaban este límite se han dividido en varias listas.</string>
   <string name="reading_list_article_limit_message">No se pueden añadir elementos a esta lista. Se alcanzó el límite de %2$d artículos por lista para «%1$s».</string>
   <string name="reading_lists_limit_message">No se puede crear otra lista. Se alcanzó el límite de 100 listas de lectura por cuenta.</string>
+  <string name="reading_lists_menu_create_list">Crear lista nueva</string>
+  <string name="reading_lists_menu_sort_by">Ordenar por</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Este artículo ahora estará disponible sin conexión.</item>
     <item quantity="other">Estos artículos ahora estarán disponibles sin conexión.</item>
@@ -400,6 +404,10 @@
   <string name="notification_syncing_pause_button">Pausar</string>
   <string name="notification_syncing_resume_button">Reanudar</string>
   <string name="notification_syncing_cancel_button">Cancelar</string>
+  <string name="notification_syncing_reading_list_channel_name">Sincronizando listas de lectura</string>
+  <string name="notification_syncing_reading_list_channel_description">Progreso de sincronización de listas de lectura</string>
+  <string name="notification_syncing_reading_list_title">Sincronizando %1$d listas…</string>
+  <string name="notification_syncing_reading_list_description">Quedan %1$d listas</string>
   <string name="view_continue_reading_card_title">Continuar leyendo</string>
   <string name="view_because_you_read_card_title">Porque leíste</string>
   <string name="view_random_card_title">Aleatorio</string>
@@ -443,6 +451,7 @@
   <string name="feed_item_type_featured_image">Imagen destacada del día en Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Página principal de Wikipedia con contenido destacado diario</string>
   <string name="feed_item_type_randomizer">Generar artículos al azar para leer</string>
+  <string name="feed_empty_message">No hay nada en el suministro Explorar</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personaliza el canal Explorar&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Ahora puedes escoger qué mostrar en tu suministro y priorizar tus tipos de contenido preferidos.</string>
   <string name="description_edit_text_hint">Descripción de título</string>

@@ -316,6 +316,7 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d de 1 artigos disponíveis offline, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d de %2$d artigos disponíveis offline, %3$.2f MB</string>
   <string name="reading_list_sort">Ordenar</string>
+  <string name="reading_list_sort_ellipsis">Ordenar por...</string>
   <string name="reading_list_sort_by_name">Ordenar por nome</string>
   <string name="reading_list_sort_by_name_desc">Ordenar por nome (inverso)</string>
   <string name="reading_list_sort_by_recent">Ordenar por data adicionada (mais recente)</string>
@@ -397,6 +398,8 @@
   <string name="reading_list_article_limit_message">Não foi possível acrescentar a esta lista. Atingiu o limite máximo de %2$d artigos por lista para \"%1$s\".</string>
   <string name="reading_lists_limit_message">Não foi possível criar outra lista. Atingiu o limite máximo de 100 listas de leitura por conta.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sincronização das listas de leitura&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;As listas de leitura podem agora ser sincronizadas em todos os dispositivos. Entre com a sua conta da Wikipédia e clique em permitir para que as suas listas sejam guardadas.</string>
+  <string name="reading_lists_menu_create_list">Criar lista nova</string>
+  <string name="reading_lists_menu_sort_by">Ordenar por</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Este artigo agora estará disponível sem acesso à Internet.</item>
     <item quantity="other">Estes artigos agora estarão disponíveis sem acesso à Internet.</item>
@@ -420,6 +423,10 @@
   <string name="notification_syncing_pause_button">Pausar</string>
   <string name="notification_syncing_resume_button">Continuar</string>
   <string name="notification_syncing_cancel_button">Cancelar</string>
+  <string name="notification_syncing_reading_list_channel_name">A sincronizar listas de leitura</string>
+  <string name="notification_syncing_reading_list_channel_description">Progresso da sincronização das listas de leitura</string>
+  <string name="notification_syncing_reading_list_title">A sincronizar %1$d lista(s)…</string>
+  <string name="notification_syncing_reading_list_description">faltam %1$d lista(s)</string>
   <string name="view_continue_reading_card_title">Continuar a ler</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatório</string>
@@ -463,6 +470,7 @@
   <string name="feed_item_type_featured_image">Imagem destacada do dia no Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Página principal da Wikipédia com o conteúdo destacado diário</string>
   <string name="feed_item_type_randomizer">Gerar artigos aleatórios para ler</string>
+  <string name="feed_empty_message">Não há nada no seu feed Explorar</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalize o seu feed Explorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora pode escolher o que deseja mostrar no seu feed, e também priorizar os seus tipos de conteúdos favoritos.</string>
   <string name="description_edit_text_hint">Descrição do título</string>

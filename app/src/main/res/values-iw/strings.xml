@@ -104,6 +104,7 @@
   <string name="create_account_generic_error">לא היה ניתן ליצור חשבון</string>
   <string name="create_account_next">הבא</string>
   <string name="create_account_button">יצירת חשבון</string>
+  <string name="create_account_name_unavailable">שם המשתמש \"%s\" אינו זמין. נא לבחור שם משתמש אחר.</string>
   <string name="preferences_general_heading">כללי</string>
   <string name="wikipedia_app_faq">שו\"ת אפליקציית ויקיפדיה</string>
   <string name="zero_charged_verbiage">גישה בחינם לוויקיפדיה כבר אינה פעילה.</string>
@@ -314,6 +315,7 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d מתוך 1 ערכים זמינים ללא חיבור לרשת, %3$.2f מ\"ב</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d מתוך %2$d ערכים זמינים ללא חיבור לרשת, %3$.2f מ\"ב</string>
   <string name="reading_list_sort">מיון</string>
+  <string name="reading_list_sort_ellipsis">מיון לפי...</string>
   <string name="reading_list_sort_by_name">מיון לפי שם</string>
   <string name="reading_list_sort_by_name_desc">מיון לפי שם (אחורה)</string>
   <string name="reading_list_sort_by_recent">מיון לפי מועד ההוספה (החדש ביותר)</string>
@@ -395,6 +397,8 @@
   <string name="reading_list_article_limit_message">אי־אפשר להוסיף לרשימה הזאת הגעת למגבלה של %2$d ערכים ברשימה \"%1$s\".</string>
   <string name="reading_lists_limit_message">לא ניתן ליצור עוד רשימה. הגעת למגבלה של 100 רשימות קריאה לחשבון.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;סנכרון רשימות קריאה&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;עכשיו אפשר לסנכרן רשימות קריאה במכשירים שונים. נא להיכנס לחשבון הוויקיפדיה שלך ולאפשר לשמור את הרשימות שלך.</string>
+  <string name="reading_lists_menu_create_list">יצירת רשימה חדשה</string>
+  <string name="reading_lists_menu_sort_by">מיון לפי</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">הערך הזה יהיה זמין ללא חיבור לרשת.</item>
     <item quantity="other">הערכים האלה יהין זמינים ללא חיבור לרשת.</item>
@@ -418,6 +422,10 @@
   <string name="notification_syncing_pause_button">השהיה</string>
   <string name="notification_syncing_resume_button">המשך</string>
   <string name="notification_syncing_cancel_button">ביטול</string>
+  <string name="notification_syncing_reading_list_channel_name">סנכרון רשימות קריאה</string>
+  <string name="notification_syncing_reading_list_channel_description">התקדמות סנכרון רשימות קריאה</string>
+  <string name="notification_syncing_reading_list_title">סנכרון %1$d רשימות</string>
+  <string name="notification_syncing_reading_list_description">נשארו %1$d רשימות</string>
   <string name="view_continue_reading_card_title">להמשיך לקרוא</string>
   <string name="view_because_you_read_card_title">כי כבר קראת</string>
   <string name="view_random_card_title">ערך אקראי</string>
@@ -461,6 +469,7 @@
   <string name="feed_item_type_featured_image">תמונה יומית מומלצת מוויקישיתוף</string>
   <string name="feed_item_type_main_page">דף ראשי של ויקיפדיה עם תוכן יומי מומלץ</string>
   <string name="feed_item_type_randomizer">יצירת ערכים אקראיים לקריאה</string>
+  <string name="feed_empty_message">אין שום דבר בהזנת ה\"לחקור\" שלך</string>
   <string name="feed_configure_onboarding_action">התאמה אישית</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;תעשו התאמה אישית של ההזנה שלכם&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;אתם יכולים לבחור מה להציג בהזנה שלכם ולתעדף את סוגי התוכן שאתם אוהבים.</string>
   <string name="description_edit_text_hint">תיאור הכותרת</string>

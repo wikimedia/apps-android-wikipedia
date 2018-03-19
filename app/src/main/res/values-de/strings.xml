@@ -316,6 +316,7 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d Seiten von einem Artikel offline verfügbar, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d Seiten von %2$d Artikeln offline verfügbar, %3$.2f MB</string>
   <string name="reading_list_sort">Sortieren</string>
+  <string name="reading_list_sort_ellipsis">Sortieren nach …</string>
   <string name="reading_list_sort_by_name">Nach Name sortieren</string>
   <string name="reading_list_sort_by_name_desc">Nach Name sortieren (umgekehrt)</string>
   <string name="reading_list_sort_by_recent">Nach Hinzufügungsdatum sortieren (neueste)</string>
@@ -357,6 +358,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ist für keine Leseliste mehr offline verfügbar:</string>
   <string name="reading_lists_sync_reminder_title">Synchronisierung von Leselisten anschalten?</string>
   <string name="reading_lists_sync_reminder_text">Artikel, die in Leselisten gespeichert sind, können jetzt mit deinem Wikipedia-Benutzerkonto synchronisiert werden. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Mehr erfahren&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Leselisten können jetzt zwischen deinen Geräten synchronisiert werden. Melde dich bei deinem Wikipedia-Benutzerkonto an und erlaube die Speicherung deiner Listen. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Mehr erfahren&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Synchronisierung aktivieren</string>
   <string name="reading_list_login_reminder_title">Leselisten synchronisieren</string>
   <string name="reading_lists_login_reminder_text">Leselisten können jetzt zwischen Geräten synchronisiert werden. Melde dich bei deinem Wikipedia-Benutzerkonto an und erlaube die Speicherung deiner Listen.</string>
@@ -397,6 +399,10 @@
   <string name="reading_list_article_limit_message">Der Artikel konnte nicht zu dieser Liste hinzugefügt werden. Du hast für „%1$s“ die maximale Anzahl von %2$d Artikeln pro Liste erreicht.</string>
   <string name="reading_lists_limit_message">Es können keine weiteren Listen erstellt werden. Du hast die maximale Anzahl von 100 Leselisten pro Benutzerkonto erreicht.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Leselisten synchronisieren&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Leselisten können jetzt zwischen Geräten synchronisiert werden. Melde dich bei deinem Wikipedia-Benutzerkonto an und erlaube die Speicherung deiner Listen.</string>
+  <string name="reading_lists_menu_create_list">Neue Liste erstellen</string>
+  <string name="reading_lists_menu_sort_by">Sortieren nach</string>
+  <string name="reading_lists_refresh_sync_option">Erneut synchronisieren</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Anmelden / Benutzerkonto erstellen</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Dieser Artikel ist jetzt offline verfügbar.</item>
     <item quantity="other">Diese Artikel sind jetzt offline verfügbar.</item>
@@ -420,6 +426,10 @@
   <string name="notification_syncing_pause_button">Pausieren</string>
   <string name="notification_syncing_resume_button">Fortfahren</string>
   <string name="notification_syncing_cancel_button">Abbrechen</string>
+  <string name="notification_syncing_reading_list_channel_name">Synchronisiere Leseliste(n)</string>
+  <string name="notification_syncing_reading_list_channel_description">Fortschritt der Synchronisierung von Leselisten</string>
+  <string name="notification_syncing_reading_list_title">Synchronisiere %1$d Liste(n) …</string>
+  <string name="notification_syncing_reading_list_description">noch %1$d Liste(n)</string>
   <string name="view_continue_reading_card_title">Mit dem Lesen fortfahren</string>
   <string name="view_because_you_read_card_title">Weil du das gelesen hast</string>
   <string name="view_random_card_title">Zufallsgenerator</string>
