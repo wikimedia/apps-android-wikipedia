@@ -164,7 +164,6 @@ public class BottomContentView extends LinearLayoutOverWebView
             hideReadMore();
         }
         setVisibility(View.INVISIBLE);
-        perturb();
     }
 
     @OnClick(R.id.page_external_link) void onExternalLinkClick(View v) {
@@ -248,6 +247,9 @@ public class BottomContentView extends LinearLayoutOverWebView
         bridge.sendMessage("setPaddingBottom", payload);
         // ^ sending the padding event will guarantee a ContentHeightChanged event to be triggered,
         // which will update our margin based on the scroll offset, so we don't need to do it here.
+        // And while we wait, let's make ourselves invisible, until we're made explicitly visible
+        // by the scroll handler.
+        setVisibility(View.INVISIBLE);
     }
 
     private void setupPageButtons() {
