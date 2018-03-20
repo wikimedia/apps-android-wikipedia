@@ -79,7 +79,7 @@ document.onclick = function() {
 
 module.exports = new ActionsHandler();
 
-},{"./bridge":2,"./utilities":19}],2:[function(require,module,exports){
+},{"./bridge":2,"./utilities":17}],2:[function(require,module,exports){
 function Bridge() {
 }
 
@@ -144,7 +144,7 @@ bridge.registerListener( 'setTheme', function( payload ) {
 bridge.registerListener( 'toggleDimImages', function( payload ) {
     pagelib.DimImagesTransform.dim( window, payload.dimImages );
 } );
-},{"./bridge":2,"wikimedia-page-library":20}],4:[function(require,module,exports){
+},{"./bridge":2,"wikimedia-page-library":18}],4:[function(require,module,exports){
 var actions = require('./actions');
 var bridge = require('./bridge');
 
@@ -173,7 +173,7 @@ transformer.register( 'displayIssuesLink', function( content ) {
     return content;
 } );
 
-},{"./transformer":11}],6:[function(require,module,exports){
+},{"./transformer":10}],6:[function(require,module,exports){
 var bridge = require( "./bridge" );
 var transformer = require("./transformer");
 
@@ -197,29 +197,7 @@ bridge.registerListener( "setDecorOffset", function( payload ) {
     transformer.setDecorOffset(payload.offset);
 } );
 
-},{"./bridge":2,"./transformer":11}],7:[function(require,module,exports){
-var bridge = require("./bridge");
-
-/*
-OnClick handler function for IPA spans.
-*/
-function ipaClickHandler() {
-    var container = this;
-    bridge.sendMessage( "ipaSpan", { "contents": container.innerHTML });
-}
-
-function addIPAonClick( content ) {
-    var spans = content.querySelectorAll( "span.ipa_button" );
-    for (var i = 0; i < spans.length; i++) {
-        var parent = spans[i].parentNode;
-        parent.onclick = ipaClickHandler;
-    }
-}
-
-module.exports = {
-    addIPAonClick: addIPAonClick
-};
-},{"./bridge":2}],8:[function(require,module,exports){
+},{"./bridge":2,"./transformer":10}],7:[function(require,module,exports){
 var bridge = require("./bridge");
 var pagelib = require("wikimedia-page-library");
 
@@ -234,7 +212,7 @@ bridge.registerListener( "displayPreviewHTML", function( payload ) {
         pagelib.ThemeTransform.classifyElements( content );
     }
 } );
-},{"./bridge":2,"wikimedia-page-library":20}],9:[function(require,module,exports){
+},{"./bridge":2,"wikimedia-page-library":18}],8:[function(require,module,exports){
 var bridge = require("./bridge");
 
 bridge.registerListener( "setDirectionality", function( payload ) {
@@ -250,10 +228,9 @@ bridge.registerListener( "setDirectionality", function( payload ) {
     html.classList.add( "ui-" + payload.uiDirection );
 } );
 
-},{"./bridge":2}],10:[function(require,module,exports){
+},{"./bridge":2}],9:[function(require,module,exports){
 var bridge = require("./bridge");
 var transformer = require("./transformer");
-var clickHandlerSetup = require("./onclick");
 var pagelib = require("wikimedia-page-library");
 var lazyLoadViewportDistanceMultiplier = 2; // Load images on the current screen up to one ahead.
 var lazyLoadTransformer = new pagelib.LazyLoadTransformer(window, lazyLoadViewportDistanceMultiplier);
@@ -429,9 +406,6 @@ function applySectionTransforms( content, isLeadSection ) {
         }
         pagelib.RedLinks.hideRedLinks( document );
         transformer.transform( "anchorPopUpMediaTransforms", content );
-        transformer.transform( "hideIPA", content );
-    } else {
-        clickHandlerSetup.addIPAonClick( content );
     }
 
     pagelib.ThemeTransform.classifyElements( content );
@@ -738,7 +712,7 @@ bridge.registerListener( "requestCurrentSection", function() {
     bridge.sendMessage( "currentSectionResponse", { sectionID: getCurrentSection() } );
 } );
 
-},{"./bridge":2,"./onclick":7,"./transformer":11,"wikimedia-page-library":20}],11:[function(require,module,exports){
+},{"./bridge":2,"./transformer":10,"wikimedia-page-library":18}],10:[function(require,module,exports){
 function Transformer() {
 }
 
@@ -769,7 +743,7 @@ Transformer.prototype.setDecorOffset = function(offset) {
 };
 
 module.exports = new Transformer();
-},{}],12:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 var pagelib = require("wikimedia-page-library");
 var transformer = require("../transformer");
 
@@ -792,7 +766,7 @@ module.exports = {
     handleTableCollapseOrExpandClick: toggleCollapseClickCallback
 };
 
-},{"../transformer":11,"wikimedia-page-library":20}],13:[function(require,module,exports){
+},{"../transformer":10,"wikimedia-page-library":18}],12:[function(require,module,exports){
 var transformer = require("../transformer");
 
 transformer.register( "hideImages", function( content ) {
@@ -809,7 +783,7 @@ transformer.register( "hideImages", function( content ) {
     }
 } );
 
-},{"../transformer":11}],14:[function(require,module,exports){
+},{"../transformer":10}],13:[function(require,module,exports){
 var transformer = require("../transformer");
 
 transformer.register( "hideRefs", function( content ) {
@@ -831,7 +805,7 @@ transformer.register( "hideRefs", function( content ) {
         td.appendChild(refLists[i]);
     }
 } );
-},{"../transformer":11}],15:[function(require,module,exports){
+},{"../transformer":10}],14:[function(require,module,exports){
 var transformer = require("../../transformer");
 
 transformer.register( "anchorPopUpMediaTransforms", function( content ) {
@@ -864,56 +838,7 @@ transformer.register( "anchorPopUpMediaTransforms", function( content ) {
     }
 } );
 
-},{"../../transformer":11}],16:[function(require,module,exports){
-var transformer = require("../../transformer");
-var bridge = require("../../bridge");
-
-/*
-OnClick handler function for IPA spans.
-*/
-function ipaClickHandler() {
-    var container = this;
-    bridge.sendMessage( "ipaSpan", { "contents": container.innerHTML });
-}
-
-transformer.register( "hideIPA", function( content ) {
-    var spans = content.querySelectorAll( "span.IPA" );
-    for (var i = 0; i < spans.length; i++) {
-        var parentSpan = spans[i].parentNode;
-        if (parentSpan === null) {
-            continue;
-        }
-        var doTransform = false;
-        // case 1: we have a sequence of IPA spans contained in a parent "nowrap" span
-        if (parentSpan.tagName === "SPAN" && spans[i].classList.contains('nopopups')) {
-            doTransform = true;
-        }
-        if (parentSpan.style.display === 'none') {
-            doTransform = false;
-        }
-        if (!doTransform) {
-            continue;
-        }
-
-        //we have a new IPA span!
-
-        var containerSpan = document.createElement( 'span' );
-        parentSpan.parentNode.insertBefore(containerSpan, parentSpan);
-        parentSpan.parentNode.removeChild(parentSpan);
-
-        //create and add the button
-        var buttonDiv = document.createElement( 'div' );
-        buttonDiv.classList.add('ipa_button');
-        containerSpan.appendChild(buttonDiv);
-        containerSpan.appendChild(parentSpan);
-
-        //set initial visibility
-        parentSpan.style.display = 'none';
-        //and assign the click handler to it
-        containerSpan.onclick = ipaClickHandler;
-    }
-} );
-},{"../../bridge":2,"../../transformer":11}],17:[function(require,module,exports){
+},{"../../transformer":10}],15:[function(require,module,exports){
 var transformer = require("../../transformer");
 
 // Move the first non-empty paragraph (and related elements) to the top of the section.
@@ -997,7 +922,7 @@ function addTrailingNodes( span, nodes, startIndex ) {
     }
 }
 
-},{"../../transformer":11}],18:[function(require,module,exports){
+},{"../../transformer":10}],16:[function(require,module,exports){
 var maybeWidenImage = require('wikimedia-page-library').WidenImage.maybeWidenImage;
 var transformer = require("../transformer");
 
@@ -1019,7 +944,7 @@ transformer.register( "widenImages", function( content ) {
     }
 } );
 
-},{"../transformer":11,"wikimedia-page-library":20}],19:[function(require,module,exports){
+},{"../transformer":10,"wikimedia-page-library":18}],17:[function(require,module,exports){
 function ancestorContainsClass( element, className ) {
     var contains = false;
     var curNode = element;
@@ -1068,7 +993,7 @@ module.exports = {
     firstDivAncestor: firstDivAncestor
 };
 
-},{}],20:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
@@ -3766,4 +3691,4 @@ return pagelib$1;
 })));
 
 
-},{}]},{},[2,6,19,11,12,13,14,18,15,16,17,1,4,5,3,8,9,10]);
+},{}]},{},[2,6,17,10,11,12,13,16,14,15,1,4,5,3,7,8,9]);

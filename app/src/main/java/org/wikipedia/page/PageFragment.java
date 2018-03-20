@@ -15,19 +15,15 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.ActionMode;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
@@ -1159,21 +1155,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 }
                 showBottomSheet(new ReferenceDialog(getActivity(), linkHandler, refHtml,
                         StringUtils.defaultString(refLinkText)));
-            }
-        });
-        bridge.addListener("ipaSpan", (String messageType, JSONObject messagePayload) -> {
-            try {
-                String text = messagePayload.getString("contents");
-                final int textSize = 30;
-                TextView textView = new TextView(getActivity());
-                textView.setGravity(Gravity.CENTER);
-                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
-                textView.setText(StringUtil.fromHtml(text));
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setView(textView);
-                builder.show();
-            } catch (JSONException e) {
-                L.logRemoteErrorIfProd(e);
             }
         });
         bridge.addListener("imageClicked", (String messageType, JSONObject messagePayload) -> {
