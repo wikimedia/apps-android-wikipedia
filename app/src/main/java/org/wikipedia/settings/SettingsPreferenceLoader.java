@@ -8,7 +8,6 @@ import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.SwitchPreferenceCompat;
 
-import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
@@ -86,22 +85,11 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
             return true;
         });
 
-        if (!BuildConfig.APPLICATION_ID.equals("org.wikipedia")) {
-            overridePackageName();
-        }
-    }
-
-    /**
-     * Needed for beta release since the Gradle flavors applicationId changes don't get reflected
-     * to the preferences.xml
-     * See https://code.google.com/p/android/issues/detail?id=57460
-     */
-    private void overridePackageName() {
-        Preference aboutPref = findPreference(R.string.preference_key_about_wikipedia_app);
-        aboutPref.setOnPreferenceClickListener((preference) -> {
-            getActivity().startActivity(new Intent(getActivity(), AboutActivity.class));
-            return true;
-        });
+        findPreference(R.string.preference_key_about_wikipedia_app)
+                .setOnPreferenceClickListener((preference) -> {
+                    getActivity().startActivity(new Intent(getActivity(), AboutActivity.class));
+                    return true;
+                });
     }
 
     private void updateLanguagePrefSummary() {
@@ -142,7 +130,7 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
         }
     }
 
-    public void updateSyncReadingListsPrefSummary() {
+    void updateSyncReadingListsPrefSummary() {
         Preference syncReadingListsPref = findPreference(R.string.preference_key_sync_reading_lists);
         if (AccountUtil.isLoggedIn()) {
             syncReadingListsPref.setSummary(getActivity().getString(R.string.preference_summary_sync_reading_lists_from_account, AccountUtil.getUserName()));

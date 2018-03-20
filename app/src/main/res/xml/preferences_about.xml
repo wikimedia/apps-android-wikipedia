@@ -5,12 +5,7 @@
     <PreferenceCategory android:title="@string/about_activity_title">
         <org.wikipedia.settings.PreferenceMultiLine
             android:key="@string/preference_key_about_wikipedia_app"
-            android:title="@string/about_description">
-            <intent android:action="android.intent.action.VIEW"
-                    android:targetClass="org.wikipedia.settings.AboutActivity"
-                    android:targetPackage="org.wikipedia"
-                    />
-        </org.wikipedia.settings.PreferenceMultiLine>
+            android:title="@string/about_description" />
         <org.wikipedia.settings.PreferenceMultiLineWithExternalLink
             android:title="@string/wikipedia_app_faq">
             <intent android:action="android.intent.action.VIEW"
