@@ -81,4 +81,5 @@
     <string name="preference_key_show_reading_lists_sync_prompt">showReadingListsSyncPrompt</string>
     <string name="preference_key_show_reading_lists_merge_prompt">showReadingListsMergePrompt</string>
     <string name="preference_key_reading_lists_first_time_sync">readingListsFirstTimeSync</string>
+    <string name="preference_key_about_wikipedia_app">aboutWikipediaApp</string>
 </resources>

@@ -97,7 +97,7 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
      * See https://code.google.com/p/android/issues/detail?id=57460
      */
     private void overridePackageName() {
-        Preference aboutPref = findPreference("about");
+        Preference aboutPref = findPreference(R.string.preference_key_about_wikipedia_app);
         aboutPref.setOnPreferenceClickListener((preference) -> {
             getActivity().startActivity(new Intent(getActivity(), AboutActivity.class));
             return true;
