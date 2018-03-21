@@ -36,22 +36,26 @@ public class SiteMatrixClient {
             @Override
             public void onResponse(@NonNull Call<SiteMatrix> call, @NonNull Response<SiteMatrix> response) {
                 if (response.body() != null) {
-                    List<SiteInfo> sites = new ArrayList<>();
-                    // noinspection ConstantConditions
-                    JsonObject sitematrix = response.body().siteMatrix();
-                    // We have to parse the Json manually because the list of SiteInfo objects
-                    // contains a "count" member that prevents it from being able to deserialize
-                    // as a list automatically.
-                    for (String key : sitematrix.keySet()) {
-                        if (key.equals("count")) {
-                            continue;
+                    try {
+                        List<SiteInfo> sites = new ArrayList<>();
+                        // noinspection ConstantConditions
+                        JsonObject sitematrix = response.body().siteMatrix();
+                        // We have to parse the Json manually because the list of SiteInfo objects
+                        // contains a "count" member that prevents it from being able to deserialize
+                        // as a list automatically.
+                        for (String key : sitematrix.keySet()) {
+                            if (key.equals("count")) {
+                                continue;
+                            }
+                            SiteInfo info = GsonUtil.getDefaultGson().fromJson(sitematrix.get(key), SiteInfo.class);
+                            if (info != null) {
+                                sites.add(info);
+                            }
                         }
-                        SiteInfo info = GsonUtil.getDefaultGson().fromJson(sitematrix.get(key), SiteInfo.class);
-                        if (info != null) {
-                            sites.add(info);
-                        }
+                        cb.success(call, sites);
+                    } catch (Exception e) {
+                        cb.failure(call, new IOException("Unexpected response format."));
                     }
-                    cb.success(call, sites);
                 } else {
                     cb.failure(call, new IOException("An unknown error occurred."));
                 }
