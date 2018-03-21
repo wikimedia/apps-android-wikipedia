@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.Constants;
-import org.wikipedia.dataclient.okhttp.cache.SaveHeader;
+import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -54,7 +54,7 @@ public interface MwPageService {
             + "%7Ceditable%7Cpageprops&pageprops=wikibase_item"
             + "&sections=0&sectionprop=toclevel%7Cline%7Canchor&noheadings=")
     @NonNull Call<MwMobileViewPageLead> lead(@Nullable @Header("Cache-Control") String cacheControl,
-                                             @Header(SaveHeader.FIELD) Boolean save,
+                                             @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
                                              @NonNull @Query("page") String title,
                                              @Query("thumbwidth") int leadImageWidth);
 
@@ -67,6 +67,6 @@ public interface MwPageService {
             + "text%7Csections&onlyrequestedsections=1&sections=1-"
             + "&sectionprop=toclevel%7Cline%7Canchor&noheadings=")
     @NonNull Call<MwMobileViewPageRemaining> sections(@Nullable @Header("Cache-Control") String cacheControl,
-                                                      @Header(SaveHeader.FIELD) Boolean save,
+                                                      @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
                                                       @NonNull @Query("page") String title);
 }

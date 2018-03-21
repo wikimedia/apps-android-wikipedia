@@ -2,7 +2,6 @@ package org.wikipedia.util;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.os.StatFs;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
@@ -18,21 +17,6 @@ import java.io.InputStreamReader;
 public final class FileUtil {
     public static final int JPEG_QUALITY = 85;
     private static final int KILOBYTE = 1000;
-
-    public static long physicalToLogicalSize(long physical, long blockSize) {
-        if (physical == 0) {
-            return 0;
-        }
-
-        long minBlockSize = Math.max(1, blockSize);
-        return (physical / minBlockSize + Math.min(physical % minBlockSize, 1)) * minBlockSize;
-    }
-
-    public static long blockSize(File file) {
-        StatFs statFs = new StatFs(file.getAbsolutePath());
-
-        return statFs.getBlockSizeLong();
-    }
 
     public static File writeToFile(ByteArrayOutputStream bytes, File destinationFile) throws IOException {
         FileOutputStream fo = new FileOutputStream(destinationFile);

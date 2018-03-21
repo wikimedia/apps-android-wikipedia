@@ -1,7 +1,6 @@
 package okhttp3;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import java.io.IOException;
 
@@ -11,9 +10,8 @@ import okhttp3.internal.cache.InternalCache;
 import okio.ByteString;
 
 public class CacheDelegate {
-    @NonNull public static InternalCache internalCache(@NonNull Cache cache) {
-        return cache.internalCache;
-    }
+    private static final int OKHTTP_METADATA_FILE_INDEX = 0;
+    private static final int OKHTTP_RAW_BODY_FILE_INDEX = 1;
 
     @NonNull private final Cache cache;
 
@@ -28,42 +26,37 @@ public class CacheDelegate {
         }
     }
 
-    @NonNull public DiskLruCache diskLruCache() {
-        return cache.cache;
+    @NonNull public InternalCache internalCache() {
+        return cache.internalCache;
     }
 
-    @Nullable public DiskLruCache.Snapshot entry(@NonNull Request req) {
-        try {
-            return cache.cache.get(key(req.url().toString()));
-        } catch (IOException ignore) {
-            return null;
-        }
-    }
-
-    // Copy of Cache.get(). Calling this method modifies the Cache. If the URL is present, it's
-    // cache entry is moved to the head of the LRU queue. This method performs file I/O
+    // Copy of Cache.get(). Calling this method modifies the Cache. If the URL is present, its
+    // cache entry is moved to the head of the LRU queue.
     public boolean isCached(@NonNull String url) {
-        String key = key(url);
-        DiskLruCache.Snapshot snapshot;
         try {
-            snapshot = cache.cache.get(key);
-            if (snapshot == null) {
-                return false;
+            DiskLruCache.Snapshot snapshot = cache.cache.get(key(url));
+            if (snapshot != null) {
+                Util.closeQuietly(snapshot);
+                return true;
             }
         } catch (IOException e) {
-            // Give up because the cache cannot be read.
-            return false;
+            // cache cannot be read.
         }
-
-        Util.closeQuietly(snapshot);
-        return true;
+        return false;
     }
 
-    // Copy of Cache.remove(). This method performs file I/O
-    public void remove(@NonNull Request req) {
+    public long getSizeOnDisk(@NonNull Request req) {
+        long totalSize = 0;
         try {
-            cache.remove(req);
-        } catch (IOException ignore) { }
+            DiskLruCache.Snapshot snapshot = cache.cache.get(key(req.url().toString()));
+            if (snapshot != null) {
+                totalSize += snapshot.getLength(OKHTTP_METADATA_FILE_INDEX);
+                totalSize += snapshot.getLength(OKHTTP_RAW_BODY_FILE_INDEX);
+            }
+        } catch (IOException ignore) {
+            //
+        }
+        return totalSize;
     }
 
     // Copy of Cache.key()

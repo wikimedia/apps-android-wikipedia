@@ -49,19 +49,19 @@ public class RbPageClient implements PageClient {
 
     @SuppressWarnings("unchecked")
     @NonNull @Override public Call<? extends PageLead> lead(@Nullable CacheControl cacheControl,
-                                                            @NonNull CacheOption cacheOption,
+                                                            @Nullable String saveOfflineHeader,
                                                             @NonNull String title,
                                                             int leadThumbnailWidth) {
         return service.lead(cacheControl == null ? null : cacheControl.toString(),
-                optional(cacheOption.save()), title);
+                saveOfflineHeader, title);
     }
 
     @SuppressWarnings("unchecked")
     @NonNull @Override public Call<? extends PageRemaining> sections(@Nullable CacheControl cacheControl,
-                                                                     @NonNull CacheOption cacheOption,
+                                                                     @Nullable String saveOfflineHeader,
                                                                      @NonNull String title) {
         return service.sections(cacheControl == null ? null : cacheControl.toString(),
-                optional(cacheOption.save()), title);
+                saveOfflineHeader, title);
     }
 
     /* Not defined in the PageClient interface since the Wiktionary definition endpoint exists only
@@ -86,18 +86,5 @@ public class RbPageClient implements PageClient {
                 cb.failure(throwable);
             }
         });
-    }
-
-    // todo: consolidate MwPageClient and RbPageClient.optional() in util
-    /**
-     * Optional boolean Retrofit parameter.
-     * We don't want to send the query parameter at all when it's false since the presence of the
-     * parameter alone is enough to trigger the truthy behavior.
-     */
-    private Boolean optional(boolean param) {
-        if (param) {
-            return true;
-        }
-        return null;
     }
 }

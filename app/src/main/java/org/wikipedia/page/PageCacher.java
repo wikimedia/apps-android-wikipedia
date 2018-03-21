@@ -27,9 +27,9 @@ import retrofit2.Response;
 import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
 import static org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl;
 
-public final class PageCacher {
+final class PageCacher {
 
-    public static void loadIntoCache(@NonNull PageTitle title) {
+    static void loadIntoCache(@NonNull PageTitle title) {
         L.d("Loading page into cache: " + title.getPrefixedText());
         WikipediaApp app = WikipediaApp.getInstance();
         PageImageUrlParser parser = new PageImageUrlParser(new ImageTagParser(),
@@ -43,14 +43,14 @@ public final class PageCacher {
 
     @NonNull
     private static Call<PageLead> leadReq(@NonNull PageClient client, @NonNull PageTitle title) {
-        return client.lead(null, PageClient.CacheOption.CACHE, title.getPrefixedText(),
+        return client.lead(null, null, title.getPrefixedText(),
                 calculateLeadImageWidth());
     }
 
     @NonNull
     private static Call<PageRemaining> remainingReq(@NonNull PageClient client,
                                                     @NonNull PageTitle title) {
-        return client.sections(null, PageClient.CacheOption.CACHE, title.getPrefixedText());
+        return client.sections(null, null, title.getPrefixedText());
     }
 
     private static void fetchImages(@NonNull final WikiSite wiki,
