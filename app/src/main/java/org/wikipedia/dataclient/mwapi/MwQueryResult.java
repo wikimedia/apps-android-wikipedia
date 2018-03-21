@@ -42,6 +42,13 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         return pages;
     }
 
+    @Nullable public MwQueryPage firstPage() {
+        if (pages != null && pages.size() > 0) {
+            return pages.get(0);
+        }
+        return null;
+    }
+
     @Nullable public UserInfo userInfo() {
         return userInfo;
     }
@@ -108,17 +115,6 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
             }
         }
         return result;
-    }
-
-    @Nullable public String wikitext() {
-        if (pages != null) {
-            for (MwQueryPage page : pages) {
-                if (page.revisions() != null && page.revisions().get(0) != null) {
-                    return page.revisions().get(0).content();
-                }
-            }
-        }
-        return null;
     }
 
     @NonNull public List<PageTitle> langLinks() {

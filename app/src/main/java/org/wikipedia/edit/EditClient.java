@@ -31,22 +31,22 @@ class EditClient {
     @SuppressWarnings("checkstyle:parameternumber")
     public Call<Edit> request(@NonNull WikiSite wiki, @NonNull PageTitle title, int section,
                               @NonNull String text, @NonNull String token, @NonNull String summary,
-                              boolean loggedIn, @Nullable String captchaId, @Nullable String captchaWord,
-                              @NonNull Callback cb) {
-        return request(cachedService.service(wiki), title, section, text, token, summary, loggedIn,
-                captchaId, captchaWord, cb);
+                              @Nullable String baseTimeStamp, boolean loggedIn, @Nullable String captchaId,
+                              @Nullable String captchaWord, @NonNull Callback cb) {
+        return request(cachedService.service(wiki), title, section, text, token, summary,
+                baseTimeStamp, loggedIn, captchaId, captchaWord, cb);
     }
 
     @VisibleForTesting @SuppressWarnings("checkstyle:parameternumber")
     Call<Edit> request(@NonNull Service service, @NonNull PageTitle title, int section,
                        @NonNull String text, @NonNull String token, @NonNull String summary,
-                       boolean loggedIn, @Nullable String captchaId, @Nullable String captchaWord,
-                       @NonNull final Callback cb) {
-        Call<Edit> call = service.edit(title.getPrefixedText(), section, text, token, summary,
-                loggedIn ? "user" : null, captchaId, captchaWord);
+                       @Nullable String baseTimeStamp, boolean loggedIn, @Nullable String captchaId,
+                       @Nullable String captchaWord, @NonNull final Callback cb) {
+        Call<Edit> call = service.edit(title.getPrefixedText(), section, summary, loggedIn ? "user" : null,
+                text, baseTimeStamp, token, captchaId, captchaWord);
         call.enqueue(new retrofit2.Callback<Edit>() {
             @Override
-            public void onResponse(Call<Edit> call, Response<Edit> response) {
+            public void onResponse(@NonNull Call<Edit> call, @NonNull Response<Edit> response) {
                 if (response.body().hasEditResult()) {
                     handleEditResult(response.body().edit(), call, cb);
                 } else if (response.body().hasError()) {
@@ -60,7 +60,7 @@ class EditClient {
             }
 
             @Override
-            public void onFailure(Call<Edit> call, Throwable t) {
+            public void onFailure(@NonNull Call<Edit> call, @NonNull Throwable t) {
                 cb.failure(call, t);
             }
         });
@@ -89,10 +89,11 @@ class EditClient {
         @SuppressWarnings("checkstyle:parameternumber")
         Call<Edit> edit(@NonNull @Field("title") String title,
                         @Field("section") int section,
-                        @NonNull @Field("text") String text,
-                        @NonNull @Field("token") String token,
                         @NonNull @Field("summary") String summary,
                         @Nullable @Field("assert") String user,
+                        @NonNull @Field("text") String text,
+                        @Nullable @Field("basetimestamp") String baseTimeStamp,
+                        @NonNull @Field("token") String token,
                         @Nullable @Field("captchaid") String captchaId,
                         @Nullable @Field("captchaword") String captchaWord);
     }

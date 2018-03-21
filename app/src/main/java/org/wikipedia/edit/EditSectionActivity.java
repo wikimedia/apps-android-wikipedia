@@ -84,6 +84,10 @@ public class EditSectionActivity extends BaseActivity {
     private boolean sectionTextModified = false;
     private boolean sectionTextFirstLoad = true;
 
+    // Timestamp received from server to track the time of the last revision, then passed
+    // back to the server to detect possible edit conflicts.
+    private String baseTimeStamp;
+
     private View sectionProgress;
     private ScrollView sectionContainer;
     private WikiErrorView errorView;
@@ -317,7 +321,7 @@ public class EditSectionActivity extends BaseActivity {
         }
 
         new EditClient().request(title.getWikiSite(), title, sectionID,
-                sectionText.getText().toString(), token, summaryText, AccountUtil.isLoggedIn(),
+                sectionText.getText().toString(), token, summaryText, baseTimeStamp, AccountUtil.isLoggedIn(),
                 captchaHandler.isActive() ? captchaHandler.captchaId() : "null",
                 captchaHandler.isActive() ? captchaHandler.captchaWord() : "null",
                 new EditClient.Callback() {
@@ -400,12 +404,15 @@ public class EditSectionActivity extends BaseActivity {
         String code = caught.getTitle();
         if (AccountUtil.isLoggedIn() && ("badtoken".equals(code) || "assertuserfailed".equals(code))) {
             getEditTokenThenSave(true);
-        } else if ("blocked".equals(code) || "wikimedia-globalblocking-ipblocked".equals(code)) {
+            return;
+        }
+
+        progressDialog.dismiss();
+        if ("blocked".equals(code) || "wikimedia-globalblocking-ipblocked".equals(code)) {
             // User is blocked, locally or globally
             // If they were anon, canedit does not catch this, so we can't show them the locked pencil
             // If they not anon, this means they were blocked in the interim between opening the edit
             // window and clicking save. Less common, but might as well handle it
-            progressDialog.dismiss();
             AlertDialog.Builder builder = new AlertDialog.Builder(EditSectionActivity.this);
             builder.setTitle(R.string.user_blocked_from_editing_title);
             if (AccountUtil.isLoggedIn()) {
@@ -422,8 +429,14 @@ public class EditSectionActivity extends BaseActivity {
                 builder.setNegativeButton(android.R.string.cancel, (dialog, i) -> dialog.dismiss());
             }
             builder.show();
+        } else if ("editconflict".equals(code)) {
+            new AlertDialog.Builder(EditSectionActivity.this)
+                    .setTitle(R.string.edit_conflict_title)
+                    .setMessage(R.string.edit_conflict_message)
+                    .setPositiveButton(android.R.string.ok, null)
+                    .show();
+            resetToStart();
         } else {
-            progressDialog.dismiss();
             showError(caught);
         }
     }
@@ -552,13 +565,27 @@ public class EditSectionActivity extends BaseActivity {
         captchaHandler.saveState(outState);
     }
 
+    private void resetToStart() {
+        if (captchaHandler.isActive()) {
+            captchaHandler.cancelCaptcha();
+        }
+        if (editSummaryFragment.isActive()) {
+            editSummaryFragment.hide();
+        }
+        if (editPreviewFragment.isActive()) {
+            editPreviewFragment.hide();
+        }
+    }
+
     private void fetchSectionText() {
         if (sectionWikitext == null) {
             new WikitextClient().request(title.getWikiSite(), title, sectionID, new WikitextClient.Callback() {
                 @Override
-                public void success(@NonNull Call<MwQueryResponse> call, @NonNull String normalizedTitle, @NonNull String wikitext) {
+                public void success(@NonNull Call<MwQueryResponse> call, @NonNull String normalizedTitle,
+                                    @NonNull String wikitext, @Nullable String timeStamp) {
                     title = new PageTitle(normalizedTitle, title.getWikiSite());
                     sectionWikitext = wikitext;
+                    baseTimeStamp = timeStamp;
                     displaySectionText();
                 }
 
@@ -652,6 +679,9 @@ public class EditSectionActivity extends BaseActivity {
         }
         if (editPreviewFragment.handleBackPressed()) {
             return;
+        }
+        if (errorView.getVisibility() == View.VISIBLE) {
+            errorView.setVisibility(View.GONE);
         }
 
         hideSoftKeyboard(this);

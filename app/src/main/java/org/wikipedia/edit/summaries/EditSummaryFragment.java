@@ -1,6 +1,7 @@
 package org.wikipedia.edit.summaries;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -25,7 +26,7 @@ public class EditSummaryFragment extends Fragment {
     private AutoCompleteTextView summaryText;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         editSummaryContainer = inflater.inflate(R.layout.fragment_preview_summary, container, false);
         summaryText = editSummaryContainer.findViewById(R.id.edit_summary_edit);
 
@@ -99,7 +100,7 @@ public class EditSummaryFragment extends Fragment {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString("summaryText", summaryText.getText().toString());
     }

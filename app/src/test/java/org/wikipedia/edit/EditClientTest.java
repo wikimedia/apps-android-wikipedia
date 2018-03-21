@@ -141,6 +141,6 @@ public class EditClientTest extends MockWebServerTest {
     private Call<Edit> request(@NonNull EditClient.Callback cb, boolean loggedIn) {
         PageTitle title = new PageTitle(null, "TEST", WikiSite.forLanguageCode("test"));
         return subject.request(service(EditClient.Service.class), title, 0, "new text", "token",
-                "summary", loggedIn, "captchaId", "captchaSubmission", cb);
+                "summary", null, loggedIn, "captchaId", "captchaSubmission", cb);
     }
 }
