@@ -26,7 +26,7 @@
       "start_time": "2016-11-15T17:11:12Z",
       "end_time": "2016-11-30T17:11:12Z",
       "platforms": [
-        "AndroidApp"
+        "AndroidAppV2"
       ],
       "text": "Answer three questions and help us improve Wikipedia.",
       "action": {
@@ -46,7 +46,7 @@
       "start_time": "2016-11-15T17:11:12Z",
       "end_time": "2016-11-30T17:11:12Z",
       "platforms": [
-        "AndroidApp"
+        "AndroidAppV2"
       ],
       "text": "Help Wikipedia by making a donation.",
       "image" : "https://image.url",
@@ -67,7 +67,7 @@
       "start_time": null,
       "end_time": null,
       "platforms": [
-        "AndroidApp"
+        "AndroidAppV2"
       ],
       "text": "Help Wikipedia by making a donation.",
       "action": {
@@ -84,7 +84,7 @@
       "id": "AnnouncementWithNoDates",
       "type": "fundraising",
       "platforms": [
-        "AndroidApp"
+        "AndroidAppV2"
       ],
       "text": "Help Wikipedia by making a donation.",
       "action": {
@@ -103,7 +103,7 @@
       "start_time": "2016-11-15T17:11:12Z",
       "end_time": "2016-11-30T17:11:12Z",
       "platforms": [
-        "AndroidApp"
+        "AndroidAppV2"
       ],
       "text": "Help Wikipedia by making a donation.",
       "action": {

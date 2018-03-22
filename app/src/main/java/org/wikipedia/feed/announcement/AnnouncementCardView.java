@@ -59,6 +59,8 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
         }
         if (!TextUtils.isEmpty(card.negativeText())) {
             actionViewNegative.setText(card.negativeText());
+        } else {
+            actionViewNegative.setVisibility(GONE);
         }
 
         if (card.hasImage()) {

@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 
+import org.wikipedia.BuildConfig;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 import org.wikipedia.feed.FeedCoordinator;
@@ -13,6 +15,7 @@ import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.GeoUtil;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
@@ -29,7 +32,7 @@ import retrofit2.http.Headers;
 import static org.wikipedia.Constants.ACCEPT_HEADER_PREFIX;
 
 public class AnnouncementClient implements FeedClient {
-    private static final String PLATFORM_CODE = "AndroidApp";
+    private static final String PLATFORM_CODE = "AndroidAppV2";
 
     @Nullable private Call<AnnouncementList> call;
 
@@ -80,8 +83,8 @@ public class AnnouncementClient implements FeedClient {
             this.postDelayed = postDelayed;
         }
 
-        @Override public void onResponse(Call<AnnouncementList> call,
-                                         Response<AnnouncementList> response) {
+        @Override public void onResponse(@NonNull Call<AnnouncementList> call,
+                                         @NonNull Response<AnnouncementList> response) {
             List<Card> cards = new ArrayList<>();
             AnnouncementList content = response.body();
             if (content != null) {
@@ -94,7 +97,7 @@ public class AnnouncementClient implements FeedClient {
             }
         }
 
-        @Override public void onFailure(Call<AnnouncementList> call, Throwable caught) {
+        @Override public void onFailure(@NonNull Call<AnnouncementList> call, @NonNull Throwable caught) {
             L.v(caught);
             cb.error(caught);
         }
@@ -132,8 +135,45 @@ public class AnnouncementClient implements FeedClient {
                 || TextUtils.isEmpty(country)
                 || !announcement.countries().contains(country)
                 || (announcement.startTime() != null && announcement.startTime().after(date))
-                || (announcement.endTime() != null && announcement.endTime().before(date))) {
+                || (announcement.endTime() != null && announcement.endTime().before(date))
+                || !matchesVersionCodes(announcement.minVersion(), announcement.maxVersion())
+                || !matchesConditions(announcement.conditions())) {
             return false;
+        }
+        return true;
+    }
+
+    private static boolean matchesConditions(@Nullable String conditions) {
+        if (TextUtils.isEmpty(conditions)) {
+            return true;
+        }
+        String[] conditionArray = conditions.split("&");
+        for (String condition : conditionArray) {
+            if (condition.equals("loggedin") && !AccountUtil.isLoggedIn()) {
+                return false;
+            } else if (condition.equals("notloggedin") && AccountUtil.isLoggedIn()) {
+                return false;
+            } else if (condition.equals("syncenabled") && !Prefs.isReadingListSyncEnabled()) {
+                return false;
+            } else if (condition.equals("syncdisabled") && Prefs.isReadingListSyncEnabled()) {
+                return false;
+            } else if (condition.equals("beta") && ReleaseUtil.isProdRelease()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean matchesVersionCodes(@Nullable String minVersion, @Nullable String maxVersion) {
+        try {
+            if (!TextUtils.isEmpty(minVersion) && Integer.parseInt(minVersion) > BuildConfig.VERSION_CODE) {
+                return false;
+            }
+            if (!TextUtils.isEmpty(maxVersion) && Integer.parseInt(maxVersion) < BuildConfig.VERSION_CODE) {
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            // ignore
         }
         return true;
     }
