@@ -231,6 +231,10 @@ public class CreateAccountActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
+        if (captchaHandler.isActive()) {
+            captchaHandler.cancelCaptcha();
+            return;
+        }
         hideSoftKeyboard(this);
         super.onBackPressed();
     }
