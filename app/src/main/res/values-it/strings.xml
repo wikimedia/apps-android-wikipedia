@@ -335,6 +335,7 @@
   <string name="no_user_lists_title">Organizza voci in elenchi</string>
   <string name="reading_lists_menu_create_list">Crea nuovo elenco</string>
   <string name="reading_lists_menu_sort_by">Ordina per</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Entra / registrati</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Questa voce ora è disponibile non in linea.</item>
     <item quantity="other">Queste voci ora sono disponibili non in linea.</item>

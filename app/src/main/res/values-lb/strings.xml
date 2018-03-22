@@ -79,7 +79,7 @@
   <string name="preference_title_logout">Ausloggen</string>
   <string name="toast_logout_complete">Ausgeloggt</string>
   <string name="history_empty_title">Keng Artikele rezent gekuckt</string>
-  <string name="history_empty_message">Markéiert dat wat Dir hei geliest hutt.</string>
+  <string name="history_empty_message">Markéiert dat wat Dir hei gelies hutt.</string>
   <string name="search_empty_message">An der fräier Enzyklopedie an Ärer Sprooch sichen a liesen</string>
   <string name="delete_selected_items">Erausgesicht Elementer läschen</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
@@ -401,7 +401,7 @@
     <item quantity="other">viru(n) %d Deeg</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">haut</string>
-  <string name="view_continue_reading_card_subtitle_read_date">%s geliest</string>
+  <string name="view_continue_reading_card_subtitle_read_date">%s gelies</string>
   <string name="view_announcement_card_negative_action">Nee, merci</string>
   <string name="view_offline_card_text">Et ka keen INhalt geluede gi wann Dir offline sidd.</string>
   <string name="view_featured_article_footer_save_button_label">Späicheren</string>

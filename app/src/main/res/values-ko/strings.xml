@@ -356,6 +356,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s 문서는 모든 읽기 목록에 대해 오프라인에서 더 이상 읽을 수 없습니다:</string>
   <string name="reading_lists_sync_reminder_title">읽기 목록 동기화를 켜시겠습니까?</string>
   <string name="reading_lists_sync_reminder_text">읽기 목록에 저장된 문서들은 지금 위키백과 계정에 동기화할 수 있습니다. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;더 알아보기&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">읽기 목록은 지금 장치 간에 동기화할 수 있습니다. 위키백과 계정에 로그인하면 목록을 저장할 수 있습니다. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;더 알아보기&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">동기화 사용</string>
   <string name="reading_list_login_reminder_title">읽기 목록 동기화</string>
   <string name="reading_lists_login_reminder_text">지금 읽기 목록을 여러 장치 간에 동기화할 수 있습니다. 위키백과 계정으로 로그인하면 목록을 저장할 수 있습니다.</string>
@@ -398,6 +399,7 @@
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;읽기 목록 동기화&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;지금 읽기 목록을 여러 장치 간에 동기화할 수 있습니다. 위키백과 계정으로 로그인하면 목록을 저장할 수 있습니다.</string>
   <string name="reading_lists_menu_create_list">새 목록 만들기</string>
   <string name="reading_lists_menu_sort_by">정렬 기준</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">로그인 / 가입</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">이 글은 이제 오프라인에서 읽을 수 있습니다.</item>
     <item quantity="other">이 글들은 이제 오프라인에서 읽을 수 있습니다.</item>
@@ -409,11 +411,11 @@
   <string name="user_option_sync_label">환경 설정</string>
   <string name="notification_button_view_user">사용자와 대화하기</string>
   <string name="notification_talk_title">위키백과에서의 새 메시지</string>
-  <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt;님이 당신의 토론 문서 &lt;strong%2$s&lt;/strong&gt;에 글을 남겼습니다</string>
+  <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; 사용자가 내 토론 문서의 &lt;strong%2$s&lt;/strong&gt; 문단에 글을 남겼습니다.</string>
   <string name="notification_reverted_title">되돌려진 편집</string>
-  <string name="notification_reverted">&lt;strong&gt;%2$s&lt;/strong&gt; 문서에 하신 당신의 편집은 &lt;em&gt;%1$s&lt;/em&gt;님에 의해 되돌려졌습니다.</string>
+  <string name="notification_reverted">&lt;strong&gt;%2$s&lt;/strong&gt; 문서의 내 편집을 &lt;em&gt;%1$s&lt;/em&gt; 사용자가 되돌렸습니다.</string>
   <string name="notification_thanks_title">당신은 감사를 받았습니다!</string>
-  <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt;님이 &lt;strong&gt;%2$s&lt;/strong&gt; 문서에서 당신의 편집에 감사를 표했습니다</string>
+  <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt;사용자가 &lt;strong&gt;%2$s&lt;/strong&gt; 문서의 내 편집에 감사를 표했습니다.</string>
   <string name="notification_channel_name">동기화 중</string>
   <string name="notification_channel_description">다운로드 진척도</string>
   <string name="notification_syncing_title">문서 %1$d개를 다운로드하고 있습니다...</string>

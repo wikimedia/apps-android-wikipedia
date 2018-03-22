@@ -358,6 +358,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s deixará de estar disponível offline para todas as listas de leitura:</string>
   <string name="reading_lists_sync_reminder_title">Deseja ativar a sincronização das listas de leitura?</string>
   <string name="reading_lists_sync_reminder_text">Os artigos guardados nas listas de leitura podem agora ser sincronizados com a sua conta da Wikipédia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saiba mais&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Agora as listas de leitura podem ser sincronizadas entre dispositivos. Entre na sua conta da Wikipédia e permita que as suas listas sejam gravadas. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saiba mais&lt;/a&gt;.</string>
   <string name="reading_lists_sync_reminder_action">Ativar sincronização</string>
   <string name="reading_list_login_reminder_title">Sincronizar listas de leitura</string>
   <string name="reading_lists_login_reminder_text">Agora é possível sincronizar as listas de leitura entre vários dispositivos. Entre na sua conta da Wikipédia e clique em permitir para que as suas listas sejam guardadas.</string>
@@ -400,6 +401,8 @@
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sincronização das listas de leitura&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;As listas de leitura podem agora ser sincronizadas em todos os dispositivos. Entre com a sua conta da Wikipédia e clique em permitir para que as suas listas sejam guardadas.</string>
   <string name="reading_lists_menu_create_list">Criar lista nova</string>
   <string name="reading_lists_menu_sort_by">Ordenar por</string>
+  <string name="reading_lists_refresh_sync_option">Atualizar sincronização</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Entrar / criar conta</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Este artigo agora estará disponível sem acesso à Internet.</item>
     <item quantity="other">Estes artigos agora estarão disponíveis sem acesso à Internet.</item>

@@ -292,6 +292,7 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d trên 1 bài có sẵn ngoại tuyến, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d trên %2$d bài có sẵn ngoại tuyến, %3$.2f MB</string>
   <string name="reading_list_sort">Sắp xếp</string>
+  <string name="reading_list_sort_ellipsis">Sắp xếp theo...</string>
   <string name="reading_list_sort_by_name">Sắp xếp theo tên</string>
   <string name="reading_list_sort_by_name_desc">Sắp xếp theo tên (ngược)</string>
   <string name="reading_list_sort_by_recent" fuzzy="true">Sắp xếp theo lúc xem (gần đây nhất)</string>
@@ -327,6 +328,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Xóa khỏi bộ nhớ ngoại tuyến</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Bài nằm trong nhiều danh sách</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s hiện không còn có sẵn ngoại tuyến cho danh sách đọc nào:</string>
+  <string name="reading_lists_login_reminder_text_with_link">Danh sách đọc có thể được đồng bộ hóa. Đăng nhập vào tài khoản của bạn, chắc chắn rằng danh sách đọc của riêng bạn đã được lưu.</string>
   <string name="reading_list_login_reminder_title">Đồng bộ hóa các danh sách đọc</string>
   <string name="reading_lists_confirm_remote_delete">Điều này sẽ xóa tất cả những danh sách đọc được đồng bộ hóa trước đây khỏi lưu trữ từ xa. Bạn có muốn tiếp tục?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Có</string>
@@ -335,6 +337,10 @@
   <string name="reading_list_already_contains_selection">Danh sách được chọn đã bao gồm tất cả các trang được chọn.</string>
   <string name="reading_list_added_articles_list_titled">Đã thêm %1$d bài viết vào %2$s</string>
   <string name="reading_list_delete_confirm">Bạn có chắc chắn muốn xóa %s?</string>
+  <string name="reading_lists_menu_create_list">Tạo danh sách mới</string>
+  <string name="reading_lists_menu_sort_by">Sắp xếp theo</string>
+  <string name="reading_lists_refresh_sync_option">Làm mới đồng bộ hóa</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Đăng nhập / Đăng ký</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Bài này hiện có sẵn ngoại tuyến.</item>
     <item quantity="other">Các bài này hiện có sẵn ngoại tuyến.</item>

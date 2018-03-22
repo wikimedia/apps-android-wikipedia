@@ -402,7 +402,7 @@
   <string name="reading_lists_menu_create_list">Menu option offering user an option to create a new reading list.</string>
   <string name="reading_lists_menu_sort_by">Heading for a list of suggested sort options.</string>
   <string name="reading_lists_refresh_sync_option">Menu option suggesting that the user can manually sync using this option.</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Affirmative answer to confirm and redirect to the login / Sign up page.\n{{Identical|Log in/Sign up}}</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Affirmative answer to confirm and redirect to the login / Sign up page.\n{{Identical|Log in / Sign up}}\n\n{{Identical|Log in / create account}}\n\n{{Identical|Log in}}</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Message shown when a single reading list article is made available for offline use.</item>
     <item quantity="other">Message shown when more than one reading list article is made available for offline use.</item>

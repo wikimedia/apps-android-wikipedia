@@ -358,6 +358,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s повеќе нема да биде достапно вонмрежно за сите списоци за читање:</string>
   <string name="reading_lists_sync_reminder_title">Да го вклучам усогласувањето на списоците за читање?</string>
   <string name="reading_lists_sync_reminder_text">Статиите зачувани во списоците за читање сега можат да се усогласат со вашата сметка на Википедија. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дознајте повеќе&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Списоците за читање сега можат да се усогласат низ разни уреди. Најавете се со вашата сметка на Википедија и дозволете зачувување на вашите списоци. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дознајте повеќе&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Овозможи усогласување</string>
   <string name="reading_list_login_reminder_title">Усогласи списоци за читање</string>
   <string name="reading_lists_login_reminder_text">Сега списоците за читање можат да се усогласат низ разни уреди. Најавете се на сметката на Википедија и дозволете да ви се зачуваат списоците.</string>
@@ -400,6 +401,8 @@
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Усогласување на списоци за читање&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Списоците за читање можат да се усогласат низ сите уреди. Најавете се со сметката на Википедија и дозволете зачувување на списоците.</string>
   <string name="reading_lists_menu_create_list">Создај нов список</string>
   <string name="reading_lists_menu_sort_by">Подреди по</string>
+  <string name="reading_lists_refresh_sync_option">Превчитај усогласување</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Најава / регистрација</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Статијава сега ќе биде достапна вонмрежно.</item>
     <item quantity="other">Статииве сега ќе бидат достапни вонмрежно.</item>

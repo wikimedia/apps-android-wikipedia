@@ -355,6 +355,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">L\'article apareix en múltiples llistes</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ja no estarà disponible fora de línia a totes les llistes de lectura:</string>
   <string name="reading_lists_sync_reminder_title">Voleu activar la sincronització de les llistes de lectura?</string>
+  <string name="reading_lists_login_reminder_text_with_link">Ara és possible sincronitzar les llistes de lectura amb diferents dispositius. Entreu al vostre compte de la Viquipèdia i permeteu que s’hi desin les vostres llistes. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Més informació&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Habilita la sincronització</string>
   <string name="reading_list_login_reminder_title">Sincronitza les llistes de lectura</string>
   <string name="reading_lists_confirm_remote_delete">Això suprimirà qualsevol llista de lectura que s\'hagi sincronitzat prèviament a l\'emmagatzematge remot. Voleu procedir?</string>

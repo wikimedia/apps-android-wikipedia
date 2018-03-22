@@ -352,6 +352,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Quitar de listas sin conexión</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">El artículo aparece en varias listas</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ya no estará disponible sin conexión en ninguna lista de lectura:</string>
+  <string name="reading_lists_login_reminder_text_with_link">Ahora es posible sincronizar las listas de lectura en varios dispositivos. Accede a tu cuenta de Wikipedia y permite que se guarden tus listas. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Más información&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Activar sincronización</string>
   <string name="reading_list_login_reminder_title">Sincronizar listas de lectura</string>
   <string name="reading_lists_login_reminder_text">Ahora es posible sincronizar las listas de lectura entre varios dispositivos. Accede a tu cuenta de Wikipedia y permite que se guarden tus listas.</string>
@@ -381,6 +382,7 @@
   <string name="reading_lists_limit_message">No se puede crear otra lista. Se alcanzó el límite de 100 listas de lectura por cuenta.</string>
   <string name="reading_lists_menu_create_list">Crear lista nueva</string>
   <string name="reading_lists_menu_sort_by">Ordenar por</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Acceder/crear cuenta</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Este artículo ahora estará disponible sin conexión.</item>
     <item quantity="other">Estos artículos ahora estarán disponibles sin conexión.</item>

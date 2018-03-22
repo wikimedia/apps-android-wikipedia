@@ -358,6 +358,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s将不再用于所有阅读列表中的离线内容：</string>
   <string name="reading_lists_sync_reminder_title">打开阅读列表同步？</string>
   <string name="reading_lists_sync_reminder_text">保存到阅读列表的条目现在可以同步到您的维基百科账户。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">阅读列表现在可以跨设备同步。登录您的维基百科账户并允许保存您的列表。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;了解更多&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">启用同步</string>
   <string name="reading_list_login_reminder_title">同步阅读列表</string>
   <string name="reading_lists_login_reminder_text">阅读列表现在可以跨设备同步。登录您的维基百科账户并允许保存您的列表吧。</string>
@@ -400,6 +401,8 @@
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;同步阅读列表&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;阅读列表现在可以跨设备同步。登录您的维基百科账户并允许保存您的列表吧。</string>
   <string name="reading_lists_menu_create_list">创建新的列表</string>
   <string name="reading_lists_menu_sort_by">排序方式</string>
+  <string name="reading_lists_refresh_sync_option">刷新同步</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">登录 / 注册</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">该条目现在可以离线使用。</item>
     <item quantity="other">这些条目现在可以离线使用。</item>
