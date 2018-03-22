@@ -102,18 +102,18 @@ public class NearbyFragment extends Fragment {
         super.onCreate(savedInstanceState);
         client = new NearbyClient();
 
-        Mapbox.getInstance(getContext().getApplicationContext(),
+        Mapbox.getInstance(requireContext().getApplicationContext(),
                 getString(R.string.mapbox_public_token));
         MapboxTelemetry.getInstance().setTelemetryEnabled(false);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_nearby, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        markerIconPassive = IconFactory.getInstance(getContext())
-                .fromBitmap(ResourceUtil.bitmapFromVectorDrawable(getContext(),
+        markerIconPassive = IconFactory.getInstance(requireContext())
+                .fromBitmap(ResourceUtil.bitmapFromVectorDrawable(requireContext(),
                         R.drawable.ic_map_marker));
 
         osmLicenseTextView.setText(StringUtil.fromHtml(getString(R.string.nearby_osm_license)));
@@ -184,7 +184,7 @@ public class NearbyFragment extends Fragment {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         if (mapView != null) {
             mapView.onSaveInstanceState(outState);
@@ -307,7 +307,7 @@ public class NearbyFragment extends Fragment {
         if (mapboxMap == null || !getUserVisibleHint()) {
             return;
         }
-        if (!DeviceUtil.isLocationServiceEnabled(getContext().getApplicationContext())) {
+        if (!DeviceUtil.isLocationServiceEnabled(requireContext().getApplicationContext())) {
             showLocationDisabledSnackbar();
             return;
         }
@@ -345,7 +345,7 @@ public class NearbyFragment extends Fragment {
                 FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.enable_location_service, (v) -> {
                 Intent settingsIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                getContext().startActivity(settingsIntent);
+                requireContext().startActivity(settingsIntent);
         });
         snackbar.show();
     }
@@ -392,7 +392,7 @@ public class NearbyFragment extends Fragment {
                             if (!isResumed()) {
                                 return;
                             }
-                            ThrowableUtil.AppError error = ThrowableUtil.getAppError(getActivity(), caught);
+                            ThrowableUtil.AppError error = ThrowableUtil.getAppError(requireActivity(), caught);
                             Toast.makeText(getActivity(), error.getError(), Toast.LENGTH_SHORT).show();
                             L.e(caught);
                             onLoaded();
