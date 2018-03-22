@@ -114,7 +114,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_reading_list, container, false);
         unbinder = ButterKnife.bind(this, view);
@@ -126,13 +126,13 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         appBarLayout.addOnOffsetChangedListener(appBarListener);
         toolBarLayout.setCollapsedTitleTextColor(Color.WHITE);
 
-        ItemTouchHelper.Callback touchCallback = new SwipeableItemTouchHelperCallback(getContext());
+        ItemTouchHelper.Callback touchCallback = new SwipeableItemTouchHelperCallback(requireContext());
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(touchCallback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
-        recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(), R.attr.list_separator_drawable));
+        recyclerView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable));
 
         headerView = new ReadingListItemView(getContext());
         headerView.setCallback(headerCallback);
@@ -315,7 +315,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             sortMode = sortModeDesc;
         }
         Prefs.setReadingListPageSortMode(sortMode);
-        getActivity().invalidateOptionsMenu();
+        requireActivity().invalidateOptionsMenu();
         update();
     }
 
@@ -359,7 +359,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         }
         existingTitles.remove(readingList.title());
 
-        ReadingListTitleDialog.readingListTitleDialog(getContext(), readingList.title(), existingTitles,
+        ReadingListTitleDialog.readingListTitleDialog(requireContext(), readingList.title(), existingTitles,
                 text -> {
                     readingList.title(text.toString());
                     ReadingListDbHelper.instance().updateList(readingList, true);
@@ -375,7 +375,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             L.w("Attempted to edit description of default list.");
             return;
         }
-        TextInputDialog.newInstance(getContext(), new TextInputDialog.DefaultCallback() {
+        TextInputDialog.newInstance(requireContext(), new TextInputDialog.DefaultCallback() {
             @Override
             public void onShow(@NonNull TextInputDialog dialog) {
                 dialog.setHint(R.string.reading_list_description_hint);
@@ -519,12 +519,12 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         if (readingList == null) {
             return;
         }
-        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder alert = new AlertDialog.Builder(requireActivity());
         alert.setMessage(getString(R.string.reading_list_delete_confirm, readingList.title()));
         alert.setPositiveButton(android.R.string.yes, (dialog, id) -> {
-            startActivity(MainActivity.newIntent(getActivity())
+            startActivity(MainActivity.newIntent(requireActivity())
                     .putExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST, readingList.title()));
-            getActivity().finish();
+            requireActivity().finish();
         });
         alert.setNegativeButton(android.R.string.no, null);
         alert.create().show();
@@ -548,7 +548,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                         return;
                     }
                     if (lists.size() > 1) {
-                        AlertDialog dialog = new AlertDialog.Builder(getContext())
+                        AlertDialog dialog = new AlertDialog.Builder(requireContext())
                                 .setTitle(R.string.reading_list_confirm_remove_article_from_offline_title)
                                 .setMessage(getConfirmToggleOfflineMessage(page, lists))
                                 .setPositiveButton(R.string.reading_list_confirm_remove_article_from_offline, (dialog1, which) -> toggleOffline(page))
@@ -708,15 +708,15 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         }
 
         @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int type) {
+        public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int type) {
             if (type == TYPE_HEADER) {
                 return new ReadingListHeaderHolder(headerView);
             }
-            return new ReadingListPageItemHolder(new PageItemView<>(getContext()));
+            return new ReadingListPageItemHolder(new PageItemView<>(requireContext()));
         }
 
         @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder holder, int pos) {
+        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int pos) {
             if (readingList != null && holder instanceof ReadingListPageItemHolder) {
                 ((ReadingListPageItemHolder) holder).bindItem(displayedPages.get(pos - 1));
             }
@@ -727,14 +727,14 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             return position == 0 ? TYPE_HEADER : TYPE_ITEM;
         }
 
-        @Override public void onViewAttachedToWindow(RecyclerView.ViewHolder holder) {
+        @Override public void onViewAttachedToWindow(@NonNull RecyclerView.ViewHolder holder) {
             super.onViewAttachedToWindow(holder);
             if (holder instanceof ReadingListPageItemHolder) {
                 ((ReadingListPageItemHolder) holder).getView().setCallback(itemCallback);
             }
         }
 
-        @Override public void onViewDetachedFromWindow(RecyclerView.ViewHolder holder) {
+        @Override public void onViewDetachedFromWindow(@NonNull RecyclerView.ViewHolder holder) {
             if (holder instanceof ReadingListPageItemHolder) {
                 ((ReadingListPageItemHolder) holder).getView().setCallback(null);
             }
@@ -757,7 +757,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                     ReadingListDbHelper.instance().updatePage(page);
                 });
 
-                startActivity(PageActivity.newIntentForNewTab(getContext(), entry, entry.getTitle()));
+                startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
             }
         }
 
