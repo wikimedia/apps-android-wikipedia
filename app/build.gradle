@@ -200,7 +200,7 @@ dependencies {
     implementation "com.facebook.fresco:animated-gif:$frescoVersion"
     implementation "com.facebook.fresco:fresco:$frescoVersion"
     implementation "com.facebook.fresco:imagepipeline-okhttp3:$frescoVersion"
-    implementation 'com.google.code.gson:gson:2.8.1'
+    implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'com.romandanylyk:pageindicatorview:0.1.2'
     implementation "com.squareup.okhttp3:okhttp-urlconnection:$okHttpVersion" // for JavaNetCookieJar
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
