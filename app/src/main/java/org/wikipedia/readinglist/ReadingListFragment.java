@@ -56,7 +56,6 @@ import org.wikipedia.views.MultiSelectActionModeCallback;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.SwipeableItemTouchHelperCallback;
-import org.wikipedia.views.TextInputDialog;
 import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
@@ -138,7 +137,6 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         headerView.setCallback(headerCallback);
         headerView.setClickable(false);
         headerView.setThumbnailVisible(false);
-        headerView.setShowDescriptionEmptyHint(true);
         headerView.setTitleTextAppearance(R.style.ReadingListTitleTextAppearance);
 
         readingListId = getArguments().getLong(EXTRA_READING_LIST_ID);
@@ -189,9 +187,6 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             if (menu.findItem(R.id.menu_reading_list_rename) != null) {
                 menu.findItem(R.id.menu_reading_list_rename).setVisible(false);
             }
-            if (menu.findItem(R.id.menu_reading_list_edit_description) != null) {
-                menu.findItem(R.id.menu_reading_list_edit_description).setVisible(false);
-            }
             if (menu.findItem(R.id.menu_reading_list_delete) != null) {
                 menu.findItem(R.id.menu_reading_list_delete).setVisible(false);
             }
@@ -212,9 +207,6 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                 return true;
             case R.id.menu_reading_list_rename:
                 rename();
-                return true;
-            case R.id.menu_reading_list_edit_description:
-                editDescription();
                 return true;
             case R.id.menu_reading_list_delete:
                 delete();
@@ -359,40 +351,15 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         }
         existingTitles.remove(readingList.title());
 
-        ReadingListTitleDialog.readingListTitleDialog(requireContext(), readingList.title(), existingTitles,
-                text -> {
-                    readingList.title(text.toString());
+        ReadingListTitleDialog.readingListTitleDialog(requireContext(), readingList.title(), readingList.description(), existingTitles,
+                (text, description) -> {
+                    readingList.title(text);
+                    readingList.description(description);
+                    readingList.dirty(true);
                     ReadingListDbHelper.instance().updateList(readingList, true);
                     update();
                     funnel.logModifyList(readingList, 0);
                 }).show();
-    }
-
-    private void editDescription() {
-        if (readingList == null) {
-            return;
-        } else if (readingList.isDefault()) {
-            L.w("Attempted to edit description of default list.");
-            return;
-        }
-        TextInputDialog.newInstance(requireContext(), new TextInputDialog.DefaultCallback() {
-            @Override
-            public void onShow(@NonNull TextInputDialog dialog) {
-                dialog.setHint(R.string.reading_list_description_hint);
-                dialog.setText(readingList.description());
-            }
-
-            @Override
-            public void onSuccess(@NonNull CharSequence text) {
-
-                readingList.description(text.toString());
-                readingList.dirty(true);
-                ReadingListDbHelper.instance().updateList(readingList, true);
-
-                update();
-                funnel.logModifyList(readingList, 0);
-            }
-        }).show();
     }
 
     private void finishActionMode() {
@@ -640,11 +607,6 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         @Override
         public void onRename(@NonNull ReadingList readingList) {
             rename();
-        }
-
-        @Override
-        public void onEditDescription(@NonNull ReadingList readingList) {
-            editDescription();
         }
 
         @Override

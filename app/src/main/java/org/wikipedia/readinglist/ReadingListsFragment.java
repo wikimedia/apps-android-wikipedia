@@ -47,7 +47,6 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.SearchEmptyView;
-import org.wikipedia.views.TextInputDialog;
 import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
@@ -113,7 +112,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         contentContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
         emptyContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
         ((ViewGroup)emptyContainer.getChildAt(0)).getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
-        swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(getContext(), R.attr.colorAccent));
+        swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent));
         swipeRefreshLayout.setOnRefreshListener(this::refreshSync);
         if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
             swipeRefreshLayout.setEnabled(false);
@@ -164,9 +163,9 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
                 for (ReadingList tempList : readingLists) {
                     existingTitles.add(tempList.title());
                 }
-                ReadingListTitleDialog.readingListTitleDialog(requireContext(), title,
-                        existingTitles, text -> {
-                            ReadingListDbHelper.instance().createList(text.toString(), "");
+                ReadingListTitleDialog.readingListTitleDialog(requireContext(), title, "",
+                        existingTitles, (text, description) -> {
+                            ReadingListDbHelper.instance().createList(text, description);
                             updateLists();
                         }).show();
                 return true;
@@ -199,7 +198,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
 
     private void refreshSync() {
         if (!AccountUtil.isLoggedIn()) {
-            ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(getActivity());
+            ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(requireActivity());
             swipeRefreshLayout.setRefreshing(false);
         } else {
             Prefs.setReadingListSyncEnabled(true);
@@ -364,8 +363,9 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
             }
             existingTitles.remove(readingList.title());
             ReadingListTitleDialog.readingListTitleDialog(requireContext(), readingList.title(),
-                    existingTitles, text -> {
-                        readingList.title(text.toString());
+                    readingList.description(), existingTitles, (text, description) -> {
+                        readingList.title(text);
+                        readingList.description(description);
                         readingList.dirty(true);
                         ReadingListDbHelper.instance().updateList(readingList, true);
                         ReadingListSyncAdapter.manualSync();
@@ -373,31 +373,6 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
                         updateLists();
                         funnel.logModifyList(readingList, readingLists.size());
                     }).show();
-        }
-
-        @Override
-        public void onEditDescription(@NonNull ReadingList readingList) {
-            if (readingList.isDefault()) {
-                L.w("Attempted to edit description of default list.");
-                return;
-            }
-            TextInputDialog.newInstance(requireContext(), new TextInputDialog.DefaultCallback() {
-                @Override
-                public void onShow(@NonNull TextInputDialog dialog) {
-                    dialog.setHint(R.string.reading_list_description_hint);
-                    dialog.setText(readingList.description());
-                }
-
-                @Override
-                public void onSuccess(@NonNull CharSequence text) {
-                    readingList.description(text.toString());
-                    readingList.dirty(true);
-                    ReadingListDbHelper.instance().updateList(readingList, true);
-
-                    updateLists();
-                    funnel.logModifyList(readingList, readingLists.size());
-                }
-            }).show();
         }
 
         @Override

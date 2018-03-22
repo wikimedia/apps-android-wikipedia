@@ -13,19 +13,22 @@ import java.util.List;
 public final class ReadingListTitleDialog {
 
     public interface Callback {
-        void onSuccess(@NonNull CharSequence text);
+        void onSuccess(@NonNull String text, @NonNull String description);
     }
 
     public static TextInputDialog readingListTitleDialog(@NonNull Context context,
-                                                         @NonNull final String initialTitle,
+                                                         @NonNull final String title,
+                                                         @Nullable final String description,
                                                          @NonNull final List<String> otherTitles,
                                                          @Nullable final Callback callback) {
-        return TextInputDialog.newInstance(context,
+        return TextInputDialog.newInstance(context, true,
                 new TextInputDialog.Callback() {
                     @Override
                     public void onShow(@NonNull TextInputDialog dialog) {
                         dialog.setHint(R.string.reading_list_name_hint);
-                        dialog.setText(initialTitle);
+                        dialog.setSecondaryHint(R.string.reading_list_description_hint);
+                        dialog.setText(title);
+                        dialog.setSecondaryText(StringUtils.defaultString(description));
                         dialog.selectAll();
                     }
 
@@ -45,9 +48,9 @@ public final class ReadingListTitleDialog {
                     }
 
                     @Override
-                    public void onSuccess(@NonNull CharSequence text) {
+                    public void onSuccess(@NonNull CharSequence text, @NonNull CharSequence secondaryText) {
                         if (callback != null) {
-                            callback.onSuccess(text.toString().trim());
+                            callback.onSuccess(text.toString().trim(), secondaryText.toString().trim());
                         }
                     }
 

@@ -22,19 +22,23 @@ public final class TextInputDialog extends AlertDialog {
     public interface Callback {
         void onShow(@NonNull TextInputDialog dialog);
         void onTextChanged(@NonNull CharSequence text, @NonNull TextInputDialog dialog);
-        void onSuccess(@NonNull CharSequence text);
+        void onSuccess(@NonNull CharSequence text, @NonNull CharSequence secondaryText);
         void onCancel();
     }
 
     @Nullable private Callback callback;
     private EditText editText;
+    private EditText secondaryText;
     private TextInputLayout editTextContainer;
+    private TextInputLayout secondaryTextContainer;
     private TextInputWatcher watcher = new TextInputWatcher();
 
     public static TextInputDialog newInstance(@NonNull Context context,
+                                              boolean showSecondaryText,
                                               @Nullable final Callback callback) {
         return new TextInputDialog(context)
                 .setView(R.layout.dialog_text_input)
+                .showSecondaryText(showSecondaryText)
                 .setCallback(callback);
     }
 
@@ -47,6 +51,8 @@ public final class TextInputDialog extends AlertDialog {
         View rootView = LayoutInflater.from(getContext()).inflate(id, null);
         editText = rootView.findViewById(R.id.text_input);
         editTextContainer = rootView.findViewById(R.id.text_input_container);
+        secondaryText = rootView.findViewById(R.id.secondary_text_input);
+        secondaryTextContainer = rootView.findViewById(R.id.secondary_text_input_container);
         super.setView(rootView);
 
         editTextContainer.setErrorEnabled(true);
@@ -57,8 +63,21 @@ public final class TextInputDialog extends AlertDialog {
         editText.setText(text);
     }
 
+    public void setSecondaryText(@Nullable CharSequence text) {
+        secondaryText.setText(text);
+    }
+
+    private TextInputDialog showSecondaryText(boolean show) {
+        secondaryTextContainer.setVisibility(show ? View.VISIBLE : View.GONE);
+        return this;
+    }
+
     public void setHint(@StringRes int id) {
         editTextContainer.setHint(getContext().getResources().getString(id));
+    }
+
+    public void setSecondaryHint(@StringRes int id) {
+        secondaryTextContainer.setHint(getContext().getResources().getString(id));
     }
 
     public void selectAll() {
@@ -91,7 +110,7 @@ public final class TextInputDialog extends AlertDialog {
         }
 
         @Override
-        public void onSuccess(@NonNull CharSequence text) {
+        public void onSuccess(@NonNull CharSequence text, @NonNull CharSequence secondaryText) {
         }
 
         @Override
@@ -106,7 +125,7 @@ public final class TextInputDialog extends AlertDialog {
                 (dialog,  which) -> {
                     //DeviceUtil.hideSoftKeyboard(editText);
                     if (callback != null) {
-                        callback.onSuccess(editText.getText());
+                        callback.onSuccess(editText.getText(), secondaryText.getText());
                     }
                 });
 

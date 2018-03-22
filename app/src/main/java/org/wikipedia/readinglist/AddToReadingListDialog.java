@@ -108,7 +108,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.dialog_add_to_reading_list, container);
 
@@ -199,9 +199,9 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         for (ReadingList tempList : readingLists) {
             existingTitles.add(tempList.title());
         }
-        ReadingListTitleDialog.readingListTitleDialog(getContext(), title,
-                existingTitles, text -> {
-                    ReadingList list = ReadingListDbHelper.instance().createList(text.toString(), "");
+        ReadingListTitleDialog.readingListTitleDialog(requireContext(), title, "",
+                existingTitles, (text, description) -> {
+                    ReadingList list = ReadingListDbHelper.instance().createList(text, description);
                     addAndDismiss(list, titles);
                 }).show();
     }
@@ -289,10 +289,6 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         }
 
         @Override
-        public void onEditDescription(@NonNull ReadingList readingList) {
-        }
-
-        @Override
         public void onDelete(@NonNull ReadingList readingList) {
         }
 
@@ -314,7 +310,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
             itemView.setOverflowButtonVisible(false);
         }
 
-        public void bindItem(ReadingList readingList) {
+        void bindItem(ReadingList readingList) {
             itemView.setReadingList(readingList, ReadingListItemView.Description.SUMMARY);
         }
 
@@ -330,22 +326,22 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         }
 
         @Override
-        public ReadingListItemHolder onCreateViewHolder(ViewGroup parent, int pos) {
+        public ReadingListItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int pos) {
             ReadingListItemView view = new ReadingListItemView(getContext());
             return new ReadingListItemHolder(view);
         }
 
         @Override
-        public void onBindViewHolder(ReadingListItemHolder holder, int pos) {
+        public void onBindViewHolder(@NonNull ReadingListItemHolder holder, int pos) {
             holder.bindItem(readingLists.get(pos));
         }
 
-        @Override public void onViewAttachedToWindow(ReadingListItemHolder holder) {
+        @Override public void onViewAttachedToWindow(@NonNull ReadingListItemHolder holder) {
             super.onViewAttachedToWindow(holder);
             holder.getView().setCallback(listItemCallback);
         }
 
-        @Override public void onViewDetachedFromWindow(ReadingListItemHolder holder) {
+        @Override public void onViewDetachedFromWindow(@NonNull ReadingListItemHolder holder) {
             holder.getView().setCallback(null);
             super.onViewDetachedFromWindow(holder);
         }

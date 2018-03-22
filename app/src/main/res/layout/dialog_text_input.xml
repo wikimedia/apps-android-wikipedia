@@ -20,4 +20,17 @@
             />
     </android.support.design.widget.TextInputLayout>
 
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/secondary_text_input_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <org.wikipedia.views.PlainPasteEditText
+            android:id="@+id/secondary_text_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences"
+            style="?android:textAppearanceMedium"
+            />
+    </android.support.design.widget.TextInputLayout>
+
 </LinearLayout>

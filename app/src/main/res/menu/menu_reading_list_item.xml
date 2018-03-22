@@ -3,8 +3,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/menu_reading_list_rename"
         android:title="@string/reading_list_menu_rename"/>
-    <item android:id="@+id/menu_reading_list_edit_description"
-        android:title="@string/reading_list_menu_edit_description"/>
     <item android:id="@+id/menu_reading_list_save_all_offline"
         android:title="@string/reading_list_action_menu_save_all_for_offline"/>
     <item android:id="@+id/menu_reading_list_remove_all_offline"

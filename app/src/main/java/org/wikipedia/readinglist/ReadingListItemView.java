@@ -2,7 +2,6 @@ package org.wikipedia.readinglist;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.graphics.Typeface;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -39,7 +38,6 @@ public class ReadingListItemView extends FrameLayout {
     public interface Callback {
         void onClick(@NonNull ReadingList readingList);
         void onRename(@NonNull ReadingList readingList);
-        void onEditDescription(@NonNull ReadingList readingList);
         void onDelete(@NonNull ReadingList readingList);
         void onSaveAllOffline(@NonNull ReadingList readingList);
         void onRemoveAllOffline(@NonNull ReadingList readingList);
@@ -59,7 +57,6 @@ public class ReadingListItemView extends FrameLayout {
 
     @Nullable private Callback callback;
     @Nullable private ReadingList readingList;
-    private boolean showDescriptionEmptyHint;
 
     public ReadingListItemView(Context context) {
         super(context);
@@ -112,11 +109,6 @@ public class ReadingListItemView extends FrameLayout {
         thumbnailsContainer.setVisibility(visible ? VISIBLE : GONE);
     }
 
-    public void setShowDescriptionEmptyHint(boolean show) {
-        showDescriptionEmptyHint = show;
-        updateDetails();
-    }
-
     public void setTitleTextAppearance(@StyleRes int id) {
         TextViewCompat.setTextAppearance(titleView, id);
     }
@@ -133,7 +125,6 @@ public class ReadingListItemView extends FrameLayout {
 
         if (readingList.isDefault()) {
             menu.getMenu().findItem(R.id.menu_reading_list_rename).setVisible(false);
-            menu.getMenu().findItem(R.id.menu_reading_list_edit_description).setVisible(false);
             menu.getMenu().findItem(R.id.menu_reading_list_delete).setVisible(false);
         }
         menu.setOnMenuItemClickListener(new OverflowMenuClickListener(readingList));
@@ -160,13 +151,10 @@ public class ReadingListItemView extends FrameLayout {
         titleView.setText(readingList.title());
         if (readingList.isDefault()) {
             descriptionView.setText(getContext().getString(R.string.default_reading_list_description));
-            descriptionView.setTypeface(descriptionView.getTypeface(), Typeface.NORMAL);
-        } else if (TextUtils.isEmpty(readingList.description()) && showDescriptionEmptyHint) {
-            descriptionView.setText(getContext().getString(R.string.reading_list_no_description));
-            descriptionView.setTypeface(descriptionView.getTypeface(), Typeface.ITALIC);
+            descriptionView.setVisibility(VISIBLE);
         } else {
             descriptionView.setText(readingList.description());
-            descriptionView.setTypeface(descriptionView.getTypeface(), Typeface.NORMAL);
+            descriptionView.setVisibility(TextUtils.isEmpty(readingList.description()) ? GONE : VISIBLE);
         }
     }
 
@@ -247,12 +235,6 @@ public class ReadingListItemView extends FrameLayout {
                 case R.id.menu_reading_list_rename:
                     if (callback != null && list != null) {
                         callback.onRename(list);
-                        return true;
-                    }
-                    break;
-                case R.id.menu_reading_list_edit_description:
-                    if (callback != null && list != null) {
-                        callback.onEditDescription(list);
                         return true;
                     }
                     break;
