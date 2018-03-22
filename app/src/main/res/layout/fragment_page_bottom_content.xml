@@ -72,7 +72,7 @@
                 android:layout_width="48dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center_vertical"
-                app:srcCompat="@drawable/ic_restore_black_24dp"
+                app:srcCompat="@drawable/ic_edit_history"
                 android:tint="?attr/secondary_text_color"
                 android:contentDescription="@null"/>
 
@@ -121,7 +121,7 @@
                 android:layout_width="48dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center_vertical"
-                app:srcCompat="@drawable/ic_chat_white_24dp"
+                app:srcCompat="@drawable/ic_talk_bubbles"
                 android:tint="?attr/secondary_text_color"
                 android:contentDescription="@null"/>
 
@@ -155,7 +155,7 @@
                 android:layout_width="48dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center_vertical"
-                app:srcCompat="@drawable/ic_place_black_24dp"
+                app:srcCompat="@drawable/ic_map_pin"
                 android:tint="?attr/secondary_text_color"
                 android:contentDescription="@null"/>
 
