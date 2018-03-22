@@ -22,16 +22,18 @@
         android:layout_margin="0dp"/>
 
     <FrameLayout
-        android:layout_width="match_parent"
+        android:layout_width="240dp"
         android:layout_height="wrap_content">
         <com.facebook.drawee.view.SimpleDraweeView
-            style="@style/SimpleDraweeViewPlaceholder.Article"
             android:id="@+id/captcha_image"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="240dp"
+            android:layout_width="match_parent"
             android:layout_height="80dp"
+            android:background="@null"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/captcha_image"
+            android:layout_marginTop="10dp"
             app:actualImageScaleType="fitCenter"
-            android:contentDescription="@string/captcha_image" />
+            style="@style/SimpleDraweeViewPlaceholder.Article"/>
         <ProgressBar
             android:id="@+id/captcha_image_progress"
             android:layout_width="match_parent"
@@ -40,15 +42,16 @@
             android:indeterminate="true"
             style="?android:attr/progressBarStyleHorizontal"
             android:visibility="gone"
-            tools:visibility="visible" />
+            tools:visibility="visible"/>
     </FrameLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/edit_section_captcha_reload"
-        style="?android:textAppearanceSmall"
-        android:gravity="center"/>
+        android:textAlignment="center"
+        style="?android:textAppearanceSmall"/>
+
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/captcha_text"
