@@ -29,6 +29,9 @@ public class Announcement extends BaseModel {
     @SuppressWarnings("unused") @NonNull private List<String> countries = Collections.emptyList();
     @SuppressWarnings("unused") @SerializedName("caption_HTML") @Nullable private String footerCaption;
     @SuppressWarnings("unused") @SerializedName("image") @Nullable private String imageUrl;
+    @SuppressWarnings("unused") @Nullable private String conditions;
+    @SuppressWarnings("unused") @SerializedName("min_version") @Nullable private String minVersion;
+    @SuppressWarnings("unused") @SerializedName("max_version") @Nullable private String maxVersion;
 
     @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String text;
     @SuppressWarnings("unused") @Nullable private Action action;
@@ -111,6 +114,18 @@ public class Announcement extends BaseModel {
 
     @Nullable String negativeText() {
         return negativeText;
+    }
+
+    @Nullable String conditions() {
+        return conditions;
+    }
+
+    @Nullable String minVersion() {
+        return minVersion;
+    }
+
+    @Nullable String maxVersion() {
+        return maxVersion;
     }
 
     public static class Action {
