@@ -137,29 +137,21 @@ public class AnnouncementClient implements FeedClient {
                 || (announcement.startTime() != null && announcement.startTime().after(date))
                 || (announcement.endTime() != null && announcement.endTime().before(date))
                 || !matchesVersionCodes(announcement.minVersion(), announcement.maxVersion())
-                || !matchesConditions(announcement.conditions())) {
+                || !matchesConditions(announcement)) {
             return false;
         }
         return true;
     }
 
-    private static boolean matchesConditions(@Nullable String conditions) {
-        if (TextUtils.isEmpty(conditions)) {
-            return true;
+    private static boolean matchesConditions(@NonNull Announcement announcement) {
+        if (announcement.beta() != null && (announcement.beta() != ReleaseUtil.isPreProdRelease())) {
+            return false;
         }
-        String[] conditionArray = conditions.split("&");
-        for (String condition : conditionArray) {
-            if (condition.equals("loggedin") && !AccountUtil.isLoggedIn()) {
-                return false;
-            } else if (condition.equals("notloggedin") && AccountUtil.isLoggedIn()) {
-                return false;
-            } else if (condition.equals("syncenabled") && !Prefs.isReadingListSyncEnabled()) {
-                return false;
-            } else if (condition.equals("syncdisabled") && Prefs.isReadingListSyncEnabled()) {
-                return false;
-            } else if (condition.equals("beta") && ReleaseUtil.isProdRelease()) {
-                return false;
-            }
+        if (announcement.loggedIn() != null && (announcement.loggedIn() != AccountUtil.isLoggedIn())) {
+            return false;
+        }
+        if (announcement.readingListSyncEnabled() != null && (announcement.readingListSyncEnabled() != Prefs.isReadingListSyncEnabled())) {
+            return false;
         }
         return true;
     }

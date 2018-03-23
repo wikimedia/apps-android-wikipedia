@@ -32,6 +32,8 @@ public class AnnouncementClientTest extends MockWebServerTest {
     private static final int ANNOUNCEMENT_INVALID_DATES = 3;
     private static final int ANNOUNCEMENT_NO_DATES = 4;
     private static final int ANNOUNCEMENT_NO_COUNTRIES = 5;
+    private static final int ANNOUNCEMENT_BETA_WITH_VERSION = 6;
+    private static final int ANNOUNCEMENT_FOR_OLD_VERSION = 7;
     @NonNull private AnnouncementClient client = new AnnouncementClient();
     private AnnouncementList announcementList;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ROOT);
@@ -112,6 +114,18 @@ public class AnnouncementClientTest extends MockWebServerTest {
         assertThat(AnnouncementClient.shouldShow(announcement, "US", dateDuring), is(false));
         assertThat(AnnouncementClient.shouldShow(announcement, "FI", dateDuring), is(false));
         assertThat(AnnouncementClient.shouldShow(announcement, "", dateDuring), is(false));
+    }
+
+    @Test public void testBetaWithVersion() throws Throwable {
+        Announcement announcement = announcementList.items().get(ANNOUNCEMENT_BETA_WITH_VERSION);
+        Date dateDuring = dateFormat.parse("2016-11-20");
+        assertThat(AnnouncementClient.shouldShow(announcement, "US", dateDuring), is(true));
+    }
+
+    @Test public void testForOldVersion() throws Throwable {
+        Announcement announcement = announcementList.items().get(ANNOUNCEMENT_FOR_OLD_VERSION);
+        Date dateDuring = dateFormat.parse("2016-11-20");
+        assertThat(AnnouncementClient.shouldShow(announcement, "US", dateDuring), is(false));
     }
 
     private void request(@NonNull Callback cb) {

@@ -29,7 +29,9 @@ public class Announcement extends BaseModel {
     @SuppressWarnings("unused") @NonNull private List<String> countries = Collections.emptyList();
     @SuppressWarnings("unused") @SerializedName("caption_HTML") @Nullable private String footerCaption;
     @SuppressWarnings("unused") @SerializedName("image") @Nullable private String imageUrl;
-    @SuppressWarnings("unused") @Nullable private String conditions;
+    @SuppressWarnings("unused") @SerializedName("logged_in") @Nullable private Boolean loggedIn;
+    @SuppressWarnings("unused") @SerializedName("reading_list_sync_enabled") @Nullable private Boolean readingListSyncEnabled;
+    @SuppressWarnings("unused") @Nullable private Boolean beta;
     @SuppressWarnings("unused") @SerializedName("min_version") @Nullable private String minVersion;
     @SuppressWarnings("unused") @SerializedName("max_version") @Nullable private String maxVersion;
 
@@ -116,8 +118,16 @@ public class Announcement extends BaseModel {
         return negativeText;
     }
 
-    @Nullable String conditions() {
-        return conditions;
+    @Nullable Boolean loggedIn() {
+        return loggedIn;
+    }
+
+    @Nullable Boolean readingListSyncEnabled() {
+        return readingListSyncEnabled;
+    }
+
+    @Nullable Boolean beta() {
+        return beta;
     }
 
     @Nullable String minVersion() {
