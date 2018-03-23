@@ -192,8 +192,8 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         @Override
         public void onClick(View v) {
             if (app.getCurrentTheme() != theme) {
-                app.setCurrentTheme(theme);
                 funnel.logThemeChange(app.getCurrentTheme(), theme);
+                app.setCurrentTheme(theme);
             }
         }
     }
