@@ -7,6 +7,7 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.PopupWindowCompat;
+import android.support.v7.widget.CardView;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.DimenUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,12 +50,11 @@ public class ExploreOverflowView extends FrameLayout {
         this.callback = callback;
         popupWindowHost = new PopupWindow(this, ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT, true);
-        popupWindowHost.setBackgroundDrawable(new ColorDrawable(Color.BLACK));
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            popupWindowHost.setElevation(getResources().getDimension(R.dimen.overflow_elevation));
-        }
+        popupWindowHost.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         PopupWindowCompat.setOverlapAnchor(popupWindowHost, true);
-        PopupWindowCompat.showAsDropDown(popupWindowHost, anchorView, 0, 0, Gravity.END);
+        final int compatOffset = 8;
+        PopupWindowCompat.showAsDropDown(popupWindowHost, anchorView, 0, Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP
+                ? -DimenUtil.getToolbarHeightPx(anchorView.getContext()) + DimenUtil.roundedDpToPx(compatOffset) : 0, Gravity.END);
     }
 
     @OnClick({R.id.explore_overflow_settings, R.id.explore_overflow_donate,
@@ -96,6 +97,11 @@ public class ExploreOverflowView extends FrameLayout {
     private void init() {
         inflate(getContext(), R.layout.view_explore_overflow, this);
         ButterKnife.bind(this);
+
+        CardView cardContainer = findViewById(R.id.explore_overflow_card_container);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            cardContainer.setPreventCornerOverlap(false);
+        }
 
         if (!Prefs.offlineLibraryEnabled()) {
             compilationsView.setVisibility(GONE);

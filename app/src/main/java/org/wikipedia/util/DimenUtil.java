@@ -108,7 +108,7 @@ public final class DimenUtil {
      * @param context Context used for retrieving the height attribute.
      * @return Height of the toolbar.
      */
-    private static int getToolbarHeightPx(Context context) {
+    public static int getToolbarHeightPx(Context context) {
         final TypedArray styledAttributes = context.getTheme().obtainStyledAttributes(new int[] {
                 android.support.v7.appcompat.R.attr.actionBarSize
         });
