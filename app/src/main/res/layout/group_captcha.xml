@@ -18,12 +18,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/edit_section_captcha_message"
-        style="?android:textAppearanceMedium"
+        style="@style/MaterialMediumSecondaryCaption"
+        android:textColor="?attr/primary_text_color"
         android:layout_margin="0dp"/>
 
     <FrameLayout
         android:layout_width="240dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/captcha_image"
             android:layout_width="match_parent"
@@ -31,7 +34,6 @@
             android:background="@null"
             android:layout_gravity="center_horizontal"
             android:contentDescription="@string/captcha_image"
-            android:layout_marginTop="10dp"
             app:actualImageScaleType="fitCenter"
             style="@style/SimpleDraweeViewPlaceholder.Article"/>
         <ProgressBar
@@ -48,6 +50,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="@string/edit_section_captcha_reload"
         android:textAlignment="center"
         style="?android:textAppearanceSmall"/>
@@ -57,12 +60,13 @@
         android:id="@+id/captcha_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:focusedByDefault="false"
         android:hint="@string/edit_section_captcha_hint">
         <org.wikipedia.views.PlainPasteEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
             style="?android:textAppearanceMedium"
             android:layout_gravity="center_horizontal"
             android:imeOptions="actionDone|flagNoExtractUi"

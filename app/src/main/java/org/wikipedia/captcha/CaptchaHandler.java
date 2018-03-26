@@ -21,6 +21,7 @@ import com.facebook.imagepipeline.image.ImageInfo;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.ViewAnimations;
 
@@ -128,6 +129,7 @@ public class CaptchaHandler {
         if (captchaResult == null) {
             return;
         }
+        DeviceUtil.hideSoftKeyboard(activity);
         if (!isReload) {
             ViewAnimations.crossFade(primaryView, captchaContainer);
         }
