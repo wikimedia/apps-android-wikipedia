@@ -304,7 +304,7 @@
   <string name="reading_list_sort_by_recent" fuzzy="true">Smizwer s wid n melmi kan</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">Smizzwer s wid yezrin</string>
   <string name="reading_list_menu_delete">Kkes tabdart</string>
-  <string name="reading_list_menu_rename">Snifel isem</string>
+  <string name="reading_list_menu_rename" fuzzy="true">Snifel isem</string>
   <string name="reading_list_menu_edit_description">Ẓreg aglam</string>
   <string name="reading_list_action_menu_remove_from_offline">Kkes seg war tuqqna</string>
   <string name="reading_list_action_menu_save_for_offline">Sekles i war tuqqna</string>

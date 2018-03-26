@@ -311,7 +311,7 @@
   <string name="reading_list_sort_by_created">Sorteren op datum van aanmaak (nieuwste)</string>
   <string name="reading_list_sort_by_created_desc">Sorteren op datum van aanmaak (oudste)</string>
   <string name="reading_list_menu_delete">Lijst verwijderen</string>
-  <string name="reading_list_menu_rename">Hernoemen</string>
+  <string name="reading_list_menu_rename" fuzzy="true">Hernoemen</string>
   <string name="reading_list_menu_edit_description">Beschrijving bewerken</string>
   <string name="reading_list_action_menu_remove_from_offline">Uit offline verwijderen</string>
   <string name="reading_list_action_menu_save_for_offline">Voor offline opslaan</string>

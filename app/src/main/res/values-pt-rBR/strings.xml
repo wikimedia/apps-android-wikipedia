@@ -324,7 +324,7 @@
   <string name="reading_list_sort_by_created">Ordenar por data criada (mais nova)</string>
   <string name="reading_list_sort_by_created_desc">Ordenar por data criada (a mais antiga)</string>
   <string name="reading_list_menu_delete">Excluir lista</string>
-  <string name="reading_list_menu_rename">Renomear</string>
+  <string name="reading_list_menu_rename" fuzzy="true">Renomear</string>
   <string name="reading_list_menu_edit_description">Editar descrição</string>
   <string name="reading_list_action_menu_remove_from_offline">Remover do modo offline</string>
   <string name="reading_list_action_menu_save_for_offline">Salvar off-line</string>

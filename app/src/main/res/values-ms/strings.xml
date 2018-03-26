@@ -324,7 +324,7 @@
   <string name="reading_list_sort_by_created">Isih mengikut tarikh diciptakan (terbaru)</string>
   <string name="reading_list_sort_by_created_desc">Isih mengikut tarikh diciptakan (terlama)</string>
   <string name="reading_list_menu_delete">Padam senarai</string>
-  <string name="reading_list_menu_rename">Tukar nama</string>
+  <string name="reading_list_menu_rename">Sunting nama/keterangan</string>
   <string name="reading_list_menu_edit_description">Sunting keterangan</string>
   <string name="reading_list_action_menu_remove_from_offline">Padam dari luar talian</string>
   <string name="reading_list_action_menu_save_for_offline">Simpan untuk luar talian</string>
@@ -358,6 +358,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s tidak lagi akan tersedia di luar talian untuk semua senarai baca:</string>
   <string name="reading_lists_sync_reminder_title">Hidupkan penyegerakan senarai bacaan?</string>
   <string name="reading_lists_sync_reminder_text">Rencana yang disimpan untuk membaca senarai kini boleh diselaraskan ke akaun Wikipedia anda. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Senarai bacaan kini boleh disegerakkan merentas peranti. Log masuk ke akaun Wikipedia anda dan izinkan daftar anda disimpan. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Dayakan penyegerakan</string>
   <string name="reading_list_login_reminder_title">Menyegerakkan senarai bacaan</string>
   <string name="reading_lists_login_reminder_text">Senarai bacaan kini boleh disegerakkan merentas peranti. Masuk ke akaun Wikipedia anda dan izinkan senarai anda disimpan.</string>
@@ -400,6 +401,8 @@
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Segerakkan senarai bacaan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Senarai bacaan kini boleh disegerakkan merentas peranti. Masuk ke akaun Wikipedia anda dan izinkan senarai anda disimpan.</string>
   <string name="reading_lists_menu_create_list">Cipta senarai baru</string>
   <string name="reading_lists_menu_sort_by">Isih mengikut</string>
+  <string name="reading_lists_refresh_sync_option">Segarkan semula penyegerakan</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Log masuk / cipta akaun</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Rencana ini kini boleh didapati di luar talian.</item>
     <item quantity="other">Rencana-rencana ini kini boleh didapati di luar talian.</item>

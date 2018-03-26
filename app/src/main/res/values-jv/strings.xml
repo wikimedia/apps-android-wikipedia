@@ -310,7 +310,7 @@
   <string name="reading_list_sort_by_recent" fuzzy="true">Urutaké miturut sing anyar dhéwé</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">Urutaké miturut sing lawas dhéwé</string>
   <string name="reading_list_menu_delete">Busak pratélan</string>
-  <string name="reading_list_menu_rename">Ganti jeneng</string>
+  <string name="reading_list_menu_rename" fuzzy="true">Ganti jeneng</string>
   <string name="reading_list_menu_edit_description">Besut katerangan</string>
   <string name="reading_list_action_menu_remove_from_offline">Busak saka njaban jaringan</string>
   <string name="reading_list_action_menu_save_for_offline">Simpen kanggo ing njaban jaringan</string>

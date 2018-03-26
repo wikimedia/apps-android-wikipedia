@@ -323,7 +323,7 @@
   <string name="reading_list_sort_by_created">Ordenar por data de creación (máis recentes)</string>
   <string name="reading_list_sort_by_created_desc">Ordenar por data de creación (máis antigas)</string>
   <string name="reading_list_menu_delete">Eliminar a lista</string>
-  <string name="reading_list_menu_rename">Renomear</string>
+  <string name="reading_list_menu_rename" fuzzy="true">Renomear</string>
   <string name="reading_list_menu_edit_description">Editar a descrición</string>
   <string name="reading_list_action_menu_remove_from_offline">Quitar de sen conexión</string>
   <string name="reading_list_action_menu_save_for_offline">Gardar para sen conexión</string>

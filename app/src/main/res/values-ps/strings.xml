@@ -162,7 +162,7 @@
   <string name="reading_list_sort_by_name">اوډنه د نوم له مخې</string>
   <string name="reading_list_sort_by_recent" fuzzy="true">اوډنه تر ټولو تازه له مخې</string>
   <string name="reading_list_menu_delete">لړليک ړنگول</string>
-  <string name="reading_list_menu_rename">بيانومول</string>
+  <string name="reading_list_menu_rename" fuzzy="true">بيانومول</string>
   <string name="reading_list_name_sample">زما لوست لړليک</string>
   <string name="reading_list_name_hint">د دې لړليک نوم</string>
   <string name="reading_list_description_hint">څرگندونه (اختياري)</string>

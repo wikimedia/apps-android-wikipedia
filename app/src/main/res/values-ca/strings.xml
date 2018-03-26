@@ -322,7 +322,7 @@
   <string name="reading_list_sort_by_created">Ordena per data de creació (més noves)</string>
   <string name="reading_list_sort_by_created_desc">Ordena per data de creació (més antigues)</string>
   <string name="reading_list_menu_delete">Elimina la llista</string>
-  <string name="reading_list_menu_rename">Reanomena</string>
+  <string name="reading_list_menu_rename" fuzzy="true">Reanomena</string>
   <string name="reading_list_menu_edit_description">Modifica la descripció</string>
   <string name="reading_list_action_menu_remove_from_offline">Suprimeix del fora de línia</string>
   <string name="reading_list_action_menu_save_for_offline">Desa per a fora de línia</string>

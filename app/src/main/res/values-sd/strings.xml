@@ -300,7 +300,7 @@
   <string name="reading_list_sort_by_recent" fuzzy="true">سڀ کان ھاڻوڪي سان مرتب ڪريو</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">سڀ کا گھٽ ھاڻوڪي سان مرتب ڪريو</string>
   <string name="reading_list_menu_delete">فھرست ڊاھيو</string>
-  <string name="reading_list_menu_rename">ٻيھر نالو ڏيو</string>
+  <string name="reading_list_menu_rename" fuzzy="true">ٻيھر نالو ڏيو</string>
   <string name="reading_list_menu_edit_description">تشريح سنواريو</string>
   <string name="reading_list_action_menu_remove_from_offline">آفلائين تان ھٽايو</string>
   <string name="reading_list_action_menu_save_for_offline">آفلائين لاءِ سانڍيو</string>

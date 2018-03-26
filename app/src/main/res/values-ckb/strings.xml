@@ -291,7 +291,7 @@
   <string name="reading_list_sort_by_recent" fuzzy="true">ڕیزکردن بەپێی تازەیی</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">ڕیزکردن بەپێی کۆنی</string>
   <string name="reading_list_menu_delete">سڕینەوەی پێڕست</string>
-  <string name="reading_list_menu_rename">ناونانەوە</string>
+  <string name="reading_list_menu_rename" fuzzy="true">ناونانەوە</string>
   <string name="reading_list_menu_edit_description">دەستکاریی وەسف</string>
   <string name="reading_list_name_sample">پێڕستی خوێندنەوەی من</string>
   <string name="reading_list_name_hint">ناوی ئەم پێڕستە</string>

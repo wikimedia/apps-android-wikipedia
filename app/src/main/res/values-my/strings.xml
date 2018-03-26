@@ -289,7 +289,7 @@
   <string name="reading_list_sort_by_recent" fuzzy="true">မကြာမီကဖြင့် စီစဉ်</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">အနည်းဆုံး မကြာမီဖြင့် စီစဉ်</string>
   <string name="reading_list_menu_delete">စာဖတ်စာရင်း ဖျက်ရန်</string>
-  <string name="reading_list_menu_rename">အမည်ပြန်မှည့်ရန်</string>
+  <string name="reading_list_menu_rename" fuzzy="true">အမည်ပြန်မှည့်ရန်</string>
   <string name="reading_list_menu_edit_description">ဖော်ပြချက်တစ်ခု ထည့်ရန်</string>
   <string name="reading_list_action_menu_remove_from_offline">အင်တာနက်မရှိဘဲ ဖတ်ရှုခြင်းမှ ဖယ်ထုတ်ရန်။</string>
   <string name="reading_list_action_menu_save_for_offline">အင်တာနက်မရှိပဲ ဖတ်ရှုရန် သိမ်းဆည်းခြင်း။</string>

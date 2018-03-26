@@ -320,7 +320,7 @@
   <string name="reading_list_sort_by_created">Ordenar por fecha de creación (más recientes)</string>
   <string name="reading_list_sort_by_created_desc">Ordenar por fecha de creación (más antiguos)</string>
   <string name="reading_list_menu_delete">Eliminar la lista</string>
-  <string name="reading_list_menu_rename">Cambiar nombre</string>
+  <string name="reading_list_menu_rename">Editar nombre/descripción</string>
   <string name="reading_list_menu_edit_description">Editar descripción</string>
   <string name="reading_list_action_menu_remove_from_offline">Quitar de sin conexión</string>
   <string name="reading_list_action_menu_save_for_offline">Guardar para sin conexión</string>

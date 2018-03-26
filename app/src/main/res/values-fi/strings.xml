@@ -324,7 +324,7 @@
   <string name="reading_list_sort_by_created">Lajittele luomispäivän mukaan (uusin)</string>
   <string name="reading_list_sort_by_created_desc">Lajittele luomispäivän mukaan (vanhin)</string>
   <string name="reading_list_menu_delete">Poista lista</string>
-  <string name="reading_list_menu_rename">Nimeä uudelleen</string>
+  <string name="reading_list_menu_rename">Muokkaa nimeä/kuvausta</string>
   <string name="reading_list_menu_edit_description">Muokkaa kuvausta</string>
   <string name="reading_list_action_menu_remove_from_offline">Poista offlinesta</string>
   <string name="reading_list_action_menu_save_for_offline">Tallenna offline-tilassa</string>

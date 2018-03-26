@@ -293,7 +293,7 @@
   <string name="reading_list_sort_by_created">Seřadit podle data vytvoření (od nejnovějších)</string>
   <string name="reading_list_sort_by_created_desc">Seřadit podle data vytvoření (od nejstarších)</string>
   <string name="reading_list_menu_delete">Odstranit seznam</string>
-  <string name="reading_list_menu_rename">Přejmenovat</string>
+  <string name="reading_list_menu_rename" fuzzy="true">Přejmenovat</string>
   <string name="reading_list_menu_edit_description">Editovat popis</string>
   <string name="reading_list_name_sample">Můj seznam k přečtení</string>
   <string name="reading_list_name_hint">Název tohoto seznamu</string>

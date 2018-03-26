@@ -322,7 +322,7 @@
   <string name="reading_list_sort_by_created">Raða eftir hvenær búið til (nýjast)</string>
   <string name="reading_list_sort_by_created_desc">Raða eftir hvenær búið til (elst)</string>
   <string name="reading_list_menu_delete">Eyða lista</string>
-  <string name="reading_list_menu_rename">Endurnefna</string>
+  <string name="reading_list_menu_rename" fuzzy="true">Endurnefna</string>
   <string name="reading_list_menu_edit_description">Breyta lýsingu</string>
   <string name="reading_list_action_menu_remove_from_offline">Fjarlægja úr ónettengdum aðgangi</string>
   <string name="reading_list_action_menu_save_for_offline">Vista til lestrar án nettengingar</string>

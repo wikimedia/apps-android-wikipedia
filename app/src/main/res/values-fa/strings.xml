@@ -323,7 +323,7 @@
   <string name="reading_list_sort_by_created">مرتب بر پایهٔ تاریخ ایجاد شده (جدیدترین)</string>
   <string name="reading_list_sort_by_created_desc">مرتب بر پایهٔ تاریخ ایجاد شده (قدیمی‌ترین)</string>
   <string name="reading_list_menu_delete">حذف فهرست</string>
-  <string name="reading_list_menu_rename">تغییر نام</string>
+  <string name="reading_list_menu_rename" fuzzy="true">تغییر نام</string>
   <string name="reading_list_menu_edit_description">ویرایش توضیحات</string>
   <string name="reading_list_action_menu_remove_from_offline">حذف از آفلاین</string>
   <string name="reading_list_action_menu_save_for_offline">ذخیره برای آفلاین</string>

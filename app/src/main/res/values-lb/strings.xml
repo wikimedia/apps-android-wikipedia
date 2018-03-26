@@ -295,7 +295,7 @@
   <string name="reading_list_sort_by_recent" fuzzy="true">No de Rezentesten zortéieren</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">No den Eelsten zortéieren</string>
   <string name="reading_list_menu_delete">Lëscht läschen</string>
-  <string name="reading_list_menu_rename">Ëmbenennen</string>
+  <string name="reading_list_menu_rename">Numm/Beschreiwung änneren</string>
   <string name="reading_list_menu_edit_description">Beschreiwung änneren</string>
   <string name="reading_list_action_menu_remove_all_from_offline">All aus dem offline eraushuelen</string>
   <string name="reading_list_action_menu_save_all_for_offline">All fir offline späicheren</string>

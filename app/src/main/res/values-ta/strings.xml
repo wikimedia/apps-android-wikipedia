@@ -268,7 +268,7 @@
   <string name="reading_list_sort_by_recent" fuzzy="true">மிகவும் அண்மை வகையில் வரிசைப்படுத்துக</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">மீச்சிறு அண்மை வகையில் வரிசைப்படுத்துக</string>
   <string name="reading_list_menu_delete">பட்டியலை நீக்குக</string>
-  <string name="reading_list_menu_rename">பெயர் மாற்றுக</string>
+  <string name="reading_list_menu_rename" fuzzy="true">பெயர் மாற்றுக</string>
   <string name="reading_list_menu_edit_description">குறிப்பை தொகுக்க</string>
   <string name="reading_list_action_menu_remove_from_offline">அணைநிலையிருந்து நீக்குக</string>
   <string name="reading_list_action_menu_save_for_offline">அணைநிலைக்கு சேர்க</string>

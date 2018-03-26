@@ -298,7 +298,7 @@
   <string name="reading_list_sort_by_recent" fuzzy="true">Sắp xếp theo lúc xem (gần đây nhất)</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">Sắp xếp theo lúc xem (lâu nhất)</string>
   <string name="reading_list_menu_delete">Xóa danh sách</string>
-  <string name="reading_list_menu_rename">Đổi tên</string>
+  <string name="reading_list_menu_rename" fuzzy="true">Đổi tên</string>
   <string name="reading_list_menu_edit_description">Chỉnh sửa miêu tả</string>
   <string name="reading_list_action_menu_remove_from_offline">Xóa khỏi bộ nhớ ngoại tuyến</string>
   <string name="reading_list_action_menu_save_for_offline">Lưu để đọc ngoại tuyến</string>

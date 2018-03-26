@@ -175,6 +175,7 @@
   <string name="color_theme_select">مرکزی خیال</string>
   <string name="color_theme_light">ہلکا</string>
   <string name="color_theme_dark">گہرا</string>
+  <string name="color_theme_black">کالا</string>
   <string name="nav_item_reading_lists">میݙیاں لسٹاں</string>
   <string name="reading_list_untitled">بلا عنوان</string>
   <string name="reading_list_save_to">مطالعہ دی فہرست وچ شامل کرو</string>
@@ -184,7 +185,7 @@
   <string name="reading_list_sort_ellipsis">ترتیب بمطابق۔۔۔</string>
   <string name="reading_list_sort_by_name">ناں نال ترتیب ݙیوو</string>
   <string name="reading_list_menu_delete">تندیر مٹاؤ</string>
-  <string name="reading_list_menu_rename">نواں ناں لکھو</string>
+  <string name="reading_list_menu_rename">ناں یا وضاحت وچ تبدیلی لکھو</string>
   <string name="reading_list_menu_edit_description">وضاحت وچ تبدیلی کرو</string>
   <string name="reading_list_name_hint">ایں فہرست دا ناں</string>
   <string name="reading_list_description_hint">تفصیلاں(اختیاری)</string>
@@ -217,6 +218,7 @@
   <string name="view_announcement_card_negative_action">کو، شکریہ</string>
   <string name="view_featured_article_footer_save_button_label">بچاؤ</string>
   <string name="view_featured_article_footer_saved_button_label">محفوظ</string>
+  <string name="feed_configure_menu_select_all">سبھ چݨو</string>
   <string name="description_edit_save">شائع کرو</string>
   <string name="description_edit_add_description">عنوان دی تفصیل لکھو</string>
   <string name="description_edit_edit_description">تفصیل لکھو</string>
@@ -250,4 +252,7 @@
   <string name="onboarding_get_started">شروع کرو</string>
   <string name="app_shortcuts_continue_reading">پڑھݨ جاری رکھو</string>
   <string name="app_shortcuts_search">ڳولو</string>
+  <string name="on_this_day_card_title">ایں ݙینہ کوں</string>
+  <string name="this_year">ایں سال</string>
+  <string name="back_to_top">واپس اُتے ون٘ڄو</string>
 </resources>

@@ -308,7 +308,7 @@
   <string name="reading_list_sort_by_recent" fuzzy="true">Runtuykeun dumasar nu panganyarna</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">Ruytuykeun dumasar nu pangheubeulna</string>
   <string name="reading_list_menu_delete">Pupus daptar</string>
-  <string name="reading_list_menu_rename">Robah ngaran</string>
+  <string name="reading_list_menu_rename" fuzzy="true">Robah ngaran</string>
   <string name="reading_list_menu_edit_description">Édit pedaran</string>
   <string name="reading_list_action_menu_remove_from_offline">Pupus tina oflén</string>
   <string name="reading_list_action_menu_save_for_offline">Simpen pikeun oflén</string>

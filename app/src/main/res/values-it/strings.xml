@@ -294,7 +294,7 @@
   <string name="reading_list_sort_by_recent">Ordina per data di aggiunta (più recenti)</string>
   <string name="reading_list_sort_by_recent_desc">Ordina per data di aggiunta (più vecchi)</string>
   <string name="reading_list_menu_delete">Cancella elenco</string>
-  <string name="reading_list_menu_rename">Rinomina</string>
+  <string name="reading_list_menu_rename">Modifica nome/descrizione</string>
   <string name="reading_list_menu_edit_description">Modifica descrizione</string>
   <string name="reading_list_action_menu_add_to_another_list">Aggiungi ad un\'altra lista</string>
   <string name="reading_list_name_sample">Il mio elenco di lettura</string>

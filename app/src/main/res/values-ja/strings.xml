@@ -311,7 +311,7 @@
   <string name="reading_list_sort_by_recent" fuzzy="true">新しい方から並べ替え</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">古い方から並べ替え</string>
   <string name="reading_list_menu_delete">リストを削除</string>
-  <string name="reading_list_menu_rename">名前を変更</string>
+  <string name="reading_list_menu_rename" fuzzy="true">名前を変更</string>
   <string name="reading_list_menu_edit_description">説明を編集</string>
   <string name="reading_list_action_menu_remove_from_offline">オフラインから削除</string>
   <string name="reading_list_action_menu_save_for_offline">オフラインで保存</string>

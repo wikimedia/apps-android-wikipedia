@@ -147,6 +147,9 @@
   <string name="about_description">حول تطبيق ويكيبيديا</string>
   <string name="privacy_policy_description">سياسة الخصوصية</string>
   <string name="terms_of_use_description">شروط الاستخدام</string>
+  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">المكتبات المستخدمة</string>
@@ -174,6 +177,8 @@
   <string name="edit_summary_tag_other_hint">طرق أخرى استخدمتها لتحسين الصفحة</string>
   <string name="find_next">البحث عن التالي</string>
   <string name="find_previous">البحث عن السابق</string>
+  <string name="find_first_occurence">هذه هي أول فرصة</string>
+  <string name="find_last_occurence">هذه هي آخر فرصة</string>
   <string name="abusefilter_title_warn">هذا التعديل ربما لا يكون بنّاءً. هل أنت متأكد من أنك تريد نشره؟</string>
   <string name="abusefilter_title_disallow">لا يمكنك نشر هذا التعديل. فضلًا عُد وغيّره.</string>
   <string name="abusefilter_text_warn">قام مرشحٌ تلقائيٌ بالتعرف على هذا التعديل على أنه قد يكون غير بناءٍ. قد يحتوي التعديل على حالة أو أكثر مما يلي:&lt;br /&gt;&lt;br /&gt;· كتابة الكل بأحرف كبيرة&lt;br /&gt;· إفراغ المقالات أو إضافة وصلات السبام&lt;br /&gt;· إضافة وصلات خارجية أو صور ليست لها صلة بالموضوع&lt;br /&gt;· تكرار أحرف</string>
@@ -307,7 +312,7 @@
   <string name="reading_list_sort_by_created">فرز حسب تاريخ الإنشاء (الأحدث)</string>
   <string name="reading_list_sort_by_created_desc"> فرز حسب تاريخ الإنشاء (الأقدم)</string>
   <string name="reading_list_menu_delete">احذف القائمة</string>
-  <string name="reading_list_menu_rename">أعد التسمية</string>
+  <string name="reading_list_menu_rename" fuzzy="true">أعد التسمية</string>
   <string name="reading_list_menu_edit_description">عدل الوصف</string>
   <string name="reading_list_action_menu_remove_from_offline">أزل من وضع عدم الاتصال</string>
   <string name="reading_list_action_menu_save_for_offline">حفظ في وضع عدم الاتصال</string>
