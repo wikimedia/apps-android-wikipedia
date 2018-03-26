@@ -8,6 +8,7 @@ import com.google.gson.annotations.SerializedName;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.dataclient.restbase.RbServiceError;
 import org.wikipedia.json.annotations.Required;
+import org.wikipedia.page.Namespace;
 
 /**
  * A standardized page summary object constructed by RESTBase, used for link previews and as the
@@ -21,6 +22,7 @@ public class RbPageSummary implements PageSummary {
     @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String title;
     @SuppressWarnings("unused") @Nullable private String normalizedtitle;
     @SuppressWarnings("unused,NullableProblems") @NonNull private String displaytitle;
+    @SuppressWarnings("unused") @Nullable private NamespaceContainer namespace;
     @SuppressWarnings("unused") @Nullable private String extract;
     @SuppressWarnings("unused") @Nullable private String description;
     @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
@@ -45,6 +47,11 @@ public class RbPageSummary implements PageSummary {
     @Override @NonNull
     public String getDisplayTitle() {
         return displaytitle;
+    }
+
+    @Override @NonNull
+    public Namespace getNamespace() {
+        return namespace == null ? Namespace.MAIN : Namespace.of(namespace.id());
     }
 
     @Override @Nullable
@@ -83,9 +90,16 @@ public class RbPageSummary implements PageSummary {
         }
     }
 
+    private static class NamespaceContainer {
+        @SuppressWarnings("unused") private int id;
+        @SuppressWarnings("unused") @Nullable private String text;
+
+        public int id() {
+            return id;
+        }
+    }
 
     public void setDescription(@Nullable String description) {
         this.description = description;
     }
-
 }

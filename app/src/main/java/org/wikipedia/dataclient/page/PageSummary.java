@@ -1,8 +1,10 @@
 package org.wikipedia.dataclient.page;
 
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.dataclient.ServiceError;
+import org.wikipedia.page.Namespace;
 
 /**
  * Represents a summary of a page, useful for page previews.
@@ -14,4 +16,5 @@ public interface PageSummary {
     @Nullable String getDisplayTitle();
     @Nullable String getExtract();
     @Nullable String getThumbnailUrl();
+    @NonNull Namespace getNamespace();
 }

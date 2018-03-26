@@ -10,6 +10,7 @@ import org.wikipedia.gallery.ImageInfo;
 import org.wikipedia.gallery.VideoInfo;
 import org.wikipedia.json.annotations.Required;
 import org.wikipedia.model.BaseModel;
+import org.wikipedia.page.Namespace;
 
 import java.util.Collections;
 import java.util.List;
@@ -40,6 +41,10 @@ public class MwQueryPage extends BaseModel {
 
     public int index() {
         return index;
+    }
+
+    @NonNull public Namespace namespace() {
+        return Namespace.of(ns);
     }
 
     @Nullable public List<LangLink> langLinks() {
