@@ -168,7 +168,7 @@
   <string name="reading_list_sort_by_recent" fuzzy="true">Kārtot pēc visjaunākā</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">Kārtot pēc visvecākā</string>
   <string name="reading_list_menu_delete">Dzēst sarakstu</string>
-  <string name="reading_list_menu_rename">Pārsaukt</string>
+  <string name="reading_list_menu_rename" fuzzy="true">Pārsaukt</string>
   <string name="reading_list_menu_edit_description">Labot aprakstu</string>
   <string name="reading_list_action_menu_add_to_another_list">Pievienot citam sarakstam</string>
   <string name="reading_list_description_hint">Apraksts (nav obligāts)</string>

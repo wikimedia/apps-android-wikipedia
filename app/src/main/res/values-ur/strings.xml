@@ -299,7 +299,7 @@
   <string name="reading_list_sort_by_recent" fuzzy="true">حالیہ تبدیلیوں کے اعتبار سے ترتیب دیں</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">حالیہ سرگرمیوں کے اعتبار سے ترتیب دیں</string>
   <string name="reading_list_menu_delete">فہرست کو حذف کریں</string>
-  <string name="reading_list_menu_rename">نام تبدیل کریں</string>
+  <string name="reading_list_menu_rename" fuzzy="true">نام تبدیل کریں</string>
   <string name="reading_list_menu_edit_description">وضاحت میں ترمیم کریں</string>
   <string name="reading_list_action_menu_remove_from_offline">آف لائن سے ہٹائیں</string>
   <string name="reading_list_action_menu_save_for_offline">آف لائن کے لیے محفوظ کریں</string>

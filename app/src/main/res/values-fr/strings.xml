@@ -324,7 +324,7 @@
   <string name="reading_list_sort_by_created">Trier selon la date de création (la plus récente)</string>
   <string name="reading_list_sort_by_created_desc">Trier selon la date de création (la plus ancienne)</string>
   <string name="reading_list_menu_delete">Supprimer la liste</string>
-  <string name="reading_list_menu_rename">Renommer</string>
+  <string name="reading_list_menu_rename">Modifier le nom/description</string>
   <string name="reading_list_menu_edit_description">Modifier la description</string>
   <string name="reading_list_action_menu_remove_from_offline">Supprimer de hors connexion</string>
   <string name="reading_list_action_menu_save_for_offline">Enregistrer pour hors connexion</string>

@@ -258,7 +258,7 @@
   <string name="reading_list_sort_by_recent">Rūšiuoti pagal pridėjimo datą (naujausius)</string>
   <string name="reading_list_sort_by_recent_desc">Rūšiuoti pagal pridėjimo datą (seniausius)</string>
   <string name="reading_list_menu_delete">Ištrinti sąrašą</string>
-  <string name="reading_list_menu_rename">Pervadinti</string>
+  <string name="reading_list_menu_rename">Keisti pavadinimą/aprašymą</string>
   <string name="reading_list_menu_edit_description">Redaguoti aprašymą</string>
   <string name="reading_list_name_sample">Mano skaitymo sąrašas</string>
   <string name="reading_list_name_hint">Sąrašo pavadinimas</string>

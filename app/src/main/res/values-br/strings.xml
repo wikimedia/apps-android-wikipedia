@@ -318,7 +318,7 @@
   <string name="reading_list_sort_by_created">Rummañ dre an deiz krouiñ (an hini nevesañ)</string>
   <string name="reading_list_sort_by_created_desc">Rummañ dre an deiz krouiñ (an hini koshañ)</string>
   <string name="reading_list_menu_delete">Dilemel ar roll</string>
-  <string name="reading_list_menu_rename">Adenvel</string>
+  <string name="reading_list_menu_rename" fuzzy="true">Adenvel</string>
   <string name="reading_list_menu_edit_description">Kemmañ an deskrivadur</string>
   <string name="reading_list_action_menu_remove_from_offline">Lemel eus ezlinenn</string>
   <string name="reading_list_action_menu_save_for_offline">Enorollañ \nevit ezlinenn</string>

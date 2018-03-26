@@ -236,7 +236,7 @@
   <string name="reading_list_sort_by_name_desc">ਨਾਮ ਦੁਆਰਾ ਕ੍ਰਮਬੱਧ (ਉਲਟ)</string>
   <string name="reading_list_sort_by_recent" fuzzy="true">ਹਾਲੀਆ ਖੋਲ੍ਹੇ ਅਨੁਸਾਰ ਕ੍ਰਮਬੱਧ ਕਰੋ</string>
   <string name="reading_list_menu_delete">ਸੂਚੀ ਮਿਟਾਉ</string>
-  <string name="reading_list_menu_rename">ਨਾਂ ਬਦਲੋ</string>
+  <string name="reading_list_menu_rename" fuzzy="true">ਨਾਂ ਬਦਲੋ</string>
   <string name="reading_list_menu_edit_description">ਵੇਰਵਾ ਸੋਧੋ</string>
   <string name="reading_list_name_sample">ਮੇਰੀ ਪੜ੍ਹਤ ਸੂਚੀ</string>
   <string name="reading_list_name_hint">ਸੂਚੀ ਦਾ ਨਾਂ</string>

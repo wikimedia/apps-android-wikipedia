@@ -311,7 +311,7 @@
   <string name="reading_list_sort_by_created">Rendezés a létrehozás dátuma szerint (legújabb)</string>
   <string name="reading_list_sort_by_created_desc">Rendezés a létrehozás dátuma szerint (legrégebbi)</string>
   <string name="reading_list_menu_delete">Lista törlése</string>
-  <string name="reading_list_menu_rename">Átnevezés</string>
+  <string name="reading_list_menu_rename" fuzzy="true">Átnevezés</string>
   <string name="reading_list_menu_edit_description">Leírás szerkesztése</string>
   <string name="reading_list_action_menu_remove_from_offline">Eltávolítás a kapcsolat nélküliből</string>
   <string name="reading_list_action_menu_save_for_offline">Mentés offline olvasáshoz</string>

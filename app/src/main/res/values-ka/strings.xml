@@ -273,7 +273,7 @@
   <string name="reading_list_sort_by_recent" fuzzy="true">დალაგება ყველაზე ბოლოების მიხედვით</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">დალაგება შედარებით ბოლოების მიხედვით</string>
   <string name="reading_list_menu_delete">სიის წაშლა</string>
-  <string name="reading_list_menu_rename">გადარქმევა</string>
+  <string name="reading_list_menu_rename" fuzzy="true">გადარქმევა</string>
   <string name="reading_list_menu_edit_description">აღწერის რედაქტირება</string>
   <string name="reading_list_name_sample">ჩემი წასაკითხთა სია</string>
   <string name="reading_list_name_hint">ამ სიის სახელი</string>

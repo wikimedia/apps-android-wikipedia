@@ -251,7 +251,7 @@
   <string name="reading_list_sort_by_created">តម្រៀបតាមកាលបរិច្ឆេទបង្កើត (ថ្មីជាងគេ)</string>
   <string name="reading_list_sort_by_created_desc">តម្រៀបតាមកាលបរិច្ឆេទបង្កើត (ចាស់ជាងគេ)</string>
   <string name="reading_list_menu_delete">លុបបញ្ជីចោល</string>
-  <string name="reading_list_menu_rename">ប្ដូរ​ឈ្មោះ</string>
+  <string name="reading_list_menu_rename" fuzzy="true">ប្ដូរ​ឈ្មោះ</string>
   <string name="reading_list_menu_edit_description">កែប្រែពណ៌នា</string>
   <string name="reading_list_action_menu_add_to_another_list">បន្ថែមទៅបញ្ជីមួយទៀត</string>
   <string name="reading_list_name_sample">បញ្ជីអំណានរបស់ខ្ញុំ</string>

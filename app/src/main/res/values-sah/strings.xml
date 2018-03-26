@@ -305,7 +305,7 @@
   <string name="reading_list_sort_by_recent" fuzzy="true">Күнүнэн-дьылынан</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">Күнүнэн-дьылынан наардааһын (эргэ)</string>
   <string name="reading_list_menu_delete">Испииһэги сот</string>
-  <string name="reading_list_menu_rename">Аатын уларыт</string>
+  <string name="reading_list_menu_rename" fuzzy="true">Аатын уларыт</string>
   <string name="reading_list_menu_edit_description">Ойуулааһыны уларытыы</string>
   <string name="reading_list_action_menu_remove_from_offline">Оффлайн-эрэсиимтэн сотуу</string>
   <string name="reading_list_action_menu_save_for_offline">Офлайн-эрэсиимҥэ хааллар</string>

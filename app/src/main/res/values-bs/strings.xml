@@ -309,7 +309,7 @@
   <string name="reading_list_sort_by_created">Sortiraj po datumu dodavanja (najnoviji)</string>
   <string name="reading_list_sort_by_created_desc">Sortiraj po datumu dodavanja (najstariji)</string>
   <string name="reading_list_menu_delete">Obriši spisak</string>
-  <string name="reading_list_menu_rename">Preimenuj</string>
+  <string name="reading_list_menu_rename" fuzzy="true">Preimenuj</string>
   <string name="reading_list_menu_edit_description">Uredi opis</string>
   <string name="reading_list_action_menu_remove_from_offline">Ukloni iz vanmrežnih</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Ukloni sve iz vanmrežnih</string>

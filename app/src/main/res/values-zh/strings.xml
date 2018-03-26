@@ -324,7 +324,7 @@
   <string name="reading_list_sort_by_created">按创建日期排序（最近优先）</string>
   <string name="reading_list_sort_by_created_desc">按创建日期排序（最早优先）</string>
   <string name="reading_list_menu_delete">删除列表</string>
-  <string name="reading_list_menu_rename">重命名</string>
+  <string name="reading_list_menu_rename">编辑名称/描述</string>
   <string name="reading_list_menu_edit_description">编辑描述</string>
   <string name="reading_list_action_menu_remove_from_offline">从离线内容中移除</string>
   <string name="reading_list_action_menu_save_for_offline">保存供离线使用</string>

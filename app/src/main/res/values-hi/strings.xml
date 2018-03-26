@@ -309,7 +309,7 @@
   <string name="reading_list_sort_by_recent" fuzzy="true">हाल ही के में से छांटें</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">कुछ समय पहले के में से छांटें</string>
   <string name="reading_list_menu_delete">सूची को मिटायें</string>
-  <string name="reading_list_menu_rename">नाम बदलें</string>
+  <string name="reading_list_menu_rename" fuzzy="true">नाम बदलें</string>
   <string name="reading_list_menu_edit_description">विवरण सम्पादित करें</string>
   <string name="reading_list_action_menu_remove_from_offline">ऑफलाइन से हटाएं</string>
   <string name="reading_list_action_menu_save_for_offline">ऑफलाइन के लिए सुरक्षित करें</string>

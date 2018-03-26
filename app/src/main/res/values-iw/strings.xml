@@ -323,7 +323,7 @@
   <string name="reading_list_sort_by_created">מיון לפי מועד היצירה (החדש ביותר)</string>
   <string name="reading_list_sort_by_created_desc">מיון לפי מועד היצירה (הישן ביותר)</string>
   <string name="reading_list_menu_delete">מחיקת רשימה</string>
-  <string name="reading_list_menu_rename">שינוי שם</string>
+  <string name="reading_list_menu_rename" fuzzy="true">שינוי שם</string>
   <string name="reading_list_menu_edit_description">עריכת תיאור</string>
   <string name="reading_list_action_menu_remove_from_offline">הסרה מקריאה ללא חיבור לרשת</string>
   <string name="reading_list_action_menu_save_for_offline">שמירה לקריאה ללא חיבור לרשת</string>

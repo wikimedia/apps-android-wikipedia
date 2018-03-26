@@ -305,7 +305,7 @@
   <string name="reading_list_sort_by_recent" fuzzy="true">সাম্প্রতিক অনুযায়ী বাছাই</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">অন্তত সাম্প্রতিক বাছাই</string>
   <string name="reading_list_menu_delete">তালিকা মুছুন</string>
-  <string name="reading_list_menu_rename">নামান্তর</string>
+  <string name="reading_list_menu_rename" fuzzy="true">নামান্তর</string>
   <string name="reading_list_menu_edit_description">বিবরণ সম্পাদনা করুন</string>
   <string name="reading_list_action_menu_remove_from_offline">অফলাইন থেকে সরান</string>
   <string name="reading_list_action_menu_save_for_offline">অফলাইনের জন্য সংরক্ষণ করুন</string>
@@ -344,6 +344,7 @@
   <string name="reading_list_login_option_reminder_dialog_no">না, নিবন্ধগুলি মুছুন</string>
   <string name="default_reading_list_name">সংরক্ষিত</string>
   <string name="reading_list_saved_list_rename">%1$s (ব্যবহারকারী তৈরি করেছেন)</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">প্রবেশ করুন / নিবন্ধন করুন</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">এই নিবন্ধটি এখন অফলাইনে উপলব্ধ হবে।</item>
     <item quantity="other">এই নিবন্ধগুলি এখন অফলাইনে উপলব্ধ হবে।</item>

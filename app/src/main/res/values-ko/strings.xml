@@ -322,7 +322,7 @@
   <string name="reading_list_sort_by_created">만든 날짜 순으로 정렬 (최근 순서)</string>
   <string name="reading_list_sort_by_created_desc">만든 날짜 순으로 정렬 (가장 오래된 순서)</string>
   <string name="reading_list_menu_delete">목록 삭제</string>
-  <string name="reading_list_menu_rename">이름 바꾸기</string>
+  <string name="reading_list_menu_rename">이름/설명 편집</string>
   <string name="reading_list_menu_edit_description">설명 편집</string>
   <string name="reading_list_action_menu_remove_from_offline">오프라인에서 제거</string>
   <string name="reading_list_action_menu_save_for_offline">오프라인을 위해 저장</string>

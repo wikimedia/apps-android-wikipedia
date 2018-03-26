@@ -322,7 +322,7 @@
   <string name="reading_list_sort_by_created">Подреждане по дата на създаване (най-скорошни)</string>
   <string name="reading_list_sort_by_created_desc">Подреждане по дата на създаване (най-стари)</string>
   <string name="reading_list_menu_delete">Изтриване на списъка</string>
-  <string name="reading_list_menu_rename">Преименуване</string>
+  <string name="reading_list_menu_rename">Редактиране на име/описание</string>
   <string name="reading_list_menu_edit_description">Редактиране на описанието</string>
   <string name="reading_list_action_menu_remove_from_offline">Премахване от офлайн достъп</string>
   <string name="reading_list_action_menu_save_for_offline">Запазване за офлайн достъп</string>
@@ -383,7 +383,7 @@
   <string name="reading_list_login_option_reminder_dialog_text" fuzzy="true">Има статии в списъци за четене, запазени в Уикипедия приложението Ви. Желаете ли да ги запазите и да ги слеете със списъците за четене, синхронизирани в сметката Ви?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Да, добавяне към списъците ми за четене</string>
   <string name="reading_list_login_option_reminder_dialog_no">Не, изтриване на статиите</string>
-  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Задържане на съхранените статии на устройството?</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Задържане на съхранените статии в приложението?</string>
   <string name="reading_list_logout_option_reminder_dialog_text" fuzzy="true">Тези статии са синхронизирани със сметката Ви в Уикипедия. Желаете ли да ги запазите на това устройство, след като излезете?</string>
   <string name="reading_list_logout_option_reminder_dialog_yes">Да, задържане на статиите в списъците</string>
   <string name="reading_list_logout_option_reminder_dialog_no">Не, изтриване на статиите от списъците</string>
@@ -398,6 +398,7 @@
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Синхронизиране на списъци за четене&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Списъците за четене вече могат да се синхронизират между устройства. Влезте в сметката си в Уикипедия, за да позволите съхранението на списъците си.</string>
   <string name="reading_lists_menu_create_list">Създаване на нов списък</string>
   <string name="reading_lists_menu_sort_by">Подреждане по</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Влизане / регистрация</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Тази статия вече е налична офлайн.</item>
     <item quantity="other">Тези статии вече са налични офлайн.</item>

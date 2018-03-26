@@ -311,7 +311,7 @@
   <string name="reading_list_sort_by_recent" fuzzy="true">Sorter etter besøkstidspunkt</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">Sorter etter besøkstidspunkt (eldste først)</string>
   <string name="reading_list_menu_delete">Slett listen</string>
-  <string name="reading_list_menu_rename">Endre navn</string>
+  <string name="reading_list_menu_rename" fuzzy="true">Endre navn</string>
   <string name="reading_list_menu_edit_description">Endre beskrivelse</string>
   <string name="reading_list_action_menu_remove_from_offline">Fjern lokal kopi</string>
   <string name="reading_list_action_menu_save_for_offline">Lagre for lesing offline</string>

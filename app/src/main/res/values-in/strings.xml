@@ -324,7 +324,7 @@
   <string name="reading_list_sort_by_created">Urutkan menurut tanggal dibuat (terbaru)</string>
   <string name="reading_list_sort_by_created_desc">Urutkan menurut tanggal dibuat (terlama)</string>
   <string name="reading_list_menu_delete">Hapus daftar</string>
-  <string name="reading_list_menu_rename">Ubah nama</string>
+  <string name="reading_list_menu_rename">Sunting nama/deskripsi</string>
   <string name="reading_list_menu_edit_description">Sunting deskripsi</string>
   <string name="reading_list_action_menu_remove_from_offline">Hapus dari luring</string>
   <string name="reading_list_action_menu_save_for_offline">Simpan untuk luring</string>
@@ -358,6 +358,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s tidak lagi tersedia secara luring untuk semua daftar bacaan:</string>
   <string name="reading_lists_sync_reminder_title">Aktifkan sinkronisasi daftar bacaan?</string>
   <string name="reading_lists_sync_reminder_text">Artikel yang disimpan ke daftar bacaan sekarang dapat disinkronkan ke akun Wikipedia Anda. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Daftar bacaan sekarang dapat disinkronkan di seluruh perangkat. Masuk log ke akun Wikipedia Anda dan biarkan daftar Anda disimpan. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/id#Daftar_bacaan_yang_disinkronkan\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Aktifkan sinkronisasi</string>
   <string name="reading_list_login_reminder_title">Sinkronkan daftar bacaan</string>
   <string name="reading_lists_login_reminder_text">Daftar bacaan sekarang dapat disinkronkan di seluruh perangkat. Masuk log ke akun Wikipedia Anda dan biarkan daftar Anda disimpan.</string>
@@ -400,6 +401,8 @@
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sinkronkan daftar bacaan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Daftar bacaan sekarang dapat disinkronkan di seluruh perangkat. Masuk log ke akun Wikipedia Anda dan biarkan daftar Anda disimpan.</string>
   <string name="reading_lists_menu_create_list">Buat daftar baru</string>
   <string name="reading_lists_menu_sort_by">Urut berdasarkan</string>
+  <string name="reading_lists_refresh_sync_option">Segarkan sinkronisasi</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Masuk log / buat akun</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Artikel ini sekarang akan tersedia secara luring.</item>
     <item quantity="other">Artikel-artikel ini sekarang akan tersedia secara luring.</item>

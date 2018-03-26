@@ -282,7 +282,7 @@
   <string name="reading_list_sort_by_recent">Sortuj według daty dodania (od najnowszych)</string>
   <string name="reading_list_sort_by_recent_desc">Sortuj według daty dodania (od najstarszych)</string>
   <string name="reading_list_menu_delete">Usuń listę</string>
-  <string name="reading_list_menu_rename">Zmień nazwę</string>
+  <string name="reading_list_menu_rename">Edytuj nazwę/opis</string>
   <string name="reading_list_menu_edit_description">Edytuj opis</string>
   <string name="reading_list_name_sample">Moja lista</string>
   <string name="reading_list_name_hint">Nazwa tej listy</string>
@@ -316,6 +316,7 @@
   <string name="default_reading_list_name">Zapisane</string>
   <string name="reading_lists_menu_create_list">Utwórz nową listę</string>
   <string name="reading_lists_menu_sort_by">Sortuj według</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Zaloguj się / zarejestruj</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ten artykuł będzie teraz dostępny w trybie offline.</item>
     <item quantity="other">Te artykuły będą teraz dostępne w trybie offline.</item>
@@ -325,6 +326,7 @@
     <item quantity="other">Te artykuły nie będą już dostępne w trybie offline.</item>
   </plurals>
   <string name="user_option_sync_label">Preferencje</string>
+  <string name="notification_button_view_user">Napisz do użytkownika</string>
   <string name="notification_reverted_title">Wycofana edycja</string>
   <string name="notification_thanks_title">Otrzymałeś podziękowania!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; podziękował Ci za edycję na stronie &lt;strong&gt;%2$s&lt;/strong&gt;</string>

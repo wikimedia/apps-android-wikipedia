@@ -324,7 +324,7 @@
   <string name="reading_list_sort_by_created">Ordenar pola data que se creó (más recién)</string>
   <string name="reading_list_sort_by_created_desc">Ordenar pola data que se creó (más antigua)</string>
   <string name="reading_list_menu_delete">Desaniciar la llista</string>
-  <string name="reading_list_menu_rename">Renomar</string>
+  <string name="reading_list_menu_rename" fuzzy="true">Renomar</string>
   <string name="reading_list_menu_edit_description">Editar la descripción</string>
   <string name="reading_list_action_menu_remove_from_offline">Quitar de les llistes sin conexón</string>
   <string name="reading_list_action_menu_save_for_offline">Guardar nes llistes sin conexón</string>

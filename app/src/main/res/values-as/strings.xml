@@ -264,7 +264,7 @@
   <string name="reading_list_sort_by_name_desc">নাম অনুযায়ী সজাওক (বিপৰীত)</string>
   <string name="reading_list_sort_by_recent" fuzzy="true">শেহতীয়া অনুযায়ী সজাওক</string>
   <string name="reading_list_menu_delete">তালিকা বিলোপ কৰক</string>
-  <string name="reading_list_menu_rename">পুনৰ নামাকৰণ</string>
+  <string name="reading_list_menu_rename" fuzzy="true">পুনৰ নামাকৰণ</string>
   <string name="reading_list_menu_edit_description">বৰ্ণনা সম্পাদনা কৰক</string>
   <string name="reading_list_action_menu_remove_from_offline">অফলাইনৰ পৰা আঁতৰাওক</string>
   <string name="reading_list_action_menu_save_for_offline">অফলাইনৰ বাবে সাঁচি থওক</string>

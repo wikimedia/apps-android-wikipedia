@@ -264,7 +264,7 @@
   <string name="reading_list_sort_by_recent" fuzzy="true">ၶပ်ႉၼင်ႇ ၸိူဝ်းၵႆႉပိုတ်ႇ</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">ၶပ်ႉၼင်ႇ ၸိူဝ်းပိုတ်ႇလိုၼ်း</string>
   <string name="reading_list_menu_delete">မွတ်ႇပႅတ်ႈ သဵၼ်ႈမၢႆ</string>
-  <string name="reading_list_menu_rename">ၶိုၼ်းပၼ်ၸိုဝ်ႈ</string>
+  <string name="reading_list_menu_rename" fuzzy="true">ၶိုၼ်းပၼ်ၸိုဝ်ႈ</string>
   <string name="reading_list_menu_edit_description">မႄးထတ်း ၶေႃႈသပ်းလႅင်း</string>
   <string name="reading_list_name_sample">သဵၼ်ႈမၢႆလူ ၵဝ်ၶႃႈ</string>
   <string name="reading_list_name_hint">ၸိုဝ်ႈသဵၼ်ႈမၢႆဢၼ်ၼႆႉ</string>

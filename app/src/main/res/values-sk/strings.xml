@@ -305,7 +305,7 @@
   <string name="reading_list_sort_by_recent" fuzzy="true">Zoradiť podľa času poslednej návštevy</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">Zoradiť podľa nedávno navštívených (v opačnom poradí)</string>
   <string name="reading_list_menu_delete">Vymazať zoznam</string>
-  <string name="reading_list_menu_rename">Premenovať</string>
+  <string name="reading_list_menu_rename" fuzzy="true">Premenovať</string>
   <string name="reading_list_menu_edit_description">Upraviť popis</string>
   <string name="reading_list_action_menu_remove_from_offline">Odstrániť článok z offline úložiska</string>
   <string name="reading_list_action_menu_save_for_offline">Uložiť článok do zariadenia</string>

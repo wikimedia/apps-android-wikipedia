@@ -104,6 +104,7 @@
   <string name="create_account_generic_error">Ezin izan da kontua sortu</string>
   <string name="create_account_next">Hurrengoa</string>
   <string name="create_account_button">Kontua sortu</string>
+  <string name="create_account_name_unavailable">%s erabiltzaile-izena ez dago erabilgarri. Mesedez hauta ezazu beste izen bat.</string>
   <string name="preferences_general_heading">Orokorra</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="zero_charged_verbiage">Wikipediarako doako sarbidea ez dago martxan.</string>
@@ -313,6 +314,7 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d artikulu 1 artikuluetatik eskuragarri daude konexiorik gabe, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d artikulu %2$d artikuluetatik erabilgarri konexiorik gabe, %3$.2f MB</string>
   <string name="reading_list_sort">Sailkatu</string>
+  <string name="reading_list_sort_ellipsis">Honen arabera sailkatu...</string>
   <string name="reading_list_sort_by_name">Sailkatu izenaren arabera</string>
   <string name="reading_list_sort_by_name_desc">Izenen arabera antolatu (alderantzizkoa)</string>
   <string name="reading_list_sort_by_recent">Berrienetik zaharrenara ordenatu</string>
@@ -320,7 +322,7 @@
   <string name="reading_list_sort_by_created">Sortutako dataren arabera antolatua (berriena)</string>
   <string name="reading_list_sort_by_created_desc">Sortutako dataren arabera antolatua (zaharrena)</string>
   <string name="reading_list_menu_delete">Ezabatu zerrenda</string>
-  <string name="reading_list_menu_rename">Izena aldatu</string>
+  <string name="reading_list_menu_rename">Izena/deskribapena aldatu</string>
   <string name="reading_list_menu_edit_description">Aldatu deskribapena</string>
   <string name="reading_list_action_menu_remove_from_offline">Kendu lineaz kanpotik</string>
   <string name="reading_list_action_menu_save_for_offline">Lineaz kanporako gorde</string>
@@ -354,6 +356,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ez da erabilgarri egongo konexiorik gabe hurrengo zerrendetan:</string>
   <string name="reading_lists_sync_reminder_title">Irakurketa zerrendaren sinkronizazioa piztu?</string>
   <string name="reading_lists_sync_reminder_text">Gordetako artikuluak gehitu ahalko dira orain zure Wikipedia kontura. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Irakurketa zerrendak orain gailuen zehar sinkroniza daitezke. Hasi saioa zure Wikipedia kontuan eta baimena eman zure zerrendak gorde daitezen. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Gehiago ikasi&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Sinkronizazioa ahalbidetu</string>
   <string name="reading_list_login_reminder_title">Zure irakurketa zerrendak sinkronizatu</string>
   <string name="reading_lists_login_reminder_text">Irakurketa-zerrendak gailu guztietan sinkronizatu daitezke. Hasi saioa zure Wikipedia kontuan, zure zerrendak gorde ahal izateko.</string>
@@ -394,6 +397,10 @@
   <string name="reading_list_article_limit_message">Ezin da zerrenda honetara gehitu. %2$d artikulu zerrenda bakoitzeko %1$s gatik mugara iritsi zara.</string>
   <string name="reading_lists_limit_message">Ezin duzu beste zerrenda sortu. 100 irakurketa zerrenden muga kontu bakoitzeko jada asetu duzu.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Irakurketa zerrendak sinkronizatu&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Irakurketa zerrendak gailu guztietan sinkroniza daitezke. Hasi saioa zure Wikipedia kontuan, zerrendak gorde ahal izateko.</string>
+  <string name="reading_lists_menu_create_list">Zerrenda berria sortu</string>
+  <string name="reading_lists_menu_sort_by">Honen arabera sailkatu</string>
+  <string name="reading_lists_refresh_sync_option">Sinkronizatzea freskatu</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Kontu sortua / hasi saioa</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Artikulu hau konexiorik gabe erabiltzeko eskuragarri dago.</item>
     <item quantity="other">Artikulu hauek ez dira eskuragarriak izango konexiorik gabe.</item>
@@ -417,6 +424,10 @@
   <string name="notification_syncing_pause_button">Gelditu</string>
   <string name="notification_syncing_resume_button">Jarraitu</string>
   <string name="notification_syncing_cancel_button">Bertan behera utzi</string>
+  <string name="notification_syncing_reading_list_channel_name">Irakurketa zerrenda(k) sinkronizatzen</string>
+  <string name="notification_syncing_reading_list_channel_description">Irakurketa zerrenden sinkronizazioaren aurrerapena</string>
+  <string name="notification_syncing_reading_list_title">Sinkronizatzen %1$d zerrenda(k)…</string>
+  <string name="notification_syncing_reading_list_description">%1$d zerrenda(k) faltan…</string>
   <string name="view_continue_reading_card_title">Irakurtzen jarraitu</string>
   <string name="view_because_you_read_card_title">Irakurtzen duzulako</string>
   <string name="view_random_card_title">Ausazkoa</string>
@@ -460,6 +471,7 @@
   <string name="feed_item_type_featured_image">Wikimedia Commonsetik hartutako eguneko irudi aipagarria</string>
   <string name="feed_item_type_main_page">Wikipediako orrialde nagusia eguneko eduki aipagarriarekin</string>
   <string name="feed_item_type_randomizer">Irakurtzeko ausazko artikuluak sortu</string>
+  <string name="feed_empty_message">Ez dago ezer zure Arakatze-jarioan</string>
   <string name="feed_configure_onboarding_action">Pertsonalizatu</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Pertsonalizatu zure Arakatze jarioa&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Orain zure jarioan zer erakutsi behar den aukeratu dezakezu eta, era berean, zure eduki mota gogokoenak lehentasunez ezarri.</string>
   <string name="description_edit_text_hint">Izenburuaren deskribapena</string>

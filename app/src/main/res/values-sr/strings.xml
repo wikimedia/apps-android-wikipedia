@@ -292,7 +292,7 @@
   <string name="reading_list_sort_by_recent" fuzzy="true">Сортирај по датуму (прво новије)</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">Сортирај по датуму (прво старије)</string>
   <string name="reading_list_menu_delete">Избриши списак</string>
-  <string name="reading_list_menu_rename">Преименуј</string>
+  <string name="reading_list_menu_rename" fuzzy="true">Преименуј</string>
   <string name="reading_list_menu_edit_description">Уреди опис</string>
   <string name="reading_list_action_menu_add_to_another_list">Додај на други списак</string>
   <string name="reading_list_name_sample">Мој списак за читање</string>

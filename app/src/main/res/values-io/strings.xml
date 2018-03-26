@@ -253,7 +253,7 @@
   <string name="reading_list_sort_by_recent" fuzzy="true">Ordenar segun antiqueso (unesme la maxim recenta)</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">Ordenar segun antiqueso (unesma la maxim antiqua)</string>
   <string name="reading_list_menu_delete">Efacar la listo</string>
-  <string name="reading_list_menu_rename">Rinomizar</string>
+  <string name="reading_list_menu_rename" fuzzy="true">Rinomizar</string>
   <string name="reading_list_menu_edit_description">Modifikar la deskripturo</string>
   <string name="reading_list_action_menu_remove_from_offline">Eliminar de la konservo \'offline\'</string>
   <string name="reading_list_action_menu_save_for_offline">Disponigar \'offline\'</string>

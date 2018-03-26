@@ -324,7 +324,7 @@
   <string name="reading_list_sort_by_created">Nach Erstellungsdatum sortieren (neueste)</string>
   <string name="reading_list_sort_by_created_desc">Nach Erstellungsdatum sortieren (älteste)</string>
   <string name="reading_list_menu_delete">Liste löschen</string>
-  <string name="reading_list_menu_rename">Umbenennen</string>
+  <string name="reading_list_menu_rename">Namen/Beschreibung bearbeiten</string>
   <string name="reading_list_menu_edit_description">Beschreibung bearbeiten</string>
   <string name="reading_list_action_menu_remove_from_offline">Von offline entfernen</string>
   <string name="reading_list_action_menu_save_for_offline">Für offline speichern</string>

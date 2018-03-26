@@ -324,7 +324,7 @@
   <string name="reading_list_sort_by_created">Sortera efter skapandedatum (nyaste)</string>
   <string name="reading_list_sort_by_created_desc">Sortera efter skapandedatum (äldsta)</string>
   <string name="reading_list_menu_delete">Radera lista</string>
-  <string name="reading_list_menu_rename">Byt namn</string>
+  <string name="reading_list_menu_rename">Redigera namn/beskrivning</string>
   <string name="reading_list_menu_edit_description">Redigera beskrivning</string>
   <string name="reading_list_action_menu_remove_from_offline">Ta bort från offline</string>
   <string name="reading_list_action_menu_save_for_offline">Spara för offline</string>
