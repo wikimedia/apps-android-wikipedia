@@ -32,7 +32,8 @@ import retrofit2.http.Headers;
 import static org.wikipedia.Constants.ACCEPT_HEADER_PREFIX;
 
 public class AnnouncementClient implements FeedClient {
-    private static final String PLATFORM_CODE = "AndroidAppV2";
+    private static final String PLATFORM_CODE = "AndroidApp";
+    private static final String PLATFORM_CODE_NEW = "AndroidAppV2";
 
     @Nullable private Call<AnnouncementList> call;
 
@@ -131,7 +132,7 @@ public class AnnouncementClient implements FeedClient {
                               @Nullable String country,
                               @NonNull Date date) {
         if (announcement == null
-                || !announcement.platforms().contains(PLATFORM_CODE)
+                || !(announcement.platforms().contains(PLATFORM_CODE) || announcement.platforms().contains(PLATFORM_CODE_NEW))
                 || TextUtils.isEmpty(country)
                 || !announcement.countries().contains(country)
                 || (announcement.startTime() != null && announcement.startTime().after(date))
