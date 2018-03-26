@@ -34,6 +34,4 @@ public class MwQueryResponse extends MwResponse {
     @VisibleForTesting protected void setQuery(@Nullable MwQueryResult query) {
         this.query = query;
     }
-
-
 }

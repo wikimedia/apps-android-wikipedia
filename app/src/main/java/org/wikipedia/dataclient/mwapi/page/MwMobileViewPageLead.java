@@ -8,7 +8,8 @@ import android.support.annotation.VisibleForTesting;
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwServiceError;
+import org.wikipedia.dataclient.mwapi.MwQueryPage;
+import org.wikipedia.dataclient.mwapi.MwResponse;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageLeadProperties;
 import org.wikipedia.dataclient.page.Protection;
@@ -28,26 +29,13 @@ import static org.wikipedia.util.ImageUrlUtil.getUrlForSize;
 /**
  * Gson POJO for loading the first stage of page content.
  */
-public class MwMobileViewPageLead implements PageLead {
-    @SuppressWarnings("unused") private MwServiceError error;
+public class MwMobileViewPageLead extends MwResponse implements PageLead {
     @SuppressWarnings("unused") private Mobileview mobileview;
 
     @Override
-    public boolean hasError() {
-        // if mobileview is not set something went terribly wrong
-        return error != null || mobileview == null;
-    }
-
-    @Override
-    @Nullable
-    public MwServiceError getError() {
-        return error;
-    }
-
-    @Override
     public void logError(String message) {
-        if (error != null) {
-            message += ": " + error.toString();
+        if (getError() != null) {
+            message += ": " + getError().toString();
         }
         L.e(message);
     }
@@ -74,8 +62,7 @@ public class MwMobileViewPageLead implements PageLead {
         return title;
     }
 
-    @Override
-    public String getLeadSectionContent() {
+    @Override @NonNull public String getLeadSectionContent() {
         if (mobileview != null) {
             return mobileview.getSections().get(0).getContent();
         }
@@ -132,7 +119,7 @@ public class MwMobileViewPageLead implements PageLead {
         @SuppressWarnings("unused") @SerializedName("thumb") @Nullable private PageImageThumb leadImage;
         @SuppressWarnings("unused") @Nullable private Protection protection;
         @SuppressWarnings("unused") @Nullable private List<Section> sections;
-        @SuppressWarnings("unused") @Nullable private PageProps pageprops;
+        @SuppressWarnings("unused") @Nullable private MwQueryPage.PageProps pageprops;
 
         /** Converter */
         public PageProperties toPageProperties(@NonNull WikiSite wiki) {
@@ -245,10 +232,9 @@ public class MwMobileViewPageLead implements PageLead {
         }
 
         @Override @NonNull public List<Section> getSections() {
-            return sections == null ? Collections.<Section>emptyList() : sections;
+            return sections == null ? Collections.emptyList() : sections;
         }
     }
-
 
     /**
      * For the lead image File: page name
@@ -269,14 +255,6 @@ public class MwMobileViewPageLead implements PageLead {
 
         public String getUrl() {
             return url;
-        }
-    }
-
-    static class PageProps {
-        @SuppressWarnings("unused") @SerializedName("wikibase_item") @Nullable private String wikiBaseItem;
-
-        @Nullable String getWikiBaseItem() {
-            return wikiBaseItem;
         }
     }
 }
