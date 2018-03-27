@@ -61,6 +61,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.wikipedia.util.StringUtil.addUnderscores;
+import static org.wikipedia.util.StringUtil.removeUnderscores;
 import static org.wikipedia.util.StringUtil.strip;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 import static org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl;
@@ -216,7 +217,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
         if (savedInstanceState == null) {
             if (initialFilename != null) {
-                funnel.logGalleryOpen(pageTitle, initialFilename);
+                funnel.logGalleryOpen(pageTitle, removeUnderscores(initialFilename));
             }
         } else {
             controlsShowing = savedInstanceState.getBoolean("controlsShowing");
@@ -224,7 +225,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             // if we have a savedInstanceState, then the initial index overrides
             // the initial Title from our intent.
             initialFilename = null;
-
             FragmentManager fm = getSupportFragmentManager();
             if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
