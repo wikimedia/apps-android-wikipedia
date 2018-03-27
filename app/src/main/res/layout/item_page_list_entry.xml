@@ -64,59 +64,69 @@
 
         </FrameLayout>
 
-
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:orientation="vertical"
             android:layout_marginTop="-2dp"
             android:layout_gravity="center_vertical">
 
-            <TextView
-                android:id="@+id/page_list_item_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                style="@style/MaterialListTitle"
-                tools:text="Lorem ipsum"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/page_list_item_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    style="@style/MaterialListTitle"
+                    tools:text="Lorem ipsum"
+                    android:layout_toStartOf="@+id/page_list_item_action_secondary"
+                    android:layout_centerVertical="true"/>
+
+                <ImageView
+                    android:id="@+id/page_list_item_action_secondary"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="8dp"
+                    android:layout_marginTop="-7dp"
+                    android:layout_marginBottom="-7dp"
+                    android:clickable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:srcCompat="@drawable/ic_download_circle_gray_24dp"
+                    android:contentDescription="@null"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:layout_toStartOf="@+id/page_list_item_action_primary"/>
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/page_list_item_action_primary"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="8dp"
+                    android:clickable="true"
+                    android:layout_marginTop="-7dp"
+                    android:layout_marginBottom="-7dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:srcCompat="@drawable/ic_favorite_white_24dp"
+                    app:tint="?attr/material_theme_de_emphasised_color"
+                    app:tintMode="src_in"
+                    android:contentDescription="@null"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:layout_alignParentEnd="true"/>
+            </RelativeLayout>
 
             <org.wikipedia.views.GoneIfEmptyTextView
                 android:id="@+id/page_list_item_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="80dp"
                 style="@style/MaterialListSubtitle"
                 tools:text="Lorem ipsum"/>
         </LinearLayout>
-
-        <ImageView
-            android:id="@+id/page_list_item_action_secondary"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:padding="8dp"
-            android:clickable="true"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/ic_download_circle_gray_24dp"
-            android:contentDescription="@null"
-            android:visibility="gone"
-            tools:visibility="visible"/>
-
-        <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/page_list_item_action_primary"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:padding="8dp"
-            android:clickable="true"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/ic_favorite_white_24dp"
-            app:tint="?attr/material_theme_de_emphasised_color"
-            app:tintMode="src_in"
-            android:contentDescription="@null"
-            android:visibility="gone"
-            tools:visibility="visible"/>
 
     </LinearLayout>
 
