@@ -54,8 +54,8 @@
     <string name="nearby_osm_license"><![CDATA[&copy; &nbsp;<a href=\"https://www.openstreetmap.org/copyright/\">OpenStreetMap</a> contributors]]></string>
 
     <string name="last_updated_text">Last updated %s</string>
-    <string name="talk_page_link_text">Talk</string>
-    <string name="edit_history_link_text">Edit history</string>
+    <string name="talk_page_link_text">View talk page</string>
+    <string name="edit_history_link_text">View edit history</string>
     <string name="map_view_link_text">View on a map</string>
     <string name="language_count_link_text">Available in %d other languages</string>
     <string name="content_license_html"><![CDATA[Content is available under <a href=\"%1$s\">CC BY-SA 3.0</a> unless otherwise noted]]></string>
