@@ -1,92 +1,43 @@
 package org.wikipedia.dataclient.mwapi.page;
 
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
-import org.wikipedia.dataclient.mwapi.MwServiceError;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.page.PageSummary;
 
 /**
  * Useful for link previews coming from MW API.
  */
-public class MwQueryPageSummary implements PageSummary {
-    @SuppressWarnings("unused") private MwServiceError error;
-    @SuppressWarnings("unused") @Nullable private MwQuery query;
-
-    @Override
-    public boolean hasError() {
-        // if there is no page set something went terribly wrong
-        return error != null || getFirstPage() == null;
+public class MwQueryPageSummary extends MwQueryResponse implements PageSummary {
+    @Override @Nullable public String getTitle() {
+        if (query() == null || query().firstPage() == null) {
+            return null;
+        }
+        return query().firstPage().title();
     }
 
-    @Override @Nullable
-    public MwServiceError getError() {
-        return error;
-    }
-
-    @Override @Nullable
-    public String getTitle() {
-        return getFirstPage() == null ? null : getFirstPage().title;
-    }
-
-    @Override @Nullable
-    public String getDisplayTitle() {
-        return getFirstPage() == null ? null : getFirstPage().getDisplayTitle();
+    @Override @Nullable public String getDisplayTitle() {
+        if (query() == null || query().firstPage() == null) {
+            return null;
+        }
+        return (query().firstPage().pageProps() != null && !TextUtils.isEmpty(query().firstPage().pageProps().getDisplayTitle()))
+                ? query().firstPage().pageProps().getDisplayTitle() : query().firstPage().title();
     }
 
     @Override @Nullable
     public String getExtract() {
-        return getFirstPage() == null ? null : getFirstPage().extract;
+        if (query() == null || query().firstPage() == null) {
+            return null;
+        }
+        return query().firstPage().extract();
     }
 
     @Override @Nullable
     public String getThumbnailUrl() {
-        return getFirstPage() == null ? null : getFirstPage().getThumbnailUrl();
-    }
-
-    private MwPage getFirstPage() {
-        return (query != null && query.pages != null) ? query.pages[0] : null;
-    }
-
-    private static class MwQuery {
-        @SuppressWarnings("unused,MismatchedReadAndWriteOfArray")
-        @Nullable private MwPage[] pages;
-    }
-
-    private static class MwPage {
-        @SuppressWarnings("unused") @Nullable private String title;
-        @SuppressWarnings("unused") @Nullable private PageProps pageprops;
-        @SuppressWarnings("unused") @Nullable private String extract;
-        @SuppressWarnings("unused") @Nullable private Thumb thumbnail;
-
-        @Nullable
-        public String getThumbnailUrl() {
-            return thumbnail == null ? null : thumbnail.getUrl();
+        if (query() == null || query().firstPage() == null) {
+            return null;
         }
-
-        @Nullable
-        public String getDisplayTitle() {
-            return pageprops != null && pageprops.displayTitle() != null
-                    ? pageprops.displayTitle()
-                    : title;
-        }
-    }
-
-    /**
-     * For the thumbnail URL of the page
-     */
-    static class Thumb {
-        @SuppressWarnings("unused") private String source;
-
-        String getUrl() {
-            return source;
-        }
-    }
-
-    static class PageProps {
-        @SuppressWarnings("unused") @Nullable private String displaytitle;
-
-        String displayTitle() {
-            return displaytitle;
-        }
+        return query().firstPage().thumbUrl();
     }
 }

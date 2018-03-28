@@ -25,6 +25,8 @@ public class MwQueryPage extends BaseModel {
     @SuppressWarnings("unused") @Nullable private List<LangLink> langlinks;
     @SuppressWarnings("unused") @Nullable private List<Revision> revisions;
     @SuppressWarnings("unused") @Nullable private List<Coordinates> coordinates;
+    @SuppressWarnings("unused") @Nullable private PageProps pageprops;
+    @SuppressWarnings("unused") @Nullable private String extract;
     @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
     @SuppressWarnings("unused") @Nullable private Terms terms;
     @SuppressWarnings("unused") @SerializedName("imageinfo") @Nullable private List<ImageInfo> imageInfo;
@@ -55,6 +57,14 @@ public class MwQueryPage extends BaseModel {
             coordinates.removeAll(Collections.singleton(null));
         }
         return coordinates;
+    }
+
+    @Nullable public PageProps pageProps() {
+        return pageprops;
+    }
+
+    @Nullable public String extract() {
+        return extract;
     }
 
     @Nullable public String thumbUrl() {
@@ -151,6 +161,19 @@ public class MwQueryPage extends BaseModel {
         @SuppressWarnings("unused") private int height;
         String source() {
             return source;
+        }
+    }
+
+    public static class PageProps {
+        @SuppressWarnings("unused") @SerializedName("wikibase_item") @Nullable private String wikiBaseItem;
+        @SuppressWarnings("unused") @Nullable private String displaytitle;
+
+        @Nullable public String getDisplayTitle() {
+            return displaytitle;
+        }
+
+        @Nullable public String getWikiBaseItem() {
+            return wikiBaseItem;
         }
     }
 }
