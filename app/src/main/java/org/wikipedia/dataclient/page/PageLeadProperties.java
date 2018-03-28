@@ -4,7 +4,6 @@ import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Section;
 
@@ -17,7 +16,7 @@ public interface PageLeadProperties {
 
     int getId();
 
-    @NonNull Namespace getNamespace(@NonNull WikiSite wiki);
+    @NonNull Namespace getNamespace();
 
     long getRevision();
 

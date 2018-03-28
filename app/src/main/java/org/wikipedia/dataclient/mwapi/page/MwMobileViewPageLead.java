@@ -7,7 +7,6 @@ import android.support.annotation.VisibleForTesting;
 
 import com.google.gson.annotations.SerializedName;
 
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.dataclient.mwapi.MwResponse;
 import org.wikipedia.dataclient.page.PageLead;
@@ -45,7 +44,7 @@ public class MwMobileViewPageLead extends MwResponse implements PageLead {
     public Page toPage(@NonNull PageTitle title) {
         return new Page(adjustPageTitle(title),
                 mobileview.getSections(),
-                mobileview.toPageProperties(title.getWikiSite()));
+                mobileview.toPageProperties());
     }
 
     private PageTitle adjustPageTitle(@NonNull PageTitle title) {
@@ -122,8 +121,8 @@ public class MwMobileViewPageLead extends MwResponse implements PageLead {
         @SuppressWarnings("unused") @Nullable private MwQueryPage.PageProps pageprops;
 
         /** Converter */
-        public PageProperties toPageProperties(@NonNull WikiSite wiki) {
-            return new PageProperties(wiki, this);
+        public PageProperties toPageProperties() {
+            return new PageProperties(this);
         }
 
         @Override
@@ -131,7 +130,7 @@ public class MwMobileViewPageLead extends MwResponse implements PageLead {
             return id;
         }
 
-        @Override @NonNull public Namespace getNamespace(@NonNull WikiSite wiki) {
+        @Override @NonNull public Namespace getNamespace() {
             return Namespace.of(namespace);
         }
 
