@@ -57,7 +57,7 @@ public class EditUnitTest extends MockWebServerTest {
 
     @NonNull private Call<Edit> request(@NonNull Callback cb) {
         return client.request(service(Service.class), new PageTitle("FAKE TITLE",
-                WikiSite.forLanguageCode("test")), 0, "FAKE EDIT TEXT", "+/", "FAKE SUMMARY", false,
+                WikiSite.forLanguageCode("test")), 0, "FAKE EDIT TEXT", "+/", "FAKE SUMMARY", null, false,
                 null, null, cb);
     }
 

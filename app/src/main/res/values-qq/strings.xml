@@ -72,6 +72,8 @@
   <string name="edit_section_captcha_hint">A call to action to write the CAPTCHA string.</string>
   <string name="title_captcha">A call to action to write the CAPTCHA string.</string>
   <string name="edit_section_captcha_reload">Call to action. \"Tap\" is imperative verb, \"touch the touchscreen\".</string>
+  <string name="edit_conflict_title">Title for dialog box that warns the user about an edit conflict.</string>
+  <string name="edit_conflict_message">Message explaining to the user that the edit they are submitting is conflicting with the current state of the article, and instructs the user to go back and reload the page before trying to edit again.</string>
   <string name="nav_item_login">{{Identical|Log in}}</string>
   <string name="login_username_hint">{{Identical|Username}}</string>
   <string name="login_password_hint">{{Identical|Password}}</string>

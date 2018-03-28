@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.gallery.ImageInfo;
 import org.wikipedia.gallery.VideoInfo;
 import org.wikipedia.json.annotations.Required;
@@ -95,9 +96,15 @@ public class MwQueryPage extends BaseModel {
     public static class Revision {
         @SuppressWarnings("unused,NullableProblems") @SerializedName("contentformat") @NonNull private String contentFormat;
         @SuppressWarnings("unused,NullableProblems") @SerializedName("contentmodel") @NonNull private String contentModel;
+        @SuppressWarnings("unused,NullableProblems") @SerializedName("timestamp") @NonNull private String timeStamp;
         @SuppressWarnings("unused,NullableProblems") @NonNull private String content;
+
         @NonNull public String content() {
             return content;
+        }
+
+        @NonNull public String timeStamp() {
+            return StringUtils.defaultString(timeStamp);
         }
     }
 

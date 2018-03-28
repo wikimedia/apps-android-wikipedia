@@ -32,7 +32,7 @@ public class WikitextClientTest extends MockWebServerTest {
         Call<MwQueryResponse> call = request(cb);
 
         server().takeRequest();
-        assertCallbackSuccess(call, cb, "User:Mhollo/sandbox", "\\o/\n\ntest12\n\n3");
+        assertCallbackSuccess(call, cb, "User:Mhollo/sandbox", "\\o/\n\ntest12\n\n3", "2018-03-18T18:10:54Z");
     }
 
     @Test public void testRequestResponseApiError() throws Throwable {
@@ -68,8 +68,9 @@ public class WikitextClientTest extends MockWebServerTest {
     private void assertCallbackSuccess(@NonNull Call<MwQueryResponse> call,
                                        @NonNull WikitextClient.Callback cb,
                                        @NonNull String expectedTitle,
-                                       @NonNull String expectedText) {
-        verify(cb).success(eq(call), eq(expectedTitle), eq(expectedText));
+                                       @NonNull String expectedText,
+                                       @NonNull String expectedTimeStamp) {
+        verify(cb).success(eq(call), eq(expectedTitle), eq(expectedText), eq(expectedTimeStamp));
         //noinspection unchecked
         verify(cb, never()).failure(any(Call.class), any(Throwable.class));
     }
@@ -78,7 +79,7 @@ public class WikitextClientTest extends MockWebServerTest {
                                        @NonNull WikitextClient.Callback cb,
                                        @NonNull Class<? extends Throwable> throwable) {
         //noinspection unchecked
-        verify(cb, never()).success(any(Call.class), any(String.class), any(String.class));
+        verify(cb, never()).success(any(Call.class), any(String.class), any(String.class), any(String.class));
         verify(cb).failure(eq(call), isA(throwable));
     }
 
