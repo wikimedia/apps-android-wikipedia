@@ -54,6 +54,14 @@ public class AnnouncementCard extends Card {
         return Uri.parse(announcement.imageUrl());
     }
 
+    public int imageHeight() {
+        try {
+            return Integer.parseInt(announcement.imageHeight());
+        } catch (NumberFormatException e) {
+            return 0;
+        }
+    }
+
     @NonNull @Override public CardType type() {
         return CardType.ANNOUNCEMENT;
     }

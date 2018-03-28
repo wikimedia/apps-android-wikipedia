@@ -6,11 +6,13 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.DefaultFeedCardView;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
@@ -68,6 +70,12 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
             headerImageView.loadImage(card.image());
         } else {
             headerImageView.setVisibility(GONE);
+        }
+
+        if (card.imageHeight() > 0) {
+            ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) headerImageView.getLayoutParams();
+            params.height = DimenUtil.roundedDpToPx(card.imageHeight());
+            headerImageView.setLayoutParams(params);
         }
 
         if (card.hasFooterCaption()) {
