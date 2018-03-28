@@ -29,7 +29,7 @@ public class Announcement extends BaseModel {
     @SuppressWarnings("unused") @NonNull private List<String> countries = Collections.emptyList();
     @SuppressWarnings("unused") @SerializedName("caption_HTML") @Nullable private String footerCaption;
     @SuppressWarnings("unused") @SerializedName("image") @Nullable private String imageUrl;
-    @SuppressWarnings("unused") @Nullable private String imageHeight;
+    @SuppressWarnings("unused") @SerializedName("image_height") @Nullable private String imageHeight;
     @SuppressWarnings("unused") @SerializedName("logged_in") @Nullable private Boolean loggedIn;
     @SuppressWarnings("unused") @SerializedName("reading_list_sync_enabled") @Nullable private Boolean readingListSyncEnabled;
     @SuppressWarnings("unused") @Nullable private Boolean beta;
@@ -38,7 +38,7 @@ public class Announcement extends BaseModel {
 
     @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String text;
     @SuppressWarnings("unused") @Nullable private Action action;
-    @SuppressWarnings("unused") @Nullable private String negativeText;
+    @SuppressWarnings("unused") @SerializedName("negative_text") @Nullable private String negativeText;
 
     public Announcement() { }
 
