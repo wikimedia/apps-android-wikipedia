@@ -43,6 +43,7 @@ public class PageProperties implements Parcelable {
     @Nullable private final String titlePronunciationUrl;
     @Nullable private final Location geo;
     @Nullable private final String wikiBaseItem;
+    @Nullable private final String descriptionSource;
 
     /**
      * True if the user who first requested this page can edit this page
@@ -83,6 +84,7 @@ public class PageProperties implements Parcelable {
         isMainPage = core.isMainPage();
         isDisambiguationPage = core.isDisambiguation();
         wikiBaseItem = core.getWikiBaseItem();
+        descriptionSource = core.getDescriptionSource();
     }
 
     /**
@@ -106,6 +108,7 @@ public class PageProperties implements Parcelable {
         this.isMainPage = isMainPage;
         isDisambiguationPage = false;
         wikiBaseItem = null;
+        descriptionSource = null;
     }
 
     /**
@@ -148,6 +151,7 @@ public class PageProperties implements Parcelable {
         isMainPage = json.has("mainpage");
         isDisambiguationPage = json.has("disambiguation");
         wikiBaseItem = json.optString("wikibase_item");
+        descriptionSource = json.optString("description_source");
     }
 
     public int getPageId() {
@@ -218,6 +222,11 @@ public class PageProperties implements Parcelable {
         return wikiBaseItem;
     }
 
+    @Nullable
+    public String getDescriptionSource() {
+        return descriptionSource;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -240,6 +249,7 @@ public class PageProperties implements Parcelable {
         parcel.writeString(leadImageUrl);
         parcel.writeString(leadImageName);
         parcel.writeString(wikiBaseItem);
+        parcel.writeString(descriptionSource);
     }
 
     private PageProperties(Parcel in) {
@@ -258,6 +268,7 @@ public class PageProperties implements Parcelable {
         leadImageUrl = in.readString();
         leadImageName = in.readString();
         wikiBaseItem = in.readString();
+        descriptionSource = in.readString();
     }
 
     public static final Parcelable.Creator<PageProperties> CREATOR
@@ -337,6 +348,7 @@ public class PageProperties implements Parcelable {
             json.put(JSON_NAME_TITLE_PRONUNCIATION_URL, titlePronunciationUrl);
             json.put(JSON_NAME_GEO, GeoMarshaller.marshal(geo));
             json.put("wikibase_item", wikiBaseItem);
+            json.put("description_source", wikiBaseItem);
             if (editProtectionStatus == null) {
                 json.put("protection", new JSONArray());
             } else {

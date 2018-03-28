@@ -44,6 +44,7 @@ public class RbPageLead implements PageLead, PageLeadProperties {
     @SuppressWarnings("unused") private boolean mainpage;
     @SuppressWarnings("unused") private boolean disambiguation;
     @SuppressWarnings("unused") @Nullable private String description;
+    @SuppressWarnings("unused") @Nullable @SerializedName("description_source") private String descriptionSource;
     @SuppressWarnings("unused") @Nullable private Image image;
     @SuppressWarnings("unused") @Nullable private Protection protection;
     @SuppressWarnings("unused") @Nullable private List<Section> sections;
@@ -72,7 +73,7 @@ public class RbPageLead implements PageLead, PageLeadProperties {
                 toPageProperties());
     }
 
-    /* package */ PageTitle adjustPageTitle(PageTitle title) {
+    PageTitle adjustPageTitle(PageTitle title) {
         if (redirected != null) {
             // Handle redirects properly.
             title = new PageTitle(redirected, title.getWikiSite(), title.getThumbUrl());
@@ -165,6 +166,12 @@ public class RbPageLead implements PageLead, PageLeadProperties {
     @Nullable
     public String getDescription() {
         return description;
+    }
+
+    @Override
+    @Nullable
+    public String getDescriptionSource() {
+        return descriptionSource;
     }
 
     @Override

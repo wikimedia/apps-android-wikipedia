@@ -43,6 +43,9 @@ public interface PageLeadProperties {
     @Nullable
     String getWikiBaseItem();
 
+    @Nullable
+    String getDescriptionSource();
+
     /**
      * @return Nullable URL with no scheme. For example, foo.bar.com/ instead of
      *         http://foo.bar.com/.

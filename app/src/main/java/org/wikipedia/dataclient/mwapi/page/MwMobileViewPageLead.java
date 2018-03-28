@@ -122,6 +122,7 @@ public class MwMobileViewPageLead extends MwResponse implements PageLead {
         @SuppressWarnings("unused") private boolean mainpage;
         @SuppressWarnings("unused") private boolean disambiguation;
         @SuppressWarnings("unused") @Nullable private String description;
+        @SuppressWarnings("unused") @Nullable private String descriptionsource;
         @SuppressWarnings("unused") @SerializedName("image") @Nullable private PageImage pageImage;
         @SuppressWarnings("unused") @SerializedName("thumb") @Nullable private PageImageThumb leadImage;
         @SuppressWarnings("unused") @Nullable private Protection protection;
@@ -215,6 +216,12 @@ public class MwMobileViewPageLead extends MwResponse implements PageLead {
         @Nullable
         public String getWikiBaseItem() {
             return pageprops != null && pageprops.getWikiBaseItem() != null ? pageprops.getWikiBaseItem() : null;
+        }
+
+        @Override
+        @Nullable
+        public String getDescriptionSource() {
+            return descriptionsource;
         }
 
         @Override

@@ -29,7 +29,8 @@ public class MwQueryPage extends BaseModel {
     @SuppressWarnings("unused") @Nullable private PageProps pageprops;
     @SuppressWarnings("unused") @Nullable private String extract;
     @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
-    @SuppressWarnings("unused") @Nullable private Terms terms;
+    @SuppressWarnings("unused") @Nullable private String description;
+    @SuppressWarnings("unused") @SerializedName("descriptionsource") @Nullable private String descriptionSource;
     @SuppressWarnings("unused") @SerializedName("imageinfo") @Nullable private List<ImageInfo> imageInfo;
     @SuppressWarnings("unused") @SerializedName("videoinfo") @Nullable private List<VideoInfo> videoInfo;
     @Nullable private String redirectFrom;
@@ -77,7 +78,12 @@ public class MwQueryPage extends BaseModel {
     }
 
     @Nullable public String description() {
-        return terms != null && terms.description() != null ? terms.description().get(0) : null;
+        return description;
+    }
+
+    @Nullable
+    public String descriptionSource() {
+        return descriptionSource;
     }
 
     @Nullable public ImageInfo imageInfo() {
@@ -150,13 +156,6 @@ public class MwQueryPage extends BaseModel {
         }
         public double lon() {
             return lon;
-        }
-    }
-
-    static class Terms {
-        @SuppressWarnings("unused") private List<String> description;
-        List<String> description() {
-            return description;
         }
     }
 
