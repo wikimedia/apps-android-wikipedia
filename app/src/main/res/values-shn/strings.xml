@@ -38,7 +38,7 @@
   <string name="nearby_zoom_to_location">ၶႂၢၵ်ႈတူၺ်း ဢွင်ႈတီႈ တီႈၼိူဝ် ႁၢင်ႈၽႅၼ်ႇလိၼ်</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; ၽူႈၶဝ်ႈႁူမ်ႈ</string>
   <string name="last_updated_text">%s ဢၼ်ပဵၼ် ဢၢပ်ႉတဵတ်ႉ ၵမ်းလိုၼ်းသုတ်း</string>
-  <string name="talk_page_link_text">တွၼ်ႈဢုပ်ႇ</string>
+  <string name="talk_page_link_text" fuzzy="true">တွၼ်ႈဢုပ်ႇ</string>
   <string name="content_license_html">လွင်ႈတၢင်းမၼ်း တူၺ်းလႆႈ ၵႃႈတီႈ &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ပေႃးဝႃႈ ဢမ်ႇလႆႈမၢႆဝႆႉ။</string>
   <string name="edit_save_action_license_logged_in">ၸွမ်းၼင်ႇ လွင်ႈသိမ်းဝႆႉေသ ၸဝ်ႈၵဝ်ႇလႆႈၽွမ်ႉၸႂ်ဝႆႉၸွမ်း &lt;a href=\"%1$s\"&gt;ၶေႃႈၽွမ်ႉၸႂ် လွင်ႈၸႂ်ႉတိုဝ်း&lt;/a&gt;, သေ ၵမ်းလိုၼ်းမႃး တေပိုၼ်ၽႄ လွင်ႈၶဝ်ႈႁူမ်ႈသၢင်ႈ ၸဝ်ႈၵဝ်ႇ ၸွမ်းၼင်ႇ ဝႂ်လူတ်းပွႆႇ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ၼႆႉယူႇ။</string>
   <string name="edit_save_action_license_anon">ၸွမ်းၼင်ႇ လွင်ႈသိမ်းဝႆႉေသ ၸဝ်ႈၵဝ်ႇလႆႈၽွမ်ႉၸႂ်ဝႆႉၸွမ်း &lt;a href=\"%1$s\"&gt;ၶေႃႈၽွမ်ႉၸႂ် လွင်ႈၸႂ်ႉတိုဝ်း&lt;/a&gt;, သေ ၵမ်းလိုၼ်းမႃး တေပိုၼ်ၽႄ လွင်ႈၶဝ်ႈႁူမ်ႈသၢင်ႈ ၸဝ်ႈၵဝ်ႇ ၸွမ်းၼင်ႇ ဝႂ်လူတ်းပွႆႇ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ၼႆႉယူႇ။ လွင်ႈမႄးထတ်းၸိူဝ်းၼႆႉ မၼ်းတေမၢႆတွင်းဝႆႉ ႁဵင်းလိၵ်ႈ ဢၢႆႇၽီႇ ၶွင်ၶိူင်ႈၸၢၵ်ႈၸဝ်ႈၵဝ်ႇဢေႃႈ။ သင်ၸိူဝ်ႉဝႃႈ ၸဝ်ႈၵဝ်ႇ &lt;a href=\"https://#login\"&gt;လွၵ်ႉဢိၼ်ႇ&lt;/a&gt;ၼႆတႄႉ ၸဝ်ႈၵဝ်ႇ တေတိူဝ်းမီး လွင်ႈႁူမ်ႇလူမ်ႈလီဢေႃႈ။</string>

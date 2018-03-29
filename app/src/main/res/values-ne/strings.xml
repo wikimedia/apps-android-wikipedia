@@ -40,8 +40,8 @@
   <string name="nav_item_nearby">नजिकै</string>
   <string name="nearby_zoom_to_location">नक्सामा कुनै स्थानमा जुम गर्नुहोस्</string>
   <string name="last_updated_text">अन्तिम पटक %s मा अद्यावधिक गरिएको</string>
-  <string name="talk_page_link_text">वार्तालाप गर्नुहोस्</string>
-  <string name="edit_history_link_text">सम्पादनको इतिहास</string>
+  <string name="talk_page_link_text" fuzzy="true">वार्तालाप गर्नुहोस्</string>
+  <string name="edit_history_link_text" fuzzy="true">सम्पादनको इतिहास</string>
   <string name="map_view_link_text">कुनै नक्सामा हेर्नुहोस्</string>
   <string name="content_license_html">अन्यथा उल्लेख नभएसम्म सामग्रीहरू &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; अन्तर्गत् उपलब्ध छ</string>
   <string name="edit_save_action_license_logged_in">सङ्ग्रह गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत् प्रकाशन गर्नुहुन्छ।</string>

@@ -41,8 +41,8 @@
   <string name="nearby_zoom_to_location">Zoom a unha localización do mapa</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp; Colaboradores de &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Última actualización o %1$s</string>
-  <string name="talk_page_link_text">Conversa</string>
-  <string name="edit_history_link_text">Historial de edicións</string>
+  <string name="talk_page_link_text">Ver a páxina de conversa</string>
+  <string name="edit_history_link_text">Ver o historial de edicións</string>
   <string name="map_view_link_text">ver nun mapa</string>
   <string name="language_count_link_text">Dispoñible en %d linguas máis</string>
   <string name="content_license_html">Todo o contido está dispoñible baixo a licenza &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, agás que se indique o contrario</string>
@@ -316,6 +316,7 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d artigo de 1 artigo dispoñible sen conexión, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d artigo(s) de %2$d artigos dispoñible(s) sen conexión, %3$.2f MB</string>
   <string name="reading_list_sort">Ordenar</string>
+  <string name="reading_list_sort_ellipsis">Ordenar por…</string>
   <string name="reading_list_sort_by_name">Ordenar por nome</string>
   <string name="reading_list_sort_by_name_desc">Ordenar por nome (inverso)</string>
   <string name="reading_list_sort_by_recent">Ordenar por data de engadido (máis novas)</string>
@@ -323,7 +324,7 @@
   <string name="reading_list_sort_by_created">Ordenar por data de creación (máis recentes)</string>
   <string name="reading_list_sort_by_created_desc">Ordenar por data de creación (máis antigas)</string>
   <string name="reading_list_menu_delete">Eliminar a lista</string>
-  <string name="reading_list_menu_rename" fuzzy="true">Renomear</string>
+  <string name="reading_list_menu_rename">Editar nome/descrición</string>
   <string name="reading_list_menu_edit_description">Editar a descrición</string>
   <string name="reading_list_action_menu_remove_from_offline">Quitar de sen conexión</string>
   <string name="reading_list_action_menu_save_for_offline">Gardar para sen conexión</string>
@@ -357,6 +358,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s xa non estará dispoñible sen conexión en ningunha lista de lectura:</string>
   <string name="reading_lists_sync_reminder_title">Desexa activar a sincronización das listas de lectura?</string>
   <string name="reading_lists_sync_reminder_text">Agora os artigos gardados nas listas de lectura poden sincronizarse coa súa conta de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;saber máis.&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Agora é posible sincronizar as listas de lectura en varios dispositivos. Acceda á súa conta de Wikipedia e permita que se garden as súas listas. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Máis información&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Activar sincronización</string>
   <string name="reading_list_login_reminder_title">Sincronizar as listas de lectura</string>
   <string name="reading_lists_login_reminder_text">Agora é posible sincronizar as listas de lectura entre varios dispositivos. Acceda á súa conta de Wikipedia e permita que se garden as súas listas.</string>
@@ -397,6 +399,10 @@
   <string name="reading_list_article_limit_message">Non se pode engadir a esta lista. Alcanzou o límite de %2$d artigos por lista para \"%1$s\".</string>
   <string name="reading_lists_limit_message">Non se pode crear outra lista. Alcanzou o límite de 100 listas de lectura por conta.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sincronización das listas de lectura&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;As listas de lectura agora poden sincronizarse entre dispositivos. Entre coa súa conta de Wikipedia e permita que as súas listas sexan gardadas.</string>
+  <string name="reading_lists_menu_create_list">Crear unha lista nova</string>
+  <string name="reading_lists_menu_sort_by">Ordenar por</string>
+  <string name="reading_lists_refresh_sync_option">Actualizar sincronización</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Acceder/crear conta</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Agora este artigo estará dispoñible sen conexión.</item>
     <item quantity="other">Agora estes artigos estarán dispoñibles sen conexión.</item>
@@ -420,6 +426,10 @@
   <string name="notification_syncing_pause_button">Pausa</string>
   <string name="notification_syncing_resume_button">Continuar</string>
   <string name="notification_syncing_cancel_button">Cancelar</string>
+  <string name="notification_syncing_reading_list_channel_name">Sincronizando listas de lectura</string>
+  <string name="notification_syncing_reading_list_channel_description">Progreso de sincronización de listas de lectura</string>
+  <string name="notification_syncing_reading_list_title">Sincronizando %1$d lista(s)…</string>
+  <string name="notification_syncing_reading_list_description">Quedan %1$d lista(s)</string>
   <string name="view_continue_reading_card_title">Continuar lendo</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatorio</string>
@@ -463,6 +473,7 @@
   <string name="feed_item_type_featured_image">Imaxe destacada do día en Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Páxina principal de Wikipedia co contido destacado diario</string>
   <string name="feed_item_type_randomizer">Xerar artigos aleatorios para ler</string>
+  <string name="feed_empty_message">Non hai nada na súa canle Explorar</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalizar a súa canle Explorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora pode escoller o que desexa mostrar na súa canle, e tamén priorizar os seus tipos de contidos favoritos.</string>
   <string name="description_edit_text_hint">Descrición de título</string>
