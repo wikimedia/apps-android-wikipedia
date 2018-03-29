@@ -41,8 +41,8 @@
   <string name="nearby_zoom_to_location">Přibližte se na místo v mapě</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;Přispěvatelé &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Naposledy aktualizováno %s</string>
-  <string name="talk_page_link_text">Diskuse</string>
-  <string name="edit_history_link_text">Historie editací</string>
+  <string name="talk_page_link_text">Zobrazit diskusní stránku</string>
+  <string name="edit_history_link_text">Zobrazit historii editací</string>
   <string name="map_view_link_text">Zobrazit na mapě</string>
   <string name="language_count_link_text">Dostupný v %d dalších jazycích</string>
   <string name="content_license_html">Obsah je dostupný pod &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, pokud není uvedeno jinak</string>
@@ -293,7 +293,7 @@
   <string name="reading_list_sort_by_created">Seřadit podle data vytvoření (od nejnovějších)</string>
   <string name="reading_list_sort_by_created_desc">Seřadit podle data vytvoření (od nejstarších)</string>
   <string name="reading_list_menu_delete">Odstranit seznam</string>
-  <string name="reading_list_menu_rename" fuzzy="true">Přejmenovat</string>
+  <string name="reading_list_menu_rename">Změnit název/popis</string>
   <string name="reading_list_menu_edit_description">Editovat popis</string>
   <string name="reading_list_name_sample">Můj seznam k přečtení</string>
   <string name="reading_list_name_hint">Název tohoto seznamu</string>

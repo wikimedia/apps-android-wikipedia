@@ -37,8 +37,8 @@
   <string name="nav_item_nearby">W pobliżu</string>
   <string name="nearby_zoom_to_location">Przybliż lokalizacje na mapie</string>
   <string name="last_updated_text">Ostatnia aktualizacja %s</string>
-  <string name="talk_page_link_text">Dyskusja</string>
-  <string name="edit_history_link_text">Historia edycji</string>
+  <string name="talk_page_link_text" fuzzy="true">Dyskusja</string>
+  <string name="edit_history_link_text" fuzzy="true">Historia edycji</string>
   <string name="map_view_link_text">Zobacz na mapie</string>
   <string name="language_count_link_text">Dostępne w %d innych językach</string>
   <string name="content_license_html">O ile nie zaznaczono inaczej, treść dostępna jest na licencji &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
@@ -244,6 +244,7 @@
   <string name="view_link_preview_error_button_dismiss">Odrzuć</string>
   <string name="error_page_does_not_exist">Ta strona nie istnieje</string>
   <string name="view_wiki_error_message_offline">Nie można nawiązać połączenia z Internetem</string>
+  <string name="reference_title">Przypis %s</string>
   <string name="crash_report_dialog_title">Niestety, wystąpił problem techniczny z aplikacją</string>
   <string name="crash_report_dialog_dont_send_button">Pomiń</string>
   <string name="crash_report_dialog_always_send_button">Zawsze wysyłaj</string>
@@ -260,6 +261,7 @@
   <string name="color_theme_select">Skórka</string>
   <string name="color_theme_light">Jasna</string>
   <string name="color_theme_dark">Ciemna</string>
+  <string name="color_theme_black">Czarny</string>
   <string name="color_theme_test_title">Przykładowy tekst</string>
   <string name="preference_title_app_theme">Motyw aplikacji</string>
   <string name="text_size_increase">Zwiększ rozmiar tekstu</string>
@@ -284,10 +286,17 @@
   <string name="reading_list_menu_delete">Usuń listę</string>
   <string name="reading_list_menu_rename">Edytuj nazwę/opis</string>
   <string name="reading_list_menu_edit_description">Edytuj opis</string>
+  <string name="reading_list_action_menu_remove_from_offline">Usuń z zapisanych na później</string>
+  <string name="reading_list_action_menu_save_for_offline">Zapisz na później</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Usuń wszystkie pozycje z zapisanych na później</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Zapisz wszystkie pozycje na później</string>
   <string name="reading_list_name_sample">Moja lista</string>
   <string name="reading_list_name_hint">Nazwa tej listy</string>
   <string name="reading_list_description_hint">Opis (opcjonalnie)</string>
+  <string name="reading_list_item_deleted">Usunięto %s z historii</string>
+  <string name="reading_list_items_deleted">%d artykułów usunięto z listy</string>
   <string name="reading_list_item_delete_undo">Cofnij</string>
+  <string name="reading_list_deleted">%s został usunięty</string>
   <string name="saved_list_empty_title">Nie zapisano jeszcze żadnych stron</string>
   <string name="reading_lists_onboarding_intro">Dodaj artykuły do listy stron, które chcesz przeczytać później, nawet gdy jesteś offline!</string>
   <string name="reading_lists_onboarding_for_example">Na przykład</string>

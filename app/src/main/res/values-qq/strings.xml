@@ -72,8 +72,6 @@
   <string name="edit_section_captcha_hint">A call to action to write the CAPTCHA string.</string>
   <string name="title_captcha">A call to action to write the CAPTCHA string.</string>
   <string name="edit_section_captcha_reload">Call to action. \"Tap\" is imperative verb, \"touch the touchscreen\".</string>
-  <string name="edit_conflict_title">Title for dialog box that warns the user about an edit conflict.</string>
-  <string name="edit_conflict_message">Message explaining to the user that the edit they are submitting is conflicting with the current state of the article, and instructs the user to go back and reload the page before trying to edit again.</string>
   <string name="nav_item_login">{{Identical|Log in}}</string>
   <string name="login_username_hint">{{Identical|Username}}</string>
   <string name="login_password_hint">{{Identical|Password}}</string>
@@ -183,6 +181,8 @@
   <string name="edit_summary_tag_links">Clickable summary tag for adding link(s)</string>
   <string name="edit_summary_tag_other">Clickable summary tag for a custom/other edit summary text.\n{{Identical|Other}}</string>
   <string name="edit_summary_tag_other_hint">Hint (input field placeholder) for the user to write a custom summary of edits</string>
+  <string name="edit_conflict_title">Title for dialog box that warns the user about an edit conflict.</string>
+  <string name="edit_conflict_message">Message explaining to the user that the edit they are submitting is conflicting with the current state of the article, and instructs the user to go back and reload the page before trying to edit again.</string>
   <string name="find_next">Text for button that finds the next occurrence of a search term.\n{{Identical|Find next}}</string>
   <string name="find_previous">Text for button that finds the previous occurrence of a search term</string>
   <string name="find_first_occurence">Text that shows up in hint when user tries to get to first occurence when he is already on it.</string>

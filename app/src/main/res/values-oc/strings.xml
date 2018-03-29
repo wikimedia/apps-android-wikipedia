@@ -37,7 +37,8 @@
   <string name="nav_item_nearby">A proximitat</string>
   <string name="nearby_zoom_to_location">Zoomar sus un endreit de la mapa</string>
   <string name="last_updated_text">Darrièra modificacion lo %1$s</string>
-  <string name="talk_page_link_text">Discussion</string>
+  <string name="talk_page_link_text">Veire la pagina de discussion</string>
+  <string name="edit_history_link_text">Afichar l\'istoric de las modificacions</string>
   <string name="content_license_html">Lo contengut es disponible jos &lt;a href=\"%1$s\"&gt;licéncia CC BY-SA 3.0&lt;/a&gt; levat indicacion contrària</string>
   <string name="edit_save_action_license_logged_in">En enregistrant, acceptatz las &lt;a href=\"%1$s\"&gt;Condicions d’utilizacion&lt;/a&gt;, e plaçatz de faiçon irrevocabla vòstras contribucions jos la licéncia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">En enregistrant, acceptatz las &lt;a href=\"%1$s\"&gt;Condicions d’utilizacion&lt;/a&gt;, e plaçatz de faiçon irrevocabla vòstras contribucions jos la licéncia &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Las modificacions seràn atribuidas a l’adreça IP de vòstre equipament. Se &lt;a href=\"https://#login\"&gt;vos connectatz&lt;/a&gt;, auretz mai de confidencialitat.</string>
@@ -141,6 +142,7 @@
   <string name="edit_summary_tag_links">Ligams aponduts</string>
   <string name="edit_summary_tag_other">Autre</string>
   <string name="edit_summary_tag_other_hint">Autres biaisses de melhorar la pagina</string>
+  <string name="edit_conflict_message">Aquesta pagina foguet ja modificada per un autre utilizaire, e es en conflicte amb la vòstra publicacion. Merce de copiar las vòstras publicacions, tornar a la pagina precedeta e refrescar la pagina, puèi ensajatz de publicar tornarmai.</string>
   <string name="find_next">Recercar lo seguent</string>
   <string name="find_previous">Recercar lo precedent</string>
   <string name="dialog_page_issues">Discussions sus la pagina</string>
