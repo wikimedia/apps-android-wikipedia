@@ -5,4 +5,4 @@ mkdir tmp && export TMPDIR="$PWD/tmp"
 
 ./gradlew clean checkstyle lintAlphaRelease testAllAlphaRelease
 
-scripts/diff-screenshots
+# TODO: add periodic test tasks here.
