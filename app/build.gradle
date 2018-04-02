@@ -113,11 +113,6 @@ android {
             signingConfig signingConfigs.prod
             dimension 'default'
         }
-        releasesprod {
-            versionName computeVersionName('releasesprod')
-            signingConfig signingConfigs.prod
-            dimension 'default'
-        }
         alpha {
             versionName computeVersionName('alpha')
             applicationIdSuffix 'alpha'
