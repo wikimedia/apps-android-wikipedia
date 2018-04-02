@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 # coding=utf-8
 
 import copy
@@ -66,16 +66,26 @@ def build_wiki(lang, english_name, local_name):
 
 
 def list_from_sitematrix():
-    QUERY_API_URL = 'https://www.mediawiki.org/w/api.php?action=sitematrix' \
-        '&format=json&smtype=language&smlangprop=code%7Cname%7Clocalname'
+    QUERY_SITEMATRIX = 'https://www.mediawiki.org/w/api.php?action=sitematrix' \
+        '&format=json&formatversion=2&smtype=language&smstate=all'
 
-    print(u"Fetching languages")
-    data = json.loads(requests.get(QUERY_API_URL).text)
+    print(u"Fetching languages...")
+    data = json.loads(requests.get(QUERY_SITEMATRIX).text)
     wikis = []
 
     for key, value in data[u"sitematrix"].items():
-        if type(value) is dict:
-            wikis.append(build_wiki(value[u"code"], value[u"localname"], value[u"name"]))
+        if type(value) is not dict:
+            continue
+        site_list = value[u"site"]
+        if type(site_list) is not list:
+            continue
+        wikipedia_url = ""
+        for site in site_list:
+            if "wikipedia.org" in site[u"url"] and u"closed" not in site:
+                wikipedia_url = site[u"url"]
+        if len(wikipedia_url) == 0:
+            continue
+        wikis.append(build_wiki(value[u"code"], value[u"localname"], value[u"name"]))
 
     return wikis
 
