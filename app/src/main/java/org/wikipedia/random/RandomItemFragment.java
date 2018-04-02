@@ -29,10 +29,10 @@ import retrofit2.Call;
 public class RandomItemFragment extends Fragment {
     @BindView(R.id.random_item_container) ViewGroup containerView;
     @BindView(R.id.random_item_progress) View progressBar;
-    @BindView(R.id.view_featured_article_card_image) FaceAndColorDetectImageView imageView;
-    @BindView(R.id.view_featured_article_card_article_title) TextView articleTitleView;
-    @BindView(R.id.view_featured_article_card_article_subtitle) GoneIfEmptyTextView articleSubtitleView;
-    @BindView(R.id.view_featured_article_card_extract) TextView extractView;
+    @BindView(R.id.view_random_article_card_image) FaceAndColorDetectImageView imageView;
+    @BindView(R.id.view_random_article_card_article_title) TextView articleTitleView;
+    @BindView(R.id.view_random_article_card_article_subtitle) GoneIfEmptyTextView articleSubtitleView;
+    @BindView(R.id.view_random_article_card_extract) TextView extractView;
     @BindView(R.id.random_item_error_view) WikiErrorView errorView;
 
     @Nullable private RbPageSummary summary;
@@ -110,7 +110,7 @@ public class RandomItemFragment extends Fragment {
         containerView.setVisibility(View.GONE);
     }
 
-    @OnClick(R.id.view_featured_article_card_text_container) void onClick(View v) {
+    @OnClick(R.id.view_random_article_card_text_container) void onClick(View v) {
         if (getTitle() != null) {
             parent().onSelectPage(getTitle());
         }

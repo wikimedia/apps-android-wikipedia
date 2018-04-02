@@ -42,7 +42,7 @@
 
             <org.wikipedia.views.FaceAndColorDetectImageView
                 style="@style/SimpleDraweeViewPlaceholder"
-                android:id="@+id/view_featured_article_card_image"
+                android:id="@+id/view_random_article_card_image"
                 android:layout_width="match_parent"
                 android:layout_height="192dp"
                 app:fadeDuration="0"
@@ -54,7 +54,7 @@
                 android:background="?attr/material_theme_border_color"/>
 
             <LinearLayout
-                android:id="@+id/view_featured_article_card_text_container"
+                android:id="@+id/view_random_article_card_text_container"
                 android:layout_width="match_parent"
                 android:layout_height="164dp"
                 android:orientation="vertical"
@@ -64,7 +64,7 @@
                 android:background="?attr/selectableItemBackground">
 
                 <TextView
-                    android:id="@+id/view_featured_article_card_article_title"
+                    android:id="@+id/view_random_article_card_article_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="12dp"
@@ -78,7 +78,7 @@
                     tools:text="Lorem ipsum"/>
 
                 <org.wikipedia.views.GoneIfEmptyTextView
-                    android:id="@+id/view_featured_article_card_article_subtitle"
+                    android:id="@+id/view_random_article_card_article_subtitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="?attr/secondary_text_color"
@@ -90,7 +90,7 @@
                     tools:text="Lorem ipsum"/>
 
                 <TextView
-                    android:id="@+id/view_featured_article_card_extract"
+                    android:id="@+id/view_random_article_card_extract"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
