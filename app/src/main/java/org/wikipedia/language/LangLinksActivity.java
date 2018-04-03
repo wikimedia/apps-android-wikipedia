@@ -200,7 +200,7 @@ public class LangLinksActivity extends BaseActivity {
                     for (String dialect : Arrays.asList(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE,
                             AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
 
-                        it.add(new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(dialect) : link.getText(),
+                        it.add(new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(dialect) : link.getPrefixedText(),
                                 WikiSite.forLanguageCode(dialect)));
                     }
                 }
@@ -235,7 +235,7 @@ public class LangLinksActivity extends BaseActivity {
 
             for (String languageCode : chineseLanguageCodes) {
                 if (!title.getWikiSite().languageCode().contains(languageCode)) {
-                    languageEntries.add(new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(languageCode) : title.getText(),
+                    languageEntries.add(new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(languageCode) : title.getPrefixedText(),
                             WikiSite.forLanguageCode(languageCode)));
                 }
             }
