@@ -20,7 +20,6 @@
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:textSize="@dimen/titleTextSize"
         android:lineSpacingMultiplier="@dimen/lead_title_leading_scalar"
-        android:maxLines="3"
         android:ellipsize="end"
         android:textColor="?attr/primary_text_color"
         tools:text="Title" />
