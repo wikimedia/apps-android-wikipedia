@@ -22,11 +22,14 @@ class StripMustRevalidateResponseInterceptor implements Interceptor {
         HttpUrl url = rsp.request().url();
 
         if (HttpUrlUtil.isRestBase(url) || HttpUrlUtil.isMobileView(url)) {
-            String cacheControl = CacheControlUtil.removeDirective(rsp.cacheControl().toString(),
-                    "must-revalidate");
+            String cacheControl = removeDirective(rsp.cacheControl().toString(), "must-revalidate");
             rsp = rsp.newBuilder().header("Cache-Control", cacheControl).build();
         }
 
         return rsp;
+    }
+
+    @NonNull private static String removeDirective(@NonNull String cacheControl, @NonNull String directive) {
+        return cacheControl.replaceAll(directive + ", |,? ?" + directive, "");
     }
 }

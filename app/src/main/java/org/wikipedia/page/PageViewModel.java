@@ -4,9 +4,6 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.readinglist.database.ReadingListPage;
-import org.wikipedia.settings.Prefs;
-
-import java.util.concurrent.TimeUnit;
 
 import okhttp3.CacheControl;
 
@@ -79,8 +76,6 @@ public class PageViewModel {
     }
 
     public CacheControl getCacheControl() {
-        return shouldForceNetwork() ? CacheControl.FORCE_NETWORK : Prefs.preferOfflineContent()
-                        ? new CacheControl.Builder().maxStale(Integer.MAX_VALUE, TimeUnit.SECONDS).maxAge(Integer.MAX_VALUE, TimeUnit.SECONDS).build()
-                        : new CacheControl.Builder().maxAge(Integer.MAX_VALUE, TimeUnit.SECONDS).build();
+        return shouldForceNetwork() ? CacheControl.FORCE_NETWORK : new CacheControl.Builder().build();
     }
 }
