@@ -2,31 +2,38 @@ package org.wikipedia.dataclient.okhttp;
 
 import android.support.annotation.NonNull;
 
-import java.io.IOException;
+import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.DeviceUtil;
 
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.CacheControl;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 
 /**
  * This interceptor adds a `max-stale` parameter to the Cache-Control header that directs
- * OkHttp to return cached responses without going to the network first. This is the only way
- * we can get responses from the internal OkHttp cache without conditional network GETs.
- *
- * The problem is that when `max-stale` is set, OkHttp will *always* return responses from the
- * cache when they exist, and will never go to the network. Therefore we also need another
- * interceptor (CacheControlRequestInterceptor) to explicitly try a network request if necessary,
- * and then fall back on the default cache behavior.
+ * OkHttp to return cached responses without going to the network first.
  */
 class DefaultMaxStaleRequestInterceptor implements Interceptor {
     @Override public Response intercept(@NonNull Chain chain) throws IOException {
         Request req = chain.request();
 
-        int maxStaleSeconds = req.cacheControl().maxStaleSeconds() < 0
-                ? Integer.MAX_VALUE
-                : req.cacheControl().maxStaleSeconds();
-        String cacheControl = CacheControlUtil.replaceMaxStale(req.cacheControl().toString(), maxStaleSeconds);
-        req = req.newBuilder().header("Cache-Control", cacheControl).build();
+        if (!req.cacheControl().noCache()) {
+            // Set the max-stale parameter based on whether we're preferring offline content:
+            // If we prefer offline content, then max-stale can be infinity. (OkHttp will still perform
+            // a network call if the request is explicitly noCache)
+            // And if we don't prefer offline content, then max-stale can be zero. (OkHttp will still
+            // perform a conditional GET based on ETag or If-Modified-Since)
+
+            int maxStaleSeconds = Prefs.preferOfflineContent() || !DeviceUtil.isOnline() ? Integer.MAX_VALUE : 0;
+            req = req.newBuilder()
+                    .cacheControl(new CacheControl.Builder()
+                            .maxStale(maxStaleSeconds, TimeUnit.SECONDS).build())
+                    .build();
+        }
 
         return chain.proceed(req);
     }

@@ -6,7 +6,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
-import org.wikipedia.dataclient.okhttp.CacheControlRequestInterceptor;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.json.GsonUtil;
 
@@ -23,11 +22,6 @@ public abstract class MockWebServerTest {
 
     @Before public void setUp() throws Throwable {
         OkHttpClient.Builder builder = OkHttpConnectionFactory.getClient().newBuilder();
-
-        // Most tests do not expect cached responses.
-        //noinspection Since15
-        builder.interceptors().removeIf((interceptor) -> interceptor instanceof CacheControlRequestInterceptor);
-
         okHttpClient = builder.dispatcher(new Dispatcher(new ImmediateExecutorService())).build();
         server.setUp();
     }
