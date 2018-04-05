@@ -17,6 +17,7 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.Section;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.Collections;
@@ -57,6 +58,13 @@ public class MwMobileViewPageLead extends MwResponse implements PageLead {
             title = new PageTitle(mobileview.getNormalizedTitle(), title.getWikiSite(),
                     title.getThumbUrl());
         }
+
+        if (mobileview.getDisplayTitle() != null
+                && !StringUtil.removeHTMLTags(title.getDisplayText()).equals(StringUtil.removeHTMLTags(mobileview.getDisplayTitle()))) {
+            title = new PageTitle(StringUtil.removeHTMLTags(mobileview.getDisplayTitle()), title.getWikiSite(),
+                    title.getThumbUrl());
+        }
+
         title.setDescription(mobileview.getDescription());
         return title;
     }
