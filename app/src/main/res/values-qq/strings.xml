@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Amire80
+* Anders Feder
+* Joao Xavier
+* Kaganer
+* Liuxinyu970226
+* Matma Rex
+* Minh Nguyen
+* Nemo bis
+* Nike
+* Patriccck
+* Robby
+* Sandipan
+* Shirayuki
+* ShockD
+* Trizek (WMF)
+-->
 <resources>
   <string name="app_name_prod">Name of the application.\n{{Identical|Wikipedia}}</string>
   <string name="app_name_beta">Name of the beta version of the application.\n{{Identical|Wikipedia Beta}}</string>
@@ -402,7 +419,7 @@
   <string name="reading_lists_limit_message">Message shown to the users when the limit for maimum number of reading lists is reached, informing them that they will not be able to create anymore lists</string>
   <string name="feed_reading_lists_sync_onboarding_text">User education message suggesting the users to log in to reap the benefits of synced reading lists</string>
   <string name="reading_lists_menu_create_list">Menu option offering user an option to create a new reading list.</string>
-  <string name="reading_lists_menu_sort_by">Heading for a list of suggested sort options.</string>
+  <string name="reading_lists_menu_sort_by">Heading for a list of suggested sort options.\n{{Identical|Sort by}}</string>
   <string name="reading_lists_refresh_sync_option">Menu option suggesting that the user can manually sync using this option.</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Affirmative answer to confirm and redirect to the login / Sign up page.\n{{Identical|Log in / Sign up}}\n\n{{Identical|Log in / create account}}\n\n{{Identical|Log in}}</string>
   <plurals name="reading_list_article_offline_message">
@@ -571,7 +588,7 @@
   <string name="onboarding_welcome_title">Title for a tutorial screen about the general introducing to Wikipedia.</string>
   <string name="onboarding_welcome_text">General introduction about the Wikipedia. (Please preserve the anchor tag in its exact form)</string>
   <string name="onboarding_explore_title">Title for a tutorial screen about the Explore feed.</string>
-  <string name="onboarding_explore_text">Short explanatory text about the benefits of the Explore feed.</string>
+  <string name="onboarding_explore_text">Short explanatory text about the benefits of the Explore feed.\n\n* \"On this day\" is {{Msg-wm|Wikipedia-android-strings-on this day card title}}\n* \"Random\" is {{Msg-wm|Wikipedia-android-strings-app shortcuts random}}</string>
   <string name="onboarding_save_to_reading_lists_title">Title for a tutorial screen about saving articles to reading lists.</string>
   <string name="onboarding_save_to_reading_lists_text">Short explanatory text about the benefits of saving articles to reading lists. (Please preserve the anchor tag in its exact form)</string>
   <string name="onboarding_reading_list_sync_title">Title for a tutorial screen about synchronizing reading lists.</string>

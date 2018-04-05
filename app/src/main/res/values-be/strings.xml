@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Da voli
+* Envlh
+* Liashko
+* Mechanizatar
+* SimondR
+* Unomano
+-->
 <resources>
   <string name="app_name_prod">Вікіпедыя</string>
   <string name="app_name_beta">Вікіпедыя Бэта</string>

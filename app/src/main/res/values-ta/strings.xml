@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Anj.balaji
+* AntanO
+* Balajijagadesh
+* Bsitzmann
+* Dineshkumar Ponnusamy
+* ElangoRamanujam
+* Hareesh Sivasubramanian
+* Jayarathina
+* Maathavan
+* Rakeshonwiki
+* Rakshika
+* Sharanrajindia
+* Shriheeran
+* தமிழ்த்தம்பி
+* மதனாஹரன்
+-->
 <resources>
   <string name="app_name_prod">விக்கிப்பீடியா</string>
   <string name="app_name_beta">விக்கிப்பீடியா பீட்டா</string>

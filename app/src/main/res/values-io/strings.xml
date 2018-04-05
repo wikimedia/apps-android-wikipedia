@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Algentem
+* Joao Xavier
+* Robin van der Vliet
+-->
 <resources>
   <string name="app_name_prod">Wikipedio</string>
   <string name="app_name_beta">Wikipedio Beta</string>

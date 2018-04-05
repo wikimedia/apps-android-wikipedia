@@ -1,4 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Beta16
+* Bsitzmann
+* Elitre
+* FRacco
+* Federico Mugnaini
+* Ferdi2005
+* Fringio
+* G.garatti
+* GabryBarbe
+* Giacomo Checchin
+* Gianfranco
+* Greis
+* LACLARETTA
+* Macofe
+* Nastoshka
+* Nemo bis
+* Nivit
+* Peg60
+* Pierpao
+* Redredsonia
+* Samuele2002
+* Selven
+* Simoarmanni
+* Statix64
+* SuperVirtual
+* The Polish
+-->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
@@ -167,6 +195,7 @@
   <string name="edit_summary_tag_links">Aggiunti collegamenti</string>
   <string name="edit_summary_tag_other">Altro</string>
   <string name="edit_summary_tag_other_hint">Altri modi nei quali hai migliorato la pagina</string>
+  <string name="edit_conflict_title">Conflitto di edizione</string>
   <string name="find_next">Trova successivo</string>
   <string name="find_previous">Trova precedente</string>
   <string name="abusefilter_title_warn">Questa potrebbe essere una modifica inutile. Sei sicuro di volerla pubblicare?</string>

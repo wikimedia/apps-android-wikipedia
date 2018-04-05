@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* BanKris
+* Bencemac
+* Bencoke
+* Csega
+* Dj
+* Fitoschido
+* MeskoBalazs
+* Misibacsi
+* Notramo
+* R-Joe
+* Rodrigo
+* Tacsipacsi
+* Urbalazs
+* ViDam
+* Wolf Rex
+-->
 <resources>
   <string name="app_name_prod">Wikipédia</string>
   <string name="app_name_beta">Wikipédia béta</string>

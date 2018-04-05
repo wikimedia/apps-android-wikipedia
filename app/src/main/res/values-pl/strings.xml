@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Alan ffm
+* Alchemik
+* Chrumps
+* DeRudySoulStorm
+* Debeet
+* Devwebtel
+* Expert3222
+* InternerowyGołąb
+* Lantuszka
+* Masti
+* Matik7
+* Matma Rex
+* Py64
+* Railfail536
+* Rzuwig
+* Stojex
+* Tar Lócesilion
+* The Polish
+* Vesihiisi
+* WTM
+* Wojtas
+* Woytecr
+* XnIcRaM
+-->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia wersja beta</string>
@@ -37,8 +62,8 @@
   <string name="nav_item_nearby">W pobliżu</string>
   <string name="nearby_zoom_to_location">Przybliż lokalizacje na mapie</string>
   <string name="last_updated_text">Ostatnia aktualizacja %s</string>
-  <string name="talk_page_link_text" fuzzy="true">Dyskusja</string>
-  <string name="edit_history_link_text" fuzzy="true">Historia edycji</string>
+  <string name="talk_page_link_text">Zobacz stronę dyskusji</string>
+  <string name="edit_history_link_text">Zobacz historię edycji</string>
   <string name="map_view_link_text">Zobacz na mapie</string>
   <string name="language_count_link_text">Dostępne w %d innych językach</string>
   <string name="content_license_html">O ile nie zaznaczono inaczej, treść dostępna jest na licencji &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>

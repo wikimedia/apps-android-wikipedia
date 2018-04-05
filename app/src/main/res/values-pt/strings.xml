@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Athena in Wonderland
+* Envlh
+* Fitoschido
+* Fúlvio
+* Hamilton Abreu
+* HenriqueCrang
+* Macofe
+* Mansil
+* Ngl2016
+* SandroHc
+* Tooguether
+* Vitorvicentevalente
+* Webysther
+-->
 <resources>
   <string name="app_name_prod">Wikipédia</string>
   <string name="app_name_beta">Wikipédia Beta</string>

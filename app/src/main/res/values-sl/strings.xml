@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Eleassar
+* Franga2000
+* HairyFotr
+* Pickle12
+-->
 <resources>
   <string name="app_name_prod">Wikipedija</string>
   <string name="app_name_beta">Wikipedija Beta</string>

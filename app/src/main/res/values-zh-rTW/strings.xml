@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* A2093064
+* Cwlin0416
+* Eric850130
+* Kly
+* LEEJACK
+* LNDDYL
+* Liuxinyu970226
+* Mikepanhu
+* Reke
+* Sanmosa
+* Simon Shek
+* Wehwei
+* Wwycheuk
+* 漢黑玉
+* 烈羽
+-->
 <resources>
   <string name="app_name_prod">維基百科</string>
   <string name="app_name_beta">維基百科公測版</string>
@@ -88,7 +105,7 @@
   <string name="search_empty_message">以您的語言來搜尋閱讀自由的百科全書</string>
   <string name="delete_selected_items">刪除所選項目</string>
   <string name="wp_stylized">&lt;big&gt;維&lt;/big&gt;基百&lt;big&gt;科&lt;/big&gt;</string>
-  <string name="create_account_username_hint">使用者名稱</string>
+  <string name="create_account_username_hint">用戶名</string>
   <string name="login_dont_have_account">還沒有帳號嗎？</string>
   <string name="login_join_wikipedia">加入維基百科</string>
   <string name="login_forgot_password">忘記密碼？</string>
@@ -181,6 +198,8 @@
   <string name="edit_summary_tag_links">加入連結</string>
   <string name="edit_summary_tag_other">其他</string>
   <string name="edit_summary_tag_other_hint">您改善頁面的其他方式</string>
+  <string name="edit_conflict_title">編輯衝突</string>
+  <string name="edit_conflict_message">頁面已被不同的使用者給變動，並且有與您的編輯產生衝突。請複製您的編輯並返回來重整頁面，然後再重試編輯。</string>
   <string name="find_next">尋找下一筆</string>
   <string name="find_previous">尋找上一筆</string>
   <string name="find_first_occurence">這是首次出現</string>

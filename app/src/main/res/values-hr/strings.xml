@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Bugoslav
+* Ex13
+* Ivi104
+* MaGa
+* Vrhnje
+* Wumbolo
+-->
 <resources>
   <string name="app_name_prod">Wikipedija</string>
   <string name="app_name_beta">Wikipedija (beta)</string>

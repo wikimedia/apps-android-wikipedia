@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Dinhxuanduyet
+* Harriettruong3
+* Levietduong
+* Minh Nguyen
+* Nguyên Lê
+* Phjtieudoc
+* Quenhitran
+* Quoclinh94
+* Thanhtai2009
+* Vinhtantran
+-->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>

@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Drjpoudel
+* Nirajan pant
+* Nirjal stha
+* Suniltheblue
+* राम प्रसाद जोशी
+* सरोज कुमार ढकाल
+-->
 <resources>
   <string name="app_name_prod">विकिपिडिया</string>
   <string name="app_name_beta">विकिपिडिया बिटा</string>

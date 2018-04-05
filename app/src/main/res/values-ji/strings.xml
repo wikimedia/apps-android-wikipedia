@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Alefbeis
+* Har-wradim
+* פוילישער
+-->
 <resources>
   <string name="app_name_prod">וויקיפעדיע</string>
   <string name="app_name_beta">וויקיפעדיע בעטא</string>

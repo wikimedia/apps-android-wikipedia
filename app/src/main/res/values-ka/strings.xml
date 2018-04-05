@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Arabuli
+* BRUTE
+* David1010
+* Dawid Deutschland
+* Giorgi Balakhadze
+* MIKHEIL
+-->
 <resources>
   <string name="app_name_prod">ვიკიპედია</string>
   <string name="app_name_beta">ვიკიპედია ბეტა</string>

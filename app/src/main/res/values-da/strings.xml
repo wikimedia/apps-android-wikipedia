@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Anders Feder
+* Christian List
+* Gorbi
+* Jens Jensen
+* Joedalton
+* Kenn.jensen
+* Mads Haupt
+* Mortenelling
+* Sarrus
+* Yuvipanda
+-->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>

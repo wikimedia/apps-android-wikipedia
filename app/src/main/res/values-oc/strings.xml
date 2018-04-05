@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Cedric31
+* Envlh
+* Guilhelma
+* Nicolas Eynaud
+* Unuaiga
+-->
 <resources>
   <string name="app_name_prod">Wikipèdia</string>
   <string name="app_name_beta">Wikipèdia Bèta</string>
@@ -142,7 +149,8 @@
   <string name="edit_summary_tag_links">Ligams aponduts</string>
   <string name="edit_summary_tag_other">Autre</string>
   <string name="edit_summary_tag_other_hint">Autres biaisses de melhorar la pagina</string>
-  <string name="edit_conflict_message">Aquesta pagina foguet ja modificada per un autre utilizaire, e es en conflicte amb la vòstra publicacion. Merce de copiar las vòstras publicacions, tornar a la pagina precedeta e refrescar la pagina, puèi ensajatz de publicar tornarmai.</string>
+  <string name="edit_conflict_title">Modificar lo conflicte.</string>
+  <string name="edit_conflict_message">Aquesta pagina foguèt ja modificada per un autre utilizaire, e es en conflicte amb la vòstra publicacion. Merce de copiar las vòstras publicacions, tornar a la pagina precedenta e refrescar la pagina, puèi ensajatz de publicar tornamai.</string>
   <string name="find_next">Recercar lo seguent</string>
   <string name="find_previous">Recercar lo precedent</string>
   <string name="dialog_page_issues">Discussions sus la pagina</string>

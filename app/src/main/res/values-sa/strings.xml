@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* NehalDaveND
+-->
 <resources>
   <string name="app_name_prod">विकिपीडिया</string>
   <string name="app_name_beta">विकिपीडिया उपान्त्यम्</string>

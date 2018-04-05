@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Dibya Dutta
+* Gitartha.bordoloi
+-->
 <resources>
   <string name="app_name_prod">ৱিকিপিডিয়া</string>
   <string name="app_name_beta">ৱিকিপিডিয়া বিটা</string>

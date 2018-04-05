@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Aktron
+* Bsitzmann
+* Cvanca
+* Dvorapa
+* Ilimanaq29
+* Juandev
+* Kusavica
+* Marek Pavlica
+* Matěj Suchánek
+* Mimichal007
+* Mormegil
+* Patriccck
+* Vojtěch Dostál
+* Walter Klosse
+-->
 <resources>
   <string name="app_name_prod">Wikipedie</string>
   <string name="app_name_beta">Wikipedie Beta</string>
@@ -15,7 +31,7 @@
   <string name="menu_clear_all_history">Vymazat historii</string>
   <string name="history_item_deleted">Článek %s odebrán z historie</string>
   <string name="history_items_deleted">%d článků odebráno z historie</string>
-  <string name="history_item_delete_undo">Vrátit</string>
+  <string name="history_item_delete_undo">Zpět</string>
   <string name="app_settings">Nastavení aplikace</string>
   <string name="dialog_title_clear_history">Vymazat historii prohlížení</string>
   <string name="dialog_message_clear_history">Tímto smažete celou svoji historii prohlížení a zavřete všechny nyní otevřené karty. Jste si jisti?</string>
@@ -65,6 +81,8 @@
   <string name="dialog_message_leaving_edit_stay">Zůstat</string>
   <string name="menu_show_toc">Obsah</string>
   <string name="search_no_results_found">Nebyly nalezeny žádné výsledky</string>
+  <string name="search_reading_list_no_results">Nenalezeny žádné výsledky pro „%s”</string>
+  <string name="search_history_no_results">Nebyly nalezeny žádné výsledky v historii</string>
   <string name="edit_section_captcha_message">V zájmu ochrany před automatickým spamováním vás prosíme o opsání slov, která vidíte níže</string>
   <string name="edit_section_captcha_hint">Zopakujte výše uvedená slova</string>
   <string name="title_captcha">Zadejte captcha</string>
@@ -72,6 +90,7 @@
   <string name="nav_item_login">Přihlásit se do Wikipedie</string>
   <string name="login_username_hint">Uživatelské jméno</string>
   <string name="login_password_hint">Heslo</string>
+  <string name="login_2fa_hint">Dvoufaktorová autentizace</string>
   <string name="menu_login">Přihlásit se</string>
   <string name="login_activity_title">Přihlášení do Wikipedie</string>
   <string name="login_in_progress_dialog_message">Přihlašování…</string>
@@ -148,8 +167,11 @@
   <string name="terms_of_use_description">Podmínky užití</string>
   <string name="about_wikipedia_url">https://cs.m.wikipedia.org/wiki/Nápověda:Úvod</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/cs</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/cs</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Použité knihovny</string>
   <string name="about_contributors_heading">Přispěvatelé</string>
   <string name="about_translators_heading">Překladatelé</string>
@@ -173,6 +195,7 @@
   <string name="edit_summary_tag_links">Přidány odkazy</string>
   <string name="edit_summary_tag_other">Jinak</string>
   <string name="edit_summary_tag_other_hint">Jiný způsob, jakým jste vylepšili stránku</string>
+  <string name="edit_conflict_title">Editační konflikt</string>
   <string name="find_next">Najít další</string>
   <string name="find_previous">Najít předchozí</string>
   <string name="find_first_occurence">Toto je první výskyt</string>
@@ -246,6 +269,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Články nelze načítat bez připojení k internetu.</string>
   <string name="page_offline_notice_add_to_reading_list">Rada: Pokud článek přidáte do seznamu k přečtení, stáhne se, jakmile budete znovu připojeni.</string>
   <string name="page_offline_notice_last_date">Právě možná čtete neaktuální verzi tohoto článku, která byla uložena %s.</string>
+  <string name="page_offline_notice_compilation_download_date">Čteš verzi z %1$s • %2$s</string>
   <string name="button_get_directions">Najít trasu</string>
   <string name="error_no_maps_app">Nepodařilo se najít žádnou aplikaci, která poskytuje navigaci.</string>
   <string name="preference_title_show_link_previews">Zobrazovat náhledy odkazů</string>
@@ -254,9 +278,18 @@
   <string name="error_voice_search_not_available">Omlouváme se, ale rozpoznávání hlasu není k dispozici.</string>
   <string name="location_service_disabled">Služby zjišťování polohy jsou zakázány.</string>
   <string name="enable_location_service">Povolit</string>
+  <string name="location_permissions_enable_prompt">Zapni oprávnění umístění pro zobrazení míst blízko Tebe.</string>
+  <string name="location_permissions_enable_action">Zapnout</string>
+  <string name="error_webview_updating">Android System WebView se právě aktualizuje. Zkus to prosím za chvíli.</string>
+  <string name="multi_select_items_selected">%d vybráno</string>
+  <string name="error_message_generic">Došlo k chybě</string>
+  <string name="view_link_preview_error_button_dismiss">Zavřít</string>
   <string name="error_page_does_not_exist">Tato stránka neexistuje</string>
   <string name="view_wiki_error_message_offline">Nelze se připojit k internetu</string>
   <string name="reference_title">Reference %s</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Ztlumení obrazu (v Tmavém motivu)</string>
+  <string name="preference_title_prefer_offline_content">Preferovat offline obsah</string>
+  <string name="preference_title_enable_offline_library">Aktivovat Offline knihovnu</string>
   <string name="crash_report_dialog_title">Omlouváme se, aplikace minule spadla</string>
   <string name="crash_report_dialog_text">Chtěli byste odeslat hlášení o pádu HockeyApp, poskytovateli služeb třetích stran, aby Wikimedia mohla její pád přezkoumat a opravit chybu, která jej způsobila?</string>
   <string name="crash_report_dialog_dont_send_button">Přeskočit</string>
@@ -277,13 +310,20 @@
   <string name="color_theme_black">Černý</string>
   <string name="color_theme_test_title">Vzorový text</string>
   <string name="preference_title_app_theme">Vzhled aplikace</string>
+  <string name="text_size_percent_default">%s (Strandartní)</string>
   <string name="nav_item_reading_lists">Moje seznamy</string>
   <string name="reading_list_untitled">Bez názvu</string>
   <string name="reading_list_save_to">Uložit do seznamu k přečtení</string>
   <string name="reading_list_create_new">Vytvořit nový</string>
+  <string name="reading_list_title_exists">Seznam k přečtení „%s“ už existuje.</string>
+  <string name="reading_list_entry_empty">Zadejte název</string>
   <string name="reading_list_added_to_named">Přidáno do %s.</string>
   <string name="reading_list_already_exists">Tento článek už v tomto seznamu je.</string>
   <string name="reading_list_added_view_button">Zobrazit seznam</string>
+  <string name="format_reading_list_statistical_summary_singular">1 článek, %1$.2f MB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d článků, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d z 1 článků je dostupný offline, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d z %2$d článků je dostupných offline, %3$.2f MB</string>
   <string name="reading_list_sort">Seřadit</string>
   <string name="reading_list_sort_ellipsis">Seřadit podle...</string>
   <string name="reading_list_sort_by_name">Seřadit podle názvu</string>
@@ -295,6 +335,11 @@
   <string name="reading_list_menu_delete">Odstranit seznam</string>
   <string name="reading_list_menu_rename">Změnit název/popis</string>
   <string name="reading_list_menu_edit_description">Editovat popis</string>
+  <string name="reading_list_action_menu_remove_from_offline">Odstranit z offline úložiště</string>
+  <string name="reading_list_action_menu_save_for_offline">Uložit článek do zařízení</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Smazat všechny články ze zařízení</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Uložit všechny články do zařízení</string>
+  <string name="reading_list_action_menu_add_to_another_list">Přidat do jiného seznamu</string>
   <string name="reading_list_name_sample">Můj seznam k přečtení</string>
   <string name="reading_list_name_hint">Název tohoto seznamu</string>
   <string name="reading_list_description_hint">Popis (nepovinný):</string>
@@ -310,10 +355,22 @@
   <string name="reading_lists_onboarding_example2">Oblíbená zvířata</string>
   <string name="reading_lists_onboarding_example3">Průzkum vesmíru</string>
   <string name="reading_lists_onboarding_got_it">Jasně</string>
+  <string name="reading_list_no_description">Bez popisu...</string>
+  <string name="reading_list_empty">V tomto seznamu nemáte žádné články.</string>
+  <string name="reading_list_article_offline">Dostupné offline</string>
+  <string name="reading_list_article_make_offline">Uložit článek do offline režimu</string>
+  <string name="reading_list_add_to_other_list">Přidat do dalšího seznamu na přečtení</string>
+  <string name="reading_list_remove_from_list">Odstranit z %s</string>
+  <string name="reading_list_remove_from_lists">Odstranit se seznamů na přečtení</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Odstranit z offline úložiště</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Článek je ve více seznamech</string>
   <string name="reading_lists_sync_reminder_title">Zapnout synchronizaci seznamů čtení?</string>
   <string name="reading_lists_sync_reminder_text">Články uložené v seznamech čtení mohou být nyní synchronizovány s vaším účtem na Wikipedii. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Více informací&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Seznam článků na přečtení může být synchronizován napříč zařízeními. Přihlaste se ke svému Wiki účtu a potvrďte své seznamy k uložení. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Povolit synchronizace</string>
+  <string name="reading_list_login_reminder_title">Synchronizovat seznamy k přečtení</string>
   <string name="reading_lists_login_reminder_text">Seznamy čtení mohou být nyní synchronizovány napříč zařízeními. Přihlaste se do svého účtu na Wikipedii a povolte ukládání vašich seznamů.</string>
+  <string name="reading_lists_confirm_remote_delete_no">Ne</string>
   <string name="reading_list_delete_confirm">Opravdu chcete odstranit „%s“?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Přihlašte se, abyste mohl/a povolit synchronizace</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Přihlaste se, abyste povolil/a ukládání seznamů čtení k vašemu účtu.</string>
@@ -336,11 +393,19 @@
   <string name="reading_list_logout_option_reminder_dialog_text">Zde jsou články uložené v seznamech čtení. Chcete je v nich po odhlášení ponechat?</string>
   <string name="reading_list_logout_option_reminder_dialog_yes">Ano, ponechat články v seznamech</string>
   <string name="reading_list_logout_option_reminder_dialog_no">Ne, odstranit články ze seznamů</string>
+  <string name="default_reading_list_name">Uloženo</string>
+  <string name="default_reading_list_description">Výchozí seznam pro vaše uložené články</string>
   <string name="split_reading_list_message">Existuje limit %d článků pro seznamy čtení. Existující seznamy, které mají více než tento počet článků, byly rozděleny do více seznamů.</string>
   <string name="reading_list_article_limit_message">Nebylo možno přidat do tohoto seznamu. Překročil/a jste limit %2$d článků do seznamu pro %1$s.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synchronizace seznamů čtení&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Seznamy čtení mohou být nyní synchronizovány napříč zařízení. Přihlašte se na svůj účet na Wikipedii a povolte ukládání svých vlastních seznamů.</string>
   <string name="reading_lists_menu_create_list">Vytvořit nový seznam</string>
   <string name="reading_lists_menu_sort_by">Seřadit podle</string>
+  <string name="reading_lists_refresh_sync_option">Obnovit synchronizaci</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Přihlášení / Registrace</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">Tento článek bude dostupný bez připojení k internetu.</item>
+    <item quantity="other">Tyto články budou dostupné bez připojení.</item>
+  </plurals>
   <string name="user_option_sync_label">Nastavení</string>
   <string name="notification_button_view_user">Diskutovat s uživatelem</string>
   <string name="notification_talk_title">Nová zpráva na Wikipedii</string>
@@ -349,6 +414,13 @@
   <string name="notification_reverted">&lt;em&gt;%1$s&lt;/em&gt; zrušil(a) vaši úpravu článku &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_thanks_title">Obdržel(a) jste poděkování!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; vám poděkoval(a) za vaši úpravu stránky &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_channel_name">Synchronizace</string>
+  <string name="notification_channel_description">Stav stahování</string>
+  <string name="notification_syncing_title">Stahuje se %1$d {{PLURAL:%1$d|článek|články|článků}}…</string>
+  <string name="notification_syncing_description">Zbývá %1$d {{PLURAL:%1$d|článek|články|článků}}</string>
+  <string name="notification_syncing_pause_button">Pozastavit</string>
+  <string name="notification_syncing_resume_button">Obnovit</string>
+  <string name="notification_syncing_cancel_button">Zrušit</string>
   <string name="notification_syncing_reading_list_channel_name">Synchronizace seznamu/ů čtení</string>
   <string name="notification_syncing_reading_list_channel_description">Synchronizace seznamů čtení</string>
   <string name="notification_syncing_reading_list_title">Synchronizace %1$d seznamu/ů...</string>
@@ -357,7 +429,7 @@
   <string name="view_because_you_read_card_title">Protože čtete</string>
   <string name="view_random_card_title">Náhodný článek</string>
   <string name="view_random_card_subtitle">Procházet náhodné články na Wikipedii ke čtení</string>
-  <string name="view_random_card_action">Hodit si kostkou</string>
+  <string name="view_random_card_action">Hoďte si kostkou</string>
   <string name="view_next_random_article">Načíst další náhodný článek</string>
   <string name="view_main_page_card_title">Dnes na Wikipedii</string>
   <string name="view_main_page_card_subtitle">Hlavní strana %s</string>
@@ -377,10 +449,18 @@
     <item quantity="other">před %d dny</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">dnes</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Přečíst %s</string>
   <string name="view_announcement_card_negative_action">Ne, děkuji</string>
+  <string name="view_offline_card_text">Obsah nemůže být načten offline.</string>
   <string name="view_featured_article_card_title">Nejlepší článek</string>
   <string name="view_featured_article_footer_save_button_label">Uložit</string>
+  <string name="view_featured_article_footer_saved_button_label">Uložit</string>
+  <string name="feed_configure_activity_title">Přizpůsobte si zdroj</string>
+  <string name="feed_configure_menu_reset">Obnovit výchozí filtry</string>
+  <string name="feed_configure_menu_select_all">Vybrat vše</string>
+  <string name="feed_configure_menu_deselect_all">Odznačit vše</string>
   <string name="feed_empty_message">Nic není na vašem Explore feed</string>
+  <string name="feed_configure_onboarding_action">Přizpůsobit</string>
   <string name="description_edit_text_hint">Popis titulku</string>
   <string name="description_edit_save">Zveřejnit</string>
   <string name="description_edit_add_description">Přidat popis titulku</string>
@@ -402,14 +482,57 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">V ideálním případě jeden řádek o dvou až dvanácti slovech</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začít s úpravami</string>
   <string name="description_edit_tutorial_promise">Tímto slibuji, že této funkce nezneužiji.</string>
+  <string name="description_edit_help_about_title">O aplikaci</string>
+  <string name="description_edit_help_tips_examples">Například:</string>
+  <string name="description_edit_help_tips_example1">obraz Leonarda da Vinciho</string>
+  <string name="description_edit_help_tips_example2">Nejvyšší hora na zemi</string>
+  <string name="description_edit_help_tips_example2_hint">popis článku o Mount Everest</string>
+  <string name="description_edit_help_more_info">Více informací</string>
   <string name="description_edit_revert_subtitle">Děkujeme, že editujete Wikipediiǃ</string>
   <string name="offline_read_final_rationale">Povolení k přístupu do úložného prostoru vašeho zařízení je požadováno, abyste mohli používat Offline Knihovnu</string>
+  <string name="offline_my_compilations">Spravovat mou offline knihovnu</string>
+  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
+  <string name="size_gb">%.2f GB</string>
+  <string name="size_mb">%.2f MB</string>
+  <string name="offline_compilation_detail_button_download_v2">Stahování • %s</string>
+  <string name="offline_compilation_detail_button_remove">Odstranit</string>
+  <string name="remote_compilation_download">Stáhnout</string>
+  <string name="storage_size_free_v2">%s zdarma</string>
+  <string name="storage_used_by_compilations">používáno Offline knihovnou</string>
+  <string name="storage_other_apps">Ostatní aplikace</string>
+  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
+  <plurals name="offline_compilation_download_time_remaining">
+    <item quantity="one">zbývá 1 minuta</item>
+    <item quantity="other">%d minut zbývá</item>
+  </plurals>
+  <string name="compilation_download_widget_button_cancel_hint">Zrušit stahování</string>
+  <string name="compilation_download_cancel_confirm">Jste si jistý, že chcete zrušiť stahování článků?</string>
+  <string name="compilation_download_cancel_confirm_yes">Ano</string>
+  <string name="compilation_download_cancel_confirm_no">Ne</string>
+  <string name="compilation_share">Sdílet</string>
+  <string name="compilation_remove">Odstranit</string>
+  <string name="compilation_remove_confirm">Opravdu to chcete smazat z Vaší Offline knihovny?</string>
+  <string name="offline_library_title">Offline knihovna</string>
+  <string name="offline_library_empty_title">Vaše Offline knihovnice je prázdná</string>
+  <string name="offline_library_onboarding_button_done">Hotovo</string>
+  <string name="onboarding_skip">Přeskočit</string>
+  <string name="onboarding_continue">Pokračovat</string>
+  <string name="onboarding_get_started">Začněte</string>
   <string name="onboarding_welcome_title">Otevřená encyklopedie</string>
   <string name="onboarding_welcome_text">Wikipedie je psána společně dobrovolníky a obsahuje více než 40 miliónů článku v téměř 300 různých jazycích. &lt;a href=\"#about\"&gt;Zjistit více&lt;/a&gt;</string>
+  <string name="onboarding_explore_title">Nové možnosti pro objevování</string>
+  <string name="onboarding_save_to_reading_lists_title">Uložit do seznamu k přečtení</string>
+  <string name="onboarding_reading_list_sync_title">Seznam k přečtení se synchronizací</string>
   <string name="onboarding_reading_list_sync_text_v2">Můžete si vytvářet seznamy čtení z článků, které chcete číst, i když nejste přihlášení. &lt;br/&gt;Přihlaste se do svého účtu na Wikipedii, abyste mohl/a své seznamy čtení synchronizovat. &lt;a href=\"#login\"&gt;Připojit se k Wikipedii&lt;/a&gt;</string>
   <string name="onboarding_analytics_offline_text">Pomozte udělat aplikaci lepší uvědomením nás, jak ji používáte. Data jsou anonymní. &lt;a href=\"#privacy\"&gt;Zjistit více&lt;/a&gt;</string>
+  <string name="onboarding_got_it">Jasně</string>
+  <string name="app_shortcuts_random">Náhodně</string>
+  <string name="app_shortcuts_continue_reading">Pokračovat ve čtení</string>
+  <string name="app_shortcuts_search">Hledat</string>
+  <string name="more_trending_text">Podobné články</string>
   <string name="top_on_this_day">Populární %1$s</string>
   <string name="on_this_day_card_title">Dnešek v minulosti</string>
+  <string name="more_events_text">Více událostí z tohoto dne</string>
   <string name="events_count_text">%1$s událostí z let %2$s–%3$d</string>
   <string name="this_year">Letos</string>
   <string name="back_to_top">Zpět na začátek</string>

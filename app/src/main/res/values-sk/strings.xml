@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* AtonX
+* EditorPO
+* Hromoslav
+* Kusavica
+* Lexected
+* Pmikolas44
+* Rudko
+* Sudo77(new)
+* TomášPolonec
+-->
 <resources>
   <string name="app_name_prod">Wikipédia</string>
   <string name="app_name_beta">Wikipédia Beta</string>

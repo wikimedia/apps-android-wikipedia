@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Archana
+* BPositive
+* NehalDaveND
+* Rupalichinchure
+* Sureshkhole
+* Susheelkasab
+* Tiven2240
+* V.narsikar
+* अभय नातू
+* संतोष दहिवळ
+-->
 <resources>
   <string name="app_name_prod">विकिपीडिया</string>
   <string name="app_name_beta">विकिपीडिया बीटा</string>
@@ -81,7 +93,7 @@
   <string name="login_activity_title">विकिपीडियात सनोंद-प्रवेश करा</string>
   <string name="login_in_progress_dialog_message">तुमचा प्रवेश नोंदवत आहे…</string>
   <string name="login_success_toast">यशस्वीरित्या सनोंद प्रवेशित!</string>
-  <string name="preference_title_logout">सनोंद-निर्गम</string>
+  <string name="preference_title_logout">बाहेर पडा</string>
   <string name="toast_logout_complete">सनोंद-निर्गमित</string>
   <string name="history_empty_title">अलीकडील पाने येथे नाहीत!</string>
   <string name="history_empty_message">आपण येथे काय वाचत आहात त्याचा मागोवा घ्या</string>

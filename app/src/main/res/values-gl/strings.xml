@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Athena in Wonderland
+* Banjo
+* Chairego apc
+* Elisardojm
+* Fitoschido
+* Macofe
+* Toliño
+* Vivaelcelta
+* Xosecalvo
+-->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
@@ -181,6 +192,8 @@
   <string name="edit_summary_tag_links">Adición de ligazóns</string>
   <string name="edit_summary_tag_other">Outro</string>
   <string name="edit_summary_tag_other_hint">Outras formas nas que mellorou a páxina</string>
+  <string name="edit_conflict_title">Conflito de edición</string>
+  <string name="edit_conflict_message">A páxina xa foi modificada por outro usuario, e a súa edición está en conflito coa súa. Por favor, copie a súa edición, vaia para atrás, actualice a páxina, e despois intente refacer a edición.</string>
   <string name="find_next">Atopar o seguinte</string>
   <string name="find_previous">Atopar o anterior</string>
   <string name="find_first_occurence">Esta é a primeira ocorrencia</string>

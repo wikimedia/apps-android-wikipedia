@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* An13sa
+* EukeneFL
+* Fitoschido
+* Gorkaazk
+* Mikel Ibaiba
+* Osoitz
+* Sator
+* Subi
+* Theklan
+* Xabier Armendaritz
+-->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>

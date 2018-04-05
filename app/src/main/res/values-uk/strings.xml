@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Alex Khimich
+* Andriykopanytsia
+* Base
+* Dars
+* Envlh
+* Green Zero
+* Movses
+* Piramidion
+* SimondR
+* Ата
+-->
 <resources>
   <string name="app_name_prod">Вікіпедія</string>
   <string name="app_name_beta">Вікіпедія Бета</string>

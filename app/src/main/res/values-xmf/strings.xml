@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Silovan
+-->
 <resources>
   <string name="app_name_prod">ვიკიპედია</string>
   <string name="app_name_beta">ვიკიპედია Zero</string>

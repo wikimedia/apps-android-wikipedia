@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Envlh
+* Lizalizaufa
+* Sagan
+* Азат Хәлилов
+* Айсар
+* Ансар
+* Гизатуллина
+* Кутлубаева Кунсулу Закиевна
+* Ләйсән
+* Мухамадеева
+* Рустам Нурыев
+* Янмурза Баки
+-->
 <resources>
   <string name="app_name_prod">Википедия</string>
   <string name="app_name_beta">Википедия (бета)</string>

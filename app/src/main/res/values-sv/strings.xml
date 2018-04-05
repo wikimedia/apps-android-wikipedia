@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Aaoo
+* Abbedabb
+* Ainali
+* Bengtsson96
+* Jon Harald Søby
+* Jopparn
+* Josve05a
+* Lokal Profil
+* Skalman
+* Vesihiisi
+* WikiPhoenix
+-->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>

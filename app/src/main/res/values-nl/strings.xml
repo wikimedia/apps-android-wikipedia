@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Envlh
+* Festina90
+* Mainframe98
+* Mar(c)
+* Mathonius
+* MedShot
+* Mirolith
+* Patio
+* Robin van der Vliet
+* SPQRobin
+* Siebrand
+* Sjoerddebruin
+* Southparkfan
+* TrisbaasBaan
+* Wikibelgiaan
+-->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>

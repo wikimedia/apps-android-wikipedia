@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Edgars2007
+* Papuass
+* Silraks
+-->
 <resources>
   <string name="app_name_prod">Vikipēdija</string>
   <string name="app_name_beta">Vikipēdija Beta</string>

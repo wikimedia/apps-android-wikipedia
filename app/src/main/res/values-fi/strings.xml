@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* 4shadoww
+* Alluk.
+* BriskyBlizzard
+* ElmA
+* Envlh
+* Jack Phoenix
+* McSalama
+* Nike
+* Olimar
+* Pahkiqaz
+* Pxos
+* Pyscowicz
+* SMAUG
+* ShakePilli
+* SuperPete
+* Tumm1
+* Valtlait
+-->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
@@ -41,8 +60,8 @@
   <string name="nearby_zoom_to_location">Lähennä kartalla olevaan kohteeseen</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; muokkaajat</string>
   <string name="last_updated_text">Päivitetty viimeksi %s</string>
-  <string name="talk_page_link_text" fuzzy="true">Keskustelu</string>
-  <string name="edit_history_link_text" fuzzy="true">Muokkaushistoria</string>
+  <string name="talk_page_link_text">Tarkastele keskustelusivua</string>
+  <string name="edit_history_link_text">Näytä muokkaushistoria</string>
   <string name="map_view_link_text">Tarkastele kartalla</string>
   <string name="language_count_link_text">Saatavilla %d muulla kielellä</string>
   <string name="content_license_html">Sisältö on saatavilla &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssillä, ellei toisin ilmoiteta</string>
@@ -181,6 +200,8 @@
   <string name="edit_summary_tag_links">Lisätty linkkejä</string>
   <string name="edit_summary_tag_other">Muu</string>
   <string name="edit_summary_tag_other_hint">Muita sivulle tehtyjä parannuksia</string>
+  <string name="edit_conflict_title">Päällekkäinen muokkaus.</string>
+  <string name="edit_conflict_message">Toinen käyttäjä on jo muokannut sivua, ja se on ristiriidassa muokkauksesi kanssa. Kopioi muokkauksesi, palaa takaisin ja päivitä sivu, yritä sitten muokata uudelleen.</string>
   <string name="find_next">Etsi seuraava</string>
   <string name="find_previous">Etsi edellinen</string>
   <string name="find_first_occurence">Tämä on ensimmäinen esiintyminen</string>

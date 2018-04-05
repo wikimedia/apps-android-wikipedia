@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Chameleon222
+* Danmichaelo
+* Jeblad
+* JohSan65
+* Jon Harald Søby
+* Kingu
+* Laaknor
+* Macofe
+* Nghtwlkr
+* Pmt
+* SuperPotato
+* Tarjeimo
+-->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>

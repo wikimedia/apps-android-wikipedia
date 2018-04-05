@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Cwek
+* Davidzdh
+* Hudafu
+* Hydra
+* LNDDYL
+* Liuxinyu970226
+* NeverBehave
+* NigelSoft
+* Qiyue2001
+* Shizhao
+* Tonylianlong
+* WQL
+* Xxoopiggy
+* Yfdyh000
+* Zjzengdongyang
+-->
 <resources>
   <string name="app_name_prod">维基百科</string>
   <string name="app_name_beta">维基百科测试版</string>

@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Saraiki
+-->
 <resources>
   <string name="app_name_prod">ویکیپیڈیا</string>
   <string name="app_name_beta">ویکیپیڈیا آزمائشی</string>

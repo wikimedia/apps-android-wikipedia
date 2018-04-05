@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Alex00728
+* Bluemersen
+* Ellif
+* Garam
+* Hwangjy9
+* Jerrykim306
+* Joolee0104
+* Kwj2772
+* Namoroka
+* SeoJeongHo
+* Tursetic
+* Twotwo2019
+* Ykhwong
+* Ysjbserver
+* 고솜
+* 밥풀떼기
+* 아라
+-->
 <resources>
   <string name="app_name_prod">위키백과</string>
   <string name="app_name_beta">위키백과 베타</string>
@@ -179,6 +198,7 @@
   <string name="edit_summary_tag_links">링크를 추가</string>
   <string name="edit_summary_tag_other">기타</string>
   <string name="edit_summary_tag_other_hint">문서를 개선하는 다른 방법</string>
+  <string name="edit_conflict_title">편집 충돌</string>
   <string name="find_next">다음 찾기</string>
   <string name="find_previous">이전 찾기</string>
   <string name="find_first_occurence">이것이 처음 항목입니다</string>

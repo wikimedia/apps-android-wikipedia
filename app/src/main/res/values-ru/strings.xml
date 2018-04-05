@@ -1,4 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* 4elovek12345
+* Alexey zakharenkov
+* Amire80
+* Batumski brodyaga
+* Cat1987
+* Dbrant
+* Dyaydyasasha2015
+* Edible Melon
+* Envlh
+* Esukhovnina
+* Facenapalm
+* Helpau
+* Irus
+* JackLantern
+* Kaganer
+* Kareyac
+* Mailman
+* MaxBioHazard
+* Mouse21
+* Movses
+* Nitch
+* Nzeemin
+* Oashnic
+* Ochilov
+* Okras
+* Patrick Star
+* Ping08
+* Redredsonia
+* SimondR
+* Smigles
+* Staspotanin2
+* WindEwriX
+* Wirbel78
+* Yuryleb
+* Александр Сигачёв
+-->
 <resources>
   <string name="app_name_prod">Википедия</string>
   <string name="app_name_beta">Википедия (бета)</string>
@@ -41,8 +78,8 @@
   <string name="nearby_zoom_to_location">Указать местоположение на карте</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;Участники &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Последнее обновление: %1$s</string>
-  <string name="talk_page_link_text" fuzzy="true">Обсуждение</string>
-  <string name="edit_history_link_text" fuzzy="true">История изменений</string>
+  <string name="talk_page_link_text">Смотреть страницу обсуждения</string>
+  <string name="edit_history_link_text">История изменений</string>
   <string name="map_view_link_text">Посмотреть на карте</string>
   <string name="language_count_link_text">Доступно на %d других языках</string>
   <string name="content_license_html">Содержимое доступно в соответствии с лицензией &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, если не указано иное</string>
@@ -152,10 +189,10 @@
   <string name="privacy_policy_description">Политика конфиденциальности</string>
   <string name="terms_of_use_description">Условия использования</string>
   <string name="about_wikipedia_url">https://ru.m.wikipedia.org/wiki/Википедия:Описание</string>
-  <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/ru</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Чтение_в_офлайне_и_данные</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
-  <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Условия_использования</string>
+  <string name="terms_of_use_url">https://m.wikimediafoundation.org/wiki/Terms_of_Use/ru</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ru</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
   <string name="about_libraries_heading">Используемые библиотеки</string>
@@ -181,6 +218,8 @@
   <string name="edit_summary_tag_links">Добавлены ссылки</string>
   <string name="edit_summary_tag_other">Другое</string>
   <string name="edit_summary_tag_other_hint">Другие способы, которыми вы улучшили страницу</string>
+  <string name="edit_conflict_title">Конфликт редактирования</string>
+  <string name="edit_conflict_message">Возник конфликт редактирования, так как страница уже была изменена другим участником. Скопируйте свои изменения, вернитесь и обновите страницу, а затем повторите попытку редактирования.</string>
   <string name="find_next">Найти далее</string>
   <string name="find_previous">Найти ранее</string>
   <string name="find_first_occurence">Это первое совпадение</string>
@@ -358,6 +397,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s больше не будет доступна в офлайн-режиме во всех списках для чтения:</string>
   <string name="reading_lists_sync_reminder_title">Включить синхронизацию списков для чтения?</string>
   <string name="reading_lists_sync_reminder_text">Статьи, сохраненные в списках чтения, теперь могут быть синхронизированы с вашей учетной записью Википедии. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Узнать больше&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Списки для чтения теперь можно синхронизировать между устройствами. Войдите в свою учётную запись Википедии и разрешите сохранение списков. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Узнать подробнее&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Включить синхронизацию</string>
   <string name="reading_list_login_reminder_title">Синхронизировать список для чтения</string>
   <string name="reading_lists_login_reminder_text">Списки чтения теперь могут быть синхронизированы между устройствами. Войдите в свою учетную запись в Википедии и позвольте сохранять списки.</string>
@@ -400,6 +440,7 @@
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Списки чтения с синхронизацией&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Списки чтения теперь могут быть синхронизированы между устройствами. Войдите в свою учетную запись в Википедии и позвольте сохранять списки.</string>
   <string name="reading_lists_menu_create_list">Создать новый список</string>
   <string name="reading_lists_menu_sort_by">Сортировать по</string>
+  <string name="reading_lists_refresh_sync_option">Перезапустить синхронизацию</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Войти / зарегистрироваться</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Эта статья теперь будет доступна в офлайн-режиме.</item>

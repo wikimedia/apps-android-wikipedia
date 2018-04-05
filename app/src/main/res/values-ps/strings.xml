@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Ahmed-Najib-Biabani-Ibrahimkhel
+* Baloch Khan
+-->
 <resources>
   <string name="app_name_prod">ويکيپېډيا</string>
   <string name="app_name_beta">بيټا ويکيپېډيا</string>

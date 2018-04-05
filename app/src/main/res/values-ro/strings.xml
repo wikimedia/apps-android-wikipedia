@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Danutz
+* Ely en
+* Envlh
+* Macofe
+* Matrafox
+* Minisarm
+* Wintereu
+-->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>

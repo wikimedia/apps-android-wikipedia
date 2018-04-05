@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Bert Jickty
+* Envlh
+* HalanTul
+* Krivoshapkina
+* Алгыс
+* Марианна
+-->
 <resources>
   <string name="app_name_prod">Бикипиэдьийэ</string>
   <string name="app_name_beta">Бикипиэдьийэ (бета)</string>

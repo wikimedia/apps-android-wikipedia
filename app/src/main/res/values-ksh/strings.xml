@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Nemo bis
+* Niedzielski
+* Purodha
+-->
 <resources>
   <string name="app_name_prod">Wikkipehdija</string>
   <string name="app_name_beta">Wikkipehdija Bätta</string>

@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Bsitzmann
+* Sovichet
+* គីមស៊្រុន
+-->
 <resources>
   <string name="app_name_prod">វិគីភីឌា</string>
   <string name="app_name_beta">វិគីភីឌាបេតា</string>

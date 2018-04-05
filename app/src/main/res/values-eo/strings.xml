@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* KuboF
+* Macofe
+* Ochilov
+* Orikrin1998
+* Remux
+* Robin van der Vliet
+-->
 <resources>
   <string name="app_name_prod">Vikipedio</string>
   <string name="app_name_beta">Vikipedio Beta</string>

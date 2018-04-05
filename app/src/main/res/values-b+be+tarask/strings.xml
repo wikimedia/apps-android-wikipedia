@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Jim-by
+* Red Winged Duck
+* Renessaince
+-->
 <resources>
   <string name="app_name_prod">Вікіпэдыя</string>
   <string name="app_name_beta">Вікіпэдыя Бэта</string>

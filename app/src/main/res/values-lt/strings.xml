@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Agne1992
+* Eitvys200
+* Gediminas
+* Mantak111
+* Manvydasz
+* Nersip
+* Nuodas
+* Pofka
+* Zygimantus
+-->
 <resources>
   <string name="app_name_prod">Vikipedija</string>
   <string name="app_name_beta">Vikipedija Beta</string>

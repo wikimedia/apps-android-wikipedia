@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* GAMEZONE628
+* Hzy980512
+* Kanon und wikipedia
+* Los688
+* Omotecho
+* Otokoume
+* Runequest77
+* S2KTS
+* Shirayuki
+* Suchichi02
+* Sujiniku
+* Takot
+* Thibaut120094
+* Wicklo
+* WwLMvmT
+* Yusuke1109
+* ネイ
+* 組曲師
+-->
 <resources>
   <string name="app_name_prod">ウィキペディア</string>
   <string name="app_name_beta">ウィキペディア・ベータ</string>
@@ -122,7 +142,7 @@
   <string name="create_account_account_created_toast">アカウントを作成しました!</string>
   <string name="preferences_heading_storage_and_syncing">保存領域と同期</string>
   <string name="preference_title_sync_reading_lists">あとで読むリストの同期</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">ウィキメディアにログインするたび、あとで読むリストの同期を許可</string>
+  <string name="preference_summary_sync_reading_lists">ウィキペディアアカウントにあとで読むリストを保存することで、異なるデバイス間でリストを同期させる</string>
   <string name="preferences_privacy_settings_heading">プライバシー</string>
   <string name="preference_title_eventlogging_opt_in">利用状況レポートを送信</string>
   <string name="preference_summary_eventlogging_opt_in">アプリの改善に役立てるため、ウィキメディア財団がアプリの使用情報を収集することを許可する</string>
@@ -308,8 +328,8 @@
   <string name="reading_list_sort">並べ替え</string>
   <string name="reading_list_sort_by_name">名前順に並べ替え</string>
   <string name="reading_list_sort_by_name_desc">名前順に並べ替え (降順)</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">新しい方から並べ替え</string>
-  <string name="reading_list_sort_by_recent_desc" fuzzy="true">古い方から並べ替え</string>
+  <string name="reading_list_sort_by_recent">新しい方から並べ替え</string>
+  <string name="reading_list_sort_by_recent_desc">古い方から並べ替え</string>
   <string name="reading_list_menu_delete">リストを削除</string>
   <string name="reading_list_menu_rename" fuzzy="true">名前を変更</string>
   <string name="reading_list_menu_edit_description">説明を編集</string>
@@ -351,6 +371,8 @@
   <string name="reading_list_already_contains_selection">選択したリストには、すでに選択したすべてのページが含まれています。</string>
   <string name="reading_list_added_articles_list_titled">%1$dに%2$sを追加しました</string>
   <string name="reading_list_delete_confirm">%s を本当に削除しますか?</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">設定</string>
   <string name="default_reading_list_name">保存済み</string>
   <string name="default_reading_list_description">保存したページの既定の一覧</string>
   <string name="no_user_lists_title">記事をリストにまとめる</string>
