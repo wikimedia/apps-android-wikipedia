@@ -1,4 +1,4 @@
-/*jshint node:true */
+/* eslint-env node */
 module.exports = function ( grunt ) {
     var allScriptFiles = [
         "js/bridge.js",
@@ -26,17 +26,14 @@ module.exports = function ( grunt ) {
     ];
     var distFolder = "../app/src/main/assets/";
 
-    grunt.loadNpmTasks( 'grunt-contrib-jshint' );
+    grunt.loadNpmTasks( 'grunt-eslint' );
     grunt.loadNpmTasks( 'grunt-jsonlint' );
     grunt.loadNpmTasks( 'grunt-browserify' );
     grunt.loadNpmTasks( 'grunt-contrib-copy' );
     grunt.loadNpmTasks( 'grunt-contrib-watch' );
 
     grunt.initConfig( {
-        jshint: {
-            options: {
-                jshintrc: true
-            },
+        eslint: {
             allFiles: allScriptFiles
         },
         jsonlint: {
@@ -101,6 +98,6 @@ module.exports = function ( grunt ) {
         }
     } );
 
-    grunt.registerTask( 'test', [ 'jshint', 'jsonlint', 'browserify', 'copy' ] );
+    grunt.registerTask( 'test', [ 'eslint', 'jsonlint', 'browserify', 'copy' ] );
     grunt.registerTask( 'default', 'test' );
 };
