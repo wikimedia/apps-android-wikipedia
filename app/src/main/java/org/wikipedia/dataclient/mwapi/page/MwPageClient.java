@@ -3,6 +3,7 @@ package org.wikipedia.dataclient.mwapi.page;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageRemaining;
@@ -16,14 +17,16 @@ import retrofit2.Call;
  */
 public class MwPageClient implements PageClient {
     @NonNull private final MwPageService service;
+    @NonNull private final WikiSite wiki;
 
-    public MwPageClient(@NonNull MwPageService service) {
+    public MwPageClient(@NonNull MwPageService service, @NonNull WikiSite wiki) {
         this.service = service;
+        this.wiki = wiki;
     }
 
     @SuppressWarnings("unchecked")
     @NonNull @Override public Call<? extends PageSummary> summary(@NonNull String title) {
-        return service.summary(title);
+        return service.summary(title, wiki.languageCode());
     }
 
     @SuppressWarnings("unchecked")
@@ -32,7 +35,7 @@ public class MwPageClient implements PageClient {
                                                             @NonNull String title,
                                                             int leadImageWidth) {
         return service.lead(cacheControl == null ? null : cacheControl.toString(),
-                saveOfflineHeader, title, leadImageWidth);
+                saveOfflineHeader, title, leadImageWidth, wiki.languageCode());
     }
 
     @SuppressWarnings("unchecked")
@@ -40,6 +43,6 @@ public class MwPageClient implements PageClient {
                                                                      @Nullable String saveOfflineHeader,
                                                                      @NonNull String title) {
         return service.sections(cacheControl == null ? null : cacheControl.toString(),
-                saveOfflineHeader, title);
+                saveOfflineHeader, title, wiki.languageCode());
     }
 }

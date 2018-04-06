@@ -39,7 +39,8 @@ public interface MwPageService {
     @GET("w/api.php?action=query&format=json&formatversion=2&redirects=&converttitles="
             + "&prop=extracts%7Cpageimages%7Cpageprops&exsentences=5&piprop=thumbnail%7Cname"
             + "&pilicense=any&explaintext=&pithumbsize=" + Constants.PREFERRED_THUMB_SIZE)
-    @NonNull Call<MwQueryPageSummary> summary(@NonNull @Query("titles") String title);
+    @NonNull Call<MwQueryPageSummary> summary(@NonNull @Query("titles") String title,
+                                              @Nullable @Query("uselang") String useLang);
 
     /**
      * Gets the lead section and initial metadata of a given title.
@@ -56,7 +57,8 @@ public interface MwPageService {
     @NonNull Call<MwMobileViewPageLead> lead(@Nullable @Header("Cache-Control") String cacheControl,
                                              @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
                                              @NonNull @Query("page") String title,
-                                             @Query("thumbwidth") int leadImageWidth);
+                                             @Query("thumbwidth") int leadImageWidth,
+                                             @Nullable @Query("uselang") String useLang);
 
     /**
      * Gets the remaining sections of a given title.
@@ -68,5 +70,6 @@ public interface MwPageService {
             + "&sectionprop=toclevel%7Cline%7Canchor&noheadings=")
     @NonNull Call<MwMobileViewPageRemaining> sections(@Nullable @Header("Cache-Control") String cacheControl,
                                                       @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
-                                                      @NonNull @Query("page") String title);
+                                                      @NonNull @Query("page") String title,
+                                                      @Nullable @Query("uselang") String useLang);
 }

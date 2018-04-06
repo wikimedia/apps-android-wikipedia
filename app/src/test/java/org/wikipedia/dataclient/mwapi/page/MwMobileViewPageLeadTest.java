@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.page.BasePageLeadTest;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageLead;
@@ -24,7 +25,7 @@ public class MwMobileViewPageLeadTest extends BasePageLeadTest {
 
     @Before public void setUp() throws Throwable {
         super.setUp();
-        subject = new MwPageClient(service(MwPageService.class));
+        subject = new MwPageClient(service(MwPageService.class), WikipediaApp.getInstance().getWikiSite());
     }
 
     @Test public void testEnglishMainPage() throws Exception {

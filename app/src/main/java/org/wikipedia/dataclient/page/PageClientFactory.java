@@ -30,7 +30,7 @@ public final class PageClientFactory {
         if (RbSwitch.INSTANCE.isRestBaseEnabled(wiki) && !namespace.file()) {
             return new RbPageClient(RESTBASE_CACHE.service(wiki));
         }
-        return new MwPageClient(MEDIAWIKI_CACHE.service(wiki));
+        return new MwPageClient(MEDIAWIKI_CACHE.service(wiki), wiki);
     }
 
     private PageClientFactory() { }
