@@ -192,6 +192,15 @@ public final class Prefs {
         setString(R.string.preference_key_language_mru, csv);
     }
 
+    @Nullable
+    public static String getAppLanguageCodeCsv() {
+        return getString(R.string.preference_key_language_app, null);
+    }
+
+    public static void setAppLanguageCodeCsv(@Nullable String csv) {
+        setString(R.string.preference_key_language_app, csv);
+    }
+
     @NonNull
     public static String getRemoteConfigJson() {
         return getString(R.string.preference_key_remote_config, "{}");

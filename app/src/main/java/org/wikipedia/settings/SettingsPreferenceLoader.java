@@ -68,7 +68,7 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
         contentLanguagePref.setOnPreferenceClickListener((preference) -> {
             LanguagePreferenceDialog langPrefDialog = new LanguagePreferenceDialog(getActivity(), false);
             langPrefDialog.setOnDismissListener((dialog) -> {
-                String name = defaultString(WikipediaApp.getInstance().getAppOrSystemLanguageLocalizedName());
+                String name = defaultString(WikipediaApp.getInstance().getAppLanguageLocalizedName());
                 if (getActivity() != null && !findPreference(R.string.preference_key_language).getSummary().equals(name)) {
                     findPreference(R.string.preference_key_language).setSummary(name);
                     getActivity().setResult(SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED);
@@ -94,7 +94,7 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
 
     private void updateLanguagePrefSummary() {
         Preference languagePref = findPreference(R.string.preference_key_language);
-        languagePref.setSummary(WikipediaApp.getInstance().getAppOrSystemLanguageLocalizedName());
+        languagePref.setSummary(WikipediaApp.getInstance().getAppLanguageLocalizedName());
     }
 
     private final class SyncReadingListsListener implements Preference.OnPreferenceChangeListener {

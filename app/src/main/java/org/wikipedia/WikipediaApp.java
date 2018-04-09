@@ -141,7 +141,7 @@ public class WikipediaApp extends Application {
 
     @NonNull
     public String getAppOrSystemLanguageCode() {
-        String code = appLanguageState.getAppOrSystemLanguageCode();
+        String code = appLanguageState.getAppLanguageCode();
         if (AccountUtil.getUserIdForLanguage(code) == 0) {
             getUserIdForLanguage(code);
         }
@@ -154,13 +154,13 @@ public class WikipediaApp extends Application {
     }
 
     public void setAppLanguageCode(@Nullable String code) {
-        appLanguageState.setAppLanguageCode(code);
+        appLanguageState.addAppLanguageCode(code);
         resetWikiSite();
     }
 
     @Nullable
-    public String getAppOrSystemLanguageLocalizedName() {
-        return appLanguageState.getAppOrSystemLanguageLocalizedName();
+    public String getAppLanguageLocalizedName() {
+        return appLanguageState.getAppLanguageLocalizedName();
     }
 
     @NonNull
