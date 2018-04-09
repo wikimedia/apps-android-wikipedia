@@ -25,11 +25,12 @@
             android:textAppearance="@style/MaterialListSubtitle"
             android:maxLines="2" />
     </RelativeLayout>
-    <ImageView
+    <android.support.v7.widget.AppCompatImageView
         android:id="@+id/right_icon"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_gravity="center"
         app:srcCompat="@drawable/ic_open_in_new_black_24px"
+        app:tint="?attr/material_theme_secondary_color"
         android:contentDescription="@null"/>
 </LinearLayout>
