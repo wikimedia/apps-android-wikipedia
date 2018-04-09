@@ -5,12 +5,12 @@ Script that builds one or more release apks.
 Does the following things in several steps:
 
 Step 1: (e.g., --beta):
-    - Runs the selected (clean) Gradle builds (e.g. beta, amazon, or prod and releasesprod combined)
+    - Runs the selected (clean) Gradle builds (e.g. beta, amazon, or prod)
 
 Step 2: (e.g., --beta --push):
     - Creates an annotated tag called 'releases/versionName'
     - Pushes the git tag to origin for history
-    - TODO (Not implemented yet): Uploads certain bits to releases.mediawiki.org: releasesprod, beta
+    - TODO (Not implemented yet): Uploads certain bits to releases.mediawiki.org: r, beta
 
 To run
 1) tell people on #wikimedia-mobile you're about to bump the version,
@@ -24,7 +24,7 @@ Note: the apk file locations are printed to stdout
 7) python scripts/make-release.py --prod --push
 8) compile release note of prod using (replace "r/*" with "beta/*" or "amazon/*")
     git log --pretty=format:"%h | %cr | %s" --abbrev-commit --no-merges `git tag -l r/*|tail -1`..
-9) Upload prod apk to store, releasesprod apk to releases.mediawiki.org
+9) Upload prod apk to Play Store and to releases.mediawiki.org
 
 Requires the python module 'sh' and the environment variable ANDROID_HOME to run.
 Ensure you have a clean working directory before running as well.
@@ -186,7 +186,7 @@ def main():
         flavors = ['beta']
         targets = flavors
     elif args.prod:
-        flavors = ['prod', 'releasesprod']
+        flavors = ['prod']
         targets = ['r']
     elif args.amazon:
         flavors = ['amazon']
@@ -216,8 +216,6 @@ def main():
     else:
         make_release(flavors, custom_channel)
         copy_artifacts(flavors[0])
-        if flavors[0] == 'prod':
-            copy_artifacts(flavors[1])
         print('Please test the APK. After that, run w/ --push flag, and release the tested APK.')
         print('A useful command for collecting the release notes:')
         print('git log --pretty=format:"%h | %cr | %s" --abbrev-commit --no-merges ' +
