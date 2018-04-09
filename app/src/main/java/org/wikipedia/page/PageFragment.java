@@ -122,6 +122,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         void onPageHideAllContent();
         void onPageSetToolbarFadeEnabled(boolean enabled);
         void onPageSetToolbarForceNoFace(boolean force);
+        void onPageSetToolbarElevationEnabled(boolean enabled);
     }
 
     public static final int TOC_ACTION_SHOW = 0;
@@ -766,7 +767,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == Constants.ACTIVITY_REQUEST_EDIT_SECTION
-            && resultCode == EditHandler.RESULT_REFRESH_PAGE) {
+                && resultCode == EditHandler.RESULT_REFRESH_PAGE) {
             pageFragmentLoadState.backFromEditing(data);
             FeedbackUtil.showMessage(getActivity(), R.string.edit_saved_successfully);
             // and reload the page...
@@ -873,7 +874,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 MenuItem menuItem = menu.add(R.string.menu_page_find_in_page);
                 menuItem.setActionProvider(findInPageActionProvider);
                 menuItem.expandActionView();
-
+                setToolbarElevationEnabled(false);
                 return true;
             }
 
@@ -899,6 +900,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 webView.clearMatches();
                 showToolbar();
                 hideSoftKeyboard();
+                setToolbarElevationEnabled(true);
             }
         });
     }
@@ -1352,6 +1354,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         Callback callback = callback();
         if (callback != null) {
             callback.onPageHideSoftKeyboard();
+        }
+    }
+
+    public void setToolbarElevationEnabled(boolean enabled) {
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onPageSetToolbarElevationEnabled(enabled);
         }
     }
 

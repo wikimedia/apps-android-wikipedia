@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -63,6 +64,7 @@ import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
@@ -585,7 +587,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @Override
     public void onPageAddToReadingList(@NonNull PageTitle title,
-                                @NonNull AddToReadingListDialog.InvokeSource source) {
+                                       @NonNull AddToReadingListDialog.InvokeSource source) {
         showAddToListDialog(title, source);
     }
 
@@ -638,6 +640,14 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Override
     public void onPageSetToolbarForceNoFace(boolean force) {
         toolbarHideHandler.setForceNoFade(force);
+    }
+
+    @Override
+    public void onPageSetToolbarElevationEnabled(boolean enabled) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            toolbarContainerView.setElevation(DimenUtil
+                    .dpToPx(enabled ? DimenUtil.getDimension(R.dimen.toolbar_default_elevation) : 0));
+        }
     }
 
     @Override
