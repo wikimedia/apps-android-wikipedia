@@ -100,6 +100,12 @@
 
             </LinearLayout>
 
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                app:srcCompat="@drawable/ic_open_in_new_black_24px"
+                android:contentDescription="@null"/>
         </LinearLayout>
 
         <View
@@ -134,6 +140,13 @@
                 android:layout_marginRight="16dp"
                 style="@style/MaterialListTitle"
                 android:text="@string/talk_page_link_text"/>
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                app:srcCompat="@drawable/ic_open_in_new_black_24px"
+                android:contentDescription="@null"/>
         </LinearLayout>
 
         <View
