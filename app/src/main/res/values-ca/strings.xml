@@ -58,8 +58,8 @@
   <string name="nearby_zoom_to_location">Zoom a una ubicació del mapa</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp; Col·laborades de l\'&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Última actualització %1$s</string>
-  <string name="talk_page_link_text" fuzzy="true">Discussió</string>
-  <string name="edit_history_link_text" fuzzy="true">Historial de modificacions</string>
+  <string name="talk_page_link_text">Mostra la pàgina de discussió</string>
+  <string name="edit_history_link_text">Mostra l\'historial de modificacions</string>
   <string name="map_view_link_text">Mostra al mapa</string>
   <string name="language_count_link_text">Disponible en %d altres llengües</string>
   <string name="content_license_html">El contingut està disponible sota llicència &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; si no s\'indica el contrari</string>
@@ -196,6 +196,7 @@
   <string name="edit_summary_tag_links">Enllaços afegits</string>
   <string name="edit_summary_tag_other">Altres</string>
   <string name="edit_summary_tag_other_hint">Altres formes com heu millorat la pàgina</string>
+  <string name="edit_conflict_title">Conflicte d\'edició</string>
   <string name="find_next">Cercar el següent</string>
   <string name="find_previous">Cercar l\'anterior</string>
   <string name="find_first_occurence">Aquesta és la primera ocurrència</string>
@@ -339,7 +340,7 @@
   <string name="reading_list_sort_by_created">Ordena per data de creació (més noves)</string>
   <string name="reading_list_sort_by_created_desc">Ordena per data de creació (més antigues)</string>
   <string name="reading_list_menu_delete">Elimina la llista</string>
-  <string name="reading_list_menu_rename" fuzzy="true">Reanomena</string>
+  <string name="reading_list_menu_rename">Modifica el nom / la descripció</string>
   <string name="reading_list_menu_edit_description">Modifica la descripció</string>
   <string name="reading_list_action_menu_remove_from_offline">Suprimeix del fora de línia</string>
   <string name="reading_list_action_menu_save_for_offline">Desa per a fora de línia</string>
@@ -409,6 +410,8 @@
   <string name="reading_lists_limit_message">No es pot crear una altra llista. Heu assolit el límit de 100 llistes de lectura per compte.</string>
   <string name="reading_lists_menu_create_list">Crea una llista nova</string>
   <string name="reading_lists_menu_sort_by">Ordena per</string>
+  <string name="reading_lists_refresh_sync_option">Refresca la sincronització</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Inicia una sessió / crea un compte</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Aquest article estarà disponible fora de línia a partir d\'ara.</item>
     <item quantity="other">Aquests articles estaran disponibles fora de línia a partir d\'ara.</item>

@@ -9,6 +9,7 @@
 * Joolee0104
 * Kwj2772
 * Namoroka
+* Nuevo Paso
 * SeoJeongHo
 * Tursetic
 * Twotwo2019
@@ -65,8 +66,8 @@
   <string name="map_view_link_text">지도에서 보기</string>
   <string name="language_count_link_text">%d개의 다른 언어로 읽을 수 있음</string>
   <string name="content_license_html">별도로 명시하지 않는 한 콘텐츠는 &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;에 따라 이용할 수 있습니다</string>
-  <string name="edit_save_action_license_logged_in">저장하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 영구히 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 배포하는 데 동의합니다.</string>
-  <string name="edit_save_action_license_anon">저장하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 영구히 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 배포하는 데 동의합니다. 편집에 당신의 장치의 IP 주소가 들어갑니다. &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하면, 개인 정보를 더 보호할 수 있습니다.</string>
+  <string name="edit_save_action_license_logged_in">저장을 하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 영구히 배포하는 데 동의한다는 것을 의미합니다.</string>
+  <string name="edit_save_action_license_anon">저장을 하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 영구히 배포하는 데 동의한다는 것을 의미합니다. 편집에 당신이 쓴 기기의 IP 주소가 남습니다. &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하면, 개인 정보를 더 보호할 수 있습니다.</string>
   <string name="preference_title_language">위키백과 언어</string>
   <string name="preference_languages_filter_hint">검색</string>
   <string name="langlinks_filter_hint">검색</string>
@@ -199,6 +200,7 @@
   <string name="edit_summary_tag_other">기타</string>
   <string name="edit_summary_tag_other_hint">문서를 개선하는 다른 방법</string>
   <string name="edit_conflict_title">편집 충돌</string>
+  <string name="edit_conflict_message">이 문서는 이미 다른 사용자에 의해 수정되었으며 편집과 충돌합니다. 편집을 복사하고 뒤로 돌아가서 문서를 새로 고친 다음 다시 편집을 시도하십시오.</string>
   <string name="find_next">다음 찾기</string>
   <string name="find_previous">이전 찾기</string>
   <string name="find_first_occurence">이것이 처음 항목입니다</string>

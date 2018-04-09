@@ -22,7 +22,7 @@
   <string name="menu_clear_all_history">చరిత్రను తుడిచివెయ్యి</string>
   <string name="dialog_title_clear_history" fuzzy="true">విహరణ చరిత్రను తుడిచివెయ్యాలా?</string>
   <string name="dialog_message_clear_history" fuzzy="true">మీరు నిజంగానే చరిత్రనంతా తుడిచెయ్యాలి అనుకుంటున్నారా?</string>
-  <string name="share_via">ఈ విధానం ద్వారా పంచుకోండి</string>
+  <string name="share_via">దీని ద్వారా పంచుకోండి:</string>
   <string name="menu_page_show_tabs">ట్యాబులను చూపించు</string>
   <string name="menu_page_other_languages">భాషను ఎంచుకోండి</string>
   <string name="menu_page_find_in_page">పుటలో వెతకండి</string>

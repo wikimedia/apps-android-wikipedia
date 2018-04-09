@@ -126,6 +126,7 @@
   <string name="edit_summary_tag_grammar">درستی قواعد</string>
   <string name="edit_summary_tag_links">لنک شامل کیتا</string>
   <string name="edit_summary_tag_other">ٻئے</string>
+  <string name="edit_conflict_title">تبدیلی رپھڑ</string>
   <string name="find_next">اڳلا ڳولو</string>
   <string name="find_previous">پچھلا ڳولو</string>
   <string name="dialog_page_issues">ورقے دے مسئلے</string>

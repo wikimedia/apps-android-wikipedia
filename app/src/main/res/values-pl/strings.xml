@@ -141,6 +141,7 @@
   <string name="edit_preview_fetching_dialog_message">Ładowanie podglądu…</string>
   <string name="send_feedback">Wyślij opinię o aplikacji</string>
   <string name="create_account_account_created_toast">Konto zostało utworzone!</string>
+  <string name="preferences_heading_syncing">Synchronizowanie</string>
   <string name="preferences_heading_data_usage">Użycie danych</string>
   <string name="preferences_heading_experimental">Eksperymentalne</string>
   <string name="preferences_privacy_settings_heading">Prywatność</string>
@@ -189,6 +190,8 @@
   <string name="edit_summary_tag_links">Dodano linki</string>
   <string name="edit_summary_tag_other">Inne</string>
   <string name="edit_summary_tag_other_hint">Co poprawiłaś/eś na tej stronie</string>
+  <string name="edit_conflict_title">Konflikt edycji</string>
+  <string name="edit_conflict_message">Strona już została zmodyfikowana przez innego użytkownika i koliduje to z twoją edycją. Skopiuj swoje edycje, wróć i odśwież stronę, następnie spróbuj zaedytować ją ponownie.</string>
   <string name="find_next">Znajdź następny</string>
   <string name="find_previous">Znajdź poprzedni</string>
   <string name="abusefilter_title_warn">To chyba nie jest konstruktywna edycja. Czy na pewno chcesz ją opublikować?</string>
@@ -256,15 +259,19 @@
   <string name="address_copied">Adres skopiowany do schowka.</string>
   <string name="text_copied">Tekst skopiowany do schowka.</string>
   <string name="button_continue_to_article">Przeczytaj artykuł</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Artykuł nie może zostać załadowany, gdy jesteś offline.</string>
   <string name="button_get_directions">Wyznacz trasę</string>
   <string name="error_no_maps_app">Nie udało się znaleźć aplikacji do nawigacji.</string>
   <string name="preference_title_show_link_previews">Pokaż podgląd linków</string>
   <string name="preference_summary_show_link_previews">Pokaż szybki podgląd artykułów po kliknięciu na linki.</string>
   <string name="nav_item_donate">Wspomóż Wikipedię</string>
   <string name="error_voice_search_not_available">Przepraszamy, rozpoznawanie mowy nie jest dostępne.</string>
+  <string name="location_service_disabled">Usługi lokalizacji są wyłączone.</string>
   <string name="enable_location_service">Włącz</string>
   <string name="location_permissions_enable_prompt">Włącz uprawnienia do lokalizacji, aby zobaczyć miejsca w pobliżu.</string>
   <string name="location_permissions_enable_action">Włącz</string>
+  <string name="error_webview_updating">Usługa Android System WebView jest obecnie aktualizowana. Spórbuj ponownie za chwilę.</string>
+  <string name="multi_select_items_selected">Wybrano %d</string>
   <string name="error_message_generic">Wystąpił błąd</string>
   <string name="view_link_preview_error_button_dismiss">Odrzuć</string>
   <string name="error_page_does_not_exist">Ta strona nie istnieje</string>
@@ -308,6 +315,8 @@
   <string name="reading_list_sort_by_name_desc">Sortuj według nazwy (odwrotnie)</string>
   <string name="reading_list_sort_by_recent">Sortuj według daty dodania (od najnowszych)</string>
   <string name="reading_list_sort_by_recent_desc">Sortuj według daty dodania (od najstarszych)</string>
+  <string name="reading_list_sort_by_created">Sortuj według daty utworzenia (od najnowszych)</string>
+  <string name="reading_list_sort_by_created_desc">Sortuj według daty utworzenia (od najstarszych)</string>
   <string name="reading_list_menu_delete">Usuń listę</string>
   <string name="reading_list_menu_rename">Edytuj nazwę/opis</string>
   <string name="reading_list_menu_edit_description">Edytuj opis</string>
@@ -334,20 +343,25 @@
   <string name="reading_list_article_offline">Dostępne online</string>
   <string name="reading_list_article_make_offline">Artykuł będzie dostępny offline</string>
   <string name="reading_list_remove_from_list">Usuń z %s</string>
+  <string name="reading_lists_sync_reminder_action">Włącz synchronizację</string>
   <string name="reading_lists_confirm_remote_delete_yes">Tak</string>
   <string name="reading_lists_confirm_remote_delete_no">Nie</string>
   <string name="reading_list_added_articles_list_titled">Dodano %1$d artykułów do %2$s</string>
   <string name="reading_list_delete_confirm">Czy na pewno chcesz usunąć „%s”?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Zaloguj się, aby włączyć synchronizację</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Anuluj</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Zaloguj się</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Ustawienia</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Nie pokazuj mi tego ponownie</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Włącz synchronizację</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nie, dziękuję</string>
   <string name="reading_list_login_option_reminder_dialog_no">Nie, usuń artykuły</string>
   <string name="reading_list_logout_option_reminder_dialog_title">Zachować w aplikacji zapisane artykuły?</string>
   <string name="reading_list_logout_option_reminder_dialog_yes">Tak, zachowaj artykuły na listach</string>
   <string name="reading_list_logout_option_reminder_dialog_no">Nie, usuń artykuły z list</string>
   <string name="default_reading_list_name">Zapisane</string>
+  <string name="reading_list_saved_list_rename">%1$s (utworzono konto użytkownika)</string>
   <string name="reading_lists_menu_create_list">Utwórz nową listę</string>
   <string name="reading_lists_menu_sort_by">Sortuj według</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Zaloguj się / zarejestruj</string>
@@ -361,9 +375,11 @@
   </plurals>
   <string name="user_option_sync_label">Preferencje</string>
   <string name="notification_button_view_user">Napisz do użytkownika</string>
+  <string name="notification_talk_title">Nowa wiadomość na Wikipedii</string>
   <string name="notification_reverted_title">Wycofana edycja</string>
   <string name="notification_thanks_title">Otrzymałeś podziękowania!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; podziękował Ci za edycję na stronie &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_channel_name">Synchronizowanie</string>
   <string name="notification_syncing_title">Pobieranie %1$d artykułu(-ów)...</string>
   <string name="notification_syncing_pause_button">Pauza</string>
   <string name="notification_syncing_resume_button">Wznów</string>
@@ -396,6 +412,9 @@
   <string name="view_featured_article_footer_saved_button_label">Zapisane</string>
   <string name="feed_configure_menu_select_all">Zaznacz wszystko</string>
   <string name="feed_configure_menu_deselect_all">Odznacz wszystko</string>
+  <string name="feed_item_type_featured_article">Dzisiejszy wyróżniony artykuł na Wikipedii</string>
+  <string name="feed_item_type_main_page">Strona główna Wikipedii zawierająca dzienną wyróżnioną treść</string>
+  <string name="feed_item_type_randomizer">Wylosuj artykuł do przeczytania</string>
   <string name="feed_configure_onboarding_action">Dostosuj</string>
   <string name="description_edit_text_hint">Opis tytułu</string>
   <string name="description_edit_save">Opublikuj</string>
@@ -411,6 +430,7 @@
   <string name="description_edit_success_did_you_know">Czy wiesz, że?</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Najlepiej jedna linia, od dwóch do dwunastu wyrazów.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Rozpocznij edycję</string>
+  <string name="description_edit_help_about_title">Informacje</string>
   <string name="description_edit_help_tips">Jak tworzyć opisy</string>
   <string name="description_edit_help_tips_examples">Na przykład:</string>
   <string name="description_edit_help_tips_example1">obraz Leonarda da Vinci</string>
@@ -439,6 +459,7 @@
   <string name="onboarding_continue">Kontynuuj</string>
   <string name="onboarding_get_started">Rozpocznij edycję</string>
   <string name="onboarding_welcome_title">Wolna encyklopedia</string>
+  <string name="onboarding_welcome_text">Wikipedia jest tworzona wspólnie przez wolontariuszy i zawiera ponad 40 milionów artykułów w prawie 300 językach. &lt;a href=\"#about\"&gt;Dowiedz się więcej&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Nowe metody eksploracji</string>
   <string name="onboarding_explore_text" fuzzy="true">Odkrywaj wyróżnione artykuły, najpopularniejsze tematy i czytaj sugestie na kanale feed Explore.</string>
   <string name="onboarding_reading_list_sync_title" fuzzy="true">Zsynchronizowane listy do przeczytania</string>
