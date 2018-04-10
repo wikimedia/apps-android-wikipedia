@@ -78,13 +78,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/nav_item_donate"
                 style="@android:style/TextAppearance"/>
-            <ImageView
+            <android.support.v7.widget.AppCompatImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:contentDescription="@null"
                 android:layout_marginStart="16dp"
                 android:layout_gravity="center_vertical"
-                app:srcCompat="@drawable/ic_open_in_new_black_24px"/>
+                app:srcCompat="@drawable/ic_open_in_new_black_24px"
+                app:tint="?attr/material_theme_secondary_color"/>
         </LinearLayout>
 
         <TextView
