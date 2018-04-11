@@ -62,10 +62,10 @@ public final class L10nUtil {
      * Set up directionality for both UI and content elements in a webview.
      *
      * @param contentLang The Content language to use to set directionality. Wiki Language code.
-     * @param uiLang The UI language to use to set directionality. Java language code.
+     * @param uiLocale The UI language to use to set directionality. Java language code.
      * @param bridge The CommunicationBridge to use to communicate with the WebView
      */
-    public static void setupDirectionality(String contentLang, String uiLang, CommunicationBridge bridge) {
+    public static void setupDirectionality(String contentLang, Locale uiLocale, CommunicationBridge bridge) {
         JSONObject payload = new JSONObject();
         try {
             if (isLangRTL(contentLang)) {
@@ -73,7 +73,7 @@ public final class L10nUtil {
             } else {
                 payload.put("contentDirection", "ltr");
             }
-            if (isLangRTL(LanguageUtil.languageCodeToWikiLanguageCode(uiLang))) {
+            if (isLangRTL(LanguageUtil.localeToWikiLanguageCode(uiLocale))) {
                 payload.put("uiDirection", "rtl");
             } else {
                 payload.put("uiDirection", "ltr");

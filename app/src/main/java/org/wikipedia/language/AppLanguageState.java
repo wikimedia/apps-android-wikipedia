@@ -65,7 +65,7 @@ public class AppLanguageState {
 
     @NonNull
     public String getSystemLanguageCode() {
-        String code = LanguageUtil.languageCodeToWikiLanguageCode(Locale.getDefault().getLanguage());
+        String code = LanguageUtil.localeToWikiLanguageCode(Locale.getDefault());
         return appLanguageLookUpTable.isSupportedCode(code)
                 ? code
                 : AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE;

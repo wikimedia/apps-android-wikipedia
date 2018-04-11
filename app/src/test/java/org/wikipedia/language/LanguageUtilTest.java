@@ -29,8 +29,6 @@ public class LanguageUtilTest {
                     {CHINESE_LANG, SIMPLIFIED_WIKI_LANG},
                     {"zh-Hans", SIMPLIFIED_WIKI_LANG},
                     {"zh-Hant", TRADITIONAL_WIKI_LANG},
-                    {"zh-cmn-Hans", SIMPLIFIED_WIKI_LANG},
-                    {"zh-cmn-Hant", TRADITIONAL_WIKI_LANG},
                     {"zh-Hans-HK", SIMPLIFIED_WIKI_LANG},
                     {"zh-Hant-HK", TRADITIONAL_WIKI_LANG}
             });
@@ -98,7 +96,7 @@ public class LanguageUtilTest {
 
         void test(@NonNull Locale defaultLocale, @Nullable String expected) {
             Locale.setDefault(defaultLocale);
-            String wikiLang = LanguageUtil.languageCodeToWikiLanguageCode(CHINESE_LANG);
+            String wikiLang = LanguageUtil.localeToWikiLanguageCode(defaultLocale);
             assertThat(wikiLang, is(expected));
         }
     }
