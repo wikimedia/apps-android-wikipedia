@@ -68,6 +68,10 @@ public final class InstallReceiver extends BroadcastReceiver {
         if (TextUtils.isEmpty(referrerStr)) {
             return;
         }
+        if (WikipediaApp.getInstance() == null) {
+            L.e("Received install event before WikipediaApp was initialized.");
+            return;
+        }
 
         String refUrl = null;
         String refUtmMedium = null;
