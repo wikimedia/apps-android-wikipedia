@@ -144,25 +144,18 @@ function clearContents() {
 
 function elementsForSection( section ) {
     var content, lazyDocument;
-    var heading = document.createElement( "h" + ( section.toclevel + 1 ) );
-    heading.setAttribute( "dir", window.directionality );
-    heading.innerHTML = typeof section.line !== "undefined" ? section.line : "";
-    heading.id = section.anchor;
-    heading.className = "section_heading";
-    heading.setAttribute( 'data-id', section.id );
-
-    if (!section.noedit) {
-        heading.appendChild( pagelib.EditTransform.newEditSectionButton( document, section.id ) );
-    }
-
+    var header = pagelib.EditTransform.newEditSectionHeader(document,
+              section.id, section.toclevel + 1,section.line);
+    header.id = section.anchor;
+    header.setAttribute( "dir", window.directionality );
+    header.setAttribute( 'data-id', section.id );
     lazyDocument = document.implementation.createHTMLDocument( );
     content = lazyDocument.createElement( "div" );
     content.setAttribute( "dir", window.directionality );
     content.innerHTML = section.text;
     content.id = "content_block_" + section.id;
-
     applySectionTransforms(content, false);
-    return [ heading, content ];
+    return [ header, content ];
 }
 
 function applySectionTransforms( content, isLeadSection ) {
@@ -346,7 +339,7 @@ bridge.registerListener( "displayFromZim", function( payload ) {
             // dress up the header node a bit
             zimNodes[i].setAttribute( "dir", window.directionality );
             zimNodes[i].id = sectionJson.anchor;
-            zimNodes[i].className = "section_heading";
+            zimNodes[i].className = "pagelib_edit_section_header";
             zimNodes[i].setAttribute( 'data-id', sectionIndex );
         }
         currentSectionNode.appendChild(zimNodes[i]);
@@ -455,7 +448,7 @@ bridge.registerListener( "scrollToBottom", function ( payload ) {
  * or -1 if the page is scrolled all the way to the bottom (i.e. native bottom content should be shown).
  */
 function getCurrentSection() {
-    var sectionHeaders = document.getElementsByClassName( "section_heading" );
+    var sectionHeaders = document.getElementsByClassName( "pagelib_edit_section_header" );
     var bottomDiv = document.getElementById( "bottom_stopper" );
     var topCutoff = window.scrollY + ( document.documentElement.clientHeight / 2 );
     if (topCutoff > bottomDiv.offsetTop) {
