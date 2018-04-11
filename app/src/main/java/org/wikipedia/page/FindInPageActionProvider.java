@@ -7,6 +7,7 @@ import android.support.v7.widget.SearchView;
 import android.view.ActionProvider;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +16,8 @@ import org.wikipedia.R;
 import org.wikipedia.analytics.FindInPageFunnel;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.ResourceUtil;
+
+import java.lang.reflect.Field;
 
 public class FindInPageActionProvider extends ActionProvider {
     @NonNull private final PageFragment fragment;
@@ -95,6 +98,8 @@ public class FindInPageActionProvider extends ActionProvider {
             return true;
         });
 
+        setFindInPageChevronsEnabled(false);
+
         findInPageMatch = view.findViewById(R.id.find_in_page_match);
         View closeButton = view.findViewById(R.id.close_button);
         closeButton.setOnClickListener(v -> fragment.closeFindInPage());
@@ -117,6 +122,16 @@ public class FindInPageActionProvider extends ActionProvider {
                 .findViewById(android.support.v7.appcompat.R.id.search_close_btn);
         searchCloseButton.setEnabled(false);
         searchCloseButton.setImageDrawable(null);
+
+        AutoCompleteTextView searchTextView = searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
+        try {
+            Field mCursorDrawableRes = TextView.class.getDeclaredField("mCursorDrawableRes");
+            mCursorDrawableRes.setAccessible(true);
+            mCursorDrawableRes.set(searchTextView, R.drawable.custom_cursor);
+        } catch (Exception e) {
+            // ignore
+        }
+
         return view;
     }
 
@@ -128,8 +143,6 @@ public class FindInPageActionProvider extends ActionProvider {
 
         @Override
         public boolean onQueryTextChange(String s) {
-            findInPageNext.setEnabled(s.length() > 0);
-            findInPagePrev.setEnabled(s.length() > 0);
             if (!pageFragmentValid()) {
                 return false;
             }
@@ -158,17 +171,15 @@ public class FindInPageActionProvider extends ActionProvider {
             if (numberOfMatches > 0) {
                 findInPageMatch.setText(fragment.getString(R.string.find_in_page_result,
                         activeMatchOrdinal + 1, numberOfMatches));
-                findInPageMatch.setTextColor(ResourceUtil.getThemedColor(fragment.getContext(), R.attr.page_toolbar_icon_color));
-                findInPageNext.setEnabled(true);
-                findInPagePrev.setEnabled(true);
+                findInPageMatch.setTextColor(ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.material_theme_de_emphasised_color));
+                setFindInPageChevronsEnabled(true);
 
                 isFirstOccurrence = activeMatchOrdinal == 0;
                 isLastOccurrence = activeMatchOrdinal + 1 == numberOfMatches;
             } else {
                 findInPageMatch.setText("0/0");
-                findInPageMatch.setTextColor(ContextCompat.getColor(fragment.getContext(), R.color.red50));
-                findInPageNext.setEnabled(false);
-                findInPagePrev.setEnabled(false);
+                findInPageMatch.setTextColor(ContextCompat.getColor(fragment.requireContext(), R.color.red50));
+                setFindInPageChevronsEnabled(false);
 
                 isFirstOccurrence = false;
                 isLastOccurrence = false;
@@ -183,5 +194,13 @@ public class FindInPageActionProvider extends ActionProvider {
         });
 
         fragment.getWebView().findAllAsync(s);
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private void setFindInPageChevronsEnabled(boolean enabled) {
+        findInPageNext.setEnabled(enabled);
+        findInPagePrev.setEnabled(enabled);
+        findInPageNext.setAlpha(enabled ? 1.0f : 0.5f);
+        findInPagePrev.setAlpha(enabled ? 1.0f : 0.5f);
     }
 }

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -18,6 +17,7 @@
         android:hint="@string/menu_page_find_in_page"
         android:layout_gravity="center_vertical"
         android:imeOptions="actionSearch|flagNoExtractUi"
+        android:theme="@style/FindInPageSearchViewStyle"
         app:cabEnabled="false"
         app:iconifiedByDefault="false"
         app:searchIcon="@null"
@@ -31,15 +31,16 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:textColor="?attr/page_toolbar_icon_color"
-        tools:text="99/99"
-        style="?android:textAppearanceSmall"/>
+        android:textSize="12sp"
+        tools:text="99/99"/>
 
     <View
         android:layout_width="1dp"
         android:layout_height="match_parent"
-        android:background="@color/base70"
-        android:layout_marginStart="16dp"/>
+        android:background="?attr/material_theme_border_color"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
 
     <ImageView
         style="@style/Widget.AppCompat.ImageButton"

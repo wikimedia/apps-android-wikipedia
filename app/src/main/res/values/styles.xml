@@ -135,6 +135,7 @@
         <item name="backgroundSplit">?attr/page_toolbar_color</item>
         <item name="titleTextStyle">@style/PageActionModeTitleStyle</item>
         <item name="subtitleTextStyle">@style/PageActionModeSubtitleStyle</item>
+        <item name="android:elevation" tools:targetApi="21">4dp</item>
     </style>
 
     <style name="ActionModeTitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
@@ -175,6 +176,10 @@
         <item name="android:textCursorDrawable">@null</item>
         <item name="android:textColor">?attr/page_toolbar_icon_color</item>
         <item name="android:textColorHint">@color/white50</item>
+    </style>
+
+    <style name="FindInPageSearchViewStyle" parent="@style/Widget.AppCompat.SearchView">
+        <item name="android:textSize">16sp</item>
     </style>
 
     <style name="ListView" parent="@style/Widget.AppCompat.ListView">
