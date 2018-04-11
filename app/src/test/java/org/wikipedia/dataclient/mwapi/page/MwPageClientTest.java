@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.page.BasePageClientTest;
 import org.wikipedia.dataclient.page.PageClient;
 
@@ -17,7 +18,7 @@ public class MwPageClientTest extends BasePageClientTest {
 
     @Before public void setUp() throws Throwable {
         super.setUp();
-        subject = new MwPageClient(service(MwPageService.class));
+        subject = new MwPageClient(service(MwPageService.class), WikipediaApp.getInstance().getWikiSite());
     }
 
     @Test public void testLeadThumbnailWidth() throws Throwable {
