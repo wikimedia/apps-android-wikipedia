@@ -170,6 +170,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
                         }).show();
                 return true;
             case R.id.refresh:
+                swipeRefreshLayout.setRefreshing(true);
                 refreshSync(this, swipeRefreshLayout);
                 return true;
             default:

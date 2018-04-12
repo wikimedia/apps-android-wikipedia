@@ -78,7 +78,7 @@ public class SortReadingListsDialog extends ExtendedBottomSheetDialogFragment {
         public void onBindViewHolder(@NonNull SortItemHolder holder, int pos) {
             holder.bindItem(pos);
 
-            holder.sortOptionTextView.setOnClickListener((View view) -> {
+            holder.itemView.setOnClickListener((View view) -> {
                 if (callback() != null) {
                     callback().onSortOptionClick(pos);
                 }

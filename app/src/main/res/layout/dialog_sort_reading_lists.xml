@@ -7,11 +7,14 @@
     <TextView
         android:id="@+id/sort_by"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/activity_horizontal_margin"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:fontFamily="sans-serif-medium"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
+        android:paddingStart="@dimen/activity_horizontal_margin"
         android:text="@string/reading_lists_menu_sort_by"
-        android:textSize="16sp"
-        android:textColor="?attr/secondary_text_color" />
+        android:textColor="?attr/secondary_text_color"
+        android:textSize="16sp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/sort_options_list"
