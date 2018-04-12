@@ -109,6 +109,10 @@ public final class StringUtil {
         return text.substring(0, text.indexOf("#"));
     }
 
+    public static String removeHTMLTags(@NonNull String text) {
+        return fromHtml(text).toString();
+    }
+
     public static String sanitizeText(@NonNull String selectedText) {
         return selectedText.replaceAll("\\[\\d+\\]", "") // [1]
                 // https://en.wikipedia.org/wiki/Phonetic_symbols_in_Unicode
