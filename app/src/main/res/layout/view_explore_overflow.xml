@@ -8,13 +8,13 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="-2dp"
     android:layout_marginEnd="2dp"
-    app:cardUseCompatPadding="true"
-    android:minWidth="192dp">
+    app:cardUseCompatPadding="true">
 
 <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:minWidth="192dp"
     android:background="@color/base20">
 
     <LinearLayout
