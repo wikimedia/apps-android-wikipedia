@@ -16,12 +16,15 @@ import android.view.ViewGroup;
 import android.view.ViewManager;
 import android.view.animation.Animation;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.R;
 import org.wikipedia.util.DimenUtil;
+
+import java.util.Locale;
 
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 
@@ -136,6 +139,20 @@ public final class ViewUtil {
             }
             return false;
         });
+    }
+
+    public static void formatLangButton(TextView langButton, String langCode, int langButtonTextSizeSmaller, int langButtonTextSizeLarger) {
+        final int langCodeStandardLength = 3;
+        final int langButtonTextMaxLength = 7;
+
+        if (langCode.length() > langCodeStandardLength) {
+            langButton.setTextSize(langButtonTextSizeSmaller);
+            if (langCode.length() > langButtonTextMaxLength) {
+                langButton.setText(langCode.substring(0, langButtonTextMaxLength).toUpperCase(Locale.ENGLISH));
+            }
+            return;
+        }
+        langButton.setTextSize(langButtonTextSizeLarger);
     }
 
     private ViewUtil() {

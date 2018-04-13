@@ -81,6 +81,27 @@
     </FrameLayout>
 
     <FrameLayout
+        android:id="@+id/language_scroll_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/page_toolbar_color"
+        android:elevation="6dp"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/material_theme_border_color" />
+
+        <org.wikipedia.views.LanguageScrollView
+            android:id="@+id/lang_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:theme="@style/PageToolbarTheme" />
+
+    </FrameLayout>
+
+    <FrameLayout
         android:id="@+id/search_offline_library_state"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -105,25 +126,25 @@
 
     </FrameLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="?android:windowBackground">
-
-        <fragment
-            android:id="@+id/fragment_search_results"
-            android:name="org.wikipedia.search.SearchResultsFragment"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout="@layout/fragment_search_results" />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="?android:windowBackground">
 
-        <fragment
-            android:id="@+id/search_panel_recent"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:name="org.wikipedia.search.RecentSearchesFragment"
-            tools:layout="@layout/fragment_search_recent"/>
+            <fragment
+                android:id="@+id/fragment_search_results"
+                android:name="org.wikipedia.search.SearchResultsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:layout="@layout/fragment_search_results" />
 
-    </FrameLayout>
+            <fragment
+                android:id="@+id/search_panel_recent"
+                android:name="org.wikipedia.search.RecentSearchesFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:layout="@layout/fragment_search_recent" />
 
+        </FrameLayout>
 </LinearLayout>
