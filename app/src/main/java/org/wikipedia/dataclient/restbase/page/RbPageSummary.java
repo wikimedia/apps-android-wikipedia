@@ -24,6 +24,7 @@ public class RbPageSummary implements PageSummary {
     @SuppressWarnings("unused,NullableProblems") @NonNull private String displaytitle;
     @SuppressWarnings("unused") @Nullable private NamespaceContainer namespace;
     @SuppressWarnings("unused") @Nullable private String extract;
+    @SuppressWarnings("unused") @Nullable @SerializedName("extract_html") private String extractHtml;
     @SuppressWarnings("unused") @Nullable private String description;
     @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
     @SuppressWarnings("unused") @Nullable @SerializedName("originalimage") private Thumbnail originalImage;
@@ -57,6 +58,11 @@ public class RbPageSummary implements PageSummary {
     @Override @Nullable
     public String getExtract() {
         return extract;
+    }
+
+    @Override @Nullable
+    public String getExtractHtml() {
+        return extractHtml;
     }
 
     @Override @Nullable

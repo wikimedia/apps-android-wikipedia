@@ -36,6 +36,11 @@ public class MwQueryPageSummary extends MwQueryResponse implements PageSummary {
     }
 
     @Override @Nullable
+    public String getExtractHtml() {
+        return getExtract();
+    }
+
+    @Override @Nullable
     public String getThumbnailUrl() {
         if (query() == null || query().firstPage() == null) {
             return null;

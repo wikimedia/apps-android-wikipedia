@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -125,7 +126,7 @@ public class RandomItemFragment extends Fragment {
         }
         articleTitleView.setText(summary.getNormalizedTitle());
         articleSubtitleView.setText(null); //summary.getDescription());
-        extractView.setText(summary.getExtract());
+        extractView.setText(Html.fromHtml(summary.getExtractHtml()));
         ViewTreeObserver observer = extractView.getViewTreeObserver();
         observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override

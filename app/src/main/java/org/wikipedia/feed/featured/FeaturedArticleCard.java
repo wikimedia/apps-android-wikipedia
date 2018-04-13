@@ -64,7 +64,7 @@ public class FeaturedArticleCard extends Card {
     @Nullable
     @Override
     public String extract() {
-        return page.getExtract();
+        return page.getExtractHtml();
     }
 
     @NonNull @Override public CardType type() {
