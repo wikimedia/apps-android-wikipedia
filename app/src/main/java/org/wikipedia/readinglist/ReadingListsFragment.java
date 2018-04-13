@@ -113,7 +113,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         emptyContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
         ((ViewGroup)emptyContainer.getChildAt(0)).getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
         swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent));
-        swipeRefreshLayout.setOnRefreshListener(this::refreshSync);
+        swipeRefreshLayout.setOnRefreshListener(() -> refreshSync(ReadingListsFragment.this, swipeRefreshLayout));
         if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
             swipeRefreshLayout.setEnabled(false);
         }
@@ -170,7 +170,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
                         }).show();
                 return true;
             case R.id.refresh:
-                refreshSync();
+                refreshSync(this, swipeRefreshLayout);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -196,9 +196,9 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         sortLists();
     }
 
-    private void refreshSync() {
+    public static void refreshSync(@NonNull Fragment fragment, @NonNull SwipeRefreshLayout swipeRefreshLayout) {
         if (!AccountUtil.isLoggedIn()) {
-            ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(requireActivity());
+            ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(fragment.requireActivity());
             swipeRefreshLayout.setRefreshing(false);
         } else {
             Prefs.setReadingListSyncEnabled(true);

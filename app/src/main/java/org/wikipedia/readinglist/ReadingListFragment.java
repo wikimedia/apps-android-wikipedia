@@ -9,6 +9,7 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
@@ -46,6 +47,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
+import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SiteInfoClient;
@@ -76,6 +78,7 @@ import retrofit2.Call;
 import retrofit2.Response;
 
 import static org.wikipedia.readinglist.ReadingListActivity.EXTRA_READING_LIST_ID;
+import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
 public class ReadingListFragment extends Fragment implements ReadingListItemActionsDialog.Callback {
     @BindView(R.id.reading_list_toolbar) Toolbar toolbar;
@@ -85,6 +88,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     @BindView(R.id.reading_list_contents) RecyclerView recyclerView;
     @BindView(R.id.reading_list_empty_text) TextView emptyView;
     @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
+    @BindView(R.id.reading_list_swipe_refresh) SwipeRefreshLayout swipeRefreshLayout;
     private Unbinder unbinder;
 
     @NonNull private final EventBusMethods eventBusMethods = new EventBusMethods();
@@ -150,6 +154,13 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         readingListId = getArguments().getLong(EXTRA_READING_LIST_ID);
 
         WikipediaApp.getInstance().getBus().register(eventBusMethods);
+
+        swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent));
+        swipeRefreshLayout.setOnRefreshListener(() -> ReadingListsFragment.refreshSync(ReadingListFragment.this, swipeRefreshLayout));
+        if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
+            swipeRefreshLayout.setEnabled(false);
+        }
+        appBarLayout.addOnOffsetChangedListener((appBarLayout, verticalOffset) -> swipeRefreshLayout.setEnabled(verticalOffset == 0));
 
         return view;
     }
@@ -264,6 +275,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                 if (getActivity() == null) {
                     return;
                 }
+                swipeRefreshLayout.setRefreshing(false);
                 readingList = list;
                 if (readingList != null) {
                     searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results,
