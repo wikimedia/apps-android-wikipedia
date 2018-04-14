@@ -15,11 +15,10 @@ import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
+import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
 import org.wikipedia.theme.ThemeFittingRoomActivity;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.StringUtil;
-
-import static org.apache.commons.lang3.StringUtils.defaultString;
 
 /** UI code for app settings used by PreferenceFragment. */
 class SettingsPreferenceLoader extends BasePreferenceLoader {
@@ -64,17 +63,8 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
         updateLanguagePrefSummary();
 
         Preference contentLanguagePref = findPreference(R.string.preference_key_language);
-
-        contentLanguagePref.setOnPreferenceClickListener((preference) -> {
-            LanguagePreferenceDialog langPrefDialog = new LanguagePreferenceDialog(getActivity(), false);
-            langPrefDialog.setOnDismissListener((dialog) -> {
-                String name = defaultString(WikipediaApp.getInstance().getAppLanguageLocalizedName());
-                if (getActivity() != null && !findPreference(R.string.preference_key_language).getSummary().equals(name)) {
-                    findPreference(R.string.preference_key_language).setSummary(name);
-                    getActivity().setResult(SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED);
-                }
-            });
-            langPrefDialog.show();
+        contentLanguagePref.setOnPreferenceClickListener(preference -> {
+            getActivity().startActivity(new Intent(getActivity(), WikipediaLanguagesActivity.class));
             return true;
         });
 
@@ -92,9 +82,10 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
                 });
     }
 
-    private void updateLanguagePrefSummary() {
+    void updateLanguagePrefSummary() {
         Preference languagePref = findPreference(R.string.preference_key_language);
-        languagePref.setSummary(WikipediaApp.getInstance().getAppLanguageLocalizedName());
+        // TODO: resolve RTL vs LTR with multiple languages (e.g. list contains English and Hebrew)
+        languagePref.setSummary(WikipediaApp.getInstance().getAppLanguageLocalizedNames());
     }
 
     private final class SyncReadingListsListener implements Preference.OnPreferenceChangeListener {

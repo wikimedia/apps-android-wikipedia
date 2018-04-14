@@ -42,6 +42,13 @@ public class AppLanguageState {
         initAppLanguageCodes();
     }
 
+    private void addSystemLanguageCodesIfEmpty() {
+        // To prevent the possibility of empty app language code
+        if (appLanguageCodes.isEmpty()) {
+            appLanguageCodes.addAll(getSystemLanguageCodes());
+        }
+    }
+
     @NonNull
     public List<String> getAppLanguageCodes() {
         return appLanguageCodes;
@@ -53,6 +60,21 @@ public class AppLanguageState {
     }
 
     @NonNull
+    public List<String> updateAppLanguageCodes(@NonNull List<String> codes) {
+        appLanguageCodes.clear();
+        for (String code : codes) {
+            if (!TextUtils.isEmpty(code)) {
+                appLanguageCodes.add(code);
+            }
+        }
+
+        addSystemLanguageCodesIfEmpty();
+
+        Prefs.setAppLanguageCodeCsv(StringUtil.listToCsv(appLanguageCodes));
+        return appLanguageCodes;
+    }
+
+    @NonNull
     public List<String> reOrderAppLanguageCode(@Nullable String code, int position) {
         appLanguageCodes.remove(code);
         appLanguageCodes.add(position, code);
@@ -61,9 +83,14 @@ public class AppLanguageState {
     }
 
     @NonNull
-    public List<String> removeAppLanguageCode(@Nullable String code) {
+    public List<String> removeAppLanguageCodes(@NonNull List<String> codes) {
         if (appLanguageCodes.size() > 1) {
-            appLanguageCodes.remove(code);
+            appLanguageCodes.removeAll(codes);
+
+            if (appLanguageCodes.isEmpty()) {
+                appLanguageCodes.addAll(getSystemLanguageCodes());
+            }
+
             Prefs.setAppLanguageCodeCsv(StringUtil.listToCsv(appLanguageCodes));
         }
         return appLanguageCodes;
@@ -71,7 +98,11 @@ public class AppLanguageState {
 
     private void initAppLanguageCodes() {
         if (appLanguageCodes.isEmpty()) {
-            addAppLanguageCode(!TextUtils.isEmpty(appLanguageCode) ? appLanguageCode : getSystemLanguageCode());
+            if (!TextUtils.isEmpty(appLanguageCode)) {
+                addAppLanguageCode(appLanguageCode);
+            } else {
+                updateAppLanguageCodes(getSystemLanguageCodes());
+            }
         }
     }
 
@@ -85,6 +116,18 @@ public class AppLanguageState {
     }
 
     @NonNull
+    public List<String> getSystemLanguageCodes() {
+        List<String> list = new ArrayList<>();
+        for (String code : LanguageUtil.getAvailableLanguages()) {
+            if (!getAppLanguageCodes().contains(code)
+                    && appLanguageLookUpTable.isSupportedCode(code)) {
+                list.add(code);
+            }
+        }
+        return list;
+    }
+
+    @Deprecated @NonNull
     public String getSystemLanguageCode() {
         String code = LanguageUtil.localeToWikiLanguageCode(Locale.getDefault());
         return appLanguageLookUpTable.isSupportedCode(code)
@@ -126,8 +169,12 @@ public class AppLanguageState {
     }
 
     @Nullable
-    public String getAppLanguageLocalizedName() {
-        return getAppLanguageLocalizedName(getAppLanguageCode());
+    public String getAppLanguageLocalizedNames() {
+        List<String> list = new ArrayList<>();
+        for (String code : getAppLanguageCodes()) {
+            list.add(getAppLanguageLocalizedName(code));
+        }
+        return TextUtils.join(", ", list);
     }
 
     /** @return Native name if app language is supported. */

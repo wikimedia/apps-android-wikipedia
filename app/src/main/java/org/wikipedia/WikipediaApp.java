@@ -140,12 +140,22 @@ public class WikipediaApp extends Application {
     }
 
     @NonNull
+    public List<String> getAppLanguageCodes() {
+        return appLanguageState.getAppLanguageCodes();
+    }
+
+    @NonNull
     public String getAppOrSystemLanguageCode() {
         String code = appLanguageState.getAppLanguageCode();
         if (AccountUtil.getUserIdForLanguage(code) == 0) {
             getUserIdForLanguage(code);
         }
         return code;
+    }
+
+    @NonNull
+    public List<String> getSystemLanguageCodes() {
+        return appLanguageState.getSystemLanguageCodes();
     }
 
     @NonNull
@@ -158,9 +168,18 @@ public class WikipediaApp extends Application {
         resetWikiSite();
     }
 
+    public void setAppLanguageCodes(@NonNull List<String> codes) {
+        appLanguageState.updateAppLanguageCodes(codes);
+        resetWikiSite();
+    }
+
+    public List<String> removeAppLanguageCodes(@NonNull List<String> codes) {
+        return appLanguageState.removeAppLanguageCodes(codes);
+    }
+
     @Nullable
-    public String getAppLanguageLocalizedName() {
-        return appLanguageState.getAppLanguageLocalizedName();
+    public String getAppLanguageLocalizedNames() {
+        return appLanguageState.getAppLanguageLocalizedNames();
     }
 
     @NonNull

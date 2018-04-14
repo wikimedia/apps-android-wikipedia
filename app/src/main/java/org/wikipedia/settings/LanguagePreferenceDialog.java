@@ -31,6 +31,7 @@ import retrofit2.Call;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
+@Deprecated
 public class LanguagePreferenceDialog extends AppCompatDialog {
     private ListView languagesList;
     private ProgressBar progressBar;

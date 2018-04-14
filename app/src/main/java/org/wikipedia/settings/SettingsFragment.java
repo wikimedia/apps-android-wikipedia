@@ -52,6 +52,7 @@ public class SettingsFragment extends PreferenceLoaderFragment {
     public void onResume() {
         super.onResume();
         preferenceLoader.updateSyncReadingListsPrefSummary();
+        preferenceLoader.updateLanguagePrefSummary();
         getActivity().invalidateOptionsMenu();
     }
 

@@ -51,6 +51,13 @@
         <item name="autoCompleteTextViewStyle">@style/PageSearchViewEditTextStyle</item>
     </style>
 
+    <style name="AppTheme.ActionBar.LanguagesList">
+        <item name="actionBarTheme">@style/PageToolbarTheme</item>
+        <item name="actionBarStyle">@style/PageToolbarStyle</item>
+        <item name="actionModeStyle">@style/PageActionModeStyle</item>
+        <item name="autoCompleteTextViewStyle">@style/LanguagesListSearchViewEditTextStyle</item>
+    </style>
+
     <style name="ActionModeCloseButtonStyle">
         <item name="android:visibility">gone</item>
         <item name="android:layout_marginStart">-48dp</item>
@@ -176,6 +183,12 @@
         <item name="android:textCursorDrawable">@null</item>
         <item name="android:textColor">?attr/page_toolbar_icon_color</item>
         <item name="android:textColorHint">@color/white50</item>
+    </style>
+
+    <style name="LanguagesListSearchViewEditTextStyle" parent="@style/Widget.AppCompat.AutoCompleteTextView">
+        <item name="android:textCursorDrawable">@drawable/custom_cursor</item>
+        <item name="android:textColor">?attr/primary_text_color</item>
+        <item name="android:textColorHint">?attr/page_toolbar_icon_color</item>
     </style>
 
     <style name="FindInPageSearchViewStyle" parent="@style/Widget.AppCompat.SearchView">
@@ -367,6 +380,13 @@
         <item name="android:textSize">14sp</item>
         <item name="android:lineSpacingExtra">6sp</item>
         <item name="android:textColor">?attr/material_theme_secondary_color</item>
+    </style>
+
+    <style name="MaterialListSectionHeader">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="ReadingListTitleTextAppearance">
