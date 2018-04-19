@@ -3,12 +3,12 @@ package org.wikipedia.language;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.StringUtil;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -17,15 +17,12 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 /** Language lookup and state management for the application language and most recently used article
  * and application languages. */
 public class AppLanguageState {
-    private static final String SYSTEM_LANGUAGE_CODE = null;
-
     @NonNull
     private final AppLanguageLookUpTable appLanguageLookUpTable;
 
     // The language code used by the app when the article language is unspecified. It's possible for
-    // this code to be unsupported if the languages supported changes. Null is a special value that
-    // indicates the system language should used.
-    //Todo:Deprecate the usage by the end of Multilingual changes, and start using appLanguageCodes.get(0)
+    // this code to be unsupported if the languages supported changes.
+    // TODO: Remove in April 2019
     @Nullable
     private String appLanguageCode;
 
@@ -40,17 +37,9 @@ public class AppLanguageState {
     public AppLanguageState(@NonNull Context context) {
         appLanguageLookUpTable = new AppLanguageLookUpTable(context);
         appLanguageCode = Prefs.getAppLanguageCode();
-        mruLanguageCodes = unmarshalLanguageCodes(Prefs.getMruLanguageCodeCsv());
-        appLanguageCodes = unmarshalLanguageCodes(Prefs.getAppLanguageCodeCsv());
-        oneTimeTransferOfAppLanguageCode();
-        checkForProperInitializationOfAppLanguageCode();
-    }
-
-    private void checkForProperInitializationOfAppLanguageCode() {
-        if (appLanguageCodes.get(0) == null) {
-            addAppLanguageCode(getSystemLanguageCode());
-        }
-        appLanguageCodes.remove(null);
+        mruLanguageCodes = new ArrayList<>(StringUtil.csvToList(defaultString(Prefs.getMruLanguageCodeCsv())));
+        appLanguageCodes = new ArrayList<>(StringUtil.csvToList(defaultString(Prefs.getAppLanguageCodeCsv())));
+        initAppLanguageCodes();
     }
 
     @NonNull
@@ -73,30 +62,27 @@ public class AppLanguageState {
 
     @NonNull
     public List<String> removeAppLanguageCode(@Nullable String code) {
-        appLanguageCodes.remove(code);
-        Prefs.setAppLanguageCodeCsv(StringUtil.listToCsv(appLanguageCodes));
+        if (appLanguageCodes.size() > 1) {
+            appLanguageCodes.remove(code);
+            Prefs.setAppLanguageCodeCsv(StringUtil.listToCsv(appLanguageCodes));
+        }
         return appLanguageCodes;
     }
 
-    /**
-     * Make a transfer of user app language preference to the list, for old users.
-     * Todo: Deprecate after Apr 2019 and remove related preferences
-     */
-    private void oneTimeTransferOfAppLanguageCode() {
-        //conditional check to see if we have done this exercise once
-        if (appLanguageCode == null || !appLanguageCodes.isEmpty()) {
-            return;
+    private void initAppLanguageCodes() {
+        if (appLanguageCodes.isEmpty()) {
+            addAppLanguageCode(!TextUtils.isEmpty(appLanguageCode) ? appLanguageCode : getSystemLanguageCode());
         }
-        addAppLanguageCode(appLanguageCode);
-       //Todo: activate code at the end of MultiLingual changes
-        // Prefs.setAppLanguageCode(null);
     }
 
     @Nullable
     public String getAppLanguageCode() {
+        if (appLanguageCodes.isEmpty()) {
+            // very bad, should not happen.
+            initAppLanguageCodes();
+        }
         return appLanguageCodes.get(0);
     }
-
 
     @NonNull
     public String getSystemLanguageCode() {
@@ -148,19 +134,5 @@ public class AppLanguageState {
     @Nullable
     public String getAppLanguageLocalizedName(@Nullable String code) {
         return appLanguageLookUpTable.getLocalizedName(code);
-    }
-
-    @NonNull
-    private List<String> unmarshalLanguageCodes(String mruLanguageCodeCsv) {
-        // Null value is used to indicate that system language should be used.
-        String systemLanguageCodeString = String.valueOf(SYSTEM_LANGUAGE_CODE);
-
-        String csv = defaultString(mruLanguageCodeCsv, systemLanguageCodeString);
-
-        List<String> list = new ArrayList<>(StringUtil.csvToList(csv));
-
-        Collections.replaceAll(list, systemLanguageCodeString, SYSTEM_LANGUAGE_CODE);
-
-        return list;
     }
 }
