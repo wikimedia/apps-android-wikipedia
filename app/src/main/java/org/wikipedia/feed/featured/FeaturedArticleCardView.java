@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
 
@@ -99,7 +100,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     }
 
     private void extract(@Nullable String extract) {
-        extractView.setText(extract);
+        extractView.setText(Html.fromHtml(extract));
     }
 
     private void header(@NonNull FeaturedArticleCard card) {

@@ -2,6 +2,7 @@ package org.wikipedia.page.linkpreview;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.Html;
 import android.text.TextUtils;
 
 import org.wikipedia.dataclient.WikiSite;
@@ -18,26 +19,28 @@ public class LinkPreviewContents {
     private static final int EXTRACT_MAX_SENTENCES = 2;
 
     private final PageTitle title;
-    private final String extract;
+    private final CharSequence extract;
 
     public PageTitle getTitle() {
         return title;
     }
 
-    public String getExtract() {
+    public CharSequence getExtract() {
         return extract;
     }
 
     LinkPreviewContents(@NonNull PageSummary pageSummary, @NonNull WikiSite wiki) {
         title = new PageTitle(pageSummary.getTitle(), wiki);
-        extract = createExtract(pageSummary, title.getWikiSite());
+        if (pageSummary instanceof RbPageSummary) {
+            extract = Html.fromHtml(pageSummary.getExtractHtml());
+        } else {
+            extract = createLegacyExtractText(pageSummary, title.getWikiSite());
+        }
         title.setThumbUrl(pageSummary.getThumbnailUrl());
     }
 
-    private static String createExtract(@NonNull PageSummary pageSummary, @NonNull WikiSite wikiSite) {
-        if (pageSummary instanceof RbPageSummary) {
-            return pageSummary.getExtract();
-        }
+    private static String createLegacyExtractText(@NonNull PageSummary pageSummary,
+                                                  @NonNull WikiSite wikiSite) {
         String noParens = removeParens(pageSummary.getExtract());
         List<String> sentences = getSentences(noParens, wikiSite);
         return makeStringFromSentences(sentences, EXTRACT_MAX_SENTENCES);
