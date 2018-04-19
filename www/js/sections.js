@@ -151,7 +151,9 @@ function elementsForSection( section ) {
     heading.className = "section_heading";
     heading.setAttribute( 'data-id', section.id );
 
-    heading.appendChild( pagelib.EditTransform.newEditSectionButton( document, section.id ) );
+    if (!section.noedit) {
+        heading.appendChild( pagelib.EditTransform.newEditSectionButton( document, section.id ) );
+    }
 
     lazyDocument = document.implementation.createHTMLDocument( );
     content = lazyDocument.createElement( "div" );
