@@ -57,6 +57,7 @@
     <string name="talk_page_link_text">View talk page</string>
     <string name="edit_history_link_text">View edit history</string>
     <string name="map_view_link_text">View on a map</string>
+    <string name="other_languages_indication_text">Read in another language</string>
     <string name="language_count_link_text">Available in %d other languages</string>
     <string name="content_license_html"><![CDATA[Content is available under <a href=\"%1$s\">CC BY-SA 3.0</a> unless otherwise noted]]></string>
     <string name="edit_save_action_license_logged_in"><![CDATA[By saving, you agree to the <a href="%1$s">Terms of Use</a>, and to irrevocably release your contributions under the <a href="%2$s">CC BY-SA 3.0</a> license.]]></string>
