@@ -611,6 +611,7 @@
   <string name="events_count_text">Label indicating the number of events that occurred in a certain range of years. The \"%1$s\" symbol is replaced with the number of events, \"%2$s\" is the beginning year, and \"%3$d\" is the ending year</string>
   <string name="this_year">Text to say, \'This year\'</string>
   <string name="back_to_top">Button label for scrolling the content to the top.</string>
+  <string name="other_languages_indication_text">Text indicating that the article is available for the user to read in an another language as well.</string>
   <plurals name="diff_years">
     <item quantity="one">Text indicating that the event occured one year ago.</item>
     <item quantity="other">Text indicating that the event occured two or more years ago.\"%d\" is the number of years.</item>
