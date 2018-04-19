@@ -154,6 +154,7 @@ public class FindInPageActionProvider extends ActionProvider {
                 searchQuery = null;
                 fragment.getWebView().clearMatches();
                 findInPageMatch.setVisibility(View.GONE);
+                setFindInPageChevronsEnabled(false);
             }
             return true;
         }
