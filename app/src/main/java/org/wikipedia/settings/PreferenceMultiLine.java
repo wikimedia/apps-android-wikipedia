@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceViewHolder;
 import android.util.AttributeSet;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.wikipedia.R;
@@ -27,6 +28,10 @@ public class PreferenceMultiLine extends Preference {
     @Override
     public void onBindViewHolder(@NonNull PreferenceViewHolder holder) {
         super.onBindViewHolder(holder);
+        TextView textView = holder.itemView.findViewById(android.R.id.title);
+        if (textView != null) {
+            textView.setSingleLine(false);
+        }
         // Intercept the click listener for this preference, and if the preference has an intent,
         // launch the intent ourselves, so that we can catch the exception if the intent fails.
         // (but only do this if the preference doesn't already have a click listener)

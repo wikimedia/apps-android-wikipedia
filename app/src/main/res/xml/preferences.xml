@@ -7,7 +7,7 @@
                 android:key="@string/preference_key_language"
                 android:title="@string/preference_title_language">
         </org.wikipedia.settings.PreferenceMultiLine>
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_show_link_previews"
             android:defaultValue="true"
             android:title="@string/preference_title_show_link_previews"
@@ -21,31 +21,31 @@
     <PreferenceCategory
         android:key="@string/preference_category_sync"
         android:title="@string/preferences_heading_syncing">
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_sync_reading_lists"
             android:defaultValue="false"
             android:title="@string/preference_title_sync_reading_lists_from_account"/>
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/preferences_heading_data_usage">
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_show_images"
             android:defaultValue="true"
             android:title="@string/preference_title_show_images"
             android:summary="@string/preference_summary_show_images" />
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_prefer_offline_content"
             android:defaultValue="false"
             android:title="@string/preference_title_prefer_offline_content"
             android:summary="@string/preference_summary_prefer_offline_content" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/preferences_privacy_settings_heading">
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_eventlogging_opt_in"
             android:defaultValue="true"
             android:title="@string/preference_title_eventlogging_opt_in"
             android:summary="@string/preference_summary_eventlogging_opt_in" />
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_auto_upload_crash_reports"
             android:defaultValue="true"
             android:title="@string/preference_title_auto_upload_crash_reports"
