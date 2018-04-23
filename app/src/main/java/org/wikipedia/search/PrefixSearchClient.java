@@ -69,8 +69,10 @@ public class PrefixSearchClient {
             }
 
             @Override
-            public void onFailure(@NonNull Call<PrefixSearchResponse> call,
-                                  @NonNull Throwable caught) {
+            public void onFailure(@NonNull Call<PrefixSearchResponse> call, @NonNull Throwable caught) {
+                if (call.isCanceled()) {
+                    return;
+                }
                 cb.failure(call, caught);
             }
         });
