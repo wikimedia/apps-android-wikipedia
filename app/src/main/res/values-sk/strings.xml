@@ -28,6 +28,7 @@
   <string name="history_item_deleted">Článok %s bol odstránený z histórie</string>
   <string name="history_items_deleted">Zo zoznamu na prečítanie bolo odstránených %d článkov</string>
   <string name="history_item_delete_undo">Vrátiť</string>
+  <string name="app_settings">Nastavenia aplikácie</string>
   <string name="dialog_title_clear_history">Vymazať históriu prehliadania</string>
   <string name="dialog_message_clear_history">Týmto sa odstráni vaša história prehliadania a zavrú sa všetky otvorené karty. Naozaj chcete vymazať celú históriu?</string>
   <string name="dialog_message_clear_history_yes">Áno</string>
@@ -53,8 +54,9 @@
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;prispievatelia &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Posledná aktualizácia %s</string>
   <string name="talk_page_link_text">Zobraziť diskusiu</string>
-  <string name="edit_history_link_text" fuzzy="true">História úprav</string>
+  <string name="edit_history_link_text">Zobraziť históriu úprav</string>
   <string name="map_view_link_text">Zobraziť na mape</string>
+  <string name="other_languages_indication_text">Čítať v inom jazyku</string>
   <string name="language_count_link_text">Dostupný v %d ďalších jazykoch</string>
   <string name="content_license_html">Pokiaľ nie je uvedené inak, je obsah dostupný v rámci licencie &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_logged_in">Uložením vašej úpravy zároveň súhlasíte s &lt;a href=\"%1$s\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov v rámci licenciou &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -114,6 +116,7 @@
   <string name="create_account_generic_error">Nepodarilo sa vytvoriť účet</string>
   <string name="create_account_next">Ďalej</string>
   <string name="create_account_button">Vytvoriť účet</string>
+  <string name="create_account_name_unavailable">Používateľské meno \"%s\" nie je k dispozícii. Prosím, vyberte si iné meno.</string>
   <string name="preferences_general_heading">Všeobecné</string>
   <string name="wikipedia_app_faq">Často kladené otázky o tejto aplikácii</string>
   <string name="zero_charged_verbiage">Bezplatný prístup na Wikipédiu už nie je aktívny.</string>
@@ -132,7 +135,11 @@
   <string name="send_feedback">Odoslať spätnú väzbu</string>
   <string name="create_account_account_created_toast">Účet bol vytvorený!</string>
   <string name="preferences_heading_storage_and_syncing">Úložisko a synchronizácia</string>
+  <string name="preferences_heading_syncing">Synchronizácia</string>
+  <string name="preferences_heading_data_usage">Spotreba dát</string>
+  <string name="preferences_heading_experimental">Experimentálne</string>
   <string name="preference_title_sync_reading_lists">Synchronizovať zoznamy na prečítanie</string>
+  <string name="preference_title_sync_reading_lists_from_account">Povoliť synchronizáciu zoznamov na prečínanie</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">Povolí Wikimedii synchronizovať vaše zoznamy na prečítanie keď ste prihlásení</string>
   <string name="preferences_privacy_settings_heading">Súkromie</string>
   <string name="preference_title_eventlogging_opt_in">Odosielať správu o používaní</string>
@@ -156,6 +163,7 @@
   <string name="about_wikipedia_url">https://sk.m.wikipedia.org/wiki/Wikipédia:O_Wikipédii</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy/sk</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/sk</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -182,6 +190,7 @@
   <string name="edit_summary_tag_links">Pridané odkazy</string>
   <string name="edit_summary_tag_other">Inak</string>
   <string name="edit_summary_tag_other_hint">Iné spôsoby, ako ste vylepšili túto stránku</string>
+  <string name="edit_conflict_title">Konflikt pri upravovaní</string>
   <string name="find_next">Nájsť ďalšie</string>
   <string name="find_previous">Nájsť predchádzajúce</string>
   <string name="find_first_occurence">Toto je prvý výskyt</string>
@@ -273,6 +282,7 @@
   <string name="error_page_does_not_exist">Táto stránka neexistuje</string>
   <string name="view_wiki_error_message_offline">Nebolo možné pripojiť sa na internet</string>
   <string name="reference_title">Referencia %s</string>
+  <string name="preference_title_prefer_offline_content">Preferovať offline obsah</string>
   <string name="preference_title_enable_offline_library">Aktivovať offline knižnicu</string>
   <string name="crash_report_dialog_title">Ospravedlňujeme sa za nedávny pád aplikácie</string>
   <string name="crash_report_dialog_text">Chcete odoslať správu o zlyhaní HockeyApp? Wikimedia tak bude môcť toto zlyhanie preskúmať a opraviť chybu, ktorá toto zlyhanie spôsobila. HockeyApp je poskytovateľ služieb (tretia strana).</string>
@@ -312,12 +322,15 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d z 1 článkov je dostupný offline, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d z %2$d článkov je dostupných offline, %3$.2f MB</string>
   <string name="reading_list_sort">Zoradiť</string>
+  <string name="reading_list_sort_ellipsis">Zoradiť podľa…</string>
   <string name="reading_list_sort_by_name">Zoradiť podľa názvu</string>
   <string name="reading_list_sort_by_name_desc">Zoradiť podľa názvu (v opačnom poradí)</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Zoradiť podľa času poslednej návštevy</string>
-  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Zoradiť podľa nedávno navštívených (v opačnom poradí)</string>
+  <string name="reading_list_sort_by_recent">Zoradiť podľa dátumu pridania (od najnovšieho)</string>
+  <string name="reading_list_sort_by_recent_desc">Zoradiť podľa dátumu vytvorenia (od najstaršieho)</string>
+  <string name="reading_list_sort_by_created">Zoradiť podľa dátumu vytvorenia (od najnovšieho)</string>
+  <string name="reading_list_sort_by_created_desc">Zoradiť podľa dátumu vytvorenia (od najstaršieho)</string>
   <string name="reading_list_menu_delete">Vymazať zoznam</string>
-  <string name="reading_list_menu_rename" fuzzy="true">Premenovať</string>
+  <string name="reading_list_menu_rename">Upraviť názov/popis</string>
   <string name="reading_list_menu_edit_description">Upraviť popis</string>
   <string name="reading_list_action_menu_remove_from_offline">Odstrániť článok z offline úložiska</string>
   <string name="reading_list_action_menu_save_for_offline">Uložiť článok do zariadenia</string>
@@ -347,13 +360,36 @@
   <string name="reading_list_confirm_remove_article_from_offline">Odstrániť článok z offline úložiska</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Článok je vo viacerých zoznamoch</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ďalej nebude dostupný offline pre všetky zoznamy na prečítanie:</string>
+  <string name="reading_lists_sync_reminder_title">Chcete zapnúť synchronizáciu zoznamov na prečítanie?</string>
+  <string name="reading_lists_sync_reminder_action">Povoliť synchronizáciu</string>
   <string name="reading_list_login_reminder_title">Synchronizovať zoznamy na prečítanie</string>
   <string name="reading_lists_confirm_remote_delete">Takto sa zo vzdialeného úložiska zmažú akékoľvek predtým zosynchronizované zoznamy na prečítanie. Pokračovať?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Áno</string>
   <string name="reading_lists_confirm_remote_delete_no">Nie</string>
   <string name="reading_list_article_save_in_progress">Článok sa preberá. Keď sa preberanie dokončí, bude dostupný aj bez pripojenia na internet.</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">Naozaj chcete tento %s zoznam na prečítanie odstrániť?</string>
+  <string name="reading_list_delete_confirm">Naozaj chcete odstrániť zoznam %s?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Ak chcete povoliť synchronizáciu, prihláste sa</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Zrušiť</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Prihlásiť sa</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Synchronizácia zoznamov na prečítanie bola vypnutá</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Nastavenia</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Chcete zapnúť synchronizáciu zoznamov na prečítanie?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Články uložené do zoznamov na prečítanie môžu byť odteraz synchronizované s vaším účtom na Wikipédii. &lt;a href=\"#faq\"&gt;Ďalšie informácie&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Nabudúce už nezobrazovať</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Povoliť synchronizáciu</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nie, vďaka</string>
+  <string name="reading_list_login_option_reminder_dialog_title">Boli nájdené zoznamy na prečítanie</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Počas toho, ako ste boli odhlásení, boli do zoznamu na prečítanie pridané články. Chceli by ste si ich pridať do zoznamov na prečítanie vo vašom účte?</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">Áno, chcem ich pridať do svojich zoznamov</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Nie, odstrániť články</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Chcete ponechať uložené články v aplikácii?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Vo vašich zoznamoch na prečítanie sú uložené články. Chcete ich tam ponechať aj po vašom odhlásení?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Áno, ponechať články v zoznamoch</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Nie, odstrániť články zo zoznamov</string>
   <string name="default_reading_list_name">Uložené</string>
+  <string name="reading_lists_menu_sort_by">Zoradiť podľa</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Prihlásiť sa/zaregistrovať sa</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Tento článok teraz bude dostupný bez pripojenia.</item>
     <item quantity="other">Tieto články teraz budú dostupné bez pripojenia.</item>
@@ -406,7 +442,12 @@
   <string name="view_featured_article_card_title">Odporúčaný článok</string>
   <string name="view_featured_article_footer_save_button_label">Uložiť</string>
   <string name="view_featured_article_footer_saved_button_label">Uložené</string>
+  <string name="feed_configure_menu_select_all">Vybrať všetko</string>
+  <string name="feed_configure_menu_deselect_all">Odznačiť všetko</string>
+  <string name="feed_item_type_news">Články o súčasných udalostiach</string>
   <string name="feed_item_type_on_this_day">Historické udalosti v tento deň</string>
+  <string name="feed_item_type_because_you_read">Návrhy založené na nedávno čítaných článkoch z vašej histórie</string>
+  <string name="feed_item_type_main_page">Hlavná stránka Wikipédie s odporúčaným obsahom</string>
   <string name="feed_configure_onboarding_action">Prispôsobiť</string>
   <string name="description_edit_text_hint">Popis článku</string>
   <string name="description_edit_save">Uverejniť</string>
@@ -461,6 +502,7 @@
   <string name="offline_compilation_detail_button_download_v2">Prevziať • %s</string>
   <string name="offline_compilation_detail_button_remove">Odstrániť</string>
   <string name="remote_compilation_download">Download</string>
+  <string name="storage_size_free_v2">%s voľného miesta</string>
   <string name="storage_used_by_compilations">použitých offline knižnicou</string>
   <string name="storage_other_apps">Ostatné aplikácie</string>
   <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
@@ -490,6 +532,7 @@
   <string name="onboarding_continue">Pokračovať</string>
   <string name="onboarding_get_started">Začíname</string>
   <string name="onboarding_welcome_title">Slobodná encyklopédia</string>
+  <string name="onboarding_welcome_text">Články na Wikipédii píšu dobrovoľníci a skladá sa z viac ako 40 miliónov článkov v takmer 300 jazykoch. &lt;a href=\"#about\"&gt;Ďalšie informácie&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Nové možnosti pre objavovanie</string>
   <string name="onboarding_explore_text" fuzzy="true">Objavte odporúčané články, často vyhľadávané témy a odporúčania k čítaniu článkov.</string>
   <string name="onboarding_save_to_reading_lists_title">Uložiť do zoznamov na prečítanie</string>

@@ -57,6 +57,7 @@
   <string name="talk_page_link_text">הצגת דף השיחה</string>
   <string name="edit_history_link_text">הצגת היסטוריית עריכות</string>
   <string name="map_view_link_text">הצגה על מפה</string>
+  <string name="other_languages_indication_text">קריאה בשפה אחרת</string>
   <string name="language_count_link_text">זמין בעוד %d שפות</string>
   <string name="content_license_html">התוכן זמין לפי תנאי &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; אלא אם צוין אחרת</string>
   <string name="edit_save_action_license_logged_in">שמירת השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>

@@ -53,6 +53,7 @@
   <string name="talk_page_link_text">Lihat laman perbincangan</string>
   <string name="edit_history_link_text">Lihat sejarah penyuntingan</string>
   <string name="map_view_link_text">Paparkan di peta</string>
+  <string name="other_languages_indication_text">Baca dalam bahasa lain</string>
   <string name="language_count_link_text">Tersedia dalam %d bahasa lain</string>
   <string name="content_license_html">Kandungan ini tersedia dengan lesen &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; melainkan dinyatakan sebaliknya</string>
   <string name="edit_save_action_license_logged_in">Dengan menyimpan, anda menyetujui &lt;a href=\"%1$s\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan anda tanpa tertarik balik dengan lesen &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>

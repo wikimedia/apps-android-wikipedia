@@ -101,7 +101,7 @@
   <string name="preference_title_logout">Odhlásit se</string>
   <string name="toast_logout_complete">Odhlášeno</string>
   <string name="history_empty_title">Nejsou zde žádné nedávno navštívené stránky</string>
-  <string name="history_empty_message">Mějte přehled o tom, co jste zde četli</string>
+  <string name="history_empty_message">Mějte přehled o tom, co jste zde četli.</string>
   <string name="search_empty_message">Prohledávejte a čtěte otevřenou encyklopedii ve svém jazyce</string>
   <string name="delete_selected_items">Smazat vybrané položky</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;E&lt;/big&gt;</string>
@@ -162,7 +162,7 @@
   <string name="page_protected_other">Tato stránka je zamčena do následujících úrovní: %s</string>
   <string name="page_protected_can_not_edit">Omlouváme se, váš účet nyní nemá dostatečná oprávnění editovat tuto stránku.</string>
   <string name="page_protected_can_not_edit_anon">Omlouváme se, tu stránku nyní nelze editovat anonymně.</string>
-  <string name="page_protected_can_not_edit_title">Tato stránka je chráněná</string>
+  <string name="page_protected_can_not_edit_title">Tato stránka je zamčena</string>
   <string name="settings_item_preferences">Nastavení</string>
   <string name="settings_activity_title">Nastavení</string>
   <string name="about_description">O aplikaci Wikipedie</string>
@@ -243,7 +243,7 @@
   <string name="gallery_error_video_failed">Nebylo možné přehrát video.</string>
   <string name="gallery_save_image_write_permission_rationale">Pro ukládání obrázků je nutné oprávnění zapisovat na úložiště vašeho zařízení.</string>
   <string name="err_cannot_save_file">Není možno uložit soubor</string>
-  <string name="snippet_share_intro">„%1$s“ na @Wikipedie: %2$s</string>
+  <string name="snippet_share_intro">„%1$s“ na @Wikipedia: %2$s</string>
   <string name="expand_refs">Klepnutím rozbalte</string>
   <string name="share_snippet_button">Sdílet jako obrázek</string>
   <string name="share_normal_button">Sdílet jako text</string>
@@ -266,7 +266,7 @@
   <string name="error_response_malformed">Odpověď serveru nebyla správně zformátována.</string>
   <string name="error_unknown">Došlo k neznámé chybě.</string>
   <string name="format_error_server_message">Zpráva: „%s“</string>
-  <string name="address_copied">Text zkopírován do schránky.</string>
+  <string name="address_copied">Adresa zkopírována do schránky.</string>
   <string name="text_copied">Text zkopírován do schránky.</string>
   <string name="button_continue_to_article">Číst článek</string>
   <string name="button_add_to_reading_list">Přidat do seznamu k přečtení</string>
@@ -364,7 +364,7 @@
   <string name="reading_lists_onboarding_example1">Místa k navštívení</string>
   <string name="reading_lists_onboarding_example2">Oblíbená zvířata</string>
   <string name="reading_lists_onboarding_example3">Průzkum vesmíru</string>
-  <string name="reading_lists_onboarding_got_it">Jasně</string>
+  <string name="reading_lists_onboarding_got_it">Skrýt návrh</string>
   <string name="reading_list_no_description">Bez popisu...</string>
   <string name="reading_list_empty">V tomto seznamu nemáte žádné články.</string>
   <string name="reading_list_article_offline">Dostupné offline</string>
@@ -394,7 +394,7 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Přihlásit se</string>
   <string name="reading_list_turned_sync_off_dialog_title">Synchronizace seznamů k přečtení povolena</string>
   <string name="reading_list_turned_sync_off_dialog_text">Synchronizace seznamů k přečtení je pro váš účet zrušena, a uložené články na vašich přihlášených přístrojích již nejsou zálohovány. Zapněte synchronizaci seznamů čtení ve vašem nastavení.</string>
-  <string name="reading_list_turned_sync_off_dialog_ok">Dobře</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Nastavení</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Zapnout synchronizaci seznamů k přečtení?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_text">Články uložené v seznamech k přečtení mohou být nyní synchronizovány do vašeho účtu na Wikipedii. &lt;a href=\"#faq\"&gt;Více informací&lt;/a&gt;</string>
@@ -569,7 +569,7 @@
   <string name="compilation_download_cancel_confirm_no">Ne</string>
   <string name="compilation_share">Sdílet</string>
   <string name="compilation_remove">Odstranit</string>
-  <string name="compilation_remove_confirm">Opravdu to chcete smazat z Vaší Offline knihovny?</string>
+  <string name="compilation_remove_confirm">Opravdu to chcete smazat z vaší Offline knihovny?</string>
   <string name="offline_library_title">Offline knihovna</string>
   <string name="offline_library_empty_title">Vaše Offline knihovna je prázdná</string>
   <string name="offline_library_empty_description_sideload">\"Balíčky článků\" v Offline knihovně jsou předbalené sady článků pro pohodlné ukládání do zařízení, takže můžete pokračovat v čtení v režimu offline. &lt;br /&gt; &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt; Další informace &lt;/a&gt;</string>
@@ -603,7 +603,7 @@
   <string name="onboarding_create_account_sync">Synchronizovat seznamy k přečtení</string>
   <string name="onboarding_create_account_contributions">Mějte přehled o svých příspěvcích</string>
   <string name="onboarding_create_account_preferences">Uložit nastavení</string>
-  <string name="onboarding_got_it">Jasně</string>
+  <string name="onboarding_got_it">Skrýt návrh</string>
   <string name="app_shortcuts_random">Náhodně</string>
   <string name="app_shortcuts_continue_reading">Pokračovat ve čtení</string>
   <string name="app_shortcuts_search">Hledat</string>

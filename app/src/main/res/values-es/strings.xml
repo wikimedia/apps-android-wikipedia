@@ -18,6 +18,7 @@
 * Macofe
 * MarcoAurelio
 * Mouse21
+* Pantareje
 * Pginer
 * Remux
 * Rodm23
@@ -43,8 +44,9 @@
   <string name="history_item_deleted">%s eliminado del historial</string>
   <string name="history_items_deleted">%d artículos eliminados del historial</string>
   <string name="history_item_delete_undo">Deshacer</string>
+  <string name="app_settings">Configuración de aplicación</string>
   <string name="dialog_title_clear_history">Vaciar el historial de navegación</string>
-  <string name="dialog_message_clear_history">Esto eliminará todo el historial de tu navegador, y cerrará cualquier pestaña abierta. ¿Estás seguro?</string>
+  <string name="dialog_message_clear_history">Esto borrará todo tu historial de tu navegación, y cerrará cualquier pestaña abierta. ¿Estás seguro?</string>
   <string name="dialog_message_clear_history_yes">Sí</string>
   <string name="dialog_message_clear_history_no">No</string>
   <string name="share_via">Compartir mediante</string>
@@ -70,6 +72,7 @@
   <string name="talk_page_link_text">Ver página de discusión</string>
   <string name="edit_history_link_text">Ver historial de ediciones</string>
   <string name="map_view_link_text">Ver en un mapa</string>
+  <string name="other_languages_indication_text">Leer en otro idioma</string>
   <string name="language_count_link_text">Disponible en %d idiomas más</string>
   <string name="content_license_html">El contenido está disponible bajo la licencia &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que se indique lo contrario</string>
   <string name="edit_save_action_license_logged_in">Al guardar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -155,7 +158,9 @@
   <string name="preference_title_sync_reading_lists">Sincronizar listas de lectura</string>
   <string name="preference_title_sync_reading_lists_from_account">Activar sincronización de listas de lectura</string>
   <string name="preference_summary_sync_reading_lists">Guardar las listas de lectura en mi cuenta de Wikipedia y sincronizarlas en varios dispositivos</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Sincroniza tus listas de lectura a través de diferentes dispositivos guardándolas en tu cuenta de wikipedia %s</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">¿Quieres quitar las listas de lectura sincronizadas de «%s»?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Esta acción eliminará completamente cualquier lista de lectura sincronizada en la nube. ¿Desea eliminar todas las listas sincronizadas de tu cuenta %s?</string>
   <string name="preferences_privacy_settings_heading">Privacidad</string>
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que Wikimedia recopile información acerca de cómo utiliza la aplicación para mejorarla</string>
@@ -178,6 +183,7 @@
   <string name="about_wikipedia_url">https://es.m.wikipedia.org/wiki/Wikipedia:Acerca_de</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/es</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/es</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.es</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.es</string>
@@ -205,6 +211,7 @@
   <string name="edit_summary_tag_other">Otro</string>
   <string name="edit_summary_tag_other_hint">Otras formas en las que has mejorado la página</string>
   <string name="edit_conflict_title">Conflicto de edición</string>
+  <string name="edit_conflict_message">La página ya ha sido modificada por un usuario distinto, y está interfiriendo con tu edición. Por favor copie su edición, vuelva atrás y recargue la página, luego intente editar de nuevo.</string>
   <string name="find_next">Buscar siguiente</string>
   <string name="find_previous">Buscar anterior</string>
   <string name="find_first_occurence">Esta es la primera ocurrencia</string>
@@ -380,6 +387,8 @@
   <string name="reading_list_confirm_remove_article_from_offline">Quitar de listas sin conexión</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">El artículo aparece en varias listas</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ya no estará disponible sin conexión en ninguna lista de lectura:</string>
+  <string name="reading_lists_sync_reminder_title">¿Activar la sincronización de tus listas de lectura?</string>
+  <string name="reading_lists_sync_reminder_text">Los artículos guardados en listas de lectura ahora pueden ser sincronizados a tu cuenta de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saber más&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link">Ahora es posible sincronizar las listas de lectura en varios dispositivos. Accede a tu cuenta de Wikipedia y permite que se guarden tus listas. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Más información&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Activar sincronización</string>
   <string name="reading_list_login_reminder_title">Sincronizar listas de lectura</string>
@@ -392,14 +401,24 @@
   <string name="reading_list_added_articles_list_titled">Se añadieron %1$d artículos a %2$s</string>
   <string name="reading_list_delete_confirm">¿Confirmas que quieres eliminar %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Accede para activar la sincronización</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Inicia sesión para permitir guardar tus listas de lectura en tu cuenta.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Cancelar</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Acceder</string>
+  <string name="reading_list_turned_sync_off_dialog_title">La sincronización de las listas de lectura está desactivada</string>
   <string name="reading_list_turned_sync_off_dialog_ok">Aceptar</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Configuración</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">¿Quieres activar la sincronización de las listas de lectura?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Los artículos guardados en listas de lectura ahora pueden ser sincronizados con tu cuenta de Wikipedia. &lt;a href=\"#faq\"&gt;Saber más&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">No mostrar de nuevo</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Activar sincronización</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No, gracias</string>
+  <string name="reading_list_login_option_reminder_dialog_title">Artículos de las listas de lectura encontrados</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">Sí, añadirlos a mis listas de lectura</string>
+  <string name="reading_list_login_option_reminder_dialog_no">No, eliminar los artículos</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">¿Mantener los artículos guardados en la aplicación?</string>
   <string name="reading_list_logout_option_reminder_dialog_text">Hay artículos guardados en listas de lectura. ¿Quieres conservarlos ahí tras salir de tu cuenta?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Si, mantener los artículos en listas</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">No, eliminar artículos de las listas</string>
   <string name="default_reading_list_name">Guardados</string>
   <string name="default_reading_list_description">Lista predeterminada de artículos guardados</string>
   <string name="no_user_lists_title">Organiza artículos en listas</string>
@@ -408,8 +427,10 @@
   <string name="split_reading_list_message">Existe un límite de %d artículos por lista de lectura. Las listas que superaban este límite se han dividido en varias listas.</string>
   <string name="reading_list_article_limit_message">No se pueden añadir elementos a esta lista. Se alcanzó el límite de %2$d artículos por lista para «%1$s».</string>
   <string name="reading_lists_limit_message">No se puede crear otra lista. Se alcanzó el límite de 100 listas de lectura por cuenta.</string>
+  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sincronizar listas de lectura&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Las listas de lectura ahora pueden ser sincronizadas entre dispositivos. Inicia sesión en tu cuenta de Wikipedia y permita guardar tus listas.</string>
   <string name="reading_lists_menu_create_list">Crear lista nueva</string>
   <string name="reading_lists_menu_sort_by">Ordenar por</string>
+  <string name="reading_lists_refresh_sync_option">Recargar sincronización</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Acceder/crear cuenta</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Este artículo ahora estará disponible sin conexión.</item>
@@ -525,6 +546,7 @@
   <string name="description_edit_revert_history">Si estás interesado, consulta el &lt;a href=\"%1$s\"&gt;historial de ediciones&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">Sin conexión a Internet. Asegúrate de conectarte y vuelve a intentarlo.</string>
   <string name="offline_read_permission_rationale">Para navegar sin conexión se necesita el permiso para acceder al almacenamiento.</string>
+  <string name="offline_read_final_rationale">Es necesario permitir el acceso al almacenamiento de tu dispositivo para usar la biblioteca sin conexión.</string>
   <string name="offline_read_permission_error">No se otorgó el permiso para leer el dispositivo de almacenamiento.</string>
   <string name="offline_card_sideloading_text">Estás ahora explorando Wikipedia sin conexión, a través de los paquetes de artículos de tu biblioteca.</string>
   <string name="offline_my_compilations">Gestionar mi biblioteca sin conexión</string>
@@ -579,8 +601,8 @@
   <string name="onboarding_explore_text">Piérdete en la vastedad de Wikipedia a través del canal de exploración, siempre al día.&lt;br/&gt; &lt;b&gt;Personaliza&lt;/b&gt; el canal en función de lo que te interesa. Aprende sobre acontecimientos históricos en &lt;b&gt;Un día como hoy&lt;/b&gt; o lanza un dado virtual mediante &lt;b&gt;Aleatorio&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Guardar en listas de lectura</string>
   <string name="onboarding_save_to_reading_lists_text">Crea listas de lectura con artículos que desees leer más tarde, incluso cuando no tengas conexión.</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">Listas de lectura sincronizadas</string>
-  <string name="onboarding_reading_list_sync_text" fuzzy="true">Crear listas de lectura a partir de artículos que quieres leer más tarde, incluso cuando estés sin conexión. &lt;a href=\"#login\"&gt;Inicia sesión o crea&lt;/a&gt; tu cuenta de Wikipedia para mantener tus listas de lectura sincronizadas.</string>
+  <string name="onboarding_reading_list_sync_title">Listas de lectura con sincronización</string>
+  <string name="onboarding_reading_list_sync_text">Crea listas de lectura a partir de artículos que quieres leer más tarde, incluso para cuando estés sin conexión. &lt;a href=\"#login\"&gt;Inicia sesión o crea&lt;/a&gt; tu cuenta de Wikipedia para mantener tus listas de lectura sincronizadas.</string>
   <string name="onboarding_analytics_title">Enviar datos anónimos</string>
   <string name="onboarding_analytics_offline_text">Permite que sepamos cómo utilizas la aplicación para ayudar a mejorarla. Los datos recopilados son anónimos. &lt;a href=\"#privacy\"&gt;Más información&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Enviar datos de uso</string>

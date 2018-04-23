@@ -48,7 +48,9 @@
   <string name="talk_page_link_text">Betrach euverlèkpagina</string>
   <string name="edit_history_link_text">Betrach bewirkingsgesjiechte</string>
   <string name="map_view_link_text">Betrach op \'n kaart</string>
+  <string name="other_languages_indication_text">Laes in \'n anger spraok</string>
   <string name="language_count_link_text">Besjikbaar in %d anger spraoke</string>
+  <string name="content_license_html">Inhawd is besjikbaar ónger de &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie behauve wen anges is aangegaove</string>
   <string name="preference_title_language">Wikipedia-spraok</string>
   <string name="preference_languages_filter_hint">Zeuk</string>
   <string name="langlinks_filter_hint">Zeuk</string>
@@ -145,6 +147,7 @@
   <string name="about_libraries_heading">Gebroekde biebs</string>
   <string name="about_contributors_heading">Mitwirkers</string>
   <string name="about_translators_heading">Euverzètters</string>
+  <string name="about_activity_title">Euver</string>
   <string name="edit_abandon_confirm_yes">Jao</string>
   <string name="edit_abandon_confirm_no">Nein</string>
   <string name="user_blocked_from_editing_title">Geblokkeerdj</string>
@@ -157,5 +160,15 @@
   <string name="edit_summary_tag_other">Angers</string>
   <string name="edit_summary_tag_other_hint">Anger menere worop se de pagina höbs verbaeterd</string>
   <string name="edit_conflict_title">Bewirkingsconflik</string>
+  <string name="format_error_server_message">Besjeid: \"%s\"</string>
+  <string name="address_copied">\'t Adres is gekopieerd nao \'t klembraed.</string>
+  <string name="text_copied">De teks is gekopieerd nao \'t klembraed.</string>
+  <string name="button_continue_to_article">Laes artikel</string>
+  <string name="button_add_to_reading_list">Veug tou aan laeslies</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Artikel kan neet offline waere gelaje.</string>
+  <string name="crash_report_dialog_dont_send_button">Slaon euver</string>
+  <string name="crash_report_dialog_always_send_button">Versjik ummer</string>
+  <string name="crash_report_dialog_send_button">Versjik</string>
+  <string name="crash_report_activity_title">Programmafout</string>
   <string name="nav_item_reading_lists">Mien lieste</string>
 </resources>

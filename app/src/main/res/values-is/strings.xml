@@ -47,8 +47,8 @@
   <string name="nearby_zoom_to_location">Renna inn að staðsetningu á kortinu</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;þáttakendur&amp;nbsp;í&amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Síðast uppfært %s</string>
-  <string name="talk_page_link_text" fuzzy="true">Spjall</string>
-  <string name="edit_history_link_text" fuzzy="true">Breytingaskrá</string>
+  <string name="talk_page_link_text">Skoða spjallsíðu</string>
+  <string name="edit_history_link_text">Skoða breytingaskrá</string>
   <string name="map_view_link_text">Skoða á korti</string>
   <string name="language_count_link_text">Aðgengilegt á %d öðrum tungumálum</string>
   <string name="content_license_html">Efni má nota samkvæmt &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; nema annað komi fram</string>
@@ -110,6 +110,7 @@
   <string name="create_account_generic_error">Gat ekki búið til notandaaðgang</string>
   <string name="create_account_next">Næsta</string>
   <string name="create_account_button">Stofna aðgang</string>
+  <string name="create_account_name_unavailable">Notandanafnið \"%s\" er ekki tiltækt. Veldu eitthvað annað nafn.</string>
   <string name="preferences_general_heading">Almennt</string>
   <string name="wikipedia_app_faq">Algengar spurningar um Wikipedia Zero</string>
   <string name="zero_charged_verbiage">Frjáls aðgangur að Wikipedia er ekki lengur virkur.</string>
@@ -186,6 +187,8 @@
   <string name="edit_summary_tag_links">Bætti við tenglum</string>
   <string name="edit_summary_tag_other">Annað</string>
   <string name="edit_summary_tag_other_hint">Aðrar leiðir sem þú notaðir til að bæta síðuna</string>
+  <string name="edit_conflict_title">Breyta árekstri</string>
+  <string name="edit_conflict_message">Þessari síðu hefur þegar verið breytt af öðrum notanda, og rekst á við þína útgáfu. Afritaðu breytingarnar þínar, farðu síðan til baka og endurlestu síðuna, og prófaðu síðan að breyta henni aftur.</string>
   <string name="find_next">Finna næsta</string>
   <string name="find_previous">Finna fyrra</string>
   <string name="find_first_occurence">Þetta er fyrsta tilvikið</string>
@@ -321,6 +324,7 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d af 1 grein tiltækri án nettengingar, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d af %2$d greinum tiltækum án nettengingar, %3$.2f MB</string>
   <string name="reading_list_sort">Raða</string>
+  <string name="reading_list_sort_ellipsis">Raða eftir…</string>
   <string name="reading_list_sort_by_name">Raða eftir nafni</string>
   <string name="reading_list_sort_by_name_desc">Raða eftir nafni (öfugt)</string>
   <string name="reading_list_sort_by_recent">Raða eftir dagsetningu (nýjast)</string>
@@ -328,7 +332,7 @@
   <string name="reading_list_sort_by_created">Raða eftir hvenær búið til (nýjast)</string>
   <string name="reading_list_sort_by_created_desc">Raða eftir hvenær búið til (elst)</string>
   <string name="reading_list_menu_delete">Eyða lista</string>
-  <string name="reading_list_menu_rename" fuzzy="true">Endurnefna</string>
+  <string name="reading_list_menu_rename">Breyta nafni/lýsingu</string>
   <string name="reading_list_menu_edit_description">Breyta lýsingu</string>
   <string name="reading_list_action_menu_remove_from_offline">Fjarlægja úr ónettengdum aðgangi</string>
   <string name="reading_list_action_menu_save_for_offline">Vista til lestrar án nettengingar</string>
@@ -362,6 +366,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s verður ekki lengur tiltækt án nettengingar úr öllum leslistum:</string>
   <string name="reading_lists_sync_reminder_title">Kveikja á samstillingu leslista?</string>
   <string name="reading_lists_sync_reminder_text">Nú er hægt að samstilla greinar sem vistaðar hafa verið í leslista við Wikipedia-aðganginn þinn. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Læra meira&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Nú er hægt að samstilla leslista á milli tækja. Skráðu þig inn á Wikipedia-aðganginn þinn og leyfðu vistun á leslistunum þínum. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Vita meira&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Virkja samstillingu</string>
   <string name="reading_list_login_reminder_title">Samstilla leslista</string>
   <string name="reading_lists_login_reminder_text">Nú er hægt að samstilla leslista á milli tækja. Skráðu þig inn á Wikipedia-aðganginn þinn og leyfðu vistun á leslistunum þínum.</string>
@@ -402,6 +407,10 @@
   <string name="reading_list_article_limit_message">Get ekki bætt á þennan lista. Þú hefur náð %2$d greina takmörkum á hvern lista fyrir \"%1$s\".</string>
   <string name="reading_lists_limit_message">Get ekki búið til annan lista. Þú hefur náð 100 leslista takmörkum á hvern notandaaðgang.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Samstilling leslista&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Nú er hægt að samstilla leslista á milli tækja. Skráðu þig inn á Wikipedia-aðganginn þinn og leyfðu vistun á leslistunum þínum.</string>
+  <string name="reading_lists_menu_create_list">Búa til nýjan lista</string>
+  <string name="reading_lists_menu_sort_by">Raða eftir</string>
+  <string name="reading_lists_refresh_sync_option">Uppfæra samstillingu</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Skrá inn / Nýskrá</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Þessi grein verður núna tiltæk án nettengingar.</item>
     <item quantity="other">Þessar greinar verða núna tiltækar án nettengingar.</item>
@@ -425,6 +434,10 @@
   <string name="notification_syncing_pause_button">Í bið</string>
   <string name="notification_syncing_resume_button">Halda áfram</string>
   <string name="notification_syncing_cancel_button">Hætta við</string>
+  <string name="notification_syncing_reading_list_channel_name">Samstilli leslista</string>
+  <string name="notification_syncing_reading_list_channel_description">Framvinda samstillingar leslista</string>
+  <string name="notification_syncing_reading_list_title">Samstilli %1$d lista…</string>
+  <string name="notification_syncing_reading_list_description">%1$d listi/listar eftir</string>
   <string name="view_continue_reading_card_title">Halda lestri áfram</string>
   <string name="view_because_you_read_card_title">Því þú last</string>
   <string name="view_random_card_title">Slembið</string>
@@ -468,6 +481,7 @@
   <string name="feed_item_type_featured_image">Forsíðumynd dagsins frá Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Aðalsíða Wikipedia með úrvalsefni dagsins</string>
   <string name="feed_item_type_randomizer">Útbúðu handahófsvaldar greinar til að lesa</string>
+  <string name="feed_empty_message">Það er ekkert á \'Uppgötva\'-streyminu þínu</string>
   <string name="feed_configure_onboarding_action">Sérsníða</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Sérsníddu \'Uppgötva\'-streymið þitt&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Núna geturðu valið hvað eigi að birta í streyminu þínu auk þess að forgangsraða eftirlætistegundum efnis.</string>
   <string name="description_edit_text_hint">Lýsing á titli</string>

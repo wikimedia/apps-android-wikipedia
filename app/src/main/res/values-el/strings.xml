@@ -56,6 +56,7 @@
   <string name="talk_page_link_text">Προβολή σελίδας συζήτησης</string>
   <string name="edit_history_link_text">Προβολή ιστορικού επεξεργασίας</string>
   <string name="map_view_link_text">Δέστε σε έναν χάρτη</string>
+  <string name="other_languages_indication_text">Διαβάστε σε άλλη γλώσσα</string>
   <string name="language_count_link_text">Διαθέσιμο σε %d άλλες γλώσσες</string>
   <string name="content_license_html">Το περιεχόμενο είναι διαθέσιμο υπό την &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; εκτός εάν σημειώνεται διαφορετικά</string>
   <string name="edit_save_action_license_logged_in">Με την αποθήκευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt;, και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>

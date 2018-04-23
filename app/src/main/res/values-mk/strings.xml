@@ -48,6 +48,7 @@
   <string name="talk_page_link_text">Разговорна страница</string>
   <string name="edit_history_link_text">Историја на уредувања</string>
   <string name="map_view_link_text">Погл. на карта</string>
+  <string name="other_languages_indication_text">Прочитај на друг јазик</string>
   <string name="language_count_link_text">Достапно на %d други јазици</string>
   <string name="content_license_html">Содржината е достапна под &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е поинаку наведено</string>
   <string name="edit_save_action_license_logged_in">Зачувувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>

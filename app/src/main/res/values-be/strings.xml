@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Artsiom91
 * Da voli
 * Envlh
 * Liashko
@@ -277,11 +278,13 @@
   <string name="reading_list_menu_delete">Выдаліць спіс</string>
   <string name="reading_list_description_hint">Апісанне (неабавязкова)</string>
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Не, дзякуй</string>
   <string name="view_main_page_card_title">Сёння ў Вікіпедыі</string>
   <string name="view_main_page_card_subtitle">Галоўная старонка на %s</string>
   <string name="view_featured_image_card_title">Выява дня</string>
   <string name="view_featured_image_card_download">Загрузіць</string>
   <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Сёння</string>
+  <string name="view_announcement_card_negative_action">Не, дзякуй</string>
   <string name="view_featured_article_footer_save_button_label">Захаваць</string>
   <string name="description_edit_save">Апублікаваць</string>
   <string name="description_edit_add_description" fuzzy="true">Дадаць апісанне</string>

@@ -61,6 +61,7 @@
   <string name="talk_page_link_text">查看讨论页</string>
   <string name="edit_history_link_text">查看编辑历史</string>
   <string name="map_view_link_text">在地图上查看</string>
+  <string name="other_languages_indication_text">以另一语言阅读</string>
   <string name="language_count_link_text">在%d种其他语言中可用</string>
   <string name="content_license_html">除非另有声明，内容采用&lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议发表。</string>
   <string name="edit_save_action_license_logged_in">一旦保存，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。</string>
