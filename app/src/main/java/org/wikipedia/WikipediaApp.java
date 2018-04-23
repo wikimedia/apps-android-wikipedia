@@ -235,6 +235,13 @@ public class WikipediaApp extends Application {
         listenForNotifications();
     }
 
+    public int getVersionCode() {
+        // Our ABI-specific version codes are structured in increments of 10000, so just
+        // take the actual version code modulo the increment.
+        final int versionCodeMod = 10000;
+        return BuildConfig.VERSION_CODE % versionCodeMod;
+    }
+
     public String getUserAgent() {
         if (userAgent == null) {
             String channel = getChannel(this);
