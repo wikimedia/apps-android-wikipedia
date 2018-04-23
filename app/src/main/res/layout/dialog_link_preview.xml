@@ -9,6 +9,10 @@
     android:layout_gravity="bottom"
     app:behavior_peekHeight="@dimen/bottomSheetPeekHeight">
 
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <LinearLayout
         android:id="@+id/dialog_link_preview_container"
         android:layout_width="match_parent"
@@ -106,6 +110,8 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"/>
     </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
 
     <ProgressBar
         android:id="@+id/link_preview_progress"
