@@ -90,12 +90,16 @@ def make_release(flavors, custom_channel):
 def copy_artifacts(flavor):
     folder_path = 'releases'
     sh.mkdir("-p", folder_path)
-    version_name = get_version_name_from_apk(get_original_apk_file_name(flavor))
-    copy_apk(flavor, version_name)
+    version_name = get_version_name_from_apk(get_output_apk_file_name(flavor, 'universal'))
+    copy_apk(flavor, version_name, 'universal')
+    copy_apk(flavor, version_name, 'armeabi-v7a')
+    copy_apk(flavor, version_name, 'arm64-v8a')
+    copy_apk(flavor, version_name, 'x86')
+    copy_apk(flavor, version_name, 'x86_64')
 
 
-def get_original_apk_file_name(flavor):
-    return 'app/build/outputs/apk/' + flavor + '/release/app-' + flavor + '-release.apk'
+def get_output_apk_file_name(flavor, abi):
+    return 'app/build/outputs/apk/' + flavor + '/release/app-' + flavor + '-' + abi + '-release.apk'
 
 
 def get_android_home():
@@ -136,17 +140,17 @@ def get_version_name_from_apk(apk_file):
         sys.exit("Could not get version name from apk " + apk_file)
 
 
-def copy_apk(flavor, version_name):
+def copy_apk(flavor, version_name, abi):
     folder_path = 'releases'
     sh.mkdir("-p", folder_path)
-    output_file = '%s/wikipedia-%s.apk' % (folder_path, version_name)
-    sh.cp(get_original_apk_file_name(flavor), output_file)
+    output_file = '%s/wikipedia-%s-%s.apk' % (folder_path, version_name, abi)
+    sh.cp(get_output_apk_file_name(flavor, abi), output_file)
     print ' apk: %s' % output_file
 
 
 def find_output_apk_for(label, version_code):
     folder_path = 'releases'
-    file_pattern = '%s/wikipedia-%s.%s-%s-*.apk' % (folder_path, VERSION_START, version_code, label)
+    file_pattern = '%s/wikipedia-%s.%s-%s-universal*.apk' % (folder_path, VERSION_START, version_code, label)
     apk_files = glob.glob(file_pattern)
     if len(apk_files) == 1:
         return apk_files[0]

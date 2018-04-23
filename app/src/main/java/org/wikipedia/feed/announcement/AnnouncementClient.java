@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 
-import org.wikipedia.BuildConfig;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.RetrofitFactory;
@@ -159,10 +159,10 @@ public class AnnouncementClient implements FeedClient {
 
     private static boolean matchesVersionCodes(@Nullable String minVersion, @Nullable String maxVersion) {
         try {
-            if (!TextUtils.isEmpty(minVersion) && Integer.parseInt(minVersion) > BuildConfig.VERSION_CODE) {
+            if (!TextUtils.isEmpty(minVersion) && Integer.parseInt(minVersion) > WikipediaApp.getInstance().getVersionCode()) {
                 return false;
             }
-            if (!TextUtils.isEmpty(maxVersion) && Integer.parseInt(maxVersion) < BuildConfig.VERSION_CODE) {
+            if (!TextUtils.isEmpty(maxVersion) && Integer.parseInt(maxVersion) < WikipediaApp.getInstance().getVersionCode()) {
                 return false;
             }
         } catch (NumberFormatException e) {
