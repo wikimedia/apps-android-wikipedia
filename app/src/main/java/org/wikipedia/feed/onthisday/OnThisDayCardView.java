@@ -54,6 +54,8 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     @BindView(R.id.pages_recycler) RecyclerView pagesRecycler;
     @BindView(R.id.gradient_layout) View gradientLayout;
     @BindView(R.id.radio_image_view) View radio;
+    @BindView(R.id.view_on_this_day_top_container) View topContainer;
+    @BindView(R.id.view_on_this_day_text_container) View textContainer;
     private int age;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
@@ -144,6 +146,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
                 .setSubtitle(card.subtitle())
                 .setImage(R.drawable.ic_otd_icon)
                 .setImageCircleColor(ResourceUtil.getThemedAttributeId(getContext(), R.attr.main_toolbar_color))
+                .setLangCode(card.wikiSite().languageCode())
                 .setCard(card)
                 .setCallback(getCallback());
         descTextView.setText(card.text());
@@ -157,6 +160,8 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     public void setCard(@NonNull OnThisDayCard card) {
         super.setCard(card);
         this.age = card.getAge();
+        setLayoutDirectionByWikiSite(card.wikiSite(), topContainer);
+        setLayoutDirectionByWikiSite(card.wikiSite(), textContainer);
         setPagesRecycler(card);
         header(card);
     }
@@ -177,7 +182,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
 
     private void setPagesRecycler(OnThisDayCard card) {
         if (card.pages() != null) {
-            RecyclerAdapter recyclerAdapter = new RecyclerAdapter(card.pages(), card.wiki(), true);
+            RecyclerAdapter recyclerAdapter = new RecyclerAdapter(card.pages(), card.wikiSite(), true);
             recyclerAdapter.setCallback(new ItemCallback());
             pagesRecycler.setAdapter(recyclerAdapter);
         } else {

@@ -631,10 +631,39 @@ public final class Prefs {
         setString(R.string.preference_key_feed_cards_order, GsonMarshaller.marshal(orderList));
     }
 
+    @NonNull public static Map<Integer, List<String>> getFeedCardsLangSupported() {
+        if (!contains(R.string.preference_key_feed_cards_lang_supported)) {
+            return Collections.emptyMap();
+        }
+        //noinspection unchecked
+        Map<Integer, List<String>> map = GsonUnmarshaller.unmarshal(new TypeToken<Map<Integer, List<String>>>(){},
+                getString(R.string.preference_key_feed_cards_lang_supported, null));
+        return map != null ? map : Collections.emptyMap();
+    }
+
+    public static void setFeedCardsLangSupported(@NonNull Map<Integer, List<String>> langSupportedMap) {
+        setString(R.string.preference_key_feed_cards_lang_supported, GsonMarshaller.marshal(langSupportedMap));
+    }
+
+    @NonNull public static Map<Integer, List<String>> getFeedCardsLangDisabled() {
+        if (!contains(R.string.preference_key_feed_cards_lang_disabled)) {
+            return Collections.emptyMap();
+        }
+        //noinspection unchecked
+        Map<Integer, List<String>> map = GsonUnmarshaller.unmarshal(new TypeToken<Map<Integer, List<String>>>(){},
+                getString(R.string.preference_key_feed_cards_lang_disabled, null));
+        return map != null ? map : Collections.emptyMap();
+    }
+
+    public static void setFeedCardsLangDisabled(@NonNull Map<Integer, List<String>> langDisabledMap) {
+        setString(R.string.preference_key_feed_cards_lang_disabled, GsonMarshaller.marshal(langDisabledMap));
+    }
+
     public static void resetFeedCustomizations() {
         remove(R.string.preference_key_feed_hidden_cards);
         remove(R.string.preference_key_feed_cards_enabled);
         remove(R.string.preference_key_feed_cards_order);
+        remove(R.string.preference_key_feed_cards_lang_disabled);
     }
 
     public static void setFeedCustomizeTutorialCardEnabled(boolean enabled) {

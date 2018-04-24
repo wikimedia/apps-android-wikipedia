@@ -501,8 +501,9 @@
     <string name="view_featured_article_footer_saved_button_label">Saved</string>
     <string name="feed_configure_activity_title">Customize the feed</string>
     <string name="feed_configure_menu_reset">Restore default view</string>
-    <string name="feed_configure_menu_select_all">Select all</string>
-    <string name="feed_configure_menu_deselect_all">Deselect all</string>
+    <string name="feed_configure_menu_select_all">Show all</string>
+    <string name="feed_configure_menu_deselect_all">Hide all</string>
+    <string name="feed_configure_language_warning">Note that not all card types are available in all Wikipedia languages. Edit your selected languages in Settings.</string>
     <string name="feed_item_type_news">Articles about current events</string>
     <string name="feed_item_type_on_this_day">Events in history on this day</string>
     <string name="feed_item_type_continue_reading">Quick link back to reading an open article in one of your tabs</string>

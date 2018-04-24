@@ -13,12 +13,14 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.PopupMenu;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.model.Card;
 
 import butterknife.BindView;
@@ -34,6 +36,8 @@ public class CardHeaderView extends ConstraintLayout {
     @BindView(R.id.view_card_header_image) AppCompatImageView imageView;
     @BindView(R.id.view_card_header_title) TextView titleView;
     @BindView(R.id.view_card_header_subtitle) TextView subtitleView;
+    @BindView(R.id.view_list_card_header_lang_background) View langCodeBackground;
+    @BindView(R.id.view_list_card_header_lang_code) TextView langCodeView;
     @Nullable private Card card;
     @Nullable private Callback callback;
 
@@ -93,6 +97,18 @@ public class CardHeaderView extends ConstraintLayout {
 
     @NonNull public CardHeaderView setSubtitle(@Nullable CharSequence subtitle) {
         subtitleView.setText(subtitle);
+        return this;
+    }
+
+    @NonNull public CardHeaderView setLangCode(@Nullable String langCode) {
+        if (TextUtils.isEmpty(langCode) || WikipediaApp.getInstance().getAppLanguageCodes().size() < 2) {
+            langCodeBackground.setVisibility(GONE);
+            langCodeView.setVisibility(GONE);
+        } else {
+            langCodeBackground.setVisibility(VISIBLE);
+            langCodeView.setVisibility(VISIBLE);
+            langCodeView.setText(langCode);
+        }
         return this;
     }
 

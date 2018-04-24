@@ -44,12 +44,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|center_vertical"
+        android:layout_marginEnd="6dp"
         android:textColor="?attr/secondary_text_color"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/view_list_card_header_menu"
+        app:layout_constraintEnd_toStartOf="@+id/view_list_card_header_lang_background"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Lorem ipsum" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/view_list_card_header_lang_background"
+        android:layout_width="0dp"
+        android:layout_height="16dp"
+        app:srcCompat="@drawable/lang_button_shape_border"
+        app:layout_constraintTop_toTopOf="@+id/view_list_card_header_lang_code"
+        app:layout_constraintBottom_toBottomOf="@+id/view_list_card_header_lang_code"
+        app:layout_constraintStart_toStartOf="@+id/view_list_card_header_lang_code"
+        app:layout_constraintEnd_toEndOf="@+id/view_list_card_header_lang_code"
+        android:contentDescription="@null"/>
+
+    <TextView
+        android:id="@+id/view_list_card_header_lang_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="1dp"
+        android:paddingBottom="1dp"
+        android:paddingStart="3dp"
+        android:paddingEnd="3dp"
+        android:textAllCaps="true"
+        android:textColor="?attr/secondary_text_color"
+        android:textSize="9sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/view_list_card_header_menu"
+        tools:text="zh-hant"/>
 
     <ImageView
         android:id="@+id/view_list_card_header_menu"

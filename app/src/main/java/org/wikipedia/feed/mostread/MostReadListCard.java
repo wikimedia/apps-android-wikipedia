@@ -22,7 +22,7 @@ public class MostReadListCard extends ListCard<MostReadItemCard> {
     @NonNull private final MostReadArticles articles;
 
     public MostReadListCard(@NonNull MostReadArticles articles, @NonNull WikiSite wiki) {
-        super(toItems(articles.articles(), wiki));
+        super(toItems(articles.articles(), wiki), wiki);
         this.articles = articles;
     }
 

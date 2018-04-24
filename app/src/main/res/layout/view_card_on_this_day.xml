@@ -14,6 +14,7 @@
         android:layout_height="48dp" />
 
     <FrameLayout
+        android:id="@+id/view_on_this_day_top_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -42,7 +43,7 @@
     </FrameLayout>
 
     <LinearLayout
-        android:id="@+id/base_view"
+        android:id="@+id/view_on_this_day_text_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="@dimen/margin"

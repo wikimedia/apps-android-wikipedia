@@ -28,6 +28,7 @@ public class NewsListCardView extends HorizontalScrollingListCardView<NewsListCa
         super.setCard(card);
         header(card);
         set(new RecyclerAdapter(card.items()));
+        setLayoutDirectionByWikiSite(card.wikiSite(), getLayoutDirectionView());
     }
 
     private void header(@NonNull NewsListCard card) {
@@ -35,6 +36,7 @@ public class NewsListCardView extends HorizontalScrollingListCardView<NewsListCa
                 .setSubtitle(DateUtil.getFeedCardDateString(card.date().baseCalendar()))
                 .setImage(R.drawable.icon_in_the_news)
                 .setImageCircleColor(R.color.base50)
+                .setLangCode(card.wikiSite().languageCode())
                 .setCard(card)
                 .setCallback(getCallback());
     }
@@ -49,7 +51,7 @@ public class NewsListCardView extends HorizontalScrollingListCardView<NewsListCa
         }
 
         @Override
-        public void onBindViewHolder(DefaultViewHolder<HorizontalScrollingListCardItemView> holder, int i) {
+        public void onBindViewHolder(@NonNull DefaultViewHolder<HorizontalScrollingListCardItemView> holder, int i) {
             final NewsItemCard card = item(i);
             holder.getView().setText(card.text());
             holder.getView().setImage(card.image());

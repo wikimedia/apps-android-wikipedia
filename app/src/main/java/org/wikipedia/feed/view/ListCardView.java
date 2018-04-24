@@ -59,6 +59,10 @@ public abstract class ListCardView<T extends Card> extends DefaultFeedCardView<T
         return largeHeaderView;
     }
 
+    protected View getLayoutDirectionView() {
+        return recyclerView;
+    }
+
     /** Called by the constructor. Override to provide custom behavior but otherwise do not call
         directly. */
     protected void initRecycler(@NonNull RecyclerView recyclerView) {

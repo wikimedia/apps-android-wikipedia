@@ -41,6 +41,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     @BindView(R.id.view_featured_article_card_article_title) TextView articleTitleView;
     @BindView(R.id.view_featured_article_card_article_subtitle) GoneIfEmptyTextView articleSubtitleView;
     @BindView(R.id.view_featured_article_card_extract) TextView extractView;
+    @BindView(R.id.view_featured_article_card_text_container) View textContainerView;
     @NonNull private final EventBusMethods eventBusMethods = new EventBusMethods();
 
     public FeaturedArticleCardView(Context context) {
@@ -51,6 +52,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
 
     public void setCard(@NonNull FeaturedArticleCard card) {
         super.setCard(card);
+        setLayoutDirectionByWikiSite(card.wikiSite(), textContainerView);
 
         String articleTitle = card.articleTitle();
         String articleSubtitle = card.articleSubtitle();
@@ -108,6 +110,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
                 .setSubtitle(card.subtitle())
                 .setImage(R.drawable.ic_star_black_24dp)
                 .setImageCircleColor(R.color.yellow50)
+                .setLangCode(card.wikiSite().languageCode())
                 .setCard(card)
                 .setCallback(getCallback());
     }

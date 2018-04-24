@@ -20,7 +20,7 @@ public class BecauseYouReadCard extends ListCard<BecauseYouReadItemCard> {
 
     public BecauseYouReadCard(@NonNull final HistoryEntry entry,
                               @NonNull final List<BecauseYouReadItemCard> itemCards) {
-        super(itemCards);
+        super(itemCards, entry.getTitle().getWikiSite());
         this.entry = entry;
     }
 

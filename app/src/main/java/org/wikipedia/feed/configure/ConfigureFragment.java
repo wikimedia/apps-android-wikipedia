@@ -44,7 +44,7 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_feed_configure, container, false);
         unbinder = ButterKnife.bind(this, view);
 
@@ -52,7 +52,7 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
         setupRecyclerView();
 
         funnel = new FeedConfigureFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().getWikiSite(),
-                getActivity().getIntent().getIntExtra(ConfigureActivity.INVOKE_SOURCE_EXTRA, -1));
+                requireActivity().getIntent().getIntExtra(ConfigureActivity.INVOKE_SOURCE_EXTRA, -1));
         return view;
     }
 
@@ -125,7 +125,7 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
         ConfigureItemAdapter adapter = new ConfigureItemAdapter();
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(), R.attr.list_separator_drawable));
+        recyclerView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable));
 
         itemTouchHelper = new ItemTouchHelper(new RearrangeableItemTouchHelperCallback(adapter));
         itemTouchHelper.attachToRecyclerView(recyclerView);
@@ -137,6 +137,11 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
         contentType.setEnabled(checked);
     }
 
+    @Override
+    public void onLanguagesChanged(FeedContentType contentType) {
+        touch();
+    }
+
     private void updateItemOrder() {
         touch();
         for (int i = 0; i < orderedContentTypes.size(); i++) {
@@ -145,7 +150,7 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
     }
 
     private void touch() {
-        getActivity().setResult(ConfigureActivity.CONFIGURATION_CHANGED_RESULT);
+        requireActivity().setResult(ConfigureActivity.CONFIGURATION_CHANGED_RESULT);
     }
 
     private class ConfigureItemHolder extends DefaultViewHolder<ConfigureItemView> {
@@ -165,7 +170,7 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
         }
 
         @Override
-        public ConfigureItemHolder onCreateViewHolder(ViewGroup parent, int type) {
+        public ConfigureItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int type) {
             return new ConfigureItemHolder(new ConfigureItemView(getContext()));
         }
 
@@ -174,7 +179,7 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
             holder.bindItem(orderedContentTypes.get(pos));
         }
 
-        @Override public void onViewAttachedToWindow(ConfigureItemHolder holder) {
+        @Override public void onViewAttachedToWindow(@NonNull ConfigureItemHolder holder) {
             super.onViewAttachedToWindow(holder);
             holder.getView().setDragHandleTouchListener((v, event) -> {
                 switch (event.getActionMasked()) {

@@ -7,8 +7,8 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
-import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
+import org.wikipedia.feed.model.WikiSiteCard;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.util.DateUtil;
 
@@ -16,18 +16,16 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
-public class OnThisDayCard extends Card {
+public class OnThisDayCard extends WikiSiteCard {
     private int nextYear;
     private Calendar date;
     private FeedAdapter.Callback callback;
-    private WikiSite wiki;
     private OnThisDay.Event eventShownOnCard;
     private int age;
 
     public OnThisDayCard(@NonNull List<OnThisDay.Event> events, @NonNull WikiSite wiki, int age) {
-        super();
+        super(wiki);
         this.date = DateUtil.getDefaultDateFor(age);
-        this.wiki = wiki;
         this.age = age;
         int randomIndex = 0;
         if (events.size() > 1) {
@@ -75,10 +73,6 @@ public class OnThisDayCard extends Card {
 
     int nextYear() {
         return nextYear;
-    }
-
-    @NonNull public WikiSite wiki() {
-        return wiki;
     }
 
     @Nullable public List<RbPageSummary> pages() {

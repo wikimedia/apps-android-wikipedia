@@ -9,21 +9,20 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
-import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
+import org.wikipedia.feed.model.WikiSiteCard;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.DateUtil;
 
-public class FeaturedArticleCard extends Card {
+public class FeaturedArticleCard extends WikiSiteCard {
     @NonNull private RbPageSummary page;
     private int age;
-    @NonNull private WikiSite wiki;
 
     public FeaturedArticleCard(@NonNull RbPageSummary page, int age, @NonNull WikiSite wiki) {
+        super(wiki);
         this.page = page;
         this.age = age;
-        this.wiki = wiki;
     }
 
     @Override
@@ -36,11 +35,6 @@ public class FeaturedArticleCard extends Card {
     @NonNull
     public String subtitle() {
         return DateUtil.getFeedCardDateString(age);
-    }
-
-    @NonNull
-    public WikiSite wikiSite() {
-        return wiki;
     }
 
     @NonNull

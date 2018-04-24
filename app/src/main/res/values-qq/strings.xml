@@ -483,8 +483,9 @@
   <string name="view_featured_article_footer_saved_button_label">Button label for when the current featured article is already saved to a reading list, but may now be removed from the list, or saved to a different list.\n{{Identical|Saved}}</string>
   <string name="feed_configure_activity_title">Title shown at the top of the screen where the user customizes which cards are shown in the Explore feed.</string>
   <string name="feed_configure_menu_reset">Menu label for resetting the customization of the Explore feed cards to the original defaults.</string>
-  <string name="feed_configure_menu_select_all">Menu label for selecting all types of Explore feed cards to be shown.\n{{Identical|Select all}}</string>
-  <string name="feed_configure_menu_deselect_all">Menu label for deselecting all types of Explore feed cards from being shown.</string>
+  <string name="feed_configure_menu_select_all">Menu label for showing all types of Explore feed cards.</string>
+  <string name="feed_configure_menu_deselect_all">Menu label for hiding all types of Explore feed cards.</string>
+  <string name="feed_configure_language_warning">Message that warns the user that various types of Explore feed content might not be available in all selected languages.</string>
   <string name="feed_item_type_news">Short description for Explore feed card that contains daily news items</string>
   <string name="feed_item_type_on_this_day">Short description for Explore feed card that contains events that occurred on this day in history</string>
   <string name="feed_item_type_continue_reading">Short description for Explore feed card that contains a link to previous article(s) read by the user</string>

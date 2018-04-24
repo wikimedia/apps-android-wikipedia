@@ -16,7 +16,7 @@ public class NewsListCard extends ListCard<NewsItemCard> {
     @NonNull private UtcDate date;
 
     public NewsListCard(@NonNull List<NewsItem> news, int age, @NonNull WikiSite wiki) {
-        super(toItemCards(news, wiki));
+        super(toItemCards(news, wiki), wiki);
         this.date = new UtcDate(age);
     }
 
