@@ -75,6 +75,9 @@ class CompilationClient {
 
         @Override
         public void onFailure(@NonNull Call<CompilationResponse> call, @NonNull Throwable t) {
+            if (call.isCanceled()) {
+                return;
+            }
             cb.error(t);
         }
 

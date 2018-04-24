@@ -202,6 +202,9 @@ public class AggregatedFeedContentClient {
         }
 
         @Override public void onFailure(@NonNull Call<AggregatedFeedContent> call, @NonNull Throwable caught) {
+            if (call.isCanceled()) {
+                return;
+            }
             L.v(caught);
             if (cb != null) {
                 cb.error(caught);

@@ -101,8 +101,7 @@ public class DescriptionEditClient {
                 loggedIn ? "user" : null);
         call.enqueue(new retrofit2.Callback<DescriptionEdit>() {
             @Override
-            public void onResponse(Call<DescriptionEdit> call,
-                                   Response<DescriptionEdit> response) {
+            public void onResponse(@NonNull Call<DescriptionEdit> call, @NonNull Response<DescriptionEdit> response) {
                 final DescriptionEdit body = response.body();
                 if (body.editWasSuccessful()) {
                     cb.success(call);
@@ -116,7 +115,10 @@ public class DescriptionEditClient {
             }
 
             @Override
-            public void onFailure(Call<DescriptionEdit> call, Throwable t) {
+            public void onFailure(@NonNull Call<DescriptionEdit> call, @NonNull Throwable t) {
+                if (call.isCanceled()) {
+                    return;
+                }
                 cb.failure(call, t);
             }
         });

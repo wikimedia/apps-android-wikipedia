@@ -52,8 +52,8 @@ public class LoginClient {
 
         tokenCall = cachedService.service(wiki).requestLoginToken();
         tokenCall.enqueue(new Callback<MwQueryResponse>() {
-            @Override public void onResponse(Call<MwQueryResponse> call,
-                                             Response<MwQueryResponse> response) {
+            @Override public void onResponse(@NonNull Call<MwQueryResponse> call,
+                                             @NonNull Response<MwQueryResponse> response) {
                 if (response.body().success()) {
                     // noinspection ConstantConditions
                     login(wiki, userName, password, null, response.body().query().loginToken(), cb);
@@ -67,7 +67,10 @@ public class LoginClient {
             }
 
             @Override
-            public void onFailure(Call<MwQueryResponse> call, Throwable caught) {
+            public void onFailure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
+                if (call.isCanceled()) {
+                    return;
+                }
                 cb.error(caught);
             }
         });
@@ -81,7 +84,7 @@ public class LoginClient {
                 : cachedService.service(wiki).logIn(userName, password, twoFactorCode, loginToken, true);
         loginCall.enqueue(new Callback<LoginResponse>() {
             @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+            public void onResponse(@NonNull Call<LoginResponse> call, @NonNull Response<LoginResponse> response) {
                 LoginResponse loginResponse = response.body();
                 LoginResult loginResult = loginResponse.toLoginResult(wiki, password);
                 if (loginResult != null) {
@@ -105,7 +108,10 @@ public class LoginClient {
             }
 
             @Override
-            public void onFailure(Call<LoginResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<LoginResponse> call, @NonNull Throwable t) {
+                if (call.isCanceled()) {
+                    return;
+                }
                 cb.error(t);
             }
         });

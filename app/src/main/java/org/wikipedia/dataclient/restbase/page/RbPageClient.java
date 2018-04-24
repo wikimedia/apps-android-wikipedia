@@ -82,7 +82,10 @@ public class RbPageClient implements PageClient {
             }
 
             @Override
-            public void onFailure(Call<Map<String, RbDefinition.Usage[]>> call, Throwable throwable) {
+            public void onFailure(@NonNull Call<Map<String, RbDefinition.Usage[]>> call, @NonNull Throwable throwable) {
+                if (call.isCanceled()) {
+                    return;
+                }
                 cb.failure(throwable);
             }
         });

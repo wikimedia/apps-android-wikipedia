@@ -169,7 +169,7 @@ public class CsrfTokenClient {
         Call<MwQueryResponse> call = service.request();
         call.enqueue(new retrofit2.Callback<MwQueryResponse>() {
             @Override
-            public void onResponse(Call<MwQueryResponse> call, Response<MwQueryResponse> response) {
+            public void onResponse(@NonNull Call<MwQueryResponse> call, @NonNull Response<MwQueryResponse> response) {
                 if (response.body().success()) {
                     // noinspection ConstantConditions
                     cb.success(response.body().query().csrfToken());
@@ -182,7 +182,10 @@ public class CsrfTokenClient {
             }
 
             @Override
-            public void onFailure(Call<MwQueryResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable t) {
+                if (call.isCanceled()) {
+                    return;
+                }
                 cb.failure(t);
             }
         });

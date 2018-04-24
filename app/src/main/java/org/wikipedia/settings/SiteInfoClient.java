@@ -81,6 +81,9 @@ public class SiteInfoClient {
 
             @Override
             public void onFailure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
+                if (call.isCanceled()) {
+                    return;
+                }
                 if (cb != null) {
                     cb.failure(call, caught);
                 }

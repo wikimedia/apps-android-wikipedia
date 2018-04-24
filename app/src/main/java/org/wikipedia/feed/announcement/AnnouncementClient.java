@@ -99,6 +99,9 @@ public class AnnouncementClient implements FeedClient {
         }
 
         @Override public void onFailure(@NonNull Call<AnnouncementList> call, @NonNull Throwable caught) {
+            if (call.isCanceled()) {
+                return;
+            }
             L.v(caught);
             cb.error(caught);
         }
