@@ -643,6 +643,9 @@
     <string name="onboarding_create_account_contributions">Keep track of your contributions</string>
     <string name="onboarding_create_account_preferences">Save your preferences</string>
     <string name="onboarding_got_it">Got it</string>
+    <string name="onboarding_multilingual_title">Search and read in nearly 300 languages</string>
+    <string name="onboarding_multilingual_secondary_text">We’ve found the following on your device:</string>
+    <string name="onboarding_multilingual_add_language_text">Add or edit languages</string>
     <!-- /Onboarding -->
 
     <!-- App Shortcuts -->

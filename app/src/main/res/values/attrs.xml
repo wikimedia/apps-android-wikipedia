@@ -66,6 +66,8 @@
         <attr name="switchText" format="string" />
         <attr name="imageSize" format="dimension" />
         <attr name="background" format="reference" />
+        <attr name="showListView" format="boolean" />
+        <attr name="dataType" format="string" />
     </declare-styleable>
 
     <declare-styleable name="DiscreteSeekBar">

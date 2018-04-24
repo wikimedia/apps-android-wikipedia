@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import org.wikipedia.login.LoginActivity;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
 import org.wikipedia.util.FeedbackUtil;
 
 import static org.wikipedia.util.UriUtil.handleExternalLink;
@@ -50,6 +52,8 @@ public class InitialOnboardingFragment extends OnboardingFragment {
     }
 
     private class PageViewCallback implements OnboardingPageView.Callback {
+         OnboardingPageView onboardingPageView;
+
         @Override public void onSwitchChange(@NonNull OnboardingPageView view, boolean checked) {
             if (OnboardingPage.of((int) view.getTag()).equals(OnboardingPage.PAGE_USAGE_DATA)) {
                 Prefs.setEventLoggingEnabled(checked);
@@ -71,6 +75,25 @@ public class InitialOnboardingFragment extends OnboardingFragment {
                 handleExternalLink(getActivity(), Uri.parse(url));
             }
         }
+
+        @Override
+        public void onListActionButtonClicked(@NonNull OnboardingPageView view) {
+            onboardingPageView = view;
+            requireContext().startActivity(new Intent(getContext(), WikipediaLanguagesActivity.class));
+        }
+
+    @Nullable OnboardingPageView getOnboardingPageView() {
+        return onboardingPageView;
+    }
+
+}
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (pageViewCallback != null && pageViewCallback.getOnboardingPageView() != null) {
+            pageViewCallback.getOnboardingPageView().refresh();
+        }
     }
 
     private class OnboardingPagerAdapter extends PagerAdapter {
@@ -85,17 +108,18 @@ public class InitialOnboardingFragment extends OnboardingFragment {
             return view;
         }
 
-        @NonNull public OnboardingPageView inflate(@NonNull OnboardingPage page,
-                                                                @NonNull ViewGroup parent) {
+        @NonNull
+        public OnboardingPageView inflate(@NonNull OnboardingPage page,
+                                          @NonNull ViewGroup parent) {
             LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-            OnboardingPageView view =
-                    (OnboardingPageView) inflater.inflate(page.getLayout(), parent, false);
+            OnboardingPageView view = (OnboardingPageView) inflater.inflate(page.getLayout(), parent, false);
             parent.addView(view);
             return view;
         }
 
-        @Override public void destroyItem(ViewGroup container, int position, Object object) {
+        @Override public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
             OnboardingPageView view = ((OnboardingPageView) object);
+            container.removeView(view);
             view.setCallback(null);
             view.setTag(-1);
         }
@@ -104,13 +128,14 @@ public class InitialOnboardingFragment extends OnboardingFragment {
             return OnboardingPage.size();
         }
 
-        @Override public boolean isViewFromObject(View view, Object object) {
+        @Override public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
             return view == object;
         }
     }
 
-    private enum OnboardingPage implements EnumCode {
+     enum OnboardingPage implements EnumCode {
         PAGE_WELCOME(R.layout.inflate_initial_onboarding_page_zero),
+        PAGE_MULTILINGUAL(R.layout.inflate_initial_onboarding_page_multilingual),
         PAGE_EXPLORE(R.layout.inflate_initial_onboarding_page_one),
         PAGE_READING_LISTS(R.layout.inflate_initial_onboarding_page_two),
         PAGE_USAGE_DATA(R.layout.inflate_initial_onboarding_page_three);
