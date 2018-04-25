@@ -56,6 +56,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_NAME_ASC;
+import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_NAME_DESC;
+import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_RECENT_ASC;
+import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_RECENT_DESC;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
 public class ReadingListsFragment extends Fragment implements SortReadingListsDialog.Callback {
@@ -155,7 +159,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
                 return true;
             case R.id.menu_sort:
                 bottomSheetPresenter.show(getChildFragmentManager(),
-                        SortReadingListsDialog.newInstance(Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC)));
+                        SortReadingListsDialog.newInstance(Prefs.getReadingListSortMode(SORT_BY_NAME_ASC)));
                 return true;
             case R.id.create_list:
                 String title = getString(R.string.reading_list_name_sample);
@@ -180,18 +184,18 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
 
     private void sortListsBy(int option) {
         switch (option) {
-            case ReadingList.SORT_BY_NAME_DESC:
-                Prefs.setReadingListSortMode(ReadingList.SORT_BY_NAME_DESC);
+            case SORT_BY_NAME_DESC:
+                Prefs.setReadingListSortMode(SORT_BY_NAME_DESC);
                 break;
-            case ReadingList.SORT_BY_RECENT_ASC:
-                Prefs.setReadingListSortMode(ReadingList.SORT_BY_RECENT_ASC);
+            case SORT_BY_RECENT_DESC:
+                Prefs.setReadingListSortMode(SORT_BY_RECENT_DESC);
                 break;
-            case ReadingList.SORT_BY_RECENT_DESC:
-                Prefs.setReadingListSortMode(ReadingList.SORT_BY_RECENT_DESC);
+            case SORT_BY_RECENT_ASC:
+                Prefs.setReadingListSortMode(SORT_BY_RECENT_ASC);
                 break;
-            case ReadingList.SORT_BY_NAME_ASC:
+            case SORT_BY_NAME_ASC:
             default:
-                Prefs.setReadingListSortMode(ReadingList.SORT_BY_NAME_ASC);
+                Prefs.setReadingListSortMode(SORT_BY_NAME_ASC);
                 break;
         }
         sortLists();
@@ -453,7 +457,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
     }
 
     private void sortLists() {
-        ReadingList.sort(readingLists, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC));
+        ReadingList.sort(readingLists, Prefs.getReadingListSortMode(SORT_BY_NAME_ASC));
         adapter.notifyDataSetChanged();
     }
 

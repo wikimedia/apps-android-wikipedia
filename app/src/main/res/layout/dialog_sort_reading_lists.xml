@@ -2,14 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/margin"
+    android:paddingTop="@dimen/margin">
 
     <TextView
         android:id="@+id/sort_by"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:gravity="center_vertical"
         android:fontFamily="sans-serif-medium"
+        android:gravity="center_vertical"
         android:paddingEnd="@dimen/activity_horizontal_margin"
         android:paddingStart="@dimen/activity_horizontal_margin"
         android:text="@string/reading_lists_menu_sort_by"

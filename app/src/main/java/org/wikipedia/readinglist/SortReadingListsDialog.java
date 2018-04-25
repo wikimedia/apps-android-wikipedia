@@ -25,7 +25,6 @@ public class SortReadingListsDialog extends ExtendedBottomSheetDialogFragment {
     public interface Callback {
         void onSortOptionClick(int position);
     }
-
     private static final String SORT_OPTION = "sortOption";
     private ReadingListSortAdapter adapter;
     private List<String> sortOptions = new ArrayList<>();
