@@ -15,6 +15,7 @@ import org.wikipedia.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -46,9 +47,15 @@ public final class LanguageUtil {
         InputMethodManager imm = (InputMethodManager) WikipediaApp.getInstance().getSystemService(Context.INPUT_METHOD_SERVICE);
         if (imm != null) {
             List<InputMethodInfo> ims = imm.getEnabledInputMethodList();
+            if (ims == null) {
+                ims = Collections.emptyList();
+            }
             List<String> langTagList = new ArrayList<>();
             for (InputMethodInfo method : ims) {
                 List<InputMethodSubtype> submethods = imm.getEnabledInputMethodSubtypeList(method, true);
+                if (submethods == null) {
+                    submethods = Collections.emptyList();
+                }
                 for (InputMethodSubtype submethod : submethods) {
                     if (submethod.getMode().equals("keyboard")) {
                         String langTag = Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && !TextUtils.isEmpty(submethod.getLanguageTag())
@@ -64,11 +71,13 @@ public final class LanguageUtil {
                     }
                 }
             }
-            localeList = LocaleListCompat.forLanguageTags(StringUtil.listToCsv(langTagList));
-            for (int i = 0; i < localeList.size(); i++) {
-                String langCode = localeToWikiLanguageCode(localeList.get(i));
-                if (!TextUtils.isEmpty(langCode) && !languages.contains(langCode) && !langCode.equals("und")) {
-                    languages.add(langCode);
+            if (!langTagList.isEmpty()) {
+                localeList = LocaleListCompat.forLanguageTags(StringUtil.listToCsv(langTagList));
+                for (int i = 0; i < localeList.size(); i++) {
+                    String langCode = localeToWikiLanguageCode(localeList.get(i));
+                    if (!TextUtils.isEmpty(langCode) && !languages.contains(langCode) && !langCode.equals("und")) {
+                        languages.add(langCode);
+                    }
                 }
             }
         }
