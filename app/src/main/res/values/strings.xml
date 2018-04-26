@@ -69,6 +69,7 @@
     <string name="langlinks_empty">This page is not available in other languages.</string>
     <string name="langlinks_no_match">No languages found</string>
     <string name="langlinks_activity_title">Other languages</string>
+    <string name="langlinks_your_wikipedia_languages">Your Wikipedia languages</string>
     <string name="menu_save_changes">Publish changes</string>
     <string name="dialog_saving_in_progress">Publishing…</string>
     <string name="edit_saved_successfully">Edit published!</string>

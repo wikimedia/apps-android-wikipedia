@@ -73,6 +73,7 @@
   <string name="langlinks_empty">Message shown when the user requested a list of languages in which the current article is available, but the current article is not available in any other language</string>
   <string name="langlinks_no_match">Message shown when the user requested a list of languages in which the current article is available, and filtered that list using a search, but their search query does not match any of the other languages the article is available in.</string>
   <string name="langlinks_activity_title">Menu item that shows user list of languages the current article is available in.\n{{Identical|Otherlanguages}}</string>
+  <string name="langlinks_your_wikipedia_languages">Section header text that shows user list of languages the current article is available in.</string>
   <string name="menu_save_changes">{{Identical|Publish changes}}</string>
   <string name="dialog_saving_in_progress">Text for progress dialog shown when an edit save is in progress.\n{{Identical|Publishing}}</string>
   <string name="edit_saved_successfully">Small toast (popup) message saying that the edit was successful</string>
