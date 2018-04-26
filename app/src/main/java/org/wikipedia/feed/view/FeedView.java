@@ -69,6 +69,7 @@ public class FeedView extends AutoFitRecyclerView {
         addItemDecoration(new HeaderMarginItemDecoration(getContext(),
                 R.dimen.view_feed_padding_top, R.dimen.view_feed_search_padding_bottom));
         setCallback(new RecyclerViewColumnCallback());
+        setClipChildren(false);
     }
 
     /* Workaround for https://code.google.com/p/android/issues/detail?id=205947.
@@ -108,6 +109,9 @@ public class FeedView extends AutoFitRecyclerView {
             recyclerLayoutManager.setSpanCount(columns);
             int padding = roundedDpToPx(getDimension(R.dimen.view_list_card_margin_horizontal));
             setPadding(padding, 0, padding, 0);
+
+            // Allow card children to overflow when there's only one column
+            setClipChildren(columns > 1);
         }
     }
 }
