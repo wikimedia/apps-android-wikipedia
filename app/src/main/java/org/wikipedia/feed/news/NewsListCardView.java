@@ -22,6 +22,7 @@ public class NewsListCardView extends HorizontalScrollingListCardView<NewsListCa
 
     public NewsListCardView(@NonNull Context context) {
         super(context);
+        setAllowOverflow(true);
     }
 
     @Override public void setCard(@NonNull NewsListCard card) {
