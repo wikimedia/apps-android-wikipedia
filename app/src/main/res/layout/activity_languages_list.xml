@@ -4,13 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ProgressBar
-        android:id="@+id/languages_list_load_progress"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminate="true" />
-
     <LinearLayout
         android:id="@+id/languages_list_container"
         android:layout_width="match_parent"
@@ -35,5 +28,13 @@
             android:scrollbars="vertical" />
 
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/languages_list_load_progress"
+        android:layout_gravity="bottom|end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:indeterminate="true" />
 
 </FrameLayout>
