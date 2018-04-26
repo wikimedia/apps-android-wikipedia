@@ -139,6 +139,8 @@
   <string name="preference_title_sync_reading_lists_from_account">Ааҕыы испииһэгин мэнэйдээһинин холбоо</string>
   <string name="preference_summary_sync_reading_lists">Бикипиэдьийэҕэ бэлиэтэммит ааккынан ааҕар испиһиэги араас тэриллэргэр тэҥниир мэнэйдээһин</string>
   <string name="preference_summary_sync_reading_lists_from_account">Бикипиэдьийэҕэ бэлиэтэммит \"%s\" ааккынан ааҕар испиһиэги араас тэриллэргэр тэҥниир мэнэйдээһин</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Мэнэйдэммит ааҕар испииһэктэри \"%s\" сотоҕун дуо?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Туох баар урут мэнэйдэммит испииһэктэр сотуллуохтара. \"%s\" бэлиэ-аат мэнэйдэммит ааҕар испииһэктэрин сотоҕун дуо?</string>
   <string name="preferences_privacy_settings_heading">Тус эйгэни көмүскээһин</string>
   <string name="preference_title_eventlogging_opt_in">Туһаныы отчуоттарын ыыт</string>
   <string name="preference_summary_eventlogging_opt_in">Дьибилгэти туһанар туһунан Викимедиаҕа ыытары көҥүллээтэххинэ дьибилгэти тупсарарга көмөлөһүөҥ.</string>
@@ -160,6 +162,7 @@
   <string name="terms_of_use_description">Туһаныы сиэрэ</string>
   <string name="about_wikipedia_url">https://sah.m.wikipedia.org/wiki/Бикипиэдьийэ:Туһунан</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Чтение_в_офлайне_и_данные</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
   <string name="about_libraries_heading">Туһаныллар бибилэтиэкэлэр</string>
@@ -185,6 +188,7 @@
   <string name="edit_summary_tag_links">Сигэлэр киирдилэр</string>
   <string name="edit_summary_tag_other">Атын</string>
   <string name="edit_summary_tag_other_hint">Тупсарыыҥ атын ньымалара</string>
+  <string name="edit_conflict_title">Уларытыы утарсыыта</string>
   <string name="find_next">Салгыы көрдөө</string>
   <string name="find_previous">Эрдэтээҥини бул</string>
   <string name="find_first_occurence">Бу бастакы сөп түбэһии</string>
@@ -357,6 +361,8 @@
   <string name="reading_list_confirm_remove_article_from_offline">оффлайн эрэhиимин сотторуу</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Ыстатыйа хас да5аны испиhиэккэ кестер</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s офлайн-эрэсиимҥэ аны көстүө суоҕа:</string>
+  <string name="reading_lists_sync_reminder_title">Аҕыы испииһэгин мэнэйдэһиитин холбуугун дуо?</string>
+  <string name="reading_lists_sync_reminder_text">Мэнэйдэһии испииһэгэр хараллыбыт ыстатыйалар Эн Бикипиэдьийэҕэ бэлиэтэммит ааккын кытта ситимнэниэхтэрин сөп. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сиһилии&lt;/a&gt;</string>
   <string name="reading_list_login_reminder_title">Мэнэйдэhии испиhиэгэ</string>
   <string name="reading_lists_confirm_remote_delete">Бу эрдэ мэнэйдэһиллибит ааҕар испиһиэккин сотторон кэбиһиэ. Салгыыгын дуо?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Сөп</string>
@@ -371,12 +377,18 @@
   <string name="reading_list_turned_sync_off_dialog_ok">Сөп</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Туруоруулар</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Аҕыы испииһэгин мэнэйдэһиитин холбуугун дуо?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Хос көрдөрүмэ</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Мэнэйдээһини холбоо</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Суох, махтанабын</string>
   <string name="reading_list_login_option_reminder_dialog_title">Ыстатыйалар испииһэктэрэ булулунна</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Ыстатыйалар ааҕар испииһэктэрин киирбэккэ эрэ оҥорбуккун. Бэлиэ-ааккар сыһыараҕын дуо?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Оннук, мин ааҕар испииһэкпэр эп</string>
   <string name="reading_list_login_option_reminder_dialog_no">Суох, сотон кэбис</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Оннук, испииһэккэ харай</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Суох, ыстатыйалары испииһэктэн сот</string>
   <string name="default_reading_list_name">Бигэргэннэ</string>
   <string name="default_reading_list_description">Талбыт ыстатыйаларыҥ испииһэгэ</string>
+  <string name="no_user_lists_title">Испииһэккэ ыстатыйалары наардаа</string>
   <string name="reading_lists_menu_create_list">Саҥа испииһэги оҥоруу</string>
   <string name="reading_lists_menu_sort_by">Маннык наардаа...</string>
   <string name="reading_lists_refresh_sync_option">Хос ыыт</string>
@@ -529,6 +541,8 @@
   <string name="app_shortcuts_random">Түбэспиччэ</string>
   <string name="app_shortcuts_continue_reading">Салгыы ааҕыы</string>
   <string name="app_shortcuts_search">Бул</string>
+  <string name="more_trending_text">Манна майгыныыры эбии</string>
+  <string name="top_on_this_day">Манна %1$s элбэхтэ көрөллөр</string>
   <string name="on_this_day_card_title">Бүгүн</string>
   <string name="more_events_text">Эбии бу күн</string>
   <string name="this_year">Быйыл</string>

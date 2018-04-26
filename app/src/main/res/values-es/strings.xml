@@ -40,12 +40,12 @@
   <string name="error_network_error">No se pudo conectar a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
   <string name="page_error_back_to_main">Regresar</string>
-  <string name="menu_clear_all_history">Vaciar el historial</string>
+  <string name="menu_clear_all_history">Borrar el historial</string>
   <string name="history_item_deleted">%s eliminado del historial</string>
   <string name="history_items_deleted">%d artículos eliminados del historial</string>
   <string name="history_item_delete_undo">Deshacer</string>
   <string name="app_settings">Configuración de aplicación</string>
-  <string name="dialog_title_clear_history">Vaciar el historial de navegación</string>
+  <string name="dialog_title_clear_history">Borrar el historial de navegación</string>
   <string name="dialog_message_clear_history">Esto borrará todo tu historial de tu navegación, y cerrará cualquier pestaña abierta. ¿Estás seguro?</string>
   <string name="dialog_message_clear_history_yes">Sí</string>
   <string name="dialog_message_clear_history_no">No</string>
@@ -56,11 +56,11 @@
   <string name="menu_page_find_in_page">Buscar en la página</string>
   <string name="menu_page_content_issues">Problemas del contenido</string>
   <string name="menu_page_font_and_theme">Tipo de letra y tema</string>
-  <string name="menu_page_add_to_list">Añadir a lista de lectura</string>
+  <string name="menu_page_add_to_list">Añadir a una lista de lectura</string>
   <string name="menu_page_share">Compartir enlace</string>
   <string name="menu_long_press_open_page">Abrir</string>
   <string name="menu_long_press_open_in_new_tab">Abrir en una pestaña nueva</string>
-  <string name="menu_long_press_copy_page">Copiar dirección del enlace</string>
+  <string name="menu_long_press_copy_page">Copiar enlace</string>
   <string name="menu_text_select_copy">Copiar</string>
   <string name="menu_text_select_define">Definir</string>
   <string name="menu_text_select_share">Compartir</string>
@@ -401,10 +401,11 @@
   <string name="reading_list_added_articles_list_titled">Se añadieron %1$d artículos a %2$s</string>
   <string name="reading_list_delete_confirm">¿Confirmas que quieres eliminar %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Accede para activar la sincronización</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Inicia sesión para permitir guardar tus listas de lectura en tu cuenta.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Accede a tu cuenta para permitir que se guarden tus listas de lectura.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Cancelar</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Acceder</string>
   <string name="reading_list_turned_sync_off_dialog_title">La sincronización de las listas de lectura está desactivada</string>
+  <string name="reading_list_turned_sync_off_dialog_text">La sincronización de las listas de lectura está desactivada en tu cuenta, y los artículos guardados en tus otros dispositivos con sesión iniciada en esta cuenta no están siendo subidos a la nube. Activa la sincronización de listas de lectura en ajustes.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">Aceptar</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Configuración</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">¿Quieres activar la sincronización de las listas de lectura?</string>
@@ -413,6 +414,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Activar sincronización</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No, gracias</string>
   <string name="reading_list_login_option_reminder_dialog_title">Artículos de las listas de lectura encontrados</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Los artículos fueron guardados a la lista de lectura mientras estabas sin iniciar sesión. ¿Desearía añadirlos a la lista de lectura de su cuenta?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Sí, añadirlos a mis listas de lectura</string>
   <string name="reading_list_login_option_reminder_dialog_no">No, eliminar los artículos</string>
   <string name="reading_list_logout_option_reminder_dialog_title">¿Mantener los artículos guardados en la aplicación?</string>
@@ -603,6 +605,7 @@
   <string name="onboarding_save_to_reading_lists_text">Crea listas de lectura con artículos que desees leer más tarde, incluso cuando no tengas conexión.</string>
   <string name="onboarding_reading_list_sync_title">Listas de lectura con sincronización</string>
   <string name="onboarding_reading_list_sync_text">Crea listas de lectura a partir de artículos que quieres leer más tarde, incluso para cuando estés sin conexión. &lt;a href=\"#login\"&gt;Inicia sesión o crea&lt;/a&gt; tu cuenta de Wikipedia para mantener tus listas de lectura sincronizadas.</string>
+  <string name="onboarding_reading_list_sync_text_v2">Puedes crear listas de los artículos que quieras leer más tarde, incluso sin conexión. &lt;br/&gt;Accede a tu cuenta de Wikipedia para sincronizar tus listas de lectura. &lt;a href=\"#login\"&gt;Únete a Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Enviar datos anónimos</string>
   <string name="onboarding_analytics_offline_text">Permite que sepamos cómo utilizas la aplicación para ayudar a mejorarla. Los datos recopilados son anónimos. &lt;a href=\"#privacy\"&gt;Más información&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Enviar datos de uso</string>

@@ -45,8 +45,8 @@
   <string name="nearby_zoom_to_location">פֿארגרעסערן צו א לאקאציע אויף דער מאפע</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; ביישטייערער</string>
   <string name="last_updated_text">לעצט דערהײַנטיקט %s</string>
-  <string name="talk_page_link_text" fuzzy="true">רעדן</string>
-  <string name="edit_history_link_text" fuzzy="true">!רעדאַקטירן היסטאריע</string>
+  <string name="talk_page_link_text">באקוקן רעדן בלאט</string>
+  <string name="edit_history_link_text">באַקוקן רעדאַקטירן היסטאריע</string>
   <string name="map_view_link_text">קוקן אויף א מאפע</string>
   <string name="other_languages_indication_text">לייענען אין אן אנדער שפראך</string>
   <string name="language_count_link_text">פֿאראן אין נאך %d שפראכן</string>
@@ -112,6 +112,8 @@
   <string name="edit_preview_fetching_dialog_message">ברע ג\'ין פארויסקוק…</string>
   <string name="send_feedback">שיקן אפ־פידבעק</string>
   <string name="create_account_account_created_toast">קאָנטע באַשאַפֿן!</string>
+  <string name="preferences_heading_data_usage">דאטן־באניצן</string>
+  <string name="preferences_heading_experimental">עקספערימענטאל</string>
   <string name="preferences_privacy_settings_heading">פריוואטקייט</string>
   <string name="preference_title_eventlogging_opt_in">שיקן ניצונג־באריכטן</string>
   <string name="preference_summary_eventlogging_opt_in">דערלויבן וויקימעדיע צו זאמלען אינפארמאציע וויאזוי איר ניצט דעם אפ כדי צו פארבעסערן דעם אפ</string>
@@ -146,6 +148,7 @@
   <string name="edit_summary_tag_links">צוגעלייגט לינקען</string>
   <string name="edit_summary_tag_other">אנדער</string>
   <string name="edit_summary_tag_other_hint">אנדערע וועגן איר האט פארבעסערט דעם בלאט</string>
+  <string name="edit_conflict_title">רעדאקטירן קאנפֿליקט</string>
   <string name="find_next">זוכן נעקסטע</string>
   <string name="find_previous">זוכן פריערדיקע</string>
   <string name="dialog_page_issues">בלאט־פֿראגעס</string>
@@ -186,6 +189,8 @@
   <string name="gallery_fair_use_license">געהעריגער באניץ</string>
   <string name="gallery_uploader_unknown">ארויפלאדיר אומבאקאנט</string>
   <string name="menu_new_tab">נייער טאב</string>
+  <string name="close_all_tabs_confirm_yes">יא</string>
+  <string name="close_all_tabs_confirm_no">ניין</string>
   <string name="page_view_in_browser">באקוקן בלאט אין בלעטערער</string>
   <string name="format_error_server_message">מעלדונג: \"%s\"</string>
   <string name="button_continue_to_article">לייענען דעם ארטיקל</string>
@@ -207,6 +212,7 @@
   <string name="color_theme_black">שווארץ</string>
   <string name="color_theme_test_title">ביישפיל־טעקסט</string>
   <string name="nav_item_reading_lists">מיינע ליסטעס</string>
+  <string name="reading_list_create_new">שאפֿן ניי</string>
   <string name="reading_list_sort">סארטירן</string>
   <string name="reading_lists_onboarding_for_example">צום ביישפיל</string>
   <string name="reading_lists_onboarding_example3">קאסמאס אויספֿארשונג</string>

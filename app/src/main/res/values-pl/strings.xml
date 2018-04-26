@@ -65,6 +65,7 @@
   <string name="talk_page_link_text">Zobacz stronę dyskusji</string>
   <string name="edit_history_link_text">Zobacz historię edycji</string>
   <string name="map_view_link_text">Zobacz na mapie</string>
+  <string name="other_languages_indication_text">Przeczytaj w innym języku</string>
   <string name="language_count_link_text">Dostępne w %d innych językach</string>
   <string name="content_license_html">O ile nie zaznaczono inaczej, treść dostępna jest na licencji &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_logged_in">Zapisując, akceptujesz &lt;a href=\"%1$s\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz zgodę na udostępnianie Twojego wkładu na licencjach &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
