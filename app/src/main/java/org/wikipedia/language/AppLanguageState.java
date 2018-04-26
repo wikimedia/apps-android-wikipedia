@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.StringUtil;
 
@@ -42,58 +43,38 @@ public class AppLanguageState {
         initAppLanguageCodes();
     }
 
-    private void addSystemLanguageCodesIfEmpty() {
-        // To prevent the possibility of empty app language code
-        if (appLanguageCodes.isEmpty()) {
-            appLanguageCodes.addAll(getSystemLanguageCodes());
-        }
-    }
-
     @NonNull
     public List<String> getAppLanguageCodes() {
+        if (appLanguageCodes.isEmpty()) {
+            // very bad, should not happen.
+            initAppLanguageCodes();
+        }
         return appLanguageCodes;
     }
 
-    @NonNull
-    public List<String> addAppLanguageCode(@Nullable String code) {
-        return reOrderAppLanguageCode(code, 0);
+    public void addAppLanguageCode(@Nullable String code) {
+        appLanguageCodes.remove(code);
+        appLanguageCodes.add(0, code);
+        Prefs.setAppLanguageCodeCsv(StringUtil.listToCsv(appLanguageCodes));
+        WikipediaApp.getInstance().resetWikiSite();
     }
 
-    @NonNull
-    public List<String> updateAppLanguageCodes(@NonNull List<String> codes) {
+    public void setAppLanguageCodes(@NonNull List<String> codes) {
         appLanguageCodes.clear();
         for (String code : codes) {
             if (!TextUtils.isEmpty(code)) {
                 appLanguageCodes.add(code);
             }
         }
-
-        addSystemLanguageCodesIfEmpty();
-
         Prefs.setAppLanguageCodeCsv(StringUtil.listToCsv(appLanguageCodes));
-        return appLanguageCodes;
+        WikipediaApp.getInstance().resetWikiSite();
     }
 
-    @NonNull
-    public List<String> reOrderAppLanguageCode(@Nullable String code, int position) {
-        appLanguageCodes.remove(code);
-        appLanguageCodes.add(position, code);
-        Prefs.setAppLanguageCodeCsv(StringUtil.listToCsv(appLanguageCodes));
-        return appLanguageCodes;
-    }
-
-    @NonNull
-    public List<String> removeAppLanguageCodes(@NonNull List<String> codes) {
+    public void removeAppLanguageCodes(@NonNull List<String> codes) {
         if (appLanguageCodes.size() > 1) {
             appLanguageCodes.removeAll(codes);
-
-            if (appLanguageCodes.isEmpty()) {
-                appLanguageCodes.addAll(getSystemLanguageCodes());
-            }
-
             Prefs.setAppLanguageCodeCsv(StringUtil.listToCsv(appLanguageCodes));
         }
-        return appLanguageCodes;
     }
 
     private void initAppLanguageCodes() {
@@ -101,25 +82,20 @@ public class AppLanguageState {
             if (!TextUtils.isEmpty(appLanguageCode)) {
                 addAppLanguageCode(appLanguageCode);
             } else {
-                updateAppLanguageCodes(getSystemLanguageCodes());
+                setAppLanguageCodes(getRemainingAvailableLanguageCodes());
             }
         }
     }
 
-    @Nullable
+    @NonNull
     public String getAppLanguageCode() {
-        if (appLanguageCodes.isEmpty()) {
-            // very bad, should not happen.
-            initAppLanguageCodes();
-        }
-        return appLanguageCodes.get(0);
+        return getAppLanguageCodes().get(0);
     }
 
-    @NonNull
-    public List<String> getSystemLanguageCodes() {
+    @NonNull public List<String> getRemainingAvailableLanguageCodes() {
         List<String> list = new ArrayList<>();
         for (String code : LanguageUtil.getAvailableLanguages()) {
-            if (!getAppLanguageCodes().contains(code)
+            if (!appLanguageCodes.contains(code)
                     && appLanguageLookUpTable.isSupportedCode(code)) {
                 list.add(code);
             }
@@ -127,32 +103,27 @@ public class AppLanguageState {
         return list;
     }
 
-    @Deprecated @NonNull
-    public String getSystemLanguageCode() {
+    @NonNull public String getSystemLanguageCode() {
         String code = LanguageUtil.localeToWikiLanguageCode(Locale.getDefault());
         return appLanguageLookUpTable.isSupportedCode(code)
-                ? code
-                : AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE;
+                ? code : AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE;
     }
 
-    /** Note: returned codes may include languages offered by articles but not the app. */
-    @NonNull
-    public List<String> getMruLanguageCodes() {
+    @NonNull public List<String> getMruLanguageCodes() {
         return mruLanguageCodes;
     }
 
-    public void setMruLanguageCode(@Nullable String code) {
-        List<String> codes = getMruLanguageCodes();
-        codes.remove(code);
-        codes.add(0, code);
-        Prefs.setMruLanguageCodeCsv(StringUtil.listToCsv(codes));
+    public void addMruLanguageCode(@Nullable String code) {
+        mruLanguageCodes.remove(code);
+        mruLanguageCodes.add(0, code);
+        Prefs.setMruLanguageCodeCsv(StringUtil.listToCsv(mruLanguageCodes));
     }
 
     /** @return All app supported languages in MRU order. */
     public List<String> getAppMruLanguageCodes() {
         List<String> codes = new ArrayList<>(appLanguageLookUpTable.getCodes());
         int insertIndex = 0;
-        for (String code : getMruLanguageCodes()) {
+        for (String code : mruLanguageCodes) {
             if (codes.contains(code)) {
                 codes.remove(code);
                 codes.add(insertIndex, code);

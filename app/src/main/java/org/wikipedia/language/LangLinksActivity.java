@@ -98,7 +98,7 @@ public class LangLinksActivity extends BaseActivity {
 
         langLinksList.setOnItemClickListener((parent, view, position, id) -> {
             PageTitle langLink = (PageTitle) parent.getAdapter().getItem(position);
-            app.setMruLanguageCode(langLink.getWikiSite().languageCode());
+            app.language().addMruLanguageCode(langLink.getWikiSite().languageCode());
             HistoryEntry historyEntry = new HistoryEntry(langLink, HistoryEntry.SOURCE_LANGUAGE_LINK);
             Intent intent = PageActivity.newIntentForCurrentTab(LangLinksActivity.this, historyEntry, langLink);
             setResult(ACTIVITY_RESULT_LANGLINK_SELECT, intent);
@@ -213,7 +213,7 @@ public class LangLinksActivity extends BaseActivity {
 
         private void sortLanguageEntriesByMru(List<PageTitle> entries) {
             int addIndex = 0;
-            for (String language : app.getMruLanguageCodes()) {
+            for (String language : app.language().getMruLanguageCodes()) {
                 for (int i = 0; i < entries.size(); i++) {
                     if (entries.get(i).getWikiSite().languageCode().equals(language)) {
                         PageTitle entry = entries.remove(i);
@@ -258,8 +258,8 @@ public class LangLinksActivity extends BaseActivity {
             filter = filter.toLowerCase(Locale.getDefault());
             for (PageTitle entry : originalLanguageEntries) {
                 String languageCode = entry.getWikiSite().languageCode();
-                String canonicalName = defaultString(app.getAppLanguageCanonicalName(languageCode));
-                String localizedName = defaultString(app.getAppLanguageLocalizedName(languageCode));
+                String canonicalName = defaultString(app.language().getAppLanguageCanonicalName(languageCode));
+                String localizedName = defaultString(app.language().getAppLanguageLocalizedName(languageCode));
                 if (canonicalName.toLowerCase(Locale.getDefault()).contains(filter)
                         || localizedName.toLowerCase(Locale.getDefault()).contains(filter)) {
                     languageEntries.add(entry);
@@ -291,7 +291,7 @@ public class LangLinksActivity extends BaseActivity {
 
             PageTitle item = getItem(position);
             String languageCode = item.getWikiSite().languageCode();
-            String localizedLanguageName = app.getAppLanguageLocalizedName(languageCode);
+            String localizedLanguageName = app.language().getAppLanguageLocalizedName(languageCode);
 
             TextView localizedLanguageNameTextView = convertView.findViewById(R.id.localized_language_name);
             TextView articleTitleTextView = convertView.findViewById(R.id.language_subtitle);

@@ -560,7 +560,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             UriUtil.visitInExternalBrowser(getContext(),
                     Uri.parse(String.format(getString(R.string.donate_url),
                             BuildConfig.VERSION_NAME,
-                            WikipediaApp.getInstance().getSystemLanguageCode())));
+                            WikipediaApp.getInstance().language().getSystemLanguageCode())));
         }
 
         @Override

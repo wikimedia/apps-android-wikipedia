@@ -56,10 +56,7 @@ public class LanguagesListActivity extends BaseActivity {
 
         app = WikipediaApp.getInstance();
 
-        // TODO: uncomment it if the list of getKeyboardLanguages return correct list.
-        // LanguageUtil.getKeyboardLanguages(this);
-
-        adapter = new LanguagesListAdapter(app.getAppMruLanguageCodes(), app.getSystemLanguageCodes());
+        adapter = new LanguagesListAdapter(app.language().getAppMruLanguageCodes(), app.language().getRemainingAvailableLanguageCodes());
 
         setUpViews();
 
@@ -145,7 +142,7 @@ public class LanguagesListActivity extends BaseActivity {
         private boolean isSearching;
 
         private LanguagesListAdapter(@NonNull List<String> languageCodes, @NonNull List<String> suggestedLanguageCodes) {
-            originalLanguageCodes = languageCodes;
+            originalLanguageCodes = new ArrayList<>(languageCodes);
             this.suggestedLanguageCodes = suggestedLanguageCodes;
             reset();
         }
@@ -182,8 +179,7 @@ public class LanguagesListActivity extends BaseActivity {
                 holder.itemView.setOnClickListener((View view) -> {
                     String lang = languageCodes.get(pos);
                     if (!lang.equals(app.getAppOrSystemLanguageCode())) {
-                        app.setAppLanguageCode(lang);
-                        app.setMruLanguageCode(lang);
+                        app.language().addAppLanguageCode(lang);
 
                         // TODO: add funnel?
                     }
@@ -205,7 +201,7 @@ public class LanguagesListActivity extends BaseActivity {
             this.languageCodes.clear();
             filter = StringUtils.stripAccents(filter).toLowerCase(Locale.getDefault());
             for (String code : originalLanguageCodes) {
-                String localizedName = StringUtils.stripAccents(defaultString(app.getAppLanguageLocalizedName(code)));
+                String localizedName = StringUtils.stripAccents(defaultString(app.language().getAppLanguageLocalizedName(code)));
                 String canonicalName = StringUtils.stripAccents(defaultString(getCanonicalName(code)));
                 if (code.contains(filter)
                         || localizedName.toLowerCase(Locale.getDefault()).contains(filter)
@@ -231,7 +227,7 @@ public class LanguagesListActivity extends BaseActivity {
         // To remove the already selected languages and suggested languages from all languages list
        private List<String> getNonDuplicateLanguageCodesList() {
             List<String> list = originalLanguageCodes;
-            list.removeAll(app.getAppLanguageCodes());
+            list.removeAll(app.language().getAppLanguageCodes());
             list.removeAll(suggestedLanguageCodes);
             return list;
         }
@@ -248,7 +244,7 @@ public class LanguagesListActivity extends BaseActivity {
             }
         }
         if (TextUtils.isEmpty(canonicalName)) {
-            canonicalName = app.getAppLanguageCanonicalName(code);
+            canonicalName = app.language().getAppLanguageCanonicalName(code);
         }
         return canonicalName;
     }
@@ -285,12 +281,12 @@ public class LanguagesListActivity extends BaseActivity {
 
             String languageCode = languageCodes.get(position);
 
-            localizedNameTextView.setText(app.getAppLanguageLocalizedName(languageCode));
+            localizedNameTextView.setText(app.language().getAppLanguageLocalizedName(languageCode));
 
             String canonicalName = getCanonicalName(languageCode);
             if (progressBar.getVisibility() != View.VISIBLE) {
                 canonicalNameTextView.setText(TextUtils.isEmpty(canonicalName)
-                        ? app.getAppLanguageCanonicalName(languageCode) : canonicalName);
+                        ? app.language().getAppLanguageCanonicalName(languageCode) : canonicalName);
             }
         }
     }

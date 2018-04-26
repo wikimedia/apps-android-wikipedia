@@ -52,7 +52,7 @@ public class AggregatedFeedContentClient {
         @Override
         void getCardFromResponse(@NonNull Map<String, AggregatedFeedContent> responses,
                                  @NonNull WikiSite wiki, int age, @NonNull List<Card> outCards) {
-            for (String appLangCode : WikipediaApp.getInstance().getAppLanguageCodes()) {
+            for (String appLangCode : WikipediaApp.getInstance().language().getAppLanguageCodes()) {
                 if (responses.containsKey(appLangCode)
                         && !FeedContentType.ON_THIS_DAY.getLangCodesDisabled().contains(appLangCode)) {
                     AggregatedFeedContent content = responses.get(appLangCode);
@@ -72,7 +72,7 @@ public class AggregatedFeedContentClient {
         void getCardFromResponse(@NonNull Map<String, AggregatedFeedContent> responses,
                                  @NonNull WikiSite wiki, int age, @NonNull List<Card> outCards) {
             // todo: remove age check when news endpoint provides dated content, T139481.
-            for (String appLangCode : WikipediaApp.getInstance().getAppLanguageCodes()) {
+            for (String appLangCode : WikipediaApp.getInstance().language().getAppLanguageCodes()) {
                 if (responses.containsKey(appLangCode)
                         && !FeedContentType.NEWS.getLangCodesDisabled().contains(appLangCode)) {
                     AggregatedFeedContent content = responses.get(appLangCode);
@@ -92,7 +92,7 @@ public class AggregatedFeedContentClient {
         @Override
         void getCardFromResponse(@NonNull Map<String, AggregatedFeedContent> responses,
                                  @NonNull WikiSite wiki, int age, @NonNull List<Card> outCards) {
-            for (String appLangCode : WikipediaApp.getInstance().getAppLanguageCodes()) {
+            for (String appLangCode : WikipediaApp.getInstance().language().getAppLanguageCodes()) {
                 if (responses.containsKey(appLangCode)
                         && !FeedContentType.FEATURED_ARTICLE.getLangCodesDisabled().contains(appLangCode)) {
                     AggregatedFeedContent content = responses.get(appLangCode);
@@ -112,7 +112,7 @@ public class AggregatedFeedContentClient {
         @Override
         void getCardFromResponse(@NonNull Map<String, AggregatedFeedContent> responses,
                                  @NonNull WikiSite wiki, int age, @NonNull List<Card> outCards) {
-            for (String appLangCode : WikipediaApp.getInstance().getAppLanguageCodes()) {
+            for (String appLangCode : WikipediaApp.getInstance().language().getAppLanguageCodes()) {
                 if (responses.containsKey(appLangCode)
                         && !FeedContentType.TRENDING_ARTICLES.getLangCodesDisabled().contains(appLangCode)) {
                     AggregatedFeedContent content = responses.get(appLangCode);

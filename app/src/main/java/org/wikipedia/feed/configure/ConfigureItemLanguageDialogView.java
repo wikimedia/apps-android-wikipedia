@@ -70,7 +70,7 @@ public class ConfigureItemLanguageDialogView extends FrameLayout {
         void bindItem(@NonNull String langCode) {
             this.langCode = langCode;
             container.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT));
-            langNameView.setText(WikipediaApp.getInstance().getAppLanguageLocalizedName(langCode));
+            langNameView.setText(WikipediaApp.getInstance().language().getAppLanguageLocalizedName(langCode));
             container.setOnClickListener(this);
             checkbox.setOnClickListener(this);
             updateState();

@@ -89,7 +89,7 @@ public class CompilationDetailFragment extends DownloadObserverFragment {
 
         controls.setCallback(() -> getDownloadObserver().remove(compilation));
 
-        mainPageButton.setText(SiteInfoClient.getMainPageForLang(WikipediaApp.getInstance().getAppLanguageCode()));
+        mainPageButton.setText(SiteInfoClient.getMainPageForLang(WikipediaApp.getInstance().language().getAppLanguageCode()));
         updateDownloadState(true, null);
         return view;
     }

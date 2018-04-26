@@ -31,7 +31,6 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.offline.OfflineManager;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
-import org.wikipedia.settings.LanguagePreferenceDialog;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.ViewUtil;
@@ -281,7 +280,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     }
 
     @OnClick(R.id.search_lang_button_container) void onLangButtonClick() {
-        showLangPreferenceDialog();
+        // TODO: invoke new language selection activity.
     }
 
     /**
@@ -475,21 +474,5 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     @Nullable
     private Callback callback() {
         return FragmentUtil.getCallback(this, Callback.class);
-    }
-
-    private void showLangPreferenceDialog() {
-        LanguagePreferenceDialog langPrefDialog = new LanguagePreferenceDialog(getContext(), true);
-        langPrefDialog.setOnDismissListener((dialog) -> {
-            if (getActivity() == null) {
-                return;
-            }
-
-            langButton.setText(app.getAppOrSystemLanguageCode().toUpperCase(Locale.ENGLISH));
-            formatLangButtonText();
-            if (!TextUtils.isEmpty(query)) {
-                startSearch(query, true);
-            }
-        });
-        langPrefDialog.show();
     }
 }

@@ -85,7 +85,7 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
     void updateLanguagePrefSummary() {
         Preference languagePref = findPreference(R.string.preference_key_language);
         // TODO: resolve RTL vs LTR with multiple languages (e.g. list contains English and Hebrew)
-        languagePref.setSummary(WikipediaApp.getInstance().getAppLanguageLocalizedNames());
+        languagePref.setSummary(WikipediaApp.getInstance().language().getAppLanguageLocalizedNames());
     }
 
     private final class SyncReadingListsListener implements Preference.OnPreferenceChangeListener {

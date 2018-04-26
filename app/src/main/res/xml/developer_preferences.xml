@@ -110,6 +110,11 @@
 
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
+            android:key="@string/preference_key_language_app"
+            android:title="@string/preference_key_language_app" />
+
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/DataStringPreference"
             android:key="@string/preference_key_language_mru"
             android:title="@string/preference_key_language_mru" />
 

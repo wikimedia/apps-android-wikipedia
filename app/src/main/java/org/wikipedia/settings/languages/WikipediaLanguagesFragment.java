@@ -112,7 +112,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
 
     private void prepareWikipediaLanguagesList() {
         wikipediaLanguages.clear();
-        wikipediaLanguages.addAll(app.getAppLanguageCodes());
+        wikipediaLanguages.addAll(app.language().getAppLanguageCodes());
     }
 
     private void setupRecyclerView() {
@@ -131,7 +131,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
     }
 
     private void updateWikipediaLanguages() {
-        app.setAppLanguageCodes(wikipediaLanguages);
+        app.language().setAppLanguageCodes(wikipediaLanguages);
         adapter.notifyDataSetChanged();
     }
 
@@ -283,7 +283,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
         }
 
         void bindItem(String languageCode, int position) {
-            getView().setContents(app.getAppLanguageLocalizedName(languageCode), position);
+            getView().setContents(app.language().getAppLanguageLocalizedName(languageCode), position);
         }
     }
 
@@ -323,7 +323,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
     }
 
     private void deleteSelectedLanguages() {
-        app.removeAppLanguageCodes(selectedCodes);
+        app.language().removeAppLanguageCodes(selectedCodes);
         prepareWikipediaLanguagesList();
         unselectAllLanguages();
     }

@@ -56,7 +56,6 @@ import org.wikipedia.zero.WikipediaZeroHandler;
 
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -134,14 +133,8 @@ public class WikipediaApp extends Application {
         return currentTheme;
     }
 
-    @NonNull
-    public String getAppLanguageCode() {
-        return defaultString(appLanguageState.getAppLanguageCode());
-    }
-
-    @NonNull
-    public List<String> getAppLanguageCodes() {
-        return appLanguageState.getAppLanguageCodes();
+    @NonNull public AppLanguageState language() {
+        return appLanguageState;
     }
 
     @NonNull
@@ -151,59 +144,6 @@ public class WikipediaApp extends Application {
             getUserIdForLanguage(code);
         }
         return code;
-    }
-
-    @NonNull
-    public List<String> getSystemLanguageCodes() {
-        return appLanguageState.getSystemLanguageCodes();
-    }
-
-    @NonNull
-    public String getSystemLanguageCode() {
-        return appLanguageState.getSystemLanguageCode();
-    }
-
-    public void setAppLanguageCode(@Nullable String code) {
-        appLanguageState.addAppLanguageCode(code);
-        resetWikiSite();
-    }
-
-    public void setAppLanguageCodes(@NonNull List<String> codes) {
-        appLanguageState.updateAppLanguageCodes(codes);
-        resetWikiSite();
-    }
-
-    public List<String> removeAppLanguageCodes(@NonNull List<String> codes) {
-        return appLanguageState.removeAppLanguageCodes(codes);
-    }
-
-    @Nullable
-    public String getAppLanguageLocalizedNames() {
-        return appLanguageState.getAppLanguageLocalizedNames();
-    }
-
-    @NonNull
-    public List<String> getMruLanguageCodes() {
-        return appLanguageState.getMruLanguageCodes();
-    }
-
-    @NonNull
-    public List<String> getAppMruLanguageCodes() {
-        return appLanguageState.getAppMruLanguageCodes();
-    }
-
-    public void setMruLanguageCode(@Nullable String code) {
-        appLanguageState.setMruLanguageCode(code);
-    }
-
-    @Nullable
-    public String getAppLanguageLocalizedName(String code) {
-        return appLanguageState.getAppLanguageLocalizedName(code);
-    }
-
-    @Nullable
-    public String getAppLanguageCanonicalName(String code) {
-        return appLanguageState.getAppLanguageCanonicalName(code);
     }
 
     @Override
@@ -283,7 +223,7 @@ public class WikipediaApp extends Application {
         String wikiLang = wiki == null || "meta".equals(wiki.languageCode())
                 ? ""
                 : defaultString(wiki.languageCode());
-        return AcceptLanguageUtil.getAcceptLanguage(wikiLang, getAppLanguageCode(),
+        return AcceptLanguageUtil.getAcceptLanguage(wikiLang, appLanguageState.getAppLanguageCode(),
                 appLanguageState.getSystemLanguageCode());
     }
 

@@ -69,7 +69,7 @@ public class ConfigureItemView extends FrameLayout {
         subtitleView.setText(contentType.subtitleId());
         onSwitch.setChecked(contentType.isEnabled());
 
-        if (contentType.isPerLanguage() && WikipediaApp.getInstance().getAppLanguageCodes().size() > 1) {
+        if (contentType.isPerLanguage() && WikipediaApp.getInstance().language().getAppLanguageCodes().size() > 1) {
             langListContainer.setVisibility(VISIBLE);
             adapter = new LanguageItemAdapter();
             langRecyclerView.setAdapter(adapter);
@@ -124,10 +124,10 @@ public class ConfigureItemView extends FrameLayout {
         LanguageItemAdapter() {
             if (contentType.getLangCodesSupported().isEmpty()) {
                 // all languages supported
-                langList.addAll(WikipediaApp.getInstance().getAppLanguageCodes());
+                langList.addAll(WikipediaApp.getInstance().language().getAppLanguageCodes());
             } else {
                 // take the intersection of the supported languages and the available app languages
-                for (String appLangCode : WikipediaApp.getInstance().getAppLanguageCodes()) {
+                for (String appLangCode : WikipediaApp.getInstance().language().getAppLanguageCodes()) {
                     if (contentType.getLangCodesSupported().contains(appLangCode)) {
                         langList.add(appLangCode);
                     }

@@ -155,7 +155,7 @@ public enum FeedContentType implements EnumCode {
     }
 
     public static List<String> getAggregatedLanguages() {
-        List<String> appLangCodes = WikipediaApp.getInstance().getAppLanguageCodes();
+        List<String> appLangCodes = WikipediaApp.getInstance().language().getAppLanguageCodes();
         List<String> list = new ArrayList<>();
         for (int i = 0; i < FeedContentType.values().length; i++) {
             FeedContentType type = FeedContentType.values()[i];

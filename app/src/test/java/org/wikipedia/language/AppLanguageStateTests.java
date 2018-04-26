@@ -14,13 +14,13 @@ import java.util.List;
 public class AppLanguageStateTests {
 
     @Test public void testInitAppLanguages() {
-        Assert.assertTrue(WikipediaApp.getInstance().getAppLanguageCode().equals("en"));
+        Assert.assertTrue(WikipediaApp.getInstance().language().getAppLanguageCode().equals("en"));
     }
 
     @Test public void testAddAppLanguage() {
-        WikipediaApp.getInstance().setAppLanguageCode("ja");
-        Assert.assertTrue(WikipediaApp.getInstance().getAppLanguageCode().equals("ja")
-                && WikipediaApp.getInstance().getAppLanguageCodes().size() == 2);
+        WikipediaApp.getInstance().language().addAppLanguageCode("ja");
+        Assert.assertTrue(WikipediaApp.getInstance().language().getAppLanguageCode().equals("ja")
+                && WikipediaApp.getInstance().language().getAppLanguageCodes().size() == 2);
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
@@ -30,9 +30,9 @@ public class AppLanguageStateTests {
         list.add("ja");
         list.add("es");
         list.add("zh-hant");
-        WikipediaApp.getInstance().setAppLanguageCodes(list);
-        Assert.assertTrue(WikipediaApp.getInstance().getAppLanguageCode().equals("en")
-                && WikipediaApp.getInstance().getAppLanguageCodes().size() == 4);
+        WikipediaApp.getInstance().language().setAppLanguageCodes(list);
+        Assert.assertTrue(WikipediaApp.getInstance().language().getAppLanguageCode().equals("en")
+                && WikipediaApp.getInstance().language().getAppLanguageCodes().size() == 4);
     }
 
     @Test public void testRemoveAppLanguages() {
@@ -41,13 +41,13 @@ public class AppLanguageStateTests {
         list.add("ja");
         list.add("es");
         list.add("zh-hant");
-        WikipediaApp.getInstance().setAppLanguageCodes(list);
+        WikipediaApp.getInstance().language().setAppLanguageCodes(list);
 
         List<String> listToRemove = new ArrayList<>();
         listToRemove.add("en");
         listToRemove.add("zh-hant");
-        WikipediaApp.getInstance().removeAppLanguageCodes(listToRemove);
-        Assert.assertTrue(WikipediaApp.getInstance().getAppLanguageCode().equals("ja")
-                && WikipediaApp.getInstance().getAppLanguageCodes().size() == 2);
+        WikipediaApp.getInstance().language().removeAppLanguageCodes(listToRemove);
+        Assert.assertTrue(WikipediaApp.getInstance().language().getAppLanguageCode().equals("ja")
+                && WikipediaApp.getInstance().language().getAppLanguageCodes().size() == 2);
     }
 }

@@ -79,10 +79,6 @@ public final class Prefs {
         return getString(R.string.preference_key_language, null);
     }
 
-    public static void setAppLanguageCode(@Nullable String code) {
-        setString(R.string.preference_key_language, code);
-    }
-
     public static int getThemeId() {
         return getInt(R.string.preference_key_color_theme, Theme.getFallback().getMarshallingId());
     }

@@ -212,7 +212,7 @@ public final class L10nUtil {
         } else if (desiredLocale.getLanguage().equals(CHINESE_LANGUAGE_CODE)) {
             // create a new Locale object to manage only "zh" language code based on its app language
             // code. e.g.: search "HK" article in "zh-hant" or "zh-hans" will get "zh" language code
-            String appLanguageCode = WikipediaApp.getInstance().getAppLanguageCode();
+            String appLanguageCode = WikipediaApp.getInstance().language().getAppLanguageCode();
             if (appLanguageCode.equals(TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
                 config.setLocale(TRADITIONAL_CHINESE);
             } else if (appLanguageCode.equals(SIMPLIFIED_CHINESE_LANGUAGE_CODE)) {

@@ -101,7 +101,7 @@ public class CardHeaderView extends ConstraintLayout {
     }
 
     @NonNull public CardHeaderView setLangCode(@Nullable String langCode) {
-        if (TextUtils.isEmpty(langCode) || WikipediaApp.getInstance().getAppLanguageCodes().size() < 2) {
+        if (TextUtils.isEmpty(langCode) || WikipediaApp.getInstance().language().getAppLanguageCodes().size() < 2) {
             langCodeBackground.setVisibility(GONE);
             langCodeView.setVisibility(GONE);
         } else {
