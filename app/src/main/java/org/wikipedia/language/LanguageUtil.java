@@ -1,9 +1,17 @@
 package org.wikipedia.language;
 
+import android.content.Context;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.os.LocaleListCompat;
+import android.text.TextUtils;
+import android.view.inputmethod.InputMethodInfo;
+import android.view.inputmethod.InputMethodManager;
+import android.view.inputmethod.InputMethodSubtype;
+
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,12 +31,46 @@ public final class LanguageUtil {
      */
     @NonNull public static List<String> getAvailableLanguages() {
         List<String> languages = new ArrayList<>();
+
+        // First, look at languages installed on the system itself.
         LocaleListCompat localeList = LocaleListCompat.getDefault();
         for (int i = 0; i < localeList.size(); i++) {
             languages.add(localeToWikiLanguageCode(localeList.get(i)));
         }
         if (languages.isEmpty()) {
+            // Always default to at least one system language in the list.
             languages.add(localeToWikiLanguageCode(Locale.getDefault()));
+        }
+
+        // Query the installed keyboard languages, and add them to the list, if they don't exist.
+        InputMethodManager imm = (InputMethodManager) WikipediaApp.getInstance().getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (imm != null) {
+            List<InputMethodInfo> ims = imm.getEnabledInputMethodList();
+            List<String> langTagList = new ArrayList<>();
+            for (InputMethodInfo method : ims) {
+                List<InputMethodSubtype> submethods = imm.getEnabledInputMethodSubtypeList(method, true);
+                for (InputMethodSubtype submethod : submethods) {
+                    if (submethod.getMode().equals("keyboard")) {
+                        String langTag = Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && !TextUtils.isEmpty(submethod.getLanguageTag())
+                                ? submethod.getLanguageTag() : submethod.getLocale();
+                        if (langTag.contains("_")) {
+                            // The keyboard reports locale variants with underscores ("en_US") whereas
+                            // Locale.forLanguageTag() expects dashes ("en-US"), so convert them.
+                            langTag = langTag.replace('_', '-');
+                        }
+                        if (!langTagList.contains(langTag)) {
+                            langTagList.add(langTag);
+                        }
+                    }
+                }
+            }
+            localeList = LocaleListCompat.forLanguageTags(StringUtil.listToCsv(langTagList));
+            for (int i = 0; i < localeList.size(); i++) {
+                String langCode = localeToWikiLanguageCode(localeList.get(i));
+                if (!TextUtils.isEmpty(langCode) && !languages.contains(langCode) && !langCode.equals("und")) {
+                    languages.add(langCode);
+                }
+            }
         }
         return languages;
     }
