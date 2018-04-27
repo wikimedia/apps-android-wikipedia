@@ -160,10 +160,10 @@ public class ReadingList {
                 Collections.sort(lists, (lhs, rhs) -> rhs.accentAndCaseInvariantTitle().compareTo(lhs.accentAndCaseInvariantTitle()));
                 break;
             case SORT_BY_RECENT_ASC:
-                Collections.sort(lists, (lhs, rhs) -> ((Long) lhs.mtime()).compareTo(rhs.mtime()));
+                Collections.sort(lists, (lhs, rhs) -> ((Long) rhs.mtime()).compareTo(lhs.mtime()));
                 break;
             case SORT_BY_RECENT_DESC:
-                Collections.sort(lists, (lhs, rhs) -> ((Long) rhs.mtime()).compareTo(lhs.mtime()));
+                Collections.sort(lists, (lhs, rhs) -> ((Long) lhs.mtime()).compareTo(rhs.mtime()));
                 break;
             default:
                 break;
