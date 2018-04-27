@@ -37,6 +37,7 @@ public class LanguagesListActivity extends BaseActivity {
     private WikipediaApp app;
 
     private View progressBar;
+    private View queryNoMatchView;
     private RecyclerView recyclerView;
 
     private LanguagesListAdapter adapter;
@@ -65,6 +66,7 @@ public class LanguagesListActivity extends BaseActivity {
 
     private void setUpViews() {
         recyclerView = findViewById(R.id.languages_list_recycler);
+        queryNoMatchView = findViewById(R.id.languages_list_no_match);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         progressBar = findViewById(R.id.languages_list_load_progress);
@@ -112,6 +114,12 @@ public class LanguagesListActivity extends BaseActivity {
         protected void onQueryChange(String s) {
             currentSearchQuery = s.trim();
             languageAdapter.setFilterText(currentSearchQuery);
+
+            if (recyclerView.getAdapter().getItemCount() == 0) {
+                queryNoMatchView.setVisibility(View.VISIBLE);
+            } else {
+                queryNoMatchView.setVisibility(View.GONE);
+            }
         }
 
         @Override
@@ -120,6 +128,7 @@ public class LanguagesListActivity extends BaseActivity {
             if (!TextUtils.isEmpty(currentSearchQuery)) {
                 currentSearchQuery = "";
             }
+            queryNoMatchView.setVisibility(View.GONE);
             languageAdapter.reset();
             actionMode = null;
         }
