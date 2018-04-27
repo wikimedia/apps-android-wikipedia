@@ -21,24 +21,26 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit2.Call;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class LanguagesListActivity extends BaseActivity {
-
     private WikipediaApp app;
 
-    private View progressBar;
-    private View queryNoMatchView;
-    private RecyclerView recyclerView;
+    @BindView(R.id.languages_list_load_progress) View progressBar;
+    @BindView(R.id.languages_list_empty_view) SearchEmptyView emptyView;
+    @BindView(R.id.languages_list_recycler) RecyclerView recyclerView;
 
     private LanguagesListAdapter adapter;
     private String currentSearchQuery;
@@ -52,28 +54,22 @@ public class LanguagesListActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStatusBarColor(ResourceUtil.getThemedAttributeId(this, R.attr.page_status_bar_color));
-
         setContentView(R.layout.activity_languages_list);
-
+        ButterKnife.bind(this);
         app = WikipediaApp.getInstance();
 
+        emptyView.setEmptyText(R.string.langlinks_no_match);
+        emptyView.setVisibility(View.GONE);
+
         adapter = new LanguagesListAdapter(app.language().getAppMruLanguageCodes(), app.language().getRemainingAvailableLanguageCodes());
-
-        setUpViews();
-
-        // TODO: add funnel?
-    }
-
-    private void setUpViews() {
-        recyclerView = findViewById(R.id.languages_list_recycler);
-        queryNoMatchView = findViewById(R.id.languages_list_no_match);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        progressBar = findViewById(R.id.languages_list_load_progress);
         progressBar.setVisibility(View.VISIBLE);
 
         searchActionModeCallback = new LanguagesListActivity.LanguageSearchCallback();
         new SiteMatrixClient().request(app.getWikiSite(), siteMatrixCallback);
+
+        // TODO: add funnel?
     }
 
     @Override
@@ -116,9 +112,9 @@ public class LanguagesListActivity extends BaseActivity {
             languageAdapter.setFilterText(currentSearchQuery);
 
             if (recyclerView.getAdapter().getItemCount() == 0) {
-                queryNoMatchView.setVisibility(View.VISIBLE);
+                emptyView.setVisibility(View.VISIBLE);
             } else {
-                queryNoMatchView.setVisibility(View.GONE);
+                emptyView.setVisibility(View.GONE);
             }
         }
 
@@ -128,7 +124,7 @@ public class LanguagesListActivity extends BaseActivity {
             if (!TextUtils.isEmpty(currentSearchQuery)) {
                 currentSearchQuery = "";
             }
-            queryNoMatchView.setVisibility(View.GONE);
+            emptyView.setVisibility(View.GONE);
             languageAdapter.reset();
             actionMode = null;
         }
