@@ -594,14 +594,22 @@ div.pagelib_collapse_table_container {
   box-sizing: border-box;
 }.pagelib_dim_images img {
   opacity: 0.65;
-}#mainpage a.pagelib_edit_section_link,
+}.pagelib_edit_section_header {
+  display: flex;
+  align-items: flex-end;
+}
+
+.pagelib_edit_section_title {
+  flex: 1;
+}
+
+#mainpage a.pagelib_edit_section_link,
 .no-editing a.pagelib_edit_section_link {
   display: none;
 }
 
 .pagelib_edit_section_link_container {
   margin: 2px 8px;
-  float: right;
   opacity: .54;
 }
 
@@ -623,17 +631,16 @@ div.pagelib_collapse_table_container {
 }
 
 .content-rtl .pagelib_edit_section_link_container {
-  float: left;
   -webkit-transform: scaleX( -1 );
   transform: scaleX( -1 );
 }
 
 a.pagelib_edit_section_link {
   position: relative;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   display: inline-block;
-  background-size: 28px 28px;
+  background-size: 24px 24px;
   background-repeat: no-repeat;
 
   background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgPGRlZnM+CiAgICA8cGF0aCBpZD0iYSIgZD0iTTMsMTcuMjQ3NSBMMywyMC45OTc1IEw2Ljc1LDIwLjk5NzUgTDE3LjgxNSw5LjkzMjUgTDE0LjA2NSw2LjE4MjUgTDMsMTcuMjQ3NSBaIE0yMC43MDUsNy4wNDI1IEMyMS4wOTUsNi42NTI1IDIxLjA5NSw2LjAxNzUgMjAuNzA1LDUuNjI3NSBMMTguMzcsMy4yOTI1IEMxNy45OCwyLjkwMjUgMTcuMzQ1LDIuOTAyNSAxNi45NTUsMy4yOTI1IEwxNS4xMjUsNS4xMjI1IEwxOC44NzUsOC44NzI1IEwyMC43MDUsNy4wNDI1IFoiLz4KICA8L2RlZnM+CiAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDx1c2UgZmlsbD0iIzAwMDAwMCIgeGxpbms6aHJlZj0iI2EiLz4KICA8L2c+Cjwvc3ZnPgo=);
@@ -683,10 +690,10 @@ a.pagelib_edit_section_link {
   background-color: #111;
 }
 
-.pagelib_platform_ios h3.section_heading span.pagelib_edit_section_link_container,
-.pagelib_platform_ios h4.section_heading span.pagelib_edit_section_link_container,
-.pagelib_platform_ios h5.section_heading span.pagelib_edit_section_link_container,
-.pagelib_platform_ios h6.section_heading span.pagelib_edit_section_link_container {
+.pagelib_platform_ios h3.pagelib_edit_section_title + span.pagelib_edit_section_link_container,
+.pagelib_platform_ios h4.pagelib_edit_section_title + span.pagelib_edit_section_link_container,
+.pagelib_platform_ios h5.pagelib_edit_section_title + span.pagelib_edit_section_link_container,
+.pagelib_platform_ios h6.pagelib_edit_section_title + span.pagelib_edit_section_link_container {
     display: none;
 }
 .pagelib_footer_container {
