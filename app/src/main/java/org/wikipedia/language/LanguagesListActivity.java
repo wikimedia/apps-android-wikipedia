@@ -231,7 +231,7 @@ public class LanguagesListActivity extends BaseActivity {
 
         // To remove the already selected languages and suggested languages from all languages list
        private List<String> getNonDuplicateLanguageCodesList() {
-            List<String> list = originalLanguageCodes;
+            List<String> list = new ArrayList<>(originalLanguageCodes);
             list.removeAll(app.language().getAppLanguageCodes());
             list.removeAll(suggestedLanguageCodes);
             return list;
