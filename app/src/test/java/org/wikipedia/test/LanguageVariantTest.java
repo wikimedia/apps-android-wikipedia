@@ -7,6 +7,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.language.AppLanguageLookUpTable;
 
+import java.util.Collections;
 import java.util.Locale;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -47,7 +48,7 @@ import static org.hamcrest.Matchers.is;
 
     private void testDefaultLocaleAndAcceptLanguageAgree(String expected,
              String appLanguage, Locale systemLocale, WikiSite wiki) {
-        WikipediaApp.getInstance().language().addAppLanguageCode(appLanguage);
+        WikipediaApp.getInstance().language().setAppLanguageCodes(Collections.singletonList(appLanguage));
         Locale.setDefault(systemLocale);
         assertThat(expected, is(WikipediaApp.getInstance().getAcceptLanguage(wiki)));
     }
@@ -67,7 +68,7 @@ import static org.hamcrest.Matchers.is;
     }
 
     private void restoreAppLanguage() {
-        WikipediaApp.getInstance().language().addAppLanguageCode(appLanguage);
+        WikipediaApp.getInstance().language().setAppLanguageCodes(Collections.singletonList(appLanguage));
     }
 
     private void preserveDefaultLocale() {

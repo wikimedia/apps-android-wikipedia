@@ -54,7 +54,7 @@ public class AppLanguageState {
 
     public void addAppLanguageCode(@Nullable String code) {
         appLanguageCodes.remove(code);
-        appLanguageCodes.add(0, code);
+        appLanguageCodes.add(code);
         Prefs.setAppLanguageCodeCsv(StringUtil.listToCsv(appLanguageCodes));
         WikipediaApp.getInstance().resetWikiSite();
     }
