@@ -55,7 +55,7 @@
   <string name="preference_languages_filter_hint">Golèk</string>
   <string name="langlinks_filter_hint">Golèk</string>
   <string name="langlinks_empty">Kaca iki ora ana ing basa liya.</string>
-  <string name="langlinks_no_match">Basa sing tinemu ora ana sing mathuk karo panjaluké panjenengan.</string>
+  <string name="langlinks_no_match" fuzzy="true">Basa sing tinemu ora ana sing mathuk karo panjaluké panjenengan.</string>
   <string name="langlinks_activity_title">Basa liyané</string>
   <string name="menu_save_changes">Babar owahan</string>
   <string name="dialog_saving_in_progress">Mbabar...</string>
@@ -417,8 +417,8 @@
   <string name="view_featured_article_footer_saved_button_label">Kasimpen</string>
   <string name="feed_configure_activity_title">Larasaké pakan</string>
   <string name="feed_configure_menu_reset">Pulihaké sesawangan gawan</string>
-  <string name="feed_configure_menu_select_all">Pilih kabèh</string>
-  <string name="feed_configure_menu_deselect_all">Aja pilih kabèh</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Pilih kabèh</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Aja pilih kabèh</string>
   <string name="feed_item_type_news">Artikel bab kadadéan dinané iki</string>
   <string name="feed_item_type_on_this_day">Kadadéan duk nguni ing tanggal iki</string>
   <string name="feed_item_type_because_you_read">Pamrayoga adhedhasar artikel sing mentas kawaca ana ing sujarahé panjenengan</string>

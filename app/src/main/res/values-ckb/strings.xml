@@ -58,7 +58,7 @@
   <string name="preference_languages_filter_hint">بگەڕێ</string>
   <string name="langlinks_filter_hint">بگەڕێ</string>
   <string name="langlinks_empty">ئەم پەڕەیە بە زمانەکانی تر بەردەست نییە.</string>
-  <string name="langlinks_no_match">ھیچ زمانێک نەدۆزرایەوە گونجاوبێت لەگەڵ داواکارییەکەت.</string>
+  <string name="langlinks_no_match" fuzzy="true">ھیچ زمانێک نەدۆزرایەوە گونجاوبێت لەگەڵ داواکارییەکەت.</string>
   <string name="langlinks_activity_title">زمانەکانی تر</string>
   <string name="menu_save_changes">پاشەکەوتکردنی گۆڕانکارییەکان</string>
   <string name="dialog_saving_in_progress">پاشەکەوتکردن…</string>
@@ -369,7 +369,7 @@
   <string name="view_offline_card_text">ناوەڕۆکەکە ناتواندرێت بھێندرێت بەبێ ئینتەرنێت</string>
   <string name="view_featured_article_footer_save_button_label">پاشەکەوت</string>
   <string name="view_featured_article_footer_saved_button_label">پاشەکەوت کرا</string>
-  <string name="feed_configure_menu_select_all">ھەمووی ھەڵبژێرە</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">ھەمووی ھەڵبژێرە</string>
   <string name="description_edit_text_hint">وەسفی سەرناو</string>
   <string name="description_edit_save">پاشەکەوت</string>
   <string name="description_edit_add_description">زیادکردنی وەسفی سەرناو</string>

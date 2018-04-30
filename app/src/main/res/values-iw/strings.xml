@@ -21,6 +21,7 @@
   <string name="search_hint_search_history">היסטוריית חיפוש</string>
   <string name="search_hint_search_my_lists">חיפוש ברשימות שלי</string>
   <string name="search_hint_search_reading_list">חיפוש ברשימת קריאה</string>
+  <string name="search_hint_search_languages">חיפוש שפה</string>
   <string name="nav_item_history">היסטוריה</string>
   <string name="error_network_error">לא ניתן להתחבר לאינטרנט.</string>
   <string name="page_error_retry">ניסיון נוסף</string>
@@ -66,7 +67,7 @@
   <string name="preference_languages_filter_hint">חיפוש</string>
   <string name="langlinks_filter_hint">חיפוש</string>
   <string name="langlinks_empty">הדף הזה אינו זמין בשפות אחרות</string>
-  <string name="langlinks_no_match">לא נמצאות שפות התואמות לשאילתה שלך.</string>
+  <string name="langlinks_no_match" fuzzy="true">לא נמצאות שפות התואמות לשאילתה שלך.</string>
   <string name="langlinks_activity_title">שפות אחרות</string>
   <string name="menu_save_changes">פרסום השינויים</string>
   <string name="dialog_saving_in_progress">פרסום…</string>
@@ -478,8 +479,8 @@
   <string name="view_featured_article_footer_saved_button_label">נשמר</string>
   <string name="feed_configure_activity_title">התאמה אישית של ההזנה</string>
   <string name="feed_configure_menu_reset">שחזור התצוגה ההתחלתית</string>
-  <string name="feed_configure_menu_select_all">לבחור הכול</string>
-  <string name="feed_configure_menu_deselect_all">לבטל את הבחירה של הכול</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">לבחור הכול</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">לבטל את הבחירה של הכול</string>
   <string name="feed_item_type_news">ערכים על אירועים אקטואליים</string>
   <string name="feed_item_type_on_this_day">אירועים בהיסטוריה ביום הזה</string>
   <string name="feed_item_type_continue_reading">קישור מהיר חזרה לקריאת ערך פתוח באחת הלשוניות שלך</string>
@@ -612,4 +613,16 @@
     <item quantity="one">שנה שעברה</item>
     <item quantity="other">שנתיים</item>
   </plurals>
+  <string name="languages_list_activity_title">הוספת שפה</string>
+  <string name="languages_list_suggested_text">מוצעות</string>
+  <string name="languages_list_all_text">כל השפות</string>
+  <string name="wikipedia_languages_title">שפות ויקיפדיה</string>
+  <string name="wikipedia_languages_your_languages_text">השפות שלך</string>
+  <string name="wikipedia_languages_add_language_text">הוספת שפה</string>
+  <string name="wikipedia_languages_remove_text">הסרה</string>
+  <string name="wikipedia_languages_remove_action_mode_title">הסרת שפה</string>
+  <string name="wikipedia_languages_remove_dialog_title">להסיר את השפות המסומנות?</string>
+  <string name="wikipedia_languages_remove_dialog_content">בהזנת הגילוי וכן במסנני החיפוש המהירים, יוצג רק תוכן בשפות הוויקיפדיה שמופיעות ברשימה.</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">לא ניתן להסיר את כל השפות</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">יש להשאיר לפחות שפת ויקיפדיה אחת שבה ברצונך לחפש ולקרוא תוכן.</string>
 </resources>

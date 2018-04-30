@@ -56,7 +56,7 @@
   <string name="preference_languages_filter_hint">Serchar</string>
   <string name="langlinks_filter_hint">Serchar</string>
   <string name="langlinks_empty">Ca pagino ne esas disponebla en altra lingui.</string>
-  <string name="langlinks_no_match">Nula altra linguo trovesis segun vua inquesto.</string>
+  <string name="langlinks_no_match" fuzzy="true">Nula altra linguo trovesis segun vua inquesto.</string>
   <string name="langlinks_activity_title">Altra lingui</string>
   <string name="menu_save_changes">Publikigar chanji</string>
   <string name="dialog_saving_in_progress">Publikigas…</string>
@@ -280,8 +280,8 @@
   <string name="view_continue_reading_card_subtitle_read_date">Lektar %s</string>
   <string name="view_featured_article_footer_save_button_label">Salvar</string>
   <string name="view_featured_article_footer_saved_button_label">Salvita</string>
-  <string name="feed_configure_menu_select_all">Selektar omno</string>
-  <string name="feed_configure_menu_deselect_all">Desselektar omno</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Selektar omno</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Desselektar omno</string>
   <string name="description_edit_save">Publikigar</string>
   <string name="description_edit_cancel_hint">Nihiligar</string>
   <string name="description_edit_help_about_wikidata">Pri Wikidonaji</string>

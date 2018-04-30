@@ -61,7 +61,7 @@
   <string name="preference_languages_filter_hint">Претрага</string>
   <string name="langlinks_filter_hint">Претражи</string>
   <string name="langlinks_empty">Ова страница није доступна на другим језицима.</string>
-  <string name="langlinks_no_match">Нису пронађени језици који одговарају вашем упиту.</string>
+  <string name="langlinks_no_match" fuzzy="true">Нису пронађени језици који одговарају вашем упиту.</string>
   <string name="langlinks_activity_title">Други језици</string>
   <string name="menu_save_changes">Објави измене</string>
   <string name="dialog_saving_in_progress">Објављујем…</string>
@@ -388,7 +388,7 @@
   <string name="view_featured_article_card_title">Сјајан чланак</string>
   <string name="view_featured_article_footer_save_button_label">Сачувај</string>
   <string name="view_featured_article_footer_saved_button_label">Сачувано</string>
-  <string name="feed_configure_menu_select_all">Изабери све</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Изабери све</string>
   <string name="feed_item_type_on_this_day">Историјски догађаји на данашњи дан</string>
   <string name="feed_configure_onboarding_action">Прилагоди</string>
   <string name="description_edit_text_hint">Опис наслова</string>

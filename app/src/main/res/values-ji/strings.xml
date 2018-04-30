@@ -55,7 +55,7 @@
   <string name="preference_languages_filter_hint">זוכן</string>
   <string name="langlinks_filter_hint">זוכן</string>
   <string name="langlinks_empty">דער בלאט איז נישט פאראן אין אנדערע שפראכן.</string>
-  <string name="langlinks_no_match">קיין שפראכן נישט געטראפן וואס זענען צוגעפאסט צו אײַער פראגע.</string>
+  <string name="langlinks_no_match" fuzzy="true">קיין שפראכן נישט געטראפן וואס זענען צוגעפאסט צו אײַער פראגע.</string>
   <string name="langlinks_activity_title">אַנדערע שפראַכן</string>
   <string name="menu_save_changes">פובליקירן ענדערונגען</string>
   <string name="dialog_saving_in_progress">פֿארעפֿנטלעכן…</string>

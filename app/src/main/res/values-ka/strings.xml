@@ -57,7 +57,7 @@
   <string name="preference_languages_filter_hint">ძიება</string>
   <string name="langlinks_filter_hint">ძიება</string>
   <string name="langlinks_empty">ეს გვერდი მიუწვდომელია სხვა ენებზე</string>
-  <string name="langlinks_no_match">თქვენს მოთხოვნაზე არც ერთი ენა არ მოიძებნა.</string>
+  <string name="langlinks_no_match" fuzzy="true">თქვენს მოთხოვნაზე არც ერთი ენა არ მოიძებნა.</string>
   <string name="langlinks_activity_title">სხვა ენები</string>
   <string name="menu_save_changes">ცვლილებების გამოქვეყნება</string>
   <string name="dialog_saving_in_progress">გამოქვეყნება…</string>
@@ -340,8 +340,8 @@
   <string name="view_featured_article_card_title">რჩეული სტატია</string>
   <string name="view_featured_article_footer_save_button_label">შენახვა</string>
   <string name="view_featured_article_footer_saved_button_label">შენახულია</string>
-  <string name="feed_configure_menu_select_all">ყველას არჩევა</string>
-  <string name="feed_configure_menu_deselect_all">არჩევის გაუქმება</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">ყველას არჩევა</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">არჩევის გაუქმება</string>
   <string name="description_edit_text_hint">სათაურის აღწერა</string>
   <string name="description_edit_save">გამოქვეყნება</string>
   <string name="description_edit_add_description">სათაურის აღწერის დამატება</string>

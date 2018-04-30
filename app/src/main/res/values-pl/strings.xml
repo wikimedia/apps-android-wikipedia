@@ -74,7 +74,7 @@
   <string name="preference_languages_filter_hint">Szukaj</string>
   <string name="langlinks_filter_hint">Szukaj</string>
   <string name="langlinks_empty">Ten artykuł nie jest dostępny w innych językach</string>
-  <string name="langlinks_no_match">Nie znaleziono języków pasujących do twojego zapytania.</string>
+  <string name="langlinks_no_match" fuzzy="true">Nie znaleziono języków pasujących do twojego zapytania.</string>
   <string name="langlinks_activity_title">Inne języki</string>
   <string name="menu_save_changes">Opublikuj zmiany</string>
   <string name="dialog_saving_in_progress">Publikowanie...</string>
@@ -411,8 +411,8 @@
   <string name="view_featured_article_card_title">Wyróżniony artykuł</string>
   <string name="view_featured_article_footer_save_button_label">Zapisz</string>
   <string name="view_featured_article_footer_saved_button_label">Zapisane</string>
-  <string name="feed_configure_menu_select_all">Zaznacz wszystko</string>
-  <string name="feed_configure_menu_deselect_all">Odznacz wszystko</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Zaznacz wszystko</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Odznacz wszystko</string>
   <string name="feed_item_type_featured_article">Dzisiejszy wyróżniony artykuł na Wikipedii</string>
   <string name="feed_item_type_main_page">Strona główna Wikipedii zawierająca dzienną wyróżnioną treść</string>
   <string name="feed_item_type_randomizer">Wylosuj artykuł do przeczytania</string>

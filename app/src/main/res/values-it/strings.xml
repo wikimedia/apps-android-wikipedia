@@ -21,6 +21,7 @@
 * Pierpao
 * Redredsonia
 * Samuele2002
+* Sarah Bernabei
 * Selven
 * Simoarmanni
 * Statix64
@@ -36,6 +37,7 @@
   <string name="search_hint_search_history">Cerca nella cronologia</string>
   <string name="search_hint_search_my_lists">Cerca nei miei elenchi</string>
   <string name="search_hint_search_reading_list">Cerca nell\'elenco di lettura</string>
+  <string name="search_hint_search_languages">Cerca una lingua</string>
   <string name="nav_item_history">Cronologia</string>
   <string name="error_network_error">Non è possibile connettersi ad Internet.</string>
   <string name="page_error_retry">Riprova</string>
@@ -80,7 +82,7 @@
   <string name="preference_languages_filter_hint">Ricerca</string>
   <string name="langlinks_filter_hint">Cerca</string>
   <string name="langlinks_empty">Questa pagina non è disponibile in altre lingue</string>
-  <string name="langlinks_no_match">Nessuna lingua trovata che corrisponda alla richiesta.</string>
+  <string name="langlinks_no_match" fuzzy="true">Nessuna lingua trovata che corrisponda alla richiesta.</string>
   <string name="langlinks_activity_title">Altre lingue</string>
   <string name="menu_save_changes">Pubblica modifiche</string>
   <string name="dialog_saving_in_progress">Pubblicazione…</string>
@@ -417,8 +419,8 @@
   <string name="view_featured_article_footer_save_button_label">Salva</string>
   <string name="view_featured_article_footer_saved_button_label">Salvato</string>
   <string name="feed_configure_activity_title">Personalizza il feed</string>
-  <string name="feed_configure_menu_select_all">Seleziona tutto</string>
-  <string name="feed_configure_menu_deselect_all">Deseleziona tutto</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Seleziona tutto</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Deseleziona tutto</string>
   <string name="feed_item_type_news">Voci su eventi attuali</string>
   <string name="feed_item_type_on_this_day">Eventi nella storia in questo giorno</string>
   <string name="feed_item_type_because_you_read">Suggerimenti basati su una voce letta di recente dalla tua cronologia</string>
@@ -497,4 +499,16 @@
     <item quantity="one">L\'anno scorso</item>
     <item quantity="other">%d anni fa</item>
   </plurals>
+  <string name="languages_list_activity_title">Aggiungi una lingua</string>
+  <string name="languages_list_suggested_text">Consigliato</string>
+  <string name="languages_list_all_text">Tutte le lingue</string>
+  <string name="wikipedia_languages_title">Lingue di Wikipedia</string>
+  <string name="wikipedia_languages_your_languages_text">Le tue lingue</string>
+  <string name="wikipedia_languages_add_language_text">Aggiungi lingua</string>
+  <string name="wikipedia_languages_remove_text">Rimuovi</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Rimuovi lingua</string>
+  <string name="wikipedia_languages_remove_dialog_title">Rimuovere le lingue selezionate?</string>
+  <string name="wikipedia_languages_remove_dialog_content">Veisualizzerai solo il contenuto sul collegamento Explore e filtri di ricerca rapida per le restanti lingue di Wikipedia.</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Impossibile eliminare tutte le lingue</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Mantieni almeno una lingua Wikipedia da cui potrai cercare e leggere il contenuto.</string>
 </resources>

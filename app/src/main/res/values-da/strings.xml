@@ -64,7 +64,7 @@
   <string name="preference_languages_filter_hint">Søg</string>
   <string name="langlinks_filter_hint">Søg</string>
   <string name="langlinks_empty">Denne side er ikke tilgængelig på andre sprog</string>
-  <string name="langlinks_no_match">Ingen fundne sprog der passer til din forespørgsel.</string>
+  <string name="langlinks_no_match" fuzzy="true">Ingen fundne sprog der passer til din forespørgsel.</string>
   <string name="langlinks_activity_title">Andre sprog</string>
   <string name="menu_save_changes">Offentliggør ændringer</string>
   <string name="dialog_saving_in_progress">Offentliggører…</string>
@@ -474,8 +474,8 @@
   <string name="view_featured_article_footer_saved_button_label">Gemt</string>
   <string name="feed_configure_activity_title">Tilpas nyhedskilden</string>
   <string name="feed_configure_menu_reset">Gendan standardvisningen</string>
-  <string name="feed_configure_menu_select_all">Vælg alle</string>
-  <string name="feed_configure_menu_deselect_all">Fravælg alle</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Vælg alle</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Fravælg alle</string>
   <string name="feed_item_type_news">Artikler om aktuelle hændelser</string>
   <string name="feed_item_type_on_this_day">Historiske hændelser på denne dag</string>
   <string name="feed_item_type_continue_reading">Hurtig henvisning tilbage til en åben artikel i et af dine faneblade</string>

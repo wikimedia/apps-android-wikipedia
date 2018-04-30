@@ -50,7 +50,7 @@
   <string name="preference_languages_filter_hint">ၶူၼ်ႉႁႃ</string>
   <string name="langlinks_filter_hint">ၶူၼ်ႉႁႃ</string>
   <string name="langlinks_empty">ၼႃႈလိၵ်ႈဢၼ်ၼႆႉ မၼ်းဢမ်ႇၸၢင်ႈၸႂ်ႉၸွမ်း ၽႃႇသႃႇၶေႃႈၵႂၢမ်းတၢင်ႇဢၼ်။</string>
-  <string name="langlinks_no_match">ၽႃႇသႃႇၶေႃႈၵႂၢမ်း ဢၼ်မႅၼ်ႈၺႃး ၸွမ်းၼင်ႇ ၸဝ်ႈၵဝ်ႇၸွပ်ႇႁႃၼၼ်ႉ မၼ်းဢမ်ႇမီးဝႆႉ။</string>
+  <string name="langlinks_no_match" fuzzy="true">ၽႃႇသႃႇၶေႃႈၵႂၢမ်း ဢၼ်မႅၼ်ႈၺႃး ၸွမ်းၼင်ႇ ၸဝ်ႈၵဝ်ႇၸွပ်ႇႁႃၼၼ်ႉ မၼ်းဢမ်ႇမီးဝႆႉ။</string>
   <string name="langlinks_activity_title">ၽႃႇသႃႇၵႂၢမ်း တၢင်ႇၸိူဝ်း</string>
   <string name="menu_save_changes">ပိုၼ်ဢွၵ်ႇ လွင်ႈလႅၵ်ႈလၢႆႈ</string>
   <string name="dialog_saving_in_progress">တိုၵ်ႉပိုၼ်ဢွၵ်ႇယူႇ...</string>

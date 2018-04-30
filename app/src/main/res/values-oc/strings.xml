@@ -53,7 +53,7 @@
   <string name="preference_languages_filter_hint">Recercar</string>
   <string name="langlinks_filter_hint">Recercar</string>
   <string name="langlinks_empty">Aquesta pagina es pas disponibla dins d’autras lengas</string>
-  <string name="langlinks_no_match">Cap de lenga pas trobat que corresponda a vòstra requèsta.</string>
+  <string name="langlinks_no_match" fuzzy="true">Cap de lenga pas trobat que corresponda a vòstra requèsta.</string>
   <string name="langlinks_activity_title">Autras lengas</string>
   <string name="menu_save_changes">Publicar las modificacions</string>
   <string name="dialog_saving_in_progress">Publicacion en cors…</string>

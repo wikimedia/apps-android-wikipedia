@@ -9,6 +9,7 @@
   <string name="app_name_beta">Vikipēdija Beta</string>
   <string name="app_name_alpha">Vikipēdija Alpha</string>
   <string name="search_hint">Meklēt Vikipēdijā</string>
+  <string name="search_hint_search_languages">Meklēt valodu</string>
   <string name="nav_item_history">Vēsture</string>
   <string name="error_network_error">Nevar izveidot savienojumu ar Internetu.</string>
   <string name="page_error_retry">Mēģināt vēlreiz</string>
@@ -230,4 +231,12 @@
   <string name="onboarding_got_it">Sapratu</string>
   <string name="on_this_day_card_title">Šajā dienā</string>
   <string name="this_year">Šajā gadā</string>
+  <string name="languages_list_activity_title">Pievienot valodu</string>
+  <string name="languages_list_all_text">Visas valodas</string>
+  <string name="wikipedia_languages_title">Vikipēdijas valodas</string>
+  <string name="wikipedia_languages_your_languages_text">Tavas valodas</string>
+  <string name="wikipedia_languages_add_language_text">Pievienot valodu</string>
+  <string name="wikipedia_languages_remove_text">Noņemt</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Noņemt valodu</string>
+  <string name="wikipedia_languages_remove_dialog_title">Noņemt izvēlētās valodas?</string>
 </resources>

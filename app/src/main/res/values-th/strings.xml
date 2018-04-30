@@ -60,7 +60,7 @@
   <string name="preference_languages_filter_hint">ค้นหา</string>
   <string name="langlinks_filter_hint">ค้นหา</string>
   <string name="langlinks_empty">หน้านี้ไม่มีในภาษาอื่น</string>
-  <string name="langlinks_no_match">ไม่พบภาษาที่ตรงกับคำค้นหาของคุณ</string>
+  <string name="langlinks_no_match" fuzzy="true">ไม่พบภาษาที่ตรงกับคำค้นหาของคุณ</string>
   <string name="langlinks_activity_title">ภาษาอื่น</string>
   <string name="menu_save_changes">เผยแพร่การเปลี่ยนแปลง</string>
   <string name="dialog_saving_in_progress">กำลังเผยแพร่…</string>

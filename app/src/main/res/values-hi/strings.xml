@@ -72,7 +72,7 @@
   <string name="preference_languages_filter_hint">खोज</string>
   <string name="langlinks_filter_hint">खोज</string>
   <string name="langlinks_empty">पृष्ठ अन्य भाषा में उपलब्ध नहीं है</string>
-  <string name="langlinks_no_match">खोज परिणाम में कोई भाषा नहीं मिली।</string>
+  <string name="langlinks_no_match" fuzzy="true">खोज परिणाम में कोई भाषा नहीं मिली।</string>
   <string name="langlinks_activity_title">अन्य भाषाएँ</string>
   <string name="menu_save_changes">परिवर्तन प्रकाशित करें</string>
   <string name="dialog_saving_in_progress">प्रकाशित किया जा रहा है…</string>

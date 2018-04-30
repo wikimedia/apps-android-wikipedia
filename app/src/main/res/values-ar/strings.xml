@@ -76,7 +76,7 @@
   <string name="preference_languages_filter_hint">بحث</string>
   <string name="langlinks_filter_hint">بحث</string>
   <string name="langlinks_empty">هذه الصفحة غير متوفرة بلغات أخرى</string>
-  <string name="langlinks_no_match">لا تتوفر لغات مطابقة لبحثك.</string>
+  <string name="langlinks_no_match" fuzzy="true">لا تتوفر لغات مطابقة لبحثك.</string>
   <string name="langlinks_activity_title">لغات أخرى</string>
   <string name="menu_save_changes">انشر التغييرات</string>
   <string name="dialog_saving_in_progress">جارٍ النشر…</string>
@@ -423,7 +423,7 @@
   <string name="view_featured_article_card_title">مقالة مختارة</string>
   <string name="view_featured_article_footer_save_button_label">احفظ</string>
   <string name="view_featured_article_footer_saved_button_label">حُفظت</string>
-  <string name="feed_configure_menu_select_all">اختر الكل</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">اختر الكل</string>
   <string name="feed_item_type_on_this_day">أحداث تاريخية في هذا اليوم</string>
   <string name="feed_item_type_featured_article">المقالة المختارة يوميًّا على ويكيبيديا</string>
   <string name="description_edit_text_hint">وصف العنوان</string>

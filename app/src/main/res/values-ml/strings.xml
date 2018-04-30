@@ -42,7 +42,7 @@
   <string name="preference_languages_filter_hint">തിരയുക</string>
   <string name="langlinks_filter_hint">തിരയുക</string>
   <string name="langlinks_empty">ഈ താൾ മറ്റ് ഭാഷകളിൽ ലഭ്യമല്ല</string>
-  <string name="langlinks_no_match">താങ്കളുടെ ആവശ്യവുമായി പൊരുത്തപ്പെടുന്ന ഭാഷകൾ ഒന്നും കണ്ടെത്താനായില്ല.</string>
+  <string name="langlinks_no_match" fuzzy="true">താങ്കളുടെ ആവശ്യവുമായി പൊരുത്തപ്പെടുന്ന ഭാഷകൾ ഒന്നും കണ്ടെത്താനായില്ല.</string>
   <string name="langlinks_activity_title">മറ്റു ഭാഷകൾ</string>
   <string name="menu_save_changes" fuzzy="true">മാറ്റങ്ങൾ സേവ് ചെയ്യുക</string>
   <string name="dialog_saving_in_progress" fuzzy="true">സേവ് ചെയ്യുന്നു…</string>

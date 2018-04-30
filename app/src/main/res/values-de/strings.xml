@@ -15,6 +15,7 @@
   <string name="search_hint_search_history">Suchverlauf</string>
   <string name="search_hint_search_my_lists">Meine Listen durchsuchen</string>
   <string name="search_hint_search_reading_list">Leseliste durchsuchen</string>
+  <string name="search_hint_search_languages">Nach einer Sprache suchen</string>
   <string name="nav_item_history">Verlauf</string>
   <string name="error_network_error">Kann nicht mit dem Internet verbinden.</string>
   <string name="page_error_retry">Erneut versuchen</string>
@@ -60,7 +61,7 @@
   <string name="preference_languages_filter_hint">Suche</string>
   <string name="langlinks_filter_hint">Suche</string>
   <string name="langlinks_empty">Diese Seite ist nicht in anderen Sprachen verfügbar.</string>
-  <string name="langlinks_no_match">Keine zu deiner Suchanfrage passenden Sprachen gefunden.</string>
+  <string name="langlinks_no_match" fuzzy="true">Keine zu deiner Suchanfrage passenden Sprachen gefunden.</string>
   <string name="langlinks_activity_title">Andere Sprachen</string>
   <string name="menu_save_changes">Änderungen veröffentlichen</string>
   <string name="dialog_saving_in_progress">Veröffentliche …</string>
@@ -472,8 +473,8 @@
   <string name="view_featured_article_footer_saved_button_label">Gespeichert</string>
   <string name="feed_configure_activity_title">Den Feed anpassen</string>
   <string name="feed_configure_menu_reset">Standardansicht wiederherstellen</string>
-  <string name="feed_configure_menu_select_all">Alle auswählen</string>
-  <string name="feed_configure_menu_deselect_all">Alle abwählen</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Alle auswählen</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Alle abwählen</string>
   <string name="feed_item_type_news">Artikel über aktuelle Ereignisse</string>
   <string name="feed_item_type_on_this_day">Ereignisse in der Vergangenheit an diesem Tag</string>
   <string name="feed_item_type_continue_reading">Schneller Link zurück zum Lesen eines offenen Artikels in einer deiner Registerkarten</string>
@@ -606,4 +607,16 @@
     <item quantity="one">Letztes Jahr</item>
     <item quantity="other">Vor %d Jahren</item>
   </plurals>
+  <string name="languages_list_activity_title">Eine Sprache hinzufügen</string>
+  <string name="languages_list_suggested_text">Vorgeschlagen</string>
+  <string name="languages_list_all_text">Alle Sprachen</string>
+  <string name="wikipedia_languages_title">Wikipedia-Sprachen</string>
+  <string name="wikipedia_languages_your_languages_text">Deine Sprachen</string>
+  <string name="wikipedia_languages_add_language_text">Sprache hinzufügen</string>
+  <string name="wikipedia_languages_remove_text">Entfernen</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Sprache entfernen</string>
+  <string name="wikipedia_languages_remove_dialog_title">Ausgewählte Sprache(n) entfernen?</string>
+  <string name="wikipedia_languages_remove_dialog_content">Du wirst nur die Inhalte im Entdecken-Feed und Schnellsuchfilter für die verbleibenden Wikipedia-Sprachen sehen.</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Es konnten nicht alle Sprachen entfernt werden</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Mindestens eine Wikipedia-Sprache für die Suche und das Lesen von Inhalten behalten.</string>
 </resources>

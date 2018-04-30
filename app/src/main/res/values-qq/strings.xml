@@ -614,6 +614,10 @@
   <string name="events_count_text">Label indicating the number of events that occurred in a certain range of years. The \"%1$s\" symbol is replaced with the number of events, \"%2$s\" is the beginning year, and \"%3$d\" is the ending year</string>
   <string name="this_year">Text to say, \'This year\'</string>
   <string name="back_to_top">Button label for scrolling the content to the top.</string>
+  <plurals name="diff_years">
+    <item quantity="one">Text indicating that the event occured one year ago.</item>
+    <item quantity="other">Text indicating that the event occured two or more years ago.\"%d\" is the number of years.</item>
+  </plurals>
   <string name="languages_list_activity_title">Title shown at the top of the activity for selecting a wikipedia language.</string>
   <string name="languages_list_suggested_text">Section header of the suggested languages in the languages list.</string>
   <string name="languages_list_all_text">Section header of all languages in the languages list.</string>
@@ -626,8 +630,4 @@
   <string name="wikipedia_languages_remove_dialog_content">Content of the dialog that pop-ups after clicking on the delete icon in the action mode.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Title of the dialog that pop-ups after users wanted to delete all wikipedia languages in the action mode.</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Content of the dialog that pop-ups after users wanted to delete all wikipedia languages in the action mode.</string>
-  <plurals name="diff_years">
-    <item quantity="one">Text indicating that the event occured one year ago.</item>
-    <item quantity="other">Text indicating that the event occured two or more years ago.\"%d\" is the number of years.</item>
-  </plurals>
 </resources>

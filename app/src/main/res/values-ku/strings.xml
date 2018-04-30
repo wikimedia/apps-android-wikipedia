@@ -14,6 +14,7 @@
   <string name="search_hint_search_history">Dîroka lêgerînê</string>
   <string name="search_hint_search_my_lists">Di lîsteyên min de bigere</string>
   <string name="search_hint_search_reading_list">Di lîsteya xwendinê de bigere</string>
+  <string name="search_hint_search_languages">Li zimanekî bigere</string>
   <string name="nav_item_history">Dîrok</string>
   <string name="error_network_error">Ji înternetê re nikara bê girêdan.</string>
   <string name="page_error_retry">Dîsa hewl bide</string>
@@ -37,6 +38,7 @@
   <string name="menu_text_select_share">Parve bike</string>
   <string name="talk_page_link_text">Rûpela gotûbêjê bibîne</string>
   <string name="map_view_link_text">Ser nexşeyek bibîne</string>
+  <string name="other_languages_indication_text">Bi zimanekî din bixwîne</string>
   <string name="language_count_link_text">Bi %d zimanên din jî berdest e</string>
   <string name="preference_title_language">Zimanê Wîkîpediyayê</string>
   <string name="preference_languages_filter_hint">Lêgerîn</string>
@@ -178,4 +180,10 @@
   <string name="description_edit_cancel_hint">Betal bike</string>
   <string name="compilation_download_cancel_confirm_yes">Erê</string>
   <string name="compilation_download_cancel_confirm_no">Na</string>
+  <string name="languages_list_activity_title">Zimaneke lê zêde bike</string>
+  <string name="wikipedia_languages_title">Zimanên Wîkîpediyayê</string>
+  <string name="wikipedia_languages_your_languages_text">Zimanên te</string>
+  <string name="wikipedia_languages_add_language_text">Zimaneke îlawe bike</string>
+  <string name="wikipedia_languages_remove_text">Jê bibe</string>
+  <string name="wikipedia_languages_remove_dialog_title">Bila zimanê(n) bijartî jê werin rakirin?</string>
 </resources>

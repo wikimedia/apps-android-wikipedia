@@ -68,7 +68,7 @@
   <string name="preference_languages_filter_hint">Zoeken</string>
   <string name="langlinks_filter_hint">Zoeken</string>
   <string name="langlinks_empty">Deze pagina is niet beschikbaar in andere talen.</string>
-  <string name="langlinks_no_match">Geen talen gevonden die overeenkomen met uw zoekopdracht.</string>
+  <string name="langlinks_no_match" fuzzy="true">Geen talen gevonden die overeenkomen met uw zoekopdracht.</string>
   <string name="langlinks_activity_title">Andere talen</string>
   <string name="menu_save_changes">Wijzigingen publiceren</string>
   <string name="dialog_saving_in_progress">Bezig met publiceren...</string>
@@ -432,8 +432,8 @@
   <string name="view_featured_article_footer_saved_button_label">Opgeslagen</string>
   <string name="feed_configure_activity_title">Overzicht bewerken</string>
   <string name="feed_configure_menu_reset">Standaardoverzicht terugzetten</string>
-  <string name="feed_configure_menu_select_all">Alles selecteren</string>
-  <string name="feed_configure_menu_deselect_all">Alles deselecteren</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Alles selecteren</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Alles deselecteren</string>
   <string name="feed_item_type_news">Pagina\'s over huidige gebeurtenissen</string>
   <string name="feed_item_type_on_this_day">Gebeurtenissen in de geschiedenis op deze dag</string>
   <string name="feed_item_type_continue_reading">Snelle link naar een open pagina in een van uw tabbladen</string>

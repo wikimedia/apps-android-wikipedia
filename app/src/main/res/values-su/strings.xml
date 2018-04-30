@@ -57,7 +57,7 @@
   <string name="preference_languages_filter_hint">Paluruh</string>
   <string name="langlinks_filter_hint">Paluruh</string>
   <string name="langlinks_empty">Ieu kaca can sayaga dina basa lianna</string>
-  <string name="langlinks_no_match">Teu manggihan basa nu cocog jeung kuéri anjeun.</string>
+  <string name="langlinks_no_match" fuzzy="true">Teu manggihan basa nu cocog jeung kuéri anjeun.</string>
   <string name="langlinks_activity_title">Basa séjén</string>
   <string name="menu_save_changes">Medalkeun parobahan</string>
   <string name="dialog_saving_in_progress">Keur medalkeun...</string>
@@ -406,8 +406,8 @@
   <string name="view_featured_article_footer_saved_button_label">Kasimpen</string>
   <string name="feed_configure_activity_title">Luyukeun eupan</string>
   <string name="feed_configure_menu_reset">Balikkeun pidangan baku</string>
-  <string name="feed_configure_menu_select_all">Pilih kabéh</string>
-  <string name="feed_configure_menu_deselect_all">Tong pilih kabéh</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Pilih kabéh</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Tong pilih kabéh</string>
   <string name="feed_item_type_news">Artikel ngeunaan kajadian kiwari</string>
   <string name="feed_item_type_on_this_day">Kajadian dina sajarah poé ieu</string>
   <string name="feed_configure_onboarding_action">Luyukeun</string>

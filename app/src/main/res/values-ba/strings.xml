@@ -53,7 +53,7 @@
   <string name="preference_languages_filter_hint">Эҙләү</string>
   <string name="langlinks_filter_hint">Эҙләү</string>
   <string name="langlinks_empty">Был бит башҡа телдәрҙә юҡ.</string>
-  <string name="langlinks_no_match">Һеҙҙең һорау буйынса телдәр табылманы.</string>
+  <string name="langlinks_no_match" fuzzy="true">Һеҙҙең һорау буйынса телдәр табылманы.</string>
   <string name="langlinks_activity_title">Башҡа телдәр</string>
   <string name="menu_save_changes" fuzzy="true">Үҙгәрештәрҙе һаҡларға</string>
   <string name="dialog_saving_in_progress">Һаҡлана…</string>

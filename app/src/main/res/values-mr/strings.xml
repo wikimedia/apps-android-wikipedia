@@ -64,7 +64,7 @@
   <string name="preference_languages_filter_hint">शोधा</string>
   <string name="langlinks_filter_hint">शोधा</string>
   <string name="langlinks_empty">हे पान इतर भाषांमध्ये उपलब्ध नाही आहे</string>
-  <string name="langlinks_no_match">आपल्या शोधत असलेली भाषा सापडली नाही.</string>
+  <string name="langlinks_no_match" fuzzy="true">आपल्या शोधत असलेली भाषा सापडली नाही.</string>
   <string name="langlinks_activity_title">इतर भाषा</string>
   <string name="menu_save_changes">आपले बदल प्रकाशित करा</string>
   <string name="dialog_saving_in_progress">प्रकाशन होत आहे…</string>

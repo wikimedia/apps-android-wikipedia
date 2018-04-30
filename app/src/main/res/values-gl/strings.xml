@@ -65,7 +65,7 @@
   <string name="preference_languages_filter_hint">Procurar</string>
   <string name="langlinks_filter_hint">Procurar</string>
   <string name="langlinks_empty">Esta páxina non está dispoñible noutras linguas</string>
-  <string name="langlinks_no_match">Non se atopou ningunha lingua que coincidise coa súa pescuda.</string>
+  <string name="langlinks_no_match" fuzzy="true">Non se atopou ningunha lingua que coincidise coa súa pescuda.</string>
   <string name="langlinks_activity_title">Outras linguas</string>
   <string name="menu_save_changes">Publicar os cambios</string>
   <string name="dialog_saving_in_progress">Publicando…</string>
@@ -477,8 +477,8 @@
   <string name="view_featured_article_footer_saved_button_label">Gardado</string>
   <string name="feed_configure_activity_title">Configurar a canle</string>
   <string name="feed_configure_menu_reset">Restablecer vista predeterminada</string>
-  <string name="feed_configure_menu_select_all">Seleccionar todo</string>
-  <string name="feed_configure_menu_deselect_all">Deseleccionar todo</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Seleccionar todo</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Deseleccionar todo</string>
   <string name="feed_item_type_news">Artigos sobre eventos actuais</string>
   <string name="feed_item_type_on_this_day">Acontecementos históricos de hoxe</string>
   <string name="feed_item_type_continue_reading">Ligazón rápida para ler un artigo aberto nunha das súas lapelas</string>

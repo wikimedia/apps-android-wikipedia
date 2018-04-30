@@ -12,6 +12,7 @@
   <string name="search_hint_search_history">Историја на пребарување</string>
   <string name="search_hint_search_my_lists">Пребарување по моите списоци</string>
   <string name="search_hint_search_reading_list">Пребарување по список за читање</string>
+  <string name="search_hint_search_languages">Пребарување јазик</string>
   <string name="nav_item_history">Историја</string>
   <string name="error_network_error">Не можам да се поврзам со семрежјето.</string>
   <string name="page_error_retry">Повтори</string>
@@ -57,7 +58,7 @@
   <string name="preference_languages_filter_hint">Пребарајте</string>
   <string name="langlinks_filter_hint">Пребарај</string>
   <string name="langlinks_empty">Страницава не е достапна на други јазици</string>
-  <string name="langlinks_no_match">Не пронајдов јазици што одговараат на бараното.</string>
+  <string name="langlinks_no_match" fuzzy="true">Не пронајдов јазици што одговараат на бараното.</string>
   <string name="langlinks_activity_title">Други јазици</string>
   <string name="menu_save_changes">Зачувај промени</string>
   <string name="dialog_saving_in_progress">Зачувувам…</string>
@@ -469,8 +470,8 @@
   <string name="view_featured_article_footer_saved_button_label">Зачувано</string>
   <string name="feed_configure_activity_title">Прилагоди го доводот</string>
   <string name="feed_configure_menu_reset">Поврати основен изглед</string>
-  <string name="feed_configure_menu_select_all">Избери сè</string>
-  <string name="feed_configure_menu_deselect_all">Поништи избрано</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Избери сè</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Поништи избрано</string>
   <string name="feed_item_type_news">Статии за тековни настани</string>
   <string name="feed_item_type_on_this_day">Настани од историјата на овој ден</string>
   <string name="feed_item_type_continue_reading">Брза врска кон статија отворена во јазиче</string>
@@ -603,4 +604,16 @@
     <item quantity="one">Лани</item>
     <item quantity="other">Пред %d години</item>
   </plurals>
+  <string name="languages_list_activity_title">Додај јазик</string>
+  <string name="languages_list_suggested_text">Предложени</string>
+  <string name="languages_list_all_text">Сите јазици</string>
+  <string name="wikipedia_languages_title">Јазици на Википедија</string>
+  <string name="wikipedia_languages_your_languages_text">Ваши јазици</string>
+  <string name="wikipedia_languages_add_language_text">Додај јазик</string>
+  <string name="wikipedia_languages_remove_text">Отстрани</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Отстрани јазик</string>
+  <string name="wikipedia_languages_remove_dialog_title">Да ги отстранам избраните јазици?</string>
+  <string name="wikipedia_languages_remove_dialog_content">Содржината во тековникот „Истражи“ и филтрите за брзо пребарување ќе се однесуваат само на преостанатите јазици на Википедија.</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Не можам да ги отстранам сите јазици</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Задржете барем еден јазик на Википедија од кој ќе пребарувате и читате содржини.</string>
 </resources>

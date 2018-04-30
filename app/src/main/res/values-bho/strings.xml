@@ -51,7 +51,7 @@
   <string name="preference_languages_filter_hint">खोजीं</string>
   <string name="langlinks_filter_hint">खोजीं</string>
   <string name="langlinks_empty">इ पन्ना अन्य भाषा में मौजूद नइखे</string>
-  <string name="langlinks_no_match">आपके पुछार से मिलत कौनों भाषा ना मिलल।</string>
+  <string name="langlinks_no_match" fuzzy="true">आपके पुछार से मिलत कौनों भाषा ना मिलल।</string>
   <string name="langlinks_activity_title">दुसरी भाषा में</string>
   <string name="menu_save_changes">बदलाव प्रकाशित करीं</string>
   <string name="dialog_saving_in_progress">प्रकाशित कइल जात बा...</string>

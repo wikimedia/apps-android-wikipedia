@@ -46,7 +46,7 @@
   <string name="preference_languages_filter_hint">გორუა</string>
   <string name="langlinks_filter_hint">გორუა</string>
   <string name="langlinks_empty">თე ხასჷლა შხვა ნინაშა ვარე მიოჭირინაფუს.</string>
-  <string name="langlinks_no_match">თქვან მოთხირით აკა ნინაქ ვეგორინჷ.</string>
+  <string name="langlinks_no_match" fuzzy="true">თქვან მოთხირით აკა ნინაქ ვეგორინჷ.</string>
   <string name="langlinks_activity_title">შხვა ნინეფი</string>
   <string name="menu_save_changes">თირაფეფიშ გჷმოქიანაფა</string>
   <string name="dialog_saving_in_progress">გჷმიქიანებუ...</string>

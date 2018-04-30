@@ -21,6 +21,7 @@
   <string name="search_hint_search_history">Sök i historik</string>
   <string name="search_hint_search_my_lists">Sök i mina listor</string>
   <string name="search_hint_search_reading_list">Sök i läslista</string>
+  <string name="search_hint_search_languages">Sök efter ett språk</string>
   <string name="nav_item_history">Historik</string>
   <string name="error_network_error">Kan inte ansluta till Internet.</string>
   <string name="page_error_retry">Försök igen</string>
@@ -66,7 +67,7 @@
   <string name="preference_languages_filter_hint">Sök</string>
   <string name="langlinks_filter_hint">Sök</string>
   <string name="langlinks_empty">Denna sida är inte tillgänglig på andra språk</string>
-  <string name="langlinks_no_match">Inga språk som matchade din sökning hittades.</string>
+  <string name="langlinks_no_match" fuzzy="true">Inga språk som matchade din sökning hittades.</string>
   <string name="langlinks_activity_title">Andra språk</string>
   <string name="menu_save_changes">Publicera ändringar</string>
   <string name="dialog_saving_in_progress">Publicerar…</string>
@@ -478,8 +479,8 @@
   <string name="view_featured_article_footer_saved_button_label">Sparades</string>
   <string name="feed_configure_activity_title">Anpassa flödet</string>
   <string name="feed_configure_menu_reset">Återställ standardvyn</string>
-  <string name="feed_configure_menu_select_all">Markera alla</string>
-  <string name="feed_configure_menu_deselect_all">Avmarkera alla</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Markera alla</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Avmarkera alla</string>
   <string name="feed_item_type_news">Artiklar om nuvarande händelser</string>
   <string name="feed_item_type_on_this_day">Händelser i historien på denna dag</string>
   <string name="feed_item_type_continue_reading">Snabblänk tillbaka för att läsa en öppnad artikel i en av dina flikar</string>
@@ -489,9 +490,9 @@
   <string name="feed_item_type_featured_image">Dagens utmärkta bild från Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Wikipedias huvudsida med dagens utmärkta innehåll</string>
   <string name="feed_item_type_randomizer">Generera slumpartiklar att läsa</string>
-  <string name="feed_empty_message">Det finns ingenting i ditt utforskningsflöde.</string>
+  <string name="feed_empty_message">Det finns ingenting i ditt Utforskningsflöde.</string>
   <string name="feed_configure_onboarding_action">Anpassa</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Anpassa ditt utforskningsflöde&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu välja vad som ska visas i ditt flöde och även prioritera dina favoritinnehållstyper.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Anpassa ditt Utforskningsflöde&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu välja vad som ska visas i ditt flöde och även prioritera dina favoritinnehållstyper.</string>
   <string name="description_edit_text_hint">Titelbeskrivning</string>
   <string name="description_edit_save">Publicera</string>
   <string name="description_edit_add_description">Lägg till titelbeskrivning</string>
@@ -585,7 +586,7 @@
   <string name="onboarding_welcome_title">Den fria encyklopedin</string>
   <string name="onboarding_welcome_text">Wikipedia skrivs tillsammans av frivilliga och består av fler än 40 miljoner artiklar på nästan 300 olika språk. &lt;a href=\"#about\"&gt;Läs mer&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Nya sätt att utforska</string>
-  <string name="onboarding_explore_text">Gör en djupdykning i Wikipedia genom att uppdatera utforskningsflödet. &lt;br/&gt; &lt;b&gt;Anpassa&lt;/b&gt; flödet för att möta dina intressen – vare sig det handlar om historiska händelser &lt;b&gt;på denna dag&lt;/b&gt; eller kasta tärningen och få en &lt;b&gt;slumpartikel&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Gör en djupdykning i Wikipedia genom att uppdatera Utforskningsflödet. &lt;br/&gt; &lt;b&gt;Anpassa&lt;/b&gt; flödet för att möta dina intressen – vare sig det handlar om historiska händelser &lt;b&gt;på denna dag&lt;/b&gt; eller kasta tärningen och få en &lt;b&gt;slumpartikel&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Spara till läslistor</string>
   <string name="onboarding_save_to_reading_lists_text">Skapa läslistor av artiklar du vill läsa senare, även när du är offline.</string>
   <string name="onboarding_reading_list_sync_title">Läslistor med synkronisering</string>
@@ -612,4 +613,16 @@
     <item quantity="one">Senaste året</item>
     <item quantity="other">%d år sedan</item>
   </plurals>
+  <string name="languages_list_activity_title">Lägg till språk</string>
+  <string name="languages_list_suggested_text">Föreslagna</string>
+  <string name="languages_list_all_text">Alla språk</string>
+  <string name="wikipedia_languages_title">Wikipediaspråk</string>
+  <string name="wikipedia_languages_your_languages_text">Dina språk</string>
+  <string name="wikipedia_languages_add_language_text">Lägg till språk</string>
+  <string name="wikipedia_languages_remove_text">Ta bort</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Ta bort språk</string>
+  <string name="wikipedia_languages_remove_dialog_title">Ta bort valda språk?</string>
+  <string name="wikipedia_languages_remove_dialog_content">Du kommer endast se innehåll i Utforskningsflödet och snabbsökningsfilter för tillgängliga Wikipediaspråk.</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Kan inte ta bort alla språk</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Behåll minst ett Wikipediaspråk att söka och läsa innehåll på.</string>
 </resources>

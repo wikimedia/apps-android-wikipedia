@@ -36,6 +36,7 @@
   <string name="search_hint_search_history">Buscar en el historial</string>
   <string name="search_hint_search_my_lists">Buscar en mis listas</string>
   <string name="search_hint_search_reading_list">Buscar en lista de lectura</string>
+  <string name="search_hint_search_languages">Buscar un idioma</string>
   <string name="nav_item_history">Historial</string>
   <string name="error_network_error">No se pudo conectar a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
@@ -81,7 +82,7 @@
   <string name="preference_languages_filter_hint">Buscar</string>
   <string name="langlinks_filter_hint">Buscar</string>
   <string name="langlinks_empty">Esta página no está disponible en otros idiomas.</string>
-  <string name="langlinks_no_match">No se encontraron idiomas que coincidan con tu consulta.</string>
+  <string name="langlinks_no_match" fuzzy="true">No se encontraron idiomas que coincidan con tu consulta.</string>
   <string name="langlinks_activity_title">Otros idiomas</string>
   <string name="menu_save_changes">Publicar cambios</string>
   <string name="dialog_saving_in_progress">Publicando…</string>
@@ -158,9 +159,9 @@
   <string name="preference_title_sync_reading_lists">Sincronizar listas de lectura</string>
   <string name="preference_title_sync_reading_lists_from_account">Activar sincronización de listas de lectura</string>
   <string name="preference_summary_sync_reading_lists">Guardar las listas de lectura en mi cuenta de Wikipedia y sincronizarlas en varios dispositivos</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Sincroniza tus listas de lectura a través de diferentes dispositivos guardándolas en tu cuenta de wikipedia %s</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Guarda tus listas de lectura en tu cuenta de Wikipedia «%s» y sincronízalas en varios dispositivos</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">¿Quieres quitar las listas de lectura sincronizadas de «%s»?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Esta acción eliminará completamente cualquier lista de lectura sincronizada en la nube. ¿Desea eliminar todas las listas sincronizadas de tu cuenta %s?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Esta acción eliminará por completo cualquier lista de lectura sincronizada en la nube. ¿Quieres eliminar todas las listas sincronizadas de la cuenta «%s»?</string>
   <string name="preferences_privacy_settings_heading">Privacidad</string>
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que Wikimedia recopile información acerca de cómo utiliza la aplicación para mejorarla</string>
@@ -211,7 +212,7 @@
   <string name="edit_summary_tag_other">Otro</string>
   <string name="edit_summary_tag_other_hint">Otras formas en las que has mejorado la página</string>
   <string name="edit_conflict_title">Conflicto de edición</string>
-  <string name="edit_conflict_message">La página ya ha sido modificada por un usuario distinto, y está interfiriendo con tu edición. Por favor copie su edición, vuelva atrás y recargue la página, luego intente editar de nuevo.</string>
+  <string name="edit_conflict_message">Otro usuario ya ha modificado la página y ello interfiere con tu edición. Copia tus cambios, vuelve atrás y actualiza la página y, a continuación, intenta editar de nuevo.</string>
   <string name="find_next">Buscar siguiente</string>
   <string name="find_previous">Buscar anterior</string>
   <string name="find_first_occurence">Esta es la primera ocurrencia</string>
@@ -388,7 +389,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">El artículo aparece en varias listas</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ya no estará disponible sin conexión en ninguna lista de lectura:</string>
   <string name="reading_lists_sync_reminder_title">¿Activar la sincronización de tus listas de lectura?</string>
-  <string name="reading_lists_sync_reminder_text">Los artículos guardados en listas de lectura ahora pueden ser sincronizados a tu cuenta de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saber más&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Ahora es posible sincronizar los artículos guardados en listas de lectura en tu cuenta de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Más información&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link">Ahora es posible sincronizar las listas de lectura en varios dispositivos. Accede a tu cuenta de Wikipedia y permite que se guarden tus listas. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Más información&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Activar sincronización</string>
   <string name="reading_list_login_reminder_title">Sincronizar listas de lectura</string>
@@ -493,8 +494,8 @@
   <string name="view_featured_article_footer_saved_button_label">Guardado</string>
   <string name="feed_configure_activity_title">Personalizar el canal</string>
   <string name="feed_configure_menu_reset">Restablecer vista predeterminada</string>
-  <string name="feed_configure_menu_select_all">Seleccionar todo</string>
-  <string name="feed_configure_menu_deselect_all">Cancelar toda selección</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Seleccionar todo</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Cancelar toda selección</string>
   <string name="feed_item_type_news">Artículos sobre acontecimientos recientes</string>
   <string name="feed_item_type_on_this_day">Acontecimientos históricos de hoy</string>
   <string name="feed_item_type_continue_reading">Enlace rápido para leer un artículo abierto en una de tus pestañas</string>
@@ -627,4 +628,15 @@
     <item quantity="one">El año pasado</item>
     <item quantity="other">Hace %d años</item>
   </plurals>
+  <string name="languages_list_activity_title">Añadir un idioma</string>
+  <string name="languages_list_suggested_text">Sugeridos</string>
+  <string name="languages_list_all_text">Todos los idiomas</string>
+  <string name="wikipedia_languages_title">Idiomas de Wikipedia</string>
+  <string name="wikipedia_languages_your_languages_text">Tus idiomas</string>
+  <string name="wikipedia_languages_add_language_text">Añadir idioma</string>
+  <string name="wikipedia_languages_remove_text">Quitar</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Quitar idioma</string>
+  <string name="wikipedia_languages_remove_dialog_title">¿Quieres quitar los idiomas seleccionados?</string>
+  <string name="wikipedia_languages_remove_dialog_content">Solo verás contenido en los idiomas restantes de Wikipedia en el suministro Explorar y los filtros de búsqueda rápida.</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">No es posible quitar todos los idiomas</string>
 </resources>

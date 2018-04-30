@@ -75,7 +75,7 @@
   <string name="preference_languages_filter_hint">جستجو</string>
   <string name="langlinks_filter_hint">جستجو</string>
   <string name="langlinks_empty">این صفحه به زبان های دیگر در دسترس نمی‌باشد.</string>
-  <string name="langlinks_no_match">هیچ زبانی برای درخواست شما یافت نشد</string>
+  <string name="langlinks_no_match" fuzzy="true">هیچ زبانی برای درخواست شما یافت نشد</string>
   <string name="langlinks_activity_title">زبان‌های دیگر</string>
   <string name="menu_save_changes">منتشر کردن تغییرات</string>
   <string name="dialog_saving_in_progress">در حال انتشار…</string>
@@ -478,8 +478,8 @@
   <string name="view_featured_article_footer_saved_button_label">ذخیره شد</string>
   <string name="feed_configure_activity_title">شخصی‌سازی خوراک</string>
   <string name="feed_configure_menu_reset">بازگردانی نمایش پیش‌فرض</string>
-  <string name="feed_configure_menu_select_all">همه را انتخاب کنید</string>
-  <string name="feed_configure_menu_deselect_all">از گزینش خارج کردن همه‌</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">همه را انتخاب کنید</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">از گزینش خارج کردن همه‌</string>
   <string name="feed_item_type_news">مقاله های مربوط به مسائل روز</string>
   <string name="feed_item_type_on_this_day">رویدادهای تاریخی در این روز</string>
   <string name="feed_item_type_continue_reading">پیوند سریع بازگشت به خواندن مقالهٔ باز شده در یکی از زبانه‌‌های شما</string>

@@ -56,7 +56,7 @@
   <string name="preference_languages_filter_hint">ស្វែងរក</string>
   <string name="langlinks_filter_hint">ស្វែងរក</string>
   <string name="langlinks_empty">ទំព័រ​នេះ​មិនអាចអានជា​ភាសាដទៃ​ទៀត​ទេ។</string>
-  <string name="langlinks_no_match">រកមិនឃើញភាសាត្រូវគ្នាជាមួយពាក្យស្វែងរករបស់អ្នកទេ។</string>
+  <string name="langlinks_no_match" fuzzy="true">រកមិនឃើញភាសាត្រូវគ្នាជាមួយពាក្យស្វែងរករបស់អ្នកទេ។</string>
   <string name="langlinks_activity_title">ភាសា​ដទៃ​ទៀត</string>
   <string name="menu_save_changes">បោះផ្សាយបន្លាស់ប្ដូរ</string>
   <string name="dialog_saving_in_progress">កំពុង​បោះផ្សាយ…</string>
@@ -320,8 +320,8 @@
   <string name="view_announcement_card_negative_action">ទេ, អរគុណហើយ</string>
   <string name="view_featured_article_footer_save_button_label">រក្សាទុក</string>
   <string name="view_featured_article_footer_saved_button_label">បាន​រក្សាទុក</string>
-  <string name="feed_configure_menu_select_all">ជ្រើសយកទាំង​អស់​</string>
-  <string name="feed_configure_menu_deselect_all">ឈប់ជ្រើសយកទាំង​អស់​</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">ជ្រើសយកទាំង​អស់​</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">ឈប់ជ្រើសយកទាំង​អស់​</string>
   <string name="description_edit_save">បោះផ្សាយ</string>
   <string name="description_edit_cancel_hint">បោះបង់</string>
   <string name="description_edit_success_done">រួចរាល់</string>

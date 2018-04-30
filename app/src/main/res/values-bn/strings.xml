@@ -22,6 +22,7 @@
   <string name="search_hint_search_history">ইতিহাস অনুসন্ধান করুন</string>
   <string name="search_hint_search_my_lists">আমার তালিকায় অনুসন্ধান করুন</string>
   <string name="search_hint_search_reading_list">পড়ার তালিকায় অনুসন্ধান করুন</string>
+  <string name="search_hint_search_languages">একটি ভাষার জন্য অনুসন্ধান করুন</string>
   <string name="nav_item_history">ইতিহাস</string>
   <string name="error_network_error">ইন্টারনেটের সাথে সংযোগ করা যাবে না।</string>
   <string name="page_error_retry">পুনঃচেষ্টা করুন</string>
@@ -67,7 +68,7 @@
   <string name="preference_languages_filter_hint">অনুসন্ধান</string>
   <string name="langlinks_filter_hint">অনুসন্ধান</string>
   <string name="langlinks_empty">এই পাতাটি অন্য কোনো ভাষায় উপলব্ধ নয়।</string>
-  <string name="langlinks_no_match">আপনার অনুসন্ধানের সাথে মিল আছে এমন কোনো ভাষা নেই।</string>
+  <string name="langlinks_no_match" fuzzy="true">আপনার অনুসন্ধানের সাথে মিল আছে এমন কোনো ভাষা নেই।</string>
   <string name="langlinks_activity_title">অন্যান্য ভাষাসমূহ</string>
   <string name="menu_save_changes">পরিবর্তন প্রকাশ করুন</string>
   <string name="dialog_saving_in_progress">প্রকাশ করা হচ্ছে...</string>
@@ -91,6 +92,7 @@
   <string name="login_username_hint">ব্যবহারকারী নাম</string>
   <string name="login_password_hint">পাসওয়ার্ড</string>
   <string name="login_2fa_hint">দুই-গুণনীয়ক প্রমাণীকরণ কোড</string>
+  <string name="login_2fa_other_workflow_error_msg">দুই-গুনীতক প্রমানীকরণ প্রয়োজন! দয়া করে প্রধান কার্যকলাপে ফেরত যান এবং ২-গুনীতক প্রমানীকরণ নিশান দ্বারা প্রবেশ করুন, তারপর পুনরায় চেষ্টা করুন.</string>
   <string name="menu_login">প্রবেশ</string>
   <string name="login_activity_title">উইকিপিডিয়াতে প্রবেশ করুন</string>
   <string name="login_in_progress_dialog_message">আপনি প্রবেশ করছেন…</string>
@@ -118,6 +120,7 @@
   <string name="create_account_generic_error">অ্যাকাউন্ট তৈরী করা যাচ্ছে না</string>
   <string name="create_account_next">পরবর্তী</string>
   <string name="create_account_button">অ্যাকাউন্ট তৈরি করুন</string>
+  <string name="create_account_name_unavailable">\"%s\" নামে কোনো ব্যবহারকারী উপলব্ধ নেই. দয়া করে অন্য কোনো নাম বাছুন.</string>
   <string name="preferences_general_heading">সাধারণ</string>
   <string name="wikipedia_app_faq">উইকিপিডিয়া অ্যাপ প্রাজিপ্র</string>
   <string name="zero_charged_verbiage">উইকিপিডিয়ায় বিনামূল্যে প্রবেশাধিকার আর সক্রিয় নয়।</string>
@@ -136,9 +139,15 @@
   <string name="send_feedback">অ্যাপ সম্পর্কে প্রতিক্রিয়া জানান</string>
   <string name="create_account_account_created_toast">অ্যাকাউন্ট তৈরি করা হয়েছে!</string>
   <string name="preferences_heading_storage_and_syncing">স্টোরেজ ও সিঙ্ক</string>
+  <string name="preferences_heading_syncing">সুসংগত করা হচ্ছে</string>
   <string name="preferences_heading_data_usage">ডাটা ব্যাবহার</string>
   <string name="preferences_heading_experimental">পরীক্ষামূলক</string>
   <string name="preference_title_sync_reading_lists">পড়ার তালিকাগুলি সিঙ্ক করুন</string>
+  <string name="preference_title_sync_reading_lists_from_account">সুসংগত পড়ার তালিকা সক্ষম করুন</string>
+  <string name="preference_summary_sync_reading_lists">বিভিন্ন যন্ত্রে পড়ার তালিকাগুলিকে সুসংগত করার জন্য আপনার উইকিপিডিয়া গণিতকে মজুত করুন.</string>
+  <string name="preference_summary_sync_reading_lists_from_account">বিভিন্ন যন্ত্রে পড়ার তালিকাগুলিকে সুসংগত করার জন্য আপনার উইকিপিডিয়া গণিতকে \"%s\" মজুত করুন.</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\" থেকে সুসংগত পড়ার তালিকা বাদ দিতে ইচ্ছুক?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">এটি পূর্বতন সমস্ত সুসংগত পড়ার তালিকা, দূরবর্তী সংরক্ষণাগার থেকে সম্পূর্ণ রূপে বাদ দেবে. আপনি কি সমস্ত সুসংগত তালিকাগুলিকে আপনার \"%s\" গণিতক থেকে বাদ দিতে চান?</string>
   <string name="preferences_privacy_settings_heading">গোপনীয়তা</string>
   <string name="preference_title_eventlogging_opt_in">ব্যবহারের রিপোর্ট পাঠান</string>
   <string name="preference_summary_eventlogging_opt_in">অ্যাপ আরও ভালো করতে উইকিমিডিয়াকে আপনি কিভাবে অ্যাপ্লিকেশন ব্যবহার করছেন সেই সম্পর্কে তথ্য সংগ্রহ করার অনুমতি দিন</string>
@@ -160,6 +169,8 @@
   <string name="terms_of_use_description">ব্যবহারের শর্তাবলী</string>
   <string name="about_wikipedia_url">https://bn.m.wikipedia.org/wiki/উইকিপিডিয়া:বৃত্তান্ত</string>
   <string name="privacy_policy_url">https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/bn</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.bn</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.bn</string>
@@ -319,9 +330,11 @@
   <string name="reading_list_sort_by_name">নাম অনুযায়ী বাছাই</string>
   <string name="reading_list_sort_by_name_desc">নাম অনুযায়ী বাছাই (বিপরীত)</string>
   <string name="reading_list_sort_by_recent" fuzzy="true">সাম্প্রতিক অনুযায়ী বাছাই</string>
-  <string name="reading_list_sort_by_recent_desc" fuzzy="true">অন্তত সাম্প্রতিক বাছাই</string>
+  <string name="reading_list_sort_by_recent_desc">যোগ করার তারিখ হিসাবে(প্রাচীনতম) সাজান.</string>
+  <string name="reading_list_sort_by_created">নির্মান করার তারিখ (নবীনতম) হিসাবে সাজান.</string>
+  <string name="reading_list_sort_by_created_desc">নির্মান করার তারিখ (প্রাচীনতম) হিসাবে সাজান.</string>
   <string name="reading_list_menu_delete">তালিকা মুছুন</string>
-  <string name="reading_list_menu_rename" fuzzy="true">নামান্তর</string>
+  <string name="reading_list_menu_rename">নাম/বিবরণ সম্পাদনা করুন</string>
   <string name="reading_list_menu_edit_description">বিবরণ সম্পাদনা করুন</string>
   <string name="reading_list_action_menu_remove_from_offline">অফলাইন থেকে সরান</string>
   <string name="reading_list_action_menu_save_for_offline">অফলাইনের জন্য সংরক্ষণ করুন</string>
@@ -336,8 +349,8 @@
   <string name="reading_list_item_delete_undo">পূর্বাবস্থা</string>
   <string name="reading_list_deleted">%s অপসারিত হয়েছে</string>
   <string name="saved_list_empty_title">এখনো কোন পড়ার তালিকা নেই</string>
-  <string name="reading_lists_empty_message" fuzzy="true">পড়ার তালিকায় নিবন্ধ সংরক্ষণ করে এতে আপনি তাদের পরে দেখতে পারেন, এমনকি যখন আপনি অফলাইনে থাকেন।</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">পরে পড়ার জন্য নিবন্ধ থেকে আপনার জন্য পড়ার তালিকা তৈরি করে, এমনকি যখন আপনি অফলাইনে থাকেন!</string>
+  <string name="reading_lists_empty_message">পড়ার তালিকায় নিবন্ধ সংরক্ষণ করে এতে আপনি তাদের পরে দেখতে পারেন, এমনকি যখন আপনি অফলাইনে থাকেন।</string>
+  <string name="reading_lists_onboarding_intro">পরে পড়ার জন্য নিবন্ধগুলি পড়ার তালিকায় যোগ করুন, এমনকি আপনি অফলাইনে থাকাকালীন!</string>
   <string name="reading_lists_onboarding_for_example">উদাহরণস্বরূপ</string>
   <string name="reading_lists_onboarding_example1">ভ্রমণের জন্য স্থান</string>
   <string name="reading_lists_onboarding_example2">পছন্দের পশুপাখি</string>
@@ -415,8 +428,8 @@
   <string name="view_featured_article_footer_saved_button_label">সংরক্ষিত</string>
   <string name="feed_configure_activity_title">পছন্দমত ফিড তৈরি করুন</string>
   <string name="feed_configure_menu_reset">মূল দৃশ্যপট পুনঃস্থাপন</string>
-  <string name="feed_configure_menu_select_all">সব নির্বাচন করুন</string>
-  <string name="feed_configure_menu_deselect_all">সব অনির্বাচিত করুন</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">সব নির্বাচন করুন</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">সব অনির্বাচিত করুন</string>
   <string name="feed_item_type_news">চলমান ঘটনা সম্পর্কিত প্রবন্ধ সমূম</string>
   <string name="feed_item_type_on_this_day">এই দিনের ঐতিহাসিক ঘটনাবলি</string>
   <string name="feed_item_type_continue_reading">আপনার ট্যাবগুলির মধ্যে খোলা নিবন্ধ পড়ার জন্য দ্রুত লিঙ্ক</string>

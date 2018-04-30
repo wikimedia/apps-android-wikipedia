@@ -65,7 +65,7 @@
   <string name="preference_languages_filter_hint">Søk</string>
   <string name="langlinks_filter_hint">Søk</string>
   <string name="langlinks_empty">Denne siden er ikke tilgjengelig på andre språk</string>
-  <string name="langlinks_no_match">Ingen språk ble funnet som matchet søket ditt.</string>
+  <string name="langlinks_no_match" fuzzy="true">Ingen språk ble funnet som matchet søket ditt.</string>
   <string name="langlinks_activity_title">Andre språk</string>
   <string name="menu_save_changes">Publiser endringer</string>
   <string name="dialog_saving_in_progress">Publiserer…</string>

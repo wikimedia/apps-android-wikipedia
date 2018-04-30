@@ -41,7 +41,7 @@
   <string name="preference_languages_filter_hint">Söhke</string>
   <string name="langlinks_filter_hint">Söhke</string>
   <string name="langlinks_empty">Di Sigg es nit in ander Schprohche ze han.</string>
-  <string name="langlinks_no_match">Kein Schprohche paße op Ding Aanfrohch.</string>
+  <string name="langlinks_no_match" fuzzy="true">Kein Schprohche paße op Ding Aanfrohch.</string>
   <string name="langlinks_activity_title">Ander Schprohche</string>
   <string name="menu_save_changes" fuzzy="true">Änderonge faßhallde</string>
   <string name="dialog_saving_in_progress" fuzzy="true">Aam Affschpeischere …</string>

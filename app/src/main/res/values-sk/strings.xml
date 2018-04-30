@@ -65,7 +65,7 @@
   <string name="preference_languages_filter_hint">Hľadať</string>
   <string name="langlinks_filter_hint">Hľadať</string>
   <string name="langlinks_empty">Táto stránka nie je k dispozícii v iných jazykoch</string>
-  <string name="langlinks_no_match">Zadaný výraz nezodpovedá žiadnemu jazyku.</string>
+  <string name="langlinks_no_match" fuzzy="true">Zadaný výraz nezodpovedá žiadnemu jazyku.</string>
   <string name="langlinks_activity_title">Iné jazyky</string>
   <string name="menu_save_changes">Uverejniť zmeny</string>
   <string name="dialog_saving_in_progress">Zverejňuje sa...</string>
@@ -442,8 +442,8 @@
   <string name="view_featured_article_card_title">Odporúčaný článok</string>
   <string name="view_featured_article_footer_save_button_label">Uložiť</string>
   <string name="view_featured_article_footer_saved_button_label">Uložené</string>
-  <string name="feed_configure_menu_select_all">Vybrať všetko</string>
-  <string name="feed_configure_menu_deselect_all">Odznačiť všetko</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Vybrať všetko</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Odznačiť všetko</string>
   <string name="feed_item_type_news">Články o súčasných udalostiach</string>
   <string name="feed_item_type_on_this_day">Historické udalosti v tento deň</string>
   <string name="feed_item_type_because_you_read">Návrhy založené na nedávno čítaných článkoch z vašej histórie</string>

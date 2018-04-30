@@ -70,7 +70,7 @@
   <string name="preference_languages_filter_hint">Keresés</string>
   <string name="langlinks_filter_hint">Keresés</string>
   <string name="langlinks_empty">Ez a lap nem érhető el más nyelveken</string>
-  <string name="langlinks_no_match">Nem található a kérésnek megfelelő nyelv.</string>
+  <string name="langlinks_no_match" fuzzy="true">Nem található a kérésnek megfelelő nyelv.</string>
   <string name="langlinks_activity_title">További nyelvek</string>
   <string name="menu_save_changes">Változtatások közzététele</string>
   <string name="dialog_saving_in_progress">Közzététel…</string>
@@ -453,8 +453,8 @@
   <string name="view_featured_article_footer_saved_button_label">Elmentve</string>
   <string name="feed_configure_activity_title">A hírcsatorna testreszabása</string>
   <string name="feed_configure_menu_reset">Alapértelmezett nézet visszaállítása</string>
-  <string name="feed_configure_menu_select_all">Összes megjelenítése</string>
-  <string name="feed_configure_menu_deselect_all">Összes elrejtése</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Összes megjelenítése</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Összes elrejtése</string>
   <string name="feed_item_type_news">Szócikkek aktuális eseményekről</string>
   <string name="feed_item_type_on_this_day">Történelmi események ezen a napon</string>
   <string name="feed_item_type_because_you_read">Ajánlatok egy nemrég olvasott szócikk alapján</string>

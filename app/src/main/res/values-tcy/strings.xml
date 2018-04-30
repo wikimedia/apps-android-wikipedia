@@ -52,7 +52,7 @@
   <string name="preference_languages_filter_hint">ನಾಡ್‍ಲೆ</string>
   <string name="langlinks_filter_hint">ನಾಡ್‍ಲೆ</string>
   <string name="langlinks_empty">ಈ ಪುಟ ಬೇತೆ ಬಾಸೆಲೆಡ್ ತಿಕೊಂತಿಜ್ಜಿ.</string>
-  <string name="langlinks_no_match">ಇರೇನಾ ವಿಚಾರಿಸಾಯಿನಾ ಪ್ರಶ್ನೆಗ್  ಸರಿಯಾಪುನಾ ಒವ್ವೆ ಬಾಸೆ ತಿಕೀಜಿ.</string>
+  <string name="langlinks_no_match" fuzzy="true">ಇರೇನಾ ವಿಚಾರಿಸಾಯಿನಾ ಪ್ರಶ್ನೆಗ್  ಸರಿಯಾಪುನಾ ಒವ್ವೆ ಬಾಸೆ ತಿಕೀಜಿ.</string>
   <string name="langlinks_activity_title">ಬೇತೆ ಬಾಸೆಲೆಡ್</string>
   <string name="menu_save_changes">ಬದಲಾವನೆನ್ ಒರಿಪಾಲೆ</string>
   <string name="dialog_saving_in_progress">ಒರಿಪಾವೊತುಂಡು...</string>

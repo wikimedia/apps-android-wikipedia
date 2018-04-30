@@ -13,6 +13,7 @@
   <string name="search_hint_search_history">Am Historique sichen</string>
   <string name="search_hint_search_my_lists">A menge Lëschte sichen</string>
   <string name="search_hint_search_reading_list">Lieslëscht duerchsichen</string>
+  <string name="search_hint_search_languages">No enger Sprooch sichen</string>
   <string name="nav_item_history">Versiounen</string>
   <string name="error_network_error">Kann net mam Internet verbannen.</string>
   <string name="page_error_retry">Nach eng Kéier probéieren</string>
@@ -55,7 +56,7 @@
   <string name="preference_languages_filter_hint">Sichen</string>
   <string name="langlinks_filter_hint">Sichen</string>
   <string name="langlinks_empty">Dës Säit ass net an anere Sproochen disponibel</string>
-  <string name="langlinks_no_match">Keng Sprooche fonnt déi Ärer Ufro passen.</string>
+  <string name="langlinks_no_match" fuzzy="true">Keng Sprooche fonnt déi Ärer Ufro passen.</string>
   <string name="langlinks_activity_title">Aner Sproochen</string>
   <string name="menu_save_changes">Ännerunge verëffentlechen</string>
   <string name="dialog_saving_in_progress">Verëffentlechen...</string>
@@ -416,7 +417,7 @@
   <string name="view_featured_article_footer_save_button_label">Späicheren</string>
   <string name="view_featured_article_footer_saved_button_label">Gespäichert</string>
   <string name="feed_configure_menu_reset">Standard- Ausgesinn restauréieren</string>
-  <string name="feed_configure_menu_select_all">Alles uwielen</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Alles uwielen</string>
   <string name="feed_item_type_news">Artikelen iwwer aktuell Evenementer</string>
   <string name="feed_item_type_on_this_day">Evenementer an der Vergaangenheet op dësem Dag</string>
   <string name="feed_configure_onboarding_action">Upassen</string>
@@ -505,4 +506,14 @@
     <item quantity="one">Lescht Joer</item>
     <item quantity="other">Viru(n) %d Joer</item>
   </plurals>
+  <string name="languages_list_activity_title">Eng Sprooch derbäisetzen</string>
+  <string name="languages_list_suggested_text">Virgeschloen</string>
+  <string name="languages_list_all_text">All Sproochen</string>
+  <string name="wikipedia_languages_title">Wikipedia-Sproochen</string>
+  <string name="wikipedia_languages_your_languages_text">Är Sprooch</string>
+  <string name="wikipedia_languages_add_language_text">Sprooch derbäisetzen</string>
+  <string name="wikipedia_languages_remove_text">Ewechhuelen</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Sprooch ewechhuelen</string>
+  <string name="wikipedia_languages_remove_dialog_title">Erausgesicht Sprooch(en) ewechhuelen?</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">D\'Sprooche kënnen net all ewechgeholl ginn</string>
 </resources>

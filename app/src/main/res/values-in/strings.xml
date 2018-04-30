@@ -69,7 +69,7 @@
   <string name="preference_languages_filter_hint">Cari</string>
   <string name="langlinks_filter_hint">Cari</string>
   <string name="langlinks_empty">Halaman ini tidak tersedia dalam bahasa lain.</string>
-  <string name="langlinks_no_match">Tidak ada bahasa yang ditemukan yang cocok dengan permintaan Anda.</string>
+  <string name="langlinks_no_match" fuzzy="true">Tidak ada bahasa yang ditemukan yang cocok dengan permintaan Anda.</string>
   <string name="langlinks_activity_title">Bahasa lain</string>
   <string name="menu_save_changes">Terbitkan perubahan</string>
   <string name="dialog_saving_in_progress">Menerbitkan...</string>
@@ -481,8 +481,8 @@
   <string name="view_featured_article_footer_saved_button_label">Tersimpan</string>
   <string name="feed_configure_activity_title">Sesuaikan umpan</string>
   <string name="feed_configure_menu_reset">Pulihkan tampilan baku</string>
-  <string name="feed_configure_menu_select_all">Pilih semua</string>
-  <string name="feed_configure_menu_deselect_all">Tidak pilih semua</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Pilih semua</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Tidak pilih semua</string>
   <string name="feed_item_type_news">Artikel mengenai peristiwa saat ini</string>
   <string name="feed_item_type_on_this_day">Peristiwa bersejarah pada hari ini</string>
   <string name="feed_item_type_continue_reading">Pranala cepat kembali untuk membaca artikel yang terbuka di salah satu tab Anda</string>

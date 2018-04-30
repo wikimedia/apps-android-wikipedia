@@ -56,7 +56,7 @@
   <string name="preference_languages_filter_hint">Nadi</string>
   <string name="langlinks_filter_hint">Nadi</string>
   <string name="langlinks_empty">Asebter-agi ulac-it di tutlayin-nniḍen.</string>
-  <string name="langlinks_no_match">Ulac tutlayin icudden ar tuttra-ik.</string>
+  <string name="langlinks_no_match" fuzzy="true">Ulac tutlayin icudden ar tuttra-ik.</string>
   <string name="langlinks_activity_title">Tutlayin-nniḍen</string>
   <string name="menu_save_changes">Suffeɣ-d asnifel</string>
   <string name="dialog_saving_in_progress">Asuffeɣ...</string>

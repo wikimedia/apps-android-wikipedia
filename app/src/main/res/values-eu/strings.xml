@@ -65,7 +65,7 @@
   <string name="preference_languages_filter_hint">Bilatu</string>
   <string name="langlinks_filter_hint">Bilatu</string>
   <string name="langlinks_empty">Orrialde hau ez dago eskuragarri beste hizkuntzetan.</string>
-  <string name="langlinks_no_match">Zure kontsultarekin bat egiten duen hizkuntzarik ez da aurkitu.</string>
+  <string name="langlinks_no_match" fuzzy="true">Zure kontsultarekin bat egiten duen hizkuntzarik ez da aurkitu.</string>
   <string name="langlinks_activity_title">Beste hizkuntzak</string>
   <string name="menu_save_changes">Aldaketak argitaratu</string>
   <string name="dialog_saving_in_progress">Argitaratzen…</string>
@@ -475,8 +475,8 @@
   <string name="view_featured_article_footer_saved_button_label">Gordea</string>
   <string name="feed_configure_activity_title">Pertsonalizatu jarioa</string>
   <string name="feed_configure_menu_reset">Leheneratu ikuspegi lehenetsiak</string>
-  <string name="feed_configure_menu_select_all">Denak aukeratu</string>
-  <string name="feed_configure_menu_deselect_all">Desautatu guztia</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Denak aukeratu</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Desautatu guztia</string>
   <string name="feed_item_type_news">Eguneko ekitaldiei buruzko artikuluak</string>
   <string name="feed_item_type_on_this_day">Gaurko eguneko historian zehar gertaturiko ekitaldiak</string>
   <string name="feed_item_type_continue_reading">Lotura azkarra zure betile batean irekita zegoen artikulu batera itzultzeko</string>

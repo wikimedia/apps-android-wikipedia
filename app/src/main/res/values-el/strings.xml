@@ -20,6 +20,7 @@
   <string name="search_hint_search_history">Ερευνήστε το ιστορικό</string>
   <string name="search_hint_search_my_lists">Ερευνήστε στις λίστες μου</string>
   <string name="search_hint_search_reading_list">Αναζητήστε την λίστα ανάγνωσης</string>
+  <string name="search_hint_search_languages">Αναζήτηση για γλώσσα</string>
   <string name="nav_item_history">Ιστορικό</string>
   <string name="error_network_error">Δεν υπάρχει σύνδεση με το Διαδίκτυο.</string>
   <string name="page_error_retry">Ξαναπροσπαθήστε</string>
@@ -65,7 +66,7 @@
   <string name="preference_languages_filter_hint">Αναζήτηση</string>
   <string name="langlinks_filter_hint">Αναζήτηση</string>
   <string name="langlinks_empty">Αυτή η σελίδα δεν είναι διαθέσιμη σε άλλες γλώσσες</string>
-  <string name="langlinks_no_match">Δεν βρέθηκαν γλώσσες να αντιστοιχούν στο ερώτημά σας.</string>
+  <string name="langlinks_no_match" fuzzy="true">Δεν βρέθηκαν γλώσσες να αντιστοιχούν στο ερώτημά σας.</string>
   <string name="langlinks_activity_title">Άλλες γλώσσες</string>
   <string name="menu_save_changes">Δημοσίευση αλλαγών</string>
   <string name="dialog_saving_in_progress">Δημοσιεύεται…</string>
@@ -443,8 +444,8 @@
   <string name="view_featured_article_footer_saved_button_label">Αποθηκεύθηκε</string>
   <string name="feed_configure_activity_title">Διαμορφώστε τη ροή</string>
   <string name="feed_configure_menu_reset">Επαναφορά της προεπιλεγμένης προβολής</string>
-  <string name="feed_configure_menu_select_all">Επιλογή όλων</string>
-  <string name="feed_configure_menu_deselect_all">Αποεπιλογή όλων</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Επιλογή όλων</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Αποεπιλογή όλων</string>
   <string name="feed_item_type_news">Λήμματα για τρέχοντα γεγονότα</string>
   <string name="feed_item_type_on_this_day">Γεγονότα στην ιστορία αυτή την ημέρα</string>
   <string name="feed_item_type_because_you_read">Προτάσεις βασισμένες σε ένα πρόσφατα διαβασμένο άρθρο από το ιστορικό σας</string>
@@ -562,4 +563,14 @@
     <item quantity="one">τελευταίο έτος</item>
     <item quantity="other">%d χρόνια πριν</item>
   </plurals>
+  <string name="languages_list_activity_title">Προσθήκη γλώσσας</string>
+  <string name="languages_list_suggested_text">Προτεινόμενο</string>
+  <string name="languages_list_all_text">Όλες οι γλώσσες</string>
+  <string name="wikipedia_languages_title">Γλώσσες Βικιπαίδειας</string>
+  <string name="wikipedia_languages_your_languages_text">Οι γλώσσες σας</string>
+  <string name="wikipedia_languages_add_language_text">Προσθήκη γλώσσας</string>
+  <string name="wikipedia_languages_remove_text">Αφαίρεση</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Αφαίρεση γλώσσας</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Δεν μπορούν να αφαιρεθούν όλες οι γλώσσες</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Κρατήστε τουλάχιστον μια γλώσσα Βικιπαίδειας από την οποία θα γίνεται αναζήτηση και ανάγνωση περιεχομένου.</string>
 </resources>

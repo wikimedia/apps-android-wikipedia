@@ -16,6 +16,7 @@
   <string name="search_hint_search_history">Көрдөөһүн сурунаала</string>
   <string name="search_hint_search_my_lists">Мин испииһэктэрбиттэн көрдөөһүн</string>
   <string name="search_hint_search_reading_list">Аҕыы тиһилигэр көрдөө</string>
+  <string name="search_hint_search_languages">Тылы көрдөөһүн</string>
   <string name="nav_item_history">Устуоруйата</string>
   <string name="error_network_error">Интэриниэти кытта ситим суох.</string>
   <string name="page_error_retry">Хатылаа</string>
@@ -61,7 +62,7 @@
   <string name="preference_languages_filter_hint">Бул</string>
   <string name="langlinks_filter_hint">Бул</string>
   <string name="langlinks_empty">Бу сирэй атын тылынан суох эбит.</string>
-  <string name="langlinks_no_match">Көрдөбүлгэр сөп түбэһэр тыллар көстүбэтилэр.</string>
+  <string name="langlinks_no_match" fuzzy="true">Көрдөбүлгэр сөп түбэһэр тыллар көстүбэтилэр.</string>
   <string name="langlinks_activity_title">Атын омук тыллара</string>
   <string name="menu_save_changes">Уларытыылары бигэргэтии</string>
   <string name="dialog_saving_in_progress">Бигэргэнэр...</string>
@@ -189,6 +190,7 @@
   <string name="edit_summary_tag_other">Атын</string>
   <string name="edit_summary_tag_other_hint">Тупсарыыҥ атын ньымалара</string>
   <string name="edit_conflict_title">Уларытыы утарсыыта</string>
+  <string name="edit_conflict_message">Атын киһи Эйигин кытта тэҥҥэ уларыппыт буолан харсыы үөскээтэ. Бэйэҥ уларытыыгын хатылаан ыл, төнүн, сирэйи саҥарт, онтон уларытыыгын хос киллэр.</string>
   <string name="find_next">Салгыы көрдөө</string>
   <string name="find_previous">Эрдэтээҥини бул</string>
   <string name="find_first_occurence">Бу бастакы сөп түбэһии</string>
@@ -344,8 +346,8 @@
   <string name="reading_list_item_delete_undo">Төннөр</string>
   <string name="reading_list_deleted">%s сотуллубут</string>
   <string name="saved_list_empty_title">Испииһэк оҥоһулла илик эбит</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Ааҕыахтаах ыстатыйаларгын ааҕыы испииһэгэр киллэрии. Оччоҕо ыстатыйаны хойут интэриниэтэ да суох көрүөххэ сөп буолар.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Кэлин интэриниэтэ да суох ааҕарга анаан ыстатыйалар испииһэктэрин оҥоһун!</string>
+  <string name="reading_lists_empty_message">Ыстатыйаларгын ааҕыы испииһэгэр хойут, ситимэ да суох олорон, киллэриэххин сөп.</string>
+  <string name="reading_lists_onboarding_intro">Ыстатыйаларгын ааҕыы испииһэгэр хойут, ситимэ да суох олорон, киллэриэххин сөп!</string>
   <string name="reading_lists_onboarding_for_example">Холобур</string>
   <string name="reading_lists_onboarding_example1">Сылдьыллыахтаах сирдэр</string>
   <string name="reading_lists_onboarding_example2">Сөбүлүүр кыылларым</string>
@@ -447,8 +449,8 @@
   <string name="view_featured_article_footer_save_button_label">Бигэргэт</string>
   <string name="view_featured_article_footer_saved_button_label">Бигэргэннэ</string>
   <string name="feed_configure_menu_reset">Анаан этиллибэтэҕинэ турар сиидэлэри сөргүтүү</string>
-  <string name="feed_configure_menu_select_all">Барытын тал</string>
-  <string name="feed_configure_menu_deselect_all">Барытын бэлиэтээмэ</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Барытын тал</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Барытын бэлиэтээмэ</string>
   <string name="feed_item_type_news">Бүгүн буола турар туһунан</string>
   <string name="feed_item_type_on_this_day">Устуоруйаҕа бүгүн буолбут</string>
   <string name="description_edit_text_hint">Ойуулааһын</string>
@@ -546,8 +548,18 @@
   <string name="on_this_day_card_title">Бүгүн</string>
   <string name="more_events_text">Эбии бу күн</string>
   <string name="this_year">Быйыл</string>
+  <string name="back_to_top">Үөһэ төннүү</string>
   <plurals name="diff_years">
     <item quantity="one">Былырыын</item>
     <item quantity="other">%d сыллааҕыта</item>
   </plurals>
+  <string name="languages_list_activity_title">Тылы эбии</string>
+  <string name="languages_list_suggested_text">Сүбэлэммит</string>
+  <string name="languages_list_all_text">Бары тыллар</string>
+  <string name="wikipedia_languages_title">Бикипиэдьийэ омугун тыла</string>
+  <string name="wikipedia_languages_your_languages_text">Эн тылларыҥ</string>
+  <string name="wikipedia_languages_add_language_text">Тылы эбии</string>
+  <string name="wikipedia_languages_remove_text">Сот</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Тылы сот</string>
+  <string name="wikipedia_languages_remove_dialog_title">Талбыт тылларгын сотоҕун дуо?</string>
 </resources>

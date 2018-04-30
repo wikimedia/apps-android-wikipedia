@@ -43,7 +43,7 @@
   <string name="preference_languages_filter_hint">వెతుకు</string>
   <string name="langlinks_filter_hint">వెతుకు</string>
   <string name="langlinks_empty">ఈ పేజీ వేరే భాషలలో అందుబాటులో లేదు.</string>
-  <string name="langlinks_no_match">ఏ భాషలోనూ మీ ప్రశ్నకు సరిపోలిక దొరకలేదు.\n\n.</string>
+  <string name="langlinks_no_match" fuzzy="true">ఏ భాషలోనూ మీ ప్రశ్నకు సరిపోలిక దొరకలేదు.\n\n.</string>
   <string name="langlinks_activity_title">ఇతర భాషలు</string>
   <string name="menu_save_changes" fuzzy="true">మార్పులను భద్రపరచు</string>
   <string name="dialog_saving_in_progress" fuzzy="true">భద్రపరుస్తున్నాం…</string>

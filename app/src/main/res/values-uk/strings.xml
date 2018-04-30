@@ -65,7 +65,7 @@
   <string name="preference_languages_filter_hint">Пошук</string>
   <string name="langlinks_filter_hint">Пошук</string>
   <string name="langlinks_empty">Ця сторінка не доступна іншими мовами.</string>
-  <string name="langlinks_no_match">Нема мов, що відповідають вашому запиту.</string>
+  <string name="langlinks_no_match" fuzzy="true">Нема мов, що відповідають вашому запиту.</string>
   <string name="langlinks_activity_title">Інші мови</string>
   <string name="menu_save_changes">Опублікувати зміни</string>
   <string name="dialog_saving_in_progress">Публікація…</string>

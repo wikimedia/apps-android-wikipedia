@@ -50,6 +50,7 @@
   <string name="talk_page_link_text">Skoða spjallsíðu</string>
   <string name="edit_history_link_text">Skoða breytingaskrá</string>
   <string name="map_view_link_text">Skoða á korti</string>
+  <string name="other_languages_indication_text">Lesa á öðru tungumáli</string>
   <string name="language_count_link_text">Aðgengilegt á %d öðrum tungumálum</string>
   <string name="content_license_html">Efni má nota samkvæmt &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; nema annað komi fram</string>
   <string name="edit_save_action_license_logged_in">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; leyfinu.</string>
@@ -58,7 +59,7 @@
   <string name="preference_languages_filter_hint">Leita</string>
   <string name="langlinks_filter_hint">Leita</string>
   <string name="langlinks_empty">Þessi síða er ekki tiltæk á öðrum tungumálum.</string>
-  <string name="langlinks_no_match">Engin tungumál fundust sem samsvara leitarskilyrðunum.</string>
+  <string name="langlinks_no_match" fuzzy="true">Engin tungumál fundust sem samsvara leitarskilyrðunum.</string>
   <string name="langlinks_activity_title">Önnur tungumál</string>
   <string name="menu_save_changes">Gefa út breytingar</string>
   <string name="dialog_saving_in_progress">Gefur út...</string>
@@ -470,8 +471,8 @@
   <string name="view_featured_article_footer_saved_button_label">Vistað</string>
   <string name="feed_configure_activity_title">Sérsníða streymið</string>
   <string name="feed_configure_menu_reset">Endurheimta sjálfgefna sýn</string>
-  <string name="feed_configure_menu_select_all">Velja allt</string>
-  <string name="feed_configure_menu_deselect_all">Afvelja allt</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Velja allt</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Afvelja allt</string>
   <string name="feed_item_type_news">Greinar um mál í gangi</string>
   <string name="feed_item_type_on_this_day">Sögulegir atburðir á þessum degi</string>
   <string name="feed_item_type_continue_reading">Flýtitengill til baka til að lesa opna grein í einum af flipunum þínum</string>

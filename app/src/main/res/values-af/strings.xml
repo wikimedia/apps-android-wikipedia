@@ -53,7 +53,7 @@
   <string name="preference_languages_filter_hint">Soek</string>
   <string name="langlinks_filter_hint">Soek</string>
   <string name="langlinks_empty">Hierdie bladsy is nie beskikbaar in ander tale nie.</string>
-  <string name="langlinks_no_match">Geen tale gevind wat u soekterm pas nie.</string>
+  <string name="langlinks_no_match" fuzzy="true">Geen tale gevind wat u soekterm pas nie.</string>
   <string name="langlinks_activity_title">Ander tale</string>
   <string name="menu_save_changes">Publiseer wysigings</string>
   <string name="dialog_saving_in_progress">Publiseer…</string>

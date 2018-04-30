@@ -56,7 +56,7 @@
   <string name="preference_languages_filter_hint">ڳوليو</string>
   <string name="langlinks_filter_hint">ڳوليو</string>
   <string name="langlinks_empty">هيءُ صفحو ٻين ٻولين ۾ دستياب نہ آهي.</string>
-  <string name="langlinks_no_match">توهان جي پڇا سان ملندڙ ڪا بہ ٻولي نہ لڌي.</string>
+  <string name="langlinks_no_match" fuzzy="true">توهان جي پڇا سان ملندڙ ڪا بہ ٻولي نہ لڌي.</string>
   <string name="langlinks_activity_title">ٻيون ٻوليون</string>
   <string name="menu_save_changes">تبديليون ڇاپيو</string>
   <string name="dialog_saving_in_progress">ڇاپيندي…</string>
@@ -402,8 +402,8 @@
   <string name="view_featured_article_footer_saved_button_label">سانڍيل</string>
   <string name="feed_configure_activity_title">پھاچل پنھنجايو</string>
   <string name="feed_configure_menu_reset">ڏنل نظارو ٻيھر لڳايو</string>
-  <string name="feed_configure_menu_select_all">سڀ چونڊيو</string>
-  <string name="feed_configure_menu_deselect_all">سڀ اڻچونڊيو</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">سڀ چونڊيو</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">سڀ اڻچونڊيو</string>
   <string name="feed_item_type_news">ھاڻوڪن واقعن بابت مضمون</string>
   <string name="feed_item_type_on_this_day">ھن ڏينھن تي تاريخ ۾ واقعا</string>
   <string name="feed_item_type_because_you_read">توھان جي سوانح مان تازيل پڙھيل مضمونن تي ٻڌل صلاحون</string>

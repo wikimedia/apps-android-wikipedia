@@ -79,7 +79,7 @@
   <string name="preference_languages_filter_hint">Ara</string>
   <string name="langlinks_filter_hint">Ara</string>
   <string name="langlinks_empty">Bu sayfa diğer dillerde bulunmamaktadır</string>
-  <string name="langlinks_no_match">Sorgunuzla eşleşen bir dil bulunamadı.</string>
+  <string name="langlinks_no_match" fuzzy="true">Sorgunuzla eşleşen bir dil bulunamadı.</string>
   <string name="langlinks_activity_title">Diğer diller</string>
   <string name="menu_save_changes">Değişiklikleri yayımla</string>
   <string name="dialog_saving_in_progress">Yayımlanıyor...</string>
@@ -479,8 +479,8 @@
   <string name="view_featured_article_footer_saved_button_label">Kaydedildi</string>
   <string name="feed_configure_activity_title">Beslemeyi özelleştir</string>
   <string name="feed_configure_menu_reset">Varsayılan görünümü geri yükle</string>
-  <string name="feed_configure_menu_select_all">Tümünü seç</string>
-  <string name="feed_configure_menu_deselect_all">Hiçbirini seçme</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Tümünü seç</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Hiçbirini seçme</string>
   <string name="feed_item_type_news">Güncel olaylar hakkındaki maddeler</string>
   <string name="feed_item_type_on_this_day">Tarihte bugün gerçekleşen olaylar</string>
   <string name="feed_item_type_continue_reading">Sekmelerinizin birinde açık bir maddeyi okumak için hızlı bağlantı</string>

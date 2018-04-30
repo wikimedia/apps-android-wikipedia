@@ -61,7 +61,7 @@
   <string name="preference_languages_filter_hint">ရှာဖွေရန်</string>
   <string name="langlinks_filter_hint">ရှာဖွေရန်</string>
   <string name="langlinks_empty">စာမျက်နှာသည် အခြားဘာသာဖြင့် မရှိသေးပါ။</string>
-  <string name="langlinks_no_match">သင့်ရှာဖွေမှု စကားလုံးဖြင့် မည်သည့်စာမျက်နှာမျှ မတွေ့ရှိပါ။</string>
+  <string name="langlinks_no_match" fuzzy="true">သင့်ရှာဖွေမှု စကားလုံးဖြင့် မည်သည့်စာမျက်နှာမျှ မတွေ့ရှိပါ။</string>
   <string name="langlinks_activity_title">အခြားဘာသာစကားများ</string>
   <string name="menu_save_changes">ပြောင်းလဲမှုများကို လွှင့်တင်ရန်</string>
   <string name="dialog_saving_in_progress">လွှင့်တင်နေသည်...</string>
@@ -365,8 +365,8 @@
   <string name="view_featured_article_card_title">အထူးဆောင်းပါး</string>
   <string name="view_featured_article_footer_save_button_label">သိမ်းရန်</string>
   <string name="view_featured_article_footer_saved_button_label">သိမ်းဆည်းပြီး</string>
-  <string name="feed_configure_menu_select_all">အားလုံးကိုရွေးချယ်သည်။</string>
-  <string name="feed_configure_menu_deselect_all">အားလုံးကို မရွေးချယ်ခဲ့</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">အားလုံးကိုရွေးချယ်သည်။</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">အားလုံးကို မရွေးချယ်ခဲ့</string>
   <string name="feed_item_type_news">လက်ရှိအဖြစ်အပျက်များအကြောင်းဆောင်းပါးများ</string>
   <string name="feed_item_type_on_this_day">သမိုင်း၌ ဤနေ့တွင် ဖြစ်ပွားခဲ့သော ဖြစ်ရပ်များ</string>
   <string name="feed_item_type_featured_article">ဝီကီပီးဒီးယားရှိ ယနေ့အထူးဆောင်းပါး</string>

@@ -62,7 +62,7 @@
   <string name="preference_languages_filter_hint">Cari</string>
   <string name="langlinks_filter_hint">Cari</string>
   <string name="langlinks_empty">Laman ini tidak terdapat dalam bahasa lain</string>
-  <string name="langlinks_no_match">Tiada bahasa yang padan dengan pertanyaan anda.</string>
+  <string name="langlinks_no_match" fuzzy="true">Tiada bahasa yang padan dengan pertanyaan anda.</string>
   <string name="langlinks_activity_title">Bahasa lain:</string>
   <string name="menu_save_changes">Terbit perubahan</string>
   <string name="dialog_saving_in_progress">Sedang menerbitkan...</string>
@@ -474,8 +474,8 @@
   <string name="view_featured_article_footer_saved_button_label">Disimpan</string>
   <string name="feed_configure_activity_title">Ubahsuai suapan</string>
   <string name="feed_configure_menu_reset">Pulihkan pandangan lalai</string>
-  <string name="feed_configure_menu_select_all">Pilih semua</string>
-  <string name="feed_configure_menu_deselect_all">Nyahpilih semua</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Pilih semua</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Nyahpilih semua</string>
   <string name="feed_item_type_news">Rencana mengenai peristiwa semasa</string>
   <string name="feed_item_type_on_this_day">Peristiwa dalam sejarah pada hari ini</string>
   <string name="feed_item_type_continue_reading">Pautan pantas kembali membaca rencana terbuka di salah satu tab anda</string>

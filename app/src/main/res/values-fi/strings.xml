@@ -72,7 +72,7 @@
   <string name="preference_languages_filter_hint">Haku</string>
   <string name="langlinks_filter_hint">Haku</string>
   <string name="langlinks_empty">Tämä sivu ei ole saatavilla muilla kielillä</string>
-  <string name="langlinks_no_match">Hakuasi vastaavia kieliä ei löytynyt.</string>
+  <string name="langlinks_no_match" fuzzy="true">Hakuasi vastaavia kieliä ei löytynyt.</string>
   <string name="langlinks_activity_title">Muilla kielillä</string>
   <string name="menu_save_changes">Julkaise muutokset</string>
   <string name="dialog_saving_in_progress">Julkaistaan...</string>
@@ -422,6 +422,7 @@
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synkronoi lukulistat&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Lukulistoja voi nyt synkronoida laitteiden poikki. Kirjaudu Wikipedia-tilillesi ja salli listojesi tallentua.</string>
   <string name="reading_lists_menu_create_list">Luo uusi luettelo</string>
   <string name="reading_lists_menu_sort_by">Lajitteluperuste</string>
+  <string name="reading_lists_refresh_sync_option">Päivitä synkronointi</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Kirjaudu sisään /rekisteröidy</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Tämä artikkeli on nyt saatavilla offline-tilassa.</item>
@@ -446,6 +447,7 @@
   <string name="notification_syncing_pause_button">Tauko</string>
   <string name="notification_syncing_resume_button">Jatka</string>
   <string name="notification_syncing_cancel_button">Peruuta</string>
+  <string name="notification_syncing_reading_list_channel_name">Synkronoidaan lukulistaa</string>
   <string name="notification_syncing_reading_list_title">Synkronoidaan %1$d lista(a)…</string>
   <string name="notification_syncing_reading_list_description">%1$d lista(a) jäljellä</string>
   <string name="view_continue_reading_card_title">Jatka lukemista</string>
@@ -480,8 +482,8 @@
   <string name="view_featured_article_footer_saved_button_label">Tallennettu</string>
   <string name="feed_configure_activity_title">Mukauta syötettä</string>
   <string name="feed_configure_menu_reset">Palauta oletusnäkymä</string>
-  <string name="feed_configure_menu_select_all">Valitse kaikki</string>
-  <string name="feed_configure_menu_deselect_all">Poista kaikki valinnat</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Valitse kaikki</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Poista kaikki valinnat</string>
   <string name="feed_item_type_news">Artikkelit ajankohtaisista tapahtumista</string>
   <string name="feed_item_type_on_this_day">Tapahtumat historiassa tänä päivänä</string>
   <string name="feed_item_type_continue_reading">Pikalinkki takaisin lukemaan avointa artikkelia yhdellä välilehdistasi</string>
@@ -614,4 +616,14 @@
     <item quantity="one">Viime vuonna</item>
     <item quantity="other">%d vuotta sitten</item>
   </plurals>
+  <string name="languages_list_activity_title">Lisää kieli</string>
+  <string name="languages_list_suggested_text">Ehdotettu</string>
+  <string name="languages_list_all_text">Kaikki kielet</string>
+  <string name="wikipedia_languages_title">Wikipedia-kielet</string>
+  <string name="wikipedia_languages_your_languages_text">Kielesi</string>
+  <string name="wikipedia_languages_add_language_text">Lisää kieli</string>
+  <string name="wikipedia_languages_remove_text">Poista</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Poista kieli</string>
+  <string name="wikipedia_languages_remove_dialog_title">Poista valittu kieli/valitut kielet?</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Ei voi poistaa kaikkia kieliä</string>
 </resources>

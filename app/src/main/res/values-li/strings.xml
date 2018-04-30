@@ -57,7 +57,7 @@
   <string name="preference_languages_filter_hint">Zeuk</string>
   <string name="langlinks_filter_hint">Zeuk</string>
   <string name="langlinks_empty">Dees pagina is neet besjikbaar in anger spraoke.</string>
-  <string name="langlinks_no_match">Gein spraoke kómme euverein mit dien zeukopdrach.</string>
+  <string name="langlinks_no_match" fuzzy="true">Gein spraoke kómme euverein mit dien zeukopdrach.</string>
   <string name="langlinks_activity_title">Anger spraoke</string>
   <string name="menu_save_changes">Bring verangeringe oet</string>
   <string name="dialog_saving_in_progress">Oet \'nt bringe...</string>

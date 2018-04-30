@@ -55,7 +55,7 @@
   <string name="preference_languages_filter_hint">Ieškoti</string>
   <string name="langlinks_filter_hint">Ieškoti</string>
   <string name="langlinks_empty">Šis puslapis nėra išverstas į kitas kalbas.</string>
-  <string name="langlinks_no_match">Nerasta kalbų, atitinkančių jūsų užklausą.</string>
+  <string name="langlinks_no_match" fuzzy="true">Nerasta kalbų, atitinkančių jūsų užklausą.</string>
   <string name="langlinks_activity_title">Kitos kalbos</string>
   <string name="menu_save_changes">Paskelbti pakeitimus</string>
   <string name="dialog_saving_in_progress">Skelbiama...</string>
@@ -336,8 +336,8 @@
   <string name="view_featured_article_card_title">Rinktinis straipsnis</string>
   <string name="view_featured_article_footer_save_button_label">Išsaugoti</string>
   <string name="view_featured_article_footer_saved_button_label">Išsaugota</string>
-  <string name="feed_configure_menu_select_all">Pažymėti viską</string>
-  <string name="feed_configure_menu_deselect_all">Atžymėti viską</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Pažymėti viską</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Atžymėti viską</string>
   <string name="description_edit_text_hint">Pavadinimo aprašymas</string>
   <string name="description_edit_save">Paskelbti</string>
   <string name="description_edit_add_description">Pridėti pavadinimo aprašymą</string>

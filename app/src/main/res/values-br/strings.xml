@@ -17,6 +17,7 @@
   <string name="search_hint_search_history">Klask er roll istor</string>
   <string name="search_hint_search_my_lists">Klask em rolloù</string>
   <string name="search_hint_search_reading_list">Klask er roll lenn</string>
+  <string name="search_hint_search_languages">Klask ur yezh</string>
   <string name="nav_item_history">Istor</string>
   <string name="error_network_error">N\'eus ket bet gallet kevreañ ouzh ar rouedad.</string>
   <string name="page_error_retry">Klask en-dro</string>
@@ -61,7 +62,7 @@
   <string name="preference_languages_filter_hint">Klask</string>
   <string name="langlinks_filter_hint">Klask</string>
   <string name="langlinks_empty">N\'haller ket kaout ar bajenn-mañ e yezhoù all</string>
-  <string name="langlinks_no_match">N\'eus bet kavet yezh ebet a glot gant ho reked.</string>
+  <string name="langlinks_no_match" fuzzy="true">N\'eus bet kavet yezh ebet a glot gant ho reked.</string>
   <string name="langlinks_activity_title">Yezhoù all</string>
   <string name="menu_save_changes">Embann ar c\'hemmoù</string>
   <string name="dialog_saving_in_progress">Oc\'h embann...</string>
@@ -497,4 +498,8 @@
   <string name="onboarding_create_account_sync">Sinkronelaat ho rolloù lenn</string>
   <string name="onboarding_create_account_contributions">Mirout roudoù eus ho tegasadennoù</string>
   <string name="onboarding_create_account_preferences">Enrollañ ho penndibaboù</string>
+  <string name="languages_list_all_text">An holl yezhoù</string>
+  <string name="wikipedia_languages_title">Yezhoù Wikipedia</string>
+  <string name="wikipedia_languages_add_language_text">Ouzhpennañ ur yezh</string>
+  <string name="wikipedia_languages_remove_text">Lemel</string>
 </resources>

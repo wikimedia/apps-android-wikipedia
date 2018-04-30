@@ -25,6 +25,7 @@
   <string name="search_hint_search_history">搜索历史</string>
   <string name="search_hint_search_my_lists">搜索我的列表</string>
   <string name="search_hint_search_reading_list">搜索阅读列表</string>
+  <string name="search_hint_search_languages">搜索一种语言</string>
   <string name="nav_item_history">历史</string>
   <string name="error_network_error">无法连接至互联网。</string>
   <string name="page_error_retry">重试</string>
@@ -70,7 +71,7 @@
   <string name="preference_languages_filter_hint">搜索</string>
   <string name="langlinks_filter_hint">搜索</string>
   <string name="langlinks_empty">该页面没有其他语言版本。</string>
-  <string name="langlinks_no_match">未找到匹配您的查询的语言。</string>
+  <string name="langlinks_no_match" fuzzy="true">未找到匹配您的查询的语言。</string>
   <string name="langlinks_activity_title">其他语言</string>
   <string name="menu_save_changes">发布更改</string>
   <string name="dialog_saving_in_progress">正在发布…</string>
@@ -482,8 +483,8 @@
   <string name="view_featured_article_footer_saved_button_label">已保存</string>
   <string name="feed_configure_activity_title">自定义订阅源</string>
   <string name="feed_configure_menu_reset">恢复默认视图</string>
-  <string name="feed_configure_menu_select_all">全选</string>
-  <string name="feed_configure_menu_deselect_all">取消全选</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">全选</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">取消全选</string>
   <string name="feed_item_type_news">有关当前活动的条目</string>
   <string name="feed_item_type_on_this_day">这一天历史上的活动</string>
   <string name="feed_item_type_continue_reading">阅读您的标签中一个开启条目的快速返回链接</string>
@@ -616,4 +617,16 @@
     <item quantity="one">去年</item>
     <item quantity="other">%d年前</item>
   </plurals>
+  <string name="languages_list_activity_title">添加一种语言</string>
+  <string name="languages_list_suggested_text">推荐</string>
+  <string name="languages_list_all_text">所有语言</string>
+  <string name="wikipedia_languages_title">维基百科语言</string>
+  <string name="wikipedia_languages_your_languages_text">您的语言</string>
+  <string name="wikipedia_languages_add_language_text">添加语言</string>
+  <string name="wikipedia_languages_remove_text">移除</string>
+  <string name="wikipedia_languages_remove_action_mode_title">移除语言</string>
+  <string name="wikipedia_languages_remove_dialog_title">移除选定语言么？</string>
+  <string name="wikipedia_languages_remove_dialog_content">您将只在探索订阅源和快速搜索过滤器中看见其余维基百科语言的内容。</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">不能移除所有语言</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">请保持至少一种维基百科语言供搜索和阅读内容。</string>
 </resources>

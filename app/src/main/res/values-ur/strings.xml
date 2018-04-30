@@ -65,7 +65,7 @@
   <string name="preference_languages_filter_hint">تلاش</string>
   <string name="langlinks_filter_hint">تلاش</string>
   <string name="langlinks_empty">یہ صفحہ دوسری زبانوں میں دستیاب نہیں ہے۔</string>
-  <string name="langlinks_no_match">تلاش کے مطلوبہ نتائج کسی زبان میں نہیں ملے۔</string>
+  <string name="langlinks_no_match" fuzzy="true">تلاش کے مطلوبہ نتائج کسی زبان میں نہیں ملے۔</string>
   <string name="langlinks_activity_title">دیگر زبانیں</string>
   <string name="menu_save_changes">تبدیلیاں شائع کریں</string>
   <string name="dialog_saving_in_progress">شائع ہورہا ہے۔۔۔</string>

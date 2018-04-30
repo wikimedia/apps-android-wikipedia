@@ -35,6 +35,7 @@
   <string name="search_hint_search_history">Histórico de pesquisa</string>
   <string name="search_hint_search_my_lists">Pesquisar nas minhas listas</string>
   <string name="search_hint_search_reading_list">Pesquisar na lista de leitura</string>
+  <string name="search_hint_search_languages">Procurar um idioma</string>
   <string name="nav_item_history">Histórico</string>
   <string name="error_network_error">Não foi possível conectar-se à Internet.</string>
   <string name="page_error_retry">Atualizar</string>
@@ -80,7 +81,7 @@
   <string name="preference_languages_filter_hint">Pesquisar</string>
   <string name="langlinks_filter_hint">Pesquisar</string>
   <string name="langlinks_empty">Esta página não está disponível em outros idiomas.</string>
-  <string name="langlinks_no_match">Nenhum idioma correspondente com a sua pesquisa.</string>
+  <string name="langlinks_no_match" fuzzy="true">Nenhum idioma correspondente com a sua pesquisa.</string>
   <string name="langlinks_activity_title">Outros idiomas</string>
   <string name="menu_save_changes">Publicar alterações</string>
   <string name="dialog_saving_in_progress">Publicando…</string>
@@ -492,8 +493,8 @@
   <string name="view_featured_article_footer_saved_button_label">Salvo</string>
   <string name="feed_configure_activity_title">Personalize o feed</string>
   <string name="feed_configure_menu_reset">Restaurar visualização padrão</string>
-  <string name="feed_configure_menu_select_all">Selecionar tudo</string>
-  <string name="feed_configure_menu_deselect_all">Desmarcar todos</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Selecionar tudo</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Desmarcar todos</string>
   <string name="feed_item_type_news">Artigos sobre eventos atuais</string>
   <string name="feed_item_type_on_this_day">Eventos na história neste dia</string>
   <string name="feed_item_type_continue_reading">Link rápido para ler um artigo aberto em uma das suas abas</string>
@@ -626,4 +627,16 @@
     <item quantity="one">Ano passado</item>
     <item quantity="other">%d anos atrás</item>
   </plurals>
+  <string name="languages_list_activity_title">Adicione um idioma</string>
+  <string name="languages_list_suggested_text">Recomendado</string>
+  <string name="languages_list_all_text">Todos os idiomas</string>
+  <string name="wikipedia_languages_title">Idiomas da Wikipédia</string>
+  <string name="wikipedia_languages_your_languages_text">Seus idiomas:</string>
+  <string name="wikipedia_languages_add_language_text">Adicionar idioma</string>
+  <string name="wikipedia_languages_remove_text">Remover</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Remover idioma</string>
+  <string name="wikipedia_languages_remove_dialog_title">Remover idioma(s) selecionado(s)?</string>
+  <string name="wikipedia_languages_remove_dialog_content">Você só verá o conteúdo no Feed de explorar e os filtros de pesquisa rápida para os idiomas restantes do Wikipedia</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Não é possível remover todos os idiomas</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Mantenha pelo menos um idioma do Wikipedia para pesquisar e ler conteúdo.</string>
 </resources>

@@ -71,7 +71,7 @@
   <string name="preference_languages_filter_hint">検索</string>
   <string name="langlinks_filter_hint">検索</string>
   <string name="langlinks_empty">このページの他の言語版はありません。</string>
-  <string name="langlinks_no_match">入力したキーワードに一致する言語が見つかりません。</string>
+  <string name="langlinks_no_match" fuzzy="true">入力したキーワードに一致する言語が見つかりません。</string>
   <string name="langlinks_activity_title">他の言語で読む</string>
   <string name="menu_save_changes">変更を公開</string>
   <string name="dialog_saving_in_progress">公開中...</string>
@@ -436,8 +436,8 @@
   <string name="view_featured_article_footer_saved_button_label">保存しました</string>
   <string name="feed_configure_activity_title">「探索する」カードのカスタマイズ</string>
   <string name="feed_configure_menu_reset">標準設定の表示を適用</string>
-  <string name="feed_configure_menu_select_all">すべて選択</string>
-  <string name="feed_configure_menu_deselect_all">すべての選択を解除</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">すべて選択</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">すべての選択を解除</string>
   <string name="feed_item_type_news">最近の出来事の記事</string>
   <string name="feed_item_type_on_this_day">過去に起こったこの日の出来事</string>
   <string name="feed_item_type_continue_reading">タブのどれかで開いたページを読むクイックリンク</string>

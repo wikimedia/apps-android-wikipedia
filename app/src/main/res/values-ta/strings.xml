@@ -63,7 +63,7 @@
   <string name="preference_languages_filter_hint">தேடுக</string>
   <string name="langlinks_filter_hint">தேடுக</string>
   <string name="langlinks_empty">பிற மொழிகளில் இந்த கட்டுரை இல்லை</string>
-  <string name="langlinks_no_match">உங்கள் வினவலுடன் பொருந்தக்கூடிய மொழிகள் காணப்படவில்லை.</string>
+  <string name="langlinks_no_match" fuzzy="true">உங்கள் வினவலுடன் பொருந்தக்கூடிய மொழிகள் காணப்படவில்லை.</string>
   <string name="langlinks_activity_title">மற்ற மொழிகளில்</string>
   <string name="menu_save_changes">மாற்றங்களைப் பதிப்பிடுக</string>
   <string name="dialog_saving_in_progress">வெளியிடப்படுகின்றது...</string>
@@ -347,8 +347,8 @@
   <string name="view_featured_article_footer_save_button_label">சேமி</string>
   <string name="view_featured_article_footer_saved_button_label">சேமிக்கப்பட்டது</string>
   <string name="feed_configure_menu_reset">தானியல்பு தோற்றத்திற்கு மாற்றுக</string>
-  <string name="feed_configure_menu_select_all">எல்லாவற்றையும் தேர்வுசெய்யவும்</string>
-  <string name="feed_configure_menu_deselect_all">அனைத்தையும் தேர்வுநீக்கம் செய்க</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">எல்லாவற்றையும் தேர்வுசெய்யவும்</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">அனைத்தையும் தேர்வுநீக்கம் செய்க</string>
   <string name="feed_item_type_news">நடப்பு நிகழ்வுகளைப்பற்றிய கட்டுரைகள்</string>
   <string name="feed_item_type_on_this_day">இன்றைய நாளில் வரலாற்று நிகழ்வுகள்</string>
   <string name="feed_item_type_featured_article">விக்கிப்பீடியாவில் தினசரி சிறப்புக் கட்டுரை</string>

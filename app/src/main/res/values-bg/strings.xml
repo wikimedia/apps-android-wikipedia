@@ -16,6 +16,7 @@
   <string name="search_hint_search_history">История на търсенето</string>
   <string name="search_hint_search_my_lists">Търсене в моите списъци</string>
   <string name="search_hint_search_reading_list">Търсене в списъка за четене</string>
+  <string name="search_hint_search_languages">Търсене на език</string>
   <string name="nav_item_history">История</string>
   <string name="error_network_error">Няма връзка с интернет.</string>
   <string name="page_error_retry">Опитайте отново</string>
@@ -52,6 +53,7 @@
   <string name="talk_page_link_text">Преглед на беседата</string>
   <string name="edit_history_link_text">Преглед на историята на редакциите</string>
   <string name="map_view_link_text">Преглед върху карта</string>
+  <string name="other_languages_indication_text">Прочитане на друг език</string>
   <string name="language_count_link_text">Налична на %d други езика</string>
   <string name="content_license_html">Съдържанието е достъпно под &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е посочено друго</string>
   <string name="edit_save_action_license_logged_in">Запазвайки промените, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лиценз.</string>
@@ -60,7 +62,7 @@
   <string name="preference_languages_filter_hint">Търсене</string>
   <string name="langlinks_filter_hint">Търсене</string>
   <string name="langlinks_empty">Тази страница не е налична на други езици.</string>
-  <string name="langlinks_no_match">Не са открити езици, отговарящи на вашата заявка.</string>
+  <string name="langlinks_no_match" fuzzy="true">Не са открити езици, отговарящи на вашата заявка.</string>
   <string name="langlinks_activity_title">Други езици</string>
   <string name="menu_save_changes">Публикуване на промените</string>
   <string name="dialog_saving_in_progress">Публикуване...</string>
@@ -463,8 +465,8 @@
   <string name="view_featured_article_footer_saved_button_label">Съхранено</string>
   <string name="feed_configure_activity_title">Персонализиране на хранилката</string>
   <string name="feed_configure_menu_reset">Нулиране на изгледа по подразбиране</string>
-  <string name="feed_configure_menu_select_all">Избиране на всички</string>
-  <string name="feed_configure_menu_deselect_all">Анулиране на всички избрани</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Избиране на всички</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Анулиране на всички избрани</string>
   <string name="feed_item_type_news">Статии за текущи събития</string>
   <string name="feed_item_type_on_this_day">Събития в историята на този ден</string>
   <string name="feed_item_type_continue_reading">Бърза връзка обратно към четене на отворена статия в един от разделите Ви</string>
@@ -595,4 +597,10 @@
     <item quantity="one">Миналата година</item>
     <item quantity="other">Преди %d години</item>
   </plurals>
+  <string name="languages_list_activity_title">Добавяне на език</string>
+  <string name="languages_list_all_text">Всички езици</string>
+  <string name="wikipedia_languages_your_languages_text">Вашите езици</string>
+  <string name="wikipedia_languages_add_language_text">Добавяне на език</string>
+  <string name="wikipedia_languages_remove_text">Премахване</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Премахване на език</string>
 </resources>

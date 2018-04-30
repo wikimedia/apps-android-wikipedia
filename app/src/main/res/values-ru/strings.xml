@@ -45,6 +45,7 @@
   <string name="search_hint_search_history">История поиска</string>
   <string name="search_hint_search_my_lists">Поиск в моих списках</string>
   <string name="search_hint_search_reading_list">Поиск списка для чтения</string>
+  <string name="search_hint_search_languages">Поиск языка</string>
   <string name="nav_item_history">История</string>
   <string name="error_network_error">Не удаётся подключиться к Интернету.</string>
   <string name="page_error_retry">Повторить</string>
@@ -90,7 +91,7 @@
   <string name="preference_languages_filter_hint">Найти</string>
   <string name="langlinks_filter_hint">Поиск</string>
   <string name="langlinks_empty">Эта страница недоступна на других языках.</string>
-  <string name="langlinks_no_match">Языки, соответствующие вашему запросу, не найдены.</string>
+  <string name="langlinks_no_match" fuzzy="true">Языки, соответствующие вашему запросу, не найдены.</string>
   <string name="langlinks_activity_title">Другие языки</string>
   <string name="menu_save_changes">Опубликовать изменения</string>
   <string name="dialog_saving_in_progress">Сохраняется…</string>
@@ -502,8 +503,8 @@
   <string name="view_featured_article_footer_saved_button_label">Сохранено</string>
   <string name="feed_configure_activity_title">Настроить ленту</string>
   <string name="feed_configure_menu_reset">Восстановить фильтры по умолчанию</string>
-  <string name="feed_configure_menu_select_all">Выбрать все</string>
-  <string name="feed_configure_menu_deselect_all">Сбросить все</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Выбрать все</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Сбросить все</string>
   <string name="feed_item_type_news">Статьи о текущих событиях</string>
   <string name="feed_item_type_on_this_day">Исторические события в этот день</string>
   <string name="feed_item_type_continue_reading">Быстрая ссылка для возврата к статье, открытой в одной из ваших вкладок</string>
@@ -636,4 +637,15 @@
     <item quantity="one">В прошлом году</item>
     <item quantity="other">%d года назад</item>
   </plurals>
+  <string name="languages_list_activity_title">Добавить язык</string>
+  <string name="languages_list_suggested_text">Предложенные</string>
+  <string name="languages_list_all_text">Все языки</string>
+  <string name="wikipedia_languages_title">Языки Википедии</string>
+  <string name="wikipedia_languages_your_languages_text">Ваши языки</string>
+  <string name="wikipedia_languages_add_language_text">Добавить язык</string>
+  <string name="wikipedia_languages_remove_text">Удалить</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Удалить язык</string>
+  <string name="wikipedia_languages_remove_dialog_title">Удалить выбранные языки?</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Нельзя удалить все языки</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Оставьте, по меньшей мере, один язык для поиска и чтения.</string>
 </resources>

@@ -11,6 +11,7 @@
   <string name="search_hint_search_history">ڳولݨ دی تاریخ ہسٹری</string>
   <string name="search_hint_search_my_lists">میݙیاں لسٹاں ڳولو</string>
   <string name="search_hint_search_reading_list">پڑھݨ لسٹاں ڳولو</string>
+  <string name="search_hint_search_languages">زبان دی ڳول</string>
   <string name="nav_item_history">تاریخچہ</string>
   <string name="error_network_error">انٹرنیٹ نال جوڑ نی تھی سڳا</string>
   <string name="page_error_retry">ولدا کوشش کرو</string>
@@ -49,7 +50,7 @@
   <string name="preference_languages_filter_hint">ڳولو</string>
   <string name="langlinks_filter_hint">ڳولو</string>
   <string name="langlinks_empty">ایہ ورقہ ٻیاں زباناں وچ کائنی</string>
-  <string name="langlinks_no_match">تہاݙے سوال دے جواب کہیں وی زبان وچ کائنی لبھے</string>
+  <string name="langlinks_no_match" fuzzy="true">تہاݙے سوال دے جواب کہیں وی زبان وچ کائنی لبھے</string>
   <string name="langlinks_activity_title">ٻیاں زباناں</string>
   <string name="menu_save_changes">تبدیلیاں شائع کرو</string>
   <string name="dialog_saving_in_progress">شائع تھیندا پئے۔۔۔</string>
@@ -223,7 +224,7 @@
   <string name="view_announcement_card_negative_action">کو، شکریہ</string>
   <string name="view_featured_article_footer_save_button_label">بچاؤ</string>
   <string name="view_featured_article_footer_saved_button_label">محفوظ</string>
-  <string name="feed_configure_menu_select_all">سبھ چݨو</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">سبھ چݨو</string>
   <string name="description_edit_save">شائع کرو</string>
   <string name="description_edit_add_description">عنوان دی تفصیل لکھو</string>
   <string name="description_edit_edit_description">تفصیل لکھو</string>
@@ -260,4 +261,11 @@
   <string name="on_this_day_card_title">ایں ݙینہ کوں</string>
   <string name="this_year">ایں سال</string>
   <string name="back_to_top">واپس اُتے ون٘ڄو</string>
+  <string name="languages_list_activity_title">زبان شامل کرو</string>
+  <string name="languages_list_all_text">ساریاں زباناں</string>
+  <string name="wikipedia_languages_title">وکی میڈیا دی زباناں</string>
+  <string name="wikipedia_languages_your_languages_text">تہاݙیاں زباناں</string>
+  <string name="wikipedia_languages_add_language_text">زبان شامل کرو</string>
+  <string name="wikipedia_languages_remove_text">ہٹاؤ</string>
+  <string name="wikipedia_languages_remove_action_mode_title">زبان ہٹاؤ</string>
 </resources>

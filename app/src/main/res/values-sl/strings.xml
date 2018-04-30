@@ -51,7 +51,7 @@
   <string name="preference_languages_filter_hint">Iskanje</string>
   <string name="langlinks_filter_hint">Iskanje</string>
   <string name="langlinks_empty">Ta stran ni na voljo v drugih jezikih.</string>
-  <string name="langlinks_no_match">Noben jezik ni bil najden.</string>
+  <string name="langlinks_no_match" fuzzy="true">Noben jezik ni bil najden.</string>
   <string name="langlinks_activity_title">Drugi jeziki</string>
   <string name="menu_save_changes">Objavi spremembe</string>
   <string name="dialog_saving_in_progress">Objavljanje ...</string>
@@ -194,7 +194,7 @@
   <string name="view_featured_article_footer_save_button_label">Shrani</string>
   <string name="view_featured_article_footer_saved_button_label">Shranjeno</string>
   <string name="feed_configure_menu_reset" fuzzy="true">Ponastavi na privzeto</string>
-  <string name="feed_configure_menu_select_all">Izberi vse</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Izberi vse</string>
   <string name="description_edit_cancel_hint">Prekliči</string>
   <string name="description_edit_success_saved">Opis objavljen!</string>
   <string name="description_edit_help_tips_examples">Na primer:</string>

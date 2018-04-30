@@ -12,6 +12,7 @@
   <string name="search_hint_search_history">Guetar nel historial</string>
   <string name="search_hint_search_my_lists">Guetar nes mios llistes</string>
   <string name="search_hint_search_reading_list">Guetar na llista de llectura</string>
+  <string name="search_hint_search_languages">Buscar una llingua</string>
   <string name="nav_item_history">Historial</string>
   <string name="error_network_error">Nun pudo conectase a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
@@ -48,6 +49,7 @@
   <string name="talk_page_link_text">Ver la páxina d\'alderique</string>
   <string name="edit_history_link_text">Ver l\'historial d\'ediciones</string>
   <string name="map_view_link_text">Ver nun mapa</string>
+  <string name="other_languages_indication_text">Lleer n\'otra llingua</string>
   <string name="language_count_link_text">Disponible\'n %d idiomes más</string>
   <string name="content_license_html">El conteníu ta disponible baxo &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; si nun se diz otra cosa</string>
   <string name="edit_save_action_license_logged_in">Al guardar, aceutes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt;, y lliberar ensin torgues les tos collaboraciones baxo los términos de la llicencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -56,7 +58,7 @@
   <string name="preference_languages_filter_hint">Guetar</string>
   <string name="langlinks_filter_hint">Guetar</string>
   <string name="langlinks_empty">Esta páxina nun ta disponible n\'otres llingües</string>
-  <string name="langlinks_no_match">Nun s\'alcontraron llingües que casen cola to consulta.</string>
+  <string name="langlinks_no_match" fuzzy="true">Nun s\'alcontraron llingües que casen cola to consulta.</string>
   <string name="langlinks_activity_title">Otres llingües</string>
   <string name="menu_save_changes">Publicar los cambios</string>
   <string name="dialog_saving_in_progress">Espublizando...</string>
@@ -468,8 +470,8 @@
   <string name="view_featured_article_footer_saved_button_label">Guardáu</string>
   <string name="feed_configure_activity_title">Personalizar la canal</string>
   <string name="feed_configure_menu_reset">Restaurar la vista predeterminada</string>
-  <string name="feed_configure_menu_select_all">Seleccionar too</string>
-  <string name="feed_configure_menu_deselect_all">Nun seleccionar nada</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Seleccionar too</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Nun seleccionar nada</string>
   <string name="feed_item_type_news">Artículos d\'acontecimientos actuales</string>
   <string name="feed_item_type_on_this_day">Acontecimientos históricos de güei</string>
   <string name="feed_item_type_continue_reading">Enllaz direutu pa lleer un artículu abiertu n\'otra de les llingüetes</string>
@@ -602,4 +604,16 @@
     <item quantity="one">L\'añu pasáu</item>
     <item quantity="other">Fai %d años</item>
   </plurals>
+  <string name="languages_list_activity_title">Amestar una llingua</string>
+  <string name="languages_list_suggested_text">Suxeríos</string>
+  <string name="languages_list_all_text">Toles llingües</string>
+  <string name="wikipedia_languages_title">Llingües de Wikipedia</string>
+  <string name="wikipedia_languages_your_languages_text">Les tos llingües</string>
+  <string name="wikipedia_languages_add_language_text">Amestar llingua</string>
+  <string name="wikipedia_languages_remove_text">Desaniciar</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Desaniciar llingua</string>
+  <string name="wikipedia_languages_remove_dialog_title">¿Desaniciar les llingües escoyíes?</string>
+  <string name="wikipedia_languages_remove_dialog_content">Solo verás el conteníu de la canal Esquizar y de los filtros de busca rápida nel restu de llingües de Wikipedia.</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Nun pueden quitase toles llingües</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Dexa polo menos una llingua de Wikipedia pa buscar y lleer el conteníu.</string>
 </resources>

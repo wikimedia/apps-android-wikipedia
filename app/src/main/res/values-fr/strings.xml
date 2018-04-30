@@ -37,6 +37,7 @@
   <string name="search_hint_search_history">Rechercher dans l’historique</string>
   <string name="search_hint_search_my_lists">Rechercher dans mes listes</string>
   <string name="search_hint_search_reading_list">Rechercher dans ma liste de lecture</string>
+  <string name="search_hint_search_languages">Rechercher une langue</string>
   <string name="nav_item_history">Historique</string>
   <string name="error_network_error">Impossible de se connecter à Internet.</string>
   <string name="page_error_retry">Réessayer</string>
@@ -82,7 +83,7 @@
   <string name="preference_languages_filter_hint">Rechercher</string>
   <string name="langlinks_filter_hint">Rechercher</string>
   <string name="langlinks_empty">Cette page n’est pas disponible dans d’autres langues</string>
-  <string name="langlinks_no_match">Aucune langue trouvée correspondant à votre requête.</string>
+  <string name="langlinks_no_match" fuzzy="true">Aucune langue trouvée correspondant à votre requête.</string>
   <string name="langlinks_activity_title">Autres langues</string>
   <string name="menu_save_changes">Publier les modifications</string>
   <string name="dialog_saving_in_progress">Publication…</string>
@@ -494,8 +495,8 @@
   <string name="view_featured_article_footer_saved_button_label">Enregistré</string>
   <string name="feed_configure_activity_title">Configurer le fil</string>
   <string name="feed_configure_menu_reset">Rétablir la vue par défaut</string>
-  <string name="feed_configure_menu_select_all">Tout sélectionner</string>
-  <string name="feed_configure_menu_deselect_all">Tout déselectionner</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Tout sélectionner</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Tout déselectionner</string>
   <string name="feed_item_type_news">Articles sur les événements actuels</string>
   <string name="feed_item_type_on_this_day">Événements dans l’historique de ce jour</string>
   <string name="feed_item_type_continue_reading">Lien de retour rapide pour lire un article ouvert dans un de vos onglets</string>
@@ -628,4 +629,16 @@
     <item quantity="one">Année dernière</item>
     <item quantity="other">Il y a %d ans</item>
   </plurals>
+  <string name="languages_list_activity_title">Ajouter une langue</string>
+  <string name="languages_list_suggested_text">Suggestion</string>
+  <string name="languages_list_all_text">Toutes les langues</string>
+  <string name="wikipedia_languages_title">Langues Wikipedia</string>
+  <string name="wikipedia_languages_your_languages_text">Vos langues</string>
+  <string name="wikipedia_languages_add_language_text">Ajouter une langue</string>
+  <string name="wikipedia_languages_remove_text">Supprimer</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Supprimer une langue</string>
+  <string name="wikipedia_languages_remove_dialog_title">Supprimer la ou les langues sélectionnées ?</string>
+  <string name="wikipedia_languages_remove_dialog_content">Vous ne verrez que le contenu du flux d\'exploration ainsi que les filtres de recherche rapide pour les autres langues de Wikipedia.</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Impossible de supprimer toutes les langues</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Gardez au moins une langue Wikipedia avec laquelle vous pourrez chercher et lire du contenu.</string>
 </resources>

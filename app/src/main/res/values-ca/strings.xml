@@ -69,7 +69,7 @@
   <string name="preference_languages_filter_hint">Cerca</string>
   <string name="langlinks_filter_hint">Cerca</string>
   <string name="langlinks_empty">Aquesta pàgina no està disponible en altres idiomes.</string>
-  <string name="langlinks_no_match">No s\'ha trobat cap idioma que coincideixi amb la consulta.</string>
+  <string name="langlinks_no_match" fuzzy="true">No s\'ha trobat cap idioma que coincideixi amb la consulta.</string>
   <string name="langlinks_activity_title">Altres idiomes</string>
   <string name="menu_save_changes">Publica els canvis</string>
   <string name="dialog_saving_in_progress">S’estan publicant…</string>
@@ -471,8 +471,8 @@
   <string name="view_featured_article_footer_saved_button_label">Desat</string>
   <string name="feed_configure_activity_title">Personalitza el canal</string>
   <string name="feed_configure_menu_reset">Restaura la vista per defecte</string>
-  <string name="feed_configure_menu_select_all">Selecciona-ho tot</string>
-  <string name="feed_configure_menu_deselect_all">Desselecciona-ho tot</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">Selecciona-ho tot</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">Desselecciona-ho tot</string>
   <string name="feed_item_type_news">Articles dels esdeveniments actuals</string>
   <string name="feed_item_type_on_this_day">Efemèrides</string>
   <string name="feed_item_type_continue_reading">Enllaç directe a l\'article obert en una de les teves pestanyes</string>

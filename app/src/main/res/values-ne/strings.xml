@@ -58,7 +58,7 @@
   <string name="preference_languages_filter_hint">खोज्नुहोस्</string>
   <string name="langlinks_filter_hint">खोज्नुहोस्</string>
   <string name="langlinks_empty">यो पृष्ठ अन्य भाषाहरूमा उपलब्ध छैन।</string>
-  <string name="langlinks_no_match">तपाईंको क्वेरीसँग मिल्ने कुनै पनि भाषा फेला परेन।</string>
+  <string name="langlinks_no_match" fuzzy="true">तपाईंको क्वेरीसँग मिल्ने कुनै पनि भाषा फेला परेन।</string>
   <string name="langlinks_activity_title">अन्य भाषाहरू</string>
   <string name="menu_save_changes">परिवर्तनहरू प्रकाशित गर्नुहोस्</string>
   <string name="dialog_saving_in_progress">प्रकाशन गर्दै…</string>
@@ -341,8 +341,8 @@
   <string name="view_featured_article_card_title">विशेष लेख</string>
   <string name="view_featured_article_footer_save_button_label">संग्रह गर्नुहोस्</string>
   <string name="view_featured_article_footer_saved_button_label">सुरक्षित गरिएको</string>
-  <string name="feed_configure_menu_select_all">सबै चयन गर्नुहोस्</string>
-  <string name="feed_configure_menu_deselect_all">कुनै पनि नछान्ने</string>
+  <string name="feed_configure_menu_select_all" fuzzy="true">सबै चयन गर्नुहोस्</string>
+  <string name="feed_configure_menu_deselect_all" fuzzy="true">कुनै पनि नछान्ने</string>
   <string name="description_edit_text_hint">शीर्षकको विवरण</string>
   <string name="description_edit_save">प्रकाशन गर्नुहोस्</string>
   <string name="description_edit_add_description">शीर्षकको विवरण थप्नुहोस्</string>
