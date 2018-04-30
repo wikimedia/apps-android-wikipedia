@@ -55,6 +55,8 @@ import org.wikipedia.views.WikiErrorView;
 
 import java.util.concurrent.TimeUnit;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit2.Call;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
@@ -69,6 +71,15 @@ public class EditSectionActivity extends BaseActivity {
     public static final String EXTRA_PAGE_PROPS = "org.wikipedia.edit_section.pageprops";
     public static final String EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.edit_section.highlight";
 
+    @BindView(R.id.edit_section_text) EditText sectionText;
+    @BindView(R.id.edit_section_load_progress) View sectionProgress;
+    @BindView(R.id.edit_section_container) ScrollView sectionContainer;
+    @BindView(R.id.view_edit_section_error) WikiErrorView errorView;
+    @BindView(R.id.edit_section_abusefilter_container) View abusefilterContainer;
+    @BindView(R.id.edit_section_abusefilter_image) ImageView abuseFilterImage;
+    @BindView(R.id.edit_section_abusefilter_title) TextView abusefilterTitle;
+    @BindView(R.id.edit_section_abusefilter_text) TextView abusefilterText;
+
     private CsrfTokenClient csrfClient;
 
     private PageTitle title;
@@ -79,8 +90,8 @@ public class EditSectionActivity extends BaseActivity {
 
     private String sectionWikitext;
     private SyntaxHighlighter syntaxHighlighter;
+    private SectionTextWatcher textWatcher = new SectionTextWatcher();
 
-    private EditText sectionText;
     private boolean sectionTextModified = false;
     private boolean sectionTextFirstLoad = true;
 
@@ -88,21 +99,10 @@ public class EditSectionActivity extends BaseActivity {
     // back to the server to detect possible edit conflicts.
     private String baseTimeStamp;
 
-    private View sectionProgress;
-    private ScrollView sectionContainer;
-    private WikiErrorView errorView;
-
-    private View abusefilterContainer;
-    private ImageView abuseFilterImage;
-    private TextView abusefilterTitle;
-    private TextView abusefilterText;
-
     private EditAbuseFilterResult abusefilterEditResult;
-
     private CaptchaHandler captchaHandler;
 
     private EditPreviewFragment editPreviewFragment;
-
     private EditSummaryFragment editSummaryFragment;
 
     private EditFunnel funnel;
@@ -130,6 +130,8 @@ public class EditSectionActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_section);
+        ButterKnife.bind(this);
+
         setStatusBarColor(ResourceUtil.getThemedAttributeId(this, R.attr.page_status_bar_color));
 
         if (!getIntent().getAction().equals(ACTION_EDIT_SECTION)) {
@@ -152,19 +154,8 @@ public class EditSectionActivity extends BaseActivity {
             supportActionBar.setTitle("");
         }
 
-        sectionText = findViewById(R.id.edit_section_text);
-
         syntaxHighlighter = new SyntaxHighlighter(this, sectionText);
-
-        sectionProgress = findViewById(R.id.edit_section_load_progress);
-        sectionContainer = findViewById(R.id.edit_section_container);
         sectionContainer.setSmoothScrollingEnabled(false);
-        errorView = findViewById(R.id.view_edit_section_error);
-
-        abusefilterContainer = findViewById(R.id.edit_section_abusefilter_container);
-        abuseFilterImage = findViewById(R.id.edit_section_abusefilter_image);
-        abusefilterTitle = findViewById(R.id.edit_section_abusefilter_title);
-        abusefilterText = findViewById(R.id.edit_section_abusefilter_text);
 
         captchaHandler = new CaptchaHandler(this, title.getWikiSite(), progressDialog, sectionContainer, "", null);
 
@@ -207,28 +198,7 @@ public class EditSectionActivity extends BaseActivity {
             sectionTextModified = savedInstanceState.getBoolean("sectionTextModified");
         }
 
-        sectionText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                if (sectionTextFirstLoad) {
-                    sectionTextFirstLoad = false;
-                    return;
-                }
-                if (!sectionTextModified) {
-                    sectionTextModified = true;
-                    // update the actionbar menu, which will enable the Next button.
-                    supportInvalidateOptionsMenu();
-                }
-            }
-        });
+        sectionText.addTextChangedListener(textWatcher);
 
         // set focus to the EditText, but keep the keyboard hidden until the user changes the cursor location:
         sectionText.requestFocus();
@@ -241,6 +211,7 @@ public class EditSectionActivity extends BaseActivity {
         if (progressDialog.isShowing()) {
             progressDialog.dismiss();
         }
+        sectionText.removeTextChangedListener(textWatcher);
         syntaxHighlighter.cleanup();
         super.onDestroy();
     }
@@ -697,6 +668,29 @@ public class EditSectionActivity extends BaseActivity {
             alert.create().show();
         } else {
             finish();
+        }
+    }
+
+    private class SectionTextWatcher implements TextWatcher {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            if (sectionTextFirstLoad) {
+                sectionTextFirstLoad = false;
+                return;
+            }
+            if (!sectionTextModified) {
+                sectionTextModified = true;
+                // update the actionbar menu, which will enable the Next button.
+                supportInvalidateOptionsMenu();
+            }
         }
     }
 }
