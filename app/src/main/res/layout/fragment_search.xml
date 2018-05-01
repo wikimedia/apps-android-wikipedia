@@ -80,12 +80,13 @@
 
     </FrameLayout>
 
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/language_scroll_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/page_toolbar_color"
         android:elevation="6dp"
+        android:orientation="vertical"
         android:visibility="gone">
 
         <View
@@ -99,7 +100,7 @@
             android:layout_height="48dp"
             android:theme="@style/PageToolbarTheme" />
 
-    </FrameLayout>
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/search_offline_library_state"
