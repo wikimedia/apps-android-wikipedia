@@ -68,9 +68,9 @@ for key, value in data[u"sitematrix"].items():
             rank = unique_device_response[u"items"][0][u"devices"]
     print ("Rank for " + language_code + ": " + str(rank))
     if language_code == 'zh':
-        add_lang(key='zh-hans', local_name=u'简体',
+        add_lang(key='zh-hans', local_name=u'简体中文',
                  eng_name='Simplified Chinese', rank=rank)
-        add_lang(key='zh-hant', local_name=u'繁體',
+        add_lang(key='zh-hant', local_name=u'繁體中文',
                  eng_name='Traditional Chinese', rank=rank)
         continue
     if language_code == 'no':  # T114042
