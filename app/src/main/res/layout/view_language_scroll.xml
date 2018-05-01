@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:orientation="horizontal">
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/horizontal_scroll_languages"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="?attr/colorAccent"
+        app:tabIndicatorHeight="2dp"
+        app:tabMaxWidth="0dp"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="?attr/colorAccent" />
+
+    <TextView
+        android:id="@+id/more_languages"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="@dimen/margin"
+        android:layout_marginStart="@dimen/margin"
+        android:background="@android:color/transparent"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_vertical"
+        android:letterSpacing="0.04"
+        android:text="@string/more_language_options"
+        android:textAllCaps="true"
+        android:textColor="?attr/colorAccent"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        tools:text="More" />
+
+</LinearLayout>

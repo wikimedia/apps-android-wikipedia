@@ -665,12 +665,10 @@
     </plurals>
     <!-- /On This Day -->
 
-    <!-- Languages List -->
+    <!-- MultiLingual -->
     <string name="languages_list_activity_title">Add a language</string>
     <string name="languages_list_suggested_text">Suggested</string>
     <string name="languages_list_all_text">All languages</string>
-
-    <!-- Wikipedia Languages -->
     <string name="wikipedia_languages_title">Wikipedia languages</string>
     <string name="wikipedia_languages_your_languages_text">Your languages</string>
     <string name="wikipedia_languages_add_language_text">Add language</string>
@@ -680,5 +678,7 @@
     <string name="wikipedia_languages_remove_dialog_content">You will only see content on the Explore feed and quick search filters for remaining Wikipedia languages.</string>
     <string name="wikipedia_languages_remove_warning_dialog_title">Can\'t remove all languages</string>
     <string name="wikipedia_languages_remove_warning_dialog_content">Keep at least one Wikipedia language from which to search and read content.</string>
+    <string name="more_language_options">more</string>
+    <!-- /MultiLingual -->
 
 </resources>

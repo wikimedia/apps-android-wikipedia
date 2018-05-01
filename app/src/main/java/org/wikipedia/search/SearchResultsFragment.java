@@ -23,6 +23,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.SearchFunnel;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.offline.OfflineManager;
@@ -177,7 +178,7 @@ public class SearchResultsFragment extends Fragment {
             return;
         }
 
-        List<SearchResult> cacheResult = searchResultsCache.get(app.getAppOrSystemLanguageCode() + "-" + term);
+        List<SearchResult> cacheResult = searchResultsCache.get(getSearchLanguageCode() + "-" + term);
         if (cacheResult != null && !cacheResult.isEmpty()) {
             clearResults();
             displayResults(cacheResult);
@@ -235,7 +236,7 @@ public class SearchResultsFragment extends Fragment {
         final long startTime = System.nanoTime();
         updateProgressBar(true);
 
-        prefixSearchClient.request(app.getWikiSite(), searchTerm, new PrefixSearchClient.Callback() {
+        prefixSearchClient.request(WikiSite.forLanguageCode(getSearchLanguageCode()), searchTerm, new PrefixSearchClient.Callback() {
             @Override
             public void success(@NonNull Call<PrefixSearchResponse> call, @NonNull SearchResults results) {
                 if (!isAdded()) {
@@ -281,7 +282,7 @@ public class SearchResultsFragment extends Fragment {
         handleSuggestion(results.getSuggestion());
 
         // add titles to cache...
-        searchResultsCache.put(app.getAppOrSystemLanguageCode() + "-" + searchTerm, resultList);
+        searchResultsCache.put(getSearchLanguageCode() + "-" + searchTerm, resultList);
 
         // scroll to top, but post it to the message queue, because it should be done
         // after the data set is updated.
@@ -324,7 +325,7 @@ public class SearchResultsFragment extends Fragment {
         updateProgressBar(true);
 
         fullTextSearchClient.request(
-                app.getWikiSite(),
+                WikiSite.forLanguageCode(getSearchLanguageCode()),
                 searchTerm,
                 continueOffset != null ? continueOffset.get("continue") : null,
                 continueOffset != null ? continueOffset.get("gsroffset") : null,
@@ -542,7 +543,7 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private void cache(@NonNull List<SearchResult> resultList, @NonNull String searchTerm) {
-        String cacheKey = app.getAppOrSystemLanguageCode() + "-" + searchTerm;
+        String cacheKey = getSearchLanguageCode() + "-" + searchTerm;
         List<SearchResult> cachedTitles = searchResultsCache.get(cacheKey);
         if (cachedTitles != null) {
             cachedTitles.addAll(resultList);
@@ -615,6 +616,10 @@ public class SearchResultsFragment extends Fragment {
     @Nullable
     private Callback callback() {
         return FragmentUtil.getCallback(this, Callback.class);
+    }
+
+    private String getSearchLanguageCode() {
+        return ((SearchFragment) getParentFragment()).getSearchLanguageCode();
     }
 }
 

@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.support.v7.widget.SearchView;
 import android.text.InputFilter;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.ActionMode;
 import android.view.Menu;
@@ -25,6 +26,8 @@ public class CabSearchView extends SearchView {
 
     private boolean mCabEnabled;
 
+    private  ImageView searchCloseBtn;
+
     public CabSearchView(Context context) {
         this(context, null);
     }
@@ -43,7 +46,8 @@ public class CabSearchView extends SearchView {
         searchSrcTextView.setHintTextColor(themedIconColor);
         ImageView searchMagIcon = findViewById(R.id.search_mag_icon);
         searchMagIcon.setColorFilter(themedIconColor);
-        ImageView searchCloseBtn = findViewById(R.id.search_close_btn);
+        searchCloseBtn = findViewById(R.id.search_close_btn);
+        searchCloseBtn.setVisibility(GONE);
         searchCloseBtn.setColorFilter(themedIconColor);
         addFilter(searchSrcTextView, new PlainTextInputFilter());
 
@@ -73,6 +77,10 @@ public class CabSearchView extends SearchView {
                 DEFAULT_CAB_ENABLED));
 
         attrsArray.recycle();
+    }
+
+    public void setCloseButtonVisibility(String searchString) {
+        searchCloseBtn.setVisibility(TextUtils.isEmpty(searchString) ? GONE : VISIBLE);
     }
 
     private class Callback implements ActionMode.Callback {

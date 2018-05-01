@@ -49,6 +49,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
     private List<String> selectedCodes = new ArrayList<>();
     private static final int NUM_HEADERS = 1;
     private static final int NUM_FOOTERS = 1;
+    public static final String ACTIVITY_RESULT_LANG_POSITION_DATA = "activity_result_lang_position_data";
 
 
     @NonNull public static WikipediaLanguagesFragment newInstance() {
@@ -178,6 +179,12 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
         @Override
         public void onBindViewHolder(@NonNull DefaultViewHolder holder, int pos) {
             if (holder instanceof WikipediaLanguageItemHolder) {
+                ((WikipediaLanguageItemHolder) holder).getView().setOnClickListener(view -> {
+                    Intent resultIntent = new Intent();
+                    resultIntent.putExtra(ACTIVITY_RESULT_LANG_POSITION_DATA, pos - 1);
+                    getActivity().setResult(RESULT_OK, resultIntent);
+                    getActivity().finish();
+                });
                 ((WikipediaLanguageItemHolder) holder).bindItem(wikipediaLanguages.get(pos - NUM_HEADERS), pos - NUM_FOOTERS);
                 ((WikipediaLanguageItemHolder) holder).getView().setCheckBoxEnabled(checkboxEnabled);
             }
