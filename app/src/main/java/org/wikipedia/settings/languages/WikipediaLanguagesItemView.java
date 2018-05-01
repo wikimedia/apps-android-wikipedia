@@ -6,16 +6,17 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.wikipedia.R;
+import org.wikipedia.util.ResourceUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
 
-public class WikipediaLanguagesItemView extends FrameLayout {
+public class WikipediaLanguagesItemView extends LinearLayout {
     public interface Callback {
         void onCheckedChanged(int position);
     }
@@ -70,6 +71,7 @@ public class WikipediaLanguagesItemView extends FrameLayout {
         ButterKnife.bind(this);
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
+        setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
     }
 
     @OnCheckedChanged(R.id.wiki_language_checkbox) void onCheckedChanged() {
