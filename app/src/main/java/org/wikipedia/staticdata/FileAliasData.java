@@ -21,7 +21,7 @@ public final class FileAliasData {
 
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static Map<String, String> newMap() {
-        final int size = 290;
+        final int size = 293;
         Map<String, String> map = new HashMap<>(size);
         map.put("ab", "Афаил");
         map.put("ace", "Beureukaih");
@@ -113,6 +113,7 @@ public final class FileAliasData {
         map.put("glk", "فاىل");
         map.put("gn", "Ta'ãnga");
         map.put("gom", "फायल");
+        map.put("gor", "Berkas");
         map.put("gu", "ચિત્ર");
         map.put("gv", "Coadan");
         map.put("ha", "File");
@@ -132,6 +133,7 @@ public final class FileAliasData {
         map.put("ig", "Usòrò");
         map.put("ik", "File");
         map.put("ilo", "Papeles");
+        map.put("inh", "Файл");
         map.put("io", "Arkivo");
         map.put("is", "Mynd");
         map.put("it", "File");
@@ -165,6 +167,7 @@ public final class FileAliasData {
         map.put("lb", "Fichier");
         map.put("lbe", "Сурат");
         map.put("lez", "Файл");
+        map.put("lfn", "Fix");
         map.put("lg", "File");
         map.put("li", "Plaetje");
         map.put("lij", "Immaggine");

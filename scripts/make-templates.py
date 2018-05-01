@@ -112,13 +112,13 @@ def postprocess_wikis(wiki_list):
     simplifiedWiki = copy.deepcopy(chineseWiki)
     simplifiedWiki.lang = SIMPLIFIED_CHINESE_LANG
     simplifiedWiki.props["english_name"] = "Simplified Chinese"
-    simplifiedWiki.props["local_name"] = "简体"
+    simplifiedWiki.props["local_name"] = "简体中文"
     wiki_list.wikis.insert(chineseWikiIndex + 1, simplifiedWiki)
 
     traditionalWiki = copy.deepcopy(chineseWiki)
     traditionalWiki.lang = TRADITIONAL_CHINESE_LANG
     traditionalWiki.props["english_name"] = "Traditional Chinese"
-    traditionalWiki.props["local_name"] = "繁體"
+    traditionalWiki.props["local_name"] = "繁體中文"
     wiki_list.wikis.insert(chineseWikiIndex + 2, traditionalWiki)
 
     bokmalWiki = next((wiki for wiki in wiki_list.wikis if wiki.lang == NORWEGIAN_BOKMAL_WIKI_LANG), None)

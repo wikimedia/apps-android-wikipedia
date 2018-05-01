@@ -288,6 +288,9 @@
     <item>atj</item>
     <item>cr</item>
     <item>din</item>
+    <item>gor</item>
+    <item>inh</item>
+    <item>lfn</item>
     <item>test</item>
     <item>en-x-piglatin</item>
     <item>ab</item>
@@ -301,8 +304,8 @@
     <item>français</item>
     <item>português</item>
     <item>italiano</item>
-    <item>简体</item>
-    <item>繁體</item>
+    <item>简体中文</item>
+    <item>繁體中文</item>
     <item>العربية</item>
     <item>polski</item>
     <item>Bahasa Indonesia</item>
@@ -580,6 +583,9 @@
     <item>Atikamekw</item>
     <item>Nēhiyawēwin / ᓀᐦᐃᔭᐍᐏᐣ</item>
     <item>Thuɔŋjäŋ</item>
+    <item>Bahasa Hulontalo</item>
+    <item>ГӀалгӀай</item>
+    <item>Lingua Franca Nova</item>
     <item>Test</item>
     <item>Igpay Atinlay</item>
     <item>Аҧсшәа</item>
@@ -872,6 +878,9 @@
     <item>Atikamekw</item>
     <item>Cree</item>
     <item>Dinka</item>
+    <item>Gorontalo</item>
+    <item>Ingush</item>
+    <item>Lingua Franca Nova</item>
     <item>Test</item>
     <item>Pig Latin</item>
     <item>Abkhazian</item>

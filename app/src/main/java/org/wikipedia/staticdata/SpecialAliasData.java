@@ -21,7 +21,7 @@ public final class SpecialAliasData {
 
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static Map<String, String> newMap() {
-        final int size = 290;
+        final int size = 293;
         Map<String, String> map = new HashMap<>(size);
         map.put("ab", "Цастәи");
         map.put("ace", "Kusuih");
@@ -113,6 +113,7 @@ public final class SpecialAliasData {
         map.put("glk", "خاص");
         map.put("gn", "Mba'echĩchĩ");
         map.put("gom", "विशेश");
+        map.put("gor", "Spesial");
         map.put("gu", "વિશેષ");
         map.put("gv", "Er lheh");
         map.put("ha", "Special");
@@ -132,6 +133,7 @@ public final class SpecialAliasData {
         map.put("ig", "Ihü kárírí");
         map.put("ik", "Special");
         map.put("ilo", "Espesial");
+        map.put("inh", "Гӏулакха");
         map.put("io", "Specala");
         map.put("is", "Kerfissíða");
         map.put("it", "Speciale");
@@ -165,6 +167,7 @@ public final class SpecialAliasData {
         map.put("lb", "Spezial");
         map.put("lbe", "Къуллугъирал лажин");
         map.put("lez", "Служебная");
+        map.put("lfn", "Spesial");
         map.put("lg", "Special");
         map.put("li", "Speciaal");
         map.put("lij", "Speçiale");
