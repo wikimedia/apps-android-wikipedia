@@ -33,6 +33,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.offline.OfflineManager;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -52,7 +53,7 @@ import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARC
 import static org.wikipedia.settings.languages.WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA;
 
 public class SearchFragment extends Fragment implements BackPressedHandler,
-        SearchResultsFragment.Callback, RecentSearchesFragment.Parent, LanguageScrollView.Callback {
+        SearchResultsFragment.Callback, RecentSearchesFragment.Callback, LanguageScrollView.Callback {
 
     public interface Callback {
         void onSearchSelectPage(@NonNull HistoryEntry entry, boolean inNewTab);
@@ -170,6 +171,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
         FragmentManager childFragmentManager = getChildFragmentManager();
         recentSearchesFragment = (RecentSearchesFragment)childFragmentManager.findFragmentById(
                 R.id.search_panel_recent);
+        recentSearchesFragment.setCallback(this);
         searchResultsFragment = (SearchResultsFragment)childFragmentManager.findFragmentById(
                 R.id.fragment_search_results);
 
@@ -196,9 +198,18 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
             languageScrollView.setUpLanguageScrollTabData(app.language().getAppLanguageCodes(), this, position);
             langButtonContainer.setVisibility(View.GONE);
         } else {
+            showMultiLingualOnboarding();
             languageScrollContainer.setVisibility(View.GONE);
             langButtonContainer.setVisibility(View.VISIBLE);
             initLangButton();
+        }
+    }
+
+    private void showMultiLingualOnboarding() {
+        if (Prefs.getShowSearchTutorial() && WikipediaApp.getInstance().language().getRemainingAvailableLanguageCodes().size() > 0) {
+            FeedbackUtil.showTapTargetView(requireActivity(), langButton, R.string.empty,
+                    R.string.tool_tip_lang_button, null);
+            Prefs.setShowSearchOnboarding(false);
         }
     }
 
@@ -225,6 +236,11 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     public void switchToSearch(@NonNull String queryText) {
         startSearch(queryText, true);
         searchView.setQuery(queryText, false);
+    }
+
+    @Override
+    public void onAddLanguageClicked() {
+        onLangButtonClick();
     }
 
     /**

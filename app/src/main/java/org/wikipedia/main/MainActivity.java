@@ -30,6 +30,10 @@ public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
         new AppShortcuts().init();
 
         if (Prefs.isInitialOnboardingEnabled() && savedInstanceState == null) {
+            //Updating preference so the search multilingual tooltip
+            //is not shown again for first time users
+            Prefs.setShowSearchOnboarding(false);
+
             startActivity(InitialOnboardingActivity.newIntent(this));
         }
     }

@@ -656,4 +656,8 @@
   <string name="onboarding_multilingual_title">Onboarding title indicating that the app is now available in many languages.</string>
   <string name="onboarding_multilingual_secondary_text">Onboarding subtitle text informing the user about the languages found on the device.</string>
   <string name="onboarding_multilingual_add_language_text"> Button text to suggest that users can now add more languages of their preference.</string>
+  <string name="tool_tip_lang_button">Tool tip text encouraging existing multilingual users to start reading in more languages.</string>
+  <string name="empty">Empty</string>
+  <string name="add_wikipedia_languages_text">Button text suggesting user to add more languages to the app to read in.</string>
+  <string name="search_empty_message_multilingual_upgrade">Suggestion text encouraging users to add more languages to the app to read in.</string>
 </resources>
