@@ -113,8 +113,8 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
             return this;
         }
 
-        @Override
-        public OnThisDayPagesViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        @NonNull @Override
+        public OnThisDayPagesViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
             View itemView = LayoutInflater.
                     from(viewGroup.getContext()).
                     inflate(R.layout.item_on_this_day_pages, viewGroup, false);
@@ -122,7 +122,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
         }
 
         @Override
-        public void onBindViewHolder(OnThisDayPagesViewHolder onThisDayPagesViewHolder, int i) {
+        public void onBindViewHolder(@NonNull OnThisDayPagesViewHolder onThisDayPagesViewHolder, int i) {
             if (itemCallback != null) {
                 onThisDayPagesViewHolder
                         .setCallback(itemCallback)
@@ -170,14 +170,14 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     @OnClick({R.id.view_on_this_day_click_container}) void onMoreClick() {
         ActivityOptionsCompat options = ActivityOptionsCompat.
                 makeSceneTransitionAnimation((Activity) getContext(), dayTextView, getContext().getString(R.string.transition_on_this_day));
-        getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age,
+        getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age, getCard().wikiSite(),
                 OnThisDayActivity.INVOKE_SOURCE_CARD_BODY), options.toBundle());
     }
 
     @OnClick({R.id.more_events_layout}) void onMoreFooterClick() {
         ActivityOptionsCompat options = ActivityOptionsCompat.
                 makeSceneTransitionAnimation((Activity) getContext(), dayTextView, getContext().getString(R.string.transition_on_this_day));
-        getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age,
+        getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age, getCard().wikiSite(),
                 OnThisDayActivity.INVOKE_SOURCE_CARD_FOOTER), options.toBundle());
     }
 
