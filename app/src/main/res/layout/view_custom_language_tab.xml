@@ -11,10 +11,8 @@
         style="@style/TextViewCentered"
         android:layout_width="26dp"
         android:layout_height="26dp"
-        android:background="@drawable/rounded_border_with_transparent_solid"
-        android:backgroundTint="?attr/material_theme_de_emphasised_color"
+        android:background="@drawable/lang_button_shape_border"
         android:fontFamily="sans-serif-medium"
-        android:letterSpacing="0.01"
         android:textAllCaps="true"
         android:textColor="?attr/material_theme_de_emphasised_color"
         android:textSize="12sp" />
@@ -25,10 +23,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/view_list_card_margin_vertical"
         android:fontFamily="sans-serif-medium"
-        android:gravity="center"
         android:textAllCaps="true"
         android:textColor="?attr/material_theme_de_emphasised_color"
         android:textSize="12sp"
-        android:textStyle="normal"
         tools:text="English" />
 </LinearLayout>

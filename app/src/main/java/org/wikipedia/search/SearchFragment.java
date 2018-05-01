@@ -1,6 +1,5 @@
 package org.wikipedia.search;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -23,6 +22,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.wikipedia.BackPressedHandler;
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
@@ -48,9 +48,8 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
-import static org.wikipedia.Constants.SEARCH_REQUEST_ADD_A_LANGUAGE;
+import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH;
 import static org.wikipedia.settings.languages.WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA;
-import static org.wikipedia.views.LanguageScrollView.SELECTED_TAB_LANGUAGE_CODE;
 
 public class SearchFragment extends Fragment implements BackPressedHandler,
         SearchResultsFragment.Callback, RecentSearchesFragment.Parent, LanguageScrollView.Callback {
@@ -163,7 +162,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     }
 
     @Override
-    public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         app = WikipediaApp.getInstance();
         View view = inflater.inflate(R.layout.fragment_search, container, false);
         unbinder = ButterKnife.bind(this, view);
@@ -309,8 +308,8 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     @OnClick(R.id.search_lang_button_container)
     void onLangButtonClick() {
         Intent intent = new Intent(requireActivity(), WikipediaLanguagesActivity.class);
-        intent.putExtra(SELECTED_TAB_LANGUAGE_CODE, app.language().getAppLanguageCode());
-        startActivityForResult(intent, SEARCH_REQUEST_ADD_A_LANGUAGE);
+        intent.putExtra(Constants.INTENT_EXTRA_LAUNCHED_FROM_SEARCH, true);
+        startActivityForResult(intent, ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH);
     }
 
     /**
@@ -492,33 +491,30 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     @Override
     public void onLanguageTabSelected(String selectedLanguageCode) {
         searchLanguageCode = selectedLanguageCode;
-        startSearch(query, query != null && query.length() > 1);
+        startSearch(query, true);
     }
 
     @Override
     public void onLanguageButtonClicked() {
-        Intent intent = new Intent(requireActivity(), WikipediaLanguagesActivity.class);
-        String selectedLanguageCode = languageScrollView.getSelectedLanguageCode();
-        intent.putExtra(SELECTED_TAB_LANGUAGE_CODE, selectedLanguageCode);
-        startActivityForResult(intent, SEARCH_REQUEST_ADD_A_LANGUAGE);
+        onLangButtonClick();
     }
 
     public String getSearchLanguageCode() {
         return searchLanguageCode;
     }
 
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == SEARCH_REQUEST_ADD_A_LANGUAGE) {
-            if (resultCode == Activity.RESULT_OK) {
-                int position = data.getIntExtra(ACTIVITY_RESULT_LANG_POSITION_DATA, 0);
-                setUpLanguageScroll(position);
-                if (app.language().getAppLanguageCodes().size() == 1) {
-                    startSearch(query, query != null && query.length() > 1);
-                }
+        if (requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH) {
+            int position = 0;
+            if (data != null && data.hasExtra(ACTIVITY_RESULT_LANG_POSITION_DATA)) {
+                position = data.getIntExtra(ACTIVITY_RESULT_LANG_POSITION_DATA, 0);
+            } else if (app.language().getAppLanguageCodes().contains(searchLanguageCode)) {
+                position = app.language().getAppLanguageCodes().indexOf(searchLanguageCode);
             }
+            setUpLanguageScroll(position);
+            startSearch(query, true);
         }
     }
 }

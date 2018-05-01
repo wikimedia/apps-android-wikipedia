@@ -2,9 +2,11 @@ package org.wikipedia.settings.languages;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
@@ -20,9 +22,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.language.LanguagesListActivity;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.MultiSelectActionModeCallback;
 
@@ -50,7 +54,6 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
     private static final int NUM_HEADERS = 1;
     private static final int NUM_FOOTERS = 1;
     public static final String ACTIVITY_RESULT_LANG_POSITION_DATA = "activity_result_lang_position_data";
-
 
     @NonNull public static WikipediaLanguagesFragment newInstance() {
         return new WikipediaLanguagesFragment();
@@ -179,12 +182,18 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
         @Override
         public void onBindViewHolder(@NonNull DefaultViewHolder holder, int pos) {
             if (holder instanceof WikipediaLanguageItemHolder) {
-                ((WikipediaLanguageItemHolder) holder).getView().setOnClickListener(view -> {
-                    Intent resultIntent = new Intent();
-                    resultIntent.putExtra(ACTIVITY_RESULT_LANG_POSITION_DATA, pos - 1);
-                    getActivity().setResult(RESULT_OK, resultIntent);
-                    getActivity().finish();
-                });
+                if (launchedFromSearch()) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        ((WikipediaLanguageItemHolder) holder).getView().setForeground(ContextCompat.getDrawable(requireContext(),
+                                ResourceUtil.getThemedAttributeId(requireContext(), R.attr.selectableItemBackground)));
+                    }
+                    ((WikipediaLanguageItemHolder) holder).getView().setOnClickListener(view -> {
+                        Intent resultIntent = new Intent();
+                        resultIntent.putExtra(ACTIVITY_RESULT_LANG_POSITION_DATA, pos - NUM_HEADERS);
+                        requireActivity().setResult(RESULT_OK, resultIntent);
+                        requireActivity().finish();
+                    });
+                }
                 ((WikipediaLanguageItemHolder) holder).bindItem(wikipediaLanguages.get(pos - NUM_HEADERS), pos - NUM_FOOTERS);
                 ((WikipediaLanguageItemHolder) holder).getView().setCheckBoxEnabled(checkboxEnabled);
             }
@@ -298,6 +307,10 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
         FooterViewHolder(View itemView) {
             super(itemView);
         }
+    }
+
+    private boolean launchedFromSearch() {
+        return requireActivity().getIntent().hasExtra(Constants.INTENT_EXTRA_LAUNCHED_FROM_SEARCH);
     }
 
     private void setMultiSelectEnabled(boolean enabled) {

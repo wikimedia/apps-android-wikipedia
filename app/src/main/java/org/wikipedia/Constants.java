@@ -25,7 +25,7 @@ public final class Constants {
     public static final int ACTIVITY_REQUEST_OFFLINE_TUTORIAL = 57;
     public static final int ACTIVITY_REQUEST_FEED_CONFIGURE = 58;
     public static final int ACTIVITY_REQUEST_ADD_A_LANGUAGE = 59;
-    public static final int SEARCH_REQUEST_ADD_A_LANGUAGE = 60;
+    public static final int ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH = 60;
 
     public static final String INTENT_RETURN_TO_MAIN = "returnToMain";
     public static final String INTENT_SEARCH_FROM_WIDGET = "searchFromWidget";
@@ -37,6 +37,7 @@ public final class Constants {
 
     public static final String INTENT_EXTRA_REVERT_QNUMBER = "revertQNumber";
     public static final String INTENT_EXTRA_DELETE_READING_LIST = "deleteReadingList";
+    public static final String INTENT_EXTRA_LAUNCHED_FROM_SEARCH = "launchedFromSearch";
 
     public static final String INTENT_EXTRA_NOTIFICATION_SYNC_PAUSE_RESUME = "syncPauseResume";
     public static final String INTENT_EXTRA_NOTIFICATION_SYNC_CANCEL = "syncCancel";

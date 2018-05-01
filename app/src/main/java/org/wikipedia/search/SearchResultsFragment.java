@@ -96,7 +96,7 @@ public class SearchResultsFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search_results, container, false);
         unbinder = ButterKnife.bind(this, view);
 
@@ -166,7 +166,7 @@ public class SearchResultsFragment extends Fragment {
      *              too often.  If the search is forced, the network request is sent immediately.
      */
     public void startSearch(@Nullable String term, boolean force) {
-        if (!force && currentSearchTerm.equals(term)) {
+        if (!force && StringUtils.equals(currentSearchTerm, term)) {
             return;
         }
 

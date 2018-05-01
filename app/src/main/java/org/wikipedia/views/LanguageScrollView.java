@@ -25,11 +25,9 @@ import butterknife.OnClick;
 
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
-
 public class LanguageScrollView extends LinearLayout {
     public interface Callback {
         void onLanguageTabSelected(String selectedLanguageCode);
-
         void onLanguageButtonClicked();
     }
 
@@ -37,7 +35,6 @@ public class LanguageScrollView extends LinearLayout {
     @BindView(R.id.more_languages) TextView moreButton;
     private Callback callback;
     private List<String> languagecodes;
-    public static final String SELECTED_TAB_LANGUAGE_CODE = "selected_tab_lang_code";
     private static final int LANG_BUTTON_TEXT_SIZE_LARGER = 12;
     private static final int LANG_BUTTON_TEXT_SIZE_SMALLER = 8;
 
@@ -63,13 +60,11 @@ public class LanguageScrollView extends LinearLayout {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 updateTabView(true, tab);
-
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
                 updateTabView(false, tab);
-
             }
 
             @Override
@@ -77,7 +72,6 @@ public class LanguageScrollView extends LinearLayout {
                 updateTabView(true, tab);
             }
         });
-
     }
 
     private void updateTabView(boolean selected, TabLayout.Tab tab) {
@@ -98,7 +92,7 @@ public class LanguageScrollView extends LinearLayout {
             if (view != null) {
                 @ColorInt int color = getThemedColor(getContext(), R.attr.material_theme_de_emphasised_color);
                 updateTabLanguageLabel(view, null, color);
-                updateTabLanguageCode(view, null, color, ContextCompat.getDrawable(getContext(), R.drawable.rounded_border_with_transparent_solid), color);
+                updateTabLanguageCode(view, null, color, ContextCompat.getDrawable(getContext(), R.drawable.lang_button_shape_border), color);
             }
         }
     }
@@ -152,9 +146,8 @@ public class LanguageScrollView extends LinearLayout {
             languageCodeTextView.setBackground(background);
         }
         if (backgroundColorTint != null) {
-            languageCodeTextView.getBackground().setColorFilter(backgroundColorTint, PorterDuff.Mode.SRC_ATOP);
+            languageCodeTextView.getBackground().setColorFilter(backgroundColorTint, PorterDuff.Mode.SRC_IN);
         }
-
     }
 
     @OnClick(R.id.more_languages)
@@ -169,9 +162,4 @@ public class LanguageScrollView extends LinearLayout {
             horizontalLanguageScroll.getTabAt(position).select();
         }
     }
-
-    public String getSelectedLanguageCode() {
-        return languagecodes.get(horizontalLanguageScroll.getSelectedTabPosition());
-    }
-
 }

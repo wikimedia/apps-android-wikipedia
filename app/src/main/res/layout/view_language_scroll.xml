@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="48dp"
-    android:orientation="horizontal">
+    android:layout_height="48dp">
 
     <android.support.design.widget.TabLayout
         android:id="@+id/horizontal_scroll_languages"
@@ -22,17 +21,12 @@
         android:id="@+id/more_languages"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginEnd="@dimen/margin"
-        android:layout_marginStart="@dimen/margin"
-        android:background="@android:color/transparent"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center_vertical"
-        android:letterSpacing="0.04"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        style="@style/TransparentButton"
+        android:minWidth="0dp"
         android:text="@string/more_language_options"
-        android:textAllCaps="true"
         android:textColor="?attr/colorAccent"
-        android:textSize="14sp"
-        android:textStyle="normal"
         tools:text="More" />
 
 </LinearLayout>
