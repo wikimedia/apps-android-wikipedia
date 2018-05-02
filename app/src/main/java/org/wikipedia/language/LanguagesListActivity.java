@@ -133,6 +133,11 @@ public class LanguagesListActivity extends BaseActivity {
         protected String getSearchHintString() {
             return getResources().getString(R.string.search_hint_search_languages);
         }
+
+        @Override
+        protected boolean finishActionModeIfKeyboardHiding() {
+            return false;
+        }
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
@@ -226,6 +231,8 @@ public class LanguagesListActivity extends BaseActivity {
             }
             this.languageCodes.add(getString(R.string.languages_list_all_text));
             this.languageCodes.addAll(getNonDuplicateLanguageCodesList());
+            // should not be able to be searched while the languages are selected
+            this.originalLanguageCodes.removeAll(app.language().getAppLanguageCodes());
             notifyDataSetChanged();
         }
 
@@ -287,7 +294,7 @@ public class LanguagesListActivity extends BaseActivity {
 
             String languageCode = languageCodes.get(position);
 
-            localizedNameTextView.setText(app.language().getAppLanguageLocalizedName(languageCode));
+            localizedNameTextView.setText(StringUtils.capitalize(app.language().getAppLanguageLocalizedName(languageCode)));
 
             String canonicalName = getCanonicalName(languageCode);
             if (progressBar.getVisibility() != View.VISIBLE) {

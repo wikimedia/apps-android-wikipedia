@@ -831,6 +831,11 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         protected String getSearchHintString() {
             return getString(R.string.search_hint_search_reading_list);
         }
+
+        @Override
+        protected boolean finishActionModeIfKeyboardHiding() {
+            return true;
+        }
     }
 
     private class MultiSelectCallback extends MultiSelectActionModeCallback {

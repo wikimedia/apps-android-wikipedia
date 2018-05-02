@@ -86,6 +86,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
                 && resultCode == RESULT_OK) {
 
             prepareWikipediaLanguagesList();
+            requireActivity().invalidateOptionsMenu();
             adapter.notifyDataSetChanged();
         }
     }
@@ -101,6 +102,10 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_wikipedia_languages, menu);
+        if (app.language().getAppLanguageCodes().size() <= 1) {
+            MenuItem overflowMenu = menu.getItem(0);
+            overflowMenu.setVisible(false);
+        }
     }
 
     @Override
@@ -137,6 +142,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
     private void updateWikipediaLanguages() {
         app.language().setAppLanguageCodes(wikipediaLanguages);
         adapter.notifyDataSetChanged();
+        requireActivity().invalidateOptionsMenu();
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
@@ -195,6 +201,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
                     });
                 }
                 ((WikipediaLanguageItemHolder) holder).bindItem(wikipediaLanguages.get(pos - NUM_HEADERS), pos - NUM_FOOTERS);
+                ((WikipediaLanguageItemHolder) holder).getView().setDragHandleEnabled(wikipediaLanguages.size() > 1);
                 ((WikipediaLanguageItemHolder) holder).getView().setCheckBoxEnabled(checkboxEnabled);
             }
         }
@@ -217,6 +224,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
                 });
                 ((WikipediaLanguageItemHolder) holder).getView().setCallback(WikipediaLanguagesFragment.this);
             } else if (holder instanceof FooterViewHolder) {
+                holder.getView().setVisibility(checkboxEnabled ? View.GONE : View.VISIBLE);
                 holder.getView().setOnClickListener(v -> {
                     startActivityForResult(new Intent(requireActivity(), LanguagesListActivity.class), ACTIVITY_REQUEST_ADD_A_LANGUAGE);
                     finishActionMode();
@@ -316,6 +324,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
     private void setMultiSelectEnabled(boolean enabled) {
         adapter.onCheckboxEnabled(enabled);
         adapter.notifyDataSetChanged();
+        requireActivity().invalidateOptionsMenu();
     }
 
     private void finishActionMode() {
@@ -374,25 +383,29 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
         }
     }
 
+    @SuppressWarnings("checkstyle:magicnumber")
     public void showRemoveLanguagesDialog() {
         if (selectedCodes.size() > 0) {
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(requireActivity());
             if (selectedCodes.size() < wikipediaLanguages.size()) {
-                new AlertDialog.Builder(requireActivity())
-                        .setTitle(R.string.wikipedia_languages_remove_dialog_title)
+                alertDialog
+                        .setTitle(getResources().getQuantityString(R.plurals.wikipedia_languages_remove_dialog_title, selectedCodes.size()))
                         .setMessage(R.string.wikipedia_languages_remove_dialog_content)
                         .setPositiveButton(android.R.string.ok, (dialog, i) -> {
                             deleteSelectedLanguages();
                             finishActionMode();
                         })
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .show();
+                        .setNegativeButton(android.R.string.cancel, null);
             } else {
-                new AlertDialog.Builder(requireActivity())
+                alertDialog
                         .setTitle(R.string.wikipedia_languages_remove_warning_dialog_title)
                         .setMessage(R.string.wikipedia_languages_remove_warning_dialog_content)
-                        .setPositiveButton(android.R.string.ok, null)
-                        .show();
+                        .setPositiveButton(android.R.string.ok, null);
             }
+
+            AlertDialog dialog = alertDialog.show();
+            TextView text = dialog.findViewById(android.R.id.message);
+            text.setLineSpacing(0, 1.3f);
         }
     }
 }

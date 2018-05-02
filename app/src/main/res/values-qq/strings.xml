@@ -627,7 +627,10 @@
   <string name="wikipedia_languages_add_language_text">A button text for adding langauge to wikipedia langauges list.</string>
   <string name="wikipedia_languages_remove_text">A button text for removing langauge from wikipedia langauges list.</string>
   <string name="wikipedia_languages_remove_action_mode_title">Title text for the toolbar when the action mode is activated.</string>
-  <string name="wikipedia_languages_remove_dialog_title">Title of the dialog that pop-ups after clicking on the delete icon in the action mode.</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">Title of the dialog that pop-ups after clicking on the delete icon in the action mode when only one item has been selected.</item>
+    <item quantity="other">Title of the dialog that pop-ups after clicking on the delete icon in the action mode when two or more items have been selected.</item>
+  </plurals>
   <string name="wikipedia_languages_remove_dialog_content">Content of the dialog that pop-ups after clicking on the delete icon in the action mode.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Title of the dialog that pop-ups after users wanted to delete all wikipedia languages in the action mode.</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Content of the dialog that pop-ups after users wanted to delete all wikipedia languages in the action mode.</string>

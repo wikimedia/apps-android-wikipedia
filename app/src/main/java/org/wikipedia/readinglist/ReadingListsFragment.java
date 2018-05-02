@@ -488,6 +488,11 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         protected String getSearchHintString() {
             return requireContext().getResources().getString(R.string.search_hint_search_my_lists);
         }
+
+        @Override
+        protected boolean finishActionModeIfKeyboardHiding() {
+            return true;
+        }
     }
 
     private class EventBusMethods {
