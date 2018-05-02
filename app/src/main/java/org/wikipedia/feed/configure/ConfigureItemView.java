@@ -1,6 +1,7 @@
 package org.wikipedia.feed.configure;
 
 import android.content.Context;
+import android.graphics.PorterDuff;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -12,12 +13,13 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.FeedContentType;
+import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DefaultViewHolder;
 
 import java.util.ArrayList;
@@ -101,20 +103,22 @@ public class ConfigureItemView extends FrameLayout {
     }
 
     private class LanguageItemHolder extends DefaultViewHolder<View> {
-        private ImageView backgroundView;
         private TextView langCodeView;
 
         LanguageItemHolder(View itemView) {
             super(itemView);
-            backgroundView = itemView.findViewById(R.id.feed_content_type_lang_background);
             langCodeView = itemView.findViewById(R.id.feed_content_type_lang_code);
         }
 
         void bindItem(@NonNull String langCode, boolean enabled) {
             langCodeView.setText(langCode);
-            langCodeView.setTextColor(ContextCompat.getColor(getContext(), enabled ? android.R.color.white : R.color.base30));
-            backgroundView.setImageDrawable(ContextCompat.getDrawable(getContext(),
+            langCodeView.setTextColor(enabled ? ContextCompat.getColor(getContext(), android.R.color.white)
+                    : ResourceUtil.getThemedColor(getContext(), R.attr.material_theme_de_emphasised_color));
+            langCodeView.setBackground(ContextCompat.getDrawable(getContext(),
                     enabled ? R.drawable.lang_button_shape : R.drawable.lang_button_shape_border));
+            langCodeView.getBackground().setColorFilter(enabled ? ContextCompat.getColor(getContext(), R.color.base30)
+                            : ResourceUtil.getThemedColor(getContext(), R.attr.material_theme_de_emphasised_color),
+                    PorterDuff.Mode.SRC_IN);
         }
     }
 
@@ -147,6 +151,10 @@ public class ConfigureItemView extends FrameLayout {
         @Override
         public LanguageItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int type) {
             View view = inflate(getContext(), R.layout.item_feed_content_type_lang_box, null);
+            ViewGroup.MarginLayoutParams params = new ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            params.leftMargin = DimenUtil.roundedDpToPx(2);
+            params.rightMargin = params.leftMargin;
+            view.setLayoutParams(params);
             return new LanguageItemHolder(view);
         }
 
@@ -170,6 +178,14 @@ public class ConfigureItemView extends FrameLayout {
                     if (callback != null) {
                         callback.onLanguagesChanged(contentType);
                     }
+                    boolean atLeastOneEnabled = false;
+                    for (String lang : adapter.getLangList()) {
+                        if (!tempDisabledList.contains(lang)) {
+                            atLeastOneEnabled = true;
+                            break;
+                        }
+                    }
+                    onSwitch.setChecked(atLeastOneEnabled);
                 })
                 .setNegativeButton(android.R.string.cancel, null)
                 .create()

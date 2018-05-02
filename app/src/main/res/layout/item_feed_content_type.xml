@@ -14,13 +14,13 @@
         android:layout_height="match_parent"
         android:background="?attr/paper_color">
 
-        <ImageView
+        <android.support.v7.widget.AppCompatImageView
             android:id="@+id/feed_content_type_drag_handle"
             android:layout_width="56dp"
             android:layout_height="match_parent"
             app:srcCompat="@drawable/ic_reorder_black_24dp"
             android:scaleType="center"
-            android:tint="?attr/secondary_text_color"
+            app:tint="?attr/material_theme_de_emphasised_color"
             android:contentDescription="@null"/>
 
         <LinearLayout

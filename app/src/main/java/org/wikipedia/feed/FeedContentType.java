@@ -50,7 +50,7 @@ public enum FeedContentType implements EnumCode {
             return isEnabled() && isOnline ? new AggregatedFeedContentClient.TrendingArticles(aggregatedClient) : null;
         }
     },
-    MAIN_PAGE(4, R.string.view_main_page_card_title, R.string.feed_item_type_main_page, true) {
+    MAIN_PAGE(4, R.string.view_main_page_card_title, R.string.feed_item_type_main_page, false) {
         @Nullable
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age, boolean isOnline) {
