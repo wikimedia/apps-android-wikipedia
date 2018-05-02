@@ -184,6 +184,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
         }
 
         setUpLanguageScroll(0);
+        startSearch(query, false);
         searchView.setCloseButtonVisibility(query);
         return view;
     }
@@ -199,7 +200,6 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
             languageScrollContainer.setVisibility(View.GONE);
             langButtonContainer.setVisibility(View.VISIBLE);
             initLangButton();
-            startSearch(query, true);
         }
     }
 
@@ -515,6 +515,9 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
             if (resultCode == Activity.RESULT_OK) {
                 int position = data.getIntExtra(ACTIVITY_RESULT_LANG_POSITION_DATA, 0);
                 setUpLanguageScroll(position);
+                if (app.language().getAppLanguageCodes().size() == 1) {
+                    startSearch(query, query != null && query.length() > 1);
+                }
             }
         }
     }
