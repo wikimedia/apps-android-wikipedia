@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import org.wikipedia.feed.announcement.AnnouncementCardView;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadCardView;
 import org.wikipedia.feed.continuereading.ContinueReadingCardView;
+import org.wikipedia.feed.dayheader.DayHeaderCardView;
 import org.wikipedia.feed.featured.FeaturedArticleCardView;
 import org.wikipedia.feed.image.FeaturedImageCardView;
 import org.wikipedia.feed.mainpage.MainPageCardView;
@@ -109,6 +110,11 @@ public enum CardType implements EnumCode {
     ONBOARDING_READING_LIST_SYNC(20) {
         @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
             return new AnnouncementCardView(ctx);
+        }
+    },
+    DAY_HEADER(97) {
+        @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
+            return new DayHeaderCardView(ctx);
         }
     },
     OFFLINE(98) {

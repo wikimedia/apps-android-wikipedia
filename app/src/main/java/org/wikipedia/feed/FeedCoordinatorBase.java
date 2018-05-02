@@ -6,9 +6,15 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.dataclient.FeedClient;
+import org.wikipedia.feed.dayheader.DayHeaderCard;
+import org.wikipedia.feed.featured.FeaturedArticleCard;
+import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
+import org.wikipedia.feed.mostread.MostReadListCard;
+import org.wikipedia.feed.news.NewsListCard;
 import org.wikipedia.feed.offline.OfflineCard;
+import org.wikipedia.feed.onthisday.OnThisDayCard;
 import org.wikipedia.feed.progress.ProgressCard;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ThrowableUtil;
@@ -38,6 +44,7 @@ public abstract class FeedCoordinatorBase {
     private List<FeedClient> pendingClients = new ArrayList<>();
     private FeedClient.Callback callback = new ClientRequestCallback();
     private Card progressCard = new ProgressCard();
+    private int currentDayCardAge = -1;
 
     private Set<String> hiddenCards = Collections.newSetFromMap(new LinkedHashMap<String, Boolean>() {
         @Override
@@ -68,6 +75,7 @@ public abstract class FeedCoordinatorBase {
     public void reset() {
         wiki = null;
         currentAge = 0;
+        currentDayCardAge = -1;
         for (FeedClient client : pendingClients) {
             client.cancel();
         }
@@ -207,7 +215,14 @@ public abstract class FeedCoordinatorBase {
 
     private void appendCard(@NonNull Card card) {
         int progressPos = cards.indexOf(progressCard);
-        insertCard(card, progressPos >= 0 ? progressPos : cards.size());
+        int pos = progressPos >= 0 ? progressPos : cards.size();
+
+        if (isDailyCardType(card) && currentDayCardAge < currentAge) {
+            currentDayCardAge = currentAge;
+            insertCard(new DayHeaderCard(currentDayCardAge), pos++);
+        }
+
+        insertCard(card, pos);
     }
 
     private void insertCard(@NonNull Card card, int position) {
@@ -236,5 +251,11 @@ public abstract class FeedCoordinatorBase {
     private void unHideCard(@NonNull Card card) {
         hiddenCards.remove(card.getHideKey());
         Prefs.setHiddenCards(hiddenCards);
+    }
+
+    private boolean isDailyCardType(@NonNull Card card) {
+        return card instanceof NewsListCard || card instanceof OnThisDayCard
+                || card instanceof MostReadListCard || card instanceof FeaturedArticleCard
+                || card instanceof FeaturedImageCard;
     }
 }

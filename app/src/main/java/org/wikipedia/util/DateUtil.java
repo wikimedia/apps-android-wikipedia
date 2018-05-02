@@ -36,6 +36,10 @@ public final class DateUtil {
         return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.ROOT);
     }
 
+    public static String getFeedCardDayHeaderDate(int age) {
+        return getDateStringWithSkeletonPattern(new UtcDate(age).baseCalendar().getTime(), "EEEE MMM d");
+    }
+
     public static String getFeedCardDateString(int age) {
         return getFeedCardDateString(new UtcDate(age).baseCalendar());
     }
