@@ -3,12 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/list_item_default_height"
     android:orientation="vertical"
     android:gravity="center_vertical"
-    android:paddingTop="@dimen/list_item_vertical_padding"
+    android:paddingTop="@dimen/list_item_header_padding"
     android:paddingRight="@dimen/list_item_horizontal_padding"
-    android:paddingBottom="@dimen/list_item_vertical_padding"
     android:paddingLeft="@dimen/list_item_horizontal_padding"
     android:background="?attr/paper_color">
     <TextView

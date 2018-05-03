@@ -170,6 +170,11 @@ public class LangLinksActivity extends BaseActivity {
         protected String getSearchHintString() {
             return getResources().getString(R.string.langlinks_filter_hint);
         }
+
+        @Override
+        protected boolean finishActionModeIfKeyboardHiding() {
+            return false;
+        }
     }
 
     @Override

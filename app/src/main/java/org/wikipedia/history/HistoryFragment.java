@@ -499,6 +499,11 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         protected String getSearchHintString() {
             return getContext().getResources().getString(R.string.search_hint_search_history);
         }
+
+        @Override
+        protected boolean finishActionModeIfKeyboardHiding() {
+            return true;
+        }
     }
 
     private class MultiSelectCallback extends MultiSelectActionModeCallback {

@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.util.ResourceUtil;
 
@@ -50,16 +51,21 @@ public class WikipediaLanguagesItemView extends LinearLayout {
     public void setContents(String languageLocalizedName, int position) {
         this.position = position;
         orderView.setText(String.valueOf(position + 1));
-        titleView.setText(languageLocalizedName);
+        titleView.setText(StringUtils.capitalize(languageLocalizedName));
     }
 
     public void setCheckBoxEnabled(boolean enabled) {
         orderView.setVisibility(enabled ? GONE : VISIBLE);
         checkBox.setVisibility(enabled ? VISIBLE : GONE);
-        dragHandleView.setVisibility(enabled ? GONE : VISIBLE);
+        setDragHandleEnabled(!enabled);
         if (!enabled) {
             checkBox.setChecked(false);
+            setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
         }
+    }
+
+    public void setDragHandleEnabled(boolean enabled) {
+        dragHandleView.setVisibility(enabled ? VISIBLE : GONE);
     }
 
     public void setDragHandleTouchListener(OnTouchListener listener) {
@@ -77,6 +83,8 @@ public class WikipediaLanguagesItemView extends LinearLayout {
     @OnCheckedChanged(R.id.wiki_language_checkbox) void onCheckedChanged() {
         if (callback != null) {
             callback.onCheckedChanged(position);
+            setBackgroundColor(checkBox.isChecked()
+                    ? ResourceUtil.getThemedColor(getContext(), R.attr.multi_select_background_color) : ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
         }
     }
 }

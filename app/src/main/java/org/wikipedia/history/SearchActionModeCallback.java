@@ -43,7 +43,7 @@ public abstract class SearchActionModeCallback implements ActionMode.Callback {
         });
 
         searchView.setOnQueryTextFocusChangeListener((view, isFocus) -> {
-            if (!isFocus) {
+            if (!isFocus && finishActionModeIfKeyboardHiding()) {
                 mode.finish();
             }
         });
@@ -54,6 +54,8 @@ public abstract class SearchActionModeCallback implements ActionMode.Callback {
     protected abstract String getSearchHintString();
 
     protected abstract void onQueryChange(String s);
+
+    protected abstract boolean finishActionModeIfKeyboardHiding();
 
     @Override
     public boolean onPrepareActionMode(ActionMode mode, Menu menu) {

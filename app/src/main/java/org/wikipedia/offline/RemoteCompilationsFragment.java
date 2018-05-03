@@ -306,6 +306,11 @@ public class RemoteCompilationsFragment extends DownloadObserverFragment {
         protected String getSearchHintString() {
             return getString(R.string.offline_compilations_search_by_name);
         }
+
+        @Override
+        protected boolean finishActionModeIfKeyboardHiding() {
+            return true;
+        }
     }
 
     private class CompilationCallback implements CompilationClient.Callback {
