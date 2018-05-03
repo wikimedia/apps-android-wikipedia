@@ -441,17 +441,35 @@
   <string name="notification_reverted">Text of notification when an edit made by the user is reverted. The \"%1$s\" symbol corresponds to the user who reverted the edit, and the \"%2$s\" symbol is the title of the page that was edited.</string>
   <string name="notification_thanks_title">Title for notification when the user receives a Thanks from another user.</string>
   <string name="notification_thanks">Text of notification when the user receives a Thanks from another user. The \"%1$s\" symbol corresponds to the user who sent the thanks, and the \"%2$s\" symbol is the title of the page for which the user was thanked.</string>
-  <string name="notification_channel_name">Name of the notification channel</string>
   <string name="notification_channel_description">Description of the notification channel</string>
-  <string name="notification_syncing_title">Title for notification when the syncing process begins. The \"%1$d\" symbol corresponds to the amount of articles.</string>
-  <string name="notification_syncing_description">Text of notification shows the remaining articles. The \"%1$d\" symbol corresponds to the amount of remaining articles.</string>
   <string name="notification_syncing_pause_button">Text of button on notification bar to pause the syncing process\n{{Identical|Pause}}</string>
   <string name="notification_syncing_resume_button">Text of button on notification bar to resume the syncing process</string>
   <string name="notification_syncing_cancel_button">Text of button on notification bar to cancel the syncing process\n{{Identical|Cancel}}</string>
-  <string name="notification_syncing_reading_list_channel_name">Name of the notification channel of syncing reading lists</string>
   <string name="notification_syncing_reading_list_channel_description">Description of the notification channel of syncing reading lists</string>
-  <string name="notification_syncing_reading_list_title">Title for notification when the syncing reading lists process begins. The \"%1$d\" symbol corresponds to the amount of lists.</string>
-  <string name="notification_syncing_reading_list_description">Text of notification shows the remaining lists. The \"%1$d\" symbol corresponds to the amount of remaining lists</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">Name of the notification channel that shows the app is downloading one article</item>
+    <item quantity="other">Name of the notification channel that shows the app is downloading two or more articles</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">Title for notification when the downloading process of one article begins. The \"%1$d\" symbol corresponds to the amount of articles.</item>
+    <item quantity="other">Title for notification when the downloading process of two or more article begins. The \"%1$d\" symbol corresponds to the amount of articles.</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">Text of notification shows the remaining article. The \"%1$d\" symbol corresponds to the amount of remaining articles.</item>
+    <item quantity="other">Text of notification shows the remaining articles. The \"%1$d\" symbol corresponds to the amount of remaining articles.</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Name of the notification channel of syncing one reading list</item>
+    <item quantity="other">Name of the notification channel of syncing two or more reading lists</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Title for notification when the syncing one reading list process begins. The \"%1$d\" symbol corresponds to the amount of lists.</item>
+    <item quantity="other">Title for notification when the syncing two or more reading lists process begins. The \"%1$d\" symbol corresponds to the amount of lists.</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">Text of notification shows the remaining list. The \"%1$d\" symbol corresponds to the amount of remaining lists</item>
+    <item quantity="other">Text of notification shows the remaining lists. The \"%1$d\" symbol corresponds to the amount of remaining lists</item>
+  </plurals>
   <string name="view_continue_reading_card_title">Label for card in the feed that reminds the user to continue reading an article from their browsing history.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
   <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>

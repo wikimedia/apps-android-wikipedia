@@ -22,6 +22,7 @@ public class NotificationWithProgressBar {
     private String channelId;
     private int notificationId;
     private int channelName;
+    private int channelPluralName;
     private int channelDescription;
     private int notificationIcon;
     private int notificationTitle;
@@ -55,7 +56,7 @@ public class NotificationWithProgressBar {
 
         // Notification channel ( >= API 26 )
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = context.getString(getChannelName());
+            CharSequence name = context.getResources().getQuantityString(getChannelName(), total);
             String description = context.getString(getChannelDescription());
             int importance = NotificationManager.IMPORTANCE_LOW;
             NotificationChannel mChannel = new NotificationChannel(getChannelId(), name, importance);
@@ -66,9 +67,9 @@ public class NotificationWithProgressBar {
         }
 
         builderIcon = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? getNotificationIcon() : R.mipmap.launcher;
-        builderTitle = String.format(context.getString(getNotificationTitle()), total);
+        builderTitle = String.format(context.getResources().getQuantityString(getNotificationTitle(), total), total);
         builderInfo = (int) MathUtil.percentage(progress, total) + "%";
-        builderDescription = String.format(context.getString(getNotificationDescription()), total - progress);
+        builderDescription = String.format(context.getResources().getQuantityString(getNotificationDescription(), total - progress), total - progress);
 
         builder.setSmallIcon(builderIcon)
                 .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), builderIcon))
