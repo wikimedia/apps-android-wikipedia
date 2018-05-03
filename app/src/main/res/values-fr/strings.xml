@@ -83,7 +83,7 @@
   <string name="preference_languages_filter_hint">Rechercher</string>
   <string name="langlinks_filter_hint">Rechercher</string>
   <string name="langlinks_empty">Cette page n’est pas disponible dans d’autres langues</string>
-  <string name="langlinks_no_match" fuzzy="true">Aucune langue trouvée correspondant à votre requête.</string>
+  <string name="langlinks_no_match">Aucune langue trouvée</string>
   <string name="langlinks_activity_title">Autres langues</string>
   <string name="menu_save_changes">Publier les modifications</string>
   <string name="dialog_saving_in_progress">Publication…</string>
@@ -495,8 +495,9 @@
   <string name="view_featured_article_footer_saved_button_label">Enregistré</string>
   <string name="feed_configure_activity_title">Configurer le fil</string>
   <string name="feed_configure_menu_reset">Rétablir la vue par défaut</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">Tout sélectionner</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">Tout déselectionner</string>
+  <string name="feed_configure_menu_select_all">Afficher tout</string>
+  <string name="feed_configure_menu_deselect_all">Cacher tout</string>
+  <string name="feed_configure_language_warning">Notez que tous les types de carte ne sont pas disponibles dans toutes les langues de Wikipédia. Modifiez vos langues sélectionnées dans les Paramètres.</string>
   <string name="feed_item_type_news">Articles sur les événements actuels</string>
   <string name="feed_item_type_on_this_day">Événements dans l’historique de ce jour</string>
   <string name="feed_item_type_continue_reading">Lien de retour rapide pour lire un article ouvert dans un de vos onglets</string>
@@ -641,4 +642,5 @@
   <string name="wikipedia_languages_remove_dialog_content">Vous ne verrez que le contenu du flux d\'exploration ainsi que les filtres de recherche rapide pour les autres langues de Wikipedia.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Impossible de supprimer toutes les langues</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Gardez au moins une langue Wikipedia avec laquelle vous pourrez chercher et lire du contenu.</string>
+  <string name="more_language_options">plus</string>
 </resources>

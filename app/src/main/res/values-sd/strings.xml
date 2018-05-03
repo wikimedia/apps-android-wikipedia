@@ -13,6 +13,7 @@
   <string name="search_hint_search_history">سوانح ۾ ڳوليو</string>
   <string name="search_hint_search_my_lists">منھنجن فھرستن ۾ ڳوليو</string>
   <string name="search_hint_search_reading_list">پڙھڻ جي فھرست ۾ ڳوليو</string>
+  <string name="search_hint_search_languages">ڪنھن ٻوليءَ لاءِ ڳوليو</string>
   <string name="nav_item_history">سوانح</string>
   <string name="error_network_error">انٽرنيٽ سان ڳنڍي نٿو سگھي.</string>
   <string name="page_error_retry">ٻيهر ڪوشش ڪريو</string>
@@ -21,6 +22,7 @@
   <string name="history_item_deleted">%s سوانح مان ڪڍيل</string>
   <string name="history_items_deleted">سوانح مان %d مضمون ڪڍيل</string>
   <string name="history_item_delete_undo">اڻڪريو</string>
+  <string name="app_settings">ايپ جون ترتيبون</string>
   <string name="dialog_title_clear_history">ڳولا جي سوانح مٽايو</string>
   <string name="dialog_message_clear_history">ھن سان توھان جي سموري ڳولا سوانح ختم ٿي ويندي، ۽ ھاڻوڪي کليل ٽيب بند ٿي ويندي. ڇا توهان مطمئن آهيو؟</string>
   <string name="dialog_message_clear_history_yes">ھا</string>
@@ -45,9 +47,10 @@
   <string name="nearby_zoom_to_location">نقشي تي ڪو مقام وڏو ڪري ڏسو</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;اوپن اسٽريٽ ميپ&lt;/a&gt; ڀاڱيدار</string>
   <string name="last_updated_text">آخري ترميم %s</string>
-  <string name="talk_page_link_text" fuzzy="true">بحث</string>
-  <string name="edit_history_link_text" fuzzy="true">ترميمي سوانح</string>
+  <string name="talk_page_link_text">بحث صفحو ڏسو</string>
+  <string name="edit_history_link_text">ترميمي سوانح ڏسو</string>
   <string name="map_view_link_text">نقشي تي ڏسو</string>
+  <string name="other_languages_indication_text">ٻي ٻوليءَ ۾ پڙھو</string>
   <string name="language_count_link_text">%d ٻولين ۾ موجود</string>
   <string name="content_license_html">مواد &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; جي تحت موجود آھي نہ تہ ٻي صورت ۾ نوٽ ٿيل آهي</string>
   <string name="edit_save_action_license_logged_in">سانڍڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان، ۽ irrevocably پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس جي تحت ڏيڻ تي راضي ٿيو ٿا.</string>
@@ -56,7 +59,7 @@
   <string name="preference_languages_filter_hint">ڳوليو</string>
   <string name="langlinks_filter_hint">ڳوليو</string>
   <string name="langlinks_empty">هيءُ صفحو ٻين ٻولين ۾ دستياب نہ آهي.</string>
-  <string name="langlinks_no_match" fuzzy="true">توهان جي پڇا سان ملندڙ ڪا بہ ٻولي نہ لڌي.</string>
+  <string name="langlinks_no_match">ڪي بہ ٻوليون نہ لڌيون</string>
   <string name="langlinks_activity_title">ٻيون ٻوليون</string>
   <string name="menu_save_changes">تبديليون ڇاپيو</string>
   <string name="dialog_saving_in_progress">ڇاپيندي…</string>
@@ -124,6 +127,8 @@
   <string name="edit_preview_fetching_dialog_message">پيش نگاھ ٺاهيندي…</string>
   <string name="send_feedback">ايپ جي پذيرائي موڪليو</string>
   <string name="create_account_account_created_toast">کاتو کلي چڪو!</string>
+  <string name="preferences_heading_data_usage">ڊيٽا کپت</string>
+  <string name="preferences_heading_experimental">تجرباتي</string>
   <string name="preferences_privacy_settings_heading">ّذاتيات</string>
   <string name="preference_title_eventlogging_opt_in">استعمال جون رپورٽون اماڻيو</string>
   <string name="preference_summary_eventlogging_opt_in">وڪيميڊيا ايپ کي اجازت ڏيو ته توهان هن ايپ ڪيئن استعمال ڪريو ٿا جي معلومات جمع ڪري ته جيئن هن ايپ کي وڌيڪ بهتر بڻائي سگھجي</string>
@@ -144,6 +149,7 @@
   <string name="terms_of_use_description">استعمال جا شرط</string>
   <string name="about_wikipedia_url">https://sd.m.wikipedia.org/wiki/Wikipedia:بابت</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">مستعمل لائبريريون</string>
@@ -169,6 +175,7 @@
   <string name="edit_summary_tag_links">ڳنڍڻا وڌا</string>
   <string name="edit_summary_tag_other">ٻيو</string>
   <string name="edit_summary_tag_other_hint">هن صفحي کي توهان ٻين ڪهڙن طريقن سان سڌاريو</string>
+  <string name="edit_conflict_title">ترميمي تضاد</string>
   <string name="find_next">اڳيون لھو</string>
   <string name="find_previous">پويون لھو</string>
   <string name="find_first_occurence">ھي پھرين ظاھريت آھي</string>
@@ -300,12 +307,15 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d جا 1 مضمونَ آفلائين موجود آھن، %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d جا %2$d مضمونَ موجود آھن، %3$.2f MB</string>
   <string name="reading_list_sort">مرتب ڪريو</string>
+  <string name="reading_list_sort_ellipsis">مرتب ڪريو...</string>
   <string name="reading_list_sort_by_name">نالي سان مرتب ڪريو</string>
   <string name="reading_list_sort_by_name_desc">نالي سان مرتب ڪريو (reverse)</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">سڀ کان ھاڻوڪي سان مرتب ڪريو</string>
-  <string name="reading_list_sort_by_recent_desc" fuzzy="true">سڀ کا گھٽ ھاڻوڪي سان مرتب ڪريو</string>
+  <string name="reading_list_sort_by_recent">جنھن تاريخ وڌو ويو (نئين ترين) سان مرتب ڪريو</string>
+  <string name="reading_list_sort_by_recent_desc">جنھن تاريخ وڌو ويو (پراڻي ترين) سان مرتب ڪريو</string>
+  <string name="reading_list_sort_by_created">جنھن تاريخ (نئين ترين) تي تخليق ڪيو ويو سان مرتب ڪريو</string>
+  <string name="reading_list_sort_by_created_desc">جنھن تاريخ (پراڻي ترين) تي تخليق ڪيو ويو سان نرتب ڪريو</string>
   <string name="reading_list_menu_delete">فھرست ڊاھيو</string>
-  <string name="reading_list_menu_rename" fuzzy="true">ٻيھر نالو ڏيو</string>
+  <string name="reading_list_menu_rename">نالا/تشريح  سنواريو</string>
   <string name="reading_list_menu_edit_description">تشريح سنواريو</string>
   <string name="reading_list_action_menu_remove_from_offline">آفلائين تان ھٽايو</string>
   <string name="reading_list_action_menu_save_for_offline">آفلائين لاءِ سانڍيو</string>
@@ -319,7 +329,7 @@
   <string name="reading_list_items_deleted">%d مضمون فھرست مان ڪڍيل</string>
   <string name="reading_list_item_delete_undo">اڻڪريو</string>
   <string name="reading_list_deleted">%s ڊاھيو ويو</string>
-  <string name="saved_list_empty_title">اڃان ڪابہ پڙھڻ جي فھرست ناھي</string>
+  <string name="saved_list_empty_title">اڃان ڪي بہ سانڍيل صفحا ڪونھن</string>
   <string name="reading_lists_empty_message">مضمونن کي بعد ۾ پڙھڻ جي لاءِ ڪنھن پڙھڻ جي فھرست ۾ وجھو تہ، ڀلي جڏھن توھان آف لائين ھجو.</string>
   <string name="reading_lists_onboarding_intro">مضمونن کي بعد ۾ پڙھڻ لاءِ پڙھڻ جي ڪنھن فھرست ۾ وجھو، ڀلي جڏھن توھان آفلائين آھيو!</string>
   <string name="reading_lists_onboarding_for_example">مثال طور</string>
@@ -342,12 +352,27 @@
   <string name="reading_list_article_save_in_progress">ھي مضمون لاٿو پيو وڃي، ۽ اھو مڪمل ٿيڻ کانپوءِ آفلائين موجود ھوندو.</string>
   <string name="reading_list_already_contains_selection">چونڊيل فھرست اڳ ئي چونڊيل صفحا رکي ٿي.</string>
   <string name="reading_list_added_articles_list_titled">%1$d مضمونن کي %2$s کي ۾ وڌو ويو</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">ڇا توھان کي پڪ آھي تہ توھان ھي پڙھڻ جي فھرست ڊاھڻ ٿا چاھيو %s ؟</string>
+  <string name="reading_list_delete_confirm">ڇا توھان کي پڪ آھي تہ توھان %s ڊاھڻ ٿا چاھيو؟</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">رد</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">داخل ٿيو</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">ٺيڪ</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">ترتيبون</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">مون کي ھي ٻيھر نہ ڏيکاريو</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">نہ مھرباني</string>
+  <string name="reading_list_login_option_reminder_dialog_title">پڙھڻ جي فھرست جا مضمون لڌا</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">ھا، انھن کي منھنجي پڙھڻ جي فھرستن ۾ شامل ڪريو</string>
+  <string name="reading_list_login_option_reminder_dialog_no">نہ، مضمونن کي ڊاھيو</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">سانڍيل مضمونن کي ايپ ۾ رکو؟</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">ھا، مضمونن کي فھرستن ۾ رکو</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">نہ، مضمونن کي فھرستن مان ڊاھيو</string>
   <string name="default_reading_list_name">سانڍيل</string>
   <string name="default_reading_list_description">توھان جي سانڍيل مضمونن لاءَ  پاڻڏنل فھرست</string>
-  <string name="no_user_lists_title">مضمونن کي فھرستن ۾ ترتيب ڏيو</string>
+  <string name="no_user_lists_title">مضمونن کي فھرستن ۾ منظم ڪريو</string>
   <string name="no_user_lists_msg">گھمڻ جي جڳھن، پسنديده عنوان، ۽ وغيره لاءِ فھرست ٺاھيو</string>
   <string name="reading_list_saved_list_rename">%1$s (واپرائيندڙ سرجيو)</string>
+  <string name="reading_lists_menu_create_list">نئين فھرست تخليقيو</string>
+  <string name="reading_lists_menu_sort_by">مرتب ڪريو</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">داخل ٿيو / شامل ٿيو</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">ھي مضمون ھاڻي آفلائين موجود ھوندو.</item>
     <item quantity="other">ھي مضمونَ ھاڻي آفلائين موجود ھوندا.</item>
@@ -402,8 +427,8 @@
   <string name="view_featured_article_footer_saved_button_label">سانڍيل</string>
   <string name="feed_configure_activity_title">پھاچل پنھنجايو</string>
   <string name="feed_configure_menu_reset">ڏنل نظارو ٻيھر لڳايو</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">سڀ چونڊيو</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">سڀ اڻچونڊيو</string>
+  <string name="feed_configure_menu_select_all">سڀ ڏيکاريو</string>
+  <string name="feed_configure_menu_deselect_all">سڀ لڪايو</string>
   <string name="feed_item_type_news">ھاڻوڪن واقعن بابت مضمون</string>
   <string name="feed_item_type_on_this_day">ھن ڏينھن تي تاريخ ۾ واقعا</string>
   <string name="feed_item_type_because_you_read">توھان جي سوانح مان تازيل پڙھيل مضمونن تي ٻڌل صلاحون</string>
@@ -519,4 +544,16 @@
     <item quantity="one">گذريل سال</item>
     <item quantity="other">%d سال اڳ</item>
   </plurals>
+  <string name="languages_list_activity_title">ڪا ٻولي وجھو</string>
+  <string name="languages_list_suggested_text">صلاح ڏنل</string>
+  <string name="languages_list_all_text">سڀ ٻوليون</string>
+  <string name="wikipedia_languages_title">وڪيپيڊيا ٻوليون</string>
+  <string name="wikipedia_languages_your_languages_text">توھان جون ٻوليون</string>
+  <string name="wikipedia_languages_add_language_text">ٻولي وجھو</string>
+  <string name="wikipedia_languages_remove_text">هٽايو</string>
+  <string name="wikipedia_languages_remove_action_mode_title">ٻولي ھٽايو</string>
+  <string name="wikipedia_languages_remove_dialog_title">چونڊيل ٻول(ون) ھٽايو؟</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">سڀ ٻوليون ھٽائي نٿيون سگھجن</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">گھٽ ۾ گھٽ ھڪ وڪيپيڊيا ٻولي رکو جنھن ۾ مواد ڳولي ۽ پڙھي سگھجي.</string>
+  <string name="more_language_options">وڌيڪ</string>
 </resources>

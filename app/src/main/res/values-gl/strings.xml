@@ -20,6 +20,7 @@
   <string name="search_hint_search_history">Procurar no historial</string>
   <string name="search_hint_search_my_lists">Procurar nas miñas listas</string>
   <string name="search_hint_search_reading_list">Procurar na lista de lectura</string>
+  <string name="search_hint_search_languages">Procurar unha lingua</string>
   <string name="nav_item_history">Historial</string>
   <string name="error_network_error">Non se puido conectar a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
@@ -65,7 +66,7 @@
   <string name="preference_languages_filter_hint">Procurar</string>
   <string name="langlinks_filter_hint">Procurar</string>
   <string name="langlinks_empty">Esta páxina non está dispoñible noutras linguas</string>
-  <string name="langlinks_no_match" fuzzy="true">Non se atopou ningunha lingua que coincidise coa súa pescuda.</string>
+  <string name="langlinks_no_match">Non se atopou ningunha lingua</string>
   <string name="langlinks_activity_title">Outras linguas</string>
   <string name="menu_save_changes">Publicar os cambios</string>
   <string name="dialog_saving_in_progress">Publicando…</string>
@@ -477,8 +478,9 @@
   <string name="view_featured_article_footer_saved_button_label">Gardado</string>
   <string name="feed_configure_activity_title">Configurar a canle</string>
   <string name="feed_configure_menu_reset">Restablecer vista predeterminada</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">Seleccionar todo</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">Deseleccionar todo</string>
+  <string name="feed_configure_menu_select_all">Amosar todo</string>
+  <string name="feed_configure_menu_deselect_all">Agochar todo</string>
+  <string name="feed_configure_language_warning">Decátese de que non tódolos tipos de tarxetas están dispoñibles en tódalas edicións de Wikipedia. Modifique as súas eleccións de linguas na Configuración.</string>
   <string name="feed_item_type_news">Artigos sobre eventos actuais</string>
   <string name="feed_item_type_on_this_day">Acontecementos históricos de hoxe</string>
   <string name="feed_item_type_continue_reading">Ligazón rápida para ler un artigo aberto nunha das súas lapelas</string>
@@ -611,4 +613,17 @@
     <item quantity="one">O ano pasado</item>
     <item quantity="other">Hai %d anos</item>
   </plurals>
+  <string name="languages_list_activity_title">Engadir unha lingua</string>
+  <string name="languages_list_suggested_text">Recomendado</string>
+  <string name="languages_list_all_text">Todas as linguas</string>
+  <string name="wikipedia_languages_title">Linguas de Wikipedia</string>
+  <string name="wikipedia_languages_your_languages_text">As súas linguas</string>
+  <string name="wikipedia_languages_add_language_text">Engadir lingua</string>
+  <string name="wikipedia_languages_remove_text">Eliminar</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Eliminar lingua</string>
+  <string name="wikipedia_languages_remove_dialog_title">Eliminar a, ou as, linguas seleccionadas?</string>
+  <string name="wikipedia_languages_remove_dialog_content">Só verá contido nas linguas restantes de Wikipedia no fluxo de Explorar e nos filtros de procura rápida.</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Non é posible eliminar tódalas linguas</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Manteña polo menos unha lingua de Wikipedia na que procurar e ler contido.</string>
+  <string name="more_language_options">máis</string>
 </resources>

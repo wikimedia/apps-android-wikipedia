@@ -69,7 +69,7 @@
   <string name="preference_languages_filter_hint">Pesquisar</string>
   <string name="langlinks_filter_hint">Pesquisar</string>
   <string name="langlinks_empty">Esta página não está disponível noutras línguas.</string>
-  <string name="langlinks_no_match" fuzzy="true">Não foram encontradas correspondências em nenhuma língua.</string>
+  <string name="langlinks_no_match">Não foi encontrada nenhuma língua</string>
   <string name="langlinks_activity_title">Outras línguas</string>
   <string name="menu_save_changes">Publicar alterações</string>
   <string name="dialog_saving_in_progress">A publicar…</string>
@@ -481,8 +481,8 @@
   <string name="view_featured_article_footer_saved_button_label">Guardado</string>
   <string name="feed_configure_activity_title">Personalizar o feed</string>
   <string name="feed_configure_menu_reset">Repor vista predefinida</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">Selecionar todos</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">Desmarcar todos</string>
+  <string name="feed_configure_menu_select_all">Mostrar todos</string>
+  <string name="feed_configure_menu_deselect_all">Ocultar tudo</string>
   <string name="feed_item_type_news">Artigos sobre atualidades</string>
   <string name="feed_item_type_on_this_day">Acontecimentos na história neste dia</string>
   <string name="feed_item_type_continue_reading">Ligação rápida para ler um artigo aberto num dos seus separadores</string>
@@ -625,4 +625,5 @@
   <string name="wikipedia_languages_remove_action_mode_title">Remover língua</string>
   <string name="wikipedia_languages_remove_dialog_title">Remover língua(s) selecionada(s)?</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Não foi possível remover todas as línguas</string>
+  <string name="more_language_options">mais</string>
 </resources>

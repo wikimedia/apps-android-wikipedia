@@ -25,6 +25,7 @@
   <string name="search_hint_search_history">Historial de cerca</string>
   <string name="search_hint_search_my_lists">Cerca a les meves llistes</string>
   <string name="search_hint_search_reading_list">Cerca a la llista de lectura</string>
+  <string name="search_hint_search_languages">Cerca una llengua</string>
   <string name="nav_item_history">Historial</string>
   <string name="error_network_error">No pot connectar-se a Internet.</string>
   <string name="page_error_retry">Torna a provar</string>
@@ -61,6 +62,7 @@
   <string name="talk_page_link_text">Mostra la pàgina de discussió</string>
   <string name="edit_history_link_text">Mostra l\'historial de modificacions</string>
   <string name="map_view_link_text">Mostra al mapa</string>
+  <string name="other_languages_indication_text">Llegeix en una altra llengua</string>
   <string name="language_count_link_text">Disponible en %d altres llengües</string>
   <string name="content_license_html">El contingut està disponible sota llicència &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; si no s\'indica el contrari</string>
   <string name="edit_save_action_license_logged_in">En desar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -69,7 +71,7 @@
   <string name="preference_languages_filter_hint">Cerca</string>
   <string name="langlinks_filter_hint">Cerca</string>
   <string name="langlinks_empty">Aquesta pàgina no està disponible en altres idiomes.</string>
-  <string name="langlinks_no_match" fuzzy="true">No s\'ha trobat cap idioma que coincideixi amb la consulta.</string>
+  <string name="langlinks_no_match">No s\'ha trobat cap llengua</string>
   <string name="langlinks_activity_title">Altres idiomes</string>
   <string name="menu_save_changes">Publica els canvis</string>
   <string name="dialog_saving_in_progress">S’estan publicant…</string>
@@ -471,8 +473,8 @@
   <string name="view_featured_article_footer_saved_button_label">Desat</string>
   <string name="feed_configure_activity_title">Personalitza el canal</string>
   <string name="feed_configure_menu_reset">Restaura la vista per defecte</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">Selecciona-ho tot</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">Desselecciona-ho tot</string>
+  <string name="feed_configure_menu_select_all">Mostra-ho tot</string>
+  <string name="feed_configure_menu_deselect_all">Amaga-ho tot</string>
   <string name="feed_item_type_news">Articles dels esdeveniments actuals</string>
   <string name="feed_item_type_on_this_day">Efemèrides</string>
   <string name="feed_item_type_continue_reading">Enllaç directe a l\'article obert en una de les teves pestanyes</string>
@@ -603,4 +605,9 @@
     <item quantity="one">El darrer any</item>
     <item quantity="other">Fa %d anys</item>
   </plurals>
+  <string name="languages_list_activity_title">Afegeix una llengua</string>
+  <string name="languages_list_suggested_text">Suggeriment</string>
+  <string name="languages_list_all_text">Totes les llengües</string>
+  <string name="wikipedia_languages_title">Llengües de la Viquipèdia</string>
+  <string name="more_language_options">més</string>
 </resources>

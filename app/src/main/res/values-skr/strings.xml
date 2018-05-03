@@ -50,7 +50,7 @@
   <string name="preference_languages_filter_hint">ڳولو</string>
   <string name="langlinks_filter_hint">ڳولو</string>
   <string name="langlinks_empty">ایہ ورقہ ٻیاں زباناں وچ کائنی</string>
-  <string name="langlinks_no_match" fuzzy="true">تہاݙے سوال دے جواب کہیں وی زبان وچ کائنی لبھے</string>
+  <string name="langlinks_no_match">کوئی زبان کائنی لبھی</string>
   <string name="langlinks_activity_title">ٻیاں زباناں</string>
   <string name="menu_save_changes">تبدیلیاں شائع کرو</string>
   <string name="dialog_saving_in_progress">شائع تھیندا پئے۔۔۔</string>
@@ -224,7 +224,8 @@
   <string name="view_announcement_card_negative_action">کو، شکریہ</string>
   <string name="view_featured_article_footer_save_button_label">بچاؤ</string>
   <string name="view_featured_article_footer_saved_button_label">محفوظ</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">سبھ چݨو</string>
+  <string name="feed_configure_menu_select_all">سب ݙکھاؤ</string>
+  <string name="feed_configure_menu_deselect_all">سارے لُکاؤ</string>
   <string name="description_edit_save">شائع کرو</string>
   <string name="description_edit_add_description">عنوان دی تفصیل لکھو</string>
   <string name="description_edit_edit_description">تفصیل لکھو</string>
@@ -268,4 +269,5 @@
   <string name="wikipedia_languages_add_language_text">زبان شامل کرو</string>
   <string name="wikipedia_languages_remove_text">ہٹاؤ</string>
   <string name="wikipedia_languages_remove_action_mode_title">زبان ہٹاؤ</string>
+  <string name="more_language_options">ٻئے</string>
 </resources>

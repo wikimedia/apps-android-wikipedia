@@ -31,6 +31,7 @@
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Szukaj w Wikipedii</string>
   <string name="search_hint_search_history">Historia wyszukiwania</string>
+  <string name="search_hint_search_languages">Szukaj języka</string>
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Nie można nawiązać połączenia z Internetem.</string>
   <string name="page_error_retry">Ponów próbę</string>
@@ -74,7 +75,7 @@
   <string name="preference_languages_filter_hint">Szukaj</string>
   <string name="langlinks_filter_hint">Szukaj</string>
   <string name="langlinks_empty">Ten artykuł nie jest dostępny w innych językach</string>
-  <string name="langlinks_no_match" fuzzy="true">Nie znaleziono języków pasujących do twojego zapytania.</string>
+  <string name="langlinks_no_match">Nie znaleziono języków</string>
   <string name="langlinks_activity_title">Inne języki</string>
   <string name="menu_save_changes">Opublikuj zmiany</string>
   <string name="dialog_saving_in_progress">Publikowanie...</string>
@@ -411,8 +412,8 @@
   <string name="view_featured_article_card_title">Wyróżniony artykuł</string>
   <string name="view_featured_article_footer_save_button_label">Zapisz</string>
   <string name="view_featured_article_footer_saved_button_label">Zapisane</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">Zaznacz wszystko</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">Odznacz wszystko</string>
+  <string name="feed_configure_menu_select_all">Pokaż wszystko</string>
+  <string name="feed_configure_menu_deselect_all">Ukryj wszystko</string>
   <string name="feed_item_type_featured_article">Dzisiejszy wyróżniony artykuł na Wikipedii</string>
   <string name="feed_item_type_main_page">Strona główna Wikipedii zawierająca dzienną wyróżnioną treść</string>
   <string name="feed_item_type_randomizer">Wylosuj artykuł do przeczytania</string>
@@ -474,4 +475,14 @@
   <string name="app_shortcuts_continue_reading">Czytaj dalej</string>
   <string name="app_shortcuts_search">Szukaj</string>
   <string name="back_to_top">Powrót do góry</string>
+  <string name="languages_list_activity_title">Dodaj język</string>
+  <string name="languages_list_suggested_text">Sugerowany</string>
+  <string name="languages_list_all_text">Wszystkie języki</string>
+  <string name="wikipedia_languages_your_languages_text">Twoje języki</string>
+  <string name="wikipedia_languages_add_language_text">Dodaj język</string>
+  <string name="wikipedia_languages_remove_text">Usuń</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Usuń język</string>
+  <string name="wikipedia_languages_remove_dialog_title">Usunąć wybrany język(i)?</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Nie można usunąć wszystkich języków</string>
+  <string name="more_language_options">więcej</string>
 </resources>

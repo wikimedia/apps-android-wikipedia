@@ -3,6 +3,7 @@
 * Danutz
 * Ely en
 * Envlh
+* Fitoschido
 * Macofe
 * Matrafox
 * Minisarm
@@ -273,4 +274,5 @@
     <item quantity="other">acum %d zile</item>
   </plurals>
   <string name="view_offline_card_text">Conținutul nu poate fi incărcat in modul offline.</string>
+  <string name="more_language_options">mai mult</string>
 </resources>
