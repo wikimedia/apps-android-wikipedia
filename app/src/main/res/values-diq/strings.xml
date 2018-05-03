@@ -15,7 +15,7 @@
   <string name="search_hint">Wikipediya de cı geyre</string>
   <string name="nav_item_history">Tarix</string>
   <string name="error_network_error">Şıma nêvawyayê internet.</string>
-  <string name="page_error_retry">Fına</string>
+  <string name="page_error_retry">Anciya bıcerrebne</string>
   <string name="page_error_back_to_main">Peyser şo</string>
   <string name="menu_clear_all_history">verore cı besterne</string>
   <string name="history_item_delete_undo">Peyser biya</string>
@@ -53,7 +53,7 @@
   <string name="dialog_saving_in_progress">Qeyd beno...</string>
   <string name="edit_saved_successfully">Vurnayış qeyd bi!</string>
   <string name="dialog_message_edit_failed">Vırnayış xırabiya!</string>
-  <string name="dialog_message_edit_failed_retry">Fına</string>
+  <string name="dialog_message_edit_failed_retry">Anciya bıcerrebne</string>
   <string name="dialog_message_edit_failed_cancel">Bıtexelne</string>
   <string name="dialog_message_leaving_edit_leave">Abıriye</string>
   <string name="dialog_message_leaving_edit_stay">Bıman</string>

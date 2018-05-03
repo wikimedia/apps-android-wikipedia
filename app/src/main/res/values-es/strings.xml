@@ -47,7 +47,7 @@
   <string name="history_item_delete_undo">Deshacer</string>
   <string name="app_settings">Configuración de aplicación</string>
   <string name="dialog_title_clear_history">Borrar el historial de navegación</string>
-  <string name="dialog_message_clear_history">Esto borrará todo tu historial de tu navegación, y cerrará cualquier pestaña abierta. ¿Estás seguro?</string>
+  <string name="dialog_message_clear_history">¿Confirmas que quieres vaciar el historial de navegación y cerrar cualesquier pestañas abiertas?</string>
   <string name="dialog_message_clear_history_yes">Sí</string>
   <string name="dialog_message_clear_history_no">No</string>
   <string name="share_via">Compartir mediante</string>
@@ -61,7 +61,7 @@
   <string name="menu_page_share">Compartir enlace</string>
   <string name="menu_long_press_open_page">Abrir</string>
   <string name="menu_long_press_open_in_new_tab">Abrir en una pestaña nueva</string>
-  <string name="menu_long_press_copy_page">Copiar enlace</string>
+  <string name="menu_long_press_copy_page">Copiar dirección del enlace</string>
   <string name="menu_text_select_copy">Copiar</string>
   <string name="menu_text_select_define">Definir</string>
   <string name="menu_text_select_share">Compartir</string>
@@ -82,7 +82,7 @@
   <string name="preference_languages_filter_hint">Buscar</string>
   <string name="langlinks_filter_hint">Buscar</string>
   <string name="langlinks_empty">Esta página no está disponible en otros idiomas.</string>
-  <string name="langlinks_no_match" fuzzy="true">No se encontraron idiomas que coincidan con tu consulta.</string>
+  <string name="langlinks_no_match">No se encontró ningún idioma</string>
   <string name="langlinks_activity_title">Otros idiomas</string>
   <string name="menu_save_changes">Publicar cambios</string>
   <string name="dialog_saving_in_progress">Publicando…</string>
@@ -410,11 +410,11 @@
   <string name="reading_list_turned_sync_off_dialog_ok">Aceptar</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Configuración</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">¿Quieres activar la sincronización de las listas de lectura?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">Los artículos guardados en listas de lectura ahora pueden ser sincronizados con tu cuenta de Wikipedia. &lt;a href=\"#faq\"&gt;Saber más&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Ahora es posible sincronizar los artículos de las listas de lectura en tu cuenta de Wikipedia. &lt;a href=\"#faq\"&gt;Más información&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">No mostrar de nuevo</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Activar sincronización</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No, gracias</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Artículos de las listas de lectura encontrados</string>
+  <string name="reading_list_login_option_reminder_dialog_title">Se encontraron artículos en las listas de lectura</string>
   <string name="reading_list_login_option_reminder_dialog_text">Los artículos fueron guardados a la lista de lectura mientras estabas sin iniciar sesión. ¿Desearía añadirlos a la lista de lectura de su cuenta?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Sí, añadirlos a mis listas de lectura</string>
   <string name="reading_list_login_option_reminder_dialog_no">No, eliminar los artículos</string>
@@ -494,8 +494,9 @@
   <string name="view_featured_article_footer_saved_button_label">Guardado</string>
   <string name="feed_configure_activity_title">Personalizar el canal</string>
   <string name="feed_configure_menu_reset">Restablecer vista predeterminada</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">Seleccionar todo</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">Cancelar toda selección</string>
+  <string name="feed_configure_menu_select_all">Mostrar todo</string>
+  <string name="feed_configure_menu_deselect_all">Ocultar todo</string>
+  <string name="feed_configure_language_warning">Observa que no todos los tipos de tarjetas están disponibles en todas las ediciones de Wikipedia. Modifica tus elecciones de idiomas en la configuración.</string>
   <string name="feed_item_type_news">Artículos sobre acontecimientos recientes</string>
   <string name="feed_item_type_on_this_day">Acontecimientos históricos de hoy</string>
   <string name="feed_item_type_continue_reading">Enlace rápido para leer un artículo abierto en una de tus pestañas</string>
@@ -639,4 +640,5 @@
   <string name="wikipedia_languages_remove_dialog_title">¿Quieres quitar los idiomas seleccionados?</string>
   <string name="wikipedia_languages_remove_dialog_content">Solo verás contenido en los idiomas restantes de Wikipedia en el suministro Explorar y los filtros de búsqueda rápida.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">No es posible quitar todos los idiomas</string>
+  <string name="more_language_options">más</string>
 </resources>

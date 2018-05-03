@@ -67,7 +67,7 @@
   <string name="preference_languages_filter_hint">חיפוש</string>
   <string name="langlinks_filter_hint">חיפוש</string>
   <string name="langlinks_empty">הדף הזה אינו זמין בשפות אחרות</string>
-  <string name="langlinks_no_match" fuzzy="true">לא נמצאות שפות התואמות לשאילתה שלך.</string>
+  <string name="langlinks_no_match">לא נמצאו שפות</string>
   <string name="langlinks_activity_title">שפות אחרות</string>
   <string name="menu_save_changes">פרסום השינויים</string>
   <string name="dialog_saving_in_progress">פרסום…</string>
@@ -479,8 +479,9 @@
   <string name="view_featured_article_footer_saved_button_label">נשמר</string>
   <string name="feed_configure_activity_title">התאמה אישית של ההזנה</string>
   <string name="feed_configure_menu_reset">שחזור התצוגה ההתחלתית</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">לבחור הכול</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">לבטל את הבחירה של הכול</string>
+  <string name="feed_configure_menu_select_all">להציג הכול</string>
+  <string name="feed_configure_menu_deselect_all">להסתיר הכול</string>
+  <string name="feed_configure_language_warning">לתשומת לבך: לא כל סוגי הכרטיסים זמינים בכל השפות של ויקיפדיה. באפשרותך לערוך את השפות שבחרת בהגדרות.</string>
   <string name="feed_item_type_news">ערכים על אירועים אקטואליים</string>
   <string name="feed_item_type_on_this_day">אירועים בהיסטוריה ביום הזה</string>
   <string name="feed_item_type_continue_reading">קישור מהיר חזרה לקריאת ערך פתוח באחת הלשוניות שלך</string>
@@ -625,4 +626,5 @@
   <string name="wikipedia_languages_remove_dialog_content">בהזנת הגילוי וכן במסנני החיפוש המהירים, יוצג רק תוכן בשפות הוויקיפדיה שמופיעות ברשימה.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">לא ניתן להסיר את כל השפות</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">יש להשאיר לפחות שפת ויקיפדיה אחת שבה ברצונך לחפש ולקרוא תוכן.</string>
+  <string name="more_language_options">עוד</string>
 </resources>

@@ -81,7 +81,7 @@
   <string name="preference_languages_filter_hint">Pesquisar</string>
   <string name="langlinks_filter_hint">Pesquisar</string>
   <string name="langlinks_empty">Esta página não está disponível em outros idiomas.</string>
-  <string name="langlinks_no_match" fuzzy="true">Nenhum idioma correspondente com a sua pesquisa.</string>
+  <string name="langlinks_no_match">Nenhum idioma encontrado</string>
   <string name="langlinks_activity_title">Outros idiomas</string>
   <string name="menu_save_changes">Publicar alterações</string>
   <string name="dialog_saving_in_progress">Publicando…</string>
@@ -493,8 +493,9 @@
   <string name="view_featured_article_footer_saved_button_label">Salvo</string>
   <string name="feed_configure_activity_title">Personalize o feed</string>
   <string name="feed_configure_menu_reset">Restaurar visualização padrão</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">Selecionar tudo</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">Desmarcar todos</string>
+  <string name="feed_configure_menu_select_all">Mostrar todos</string>
+  <string name="feed_configure_menu_deselect_all">Ocultar tudo</string>
+  <string name="feed_configure_language_warning">Note que nem todos os tipos de cartões estão disponíveis em todos os idiomas do Wikipedia. Edite seus idiomas selecionados em Configurações.</string>
   <string name="feed_item_type_news">Artigos sobre eventos atuais</string>
   <string name="feed_item_type_on_this_day">Eventos na história neste dia</string>
   <string name="feed_item_type_continue_reading">Link rápido para ler um artigo aberto em uma das suas abas</string>

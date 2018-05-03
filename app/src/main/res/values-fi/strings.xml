@@ -72,7 +72,7 @@
   <string name="preference_languages_filter_hint">Haku</string>
   <string name="langlinks_filter_hint">Haku</string>
   <string name="langlinks_empty">Tämä sivu ei ole saatavilla muilla kielillä</string>
-  <string name="langlinks_no_match" fuzzy="true">Hakuasi vastaavia kieliä ei löytynyt.</string>
+  <string name="langlinks_no_match">Kieliä ei löytynyt</string>
   <string name="langlinks_activity_title">Muilla kielillä</string>
   <string name="menu_save_changes">Julkaise muutokset</string>
   <string name="dialog_saving_in_progress">Julkaistaan...</string>
@@ -482,8 +482,8 @@
   <string name="view_featured_article_footer_saved_button_label">Tallennettu</string>
   <string name="feed_configure_activity_title">Mukauta syötettä</string>
   <string name="feed_configure_menu_reset">Palauta oletusnäkymä</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">Valitse kaikki</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">Poista kaikki valinnat</string>
+  <string name="feed_configure_menu_select_all">Näytä kaikki</string>
+  <string name="feed_configure_menu_deselect_all">Piilota kaikki</string>
   <string name="feed_item_type_news">Artikkelit ajankohtaisista tapahtumista</string>
   <string name="feed_item_type_on_this_day">Tapahtumat historiassa tänä päivänä</string>
   <string name="feed_item_type_continue_reading">Pikalinkki takaisin lukemaan avointa artikkelia yhdellä välilehdistasi</string>
@@ -626,4 +626,5 @@
   <string name="wikipedia_languages_remove_action_mode_title">Poista kieli</string>
   <string name="wikipedia_languages_remove_dialog_title">Poista valittu kieli/valitut kielet?</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Ei voi poistaa kaikkia kieliä</string>
+  <string name="more_language_options">lisää</string>
 </resources>

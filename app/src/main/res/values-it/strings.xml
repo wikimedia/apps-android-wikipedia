@@ -82,7 +82,7 @@
   <string name="preference_languages_filter_hint">Ricerca</string>
   <string name="langlinks_filter_hint">Cerca</string>
   <string name="langlinks_empty">Questa pagina non è disponibile in altre lingue</string>
-  <string name="langlinks_no_match" fuzzy="true">Nessuna lingua trovata che corrisponda alla richiesta.</string>
+  <string name="langlinks_no_match">Nessuna lingua trovata</string>
   <string name="langlinks_activity_title">Altre lingue</string>
   <string name="menu_save_changes">Pubblica modifiche</string>
   <string name="dialog_saving_in_progress">Pubblicazione…</string>
@@ -419,8 +419,9 @@
   <string name="view_featured_article_footer_save_button_label">Salva</string>
   <string name="view_featured_article_footer_saved_button_label">Salvato</string>
   <string name="feed_configure_activity_title">Personalizza il feed</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">Seleziona tutto</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">Deseleziona tutto</string>
+  <string name="feed_configure_menu_select_all">Mostra tutto</string>
+  <string name="feed_configure_menu_deselect_all">Nascondi tutto</string>
+  <string name="feed_configure_language_warning">Nota che non tutti i tipi di contenuti sono disponibili in tutte le lingue di Wikipedia. Modifica la tua lingua selezionata nelle impostazioni.</string>
   <string name="feed_item_type_news">Voci su eventi attuali</string>
   <string name="feed_item_type_on_this_day">Eventi nella storia in questo giorno</string>
   <string name="feed_item_type_because_you_read">Suggerimenti basati su una voce letta di recente dalla tua cronologia</string>
@@ -509,6 +510,7 @@
   <string name="wikipedia_languages_remove_action_mode_title">Rimuovi lingua</string>
   <string name="wikipedia_languages_remove_dialog_title">Rimuovere le lingue selezionate?</string>
   <string name="wikipedia_languages_remove_dialog_content">Veisualizzerai solo il contenuto sul collegamento Explore e filtri di ricerca rapida per le restanti lingue di Wikipedia.</string>
-  <string name="wikipedia_languages_remove_warning_dialog_title">Impossibile eliminare tutte le lingue</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Impossibile rimuovere tutte le lingue</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantieni almeno una lingua Wikipedia da cui potrai cercare e leggere il contenuto.</string>
+  <string name="more_language_options">altro</string>
 </resources>

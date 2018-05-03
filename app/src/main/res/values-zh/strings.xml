@@ -71,7 +71,7 @@
   <string name="preference_languages_filter_hint">搜索</string>
   <string name="langlinks_filter_hint">搜索</string>
   <string name="langlinks_empty">该页面没有其他语言版本。</string>
-  <string name="langlinks_no_match" fuzzy="true">未找到匹配您的查询的语言。</string>
+  <string name="langlinks_no_match">找不到语言</string>
   <string name="langlinks_activity_title">其他语言</string>
   <string name="menu_save_changes">发布更改</string>
   <string name="dialog_saving_in_progress">正在发布…</string>
@@ -483,8 +483,9 @@
   <string name="view_featured_article_footer_saved_button_label">已保存</string>
   <string name="feed_configure_activity_title">自定义订阅源</string>
   <string name="feed_configure_menu_reset">恢复默认视图</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">全选</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">取消全选</string>
+  <string name="feed_configure_menu_select_all">显示全部</string>
+  <string name="feed_configure_menu_deselect_all">隐藏全部</string>
+  <string name="feed_configure_language_warning">注意不是所有卡片类型都在所有维基百科语言可用。在设置中编辑您的首选语言。</string>
   <string name="feed_item_type_news">有关当前活动的条目</string>
   <string name="feed_item_type_on_this_day">这一天历史上的活动</string>
   <string name="feed_item_type_continue_reading">阅读您的标签中一个开启条目的快速返回链接</string>
@@ -629,4 +630,5 @@
   <string name="wikipedia_languages_remove_dialog_content">您将只在探索订阅源和快速搜索过滤器中看见其余维基百科语言的内容。</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">不能移除所有语言</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">请保持至少一种维基百科语言供搜索和阅读内容。</string>
+  <string name="more_language_options">更多</string>
 </resources>

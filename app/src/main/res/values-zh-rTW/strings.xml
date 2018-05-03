@@ -71,7 +71,7 @@
   <string name="preference_languages_filter_hint">搜尋</string>
   <string name="langlinks_filter_hint">搜尋</string>
   <string name="langlinks_empty">此頁面沒有其他語言版本。</string>
-  <string name="langlinks_no_match" fuzzy="true">未找到符合您的查詢的語言。</string>
+  <string name="langlinks_no_match">未找到語言</string>
   <string name="langlinks_activity_title">其他語言</string>
   <string name="menu_save_changes">發佈修改</string>
   <string name="dialog_saving_in_progress">發佈中…</string>
@@ -483,8 +483,9 @@
   <string name="view_featured_article_footer_saved_button_label">已儲存</string>
   <string name="feed_configure_activity_title">設置訊息來源</string>
   <string name="feed_configure_menu_reset">重新設定預設檢視</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">選擇全部</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">取消全選</string>
+  <string name="feed_configure_menu_select_all">顯示全部</string>
+  <string name="feed_configure_menu_deselect_all">隱藏全部</string>
+  <string name="feed_configure_language_warning">請注意在所有維基百科語言上並非全部卡片類型皆可用。請在設定裡編輯您所選的語言。</string>
   <string name="feed_item_type_news">有關目前最新事件的條目</string>
   <string name="feed_item_type_on_this_day">在歷史上的今天之事件</string>
   <string name="feed_item_type_continue_reading">快速連結返回至您分頁裡來閱讀一個所開啓條目</string>

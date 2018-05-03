@@ -25,6 +25,7 @@
   <string name="search_hint_search_history">Keresés az előzményekben</string>
   <string name="search_hint_search_my_lists">Keresés a listáimban</string>
   <string name="search_hint_search_reading_list">Keresés az olvasólistában</string>
+  <string name="search_hint_search_languages">Nyelv keresése</string>
   <string name="nav_item_history">Előzmények</string>
   <string name="error_network_error">Nem sikerült csatlakozni az internethez.</string>
   <string name="page_error_retry">Újra</string>
@@ -70,7 +71,7 @@
   <string name="preference_languages_filter_hint">Keresés</string>
   <string name="langlinks_filter_hint">Keresés</string>
   <string name="langlinks_empty">Ez a lap nem érhető el más nyelveken</string>
-  <string name="langlinks_no_match" fuzzy="true">Nem található a kérésnek megfelelő nyelv.</string>
+  <string name="langlinks_no_match">Nem található ilyen nyelv.</string>
   <string name="langlinks_activity_title">További nyelvek</string>
   <string name="menu_save_changes">Változtatások közzététele</string>
   <string name="dialog_saving_in_progress">Közzététel…</string>
@@ -453,8 +454,8 @@
   <string name="view_featured_article_footer_saved_button_label">Elmentve</string>
   <string name="feed_configure_activity_title">A hírcsatorna testreszabása</string>
   <string name="feed_configure_menu_reset">Alapértelmezett nézet visszaállítása</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">Összes megjelenítése</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">Összes elrejtése</string>
+  <string name="feed_configure_menu_select_all">Összes megjelenítése</string>
+  <string name="feed_configure_menu_deselect_all">Összes elrejtése</string>
   <string name="feed_item_type_news">Szócikkek aktuális eseményekről</string>
   <string name="feed_item_type_on_this_day">Történelmi események ezen a napon</string>
   <string name="feed_item_type_because_you_read">Ajánlatok egy nemrég olvasott szócikk alapján</string>
@@ -581,4 +582,13 @@
     <item quantity="one">Tavaly</item>
     <item quantity="other">%d éve</item>
   </plurals>
+  <string name="languages_list_activity_title">Nyelv megadása</string>
+  <string name="languages_list_all_text">Minden nyelv</string>
+  <string name="wikipedia_languages_title">Wikipédia nyelvek</string>
+  <string name="wikipedia_languages_your_languages_text">Nyelveid</string>
+  <string name="wikipedia_languages_add_language_text">Nyelv hozzáadása</string>
+  <string name="wikipedia_languages_remove_text">Eltávolítás</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Nyelv eltávolítása</string>
+  <string name="wikipedia_languages_remove_dialog_title">Eltávolítod a kijelölt nyelv(ek)et?</string>
+  <string name="more_language_options">több</string>
 </resources>

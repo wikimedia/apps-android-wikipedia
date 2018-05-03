@@ -57,7 +57,7 @@
   <string name="preference_languages_filter_hint">Pretraži</string>
   <string name="langlinks_filter_hint">Pretraži</string>
   <string name="langlinks_empty">Ova stranica nije dostupna na drugim jezicima.</string>
-  <string name="langlinks_no_match" fuzzy="true">Nisu pronađeni jezici koji odgovaraju Vašem upitu.</string>
+  <string name="langlinks_no_match">Nije pronađen nijedan jezik</string>
   <string name="langlinks_activity_title">Drugi jezici</string>
   <string name="menu_save_changes">Objavi izmjene</string>
   <string name="dialog_saving_in_progress">Objavljujem...</string>
@@ -421,8 +421,9 @@
   <string name="view_featured_article_footer_saved_button_label">Sačuvano</string>
   <string name="feed_configure_activity_title">Prilagodi stranicu</string>
   <string name="feed_configure_menu_reset">Vrati predodređeni izgled</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">Izaberi sve</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">Poništi izabrano</string>
+  <string name="feed_configure_menu_select_all">Prikaži sve</string>
+  <string name="feed_configure_menu_deselect_all">Sakrij sve</string>
+  <string name="feed_configure_language_warning">Imajte na umu da nisu sve kartice dostupne na svim jezičkim izdanjima Wikipedije. Izmijenite izabrane jezike u Postavkama.</string>
   <string name="feed_item_type_news">Članci o aktualnim događajima</string>
   <string name="feed_item_type_on_this_day">Historijski događaji na ovaj dan</string>
   <string name="feed_item_type_continue_reading">Brzi link za nastavak čitanja članka otvorenog u nekoj kartici</string>
@@ -522,6 +523,7 @@
     <item quantity="one">Prošle godine</item>
     <item quantity="other">Prije %d god.</item>
   </plurals>
+  <string name="languages_list_activity_title">Dodaj jezik</string>
   <string name="languages_list_suggested_text">Predloženi</string>
   <string name="languages_list_all_text">Svi jezici</string>
   <string name="wikipedia_languages_title">Jezik Wikipedije</string>

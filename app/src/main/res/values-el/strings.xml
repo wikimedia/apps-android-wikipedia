@@ -66,7 +66,7 @@
   <string name="preference_languages_filter_hint">Αναζήτηση</string>
   <string name="langlinks_filter_hint">Αναζήτηση</string>
   <string name="langlinks_empty">Αυτή η σελίδα δεν είναι διαθέσιμη σε άλλες γλώσσες</string>
-  <string name="langlinks_no_match" fuzzy="true">Δεν βρέθηκαν γλώσσες να αντιστοιχούν στο ερώτημά σας.</string>
+  <string name="langlinks_no_match">Δεν βρέθηκαν γλώσσες</string>
   <string name="langlinks_activity_title">Άλλες γλώσσες</string>
   <string name="menu_save_changes">Δημοσίευση αλλαγών</string>
   <string name="dialog_saving_in_progress">Δημοσιεύεται…</string>
@@ -166,6 +166,8 @@
   <string name="terms_of_use_description">Όροι χρήσης</string>
   <string name="about_wikipedia_url">https://el.m.wikipedia.org/wiki/Βικιπαίδεια:Σχετικά</string>
   <string name="privacy_policy_url">https://. wikimediafoundation.org/wiki/Privacy_policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.el</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/3.0/</string>
@@ -287,6 +289,7 @@
   <string name="preference_title_prefer_offline_content">Προτίμηση περιεχόμενου εκτός σύνδεσης</string>
   <string name="preference_title_enable_offline_library">Ενεργοποίηση της βιβλιοθήκης εκτός σύνδεσης</string>
   <string name="preference_summary_enable_offline_library">Πηγαίνετε στα πακέτα άρθρων (όπως δείχνεται στους φακέλλους ΖΙΜ)που έχετε κατεβάσει στον υπολογιστή σας για ανάγνωση όταν είστε offline &lt;a href=\'\'https://www.mediawiki.org/wiki/wikiWikimedia_Apps/Offline_support\'\'. Βρείτε περισσότερα &lt;a/&gt;</string>
+  <string name="crash_report_dialog_title">Λυπούμαστε, η εφαρμογή κράσαρε την τελευταία φορά</string>
   <string name="crash_report_dialog_dont_send_button">Παράβλεψη</string>
   <string name="crash_report_dialog_always_send_button">Αποστολή πάντα</string>
   <string name="crash_report_dialog_send_button">Αποστολή</string>
@@ -319,6 +322,7 @@
   <string name="format_reading_list_statistical_summary_singular">1 λήμμα, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d λήμματα, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d 1 λημμάτων διαθέσιμα εκτός σύνδεσης, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d από %2$d λήμματα διαθέσιμα εκτός σύνδεσης, %3$.2f MB</string>
   <string name="reading_list_sort">Ταξινόμηση</string>
   <string name="reading_list_sort_ellipsis">Ταξινόμηση κατά...</string>
   <string name="reading_list_sort_by_name">Ταξινόμηση κατά όνομα</string>
@@ -366,6 +370,7 @@
   <string name="reading_lists_confirm_remote_delete_no">Όχι</string>
   <string name="reading_list_added_articles_list_titled">Προστέθηκαν %1$d λήμματα στο %2$s</string>
   <string name="reading_list_delete_confirm">Είστε σίγουρος ότι θέλετε να διαγράψετε το %s;</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Συνδεθείτε για να ενεργοποιήσετε τον συγχρονισμό</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Ακύρωση</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Είσοδος</string>
   <string name="reading_list_turned_sync_off_dialog_text">Ο συγχρονισμός λίστας ανάγνωσης είναι απενεργοποιημένος για το λογαριασμό σας και τα αποθηκευμένα άρθρα στις συνδεδεμένες συσκευές δεν υποστηρίζονται πλέον. Ενεργοποιήστε τον συγχρονισμό λίστας ανάγνωσης στις Ρυθμίσεις</string>
@@ -411,6 +416,7 @@
   <string name="notification_syncing_pause_button">Παύση</string>
   <string name="notification_syncing_resume_button">συνέχεια</string>
   <string name="notification_syncing_cancel_button">Ακύρωση</string>
+  <string name="notification_syncing_reading_list_title">Συγχρονισμός %1$d λίστα(-ών) σε εξέλιξη...</string>
   <string name="notification_syncing_reading_list_description">Έμειναν %1$d λίστες</string>
   <string name="view_continue_reading_card_title">Συνέχεια ανάγνωσης</string>
   <string name="view_because_you_read_card_title">Επειδή διαβάσατε</string>
@@ -444,8 +450,9 @@
   <string name="view_featured_article_footer_saved_button_label">Αποθηκεύθηκε</string>
   <string name="feed_configure_activity_title">Διαμορφώστε τη ροή</string>
   <string name="feed_configure_menu_reset">Επαναφορά της προεπιλεγμένης προβολής</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">Επιλογή όλων</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">Αποεπιλογή όλων</string>
+  <string name="feed_configure_menu_select_all">Εμφάνιση όλων</string>
+  <string name="feed_configure_menu_deselect_all">Απόκρυψη όλων</string>
+  <string name="feed_configure_language_warning">Σημειώστε ότι δεν είναι διαθέσιμοι όλοι οι τύποι καρτών σε όλες τις γλώσσες της Βικιπαίδειας. Επεξεργαστείτε την επιλεγμένη γλώσσα σας στις Ρυθμίσεις.</string>
   <string name="feed_item_type_news">Λήμματα για τρέχοντα γεγονότα</string>
   <string name="feed_item_type_on_this_day">Γεγονότα στην ιστορία αυτή την ημέρα</string>
   <string name="feed_item_type_because_you_read">Προτάσεις βασισμένες σε ένα πρόσφατα διαβασμένο άρθρο από το ιστορικό σας</string>
@@ -571,6 +578,7 @@
   <string name="wikipedia_languages_add_language_text">Προσθήκη γλώσσας</string>
   <string name="wikipedia_languages_remove_text">Αφαίρεση</string>
   <string name="wikipedia_languages_remove_action_mode_title">Αφαίρεση γλώσσας</string>
+  <string name="wikipedia_languages_remove_dialog_title">Αφαίρεση των επιλεγμένων γλώσσα(-ών);</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Δεν μπορούν να αφαιρεθούν όλες οι γλώσσες</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Κρατήστε τουλάχιστον μια γλώσσα Βικιπαίδειας από την οποία θα γίνεται αναζήτηση και ανάγνωση περιεχομένου.</string>
 </resources>
