@@ -1,13 +1,17 @@
 package org.wikipedia.views;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +21,7 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.ResourceUtil;
 
 import java.util.List;
 
@@ -26,7 +31,7 @@ import butterknife.OnClick;
 
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
-public class LanguageScrollView extends LinearLayout {
+public class LanguageScrollView extends ConstraintLayout {
     public interface Callback {
         void onLanguageTabSelected(String selectedLanguageCode);
         void onLanguageButtonClicked();
@@ -34,6 +39,7 @@ public class LanguageScrollView extends LinearLayout {
 
     @BindView(R.id.horizontal_scroll_languages) TabLayout horizontalLanguageScroll;
     @BindView(R.id.more_languages) TextView moreButton;
+    @BindView(R.id.horizontal_scroll_languages_gradient) View gradientView;
     private Callback callback;
     private List<String> languagecodes;
     private static final int LANG_BUTTON_TEXT_SIZE_LARGER = 12;
@@ -74,6 +80,16 @@ public class LanguageScrollView extends LinearLayout {
                 updateTabView(true, tab);
             }
         });
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        super.onLayout(changed, l, t, r, b);
+        if (gradientView.getBackground() == null) {
+            gradientView.setBackground(new GradientDrawable(ViewCompat.getLayoutDirection(this) == LAYOUT_DIRECTION_LTR
+                    ? GradientDrawable.Orientation.LEFT_RIGHT : GradientDrawable.Orientation.RIGHT_LEFT,
+                    new int[]{Color.TRANSPARENT, ResourceUtil.getThemedColor(getContext(), R.attr.page_toolbar_color)}));
+        }
     }
 
     private void updateTabView(boolean selected, TabLayout.Tab tab) {
