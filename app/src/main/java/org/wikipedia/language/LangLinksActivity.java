@@ -84,7 +84,7 @@ public class LangLinksActivity extends BaseActivity {
         ButterKnife.bind(this);
         app = WikipediaApp.getInstance();
 
-        if (!getIntent().getAction().equals(ACTION_LANGLINKS_FOR_TITLE)) {
+        if (!ACTION_LANGLINKS_FOR_TITLE.equals(getIntent().getAction())) {
             throw new RuntimeException("Only ACTION_LANGLINKS_FOR_TITLE is supported");
         }
 
@@ -340,17 +340,6 @@ public class LangLinksActivity extends BaseActivity {
         @Override
         public void onBindViewHolder(@NonNull DefaultViewHolder holder, int pos) {
             holder.bindItem(pos);
-            if (holder instanceof LangLinksItemViewHolder) {
-                holder.itemView.setOnClickListener((View view) -> {
-                    PageTitle langLink = languageEntries.get(pos);
-                    app.language().addMruLanguageCode(langLink.getWikiSite().languageCode());
-                    HistoryEntry historyEntry = new HistoryEntry(langLink, HistoryEntry.SOURCE_LANGUAGE_LINK);
-                    Intent intent = PageActivity.newIntentForCurrentTab(LangLinksActivity.this, historyEntry, langLink);
-                    setResult(ACTIVITY_RESULT_LANGLINK_SELECT, intent);
-                    hideSoftKeyboard(LangLinksActivity.this);
-                    finish();
-                });
-            }
         }
 
         boolean shouldShowSectionHeader(int position) {
@@ -407,17 +396,16 @@ public class LangLinksActivity extends BaseActivity {
 
         void bindItem(int position) {
             // TODO: Optimize this
-            PageTitle item = languageEntries.get(position);
-            String sectionHeaderText = item.getDisplayText();
-            sectionHeaderTextView.setText(sectionHeaderText);
+            sectionHeaderTextView.setText(languageEntries.get(position).getDisplayText());
         }
     }
 
-    private class LangLinksItemViewHolder extends DefaultViewHolder {
+    private class LangLinksItemViewHolder extends DefaultViewHolder implements View.OnClickListener {
         private TextView localizedLanguageNameTextView;
         private TextView nonLocalizedLanguageNameTextView;
         private TextView articleTitleTextView;
         private final List<PageTitle> languageEntries;
+        private int pos;
 
         LangLinksItemViewHolder(@NonNull List<PageTitle> languageEntries, View itemView) {
             super(languageEntries, itemView);
@@ -428,7 +416,7 @@ public class LangLinksActivity extends BaseActivity {
         }
 
         void bindItem(int position) {
-
+            pos = position;
             PageTitle item = languageEntries.get(position);
             String languageCode = item.getWikiSite().languageCode();
             String localizedLanguageName = app.language().getAppLanguageLocalizedName(languageCode);
@@ -446,7 +434,18 @@ public class LangLinksActivity extends BaseActivity {
                 nonLocalizedLanguageNameTextView.setText(TextUtils.isEmpty(canonicalName)
                         ? app.language().getAppLanguageCanonicalName(languageCode) : canonicalName);
             }
+            itemView.setOnClickListener(this);
+        }
 
+        @Override
+        public void onClick(View v) {
+            PageTitle langLink = languageEntries.get(pos);
+            app.language().addMruLanguageCode(langLink.getWikiSite().languageCode());
+            HistoryEntry historyEntry = new HistoryEntry(langLink, HistoryEntry.SOURCE_LANGUAGE_LINK);
+            Intent intent = PageActivity.newIntentForCurrentTab(LangLinksActivity.this, historyEntry, langLink);
+            setResult(ACTIVITY_RESULT_LANGLINK_SELECT, intent);
+            hideSoftKeyboard(LangLinksActivity.this);
+            finish();
         }
     }
 
