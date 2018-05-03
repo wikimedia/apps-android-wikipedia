@@ -54,6 +54,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static org.wikipedia.feed.onthisday.OnThisDayActivity.AGE;
+import static org.wikipedia.feed.onthisday.OnThisDayActivity.WIKISITE;
 
 public class OnThisDayFragment extends Fragment implements CustomDatePicker.Callback, OnThisDayActionsDialog.Callback{
     @BindView(R.id.day) TextView dayText;
@@ -78,22 +79,25 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     public static final int PADDING1 = 21, PADDING2 = 38, PADDING3 = 21;
     public static final float HALF_ALPHA = 0.5f;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
+    private WikiSite wiki;
 
     @NonNull
-    public static OnThisDayFragment newInstance(int age) {
+    public static OnThisDayFragment newInstance(int age, WikiSite wikiSite) {
         OnThisDayFragment instance = new OnThisDayFragment();
         Bundle args = new Bundle();
         args.putInt(AGE, age);
+        args.putParcelable(WIKISITE, wikiSite);
         instance.setArguments(args);
         return instance;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_on_this_day, container, false);
         unbinder = ButterKnife.bind(this, view);
-        int age = getActivity().getIntent().getIntExtra(AGE, 0);
+        int age = requireActivity().getIntent().getIntExtra(AGE, 0);
+        wiki = requireActivity().getIntent().getParcelableExtra(WIKISITE);
         date = DateUtil.getDefaultDateFor(age);
         setUpToolbar();
         eventsRecycler.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
@@ -102,10 +106,10 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         eventsRecycler.addItemDecoration(new HeaderMarginItemDecoration(topDecorationDp, 0));
         setUpRecycler(eventsRecycler);
 
-        errorView.setBackClickListener(v -> getActivity().finish());
+        errorView.setBackClickListener(v -> requireActivity().finish());
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
-                && getActivity().getWindow().getSharedElementEnterTransition() != null
+                && requireActivity().getWindow().getSharedElementEnterTransition() != null
                 && savedInstanceState == null) {
             final int animDelay = 500;
             dayText.postDelayed(() -> {
@@ -132,14 +136,14 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     }
 
     public void onBackPressed() {
-        dayText.setTextColor(ResourceUtil.getThemedColor(getContext(), R.attr.primary_text_color));
+        dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_text_color));
     }
 
     private void updateContents(int age) {
         Calendar today = DateUtil.getDefaultDateFor(age);
         requestEvents(today.get(Calendar.MONTH), today.get(Calendar.DATE));
-        funnel = new OnThisDayFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().getWikiSite(),
-                getActivity().getIntent().getIntExtra(OnThisDayActivity.INVOKE_SOURCE_EXTRA, 0));
+        funnel = new OnThisDayFunnel(WikipediaApp.getInstance(), wiki,
+                requireActivity().getIntent().getIntExtra(OnThisDayActivity.INVOKE_SOURCE_EXTRA, 0));
     }
 
     private void requestEvents(int month, int date) {
@@ -147,7 +151,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         eventsRecycler.setVisibility(View.GONE);
         errorView.setVisibility(View.GONE);
 
-        new OnThisDayFullListClient().request(month + 1, date).enqueue(new Callback<OnThisDay>() {
+        new OnThisDayFullListClient().request(month + 1, date, wiki).enqueue(new Callback<OnThisDay>() {
             @Override
             public void onResponse(@NonNull Call<OnThisDay> call, @NonNull Response<OnThisDay> response) {
                 if (!isAdded()) {
@@ -160,7 +164,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
                 }
                 progressBar.setVisibility(View.GONE);
                 eventsRecycler.setVisibility(View.VISIBLE);
-                eventsRecycler.setAdapter(new RecyclerAdapter(onThisDay.events(), WikipediaApp.getInstance().getWikiSite()));
+                eventsRecycler.setAdapter(new RecyclerAdapter(onThisDay.events(), wiki));
                 List<OnThisDay.Event> events = onThisDay.events();
                 int beginningYear = events.get(events.size() - 1).year();
                 dayInfoTextView.setText(String.format(getString(R.string.events_count_text), Integer.toString(events.size()),
@@ -220,7 +224,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     }
 
     private void setUpRecycler(RecyclerView recycler) {
-        recycler.addItemDecoration(new MarginItemDecoration(getContext(),
+        recycler.addItemDecoration(new MarginItemDecoration(requireContext(),
                 R.dimen.view_horizontal_scrolling_list_card_item_margin_horizontal,
                 R.dimen.view_horizontal_scrolling_list_card_item_margin_vertical,
                 R.dimen.view_horizontal_scrolling_list_card_item_margin_horizontal,
@@ -252,7 +256,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         CustomDatePicker newFragment = new CustomDatePicker();
         newFragment.setSelectedDay(date.get(Calendar.MONTH), date.get(Calendar.DATE));
         newFragment.setCallback(OnThisDayFragment.this);
-        newFragment.show(getFragmentManager(), "date picker");
+        newFragment.show(requireFragmentManager(), "date picker");
     }
 
     @OnClick(R.id.indicator_layout)
@@ -285,8 +289,8 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             this.events = events;
         }
 
-        @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+        @NonNull @Override
+        public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
             if (viewType == VIEW_TYPE_FOOTER) {
                 View itemView = LayoutInflater.from(viewGroup.getContext()).
                         inflate(R.layout.view_on_this_day_footer, viewGroup, false);
@@ -299,7 +303,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         }
 
         @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
             if (holder instanceof EventsViewHolder) {
                 ((EventsViewHolder) holder).setFields(events.get(position),
                         position > 0 ? events.get(position - 1) : null);

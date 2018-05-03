@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 import org.wikipedia.settings.Prefs;
@@ -19,8 +18,7 @@ import retrofit2.http.Path;
 public class OnThisDayFullListClient {
     @Nullable private Call<OnThisDay> call;
 
-    public Call<OnThisDay> request(int month, int date) {
-        WikiSite wiki = WikipediaApp.getInstance().getWikiSite();
+    public Call<OnThisDay> request(int month, int date, @NonNull WikiSite wiki) {
         String endpoint = String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), wiki.scheme(),
                 wiki.authority());
         Retrofit retrofit = RetrofitFactory.newInstance(endpoint, wiki);
