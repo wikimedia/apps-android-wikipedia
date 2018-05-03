@@ -230,7 +230,7 @@ public class LanguagesListActivity extends BaseActivity {
         }
 
         // To remove the already selected languages and suggested languages from all languages list
-       private List<String> getNonDuplicateLanguageCodesList() {
+        private List<String> getNonDuplicateLanguageCodesList() {
             List<String> list = new ArrayList<>(originalLanguageCodes);
             list.removeAll(app.language().getAppLanguageCodes());
             list.removeAll(suggestedLanguageCodes);
@@ -245,6 +245,7 @@ public class LanguagesListActivity extends BaseActivity {
             for (SiteMatrixClient.SiteInfo info : siteInfoList) {
                 if (code.equals(info.code())) {
                     canonicalName = info.localName();
+                    break;
                 }
             }
         }

@@ -141,7 +141,7 @@
         <activity
             android:name=".language.LangLinksActivity"
             android:label="@string/langlinks_activity_title"
-            android:theme="@style/AppTheme.ActionBar.Page"
+            android:theme="@style/AppTheme.ActionBar.LanguagesList"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".language.LanguagesListActivity"
