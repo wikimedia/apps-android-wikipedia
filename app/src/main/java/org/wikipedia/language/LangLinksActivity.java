@@ -376,8 +376,13 @@ public class LangLinksActivity extends BaseActivity {
                 languageEntries.add(new PageTitle(getString(R.string.langlinks_your_wikipedia_languages), app.getWikiSite()));
                 languageEntries.addAll(appLanguageEntries);
             }
-            languageEntries.add(new PageTitle(getString(R.string.languages_list_all_text), app.getWikiSite()));
-            languageEntries.addAll(getNonDuplicateEntries());
+
+            List<PageTitle> remainingEntries = getNonDuplicateEntries();
+            if (remainingEntries.size() > 0) {
+                languageEntries.add(new PageTitle(getString(R.string.languages_list_all_text), app.getWikiSite()));
+                languageEntries.addAll(remainingEntries);
+            }
+
             notifyDataSetChanged();
         }
 
