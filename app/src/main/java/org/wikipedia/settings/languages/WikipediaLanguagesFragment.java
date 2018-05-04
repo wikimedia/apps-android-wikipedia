@@ -188,28 +188,30 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
         @Override
         public void onBindViewHolder(@NonNull DefaultViewHolder holder, int pos) {
             if (holder instanceof WikipediaLanguageItemHolder) {
-                if (launchedFromSearch()) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        ((WikipediaLanguageItemHolder) holder).getView().setForeground(ContextCompat.getDrawable(requireContext(),
-                                ResourceUtil.getThemedAttributeId(requireContext(), R.attr.selectableItemBackground)));
-                    }
-                    ((WikipediaLanguageItemHolder) holder).getView().setOnClickListener(view -> {
-                        Intent resultIntent = new Intent();
-                        resultIntent.putExtra(ACTIVITY_RESULT_LANG_POSITION_DATA, pos - NUM_HEADERS);
-                        requireActivity().setResult(RESULT_OK, resultIntent);
-                        requireActivity().finish();
-                    });
+                WikipediaLanguageItemHolder itemHolder = ((WikipediaLanguageItemHolder) holder);
+                itemHolder.bindItem(wikipediaLanguages.get(pos - NUM_HEADERS), pos - NUM_FOOTERS);
+                itemHolder.getView().setDragHandleEnabled(wikipediaLanguages.size() > 1);
+                itemHolder.getView().setCheckBoxEnabled(checkboxEnabled);
+                itemHolder.getView().setOnClickListener(launchedFromSearch() && actionMode == null
+                        ? view -> {
+                            Intent resultIntent = new Intent();
+                            resultIntent.putExtra(ACTIVITY_RESULT_LANG_POSITION_DATA, pos - NUM_HEADERS);
+                            requireActivity().setResult(RESULT_OK, resultIntent);
+                            requireActivity().finish();
+                        } : null);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    itemHolder.getView().setForeground(launchedFromSearch() && actionMode == null
+                            ? ContextCompat.getDrawable(requireContext(),
+                            ResourceUtil.getThemedAttributeId(requireContext(), R.attr.selectableItemBackground)) : null);
                 }
-                ((WikipediaLanguageItemHolder) holder).bindItem(wikipediaLanguages.get(pos - NUM_HEADERS), pos - NUM_FOOTERS);
-                ((WikipediaLanguageItemHolder) holder).getView().setDragHandleEnabled(wikipediaLanguages.size() > 1);
-                ((WikipediaLanguageItemHolder) holder).getView().setCheckBoxEnabled(checkboxEnabled);
             }
         }
 
         @Override public void onViewAttachedToWindow(@NonNull DefaultViewHolder holder) {
             super.onViewAttachedToWindow(holder);
             if (holder instanceof WikipediaLanguageItemHolder) {
-                ((WikipediaLanguageItemHolder) holder).getView().setDragHandleTouchListener((v, event) -> {
+                WikipediaLanguageItemHolder itemHolder = ((WikipediaLanguageItemHolder) holder);
+                itemHolder.getView().setDragHandleTouchListener((v, event) -> {
                     switch (event.getActionMasked()) {
                         case MotionEvent.ACTION_DOWN:
                             itemTouchHelper.startDrag(holder);
@@ -222,7 +224,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
                     }
                     return false;
                 });
-                ((WikipediaLanguageItemHolder) holder).getView().setCallback(WikipediaLanguagesFragment.this);
+                itemHolder.getView().setCallback(WikipediaLanguagesFragment.this);
             } else if (holder instanceof FooterViewHolder) {
                 holder.getView().setVisibility(checkboxEnabled ? View.GONE : View.VISIBLE);
                 holder.getView().setOnClickListener(v -> {
@@ -233,8 +235,9 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
         }
         @Override public void onViewDetachedFromWindow(@NonNull DefaultViewHolder holder) {
             if (holder instanceof WikipediaLanguageItemHolder) {
-                ((WikipediaLanguageItemHolder) holder).getView().setCallback(null);
-                ((WikipediaLanguageItemHolder) holder).getView().setDragHandleTouchListener(null);
+                WikipediaLanguageItemHolder itemHolder = ((WikipediaLanguageItemHolder) holder);
+                itemHolder.getView().setCallback(null);
+                itemHolder.getView().setDragHandleTouchListener(null);
             }
             super.onViewDetachedFromWindow(holder);
         }
