@@ -78,6 +78,10 @@ public final class LanguageUtil {
                     if (!TextUtils.isEmpty(langCode) && !languages.contains(langCode) && !langCode.equals("und")) {
                         languages.add(langCode);
                     }
+                    // To add both Traditional Chinese and Simplified Chinese if a Pinyin keyboard enabled
+                    if (langTagList.get(i).toLowerCase().equals(AppLanguageLookUpTable.CHINESE_CN_LANGUAGE_CODE)) {
+                        languages.add(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE);
+                    }
                 }
             }
         }

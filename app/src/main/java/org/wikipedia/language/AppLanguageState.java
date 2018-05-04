@@ -81,8 +81,11 @@ public class AppLanguageState {
         if (appLanguageCodes.isEmpty()) {
             if (!TextUtils.isEmpty(appLanguageCode)) {
                 addAppLanguageCode(appLanguageCode);
-            } else {
+            } else if (Prefs.isInitialOnboardingEnabled()) {
                 setAppLanguageCodes(getRemainingAvailableLanguageCodes());
+            } else {
+                // If user has never changed app language before
+                addAppLanguageCode(getSystemLanguageCode());
             }
         }
     }
