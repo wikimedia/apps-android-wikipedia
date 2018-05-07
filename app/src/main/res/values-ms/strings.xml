@@ -17,6 +17,7 @@
   <string name="search_hint_search_history">Cari dalam sejarah</string>
   <string name="search_hint_search_my_lists">Cari senarai saya</string>
   <string name="search_hint_search_reading_list">Cari senarai bacaan</string>
+  <string name="search_hint_search_languages">Cari bahasa</string>
   <string name="nav_item_history">Sejarah</string>
   <string name="error_network_error">Tidak dapat bersambung dengan Internet.</string>
   <string name="page_error_retry">Cuba lagi</string>
@@ -62,8 +63,9 @@
   <string name="preference_languages_filter_hint">Cari</string>
   <string name="langlinks_filter_hint">Cari</string>
   <string name="langlinks_empty">Laman ini tidak terdapat dalam bahasa lain</string>
-  <string name="langlinks_no_match" fuzzy="true">Tiada bahasa yang padan dengan pertanyaan anda.</string>
+  <string name="langlinks_no_match">Tiada bahasa dijumpai</string>
   <string name="langlinks_activity_title">Bahasa lain:</string>
+  <string name="langlinks_your_wikipedia_languages">Bahasa Wikipedia anda</string>
   <string name="menu_save_changes">Terbit perubahan</string>
   <string name="dialog_saving_in_progress">Sedang menerbitkan...</string>
   <string name="edit_saved_successfully">Suntingan diterbitkan!</string>
@@ -431,17 +433,35 @@
   <string name="notification_reverted">Suntingan anda pada rencana &lt;strong&gt;%2$s&lt;/strong&gt; telah dibatalkan oleh &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Anda telah dihargai!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; menghargai anda untuk suntingan anda pada laman &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name">Menyelaraskan</string>
   <string name="notification_channel_description">Kemajuan muat turun</string>
-  <string name="notification_syncing_title">Memuat turun %1$d rencana...</string>
-  <string name="notification_syncing_description">%1$d rencana yang tinggal</string>
   <string name="notification_syncing_pause_button">Jedakan</string>
   <string name="notification_syncing_resume_button">Teruskan</string>
   <string name="notification_syncing_cancel_button">Batalkan</string>
-  <string name="notification_syncing_reading_list_channel_name">Menyegerakkan Senarai Bacaan</string>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Menyegerakkan Senarai Bacaan</item>
+    <item quantity="other">Menyegerakkan Senarai Bacaan</item>
+  </plurals>
   <string name="notification_syncing_reading_list_channel_description">Kemajuan Penyegerakkan Senarai Bacaan</string>
-  <string name="notification_syncing_reading_list_title">Menyegerakkan %1$d senarai...</string>
-  <string name="notification_syncing_reading_list_description">%1$d senarai yang tersisa</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">Memuat turun rencana</item>
+    <item quantity="other">Memuat turun rencana</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">Memuat turun %1$d rencana...</item>
+    <item quantity="other">Memuat turun %1$d rencana...</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">%1$d rencana yang tinggal</item>
+    <item quantity="other">%1$d rencana yang tinggal</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Menyegerakkan %1$d senarai...</item>
+    <item quantity="other">Menyegerakkan %1$d senarai...</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">%1$d senarai yang tersisa</item>
+    <item quantity="other">%1$d senarai yang tersisa</item>
+  </plurals>
   <string name="view_continue_reading_card_title">Teruskan membaca</string>
   <string name="view_because_you_read_card_title">Kerana anda membaca</string>
   <string name="view_random_card_title">Rencana sembarang</string>
@@ -474,8 +494,9 @@
   <string name="view_featured_article_footer_saved_button_label">Disimpan</string>
   <string name="feed_configure_activity_title">Ubahsuai suapan</string>
   <string name="feed_configure_menu_reset">Pulihkan pandangan lalai</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">Pilih semua</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">Nyahpilih semua</string>
+  <string name="feed_configure_menu_select_all">Paparkan semua</string>
+  <string name="feed_configure_menu_deselect_all">Sembunyikan semua</string>
+  <string name="feed_configure_language_warning">Perhatikan bahawa tidak semua jenis kad tersedia dalam semua bahasa Wikipedia. Sunting bahasa anda yang dipilih dalam Tetapan.</string>
   <string name="feed_item_type_news">Rencana mengenai peristiwa semasa</string>
   <string name="feed_item_type_on_this_day">Peristiwa dalam sejarah pada hari ini</string>
   <string name="feed_item_type_continue_reading">Pautan pantas kembali membaca rencana terbuka di salah satu tab anda</string>
@@ -608,4 +629,20 @@
     <item quantity="one">Tahun lalu</item>
     <item quantity="other">%d tahun lepas</item>
   </plurals>
+  <string name="languages_list_activity_title">Tambahkan bahasa</string>
+  <string name="languages_list_suggested_text">Disyorkan</string>
+  <string name="languages_list_all_text">Semua bahasa</string>
+  <string name="wikipedia_languages_title">Bahasa Wikipedia</string>
+  <string name="wikipedia_languages_your_languages_text">Bahasa anda</string>
+  <string name="wikipedia_languages_add_language_text">Tambahkan bahasa</string>
+  <string name="wikipedia_languages_remove_text">Buang</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Buang bahasa</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">Buang bahasa yang dipilih?</item>
+    <item quantity="other">Buang bahasa yang dipilih?</item>
+  </plurals>
+  <string name="wikipedia_languages_remove_dialog_content">Anda hanya akan melihat kandungan pada suapan Teroka dan penapis carian pantas untuk bahasa Wikipedia yang masih ada.</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Tidak dapat membuang semua bahasa</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Pastikan sekurang-kurangnya satu bahasa Wikipedia yang boleh digunakan untuk mencari dan membaca kandungan.</string>
+  <string name="more_language_options">lagi</string>
 </resources>

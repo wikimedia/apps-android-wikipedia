@@ -59,7 +59,7 @@
   <string name="edit_history_link_text" fuzzy="true">வரலாற்றை தொகு</string>
   <string name="map_view_link_text">நிலப்படத்தில் காட்டுக</string>
   <string name="language_count_link_text">%d மற்ற மொழிகளில் கிடைக்கத்தக்கது</string>
-  <string name="preference_title_language">விக்கப்பீடியா மொழி</string>
+  <string name="preference_title_language" fuzzy="true">விக்கப்பீடியா மொழி</string>
   <string name="preference_languages_filter_hint">தேடுக</string>
   <string name="langlinks_filter_hint">தேடுக</string>
   <string name="langlinks_empty">பிற மொழிகளில் இந்த கட்டுரை இல்லை</string>
@@ -320,11 +320,11 @@
   <string name="notification_talk_title">விக்கிபீடியாவில் புதிய செய்தி</string>
   <string name="notification_reverted_title">மீளமைக்கப்பட்ட தொகுப்புகள்</string>
   <string name="notification_thanks_title">நீங்கள் நன்றி உரைக்கப்பட்டுள்ளீர்கள்</string>
-  <string name="notification_channel_name">ஒருங்குநிகழாக்கப்படுகிறது</string>
   <string name="notification_channel_description" fuzzy="true">ஒருங்குநிகழ் நடைபெறுகிறது</string>
   <string name="notification_syncing_pause_button">இடைநிறுத்துக</string>
   <string name="notification_syncing_resume_button">தொடர்க</string>
   <string name="notification_syncing_cancel_button">ரத்து செய்க</string>
+  <string name="notification_channel_name" fuzzy="true">ஒருங்குநிகழாக்கப்படுகிறது</string>
   <string name="view_continue_reading_card_title">தொடர்ந்து படிக்கவும்</string>
   <string name="view_because_you_read_card_title">நீங்கள் படித்ததினால்</string>
   <string name="view_random_card_action">பகடைகளை உருட்டவும்</string>

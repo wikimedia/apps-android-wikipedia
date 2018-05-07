@@ -42,7 +42,7 @@
   <string name="content_license_html">Зьмест даступны згодна ўмоваў ліцэнзіі &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, калі не пазначанае іншае</string>
   <string name="edit_save_action_license_logged_in">Захоўваючы зьмены Вы пагаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі карыстаньня&lt;/a&gt;, а так сама на безадзыўную публікацыю на ўмовах ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Захоўваючы зьмены, Вы пагаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі карыстаньня&lt;/a&gt;, а таксама на безадзыўную публікацыю на ўмовах ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Рэдагаваньні будуць прывязаныя да IP-адрасу Вашай прылады. Калі Вы &lt;a href=\"https://#login\"&gt;аўтарызуецеся&lt;/a&gt;, то зможаце мець больш высокі ўзровень прыватнасьці.</string>
-  <string name="preference_title_language">Мова Вікіпэдыі</string>
+  <string name="preference_title_language" fuzzy="true">Мова Вікіпэдыі</string>
   <string name="preference_languages_filter_hint">Пошук</string>
   <string name="langlinks_filter_hint">Пошук</string>
   <string name="langlinks_empty">Гэтая старонка недаступная на іншых мовах.</string>

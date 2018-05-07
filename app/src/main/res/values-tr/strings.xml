@@ -75,7 +75,7 @@
   <string name="content_license_html">Aksi belirtilmediği sürece içerik &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansı altında kullanılabilir.</string>
   <string name="edit_save_action_license_logged_in">Kaydederek, &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz.</string>
   <string name="edit_save_action_license_anon">Kaydederek, &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz. Değişiklikleriniz cihazınızın IP adresiyle kaydedilecek. Eğer &lt;a href=\"https://#login\"&gt;giriş yaparsanız&lt;/a&gt; daha fazla gizliliğe sahip olursunuz.</string>
-  <string name="preference_title_language">Vikipedi dili</string>
+  <string name="preference_title_language" fuzzy="true">Vikipedi dili</string>
   <string name="preference_languages_filter_hint">Ara</string>
   <string name="langlinks_filter_hint">Ara</string>
   <string name="langlinks_empty">Bu sayfa diğer dillerde bulunmamaktadır</string>
@@ -440,13 +440,13 @@
   <string name="notification_reverted">&lt;strong&gt;%2$s&lt;/strong&gt; maddesindeki değişikliğiniz &lt;em&gt;%1$s&lt;/em&gt; tarafından geri alındı.</string>
   <string name="notification_thanks_title">Size teşekkür edildi!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt;, &lt;strong&gt;%2$s&lt;/strong&gt; sayfasındaki değişikliğiniz için size teşekkür etti.</string>
-  <string name="notification_channel_name">Senkronize ediliyor</string>
   <string name="notification_channel_description">İndirme ilerleme durumu</string>
-  <string name="notification_syncing_title">%1$d madde indiriliyor...</string>
-  <string name="notification_syncing_description">Kalan madde sayısı %1$d</string>
   <string name="notification_syncing_pause_button">Duraklat</string>
   <string name="notification_syncing_resume_button">Devam et</string>
   <string name="notification_syncing_cancel_button">İptal</string>
+  <string name="notification_channel_name" fuzzy="true">Senkronize ediliyor</string>
+  <string name="notification_syncing_title" fuzzy="true">%1$d madde indiriliyor...</string>
+  <string name="notification_syncing_description" fuzzy="true">Kalan madde sayısı %1$d</string>
   <string name="view_continue_reading_card_title">Okumaya devam et</string>
   <string name="view_because_you_read_card_title">Okuduğun için</string>
   <string name="view_random_card_title">Rastgele</string>

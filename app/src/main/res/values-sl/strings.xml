@@ -47,7 +47,7 @@
   <string name="talk_page_link_text" fuzzy="true">Pogovorna stran</string>
   <string name="edit_history_link_text" fuzzy="true">Zgodovina urejanja</string>
   <string name="language_count_link_text">Na voljo v %d jezikih</string>
-  <string name="preference_title_language">Jezik Wikipedije</string>
+  <string name="preference_title_language" fuzzy="true">Jezik Wikipedije</string>
   <string name="preference_languages_filter_hint">Iskanje</string>
   <string name="langlinks_filter_hint">Iskanje</string>
   <string name="langlinks_empty">Ta stran ni na voljo v drugih jezikih.</string>

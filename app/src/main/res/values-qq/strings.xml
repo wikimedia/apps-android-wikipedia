@@ -445,6 +445,10 @@
   <string name="notification_syncing_pause_button">Text of button on notification bar to pause the syncing process\n{{Identical|Pause}}</string>
   <string name="notification_syncing_resume_button">Text of button on notification bar to resume the syncing process</string>
   <string name="notification_syncing_cancel_button">Text of button on notification bar to cancel the syncing process\n{{Identical|Cancel}}</string>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Name of the notification channel of syncing one reading list</item>
+    <item quantity="other">Name of the notification channel of syncing two or more reading lists</item>
+  </plurals>
   <string name="notification_syncing_reading_list_channel_description">Description of the notification channel of syncing reading lists</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Name of the notification channel that shows the app is downloading one article</item>
@@ -457,10 +461,6 @@
   <plurals name="notification_syncing_description">
     <item quantity="one">Text of notification shows the remaining article. The \"%1$d\" symbol corresponds to the amount of remaining articles.</item>
     <item quantity="other">Text of notification shows the remaining articles. The \"%1$d\" symbol corresponds to the amount of remaining articles.</item>
-  </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
-    <item quantity="one">Name of the notification channel of syncing one reading list</item>
-    <item quantity="other">Name of the notification channel of syncing two or more reading lists</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_title">
     <item quantity="one">Title for notification when the syncing one reading list process begins. The \"%1$d\" symbol corresponds to the amount of lists.</item>

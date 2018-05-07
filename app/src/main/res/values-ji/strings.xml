@@ -51,7 +51,7 @@
   <string name="other_languages_indication_text">לייענען אין אן אנדער שפראך</string>
   <string name="language_count_link_text">פֿאראן אין נאך %d שפראכן</string>
   <string name="content_license_html">אינהאלט איז פֿאראן אונטער &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; אחוץ ווען געוויזן אנדערשט</string>
-  <string name="preference_title_language">וויקיפעדיע־שפראך</string>
+  <string name="preference_title_language" fuzzy="true">וויקיפעדיע־שפראך</string>
   <string name="preference_languages_filter_hint">זוכן</string>
   <string name="langlinks_filter_hint">זוכן</string>
   <string name="langlinks_empty">דער בלאט איז נישט פאראן אין אנדערע שפראכן.</string>

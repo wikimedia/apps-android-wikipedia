@@ -52,7 +52,7 @@
   <string name="content_license_html">La kontenajo esas disponebla sub &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ecepte se altre indikesas</string>
   <string name="edit_save_action_license_logged_in">Vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termo pri uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la permiso &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; se kliktos \"save\" (salvar).</string>
   <string name="edit_save_action_license_anon">Vu tacite aceptos la &lt;a href=\"%1$s\"&gt;Termo pri Uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la legala permiso &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; se kliktos \"save\" (salvar). Nur la IP-adreso de vua komputero* aparos, ne vua nomo. Se tu facos &lt;a href=\"https://#login\"&gt;\'log in\'&lt;/a&gt;, tu havos plua privateso.</string>
-  <string name="preference_title_language">Linguo de la Wikipedio</string>
+  <string name="preference_title_language" fuzzy="true">Linguo de la Wikipedio</string>
   <string name="preference_languages_filter_hint">Serchar</string>
   <string name="langlinks_filter_hint">Serchar</string>
   <string name="langlinks_empty">Ca pagino ne esas disponebla en altra lingui.</string>

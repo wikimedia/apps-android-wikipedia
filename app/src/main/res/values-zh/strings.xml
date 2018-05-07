@@ -73,6 +73,7 @@
   <string name="langlinks_empty">该页面没有其他语言版本。</string>
   <string name="langlinks_no_match">找不到语言</string>
   <string name="langlinks_activity_title">其他语言</string>
+  <string name="langlinks_your_wikipedia_languages">您的维基百科语言</string>
   <string name="menu_save_changes">发布更改</string>
   <string name="dialog_saving_in_progress">正在发布…</string>
   <string name="edit_saved_successfully">编辑已发布！</string>
@@ -440,17 +441,35 @@
   <string name="notification_reverted">您对条目&lt;strong&gt;%2$s&lt;/strong&gt;的编辑被&lt;em&gt;%1$s&lt;/em&gt;回退。</string>
   <string name="notification_thanks_title">您已被感谢！</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt;感谢了您对页面&lt;strong&gt;%2$s&lt;/strong&gt;的编辑</string>
-  <string name="notification_channel_name">同步</string>
   <string name="notification_channel_description">下载过程</string>
-  <string name="notification_syncing_title">正在下载%1$d个条目…</string>
-  <string name="notification_syncing_description">剩余%1$d个条目</string>
   <string name="notification_syncing_pause_button">暂停</string>
   <string name="notification_syncing_resume_button">恢复</string>
   <string name="notification_syncing_cancel_button">取消</string>
-  <string name="notification_syncing_reading_list_channel_name">正在同步阅读列表</string>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">正在同步阅读列表</item>
+    <item quantity="other">正在同步阅读列表</item>
+  </plurals>
   <string name="notification_syncing_reading_list_channel_description">同步阅读列表进度</string>
-  <string name="notification_syncing_reading_list_title">正在同步%1$d个列表…</string>
-  <string name="notification_syncing_reading_list_description">剩余%1$d个列表</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">下载条目中</item>
+    <item quantity="other">下载条目中</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">正在下载%1$d个条目…</item>
+    <item quantity="other">正在下载%1$d个条目…</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">剩余%1$d个条目</item>
+    <item quantity="other">剩余%1$d个条目</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">正在同步%1$d个列表…</item>
+    <item quantity="other">正在同步%1$d个列表…</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">剩余%1$d个列表</item>
+    <item quantity="other">剩余%1$d个列表</item>
+  </plurals>
   <string name="view_continue_reading_card_title">继续阅读</string>
   <string name="view_because_you_read_card_title">因为您阅读</string>
   <string name="view_random_card_title">随机产生条目器</string>
@@ -626,7 +645,10 @@
   <string name="wikipedia_languages_add_language_text">添加语言</string>
   <string name="wikipedia_languages_remove_text">移除</string>
   <string name="wikipedia_languages_remove_action_mode_title">移除语言</string>
-  <string name="wikipedia_languages_remove_dialog_title">移除选定语言么？</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">移除选择的语言么？</item>
+    <item quantity="other">移除选择的语言么？</item>
+  </plurals>
   <string name="wikipedia_languages_remove_dialog_content">您将只在探索订阅源和快速搜索过滤器中看见其余维基百科语言的内容。</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">不能移除所有语言</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">请保持至少一种维基百科语言供搜索和阅读内容。</string>

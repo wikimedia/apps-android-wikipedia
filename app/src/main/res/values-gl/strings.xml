@@ -62,7 +62,7 @@
   <string name="content_license_html">Todo o contido está dispoñible baixo a licenza &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, agás que se indique o contrario</string>
   <string name="edit_save_action_license_logged_in">Ao gardar, acepta os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e acepta liberar irrevogablemente as súas contribucións baixo a licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Ao gardar, acepta os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e acepta liberar irrevogablemente as súas contribucións baixo a licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. As edicións atribuiránselle ao enderezo IP do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;accede ao sistema&lt;/a&gt; terá un maior anonimato.</string>
-  <string name="preference_title_language">Lingua da Wikipedia</string>
+  <string name="preference_title_language" fuzzy="true">Lingua da Wikipedia</string>
   <string name="preference_languages_filter_hint">Procurar</string>
   <string name="langlinks_filter_hint">Procurar</string>
   <string name="langlinks_empty">Esta páxina non está dispoñible noutras linguas</string>
@@ -435,17 +435,17 @@
   <string name="notification_reverted">A túa edición no artigo &lt;strong&gt;%2$s&lt;/strong&gt; foi revertida por &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Déronche as grazas!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; agradeceu a túa edición na páxina &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name">Sincronización</string>
   <string name="notification_channel_description">Avance da descarga</string>
-  <string name="notification_syncing_title">Descargando %1$d artigo(s)…</string>
-  <string name="notification_syncing_description">%1$d artigo(s) restante(s)</string>
   <string name="notification_syncing_pause_button">Pausa</string>
   <string name="notification_syncing_resume_button">Continuar</string>
   <string name="notification_syncing_cancel_button">Cancelar</string>
-  <string name="notification_syncing_reading_list_channel_name">Sincronizando listas de lectura</string>
+  <string name="notification_syncing_reading_list_channel_name" fuzzy="true">Sincronizando listas de lectura</string>
   <string name="notification_syncing_reading_list_channel_description">Progreso de sincronización de listas de lectura</string>
-  <string name="notification_syncing_reading_list_title">Sincronizando %1$d lista(s)…</string>
-  <string name="notification_syncing_reading_list_description">Quedan %1$d lista(s)</string>
+  <string name="notification_channel_name" fuzzy="true">Sincronización</string>
+  <string name="notification_syncing_title" fuzzy="true">Descargando %1$d artigo(s)…</string>
+  <string name="notification_syncing_description" fuzzy="true">%1$d artigo(s) restante(s)</string>
+  <string name="notification_syncing_reading_list_title" fuzzy="true">Sincronizando %1$d lista(s)…</string>
+  <string name="notification_syncing_reading_list_description" fuzzy="true">Quedan %1$d lista(s)</string>
   <string name="view_continue_reading_card_title">Continuar lendo</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatorio</string>
@@ -621,7 +621,7 @@
   <string name="wikipedia_languages_add_language_text">Engadir lingua</string>
   <string name="wikipedia_languages_remove_text">Eliminar</string>
   <string name="wikipedia_languages_remove_action_mode_title">Eliminar lingua</string>
-  <string name="wikipedia_languages_remove_dialog_title">Eliminar a, ou as, linguas seleccionadas?</string>
+  <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Eliminar a, ou as, linguas seleccionadas?</string>
   <string name="wikipedia_languages_remove_dialog_content">Só verá contido nas linguas restantes de Wikipedia no fluxo de Explorar e nos filtros de procura rápida.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Non é posible eliminar tódalas linguas</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Manteña polo menos unha lingua de Wikipedia na que procurar e ler contido.</string>

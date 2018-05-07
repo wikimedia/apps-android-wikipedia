@@ -67,12 +67,13 @@
   <string name="content_license_html">A tartalom a &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt érhető el, ha nincs másképp feltüntetve</string>
   <string name="edit_save_action_license_logged_in">A mentéssel elfogadod a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlan engedélyt adsz annak felhasználására a &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt.</string>
   <string name="edit_save_action_license_anon">A mentéssel elfogadod a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt;, és a közreműködéseidet visszavonhatatlanul közzéteszed a &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt. A szerkesztések az eszközöd IP-címéhez lesznek rendelve. Ha &lt;a href=\"https://#login\"&gt;bejelentkezel&lt;/a&gt;, nagyobb adatvédelmet szerzel.</string>
-  <string name="preference_title_language">Wikipédia-nyelv</string>
+  <string name="preference_title_language">Wikipédia-nyelvek</string>
   <string name="preference_languages_filter_hint">Keresés</string>
   <string name="langlinks_filter_hint">Keresés</string>
   <string name="langlinks_empty">Ez a lap nem érhető el más nyelveken</string>
   <string name="langlinks_no_match">Nem található ilyen nyelv.</string>
   <string name="langlinks_activity_title">További nyelvek</string>
+  <string name="langlinks_your_wikipedia_languages">Wikipédia-nyelveid</string>
   <string name="menu_save_changes">Változtatások közzététele</string>
   <string name="dialog_saving_in_progress">Közzététel…</string>
   <string name="edit_saved_successfully">Szerkesztés közzétéve!</string>
@@ -146,7 +147,10 @@
   <string name="preferences_heading_data_usage">Adathasználat</string>
   <string name="preferences_heading_experimental">Kísérleti</string>
   <string name="preference_title_sync_reading_lists">Olvasólisták szinkronizálása</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Ha bejelentkezel, az olvasási listáid szinkronizálva lesznek</string>
+  <string name="preference_title_sync_reading_lists_from_account">Olvasólisták szinkronizálásának engedélyezése</string>
+  <string name="preference_summary_sync_reading_lists">Olvasólistáid szinkronizálása különböző eszközeid között, a Wikipédia-fiókodba mentve őket</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Olvasólistáid szinkronizálása különböző eszközeid között, a(z) „%s” Wikipédia-fiókodba mentve őket</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Szinkronizált olvasólisták eltávolítása a(z) „%s” fiókból?</string>
   <string name="preferences_privacy_settings_heading">Adatküldés</string>
   <string name="preference_title_eventlogging_opt_in">Használati jelentés küldése</string>
   <string name="preference_summary_eventlogging_opt_in">A Wikimédia adatokat gyűjthet arról, hogy hogyan használod az appot, hogy még jobbá tehessük.</string>
@@ -415,13 +419,13 @@
   <string name="notification_reverted">&lt;em&gt;%1$s&lt;/em&gt; visszaállította a(z) &lt;strong&gt;%2$s&lt;/strong&gt; szócikkben végzett szerkesztésedet.</string>
   <string name="notification_thanks_title">Megköszönték a szerkesztésedet!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; megköszönte a szerkesztésedet a(z) &lt;strong&gt;%2$s&lt;/strong&gt; lapon.</string>
-  <string name="notification_channel_name">Szinkronizálás</string>
   <string name="notification_channel_description">Letöltés állapota</string>
-  <string name="notification_syncing_title">%1$d szócikk letöltése…</string>
-  <string name="notification_syncing_description">%1$d szócikk maradt</string>
   <string name="notification_syncing_pause_button">Szünet</string>
   <string name="notification_syncing_resume_button">Folytatás</string>
   <string name="notification_syncing_cancel_button">Mégsem</string>
+  <string name="notification_channel_name" fuzzy="true">Szinkronizálás</string>
+  <string name="notification_syncing_title" fuzzy="true">%1$d szócikk letöltése…</string>
+  <string name="notification_syncing_description" fuzzy="true">%1$d szócikk maradt</string>
   <string name="view_continue_reading_card_title">Olvasás folytatása</string>
   <string name="view_because_you_read_card_title">Mert ezt olvastad:</string>
   <string name="view_random_card_title">Találomra</string>
@@ -589,6 +593,6 @@
   <string name="wikipedia_languages_add_language_text">Nyelv hozzáadása</string>
   <string name="wikipedia_languages_remove_text">Eltávolítás</string>
   <string name="wikipedia_languages_remove_action_mode_title">Nyelv eltávolítása</string>
-  <string name="wikipedia_languages_remove_dialog_title">Eltávolítod a kijelölt nyelv(ek)et?</string>
+  <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Eltávolítod a kijelölt nyelv(ek)et?</string>
   <string name="more_language_options">több</string>
 </resources>

@@ -58,7 +58,7 @@
   <string name="content_license_html">Съдържанието е достъпно под &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е посочено друго</string>
   <string name="edit_save_action_license_logged_in">Запазвайки промените, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лиценз.</string>
   <string name="edit_save_action_license_anon">Запазвайки промените, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лиценз. Редакциите ще бъдат приписани на IP адреса на вашето  устройство. Ако &lt;a href=\"https://#login\"&gt;влезете в системата&lt;/a&gt;, тази информация няма да бъде публична.</string>
-  <string name="preference_title_language">Език на Уикипедия</string>
+  <string name="preference_title_language" fuzzy="true">Език на Уикипедия</string>
   <string name="preference_languages_filter_hint">Търсене</string>
   <string name="langlinks_filter_hint">Търсене</string>
   <string name="langlinks_empty">Тази страница не е налична на други езици.</string>
@@ -426,13 +426,13 @@
   <string name="notification_reverted">Ваша редакция на страница &lt;strong&gt;%2$s&lt;/strong&gt; е върната от &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Получихте благодарност!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; Ви благодари за редакцията Ви на &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name">Синхронизиране</string>
   <string name="notification_channel_description">Напредък на изтеглянето</string>
-  <string name="notification_syncing_title">Изтегляне на %1$d статии...</string>
-  <string name="notification_syncing_description">остават %1$d статии</string>
   <string name="notification_syncing_pause_button">Пауза</string>
   <string name="notification_syncing_resume_button">Продължаване</string>
   <string name="notification_syncing_cancel_button">Отказване</string>
+  <string name="notification_channel_name" fuzzy="true">Синхронизиране</string>
+  <string name="notification_syncing_title" fuzzy="true">Изтегляне на %1$d статии...</string>
+  <string name="notification_syncing_description" fuzzy="true">остават %1$d статии</string>
   <string name="view_continue_reading_card_title">Продължаване на четенето</string>
   <string name="view_because_you_read_card_title">Защото сте чели</string>
   <string name="view_random_card_title">Случайна статия</string>

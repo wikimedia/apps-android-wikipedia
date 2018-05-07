@@ -61,7 +61,7 @@
   <string name="content_license_html">Вміст доступний згідно з &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; якщо не вказано інше</string>
   <string name="edit_save_action_license_logged_in">Зберігаючи, Ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та безповоротно публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Зберігаючи, Ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та беззастережно публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Редагування будуть пов\'язані з IP-адресою Вашого пристрою. Якщо Ви &lt;a href=\"https://#login\"&gt;увійдете в систему&lt;/a&gt;, то матимете більше приватності.</string>
-  <string name="preference_title_language">Мова Вікіпедії</string>
+  <string name="preference_title_language" fuzzy="true">Мова Вікіпедії</string>
   <string name="preference_languages_filter_hint">Пошук</string>
   <string name="langlinks_filter_hint">Пошук</string>
   <string name="langlinks_empty">Ця сторінка не доступна іншими мовами.</string>
@@ -396,7 +396,7 @@
   <string name="notification_reverted">Ваше редагування статті &lt;strong&gt;%2$s&lt;/strong&gt; скасовано &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Вам подякували!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; висловлено подяку Вам за Ваше редагування сторінки &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name">Синхронізація</string>
+  <string name="notification_channel_name" fuzzy="true">Синхронізація</string>
   <string name="view_continue_reading_card_title">Продовжити читання</string>
   <string name="view_because_you_read_card_title">Тому, що Ви читали</string>
   <string name="view_random_card_title">Рандомайзер</string>

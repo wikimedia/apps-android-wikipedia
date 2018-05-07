@@ -67,7 +67,7 @@
   <string name="content_license_html">特記なき場合、コンテンツは&lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;で利用可能です</string>
   <string name="edit_save_action_license_logged_in">保存すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。</string>
   <string name="edit_save_action_license_anon">保存すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。編集はあなたのデバイスのIPアドレスと関連付けて記録されます。さらにプライバシーを求める場合は&lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt;してください。</string>
-  <string name="preference_title_language">ウィキペディアの言語</string>
+  <string name="preference_title_language" fuzzy="true">ウィキペディアの言語</string>
   <string name="preference_languages_filter_hint">検索</string>
   <string name="langlinks_filter_hint">検索</string>
   <string name="langlinks_empty">このページの他の言語版はありません。</string>
@@ -397,13 +397,13 @@
   <string name="notification_reverted">&lt;strong&gt;%2$s&lt;/strong&gt; でのあなたの編集が &lt;em&gt;%1$s&lt;/em&gt; によって差し戻されました。</string>
   <string name="notification_thanks_title">感謝されました！</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; が &lt;strong&gt;%2$s&lt;/strong&gt; でのあなたの編集に感謝を示しました。</string>
-  <string name="notification_channel_name">同期中</string>
   <string name="notification_channel_description">ダウンロードの進行状況</string>
-  <string name="notification_syncing_title">記事%1$d件をダウンロード中…</string>
-  <string name="notification_syncing_description">残り%1$d件の記事</string>
   <string name="notification_syncing_pause_button">一時停止</string>
   <string name="notification_syncing_resume_button">継続</string>
   <string name="notification_syncing_cancel_button">中止</string>
+  <string name="notification_channel_name" fuzzy="true">同期中</string>
+  <string name="notification_syncing_title" fuzzy="true">記事%1$d件をダウンロード中…</string>
+  <string name="notification_syncing_description" fuzzy="true">残り%1$d件の記事</string>
   <string name="view_continue_reading_card_title">続けて読む</string>
   <string name="view_because_you_read_card_title">こんな記事も読まれています</string>
   <string name="view_random_card_title">おまかせ表示</string>

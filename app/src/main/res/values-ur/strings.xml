@@ -61,7 +61,7 @@
   <string name="content_license_html">تمام مواد &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; اجازت نامے کے تحت دستیاب ہے جب تک اس کی مخالفت مذکور نہ ہو</string>
   <string name="edit_save_action_license_logged_in">محفوظ کرنے پر آپ کو &lt;a href=\"%1$s\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق اور ترامیم کو&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; اجازت نامے کے تحت آزاد سمجھا جائے گا۔</string>
   <string name="edit_save_action_license_anon">محفوظ کرنے پر آپ کو &lt;a href=\"%1$s\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق اور ترامیم کو&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; اجازت نامے کے تحت آزاد سمجھا جائے گا۔ واضح رہے کہ ان ترامیم کو آپ کے آئی پی پتے سے منسلک کیا جائے گا، تاہم اگر آپ &lt;a href=\"https://#login\"&gt;لاگ ان&lt;/a&gt; ہوجائیں تو آپکا آئی پی پتا ظاہر نہیں ہوگا۔</string>
-  <string name="preference_title_language">ویکیپیڈیا کی زبان منتخب کریں</string>
+  <string name="preference_title_language" fuzzy="true">ویکیپیڈیا کی زبان منتخب کریں</string>
   <string name="preference_languages_filter_hint">تلاش</string>
   <string name="langlinks_filter_hint">تلاش</string>
   <string name="langlinks_empty">یہ صفحہ دوسری زبانوں میں دستیاب نہیں ہے۔</string>
@@ -373,13 +373,13 @@
   <string name="notification_reverted">مضمون &lt;strong&gt;%2$s&lt;/strong&gt; میں آپ کی ترمیم کو &lt;em&gt;%1$s&lt;/em&gt; نے واپس پھیر دیا ہے۔</string>
   <string name="notification_thanks_title">آپ کا شکریہ ادا کیا گیا!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; نے صفحہ &lt;strong&gt;%2$s&lt;/strong&gt; میں آپ کی ترمیم کا شکریہ ادا کیا</string>
-  <string name="notification_channel_name">مطابقت پزیر ھو رہا ہے</string>
   <string name="notification_channel_description" fuzzy="true">مطابقت کی کامیاب تکمیل</string>
-  <string name="notification_syncing_title" fuzzy="true">%1$dمضامین سے مطابقت ھو رہی ہے</string>
-  <string name="notification_syncing_description" fuzzy="true">%1$dمضامین رہ گۓ ہیں</string>
   <string name="notification_syncing_pause_button">روکیں</string>
   <string name="notification_syncing_resume_button">دوبارہ شروع کریں</string>
   <string name="notification_syncing_cancel_button">تنسیخ کریں</string>
+  <string name="notification_channel_name" fuzzy="true">مطابقت پزیر ھو رہا ہے</string>
+  <string name="notification_syncing_title" fuzzy="true">%1$dمضامین سے مطابقت ھو رہی ہے</string>
+  <string name="notification_syncing_description" fuzzy="true">%1$dمضامین رہ گۓ ہیں</string>
   <string name="view_continue_reading_card_title">پڑھنا جاری یکھیں</string>
   <string name="view_because_you_read_card_title">کیونکہ آپ نے پڑھا</string>
   <string name="view_random_card_title">جستہ جستہ صفحات</string>

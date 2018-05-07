@@ -43,7 +43,7 @@
   <string name="content_license_html">Sadržaj je dostupan pod &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; (osim ako nije drugačije navedeno)</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Spremanjem ste suglasni s &lt;a href=\"%1$s\"&gt;Uvjetima uporabe&lt;/a&gt; i neopozivo objavljujete Vaše doprinose pod licencijom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Spremanjem ste suglasni s &lt;a href=\"%1$s\"&gt;Uvjetima uporabe&lt;/a&gt;i neopozivo objavljujete Vaše doprinose pod licencijom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license. Edits will be attributed to the IP address of your device. Veću zaštitu privatnosti ćete imati ako se &lt;a href=\"https://#login\"&gt;prijavite&lt;/a&gt;.</string>
-  <string name="preference_title_language">Jezik Wikipedije</string>
+  <string name="preference_title_language" fuzzy="true">Jezik Wikipedije</string>
   <string name="preference_languages_filter_hint">Pretraži</string>
   <string name="langlinks_filter_hint">Pretraži</string>
   <string name="langlinks_empty">Ova stranica nije dostupna na drugim jezicima.</string>

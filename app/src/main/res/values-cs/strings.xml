@@ -67,7 +67,7 @@
   <string name="content_license_html">Obsah je dostupný pod &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, pokud není uvedeno jinak</string>
   <string name="edit_save_action_license_logged_in">Uložením souhlasíte s &lt;a href=\"%1$s\"&gt;podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Uložením souhlasíte s &lt;a href=\"%1$s\"&gt;podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Úpravy budou přiřazeny IP adrese vašeho zařízení. Po &lt;a href=\"https://#login\"&gt;přihlášení&lt;/a&gt; budete mít více soukromí.</string>
-  <string name="preference_title_language">Jazyk Wikipedie</string>
+  <string name="preference_title_language" fuzzy="true">Jazyk Wikipedie</string>
   <string name="preference_languages_filter_hint">Hledat</string>
   <string name="langlinks_filter_hint">Hledat</string>
   <string name="langlinks_empty">Tato stránka není k dispozici v jiných jazycích.</string>
@@ -440,20 +440,20 @@
   <string name="notification_reverted">&lt;em&gt;%1$s&lt;/em&gt; zrušil(a) vaši úpravu článku &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_thanks_title">Obdržel(a) jste poděkování!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; vám poděkoval(a) za vaši úpravu stránky &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name">Synchronizace</string>
   <string name="notification_channel_description">Stav stahování</string>
-  <plurals name="notification_syncing_title">
-    <item quantity="one">Stahuje se %1$d článek…</item>
-    <item quantity="other">Stahuje se %1$d články…</item>
-  </plurals>
-  <string name="notification_syncing_description">Zbývá %1$d {{PLURAL:%1$d|článek|články|článků}}</string>
   <string name="notification_syncing_pause_button">Pozastavit</string>
   <string name="notification_syncing_resume_button">Obnovit</string>
   <string name="notification_syncing_cancel_button">Zrušit</string>
-  <string name="notification_syncing_reading_list_channel_name">Synchronizace seznamu/ů k přečtení</string>
+  <string name="notification_syncing_reading_list_channel_name" fuzzy="true">Synchronizace seznamu/ů k přečtení</string>
   <string name="notification_syncing_reading_list_channel_description">Synchronizace seznamů k přečtení</string>
-  <string name="notification_syncing_reading_list_title">Synchronizace %1$d seznamu/ů...</string>
-  <string name="notification_syncing_reading_list_description">%1$d seznam/y/ů chybí</string>
+  <string name="notification_channel_name" fuzzy="true">Synchronizace</string>
+  <plurals name="notification_syncing_title" fuzzy="true">
+    <item quantity="one">Stahuje se %1$d článek…</item>
+    <item quantity="other">Stahuje se %1$d články…</item>
+  </plurals>
+  <string name="notification_syncing_description" fuzzy="true">Zbývá %1$d {{PLURAL:%1$d|článek|články|článků}}</string>
+  <string name="notification_syncing_reading_list_title" fuzzy="true">Synchronizace %1$d seznamu/ů...</string>
+  <string name="notification_syncing_reading_list_description" fuzzy="true">%1$d seznam/y/ů chybí</string>
   <string name="view_continue_reading_card_title">Pokračovat ve čtení</string>
   <string name="view_because_you_read_card_title">Protože čtete</string>
   <string name="view_random_card_title">Náhodný článek</string>
@@ -629,7 +629,7 @@
   <string name="wikipedia_languages_add_language_text">Přidat jazyk</string>
   <string name="wikipedia_languages_remove_text">Odebrat</string>
   <string name="wikipedia_languages_remove_action_mode_title">Odebrat jazyk</string>
-  <string name="wikipedia_languages_remove_dialog_title">Odebrat vybraný jazyk/vybrané jazyky?</string>
+  <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Odebrat vybraný jazyk/vybrané jazyky?</string>
   <string name="wikipedia_languages_remove_dialog_content">Zobrazí se pouze obsah na filtrech Prozkoumat zdroj a filtry rychlého vyhledávání pro zbývající jazyky Wikipedie.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Nelze odebrat všechny jazyky</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Udržujte si alespoň jeden jazyk Wikipedie, ze kterého můžete vyhledávat a číst obsah.</string>

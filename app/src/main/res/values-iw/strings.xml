@@ -63,12 +63,13 @@
   <string name="content_license_html">התוכן זמין לפי תנאי &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; אלא אם צוין אחרת</string>
   <string name="edit_save_action_license_logged_in">שמירת השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">שמירת השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. העריכות תיוחסנה לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך יותר פרטיות.</string>
-  <string name="preference_title_language">שפת הוויקיפדיה</string>
+  <string name="preference_title_language">שפות ויקיפדיה</string>
   <string name="preference_languages_filter_hint">חיפוש</string>
   <string name="langlinks_filter_hint">חיפוש</string>
   <string name="langlinks_empty">הדף הזה אינו זמין בשפות אחרות</string>
   <string name="langlinks_no_match">לא נמצאו שפות</string>
   <string name="langlinks_activity_title">שפות אחרות</string>
+  <string name="langlinks_your_wikipedia_languages">שפות הוויקיפדיה שלך</string>
   <string name="menu_save_changes">פרסום השינויים</string>
   <string name="dialog_saving_in_progress">פרסום…</string>
   <string name="edit_saved_successfully">העריכה פורסמה!</string>
@@ -436,17 +437,35 @@
   <string name="notification_reverted">העריכה שלך בערך &lt;strong&gt;%2$s&lt;/strong&gt; שוחזרה על־ידי &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">קיבלת תודה!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; הודה לך על העריכה שלך בדף &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name">סנכרון</string>
   <string name="notification_channel_description">התקדמות הורדה</string>
-  <string name="notification_syncing_title">הורדת %1$d ערכים...</string>
-  <string name="notification_syncing_description">נשארו %1$d ערכים</string>
   <string name="notification_syncing_pause_button">השהיה</string>
   <string name="notification_syncing_resume_button">המשך</string>
   <string name="notification_syncing_cancel_button">ביטול</string>
-  <string name="notification_syncing_reading_list_channel_name">סנכרון רשימות קריאה</string>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">סנכרון רשימת קריאה</item>
+    <item quantity="other">סנכרון רשימות קריאה</item>
+  </plurals>
   <string name="notification_syncing_reading_list_channel_description">התקדמות סנכרון רשימות קריאה</string>
-  <string name="notification_syncing_reading_list_title">סנכרון %1$d רשימות</string>
-  <string name="notification_syncing_reading_list_description">נשארו %1$d רשימות</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">מתבצעת הורדה של ערך</item>
+    <item quantity="other">מתבצעת הורדה של ערכים</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">מתבצעת הורדה של ערך אחד…</item>
+    <item quantity="other">מתבצעת הורדה של %1$d ערכים…</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">נשאר ערך אחד</item>
+    <item quantity="other">נשארו %1$d ערכים</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">מתבצע סנכרון של רשימה אחת…</item>
+    <item quantity="other">מתבצע סנכרון של %1$d רשימות…</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">נשארה רשימה אחת</item>
+    <item quantity="other">נשארו %1$d רשימות</item>
+  </plurals>
   <string name="view_continue_reading_card_title">להמשיך לקרוא</string>
   <string name="view_because_you_read_card_title">כי כבר קראת</string>
   <string name="view_random_card_title">ערך אקראי</string>
@@ -622,7 +641,10 @@
   <string name="wikipedia_languages_add_language_text">הוספת שפה</string>
   <string name="wikipedia_languages_remove_text">הסרה</string>
   <string name="wikipedia_languages_remove_action_mode_title">הסרת שפה</string>
-  <string name="wikipedia_languages_remove_dialog_title">להסיר את השפות המסומנות?</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">להסיר את השפה שנבחרה?</item>
+    <item quantity="other">להסיר את השפות שנבחרו?</item>
+  </plurals>
   <string name="wikipedia_languages_remove_dialog_content">בהזנת הגילוי וכן במסנני החיפוש המהירים, יוצג רק תוכן בשפות הוויקיפדיה שמופיעות ברשימה.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">לא ניתן להסיר את כל השפות</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">יש להשאיר לפחות שפת ויקיפדיה אחת שבה ברצונך לחפש ולקרוא תוכן.</string>

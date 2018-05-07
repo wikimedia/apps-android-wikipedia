@@ -49,7 +49,7 @@
   <string name="content_license_html">Inhoud is beskikbaar onder die &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-lisensie tensy anders vermeld</string>
   <string name="edit_save_action_license_logged_in">Deur te stoor, stem u in tot die &lt;a href=\"%1$s\"&gt;Gebruiksvoorwaardes&lt;/a&gt;, en stel u die bydra onherroeplik vry onder die &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisensie.</string>
   <string name="edit_save_action_license_anon">Deur te stoor, stem u in tot die &lt;a href=\"%1$s\"&gt;Gebruiksvoorwaardes&lt;/a&gt;, en stel u die bydra onherroeplik vry onder die &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisensie. Wysigings sal aan u toestel se IP-adres toegeskryf word. Indien u &lt;a href=\"https://#login\"&gt;aanmeld&lt;/a&gt;, sal u meer privaatheid geniet.</string>
-  <string name="preference_title_language">Wikipediataal</string>
+  <string name="preference_title_language" fuzzy="true">Wikipediataal</string>
   <string name="preference_languages_filter_hint">Soek</string>
   <string name="langlinks_filter_hint">Soek</string>
   <string name="langlinks_empty">Hierdie bladsy is nie beskikbaar in ander tale nie.</string>

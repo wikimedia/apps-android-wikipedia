@@ -53,7 +53,7 @@
   <string name="content_license_html">შიგთავსი ვრცელდება &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით, თუკი სხვაგვარად არ არის აღნიშნული</string>
   <string name="edit_save_action_license_logged_in">შენახვით, თქვენ ეთანხმებით &lt;a href=\"%1$s\"&gt;გამოყენების პირობებს&lt;/a&gt; და თქვენს მიერ დაწერილი ტექსტის &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით გაშვებას.</string>
   <string name="edit_save_action_license_anon">შენახვით, თქვენ ეთანხმებით &lt;a href=\"%1$s\"&gt;გამოყენების პირობებს&lt;/a&gt; და თქვენს მიერ დაწერილი ტექსტის &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით გაშვებას. რედაქტირების ავტორად დაფიქსირდება თქვენი მოწყობილობის IP-მისამართი. რეკომენდებულია &lt;a href=\"https://#login\"&gt;ავტორიზაციის&lt;/a&gt; გავლა მეტი დაცულობისათვის.</string>
-  <string name="preference_title_language">ვიკიპედიის ენები</string>
+  <string name="preference_title_language" fuzzy="true">ვიკიპედიის ენები</string>
   <string name="preference_languages_filter_hint">ძიება</string>
   <string name="langlinks_filter_hint">ძიება</string>
   <string name="langlinks_empty">ეს გვერდი მიუწვდომელია სხვა ენებზე</string>
@@ -306,13 +306,13 @@
   <string name="notification_talk_title">ახალი წერილი ვიკიპედიაზე</string>
   <string name="notification_reverted_title">გაუქმებული რედაქტირება</string>
   <string name="notification_thanks_title">თქვენ მადლობა გადაგიხადეს</string>
-  <string name="notification_channel_name">სინქრონიზაცია</string>
   <string name="notification_channel_description">ჩამოტვირთვის პროგრესი</string>
-  <string name="notification_syncing_title">იტვირთება %1$d სტატია…</string>
-  <string name="notification_syncing_description">დარჩა %1$d სტატია</string>
   <string name="notification_syncing_pause_button">პაუზა</string>
   <string name="notification_syncing_resume_button">გაგრძელება</string>
   <string name="notification_syncing_cancel_button">გაუქმება</string>
+  <string name="notification_channel_name" fuzzy="true">სინქრონიზაცია</string>
+  <string name="notification_syncing_title" fuzzy="true">იტვირთება %1$d სტატია…</string>
+  <string name="notification_syncing_description" fuzzy="true">დარჩა %1$d სტატია</string>
   <string name="view_continue_reading_card_title">განაგრძე კითხვა</string>
   <string name="view_because_you_read_card_title">რადგან თქვენ კითხულობთ</string>
   <string name="view_random_card_title">შემთხვევითი</string>

@@ -55,7 +55,7 @@
   <string name="content_license_html">Efni má nota samkvæmt &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; nema annað komi fram</string>
   <string name="edit_save_action_license_logged_in">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; leyfinu.</string>
   <string name="edit_save_action_license_anon">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; notkunarleyfinu. Breytingar verða tengdar IP-vistfangi tækisins þíns. Ef þú &lt;a href=\"https://#login\"&gt;skráir þig inn&lt;/a&gt;, mun gagnaleynd þín aukast.</string>
-  <string name="preference_title_language">Tungumál Wikipediu</string>
+  <string name="preference_title_language" fuzzy="true">Tungumál Wikipediu</string>
   <string name="preference_languages_filter_hint">Leita</string>
   <string name="langlinks_filter_hint">Leita</string>
   <string name="langlinks_empty">Þessi síða er ekki tiltæk á öðrum tungumálum.</string>
@@ -428,17 +428,17 @@
   <string name="notification_reverted">Breyting þín á greininni &lt;strong&gt;%2$s&lt;/strong&gt; var tekin aftur af &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Þér hefur verið þakkað fyrir!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; þakkaði þér fyrir breytingu þína á &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name">Samstilling</string>
   <string name="notification_channel_description">Framvinda niðurhals</string>
-  <string name="notification_syncing_title">Sæki %1$d grein(ar)…</string>
-  <string name="notification_syncing_description">%1$d grein(ar) eftir</string>
   <string name="notification_syncing_pause_button">Í bið</string>
   <string name="notification_syncing_resume_button">Halda áfram</string>
   <string name="notification_syncing_cancel_button">Hætta við</string>
-  <string name="notification_syncing_reading_list_channel_name">Samstilli leslista</string>
+  <string name="notification_syncing_reading_list_channel_name" fuzzy="true">Samstilli leslista</string>
   <string name="notification_syncing_reading_list_channel_description">Framvinda samstillingar leslista</string>
-  <string name="notification_syncing_reading_list_title">Samstilli %1$d lista…</string>
-  <string name="notification_syncing_reading_list_description">%1$d listi/listar eftir</string>
+  <string name="notification_channel_name" fuzzy="true">Samstilling</string>
+  <string name="notification_syncing_title" fuzzy="true">Sæki %1$d grein(ar)…</string>
+  <string name="notification_syncing_description" fuzzy="true">%1$d grein(ar) eftir</string>
+  <string name="notification_syncing_reading_list_title" fuzzy="true">Samstilli %1$d lista…</string>
+  <string name="notification_syncing_reading_list_description" fuzzy="true">%1$d listi/listar eftir</string>
   <string name="view_continue_reading_card_title">Halda lestri áfram</string>
   <string name="view_because_you_read_card_title">Því þú last</string>
   <string name="view_random_card_title">Slembið</string>

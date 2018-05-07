@@ -16,6 +16,7 @@
 * JackLantern
 * Kaganer
 * Kareyac
+* Katunchik
 * Mailman
 * MaxBioHazard
 * Mouse21
@@ -87,7 +88,7 @@
   <string name="content_license_html">Содержимое доступно в соответствии с лицензией &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, если не указано иное</string>
   <string name="edit_save_action_license_logged_in">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\" &gt;условиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;условиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Правки будут привязаны в IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуйтесь&lt;/a&gt;, то сможете получить более высокий уровень конфиденциальности.</string>
-  <string name="preference_title_language">Язык Википедии</string>
+  <string name="preference_title_language">Языки Википедии</string>
   <string name="preference_languages_filter_hint">Найти</string>
   <string name="langlinks_filter_hint">Поиск</string>
   <string name="langlinks_empty">Эта страница недоступна на других языках.</string>
@@ -460,17 +461,17 @@
   <string name="notification_reverted">Ваша правка в статье &lt;strong&gt;%2$s&lt;/strong&gt; была отменена участником &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Вас поблагодарили!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; поблагодарил вас за вашу правку на странице &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name">Синхронизация</string>
   <string name="notification_channel_description">Прогресс загрузки</string>
-  <string name="notification_syncing_title">Загрузка %1$d статей…</string>
-  <string name="notification_syncing_description">Осталось %1$d статей</string>
   <string name="notification_syncing_pause_button">Пауза</string>
   <string name="notification_syncing_resume_button">Продолжить</string>
   <string name="notification_syncing_cancel_button">Отмена</string>
-  <string name="notification_syncing_reading_list_channel_name">Синхронизации чтение список(и)</string>
+  <string name="notification_syncing_reading_list_channel_name" fuzzy="true">Синхронизации чтение список(и)</string>
   <string name="notification_syncing_reading_list_channel_description">Синхронизации чтение списки прогресс</string>
-  <string name="notification_syncing_reading_list_title">Синхронизации %1$d список(и)...</string>
-  <string name="notification_syncing_reading_list_description">%1$d список(и) левый</string>
+  <string name="notification_channel_name" fuzzy="true">Синхронизация</string>
+  <string name="notification_syncing_title" fuzzy="true">Загрузка %1$d статей…</string>
+  <string name="notification_syncing_description" fuzzy="true">Осталось %1$d статей</string>
+  <string name="notification_syncing_reading_list_title" fuzzy="true">Синхронизации %1$d список(и)...</string>
+  <string name="notification_syncing_reading_list_description" fuzzy="true">%1$d список(и) левый</string>
   <string name="view_continue_reading_card_title">Продолжить чтение</string>
   <string name="view_because_you_read_card_title">Потому что вы читали</string>
   <string name="view_random_card_title">Рандомизатор</string>
@@ -646,7 +647,10 @@
   <string name="wikipedia_languages_add_language_text">Добавить язык</string>
   <string name="wikipedia_languages_remove_text">Удалить</string>
   <string name="wikipedia_languages_remove_action_mode_title">Удалить язык</string>
-  <string name="wikipedia_languages_remove_dialog_title">Удалить выбранные языки?</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">Удалить выбранные языки?</item>
+    <item quantity="other">Удалить выбранный язык?</item>
+  </plurals>
   <string name="wikipedia_languages_remove_dialog_content">Вы сможете просмотреть содержимое на вкладке Лента и использовать быстрые поисковые фильтры только для других языковых разделов Википедии.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Нельзя удалить все языки</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Оставьте, по меньшей мере, один язык для поиска и чтения.</string>

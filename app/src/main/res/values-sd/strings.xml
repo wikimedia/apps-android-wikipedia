@@ -55,7 +55,7 @@
   <string name="content_license_html">مواد &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; جي تحت موجود آھي نہ تہ ٻي صورت ۾ نوٽ ٿيل آهي</string>
   <string name="edit_save_action_license_logged_in">سانڍڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان، ۽ irrevocably پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس جي تحت ڏيڻ تي راضي ٿيو ٿا.</string>
   <string name="edit_save_action_license_anon">سانڍڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن &lt;/a&gt; ۽ irrevocably پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس تحت ڏيڻ تي راضي ٿيو ٿا. ترميمون توھان جي آءِپي پتي سان لاڳو ڪيون وينديون. جيڪڏهن توهان &lt;a href=\"https://#login\"&gt;داخل ٿيو&lt;/a&gt; ٿا، تہ توھان کي وڌيڪ ذاتيات هوندي.</string>
-  <string name="preference_title_language">وڪيپيڊيا ٻولي</string>
+  <string name="preference_title_language" fuzzy="true">وڪيپيڊيا ٻولي</string>
   <string name="preference_languages_filter_hint">ڳوليو</string>
   <string name="langlinks_filter_hint">ڳوليو</string>
   <string name="langlinks_empty">هيءُ صفحو ٻين ٻولين ۾ دستياب نہ آهي.</string>
@@ -390,11 +390,11 @@
   <string name="notification_thanks_title">توھان جي مھرباني ادا ڪئي وئي آھي!</string>
   <string name="notification_thanks">مضمون \'\'\'%2$s\'\'\' تي توھان جي ترميم لاءِ %1$s توھان جي مھرباني ادا ڪئي</string>
   <string name="notification_channel_description">لھڻ جي پيشرفت</string>
-  <string name="notification_syncing_title">%1$d مضمون لاھيندي.،</string>
-  <string name="notification_syncing_description">%1$d مضمون رھن ٿا</string>
   <string name="notification_syncing_pause_button">بيھو</string>
   <string name="notification_syncing_resume_button">ٻيھر ھلو</string>
   <string name="notification_syncing_cancel_button">رد</string>
+  <string name="notification_syncing_title" fuzzy="true">%1$d مضمون لاھيندي.،</string>
+  <string name="notification_syncing_description" fuzzy="true">%1$d مضمون رھن ٿا</string>
   <string name="view_continue_reading_card_title">پڙھڻ جاري رکو</string>
   <string name="view_because_you_read_card_title">ڇو تہ توھان پڙھو ٿا</string>
   <string name="view_random_card_title">بلاترتيبڪار</string>
@@ -552,7 +552,7 @@
   <string name="wikipedia_languages_add_language_text">ٻولي وجھو</string>
   <string name="wikipedia_languages_remove_text">هٽايو</string>
   <string name="wikipedia_languages_remove_action_mode_title">ٻولي ھٽايو</string>
-  <string name="wikipedia_languages_remove_dialog_title">چونڊيل ٻول(ون) ھٽايو؟</string>
+  <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">چونڊيل ٻول(ون) ھٽايو؟</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">سڀ ٻوليون ھٽائي نٿيون سگھجن</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">گھٽ ۾ گھٽ ھڪ وڪيپيڊيا ٻولي رکو جنھن ۾ مواد ڳولي ۽ پڙھي سگھجي.</string>
   <string name="more_language_options">وڌيڪ</string>

@@ -67,8 +67,9 @@
   <string name="preference_languages_filter_hint">Sök</string>
   <string name="langlinks_filter_hint">Sök</string>
   <string name="langlinks_empty">Denna sida är inte tillgänglig på andra språk</string>
-  <string name="langlinks_no_match" fuzzy="true">Inga språk som matchade din sökning hittades.</string>
+  <string name="langlinks_no_match">Inga språk hittades</string>
   <string name="langlinks_activity_title">Andra språk</string>
+  <string name="langlinks_your_wikipedia_languages">Dina Wikipediaspråk</string>
   <string name="menu_save_changes">Publicera ändringar</string>
   <string name="dialog_saving_in_progress">Publicerar…</string>
   <string name="edit_saved_successfully">Redigeringen publicerades!</string>
@@ -436,17 +437,35 @@
   <string name="notification_reverted">Din redigering på artikeln &lt;strong&gt;%2$s&lt;/strong&gt; gjordes ogjord av &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Du har tackats!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; tackade dig för din redigering på sidan &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name">Synkroniserar</string>
   <string name="notification_channel_description">Nedladdningsförlopp</string>
-  <string name="notification_syncing_title">Laddar ned %1$d artiklar…</string>
-  <string name="notification_syncing_description">%1$d artiklar kvar</string>
   <string name="notification_syncing_pause_button">Pausa</string>
   <string name="notification_syncing_resume_button">Återuppta</string>
   <string name="notification_syncing_cancel_button">Avbryt</string>
-  <string name="notification_syncing_reading_list_channel_name">Synkroniserar läslista/-listor</string>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Synkroniserar läslista</item>
+    <item quantity="other">Synkroniserar läslistor</item>
+  </plurals>
   <string name="notification_syncing_reading_list_channel_description">Förlopp för synkronisering av läslistor</string>
-  <string name="notification_syncing_reading_list_title">Synkroniserar %1$d lista/listor…</string>
-  <string name="notification_syncing_reading_list_description">%1$d lista/listor kvar</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">Laddar ned artikel</item>
+    <item quantity="other">Laddar ned artiklar</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">Laddar ned %1$d artikel…</item>
+    <item quantity="other">Laddar ned %1$d artiklar…</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">%1$d artikel kvar</item>
+    <item quantity="other">%1$d artiklar kvar</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Synkroniserar %1$d lista…</item>
+    <item quantity="other">Synkroniserar %1$d listor…</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">%1$d lista kvar</item>
+    <item quantity="other">%1$d listor kvar</item>
+  </plurals>
   <string name="view_continue_reading_card_title">Fortsätt läs</string>
   <string name="view_because_you_read_card_title">Eftersom du läste</string>
   <string name="view_random_card_title">Randomiserare</string>
@@ -479,8 +498,9 @@
   <string name="view_featured_article_footer_saved_button_label">Sparades</string>
   <string name="feed_configure_activity_title">Anpassa flödet</string>
   <string name="feed_configure_menu_reset">Återställ standardvyn</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">Markera alla</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">Avmarkera alla</string>
+  <string name="feed_configure_menu_select_all">Visa alla</string>
+  <string name="feed_configure_menu_deselect_all">Dölj alla</string>
+  <string name="feed_configure_language_warning">Observera att inte alla korttyper finns tillgängliga på alla Wikipediaspråk. Redigera dina valda språk i inställningarna.</string>
   <string name="feed_item_type_news">Artiklar om nuvarande händelser</string>
   <string name="feed_item_type_on_this_day">Händelser i historien på denna dag</string>
   <string name="feed_item_type_continue_reading">Snabblänk tillbaka för att läsa en öppnad artikel i en av dina flikar</string>
@@ -621,8 +641,12 @@
   <string name="wikipedia_languages_add_language_text">Lägg till språk</string>
   <string name="wikipedia_languages_remove_text">Ta bort</string>
   <string name="wikipedia_languages_remove_action_mode_title">Ta bort språk</string>
-  <string name="wikipedia_languages_remove_dialog_title">Ta bort valda språk?</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">Ta bort valt språk?</item>
+    <item quantity="other">Ta bort valda språk?</item>
+  </plurals>
   <string name="wikipedia_languages_remove_dialog_content">Du kommer endast se innehåll i Utforskningsflödet och snabbsökningsfilter för tillgängliga Wikipediaspråk.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Kan inte ta bort alla språk</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Behåll minst ett Wikipediaspråk att söka och läsa innehåll på.</string>
+  <string name="more_language_options">fler</string>
 </resources>
