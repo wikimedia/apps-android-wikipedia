@@ -52,7 +52,7 @@ public class InitialOnboardingFragment extends OnboardingFragment {
     }
 
     private class PageViewCallback implements OnboardingPageView.Callback {
-         OnboardingPageView onboardingPageView;
+        OnboardingPageView onboardingPageView;
 
         @Override public void onSwitchChange(@NonNull OnboardingPageView view, boolean checked) {
             if (OnboardingPage.of((int) view.getTag()).equals(OnboardingPage.PAGE_USAGE_DATA)) {
@@ -63,7 +63,7 @@ public class InitialOnboardingFragment extends OnboardingFragment {
         @Override public void onLinkClick(@NonNull OnboardingPageView view, @NonNull String url) {
             if (url.equals("#login")) {
                 startActivityForResult(LoginActivity
-                        .newIntent(getContext(), LoginFunnel.SOURCE_ONBOARDING),
+                        .newIntent(requireContext(), LoginFunnel.SOURCE_ONBOARDING),
                         Constants.ACTIVITY_REQUEST_LOGIN);
             } else if (url.equals("#privacy")) {
                 FeedbackUtil.showPrivacyPolicy(getContext());
@@ -82,11 +82,10 @@ public class InitialOnboardingFragment extends OnboardingFragment {
             requireContext().startActivity(new Intent(getContext(), WikipediaLanguagesActivity.class));
         }
 
-    @Nullable OnboardingPageView getOnboardingPageView() {
-        return onboardingPageView;
+        @Nullable OnboardingPageView getOnboardingPageView() {
+            return onboardingPageView;
+        }
     }
-
-}
 
     @Override
     public void onResume() {
@@ -97,7 +96,7 @@ public class InitialOnboardingFragment extends OnboardingFragment {
     }
 
     private class OnboardingPagerAdapter extends PagerAdapter {
-        @Override public Object instantiateItem(ViewGroup container, int position) {
+        @NonNull @Override public Object instantiateItem(@NonNull ViewGroup container, int position) {
             OnboardingPage page = OnboardingPage.of(position);
             OnboardingPageView view = inflate(page, container);
             view.setTag(position);
@@ -109,8 +108,7 @@ public class InitialOnboardingFragment extends OnboardingFragment {
         }
 
         @NonNull
-        public OnboardingPageView inflate(@NonNull OnboardingPage page,
-                                          @NonNull ViewGroup parent) {
+        public OnboardingPageView inflate(@NonNull OnboardingPage page, @NonNull ViewGroup parent) {
             LayoutInflater inflater = LayoutInflater.from(parent.getContext());
             OnboardingPageView view = (OnboardingPageView) inflater.inflate(page.getLayout(), parent, false);
             parent.addView(view);
