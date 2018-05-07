@@ -52,6 +52,7 @@
                     android:fontFamily="sans-serif-medium"
                     android:textColor="@android:color/white"
                     android:textSize="24sp"
+                    style="@style/TextViewCentered"
                     tools:text="Lorem ipsum" />
 
                 <org.wikipedia.views.AppTextView
@@ -66,6 +67,13 @@
                     android:textColorLink="@android:color/white"
                     android:textSize="16sp"
                     tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+
+                <include
+                    android:id="@+id/options_layout"
+                    layout="@layout/view_onboarding_language_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"/>
 
                 <LinearLayout
                     android:id="@+id/view_onboarding_page_switch_container"

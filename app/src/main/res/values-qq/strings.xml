@@ -653,4 +653,7 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">Title of the dialog that pop-ups after users wanted to delete all wikipedia languages in the action mode.</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Content of the dialog that pop-ups after users wanted to delete all wikipedia languages in the action mode.</string>
   <string name="more_language_options">Button text indicating there are more languages available to be selected.\n{{Identical|More}}</string>
+  <string name="onboarding_multilingual_title">Onboarding title indicating that the app is now available in many languages.</string>
+  <string name="onboarding_multilingual_secondary_text">Onboarding subtitle text informing the user about the languages found on the device.</string>
+  <string name="onboarding_multilingual_add_language_text"> Button text to suggest that users can now add more languages of their preference.</string>
 </resources>
