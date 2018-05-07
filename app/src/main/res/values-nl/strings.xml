@@ -64,7 +64,7 @@
   <string name="content_license_html">Inhoud is beschikbaar onder de &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie tenzij anders aangegeven</string>
   <string name="edit_save_action_license_logged_in">Door op te slaan gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie.</string>
   <string name="edit_save_action_license_anon">Door op te slaan gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie. Bewerkingen worden toegeschreven aan het IP-adres van uw apparaat. Als u zich &lt;a href=\"https://#login\"&gt;aanmeldt&lt;/a&gt;, hebt u meer privacy.</string>
-  <string name="preference_title_language">Wikipediataal</string>
+  <string name="preference_title_language" fuzzy="true">Wikipediataal</string>
   <string name="preference_languages_filter_hint">Zoeken</string>
   <string name="langlinks_filter_hint">Zoeken</string>
   <string name="langlinks_empty">Deze pagina is niet beschikbaar in andere talen.</string>
@@ -393,13 +393,13 @@
   <string name="notification_reverted">Uw bewerking van de pagina &lt;strong&gt;%2$s&lt;/strong&gt; is teruggedraaid door &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">U bent bedankt!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; heeft u bedankt voor uw bewerking op de pagina &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name">Synchroniseren</string>
   <string name="notification_channel_description">Downloadvoortgang</string>
-  <string name="notification_syncing_title">%1$d pagina(\'s) downloaden…</string>
-  <string name="notification_syncing_description">nog %1$d pagina(\'s)</string>
   <string name="notification_syncing_pause_button">Pauzeren</string>
   <string name="notification_syncing_resume_button">Hervatten</string>
   <string name="notification_syncing_cancel_button">Annuleren</string>
+  <string name="notification_channel_name" fuzzy="true">Synchroniseren</string>
+  <string name="notification_syncing_title" fuzzy="true">%1$d pagina(\'s) downloaden…</string>
+  <string name="notification_syncing_description" fuzzy="true">nog %1$d pagina(\'s)</string>
   <string name="view_continue_reading_card_title">Verder lezen</string>
   <string name="view_because_you_read_card_title">Omdat u hebt gelezen</string>
   <string name="view_random_card_title">Randomizer</string>

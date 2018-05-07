@@ -57,7 +57,7 @@
   <string name="content_license_html">Садржај је доступан под лиценцом &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; осим ако је другачије наведено</string>
   <string name="edit_save_action_license_logged_in">Чувањем измена слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање ваших доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Чувањем измена слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање ваших доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Измене ће бити приписане IP адреси вашег уређаја. Ако се &lt;a href=\"https://#login\"&gt;пријавите&lt;/a&gt;, имаћете већу приватност.</string>
-  <string name="preference_title_language">Језик Википедије</string>
+  <string name="preference_title_language" fuzzy="true">Језик Википедије</string>
   <string name="preference_languages_filter_hint">Претрага</string>
   <string name="langlinks_filter_hint">Претражи</string>
   <string name="langlinks_empty">Ова страница није доступна на другим језицима.</string>
@@ -353,11 +353,11 @@
   <string name="notification_reverted">Вашу измену на чланку &lt;strong&gt;%2$s&lt;/strong&gt; поништио је &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Неко Вам се захвалио!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; Вам се захвалио/ла за Вашу измену на страници &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name">Синхронизација</string>
   <string name="notification_channel_description">Процес преузимања</string>
   <string name="notification_syncing_pause_button">Паузирај</string>
   <string name="notification_syncing_resume_button">Настави</string>
   <string name="notification_syncing_cancel_button">Откажи</string>
+  <string name="notification_channel_name" fuzzy="true">Синхронизација</string>
   <string name="view_continue_reading_card_title">Настави читање</string>
   <string name="view_because_you_read_card_title">Будући да сте прочитали</string>
   <string name="view_random_card_title">Случајан чланак</string>

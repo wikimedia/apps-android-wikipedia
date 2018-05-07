@@ -61,7 +61,7 @@
   <string name="content_license_html">Pokiaľ nie je uvedené inak, je obsah dostupný v rámci licencie &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_logged_in">Uložením vašej úpravy zároveň súhlasíte s &lt;a href=\"%1$s\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov v rámci licenciou &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Uložením vašej úpravy zároveň súhlasíte s &lt;a href=\"%1$s\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov pod licenciou &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Úpravy budú spájané s IP adresou vášho zariadenia. Po &lt;a href=\"https://#login\"&gt;prihlásení&lt;/a&gt; budete disponovať vyššou ochranou súkromia.</string>
-  <string name="preference_title_language">Jazyk</string>
+  <string name="preference_title_language" fuzzy="true">Jazyk</string>
   <string name="preference_languages_filter_hint">Hľadať</string>
   <string name="langlinks_filter_hint">Hľadať</string>
   <string name="langlinks_empty">Táto stránka nie je k dispozícii v iných jazykoch</string>
@@ -406,13 +406,13 @@
   <string name="notification_reverted">Vaša úprava stránky &lt;strong&gt;%2$s&lt;/strong&gt; bola vrátená používateľom &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Niekto vám poďakoval!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; vám poďakoval za vašu úpravu stránky &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name">Synchronizovanie</string>
   <string name="notification_channel_description">Stav preberania</string>
-  <string name="notification_syncing_title">Preberá sa %1$d {{PLURAL:%1$d|článok|články|článkov}}…</string>
-  <string name="notification_syncing_description">Ostáva %1$d {{PLURAL:%1$d|článok|články|článkov}}</string>
   <string name="notification_syncing_pause_button">Pozastaviť</string>
   <string name="notification_syncing_resume_button">Pokračovať</string>
   <string name="notification_syncing_cancel_button">Zrušiť</string>
+  <string name="notification_channel_name" fuzzy="true">Synchronizovanie</string>
+  <string name="notification_syncing_title" fuzzy="true">Preberá sa %1$d {{PLURAL:%1$d|článok|články|článkov}}…</string>
+  <string name="notification_syncing_description" fuzzy="true">Ostáva %1$d {{PLURAL:%1$d|článok|články|článkov}}</string>
   <string name="view_continue_reading_card_title">Pokračujte v čítaní</string>
   <string name="view_because_you_read_card_title">Pretože ste čítali</string>
   <string name="view_random_card_title">Randomizér</string>

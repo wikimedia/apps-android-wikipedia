@@ -62,7 +62,7 @@
   <string name="content_license_html">Το περιεχόμενο είναι διαθέσιμο υπό την &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; εκτός εάν σημειώνεται διαφορετικά</string>
   <string name="edit_save_action_license_logged_in">Με την αποθήκευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt;, και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Με την αποθήκευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt;, και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Επεξεργασίες σας θα αναφέρονται στην διεύθυνση IP της συσκευής σας. Αν &lt;a href=\"https://#login\"&gt;συνδεθείτε&lt;/a&gt;, θα έχετε μεγαλύτερη ιδιωτικότητα.</string>
-  <string name="preference_title_language">Γλώσσα Βικιπαίδειας</string>
+  <string name="preference_title_language" fuzzy="true">Γλώσσα Βικιπαίδειας</string>
   <string name="preference_languages_filter_hint">Αναζήτηση</string>
   <string name="langlinks_filter_hint">Αναζήτηση</string>
   <string name="langlinks_empty">Αυτή η σελίδα δεν είναι διαθέσιμη σε άλλες γλώσσες</string>
@@ -409,15 +409,15 @@
   <string name="notification_reverted">Η επεξεργασία σας στο άρθρο &lt;strong&gt;%2$s&lt;/strong&gt; αναστράφηκε από τον &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Έχετε λάβει μια ευχαριστία!</string>
   <string name="notification_thanks">Ο &lt;em&gt;%1$s&lt;/em&gt; σας ευχαρίστησε για την επεξεργασία σας στη σελίδα &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name">Sincroniser</string>
   <string name="notification_channel_description">Εγκατάσταση προόδου</string>
-  <string name="notification_syncing_title">Λήψη των %1$d λήμμα (-άτων)</string>
-  <string name="notification_syncing_description">Έχουν μείνει %1$d λήμματα</string>
   <string name="notification_syncing_pause_button">Παύση</string>
   <string name="notification_syncing_resume_button">συνέχεια</string>
   <string name="notification_syncing_cancel_button">Ακύρωση</string>
-  <string name="notification_syncing_reading_list_title">Συγχρονισμός %1$d λίστα(-ών) σε εξέλιξη...</string>
-  <string name="notification_syncing_reading_list_description">Έμειναν %1$d λίστες</string>
+  <string name="notification_channel_name" fuzzy="true">Sincroniser</string>
+  <string name="notification_syncing_title" fuzzy="true">Λήψη των %1$d λήμμα (-άτων)</string>
+  <string name="notification_syncing_description" fuzzy="true">Έχουν μείνει %1$d λήμματα</string>
+  <string name="notification_syncing_reading_list_title" fuzzy="true">Συγχρονισμός %1$d λίστα(-ών) σε εξέλιξη...</string>
+  <string name="notification_syncing_reading_list_description" fuzzy="true">Έμειναν %1$d λίστες</string>
   <string name="view_continue_reading_card_title">Συνέχεια ανάγνωσης</string>
   <string name="view_because_you_read_card_title">Επειδή διαβάσατε</string>
   <string name="view_random_card_title">Τυχαιοποιητής</string>
@@ -578,7 +578,7 @@
   <string name="wikipedia_languages_add_language_text">Προσθήκη γλώσσας</string>
   <string name="wikipedia_languages_remove_text">Αφαίρεση</string>
   <string name="wikipedia_languages_remove_action_mode_title">Αφαίρεση γλώσσας</string>
-  <string name="wikipedia_languages_remove_dialog_title">Αφαίρεση των επιλεγμένων γλώσσα(-ών);</string>
+  <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Αφαίρεση των επιλεγμένων γλώσσα(-ών);</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Δεν μπορούν να αφαιρεθούν όλες οι γλώσσες</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Κρατήστε τουλάχιστον μια γλώσσα Βικιπαίδειας από την οποία θα γίνεται αναζήτηση και ανάγνωση περιεχομένου.</string>
 </resources>

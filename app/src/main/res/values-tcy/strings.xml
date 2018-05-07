@@ -48,7 +48,7 @@
   <string name="content_license_html">ಪ್ರತ್ಯೇಕವಾದ್ ಉಲ್ಲೇಕ ಮಲ್ಪಂದೆ ಇತ್ತ್ಂಡ, ವಿಷಯ &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ದಡಿಟ್ ಲಭ್ಯ ಉಂಡು.</string>
   <string name="edit_save_action_license_logged_in">ಬದಲಾವಣೆಲೆನ್ ಒರಿಪಾವುನ ಮೂಲಕ, ಈರ್ &lt;a href=\"%1$s\"&gt;ಗಲಸುನ ನಿಬಂದನೆಲೆನ್&lt;/a&gt; ಒತ್ತೊನುವರ್, ಬೊಕ್ಕ ಇರೆನ ಕಾನಿಕೆಲೆನ್  &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ಲೈಸೆನ್ಸ್‌ದಡಿಟ್ ಬುಡುಗಡೆ ಮಲ್ಪೆರೆ ಈರ್ ಬದಲ್ ಮಲ್ಪೆರಾವಂದಿಲೆಕ ಒತ್ತೊನುವರ್.</string>
   <string name="edit_save_action_license_anon">ಬದಲಾವಣೆಲೆನ್ ಒರಿಪಾವುನ ಮೂಲಕ, ಈರ್ &lt;a href=\"%1$s\"&gt;ಗಲಸುನ ನಿಬಂದನೆಲೆನ್&lt;/a&gt; ಒತ್ತೊನುವರ್, ಬೊಕ್ಕ ಇರೆನ ಕಾನಿಕೆಲೆನ್  &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ಲೈಸೆನ್ಸ್‌ದಡಿಟ್ ಬುಡುಗಡೆ ಮಲ್ಪೆರೆ ಈರ್ ಬದಲ್ ಮಲ್ಪೆರಾವಂದಿಲೆಕ ಒತ್ತೊನುವರ್. ಬದಲಾವಣೆದ ಶ್ರೇಯೊ (ಕ್ರೆಡಿಟ್ಸ್), ಇರೆನ ಸಾಧನೊದ ಐ.ಪಿ. ವಿಲಾಸೊಗು ತಿಕ್ಕುಂಡು. ಈರ್ &lt;a href=\"https://#login\"&gt;ಲಾಗ್ ಇನ್&lt;/a&gt; ಆಂಡ, ಇರೆಗ್ ದಿಂಜ ಗೌಪ್ಯತೆ ಉಪ್ಪುಂಡು.</string>
-  <string name="preference_title_language">ವಿಕಿಪೀಡಿಯಾ ಬಾಸೆ</string>
+  <string name="preference_title_language" fuzzy="true">ವಿಕಿಪೀಡಿಯಾ ಬಾಸೆ</string>
   <string name="preference_languages_filter_hint">ನಾಡ್‍ಲೆ</string>
   <string name="langlinks_filter_hint">ನಾಡ್‍ಲೆ</string>
   <string name="langlinks_empty">ಈ ಪುಟ ಬೇತೆ ಬಾಸೆಲೆಡ್ ತಿಕೊಂತಿಜ್ಜಿ.</string>

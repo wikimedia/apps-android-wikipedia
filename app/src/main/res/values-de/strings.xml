@@ -57,12 +57,13 @@
   <string name="content_license_html">Der Inhalt ist verfügbar unter &lt;a href=\"%1$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;, sofern nicht anders angegeben.</string>
   <string name="edit_save_action_license_logged_in">Mit dem Speichern stimmst du den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und unwiderruflich der Veröffentlichung deiner Beiträge unter der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; Lizenz zu.</string>
   <string name="edit_save_action_license_anon">Mit dem Speichern stimmst du den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und unwiderruflich der Veröffentlichung deiner Beiträge unter der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0-Lizenz&lt;/a&gt; zu. Bearbeitungen werden der IP-Adresse deines Gerätes zugeordnet. Wenn du dich &lt;a href=\"https://#login\"&gt;anmeldest&lt;/a&gt;, verfügst du über mehr Datenschutz.</string>
-  <string name="preference_title_language">Wikipedia-Sprache</string>
+  <string name="preference_title_language">Wikipedia-Sprachen</string>
   <string name="preference_languages_filter_hint">Suche</string>
   <string name="langlinks_filter_hint">Suche</string>
   <string name="langlinks_empty">Diese Seite ist nicht in anderen Sprachen verfügbar.</string>
   <string name="langlinks_no_match">Keine Sprachen gefunden</string>
   <string name="langlinks_activity_title">Andere Sprachen</string>
+  <string name="langlinks_your_wikipedia_languages">Deine Wikipedia-Sprachen</string>
   <string name="menu_save_changes">Änderungen veröffentlichen</string>
   <string name="dialog_saving_in_progress">Veröffentliche …</string>
   <string name="edit_saved_successfully">Bearbeitung veröffentlicht!</string>
@@ -430,17 +431,35 @@
   <string name="notification_reverted">Deine Bearbeitung an dem Artikel &lt;strong&gt;%2$s&lt;/strong&gt; wurde von &lt;em&gt;%1$s&lt;/em&gt; rückgängig gemacht.</string>
   <string name="notification_thanks_title">Du hast ein Dankeschön erhalten!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; hat sich für deine Bearbeitung auf der Seite &lt;strong&gt;%2$s&lt;/strong&gt; bedankt</string>
-  <string name="notification_channel_name">Synchronisieren</string>
   <string name="notification_channel_description">Downloadfortschritt</string>
-  <string name="notification_syncing_title">Lade %1$d Artikel herunter …</string>
-  <string name="notification_syncing_description">%1$d Artikel verbleibend</string>
   <string name="notification_syncing_pause_button">Pausieren</string>
   <string name="notification_syncing_resume_button">Fortfahren</string>
   <string name="notification_syncing_cancel_button">Abbrechen</string>
-  <string name="notification_syncing_reading_list_channel_name">Synchronisiere Leseliste(n)</string>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Synchronisiere Leseliste</item>
+    <item quantity="other">Synchronisiere Leselisten</item>
+  </plurals>
   <string name="notification_syncing_reading_list_channel_description">Fortschritt der Synchronisierung von Leselisten</string>
-  <string name="notification_syncing_reading_list_title">Synchronisiere %1$d Liste(n) …</string>
-  <string name="notification_syncing_reading_list_description">noch %1$d Liste(n)</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">Herunterladen des Artikels</item>
+    <item quantity="other">Herunterladen der Artikel</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">Lade einen Artikel herunter …</item>
+    <item quantity="other">Lade %1$d Artikel herunter …</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">Ein Artikel verbleibend</item>
+    <item quantity="other">%1$d Artikel verbleibend</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Synchronisiere eine Liste …</item>
+    <item quantity="other">Synchronisiere %1$d Listen …</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">noch eine Liste</item>
+    <item quantity="other">noch %1$d Listen</item>
+  </plurals>
   <string name="view_continue_reading_card_title">Mit dem Lesen fortfahren</string>
   <string name="view_because_you_read_card_title">Weil du das gelesen hast</string>
   <string name="view_random_card_title">Zufallsgenerator</string>
@@ -616,7 +635,10 @@
   <string name="wikipedia_languages_add_language_text">Sprache hinzufügen</string>
   <string name="wikipedia_languages_remove_text">Entfernen</string>
   <string name="wikipedia_languages_remove_action_mode_title">Sprache entfernen</string>
-  <string name="wikipedia_languages_remove_dialog_title">Ausgewählte Sprache(n) entfernen?</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">Ausgewählte Sprache entfernen?</item>
+    <item quantity="other">Ausgewählte Sprachen entfernen?</item>
+  </plurals>
   <string name="wikipedia_languages_remove_dialog_content">Du wirst nur die Inhalte im Entdecken-Feed und Schnellsuchfilter für die verbleibenden Wikipedia-Sprachen sehen.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Es konnten nicht alle Sprachen entfernt werden</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Mindestens eine Wikipedia-Sprache für die Suche und das Lesen von Inhalten behalten.</string>

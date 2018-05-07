@@ -68,12 +68,13 @@
   <string name="content_license_html">Sisältö on saatavilla &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssillä, ellei toisin ilmoiteta</string>
   <string name="edit_save_action_license_logged_in">Tallentamalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti.</string>
   <string name="edit_save_action_license_anon">Tallentamalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti. Muokkauksesi yhdistetään laitteesi IP-osoitteeseen. Mikäli &lt;a href=\"https://#login\"&gt;kirjaudut sisään&lt;/a&gt;, tietosuojasi paranee.</string>
-  <string name="preference_title_language">Wikipedian kieli</string>
+  <string name="preference_title_language">Wikipedian kielet</string>
   <string name="preference_languages_filter_hint">Haku</string>
   <string name="langlinks_filter_hint">Haku</string>
   <string name="langlinks_empty">Tämä sivu ei ole saatavilla muilla kielillä</string>
   <string name="langlinks_no_match">Kieliä ei löytynyt</string>
   <string name="langlinks_activity_title">Muilla kielillä</string>
+  <string name="langlinks_your_wikipedia_languages">Wikipedia-kielesi</string>
   <string name="menu_save_changes">Julkaise muutokset</string>
   <string name="dialog_saving_in_progress">Julkaistaan...</string>
   <string name="edit_saved_successfully">Muokkaus julkaistu!</string>
@@ -440,16 +441,34 @@
   <string name="notification_reverted">&lt;em&gt;%1$s&lt;/em&gt; kumosi muokkauksesi artikkeliin &lt;strong&gt;%2$s&lt;/strong&gt;.</string>
   <string name="notification_thanks_title">Sinua on kiitetty tekemästäsi muokkauksesta!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; kiitti sinua muokkauksestasi sivuun &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name">Synkronoidaan</string>
   <string name="notification_channel_description">Latauksen edistyminen</string>
-  <string name="notification_syncing_title">Ladataan %1$d artikkeli(a)…</string>
-  <string name="notification_syncing_description">%1$d artikkeli(a) jäljellä</string>
   <string name="notification_syncing_pause_button">Tauko</string>
   <string name="notification_syncing_resume_button">Jatka</string>
   <string name="notification_syncing_cancel_button">Peruuta</string>
-  <string name="notification_syncing_reading_list_channel_name">Synkronoidaan lukulistaa</string>
-  <string name="notification_syncing_reading_list_title">Synkronoidaan %1$d lista(a)…</string>
-  <string name="notification_syncing_reading_list_description">%1$d lista(a) jäljellä</string>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Synkronoidaan lukulistaa</item>
+    <item quantity="other">Synkronoidaan lukulistoja</item>
+  </plurals>
+  <plurals name="notification_channel_name">
+    <item quantity="one">Ladataan artikkelia</item>
+    <item quantity="other">Ladataan artikkeleita</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">Ladataan %1$d artikkeli…</item>
+    <item quantity="other">Ladataan %1$d artikkelia…</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">%1$d artikkeli jäljellä</item>
+    <item quantity="other">%1$d artikkelia jäljellä</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Synkronoidaan %1$d listaa…</item>
+    <item quantity="other">Synkronoidaan %1$d listaa…</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">%1$d lista jäljellä</item>
+    <item quantity="other">%1$d listaa jäljellä</item>
+  </plurals>
   <string name="view_continue_reading_card_title">Jatka lukemista</string>
   <string name="view_because_you_read_card_title">Koska luit</string>
   <string name="view_random_card_title">Satunnaistaminen</string>
@@ -624,7 +643,10 @@
   <string name="wikipedia_languages_add_language_text">Lisää kieli</string>
   <string name="wikipedia_languages_remove_text">Poista</string>
   <string name="wikipedia_languages_remove_action_mode_title">Poista kieli</string>
-  <string name="wikipedia_languages_remove_dialog_title">Poista valittu kieli/valitut kielet?</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">Poista valittu kieli?</item>
+    <item quantity="other">Poista valitut kielet?</item>
+  </plurals>
   <string name="wikipedia_languages_remove_warning_dialog_title">Ei voi poistaa kaikkia kieliä</string>
   <string name="more_language_options">lisää</string>
 </resources>

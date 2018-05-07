@@ -78,7 +78,7 @@
   <string name="content_license_html">Il contenuto è disponibile in base alla &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; se non diversamente specificato</string>
   <string name="edit_save_action_license_logged_in">Salvando, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Salvando, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Le modifiche verranno attribuite all\'indirizzo IP del tuo dispositivo. Se &lt;a href=\"https://#login\"&gt;accedi&lt;/a&gt; avrai maggiore privacy.</string>
-  <string name="preference_title_language">Lingua di Wikipedia</string>
+  <string name="preference_title_language" fuzzy="true">Lingua di Wikipedia</string>
   <string name="preference_languages_filter_hint">Ricerca</string>
   <string name="langlinks_filter_hint">Cerca</string>
   <string name="langlinks_empty">Questa pagina non è disponibile in altre lingue</string>
@@ -383,12 +383,12 @@
   <string name="notification_reverted">La tua modifica alla voce &lt;strong&gt;%2$s&lt;/strong&gt; è stata annullata da &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Sei stato ringraziato!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; ti ha ringraziato per la tua modifica nella pagina &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name">Sincronizzazione</string>
-  <string name="notification_syncing_title">Scaricamento di %1$d voce/i…</string>
-  <string name="notification_syncing_description">%1$d voce/i rimanente/i</string>
   <string name="notification_syncing_pause_button">Pausa</string>
   <string name="notification_syncing_resume_button">Riprendi</string>
   <string name="notification_syncing_cancel_button">Annulla</string>
+  <string name="notification_channel_name" fuzzy="true">Sincronizzazione</string>
+  <string name="notification_syncing_title" fuzzy="true">Scaricamento di %1$d voce/i…</string>
+  <string name="notification_syncing_description" fuzzy="true">%1$d voce/i rimanente/i</string>
   <string name="view_continue_reading_card_title">Continua a leggere</string>
   <string name="view_because_you_read_card_title">Perché hai letto</string>
   <string name="view_random_card_title">Una pagina a caso</string>
@@ -508,7 +508,7 @@
   <string name="wikipedia_languages_add_language_text">Aggiungi lingua</string>
   <string name="wikipedia_languages_remove_text">Rimuovi</string>
   <string name="wikipedia_languages_remove_action_mode_title">Rimuovi lingua</string>
-  <string name="wikipedia_languages_remove_dialog_title">Rimuovere le lingue selezionate?</string>
+  <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Rimuovere le lingue selezionate?</string>
   <string name="wikipedia_languages_remove_dialog_content">Veisualizzerai solo il contenuto sul collegamento Explore e filtri di ricerca rapida per le restanti lingue di Wikipedia.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Impossibile rimuovere tutte le lingue</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantieni almeno una lingua Wikipedia da cui potrai cercare e leggere il contenuto.</string>

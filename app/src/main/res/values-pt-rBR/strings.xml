@@ -77,12 +77,13 @@
   <string name="content_license_html">O conteúdo está disponível sob &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que seja indicado em contrário</string>
   <string name="edit_save_action_license_logged_in">Ao salvar, você estará concordando com os &lt;a href=\"%1$s\"&gt;Termos de Uso&lt;/a&gt; e em publicar irrevogavelmente a sua contribuição sob a licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Ao salvar, você estará concordando com os &lt;a href=\"%1$s\"&gt;Termos de Uso&lt;/a&gt; e em publicar irrevogavelmente a sua contribuição sob a licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Edições serão atribuídas ao endereço IP do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;iniciar sessão&lt;/a&gt;, você terá mais privacidade.</string>
-  <string name="preference_title_language">Idioma da WIkipédia</string>
+  <string name="preference_title_language">Idiomas da Wikipédia</string>
   <string name="preference_languages_filter_hint">Pesquisar</string>
   <string name="langlinks_filter_hint">Pesquisar</string>
   <string name="langlinks_empty">Esta página não está disponível em outros idiomas.</string>
   <string name="langlinks_no_match">Nenhum idioma encontrado</string>
   <string name="langlinks_activity_title">Outros idiomas</string>
+  <string name="langlinks_your_wikipedia_languages">Seus idiomas da Wikipedia</string>
   <string name="menu_save_changes">Publicar alterações</string>
   <string name="dialog_saving_in_progress">Publicando…</string>
   <string name="edit_saved_successfully">Edição publicada!</string>
@@ -450,17 +451,35 @@
   <string name="notification_reverted">A sua edição do artigo &lt;strong&gt;%2$s&lt;/strong&gt; foi desfeita por &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Você recebeu um agradecimento!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; agradeceu-lhe a edição na página &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name">Sincronização</string>
   <string name="notification_channel_description">Progresso do download</string>
-  <string name="notification_syncing_title">Baixando %1$d artigo(s)...</string>
-  <string name="notification_syncing_description">Falta(m) %1$d artigo(s)</string>
   <string name="notification_syncing_pause_button">Pausar</string>
   <string name="notification_syncing_resume_button">Retomar</string>
   <string name="notification_syncing_cancel_button">Cancelar</string>
-  <string name="notification_syncing_reading_list_channel_name">Sincronizando listas de leitura</string>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Sincronizando a lista de leitura</item>
+    <item quantity="other">Sincronizando as listas de leitura</item>
+  </plurals>
   <string name="notification_syncing_reading_list_channel_description">Progresso da sincronização das listas de leitura</string>
-  <string name="notification_syncing_reading_list_title">Sincronizando %1$d lista(s)…</string>
-  <string name="notification_syncing_reading_list_description">faltam %1$d lista(s)</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">Download de artigo</item>
+    <item quantity="other">Download de artigos</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">Baixando %1$d artigo...</item>
+    <item quantity="other">Baixando %1$d artigos...</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">Falta %1$d artigo</item>
+    <item quantity="other">Faltam %1$d artigos</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Sincronizando %1$d lista…</item>
+    <item quantity="other">Sincronizando %1$d listas…</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">faltam %1$d lista</item>
+    <item quantity="other">faltam %1$d listas</item>
+  </plurals>
   <string name="view_continue_reading_card_title">Continue lendo</string>
   <string name="view_because_you_read_card_title">Porque você leu</string>
   <string name="view_random_card_title">Aleatório</string>
@@ -636,8 +655,12 @@
   <string name="wikipedia_languages_add_language_text">Adicionar idioma</string>
   <string name="wikipedia_languages_remove_text">Remover</string>
   <string name="wikipedia_languages_remove_action_mode_title">Remover idioma</string>
-  <string name="wikipedia_languages_remove_dialog_title">Remover idioma(s) selecionado(s)?</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">Remover o idioma selecionado?</item>
+    <item quantity="other">Remover idiomas selecionados?</item>
+  </plurals>
   <string name="wikipedia_languages_remove_dialog_content">Você só verá o conteúdo no Feed de explorar e os filtros de pesquisa rápida para os idiomas restantes do Wikipedia</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Não é possível remover todos os idiomas</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantenha pelo menos um idioma do Wikipedia para pesquisar e ler conteúdo.</string>
+  <string name="more_language_options">mais</string>
 </resources>

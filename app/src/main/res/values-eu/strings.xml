@@ -61,7 +61,7 @@
   <string name="content_license_html">Edukia eskuragarri &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean, besterik aipatu ezean</string>
   <string name="edit_save_action_license_logged_in">Gordetzen baduzu &lt;a href=\"%1$s\"&gt;Erabilera Baldintzak&lt;/a&gt; onartzen dituzu, eta zure ekarpen guztiak atzera bueltarik gabe &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean jartzen dituzu.</string>
   <string name="edit_save_action_license_anon">Aurreztuz, &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; onartuko duzu, eta ezinbestez zure ekarpenak askatu beharko dituzu &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziaren babespean. Aldaketak zure gailuaren IP helbideari egotziko zaizkio. Zu &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt; ba zara, pribautasun gehiago edukiko duzu.</string>
-  <string name="preference_title_language">Wikipediaren hizkuntza</string>
+  <string name="preference_title_language" fuzzy="true">Wikipediaren hizkuntza</string>
   <string name="preference_languages_filter_hint">Bilatu</string>
   <string name="langlinks_filter_hint">Bilatu</string>
   <string name="langlinks_empty">Orrialde hau ez dago eskuragarri beste hizkuntzetan.</string>
@@ -432,17 +432,17 @@
   <string name="notification_reverted">&lt;strong&gt;%2$s&lt;/strong&gt; artikuluari egin diozun aldaketa &lt;em&gt;%1$s&lt;/em&gt;(e)k lehengoratu du.</string>
   <string name="notification_thanks_title">Eskerrak eman dizkizute!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt;(e)k &lt;strong&gt;%2$s&lt;/strong&gt; orrialdean egindako aldaketa eskertu dizu</string>
-  <string name="notification_channel_name">Sinkronizatzen</string>
   <string name="notification_channel_description">Deskargatu aurrerapena</string>
-  <string name="notification_syncing_title">%1$d artikulu jaisten…</string>
-  <string name="notification_syncing_description">%1$d artikulu geratzen dira</string>
   <string name="notification_syncing_pause_button">Gelditu</string>
   <string name="notification_syncing_resume_button">Jarraitu</string>
   <string name="notification_syncing_cancel_button">Bertan behera utzi</string>
-  <string name="notification_syncing_reading_list_channel_name">Irakurketa zerrenda(k) sinkronizatzen</string>
+  <string name="notification_syncing_reading_list_channel_name" fuzzy="true">Irakurketa zerrenda(k) sinkronizatzen</string>
   <string name="notification_syncing_reading_list_channel_description">Irakurketa zerrenden sinkronizazioaren aurrerapena</string>
-  <string name="notification_syncing_reading_list_title">Sinkronizatzen %1$d zerrenda(k)…</string>
-  <string name="notification_syncing_reading_list_description">%1$d zerrenda(k) faltan…</string>
+  <string name="notification_channel_name" fuzzy="true">Sinkronizatzen</string>
+  <string name="notification_syncing_title" fuzzy="true">%1$d artikulu jaisten…</string>
+  <string name="notification_syncing_description" fuzzy="true">%1$d artikulu geratzen dira</string>
+  <string name="notification_syncing_reading_list_title" fuzzy="true">Sinkronizatzen %1$d zerrenda(k)…</string>
+  <string name="notification_syncing_reading_list_description" fuzzy="true">%1$d zerrenda(k) faltan…</string>
   <string name="view_continue_reading_card_title">Irakurtzen jarraitu</string>
   <string name="view_because_you_read_card_title">Irakurtzen duzulako</string>
   <string name="view_random_card_title">Ausazkoa</string>

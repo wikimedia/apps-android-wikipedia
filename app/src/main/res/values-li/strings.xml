@@ -53,7 +53,7 @@
   <string name="content_license_html">Inhawd is besjikbaar ónger de &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie behauve wen anges is aangegaove</string>
   <string name="edit_save_action_license_logged_in">Door op te slaon geis se akkaord mit de &lt;a href=\"%1$s\"&gt;gebroeksveurwaerd&lt;/a&gt; en \'t ónherropelik vriegaeve van dien biedraag ónger de &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie.</string>
   <string name="edit_save_action_license_anon">Door op te slaon geis se akkaord mit de &lt;a href=\"%1$s\"&gt;gebroeksveurwaerd&lt;/a&gt; en \'t ónherropelik vriegaeve van dien biedraag ónger de &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie. Bewirkinge waere toegesjreve aan \'t IP-adres van die toestèl. Es se dich &lt;a href=\"https://#login\"&gt;aanmeljs&lt;/a&gt;, höbs se mieër privaatrechte.</string>
-  <string name="preference_title_language">Wikipedia-spraok</string>
+  <string name="preference_title_language" fuzzy="true">Wikipedia-spraok</string>
   <string name="preference_languages_filter_hint">Zeuk</string>
   <string name="langlinks_filter_hint">Zeuk</string>
   <string name="langlinks_empty">Dees pagina is neet besjikbaar in anger spraoke.</string>

@@ -54,12 +54,13 @@
   <string name="content_license_html">Содржината е достапна под &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е поинаку наведено</string>
   <string name="edit_save_action_license_logged_in">Зачувувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_anon">Зачувувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt;, и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Уредувањата ќе ѝ бидат припишани на IP-адресата на вашиот уред. Ако се &lt;a href=\"https://#login\"&gt;најавите&lt;/a&gt; ќе имате поголема приватност.</string>
-  <string name="preference_title_language">Јазик на Википедија</string>
+  <string name="preference_title_language" fuzzy="true">Јазик на Википедија</string>
   <string name="preference_languages_filter_hint">Пребарајте</string>
   <string name="langlinks_filter_hint">Пребарај</string>
   <string name="langlinks_empty">Страницава не е достапна на други јазици</string>
   <string name="langlinks_no_match">Не пронајдов ниеден јазик</string>
   <string name="langlinks_activity_title">Други јазици</string>
+  <string name="langlinks_your_wikipedia_languages">Ваши википедиски јазици</string>
   <string name="menu_save_changes">Зачувај промени</string>
   <string name="dialog_saving_in_progress">Зачувувам…</string>
   <string name="edit_saved_successfully">Уредувањето е објавено!</string>
@@ -427,17 +428,17 @@
   <string name="notification_reverted">Вашето уредување на статијата &lt;strong&gt;%2$s&lt;/strong&gt; е отповикано од &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Добивте благодарност!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; ви благодари за вашето уредување на страницатга &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name">Усогласување</string>
   <string name="notification_channel_description">Напредок на подигањето</string>
-  <string name="notification_syncing_title">Преземам %1$d статии…</string>
-  <string name="notification_syncing_description">преостануваат %1$d статии</string>
   <string name="notification_syncing_pause_button">Паузирај</string>
   <string name="notification_syncing_resume_button">Продолжи</string>
   <string name="notification_syncing_cancel_button">Откажи</string>
-  <string name="notification_syncing_reading_list_channel_name">Усогласување на списоци за читање</string>
+  <string name="notification_syncing_reading_list_channel_name" fuzzy="true">Усогласување на списоци за читање</string>
   <string name="notification_syncing_reading_list_channel_description">Напредок на усогласувањето на списоци за читање</string>
-  <string name="notification_syncing_reading_list_title">Усогласувам %1$d списоци…</string>
-  <string name="notification_syncing_reading_list_description">Преостануваат %1$d списоци</string>
+  <string name="notification_channel_name" fuzzy="true">Усогласување</string>
+  <string name="notification_syncing_title" fuzzy="true">Преземам %1$d статии…</string>
+  <string name="notification_syncing_description" fuzzy="true">преостануваат %1$d статии</string>
+  <string name="notification_syncing_reading_list_title" fuzzy="true">Усогласувам %1$d списоци…</string>
+  <string name="notification_syncing_reading_list_description" fuzzy="true">Преостануваат %1$d списоци</string>
   <string name="view_continue_reading_card_title">Продолжете со читање</string>
   <string name="view_because_you_read_card_title">Бидејќи читавте</string>
   <string name="view_random_card_title">Случаен избирач</string>
@@ -613,7 +614,7 @@
   <string name="wikipedia_languages_add_language_text">Додај јазик</string>
   <string name="wikipedia_languages_remove_text">Отстрани</string>
   <string name="wikipedia_languages_remove_action_mode_title">Отстрани јазик</string>
-  <string name="wikipedia_languages_remove_dialog_title">Да ги отстранам избраните јазици?</string>
+  <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Да ги отстранам избраните јазици?</string>
   <string name="wikipedia_languages_remove_dialog_content">Содржината во тековникот „Истражи“ и филтрите за брзо пребарување ќе се однесуваат само на преостанатите јазици на Википедија.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Не можам да ги отстранам сите јазици</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Задржете барем еден јазик на Википедија од кој ќе пребарувате и читате содржини.</string>

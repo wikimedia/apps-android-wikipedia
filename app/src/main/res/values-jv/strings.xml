@@ -51,7 +51,7 @@
   <string name="content_license_html">Isi cumepak kanthi pangayoman &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, kajaba ana katerangan liyané.</string>
   <string name="edit_save_action_license_logged_in">Kanthi nyimpen, panjenengan minangkani &lt;a href=\"%1$s\"&gt;Paugeran ing Guna&lt;/a&gt;, lan nguculaké sumbangané panjenengan mawa lisènsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Kanthi nyimpen, panjenengan minangkani &lt;a href=\"%1$s\"&gt;Paugeran ing Guna&lt;/a&gt;, lan lila nguculaké sumbangané sampéyan mawa lisènsi &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Besutan bakal kagayutaké nyang alamat IP pirantiné panjenengan. Manawa panjenengan &lt;a href=\"https://#login\"&gt;mlebu log&lt;/a&gt;, panjenengan bakal éntuk privasi luwih.</string>
-  <string name="preference_title_language">Basa Wikipédia</string>
+  <string name="preference_title_language" fuzzy="true">Basa Wikipédia</string>
   <string name="preference_languages_filter_hint">Golèk</string>
   <string name="langlinks_filter_hint">Golèk</string>
   <string name="langlinks_empty">Kaca iki ora ana ing basa liya.</string>
@@ -378,13 +378,13 @@
   <string name="notification_reverted">Besutané panjenengan tumrap artikel &lt;strong&gt;%2$s&lt;/strong&gt; diwurungaké déning &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Panjenengan nampa atur panuwun!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; matur nuwun marang panjenengan awit besutané panjenengan ing kaca &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name">Nyinkronisasi</string>
   <string name="notification_channel_description">Lakuning undhuhan</string>
-  <string name="notification_syncing_title">Ngundhuh %1$d artikel…</string>
-  <string name="notification_syncing_description">Kari %1$d artikel</string>
   <string name="notification_syncing_pause_button">Lèrèhaké</string>
   <string name="notification_syncing_resume_button">Banjuraké</string>
   <string name="notification_syncing_cancel_button">Wurung</string>
+  <string name="notification_channel_name" fuzzy="true">Nyinkronisasi</string>
+  <string name="notification_syncing_title" fuzzy="true">Ngundhuh %1$d artikel…</string>
+  <string name="notification_syncing_description" fuzzy="true">Kari %1$d artikel</string>
   <string name="view_continue_reading_card_title">Bacutaké maca</string>
   <string name="view_because_you_read_card_title">Amarga panjenengan maca</string>
   <string name="view_random_card_title">Artikel sembarang</string>

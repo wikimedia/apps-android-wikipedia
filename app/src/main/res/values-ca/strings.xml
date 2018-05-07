@@ -67,7 +67,7 @@
   <string name="content_license_html">El contingut està disponible sota llicència &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; si no s\'indica el contrari</string>
   <string name="edit_save_action_license_logged_in">En desar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">En desar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Les edicions s\'atribuiran a l\'adreça IP del vostre dispositiu. Si &lt;a href=\"https://#login\"&gt;inicieu una sessió&lt;/a&gt; gaudireu de més privadesa.</string>
-  <string name="preference_title_language">Idioma de la Viquipèdia</string>
+  <string name="preference_title_language" fuzzy="true">Idioma de la Viquipèdia</string>
   <string name="preference_languages_filter_hint">Cerca</string>
   <string name="langlinks_filter_hint">Cerca</string>
   <string name="langlinks_empty">Aquesta pàgina no està disponible en altres idiomes.</string>
@@ -430,17 +430,17 @@
   <string name="notification_reverted">La vostra modificació a l\'article &lt;strong&gt;%2$s&lt;/strong&gt; ha estat revertida per &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Us han agraït!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; ha agraït la vostra modificació a la pàgina &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name">Sincronització</string>
   <string name="notification_channel_description">Progrés de la baixada</string>
-  <string name="notification_syncing_title">S’estan baixant %1$d articles…</string>
-  <string name="notification_syncing_description">queda/en %1$d article/s</string>
   <string name="notification_syncing_pause_button">Pausa</string>
   <string name="notification_syncing_resume_button">Reprèn</string>
   <string name="notification_syncing_cancel_button">Cancel·la</string>
-  <string name="notification_syncing_reading_list_channel_name">Sincronització de llistes de lectura</string>
+  <string name="notification_syncing_reading_list_channel_name" fuzzy="true">Sincronització de llistes de lectura</string>
   <string name="notification_syncing_reading_list_channel_description">Progrés de sincronització de llistes de lectura</string>
-  <string name="notification_syncing_reading_list_title">S’estan sincronitzant %1$d llistes…</string>
-  <string name="notification_syncing_reading_list_description">Queden %1$d llistes</string>
+  <string name="notification_channel_name" fuzzy="true">Sincronització</string>
+  <string name="notification_syncing_title" fuzzy="true">S’estan baixant %1$d articles…</string>
+  <string name="notification_syncing_description" fuzzy="true">queda/en %1$d article/s</string>
+  <string name="notification_syncing_reading_list_title" fuzzy="true">S’estan sincronitzant %1$d llistes…</string>
+  <string name="notification_syncing_reading_list_description" fuzzy="true">Queden %1$d llistes</string>
   <string name="view_continue_reading_card_title">Continua llegint</string>
   <string name="view_because_you_read_card_title">Com que has llegit</string>
   <string name="view_random_card_title">A l\'atzar</string>

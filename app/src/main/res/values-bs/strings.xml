@@ -53,7 +53,7 @@
   <string name="content_license_html">Sadržaj je dostupan pod licencom &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; osim gdje je drukčije navedeno</string>
   <string name="edit_save_action_license_logged_in">Čuvanjem izmjena prihvatate &lt;a href=\"%1$s\"&gt;uslove korištenja&lt;/a&gt; i neopozivo se slažete da svoj doprinos objavite pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Čuvanjem izmjena prihvatate &lt;a href=\"%1$s\"&gt;uslove korištenja&lt;/a&gt; i neopozivo se slažete da svoj doprinos objavite pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Izmjene koje napravite pripisat će se IP-adresi Vašeg uređaja. Ako se &lt;a href=\"https://#login\"&gt;prijavite&lt;/a&gt;, imat ćete veću privatnost.</string>
-  <string name="preference_title_language">Jezik Wikipedije</string>
+  <string name="preference_title_language" fuzzy="true">Jezik Wikipedije</string>
   <string name="preference_languages_filter_hint">Pretraži</string>
   <string name="langlinks_filter_hint">Pretraži</string>
   <string name="langlinks_empty">Ova stranica nije dostupna na drugim jezicima.</string>
@@ -382,13 +382,13 @@
   <string name="notification_reverted">&lt;em&gt;%1$s&lt;/em&gt; je vratio/-la Vašu izmjenu članka &lt;strong&gt;%2$s&lt;/strong&gt;.</string>
   <string name="notification_thanks_title">Neko Vam se zahvalio!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; Vam se zahvalio/-la na Vašoj izmjeni stranice &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name">Sinhronizacija</string>
   <string name="notification_channel_description">Napredak preuzimanja</string>
-  <string name="notification_syncing_title">Preuzimam %1$d članak/-(a)ka…</string>
-  <string name="notification_syncing_description">Preostalo članaka: %1$d</string>
   <string name="notification_syncing_pause_button">Pauziraj</string>
   <string name="notification_syncing_resume_button">Nastavi</string>
   <string name="notification_syncing_cancel_button">Otkaži</string>
+  <string name="notification_channel_name" fuzzy="true">Sinhronizacija</string>
+  <string name="notification_syncing_title" fuzzy="true">Preuzimam %1$d članak/-(a)ka…</string>
+  <string name="notification_syncing_description" fuzzy="true">Preostalo članaka: %1$d</string>
   <string name="view_continue_reading_card_title">Nastavite čitati</string>
   <string name="view_because_you_read_card_title">Budući da ste pročitali</string>
   <string name="view_random_card_title">Nasumična stranica</string>
@@ -519,6 +519,7 @@
   <string name="on_this_day_card_title">Na današnji dan</string>
   <string name="more_events_text">Više na ovaj dan</string>
   <string name="events_count_text">%1$s događaja od %2$s do %3$d</string>
+  <string name="back_to_top">Skoči na vrh</string>
   <plurals name="diff_years">
     <item quantity="one">Prošle godine</item>
     <item quantity="other">Prije %d god.</item>
@@ -531,7 +532,7 @@
   <string name="wikipedia_languages_add_language_text">Dodaj jezik</string>
   <string name="wikipedia_languages_remove_text">Ukloni</string>
   <string name="wikipedia_languages_remove_action_mode_title">Ukloni jezik</string>
-  <string name="wikipedia_languages_remove_dialog_title">Da uklonim izabrani/-e jezik(e)?</string>
+  <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Da uklonim izabrani/-e jezik(e)?</string>
   <string name="wikipedia_languages_remove_dialog_content">Sadržaj na stranici \"Istraži\" i filteri za brzu pretragu bit će prikazani samo na preostalim jezicima Wikipedije.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Ne mogu ukloniti sve jezike</string>
 </resources>

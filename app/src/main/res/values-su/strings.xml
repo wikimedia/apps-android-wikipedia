@@ -53,7 +53,7 @@
   <string name="content_license_html">Eusi ditangtayungan ku &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; iwal mun disebutkeun séjén</string>
   <string name="edit_save_action_license_logged_in">Ku nyimpenna, anjeun sapuk kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamakéan&lt;/a&gt;, sarta ngaleupaskeun kontribusi anjeun di handapeun  lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Ku nyimpenna, anjeun satuju kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamakéan&lt;/a&gt;, sarta ngaleupaskeun kontribusi anjeun di handapeun lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Éditan ditumbukeun ka alamat IP pakakas. Mun anjeun &lt;a href=\"https://#login\"&gt;asup log&lt;/a&gt;, anjeun bakal meunang privasi leuwih.</string>
-  <string name="preference_title_language">Basa Wikipédia</string>
+  <string name="preference_title_language" fuzzy="true">Basa Wikipédia</string>
   <string name="preference_languages_filter_hint">Paluruh</string>
   <string name="langlinks_filter_hint">Paluruh</string>
   <string name="langlinks_empty">Ieu kaca can sayaga dina basa lianna</string>
@@ -368,13 +368,13 @@
   <string name="notification_reverted">Éditan anjeun na artikel &lt;strong&gt;%2$s&lt;/strong&gt; geus dibalikkeun deui ku &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Anjeun geus dinuhunkeun!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; nganuhunkeun pikeun éditan anjeun dina kaca &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name">Nyingkronkeun</string>
   <string name="notification_channel_description">Ronjatan undeuran</string>
-  <string name="notification_syncing_title">Keur ngundeur %1$d artikel...</string>
-  <string name="notification_syncing_description">%1$d artikel sésa</string>
   <string name="notification_syncing_pause_button">Tunda</string>
   <string name="notification_syncing_resume_button">Teruskeun</string>
   <string name="notification_syncing_cancel_button">Bolay</string>
+  <string name="notification_channel_name" fuzzy="true">Nyingkronkeun</string>
+  <string name="notification_syncing_title" fuzzy="true">Keur ngundeur %1$d artikel...</string>
+  <string name="notification_syncing_description" fuzzy="true">%1$d artikel sésa</string>
   <string name="view_continue_reading_card_title">Tuluykeun maca</string>
   <string name="view_because_you_read_card_title">Sabab anjeun maca</string>
   <string name="view_random_card_title">Kaca acak</string>

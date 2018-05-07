@@ -32,7 +32,7 @@
   <string name="history_item_deleted">%s removido do histórico</string>
   <string name="history_items_deleted">%d artigos removidos do histórico</string>
   <string name="history_item_delete_undo">Desfazer</string>
-  <string name="app_settings">Definições da aplicação</string>
+  <string name="app_settings">Configurações da aplicação</string>
   <string name="dialog_title_clear_history">Limpar histórico de navegação</string>
   <string name="dialog_message_clear_history">Isto eliminará todo o seu histórico de navegação e fechará todos os separadores abertos. Tem a certeza?</string>
   <string name="dialog_message_clear_history_yes">Sim</string>
@@ -65,7 +65,7 @@
   <string name="content_license_html">O conteúdo é disponibilizado ao abrigo da &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; salvo indicação em contrário</string>
   <string name="edit_save_action_license_logged_in">Ao gravar, concorda com as &lt;a href=\"%1$s\"&gt;Condições de utilização&lt;/a&gt; e em publicar irrevogavelmente a sua contribuição ao abrigo da licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Ao gravar, concorda com as &lt;a href=\"%1$s\"&gt;Condições de utilização&lt;/a&gt;, e em publicar irrevogavelmente a sua contribuição ao abrigo da licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. As edições serão atribuídas ao endereço IP do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;iniciar uma sessão&lt;/a&gt; terá mais privacidade.</string>
-  <string name="preference_title_language">Língua da Wikipédia</string>
+  <string name="preference_title_language" fuzzy="true">Língua da Wikipédia</string>
   <string name="preference_languages_filter_hint">Pesquisar</string>
   <string name="langlinks_filter_hint">Pesquisar</string>
   <string name="langlinks_empty">Esta página não está disponível noutras línguas.</string>
@@ -438,17 +438,17 @@
   <string name="notification_reverted">A sua edição do artigo &lt;strong&gt;%2$s&lt;/strong&gt; foi desfeita por &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Recebeu um agradecimento!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; agradeceu-lhe a edição na página &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name">Sincronização</string>
   <string name="notification_channel_description">Progresso da transferência</string>
-  <string name="notification_syncing_title">A descarregar %1$d artigo(s)...</string>
-  <string name="notification_syncing_description">Falta(m) %1$d artigo(s)</string>
   <string name="notification_syncing_pause_button">Pausar</string>
   <string name="notification_syncing_resume_button">Continuar</string>
   <string name="notification_syncing_cancel_button">Cancelar</string>
-  <string name="notification_syncing_reading_list_channel_name">A sincronizar listas de leitura</string>
+  <string name="notification_syncing_reading_list_channel_name" fuzzy="true">A sincronizar listas de leitura</string>
   <string name="notification_syncing_reading_list_channel_description">Progresso da sincronização das listas de leitura</string>
-  <string name="notification_syncing_reading_list_title">A sincronizar %1$d lista(s)…</string>
-  <string name="notification_syncing_reading_list_description">faltam %1$d lista(s)</string>
+  <string name="notification_channel_name" fuzzy="true">Sincronização</string>
+  <string name="notification_syncing_title" fuzzy="true">A descarregar %1$d artigo(s)...</string>
+  <string name="notification_syncing_description" fuzzy="true">Falta(m) %1$d artigo(s)</string>
+  <string name="notification_syncing_reading_list_title" fuzzy="true">A sincronizar %1$d lista(s)…</string>
+  <string name="notification_syncing_reading_list_description" fuzzy="true">faltam %1$d lista(s)</string>
   <string name="view_continue_reading_card_title">Continuar a ler</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatório</string>
@@ -483,8 +483,9 @@
   <string name="feed_configure_menu_reset">Repor vista predefinida</string>
   <string name="feed_configure_menu_select_all">Mostrar todos</string>
   <string name="feed_configure_menu_deselect_all">Ocultar tudo</string>
+  <string name="feed_configure_language_warning">Note que nem todos os tipos de cartão estão disponíveis em todas as línguas da Wikipédia. Edite a sua seleção de línguas nas Configurações.</string>
   <string name="feed_item_type_news">Artigos sobre atualidades</string>
-  <string name="feed_item_type_on_this_day">Acontecimentos na história neste dia</string>
+  <string name="feed_item_type_on_this_day">Acontecimentos da história neste dia</string>
   <string name="feed_item_type_continue_reading">Ligação rápida para ler um artigo aberto num dos seus separadores</string>
   <string name="feed_item_type_because_you_read">Sugestões baseadas num artigo recentemente lido do seu histórico</string>
   <string name="feed_item_type_featured_article">Artigo destacado do dia na Wikipédia</string>
@@ -623,7 +624,9 @@
   <string name="wikipedia_languages_add_language_text">Adicionar língua</string>
   <string name="wikipedia_languages_remove_text">Remover</string>
   <string name="wikipedia_languages_remove_action_mode_title">Remover língua</string>
-  <string name="wikipedia_languages_remove_dialog_title">Remover língua(s) selecionada(s)?</string>
+  <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Remover língua(s) selecionada(s)?</string>
+  <string name="wikipedia_languages_remove_dialog_content">Só verá conteúdo no feed Explorar e nos filtros de pesquisa rápida para as restantes línguas da Wikipédia.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Não foi possível remover todas as línguas</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Mantenha pelo menos uma língua da Wikipédia para pesquisar e ler o conteúdo.</string>
   <string name="more_language_options">mais</string>
 </resources>

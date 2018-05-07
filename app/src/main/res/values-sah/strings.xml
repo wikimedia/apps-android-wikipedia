@@ -58,12 +58,13 @@
   <string name="content_license_html">Иһинээҕитэ бу лиссиэнсийэ көмөтүнэн тарҕанар &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; (атын ыйыллыбатах буоллаҕына)</string>
   <string name="edit_save_action_license_logged_in">Маны бигэргэтэн &lt;a href=\"%1$s\" &gt;туһаныы усулуобуйатын&lt;/a&gt; кытта сөбүлэһэргин биллэрэҕин, ону тэҥэ бу лиссиэнсийэнэн &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; кэлин онтон батынар кыаҕыҥ суох буоларын кытта эмиэ сөбүлэһэҕин.</string>
   <string name="edit_save_action_license_anon">Уларытыылары бигэргэтэн &lt;a href=\"%1$s\"&gt;туһаныы усулуобуйатын&lt;/a&gt; кытта сөбүлэһэҕин, ону тэҥэ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лиссиэнсийэ иҥэриитэ төннөрүллүбэтин кытта сөбүлэһэҕин. Уларытыыҥ IP-аадырыскын кытта ситимнэниэ. &lt;a href=\"https://#login\"&gt;Бэлиэтэннэххинэ&lt;/a&gt;, IP-ҥ көстүө суоҕа.</string>
-  <string name="preference_title_language">Бикипиэдьийэ омугун тыла</string>
+  <string name="preference_title_language" fuzzy="true">Бикипиэдьийэ омугун тыла</string>
   <string name="preference_languages_filter_hint">Бул</string>
   <string name="langlinks_filter_hint">Бул</string>
   <string name="langlinks_empty">Бу сирэй атын тылынан суох эбит.</string>
-  <string name="langlinks_no_match" fuzzy="true">Көрдөбүлгэр сөп түбэһэр тыллар көстүбэтилэр.</string>
+  <string name="langlinks_no_match">Тыллар көстүбэтилэр</string>
   <string name="langlinks_activity_title">Атын омук тыллара</string>
+  <string name="langlinks_your_wikipedia_languages">Бикипиэдьийэҥ омугун тыла</string>
   <string name="menu_save_changes">Уларытыылары бигэргэтии</string>
   <string name="dialog_saving_in_progress">Бигэргэнэр...</string>
   <string name="edit_saved_successfully">Уларытыыҥ бигэргэннэ!</string>
@@ -365,6 +366,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s офлайн-эрэсиимҥэ аны көстүө суоҕа:</string>
   <string name="reading_lists_sync_reminder_title">Аҕыы испииһэгин мэнэйдэһиитин холбуугун дуо?</string>
   <string name="reading_lists_sync_reminder_text">Мэнэйдэһии испииһэгэр хараллыбыт ыстатыйалар Эн Бикипиэдьийэҕэ бэлиэтэммит ааккын кытта ситимнэниэхтэрин сөп. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сиһилии&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_action">Мэнэйдээһини холбоо</string>
   <string name="reading_list_login_reminder_title">Мэнэйдэhии испиhиэгэ</string>
   <string name="reading_lists_confirm_remote_delete">Бу эрдэ мэнэйдэһиллибит ааҕар испиһиэккин сотторон кэбиһиэ. Салгыыгын дуо?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Сөп</string>
@@ -411,13 +413,13 @@
   <string name="notification_reverted">&lt;strong&gt;%2$s&lt;/strong&gt; ыстатыйаҕа оҥорбут уларытыыгын &lt;em&gt;%1$s&lt;/em&gt; кыттааччы суох гыммыт.</string>
   <string name="notification_thanks_title">Эйиэхэ махтамыттар!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; кыттааччы &lt;strong&gt;%2$s&lt;/strong&gt; сирэйи тупсарыыҥ иһин Эйиэхэ махтаммыт</string>
-  <string name="notification_channel_name">Синхронизация</string>
   <string name="notification_channel_description">Хачайдана турар</string>
-  <string name="notification_syncing_title">%1$d ыстатыйа хачайданна…</string>
-  <string name="notification_syncing_description">%1$d ыстатыйа хаалла</string>
   <string name="notification_syncing_pause_button">Быстах тохтобул</string>
   <string name="notification_syncing_resume_button">Салгыы</string>
   <string name="notification_syncing_cancel_button">Салҕаама</string>
+  <string name="notification_channel_name" fuzzy="true">Синхронизация</string>
+  <string name="notification_syncing_title" fuzzy="true">%1$d ыстатыйа хачайданна…</string>
+  <string name="notification_syncing_description" fuzzy="true">%1$d ыстатыйа хаалла</string>
   <string name="view_continue_reading_card_title">Салгыы ааҕыы</string>
   <string name="view_because_you_read_card_title">Тоҕо диэтэххэ ыстатыйаны аахпыккын</string>
   <string name="view_random_card_title">Рандомизатор</string>
@@ -561,5 +563,5 @@
   <string name="wikipedia_languages_add_language_text">Тылы эбии</string>
   <string name="wikipedia_languages_remove_text">Сот</string>
   <string name="wikipedia_languages_remove_action_mode_title">Тылы сот</string>
-  <string name="wikipedia_languages_remove_dialog_title">Талбыт тылларгын сотоҕун дуо?</string>
+  <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Талбыт тылларгын сотоҕун дуо?</string>
 </resources>

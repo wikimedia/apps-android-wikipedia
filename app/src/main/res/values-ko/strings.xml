@@ -75,8 +75,9 @@
   <string name="preference_languages_filter_hint">검색</string>
   <string name="langlinks_filter_hint">검색</string>
   <string name="langlinks_empty">이 문서는 다른 언어로 읽을 수 없습니다.</string>
-  <string name="langlinks_no_match" fuzzy="true">검색어와 일치하는 언어를 찾을 수 없습니다.</string>
+  <string name="langlinks_no_match">언어를 찾을 수 없습니다</string>
   <string name="langlinks_activity_title">다른 언어</string>
+  <string name="langlinks_your_wikipedia_languages">내 위키백과 언어</string>
   <string name="menu_save_changes">변경사항 게시</string>
   <string name="dialog_saving_in_progress">게시 중...</string>
   <string name="edit_saved_successfully">편집이 게시됐습니다!</string>
@@ -441,17 +442,29 @@
   <string name="notification_reverted">&lt;strong&gt;%2$s&lt;/strong&gt; 문서의 내 편집을 &lt;em&gt;%1$s&lt;/em&gt; 사용자가 되돌렸습니다.</string>
   <string name="notification_thanks_title">당신은 감사를 받았습니다!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt;사용자가 &lt;strong&gt;%2$s&lt;/strong&gt; 문서의 내 편집에 감사를 표했습니다.</string>
-  <string name="notification_channel_name">동기화 중</string>
   <string name="notification_channel_description">다운로드 진척도</string>
-  <string name="notification_syncing_title">문서 %1$d개를 다운로드하고 있습니다...</string>
-  <string name="notification_syncing_description">%1$d개 문서 남음</string>
   <string name="notification_syncing_pause_button">일시 정지</string>
   <string name="notification_syncing_resume_button">재개</string>
   <string name="notification_syncing_cancel_button">취소</string>
-  <string name="notification_syncing_reading_list_channel_name">읽기 목록을 동기화하는 중</string>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="other">읽기 목록을 동기화하는 중</item>
+  </plurals>
   <string name="notification_syncing_reading_list_channel_description">읽기 목록 동기화 진행</string>
-  <string name="notification_syncing_reading_list_title">목록 %1$d개를 동기화하는 중...</string>
-  <string name="notification_syncing_reading_list_description">목록 %1$d개 남음</string>
+  <plurals name="notification_channel_name">
+    <item quantity="other">문서 다운로드 중</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="other">문서 %1$d개를 다운로드하고 있습니다...</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="other">문서 %1$d개 남음</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="other">목록 %1$d개를 동기화하는 중...</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="other">목록 %1$d개 남음</item>
+  </plurals>
   <string name="view_continue_reading_card_title">계속 읽기</string>
   <string name="view_because_you_read_card_title">읽었던 글 관련 추천</string>
   <string name="view_random_card_title">임의 문서 보기</string>
@@ -484,8 +497,9 @@
   <string name="view_featured_article_footer_saved_button_label">저장됨</string>
   <string name="feed_configure_activity_title">피드 사용자 지정</string>
   <string name="feed_configure_menu_reset">기본값으로 복구</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">모두 선택</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">모두 선택하지 않음</string>
+  <string name="feed_configure_menu_select_all">모두 보기</string>
+  <string name="feed_configure_menu_deselect_all">모두 숨기기</string>
+  <string name="feed_configure_language_warning">모든 카드 유형이 모든 위키백과 언어에서 사용할 수 있는 것은 아닙니다. 설정에서 선택된 언어를 수정하십시오.</string>
   <string name="feed_item_type_news">요즘 화제에 관한 글</string>
   <string name="feed_item_type_on_this_day">오늘의 역사의 사건</string>
   <string name="feed_item_type_continue_reading">탭에 열려 있는 문서를 다시 읽기 위한 빠른 링크</string>
@@ -624,7 +638,10 @@
   <string name="wikipedia_languages_add_language_text">언어 추가</string>
   <string name="wikipedia_languages_remove_text">제거</string>
   <string name="wikipedia_languages_remove_action_mode_title">언어 제거</string>
-  <string name="wikipedia_languages_remove_dialog_title">선택된 언어를 제거하시겠습니까?</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="other">선택된 언어를 제거하시겠습니까?</item>
+  </plurals>
   <string name="wikipedia_languages_remove_warning_dialog_title">모든 언어를 제거할 수 없습니다</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">내용을 검색하고 읽을 위키백과 언어는 적어도 하나를 유지하십시오.</string>
+  <string name="more_language_options">더 보기</string>
 </resources>

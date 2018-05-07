@@ -40,7 +40,7 @@
   <string name="talk_page_link_text" fuzzy="true">Diskusijas</string>
   <string name="edit_history_link_text" fuzzy="true">Labojumu vēsture</string>
   <string name="map_view_link_text">Skatīt uz kartes</string>
-  <string name="preference_title_language">Vikipēdijas valoda</string>
+  <string name="preference_title_language" fuzzy="true">Vikipēdijas valoda</string>
   <string name="preference_languages_filter_hint">Meklēt</string>
   <string name="langlinks_filter_hint">Meklēt</string>
   <string name="langlinks_empty">Šī lapa nav pieejama citās valodās</string>
@@ -238,5 +238,6 @@
   <string name="wikipedia_languages_add_language_text">Pievienot valodu</string>
   <string name="wikipedia_languages_remove_text">Noņemt</string>
   <string name="wikipedia_languages_remove_action_mode_title">Noņemt valodu</string>
-  <string name="wikipedia_languages_remove_dialog_title">Noņemt izvēlētās valodas?</string>
+  <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Noņemt izvēlētās valodas?</string>
+  <string name="more_language_options">vairāk</string>
 </resources>

@@ -64,7 +64,7 @@
   <string name="content_license_html">সকল তথ্য &lt;a class=\"external\" rel=\"nofollow\" href=\"%1$s\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশিত যদি অন্য কিছু উল্লেখ করা না থাকে</string>
   <string name="edit_save_action_license_logged_in">সংরক্ষণের দ্বারা, আপনি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত, এবং আপনার অবদান &lt;a href=\"%2$s\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে অপরিবর্তনীয় প্রকাশে সম্মত হচ্ছেন।</string>
   <string name="edit_save_action_license_anon">সংরক্ষণের দ্বারা, আপনি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত, এবং আপনার অবদান &lt;a href=\"%2$s\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে অপরিবর্তনীয় প্রকাশে সম্মত হচ্ছেন। সম্পাদনাগুলি আপনার ডিভাইসের আইপি ঠিকানায় আরোপিত হবে। আপনি যদি &lt;a href=\"https://#login\"&gt;প্রবেশ&lt;/a&gt; করেন, আপনি আরো গোপনীয়তা পাবেন।</string>
-  <string name="preference_title_language">উইকিপিডিয়ার ভাষা</string>
+  <string name="preference_title_language" fuzzy="true">উইকিপিডিয়ার ভাষা</string>
   <string name="preference_languages_filter_hint">অনুসন্ধান</string>
   <string name="langlinks_filter_hint">অনুসন্ধান</string>
   <string name="langlinks_empty">এই পাতাটি অন্য কোনো ভাষায় উপলব্ধ নয়।</string>
@@ -92,7 +92,7 @@
   <string name="login_username_hint">ব্যবহারকারী নাম</string>
   <string name="login_password_hint">পাসওয়ার্ড</string>
   <string name="login_2fa_hint">দুই-গুণনীয়ক প্রমাণীকরণ কোড</string>
-  <string name="login_2fa_other_workflow_error_msg">দুই-গুনীতক প্রমানীকরণ প্রয়োজন! দয়া করে প্রধান কার্যকলাপে ফেরত যান এবং ২-গুনীতক প্রমানীকরণ নিশান দ্বারা প্রবেশ করুন, তারপর পুনরায় চেষ্টা করুন.</string>
+  <string name="login_2fa_other_workflow_error_msg">দুই-গুনীতক প্রমানীকরণ প্রয়োজন! দয়া করে প্রধান কার্যকলাপে ফেরত যান এবং ২-গুনীতক প্রমানীকরণ টোকেন দ্বারা প্রবেশ করুন, তারপর পুনরায় চেষ্টা করুন।</string>
   <string name="menu_login">প্রবেশ</string>
   <string name="login_activity_title">উইকিপিডিয়াতে প্রবেশ করুন</string>
   <string name="login_in_progress_dialog_message">আপনি প্রবেশ করছেন…</string>
@@ -120,7 +120,7 @@
   <string name="create_account_generic_error">অ্যাকাউন্ট তৈরী করা যাচ্ছে না</string>
   <string name="create_account_next">পরবর্তী</string>
   <string name="create_account_button">অ্যাকাউন্ট তৈরি করুন</string>
-  <string name="create_account_name_unavailable">\"%s\" নামে কোনো ব্যবহারকারী উপলব্ধ নেই. দয়া করে অন্য কোনো নাম বাছুন.</string>
+  <string name="create_account_name_unavailable">\"%s\" নামে কোনো ব্যবহারকারী উপলব্ধ নেই। দয়া করে অন্য কোনো নাম বাছুন।</string>
   <string name="preferences_general_heading">সাধারণ</string>
   <string name="wikipedia_app_faq">উইকিপিডিয়া অ্যাপ প্রাজিপ্র</string>
   <string name="zero_charged_verbiage">উইকিপিডিয়ায় বিনামূল্যে প্রবেশাধিকার আর সক্রিয় নয়।</string>
@@ -144,10 +144,10 @@
   <string name="preferences_heading_experimental">পরীক্ষামূলক</string>
   <string name="preference_title_sync_reading_lists">পড়ার তালিকাগুলি সিঙ্ক করুন</string>
   <string name="preference_title_sync_reading_lists_from_account">সুসংগত পড়ার তালিকা সক্ষম করুন</string>
-  <string name="preference_summary_sync_reading_lists">বিভিন্ন যন্ত্রে পড়ার তালিকাগুলিকে সুসংগত করার জন্য আপনার উইকিপিডিয়া গণিতকে মজুত করুন.</string>
-  <string name="preference_summary_sync_reading_lists_from_account">বিভিন্ন যন্ত্রে পড়ার তালিকাগুলিকে সুসংগত করার জন্য আপনার উইকিপিডিয়া গণিতকে \"%s\" মজুত করুন.</string>
+  <string name="preference_summary_sync_reading_lists">বিভিন্ন যন্ত্রে পড়ার তালিকাগুলিকে সুসংগত করার জন্য তাঁদের আপনার উইকিপিডিয়া অ্যাকাউন্টে সংরক্ষণ করে</string>
+  <string name="preference_summary_sync_reading_lists_from_account">বিভিন্ন যন্ত্রে পড়ার তালিকাগুলিকে সুসংগত করার জন্য তাঁদের আপনার \"%s\" উইকিপিডিয়া অ্যাকাউন্টে সংরক্ষণ করে</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\" থেকে সুসংগত পড়ার তালিকা বাদ দিতে ইচ্ছুক?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">এটি পূর্বতন সমস্ত সুসংগত পড়ার তালিকা, দূরবর্তী সংরক্ষণাগার থেকে সম্পূর্ণ রূপে বাদ দেবে. আপনি কি সমস্ত সুসংগত তালিকাগুলিকে আপনার \"%s\" গণিতক থেকে বাদ দিতে চান?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">এটি পূর্বতন সমস্ত সুসংগত পড়ার তালিকাকে দূরবর্তী সংরক্ষণাগার থেকে সম্পূর্ণ রূপে বাদ দেবে। আপনি কি সমস্ত সুসংগত তালিকাগুলিকে আপনার \"%s\" অ্যাকাউন্ট থেকে বাদ দিতে চান?</string>
   <string name="preferences_privacy_settings_heading">গোপনীয়তা</string>
   <string name="preference_title_eventlogging_opt_in">ব্যবহারের রিপোর্ট পাঠান</string>
   <string name="preference_summary_eventlogging_opt_in">অ্যাপ আরও ভালো করতে উইকিমিডিয়াকে আপনি কিভাবে অ্যাপ্লিকেশন ব্যবহার করছেন সেই সম্পর্কে তথ্য সংগ্রহ করার অনুমতি দিন</string>
@@ -330,9 +330,9 @@
   <string name="reading_list_sort_by_name">নাম অনুযায়ী বাছাই</string>
   <string name="reading_list_sort_by_name_desc">নাম অনুযায়ী বাছাই (বিপরীত)</string>
   <string name="reading_list_sort_by_recent" fuzzy="true">সাম্প্রতিক অনুযায়ী বাছাই</string>
-  <string name="reading_list_sort_by_recent_desc">যোগ করার তারিখ হিসাবে(প্রাচীনতম) সাজান.</string>
-  <string name="reading_list_sort_by_created">নির্মান করার তারিখ (নবীনতম) হিসাবে সাজান.</string>
-  <string name="reading_list_sort_by_created_desc">নির্মান করার তারিখ (প্রাচীনতম) হিসাবে সাজান.</string>
+  <string name="reading_list_sort_by_recent_desc">যোগের তারিখ অনুযায়ী সাজান (প্রাচীনতম)</string>
+  <string name="reading_list_sort_by_created">সৃষ্টির তারিখ অনুযায়ী সাজান (নবীনতম)</string>
+  <string name="reading_list_sort_by_created_desc">সৃষ্টির তারিখ অনুযায়ী সাজান (প্রাচীনতম)</string>
   <string name="reading_list_menu_delete">তালিকা মুছুন</string>
   <string name="reading_list_menu_rename">নাম/বিবরণ সম্পাদনা করুন</string>
   <string name="reading_list_menu_edit_description">বিবরণ সম্পাদনা করুন</string>
@@ -391,11 +391,11 @@
   <string name="notification_thanks_title">আপনাকে ধন্যবাদ জানানো হয়েছে!</string>
   <string name="notification_thanks">&lt;strong&gt;%2$s&lt;/strong&gt; পাতায় সম্পাদনার জ‍ন্য &lt;em&gt;%1$s&lt;/em&gt; আপনাকে ধন্যবাদ জানিয়েছেন</string>
   <string name="notification_channel_description">ডাউনলোডের অগ্রগতি</string>
-  <string name="notification_syncing_title">%1$dটি নিবন্ধ ডাউনলোড হচ্ছে...</string>
-  <string name="notification_syncing_description">%1$dটি নিবন্ধ বাকী</string>
   <string name="notification_syncing_pause_button">বিরতি</string>
   <string name="notification_syncing_resume_button">পুনরায় শুরু</string>
   <string name="notification_syncing_cancel_button">বাতিল</string>
+  <string name="notification_syncing_title" fuzzy="true">%1$dটি নিবন্ধ ডাউনলোড হচ্ছে...</string>
+  <string name="notification_syncing_description" fuzzy="true">%1$dটি নিবন্ধ বাকী</string>
   <string name="view_continue_reading_card_title">পড়া অব্যাহত রাখুন</string>
   <string name="view_because_you_read_card_title">কারণ আপনি পড়েছেন</string>
   <string name="view_random_card_title">অজানা পাতা</string>
@@ -428,8 +428,8 @@
   <string name="view_featured_article_footer_saved_button_label">সংরক্ষিত</string>
   <string name="feed_configure_activity_title">পছন্দমত ফিড তৈরি করুন</string>
   <string name="feed_configure_menu_reset">মূল দৃশ্যপট পুনঃস্থাপন</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">সব নির্বাচন করুন</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">সব অনির্বাচিত করুন</string>
+  <string name="feed_configure_menu_select_all">সব দেখান</string>
+  <string name="feed_configure_menu_deselect_all">সব লুকান</string>
   <string name="feed_item_type_news">চলমান ঘটনা সম্পর্কিত প্রবন্ধ সমূম</string>
   <string name="feed_item_type_on_this_day">এই দিনের ঐতিহাসিক ঘটনাবলি</string>
   <string name="feed_item_type_continue_reading">আপনার ট্যাবগুলির মধ্যে খোলা নিবন্ধ পড়ার জন্য দ্রুত লিঙ্ক</string>
@@ -534,4 +534,14 @@
     <item quantity="one">গত বছর</item>
     <item quantity="other">%d বছর আগে</item>
   </plurals>
+  <string name="languages_list_activity_title">একটি ভাষা যোগ করুন</string>
+  <string name="languages_list_suggested_text">পরামর্শকৃত</string>
+  <string name="languages_list_all_text">সকল ভাষা</string>
+  <string name="wikipedia_languages_title">উইকিপিডিয়ার ভাষা</string>
+  <string name="wikipedia_languages_your_languages_text">আপনার ভাষাসমূহ</string>
+  <string name="wikipedia_languages_add_language_text">ভাষা যোগ করুন</string>
+  <string name="wikipedia_languages_remove_text">সরান</string>
+  <string name="wikipedia_languages_remove_action_mode_title">ভাষা সরান</string>
+  <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">নির্বাচিত ভাষা(গুলি) সরাবেন?</string>
+  <string name="more_language_options">আরো</string>
 </resources>

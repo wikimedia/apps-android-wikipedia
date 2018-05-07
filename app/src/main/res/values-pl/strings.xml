@@ -71,12 +71,13 @@
   <string name="content_license_html">O ile nie zaznaczono inaczej, treść dostępna jest na licencji &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_logged_in">Zapisując, akceptujesz &lt;a href=\"%1$s\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz zgodę na udostępnianie Twojego wkładu na licencjach &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Zapisując, akceptujesz &lt;a href=\"%1$s\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz nieodwołalną zgodę na udostępnianie Twojego wkładu na licencjach &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Zmiany zostaną przypisane do adresu IP Twojego urządzenia. Po &lt;a href=\"https://#login\"&gt;zalogowaniu się&lt;/a&gt;, będziesz mógł skorzystać z wyższego poziomu prywatności.</string>
-  <string name="preference_title_language">Język Wikipedii</string>
+  <string name="preference_title_language" fuzzy="true">Język Wikipedii</string>
   <string name="preference_languages_filter_hint">Szukaj</string>
   <string name="langlinks_filter_hint">Szukaj</string>
   <string name="langlinks_empty">Ten artykuł nie jest dostępny w innych językach</string>
   <string name="langlinks_no_match">Nie znaleziono języków</string>
   <string name="langlinks_activity_title">Inne języki</string>
+  <string name="langlinks_your_wikipedia_languages">Twoje języki Wikipedii</string>
   <string name="menu_save_changes">Opublikuj zmiany</string>
   <string name="dialog_saving_in_progress">Publikowanie...</string>
   <string name="edit_saved_successfully">Edycja została opublikowana!</string>
@@ -381,15 +382,16 @@
   <string name="notification_reverted_title">Wycofana edycja</string>
   <string name="notification_thanks_title">Otrzymałeś podziękowania!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; podziękował Ci za edycję na stronie &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name">Synchronizowanie</string>
-  <string name="notification_syncing_title">Pobieranie %1$d artykułu(-ów)...</string>
   <string name="notification_syncing_pause_button">Pauza</string>
   <string name="notification_syncing_resume_button">Wznów</string>
   <string name="notification_syncing_cancel_button">Przerwij</string>
+  <string name="notification_channel_name" fuzzy="true">Synchronizowanie</string>
+  <string name="notification_syncing_title" fuzzy="true">Pobieranie %1$d artykułu(-ów)...</string>
   <string name="view_continue_reading_card_title">Kontynuuj czytanie</string>
   <string name="view_because_you_read_card_title">Ponieważ czytasz</string>
   <string name="view_random_card_title">Losowy artykuł</string>
   <string name="view_random_card_subtitle" fuzzy="true">Przeczytaj losowy artykuł z Wikipedii</string>
+  <string name="view_random_card_action">Rzuć kostką</string>
   <string name="view_next_random_article">Załaduj inny losowy artykuł</string>
   <string name="view_main_page_card_title">Dzisiaj w Wikipedii</string>
   <string name="view_main_page_card_subtitle">Strona główna na %s</string>
@@ -446,8 +448,10 @@
   <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
+  <string name="offline_compilation_detail_button_download_v2">Pobierz • %s</string>
   <string name="offline_compilation_detail_button_remove">Usuń</string>
   <string name="remote_compilation_download">Pobierz</string>
+  <string name="storage_size_free_v2">%s wolnych</string>
   <string name="storage_other_apps">Inne aplikacje</string>
   <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
   <string name="compilation_download_widget_button_cancel_hint">Anuluj pobieranie</string>
@@ -478,11 +482,15 @@
   <string name="languages_list_activity_title">Dodaj język</string>
   <string name="languages_list_suggested_text">Sugerowany</string>
   <string name="languages_list_all_text">Wszystkie języki</string>
+  <string name="wikipedia_languages_title">Języki Wikipedii</string>
   <string name="wikipedia_languages_your_languages_text">Twoje języki</string>
   <string name="wikipedia_languages_add_language_text">Dodaj język</string>
   <string name="wikipedia_languages_remove_text">Usuń</string>
   <string name="wikipedia_languages_remove_action_mode_title">Usuń język</string>
-  <string name="wikipedia_languages_remove_dialog_title">Usunąć wybrany język(i)?</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">Usunąć wybrany język?</item>
+    <item quantity="other">Usunąć wybrane języki?</item>
+  </plurals>
   <string name="wikipedia_languages_remove_warning_dialog_title">Nie można usunąć wszystkich języków</string>
   <string name="more_language_options">więcej</string>
 </resources>
