@@ -16,6 +16,8 @@
         android:id="@+id/options_list"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:layout_marginBottom="@dimen/view_list_card_margin_vertical"
         android:layout_marginTop="8dp" />
 
@@ -30,13 +32,14 @@
         android:layout_height="36dp"
         android:gravity="center_vertical"
         android:layout_marginStart="8dp"
-        android:orientation="horizontal">
+        android:background="?attr/selectableItemBackground">
 
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:tint="@android:color/white"
-            app:srcCompat="@drawable/ic_add_gray_24dp" />
+            app:srcCompat="@drawable/ic_add_gray_24dp"
+            android:contentDescription="@null"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -44,12 +47,10 @@
             android:fontFamily="sans-serif-medium"
             android:gravity="center_horizontal"
             android:layout_marginStart="12dp"
-            android:letterSpacing="0.04"
             android:text="@string/onboarding_multilingual_add_language_text"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
             android:textSize="14sp"
-            android:textStyle="normal"
             tools:text="Add or edit languages" />
     </LinearLayout>
 </LinearLayout>
