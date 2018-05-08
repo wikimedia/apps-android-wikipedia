@@ -60,6 +60,9 @@ public final class LanguageUtil {
                     if (submethod.getMode().equals("keyboard")) {
                         String langTag = Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && !TextUtils.isEmpty(submethod.getLanguageTag())
                                 ? submethod.getLanguageTag() : submethod.getLocale();
+                        if (TextUtils.isEmpty(langTag)) {
+                            continue;
+                        }
                         if (langTag.contains("_")) {
                             // The keyboard reports locale variants with underscores ("en_US") whereas
                             // Locale.forLanguageTag() expects dashes ("en-US"), so convert them.
@@ -67,6 +70,12 @@ public final class LanguageUtil {
                         }
                         if (!langTagList.contains(langTag)) {
                             langTagList.add(langTag);
+                        }
+                        // A Pinyin keyboard will report itself as zh-CN (simplified), but we want to add
+                        // both Simplified and Traditional in that case.
+                        if (langTag.toLowerCase().equals(AppLanguageLookUpTable.CHINESE_CN_LANGUAGE_CODE)
+                                && !langTagList.contains("zh-TW")) {
+                            langTagList.add("zh-TW");
                         }
                     }
                 }
@@ -77,10 +86,6 @@ public final class LanguageUtil {
                     String langCode = localeToWikiLanguageCode(localeList.get(i));
                     if (!TextUtils.isEmpty(langCode) && !languages.contains(langCode) && !langCode.equals("und")) {
                         languages.add(langCode);
-                    }
-                    // To add both Traditional Chinese and Simplified Chinese if a Pinyin keyboard enabled
-                    if (langTagList.get(i).toLowerCase().equals(AppLanguageLookUpTable.CHINESE_CN_LANGUAGE_CODE)) {
-                        languages.add(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE);
                     }
                 }
             }
