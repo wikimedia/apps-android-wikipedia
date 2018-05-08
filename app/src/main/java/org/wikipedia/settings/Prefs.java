@@ -748,12 +748,12 @@ public final class Prefs {
         setBoolean(R.string.preference_key_reading_lists_first_time_sync, value);
     }
 
-    public static boolean getShowSearchTutorial() {
-        return getBoolean(R.string.preference_key_multilingual_search_onboarding, true);
+    public static boolean isMultilingualSearchTutorialEnabled() {
+        return getBoolean(R.string.preference_key_multilingual_search_tutorial_enabled, true);
     }
 
-    public static void setShowSearchOnboarding(boolean showOnboarding) {
-        setBoolean(R.string.preference_key_multilingual_search_onboarding, showOnboarding);
+    public static void setMultilingualSearchTutorialEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_multilingual_search_tutorial_enabled, enabled);
     }
 
     private Prefs() { }
