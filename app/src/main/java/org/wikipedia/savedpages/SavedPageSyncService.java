@@ -255,7 +255,7 @@ public class SavedPageSyncService extends JobIntentService {
         PageClient client = newPageClient(pageTitle);
         String title = pageTitle.getPrefixedText();
         int thumbnailWidth = DimenUtil.calculateLeadImageWidth();
-        return client.lead(cacheControl, saveOfflineHeader, title, thumbnailWidth);
+        return client.lead(cacheControl, saveOfflineHeader, null, title, thumbnailWidth);
     }
 
     @NonNull private Call<PageRemaining> reqPageSections(@Nullable CacheControl cacheControl,

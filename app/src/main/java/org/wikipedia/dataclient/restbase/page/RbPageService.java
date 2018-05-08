@@ -48,6 +48,7 @@ public interface RbPageService {
     @GET("page/mobile-sections-lead/{title}")
     @NonNull Call<RbPageLead> lead(@Nullable @Header("Cache-Control") String cacheControl,
                                    @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
+                                   @Nullable @Header("Referer") String previousPageUrl,
                                    @NonNull @Path("title") String title);
 
     /**

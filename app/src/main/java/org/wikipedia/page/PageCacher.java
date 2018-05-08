@@ -43,7 +43,7 @@ final class PageCacher {
 
     @NonNull
     private static Call<PageLead> leadReq(@NonNull PageClient client, @NonNull PageTitle title) {
-        return client.lead(null, null, title.getPrefixedText(),
+        return client.lead(null, null, null, title.getPrefixedText(),
                 calculateLeadImageWidth());
     }
 

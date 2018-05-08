@@ -22,7 +22,7 @@ public class MwPageClientTest extends BasePageClientTest {
     }
 
     @Test public void testLeadThumbnailWidth() throws Throwable {
-        Call<?> call = subject.lead(null, null, "", 10);
+        Call<?> call = subject.lead(null, null, null, "", 10);
         assertThat(call.request().url().toString(), containsString("10"));
     }
 

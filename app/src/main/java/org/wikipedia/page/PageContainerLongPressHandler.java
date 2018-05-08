@@ -22,11 +22,13 @@ public class PageContainerLongPressHandler implements LongPressHandler.ContextMe
 
     @Override
     public void onOpenLink(PageTitle title, HistoryEntry entry) {
+        fragment.setRefererHeaderPage(title, fragment.getTitle());
         fragment.loadPage(title, entry);
     }
 
     @Override
     public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
+        fragment.setRefererHeaderPage(title, fragment.getTitle());
         fragment.openInNewBackgroundTabFromMenu(title, entry);
     }
 

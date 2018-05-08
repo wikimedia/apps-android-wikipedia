@@ -83,6 +83,7 @@ import org.wikipedia.views.WikiPageErrorView;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
@@ -131,6 +132,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     private boolean pageRefreshed;
     private boolean errorState = false;
+    private HashMap<PageTitle, PageTitle> refererHeaderPageMap = new HashMap<>();
 
     private static final int REFRESH_SPINNER_ADDITIONAL_OFFSET = (int) (16 * DimenUtil.getDensityScalar());
 
@@ -436,6 +438,18 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private boolean shouldShowTabList(@NonNull Activity activity) {
         return activity.getIntent() != null
                 && ACTION_SHOW_TAB_LIST.equals(activity.getIntent().getAction());
+    }
+
+    public boolean isRefererHeaderUrlAvailable(PageTitle target) {
+        return refererHeaderPageMap.containsKey(target);
+    }
+
+    public void setRefererHeaderPage(PageTitle target, PageTitle reference) {
+        refererHeaderPageMap.put(target, reference);
+    }
+
+    public PageTitle getRefererHeaderPage(PageTitle target) {
+        return refererHeaderPageMap.remove(target);
     }
 
     private void initWebViewListeners() {
