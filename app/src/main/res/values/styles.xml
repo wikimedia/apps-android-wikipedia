@@ -85,7 +85,7 @@
     </style>
 
     <style name="AlertDialogButtonStyle">
-        <item name="android:textAlignment">textEnd</item>
+        <item name="android:textAlignment">center</item>
     </style>
 
     <style name="ActionModeGreen" parent="Widget.AppCompat.ActionMode">
