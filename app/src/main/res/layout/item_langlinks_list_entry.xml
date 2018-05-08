@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         style="@style/MaterialListTitle"
         android:gravity="center_vertical"
-        tools:text="Sample language local name"/>
+        tools:text="Sample language local name" />
     <TextView
         android:id="@+id/non_localized_language_name"
         android:layout_width="wrap_content"
@@ -26,12 +26,12 @@
         style="@style/MaterialListSubtitle"
         android:gravity="center_vertical"
         tools:text="Sample article local name"
-        android:visibility="gone"/>
+        android:visibility="gone" />
     <TextView
         android:id="@+id/language_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/MaterialListSubtitle"
         android:gravity="center_vertical"
-        tools:text="Sample article local name"/>
+        tools:text="Sample article local name" />
 </LinearLayout>
