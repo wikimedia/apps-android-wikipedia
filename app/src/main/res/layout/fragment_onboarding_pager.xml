@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v4.view.ViewPager
+    <com.duolingo.open.rtlviewpager.RtlViewPager
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/fragment_pager"
         android:layout_width="match_parent"
@@ -42,6 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                app:piv_rtl_mode="auto"
                 app:piv_radius="4dp"
                 app:piv_selectedColor="@android:color/white"
                 app:piv_unselectedColor="@color/white20"

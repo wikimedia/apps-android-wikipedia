@@ -1,5 +1,6 @@
 package org.wikipedia.gallery;
 
+import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
@@ -7,7 +8,7 @@ public class GalleryPagerTransformer implements ViewPager.PageTransformer {
     private static final float MIN_SCALE = 0.9f;
 
     @Override
-    public void transformPage(View view, float position) {
+    public void transformPage(@NonNull View view, float position) {
         if (position < -1) { // [-Infinity,-1)
             // This page is way off-screen to the left.
             view.setTranslationX(0);

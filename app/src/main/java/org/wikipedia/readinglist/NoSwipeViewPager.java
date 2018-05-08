@@ -1,11 +1,12 @@
 package org.wikipedia.readinglist;
 
 import android.content.Context;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
-public class NoSwipeViewPager extends ViewPager {
+import com.duolingo.open.rtlviewpager.RtlViewPager;
+
+public class NoSwipeViewPager extends RtlViewPager {
     public NoSwipeViewPager(Context context) {
         super(context);
     }
