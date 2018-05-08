@@ -43,6 +43,7 @@ public class LoginClient {
     public interface LoginCallback {
         void success(@NonNull LoginResult result);
         void twoFactorPrompt(@NonNull Throwable caught, @Nullable String token);
+        void passwordResetPrompt(@Nullable String token);
         void error(@NonNull Throwable caught);
     }
 
@@ -56,7 +57,7 @@ public class LoginClient {
                                              @NonNull Response<MwQueryResponse> response) {
                 if (response.body().success()) {
                     // noinspection ConstantConditions
-                    login(wiki, userName, password, null, response.body().query().loginToken(), cb);
+                    login(wiki, userName, password, null, null, response.body().query().loginToken(), cb);
                 } else if (response.body().getError() != null) {
                     // noinspection ConstantConditions
                     cb.error(new MwException(response.body().getError()));
@@ -76,12 +77,12 @@ public class LoginClient {
         });
     }
 
-    void login(@NonNull final WikiSite wiki, @NonNull final String userName,
-                       @NonNull final String password, @Nullable final String twoFactorCode,
-                       @Nullable final String loginToken, @NonNull final LoginCallback cb) {
-        loginCall = StringUtils.defaultIfEmpty(twoFactorCode, "").isEmpty()
+    void login(@NonNull final WikiSite wiki, @NonNull final String userName, @NonNull final String password,
+               @Nullable final String retypedPassword, @Nullable final String twoFactorCode,
+               @Nullable final String loginToken, @NonNull final LoginCallback cb) {
+        loginCall = TextUtils.isEmpty(twoFactorCode) && TextUtils.isEmpty(retypedPassword)
                 ? cachedService.service(wiki).logIn(userName, password, loginToken, Constants.WIKIPEDIA_URL)
-                : cachedService.service(wiki).logIn(userName, password, twoFactorCode, loginToken, true);
+                : cachedService.service(wiki).logIn(userName, password, retypedPassword, twoFactorCode, loginToken, true);
         loginCall.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(@NonNull Call<LoginResponse> call, @NonNull Response<LoginResponse> response) {
@@ -96,6 +97,8 @@ public class LoginClient {
                     } else if ("UI".equals(loginResult.getStatus())) {
                         if (loginResult instanceof LoginOAuthResult) {
                             cb.twoFactorPrompt(new LoginFailedException(loginResult.getMessage()), loginToken);
+                        } else if (loginResult instanceof LoginResetPasswordResult) {
+                            cb.passwordResetPrompt(loginToken);
                         } else {
                             cb.error(new LoginFailedException(loginResult.getMessage()));
                         }
@@ -128,7 +131,7 @@ public class LoginClient {
 
         Call<LoginResponse> tempLoginCall = StringUtils.defaultIfEmpty(twoFactorCode, "").isEmpty()
                 ? cachedService.service(wiki).logIn(userName, password, loginToken, Constants.WIKIPEDIA_URL)
-                : cachedService.service(wiki).logIn(userName, password, twoFactorCode, loginToken, true);
+                : cachedService.service(wiki).logIn(userName, password, null, twoFactorCode, loginToken, true);
         Response<LoginResponse> response = tempLoginCall.execute();
         LoginResponse loginResponse = response.body();
         if (loginResponse == null) {
@@ -219,7 +222,8 @@ public class LoginClient {
         @FormUrlEncoded
         @POST("w/api.php?action=clientlogin&format=json&formatversion=2&rememberMe=")
         Call<LoginResponse> logIn(@Field("username") String user, @Field("password") String pass,
-                                  @Field("OATHToken") String twoFactorCode, @Field("logintoken") String token,
+                                  @Field("retype") String retypedPass, @Field("OATHToken") String twoFactorCode,
+                                  @Field("logintoken") String token,
                                   @Field("logincontinue") boolean loginContinue);
     }
 
@@ -251,6 +255,8 @@ public class LoginClient {
                         for (Request req : requests) {
                             if ("TOTPAuthenticationRequest".equals(req.id())) {
                                 return new LoginOAuthResult(site, status, userName, password, message);
+                            } else if ("MediaWiki\\Auth\\PasswordAuthenticationRequest".equals(req.id())) {
+                                return new LoginResetPasswordResult(site, status, userName, password, message);
                             }
                         }
                     }
