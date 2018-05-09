@@ -29,6 +29,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER;
+import static org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 public class LanguageScrollView extends ConstraintLayout {
@@ -42,8 +44,6 @@ public class LanguageScrollView extends ConstraintLayout {
     @BindView(R.id.horizontal_scroll_languages_gradient) View gradientView;
     private Callback callback;
     private List<String> languagecodes;
-    private static final int LANG_BUTTON_TEXT_SIZE_LARGER = 12;
-    private static final int LANG_BUTTON_TEXT_SIZE_SMALLER = 8;
 
     public LanguageScrollView(Context context) {
         super(context);
