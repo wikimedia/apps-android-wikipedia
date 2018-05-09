@@ -26,15 +26,15 @@ import com.mapbox.mapboxsdk.annotations.Marker;
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
-import com.mapbox.mapboxsdk.constants.MyLocationTracking;
 import com.mapbox.mapboxsdk.geometry.LatLng;
+import com.mapbox.mapboxsdk.location.LocationComponent;
+import com.mapbox.mapboxsdk.location.LocationComponentOptions;
+import com.mapbox.mapboxsdk.location.modes.CameraMode;
+import com.mapbox.mapboxsdk.location.modes.RenderMode;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
+import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Projection;
-import com.mapbox.services.android.telemetry.MapboxTelemetry;
-import com.mapbox.services.android.telemetry.location.LocationEngine;
-import com.mapbox.services.android.telemetry.location.LocationEngineListener;
-import com.mapbox.services.android.telemetry.location.LocationEngineProvider;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -72,7 +72,7 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * Displays a list of nearby pages.
  */
-public class NearbyFragment extends Fragment {
+public class NearbyFragment extends Fragment implements OnMapReadyCallback {
     public interface Callback {
         void onLoading();
         void onLoaded();
@@ -92,12 +92,10 @@ public class NearbyFragment extends Fragment {
 
     @Nullable private MapboxMap mapboxMap;
     private Icon markerIconPassive;
-    private LocationEngine locationEngine;
 
     private NearbyResult currentResults = new NearbyResult();
     private boolean clearResultsOnNextCall;
 
-    private LocationChangeListener locationChangeListener = new LocationChangeListener();
     @Nullable private CameraPosition lastCameraPos;
     private boolean firstLocationLock;
 
@@ -110,7 +108,10 @@ public class NearbyFragment extends Fragment {
         super.onCreate(savedInstanceState);
         Mapbox.getInstance(requireContext().getApplicationContext(),
                 getString(R.string.mapbox_public_token));
-        MapboxTelemetry.getInstance().setTelemetryEnabled(false);
+
+        if (Mapbox.getTelemetry() != null) {
+            Mapbox.getTelemetry().setUserTelemetryRequestState(false);
+        }
     }
 
     @Override
@@ -138,11 +139,8 @@ public class NearbyFragment extends Fragment {
             }
         }
 
-        locationEngine = new LocationEngineProvider(getContext()).obtainBestLocationEngineAvailable();
-        locationEngine.addLocationEngineListener(locationChangeListener);
-
         onLoading();
-        initializeMap();
+        mapView.getMapAsync(this);
         return view;
     }
 
@@ -175,9 +173,11 @@ public class NearbyFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
-        locationEngine.removeLocationEngineListener(locationChangeListener);
         mapView.onDestroy();
-        mapboxMap = null;
+        if (mapboxMap != null) {
+            mapboxMap.removeOnScrollListener(this::fetchNearbyPages);
+            mapboxMap = null;
+        }
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();
@@ -233,34 +233,32 @@ public class NearbyFragment extends Fragment {
         }
     }
 
-    private void initializeMap() {
-        mapView.getMapAsync((@NonNull MapboxMap mapboxMap) -> {
-            if (!isAdded()) {
-                return;
-            }
-            NearbyFragment.this.mapboxMap = mapboxMap;
+    @Override
+    public void onMapReady(MapboxMap mapboxMap) {
+        if (!isAdded()) {
+            return;
+        }
+        this.mapboxMap = mapboxMap;
 
-            enableUserLocationMarker();
-            mapboxMap.getTrackingSettings().setMyLocationTrackingMode(MyLocationTracking.TRACKING_NONE);
+        enableUserLocationMarker();
 
-            mapboxMap.setOnScrollListener(this::fetchNearbyPages);
-            mapboxMap.setOnMarkerClickListener((@NonNull Marker marker) -> {
-                NearbyPage page = findNearbyPageFromMarker(marker);
-                if (page != null) {
-                    onLoadPage(new HistoryEntry(page.getTitle(), HistoryEntry.SOURCE_NEARBY), page.getLocation());
-                    return true;
-                } else {
-                    return false;
-                }
-            });
-
-            if (lastCameraPos != null) {
-                mapboxMap.setCameraPosition(lastCameraPos);
+        mapboxMap.addOnScrollListener(this::fetchNearbyPages);
+        mapboxMap.setOnMarkerClickListener((@NonNull Marker marker) -> {
+            NearbyPage page = findNearbyPageFromMarker(marker);
+            if (page != null) {
+                onLoadPage(new HistoryEntry(page.getTitle(), HistoryEntry.SOURCE_NEARBY), page.getLocation());
+                return true;
             } else {
-                goToUserLocationOrPromptPermissions();
+                return false;
             }
-            showNearbyPages();
         });
+
+        if (lastCameraPos != null) {
+            mapboxMap.setCameraPosition(lastCameraPos);
+        } else {
+            goToUserLocationOrPromptPermissions();
+        }
+        showNearbyPages();
     }
 
     @Nullable
@@ -301,12 +299,22 @@ public class NearbyFragment extends Fragment {
         }
     }
 
+    @SuppressWarnings("MissingPermission")
     private void enableUserLocationMarker() {
         if (mapboxMap != null && locationPermitted()) {
-            mapboxMap.setMyLocationEnabled(true);
+            LocationComponentOptions options = LocationComponentOptions.builder(requireActivity())
+                    .trackingGesturesManagement(true)
+                    .build();
+
+            LocationComponent locationComponent = mapboxMap.getLocationComponent();
+            locationComponent.activateLocationComponent(requireActivity(), options);
+            locationComponent.setLocationComponentEnabled(true);
+            locationComponent.setCameraMode(CameraMode.TRACKING);
+            locationComponent.setRenderMode(RenderMode.COMPASS);
         }
     }
 
+    @SuppressWarnings("MissingPermission")
     private void goToUserLocation() {
         if (mapboxMap == null || !getUserVisibleHint()) {
             return;
@@ -317,9 +325,12 @@ public class NearbyFragment extends Fragment {
         }
 
         enableUserLocationMarker();
-        Location location = mapboxMap.getMyLocation();
-        if (location != null) {
-            goToLocation(location);
+
+        if (locationPermitted()) {
+            Location location = mapboxMap.getLocationComponent().getLastKnownLocation();
+            if (location != null) {
+                goToLocation(location);
+            }
         }
         fetchNearbyPages();
     }
@@ -332,7 +343,7 @@ public class NearbyFragment extends Fragment {
                 .target(new LatLng(location))
                 .zoom(getResources().getInteger(R.integer.map_default_zoom))
                 .build();
-        mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(pos));
+        mapboxMap.moveCamera(CameraUpdateFactory.newCameraPosition(pos));
     }
 
     private void goToUserLocationOrPromptPermissions() {
@@ -471,20 +482,6 @@ public class NearbyFragment extends Fragment {
         Callback callback = callback();
         if (callback != null) {
             callback.onLoadPage(entry, location);
-        }
-    }
-
-    private class LocationChangeListener implements LocationEngineListener {
-        @Override
-        public void onConnected() {
-        }
-
-        @Override
-        public void onLocationChanged(Location location) {
-            if (!firstLocationLock) {
-                goToUserLocation();
-                firstLocationLock = true;
-            }
         }
     }
 
