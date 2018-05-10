@@ -495,6 +495,8 @@
   <string name="onboarding_create_account_sync">Synchroniséiert Är Lieslëschten</string>
   <string name="onboarding_create_account_preferences">Späichert Är Astellungen</string>
   <string name="onboarding_got_it">Verstan</string>
+  <string name="onboarding_multilingual_title">Sichen a liesen a bal 300 Sproochen</string>
+  <string name="onboarding_multilingual_add_language_text">Sproochen änneren oder derbäisetzen</string>
   <string name="app_shortcuts_random">Zoufall</string>
   <string name="app_shortcuts_continue_reading">Virufuere mat Liesen</string>
   <string name="app_shortcuts_search">Sichen</string>

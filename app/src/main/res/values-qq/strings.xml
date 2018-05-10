@@ -4,8 +4,10 @@
 * Anders Feder
 * Joao Xavier
 * Kaganer
+* KuboF
 * Liuxinyu970226
 * Matma Rex
+* Metalhead64
 * Minh Nguyen
 * Nemo bis
 * Nike
@@ -32,7 +34,7 @@
   <string name="page_error_back_to_main">Text for the back button that goes to the last page visited when tapped.\n{{Identical|Go back}}</string>
   <string name="menu_clear_all_history">Menu item text for clearing your reading history.\n{{Identical|Clear history}}</string>
   <string name="history_item_deleted">Message shown when an article is removed from the browsing history. The \"%s\" symbol is replaced with the name of the article.</string>
-  <string name="history_items_deleted">%d নিবন্ধগুলি ইতিহাস থেকে সরানো হয়েছে</string>
+  <string name="history_items_deleted">Message shown when multiple articles are removed from the browsing history. The \"%d\" symbol is replaced with the number of articles removed.</string>
   <string name="history_item_delete_undo">Button label to undo the operation of deleting an item from the browsing history.\n{{Identical|Undo}}</string>
   <string name="app_settings">Button text to take user to app settings screen</string>
   <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history.</string>
@@ -106,6 +108,7 @@
   <string name="history_empty_title">Used in \"Browsing history\" page if there is nothing to show.</string>
   <string name="history_empty_message">Brief explanation that there are currently no History entries to look at. Just to fill an empty screen. This usually happens when a user just deleted history entries.</string>
   <string name="search_empty_message">Brief explanation that there are currently no Search entries to look at. Just to fill an empty screen. This usually happens when a user just deleted search entries.</string>
+  <string name="search_empty_message_multilingual_upgrade">Suggestion text encouraging users to add more languages to the app to read in.</string>
   <string name="delete_selected_items">Menu item hint for deleting selected items in a list.</string>
   <string name="wp_stylized">A stylized string saying \"Wikipedia\". Used before wp_tag_line if no image representation exists. Usually the first and last characters are within big tags, if this fits the Wikipedia logo in your language.</string>
   <string name="create_account_username_hint">{{Identical|Username}}</string>
@@ -266,8 +269,10 @@
   <string name="tool_tip_share">Very short advice on sharing highlighted text on social networks.</string>
   <string name="page_view_in_browser">Text for a link that will open the current page in an external browser app on the device.</string>
   <string name="tool_tip_toc_button">Advice on accessing the table of contents for a page.\n\n\'\'\'In right-to-left languages\'\'\' (Hebrew, Arabic, etc.) write \'\'\'left\'\'\' edge and not \"right\".</string>
+  <string name="tool_tip_lang_button">Tool tip text encouraging existing multilingual users to start reading in more languages.</string>
   <string name="error_response_malformed">Generic error message that tells the user that the response from the server was not formatted correctly.</string>
   <string name="error_unknown">Generic error message that tells the user that an unknown error occurred.</string>
+  <string name="empty">Empty</string>
   <string name="format_error_server_message">Message displayed to the user that shows the actual error response received from the server. The \"%s\" symbol is replaced with the API onThisDay from the server.\n{{Identical|Message}}</string>
   <string name="address_copied">Message shown after copying a link to the system clipboard.</string>
   <string name="text_copied">Message shown after copying text to the system clipboard.</string>
@@ -467,8 +472,8 @@
     <item quantity="other">Title for notification when the syncing two or more reading lists process begins. The \"%1$d\" symbol corresponds to the amount of lists.</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_description">
-    <item quantity="one">Text of notification shows the remaining list. The \"%1$d\" symbol corresponds to the amount of remaining lists</item>
-    <item quantity="other">Text of notification shows the remaining lists. The \"%1$d\" symbol corresponds to the amount of remaining lists</item>
+    <item quantity="one">Text of notification shows the remaining list. The \"%1$d\" symbol corresponds to the amount of remaining lists.</item>
+    <item quantity="other">Text of notification shows the remaining lists. The \"%1$d\" symbol corresponds to the amount of remaining lists.</item>
   </plurals>
   <string name="view_continue_reading_card_title">Label for card in the feed that reminds the user to continue reading an article from their browsing history.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
@@ -623,6 +628,9 @@
   <string name="onboarding_create_account_contributions">Short explanation of the benefits of creating an account, which is the ability to keep a record of your edits.</string>
   <string name="onboarding_create_account_preferences">Short explanation of the benefits of creating an account, which is the ability to save your preferences.</string>
   <string name="onboarding_got_it">Button label for dismissing the current onboarding card.\n{{Identical|Got it}}</string>
+  <string name="onboarding_multilingual_title">Onboarding title indicating that the app is now available in many languages.</string>
+  <string name="onboarding_multilingual_secondary_text">Onboarding subtitle text informing the user about the languages found on the device.</string>
+  <string name="onboarding_multilingual_add_language_text">Button text to suggest that users can now add more languages of their preference.</string>
   <string name="app_shortcuts_random">A shortcut icon on the home screen for getting a random article.\n{{Identical|Random}}</string>
   <string name="app_shortcuts_continue_reading">A shortcut icon on the home screen for continuing reading an article.</string>
   <string name="app_shortcuts_search">A shortcut icon on the home screen for opening the search page.\n{{Identical|Search}}</string>
@@ -653,11 +661,5 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">Title of the dialog that pop-ups after users wanted to delete all wikipedia languages in the action mode.</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Content of the dialog that pop-ups after users wanted to delete all wikipedia languages in the action mode.</string>
   <string name="more_language_options">Button text indicating there are more languages available to be selected.\n{{Identical|More}}</string>
-  <string name="onboarding_multilingual_title">Onboarding title indicating that the app is now available in many languages.</string>
-  <string name="onboarding_multilingual_secondary_text">Onboarding subtitle text informing the user about the languages found on the device.</string>
-  <string name="onboarding_multilingual_add_language_text"> Button text to suggest that users can now add more languages of their preference.</string>
-  <string name="tool_tip_lang_button">Tool tip text encouraging existing multilingual users to start reading in more languages.</string>
-  <string name="empty">Empty</string>
   <string name="add_wikipedia_languages_text">Button text suggesting user to add more languages to the app to read in.</string>
-  <string name="search_empty_message_multilingual_upgrade">Suggestion text encouraging users to add more languages to the app to read in.</string>
 </resources>

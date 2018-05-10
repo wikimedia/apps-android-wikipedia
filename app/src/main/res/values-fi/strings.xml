@@ -20,13 +20,14 @@
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
-  <string name="app_name_beta">Wikipedia Beta</string>
+  <string name="app_name_beta">Wikipedia Beeta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Hae Wikipediasta</string>
   <string name="search_hint_search_history">Hae historiasta</string>
   <string name="search_hint_search_my_lists">Hae lukulistoistasi</string>
   <string name="search_hint_search_reading_list">Etsi lukulistasta</string>
+  <string name="search_hint_search_languages">Etsi kieltä</string>
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Internet-yhteyden muodostaminen epäonnistui.</string>
   <string name="page_error_retry">Yritä uudelleen</string>
@@ -381,6 +382,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ei enää ole käytettävissä offline-tilassa kaikille lukulistoille:</string>
   <string name="reading_lists_sync_reminder_title">Ota lukulistan synkronointi käyttöön?</string>
   <string name="reading_lists_sync_reminder_text">Lukulistoihisi tallennetut artikkelit voidaan nyt synkronoida Wikipedia-tiliisi. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lue lisää&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Lukemisluetteloita voi nyt synkronoida laitteiden välillä. Kirjaudu sisään Wikipedia-tunnuksellesi ja salli luetteloidesi tallentaminen. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lue lisää&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Ota synkronointi käyttöön</string>
   <string name="reading_list_login_reminder_title">Synkronoi lukulistat</string>
   <string name="reading_lists_login_reminder_text">Lukulistoja voidaan nyt synkronoida eri laitteiden poikki. Kirjaudu Wikipedia-tilillesi ja \nsalli luetteloiden tallentaminen.</string>
@@ -621,6 +623,9 @@
   <string name="onboarding_create_account_contributions">Seuraa tekemiäsi muokkauksia</string>
   <string name="onboarding_create_account_preferences">Tallenna asetuksesi</string>
   <string name="onboarding_got_it">Selvä</string>
+  <string name="onboarding_multilingual_title">Etsi ja lue melkein 300 kielellä</string>
+  <string name="onboarding_multilingual_secondary_text">Löysimme seuraavat laitteestasi:</string>
+  <string name="onboarding_multilingual_add_language_text">Lisää tai muokkaa kieliä</string>
   <string name="app_shortcuts_random">Satunnainen</string>
   <string name="app_shortcuts_continue_reading">Jatka lukemista</string>
   <string name="app_shortcuts_search">Etsi</string>
@@ -649,4 +654,5 @@
   </plurals>
   <string name="wikipedia_languages_remove_warning_dialog_title">Ei voi poistaa kaikkia kieliä</string>
   <string name="more_language_options">lisää</string>
+  <string name="add_wikipedia_languages_text">Lisää Wikipedia-kieliä</string>
 </resources>

@@ -64,9 +64,9 @@
   <string name="map_view_link_text">在地圖上檢視</string>
   <string name="other_languages_indication_text">以其它語言閱讀</string>
   <string name="language_count_link_text">共 %d 個其它可用語言版本</string>
-  <string name="content_license_html">除非另有註明，否則頁面內容均以 &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/A&gt; 條款授權</string>
+  <string name="content_license_html">除非另有註明，否則頁面內容均以 &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 條款授權</string>
   <string name="edit_save_action_license_logged_in">儲存後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;。同時您同意依據&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。</string>
-  <string name="edit_save_action_license_anon">儲存後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/A&gt;。同時您同意依據&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
+  <string name="edit_save_action_license_anon">儲存後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，同時您同意依據&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
   <string name="preference_title_language">維基百科語言</string>
   <string name="preference_languages_filter_hint">搜尋</string>
   <string name="langlinks_filter_hint">搜尋</string>
@@ -95,8 +95,8 @@
   <string name="nav_item_login">登入維基百科</string>
   <string name="login_username_hint">使用者名稱</string>
   <string name="login_password_hint">密碼</string>
-  <string name="login_2fa_hint">雙因素認證代碼</string>
-  <string name="login_2fa_other_workflow_error_msg">需要雙因素認證！請返回主操作頁面並以您的 2FA 令牌登入後再重試。</string>
+  <string name="login_2fa_hint">雙重認證代碼</string>
+  <string name="login_2fa_other_workflow_error_msg">需要雙重認證！請返回主操作頁面並以您的 2FA 令牌登入後再重試。</string>
   <string name="menu_login">登入</string>
   <string name="login_activity_title">登入維基百科</string>
   <string name="login_in_progress_dialog_message">正在登入…</string>
@@ -106,6 +106,7 @@
   <string name="history_empty_title">沒有近期檢視的頁面</string>
   <string name="history_empty_message">追蹤您在此讀過的內容。</string>
   <string name="search_empty_message">以您的語言來搜尋閱讀自由的百科全書</string>
+  <string name="search_empty_message_multilingual_upgrade">以更多語言來搜尋維基百科</string>
   <string name="delete_selected_items">刪除所選項目</string>
   <string name="wp_stylized">&lt;big&gt;維&lt;/big&gt;基百&lt;big&gt;科&lt;/big&gt;</string>
   <string name="create_account_username_hint">用戶名</string>
@@ -129,11 +130,11 @@
   <string name="wikipedia_app_faq">維基百科應用程式常見問題</string>
   <string name="zero_charged_verbiage">免費訪問維基百科功能已不再提供。</string>
   <string name="zero_warn_when_leaving">離開維基百科零計劃時警告</string>
-  <string name="zero_warn_when_leaving_summary">如果您的行動網路業者與維基百科零計劃有合作夥伴關係，並且免除存取維基百科應用程式時的資料費用，請勾選此設定以幫助您知道您正在離開維基百科並可能被收取費用。</string>
+  <string name="zero_warn_when_leaving_summary">如果您的行動網路業者與維基百科零計劃有合作夥伴關係，並且免除存取維基百科應用程式時的流量費用，請勾選此設定來當您要離開維基百科並可能會被收取費用時讓您知悉。</string>
   <string name="zero_webpage_title">維基百科零計劃常見問題</string>
   <string name="zero_wikipedia_zero_heading">維基百科零計劃</string>
   <string name="zero_interstitial_title">離開維基百科零計劃</string>
-  <string name="zero_interstitial_leave_app">可能會收資料費用。繼續前往至外部網站嗎？</string>
+  <string name="zero_interstitial_leave_app">可能會有收取流量費用情況。要繼續前往至外部網站嗎？</string>
   <string name="zero_interstitial_continue">離開</string>
   <string name="zero_interstitial_cancel">留在這裡</string>
   <string name="zero_learn_more">您的無線網路供應商可提供免費訪問維基百科內容。</string>
@@ -266,6 +267,7 @@
   <string name="tool_tip_share">在反白一部分有趣的事實之後，嘗試在您最愛的網路中分享！</string>
   <string name="page_view_in_browser">以瀏覽器檢視頁面</string>
   <string name="tool_tip_toc_button">在任何時間皆可透過輕觸此按鈕，或者從螢幕右邊緣向左邊滑動来查閱目錄。</string>
+  <string name="tool_tip_lang_button">您現在可以在應用程式裡搜尋及閱讀多個維基百科語言版本。\n\n\n輕觸圖標來添加更多語言。</string>
   <string name="error_response_malformed">來自伺服器的回應格式不正確。</string>
   <string name="error_unknown">發生不明錯誤。</string>
   <string name="format_error_server_message">訊息： \"%s\"</string>
@@ -623,6 +625,9 @@
   <string name="onboarding_create_account_contributions">保持追蹤您的貢獻</string>
   <string name="onboarding_create_account_preferences">儲存您的偏好設定</string>
   <string name="onboarding_got_it">了解</string>
+  <string name="onboarding_multilingual_title">在近 300 種語言裡搜尋並閱讀</string>
+  <string name="onboarding_multilingual_secondary_text">我們在您的裝置上找到以下語言：</string>
+  <string name="onboarding_multilingual_add_language_text">添加或編輯語言</string>
   <string name="app_shortcuts_random">隨機</string>
   <string name="app_shortcuts_continue_reading">繼續閱讀</string>
   <string name="app_shortcuts_search">搜尋</string>
@@ -653,4 +658,5 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">無法移除所有語言</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">請保留至少一種用在搜尋與閱讀內容的維基語言。</string>
   <string name="more_language_options">更多</string>
+  <string name="add_wikipedia_languages_text">添加維基百科語言</string>
 </resources>

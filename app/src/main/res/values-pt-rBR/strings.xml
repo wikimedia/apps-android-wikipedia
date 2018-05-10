@@ -116,6 +116,7 @@
   <string name="history_empty_title">Nenhum artigo visto recentemente</string>
   <string name="history_empty_message">Acompanhe o que você está lendo aqui.</string>
   <string name="search_empty_message">Procure e leia a enciclopédia livre em seu idioma</string>
+  <string name="search_empty_message_multilingual_upgrade">Pesquisa Wikipedia em mais idiomas</string>
   <string name="delete_selected_items">Excluir itens selecionados</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome de usuário</string>
@@ -276,6 +277,7 @@
   <string name="tool_tip_share">Após destacar um fato interessante, tente compartilhá-lo nas suas redes favoritas!</string>
   <string name="page_view_in_browser">Ver página no navegador</string>
   <string name="tool_tip_toc_button">Consulte o índice a qualquer momento tocando neste botão ou deslizando com o dedo a partir do canto direito da tela.</string>
+  <string name="tool_tip_lang_button">Agora você pode pesquisar e ler em vários idiomas da Wikipédia no aplicativo.\n\n\nToque no ícone para adicionar mais idiomas.</string>
   <string name="error_response_malformed">A resposta do servidor não foi formatada corretamente.</string>
   <string name="error_unknown">Ocorreu um erro desconhecido.</string>
   <string name="format_error_server_message">Mensagem: \"%s\"</string>
@@ -633,6 +635,9 @@
   <string name="onboarding_create_account_contributions">Acompanhe suas contribuições</string>
   <string name="onboarding_create_account_preferences">Salve suas preferências</string>
   <string name="onboarding_got_it">Entendi</string>
+  <string name="onboarding_multilingual_title">Pesquise e leia em quase 300 línguas</string>
+  <string name="onboarding_multilingual_secondary_text">Encontramos as seguintes no seu dispositivo:</string>
+  <string name="onboarding_multilingual_add_language_text">Acrescentar ou editar idiomas</string>
   <string name="app_shortcuts_random">Aleatório</string>
   <string name="app_shortcuts_continue_reading">Continue lendo</string>
   <string name="app_shortcuts_search">Pesquisar</string>
@@ -663,4 +668,5 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">Não é possível remover todos os idiomas</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantenha pelo menos um idioma do Wikipedia para pesquisar e ler conteúdo.</string>
   <string name="more_language_options">mais</string>
+  <string name="add_wikipedia_languages_text">Adicione os idiomas da Wikipedia</string>
 </resources>

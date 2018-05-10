@@ -78,12 +78,13 @@
   <string name="content_license_html">El contenido está disponible bajo la licencia &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que se indique lo contrario</string>
   <string name="edit_save_action_license_logged_in">Al guardar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Al guardar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Las ediciones se atribuirán a la dirección IP de tu dispositivo. Si &lt;a href=\"https://#login\"&gt;inicias sesión&lt;/a&gt;, tendrás más privacidad.</string>
-  <string name="preference_title_language" fuzzy="true">Idioma de Wikipedia</string>
+  <string name="preference_title_language">Idiomas de Wikipedia</string>
   <string name="preference_languages_filter_hint">Buscar</string>
   <string name="langlinks_filter_hint">Buscar</string>
   <string name="langlinks_empty">Esta página no está disponible en otros idiomas.</string>
   <string name="langlinks_no_match">No se encontró ningún idioma</string>
   <string name="langlinks_activity_title">Otros idiomas</string>
+  <string name="langlinks_your_wikipedia_languages">Tus idiomas de Wikipedia</string>
   <string name="menu_save_changes">Publicar cambios</string>
   <string name="dialog_saving_in_progress">Publicando…</string>
   <string name="edit_saved_successfully">Se publicó la edición.</string>
@@ -455,13 +456,31 @@
   <string name="notification_syncing_pause_button">Pausar</string>
   <string name="notification_syncing_resume_button">Reanudar</string>
   <string name="notification_syncing_cancel_button">Cancelar</string>
-  <string name="notification_syncing_reading_list_channel_name" fuzzy="true">Sincronizando listas de lectura</string>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Sincronizando la lista de lectura</item>
+    <item quantity="other">Sincronizando las listas de lectura</item>
+  </plurals>
   <string name="notification_syncing_reading_list_channel_description">Progreso de sincronización de listas de lectura</string>
-  <string name="notification_channel_name" fuzzy="true">Sincronización</string>
-  <string name="notification_syncing_title" fuzzy="true">Descargando %1$d artículos…</string>
-  <string name="notification_syncing_description" fuzzy="true">%1$d artículos restantes</string>
-  <string name="notification_syncing_reading_list_title" fuzzy="true">Sincronizando %1$d listas…</string>
-  <string name="notification_syncing_reading_list_description" fuzzy="true">Quedan %1$d listas</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">Descargando el artículo</item>
+    <item quantity="other">Descargando los artículos</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">Descargando %1$d artículo…</item>
+    <item quantity="other">Descargando %1$d artículos…</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">%1$d artículo restante</item>
+    <item quantity="other">%1$d artículos restantes</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Sincronizando %1$d lista…</item>
+    <item quantity="other">Sincronizando %1$d listas…</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">Queda %1$d lista</item>
+    <item quantity="other">Quedan %1$d listas</item>
+  </plurals>
   <string name="view_continue_reading_card_title">Continuar leyendo</string>
   <string name="view_because_you_read_card_title">Porque leíste</string>
   <string name="view_random_card_title">Aleatorio</string>
@@ -615,6 +634,9 @@
   <string name="onboarding_create_account_contributions">Mantente al tanto de tus aportes</string>
   <string name="onboarding_create_account_preferences">Guardar tus preferencias</string>
   <string name="onboarding_got_it">Entendido</string>
+  <string name="onboarding_multilingual_title">Consulta datos en casi 300 lenguas</string>
+  <string name="onboarding_multilingual_secondary_text">Encontramos lo siguiente en tu dispositivo:</string>
+  <string name="onboarding_multilingual_add_language_text">Añadir o editar idiomas</string>
   <string name="app_shortcuts_random">Aleatorio</string>
   <string name="app_shortcuts_continue_reading">Continuar leyendo</string>
   <string name="app_shortcuts_search">Buscar</string>
@@ -637,7 +659,10 @@
   <string name="wikipedia_languages_add_language_text">Añadir idioma</string>
   <string name="wikipedia_languages_remove_text">Quitar</string>
   <string name="wikipedia_languages_remove_action_mode_title">Quitar idioma</string>
-  <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">¿Quieres quitar los idiomas seleccionados?</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">¿Quieres quitar el idioma seleccionado?</item>
+    <item quantity="other">¿Quieres quitar los idiomas seleccionados?</item>
+  </plurals>
   <string name="wikipedia_languages_remove_dialog_content">Solo verás contenido en los idiomas restantes de Wikipedia en el suministro Explorar y los filtros de búsqueda rápida.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">No es posible quitar todos los idiomas</string>
   <string name="more_language_options">más</string>

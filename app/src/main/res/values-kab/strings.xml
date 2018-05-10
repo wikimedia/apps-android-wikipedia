@@ -3,6 +3,7 @@
 * Belkacem77
 * Envlh
 * Mastanabal
+* SlimaneAmiri
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -13,6 +14,7 @@
   <string name="search_hint_search_history">Nadi amazray</string>
   <string name="search_hint_search_my_lists">Nadi di tebdart-iw</string>
   <string name="search_hint_search_reading_list">Nadi di tebdart-iw n tɣuri</string>
+  <string name="search_hint_search_languages">Nadi γef akk tutlayin</string>
   <string name="nav_item_history">Amazray</string>
   <string name="error_network_error">Ur izmir ara ad yeqqen ar Internet.</string>
   <string name="page_error_retry">Ɛref̣ tikelt-nniḍen</string>
@@ -48,16 +50,18 @@
   <string name="talk_page_link_text" fuzzy="true">Asqerdec</string>
   <string name="edit_history_link_text" fuzzy="true">Ẓreg amazray</string>
   <string name="map_view_link_text">Sken ɣef tkarḍa</string>
+  <string name="other_languages_indication_text">Γer deg tutlayt-nniḍen</string>
   <string name="language_count_link_text">Yella di %d n tutlayin nniḍen</string>
   <string name="content_license_html">Agbur yella daw n &lt;a href=\"%1$s\"&gt;turagt CC BY-SA 3.0&lt;/a&gt; alama yettwammel akken-nniḍen</string>
   <string name="edit_save_action_license_logged_in">Su jerred, ad tqebleḍ &lt;a href=\"%1$s\"&gt;Tiwtilin n useqdec &lt;/a&gt;, udiɣ ad tserseḍ ilebda ittekkiyen-ik daw n turagt &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">S ujerred, ad tqebleḍ &lt;a href=\"%1$s\"&gt;tiwtilin n useqdec&lt;/a&gt;, udiɣ ad tserseḍ ilebda ittekkiyen-ikdaw n turagt &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Akk ayen tbeddleḍ ad ittunefk i tensa IP n yibenk-ik. Ma yella &lt;a href=\"https://#login\"&gt;teqqneḍ&lt;/a&gt;, ad yili ɣur-k ugar n tbaḍnit.</string>
-  <string name="preference_title_language" fuzzy="true">Tutlayt n wikipedia</string>
+  <string name="preference_title_language">Tutlayt n wikipedia</string>
   <string name="preference_languages_filter_hint">Nadi</string>
   <string name="langlinks_filter_hint">Nadi</string>
   <string name="langlinks_empty">Asebter-agi ulac-it di tutlayin-nniḍen.</string>
   <string name="langlinks_no_match" fuzzy="true">Ulac tutlayin icudden ar tuttra-ik.</string>
   <string name="langlinks_activity_title">Tutlayin-nniḍen</string>
+  <string name="langlinks_your_wikipedia_languages">Tutlayt-ik n Wikipedia</string>
   <string name="menu_save_changes">Suffeɣ-d asnifel</string>
   <string name="dialog_saving_in_progress">Asuffeɣ...</string>
   <string name="edit_saved_successfully">Taẓrigt teffeɣ-d!</string>
@@ -126,6 +130,7 @@
   <string name="send_feedback">Azen-d tikti ɣef usnas</string>
   <string name="create_account_account_created_toast">Amiḍan yettwarna!</string>
   <string name="preferences_heading_storage_and_syncing">Asekles d umtawi</string>
+  <string name="preferences_heading_data_usage">Aseqdec n isefka</string>
   <string name="preference_title_sync_reading_lists">Mtawi tibdarin n tɣuri</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">Eǧǧ Wikimedia ad imtawi tibdarin-ik n tɣuri ticki teqqneḍ</string>
   <string name="preferences_privacy_settings_heading">Tabaḍnit</string>
@@ -286,6 +291,7 @@
   <string name="color_theme_select">Asentel</string>
   <string name="color_theme_light">Aceɛlal</string>
   <string name="color_theme_dark">Aberkan</string>
+  <string name="color_theme_black">Aberkan</string>
   <string name="preference_summary_color_theme">Tibdarin-iw</string>
   <string name="text_size_increase">Semɣer aḍris</string>
   <string name="text_size_decrease">Senɣes teɣzi n uḍris</string>
@@ -348,6 +354,12 @@
   <string name="reading_list_article_save_in_progress">Aisder n umagrad iteddu, udiɣ ad yili s war tuqqna ticki yemmed.</string>
   <string name="reading_list_already_contains_selection">Tabdart yettwafernen tegber yakan akk isebtar yettwafernen.</string>
   <string name="reading_list_added_articles_list_titled">%1$d n imagraden ttwarnan ar %2$s</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Sefsex</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Kcem</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">IH</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Iɣewwaṛen</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Rmed amtawi</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ala, tanemmirt</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Amagrad-agi yella s war tuqqna.</item>
     <item quantity="other">Imagraden-agi llan s war tuqqna.</item>

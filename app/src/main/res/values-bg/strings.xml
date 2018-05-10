@@ -58,12 +58,13 @@
   <string name="content_license_html">Съдържанието е достъпно под &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е посочено друго</string>
   <string name="edit_save_action_license_logged_in">Запазвайки промените, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лиценз.</string>
   <string name="edit_save_action_license_anon">Запазвайки промените, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лиценз. Редакциите ще бъдат приписани на IP адреса на вашето  устройство. Ако &lt;a href=\"https://#login\"&gt;влезете в системата&lt;/a&gt;, тази информация няма да бъде публична.</string>
-  <string name="preference_title_language" fuzzy="true">Език на Уикипедия</string>
+  <string name="preference_title_language">Езици на Уикипедия</string>
   <string name="preference_languages_filter_hint">Търсене</string>
   <string name="langlinks_filter_hint">Търсене</string>
   <string name="langlinks_empty">Тази страница не е налична на други езици.</string>
-  <string name="langlinks_no_match" fuzzy="true">Не са открити езици, отговарящи на вашата заявка.</string>
+  <string name="langlinks_no_match">Не са открити езици</string>
   <string name="langlinks_activity_title">Други езици</string>
+  <string name="langlinks_your_wikipedia_languages">Вашите езици на Уикипедия</string>
   <string name="menu_save_changes">Публикуване на промените</string>
   <string name="dialog_saving_in_progress">Публикуване...</string>
   <string name="edit_saved_successfully">Редакцията е публикувана!</string>
@@ -465,8 +466,8 @@
   <string name="view_featured_article_footer_saved_button_label">Съхранено</string>
   <string name="feed_configure_activity_title">Персонализиране на хранилката</string>
   <string name="feed_configure_menu_reset">Нулиране на изгледа по подразбиране</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">Избиране на всички</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">Анулиране на всички избрани</string>
+  <string name="feed_configure_menu_select_all">Показване на всички</string>
+  <string name="feed_configure_menu_deselect_all">Скриване на всички</string>
   <string name="feed_item_type_news">Статии за текущи събития</string>
   <string name="feed_item_type_on_this_day">Събития в историята на този ден</string>
   <string name="feed_item_type_continue_reading">Бърза връзка обратно към четене на отворена статия в един от разделите Ви</string>
@@ -583,6 +584,9 @@
   <string name="onboarding_create_account_contributions">Бъдете в течение с приносите си</string>
   <string name="onboarding_create_account_preferences">Съхраняване на предпочитанията</string>
   <string name="onboarding_got_it">Разбрах</string>
+  <string name="onboarding_multilingual_title">Търсене и четене на почти 300 езика</string>
+  <string name="onboarding_multilingual_secondary_text">Намерено е следното на Вашето устройство:</string>
+  <string name="onboarding_multilingual_add_language_text">Добавяне или редактиране на езици</string>
   <string name="app_shortcuts_random">Случайна</string>
   <string name="app_shortcuts_continue_reading">Продължаване с четенето</string>
   <string name="app_shortcuts_search">Търсене</string>
@@ -598,9 +602,17 @@
     <item quantity="other">Преди %d години</item>
   </plurals>
   <string name="languages_list_activity_title">Добавяне на език</string>
+  <string name="languages_list_suggested_text">Предложени</string>
   <string name="languages_list_all_text">Всички езици</string>
+  <string name="wikipedia_languages_title">Езици на Уикипедия</string>
   <string name="wikipedia_languages_your_languages_text">Вашите езици</string>
   <string name="wikipedia_languages_add_language_text">Добавяне на език</string>
   <string name="wikipedia_languages_remove_text">Премахване</string>
   <string name="wikipedia_languages_remove_action_mode_title">Премахване на език</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">Премахване на избрания език?</item>
+    <item quantity="other">Премахване на избраните езици?</item>
+  </plurals>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Не могат да се премахнат всички езици</string>
+  <string name="more_language_options">още</string>
 </resources>
