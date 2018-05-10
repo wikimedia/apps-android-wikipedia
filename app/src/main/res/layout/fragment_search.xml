@@ -26,14 +26,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
-                android:layout_gravity="center_vertical">
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical">
 
                 <org.wikipedia.views.CabSearchView
                     android:id="@+id/search_cab_view"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:layout_gravity="center_vertical"
                     android:focusable="true"
                     android:inputType="text"
                     android:imeOptions="actionGo|flagNoExtractUi"
@@ -51,10 +51,11 @@
                     android:background="?attr/actionBarItemBackground"
                     android:contentDescription="@string/preference_title_language"
                     android:clickable="true">
+
                     <TextView
                         android:id="@+id/search_lang_button"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:clickable="false"
                         android:focusable="false"
                         android:background="@drawable/lang_button_shape"

@@ -87,8 +87,8 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     private SearchFunnel funnel;
     private SearchInvokeSource invokeSource;
     private String searchLanguageCode;
-    private static final int LANG_BUTTON_TEXT_SIZE_LARGER = 13;
-    private static final int LANG_BUTTON_TEXT_SIZE_SMALLER = 10;
+    public static final int LANG_BUTTON_TEXT_SIZE_LARGER = 12;
+    public static final int LANG_BUTTON_TEXT_SIZE_SMALLER = 8;
     /**
      * Whether the Search fragment is currently showing.
      */

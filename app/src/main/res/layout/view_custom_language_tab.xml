@@ -9,8 +9,8 @@
     <TextView
         android:id="@+id/language_code"
         style="@style/TextViewCentered"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:background="@drawable/lang_button_shape_border"
         android:fontFamily="sans-serif-medium"
         android:textAllCaps="true"
