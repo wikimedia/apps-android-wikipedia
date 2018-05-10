@@ -198,20 +198,22 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
             languageScrollView.setUpLanguageScrollTabData(app.language().getAppLanguageCodes(), this, position);
             langButtonContainer.setVisibility(View.GONE);
         } else {
-            showMultiLingualSearchTutorial();
+            if (Prefs.isMultilingualSearchTutorialEnabled()) {
+                showMultiLingualOnboarding();
+            }
             languageScrollContainer.setVisibility(View.GONE);
             langButtonContainer.setVisibility(View.VISIBLE);
             initLangButton();
         }
     }
 
-    private void showMultiLingualSearchTutorial() {
-        if (Prefs.isMultilingualSearchTutorialEnabled()
-                && WikipediaApp.getInstance().language().getRemainingAvailableLanguageCodes().size() > 0) {
+
+    private void showMultiLingualOnboarding() {
+        if (WikipediaApp.getInstance().language().getRemainingAvailableLanguageCodes().size() > 0) {
             FeedbackUtil.showTapTargetView(requireActivity(), langButton, R.string.empty,
                     R.string.tool_tip_lang_button, null);
-            Prefs.setMultilingualSearchTutorialEnabled(false);
         }
+        Prefs.setMultilingualSearchTutorialEnabled(false);
     }
 
     @Override
