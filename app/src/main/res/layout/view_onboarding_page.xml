@@ -2,115 +2,111 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:parentTag="android.widget.LinearLayout"
-    tools:orientation="vertical"
     tools:background="@drawable/onboarding_gradient_background_135"
+    tools:layout_height="match_parent"
     tools:layout_width="match_parent"
-    tools:layout_height="match_parent">
+    tools:orientation="vertical"
+    tools:parentTag="android.widget.LinearLayout">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <ImageView
-            android:id="@+id/view_onboarding_page_image_centered"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:scaleType="fitCenter"
-            android:layout_gravity="center"
-            android:contentDescription="@null"
-            tools:src="@drawable/illustration_onboarding_explore"/>
-
-    </FrameLayout>
+    <ImageView
+        android:id="@+id/view_onboarding_page_image_centered"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="72dp"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        tools:src="@drawable/illustration_onboarding_explore" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_marginTop="32dp"
         android:gravity="center_horizontal"
+        android:orientation="vertical"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin">
 
         <org.wikipedia.views.AppTextView
             android:id="@+id/view_onboarding_page_primary_text"
+            style="@style/TextViewCentered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-medium"
             android:textColor="@android:color/white"
             android:textSize="24sp"
-            android:fontFamily="sans-serif-medium"
-            style="@style/TextViewCentered"
             tools:text="Lorem ipsum" />
 
         <org.wikipedia.views.AppTextView
             android:id="@+id/view_onboarding_page_secondary_text"
+            style="@style/TextViewCentered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:textSize="16sp"
+            android:layout_marginBottom="8dp"
             android:gravity="center"
+            android:lineSpacingMultiplier="1.22"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textColorLink="@android:color/white"
-            android:lineSpacingMultiplier="1.22"
-            style="@style/TextViewCentered"
-            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>
+            android:textSize="16sp"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
 
         <include
             android:id="@+id/options_layout"
             layout="@layout/view_onboarding_language_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <LinearLayout
             android:id="@+id/view_onboarding_page_switch_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            android:layout_marginTop="6dp"
             android:orientation="vertical">
+
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="0.5dp"
-                android:background="@color/white20"/>
+                android:background="@color/white20" />
 
             <android.support.v7.widget.SwitchCompat
                 android:id="@+id/view_onboarding_page_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:theme="@style/OnboardingSwitch"
+                android:layout_marginBottom="8dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
                 android:textColor="@android:color/white"
-                tools:text="Lorem ipsum"/>
+                app:theme="@style/OnboardingSwitch"
+                tools:text="Lorem ipsum" />
 
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="0.5dp"
-                android:background="@color/white20"/>
+                android:background="@color/white20" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/view_onboarding_page_tertiary_text"
+            style="@style/TextViewCentered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="16dp"
             android:layout_gravity="center|bottom"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="40dp"
             android:text="@string/description_edit_tutorial_promise"
-            style="@style/TextViewCentered"
-            android:textSize="12sp"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
 
     </LinearLayout>
 
     <!-- Bottom control offset -->
     <View
         android:layout_width="match_parent"
-        android:layout_height="48dp"/>
+        android:layout_height="48dp" />
 
 </merge>
