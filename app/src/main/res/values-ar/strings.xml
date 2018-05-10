@@ -72,7 +72,7 @@
   <string name="content_license_html">المحتوى متوفر تحت رخصة  &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; إلا إذا ذُكر غير ذلك.</string>
   <string name="edit_save_action_license_logged_in">بالحفظ، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">بالحفظ، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;وعلى نشر مساهماتك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. التعديلات سوف تنسب إلى عنوان بروتوكول الإنترنت الخاص بجهازك. في حال كنت &lt;a href=\"https://#login\"&gt;مُسجلًا للدخول&lt;/a&gt;، فإنك ستحظى بالمزيد من الخصوصية.</string>
-  <string name="preference_title_language" fuzzy="true">لغة ويكيبيديا</string>
+  <string name="preference_title_language">لغات ويكيبيديا</string>
   <string name="preference_languages_filter_hint">بحث</string>
   <string name="langlinks_filter_hint">بحث</string>
   <string name="langlinks_empty">هذه الصفحة غير متوفرة بلغات أخرى</string>

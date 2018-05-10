@@ -21,6 +21,7 @@
   <string name="search_hint_search_history">Bilatu historia</string>
   <string name="search_hint_search_my_lists">Nire zerrendetan bilatu</string>
   <string name="search_hint_search_reading_list">Irakurketa zerrenda bilatu</string>
+  <string name="search_hint_search_languages">Hizkuntza bat bilatu</string>
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Ezin izan da Internetera konektatu.</string>
   <string name="page_error_retry">Saiatu berriro</string>
@@ -57,15 +58,16 @@
   <string name="talk_page_link_text">Eztabaida orria ikusi</string>
   <string name="edit_history_link_text">Aldaketen historia ikusi</string>
   <string name="map_view_link_text">Ikusi mapan</string>
+  <string name="other_languages_indication_text">Irakurri beste hizkuntza batean</string>
   <string name="language_count_link_text">Irakurgarri beste %d hizkuntzatan</string>
   <string name="content_license_html">Edukia eskuragarri &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean, besterik aipatu ezean</string>
   <string name="edit_save_action_license_logged_in">Gordetzen baduzu &lt;a href=\"%1$s\"&gt;Erabilera Baldintzak&lt;/a&gt; onartzen dituzu, eta zure ekarpen guztiak atzera bueltarik gabe &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean jartzen dituzu.</string>
   <string name="edit_save_action_license_anon">Aurreztuz, &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; onartuko duzu, eta ezinbestez zure ekarpenak askatu beharko dituzu &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziaren babespean. Aldaketak zure gailuaren IP helbideari egotziko zaizkio. Zu &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt; ba zara, pribautasun gehiago edukiko duzu.</string>
-  <string name="preference_title_language" fuzzy="true">Wikipediaren hizkuntza</string>
+  <string name="preference_title_language">Wikipediako hizkuntzak</string>
   <string name="preference_languages_filter_hint">Bilatu</string>
   <string name="langlinks_filter_hint">Bilatu</string>
   <string name="langlinks_empty">Orrialde hau ez dago eskuragarri beste hizkuntzetan.</string>
-  <string name="langlinks_no_match" fuzzy="true">Zure kontsultarekin bat egiten duen hizkuntzarik ez da aurkitu.</string>
+  <string name="langlinks_no_match">Hizkuntzarik ez da aurkitu</string>
   <string name="langlinks_activity_title">Beste hizkuntzak</string>
   <string name="menu_save_changes">Aldaketak argitaratu</string>
   <string name="dialog_saving_in_progress">Argitaratzen…</string>
@@ -475,8 +477,8 @@
   <string name="view_featured_article_footer_saved_button_label">Gordea</string>
   <string name="feed_configure_activity_title">Pertsonalizatu jarioa</string>
   <string name="feed_configure_menu_reset">Leheneratu ikuspegi lehenetsiak</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">Denak aukeratu</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">Desautatu guztia</string>
+  <string name="feed_configure_menu_select_all">Dena erakutsi</string>
+  <string name="feed_configure_menu_deselect_all">Dena ezkutatu</string>
   <string name="feed_item_type_news">Eguneko ekitaldiei buruzko artikuluak</string>
   <string name="feed_item_type_on_this_day">Gaurko eguneko historian zehar gertaturiko ekitaldiak</string>
   <string name="feed_item_type_continue_reading">Lotura azkarra zure betile batean irekita zegoen artikulu batera itzultzeko</string>

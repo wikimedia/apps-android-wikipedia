@@ -211,6 +211,8 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Šodien</string>
   <string name="view_announcement_card_negative_action">Nē, paldies</string>
+  <string name="feed_configure_menu_select_all">Rādīt visus</string>
+  <string name="feed_configure_menu_deselect_all">Paslēpt visus</string>
   <string name="feed_configure_onboarding_action">Pielāgot</string>
   <string name="description_edit_text_hint" fuzzy="true">Uzraksti aprakstu!</string>
   <string name="description_edit_save">Publicēt</string>
@@ -229,6 +231,7 @@
   <string name="onboarding_skip">Izlaist</string>
   <string name="onboarding_continue">Turpināt</string>
   <string name="onboarding_got_it">Sapratu</string>
+  <string name="onboarding_multilingual_add_language_text">Pievienot vai labot valodas</string>
   <string name="on_this_day_card_title">Šajā dienā</string>
   <string name="this_year">Šajā gadā</string>
   <string name="languages_list_activity_title">Pievienot valodu</string>

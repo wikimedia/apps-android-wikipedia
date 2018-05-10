@@ -13,13 +13,22 @@
   <string name="app_name_alpha">Vikipedio Alfa</string>
   <string name="wikimedia">Vikimedio</string>
   <string name="search_hint">Serĉi tra Vikipedio</string>
+  <string name="search_hint_search_history">Serĉi en historio</string>
+  <string name="search_hint_search_my_lists">Serĉas en miaj listoj</string>
+  <string name="search_hint_search_reading_list">Serĉi en lego-listo</string>
+  <string name="search_hint_search_languages">Serĉi lingvon</string>
   <string name="nav_item_history">Historio</string>
   <string name="error_network_error">Ne eblas konektiĝi al la interreto.</string>
   <string name="page_error_retry">Reprovi</string>
   <string name="page_error_back_to_main">Reen</string>
   <string name="menu_clear_all_history">Malplenigi historion</string>
+  <string name="history_item_deleted">%s estas forigita de historio</string>
+  <string name="history_items_deleted">%d artikoloj estis forigitaj de historio</string>
+  <string name="history_item_delete_undo">Malfari</string>
   <string name="dialog_title_clear_history">Malplenigi la retuman historion</string>
   <string name="dialog_message_clear_history">Tio ĉi forigos vian tutan krozan historion kaj fermos ĉiun nuntempe malfermitan langeton. Ĉu vi certas?</string>
+  <string name="dialog_message_clear_history_yes">Jes</string>
+  <string name="dialog_message_clear_history_no">Ne</string>
   <string name="share_via">Kundividi per</string>
   <string name="search_redirect_from">Alidirektita el %s</string>
   <string name="menu_page_show_tabs">Montri langetojn</string>
@@ -38,20 +47,26 @@
   <string name="menu_text_select_edit_here">Redakti ĉi tie</string>
   <string name="nav_item_nearby">Ĉirkaŭe</string>
   <string name="nearby_zoom_to_location">Zomi al la loko en la mapo</string>
+  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;Kontribuantoj de &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Lasta ĝisdatigo %s</string>
-  <string name="talk_page_link_text" fuzzy="true">Diskuto</string>
+  <string name="talk_page_link_text">Montru diskutpaĝon</string>
+  <string name="edit_history_link_text">Montri redakto-historion</string>
+  <string name="map_view_link_text">Montri sur mapo</string>
+  <string name="other_languages_indication_text">Legi en alia lingvo</string>
+  <string name="language_count_link_text">Disponebla en %d aliaj lingvoj</string>
   <string name="content_license_html">La enhavo disponeblas laŭ la permesilo  &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; krom se alia permesilo estas indikita.</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Konservante, vi konsentas kun la  &lt;a href=\"%1$s\"&gt;Uzkondiĉoj&lt;/a&gt;,kaj ne-malfareble liberigas viajn kontribuojn sub la &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; permesilo.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">Konservante, vi konsentas kun la &lt;a href=\"%1$s\"&gt;Uzkondiĉoj&lt;/a&gt;,kaj ne-malfareble liberigas viajn kontribuojn sub la &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; permesilo. Modifoj estos atribuitaj al la IP-adreso de via aparato. Se vi &lt;a href=\"https://#login\"&gt;ensalutas&lt;/a&gt;, vi havos pli privatecon.</string>
-  <string name="preference_title_language" fuzzy="true">Lingvo de Vikipedio</string>
+  <string name="edit_save_action_license_logged_in">Konservante, vi konsentas kun la  &lt;a href=\"%1$s\"&gt;Uzkondiĉoj&lt;/a&gt;,kaj ne-malfareble liberigas viajn kontribuojn sub la permesilo &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Konservante, vi konsentas kun la &lt;a href=\"%1$s\"&gt;Uzkondiĉoj&lt;/a&gt;,kaj ne-malfareble liberigas viajn kontribuojn sub la permesilo &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redaktoj estos atribuitaj al la IP-adreso de via aparato. Se vi &lt;a href=\"https://#login\"&gt;ensalutos&lt;/a&gt;, vi havos pli da privateco.</string>
+  <string name="preference_title_language">Lingvoj de Vikipedio</string>
   <string name="preference_languages_filter_hint">Serĉi</string>
   <string name="langlinks_filter_hint">Serĉi</string>
   <string name="langlinks_empty">Ĉi tiu paĝo ne disponeblas en aliaj lingvoj</string>
-  <string name="langlinks_no_match" fuzzy="true">Neniu lingvo kongruas kun via serĉo.</string>
+  <string name="langlinks_no_match">Neniuj lingvoj trovitaj.</string>
   <string name="langlinks_activity_title">Aliaj lingvoj</string>
-  <string name="menu_save_changes" fuzzy="true">Konservi ŝanĝojn</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">Konservante…</string>
-  <string name="edit_saved_successfully" fuzzy="true">Redaktado konservita!</string>
+  <string name="langlinks_your_wikipedia_languages">Viaj Vikipediaj lingvoj</string>
+  <string name="menu_save_changes">Publikigi ŝanĝojn</string>
+  <string name="dialog_saving_in_progress">Publikigado…</string>
+  <string name="edit_saved_successfully">Redakto publikigita!</string>
   <string name="dialog_message_edit_failed">Redakto malsukcesis:</string>
   <string name="dialog_message_edit_failed_retry">Reprovi</string>
   <string name="dialog_message_edit_failed_cancel">Nuligi</string>
@@ -73,8 +88,8 @@
   <string name="login_success_toast">Ensaluto sukcesis!</string>
   <string name="preference_title_logout">Elsaluti</string>
   <string name="toast_logout_complete">Elsalutiĝinta</string>
-  <string name="history_empty_title" fuzzy="true">Neniuj lastaj paĝoj ĉi tie!</string>
-  <string name="history_empty_message" fuzzy="true">Tre eble vi forigis ĉiujn. Venontfoje kiam vi vizitu paĝon, vi povas rehavigi ĝin el ĉi tie.</string>
+  <string name="history_empty_title">Neniuj laste viditaj artikoloj!</string>
+  <string name="history_empty_message">Spuru ĉi tie tion, kion vi legis.</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IKIPEDI&lt;big&gt;O&lt;/big&gt;</string>
   <string name="create_account_username_hint">Uzantnomo</string>
   <string name="create_account_activity_title">Krei konton</string>
@@ -88,20 +103,20 @@
   <string name="create_account_button">Krei konton</string>
   <string name="preferences_general_heading">Ĝenerala</string>
   <string name="wikipedia_app_faq">Oftaj demandoj pri la aplikaĵo Vikipedio</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Vikipedio Nulo estas malŝaltita</string>
-  <string name="zero_warn_when_leaving">Avertu kiam forlasi Vikipedio Zero</string>
+  <string name="zero_charged_verbiage">Senpaga aliro al Vikipedio ne plu estas aktiva.</string>
+  <string name="zero_warn_when_leaving">Avertu dum forlaso de Vikipedio Zero</string>
   <string name="zero_webpage_title">Oftaj demandoj pri Vikipedio Nulo</string>
   <string name="zero_wikipedia_zero_heading">Vikipedio Zero</string>
   <string name="zero_interstitial_title">Forlasante Vikipedio Zero</string>
   <string name="zero_interstitial_continue">Forlasi</string>
   <string name="zero_interstitial_cancel">Resti ĉi tie</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Legi plu</string>
+  <string name="zero_learn_more_learn_more">Eksciu pli</string>
   <string name="zero_learn_more_dismiss">Elimini</string>
   <string name="edit_preview_fetching_dialog_message">Generado de antaŭvido…</string>
   <string name="send_feedback">Sendu informon pri ĉi tiu aplikaĵo</string>
   <string name="create_account_account_created_toast">Konto kreita</string>
   <string name="preferences_privacy_settings_heading">Privateco</string>
-  <string name="preference_title_eventlogging_opt_in">Sendi uzantan raporton</string>
+  <string name="preference_title_eventlogging_opt_in">Sendi raportojn pri uzado</string>
   <string name="preference_summary_eventlogging_opt_in">Permesi al Vikipedio kolekti informon pri kiel vi uzas la aplikaĵon por helpi ĝin plibonigi</string>
   <string name="editing_error_spamblacklist">Ligilo al blokitaj retadresoj detektitaj (%s). Bonvole forigu ilin kaj reprovu.</string>
   <string name="history_search_list_hint">Serĉi historion</string>
@@ -109,7 +124,7 @@
   <string name="page_protected_autoconfirmed">Ĉi tiu paĝo estas duon-protektita.</string>
   <string name="page_protected_sysop">Ĉi tiu paĝo estas tut-protektita.</string>
   <string name="page_protected_other">Ĉi tiu paĝo estas protektita je la jenaj niveloj: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">Vi ne havas la rajtojn por redakti ĉi tiun paĝon</string>
+  <string name="page_protected_can_not_edit">Pardonu, via konto nuntempe ne havas sufiĉajn rajtojn por redakti ĉi tiun paĝon.</string>
   <string name="page_protected_can_not_edit_title">Ĉi tiu paĝo estas protektita</string>
   <string name="settings_item_preferences">Agordoj</string>
   <string name="settings_activity_title">Agordoj</string>
@@ -121,7 +136,7 @@
   <string name="about_translators_heading">Tradukantoj</string>
   <string name="about_translators_translatewiki">Ĉi tiu aplikaĵo estis tradukita de volontulaj tradukantoj ĉe &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Permesilo</string>
-  <string name="about_wmf" fuzzy="true">Produktaĵo de &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Vikimedia Fondaĵo&lt;/a&gt;</string>
+  <string name="about_wmf">Produkto de &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Fondaĵo Vikimedio&lt;/a&gt;</string>
   <string name="about_activity_title">Pri</string>
   <string name="edit_abandon_confirm">Ĉi tiu paĝo estis modifita. Ĉu vi certas ke vi volas eliri sen konservi viajn modifojn?</string>
   <string name="user_blocked_from_editing_title">Forbarita</string>
@@ -129,7 +144,7 @@
   <string name="user_anon_blocked_from_editing">Via IP-adreso estis forbarita pri redaktado.</string>
   <string name="edit_how_page_improved">Kiel vi plibonigis ĉi tiun paĝon?</string>
   <string name="edit_next">Sekva</string>
-  <string name="edit_done" fuzzy="true">Konservi</string>
+  <string name="edit_done">Publikigi</string>
   <string name="edit_preview">Antaŭrigardi</string>
   <string name="edit_summary_tag_typo">Ĝustigis ortografion</string>
   <string name="edit_summary_tag_grammar">Ĝustigis gramatikon</string>
@@ -138,8 +153,8 @@
   <string name="edit_summary_tag_other_hint">Aliaj manieroj en kiuj vi plibonigis la paĝon</string>
   <string name="find_next">Trovi sekvan</string>
   <string name="find_previous">Trovi antaŭan</string>
-  <string name="abusefilter_title_warn" fuzzy="true">Tio ĉi eble estas nekonstruiga redakto. Ĉu vi certas, ke vi volas konservi ĝin?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">Vi ne povas konservi ĉi tiun modifon. Bonvole iru reen kaj ŝanĝu ĝin.</string>
+  <string name="abusefilter_title_warn">Tio ĉi eble estas nekonstruiga redakto. Ĉu vi certas, ke vi volas publikigi ĝin?</string>
+  <string name="abusefilter_title_disallow">Vi ne povas publikigi ĉi tiun redakton. Bonvolu reveni kaj ŝanĝi ĝin.</string>
   <string name="dialog_page_issues">Paĝaj problemoj</string>
   <string name="button_page_issues">Paĝaj problemoj</string>
   <string name="text_size_select">Tipara grandeco</string>
@@ -148,6 +163,8 @@
   <string name="search_recent_header">Lastaj serĉoj:</string>
   <string name="button_clear_all_recent_searches">Malplenigi lastaj serĉojn</string>
   <string name="clear_recent_searches_confirm">Ĉu vi certas ke vi volas malplenigi vian serĉ-historion?</string>
+  <string name="clear_recent_searches_confirm_yes">Jes</string>
+  <string name="clear_recent_searches_confirm_no">Ne</string>
   <string name="error_browser_not_found">Ne eblis malfermi la retpaĝon (Neniu retumila aplikaĵo estis trovita)</string>
   <string name="table_infobox">Rapidaj faktoj</string>
   <string name="table_other">Pliaj informoj</string>
@@ -180,17 +197,25 @@
   <string name="gallery_fair_use_license">Justa uzo</string>
   <string name="gallery_uploader_unknown">Alŝutanto nekonata</string>
   <string name="menu_new_tab">Nova langeto</string>
+  <string name="close_all_tabs_confirm_yes">Jes</string>
+  <string name="close_all_tabs_confirm_no">Ne</string>
   <string name="button_close_tab">Fermi langeton</string>
   <string name="page_view_in_browser">Montri paĝon per retumilo</string>
   <string name="format_error_server_message">Mesaĝo: \"%s\"</string>
   <string name="button_continue_to_article">Legi artikolon</string>
   <string name="nav_item_donate">Subtenu Vikipedion</string>
+  <string name="enable_location_service">Ŝalti</string>
   <string name="crash_report_dialog_dont_send_button">Preterpasi</string>
   <string name="crash_report_dialog_always_send_button">Ĉiam sendi</string>
   <string name="crash_report_dialog_send_button">Sendi</string>
+  <string name="article_header_edit_hint">Redakti…</string>
+  <string name="article_header_edit_description">Redakti priskribon</string>
+  <string name="article_header_edit_lead_section">Redakti enkondukon</string>
   <string name="color_theme_select">Etoso</string>
   <string name="color_theme_light">Hela</string>
   <string name="color_theme_dark">Malhela</string>
+  <string name="color_theme_black">Nigra</string>
+  <string name="color_theme_test_title">Ekzempla teksto</string>
   <string name="nav_item_reading_lists">Miaj listoj</string>
   <string name="reading_list_untitled">Sentitola</string>
   <string name="reading_list_create_new">Krei novan</string>
@@ -213,7 +238,7 @@
   <string name="menu_feed_card_dismiss">Kaŝu la karton</string>
   <string name="menu_feed_card_dismissed">Karto kaŝita.</string>
   <string name="feed">Esploru</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">hieraŭ</item>
     <item quantity="other">antaŭ %d tagoj</item>
   </plurals>

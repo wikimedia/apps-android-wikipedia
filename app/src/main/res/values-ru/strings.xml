@@ -94,6 +94,7 @@
   <string name="langlinks_empty">Эта страница недоступна на других языках.</string>
   <string name="langlinks_no_match">Языки не найдены</string>
   <string name="langlinks_activity_title">Другие языки</string>
+  <string name="langlinks_your_wikipedia_languages">Ваши языки Википедии</string>
   <string name="menu_save_changes">Опубликовать изменения</string>
   <string name="dialog_saving_in_progress">Сохраняется…</string>
   <string name="edit_saved_successfully">Правка сохранена!</string>
@@ -465,13 +466,33 @@
   <string name="notification_syncing_pause_button">Пауза</string>
   <string name="notification_syncing_resume_button">Продолжить</string>
   <string name="notification_syncing_cancel_button">Отмена</string>
-  <string name="notification_syncing_reading_list_channel_name" fuzzy="true">Синхронизации чтение список(и)</string>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Синхронизация списка для чтения</item>
+    <item quantity="other">Синхронизация списков для чтения</item>
+  </plurals>
   <string name="notification_syncing_reading_list_channel_description">Синхронизации чтение списки прогресс</string>
-  <string name="notification_channel_name" fuzzy="true">Синхронизация</string>
-  <string name="notification_syncing_title" fuzzy="true">Загрузка %1$d статей…</string>
-  <string name="notification_syncing_description" fuzzy="true">Осталось %1$d статей</string>
-  <string name="notification_syncing_reading_list_title" fuzzy="true">Синхронизации %1$d список(и)...</string>
-  <string name="notification_syncing_reading_list_description" fuzzy="true">%1$d список(и) левый</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">Загрузка статьи</item>
+    <item quantity="other">Загрузка статей</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">Загрузка %1$d статьи…</item>
+    <item quantity="other">Загрузка %1$d статей…</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">Осталась %1$d статья</item>
+    <item quantity="few">Осталось %1$d статьи</item>
+    <item quantity="other">Осталось %1$d статей</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Синхронизация %1$d списка…</item>
+    <item quantity="other">Синхронизация %1$d списков…</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">Остался %1$d список</item>
+    <item quantity="few">Осталось %1$d списка</item>
+    <item quantity="other">Осталось %1$d списков</item>
+  </plurals>
   <string name="view_continue_reading_card_title">Продолжить чтение</string>
   <string name="view_because_you_read_card_title">Потому что вы читали</string>
   <string name="view_random_card_title">Рандомизатор</string>
@@ -625,6 +646,9 @@
   <string name="onboarding_create_account_contributions">Отслеживание вашего вклада</string>
   <string name="onboarding_create_account_preferences">Сохранение ваших настроек</string>
   <string name="onboarding_got_it">Понятно</string>
+  <string name="onboarding_multilingual_title">Поиск и чтение статей почти на 300 языках</string>
+  <string name="onboarding_multilingual_secondary_text">Мы нашли следующие языки на вашем устройстве:</string>
+  <string name="onboarding_multilingual_add_language_text">Добавить или удалить язык</string>
   <string name="app_shortcuts_random">Случайная</string>
   <string name="app_shortcuts_continue_reading">Продолжить чтение</string>
   <string name="app_shortcuts_search">Поиск</string>
@@ -648,8 +672,8 @@
   <string name="wikipedia_languages_remove_text">Удалить</string>
   <string name="wikipedia_languages_remove_action_mode_title">Удалить язык</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
-    <item quantity="one">Удалить выбранные языки?</item>
-    <item quantity="other">Удалить выбранный язык?</item>
+    <item quantity="one">Удалить выбранный язык?</item>
+    <item quantity="other">Удалить выбранные языки?</item>
   </plurals>
   <string name="wikipedia_languages_remove_dialog_content">Вы сможете просмотреть содержимое на вкладке Лента и использовать быстрые поисковые фильтры только для других языковых разделов Википедии.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Нельзя удалить все языки</string>

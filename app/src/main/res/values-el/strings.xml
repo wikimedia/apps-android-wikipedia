@@ -62,12 +62,13 @@
   <string name="content_license_html">Το περιεχόμενο είναι διαθέσιμο υπό την &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; εκτός εάν σημειώνεται διαφορετικά</string>
   <string name="edit_save_action_license_logged_in">Με την αποθήκευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt;, και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Με την αποθήκευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt;, και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Επεξεργασίες σας θα αναφέρονται στην διεύθυνση IP της συσκευής σας. Αν &lt;a href=\"https://#login\"&gt;συνδεθείτε&lt;/a&gt;, θα έχετε μεγαλύτερη ιδιωτικότητα.</string>
-  <string name="preference_title_language" fuzzy="true">Γλώσσα Βικιπαίδειας</string>
+  <string name="preference_title_language">Γλώσσες Βικιπαίδειας</string>
   <string name="preference_languages_filter_hint">Αναζήτηση</string>
   <string name="langlinks_filter_hint">Αναζήτηση</string>
   <string name="langlinks_empty">Αυτή η σελίδα δεν είναι διαθέσιμη σε άλλες γλώσσες</string>
   <string name="langlinks_no_match">Δεν βρέθηκαν γλώσσες</string>
   <string name="langlinks_activity_title">Άλλες γλώσσες</string>
+  <string name="langlinks_your_wikipedia_languages">Οι γλώσσες Βικιπαίδειας σας</string>
   <string name="menu_save_changes">Δημοσίευση αλλαγών</string>
   <string name="dialog_saving_in_progress">Δημοσιεύεται…</string>
   <string name="edit_saved_successfully">Η επεξεργασία δημοσιεύτηκε!</string>
@@ -417,7 +418,10 @@
   <string name="notification_syncing_title" fuzzy="true">Λήψη των %1$d λήμμα (-άτων)</string>
   <string name="notification_syncing_description" fuzzy="true">Έχουν μείνει %1$d λήμματα</string>
   <string name="notification_syncing_reading_list_title" fuzzy="true">Συγχρονισμός %1$d λίστα(-ών) σε εξέλιξη...</string>
-  <string name="notification_syncing_reading_list_description" fuzzy="true">Έμειναν %1$d λίστες</string>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">απομένει μια %1$d λίστα</item>
+    <item quantity="other">απομένουν %1$d λίστες</item>
+  </plurals>
   <string name="view_continue_reading_card_title">Συνέχεια ανάγνωσης</string>
   <string name="view_because_you_read_card_title">Επειδή διαβάσατε</string>
   <string name="view_random_card_title">Τυχαιοποιητής</string>
@@ -556,6 +560,9 @@
   <string name="onboarding_create_account_contributions">Ιχνηλατήστε τις συνεισφορές σας</string>
   <string name="onboarding_create_account_preferences">Αποθήκευση των προτιμήσεών σας</string>
   <string name="onboarding_got_it">Κατάλαβα</string>
+  <string name="onboarding_multilingual_title">Αναζητήστε την και διαβάστε σε σχεδόν 300 γλώσσες</string>
+  <string name="onboarding_multilingual_secondary_text">Έχουμε βρει τα ακόλουθα στην συσκευή σας:</string>
+  <string name="onboarding_multilingual_add_language_text">Προσθήκη ή επεξεργασία γλωσσών</string>
   <string name="app_shortcuts_random">Τυχαία</string>
   <string name="app_shortcuts_continue_reading">Συνέχεια ανάγνωσης</string>
   <string name="app_shortcuts_search">Αναζήτηση</string>
@@ -581,4 +588,6 @@
   <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Αφαίρεση των επιλεγμένων γλώσσα(-ών);</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Δεν μπορούν να αφαιρεθούν όλες οι γλώσσες</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Κρατήστε τουλάχιστον μια γλώσσα Βικιπαίδειας από την οποία θα γίνεται αναζήτηση και ανάγνωση περιεχομένου.</string>
+  <string name="more_language_options">περισσότερα</string>
+  <string name="add_wikipedia_languages_text">Πρόσθεση γλωσσών Βικιπαίδειας</string>
 </resources>

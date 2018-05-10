@@ -64,12 +64,13 @@
   <string name="content_license_html">সকল তথ্য &lt;a class=\"external\" rel=\"nofollow\" href=\"%1$s\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশিত যদি অন্য কিছু উল্লেখ করা না থাকে</string>
   <string name="edit_save_action_license_logged_in">সংরক্ষণের দ্বারা, আপনি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত, এবং আপনার অবদান &lt;a href=\"%2$s\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে অপরিবর্তনীয় প্রকাশে সম্মত হচ্ছেন।</string>
   <string name="edit_save_action_license_anon">সংরক্ষণের দ্বারা, আপনি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত, এবং আপনার অবদান &lt;a href=\"%2$s\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে অপরিবর্তনীয় প্রকাশে সম্মত হচ্ছেন। সম্পাদনাগুলি আপনার ডিভাইসের আইপি ঠিকানায় আরোপিত হবে। আপনি যদি &lt;a href=\"https://#login\"&gt;প্রবেশ&lt;/a&gt; করেন, আপনি আরো গোপনীয়তা পাবেন।</string>
-  <string name="preference_title_language" fuzzy="true">উইকিপিডিয়ার ভাষা</string>
+  <string name="preference_title_language">উইকিপিডিয়ার ভাষা</string>
   <string name="preference_languages_filter_hint">অনুসন্ধান</string>
   <string name="langlinks_filter_hint">অনুসন্ধান</string>
   <string name="langlinks_empty">এই পাতাটি অন্য কোনো ভাষায় উপলব্ধ নয়।</string>
   <string name="langlinks_no_match" fuzzy="true">আপনার অনুসন্ধানের সাথে মিল আছে এমন কোনো ভাষা নেই।</string>
   <string name="langlinks_activity_title">অন্যান্য ভাষাসমূহ</string>
+  <string name="langlinks_your_wikipedia_languages">আপনার উইকিপিডিয়ার ভাষা</string>
   <string name="menu_save_changes">পরিবর্তন প্রকাশ করুন</string>
   <string name="dialog_saving_in_progress">প্রকাশ করা হচ্ছে...</string>
   <string name="edit_saved_successfully">সম্পাদনা প্রকাশিত হয়েছে!</string>
@@ -91,8 +92,8 @@
   <string name="nav_item_login">উইকিপিডিয়াতে প্রবেশ করুন</string>
   <string name="login_username_hint">ব্যবহারকারী নাম</string>
   <string name="login_password_hint">পাসওয়ার্ড</string>
-  <string name="login_2fa_hint">দুই-গুণনীয়ক প্রমাণীকরণ কোড</string>
-  <string name="login_2fa_other_workflow_error_msg">দুই-গুনীতক প্রমানীকরণ প্রয়োজন! দয়া করে প্রধান কার্যকলাপে ফেরত যান এবং ২-গুনীতক প্রমানীকরণ টোকেন দ্বারা প্রবেশ করুন, তারপর পুনরায় চেষ্টা করুন।</string>
+  <string name="login_2fa_hint">দুই-ধাপের প্রমাণীকরণ কোড</string>
+  <string name="login_2fa_other_workflow_error_msg">দুই-ধাপের প্রমানীকরণ প্রয়োজন! দয়া করে প্রধান কার্যকলাপে ফেরত যান এবং ২-ধাপের প্রমানীকরণ টোকেন দ্বারা প্রবেশ করুন, তারপর পুনরায় চেষ্টা করুন।</string>
   <string name="menu_login">প্রবেশ</string>
   <string name="login_activity_title">উইকিপিডিয়াতে প্রবেশ করুন</string>
   <string name="login_in_progress_dialog_message">আপনি প্রবেশ করছেন…</string>
@@ -394,8 +395,14 @@
   <string name="notification_syncing_pause_button">বিরতি</string>
   <string name="notification_syncing_resume_button">পুনরায় শুরু</string>
   <string name="notification_syncing_cancel_button">বাতিল</string>
-  <string name="notification_syncing_title" fuzzy="true">%1$dটি নিবন্ধ ডাউনলোড হচ্ছে...</string>
-  <string name="notification_syncing_description" fuzzy="true">%1$dটি নিবন্ধ বাকী</string>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">%1$dটি নিবন্ধ ডাউনলোড হচ্ছে...</item>
+    <item quantity="other">%1$dটি নিবন্ধ ডাউনলোড হচ্ছে...</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">%1$dটি নিবন্ধ বাকী</item>
+    <item quantity="other">%1$dটি নিবন্ধ বাকী</item>
+  </plurals>
   <string name="view_continue_reading_card_title">পড়া অব্যাহত রাখুন</string>
   <string name="view_because_you_read_card_title">কারণ আপনি পড়েছেন</string>
   <string name="view_random_card_title">অজানা পাতা</string>
@@ -542,6 +549,10 @@
   <string name="wikipedia_languages_add_language_text">ভাষা যোগ করুন</string>
   <string name="wikipedia_languages_remove_text">সরান</string>
   <string name="wikipedia_languages_remove_action_mode_title">ভাষা সরান</string>
-  <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">নির্বাচিত ভাষা(গুলি) সরাবেন?</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">নির্বাচিত ভাষা সরাবেন?</item>
+    <item quantity="other">নির্বাচিত ভাষাগুলি সরাবেন?</item>
+  </plurals>
+  <string name="wikipedia_languages_remove_warning_dialog_title">সমস্ত ভাষা সরানো যাবে না</string>
   <string name="more_language_options">আরো</string>
 </resources>

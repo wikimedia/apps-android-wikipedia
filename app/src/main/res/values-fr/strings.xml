@@ -118,6 +118,7 @@
   <string name="history_empty_title">Aucun article consulté récemment</string>
   <string name="history_empty_message">Tracer ce que vous avez lu ici.</string>
   <string name="search_empty_message">Cherchez et lisez l’encyclopédie libre dans votre langue</string>
+  <string name="search_empty_message_multilingual_upgrade">Chercher sur Wikipédia dans davantage de langues</string>
   <string name="delete_selected_items">Supprimer les éléments sélectionnés</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nom d’utilisateur</string>
@@ -278,6 +279,7 @@
   <string name="tool_tip_share">Après avoir surligné un fait intéressant, essayez de le partager sur vos réseaux favoris !</string>
   <string name="page_view_in_browser">Afficher la page dans le navigateur</string>
   <string name="tool_tip_toc_button">Voir la table des matières à tout moment en appuyant sur ce bouton, ou glisser à partir du bord droit de l\'écran.</string>
+  <string name="tool_tip_lang_button">Vous pouvez maintenant chercher et lire Wikipédia dans différentes langues dans l\'application.\n\n\nCliquez sur l\'icône pour ajouter plus de langues.</string>
   <string name="error_response_malformed">La réponse du serveur n\'a pas été formatée correctement.</string>
   <string name="error_unknown">Une erreur inconnue s’est produite.</string>
   <string name="format_error_server_message">Message : \"%s\"</string>
@@ -634,6 +636,9 @@
   <string name="onboarding_create_account_contributions">Garder trace de vos contributions</string>
   <string name="onboarding_create_account_preferences">Sauvegarder vos préférences</string>
   <string name="onboarding_got_it">C’est bon</string>
+  <string name="onboarding_multilingual_title">Cherchez et lisez dans plus de 300 langues</string>
+  <string name="onboarding_multilingual_secondary_text">Nous avons trouvé ceci sur votre appareil :</string>
+  <string name="onboarding_multilingual_add_language_text">Ajouter ou modifier des langues</string>
   <string name="app_shortcuts_random">Aléatoire</string>
   <string name="app_shortcuts_continue_reading">Continuer à lire</string>
   <string name="app_shortcuts_search">Rechercher</string>
@@ -664,4 +669,5 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">Impossible de supprimer toutes les langues</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Gardez au moins une langue Wikipedia avec laquelle vous pourrez chercher et lire du contenu.</string>
   <string name="more_language_options">plus</string>
+  <string name="add_wikipedia_languages_text">Ajouter des langues Wikipédia</string>
 </resources>
