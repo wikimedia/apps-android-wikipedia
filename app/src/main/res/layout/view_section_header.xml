@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/list_item_default_height"
+    android:layout_height="@dimen/section_header_item_height"
     android:orientation="vertical"
     android:gravity="center_vertical"
     android:paddingTop="@dimen/list_item_header_padding"
@@ -13,8 +13,8 @@
     <TextView
         android:id="@+id/section_header_text"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/MaterialListSectionHeader"
+        android:layout_height="match_parent"
         android:gravity="center_vertical"
+        style="@style/MaterialListSectionHeader"
         tools:text="section 1"/>
 </LinearLayout>

@@ -190,8 +190,8 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
             if (holder instanceof WikipediaLanguageItemHolder) {
                 WikipediaLanguageItemHolder itemHolder = ((WikipediaLanguageItemHolder) holder);
                 itemHolder.bindItem(wikipediaLanguages.get(pos - NUM_HEADERS), pos - NUM_FOOTERS);
-                itemHolder.getView().setDragHandleEnabled(wikipediaLanguages.size() > 1);
                 itemHolder.getView().setCheckBoxEnabled(checkboxEnabled);
+                itemHolder.getView().setDragHandleEnabled(wikipediaLanguages.size() > 1 && !checkboxEnabled);
                 itemHolder.getView().setOnClickListener(launchedFromSearch() && actionMode == null
                         ? view -> {
                             Intent resultIntent = new Intent();

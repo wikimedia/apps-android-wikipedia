@@ -57,7 +57,6 @@ public class WikipediaLanguagesItemView extends LinearLayout {
     public void setCheckBoxEnabled(boolean enabled) {
         orderView.setVisibility(enabled ? GONE : VISIBLE);
         checkBox.setVisibility(enabled ? VISIBLE : GONE);
-        setDragHandleEnabled(!enabled);
         if (!enabled) {
             checkBox.setChecked(false);
             setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));

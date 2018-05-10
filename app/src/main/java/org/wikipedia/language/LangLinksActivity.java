@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
@@ -431,18 +432,19 @@ public class LangLinksActivity extends BaseActivity {
             String languageCode = item.getWikiSite().languageCode();
             String localizedLanguageName = app.language().getAppLanguageLocalizedName(languageCode);
 
-            localizedLanguageNameTextView.setText(localizedLanguageName);
+            localizedLanguageNameTextView.setText(localizedLanguageName == null ? languageCode : StringUtils.capitalize(localizedLanguageName));
             articleTitleTextView.setText(item.getDisplayText());
 
-            boolean isSystemLanguageCode = languageCode.equals(app.language().getSystemLanguageCode());
-
-            nonLocalizedLanguageNameTextView.setVisibility(isSystemLanguageCode ? View.GONE : View.VISIBLE);
-            if (langLinksProgress.getVisibility() != View.VISIBLE
-                    && !isSystemLanguageCode) {
+            if (langLinksProgress.getVisibility() != View.VISIBLE) {
                 String canonicalName = getCanonicalName(languageCode);
-                // TODO: Fix an issue when app language is zh-hant, the subtitle in zh-hans will display in English
-                nonLocalizedLanguageNameTextView.setText(TextUtils.isEmpty(canonicalName)
-                        ? app.language().getAppLanguageCanonicalName(languageCode) : canonicalName);
+                if (TextUtils.isEmpty(canonicalName)
+                        || languageCode.equals(app.language().getSystemLanguageCode())) {
+                    nonLocalizedLanguageNameTextView.setVisibility(View.GONE);
+                } else {
+                    // TODO: Fix an issue when app language is zh-hant, the subtitle in zh-hans will display in English
+                    nonLocalizedLanguageNameTextView.setText(canonicalName);
+                    nonLocalizedLanguageNameTextView.setVisibility(View.VISIBLE);
+                }
             }
             itemView.setOnClickListener(this);
         }
