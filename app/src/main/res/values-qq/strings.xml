@@ -103,6 +103,10 @@
   <string name="login_activity_title">Used as window title.\n{{Identical|Log in}}</string>
   <string name="login_in_progress_dialog_message">A bubble that describes the in-progress action.</string>
   <string name="login_success_toast">A bubble that appears after logging in.</string>
+  <string name="reset_password_title">Title of screen where the user can reset his or her password.</string>
+  <string name="reset_password_description">Description shown on the screen where the user resets their password.</string>
+  <string name="reset_password_hint">Hint shown in the text box where the new password is entered.</string>
+  <string name="reset_password_button">Button label for setting a new password and logging in with it.</string>
   <string name="preference_title_logout">{{Identical|Log out}}</string>
   <string name="toast_logout_complete">Toast popup message notifying the user that they have been logged out.\n{{Identical|Logged out}}</string>
   <string name="history_empty_title">Used in \"Browsing history\" page if there is nothing to show.</string>

@@ -125,6 +125,11 @@ public class CsrfTokenClient {
                         callback.twoFactorPrompt();
                     }
 
+                    @Override public void passwordResetPrompt(@Nullable String token) {
+                        // Should not happen here, but call the callback just in case.
+                        callback.failure(new LoginClient.LoginFailedException("Logged in with temporary password."));
+                    }
+
                     @Override
                     public void error(@NonNull Throwable caught) {
                         callback.failure(caught);

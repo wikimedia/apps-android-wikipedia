@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
@@ -162,10 +163,15 @@ public class LoginActivity extends BaseActivity {
         Intent intent = new Intent(this, CreateAccountActivity.class);
         intent.putExtra(CreateAccountActivity.LOGIN_SESSION_TOKEN, funnel.getSessionToken());
         intent.putExtra(CreateAccountActivity.LOGIN_REQUEST_SOURCE, loginSource);
-        startActivityForResult(intent, CreateAccountActivity.ACTION_CREATE_ACCOUNT);
+        startActivityForResult(intent, Constants.ACTIVITY_REQUEST_CREATE_ACCOUNT);
     }
 
-    private void manualSyncAndFinish() {
+    private void onLoginSuccess() {
+        funnel.logSuccess();
+
+        hideSoftKeyboard(LoginActivity.this);
+        setResult(RESULT_LOGIN_SUCCESS);
+
         // Set reading list syncing to enabled (without the explicit setup instruction),
         // so that the sync adapter can run at least once and check whether syncing is enabled
         // on the server side.
@@ -180,7 +186,7 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == CreateAccountActivity.ACTION_CREATE_ACCOUNT) {
+        if (requestCode == Constants.ACTIVITY_REQUEST_CREATE_ACCOUNT) {
             if (wentStraightToCreateAccount) {
                 logLoginStart();
             }
@@ -194,6 +200,9 @@ public class LoginActivity extends BaseActivity {
             } else {
                 funnel.logCreateAccountFailure();
             }
+        } else if (requestCode == Constants.ACTIVITY_REQUEST_RESET_PASSWORD
+                && resultCode == ResetPasswordActivity.RESULT_PASSWORD_RESET_SUCCESS) {
+            onLoginSuccess();
         }
     }
 
@@ -209,7 +218,7 @@ public class LoginActivity extends BaseActivity {
 
         if (!twoFactorCode.isEmpty()) {
             loginClient.login(WikipediaApp.getInstance().getWikiSite(), username, password,
-                    twoFactorCode, firstStepToken, getCallback());
+                    null, twoFactorCode, firstStepToken, getCallback());
         } else {
             loginClient.request(WikipediaApp.getInstance().getWikiSite(), username, password,
                     getCallback());
@@ -226,18 +235,13 @@ public class LoginActivity extends BaseActivity {
                 }
                 progressDialog.dismiss();
                 if (result.pass()) {
-                    funnel.logSuccess();
 
                     Bundle extras = getIntent().getExtras();
-                    AccountAuthenticatorResponse response = extras == null
-                            ? null
+                    AccountAuthenticatorResponse response = extras == null ? null
                             : extras.getParcelable(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE);
                     AccountUtil.updateAccount(response, result);
 
-                    hideSoftKeyboard(LoginActivity.this);
-                    setResult(RESULT_LOGIN_SUCCESS);
-
-                    manualSyncAndFinish();
+                    onLoginSuccess();
 
                 } else if (result.fail()) {
                     String message = result.getMessage();
@@ -258,6 +262,11 @@ public class LoginActivity extends BaseActivity {
                 twoFactorText.setVisibility(View.VISIBLE);
                 twoFactorText.requestFocus();
                 FeedbackUtil.showError(LoginActivity.this, caught);
+            }
+
+            @Override public void passwordResetPrompt(@Nullable String token) {
+                startActivityForResult(ResetPasswordActivity.newIntent(LoginActivity.this,
+                        getText(usernameInput).toString(), token), Constants.ACTIVITY_REQUEST_RESET_PASSWORD);
             }
 
             @Override

@@ -166,6 +166,12 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
+            android:name=".login.ResetPasswordActivity"
+            android:label="@string/reset_password_title"
+            android:theme="@style/AppTheme.ActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
+        <activity
             android:name=".gallery.GalleryActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.FullScreen" />

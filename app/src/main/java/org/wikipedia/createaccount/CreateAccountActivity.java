@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -43,8 +42,6 @@ public class CreateAccountActivity extends BaseActivity {
     public static final int RESULT_ACCOUNT_CREATED = 1;
     public static final int RESULT_ACCOUNT_NOT_CREATED = 2;
 
-    public static final int ACTION_CREATE_ACCOUNT = 1;
-
     public static final String LOGIN_REQUEST_SOURCE = "login_request_source";
     public static final String LOGIN_SESSION_TOKEN = "login_session_token";
     public static final String CREATE_ACCOUNT_RESULT_USERNAME = "username";
@@ -53,7 +50,7 @@ public class CreateAccountActivity extends BaseActivity {
     public static final Pattern USERNAME_PATTERN = Pattern.compile("[^#<>\\[\\]|{}\\/@]*");
     private static final int PASSWORD_MIN_LENGTH = 6;
 
-    enum ValidateResult {
+    public enum ValidateResult {
         SUCCESS, INVALID_USERNAME, INVALID_PASSWORD, PASSWORD_MISMATCH, INVALID_EMAIL
     }
 
@@ -294,8 +291,7 @@ public class CreateAccountActivity extends BaseActivity {
         }
     }
 
-    @VisibleForTesting
-    static ValidateResult validateInput(@NonNull CharSequence username,
+    public static ValidateResult validateInput(@NonNull CharSequence username,
                                          @NonNull CharSequence password,
                                          @NonNull CharSequence passwordRepeat,
                                          @NonNull CharSequence email) {
