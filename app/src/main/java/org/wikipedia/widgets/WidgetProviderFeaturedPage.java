@@ -6,6 +6,7 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.URLSpan;
@@ -32,6 +33,17 @@ import static org.wikipedia.util.UriUtil.decodeURL;
 
 public class WidgetProviderFeaturedPage extends AppWidgetProvider {
     private static final String TAG = "WidgetFeatured";
+
+    public static void forceUpdateWidget(@NonNull Context context) {
+        Intent intent = new Intent(context, WidgetProviderFeaturedPage.class);
+        intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+        int[] ids = AppWidgetManager.getInstance(context.getApplicationContext())
+                .getAppWidgetIds(new ComponentName(context.getApplicationContext(), WidgetProviderFeaturedPage.class));
+        if (ids != null && ids.length > 0) {
+            intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
+            context.sendBroadcast(intent);
+        }
+    }
 
     @Override
     public void onUpdate(final Context context, final AppWidgetManager appWidgetManager,
