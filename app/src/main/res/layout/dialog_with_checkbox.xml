@@ -13,7 +13,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:lineSpacingExtra="8sp"
         style="@style/DialogTextAppearance">
     </org.wikipedia.views.AppTextView>
 
