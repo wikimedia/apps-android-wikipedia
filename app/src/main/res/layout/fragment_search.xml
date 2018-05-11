@@ -36,6 +36,7 @@
                     android:layout_weight="1"
                     android:focusable="true"
                     android:inputType="text"
+                    android:layout_marginLeft="-8dp"
                     android:imeOptions="actionGo|flagNoExtractUi"
                     app:cabEnabled="false" />
 
@@ -54,12 +55,13 @@
 
                     <TextView
                         android:id="@+id/search_lang_button"
+                        style="@style/TextViewCentered"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
+                        android:background="@drawable/lang_button_shape"
                         android:clickable="false"
                         android:focusable="false"
-                        android:background="@drawable/lang_button_shape"
-                        style="@style/TextViewCentered"
+                        android:fontFamily="sans-serif-medium"
                         android:textColor="@android:color/white" />
                 </FrameLayout>
 
