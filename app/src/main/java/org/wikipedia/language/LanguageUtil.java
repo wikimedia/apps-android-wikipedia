@@ -36,7 +36,10 @@ public final class LanguageUtil {
         // First, look at languages installed on the system itself.
         LocaleListCompat localeList = LocaleListCompat.getDefault();
         for (int i = 0; i < localeList.size(); i++) {
-            languages.add(localeToWikiLanguageCode(localeList.get(i)));
+            String languageCode = localeToWikiLanguageCode(localeList.get(i));
+            if (!languages.contains(languageCode)) {
+                languages.add(languageCode);
+            }
         }
         if (languages.isEmpty()) {
             // Always default to at least one system language in the list.
