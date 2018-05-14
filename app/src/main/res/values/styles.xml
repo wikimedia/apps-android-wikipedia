@@ -409,4 +409,9 @@
         <item name="android:textColor">?attr/material_theme_primary_color</item>
     </style>
 
+    <style name="DialogTitleTextAppearance" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
 </resources>

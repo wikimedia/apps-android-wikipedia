@@ -123,6 +123,6 @@
     <dimen name="app_shortcut_icon_margin">14dp</dimen>
 
     <!-- Dialog -->
-    <dimen name="dialog_line_spacing_extra">8sp</dimen>
+    <dimen name="dialog_line_spacing_extra">6sp</dimen>
 
 </resources>
