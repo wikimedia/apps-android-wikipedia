@@ -163,6 +163,16 @@ import static org.hamcrest.Matchers.not;
         assertThat(subject.dbName(), is("nowiki"));
     }
 
+    @Test public void testDbNameWithOneUnderscore() {
+        WikiSite subject = new WikiSite("zh-yue.wikipedia.org");
+        assertThat(subject.dbName(), is("zh_yuewiki"));
+    }
+
+    @Test public void testDbNameWithTwoUnderscore() {
+        WikiSite subject = new WikiSite("zh-min-nan.wikipedia.org");
+        assertThat(subject.dbName(), is("zh_min_nanwiki"));
+    }
+
     @Test public void testPath() {
         WikiSite subject = WikiSite.forLanguageCode("test");
         assertThat(subject.path("Segment"), is("/w/Segment"));

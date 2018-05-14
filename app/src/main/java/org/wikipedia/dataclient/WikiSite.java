@@ -198,7 +198,7 @@ public class WikiSite implements Parcelable {
     }
 
     @NonNull public String dbName() {
-        return subdomain() + "wiki";
+        return subdomain().replaceAll("-", "_") + "wiki";
     }
 
     // Auto-generated
