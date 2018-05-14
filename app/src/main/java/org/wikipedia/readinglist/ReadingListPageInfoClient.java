@@ -66,8 +66,8 @@ public class ReadingListPageInfoClient {
     }
 
     @VisibleForTesting interface Service {
-        @GET("w/api.php?action=query&format=json&formatversion=2&prop=pageimages|pageterms"
-                + "&piprop=thumbnail&pilicense=any&continue=&wbptterms=description&pithumbsize="
+        @GET("w/api.php?action=query&format=json&formatversion=2&prop=description|pageimages"
+                + "&piprop=thumbnail&pilicense=any&continue=&pithumbsize="
                 + Constants.PREFERRED_THUMB_SIZE)
         Call<MwQueryResponse> request(@NonNull @Query("titles") String titles);
     }

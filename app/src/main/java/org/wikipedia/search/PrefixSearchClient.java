@@ -88,7 +88,7 @@ public class PrefixSearchClient {
 
     @VisibleForTesting interface Service {
         String QUERY_PREFIX = "w/api.php?action=query&format=json&formatversion=2&redirects="
-                + "&converttitles=&prop=pageterms|pageimages&wbptterms=description&piprop=thumbnail"
+                + "&converttitles=&prop=description|pageimages&piprop=thumbnail"
                 + "&pilicense=any&generator=prefixsearch&gpsnamespace=0&list=search&srnamespace=0"
                 + "&srwhat=text&srinfo=suggestion&srprop=&sroffset=0&srlimit=1&gpslimit="
                 + MAX_RESULTS + "&pithumbsize=" + Constants.PREFERRED_THUMB_SIZE;

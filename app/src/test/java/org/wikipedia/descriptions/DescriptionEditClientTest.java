@@ -101,6 +101,7 @@ public class DescriptionEditClientTest extends MockWebServerTest {
         PageProperties props = mock(PageProperties.class);
         when(props.getWikiBaseItem()).thenReturn("Q123");
         when(props.canEdit()).thenReturn(true);
+        when(props.getDescriptionSource()).thenReturn("central");
         Page page = new Page(new PageTitle("Test", wiki, null, null, props),
                 Collections.<Section>emptyList(), props);
 

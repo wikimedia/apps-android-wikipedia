@@ -23,11 +23,8 @@
           "width": 255,
           "height": 320
         },
-        "terms": {
-          "description": [
-            "47th Vice President of the United States"
-          ]
-        }
+        "description": "47th Vice President of the United States",
+        "descriptionsource": "local"
       },
       {
         "pageid": 534366,
@@ -38,11 +35,8 @@
           "width": 256,
           "height": 320
         },
-        "terms": {
-          "description": [
-            "44th President of the United States of America"
-          ]
-        }
+        "description": "44th President of the United States of America",
+        "descriptionsource": "central"
       }
     ]
   }

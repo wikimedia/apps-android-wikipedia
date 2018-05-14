@@ -54,9 +54,11 @@ public class RbPageLeadTest extends BasePageLeadTest {
                 .enqueue(new Callback<PageLead>() {
                     @Override
                     public void onResponse(@NonNull Call<PageLead> call, @NonNull Response<PageLead> response) {
-                        assertThat(response.body().getLeadImageUrl(640).contains("640px"), is(true));
-                        assertThat(response.body().getThumbUrl().contains(preferredThumbSizeString()), is(true));
-                        assertThat(response.body().getDescription(), is("Mexican boxer"));
+                        RbPageLead lead = (RbPageLead) response.body();
+                        assertThat(lead.getLeadImageUrl(640).contains("640px"), is(true));
+                        assertThat(lead.getThumbUrl().contains(preferredThumbSizeString()), is(true));
+                        assertThat(lead.getDescription(), is("Mexican boxer"));
+                        assertThat(lead.getDescriptionSource(), is("central"));
                         latch.countDown();
                     }
 

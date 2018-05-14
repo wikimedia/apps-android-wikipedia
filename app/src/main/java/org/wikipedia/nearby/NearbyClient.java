@@ -41,7 +41,7 @@ class NearbyClient {
         Call<MwQueryResponse> call = service.request(latLng, radius, Constants.PREFERRED_THUMB_SIZE);
         call.enqueue(new retrofit2.Callback<MwQueryResponse>() {
             @Override
-            public void onResponse(Call<MwQueryResponse> call, Response<MwQueryResponse> response) {
+            public void onResponse(@NonNull Call<MwQueryResponse> call, @NonNull Response<MwQueryResponse> response) {
                 // The API results here are unusual in that, if there are no valid results, the
                 // response won't even have a "query" key.  Nor will we receive an error.
                 // Accordingly, let's assume that we just got an empty result set unless the
@@ -58,7 +58,7 @@ class NearbyClient {
             }
 
             @Override
-            public void onFailure(Call<MwQueryResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable t) {
                 cb.failure(call, t);
             }
         });
@@ -66,8 +66,8 @@ class NearbyClient {
     }
 
     @VisibleForTesting interface Service {
-        @GET("w/api.php?action=query&format=json&formatversion=2&prop=coordinates|pageimages|pageterms"
-                + "&colimit=50&piprop=thumbnail&pilicense=any&wbptterms=description"
+        @GET("w/api.php?action=query&format=json&formatversion=2&prop=coordinates|description|pageimages"
+                + "&colimit=50&piprop=thumbnail&pilicense=any"
                 + "&generator=geosearch&ggslimit=50&continue=")
         Call<MwQueryResponse> request(@NonNull @Query("ggscoord") String coord,
                                       @Query("ggsradius") double radius,

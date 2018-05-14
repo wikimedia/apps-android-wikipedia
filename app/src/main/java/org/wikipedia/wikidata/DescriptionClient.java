@@ -38,8 +38,8 @@ public class DescriptionClient {
         Call<MwQueryResponse> call = service.request(TextUtils.join("|", titles));
 
         call.enqueue(new retrofit2.Callback<MwQueryResponse>() {
-            @Override public void onResponse(Call<MwQueryResponse> call,
-                                             Response<MwQueryResponse> response) {
+            @Override public void onResponse(@NonNull Call<MwQueryResponse> call,
+                                             @NonNull Response<MwQueryResponse> response) {
                 if (response.body().success()) {
                     // noinspection ConstantConditions
                     cb.success(call, response.body().query().pages());
@@ -52,7 +52,7 @@ public class DescriptionClient {
             }
 
             @Override
-            public void onFailure(Call<MwQueryResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable t) {
                 cb.failure(call, t);
             }
         });
@@ -60,7 +60,7 @@ public class DescriptionClient {
     }
 
     @VisibleForTesting interface Service {
-        @GET("w/api.php?action=query&format=json&formatversion=2&prop=pageterms&wbptterms=description")
+        @GET("w/api.php?action=query&format=json&formatversion=2&prop=description")
         Call<MwQueryResponse> request(@NonNull @Query("titles") String titles);
     }
 }
