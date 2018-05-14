@@ -2,184 +2,162 @@ package org.wikipedia.dataclient;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.util.ArraySet;
 import android.text.TextUtils;
 
-import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.log.L;
 
-import java.io.IOException;
-import java.net.CookieManager;
-import java.net.CookieStore;
-import java.net.HttpCookie;
-import java.net.URI;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public final class SharedPreferenceCookieManager extends CookieManager {
-    private static final String DELIMITER = ";";
-    private static final String CENTRALAUTH_PREFIX = "centralauth_";
-    private final Map<String, Map<String, String>> cookieJar = new HashMap<>();
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
+import okhttp3.HttpUrl;
 
+public final class SharedPreferenceCookieManager implements CookieJar {
+    private static final String CENTRALAUTH_PREFIX = "centralauth_";
     private static SharedPreferenceCookieManager INSTANCE;
+
+    // Map: domain -> list of cookies
+    private final Map<String, List<Cookie>> cookieJar;
 
     @NonNull
     public static SharedPreferenceCookieManager getInstance() {
+        if (INSTANCE == null) {
+            try {
+                INSTANCE = Prefs.getCookies();
+            } catch (Exception e) {
+                L.logRemoteErrorIfProd(e);
+            }
+        }
         if (INSTANCE == null) {
             INSTANCE = new SharedPreferenceCookieManager();
         }
         return INSTANCE;
     }
 
+    public SharedPreferenceCookieManager(Map<String, List<Cookie>> cookieJar) {
+        this.cookieJar = cookieJar;
+    }
+
     private SharedPreferenceCookieManager() {
-        List<String> domains = Prefs.getCookieDomainsAsList();
-        for (String domain: domains) {
-            String cookies = Prefs.getCookiesForDomain(domain);
-            cookieJar.put(domain, makeCookieMap(makeList(cookies)));
-        }
+        cookieJar = new HashMap<>();
     }
 
-    @Override
-    public synchronized Map<String, List<String>> get(URI uri, Map<String, List<String>> requestHeaders) throws IOException {
-        if (uri == null || requestHeaders == null) {
-            throw new IllegalArgumentException("Argument is null");
-        }
-
-        Map<String, List<String>> cookieMap = new HashMap<>();
-        List<String> cookiesList = new ArrayList<>();
-
-        String domain = uri.getAuthority();
-
-        for (String domainSpec: cookieJar.keySet()) {
-            // For sites outside the wikipedia.org domain, like wikidata.org,
-            // transfer the centralauth cookies from wikipedia.org, too, if the user is logged in
-            if (AccountUtil.isLoggedIn()
-                    && domain.equals("www.wikidata.org") && domainSpec.endsWith("wikipedia.org")) {
-                cookiesList.addAll(makeCookieList(cookieJar.get(domainSpec), CENTRALAUTH_PREFIX));
-            }
-
-            // Very weak domain matching.
-            // Primarily to make sure that cookies set for .wikipedia.org are sent for
-            // en.wikipedia.org and *.wikimedia.org
-            // FIXME: Whitelist the domains we accept cookies from/send cookies to. SECURITY!!!1
-            if (domain.endsWith(domainSpec)
-                    || (domain.endsWith(".wikimedia.org") && domainSpec.endsWith("wikipedia.org"))) {
-                cookiesList.addAll(makeCookieList(cookieJar.get(domainSpec)));
-            }
-        }
-
-        cookieMap.put("Cookie", cookiesList);
-
-        return Collections.unmodifiableMap(cookieMap);
+    public Map<String, List<Cookie>> getCookieJar() {
+        return cookieJar;
     }
 
-    @Override
-    public synchronized void put(URI uri, Map<String, List<String>> responseHeaders) throws IOException {
-        // pre-condition check
-        if (uri == null || responseHeaders == null) {
-            throw new IllegalArgumentException("Argument is null");
-        }
-
-        ArraySet<String> domainsModified = new ArraySet<>();
-
-        for (String headerKey : responseHeaders.keySet()) {
-            if (headerKey == null || !headerKey.equalsIgnoreCase("Set-Cookie")) {
-                continue;
-            }
-
-            for (String headerValue : responseHeaders.get(headerKey)) {
-                try {
-                    List<HttpCookie> cookies = HttpCookie.parse(headerValue);
-                    for (HttpCookie cookie : cookies) {
-                        // Default to the URI's domain if domain is not explicitly set
-                        String domainSpec = cookie.getDomain() == null ? uri.getAuthority() : cookie.getDomain();
-                        if (!cookieJar.containsKey(domainSpec)) {
-                            cookieJar.put(domainSpec, new HashMap<String, String>());
-                        }
-
-                        if (cookie.hasExpired() || "deleted".equals(cookie.getValue())) {
-                            cookieJar.get(domainSpec).remove(cookie.getName());
-                        } else {
-                            cookieJar.get(domainSpec).put(cookie.getName(), cookie.getValue());
-                        }
-                        domainsModified.add(domainSpec);
-                    }
-                } catch (IllegalArgumentException e) {
-                    // invalid set-cookie header string
-                    // no-op
-                }
-            }
-        }
-
-        Prefs.setCookieDomains(makeString(cookieJar.keySet()));
-
-        for (String domain : domainsModified) {
-            Prefs.setCookiesForDomain(domain, makeString(makeCookieList(cookieJar.get(domain))));
-        }
-    }
-
-    @Override
-    public CookieStore getCookieStore() {
-        // We don't actually have one. hehe
-        throw new UnsupportedOperationException("We poor. We no have CookieStore");
+    private void persistCookies() {
+        Prefs.setCookies(this);
     }
 
     public synchronized void clearAllCookies() {
-        for (String domain: cookieJar.keySet()) {
-            Prefs.removeCookiesForDomain(domain);
-        }
-        Prefs.setCookieDomains(null);
         cookieJar.clear();
+        persistCookies();
     }
 
-    public static List<String> makeList(String str) {
-        return StringUtil.delimiterStringToList(str, DELIMITER);
-    }
-
-    @Nullable
-    public synchronized String getCookieByName(@NonNull String name) {
+    @Nullable public synchronized String getCookieByName(@NonNull String name) {
         for (String domainSpec: cookieJar.keySet()) {
-            for (String cookie : cookieJar.get(domainSpec).keySet()) {
-                if (cookie.equals(name)) {
-                    return cookieJar.get(domainSpec).get(cookie);
+            for (Cookie cookie : cookieJar.get(domainSpec)) {
+                if (cookie.name().equals(name)) {
+                    return cookie.value();
                 }
             }
         }
         return null;
     }
 
-    private Map<String, String> makeCookieMap(@NonNull List<String> cookies) {
-        Map<String, String> cookiesMap = new HashMap<>();
-        for (String cookie : cookies) {
-            if (!cookie.contains("=")) {
-                throw new RuntimeException("Cookie " + cookie + " is invalid!");
-            }
-            String[] parts = cookie.split("=");
-            cookiesMap.put(parts[0], parts[1]);
+    @Override
+    public synchronized void saveFromResponse(@NonNull HttpUrl url, @NonNull List<Cookie> cookies) {
+        if (cookies.isEmpty()) {
+            return;
         }
-        return cookiesMap;
-    }
+        boolean cookieJarModified = false;
+        for (Cookie cookie : cookies) {
+            // Default to the URI's domain if cookie's domain is not explicitly set
+            String domainSpec = TextUtils.isEmpty(cookie.domain()) ? url.uri().getAuthority() : cookie.domain();
+            if (!cookieJar.containsKey(domainSpec)) {
+                cookieJar.put(domainSpec, new ArrayList<>());
+            }
 
-    private List<String> makeCookieList(@NonNull Map<String, String> cookies) {
-        return makeCookieList(cookies, null);
-    }
-
-    private List<String> makeCookieList(@NonNull Map<String, String> cookies,
-                                        @Nullable String prefixFilter) {
-        List<String> cookiesList = new ArrayList<>();
-        for (Map.Entry<String, String> entry: cookies.entrySet()) {
-            if (prefixFilter == null || entry.getKey().startsWith(prefixFilter)) {
-                cookiesList.add(entry.getKey() + "=" + entry.getValue());
+            List<Cookie> cookieList = cookieJar.get(domainSpec);
+            if (cookie.expiresAt() < System.currentTimeMillis() || "deleted".equals(cookie.value())) {
+                Iterator<Cookie> i = cookieList.iterator();
+                while (i.hasNext()) {
+                    if (i.next().name().equals(cookie.name())) {
+                        i.remove();
+                        cookieJarModified = true;
+                    }
+                }
+            } else {
+                Iterator<Cookie> i = cookieList.iterator();
+                boolean exists = false;
+                while (i.hasNext()) {
+                    Cookie c = i.next();
+                    if (c.equals(cookie)) {
+                        // an identical cookie already exists, so we don't need to update it.
+                        exists = true;
+                        break;
+                    } else if (c.name().equals(cookie.name())) {
+                        // it's a cookie with the same name, but different contents, so remove the
+                        // current cookie, so that the new one will be added.
+                        i.remove();
+                    }
+                }
+                if (!exists) {
+                    cookieList.add(cookie);
+                    cookieJarModified = true;
+                }
             }
         }
-        return cookiesList;
+        if (cookieJarModified) {
+            persistCookies();
+        }
     }
 
-    private String makeString(@NonNull Iterable<String> list) {
-        return TextUtils.join(DELIMITER, list);
+    @Override
+    public synchronized List<Cookie> loadForRequest(@NonNull HttpUrl url) {
+        List<Cookie> cookieList = new ArrayList<>();
+        String domain = url.uri().getAuthority();
+
+        for (String domainSpec : cookieJar.keySet()) {
+            List<Cookie> cookiesForDomainSpec = cookieJar.get(domainSpec);
+
+            // For sites outside the wikipedia.org domain, like wikidata.org,
+            // transfer the centralauth cookies from wikipedia.org, too.
+            if (domain.equals("www.wikidata.org") && domainSpec.endsWith("wikipedia.org")) {
+                buildCookieList(cookieList, cookiesForDomainSpec, CENTRALAUTH_PREFIX);
+            }
+
+            if (domain.endsWith(domainSpec)) {
+                buildCookieList(cookieList, cookiesForDomainSpec, null);
+            }
+        }
+        return cookieList;
+    }
+
+    private void buildCookieList(@NonNull List<Cookie> outList, @NonNull List<Cookie> inList, @Nullable String prefix) {
+        Iterator<Cookie> i = inList.iterator();
+        boolean cookieJarModified = false;
+        while (i.hasNext()) {
+            Cookie cookie = i.next();
+            if (prefix != null && !cookie.name().startsWith(prefix)) {
+                continue;
+            }
+            // But wait, is the cookie expired?
+            if (cookie.expiresAt() < System.currentTimeMillis()) {
+                i.remove();
+                cookieJarModified = true;
+            } else {
+                outList.add(cookie);
+            }
+        }
+        if (cookieJarModified) {
+            persistCookies();
+        }
     }
 }
