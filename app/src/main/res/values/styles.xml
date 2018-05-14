@@ -180,7 +180,7 @@
     </style>
 
     <style name="PageSearchViewEditTextStyle" parent="@style/Widget.AppCompat.AutoCompleteTextView">
-        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:textCursorDrawable">@drawable/custom_cursor</item>
         <item name="android:textColor">?attr/page_toolbar_icon_color</item>
         <item name="android:textColorHint">@color/white50</item>
     </style>
