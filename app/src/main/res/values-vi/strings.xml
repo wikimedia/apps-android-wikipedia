@@ -60,7 +60,7 @@
   <string name="preference_languages_filter_hint">Tìm kiếm</string>
   <string name="langlinks_filter_hint">Tìm kiếm</string>
   <string name="langlinks_empty">Trang này không có sẵn trong ngôn ngữ khác.</string>
-  <string name="langlinks_no_match" fuzzy="true">Không tìm thấy ngôn ngữ trùng với truy vấn của bạn.</string>
+  <string name="langlinks_no_match">Không tìm thấy ngôn ngữ.</string>
   <string name="langlinks_activity_title">Ngôn ngữ khác</string>
   <string name="menu_save_changes">Đăng các thay đổi</string>
   <string name="dialog_saving_in_progress">Đang đăng tải…</string>

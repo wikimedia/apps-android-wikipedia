@@ -111,11 +111,16 @@
   <string name="login_activity_title">Vikipedi\'ye giriş yap</string>
   <string name="login_in_progress_dialog_message">Oturum açılıyor…</string>
   <string name="login_success_toast">Başarıyla oturum açıldı!</string>
+  <string name="reset_password_title">Parolanızı belirleyin</string>
+  <string name="reset_password_description">Geçici bir şifre ile giriş yaptınız. Giriş işlemini tamamlamak için lütfen yeni şifrenizi buraya girin.</string>
+  <string name="reset_password_hint">Yeni parola</string>
+  <string name="reset_password_button">Kaydet ve giriş yap</string>
   <string name="preference_title_logout">Oturumu kapat</string>
   <string name="toast_logout_complete">Oturum kapandı</string>
   <string name="history_empty_title">Ziyaret edilmiş hiç madde yok.</string>
   <string name="history_empty_message">Okuduklarınızı buradan takip edin.</string>
   <string name="search_empty_message">Özgür ansiklopediyi kendi dilinizde arayın ve okuyun</string>
+  <string name="search_empty_message_multilingual_upgrade">Daha fazla dilde Vikipedi araması yapın</string>
   <string name="delete_selected_items">Seçili ögeleri sil</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;İKİPED&lt;big&gt;İ&lt;/big&gt;</string>
   <string name="create_account_username_hint">Kullanıcı adı</string>
@@ -276,6 +281,7 @@
   <string name="tool_tip_share">İlginç bir bilgiyi vurguladıktan sonra, en sevdiğiniz ağlarda paylaşmayı deneyin!</string>
   <string name="page_view_in_browser">Sayfayı tarayıcıda görüntüle</string>
   <string name="tool_tip_toc_button">İçindekiler tablosunu, bu düğmeye dokunarak veya ekranın sağ kenarından kaydırarak istediğiniz an görebilirsiniz.</string>
+  <string name="tool_tip_lang_button">Artık uygulamada birden çok Vikipedi dilinde arama yapabilir ve okuyabilirsiniz.\n\nDaha fazla dil eklemek için simgeye dokunun.</string>
   <string name="error_response_malformed">Sunucudan gelen yanıt doğru biçimlendirilmişti.</string>
   <string name="error_unknown">Bilinmeyen bir hata oluştu.</string>
   <string name="format_error_server_message">Mesaj: \"%s\"</string>
@@ -453,9 +459,30 @@
   <string name="notification_syncing_pause_button">Duraklat</string>
   <string name="notification_syncing_resume_button">Devam et</string>
   <string name="notification_syncing_cancel_button">İptal</string>
-  <string name="notification_channel_name" fuzzy="true">Senkronize ediliyor</string>
-  <string name="notification_syncing_title" fuzzy="true">%1$d madde indiriliyor...</string>
-  <string name="notification_syncing_description" fuzzy="true">Kalan madde sayısı %1$d</string>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Okuma Listesi Senkronize Ediliyor</item>
+    <item quantity="other">Okuma Listesi Senkronize Ediliyor</item>
+  </plurals>
+  <plurals name="notification_channel_name">
+    <item quantity="one">madde indiriliyor</item>
+    <item quantity="other">madde indiriliyor</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">%1$d madde indiriliyor...</item>
+    <item quantity="other">%1$d madde indiriliyor...</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">%1$d madde kaldı</item>
+    <item quantity="other">%1$d madde kaldı</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">%1$d liste senkronize ediliyor…</item>
+    <item quantity="other">%1$d liste senkronize ediliyor…</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">%1$d liste kaldı</item>
+    <item quantity="other">%1$d liste kaldı</item>
+  </plurals>
   <string name="view_continue_reading_card_title">Okumaya devam et</string>
   <string name="view_because_you_read_card_title">Okuduğun için</string>
   <string name="view_random_card_title">Rastgele</string>
@@ -607,6 +634,9 @@
   <string name="onboarding_create_account_contributions">Katkılarınızı takip edin</string>
   <string name="onboarding_create_account_preferences">Tercihlerinizi kaydedin</string>
   <string name="onboarding_got_it">Anladım</string>
+  <string name="onboarding_multilingual_title">Yaklaşık 300 dilde arama yapın ve okuyun</string>
+  <string name="onboarding_multilingual_secondary_text">Cihazınızda aşağıdakilerini bulduk:</string>
+  <string name="onboarding_multilingual_add_language_text">Dil ekle veya düzenle</string>
   <string name="app_shortcuts_random">Rastgele</string>
   <string name="app_shortcuts_continue_reading">Okumaya devam et</string>
   <string name="app_shortcuts_search">Arama</string>
@@ -621,4 +651,20 @@
     <item quantity="one">Geçen yıl</item>
     <item quantity="other">%d yıl önce</item>
   </plurals>
+  <string name="languages_list_activity_title">Dil ekle</string>
+  <string name="languages_list_suggested_text">Önerilen</string>
+  <string name="languages_list_all_text">Tüm diller</string>
+  <string name="wikipedia_languages_title">Vikipedi dilleri</string>
+  <string name="wikipedia_languages_your_languages_text">Dilleriniz</string>
+  <string name="wikipedia_languages_add_language_text">Dil ekle</string>
+  <string name="wikipedia_languages_remove_text">Kaldır</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Dili kaldır</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">Seçilen dili kaldır?</item>
+    <item quantity="other">Seçilen dilleri kaldır?</item>
+  </plurals>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Tüm diller kaldırılamadı</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">İçeriği okumak ve içerikte arama yapmak için en az bir Vikipedi dili bırakın</string>
+  <string name="more_language_options">daha fazlası</string>
+  <string name="add_wikipedia_languages_text">Vikipedi dilleri ekleyin</string>
 </resources>

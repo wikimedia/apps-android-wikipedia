@@ -91,6 +91,10 @@
   <string name="login_activity_title">Bei Wikipedia anmelden</string>
   <string name="login_in_progress_dialog_message">Melde dich an …</string>
   <string name="login_success_toast">Erfolgreich angemeldet!</string>
+  <string name="reset_password_title">Dein Passwort festlegen</string>
+  <string name="reset_password_description">Du hast dich mit einem temporären Passwort angemeldet. Um die Anmeldung abzuschließen, lege bitte hier dein neues Passwort fest.</string>
+  <string name="reset_password_hint">Neues Passwort</string>
+  <string name="reset_password_button">Speichern und anmelden</string>
   <string name="preference_title_logout">Abmelden</string>
   <string name="toast_logout_complete">Abgemeldet</string>
   <string name="history_empty_title">Keine kürzlich besuchten Artikel</string>

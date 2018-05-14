@@ -111,6 +111,10 @@
   <string name="login_activity_title">Accedi a Wikipedia</string>
   <string name="login_in_progress_dialog_message">Accesso in corso…</string>
   <string name="login_success_toast">Accesso eseguito con successo!</string>
+  <string name="reset_password_title">Imposta la tua password</string>
+  <string name="reset_password_description">L\'accesso è stato effettuato con una password temporanea. Per completare l\'accesso, è necessario impostare una nuova password qui.</string>
+  <string name="reset_password_hint">Nuova password</string>
+  <string name="reset_password_button">Salva ed accedi</string>
   <string name="preference_title_logout">Esci</string>
   <string name="toast_logout_complete">Disconnesso</string>
   <string name="history_empty_title">Nessuna voce vista recentemente</string>

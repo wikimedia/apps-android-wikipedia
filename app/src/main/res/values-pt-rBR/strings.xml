@@ -111,6 +111,10 @@
   <string name="login_activity_title">Entrar na Wikipédia</string>
   <string name="login_in_progress_dialog_message">Autenticando…</string>
   <string name="login_success_toast">Autenticação bem sucedida!</string>
+  <string name="reset_password_title">Defina sua senha</string>
+  <string name="reset_password_description">Você entrou com uma senha temporária. Para concluir o login, defina sua nova senha aqui.</string>
+  <string name="reset_password_hint">Nova senha</string>
+  <string name="reset_password_button">Salvar e entrar</string>
   <string name="preference_title_logout">Sair</string>
   <string name="toast_logout_complete">Saiu</string>
   <string name="history_empty_title">Nenhum artigo visto recentemente</string>

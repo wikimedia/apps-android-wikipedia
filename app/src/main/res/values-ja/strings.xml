@@ -100,6 +100,10 @@
   <string name="login_activity_title">ウィキペディアにログイン</string>
   <string name="login_in_progress_dialog_message">ログイン中…</string>
   <string name="login_success_toast">ログインに成功しました!</string>
+  <string name="reset_password_title">パスワードを設定する</string>
+  <string name="reset_password_description">あなたは一時的なパスワードでログインしています。ログインを完了するには、新しいパスワードをここで設定してください。</string>
+  <string name="reset_password_hint">新しいパスワード</string>
+  <string name="reset_password_button">保存してログイン</string>
   <string name="preference_title_logout">ログアウト</string>
   <string name="toast_logout_complete">ログアウトしました</string>
   <string name="history_empty_title">履歴はまだありません！</string>
@@ -566,4 +570,5 @@
     <item quantity="one">昨年</item>
     <item quantity="other">%d年前</item>
   </plurals>
+  <string name="add_wikipedia_languages_text">Wikipedia に言語を追加する</string>
 </resources>

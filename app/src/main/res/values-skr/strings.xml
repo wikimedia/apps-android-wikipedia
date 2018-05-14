@@ -74,6 +74,7 @@
   <string name="login_activity_title">وکی پیڈیا وچ لاگ ان تھیوو</string>
   <string name="login_in_progress_dialog_message">لاگ ان  تھیندے پئے ہو۔۔۔</string>
   <string name="login_success_toast">کامیابی نال لاگ ان تھی ڳئے</string>
+  <string name="reset_password_hint">نواں پاس ورڈ</string>
   <string name="preference_title_logout">لاگ آؤٹ</string>
   <string name="toast_logout_complete">لاگ آؤٹ تھی ڳئے</string>
   <string name="delete_selected_items">چُݨے ہوئے آئٹم مٹاو</string>

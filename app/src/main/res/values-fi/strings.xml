@@ -95,7 +95,7 @@
   <string name="title_captcha">Kirjoita roskapostisuojauksen kirjaimet</string>
   <string name="edit_section_captcha_reload">Lataa uusi napauttamalla</string>
   <string name="nav_item_login">Kirjaudu sisään Wikipediaan</string>
-  <string name="login_username_hint">Käyttäjätunnus</string>
+  <string name="login_username_hint">Käyttäjänimi</string>
   <string name="login_password_hint">Salasana</string>
   <string name="login_2fa_hint">Kaksivaiheinen tunnistautumiskoodi</string>
   <string name="login_2fa_other_workflow_error_msg">Kaksivaiheinen tunnistautuminen vaaditaan! Palaa kirjautumissivulle, kirjaudu sisään kaksivaiheisen tunnistautumisen koodilla ja yritä sitten uudelleen.</string>
@@ -103,6 +103,10 @@
   <string name="login_activity_title">Kirjaudu Wikipediaan</string>
   <string name="login_in_progress_dialog_message">Kirjaudutaan…</string>
   <string name="login_success_toast">Kirjautuminen onnistui!</string>
+  <string name="reset_password_title">Aseta salasanasi</string>
+  <string name="reset_password_description">Kirjauduit sisään väliaikaisella salasanalla. Viimeistelläksesi kirjautumisen, aseta uusi salasanasi tässä.</string>
+  <string name="reset_password_hint">Uusi salasana</string>
+  <string name="reset_password_button">Tallenna ja kirjaudu sisään</string>
   <string name="preference_title_logout">Kirjaudu ulos</string>
   <string name="toast_logout_complete">Kirjauduit ulos</string>
   <string name="history_empty_title">Ei äskettäin tarkasteltuja artikkeleita</string>

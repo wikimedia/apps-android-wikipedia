@@ -97,6 +97,10 @@
   <string name="login_activity_title">כניסה לוויקיפדיה</string>
   <string name="login_in_progress_dialog_message">אנחנו מכניסים אותך לחשבון…</string>
   <string name="login_success_toast">הכניסה לחשבון הצליחה!</string>
+  <string name="reset_password_title">הגדרת הסיסמה שלך</string>
+  <string name="reset_password_description">נכנסת לחשבון עם סיסמה זמנית. כדי לסיים את הכניסה, יש להגדיר את הסיסמה החדשה כאן.</string>
+  <string name="reset_password_hint">סיסמה חדשה</string>
+  <string name="reset_password_button">שמירה וכניסה לחשבון</string>
   <string name="preference_title_logout">יציאה מהחשבון</string>
   <string name="toast_logout_complete">יצאת מהחשבון</string>
   <string name="history_empty_title">אין ערכים שהוצגו לאחרונה</string>

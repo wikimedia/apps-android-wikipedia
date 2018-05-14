@@ -92,11 +92,16 @@
   <string name="login_activity_title">Влизане в Уикипедия</string>
   <string name="login_in_progress_dialog_message">Влизане...</string>
   <string name="login_success_toast">Успешно влизане!</string>
+  <string name="reset_password_title">Въведете паролата си</string>
+  <string name="reset_password_description">Влязохте с временна парола. За да завършите влизането, моля, въведете нова парола тук.</string>
+  <string name="reset_password_hint">Нова парола</string>
+  <string name="reset_password_button">Запазване и влизане</string>
   <string name="preference_title_logout">Излизане</string>
   <string name="toast_logout_complete">Излезли сте от системата</string>
   <string name="history_empty_title">Няма скорошно преглеждани статии</string>
   <string name="history_empty_message">Следете какво сте чели тук.</string>
   <string name="search_empty_message">Търсене и четене в свободната енциклопедия на вашия език</string>
+  <string name="search_empty_message_multilingual_upgrade">Търсене в Уикипедия на повече езици</string>
   <string name="delete_selected_items">Изтриване на избраните обекти</string>
   <string name="wp_stylized">&lt;big&gt;У&lt;/big&gt;ИКИПЕДИ&lt;big&gt;Я&lt;/big&gt;</string>
   <string name="create_account_username_hint">Потребителско име</string>
@@ -615,4 +620,5 @@
   </plurals>
   <string name="wikipedia_languages_remove_warning_dialog_title">Не могат да се премахнат всички езици</string>
   <string name="more_language_options">още</string>
+  <string name="add_wikipedia_languages_text">Добавяне на езици на Уикипедия</string>
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Charunandan16
 * NehalDaveND
 -->
 <resources>
@@ -65,6 +66,10 @@
   <string name="login_activity_title">विकिपीडिया-जालं प्रविश्यताम्</string>
   <string name="login_in_progress_dialog_message">प्रविशति…</string>
   <string name="login_success_toast">प्रवेशः सिद्धः !</string>
+  <string name="reset_password_title">स्वस्य कूटशब्दः लिख्यताम्</string>
+  <string name="reset_password_description">भवता/भवत्या अल्पकालीन(temporary)कूटशब्देन प्रवेशः प्राप्तः । \nसदस्यताप्रक्रियां पूर्णां कर्तुं नूतनः कूटशब्दः लेखनीयः एव ।</string>
+  <string name="reset_password_hint">नूतनः कूटशब्दः</string>
+  <string name="reset_password_button">रक्य्ातां प्रविश्यतां च</string>
   <string name="preference_title_logout">निर्गम्यताम्</string>
   <string name="toast_logout_complete">निर्गतम्</string>
   <string name="history_empty_title" fuzzy="true">अत्र नवीनपृष्ठानि न सन्ति !</string>

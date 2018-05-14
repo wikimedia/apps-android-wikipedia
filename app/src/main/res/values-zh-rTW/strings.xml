@@ -101,6 +101,10 @@
   <string name="login_activity_title">登入維基百科</string>
   <string name="login_in_progress_dialog_message">正在登入…</string>
   <string name="login_success_toast">登入成功！</string>
+  <string name="reset_password_title">設定您的密碼</string>
+  <string name="reset_password_description">您以臨時密碼登入。要完成登入，請在此設定您的新密碼。</string>
+  <string name="reset_password_hint">新密碼</string>
+  <string name="reset_password_button">儲存並登入</string>
   <string name="preference_title_logout">登出</string>
   <string name="toast_logout_complete">已登出</string>
   <string name="history_empty_title">沒有近期檢視的頁面</string>

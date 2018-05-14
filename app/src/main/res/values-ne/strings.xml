@@ -16,6 +16,7 @@
   <string name="search_hint_search_history">इतिहास खोज्नुहोस्</string>
   <string name="search_hint_search_my_lists">मेरा सूचीहरू खोज्नुहोस्</string>
   <string name="search_hint_search_reading_list">अध्ययन सूची खोज्नुहोस्</string>
+  <string name="search_hint_search_languages">कुनै भाषाको लागि खोजी गर्नुहोस्</string>
   <string name="nav_item_history">इतिहास</string>
   <string name="error_network_error">इन्टरनेटमा जडान हुन सकेन।</string>
   <string name="page_error_retry">पुनः प्रयास गर्नुहोस्</string>
@@ -47,19 +48,23 @@
   <string name="menu_text_select_edit_here">यहाँ सम्पादन गर्नुहोस्</string>
   <string name="nav_item_nearby">नजिकै</string>
   <string name="nearby_zoom_to_location">नक्सामा कुनै स्थानमा जुम गर्नुहोस्</string>
+  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; योगदानकर्ताहरू</string>
   <string name="last_updated_text">अन्तिम पटक %s मा अद्यावधिक गरिएको</string>
-  <string name="talk_page_link_text" fuzzy="true">वार्तालाप गर्नुहोस्</string>
-  <string name="edit_history_link_text" fuzzy="true">सम्पादनको इतिहास</string>
+  <string name="talk_page_link_text">वार्तालाप पृष्ठ हेर्नुहोस्</string>
+  <string name="edit_history_link_text">सम्पादन इतिहास हेर्नुहोस्</string>
   <string name="map_view_link_text">कुनै नक्सामा हेर्नुहोस्</string>
+  <string name="other_languages_indication_text">अर्को भाषामा पढ्नुहोस्</string>
+  <string name="language_count_link_text">%d अरु भाषाहरूमा उपलब्ध</string>
   <string name="content_license_html">अन्यथा उल्लेख नभएसम्म सामग्रीहरू &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; अन्तर्गत् उपलब्ध छ</string>
   <string name="edit_save_action_license_logged_in">सङ्ग्रह गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत् प्रकाशन गर्नुहुन्छ।</string>
   <string name="edit_save_action_license_anon">सङ्ग्रह गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत् प्रकाशन गर्नुहुन्छ। सम्पादनको श्रेय तपाईँको यन्त्रको IP ठेगानालाई दिइने छ। यदि तपाईँ &lt;a href=\"https://#login\"&gt;लग इन &lt;/a&gt;, गर्नु भयो भने तपाईँको बढी गोपनीयता रहने छ।</string>
-  <string name="preference_title_language" fuzzy="true">विकिपिडियाको भाषा</string>
+  <string name="preference_title_language">विकिपिडिया भाषाहरू</string>
   <string name="preference_languages_filter_hint">खोज्नुहोस्</string>
   <string name="langlinks_filter_hint">खोज्नुहोस्</string>
   <string name="langlinks_empty">यो पृष्ठ अन्य भाषाहरूमा उपलब्ध छैन।</string>
-  <string name="langlinks_no_match" fuzzy="true">तपाईंको क्वेरीसँग मिल्ने कुनै पनि भाषा फेला परेन।</string>
+  <string name="langlinks_no_match">कुनै पनि भाषा फेला परेन।</string>
   <string name="langlinks_activity_title">अन्य भाषाहरू</string>
+  <string name="langlinks_your_wikipedia_languages">तपाईँको विकिपिडिया भाषा</string>
   <string name="menu_save_changes">परिवर्तनहरू प्रकाशित गर्नुहोस्</string>
   <string name="dialog_saving_in_progress">प्रकाशन गर्दै…</string>
   <string name="edit_saved_successfully">प्रकाशित भएकोलाई सम्पादन गर्नुहोस्!</string>
@@ -81,18 +86,24 @@
   <string name="nav_item_login">विकिपिडियामा लग इन गर्नुहोस्</string>
   <string name="login_username_hint">प्रयोगकर्ताको नाम</string>
   <string name="login_password_hint">पासवर्ड</string>
+  <string name="login_2fa_hint">दुई चरण प्रामाणिकरण कोड</string>
   <string name="menu_login">लग इन</string>
   <string name="login_activity_title">विकिपिडियामा लग इन गर्नुहोस्</string>
   <string name="login_in_progress_dialog_message">तपाईंलाई लगइन गर्दै…</string>
   <string name="login_success_toast">सफलतापूर्वक लगइन भयो!</string>
+  <string name="reset_password_title">तपाईँको पासवर्ड लेख्नुहोस्</string>
+  <string name="reset_password_hint">नयाँ पासवर्ड</string>
+  <string name="reset_password_button">सङ्ग्रह गर्नुहोस् र लग इन गर्नुहोस्</string>
   <string name="preference_title_logout">लग आउट गर्नुहोस्</string>
   <string name="toast_logout_complete">लग आउट गरियो</string>
   <string name="history_empty_title">भर्खरै हेरिएको कुनै पनि लेख छैन</string>
   <string name="history_empty_message">आफूले पढिरहेका कुराहरूलाई यहाँबाट पहिल्याउनुहोस्।</string>
   <string name="search_empty_message">स्वतन्त्र विश्वकोश आफ्नै भाषामा खोज्नुहोस् र पढ्नुहोस्</string>
+  <string name="search_empty_message_multilingual_upgrade">अन्य भाषाहरूमा विकिपिडियामा खोज्नुहोस्</string>
   <string name="delete_selected_items">चयन गरिएका वस्तुहरू मेट्नुहोस्</string>
   <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपिडि&lt;big&gt;या&lt;/big&gt;</string>
   <string name="create_account_username_hint">प्रयोगकर्ताको नाम</string>
+  <string name="login_dont_have_account">के खाता छैन ?</string>
   <string name="login_join_wikipedia">विकिपिडियामा सहभागीहुनुहोस्</string>
   <string name="login_forgot_password">पासवर्ड भुल्नुभयो?</string>
   <string name="create_account_already_have">पहिले देखिको खाता छ?</string>
@@ -126,6 +137,8 @@
   <string name="create_account_account_created_toast">खाता सिर्जना गरियो!</string>
   <string name="preferences_heading_storage_and_syncing">भण्डारण र समक्रमण</string>
   <string name="preferences_heading_syncing">सिङ्कगर्दै</string>
+  <string name="preferences_heading_data_usage">डेटा उपयोग</string>
+  <string name="preferences_heading_experimental">प्रयोगात्मक</string>
   <string name="preference_title_sync_reading_lists">अध्ययन सूची समक्रमण गर्दै</string>
   <string name="preferences_privacy_settings_heading">गोपनीयता</string>
   <string name="preference_title_eventlogging_opt_in">उपयोगसम्बन्धी प्रतिवेदनहरू पठाउनुहोस्</string>
@@ -172,6 +185,7 @@
   <string name="edit_summary_tag_links">लिङ्क थप गरियो</string>
   <string name="edit_summary_tag_other">अन्य</string>
   <string name="edit_summary_tag_other_hint">तपाईँले पृष्ठमा सुधार गर्नुभएका अन्य तरिकाहरू</string>
+  <string name="edit_conflict_title">सम्पादन द्वन्द</string>
   <string name="find_next">अर्को खोज्नुहोस्</string>
   <string name="find_previous">पछिल्लो खोज्नुहोस्</string>
   <string name="find_first_occurence">यो पहिलो घटना हो</string>

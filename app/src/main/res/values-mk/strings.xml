@@ -88,6 +88,10 @@
   <string name="login_activity_title">Најава на Википедија</string>
   <string name="login_in_progress_dialog_message">Ве најавувам…</string>
   <string name="login_success_toast">Најавата успеа!</string>
+  <string name="reset_password_title">Ставете лозинка</string>
+  <string name="reset_password_description">Се најавивте со привремена лозинка. За да ја довршите најавата, тука задајте нова.</string>
+  <string name="reset_password_hint">Нова лозинка</string>
+  <string name="reset_password_button">Зачувај и најави ме</string>
   <string name="preference_title_logout">Одјава</string>
   <string name="toast_logout_complete">Одјавени сте</string>
   <string name="history_empty_title">Нема неодамна посетени статии</string>

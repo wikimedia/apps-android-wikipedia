@@ -102,6 +102,10 @@
   <string name="login_activity_title">Přihlášení do Wikipedie</string>
   <string name="login_in_progress_dialog_message">Přihlašování…</string>
   <string name="login_success_toast">Přihlášení uspělo!</string>
+  <string name="reset_password_title">Nastavte si své heslo</string>
+  <string name="reset_password_description">Jste přihlášeni pomocí dočasného hesla. Chcete-li dokončit přihlášení, zadejte prosím nové heslo.</string>
+  <string name="reset_password_hint">Nové heslo</string>
+  <string name="reset_password_button">Uložit a přihlásit se</string>
   <string name="preference_title_logout">Odhlásit se</string>
   <string name="toast_logout_complete">Odhlášeno</string>
   <string name="history_empty_title">Nejsou zde žádné nedávno navštívené stránky</string>

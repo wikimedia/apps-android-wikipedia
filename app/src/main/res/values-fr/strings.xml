@@ -113,6 +113,10 @@
   <string name="login_activity_title">Se connecter à Wikipédia</string>
   <string name="login_in_progress_dialog_message">Connexion en cours…</string>
   <string name="login_success_toast">Connecté avec succès !</string>
+  <string name="reset_password_title">Définir votre mot de passe</string>
+  <string name="reset_password_description">Vous êtes connecté avec un mot de passe temporaire. Pour finaliser votre connexion, veuillez définir votre nouveau mot de passe ici.</string>
+  <string name="reset_password_hint">Nouveau mot de passe</string>
+  <string name="reset_password_button">Enregistrer et se connecter</string>
   <string name="preference_title_logout">Se déconnecter</string>
   <string name="toast_logout_complete">Déconnecté</string>
   <string name="history_empty_title">Aucun article consulté récemment</string>
