@@ -208,7 +208,8 @@
             android:name=".readinglist.ReadingListActivity" />
 
         <activity
-            android:name=".onboarding.InitialOnboardingActivity" />
+            android:name=".onboarding.InitialOnboardingActivity"
+            android:theme="@style/AppTheme.TranslucentStatus"/>
 
         <activity
             android:name=".offline.LocalCompilationsActivity"

@@ -8,12 +8,21 @@
     tools:orientation="vertical"
     tools:parentTag="android.widget.LinearLayout">
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.15" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="0.85">
     <ImageView
         android:id="@+id/view_onboarding_page_image_centered"
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="72dp"
         android:contentDescription="@null"
         android:scaleType="fitCenter"
         tools:src="@drawable/illustration_onboarding_explore" />
@@ -103,7 +112,7 @@
             android:textSize="12sp" />
 
     </LinearLayout>
-
+</LinearLayout>
     <!-- Bottom control offset -->
     <View
         android:layout_width="match_parent"
