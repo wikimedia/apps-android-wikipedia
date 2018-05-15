@@ -8,6 +8,7 @@ import android.text.InputFilter;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,6 +31,8 @@ public class CabSearchView extends SearchView {
 
     private  ImageView searchCloseBtn;
 
+    private static final int SEARCH_TEXT_SIZE = 16;
+
     public CabSearchView(Context context) {
         this(context, null);
     }
@@ -45,6 +48,7 @@ public class CabSearchView extends SearchView {
         SearchView.SearchAutoComplete searchSrcTextView = findViewById(R.id.search_src_text);
         searchSrcTextView.setCustomSelectionActionModeCallback(new Callback());
         searchSrcTextView.setTextColor(getThemedColor(getContext(), R.attr.primary_text_color));
+        searchSrcTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, SEARCH_TEXT_SIZE);
         searchSrcTextView.setHintTextColor(themedIconColor);
         ImageView searchMagIcon = findViewById(R.id.search_mag_icon);
         searchMagIcon.setColorFilter(themedIconColor);
