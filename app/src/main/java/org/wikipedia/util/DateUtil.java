@@ -103,15 +103,13 @@ public final class DateUtil {
         Context context = WikipediaApp.getInstance().getApplicationContext();
         int diffInYears = Calendar.getInstance().get(Calendar.YEAR) - year;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return RelativeDateTimeFormatter.getInstance()
-                    .format(diffInYears, RelativeDateTimeFormatter.Direction.LAST,
-                            RelativeDateTimeFormatter.RelativeUnit.YEARS);
+            return diffInYears == 0 ? RelativeDateTimeFormatter.getInstance()
+                    .format(RelativeDateTimeFormatter.Direction.THIS, RelativeDateTimeFormatter.AbsoluteUnit.YEAR)
+                    : RelativeDateTimeFormatter.getInstance().format(diffInYears,
+                    RelativeDateTimeFormatter.Direction.LAST, RelativeDateTimeFormatter.RelativeUnit.YEARS);
         } else {
-            if (diffInYears == 0) {
-                return context.getString(R.string.this_year);
-            } else {
-                return context.getResources().getQuantityString(R.plurals.diff_years, diffInYears, diffInYears);
-            }
+            return diffInYears == 0 ? context.getString(R.string.this_year)
+                    : context.getResources().getQuantityString(R.plurals.diff_years, diffInYears, diffInYears);
         }
     }
 
