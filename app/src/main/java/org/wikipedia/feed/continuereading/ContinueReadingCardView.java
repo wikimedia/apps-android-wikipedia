@@ -2,13 +2,13 @@ package org.wikipedia.feed.continuereading;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.annotation.PluralsRes;
 import android.view.View;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.ListCardView;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.util.DateUtil;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 public class ContinueReadingCardView extends ListCardView<ContinueReadingCard>
@@ -28,14 +28,6 @@ public class ContinueReadingCardView extends ListCardView<ContinueReadingCard>
 
     private void header(@NonNull ContinueReadingCard card) {
         int age = (int) card.daysOld();
-        @PluralsRes int subtitlePlural;
-        String subtitle;
-        if (age == 0) {
-            subtitle = getResources().getString(R.string.view_continue_reading_card_subtitle_today);
-        } else {
-            subtitlePlural = R.plurals.view_continue_reading_card_subtitle;
-            subtitle = getResources().getQuantityString(subtitlePlural, age, age);
-        }
         headerView().setTitle(R.string.view_continue_reading_card_title)
                 .setImage(R.drawable.ic_arrow_forward_black_24dp)
                 .setImageCircleColor(R.color.base30)
@@ -44,7 +36,7 @@ public class ContinueReadingCardView extends ListCardView<ContinueReadingCard>
                 .setCallback(getCallback());
         largeHeaderView().setTitle(card.title())
                 .setImage(card.image())
-                .setSubtitle(subtitle)
+                .setSubtitle(DateUtil.getDaysAgoString(age))
                 .onClickListener(new CardClickListener())
                 .setVisibility(VISIBLE);
     }
