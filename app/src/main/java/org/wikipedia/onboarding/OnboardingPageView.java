@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SwitchCompat;
@@ -186,6 +187,7 @@ public class OnboardingPageView extends LinearLayout {
 
         @Override
         public void onBindViewHolder(@NonNull OptionsViewHolder holder, int position) {
+            holder.optionLabelTextView.setTextDirection(ViewCompat.LAYOUT_DIRECTION_LTR == ViewCompat.getLayoutDirection(primaryTextView) ? TEXT_DIRECTION_LTR : TEXT_DIRECTION_RTL);
             holder.optionLabelTextView.setText(String.format(getContext().getString(R.string.onboarding_option_string), String.valueOf(position + 1), items.get(position)));
         }
 
