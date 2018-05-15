@@ -110,5 +110,6 @@
     <string name="text_size_percent">%d%%</string>
     <string name="onboarding_option_string">%s.\t\t%s</string>
     <string name="language_data">multilingual</string>
+    <string name="empty" />
 
 </resources>

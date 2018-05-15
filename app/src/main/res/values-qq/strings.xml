@@ -276,7 +276,6 @@
   <string name="tool_tip_lang_button">Tool tip text encouraging existing multilingual users to start reading in more languages.</string>
   <string name="error_response_malformed">Generic error message that tells the user that the response from the server was not formatted correctly.</string>
   <string name="error_unknown">Generic error message that tells the user that an unknown error occurred.</string>
-  <string name="empty">Empty</string>
   <string name="format_error_server_message">Message displayed to the user that shows the actual error response received from the server. The \"%s\" symbol is replaced with the API onThisDay from the server.\n{{Identical|Message}}</string>
   <string name="address_copied">Message shown after copying a link to the system clipboard.</string>
   <string name="text_copied">Message shown after copying text to the system clipboard.</string>
