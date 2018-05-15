@@ -7,7 +7,6 @@ import android.support.v7.widget.SearchView;
 import android.view.ActionProvider;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,8 +15,6 @@ import org.wikipedia.R;
 import org.wikipedia.analytics.FindInPageFunnel;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.ResourceUtil;
-
-import java.lang.reflect.Field;
 
 public class FindInPageActionProvider extends ActionProvider {
     @NonNull private final PageFragment fragment;
@@ -122,15 +119,6 @@ public class FindInPageActionProvider extends ActionProvider {
                 .findViewById(android.support.v7.appcompat.R.id.search_close_btn);
         searchCloseButton.setEnabled(false);
         searchCloseButton.setImageDrawable(null);
-
-        AutoCompleteTextView searchTextView = searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
-        try {
-            Field mCursorDrawableRes = TextView.class.getDeclaredField("mCursorDrawableRes");
-            mCursorDrawableRes.setAccessible(true);
-            mCursorDrawableRes.set(searchTextView, R.drawable.custom_cursor);
-        } catch (Exception e) {
-            // ignore
-        }
 
         return view;
     }
