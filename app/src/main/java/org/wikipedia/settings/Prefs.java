@@ -214,7 +214,7 @@ public final class Prefs {
     public static List<Tab> getTabs() {
         return hasTabs()
                 ? TabUnmarshaller.unmarshal(getString(R.string.preference_key_tabs, null))
-                : Collections.<Tab>emptyList();
+                : Collections.emptyList();
     }
 
     public static boolean hasTabs() {
