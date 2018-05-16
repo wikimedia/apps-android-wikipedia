@@ -455,9 +455,11 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
                         newEntries.add(remoteEntryFromLocalPage(localPage));
                     }
                 }
+                // Note: newEntries.size() is guaranteed to be equal to localPages.size()
                 if (newEntries.isEmpty()) {
                     continue;
                 }
+                boolean tryOneAtATime = false;
                 try {
                     if (localPages.size() == 1) {
                         L.d("Creating new remote page " + localPages.get(0).title());
@@ -483,9 +485,40 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
                         break;
                     } else if (client.isErrorType(t, "entry-limit")) {
                         // TODO: handle more meaningfully than ignoring, for now.
+                    } else if (client.isErrorType(t, "no-such-project")) {
+                        // Something is malformed in the page domain, but we don't know which page
+                        // in the batch caused the error. Therefore, let's retry uploading the pages
+                        // one at a time, and single out the one that fails.
+                        tryOneAtATime = true;
                     } else {
                         throw t;
                     }
+                }
+
+                if (tryOneAtATime) {
+                    for (int i = 0; i < localPages.size(); i++) {
+                        ReadingListPage localPage = localPages.get(i);
+                        try {
+                            L.d("Creating new remote page " + localPage.title());
+                            localPage.remoteId(client.addPageToList(getCsrfToken(wiki, csrfToken), localList.remoteId(), newEntries.get(i)));
+                        } catch (Throwable t) {
+                            if (client.isErrorType(t, "duplicate-page")) {
+                                shouldRetryWithForce = true;
+                                break;
+                            } else if (client.isErrorType(t, "entry-limit")) {
+                                // TODO: handle more meaningfully than ignoring, for now.
+                            } else if (client.isErrorType(t, "no-such-project")) {
+                                // Ignore the error, and silently remove the malformed page from the list.
+                                localPages.remove(i);
+                                newEntries.remove(i);
+                                i--;
+                                ReadingListDbHelper.instance().markPagesForDeletion(localList, Collections.singletonList(localPage), false);
+                            } else {
+                                throw t;
+                            }
+                        }
+                    }
+                    ReadingListDbHelper.instance().updatePages(localPages);
                 }
             }
 

@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.dataclient.page.PageClient;
@@ -193,10 +194,18 @@ public class SavedPageSyncService extends JobIntentService {
                 // This can be an IOException from the storage media, or several types
                 // of network exceptions from malformed URLs, timeouts, etc.
                 e.printStackTrace();
+
+                // If we're offline, or if there's a transient network error, then don't do
+                // anything.  Otherwise...
                 if (!ThrowableUtil.isOffline(e) && !ThrowableUtil.isNetworkError(e)) {
-                    // If it's anything but a transient network error, let's log it aggressively,
-                    // to make sure we've fixed any other errors with saving pages.
-                    L.logRemoteError(e);
+                    // If it's not a transient network error (e.g. a 404 status response), it implies
+                    // that there's no way to fetch the page next time, or ever, therefore let's mark
+                    // it as "successful" so that it won't be retried again.
+                    success = true;
+                    if (!(e instanceof HttpStatusException)) {
+                        // And if it's something other than an HTTP status, let's log it and see what it is.
+                        L.logRemoteError(e);
+                    }
                 }
             }
 

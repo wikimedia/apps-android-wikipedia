@@ -250,6 +250,12 @@
             android:key="@string/preference_key_delete_test_reading_lists"
             android:title="@string/preferences_developer_test_delete_lists" />
 
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/EditTextAutoSummarizePreference"
+            android:dialogMessage="This number of malformed pages will be added to the default reading list:"
+            android:key="@string/preference_key_add_malformed_reading_list_page"
+            android:title="Add malformed pages to reading list" />
+
     </PreferenceCategory>
 
 </android.support.v7.preference.PreferenceScreen>
