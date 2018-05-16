@@ -30,6 +30,7 @@ import android.widget.Toast;
 
 import com.squareup.otto.Subscribe;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -655,7 +656,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             this.page = page;
             getView().setItem(page);
             getView().setTitle(page.title());
-            getView().setDescription(page.description());
+            getView().setDescription(StringUtils.capitalize(page.description()));
             getView().setImageUrl(page.thumbUrl());
             getView().setSelected(page.selected());
             getView().setActionIcon(R.drawable.ic_more_vert_white_24dp);
