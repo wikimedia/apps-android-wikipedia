@@ -407,6 +407,7 @@
 
     <style name="DialogTitleAppearance" parent="@style/RtlOverlay.DialogWindowTitle.AppCompat">
         <item name="android:textColor">?attr/material_theme_primary_color</item>
+        <item name="android:layout_marginBottom">5dp</item>
     </style>
 
     <style name="DialogTitleTextAppearance" parent="TextAppearance.AppCompat.Title">
