@@ -96,6 +96,9 @@
   <string name="login_activity_title">Σύνδεση στη Wikipedia</string>
   <string name="login_in_progress_dialog_message">Σύνδεση…</string>
   <string name="login_success_toast">Επιτυχής σύνδεση!</string>
+  <string name="reset_password_title">Εισαγάγετε τον κωδικό σας</string>
+  <string name="reset_password_hint">Νέος κωδικός πρόσβασης</string>
+  <string name="reset_password_button">Αποθήκευση και σύνδεση</string>
   <string name="preference_title_logout">Αποσύνδεση</string>
   <string name="toast_logout_complete">Αποσύνδεση</string>
   <string name="history_empty_title">Δεν υπάρχουν πρόσφατες σελίδες εδώ.</string>

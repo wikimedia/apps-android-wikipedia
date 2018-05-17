@@ -272,7 +272,6 @@
   <string name="tool_tip_lang_button">Já pode procurar e ler em várias línguas da Wikipédia na aplicação.\n\n\nToque no ícone para acrescentar mais línguas.</string>
   <string name="error_response_malformed">A resposta do servidor não foi formatada corretamente.</string>
   <string name="error_unknown">Ocorreu um erro desconhecido.</string>
-  <string name="empty"/>
   <string name="format_error_server_message">Mensagem: \"%s\"</string>
   <string name="address_copied">Endereço copiado para a área de transferência.</string>
   <string name="text_copied">Texto copiado para a área de transferência.</string>

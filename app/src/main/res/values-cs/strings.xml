@@ -275,7 +275,6 @@
   <string name="tool_tip_lang_button">Nyní můžete vyhledávat a číst Wikipedii ve více jazycích.\n\n\nKlepnutím na ikonu přidáte další jazyky.</string>
   <string name="error_response_malformed">Odpověď serveru nebyla správně zformátována.</string>
   <string name="error_unknown">Došlo k neznámé chybě.</string>
-  <string name="empty"/>
   <string name="format_error_server_message">Zpráva: „%s“</string>
   <string name="address_copied">Adresa zkopírována do schránky.</string>
   <string name="text_copied">Text zkopírován do schránky.</string>

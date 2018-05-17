@@ -270,7 +270,6 @@
   <string name="tool_tip_lang_button">Du kan nu söka och läsa på flera språkversioner av Wikipedia i appen.\n\nTryck på ikonen för att lägga till fler språk.</string>
   <string name="error_response_malformed">Serverns svar var inte korrekt formaterat.</string>
   <string name="error_unknown">Ett okänt fel uppstod.</string>
-  <string name="empty">.</string>
   <string name="format_error_server_message">Meddelande: \"%s\"</string>
   <string name="address_copied">Adressen kopierades till urklipp.</string>
   <string name="text_copied">Texten kopierades till urklipp.</string>

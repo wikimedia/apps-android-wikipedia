@@ -14,6 +14,7 @@
   <string name="search_hint_search_history">Leitarferill</string>
   <string name="search_hint_search_my_lists">Leita í listunum mínum</string>
   <string name="search_hint_search_reading_list">Leita í leslista</string>
+  <string name="search_hint_search_languages">Leita eftir tungumáli</string>
   <string name="nav_item_history">Ferilskrá</string>
   <string name="error_network_error">Næ ekki að tengjast netinu</string>
   <string name="page_error_retry">Reyna aftur</string>
@@ -55,12 +56,13 @@
   <string name="content_license_html">Efni má nota samkvæmt &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; nema annað komi fram</string>
   <string name="edit_save_action_license_logged_in">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; leyfinu.</string>
   <string name="edit_save_action_license_anon">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; notkunarleyfinu. Breytingar verða tengdar IP-vistfangi tækisins þíns. Ef þú &lt;a href=\"https://#login\"&gt;skráir þig inn&lt;/a&gt;, mun gagnaleynd þín aukast.</string>
-  <string name="preference_title_language" fuzzy="true">Tungumál Wikipediu</string>
+  <string name="preference_title_language">Tungumál Wikipediu</string>
   <string name="preference_languages_filter_hint">Leita</string>
   <string name="langlinks_filter_hint">Leita</string>
   <string name="langlinks_empty">Þessi síða er ekki tiltæk á öðrum tungumálum.</string>
-  <string name="langlinks_no_match" fuzzy="true">Engin tungumál fundust sem samsvara leitarskilyrðunum.</string>
+  <string name="langlinks_no_match">Engin tungumál fundust</string>
   <string name="langlinks_activity_title">Önnur tungumál</string>
+  <string name="langlinks_your_wikipedia_languages">Þín Wikipedia-tungumál</string>
   <string name="menu_save_changes">Gefa út breytingar</string>
   <string name="dialog_saving_in_progress">Gefur út...</string>
   <string name="edit_saved_successfully">Breytingin var gefin út!</string>
@@ -88,11 +90,16 @@
   <string name="login_activity_title">Skrá inn á Wikipedia</string>
   <string name="login_in_progress_dialog_message">Skráir þig inn…</string>
   <string name="login_success_toast">Sending tókst!</string>
+  <string name="reset_password_title">Stilltu lykilorðið þitt</string>
+  <string name="reset_password_description">Þú skráðir þig inn með bráðabirgðalykilorði. Til að klára að skrá þig inn, verður þú að velja nýtt lykilorð hér.</string>
+  <string name="reset_password_hint">Nýtt lykilorð</string>
+  <string name="reset_password_button">Vista og skrá inn</string>
   <string name="preference_title_logout">Skrá út</string>
   <string name="toast_logout_complete">Skráður út</string>
   <string name="history_empty_title">Engar nýlega lesnar greinar</string>
   <string name="history_empty_message">Haltu utan um það sem þú hefur verið að lesa hérna.</string>
   <string name="search_empty_message">Leitaðu og lestu í frjálsa alfræðiorðasafninu á móðurmálinu þínu</string>
+  <string name="search_empty_message_multilingual_upgrade">Leita í Wikipedia á fleiri tungumálum</string>
   <string name="delete_selected_items">Eyða völdum atriðum</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Notandanafn</string>
@@ -253,6 +260,7 @@
   <string name="tool_tip_share">Þegar áhugavert atriði hefur verið ljómað, prófaðu að deila því á uppáhalds-netinu þínu!</string>
   <string name="page_view_in_browser">Opna síðu í vafra</string>
   <string name="tool_tip_toc_button">Skoðaðu efnisyfirlitið hvenær sem er með því að ýta á þennan hnapp, eða með því að draga frá hægri brún skjásins.</string>
+  <string name="tool_tip_lang_button">Þú getur núna leitað og lesið á fleiri tungumálum Wikipedia í forritinu.</string>
   <string name="error_response_malformed">Svar frá vefþjóni var ekki rétt formað.</string>
   <string name="error_unknown">Óþekkt villa kom upp.</string>
   <string name="format_error_server_message">Skilaboð: \"%s\"</string>
@@ -432,13 +440,31 @@
   <string name="notification_syncing_pause_button">Í bið</string>
   <string name="notification_syncing_resume_button">Halda áfram</string>
   <string name="notification_syncing_cancel_button">Hætta við</string>
-  <string name="notification_syncing_reading_list_channel_name" fuzzy="true">Samstilli leslista</string>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Samstilli leslista</item>
+    <item quantity="other">Samstilli leslista</item>
+  </plurals>
   <string name="notification_syncing_reading_list_channel_description">Framvinda samstillingar leslista</string>
-  <string name="notification_channel_name" fuzzy="true">Samstilling</string>
-  <string name="notification_syncing_title" fuzzy="true">Sæki %1$d grein(ar)…</string>
-  <string name="notification_syncing_description" fuzzy="true">%1$d grein(ar) eftir</string>
-  <string name="notification_syncing_reading_list_title" fuzzy="true">Samstilli %1$d lista…</string>
-  <string name="notification_syncing_reading_list_description" fuzzy="true">%1$d listi/listar eftir</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">Sæki grein</item>
+    <item quantity="other">Sæki greinar</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">Sæki %1$d grein…</item>
+    <item quantity="other">Sæki %1$d greinar…</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">%1$d grein eftir</item>
+    <item quantity="other">%1$d greinar eftir</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Samstilli %1$d lista…</item>
+    <item quantity="other">Samstilli %1$d lista…</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">%1$d listi eftir</item>
+    <item quantity="other">%1$d listar eftir</item>
+  </plurals>
   <string name="view_continue_reading_card_title">Halda lestri áfram</string>
   <string name="view_because_you_read_card_title">Því þú last</string>
   <string name="view_random_card_title">Slembið</string>
@@ -471,8 +497,9 @@
   <string name="view_featured_article_footer_saved_button_label">Vistað</string>
   <string name="feed_configure_activity_title">Sérsníða streymið</string>
   <string name="feed_configure_menu_reset">Endurheimta sjálfgefna sýn</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">Velja allt</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">Afvelja allt</string>
+  <string name="feed_configure_menu_select_all">Birta allt</string>
+  <string name="feed_configure_menu_deselect_all">Fela allt</string>
+  <string name="feed_configure_language_warning">Athugaðu að ekki eru allar gerðir korta tiltækar á öllum Wikipedia-tungumálum. Breyttu völdum tungumálum í stillingunum.</string>
   <string name="feed_item_type_news">Greinar um mál í gangi</string>
   <string name="feed_item_type_on_this_day">Sögulegir atburðir á þessum degi</string>
   <string name="feed_item_type_continue_reading">Flýtitengill til baka til að lesa opna grein í einum af flipunum þínum</string>
@@ -591,6 +618,9 @@
   <string name="onboarding_create_account_contributions">Halda utan um framlögin þín</string>
   <string name="onboarding_create_account_preferences">Vista kjörstillingarnar þínar</string>
   <string name="onboarding_got_it">Náði því</string>
+  <string name="onboarding_multilingual_title">Leita og lesa í Wikipedia á nærri 300 tungumálum</string>
+  <string name="onboarding_multilingual_secondary_text">Við fundum eftirtalin tungumál á tækinu þínu:</string>
+  <string name="onboarding_multilingual_add_language_text">Bæta við eða breyta tungumálum</string>
   <string name="app_shortcuts_random">Handahófsvalið</string>
   <string name="app_shortcuts_continue_reading">Halda lestri áfram</string>
   <string name="app_shortcuts_search">Leita</string>
@@ -605,4 +635,21 @@
     <item quantity="one">Á síðasta ári</item>
     <item quantity="other">Fyrir %d árum síðan</item>
   </plurals>
+  <string name="languages_list_activity_title">Bæta við tungumáli</string>
+  <string name="languages_list_suggested_text">Stungið upp á</string>
+  <string name="languages_list_all_text">Öll tungumál</string>
+  <string name="wikipedia_languages_title">Tungumál Wikipediu</string>
+  <string name="wikipedia_languages_your_languages_text">Tungumálin þín</string>
+  <string name="wikipedia_languages_add_language_text">Bæta við tungumáli</string>
+  <string name="wikipedia_languages_remove_text">Fjarlægja</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Fjarlægja tungumál</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">Fjarlægja valið tungumál?</item>
+    <item quantity="other">Fjarlægja valin tungumál?</item>
+  </plurals>
+  <string name="wikipedia_languages_remove_dialog_content">Þú munt aðeins sjá efni í Uppgötva-streyminu og skyndileitarsíum fyrir önnur Wikipedia-tungumál.</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Get ekki fjarlægt öll tungumál</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Haltu að minnsta kosti einu Wikipedia-tungumáli til að leita að og lesa efni.</string>
+  <string name="more_language_options">meira</string>
+  <string name="add_wikipedia_languages_text">Bæta við Wikipedia-tungumálum</string>
 </resources>

@@ -393,7 +393,10 @@
   <string name="notification_syncing_title" fuzzy="true">Erofluede vun %1$d Artikelen ....</string>
   <string name="notification_syncing_description" fuzzy="true">%1$d Artikelen iwwreg</string>
   <string name="notification_syncing_reading_list_title" fuzzy="true">Synchronisatioun vun %1$d Lëscht(en)…</string>
-  <string name="notification_syncing_reading_list_description" fuzzy="true">nach %1$d Lëscht(en)</string>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">nach %1$d Lëscht</item>
+    <item quantity="other">nach %1$d%1$d Lëschten</item>
+  </plurals>
   <string name="view_continue_reading_card_title">Virufuere mat Liesen</string>
   <string name="view_because_you_read_card_title">Well Dir liest</string>
   <string name="view_random_card_title">Zoufallsgenerator</string>
