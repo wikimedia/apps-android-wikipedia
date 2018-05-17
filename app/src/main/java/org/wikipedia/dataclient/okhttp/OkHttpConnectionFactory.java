@@ -11,8 +11,6 @@ import java.io.File;
 
 import okhttp3.Cache;
 import okhttp3.CacheDelegate;
-import okhttp3.CookieJar;
-import okhttp3.JavaNetCookieJar;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 
@@ -33,12 +31,8 @@ public final class OkHttpConnectionFactory {
 
     @NonNull
     private static OkHttpClient createClient() {
-        SharedPreferenceCookieManager cookieManager = SharedPreferenceCookieManager.getInstance();
-        // TODO: consider using okhttp3.CookieJar implementation instead of JavaNetCookieJar wrapper
-        CookieJar cookieJar = new JavaNetCookieJar(cookieManager);
-
         return new OkHttpClient.Builder()
-                .cookieJar(cookieJar)
+                .cookieJar(SharedPreferenceCookieManager.getInstance())
                 .cache(NET_CACHE)
                 .addInterceptor(new HttpLoggingInterceptor().setLevel(Prefs.getRetrofitLogLevel()))
                 .addInterceptor(new UnsuccessfulResponseInterceptor())

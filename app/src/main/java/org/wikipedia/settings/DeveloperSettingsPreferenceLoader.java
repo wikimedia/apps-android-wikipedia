@@ -3,7 +3,6 @@ package org.wikipedia.settings;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.TwoStatePreference;
 
@@ -89,7 +88,6 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
         loadPreferences(R.xml.developer_preferences);
         setUpRestBaseCheckboxes();
         setUpMediaWikiSettings();
-        setUpCookies((PreferenceCategory) findPreference(R.string.preferences_developer_cookies_key));
 
         findPreference(context.getString(R.string.preferences_developer_crash_key))
                 .setOnPreferenceClickListener(preference -> {
@@ -217,23 +215,6 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                 numOfLists--;
             }
         }
-    }
-
-    private void setUpCookies(@NonNull PreferenceCategory cat) {
-        List<String> domains = Prefs.getCookieDomainsAsList();
-        for (String domain : domains) {
-            String key = Prefs.getCookiesForDomainKey(domain);
-            Preference pref = newDataStringPref(key, domain);
-            cat.addPreference(pref);
-        }
-    }
-
-    private EditTextAutoSummarizePreference newDataStringPref(String key, String title) {
-        EditTextAutoSummarizePreference pref = new EditTextAutoSummarizePreference(context, null,
-                R.attr.editTextAutoSummarizePreferenceStyle);
-        pref.setKey(key);
-        pref.setTitle(title);
-        return pref;
     }
 
     private static class TestException extends RuntimeException {
