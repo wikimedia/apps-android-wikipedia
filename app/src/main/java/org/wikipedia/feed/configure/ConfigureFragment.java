@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.FeedConfigureFunnel;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.FeedContentType;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.views.DefaultViewHolder;
@@ -26,11 +27,13 @@ import org.wikipedia.views.DrawableItemDecoration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import retrofit2.Call;
 
 public class ConfigureFragment extends Fragment implements ConfigureItemView.Callback {
     @BindView(R.id.content_types_recycler) RecyclerView recyclerView;
@@ -48,11 +51,58 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
         View view = inflater.inflate(R.layout.fragment_feed_configure, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        prepareContentTypeList();
-        setupRecyclerView();
-
         funnel = new FeedConfigureFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().getWikiSite(),
                 requireActivity().getIntent().getIntExtra(ConfigureActivity.INVOKE_SOURCE_EXTRA, -1));
+
+
+        new FeedAvailabilityClient().request(WikipediaApp.getInstance().getWikiSite(), new FeedAvailabilityClient.Callback() {
+            @Override
+            public void success(@NonNull Call<FeedAvailabilityClient.FeedAvailability> call, @NonNull FeedAvailabilityClient.FeedAvailability result) {
+                if (!isAdded()) {
+                    return;
+                }
+                // apply the new availability rules to our content types
+                FeedContentType.NEWS.getLangCodesSupported().clear();
+                if (!result.news().isEmpty() && !result.news().contains("*")) {
+                    addDomainNamesAsLangCodes(FeedContentType.NEWS.getLangCodesSupported(), result.news());
+                }
+                FeedContentType.ON_THIS_DAY.getLangCodesSupported().clear();
+                if (!result.onThisDay().isEmpty() && !result.onThisDay().contains("*")) {
+                    addDomainNamesAsLangCodes(FeedContentType.ON_THIS_DAY.getLangCodesSupported(), result.onThisDay());
+                }
+                FeedContentType.TRENDING_ARTICLES.getLangCodesSupported().clear();
+                if (!result.mostRead().isEmpty() && !result.mostRead().contains("*")) {
+                    addDomainNamesAsLangCodes(FeedContentType.TRENDING_ARTICLES.getLangCodesSupported(), result.mostRead());
+                }
+                FeedContentType.FEATURED_ARTICLE.getLangCodesSupported().clear();
+                if (!result.featuredArticle().isEmpty() && !result.featuredArticle().contains("*")) {
+                    addDomainNamesAsLangCodes(FeedContentType.FEATURED_ARTICLE.getLangCodesSupported(), result.featuredArticle());
+                }
+                FeedContentType.FEATURED_IMAGE.getLangCodesSupported().clear();
+                if (!result.featuredPicture().isEmpty() && !result.featuredPicture().contains("*")) {
+                    addDomainNamesAsLangCodes(FeedContentType.FEATURED_IMAGE.getLangCodesSupported(), result.featuredPicture());
+                }
+                FeedContentType.saveState();
+                prepareContentTypeList();
+                setupRecyclerView();
+            }
+
+            @Override
+            public void failure(@NonNull Call<FeedAvailabilityClient.FeedAvailability> call, @NonNull Throwable caught) {
+                if (!isAdded()) {
+                    return;
+                }
+                prepareContentTypeList();
+                setupRecyclerView();
+            }
+
+            private void addDomainNamesAsLangCodes(@NonNull List<String> outList, @NonNull List<String> domainNames) {
+                for (String domainName : domainNames) {
+                    outList.add(new WikiSite(domainName).languageCode());
+                }
+            }
+        });
+
         return view;
     }
 
@@ -118,6 +168,25 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
         orderedContentTypes.addAll(Arrays.asList(FeedContentType.values()));
         Collections.sort(orderedContentTypes, (FeedContentType a, FeedContentType b)
                 -> a.getOrder().compareTo(b.getOrder()));
+        // Remove items for which there are no available languages
+        List<String> appLanguages = WikipediaApp.getInstance().language().getAppLanguageCodes();
+        Iterator<FeedContentType> i = orderedContentTypes.iterator();
+        while (i.hasNext()) {
+            List<String> supportedLanguages = i.next().getLangCodesSupported();
+            if (supportedLanguages.isEmpty()) {
+                continue;
+            }
+            boolean atLeastOneSupported = false;
+            for (String lang : appLanguages) {
+                if (supportedLanguages.contains(lang)) {
+                    atLeastOneSupported = true;
+                    break;
+                }
+            }
+            if (!atLeastOneSupported) {
+                i.remove();
+            }
+        }
     }
 
     private void setupRecyclerView() {
