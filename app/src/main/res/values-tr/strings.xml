@@ -436,6 +436,7 @@
   <string name="reading_list_article_limit_message">Bu listeye eklenemedi. \"%1$s\" için liste başına %2$d madde sınırına ulaştınız.</string>
   <string name="reading_lists_limit_message">Başka bir liste oluşturamazsınız. Hesap başına 100 okuma listesi sınırına ulaştınız.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Okuma listelerini senkronize et&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Okuma listeleri artık cihazlar arasında senkronize edilebilir. Wikipedia hesabınıza giriş yapın ve listelerinizin kaydedilmesine izin verin.</string>
+  <string name="reading_lists_menu_create_list">Yeni bir liste oluştur</string>
   <string name="reading_lists_menu_sort_by">Sıralama ölçütü:</string>
   <string name="reading_lists_refresh_sync_option">Senkronizasyonu yenile</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Oturum aç / kaydol</string>
@@ -515,8 +516,9 @@
   <string name="view_featured_article_footer_saved_button_label">Kaydedildi</string>
   <string name="feed_configure_activity_title">Beslemeyi özelleştir</string>
   <string name="feed_configure_menu_reset">Varsayılan görünümü geri yükle</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">Tümünü seç</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">Hiçbirini seçme</string>
+  <string name="feed_configure_menu_select_all">Hepsini göster</string>
+  <string name="feed_configure_menu_deselect_all">Hepsini gizle</string>
+  <string name="feed_configure_language_warning">Tüm kart tiplerinin tüm Vikipedi dillerinde mevcut olmadığını unutmayın. Seçtiğiniz dilleri Ayarlar\'da düzenleyin.</string>
   <string name="feed_item_type_news">Güncel olaylar hakkındaki maddeler</string>
   <string name="feed_item_type_on_this_day">Tarihte bugün gerçekleşen olaylar</string>
   <string name="feed_item_type_continue_reading">Sekmelerinizin birinde açık bir maddeyi okumak için hızlı bağlantı</string>
@@ -526,6 +528,7 @@
   <string name="feed_item_type_featured_image">Wikimedia Commons\'ta günün seçkin resmi</string>
   <string name="feed_item_type_main_page">Günün seçkin maddesi içeren Vikipedi anasayfası</string>
   <string name="feed_item_type_randomizer">Okumak için rastgele madde oluştur</string>
+  <string name="feed_empty_message">İçeriği Keşfet\'inizde hiçbir şey yok</string>
   <string name="feed_configure_onboarding_action">Özelleştir</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Keşfet özet akışınızı özelleştirme&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Artık akışınızda neyin gösterileceğini seçebilir ve en sevdiğiniz içerik türlerine öncelik de verebilirsiniz.</string>
   <string name="description_edit_text_hint">Başlık tanımı</string>
@@ -663,6 +666,7 @@
     <item quantity="one">Seçilen dili kaldır?</item>
     <item quantity="other">Seçilen dilleri kaldır?</item>
   </plurals>
+  <string name="wikipedia_languages_remove_dialog_content">Kalan Vikipedi dilleri için yalnızca İçeriği Keşfet ve hızlı arama filtrelerinde içerik görürsünüz.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Tüm diller kaldırılamadı</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">İçeriği okumak ve içerikte arama yapmak için en az bir Vikipedi dili bırakın</string>
   <string name="more_language_options">daha fazlası</string>

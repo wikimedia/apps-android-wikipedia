@@ -101,11 +101,16 @@
   <string name="login_activity_title">Bejelentkezés a Wikipédiába</string>
   <string name="login_in_progress_dialog_message">Bejelentkezés…</string>
   <string name="login_success_toast">Sikeresen bejelentkezve!</string>
+  <string name="reset_password_title">Jelszó beállítása</string>
+  <string name="reset_password_description">Ideiglenes jelszóval jelentkeztél be. A bejelentkezés befejezéséhez állíts be itt egy új jelszót.</string>
+  <string name="reset_password_hint">Új jelszó</string>
+  <string name="reset_password_button">Mentés és belépés</string>
   <string name="preference_title_logout">Kijelentkezés</string>
   <string name="toast_logout_complete">Kijelentkezve</string>
-  <string name="history_empty_title">Nem nemrég megtekintett cikkek</string>
+  <string name="history_empty_title">Nincsenek nemrég megtekintett cikkek</string>
   <string name="history_empty_message">Itt követheted az elolvasott szócikkeket.</string>
   <string name="search_empty_message">Keresd és olvasd a cikkeket a saját nyelveden</string>
+  <string name="search_empty_message_multilingual_upgrade">Keresés a Wikipédián több nyelven</string>
   <string name="delete_selected_items">Kijelölt elemek törlése</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Szerkesztőnév</string>
@@ -189,7 +194,7 @@
   <string name="user_blocked_from_editing_title">Blokkolva</string>
   <string name="user_logged_in_blocked_from_editing">A szerkesztői fiókod el van tiltva a szerkesztéstől ezen a wikin.</string>
   <string name="user_anon_blocked_from_editing">Az IP-címed el van tiltva a szerkesztéstől.</string>
-  <string name="edit_how_page_improved">Hogy javítottad a lapot?</string>
+  <string name="edit_how_page_improved">Hogyan javítottál a lapon?</string>
   <string name="edit_next">Következő</string>
   <string name="edit_done">Közzététel</string>
   <string name="edit_preview">Előnézet</string>
@@ -423,9 +428,18 @@
   <string name="notification_syncing_pause_button">Szünet</string>
   <string name="notification_syncing_resume_button">Folytatás</string>
   <string name="notification_syncing_cancel_button">Mégsem</string>
-  <string name="notification_channel_name" fuzzy="true">Szinkronizálás</string>
-  <string name="notification_syncing_title" fuzzy="true">%1$d szócikk letöltése…</string>
-  <string name="notification_syncing_description" fuzzy="true">%1$d szócikk maradt</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">Szócikk letöltése</item>
+    <item quantity="other">Szócikkek letöltése</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">%1$d szócikk letöltése…</item>
+    <item quantity="other">%1$d szócikk letöltése…</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">%1$d szócikk maradt</item>
+    <item quantity="other">%1$d szócikk maradt</item>
+  </plurals>
   <string name="view_continue_reading_card_title">Olvasás folytatása</string>
   <string name="view_because_you_read_card_title">Mert ezt olvastad:</string>
   <string name="view_random_card_title">Találomra</string>
@@ -563,8 +577,8 @@
   <string name="onboarding_explore_text">Merülj alá a Wikipédiában a folyamatosan frissülő Felfedezés hírfolyammal!&lt;br /&gt; &lt;b&gt;Szabd testre&lt;/b&gt; a hírfolyamot az érdeklődésnek megfelelően – izgassanak bár az &lt;b&gt;Ezen a napon&lt;/b&gt; történt események, vagy ami épp &lt;b&gt;Találomra&lt;/b&gt; jön.</string>
   <string name="onboarding_save_to_reading_lists_title">Mentés olvasólistára</string>
   <string name="onboarding_save_to_reading_lists_text">Készíts olvasólistákat olyan szócikkekből, amiket később szeretnél elolvasni, akár internetkapcsolat nélkül is!</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">Olvasási listák szinkronizálással</string>
-  <string name="onboarding_reading_list_sync_text" fuzzy="true">Olvasási listákat hozhatsz létre olyan szócikkekből, amiket később akarsz elolvasni, amikor offline vagy például. &lt;a href=\"#login\"&gt;Jelentkezz be vagy hozz létre&lt;/a&gt; saját fiókot a Wikipédián, így az olvasási listáid szinkronizálva, azaz mentve lesznek.</string>
+  <string name="onboarding_reading_list_sync_title">Olvasási listák szinkronizálással</string>
+  <string name="onboarding_reading_list_sync_text">Olvasási listákat hozhatsz létre olyan szócikkekből, amiket később akarsz elolvasni, amikor offline vagy például. &lt;a href=\"#login\"&gt;Jelentkezz be vagy hozz létre&lt;/a&gt; saját fiókot a Wikipédián, így az olvasási listáid szinkronizálva, azaz mentve lesznek.</string>
   <string name="onboarding_analytics_title">Névtelen adatok küldése</string>
   <string name="onboarding_analytics_offline_text">Segíts jobbá tenni az alkalmazást a használati adatok megosztásával. A begyűjtött adatok anonimak. &lt;a href=\"#privacy\"&gt;Tudj meg többet&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Felhasználási adatok küldése</string>
@@ -593,6 +607,9 @@
   <string name="wikipedia_languages_add_language_text">Nyelv hozzáadása</string>
   <string name="wikipedia_languages_remove_text">Eltávolítás</string>
   <string name="wikipedia_languages_remove_action_mode_title">Nyelv eltávolítása</string>
-  <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Eltávolítod a kijelölt nyelv(ek)et?</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">Eltávolítod a kijelölt nyelvet?</item>
+    <item quantity="other">Eltávolítod a kijelölt nyelveket?</item>
+  </plurals>
   <string name="more_language_options">több</string>
 </resources>

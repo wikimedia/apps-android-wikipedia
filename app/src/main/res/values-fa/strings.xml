@@ -31,6 +31,7 @@
   <string name="search_hint_search_history">تاریخچهٔ جستجو</string>
   <string name="search_hint_search_my_lists">جستجوی فهرست‌های من</string>
   <string name="search_hint_search_reading_list">جستجوی فهرست مطالعه</string>
+  <string name="search_hint_search_languages">جستجوی یک زبان</string>
   <string name="nav_item_history">تاریخچه</string>
   <string name="error_network_error">امکان اتصال به اینترنت وجود ندارد.</string>
   <string name="page_error_retry">تلاش مجدد</string>
@@ -98,7 +99,7 @@
   <string name="nav_item_login">ورود به ویکی‌پدیا</string>
   <string name="login_username_hint">نام کاربری</string>
   <string name="login_password_hint">گذرواژه</string>
-  <string name="login_2fa_hint">کد اعتبارسنجی دومرحله‌ای</string>
+  <string name="login_2fa_hint">کد اعتبارسنجی دوعاملی</string>
   <string name="login_2fa_other_workflow_error_msg">تائید دو مرحله‌ای مورد نیاز است! لطفاً به فعالیت اصلی بازگردید و با توکن دومرحله‌ای به سامانه وارد شوید و از نو تلاش کنید.</string>
   <string name="menu_login">ورود به سامانه</string>
   <string name="login_activity_title">ورود به ویکی‌پدیا</string>

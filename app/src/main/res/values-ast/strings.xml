@@ -54,12 +54,13 @@
   <string name="content_license_html">El conteníu ta disponible baxo &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; si nun se diz otra cosa</string>
   <string name="edit_save_action_license_logged_in">Al guardar, aceutes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt;, y lliberar ensin torgues les tos collaboraciones baxo los términos de la llicencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Al guardar, aceutes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt;, y lliberar ensin torgues les tos collaboraciones baxo la llicencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Les ediciones atribuiránse a la dirección IP del to preséu. Si &lt;a href=\"https://#login\"&gt;anicies sesión&lt;/a&gt;, tendrás más intimidá.</string>
-  <string name="preference_title_language" fuzzy="true">Llingua de Wikipedia</string>
+  <string name="preference_title_language">Llingües de Wikipedia</string>
   <string name="preference_languages_filter_hint">Guetar</string>
   <string name="langlinks_filter_hint">Guetar</string>
   <string name="langlinks_empty">Esta páxina nun ta disponible n\'otres llingües</string>
-  <string name="langlinks_no_match" fuzzy="true">Nun s\'alcontraron llingües que casen cola to consulta.</string>
+  <string name="langlinks_no_match">Nun s\'alcontró nenguna llingua</string>
   <string name="langlinks_activity_title">Otres llingües</string>
+  <string name="langlinks_your_wikipedia_languages">Les tos llingües de Wikipedia</string>
   <string name="menu_save_changes">Publicar los cambios</string>
   <string name="dialog_saving_in_progress">Espublizando...</string>
   <string name="edit_saved_successfully">Edición publicada</string>
@@ -87,11 +88,16 @@
   <string name="login_activity_title">Aniciar sesión en Wikipedia</string>
   <string name="login_in_progress_dialog_message">Aniciando sesión en...</string>
   <string name="login_success_toast">Aniciasti sesión correutamente</string>
+  <string name="reset_password_title">Configurar la contraseña</string>
+  <string name="reset_password_description">Aniciasti sesión con una contraseña temporal. Pa terminar d\'aniciar sesión, configura equí una contraseña nueva.</string>
+  <string name="reset_password_hint">Contraseña nueva</string>
+  <string name="reset_password_button">Guardar y aniciar sesión</string>
   <string name="preference_title_logout">Salir</string>
   <string name="toast_logout_complete">Desconeutáu</string>
   <string name="history_empty_title">Nun hai artículos vistos recien</string>
   <string name="history_empty_message">Siguir lo que tuvisti lleyendo equí.</string>
   <string name="search_empty_message">Busca y llei la enciclopedia llibre na to llingua</string>
+  <string name="search_empty_message_multilingual_upgrade">Buscar en Wikipedia en más llingües</string>
   <string name="delete_selected_items">Desaniciar los elementos esbillaos</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome d\'usuariu</string>
@@ -252,6 +258,7 @@
   <string name="tool_tip_share">Tres resaltar una información interesante, ¡intenta compartila nes tos redes favorites!</string>
   <string name="page_view_in_browser">Ver la páxina nel navegador</string>
   <string name="tool_tip_toc_button">Consulta la tabla de conteníu en cualquier momentu tocando esti botón, o abasnando dende\'l berbesu drechu de la pantalla.</string>
+  <string name="tool_tip_lang_button">Agora puedes buscar y lleer Wikipedia en distintos idiomes na app.\n\n\nToca l\'iconu p\'añadir más idiomes.</string>
   <string name="error_response_malformed">La respuesta del sirvidor nun tenía un formatu correutu.</string>
   <string name="error_unknown">Hebo un error desconocíu.</string>
   <string name="format_error_server_message">Mensaxe: «%s»</string>
@@ -431,13 +438,31 @@
   <string name="notification_syncing_pause_button">Posar</string>
   <string name="notification_syncing_resume_button">Siguir</string>
   <string name="notification_syncing_cancel_button">Encaboxar</string>
-  <string name="notification_syncing_reading_list_channel_name" fuzzy="true">Sincronizando llista(es) de llectura</string>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Sincronizando la llista de llectura</item>
+    <item quantity="other">Sincronizando les llistes de llectura</item>
+  </plurals>
   <string name="notification_syncing_reading_list_channel_description">Progresu de sincronización de llistes de llectura</string>
-  <string name="notification_channel_name" fuzzy="true">Sincronización</string>
-  <string name="notification_syncing_title" fuzzy="true">Descargando %1$d artículu(os)…</string>
-  <string name="notification_syncing_description" fuzzy="true">falten %1$d artículos</string>
-  <string name="notification_syncing_reading_list_title" fuzzy="true">Sincronizando %1$d llistes…</string>
-  <string name="notification_syncing_reading_list_description" fuzzy="true">Queden %1$d llistes</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">Descargando l\'artículu</item>
+    <item quantity="other">Descargando los artículos</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">Descargando %1$d artículu…</item>
+    <item quantity="other">Descargando %1$d artículos…</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">Queda %1$d artículu</item>
+    <item quantity="other">Queden %1$d artículos</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Sincronizando %1$d llista…</item>
+    <item quantity="other">Sincronizando %1$d llistes…</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">Queda %1$d llista</item>
+    <item quantity="other">Queden %1$d llistes</item>
+  </plurals>
   <string name="view_continue_reading_card_title">Siguir lleyendo</string>
   <string name="view_because_you_read_card_title">Porque lleísti</string>
   <string name="view_random_card_title">Al debalu</string>
@@ -470,8 +495,9 @@
   <string name="view_featured_article_footer_saved_button_label">Guardáu</string>
   <string name="feed_configure_activity_title">Personalizar la canal</string>
   <string name="feed_configure_menu_reset">Restaurar la vista predeterminada</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">Seleccionar too</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">Nun seleccionar nada</string>
+  <string name="feed_configure_menu_select_all">Amosar toes</string>
+  <string name="feed_configure_menu_deselect_all">Tapecer toes</string>
+  <string name="feed_configure_language_warning">Repara que non tolos tipos de tarxeta tán disponibles en toles ediciones de Wikipedia. Edita los idiomes esbillaos na configuración.</string>
   <string name="feed_item_type_news">Artículos d\'acontecimientos actuales</string>
   <string name="feed_item_type_on_this_day">Acontecimientos históricos de güei</string>
   <string name="feed_item_type_continue_reading">Enllaz direutu pa lleer un artículu abiertu n\'otra de les llingüetes</string>
@@ -590,6 +616,9 @@
   <string name="onboarding_create_account_contributions">Siguir el rastru a les tos contribuciones</string>
   <string name="onboarding_create_account_preferences">Guardar les preferencies</string>
   <string name="onboarding_got_it">Entendílo</string>
+  <string name="onboarding_multilingual_title">Buscar y lleer en casi 300 llingües</string>
+  <string name="onboarding_multilingual_secondary_text">Atopamos les siguientes nel to preséu:</string>
+  <string name="onboarding_multilingual_add_language_text">Añadir o editar idiomes</string>
   <string name="app_shortcuts_random">Al debalu</string>
   <string name="app_shortcuts_continue_reading">Siguir lleyendo</string>
   <string name="app_shortcuts_search">Buscar</string>
@@ -612,8 +641,13 @@
   <string name="wikipedia_languages_add_language_text">Amestar llingua</string>
   <string name="wikipedia_languages_remove_text">Desaniciar</string>
   <string name="wikipedia_languages_remove_action_mode_title">Desaniciar llingua</string>
-  <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">¿Desaniciar les llingües escoyíes?</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">¿Desaniciar la llingua escoyida?</item>
+    <item quantity="other">¿Desaniciar les llingües escoyíes?</item>
+  </plurals>
   <string name="wikipedia_languages_remove_dialog_content">Solo verás el conteníu de la canal Esquizar y de los filtros de busca rápida nel restu de llingües de Wikipedia.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Nun pueden quitase toles llingües</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Dexa polo menos una llingua de Wikipedia pa buscar y lleer el conteníu.</string>
+  <string name="more_language_options">más</string>
+  <string name="add_wikipedia_languages_text">Añadir idiomes de Wikipedia</string>
 </resources>
