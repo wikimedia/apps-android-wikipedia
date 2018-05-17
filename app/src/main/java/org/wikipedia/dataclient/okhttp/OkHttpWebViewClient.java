@@ -16,7 +16,6 @@ import org.wikipedia.page.PageViewModel;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -48,10 +47,15 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
 
         try {
             Response rsp = request(url);
-            // noinspection ConstantConditions
-            return new WebResourceResponse(rsp.body().contentType().type() + "/" + rsp.body().contentType().subtype(),
-                    rsp.body().contentType().charset(Charset.defaultCharset()).name(),
-                    getInputStream(rsp));
+            if (CONTENT_TYPE_OGG.equals(rsp.header(HEADER_CONTENT_TYPE))) {
+                rsp.close();
+                return super.shouldInterceptRequest(view, url);
+            } else {
+                // noinspection ConstantConditions
+                return new WebResourceResponse(rsp.body().contentType().type() + "/" + rsp.body().contentType().subtype(),
+                        rsp.body().contentType().charset(Charset.defaultCharset()).name(),
+                        rsp.body().byteStream());
+            }
         } catch (Exception e) {
             L.e(e);
         }
@@ -67,13 +71,18 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
 
         try {
             Response rsp = request(request.getUrl().toString());
-            // noinspection ConstantConditions
-            return new WebResourceResponse(rsp.body().contentType().type() + "/" + rsp.body().contentType().subtype(),
-                    rsp.body().contentType().charset(Charset.defaultCharset()).name(),
-                    rsp.code(),
-                    StringUtils.defaultIfBlank(rsp.message(), "Unknown error"),
-                    toMap(rsp.headers()),
-                    getInputStream(rsp));
+            if (CONTENT_TYPE_OGG.equals(rsp.header(HEADER_CONTENT_TYPE))) {
+                rsp.close();
+                return super.shouldInterceptRequest(view, request);
+            } else {
+                // noinspection ConstantConditions
+                return new WebResourceResponse(rsp.body().contentType().type() + "/" + rsp.body().contentType().subtype(),
+                        rsp.body().contentType().charset(Charset.defaultCharset()).name(),
+                        rsp.code(),
+                        StringUtils.defaultIfBlank(rsp.message(), "Unknown error"),
+                        toMap(rsp.headers()),
+                        rsp.body().byteStream());
+            }
         } catch (Exception e) {
             L.e(e);
         }
@@ -104,16 +113,5 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
             map.put(headers.name(i), headers.value(i));
         }
         return map;
-    }
-
-    @NonNull private InputStream getInputStream(@NonNull Response rsp) throws IOException {
-        InputStream inputStream = rsp.body().byteStream();
-
-        if (CONTENT_TYPE_OGG.equals(rsp.header(HEADER_CONTENT_TYPE))) {
-            inputStream = new AvailableInputStream(rsp.body().byteStream(),
-                    rsp.body().contentLength());
-        }
-
-        return inputStream;
     }
 }

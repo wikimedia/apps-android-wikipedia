@@ -84,6 +84,8 @@ public class ObservableWebView extends WebView {
         onUpOrCancelMotionEventListeners.clear();
         onContentHeightChangedListeners.clear();
         onFastScrollListener = null;
+        // To stop the music when left the article
+        loadUrl("about:blank");
     }
 
     public interface OnClickListener {
