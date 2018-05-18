@@ -29,6 +29,12 @@ public class FeedCoordinator extends FeedCoordinatorBase {
     }
 
     @Override
+    public void reset() {
+        super.reset();
+        aggregatedClient.invalidate();
+    }
+
+    @Override
     protected void buildScript(int age) {
         boolean online = DeviceUtil.isOnline();
 

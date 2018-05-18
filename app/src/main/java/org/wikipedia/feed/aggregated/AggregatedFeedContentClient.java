@@ -141,6 +141,10 @@ public class AggregatedFeedContentClient {
         }
     }
 
+    public void invalidate() {
+        aggregatedResponseAge = -1;
+    }
+
     void addAggregatedResponse(@Nullable AggregatedFeedContent content, int age, @NonNull WikiSite wiki) {
         aggregatedResponses.put(wiki.languageCode(), content);
         this.aggregatedResponseAge = age;
