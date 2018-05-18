@@ -87,8 +87,7 @@ public final class ThrowableUtil {
     }
 
     public static boolean isNetworkError(@NonNull Throwable e) {
-        return ThrowableUtil.throwableContainsException(e, HttpStatusException.class)
-                || ThrowableUtil.throwableContainsException(e, UnknownHostException.class)
+        return ThrowableUtil.throwableContainsException(e, UnknownHostException.class)
                 || ThrowableUtil.throwableContainsException(e, TimeoutException.class)
                 || ThrowableUtil.throwableContainsException(e, SSLException.class);
     }
