@@ -4,7 +4,7 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "wikimedia-page-library": "6.0.10"
+    "wikimedia-page-library": "6.1.1"
   },
   "devDependencies": {
     "browserify": "^14.4.0",

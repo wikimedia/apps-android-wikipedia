@@ -1,11 +1,15 @@
 package org.wikipedia.page;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
+import org.apache.commons.lang3.StringUtils;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.bridge.CommunicationBridge;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Handles any reference links coming from a {@link PageFragment}
@@ -15,15 +19,42 @@ public abstract class ReferenceHandler implements CommunicationBridge.JSEventLis
     /**
      * Called when a reference link was clicked.
      */
-    protected abstract void onReferenceClicked(@NonNull String refHtml, @Nullable String refLinkText);
+    protected abstract void onReferenceClicked(int selectedIndex, @NonNull List<Reference> adjacentReferences);
 
     // message from JS bridge:
     @Override
     public void onMessage(String messageType, JSONObject messagePayload) {
         try {
-            onReferenceClicked(messagePayload.getString("ref"), messagePayload.optString("linkText"));
+            JSONObject adjacentReferencesObject = messagePayload.getJSONObject("adjacentReferences");
+            int selectedIndex = adjacentReferencesObject.getInt("selectedIndex");
+            JSONArray referencesGroup = adjacentReferencesObject.getJSONArray("referencesGroup");
+            List<Reference> adjacentReferencesList = new ArrayList<>();
+            for (int i = 0; i < referencesGroup.length(); i++) {
+                JSONObject reference = (JSONObject) referencesGroup.get(i);
+                adjacentReferencesList.add(new Reference(StringUtils.defaultString(reference.getString("text")), StringUtils.defaultString(reference.getString("html"))));
+            }
+
+            onReferenceClicked(selectedIndex, adjacentReferencesList);
         } catch (JSONException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public class Reference {
+        private String linkText;
+        private String linkHtml;
+
+        Reference(@NonNull String linkText, @NonNull String href) {
+            this.linkText = linkText;
+            this.linkHtml = href;
+        }
+
+        @NonNull public String getLinkText() {
+            return linkText;
+        }
+
+        @NonNull public String getLinkHtml() {
+            return linkHtml;
         }
     }
 }
