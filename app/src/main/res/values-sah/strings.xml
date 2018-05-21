@@ -58,7 +58,7 @@
   <string name="content_license_html">Иһинээҕитэ бу лиссиэнсийэ көмөтүнэн тарҕанар &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; (атын ыйыллыбатах буоллаҕына)</string>
   <string name="edit_save_action_license_logged_in">Маны бигэргэтэн &lt;a href=\"%1$s\" &gt;туһаныы усулуобуйатын&lt;/a&gt; кытта сөбүлэһэргин биллэрэҕин, ону тэҥэ бу лиссиэнсийэнэн &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; кэлин онтон батынар кыаҕыҥ суох буоларын кытта эмиэ сөбүлэһэҕин.</string>
   <string name="edit_save_action_license_anon">Уларытыылары бигэргэтэн &lt;a href=\"%1$s\"&gt;туһаныы усулуобуйатын&lt;/a&gt; кытта сөбүлэһэҕин, ону тэҥэ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лиссиэнсийэ иҥэриитэ төннөрүллүбэтин кытта сөбүлэһэҕин. Уларытыыҥ IP-аадырыскын кытта ситимнэниэ. &lt;a href=\"https://#login\"&gt;Бэлиэтэннэххинэ&lt;/a&gt;, IP-ҥ көстүө суоҕа.</string>
-  <string name="preference_title_language" fuzzy="true">Бикипиэдьийэ омугун тыла</string>
+  <string name="preference_title_language">Бикипиэдьийэ тыллара</string>
   <string name="preference_languages_filter_hint">Бул</string>
   <string name="langlinks_filter_hint">Бул</string>
   <string name="langlinks_empty">Бу сирэй атын тылынан суох эбит.</string>
@@ -92,11 +92,16 @@
   <string name="login_activity_title">Бикипиэдьийэҕэ киирии</string>
   <string name="login_in_progress_dialog_message">Киирии...</string>
   <string name="login_success_toast">Этэҥҥэ киирдиҥ!</string>
+  <string name="reset_password_title">Аһарыккын суруй</string>
+  <string name="reset_password_description">Быстах кэмҥэ туттуллар аһарыгынан киирдиҥ.\nТүмүктүүргэ саҥа аһарыгы суруйуохтааххын.</string>
+  <string name="reset_password_hint">Саҥа аһарык</string>
+  <string name="reset_password_button">Бигэргэт уонна киир</string>
   <string name="preference_title_logout">Тахсыы</string>
   <string name="toast_logout_complete">Тахсыбыккын</string>
   <string name="history_empty_title">Соторутааҕыта көрүллүбүт сирэй суох эбит</string>
   <string name="history_empty_message">Урут аахпыккын манна кэтээ.</string>
   <string name="search_empty_message">Босхо энциклопедияны тереебут тылга аа5ыы уонна бу</string>
+  <string name="search_empty_message_multilingual_upgrade">Бикипиэдьийэҕэ атын тылынан суруллубуту көрдөө</string>
   <string name="delete_selected_items">Талыллыбыты сот</string>
   <string name="wp_stylized">&lt;big&gt;Б&lt;/big&gt;ИКИПИЭДЬИЙ&lt;big&gt;Э&lt;/big&gt;</string>
   <string name="create_account_username_hint">Кыттааччы аата</string>

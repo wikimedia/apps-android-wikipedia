@@ -431,6 +431,7 @@
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;읽기 목록 동기화&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;지금 읽기 목록을 여러 장치 간에 동기화할 수 있습니다. 위키백과 계정으로 로그인하면 목록을 저장할 수 있습니다.</string>
   <string name="reading_lists_menu_create_list">새 목록 만들기</string>
   <string name="reading_lists_menu_sort_by">정렬 기준</string>
+  <string name="reading_lists_refresh_sync_option">동기화 새로 고침</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">로그인 / 가입</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">이 글은 이제 오프라인에서 읽을 수 있습니다.</item>

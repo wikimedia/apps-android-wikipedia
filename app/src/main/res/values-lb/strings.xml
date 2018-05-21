@@ -391,7 +391,10 @@
   <string name="notification_syncing_reading_list_channel_description">Fortschrëtt vun der Synchronisatioun vu Lieslëschten</string>
   <string name="notification_channel_name" fuzzy="true">Synchroniséieren</string>
   <string name="notification_syncing_title" fuzzy="true">Erofluede vun %1$d Artikelen ....</string>
-  <string name="notification_syncing_description" fuzzy="true">%1$d Artikelen iwwreg</string>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">%1$d Artikel iwwreg</item>
+    <item quantity="other">%1$d Artikelen iwwreg</item>
+  </plurals>
   <string name="notification_syncing_reading_list_title" fuzzy="true">Synchronisatioun vun %1$d Lëscht(en)…</string>
   <plurals name="notification_syncing_reading_list_description">
     <item quantity="one">nach %1$d Lëscht</item>

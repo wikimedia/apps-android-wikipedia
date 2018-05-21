@@ -437,9 +437,30 @@
   <string name="notification_syncing_pause_button">Пауза</string>
   <string name="notification_syncing_resume_button">Продължаване</string>
   <string name="notification_syncing_cancel_button">Отказване</string>
-  <string name="notification_channel_name" fuzzy="true">Синхронизиране</string>
-  <string name="notification_syncing_title" fuzzy="true">Изтегляне на %1$d статии...</string>
-  <string name="notification_syncing_description" fuzzy="true">остават %1$d статии</string>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Синхронизиране на Списъка за четене</item>
+    <item quantity="other">Синхронизиране на Списъците за четене</item>
+  </plurals>
+  <plurals name="notification_channel_name">
+    <item quantity="one">Изтегляне на статия</item>
+    <item quantity="other">Изтегляне на статии</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">Изтегляне на %1$d статия…</item>
+    <item quantity="other">Изтегляне на %1$d статии…</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">остава %1$d статия</item>
+    <item quantity="other">остават %1$d статии</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Синхронизиране на %1$d списък…</item>
+    <item quantity="other">Синхронизиране на %1$d списъка…</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">остава %1$d списък</item>
+    <item quantity="other">остават %1$d списъка</item>
+  </plurals>
   <string name="view_continue_reading_card_title">Продължаване на четенето</string>
   <string name="view_because_you_read_card_title">Защото сте чели</string>
   <string name="view_random_card_title">Случайна статия</string>
@@ -620,6 +641,7 @@
     <item quantity="other">Премахване на избраните езици?</item>
   </plurals>
   <string name="wikipedia_languages_remove_warning_dialog_title">Не могат да се премахнат всички езици</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Оставете поне един език на Уикипедия, на който да търсите и да четете съдържание.</string>
   <string name="more_language_options">още</string>
   <string name="add_wikipedia_languages_text">Добавяне на езици на Уикипедия</string>
 </resources>

@@ -86,8 +86,8 @@
   <string name="other_languages_indication_text">На другом языке</string>
   <string name="language_count_link_text">Доступно на %d других языках</string>
   <string name="content_license_html">Содержимое доступно в соответствии с лицензией &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, если не указано иное</string>
-  <string name="edit_save_action_license_logged_in">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\" &gt;условиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;условиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Правки будут привязаны в IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуйтесь&lt;/a&gt;, то сможете получить более высокий уровень конфиденциальности.</string>
+  <string name="edit_save_action_license_logged_in">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\" &gt;условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Правки будут привязаны в IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуйтесь&lt;/a&gt;, то сможете получить более высокий уровень конфиденциальности.</string>
   <string name="preference_title_language">Языки Википедии</string>
   <string name="preference_languages_filter_hint">Найти</string>
   <string name="langlinks_filter_hint">Поиск</string>
@@ -260,7 +260,7 @@
   <string name="dialog_close_description">Закрыть</string>
   <string name="preference_title_show_images">Показывать изображения</string>
   <string name="preference_summary_show_images">Включить или отключить загрузку изображений на страницах. Снимите этот флажок, если у вас медленное интернет-подключение или трафик на вашем тарифном плане ограничен.</string>
-  <string name="read_more_section">Подробнее</string>
+  <string name="read_more_section">Связанные статьи</string>
   <string name="about_article_section">Об этой статье</string>
   <string name="menu_gallery_visit_page">Перейти к странице файла</string>
   <string name="gallery_error_draw_failed">Не удалось вывести изображение.</string>
