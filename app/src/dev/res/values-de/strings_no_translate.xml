@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Wikipedia Dev</string>
+    <string name="channel">Google Play Beta Kanal</string>
+    <string name="hockeyapp_app_id">223c136f356e1820ab4882a677fefc8c</string>
+
+    <!-- TODO: remove and use the same account as alpha when tokens are stored. -->
+    <string name="account_name">Wikimedia (Beta)</string>
+    <string name="account_type">org.wikimedia.beta</string>
+
+    <string name="user_option_sync_label">Einstellungen</string>
+</resources>
