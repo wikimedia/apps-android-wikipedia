@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- TODO: add some spacing to this file so we can see headings vs other stuff at a glance. -->
+    <string name="developer_settings_activity_title">Entwicklereinstellungen</string>
+    <string name="preferences_developer_crash_summary">Hier drücken um App abzustürzen</string>
+    <string name="preferences_developer_reading_list_category">Leselisten</string>
+    <string name="preferences_developer_add_articles">Artikel hinzufügen</string>
+    <string name="preferences_developer_add_lists">Leselisten hinzufügen</string>
+    <string name="preferences_developer_delete_lists">Leselisten löschen</string>
+
+</resources>
