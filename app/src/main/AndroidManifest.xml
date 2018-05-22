@@ -74,7 +74,7 @@
 
         <activity
             android:name=".main.MainActivity"
-            android:windowSoftInputMode="adjustResize"
+            android:windowSoftInputMode="adjustPan"
             android:theme="@style/AppTheme.Splash"
             android:launchMode="singleTask">
             <intent-filter>

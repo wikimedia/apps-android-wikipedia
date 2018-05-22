@@ -34,6 +34,7 @@ import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.history.SearchActionModeCallback;
+import org.wikipedia.main.MainFragment;
 import org.wikipedia.onboarding.OnboardingView;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.readinglist.database.ReadingList;
@@ -474,7 +475,10 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
 
         @Override
         protected void onQueryChange(String s) {
-            updateLists(s.trim());
+            String searchString = s.trim();
+            ((MainFragment) getParentFragment())
+                    .setBottomNavVisible(searchString.length() == 0);
+            updateLists(searchString);
         }
 
         @Override
