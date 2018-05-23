@@ -242,7 +242,7 @@ public class ReadingListDbHelper {
         SavedPageSyncService.enqueue();
     }
 
-    public void markPageForOffline(@NonNull ReadingListPage page, boolean offline) {
+    public void markPageForOffline(@NonNull ReadingListPage page, boolean offline, boolean forcedSave) {
         if (page.offline() == offline) {
             return;
         }
@@ -250,6 +250,7 @@ public class ReadingListDbHelper {
         db.beginTransaction();
         try {
             page.offline(offline);
+            page.forcedSave(forcedSave);
             updatePageInDb(db, page);
             db.setTransactionSuccessful();
         } finally {
@@ -258,7 +259,7 @@ public class ReadingListDbHelper {
         SavedPageSyncService.enqueue();
     }
 
-    public void markPagesForOffline(@NonNull List<ReadingListPage> pages, boolean offline) {
+    public void markPagesForOffline(@NonNull List<ReadingListPage> pages, boolean offline, boolean forcedSave) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
@@ -267,6 +268,7 @@ public class ReadingListDbHelper {
                     continue;
                 }
                 page.offline(offline);
+                page.forcedSave(forcedSave);
                 updatePageInDb(db, page);
             }
             db.setTransactionSuccessful();
@@ -489,6 +491,22 @@ public class ReadingListDbHelper {
                 ReadingListPageContract.Col.STATUS.getName() + " = ? AND "
                 + ReadingListPageContract.Col.OFFLINE.getName() + " = ?",
                 new String[]{Integer.toString(ReadingListPage.STATUS_QUEUE_FOR_SAVE), Integer.toString(1)},
+                null, null, null)) {
+            while (cursor.moveToNext()) {
+                pages.add(ReadingListPage.DATABASE_TABLE.fromCursor(cursor));
+            }
+        }
+        return pages;
+    }
+
+    @NonNull
+    public List<ReadingListPage> getAllPagesToBeForcedSave() {
+        List<ReadingListPage> pages = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        try (Cursor cursor = db.query(ReadingListPageContract.TABLE, null,
+                ReadingListPageContract.Col.STATUS.getName() + " = ? AND "
+                        + ReadingListPageContract.Col.OFFLINE.getName() + " = ?",
+                new String[]{Integer.toString(ReadingListPage.STATUS_QUEUE_FOR_FORCED_SAVE), Integer.toString(1)},
                 null, null, null)) {
             while (cursor.moveToNext()) {
                 pages.add(ReadingListPage.DATABASE_TABLE.fromCursor(cursor));

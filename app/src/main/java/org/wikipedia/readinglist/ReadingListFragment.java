@@ -50,6 +50,7 @@ import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
+import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.DeviceUtil;
@@ -462,7 +463,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
     private void removeSelectedPagesFromOffline(List<ReadingListPage> selectedPages) {
         if (!selectedPages.isEmpty()) {
-            ReadingListDbHelper.instance().markPagesForOffline(selectedPages, false);
+            ReadingListDbHelper.instance().markPagesForOffline(selectedPages, false, false);
             showMultiSelectOfflineStateChangeSnackbar(selectedPages, false);
             adapter.notifyDataSetChanged();
             update();
@@ -470,8 +471,23 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     private void saveSelectedPagesForOffline(List<ReadingListPage> selectedPages) {
+        if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi()) {
+            SavedPageSyncService.forceDownloadPages();
+            new AlertDialog.Builder(requireActivity())
+                    .setTitle(R.string.dialog_title_download_only_over_wifi)
+                    .setMessage(R.string.dialog_text_download_only_over_wifi)
+                    .setPositiveButton(R.string.dialog_title_download_only_over_wifi_allow, (dialog, which)
+                            -> saveSelectedPagesForOffline(selectedPages, true))
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show();
+        } else {
+            saveSelectedPagesForOffline(selectedPages, false);
+        }
+    }
+
+    private void saveSelectedPagesForOffline(@NonNull List<ReadingListPage> selectedPages, boolean forcedSave) {
         if (!selectedPages.isEmpty()) {
-            ReadingListDbHelper.instance().markPagesForOffline(selectedPages, true);
+            ReadingListDbHelper.instance().markPagesForOffline(selectedPages, true, forcedSave);
             showMultiSelectOfflineStateChangeSnackbar(selectedPages, true);
             adapter.notifyDataSetChanged();
             update();
@@ -578,7 +594,22 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     private void toggleOffline(@NonNull ReadingListPage page) {
-        ReadingListDbHelper.instance().markPageForOffline(page, !page.offline());
+        if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi() && !page.offline()) {
+            SavedPageSyncService.forceDownloadPages();
+            new AlertDialog.Builder(requireActivity())
+                    .setTitle(R.string.dialog_title_download_only_over_wifi)
+                    .setMessage(R.string.dialog_text_download_only_over_wifi)
+                    .setPositiveButton(R.string.dialog_title_download_only_over_wifi_allow, (dialog, which)
+                            -> toggleOffline(page, true))
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show();
+        }  else {
+            toggleOffline(page, false);
+        }
+    }
+
+    private void toggleOffline(@NonNull ReadingListPage page, boolean forcedSave) {
+        ReadingListDbHelper.instance().markPageForOffline(page, !page.offline(), forcedSave);
         if (getActivity() != null) {
             FeedbackUtil.showMessage(getActivity(), page.offline()
                     ? getQuantityString(R.plurals.reading_list_article_offline_message, 1)
