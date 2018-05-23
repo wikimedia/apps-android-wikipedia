@@ -86,20 +86,20 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_history, container, false);
         unbinder = ButterKnife.bind(this, view);
 
         searchEmptyView.setEmptyText(R.string.search_history_no_results);
 
-        ItemTouchHelper.Callback touchCallback = new SwipeableItemTouchHelperCallback(getContext());
+        ItemTouchHelper.Callback touchCallback = new SwipeableItemTouchHelperCallback(requireContext());
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(touchCallback);
         itemTouchHelper.attachToRecyclerView(historyList);
 
         historyList.setLayoutManager(new LinearLayoutManager(getContext()));
         historyList.setAdapter(adapter);
 
-        getActivity().getSupportLoaderManager().initLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
+        requireActivity().getSupportLoaderManager().initLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
         return view;
     }
 
@@ -111,7 +111,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
     @Override
     public void onDestroyView() {
-        getActivity().getSupportLoaderManager().destroyLoader(HISTORY_FRAGMENT_LOADER_ID);
+        requireActivity().getSupportLoaderManager().destroyLoader(HISTORY_FRAGMENT_LOADER_ID);
         historyList.setAdapter(null);
         adapter.setCursor(null);
         unbinder.unbind();
@@ -173,7 +173,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_clear_all_history:
-                new AlertDialog.Builder(getContext())
+                new AlertDialog.Builder(requireContext())
                         .setTitle(R.string.dialog_title_clear_history)
                         .setMessage(R.string.dialog_message_clear_history)
                         .setPositiveButton(R.string.dialog_message_clear_history_yes, (dialog, which) -> {
@@ -185,7 +185,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                 return true;
             case R.id.menu_search_history:
                 if (actionMode == null) {
-                    actionMode = ((AppCompatActivity) getActivity())
+                    actionMode = ((AppCompatActivity) requireActivity())
                             .startSupportActionMode(searchActionModeCallback);
                 }
                 return true;
@@ -219,7 +219,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             finishActionMode();
         }
         if (!MultiSelectCallback.is(actionMode)) {
-            ((AppCompatActivity) getActivity()).startSupportActionMode(multiSelectCallback);
+            ((AppCompatActivity) requireActivity()).startSupportActionMode(multiSelectCallback);
         }
     }
 
@@ -280,11 +280,11 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     }
 
     private void restartLoader() {
-        getActivity().getSupportLoaderManager().restartLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
+        requireActivity().getSupportLoaderManager().restartLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
     }
 
     private class LoaderCallback implements LoaderManager.LoaderCallbacks<Cursor> {
-        @Override
+        @NonNull @Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
             String titleCol = PageHistoryContract.PageWithImage.TITLE.qualifiedName();
             String selection = null;
@@ -299,22 +299,22 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             Uri uri = PageHistoryContract.PageWithImage.URI;
             final String[] projection = null;
             String order = PageHistoryContract.PageWithImage.ORDER_MRU;
-            return new CursorLoader(getContext().getApplicationContext(),
+            return new CursorLoader(requireContext().getApplicationContext(),
                     uri, projection, selection, selectionArgs, order);
         }
 
         @Override
-        public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
+        public void onLoadFinished(@NonNull Loader<Cursor> cursorLoader, Cursor cursor) {
             adapter.setCursor(cursor);
             if (!isAdded()) {
                 return;
             }
             updateEmptyState(currentSearchQuery);
-            getActivity().invalidateOptionsMenu();
+            requireActivity().invalidateOptionsMenu();
         }
 
         @Override
-        public void onLoaderReset(Loader<Cursor> loader) {
+        public void onLoaderReset(@NonNull Loader<Cursor> loader) {
             adapter.setCursor(null);
         }
     }
@@ -415,12 +415,12 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public HistoryEntryItemHolder onCreateViewHolder(ViewGroup parent, int type) {
-            return new HistoryEntryItemHolder(new PageItemView<IndexedHistoryEntry>(getContext()));
+        public HistoryEntryItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int type) {
+            return new HistoryEntryItemHolder(new PageItemView<>(requireContext()));
         }
 
         @Override
-        public void onBindViewHolder(HistoryEntryItemHolder holder, int pos) {
+        public void onBindViewHolder(@NonNull HistoryEntryItemHolder holder, int pos) {
             if (cursor == null) {
                 return;
             }
@@ -428,7 +428,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             holder.bindItem(cursor);
         }
 
-        @Override public void onViewAttachedToWindow(HistoryEntryItemHolder holder) {
+        @Override public void onViewAttachedToWindow(@NonNull HistoryEntryItemHolder holder) {
             super.onViewAttachedToWindow(holder);
             holder.getView().setCallback(itemCallback);
         }
@@ -497,7 +497,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
         @Override
         protected String getSearchHintString() {
-            return getContext().getResources().getString(R.string.search_hint_search_history);
+            return requireContext().getResources().getString(R.string.search_hint_search_history);
         }
 
         @Override
