@@ -22,7 +22,6 @@ public class NotificationWithProgressBar {
     private String channelId;
     private int notificationId;
     private int channelName;
-    private int channelPluralName;
     private int channelDescription;
     private int notificationIcon;
     private int notificationTitle;

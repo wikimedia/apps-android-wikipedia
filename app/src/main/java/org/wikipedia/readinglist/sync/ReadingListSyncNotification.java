@@ -13,7 +13,7 @@ public final class ReadingListSyncNotification {
     private static final int NOTIFICATION_ID = 1002;
     private NotificationWithProgressBar notification;
 
-    public ReadingListSyncNotification() {
+    private ReadingListSyncNotification() {
         notification = new NotificationWithProgressBar();
         notification.setChannelId(CHANNEL_ID);
         notification.setNotificationId(NOTIFICATION_ID);
