@@ -10,8 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingRight="@dimen/list_item_horizontal_padding"
-        android:paddingLeft="@dimen/list_item_horizontal_padding"
+        android:paddingStart="@dimen/list_item_horizontal_padding"
         android:paddingBottom="4dp"
         android:orientation="vertical">
 
@@ -70,6 +69,7 @@
             android:id="@+id/page_languages_divider"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
+            android:layout_marginStart="64dp"
             android:background="?attr/material_theme_border_color"/>
 
         <LinearLayout
@@ -114,8 +114,9 @@
             </LinearLayout>
 
             <android.support.v7.widget.AppCompatImageView
-                android:layout_width="48dp"
+                android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:layout_marginEnd="16dp"
                 android:layout_gravity="center_vertical"
                 app:srcCompat="@drawable/ic_open_in_new_black_24px"
                 app:tint="?attr/material_theme_secondary_color"
@@ -126,6 +127,7 @@
             android:id="@+id/page_edit_history_divider"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
+            android:layout_marginStart="64dp"
             android:background="?attr/material_theme_border_color"/>
 
         <LinearLayout
@@ -156,8 +158,9 @@
                 android:text="@string/talk_page_link_text"/>
 
             <android.support.v7.widget.AppCompatImageView
-                android:layout_width="48dp"
+                android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:layout_marginEnd="16dp"
                 android:layout_gravity="center_vertical"
                 app:srcCompat="@drawable/ic_open_in_new_black_24px"
                 app:tint="?attr/material_theme_secondary_color"
@@ -168,6 +171,7 @@
             android:id="@+id/page_talk_divider"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
+            android:layout_marginStart="64dp"
             android:background="?attr/material_theme_border_color"/>
 
         <LinearLayout
@@ -217,8 +221,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
             android:visibility="gone"
             app:cardBackgroundColor="?attr/paper_color"
             tools:visibility="visible">
@@ -239,16 +241,11 @@
                     android:gravity="center_vertical"
                     android:text="@string/read_more_section" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="?attr/material_theme_border_color"/>
-
                 <ListView
                     android:id="@+id/read_more_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:divider="?attr/list_separator_drawable"/>
+                    android:divider="?attr/list_separator_drawable_bottom_content" />
 
             </LinearLayout>
 
