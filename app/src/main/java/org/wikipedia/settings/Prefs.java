@@ -17,7 +17,6 @@ import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.json.SessionUnmarshaller;
 import org.wikipedia.json.TabUnmarshaller;
-import org.wikipedia.offline.Compilation;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ReleaseUtil;
@@ -537,29 +536,6 @@ public final class Prefs {
                 .equals(StringUtil.md5string(userName));
     }
 
-    public static List<Compilation> getCompilationCache() {
-        List<Compilation> compilations = new ArrayList<>();
-        return contains(R.string.preference_key_compilation_cache)
-                ? GsonUnmarshaller.unmarshal(new TypeToken<List<Compilation>>() { },
-                getString(R.string.preference_key_compilation_cache, null)) : compilations;
-    }
-
-    public static void setCompilationCache(@NonNull List<Compilation> compilations) {
-        setString(R.string.preference_key_compilation_cache, GsonMarshaller.marshal(compilations));
-    }
-
-    public static void setOfflineTutorialCardEnabled(boolean enabled) {
-        setBoolean(R.string.preference_key_offline_onboarding_card_enabled, enabled);
-    }
-
-    public static boolean isOfflineTutorialEnabled() {
-        return getBoolean(R.string.preference_key_offline_onboarding_enabled, false);
-    }
-
-    public static void setOfflineTutorialEnabled(boolean enabled) {
-        setBoolean(R.string.preference_key_offline_onboarding_enabled, enabled);
-    }
-
     public static boolean shouldDimDarkModeImages() {
         return getBoolean(R.string.preference_key_dim_dark_mode_images, true);
     }
@@ -574,10 +550,6 @@ public final class Prefs {
 
     public static boolean preferOfflineContent() {
         return getBoolean(R.string.preference_key_prefer_offline_content, false);
-    }
-
-    public static boolean offlineLibraryEnabled() {
-        return getBoolean(R.string.preference_key_enable_offline_library, false);
     }
 
     @NonNull public static List<Boolean> getFeedCardsEnabled() {

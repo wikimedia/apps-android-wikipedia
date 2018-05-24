@@ -37,8 +37,6 @@ import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.offline.LocalCompilationsActivity;
-import org.wikipedia.offline.OfflineTutorialActivity;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
@@ -57,9 +55,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
-import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_FEED_CONFIGURE;
-import static org.wikipedia.Constants.ACTIVITY_REQUEST_OFFLINE_TUTORIAL;
 
 public class FeedFragment extends Fragment implements BackPressedHandler {
     @BindView(R.id.feed_swipe_refresh_layout) SwipeRefreshLayout swipeRefreshLayout;
@@ -194,12 +190,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == ACTIVITY_REQUEST_OFFLINE_TUTORIAL && resultCode == RESULT_OK) {
-            Prefs.setOfflineTutorialCardEnabled(false);
-            Prefs.setOfflineTutorialEnabled(false);
-            refresh();
-            feedCallback.onViewCompilations();
-        } else if (requestCode == ACTIVITY_REQUEST_FEED_CONFIGURE
+        if (requestCode == ACTIVITY_REQUEST_FEED_CONFIGURE
                 && resultCode == ConfigureActivity.CONFIGURATION_CHANGED_RESULT) {
             coordinator.updateHiddenCards();
             refresh();
@@ -447,9 +438,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onAnnouncementPositiveAction(@NonNull Card card, @NonNull Uri uri) {
             funnel.cardClicked(card.type());
-            if (uri.toString().equals(UriUtil.LOCAL_URL_OFFLINE_LIBRARY)) {
-                onViewCompilations();
-            } else if (uri.toString().equals(UriUtil.LOCAL_URL_LOGIN)) {
+            if (uri.toString().equals(UriUtil.LOCAL_URL_LOGIN)) {
                 if (getCallback() != null) {
                     getCallback().onLoginRequested();
                 }
@@ -486,15 +475,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                     FeedbackUtil.LENGTH_DEFAULT);
             snackbar.setAction(R.string.page_error_retry, (v) -> view.getRandomPage());
             snackbar.show();
-        }
-
-        public void onViewCompilations() {
-            if (Prefs.isOfflineTutorialEnabled()) {
-                startActivityForResult(OfflineTutorialActivity.newIntent(getContext()),
-                        ACTIVITY_REQUEST_OFFLINE_TUTORIAL);
-            } else {
-                startActivity(LocalCompilationsActivity.newIntent(getContext()));
-            }
         }
 
         @Override
@@ -578,11 +558,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             }
             Prefs.setReadingListsLastSyncTime(null);
             Prefs.setReadingListSyncEnabled(false);
-        }
-
-        @Override
-        public void compilationsClick() {
-            feedCallback.onViewCompilations();
         }
     }
 }

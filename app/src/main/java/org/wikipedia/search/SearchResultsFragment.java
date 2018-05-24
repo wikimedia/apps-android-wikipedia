@@ -15,23 +15,18 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.facebook.drawee.view.SimpleDraweeView;
-
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.LongPressHandler;
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.SearchFunnel;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.offline.OfflineManager;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.log.L;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
@@ -80,7 +75,6 @@ public class SearchResultsFragment extends Fragment {
     @BindView(R.id.search_suggestion) TextView searchSuggestion;
     private Unbinder unbinder;
 
-    private WikipediaApp app;
     private final LruCache<String, List<SearchResult>> searchResultsCache = new LruCache<>(MAX_CACHE_SIZE_SEARCH_RESULTS);
     private Handler searchHandler;
     private String currentSearchTerm = "";
@@ -88,12 +82,6 @@ public class SearchResultsFragment extends Fragment {
     @NonNull private final List<SearchResult> totalResults = new ArrayList<>();
     private PrefixSearchClient prefixSearchClient = new PrefixSearchClient();
     private FullTextSearchClient fullTextSearchClient = new FullTextSearchClient();
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        app = WikipediaApp.getInstance();
-    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -203,32 +191,9 @@ public class SearchResultsFragment extends Fragment {
                 return true;
             }
             final String mySearchTerm = (String) msg.obj;
-            if (OfflineManager.hasCompilation() && !DeviceUtil.isOnline()) {
-                doOfflineSearch(mySearchTerm);
-            } else {
-                doTitlePrefixSearch(mySearchTerm);
-            }
+            doTitlePrefixSearch(mySearchTerm);
             return true;
         }
-    }
-
-    private void doOfflineSearch(final String searchTerm) {
-        searchSuggestion.setVisibility(View.GONE);
-        searchErrorView.setVisibility(View.GONE);
-        updateProgressBar(false);
-
-        List<SearchResult> resultList = new ArrayList<>();
-        try {
-            List<String> results = OfflineManager.instance().searchByPrefix(searchTerm, BATCH_SIZE);
-            for (String title : results) {
-                resultList.add(new SearchResult(new PageTitle(title, app.getWikiSite())));
-            }
-        } catch (IOException e) {
-            L.d(e);
-        }
-
-        clearResults();
-        displayResults(resultList);
     }
 
     private void doTitlePrefixSearch(final String searchTerm) {
@@ -511,7 +476,7 @@ public class SearchResultsFragment extends Fragment {
                 pageTitleText.setText(displayText);
             }
 
-            ViewUtil.loadImageUrlInto((SimpleDraweeView) convertView.findViewById(R.id.page_list_item_image),
+            ViewUtil.loadImageUrlInto(convertView.findViewById(R.id.page_list_item_image),
                     result.getPageTitle().getThumbUrl());
 
             // ...and lastly, if we've scrolled to the last item in the list, then

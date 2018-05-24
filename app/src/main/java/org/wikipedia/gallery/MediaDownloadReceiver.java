@@ -15,7 +15,6 @@ import android.support.annotation.Nullable;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.image.FeaturedImage;
-import org.wikipedia.offline.Compilation;
 import org.wikipedia.util.FileUtil;
 
 import java.io.File;
@@ -31,12 +30,6 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
 
     public void setCallback(@Nullable Callback callback) {
         this.callback = callback;
-    }
-
-    public static void download(@NonNull Context context, @NonNull Compilation compilation) {
-        String filename = FileUtil.sanitizeFileName(compilation.uri().getLastPathSegment());
-        String targetDirectory = Environment.DIRECTORY_DOWNLOADS;
-        performDownloadRequest(context, compilation.uri(), targetDirectory, filename, Compilation.MIME_TYPE);
     }
 
     public static void download(@NonNull Context context, @NonNull FeaturedImage featuredImage) {

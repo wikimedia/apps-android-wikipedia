@@ -233,7 +233,6 @@ dependencies {
     implementation 'org.apache.commons:commons-lang3:3.5'
     implementation "commons-io:commons-io:2.5"
     implementation 'org.jsoup:jsoup:1.10.2'
-    implementation 'com.dmitrybrant:zimdroid:0.0.14'
 
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
 

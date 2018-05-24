@@ -32,8 +32,6 @@ import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.offline.OfflineContentProvider;
-import org.wikipedia.offline.OfflineManager;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagesClient;
@@ -53,7 +51,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -373,11 +370,7 @@ public class PageFragmentLoadState {
         L10nUtil.setupDirectionality(model.getTitle().getWikiSite().languageCode(), Locale.getDefault(),
                 bridge);
 
-        if (Prefs.preferOfflineContent() && OfflineManager.instance().titleExists(model.getTitle().getDisplayText())) {
-            pageLoadFromCompilation();
-        } else {
-            pageLoadFromNetwork((final Throwable networkError) -> fragment.onPageLoadError(networkError));
-        }
+        pageLoadFromNetwork((final Throwable networkError) -> fragment.onPageLoadError(networkError));
     }
 
     private void pageLoadFromNetwork(final ErrorCallback errorCallback) {
@@ -412,10 +405,6 @@ public class PageFragmentLoadState {
                     }
 
                     @Override public void onFailure(@NonNull Call<PageLead> call, @NonNull Throwable t) {
-                        if (OfflineManager.instance().titleExists(model.getTitle().getDisplayText())) {
-                            pageLoadFromCompilation();
-                            return;
-                        }
                         L.e("PageLead error: ", t);
                         commonSectionFetchOnCatch(t, startSequenceNum);
                     }
@@ -430,71 +419,6 @@ public class PageFragmentLoadState {
             }
         }
         return null;
-    }
-
-    private void pageLoadFromCompilation() {
-        String normalizedTitle = OfflineManager.instance().getNormalizedTitle(model.getTitle().getDisplayText());
-        PageTitle newTitle = TextUtils.isEmpty(normalizedTitle) ? model.getTitle()
-                : new PageTitle(normalizedTitle, model.getTitle().getWikiSite());
-
-        Page page = new Page(newTitle, new ArrayList<>(),
-                new PageProperties(newTitle, OfflineManager.instance().isMainPage(newTitle.getDisplayText())));
-
-        model.setPage(page);
-        editHandler.setPage(model.getPage());
-
-        leadImagesHandler.beginLayout((sequence) -> {
-            if (!fragment.isAdded() || !sequenceNumber.inSync(sequence)) {
-                return;
-            }
-            fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
-            loadContentsFromCompilation();
-        }, sequenceNumber.get());
-
-        if (webView.getVisibility() != View.VISIBLE) {
-            webView.setVisibility(View.VISIBLE);
-        }
-
-        refreshView.setRefreshing(false);
-        if (fragment.callback() != null) {
-            fragment.callback().onPageUpdateProgressBar(true, true, 0);
-        }
-    }
-
-    private void loadContentsFromCompilation() {
-        try {
-            Page page = model.getPage();
-            sendMarginPayload();
-            OfflineManager.HtmlResult result = OfflineManager.instance()
-                    .getHtmlForTitle(model.getTitle().getDisplayText());
-            page.setCompilation(result.compilation());
-            JSONObject zimPayload = setLeadSectionMetadata(new JSONObject(), page)
-                    .put("zimhtml", result.html())
-                    .put("fromRestBase", false)
-                    .put("offlineContentProvider", OfflineContentProvider.getBaseUrl());
-            if (page.isMainPage()) {
-                zimPayload.put("mainPageHint", fragment.getString(R.string.offline_library_main_page_hint_html));
-            }
-
-            if (sectionTargetFromTitle != null) {
-                //if we have a section to scroll to (from our PageTitle):
-                zimPayload.put("fragment", sectionTargetFromTitle);
-            } else if (!TextUtils.isEmpty(model.getTitle().getFragment())) {
-                // It's possible that the link was a redirect and the new title has a fragment
-                // scroll to it, if there was no fragment so far
-                zimPayload.put("fragment", model.getTitle().getFragment());
-            }
-
-            //give it our expected scroll position, in case we need the page to be pre-scrolled upon loading.
-            zimPayload.put("scrollY", (int) (stagedScrollY / DimenUtil.getDensityScalar()));
-            bridge.sendMessage("displayFromZim", zimPayload);
-            showOfflineCompilationMessage(result.compilation().name(), result.compilation().date());
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            fragment.onPageLoadError(e);
-        }
-        loading = false;
     }
 
     private void updateThumbnail(String thumbUrl) {
@@ -630,15 +554,6 @@ public class PageFragmentLoadState {
                     Toast.LENGTH_LONG).show();
         } catch (ParseException e) {
             // ignore
-        }
-    }
-
-    private void showOfflineCompilationMessage(@NonNull String compName, @NonNull Date date) {
-        if (fragment.isAdded()) {
-            String dateStr = DateUtil.getShortDateString(date);
-            Toast.makeText(fragment.getContext().getApplicationContext(),
-                    fragment.getString(R.string.page_offline_notice_compilation_download_date, compName, dateStr),
-                    Toast.LENGTH_LONG).show();
         }
     }
 

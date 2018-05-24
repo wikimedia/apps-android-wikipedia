@@ -35,8 +35,6 @@ import org.wikipedia.events.ReadingListsNoLongerSyncedEvent;
 import org.wikipedia.events.SplitLargeListsEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.events.WikipediaZeroEnterEvent;
-import org.wikipedia.offline.Compilation;
-import org.wikipedia.offline.OfflineManager;
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.recurring.RecurringTasksExecutor;
@@ -47,8 +45,6 @@ import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.log.L;
-
-import java.util.List;
 
 public abstract class BaseActivity extends AppCompatActivity {
     private static EventBusMethodsExclusive EXCLUSIVE_BUS_METHODS;
@@ -125,11 +121,8 @@ public abstract class BaseActivity extends AppCompatActivity {
                                            @NonNull int[] grantResults) {
         switch (requestCode) {
             case Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION:
-                if (PermissionUtil.isPermitted(grantResults)) {
-                    searchOfflineCompilations(true);
-                } else {
+                if (!PermissionUtil.isPermitted(grantResults)) {
                     L.i("Write permission was denied by user");
-                    onOfflineCompilationsError(new RuntimeException(getString(R.string.offline_read_permission_error)));
                     if (PermissionUtil.shouldShowWritePermissionRationale(this)) {
                         showStoragePermissionSnackbar();
                     } else {
@@ -168,40 +161,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected void onGoOnline() {
-    }
-
-    protected void onOfflineCompilationsFound() {
-    }
-
-    protected void onOfflineCompilationsError(Throwable t) {
-    }
-
-    public void searchOfflineCompilationsWithPermission(boolean force) {
-        if (!PermissionUtil.hasWriteExternalStoragePermission(this)) {
-           requestStoragePermission();
-        } else {
-            searchOfflineCompilations(force);
-        }
-    }
-
-    private void searchOfflineCompilations(boolean force) {
-        if ((!DeviceUtil.isOnline() && OfflineManager.instance().shouldSearchAgain()) || force) {
-            OfflineManager.instance().searchForCompilations(new OfflineManager.Callback() {
-                @Override
-                public void onCompilationsFound(@NonNull List<Compilation> compilations) {
-                    if (isDestroyed()) {
-                        return;
-                    }
-                    onOfflineCompilationsFound();
-                }
-
-                @Override
-                public void onError(@NonNull Throwable t) {
-                    L.e(t);
-                    onOfflineCompilationsError(t);
-                }
-            });
-        }
     }
 
     private void requestStoragePermission() {

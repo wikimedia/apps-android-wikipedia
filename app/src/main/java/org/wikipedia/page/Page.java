@@ -4,10 +4,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
-import org.wikipedia.offline.Compilation;
 import org.wikipedia.settings.RbSwitch;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,9 +18,6 @@ public class Page {
     @NonNull private final PageTitle title;
     @NonNull private final List<Section> sections;
     @NonNull private final PageProperties pageProperties;
-
-    @Nullable private String compName;
-    @Nullable private Date compDate;
 
     /**
      * An indicator what payload version the page content was originally retrieved from.
@@ -93,23 +88,6 @@ public class Page {
 
     public boolean isArticle() {
         return !isMainPage() && getTitle().namespace() == Namespace.MAIN;
-    }
-
-    public boolean isFromOfflineCompilation() {
-        return compName != null;
-    }
-
-    @Nullable public Date getCompilationDate() {
-        return compDate;
-    }
-
-    @Nullable public String getCompilationName() {
-        return compName;
-    }
-
-    public void setCompilation(@NonNull Compilation comp) {
-        this.compName = comp.name();
-        this.compDate = comp.date();
     }
 
     /** For old PHP API */

@@ -17,7 +17,6 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.auth.AccountUtil;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
 
 import butterknife.BindView;
@@ -29,13 +28,11 @@ public class ExploreOverflowView extends FrameLayout {
     public interface Callback {
         void loginClick();
         void logoutClick();
-        void compilationsClick();
         void settingsClick();
         void donateClick();
         void configureCardsClick();
     }
 
-    @BindView(R.id.explore_overflow_compilations) View compilationsView;
     @BindView(R.id.explore_overflow_account_name) TextView accountName;
     @BindView(R.id.explore_overflow_log_out) View logout;
     @Nullable private Callback callback;
@@ -59,7 +56,7 @@ public class ExploreOverflowView extends FrameLayout {
 
     @OnClick({R.id.explore_overflow_settings, R.id.explore_overflow_donate,
             R.id.explore_overflow_account_container, R.id.explore_overflow_log_out,
-            R.id.explore_overflow_compilations, R.id.explore_overflow_configure_cards})
+            R.id.explore_overflow_configure_cards})
     void onItemClick(View view) {
         if (popupWindowHost != null) {
             popupWindowHost.dismiss();
@@ -76,9 +73,6 @@ public class ExploreOverflowView extends FrameLayout {
                 break;
             case R.id.explore_overflow_configure_cards:
                 callback.configureCardsClick();
-                break;
-            case R.id.explore_overflow_compilations:
-                callback.compilationsClick();
                 break;
             case R.id.explore_overflow_settings:
                 callback.settingsClick();
@@ -101,10 +95,6 @@ public class ExploreOverflowView extends FrameLayout {
         CardView cardContainer = findViewById(R.id.explore_overflow_card_container);
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             cardContainer.setPreventCornerOverlap(false);
-        }
-
-        if (!Prefs.offlineLibraryEnabled()) {
-            compilationsView.setVisibility(GONE);
         }
 
         if (AccountUtil.isLoggedIn()) {

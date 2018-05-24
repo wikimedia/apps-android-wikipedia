@@ -6,13 +6,8 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.dataclient.DummyClient;
 import org.wikipedia.feed.model.Card;
-import org.wikipedia.offline.OfflineManager;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.SiteInfoClient;
-import org.wikipedia.util.DeviceUtil;
-import org.wikipedia.util.log.L;
-
-import java.io.IOException;
 
 public class MainPageClient extends DummyClient {
     @Override public Card getNewCard(WikiSite wiki) {
@@ -22,14 +17,6 @@ public class MainPageClient extends DummyClient {
     @NonNull
     public static PageTitle getMainPageTitle() {
         WikipediaApp app = WikipediaApp.getInstance();
-        PageTitle title = new PageTitle(SiteInfoClient.getMainPageForLang(app.getAppOrSystemLanguageCode()), app.getWikiSite());
-        if (OfflineManager.hasCompilation() && !DeviceUtil.isOnline()) {
-            try {
-                title = new PageTitle(OfflineManager.instance().getMainPageTitle(), app.getWikiSite());
-            } catch (IOException e) {
-                L.e(e);
-            }
-        }
-        return title;
+        return new PageTitle(SiteInfoClient.getMainPageForLang(app.getAppOrSystemLanguageCode()), app.getWikiSite());
     }
 }

@@ -9,10 +9,8 @@ import org.wikipedia.feed.announcement.AnnouncementClient;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.offline.OfflineCardClient;
-import org.wikipedia.feed.offline.OfflineCompilationClient;
 import org.wikipedia.feed.onboarding.OnboardingClient;
 import org.wikipedia.feed.searchbar.SearchClient;
-import org.wikipedia.offline.OfflineManager;
 import org.wikipedia.util.DeviceUtil;
 
 import java.util.ArrayList;
@@ -39,7 +37,6 @@ public class FeedCoordinator extends FeedCoordinatorBase {
         boolean online = DeviceUtil.isOnline();
 
         conditionallyAddPendingClient(new SearchClient(), age == 0);
-        conditionallyAddPendingClient(new OfflineCompilationClient(), age == 0 && !online && OfflineManager.hasCompilation());
         conditionallyAddPendingClient(new OnboardingClient(), age == 0);
         conditionallyAddPendingClient(new AnnouncementClient(), age == 0 && online);
 

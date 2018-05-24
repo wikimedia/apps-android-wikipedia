@@ -106,31 +106,6 @@
 
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/search_offline_library_state"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="6dp"
-        android:background="?attr/page_toolbar_color">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:textColor="?attr/page_toolbar_icon_color"
-            android:textStyle="italic"
-            android:text="@string/offline_library_search_results_state"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="?attr/material_theme_border_color"/>
-
-    </FrameLayout>
-
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
