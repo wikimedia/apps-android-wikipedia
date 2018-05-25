@@ -96,11 +96,16 @@
   <string name="login_activity_title">Saioa hasi Wikipedian</string>
   <string name="login_in_progress_dialog_message">Saioa hasten…</string>
   <string name="login_success_toast">Saio hasiera egina!</string>
+  <string name="reset_password_title">Zure pasahitza ezarri</string>
+  <string name="reset_password_description">Aldi baterako pasahitza erabiliz hasi duzu saioa. \nSaio hasten amaitzeko, mesedez ezarri ezazu pasahitz berria hemen.</string>
+  <string name="reset_password_hint">Pasahitz berria</string>
+  <string name="reset_password_button">Gorde eta hasi saioa</string>
   <string name="preference_title_logout">Saioa itxi</string>
   <string name="toast_logout_complete">Saioa itxita</string>
   <string name="history_empty_title">Ez dago azkenaldian ikusitako orririk!</string>
   <string name="history_empty_message">Egin hemen irakurri duzunaren jarraipena.</string>
   <string name="search_empty_message">Bilatu eta irakurri doako entziklopedia zure hizkuntzan</string>
+  <string name="search_empty_message_multilingual_upgrade">Bilatu Wikipedia beste hizkuntzatan</string>
   <string name="delete_selected_items">Ezabatu aukeratutako item-ak</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Erabiltzaile izena</string>
@@ -259,6 +264,7 @@
   <string name="tool_tip_share">Gertaera interesgarri bat nabarmendu ondoren, saiatu zure sare gustokoenak partekatzea!</string>
   <string name="page_view_in_browser">Orria nabigatzailean ikusi</string>
   <string name="tool_tip_toc_button">Ikusi edukien taula edozein unetan botoi hau sakatuz, edo pantailaren eskuineko ertzetik irristatuz.</string>
+  <string name="tool_tip_lang_button">Orain hainbat Wikipedia hizkuntzatan bilatu eta irakurri ahalko duzu aplikazioan.\n\nSakatu ikonoa hizkuntza gehiago gehitzeko.</string>
   <string name="error_response_malformed">Zerbitzariaren erantzuna ez da formateatu behar bezala.</string>
   <string name="error_unknown">Ezezaguna den errorea gertatu da.</string>
   <string name="format_error_server_message">Mezua:\'\'%s\'\'</string>
@@ -479,6 +485,7 @@
   <string name="feed_configure_menu_reset">Leheneratu ikuspegi lehenetsiak</string>
   <string name="feed_configure_menu_select_all">Dena erakutsi</string>
   <string name="feed_configure_menu_deselect_all">Dena ezkutatu</string>
+  <string name="feed_configure_language_warning">Jakin ezazu txartel guztiak ez daudela erabilgarri Wikipedia hizkuntza guztietan. Aldatu aukeratutako hizkuntza Ezarpenetan.</string>
   <string name="feed_item_type_news">Eguneko ekitaldiei buruzko artikuluak</string>
   <string name="feed_item_type_on_this_day">Gaurko eguneko historian zehar gertaturiko ekitaldiak</string>
   <string name="feed_item_type_continue_reading">Lotura azkarra zure betile batean irekita zegoen artikulu batera itzultzeko</string>
@@ -610,4 +617,13 @@
     <item quantity="one">Iaz</item>
     <item quantity="other">Orain dela %d urte</item>
   </plurals>
+  <string name="wikipedia_languages_title">Wikipedia hizkuntzak</string>
+  <string name="wikipedia_languages_your_languages_text">Zure hizkuntzak</string>
+  <string name="wikipedia_languages_add_language_text">Gehitu hizkuntza</string>
+  <string name="wikipedia_languages_remove_text">Kendu</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Kendu hizkuntza</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Ezin dira hizkuntza guztiak ezabatu</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Gorde ezazu behintzat Wikipedia hizkuntza bat zeinetatik edukia bilatu eta irakurri ahalko duzun.</string>
+  <string name="more_language_options">gehiago</string>
+  <string name="add_wikipedia_languages_text">Wikipedia hizkuntzak gehitu</string>
 </resources>

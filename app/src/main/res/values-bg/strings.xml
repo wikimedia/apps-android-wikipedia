@@ -196,6 +196,7 @@
   <string name="edit_summary_tag_other">Други</string>
   <string name="edit_summary_tag_other_hint">Други начини, по които подобрихте страницата</string>
   <string name="edit_conflict_title">Конфликт на редакции</string>
+  <string name="edit_conflict_message">Страницата вече е била променена от друг потребител, което възпрепятства вашата редакция. Моля, копирайте редакции си, върнете се и обновете страницата, след което се опитайте да редактирате отново.</string>
   <string name="find_next">Намиране на следващото</string>
   <string name="find_previous">Намиране на предходното</string>
   <string name="find_first_occurence">Това е първото срещане</string>
@@ -259,6 +260,7 @@
   <string name="tool_tip_share">След като маркирате интересен факт, пробвайте да го споделите в любимите си мрежи!</string>
   <string name="page_view_in_browser">Преглед на страницата в браузър</string>
   <string name="tool_tip_toc_button">Вижте съдържанието по всяко време като натиснете този бутон или като плъзнете десния край на екрана.</string>
+  <string name="tool_tip_lang_button">Сега можете да търсите и четете Уикипедия на различни езици в приложението.</string>
   <string name="error_response_malformed">Отговорът от сървъра не е правилно форматиран.</string>
   <string name="error_unknown">Възникна неизвестна грешка.</string>
   <string name="format_error_server_message">Съобщение: „%s“</string>

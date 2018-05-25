@@ -407,6 +407,7 @@
   <string name="reading_lists_limit_message">Nem készíthetsz új olvasólistát. Elérted a fiókonkénti 100 listás határt.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Szinkronizáld az olvasólistáidat&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Az olvasási listák mostantól szinkronizálhatók a különböző eszközeid között. Jelentkezz be a Wikipédia-fiókodba és engedélyezd a listáid mentését.</string>
   <string name="reading_lists_menu_create_list">Új lista készítése</string>
+  <string name="reading_lists_menu_sort_by">Rendezés</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Regisztráció/bejelentkezés</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">A szócikk mostantól kapcsolat nélkül is elérhető.</item>
@@ -586,6 +587,9 @@
   <string name="onboarding_create_account_contributions">Hozzájárulásaid nyomon követése</string>
   <string name="onboarding_create_account_preferences">Beállítások mentése</string>
   <string name="onboarding_got_it">Értem</string>
+  <string name="onboarding_multilingual_title">Keress és olvass közel 300 nyelven</string>
+  <string name="onboarding_multilingual_secondary_text">A következőket találtuk a készülékeden:</string>
+  <string name="onboarding_multilingual_add_language_text">Nyelvek hozzáadása vagy szerkesztése</string>
   <string name="app_shortcuts_random">Véletlen</string>
   <string name="app_shortcuts_continue_reading">Olvasás folytatása</string>
   <string name="app_shortcuts_search">Keresés</string>
@@ -601,6 +605,7 @@
     <item quantity="other">%d éve</item>
   </plurals>
   <string name="languages_list_activity_title">Nyelv megadása</string>
+  <string name="languages_list_suggested_text">Ajánlott</string>
   <string name="languages_list_all_text">Minden nyelv</string>
   <string name="wikipedia_languages_title">Wikipédia nyelvek</string>
   <string name="wikipedia_languages_your_languages_text">Nyelveid</string>
@@ -611,5 +616,6 @@
     <item quantity="one">Eltávolítod a kijelölt nyelvet?</item>
     <item quantity="other">Eltávolítod a kijelölt nyelveket?</item>
   </plurals>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Nem törölhető az összes nyelv</string>
   <string name="more_language_options">több</string>
 </resources>

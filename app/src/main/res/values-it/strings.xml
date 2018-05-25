@@ -20,6 +20,7 @@
 * Peg60
 * Pierpao
 * Redredsonia
+* RubatoStuf
 * Samuele2002
 * Sarah Bernabei
 * Selven
@@ -101,7 +102,7 @@
   <string name="search_history_no_results">Nessun risultato trovato nella cronologia</string>
   <string name="edit_section_captcha_message">Per aiutare a combattere lo spam automatico, inseririsci per favore le parole che compaiono sotto</string>
   <string name="edit_section_captcha_hint">Ripeti le parole dall\'alto</string>
-  <string name="title_captcha">Inserisci il captcha</string>
+  <string name="title_captcha">Inserisci il CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toccare il CAPTCHA per ricaricare</string>
   <string name="nav_item_login">Accedi a Wikipedia</string>
   <string name="login_username_hint">Nome utente</string>
@@ -117,9 +118,10 @@
   <string name="reset_password_button">Salva ed accedi</string>
   <string name="preference_title_logout">Esci</string>
   <string name="toast_logout_complete">Disconnesso</string>
-  <string name="history_empty_title">Nessuna voce vista recentemente</string>
+  <string name="history_empty_title">Nessuna voce visualizzata recentemente</string>
   <string name="history_empty_message">Traccia quello che hai letto qui.</string>
   <string name="search_empty_message">Cerca e leggi l\'enciclopedia libera nella tua lingua</string>
+  <string name="search_empty_message_multilingual_upgrade">Cerca in Wikipedia in più lingue</string>
   <string name="delete_selected_items">Cancella gli elementi selezionati</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome utente</string>
@@ -156,6 +158,7 @@
   <string name="send_feedback">Invia commento sull\'applicazione</string>
   <string name="create_account_account_created_toast">Utenza creata!</string>
   <string name="preference_title_sync_reading_lists">Sincronizza elenco di lettura</string>
+  <string name="preference_title_sync_reading_lists_from_account">Attiva la sincronizzazione degli elenchi di lettura</string>
   <string name="preference_summary_sync_reading_lists">Sincronizza gli elenchi di lettura su diversi dispositivi salvandoli sul tuo account Wikipedia</string>
   <string name="preferences_privacy_settings_heading">Privacy</string>
   <string name="preference_title_eventlogging_opt_in">Invia rapporti sull\'utilizzo</string>
@@ -206,7 +209,7 @@
   <string name="edit_conflict_title">Conflitto di edizione</string>
   <string name="find_next">Trova successivo</string>
   <string name="find_previous">Trova precedente</string>
-  <string name="abusefilter_title_warn">Questa potrebbe essere una modifica inutile. Sei sicuro di volerla pubblicare?</string>
+  <string name="abusefilter_title_warn">Questa potrebbe essere una modifica non costruttiva. Sei proprio sicuro di volerla pubblicare?</string>
   <string name="abusefilter_title_disallow">Non puoi pubblicare questa modifica. Per favore torna indietro e modificala.</string>
   <string name="abusefilter_text_warn">Un filtro automatico ha identificato inutile questa modifica. Potrebbe includere uno o più dei seguenti elementi:&lt;br /&gt;&lt;br /&gt;· Scritte tutte in maiuscolo&lt;br /&gt;· Articolo vuoto o di spam&lt;br /&gt;· Collegamenti esterni o immagini non pertinenti&lt;br /&gt;· Caratteri ripetuti</string>
   <string name="abusefilter_text_disallow">Un filtro automatico ha identificato questa modifica come potenzialmente inconcludente, o potenziale vandalismo.&lt;br /&gt;&lt;br /&gt;Wikipedia è un\'enciclopedia e devono esserci solo contenuti neutrali e degni di nota.</string>
