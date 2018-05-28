@@ -618,4 +618,5 @@
   </plurals>
   <string name="wikipedia_languages_remove_warning_dialog_title">Nem törölhető az összes nyelv</string>
   <string name="more_language_options">több</string>
+  <string name="add_wikipedia_languages_text">Wikipédia-nyelvek hozzáadása</string>
 </resources>
