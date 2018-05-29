@@ -2,6 +2,7 @@ package org.wikipedia.createaccount;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
@@ -24,6 +25,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.login.UserExtendedInfoClient;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.NonEmptyValidator;
 import org.wikipedia.views.WikiErrorView;
@@ -37,6 +39,7 @@ import butterknife.OnClick;
 import retrofit2.Call;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class CreateAccountActivity extends BaseActivity {
     public static final int RESULT_ACCOUNT_CREATED = 1;
@@ -156,7 +159,14 @@ public class CreateAccountActivity extends BaseActivity {
     }
 
     public void handleAccountCreationError(@NonNull String message) {
-        FeedbackUtil.showMessage(this, message);
+        if (message.contains("blocked")) {
+            FeedbackUtil.makeSnackbar(this, getString(R.string.create_account_ip_block_message), FeedbackUtil.LENGTH_DEFAULT)
+                    .setAction(R.string.create_account_ip_block_details, v -> visitInExternalBrowser(CreateAccountActivity.this,
+                            Uri.parse(getString(R.string.create_account_ip_block_help_url))))
+                    .show();
+        } else {
+            FeedbackUtil.showMessage(this, StringUtil.fromHtml(message));
+        }
         L.w("Account creation failed with result " + message);
     }
 

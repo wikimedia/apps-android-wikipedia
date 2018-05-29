@@ -45,7 +45,7 @@ class CreateAccountClient {
                 Constants.WIKIPEDIA_URL, email, captchaId, captchaWord);
         call.enqueue(new retrofit2.Callback<CreateAccountResponse>() {
             @Override
-            public void onResponse(Call<CreateAccountResponse> call, Response<CreateAccountResponse> response) {
+            public void onResponse(@NonNull Call<CreateAccountResponse> call, @NonNull Response<CreateAccountResponse> response) {
                 if (response.body().hasResult()) {
                     CreateAccountResponse result = response.body();
                     if ("PASS".equals(result.status())) {
@@ -61,7 +61,7 @@ class CreateAccountClient {
             }
 
             @Override
-            public void onFailure(Call<CreateAccountResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<CreateAccountResponse> call, @NonNull Throwable t) {
                 cb.failure(call, t);
             }
         });
@@ -71,7 +71,7 @@ class CreateAccountClient {
     @VisibleForTesting interface Service {
         @SuppressWarnings("checkstyle:parameternumber")
         @FormUrlEncoded
-        @POST("w/api.php?action=createaccount&format=json&formatversion=2")
+        @POST("w/api.php?action=createaccount&format=json&formatversion=2&createmessageformat=html")
         Call<CreateAccountResponse> request(@NonNull @Field("username") String user,
                                             @NonNull @Field("password") String pass,
                                             @NonNull @Field("retype") String retype,
