@@ -105,6 +105,7 @@
   <string name="login_in_progress_dialog_message">Logowanie…</string>
   <string name="login_success_toast">Zalogowano pomyślnie!</string>
   <string name="reset_password_hint">Nowe hasło</string>
+  <string name="reset_password_button">Zapisz i zaloguj się</string>
   <string name="preference_title_logout">Wyloguj</string>
   <string name="toast_logout_complete">Wylogowany(-a)</string>
   <string name="history_empty_title">Brak ostatnio oglądanych artykułów</string>
@@ -495,4 +496,5 @@
   </plurals>
   <string name="wikipedia_languages_remove_warning_dialog_title">Nie można usunąć wszystkich języków</string>
   <string name="more_language_options">więcej</string>
+  <string name="add_wikipedia_languages_text">Dodaj języki Wikipedii</string>
 </resources>

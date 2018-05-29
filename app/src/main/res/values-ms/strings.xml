@@ -93,11 +93,16 @@
   <string name="login_activity_title">Log masuk ke dalam Wikipedia</string>
   <string name="login_in_progress_dialog_message">Sedang log masuk…</string>
   <string name="login_success_toast">Berjaya log masuk!</string>
+  <string name="reset_password_title">Tetapkan kata laluan anda</string>
+  <string name="reset_password_description">Anda log masuk dengan kata laluan sementara. Untuk menyelesaikan log masuk, sila tetapkan kata laluan baru anda di sini.</string>
+  <string name="reset_password_hint">Kata laluan baru</string>
+  <string name="reset_password_button">Simpan dan log masuk</string>
   <string name="preference_title_logout">Log keluar</string>
   <string name="toast_logout_complete">Log keluar</string>
   <string name="history_empty_title">Tiada rencana baru dilihat</string>
   <string name="history_empty_message">Menjejaki apa yang anda telah membaca di sini.</string>
   <string name="search_empty_message">Cari dan baca ensiklopedia bebas dalam bahasa anda</string>
+  <string name="search_empty_message_multilingual_upgrade">Cari Wikipedia dalam banyak bahasa</string>
   <string name="delete_selected_items">Padam item yang dipilih</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nama pengguna</string>
@@ -258,6 +263,7 @@
   <string name="tool_tip_share">Setelah menyoroti fakta menarik, cuba anda sebarkannya dalam rangkaian kegemaran anda.</string>
   <string name="page_view_in_browser">Paparkan laman dalam pelayar</string>
   <string name="tool_tip_toc_button">Lihat jadual kandungan bila-bila masa dengan mengetik butang ini, atau meluncur dari tepi kanan skrin</string>
+  <string name="tool_tip_lang_button">Anda kini boleh mencari dan membaca dalam pelbagai bahasa Wikipedia dalam aplikasinya.\n\n\nKetuk pada ikon untuk menambah lebih banyak bahasa.</string>
   <string name="error_response_malformed">Respons dari pelayan tidak diformatkan dengan betul.</string>
   <string name="error_unknown">Berlakunya ralat yang tidak diketahui.</string>
   <string name="format_error_server_message">Mesej: \"%s\"</string>
@@ -615,6 +621,9 @@
   <string name="onboarding_create_account_contributions">Jejaki sumbangan anda</string>
   <string name="onboarding_create_account_preferences">Simpan keutamaan anda</string>
   <string name="onboarding_got_it">Faham</string>
+  <string name="onboarding_multilingual_title">Cari dan baca di hampir 300 bahasa</string>
+  <string name="onboarding_multilingual_secondary_text">Kami telah menemui bahasa berikut pada peranti anda:</string>
+  <string name="onboarding_multilingual_add_language_text">Tambah atau sunting bahasa</string>
   <string name="app_shortcuts_random">Rawak</string>
   <string name="app_shortcuts_continue_reading">Teruskan membaca</string>
   <string name="app_shortcuts_search">Cari</string>
@@ -645,4 +654,5 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">Tidak dapat membuang semua bahasa</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Pastikan sekurang-kurangnya satu bahasa Wikipedia yang boleh digunakan untuk mencari dan membaca kandungan.</string>
   <string name="more_language_options">lagi</string>
+  <string name="add_wikipedia_languages_text">Tambah bahasa Wikipedia</string>
 </resources>

@@ -54,12 +54,13 @@
   <string name="content_license_html">আন একো উল্লেখ নকৰিলে এই সমল &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ৰ আওতাত উপলব্ধ</string>
   <string name="edit_save_action_license_logged_in">সাঁচি থওঁতে আপুনি &lt;a href=\"%1$s\"&gt;ব্যৱহাৰৰ চৰ্তাৱলী&lt;/a&gt;ত সন্মতি প্ৰকাশ কৰিছে, আৰু অপৰিৱৰ্তনীয়ভাৱে আপোনাৰ বৰঙণি &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; অনুজ্ঞাপত্ৰৰ আধাৰত মুকলি কৰিছে।</string>
   <string name="edit_save_action_license_anon">সাঁচি থওঁতে আপুনি &lt;a href=\"%1$s\"&gt;ব্যৱহাৰৰ চৰ্তাৱলী&lt;/a&gt;ত সন্মতি প্ৰকাশ কৰিছে, আৰু অপৰিৱৰ্তনীয়ভাৱে আপোনাৰ বৰঙণি &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; অনুজ্ঞাপত্ৰৰ আধাৰত মুকলি কৰিছে। সম্পাদনাসমূহ আপোনাৰ সঁজুলিৰ আই পি ঠিকনাৰ লগত যুক্ত কৰা হ\'ব। আপুনি &lt;a href=\"https://#login\"&gt;লগ্‌ ইন&lt;/a&gt; কৰিলে অধিক গোপনীয়তা লাভ কৰিব।</string>
-  <string name="preference_title_language" fuzzy="true">ৱিকিপিডিয়া ভাষা</string>
+  <string name="preference_title_language">ৱিকিপিডিয়াৰ ভাষাসমূহ</string>
   <string name="preference_languages_filter_hint">সন্ধান কৰক</string>
   <string name="langlinks_filter_hint">সন্ধান কৰক</string>
   <string name="langlinks_empty">এই পৃষ্ঠাটো আন ভাষাত উপলব্ধ নহয়</string>
   <string name="langlinks_no_match">কোনো ভাষা পোৱা নগ\'ল</string>
   <string name="langlinks_activity_title">আন ভাষাসমূহ</string>
+  <string name="langlinks_your_wikipedia_languages">আপোনাৰ ৱিকিপিডিয়া ভাষাসমূহ</string>
   <string name="menu_save_changes">সালসলনি প্ৰকাশ কৰক</string>
   <string name="dialog_saving_in_progress">প্ৰকাশ হৈ আছে...</string>
   <string name="edit_saved_successfully">সম্পাদনা প্ৰকাশিত হৈছে!</string>
@@ -87,11 +88,16 @@
   <string name="login_activity_title">ৱিকিপিডিয়াত প্ৰৱেশ কৰক</string>
   <string name="login_in_progress_dialog_message">আপুনি প্ৰৱেশ কৰিছে…</string>
   <string name="login_success_toast">প্ৰৱেশ সফল হ\'ল!</string>
+  <string name="reset_password_title">আপোনাৰ গুপ্তশব্দ লিখক</string>
+  <string name="reset_password_description">আপুনি এটা অস্থায়ী গুপ্তশব্দৰে প্ৰৱেশ কৰিছে। প্ৰৱেশ সম্পূৰ্ণ কৰিবলৈ আপুনি ইয়াত এটা নতুন গুপ্তশব্দ নিৰ্ধাৰণ কৰিব লাগিব।</string>
+  <string name="reset_password_hint">নতুন গুপ্তশব্দ</string>
+  <string name="reset_password_button">সাঁচক আৰু প্ৰৱেশ কৰক</string>
   <string name="preference_title_logout">প্ৰস্থান</string>
   <string name="toast_logout_complete">প্ৰস্থান হ\'ল</string>
   <string name="history_empty_title">কোনো শেহতীয়াকৈ পঢ়া পৃষ্ঠা নাই</string>
   <string name="history_empty_message">আপুনি ইয়াত কি পঢ়িছে সেয়া অনুসৰণ কৰক।</string>
   <string name="search_empty_message">আপোনাৰ ভাষাত মুক্ত বিশ্বকোষ সন্ধান কৰক আৰু পঢ়ক</string>
+  <string name="search_empty_message_multilingual_upgrade">অধিক ভাষাত ৱিকিপিডিয়া সন্ধান কৰক</string>
   <string name="delete_selected_items">নিৰ্বাচিত আইটেম বিলোপ কৰক</string>
   <string name="wp_stylized">&lt;big&gt;ৱি&lt;/big&gt;কিপিডি&lt;big&gt;য়া&lt;/big&gt;</string>
   <string name="create_account_username_hint">সদস্যনাম</string>
