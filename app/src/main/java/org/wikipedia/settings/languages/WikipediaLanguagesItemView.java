@@ -1,6 +1,8 @@
 package org.wikipedia.settings.languages;
 
 import android.content.Context;
+import android.graphics.PorterDuff;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -12,10 +14,13 @@ import android.widget.TextView;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
+
+import static org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER;
 
 public class WikipediaLanguagesItemView extends LinearLayout {
     public interface Callback {
@@ -25,6 +30,7 @@ public class WikipediaLanguagesItemView extends LinearLayout {
     @BindView(R.id.wiki_language_order) TextView orderView;
     @BindView(R.id.wiki_language_checkbox) CheckBox checkBox;
     @BindView(R.id.wiki_language_title) TextView titleView;
+    @BindView(R.id.wiki_language_code) TextView langCodeView;
     @BindView(R.id.wiki_language_drag_handle) View dragHandleView;
     @Nullable private Callback callback;
     private int position;
@@ -48,10 +54,15 @@ public class WikipediaLanguagesItemView extends LinearLayout {
         this.callback = callback;
     }
 
-    public void setContents(String languageLocalizedName, int position) {
+    public void setContents(@NonNull String langCode, @Nullable String languageLocalizedName, int position) {
         this.position = position;
         orderView.setText(String.valueOf(position + 1));
         titleView.setText(StringUtils.capitalize(languageLocalizedName));
+        ViewUtil.formatLangButton(langCodeView, langCode, LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_SMALLER);
+        langCodeView.setText(langCode);
+        langCodeView.setTextColor(ResourceUtil.getThemedColor(getContext(), R.attr.material_theme_de_emphasised_color));
+        langCodeView.getBackground().setColorFilter(ResourceUtil.getThemedColor(getContext(), R.attr.material_theme_de_emphasised_color),
+                PorterDuff.Mode.SRC_IN);
     }
 
     public void setCheckBoxEnabled(boolean enabled) {
