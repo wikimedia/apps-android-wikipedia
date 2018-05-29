@@ -207,7 +207,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
 
 
     private void showMultiLingualOnboarding() {
-        if (Prefs.isMultilingualSearchTutorialEnabled() && WikipediaApp.getInstance().language().getRemainingAvailableLanguageCodes().size() > 0) {
+        if (Prefs.isMultilingualSearchTutorialEnabled()) {
             FeedbackUtil.showTapTargetView(requireActivity(), langButton, R.string.empty,
                     R.string.tool_tip_lang_button, null);
             Prefs.setMultilingualSearchTutorialEnabled(false);
