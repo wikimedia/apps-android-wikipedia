@@ -251,7 +251,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         return model.isInReadingList();
     }
 
-    public PageTitle getTitleOriginal() {
+    @Nullable public PageTitle getTitleOriginal() {
         return model.getTitleOriginal();
     }
 

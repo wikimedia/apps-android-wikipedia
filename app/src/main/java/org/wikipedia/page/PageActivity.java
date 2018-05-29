@@ -923,7 +923,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
 
         @Subscribe public void on(@NonNull ArticleSavedOrDeletedEvent event) {
-            if (pageFragment == null || !pageFragment.isAdded()) {
+            if (pageFragment == null || !pageFragment.isAdded() || pageFragment.getTitleOriginal() == null) {
                 return;
             }
             for (ReadingListPage page : event.getPages()) {
