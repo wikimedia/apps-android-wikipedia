@@ -10,6 +10,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.text.method.LinkMovementMethod;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
@@ -29,7 +30,7 @@ import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public final class FeedbackUtil {
     public static final int LENGTH_DEFAULT = (int) TimeUnit.SECONDS.toMillis(5);
-    private static final int SNACKBAR_MAX_LINES = 5;
+    private static final int SNACKBAR_MAX_LINES = 10;
     private static View.OnLongClickListener TOOLBAR_LONG_CLICK_LISTENER = (v) -> {
         showToolbarButtonToast(v);
         return true;
@@ -111,6 +112,7 @@ public final class FeedbackUtil {
         Snackbar snackbar = Snackbar.make(view, text, duration);
         TextView textView = snackbar.getView().findViewById(R.id.snackbar_text);
         textView.setMaxLines(SNACKBAR_MAX_LINES);
+        textView.setMovementMethod(LinkMovementMethod.getInstance());
         TextView actionView = snackbar.getView().findViewById(R.id.snackbar_action);
         actionView.setTextColor(ContextCompat.getColor(view.getContext(), R.color.green50));
         adjustLayoutParamsIfRequired(snackbar, activity);
