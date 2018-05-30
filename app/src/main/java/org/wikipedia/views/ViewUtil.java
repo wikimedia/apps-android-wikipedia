@@ -141,7 +141,8 @@ public final class ViewUtil {
         });
     }
 
-    public static void formatLangButton(TextView langButton, String langCode, int langButtonTextSizeSmaller, int langButtonTextSizeLarger) {
+    public static void formatLangButton(@NonNull TextView langButton, @NonNull String langCode,
+                                        int langButtonTextSizeSmaller, int langButtonTextSizeLarger) {
         final int langCodeStandardLength = 3;
         final int langButtonTextMaxLength = 7;
 

@@ -310,7 +310,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
         }
 
         void bindItem(String languageCode, int position) {
-            getView().setContents(app.language().getAppLanguageLocalizedName(languageCode), position);
+            getView().setContents(languageCode, app.language().getAppLanguageLocalizedName(languageCode), position);
         }
     }
 
