@@ -19,6 +19,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.SearchEmptyView;
@@ -67,7 +68,7 @@ public class LanguagesListActivity extends BaseActivity {
         progressBar.setVisibility(View.VISIBLE);
 
         searchActionModeCallback = new LanguagesListActivity.LanguageSearchCallback();
-        new SiteMatrixClient().request(app.getWikiSite(), siteMatrixCallback);
+        new SiteMatrixClient().request(WikiSite.forLanguageCode(app.language().getSystemLanguageCode()), siteMatrixCallback);
 
         // TODO: add funnel?
     }
