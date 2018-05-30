@@ -127,6 +127,15 @@ public class WikiSite implements Parcelable {
         return authorityToMobile(authority());
     }
 
+    /**
+     * @return The canonical "desktop" form of the authority. For example, if the authority
+     * is in a "mobile" form, e.g. en.m.wikipedia.org, this will become en.wikipedia.org.
+     */
+    @NonNull
+    public String desktopAuthority() {
+        return authority().replace(".m.", ".");
+    }
+
     @NonNull
     public String subdomain() {
         return languageCodeToSubdomain(languageCode);

@@ -508,11 +508,12 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
                             } else if (client.isErrorType(t, "entry-limit")) {
                                 // TODO: handle more meaningfully than ignoring, for now.
                             } else if (client.isErrorType(t, "no-such-project")) {
-                                // Ignore the error, and silently remove the malformed page from the list.
-                                localPages.remove(i);
-                                newEntries.remove(i);
-                                i--;
-                                ReadingListDbHelper.instance().markPagesForDeletion(localList, Collections.singletonList(localPage), false);
+                                // Ignore the error, and give this malformed page a bogus remoteID,
+                                // so that we won't try syncing it again.
+                                localPage.remoteId(Integer.MAX_VALUE);
+                                // ...and also log it:
+                                L.logRemoteError(new RuntimeException("Attempted to sync malformed page: "
+                                        + localPage.wiki() + ", " + localPage.title()));
                             } else {
                                 throw t;
                             }
@@ -654,6 +655,6 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
 
     private RemoteReadingListEntry remoteEntryFromLocalPage(@NonNull ReadingListPage localPage) {
         PageTitle title = ReadingListPage.toPageTitle(localPage);
-        return new RemoteReadingListEntry(title.getWikiSite().scheme() + "://" + title.getWikiSite().authority(), title.getPrefixedText());
+        return new RemoteReadingListEntry(title.getWikiSite().scheme() + "://" + title.getWikiSite().desktopAuthority(), title.getPrefixedText());
     }
 }
