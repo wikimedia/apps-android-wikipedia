@@ -704,7 +704,7 @@
     <string name="wikipedia_languages_title">Wikipedia languages</string>
     <string name="wikipedia_languages_your_languages_text">Your languages</string>
     <string name="wikipedia_languages_add_language_text">Add language</string>
-    <string name="wikipedia_languages_remove_text">Remove</string>
+    <string name="wikipedia_languages_remove_text">Remove language</string>
     <string name="wikipedia_languages_remove_action_mode_title">Remove language</string>
     <plurals name="wikipedia_languages_remove_dialog_title">
         <item quantity="one">Remove selected language?</item>

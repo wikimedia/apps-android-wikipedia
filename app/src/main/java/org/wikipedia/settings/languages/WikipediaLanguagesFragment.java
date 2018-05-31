@@ -2,11 +2,9 @@ package org.wikipedia.settings.languages;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
@@ -26,7 +24,6 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.language.LanguagesListActivity;
-import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.MultiSelectActionModeCallback;
 
@@ -139,6 +136,15 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
         toggleSelectedLanguage(wikipediaLanguages.get(position));
     }
 
+    @Override
+    public void onLongPress(int position) {
+        if (actionMode == null) {
+            beginRemoveLanguageMode();
+        }
+        toggleSelectedLanguage(wikipediaLanguages.get(position));
+        adapter.notifyDataSetChanged();
+    }
+
     private void updateWikipediaLanguages() {
         app.language().setAppLanguageCodes(wikipediaLanguages);
         adapter.notifyDataSetChanged();
@@ -191,19 +197,19 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
                 WikipediaLanguageItemHolder itemHolder = ((WikipediaLanguageItemHolder) holder);
                 itemHolder.bindItem(wikipediaLanguages.get(pos - NUM_HEADERS), pos - NUM_FOOTERS);
                 itemHolder.getView().setCheckBoxEnabled(checkboxEnabled);
+                itemHolder.getView().setCheckBoxChecked(selectedCodes.contains(wikipediaLanguages.get(pos - NUM_HEADERS)));
                 itemHolder.getView().setDragHandleEnabled(wikipediaLanguages.size() > 1 && !checkboxEnabled);
-                itemHolder.getView().setOnClickListener(launchedFromSearch() && actionMode == null
-                        ? view -> {
-                            Intent resultIntent = new Intent();
-                            resultIntent.putExtra(ACTIVITY_RESULT_LANG_POSITION_DATA, pos - NUM_HEADERS);
-                            requireActivity().setResult(RESULT_OK, resultIntent);
-                            requireActivity().finish();
-                        } : null);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    itemHolder.getView().setForeground(launchedFromSearch() && actionMode == null
-                            ? ContextCompat.getDrawable(requireContext(),
-                            ResourceUtil.getThemedAttributeId(requireContext(), R.attr.selectableItemBackground)) : null);
-                }
+                itemHolder.getView().setOnClickListener(view -> {
+                    if (actionMode != null) {
+                        toggleSelectedLanguage(wikipediaLanguages.get(pos - NUM_HEADERS));
+                        adapter.notifyDataSetChanged();
+                    } else if (launchedFromSearch()) {
+                        Intent resultIntent = new Intent();
+                        resultIntent.putExtra(ACTIVITY_RESULT_LANG_POSITION_DATA, pos - NUM_HEADERS);
+                        requireActivity().setResult(RESULT_OK, resultIntent);
+                        requireActivity().finish();
+                    }
+                });
             }
         }
 
