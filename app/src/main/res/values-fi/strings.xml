@@ -112,6 +112,7 @@
   <string name="history_empty_title">Ei äskettäin tarkasteltuja artikkeleita</string>
   <string name="history_empty_message">Pidä kirjaa lukemisistasi.</string>
   <string name="search_empty_message">Etsi ja lue vapaata tietosanakirjaa omalla kielelläsi</string>
+  <string name="search_empty_message_multilingual_upgrade">Hae Wikipediasta useammilla kielillä</string>
   <string name="delete_selected_items">Poista valitut kohteet</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Käyttäjänimi</string>
@@ -131,6 +132,8 @@
   <string name="create_account_next">Seuraava</string>
   <string name="create_account_button">Luo tunnus</string>
   <string name="create_account_name_unavailable">Käyttäjänimi \"%s\" ei ole käytettävissä. Valitse toinen nimi.</string>
+  <string name="create_account_ip_block_message">IP-osoitteesi on tällä hetkellä estetty luomasta uusia tunnuksia.</string>
+  <string name="create_account_ip_block_details">Tiedot</string>
   <string name="preferences_general_heading">Yleiset</string>
   <string name="wikipedia_app_faq">Wikipedia-sovelluksen UKK</string>
   <string name="zero_charged_verbiage">Ilmainen pääsy Wikipediaan ei ole enää käytössä.</string>

@@ -26,6 +26,7 @@
 * Oashnic
 * Ochilov
 * Okras
+* Ole Yves
 * Patrick Star
 * Ping08
 * Redredsonia
@@ -151,6 +152,9 @@
   <string name="create_account_next">Далее</string>
   <string name="create_account_button">Создать учётную запись</string>
   <string name="create_account_name_unavailable">Имя пользователя \"%s\" недоступно. Пожалуйста, укажите иное имя.</string>
+  <string name="create_account_ip_block_message">Извините, ваш IP-адрес заблокирован от создания новых учётных записей.</string>
+  <string name="create_account_ip_block_help_url">https://ru.wikipedia.org/wiki/Википедия:Блокировки</string>
+  <string name="create_account_ip_block_details">Подробности</string>
   <string name="preferences_general_heading">Общие</string>
   <string name="wikipedia_app_faq">Частые вопросы о приложении «Википедия»</string>
   <string name="zero_charged_verbiage">Свободный доступ к Википедии больше не является активным.</string>

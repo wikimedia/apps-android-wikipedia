@@ -117,6 +117,9 @@
   <string name="create_account_next">Следно</string>
   <string name="create_account_button">Направи сметка</string>
   <string name="create_account_name_unavailable">Корисничкото име „%s“ е недостапно. Изберете друго.</string>
+  <string name="create_account_ip_block_message">За жал, вашата IP-адреса во мигов е спречена да создава нови сметки.</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_details">Подробно</string>
   <string name="preferences_general_heading">Општи</string>
   <string name="wikipedia_app_faq">ЧПП за прилогот „Википедија“</string>
   <string name="zero_charged_verbiage">Бесплатниот пристап до Википедија повеќе не е активен.</string>

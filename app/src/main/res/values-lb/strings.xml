@@ -112,6 +112,9 @@
   <string name="create_account_generic_error">Benotzerkont konnt net opgemaach ginn</string>
   <string name="create_account_next">Weider</string>
   <string name="create_account_button">Benotzerkont uleeën</string>
+  <string name="create_account_ip_block_message">Pardon, Är IP-Adress ass aktuell gespaart fir d\'uleeë vun neie Benotzerkonten.</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_details">Detailer</string>
   <string name="preferences_general_heading">Allgemeng</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="zero_charged_verbiage">Fräien Zougang op Wikipedia ass net méi aktiv.</string>

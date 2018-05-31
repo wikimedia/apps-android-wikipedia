@@ -98,6 +98,8 @@
   <string name="create_account_generic_error">מען קען נישט באשאפֿן קאנטע</string>
   <string name="create_account_next">נעקסט</string>
   <string name="create_account_button">שאַפֿן אַ קאנטע</string>
+  <string name="create_account_ip_block_message">זייט מוחל, אייער IP אַדרעס איז אַקטועל בלאָקירט פון שאַפן נייע קאָנטעס.</string>
+  <string name="create_account_ip_block_details">פּרטים</string>
   <string name="preferences_general_heading">אַלגעמיין</string>
   <string name="wikipedia_app_faq">וויקיפעדיע אפ שאלות ותשובות</string>
   <string name="zero_charged_verbiage">פֿרייער צוטריט צו וויקיפעדיע זערא איז מער נישט אקטיוו.</string>

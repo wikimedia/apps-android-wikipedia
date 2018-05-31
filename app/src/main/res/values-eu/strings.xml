@@ -69,6 +69,7 @@
   <string name="langlinks_empty">Orrialde hau ez dago eskuragarri beste hizkuntzetan.</string>
   <string name="langlinks_no_match">Hizkuntzarik ez da aurkitu</string>
   <string name="langlinks_activity_title">Beste hizkuntzak</string>
+  <string name="langlinks_your_wikipedia_languages">Zure Wikipedia hizkuntzak</string>
   <string name="menu_save_changes">Aldaketak argitaratu</string>
   <string name="dialog_saving_in_progress">Argitaratzen…</string>
   <string name="edit_saved_successfully">Aldaketa argitaratu da!</string>
@@ -603,6 +604,9 @@
   <string name="onboarding_create_account_contributions">Zure ekarpenen berri jaso</string>
   <string name="onboarding_create_account_preferences">Zure lehentasunak gorde</string>
   <string name="onboarding_got_it">Ulertuta</string>
+  <string name="onboarding_multilingual_title">Bilatu eta irakurri ia 300 hizkuntzatan</string>
+  <string name="onboarding_multilingual_secondary_text">Hurrengoak aurkitu ditugu zure gailuan:</string>
+  <string name="onboarding_multilingual_add_language_text">Hizkuntzak gehitu ala aldatu</string>
   <string name="app_shortcuts_random">Ausazkoa</string>
   <string name="app_shortcuts_continue_reading">Irakurtzen jarraitu</string>
   <string name="app_shortcuts_search">Bilatu</string>
@@ -617,6 +621,9 @@
     <item quantity="one">Iaz</item>
     <item quantity="other">Orain dela %d urte</item>
   </plurals>
+  <string name="languages_list_activity_title">Gehitu hizkuntza</string>
+  <string name="languages_list_suggested_text">Iradokia</string>
+  <string name="languages_list_all_text">Hizkuntza guztiak</string>
   <string name="wikipedia_languages_title">Wikipedia hizkuntzak</string>
   <string name="wikipedia_languages_your_languages_text">Zure hizkuntzak</string>
   <string name="wikipedia_languages_add_language_text">Gehitu hizkuntza</string>

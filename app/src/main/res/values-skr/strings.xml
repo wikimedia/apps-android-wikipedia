@@ -95,6 +95,7 @@
   <string name="create_account_generic_error">کھاتہ نی کھُل سڳیا</string>
   <string name="create_account_next">اڳوں تے ونڄو</string>
   <string name="create_account_button">کھاتہ کھولو</string>
+  <string name="create_account_ip_block_details">تفصیلاں</string>
   <string name="preferences_general_heading">عمومی</string>
   <string name="wikipedia_app_faq">ویکیپیڈیا ایپ عمومی سوالات</string>
   <string name="zero_webpage_title">وکی پیڈیا زیرو بار سوال جواب</string>

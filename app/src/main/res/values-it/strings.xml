@@ -140,6 +140,7 @@
   <string name="create_account_generic_error">Impossibile creare l\'account</string>
   <string name="create_account_next">Successivo</string>
   <string name="create_account_button">Crea un\'utenza</string>
+  <string name="create_account_ip_block_details">Dettagli</string>
   <string name="preferences_general_heading">Generale</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="zero_charged_verbiage">L\'accesso gratuito a Wikipedia non è più attivo.</string>

@@ -130,6 +130,9 @@
   <string name="create_account_next">下一步</string>
   <string name="create_account_button">建立帳號</string>
   <string name="create_account_name_unavailable">使用者名稱「%s」不可用。請選擇其它名稱。</string>
+  <string name="create_account_ip_block_message">很抱歉，您的 IP 位址目前已被封鎖而無法建立新帳號。</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_details">詳情</string>
   <string name="preferences_general_heading">一般</string>
   <string name="wikipedia_app_faq">維基百科應用程式常見問題</string>
   <string name="zero_charged_verbiage">免費訪問維基百科功能已不再提供。</string>

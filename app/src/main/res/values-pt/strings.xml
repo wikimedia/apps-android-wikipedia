@@ -128,6 +128,9 @@
   <string name="create_account_next">Seguinte</string>
   <string name="create_account_button">Criar conta</string>
   <string name="create_account_name_unavailable">O nome de utilizador \"%s\" não está disponível. Escolha um nome diferente, por favor.</string>
+  <string name="create_account_ip_block_message">Desculpe, o seu endereço IP está presentemente impedido de criar contas.</string>
+  <string name="create_account_ip_block_help_url">https://pt.wikipedia.org/wiki/Ajuda:Fui_bloqueado</string>
+  <string name="create_account_ip_block_details">Detalhes</string>
   <string name="preferences_general_heading">Geral</string>
   <string name="wikipedia_app_faq">Perguntas frequentes sobre a aplicação Wikipédia</string>
   <string name="zero_charged_verbiage">O acesso gratuito à Wikipédia já não está ativo.</string>

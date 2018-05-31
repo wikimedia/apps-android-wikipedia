@@ -206,6 +206,8 @@
   <string name="edit_conflict_message">Trang này dã bị sửa đổi bởi một người dùng khác, và sửa đổi này có mâu thuẫn với sửa đổi của bạn. Xin hãy sao chép sửa đổi của bạn, quay lại và tải lại trang, và thử sửa đổi lại xem sao.</string>
   <string name="find_next">Tìm tiếp</string>
   <string name="find_previous">Tìm trước</string>
+  <string name="find_first_occurence">Đây là lần đầu tiên</string>
+  <string name="find_last_occurence">Đầy là lần cuối cùng</string>
   <string name="abusefilter_title_warn">Sửa đổi này có vẻ không mang tính xây dựng. Bạn có chắc chắn muốn đăng nó lên?</string>
   <string name="abusefilter_title_disallow">Bạn không thể đăng sửa đổi này. Vui lòng quay lại và chỉnh sửa nó.</string>
   <string name="abusefilter_text_warn">Một bộ lọc đã tự động nhận ra sửa đổi này có thể không mang tính xây dựng. Nó có thể có một trong những vấn đề sau:&lt;br /&gt;&lt;br /&gt;· Viết tất cả bằng chữ hoa&lt;br /&gt;· Xóa trống hoặc đưa spam vào bài&lt;br /&gt;· Liên kết ngoài hoặc hình ảnh không có liên quan đến đề tài&lt;br /&gt;· Ký tự lặp lại</string>
@@ -415,6 +417,7 @@
   <string name="default_reading_list_description">Danh sách mặc định cho các bài bạn lưu</string>
   <string name="no_user_lists_title">Sắp xếp bài viết vào các danh sách</string>
   <string name="no_user_lists_msg">Tạo danh sách về những nơi bạn muốn du lịch, về những chủ đề bạn yêu thích và nhiều hơn nữa</string>
+  <string name="reading_list_saved_list_rename">%1$s (do người dùng tạo)</string>
   <string name="reading_list_article_limit_message">Không thể thêm vào danh sách này. Bạn đã đạt giới hạn %2$d bài viết của danh sách \"%1$s\".</string>
   <string name="reading_lists_limit_message">Không thể tạo thêm danh sách đọc. Bạn đã đạt giới hạn 100 danh sách tối đa trong một tài khoản.</string>
   <string name="reading_lists_menu_create_list">Tạo danh sách mới</string>
@@ -491,8 +494,11 @@
   <string name="view_featured_article_card_title">Bài viết chọn lọc</string>
   <string name="view_featured_article_footer_save_button_label">Lưu</string>
   <string name="view_featured_article_footer_saved_button_label">Đã lưu</string>
+  <string name="feed_configure_activity_title">Tùy biến nguồn cấp</string>
   <string name="feed_configure_menu_select_all">Hiển thị tất cả</string>
   <string name="feed_configure_menu_deselect_all">Ẩn tất cả</string>
+  <string name="feed_item_type_news">Bài về thời sự</string>
+  <string name="feed_item_type_on_this_day">Sự kiện xảy ra ngày này năm xưa</string>
   <string name="feed_item_type_trending">Các bài viết được xem nhiều nhất trong ngày</string>
   <string name="feed_item_type_main_page">Trang chính của Wikipedia với các nội dung chọn lọc hằng ngày</string>
   <string name="feed_item_type_randomizer">Đưa ra danh sách các bài viết ngẫu nhiên để đọc</string>
@@ -544,7 +550,7 @@
   <string name="offline_my_compilations">Quản lý thư viện ngoại tuyến</string>
   <string name="offline_compilations_title">Thư viện Ngoại tuyến</string>
   <string name="offline_compilations_search_by_name">Tìm gói bài theo tên</string>
-  <string name="offline_compilations_found_count" fuzzy="true">Trong thư viện của tôi (%d)</string>
+  <string name="offline_compilations_found_count">Trong Thư viện Ngoại tuyến của tôi (%d)</string>
   <string name="offline_compilations_add">Thêm vào Thư viện Ngoại tuyến</string>
   <string name="remote_compilations_title">Thư viện Ngoại tuyến</string>
   <string name="remote_compilations_description">Với Thư viện Ngoại tuyến, bạn có thể tải về các gói bài để đọc khi nào mất kết nối Internet.</string>
@@ -585,7 +591,7 @@
   <string name="onboarding_explore_title">Cách thám hiểm mới</string>
   <string name="onboarding_explore_text" fuzzy="true">Khám phá các bài viết chọn lọc, đề tài thịnh hành, và gợi ý đọc bài trong nguồn cấp Thám hiểm.</string>
   <string name="onboarding_save_to_reading_lists_title">Lưu vào danh sách đọc</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">Danh sách đọc có thể đồng bộ hóa</string>
+  <string name="onboarding_reading_list_sync_title">Danh sách đọc có thể đồng bộ hóa</string>
   <string name="onboarding_reading_list_sync_text" fuzzy="true">Tạo các danh sách đọc có những bài bạn muốn đọc sau, ngay cả khi ngoại tuyến. &lt;a href=\"#login\"&gt;Đăng nhập vào hoặc mở&lt;/a&gt; tài khoản Wikipedia sao lưu các danh sách đọc của bạn.</string>
   <string name="onboarding_analytics_title">Gửi dữ liệu vô danh</string>
   <string name="onboarding_analytics_switch_title">Gửi dữ liệu về cách dùng</string>

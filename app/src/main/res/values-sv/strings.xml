@@ -126,6 +126,9 @@
   <string name="create_account_next">Nästa</string>
   <string name="create_account_button">Skapa konto</string>
   <string name="create_account_name_unavailable">Användarnamnet \"%s\" är inte tillgängligt. Var god välj ett annat namn.</string>
+  <string name="create_account_ip_block_message">Tyvärr, din IP-adress har för tillfället blockerats från att skapa nya konton.</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_details">Detaljer</string>
   <string name="preferences_general_heading">Allmänt</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="zero_charged_verbiage">Fri tillgång till Wikipedia är inte längre aktiv.</string>

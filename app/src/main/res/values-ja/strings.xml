@@ -432,7 +432,7 @@
     <item quantity="other">%d日前</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">今日</string>
-  <string name="view_continue_reading_card_subtitle_read_date">%s日前に閲覧</string>
+  <string name="view_continue_reading_card_subtitle_read_date">%s閲覧</string>
   <string name="view_announcement_card_negative_action">いいえ</string>
   <string name="view_offline_card_text">オフラインではコンテンツが読み込めません。</string>
   <string name="view_featured_article_card_title">秀逸な記事</string>

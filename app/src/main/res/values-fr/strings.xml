@@ -142,6 +142,7 @@
   <string name="create_account_next">Suivant</string>
   <string name="create_account_button">Créer un compte</string>
   <string name="create_account_name_unavailable">Le nom d\'utilisateur \"%s\" n\'est pas disponible. Veuillez choisir un autre nom.</string>
+  <string name="create_account_ip_block_details">Détails</string>
   <string name="preferences_general_heading">Général</string>
   <string name="wikipedia_app_faq">FAQ des applis Wikipédia</string>
   <string name="zero_charged_verbiage">L’accès libre à Wikipédia Zéro n’est plus actif.</string>
