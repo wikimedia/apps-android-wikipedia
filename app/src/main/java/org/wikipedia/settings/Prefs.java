@@ -709,5 +709,13 @@ public final class Prefs {
         setBoolean(R.string.preference_key_multilingual_search_tutorial_enabled, enabled);
     }
 
+    public static void shouldShowRemoveChineseVariantPrompt(boolean enabled) {
+        setBoolean(R.string.preference_key_show_remove_chinese_variant_prompt, enabled);
+    }
+
+    public static boolean shouldShowRemoveChineseVariantPrompt() {
+        return getBoolean(R.string.preference_key_show_remove_chinese_variant_prompt, true);
+    }
+
     private Prefs() { }
 }

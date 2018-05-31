@@ -82,7 +82,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
 
     DeveloperSettingsPreferenceLoader(@NonNull PreferenceFragmentCompat fragment) {
         super(fragment);
-        this.context = fragment.getActivity();
+        this.context = fragment.requireActivity();
     }
 
     @Override

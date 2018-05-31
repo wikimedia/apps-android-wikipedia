@@ -10,6 +10,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -43,6 +44,7 @@ import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
+import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -56,6 +58,8 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_FEED_CONFIGURE;
+import static org.wikipedia.language.AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
+import static org.wikipedia.language.AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
 
 public class FeedFragment extends Fragment implements BackPressedHandler {
     @BindView(R.id.feed_swipe_refresh_layout) SwipeRefreshLayout swipeRefreshLayout;
@@ -105,7 +109,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         funnel = new FeedFunnel(app);
     }
 
-    @Nullable @Override public View onCreateView(LayoutInflater inflater,
+    @Nullable @Override public View onCreateView(@NonNull LayoutInflater inflater,
                                                  @Nullable ViewGroup container,
                                                  @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
@@ -117,7 +121,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         feedView.setCallback(feedCallback);
         feedView.addOnScrollListener(feedScrollListener);
 
-        swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(getContext(), R.attr.colorAccent));
+        swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent));
         swipeRefreshLayout.setOnRefreshListener(this::refresh);
 
         coordinator.setFeedUpdateListener(new FeedCoordinator.FeedUpdateListener() {
@@ -154,7 +158,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             }
         });
 
-        feedHeader.setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.main_toolbar_color));
+        feedHeader.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_color));
         if (getCallback() != null) {
             getCallback().updateToolbarElevation(shouldElevateToolbar());
         }
@@ -162,6 +166,21 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         ReadingListSyncAdapter.manualSync();
 
         return view;
+    }
+
+    private void showRemoveChineseVariantPrompt() {
+        if (app.language().getAppLanguageCodes().contains(TRADITIONAL_CHINESE_LANGUAGE_CODE)
+                && app.language().getAppLanguageCodes().contains(SIMPLIFIED_CHINESE_LANGUAGE_CODE)
+                && Prefs.shouldShowRemoveChineseVariantPrompt()) {
+            new AlertDialog.Builder(requireActivity())
+                    .setTitle(R.string.dialog_of_remove_chinese_variants_from_app_lang_title)
+                    .setMessage(R.string.dialog_of_remove_chinese_variants_from_app_lang_text)
+                    .setPositiveButton(R.string.dialog_of_remove_chinese_variants_from_app_lang_edit, (dialog, which)
+                            -> startActivity(new Intent(requireActivity(), WikipediaLanguagesActivity.class)))
+                    .setNegativeButton(R.string.dialog_of_remove_chinese_variants_from_app_lang_no, null)
+                    .show();
+        }
+        Prefs.shouldShowRemoveChineseVariantPrompt(false);
     }
 
     public boolean shouldElevateToolbar() {
@@ -177,6 +196,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     @Override
     public void onResume() {
         super.onResume();
+        showRemoveChineseVariantPrompt();
         funnel.enter();
 
     }
@@ -333,7 +353,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void onError(@NonNull Throwable t) {
-            FeedbackUtil.showError(getActivity(), t);
+            FeedbackUtil.showError(requireActivity(), t);
         }
 
         @Override
@@ -443,12 +463,12 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                     getCallback().onLoginRequested();
                 }
             } else if (uri.toString().equals(UriUtil.LOCAL_URL_SETTINGS)) {
-                startActivityForResult(SettingsActivity.newIntent(getContext()),
+                startActivityForResult(SettingsActivity.newIntent(requireContext()),
                         SettingsActivity.ACTIVITY_REQUEST_SHOW_SETTINGS);
             } else if (uri.toString().equals(UriUtil.LOCAL_URL_CUSTOMIZE_FEED)) {
                 showConfigureActivity(card.type().code());
             } else {
-                UriUtil.handleExternalLink(getContext(), uri);
+                UriUtil.handleExternalLink(requireContext(), uri);
             }
         }
 
@@ -463,14 +483,14 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                 view.getRandomPage();
             } else {
                 ActivityOptionsCompat options = ActivityOptionsCompat.
-                        makeSceneTransitionAnimation(getActivity(), view, getString(R.string.transition_random_activity));
-                startActivity(RandomActivity.newIntent(getActivity(), RandomActivity.INVOKE_SOURCE_FEED), options.toBundle());
+                        makeSceneTransitionAnimation(requireActivity(), view, getString(R.string.transition_random_activity));
+                startActivity(RandomActivity.newIntent(requireActivity(), RandomActivity.INVOKE_SOURCE_FEED), options.toBundle());
             }
         }
 
         @Override
         public void onGetRandomError(@NonNull Throwable t, @NonNull final RandomCardView view) {
-            Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(), ThrowableUtil.isOffline(t)
+            Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), ThrowableUtil.isOffline(t)
                     ? getString(R.string.view_wiki_error_message_offline) : t.getMessage(),
                     FeedbackUtil.LENGTH_DEFAULT);
             snackbar.setAction(R.string.page_error_retry, (v) -> view.getRandomPage());
@@ -479,7 +499,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void onMoreContentSelected(@NonNull Card card) {
-            startActivity(MostReadArticlesActivity.newIntent(getContext(), (MostReadListCard) card));
+            startActivity(MostReadArticlesActivity.newIntent(requireContext(), (MostReadListCard) card));
         }
     }
 
@@ -495,7 +515,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             boolean shouldShowSearchIcon = feedView.getFirstVisibleItemPosition() != 0;
             if (shouldShowSearchIcon != searchIconVisible) {
                 searchIconVisible = shouldShowSearchIcon;
-                getActivity().invalidateOptionsMenu();
+                requireActivity().invalidateOptionsMenu();
                 if (getCallback() != null) {
                     getCallback().updateToolbarElevation(shouldElevateToolbar());
                 }
@@ -504,7 +524,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     }
 
     private void showDismissCardUndoSnackbar(final Card card, final int position) {
-        Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(),
+        Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
                 getString(R.string.menu_feed_card_dismissed),
                 FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.feed_undo_dismiss_card, (v) -> coordinator.undoDismissCard(card, position));
@@ -512,12 +532,12 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     }
 
     private void showConfigureActivity(int invokeSource) {
-        startActivityForResult(ConfigureActivity.newIntent(getActivity(), invokeSource),
+        startActivityForResult(ConfigureActivity.newIntent(requireActivity(), invokeSource),
                 Constants.ACTIVITY_REQUEST_FEED_CONFIGURE);
     }
 
     private void showOverflowMenu(@NonNull View anchor) {
-        ExploreOverflowView overflowView = new ExploreOverflowView(getContext());
+        ExploreOverflowView overflowView = new ExploreOverflowView(requireContext());
         overflowView.show(anchor, overflowCallback);
     }
 
@@ -531,13 +551,13 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void settingsClick() {
-            startActivityForResult(SettingsActivity.newIntent(getContext()),
+            startActivityForResult(SettingsActivity.newIntent(requireContext()),
                     SettingsActivity.ACTIVITY_REQUEST_SHOW_SETTINGS);
         }
 
         @Override
         public void donateClick() {
-            UriUtil.visitInExternalBrowser(getContext(),
+            UriUtil.visitInExternalBrowser(requireContext(),
                     Uri.parse(String.format(getString(R.string.donate_url),
                             BuildConfig.VERSION_NAME,
                             WikipediaApp.getInstance().language().getSystemLanguageCode())));
@@ -554,7 +574,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             FeedbackUtil.showMessage(FeedFragment.this, R.string.toast_logout_complete);
 
             if (Prefs.isReadingListSyncEnabled() && !ReadingListDbHelper.instance().isEmpty()) {
-                ReadingListSyncBehaviorDialogs.removeExistingListsOnLogoutDialog(getActivity());
+                ReadingListSyncBehaviorDialogs.removeExistingListsOnLogoutDialog(requireActivity());
             }
             Prefs.setReadingListsLastSyncTime(null);
             Prefs.setReadingListSyncEnabled(false);
