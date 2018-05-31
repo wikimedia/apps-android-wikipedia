@@ -57,7 +57,7 @@
         android:id="@+id/wiki_language_drag_handle"
         android:layout_width="56dp"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/ic_reorder_black_24dp"
+        app:srcCompat="@drawable/ic_draggable"
         android:scaleType="center"
         app:tint="?attr/material_theme_de_emphasised_color"
         android:contentDescription="@null"/>
