@@ -656,8 +656,8 @@
   <string name="languages_list_all_text">Section header of all languages in the languages list.</string>
   <string name="wikipedia_languages_title">Title shown at the top of the activity for managing wikipedia languages.</string>
   <string name="wikipedia_languages_your_languages_text">Section header of the app languages that have been selected.</string>
-  <string name="wikipedia_languages_add_language_text">A button text for adding langauge to wikipedia langauges list.</string>
-  <string name="wikipedia_languages_remove_text">A button text for removing langauge from wikipedia langauges list.</string>
+  <string name="wikipedia_languages_add_language_text">A button text for adding language to wikipedia languages list.</string>
+  <string name="wikipedia_languages_remove_text">A button text for removing language from wikipedia languages list.</string>
   <string name="wikipedia_languages_remove_action_mode_title">Title text for the toolbar when the action mode is activated.</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Title of the dialog that pop-ups after clicking on the delete icon in the action mode when only one item has been selected.</item>

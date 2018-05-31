@@ -2,8 +2,10 @@ package org.wikipedia.settings.languages;
 
 import android.content.Context;
 import android.graphics.PorterDuff;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,12 +21,14 @@ import org.wikipedia.views.ViewUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
+import butterknife.OnLongClick;
 
 import static org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER;
 
 public class WikipediaLanguagesItemView extends LinearLayout {
     public interface Callback {
         void onCheckedChanged(int position);
+        void onLongPress(int position);
     }
 
     @BindView(R.id.wiki_language_order) TextView orderView;
@@ -74,6 +78,10 @@ public class WikipediaLanguagesItemView extends LinearLayout {
         }
     }
 
+    public void setCheckBoxChecked(boolean checked) {
+        checkBox.setChecked(checked);
+    }
+
     public void setDragHandleEnabled(boolean enabled) {
         dragHandleView.setVisibility(enabled ? VISIBLE : GONE);
     }
@@ -88,6 +96,10 @@ public class WikipediaLanguagesItemView extends LinearLayout {
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
         setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            setForeground(ContextCompat.getDrawable(getContext(),
+                    ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
+        }
     }
 
     @OnCheckedChanged(R.id.wiki_language_checkbox) void onCheckedChanged() {
@@ -96,5 +108,12 @@ public class WikipediaLanguagesItemView extends LinearLayout {
             setBackgroundColor(checkBox.isChecked()
                     ? ResourceUtil.getThemedColor(getContext(), R.attr.multi_select_background_color) : ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
         }
+    }
+
+    @OnLongClick boolean onLongClick() {
+        if (callback != null) {
+            callback.onLongPress(position);
+        }
+        return true;
     }
 }
