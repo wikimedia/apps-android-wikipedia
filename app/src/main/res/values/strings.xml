@@ -656,8 +656,6 @@
     <string name="onboarding_skip">Skip</string>
     <string name="onboarding_continue">Continue</string>
     <string name="onboarding_get_started">Get started</string>
-    <string name="onboarding_welcome_title">The free encyclopedia</string>
-    <string name="onboarding_welcome_text"><![CDATA[Wikipedia is written collaboratively by volunteers and consists of more than 40 million articles in nearly 300 different languages. <a href="#about">Learn more</a>]]></string>
     <string name="onboarding_explore_title">New ways to explore</string>
     <string name="onboarding_explore_text"><![CDATA[Dive down the Wikipedia rabbit hole with a constantly updating Explore feed. <br/> <b>Customize</b> the feed to your interests – whether it’s learning about historical events <b>On this day</b>, or rolling the dice with <b>Random</b>.]]></string>
     <string name="onboarding_save_to_reading_lists_title">Save to reading lists</string>
@@ -672,9 +670,9 @@
     <string name="onboarding_create_account_contributions">Keep track of your contributions</string>
     <string name="onboarding_create_account_preferences">Save your preferences</string>
     <string name="onboarding_got_it">Got it</string>
-    <string name="onboarding_multilingual_title">Search and read in nearly 300 languages</string>
     <string name="onboarding_multilingual_secondary_text">We’ve found the following on your device:</string>
     <string name="onboarding_multilingual_add_language_text">Add or edit languages</string>
+    <string name="onboarding_welcome_title_v2">The Free Encyclopedia\n&#8230;in nearly 300 languages</string>
     <!-- /Onboarding -->
 
     <!-- App Shortcuts -->
