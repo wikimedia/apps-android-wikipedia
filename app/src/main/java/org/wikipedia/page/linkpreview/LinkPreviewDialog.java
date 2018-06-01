@@ -76,17 +76,16 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     private View toolbarView;
     private View overflowButton;
 
+    private HistoryEntry historyEntry;
     private PageTitle pageTitle;
-    private int entrySource;
     @Nullable private Location location;
     @NonNull private GalleryCollectionClient client = new GalleryCollectionClient();
     private LinkPreviewFunnel funnel;
 
-    public static LinkPreviewDialog newInstance(PageTitle title, int entrySource, @Nullable Location location) {
+    public static LinkPreviewDialog newInstance(@NonNull HistoryEntry entry, @Nullable Location location) {
         LinkPreviewDialog dialog = new LinkPreviewDialog();
         Bundle args = new Bundle();
-        args.putParcelable("title", title);
-        args.putInt("entrySource", entrySource);
+        args.putParcelable("entry", entry);
         if (location != null) {
             args.putParcelable("location", location);
         }
@@ -97,8 +96,8 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         WikipediaApp app = WikipediaApp.getInstance();
-        pageTitle = getArguments().getParcelable("title");
-        entrySource = getArguments().getInt("entrySource");
+        historyEntry = getArguments().getParcelable("entry");
+        pageTitle = historyEntry.getTitle();
         location = getArguments().getParcelable("location");
 
         View rootView = inflater.inflate(R.layout.dialog_link_preview, container);
@@ -151,7 +150,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         // and kick off the task to load all the things...
         loadContent();
 
-        funnel = new LinkPreviewFunnel(app, entrySource);
+        funnel = new LinkPreviewFunnel(app, historyEntry.getSource());
         funnel.logLinkClick();
 
         return rootView;
@@ -163,8 +162,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         if (getDialog() != null) {
             getDialog().dismiss();
         }
-        HistoryEntry newEntry = new HistoryEntry(pageTitle, entrySource);
-        loadPage(pageTitle, newEntry, false);
+        loadPage(pageTitle, historyEntry, false);
     }
 
     @Override public void onResume() {
@@ -224,7 +222,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     private void loadContent() {
         PageClientFactory
                 .create(pageTitle.getWikiSite(), pageTitle.namespace())
-                .summary(pageTitle.getPrefixedText())
+                .summary(pageTitle.getPrefixedText(), historyEntry.getReferrer())
                 .enqueue(linkPreviewCallback);
     }
 
@@ -312,7 +310,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
             Callback callback = callback();
             switch (item.getItemId()) {
                 case R.id.menu_link_preview_open_in_new_tab:
-                    loadPage(pageTitle, new HistoryEntry(pageTitle, entrySource), true);
+                    loadPage(pageTitle, historyEntry, true);
                     dismiss();
                     return true;
                 case R.id.menu_link_preview_add_to_list:

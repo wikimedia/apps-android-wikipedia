@@ -332,11 +332,11 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         // todo: [overhaul] update loading indicator.
     }
 
-    @Override public void onLoadPage(PageTitle title, int entrySource, @Nullable Location location) {
-        showLinkPreview(title, entrySource, location);
+    @Override public void onLoadPage(@NonNull HistoryEntry entry, @Nullable Location location) {
+        showLinkPreview(entry, location);
     }
 
-    @Override public void onLoadPage(PageTitle title, HistoryEntry entry) {
+    @Override public void onLoadPage(@NonNull HistoryEntry entry) {
         startActivity(PageActivity.newIntentForNewTab(getContext(), entry, entry.getTitle()));
     }
 
@@ -450,8 +450,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
     }
 
-    private void showLinkPreview(PageTitle title, int entrySource, @Nullable Location location) {
-        bottomSheetPresenter.show(getChildFragmentManager(), LinkPreviewDialog.newInstance(title, entrySource, location));
+    private void showLinkPreview(@NonNull HistoryEntry entry, @Nullable Location location) {
+        bottomSheetPresenter.show(getChildFragmentManager(), LinkPreviewDialog.newInstance(entry, location));
     }
 
     private void copyLink(@NonNull String url) {

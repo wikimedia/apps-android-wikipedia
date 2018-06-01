@@ -392,7 +392,7 @@ public class PageFragmentLoadState {
         PageClientFactory
                 .create(model.getTitle().getWikiSite(), model.getTitle().namespace())
                 .lead(model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                        getRefererHeaderUrl(), model.getTitle().getPrefixedText(), calculateLeadImageWidth())
+                        model.getCurEntry().getReferrer(), model.getTitle().getPrefixedText(), calculateLeadImageWidth())
                 .enqueue(new retrofit2.Callback<PageLead>() {
                     @Override public void onResponse(@NonNull Call<PageLead> call, @NonNull Response<PageLead> rsp) {
                         app.getSessionFunnel().leadSectionFetchEnd();
@@ -409,16 +409,6 @@ public class PageFragmentLoadState {
                         commonSectionFetchOnCatch(t, startSequenceNum);
                     }
                 });
-    }
-
-    private String getRefererHeaderUrl() {
-        if (backStack.size() > 0) {
-            if (fragment.isRefererHeaderUrlAvailable(model.getTitle())
-                    && backStack.get(backStack.size() - 1).getHistoryEntry().getSource() == HistoryEntry.SOURCE_INTERNAL_LINK) {
-                return fragment.getRefererHeaderPage(model.getTitle()).getCanonicalUri();
-            }
-        }
-        return null;
     }
 
     private void updateThumbnail(String thumbUrl) {
@@ -626,6 +616,7 @@ public class PageFragmentLoadState {
         final HistoryEntry curEntry = model.getCurEntry();
         model.setCurEntry(
                 new HistoryEntry(model.getTitle(), curEntry.getTimestamp(), curEntry.getSource()));
+        model.getCurEntry().setReferrer(curEntry.getReferrer());
 
         // Fetch larger thumbnail URL from the network, and save it to our DB.
         new PageImagesClient().request(model.getTitle().getWikiSite(), Collections.singletonList(model.getTitle()),

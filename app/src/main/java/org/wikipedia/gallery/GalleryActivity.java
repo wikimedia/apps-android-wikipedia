@@ -370,7 +370,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
     public void showLinkPreview(@NonNull PageTitle title) {
         bottomSheetPresenter.show(getSupportFragmentManager(),
-                LinkPreviewDialog.newInstance(title, HistoryEntry.SOURCE_GALLERY, null));
+                LinkPreviewDialog.newInstance(new HistoryEntry(title, HistoryEntry.SOURCE_GALLERY), null));
     }
 
     /**

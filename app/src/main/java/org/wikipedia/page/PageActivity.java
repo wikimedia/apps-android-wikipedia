@@ -7,7 +7,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.location.Location;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -348,6 +347,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             WikiSite wiki = new WikiSite(intent.getData());
             PageTitle title = wiki.titleForUri(intent.getData());
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_EXTERNAL_LINK);
+            if (intent.hasExtra(Intent.EXTRA_REFERRER)) {
+                // Populate the referrer with the externally-referring URL, e.g. an external Browser URL.
+                // This can be a Uri or a String, so let's extract it safely as an Object.
+                historyEntry.setReferrer(intent.getExtras().get(Intent.EXTRA_REFERRER).toString());
+            }
             loadPageInForegroundTab(title, historyEntry);
         } else if (ACTION_LOAD_IN_NEW_TAB.equals(intent.getAction())
                 || ACTION_LOAD_IN_CURRENT_TAB.equals(intent.getAction())) {
@@ -485,15 +489,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         loadPage(title, historyEntry, position);
     }
 
-    public void showLinkPreview(@NonNull PageTitle title, int entrySource) {
-        showLinkPreview(title, entrySource, null);
-    }
-
-    public void showLinkPreview(@NonNull PageTitle title, int entrySource, @Nullable Location location) {
-        bottomSheetPresenter.show(getSupportFragmentManager(),
-                LinkPreviewDialog.newInstance(title, entrySource, location));
-    }
-
     private void hideLinkPreview() {
         bottomSheetPresenter.dismiss(getSupportFragmentManager());
     }
@@ -550,8 +545,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public void onPageShowLinkPreview(@NonNull PageTitle title, int source) {
-        showLinkPreview(title, source);
+    public void onPageShowLinkPreview(@NonNull HistoryEntry entry) {
+        bottomSheetPresenter.show(getSupportFragmentManager(),
+                LinkPreviewDialog.newInstance(entry, null));
     }
 
     @Override
@@ -677,7 +673,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @Override
     public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {
-        pageFragment.setRefererHeaderPage(title, pageFragment.getTitle());
         loadPage(title, entry, inNewTab ? TabPosition.NEW_TAB_BACKGROUND : TabPosition.CURRENT_TAB);
     }
 
