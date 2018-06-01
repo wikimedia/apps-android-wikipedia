@@ -32,10 +32,11 @@ public class MwPageClient implements PageClient {
     @SuppressWarnings("unchecked")
     @NonNull @Override public Call<? extends PageLead> lead(@Nullable CacheControl cacheControl,
                                                             @Nullable String saveOfflineHeader,
+                                                            @Nullable String previousPageUrl,
                                                             @NonNull String title,
                                                             int leadImageWidth) {
         return service.lead(cacheControl == null ? null : cacheControl.toString(),
-                saveOfflineHeader, title, leadImageWidth, wiki.languageCode());
+                saveOfflineHeader, previousPageUrl, title, leadImageWidth, wiki.languageCode());
     }
 
     @SuppressWarnings("unchecked")

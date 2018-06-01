@@ -17,27 +17,33 @@ import static org.hamcrest.Matchers.nullValue;
 
 public abstract class BasePageClientTest extends MockWebServerTest {
     @Test public void testLeadCacheControl() throws Throwable {
-        Call<?> call = subject().lead(CacheControl.FORCE_NETWORK, null, "", 0);
+        Call<?> call = subject().lead(CacheControl.FORCE_NETWORK, null, null, "", 0);
         assertThat(call.request().header("Cache-Control"), containsString("no-cache"));
     }
 
     @Test public void testLeadNoCacheControl() throws Throwable {
-        Call<?> call = subject().lead(null, null, "", 0);
+        Call<?> call = subject().lead(null, null, null, "", 0);
         assertThat(call.request().header("Cache-Control"), nullValue());
     }
 
+    @Test public void testLeadHttpRefererUrl() throws Throwable {
+        String refererUrl = "https://en.wikipedia.org/wiki/United_States";
+        Call<?> call = subject().lead(null, null, refererUrl, "", 0);
+        assertThat(call.request().header("Referer"), containsString(refererUrl));
+    }
+
     @Test public void testLeadCacheOptionCache() throws Throwable {
-        Call<?> call = subject().lead(null, null, "", 0);
+        Call<?> call = subject().lead(null, null, null, "", 0);
         assertThat(call.request().header(OfflineCacheInterceptor.SAVE_HEADER), nullValue());
     }
 
     @Test public void testLeadCacheOptionSave() throws Throwable {
-        Call<?> call = subject().lead(null, OfflineCacheInterceptor.SAVE_HEADER_SAVE, "", 0);
+        Call<?> call = subject().lead(null, OfflineCacheInterceptor.SAVE_HEADER_SAVE, null, "", 0);
         assertThat(call.request().header(OfflineCacheInterceptor.SAVE_HEADER), is(OfflineCacheInterceptor.SAVE_HEADER_SAVE));
     }
 
     @Test public void testLeadTitle() throws Throwable {
-        Call<?> call = subject().lead(null, null, "title", 0);
+        Call<?> call = subject().lead(null, null, null, "title", 0);
         assertThat(call.request().url().toString(), containsString("title"));
     }
 

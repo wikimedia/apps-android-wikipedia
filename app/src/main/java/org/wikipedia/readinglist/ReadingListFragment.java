@@ -685,7 +685,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         try {
             PageTitle pageTitle = ReadingListPage.toPageTitle(page);
             PageClientFactory.create(pageTitle.getWikiSite(), pageTitle.namespace())
-                    .lead(CacheControl.FORCE_CACHE, null, pageTitle.getPrefixedText(), DimenUtil.calculateLeadImageWidth())
+                    .lead(CacheControl.FORCE_CACHE, null, null, pageTitle.getPrefixedText(), DimenUtil.calculateLeadImageWidth())
                     .enqueue(new retrofit2.Callback<PageLead>() {
                         @Override public void onResponse(@NonNull Call<PageLead> call, @NonNull Response<PageLead> rsp) {
                             view.setTextGrayedOut((rsp.raw().cacheResponse() == null
