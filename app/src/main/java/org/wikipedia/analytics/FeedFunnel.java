@@ -38,23 +38,25 @@ public class FeedFunnel extends TimedFunnel {
         }
     }
 
-    public void cardShown(@NonNull CardType cardType) {
+    public void cardShown(@NonNull CardType cardType, String languageCode) {
         if (EXCLUDED_CARDS.contains(cardType)) {
             return;
         }
         log(
                 "action", "cardShown",
-                "cardType", cardType.code()
+                "cardType", cardType.code(),
+                "language", languageCode
         );
     }
 
-    public void cardClicked(@NonNull CardType cardType) {
+    public void cardClicked(@NonNull CardType cardType, String languageCode) {
         if (EXCLUDED_CARDS.contains(cardType)) {
             return;
         }
         log(
                 "action", "cardClicked",
-                "cardType", cardType.code()
+                "cardType", cardType.code(),
+                "language", languageCode
         );
     }
 

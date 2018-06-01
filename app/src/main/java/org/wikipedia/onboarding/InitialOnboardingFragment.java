@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.language.LanguageSettingsInvokeSource;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
@@ -79,7 +80,7 @@ public class InitialOnboardingFragment extends OnboardingFragment {
         @Override
         public void onListActionButtonClicked(@NonNull OnboardingPageView view) {
             onboardingPageView = view;
-            requireContext().startActivity(new Intent(getContext(), WikipediaLanguagesActivity.class));
+            requireContext().startActivity(WikipediaLanguagesActivity.newIntent(getContext(), LanguageSettingsInvokeSource.ONBOARDING.text()));
         }
 
         @Nullable OnboardingPageView getOnboardingPageView() {

@@ -6,12 +6,16 @@ import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.FeedContentType;
+import org.wikipedia.util.StringUtil;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class FeedConfigureFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppFeedConfigure";
-    private static final int REV_ID = 18115104;
+    private static final int REV_ID = 18126175;
 
     private final int source;
 
@@ -23,24 +27,25 @@ public class FeedConfigureFunnel extends TimedFunnel {
     @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) { }
 
     public void done(List<FeedContentType> orderedContentTypes) {
-        StringBuilder enabledStr = new StringBuilder();
-        StringBuilder orderStr = new StringBuilder();
-        for (FeedContentType type : FeedContentType.values()) {
-            if (enabledStr.length() > 0) {
-                enabledStr.append(",");
+        List<Integer> enabledList;
+        List<Integer> orderedList = new ArrayList<>();
+        Map<String, List<Integer>> enabledMap = new HashMap<>();
+        for (String language : getApp().language().getAppLanguageCodes()) {
+            enabledList = new ArrayList<>();
+            for (FeedContentType type : FeedContentType.values()) {
+                enabledList.add(type.isEnabled() ? 1 : 0);
             }
-            enabledStr.append(type.isEnabled() ? 1 : 0);
+            enabledMap.put(language, enabledList);
         }
+
         for (FeedContentType type : orderedContentTypes) {
-            if (orderStr.length() > 0) {
-                orderStr.append(",");
-            }
-            orderStr.append(type.code());
+            orderedList.add(type.code());
         }
         log(
                 "source", source,
-                "enabledList", enabledStr.toString(),
-                "orderList", orderStr.toString()
+                "enabled_list", StringUtil.stringToListMapToJSONString(enabledMap),
+                "order_list", StringUtil.listToJSONString(orderedList),
+                "languages", StringUtil.listToJsonArrayString(WikipediaApp.getInstance().language().getAppLanguageCodes())
         );
     }
 }

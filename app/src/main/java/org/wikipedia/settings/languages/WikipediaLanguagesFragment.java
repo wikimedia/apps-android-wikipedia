@@ -20,16 +20,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.AppLanguageSettingsFunnel;
+import org.wikipedia.language.LanguageSettingsInvokeSource;
 import org.wikipedia.language.LanguagesListActivity;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.MultiSelectActionModeCallback;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,8 +40,11 @@ import butterknife.Unbinder;
 
 import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
+import static org.wikipedia.language.LanguagesListActivity.LANGUAGE_SEARCHED;
+import static org.wikipedia.settings.languages.WikipediaLanguagesActivity.INVOKE_SOURCE_EXTRA;
 
 public class WikipediaLanguagesFragment extends Fragment implements WikipediaLanguagesItemView.Callback {
+
     @BindView(R.id.wikipedia_languages_recycler) RecyclerView recyclerView;
     private WikipediaApp app;
     private Unbinder unbinder;
@@ -50,23 +56,37 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
     private List<String> selectedCodes = new ArrayList<>();
     private static final int NUM_HEADERS = 1;
     private static final int NUM_FOOTERS = 1;
-    public static final String ACTIVITY_RESULT_LANG_POSITION_DATA = "activity_result_lang_position_data";
+    AppLanguageSettingsFunnel funnel;
+    String invokeSource;
+    String initialLanguageList;
+    int interactionsCount;
+    boolean isLanguageSearched = false;
+    String sessionToken;
 
-    @NonNull public static WikipediaLanguagesFragment newInstance() {
-        return new WikipediaLanguagesFragment();
+    public static final String ACTIVITY_RESULT_LANG_POSITION_DATA = "activity_result_lang_position_data";
+    public static final String ADD_LANGUAGE_INTERACTIONS = "add_language_interactions";
+    public static final String SESSION_TOKEN = "session_token";
+
+    @NonNull public static WikipediaLanguagesFragment newInstance(@NonNull String invokeSource) {
+        WikipediaLanguagesFragment instance = new WikipediaLanguagesFragment();
+        Bundle args = new Bundle();
+        args.putString(INVOKE_SOURCE_EXTRA, invokeSource);
+        instance.setArguments(args);
+        return instance;
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_wikipedia_languages, container, false);
         app = WikipediaApp.getInstance();
+        invokeSource = requireActivity().getIntent().getStringExtra(INVOKE_SOURCE_EXTRA);
+        initialLanguageList = StringUtil.listToJsonArrayString(app.language().getAppLanguageCodes());
+        sessionToken = UUID.randomUUID().toString();
+        funnel = new AppLanguageSettingsFunnel(sessionToken);
         unbinder = ButterKnife.bind(this, view);
 
         prepareWikipediaLanguagesList();
         setupRecyclerView();
-
-        // TODO: add funnel?
-
         return view;
     }
 
@@ -81,7 +101,8 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE
                 && resultCode == RESULT_OK) {
-
+            interactionsCount += data.getIntExtra(ADD_LANGUAGE_INTERACTIONS, 0);
+            isLanguageSearched = (isLanguageSearched) || data.getBooleanExtra(LANGUAGE_SEARCHED, false);
             prepareWikipediaLanguagesList();
             requireActivity().invalidateOptionsMenu();
             adapter.notifyDataSetChanged();
@@ -90,6 +111,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
 
     @Override
     public void onDestroyView() {
+        funnel.logLanguageSetting(invokeSource, initialLanguageList, StringUtil.listToJsonArrayString(app.language().getAppLanguageCodes()), interactionsCount, true);
         recyclerView.setAdapter(null);
         unbinder.unbind();
         unbinder = null;
@@ -220,6 +242,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
                 itemHolder.getView().setDragHandleTouchListener((v, event) -> {
                     switch (event.getActionMasked()) {
                         case MotionEvent.ACTION_DOWN:
+                            interactionsCount++;
                             itemTouchHelper.startDrag(holder);
                             break;
                         case MotionEvent.ACTION_UP:
@@ -234,7 +257,9 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
             } else if (holder instanceof FooterViewHolder) {
                 holder.getView().setVisibility(checkboxEnabled ? View.GONE : View.VISIBLE);
                 holder.getView().setOnClickListener(v -> {
-                    startActivityForResult(new Intent(requireActivity(), LanguagesListActivity.class), ACTIVITY_REQUEST_ADD_A_LANGUAGE);
+                    Intent intent = new Intent(requireActivity(), LanguagesListActivity.class);
+                    intent.putExtra(SESSION_TOKEN, sessionToken);
+                    startActivityForResult(intent, ACTIVITY_REQUEST_ADD_A_LANGUAGE);
                     finishActionMode();
                 });
             }
@@ -327,7 +352,8 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
     }
 
     private boolean launchedFromSearch() {
-        return requireActivity().getIntent().hasExtra(Constants.INTENT_EXTRA_LAUNCHED_FROM_SEARCH);
+        String source = requireActivity().getIntent().hasExtra(INVOKE_SOURCE_EXTRA) ? requireActivity().getIntent().getStringExtra(INVOKE_SOURCE_EXTRA) : "";
+        return source.equals(LanguageSettingsInvokeSource.SEARCH.text());
     }
 
     private void setMultiSelectEnabled(boolean enabled) {
@@ -362,6 +388,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
 
     private void deleteSelectedLanguages() {
         app.language().removeAppLanguageCodes(selectedCodes);
+        interactionsCount++;
         prepareWikipediaLanguagesList();
         unselectAllLanguages();
     }
