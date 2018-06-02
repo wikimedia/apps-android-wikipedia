@@ -54,7 +54,6 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
         funnel = new FeedConfigureFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().getWikiSite(),
                 requireActivity().getIntent().getIntExtra(ConfigureActivity.INVOKE_SOURCE_EXTRA, -1));
 
-
         new FeedAvailabilityClient().request(WikipediaApp.getInstance().getWikiSite(), new FeedAvailabilityClient.Callback() {
             @Override
             public void success(@NonNull Call<FeedAvailabilityClient.FeedAvailability> call, @NonNull FeedAvailabilityClient.FeedAvailability result) {

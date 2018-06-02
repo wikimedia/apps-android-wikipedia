@@ -27,6 +27,8 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FeedFunnel;
 import org.wikipedia.feed.configure.ConfigureActivity;
+import org.wikipedia.feed.configure.ConfigureItemLanguageDialogView;
+import org.wikipedia.feed.configure.LanguageItemAdapter;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
@@ -51,6 +53,9 @@ import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.ExploreOverflowView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -422,6 +427,11 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
+        public void onRequestEditCardLanguages(@NonNull Card card) {
+            showCardLangSelectDialog(card);
+        }
+
+        @Override
         public void onRequestCustomize(@NonNull Card card) {
             showConfigureActivity(card.type().code());
         }
@@ -536,6 +546,27 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                 FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.feed_undo_dismiss_card, (v) -> coordinator.undoDismissCard(card, position));
         snackbar.show();
+    }
+
+    private void showCardLangSelectDialog(@NonNull Card card) {
+        FeedContentType contentType = card.type().contentType();
+        if (contentType.isPerLanguage()) {
+            LanguageItemAdapter adapter = new LanguageItemAdapter(requireContext(), contentType);
+            ConfigureItemLanguageDialogView view = new ConfigureItemLanguageDialogView(requireContext());
+            List<String> tempDisabledList = new ArrayList<>(contentType.getLangCodesDisabled());
+            view.setContentType(adapter.getLangList(), tempDisabledList);
+            new AlertDialog.Builder(requireContext())
+                    .setView(view)
+                    .setTitle(contentType.titleId())
+                    .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                        contentType.getLangCodesDisabled().clear();
+                        contentType.getLangCodesDisabled().addAll(tempDisabledList);
+                        refresh();
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .create()
+                    .show();
+        }
     }
 
     private void showConfigureActivity(int invokeSource) {
