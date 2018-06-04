@@ -36,7 +36,6 @@ public class WikipediaTestRunner extends AndroidJUnitRunner {
         PrefsIoUtil.setBoolean(R.string.preference_key_feed_readinglists_sync_onboarding_card_enabled, false);
         PrefsIoUtil.setBoolean(R.string.preference_key_toc_tutorial_enabled, false);
         PrefsIoUtil.setBoolean(R.string.preference_key_feed_customize_onboarding_card_enabled, false);
-        PrefsIoUtil.setBoolean(R.string.preference_key_offline_onboarding_card_enabled, false);
         PrefsIoUtil.setBoolean(R.string.preference_key_select_text_tutorial_enabled, false);
     }
 

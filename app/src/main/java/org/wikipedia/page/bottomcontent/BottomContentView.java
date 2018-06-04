@@ -53,7 +53,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import retrofit2.Call;
 
-import static org.wikipedia.util.DateUtil.getShortDateString;
 import static org.wikipedia.util.L10nUtil.formatDateRelative;
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
@@ -282,11 +281,6 @@ public class BottomContentView extends LinearLayoutOverWebView
                 .format(parentFragment.getContext().getString(R.string.content_license_html),
                         parentFragment.getContext().getString(R.string.cc_by_sa_3_url))));
         pageLicenseText.setMovementMethod(new LinkMovementMethod());
-    }
-
-    private String compilationInfoString(Page page) {
-        return String.format(parentFragment.getString(R.string.page_offline_notice_compilation_download_date),
-                page.getCompilationName(), getShortDateString(page.getCompilationDate()));
     }
 
     private void preRequestReadMoreItems() {

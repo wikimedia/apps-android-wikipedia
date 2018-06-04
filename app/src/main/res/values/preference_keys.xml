@@ -62,8 +62,6 @@
     <string name="preference_key_reading_lists_current_user_hash">readingListsCurrentUserHash</string>
     <string name="preference_key_permission_asked">permissionAsked</string>
     <string name="preference_key_compilation_cache">compilationCache</string>
-    <string name="preference_key_offline_onboarding_card_enabled">offlineOnboardingCardEnabled</string>
-    <string name="preference_key_offline_onboarding_enabled">offlineOnboardingEnabled</string>
     <string name="preference_key_dim_dark_mode_images">dimDarkModeImages</string>
     <string name="preference_key_suppress_notification_polling">suppressNotificationPolling</string>
     <string name="preference_key_prefer_offline_content">preferOfflineContent</string>

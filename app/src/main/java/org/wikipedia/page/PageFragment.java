@@ -48,7 +48,6 @@ import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.UpdateHistoryTask;
 import org.wikipedia.language.LangLinksActivity;
-import org.wikipedia.offline.OfflineManager;
 import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
 import org.wikipedia.page.action.PageActionTab;
 import org.wikipedia.page.action.PageActionToolbarHideHandler;
@@ -66,7 +65,6 @@ import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.theme.ThemeBridgeAdapter;
 import org.wikipedia.util.ActiveTimer;
-import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ReleaseUtil;
@@ -484,8 +482,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             return;
         }
         dismissBottomSheet();
-        if (title.namespace() != Namespace.MAIN || !isLinkPreviewEnabled()
-                || (!DeviceUtil.isOnline() && OfflineManager.instance().titleExists(title.getDisplayText()))) {
+        if (title.namespace() != Namespace.MAIN || !isLinkPreviewEnabled()) {
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
             loadPage(title, historyEntry);
         } else {

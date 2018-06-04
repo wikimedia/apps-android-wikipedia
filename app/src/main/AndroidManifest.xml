@@ -212,29 +212,6 @@
             android:theme="@style/AppTheme.TranslucentStatus"/>
 
         <activity
-            android:name=".offline.LocalCompilationsActivity"
-            android:windowSoftInputMode="adjustResize"
-            android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="content" android:mimeType="application/zim" />
-                <data android:scheme="file" android:pathPattern=".*\\.zim" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".offline.RemoteCompilationsActivity"
-            android:theme="@style/AppTheme.GreenActionMode"/>
-
-        <activity
-            android:name=".offline.CompilationDetailActivity" />
-
-        <activity
-            android:name=".offline.OfflineTutorialActivity"
-            android:theme="@style/AppTheme.TranslucentStatus"/>
-
-        <activity
             android:name=".feed.mostread.MostReadArticlesActivity"
             android:theme="@style/AppTheme.ActionBar"/>
 
@@ -274,11 +251,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
-        <provider
-            android:name=".offline.OfflineContentProvider"
-            android:authorities="${applicationId}.offline"
-            android:exported="false" />
 
         <receiver
             android:icon="@mipmap/launcher"
@@ -322,12 +294,6 @@
         <receiver android:name=".notifications.NotificationPollBroadcastReceiver">
             <intent-filter>
                 <action android:name=".notifications.NotificationPollBroadcastReceiver.ACTION_POLL" />
-            </intent-filter>
-        </receiver>
-
-        <receiver android:name=".offline.DownloadManagerReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED" />
             </intent-filter>
         </receiver>
 

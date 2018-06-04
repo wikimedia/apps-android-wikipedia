@@ -10,7 +10,6 @@ import android.support.v7.preference.SwitchPreferenceCompat;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.login.LoginActivity;
@@ -18,7 +17,6 @@ import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
 import org.wikipedia.theme.ThemeFittingRoomActivity;
 import org.wikipedia.util.ReleaseUtil;
-import org.wikipedia.util.StringUtil;
 
 /** UI code for app settings used by PreferenceFragment. */
 class SettingsPreferenceLoader extends BasePreferenceLoader {
@@ -53,9 +51,6 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
 
         if (ReleaseUtil.isPreBetaRelease()) {
             loadPreferences(R.xml.preferences_experimental);
-            Preference offlineLibPref = findPreference(R.string.preference_key_enable_offline_library);
-            offlineLibPref.setOnPreferenceChangeListener(new OfflineLibraryEnableListener());
-            offlineLibPref.setSummary(StringUtil.fromHtml(getPreferenceHost().getString(R.string.preference_summary_enable_offline_library)));
         }
 
         loadPreferences(R.xml.preferences_about);
@@ -127,15 +122,6 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
             syncReadingListsPref.setSummary(getActivity().getString(R.string.preference_summary_sync_reading_lists_from_account, AccountUtil.getUserName()));
         } else {
             syncReadingListsPref.setSummary(R.string.preference_summary_sync_reading_lists);
-        }
-    }
-
-    private final class OfflineLibraryEnableListener implements Preference.OnPreferenceChangeListener {
-        @Override public boolean onPreferenceChange(Preference preference, Object newValue) {
-            if (((Boolean) newValue)) {
-                ((BaseActivity) getActivity()).searchOfflineCompilationsWithPermission(true);
-            }
-            return true;
         }
     }
 

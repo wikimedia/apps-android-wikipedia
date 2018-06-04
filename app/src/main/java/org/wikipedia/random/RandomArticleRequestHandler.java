@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
-import org.wikipedia.offline.OfflineManager;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
@@ -30,21 +29,9 @@ public final class RandomArticleRequestHandler{
             @Override
             public void onError(@NonNull Call<RbPageSummary> call, @NonNull Throwable t) {
                 L.w("Failed to get random card from network. Falling back to compilations.", t);
-                if (OfflineManager.hasCompilation()) {
-                    getRandomPageFromCompilation(cb);
-                } else {
-                    getRandomPageFromReadingLists(cb, t);
-                }
+                getRandomPageFromReadingLists(cb, t);
             }
         });
-    }
-
-    private static void getRandomPageFromCompilation(@NonNull Callback cb) {
-        try {
-            cb.onSuccess(new PageTitle(OfflineManager.instance().getRandomTitle(), WikipediaApp.getInstance().getWikiSite()));
-        } catch (Throwable t) {
-            cb.onError(t);
-        }
     }
 
     private static void getRandomPageFromReadingLists(@NonNull final Callback cb, @NonNull final Throwable throwableIfEmpty) {
@@ -59,7 +46,6 @@ public final class RandomArticleRequestHandler{
             }
         });
     }
-
 
     private RandomArticleRequestHandler() { }
 }
