@@ -15,11 +15,12 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/options_list"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:layout_marginBottom="@dimen/view_list_card_margin_vertical"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        android:requiresFadingEdge="vertical"/>
 
     <View
         android:layout_width="wrap_content"
