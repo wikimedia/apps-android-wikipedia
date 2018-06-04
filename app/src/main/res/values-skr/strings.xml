@@ -269,7 +269,7 @@
   <string name="wikipedia_languages_title">وکی میڈیا دی زباناں</string>
   <string name="wikipedia_languages_your_languages_text">تہاݙیاں زباناں</string>
   <string name="wikipedia_languages_add_language_text">زبان شامل کرو</string>
-  <string name="wikipedia_languages_remove_text">ہٹاؤ</string>
+  <string name="wikipedia_languages_remove_text" fuzzy="true">ہٹاؤ</string>
   <string name="wikipedia_languages_remove_action_mode_title">زبان ہٹاؤ</string>
   <string name="more_language_options">ٻئے</string>
 </resources>

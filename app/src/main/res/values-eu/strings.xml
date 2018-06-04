@@ -627,7 +627,7 @@
   <string name="wikipedia_languages_title">Wikipedia hizkuntzak</string>
   <string name="wikipedia_languages_your_languages_text">Zure hizkuntzak</string>
   <string name="wikipedia_languages_add_language_text">Gehitu hizkuntza</string>
-  <string name="wikipedia_languages_remove_text">Kendu</string>
+  <string name="wikipedia_languages_remove_text" fuzzy="true">Kendu</string>
   <string name="wikipedia_languages_remove_action_mode_title">Kendu hizkuntza</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Ezin dira hizkuntza guztiak ezabatu</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Gorde ezazu behintzat Wikipedia hizkuntza bat zeinetatik edukia bilatu eta irakurri ahalko duzun.</string>

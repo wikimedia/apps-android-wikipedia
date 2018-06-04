@@ -131,6 +131,9 @@
   <string name="create_account_next">Další</string>
   <string name="create_account_button">Vytvořit účet</string>
   <string name="create_account_name_unavailable">Uživatelské jméno „%s“ není k dispozici. Zvolte si prosím jiné.</string>
+  <string name="create_account_ip_block_message">Je nám líto, Vaše IP adresa je v současné době zablokována k vytváření nových účtů.</string>
+  <string name="create_account_ip_block_help_url">https://cs.wikipedia.org/wiki/Wikipedie:Blokování</string>
+  <string name="create_account_ip_block_details">Detaily</string>
   <string name="preferences_general_heading">Obecné</string>
   <string name="wikipedia_app_faq">FAQ aplikace Wikipedie</string>
   <string name="zero_charged_verbiage">Přístup k Wikipedii zdarma již není aktivní.</string>
@@ -653,7 +656,7 @@
   <string name="wikipedia_languages_title">Jazyky Wikipedie</string>
   <string name="wikipedia_languages_your_languages_text">Vaše jazyky</string>
   <string name="wikipedia_languages_add_language_text">Přidat jazyk</string>
-  <string name="wikipedia_languages_remove_text">Odebrat</string>
+  <string name="wikipedia_languages_remove_text">Odebrat jazyk</string>
   <string name="wikipedia_languages_remove_action_mode_title">Odebrat jazyk</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Odebrat vybraný jazyk?</item>

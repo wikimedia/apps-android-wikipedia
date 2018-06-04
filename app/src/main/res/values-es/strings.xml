@@ -140,6 +140,7 @@
   <string name="create_account_next">Siguiente</string>
   <string name="create_account_button">Crear cuenta</string>
   <string name="create_account_name_unavailable">No está disponible el nombre de usuario «%s». Elige otro.</string>
+  <string name="create_account_ip_block_details">Detalles</string>
   <string name="preferences_general_heading">General</string>
   <string name="wikipedia_app_faq">Preguntas frecuentes</string>
   <string name="zero_charged_verbiage">El acceso gratuito a Wikipedia ya no está activo.</string>
@@ -662,7 +663,7 @@
   <string name="wikipedia_languages_title">Idiomas de Wikipedia</string>
   <string name="wikipedia_languages_your_languages_text">Tus idiomas</string>
   <string name="wikipedia_languages_add_language_text">Añadir idioma</string>
-  <string name="wikipedia_languages_remove_text">Quitar</string>
+  <string name="wikipedia_languages_remove_text">Quitar idioma</string>
   <string name="wikipedia_languages_remove_action_mode_title">Quitar idioma</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">¿Quieres quitar el idioma seleccionado?</item>

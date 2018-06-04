@@ -617,7 +617,7 @@
   <string name="wikipedia_languages_title">Các ngôn ngữ của Wikipedia</string>
   <string name="wikipedia_languages_your_languages_text">Ngôn ngữ của bạn</string>
   <string name="wikipedia_languages_add_language_text">Thêm ngôn ngữ</string>
-  <string name="wikipedia_languages_remove_text">Xóa</string>
+  <string name="wikipedia_languages_remove_text" fuzzy="true">Xóa</string>
   <string name="wikipedia_languages_remove_action_mode_title">Xoá ngôn ngữ</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Xoá ngôn ngữ đã chọn?</item>

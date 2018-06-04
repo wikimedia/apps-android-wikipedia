@@ -610,7 +610,7 @@
   <string name="wikipedia_languages_title">Wikipédia nyelvek</string>
   <string name="wikipedia_languages_your_languages_text">Nyelveid</string>
   <string name="wikipedia_languages_add_language_text">Nyelv hozzáadása</string>
-  <string name="wikipedia_languages_remove_text">Eltávolítás</string>
+  <string name="wikipedia_languages_remove_text" fuzzy="true">Eltávolítás</string>
   <string name="wikipedia_languages_remove_action_mode_title">Nyelv eltávolítása</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Eltávolítod a kijelölt nyelvet?</item>

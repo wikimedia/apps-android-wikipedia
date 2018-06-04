@@ -653,7 +653,7 @@
   <string name="wikipedia_languages_title">Línguas da Wikipédia</string>
   <string name="wikipedia_languages_your_languages_text">As suas línguas</string>
   <string name="wikipedia_languages_add_language_text">Adicionar língua</string>
-  <string name="wikipedia_languages_remove_text">Remover</string>
+  <string name="wikipedia_languages_remove_text" fuzzy="true">Remover</string>
   <string name="wikipedia_languages_remove_action_mode_title">Remover língua</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Remover a língua selecionada?</item>

@@ -130,6 +130,9 @@
   <string name="create_account_next">下一步</string>
   <string name="create_account_button">创建账户</string>
   <string name="create_account_name_unavailable">用户名“%s”不可用。请选择不同的用户名。</string>
+  <string name="create_account_ip_block_message">对不起，您的IP地址当前被封禁，不能创建新账户。</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_details">详情</string>
   <string name="preferences_general_heading">常规</string>
   <string name="wikipedia_app_faq">维基百科应用程序常见问题</string>
   <string name="zero_charged_verbiage">免费访问维基百科功能不再可用。</string>
@@ -652,7 +655,7 @@
   <string name="wikipedia_languages_title">维基百科语言</string>
   <string name="wikipedia_languages_your_languages_text">您的语言</string>
   <string name="wikipedia_languages_add_language_text">添加语言</string>
-  <string name="wikipedia_languages_remove_text">移除</string>
+  <string name="wikipedia_languages_remove_text">移除语言</string>
   <string name="wikipedia_languages_remove_action_mode_title">移除语言</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">移除选择的语言么？</item>

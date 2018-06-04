@@ -184,6 +184,6 @@
   <string name="wikipedia_languages_title">Zimanên Wîkîpediyayê</string>
   <string name="wikipedia_languages_your_languages_text">Zimanên te</string>
   <string name="wikipedia_languages_add_language_text">Zimaneke îlawe bike</string>
-  <string name="wikipedia_languages_remove_text">Jê bibe</string>
+  <string name="wikipedia_languages_remove_text" fuzzy="true">Jê bibe</string>
   <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Bila zimanê(n) bijartî jê werin rakirin?</string>
 </resources>

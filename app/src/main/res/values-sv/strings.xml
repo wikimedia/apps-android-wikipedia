@@ -651,7 +651,7 @@
   <string name="wikipedia_languages_title">Wikipedia-språk</string>
   <string name="wikipedia_languages_your_languages_text">Dina språk</string>
   <string name="wikipedia_languages_add_language_text">Lägg till språk</string>
-  <string name="wikipedia_languages_remove_text">Ta bort</string>
+  <string name="wikipedia_languages_remove_text" fuzzy="true">Ta bort</string>
   <string name="wikipedia_languages_remove_action_mode_title">Ta bort språk</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Ta bort valt språk?</item>

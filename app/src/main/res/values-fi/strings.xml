@@ -653,7 +653,7 @@
   <string name="wikipedia_languages_title">Wikipedia-kielet</string>
   <string name="wikipedia_languages_your_languages_text">Kielesi</string>
   <string name="wikipedia_languages_add_language_text">Lisää kieli</string>
-  <string name="wikipedia_languages_remove_text">Poista</string>
+  <string name="wikipedia_languages_remove_text" fuzzy="true">Poista</string>
   <string name="wikipedia_languages_remove_action_mode_title">Poista kieli</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Poista valittu kieli?</item>

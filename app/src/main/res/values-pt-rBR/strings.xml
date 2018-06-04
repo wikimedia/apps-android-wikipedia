@@ -665,7 +665,7 @@
   <string name="wikipedia_languages_title">Idiomas da Wikipédia</string>
   <string name="wikipedia_languages_your_languages_text">Seus idiomas:</string>
   <string name="wikipedia_languages_add_language_text">Adicionar idioma</string>
-  <string name="wikipedia_languages_remove_text">Remover</string>
+  <string name="wikipedia_languages_remove_text">Remover idioma</string>
   <string name="wikipedia_languages_remove_action_mode_title">Remover idioma</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Remover o idioma selecionado?</item>

@@ -130,6 +130,8 @@
   <string name="create_account_next">Dalej</string>
   <string name="create_account_button">Utwórz konto</string>
   <string name="create_account_name_unavailable">Nazwa użytkownika „%s” nie jest dostępna. Proszę wybrać inną nazwę.</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_details">Szczegóły</string>
   <string name="preferences_general_heading">Ogólne</string>
   <string name="wikipedia_app_faq">FAQ dotyczące aplikacji Wikipedii</string>
   <string name="zero_charged_verbiage">Darmowy dostęp do Wikipedii nie jest dłużej aktywny.</string>
@@ -489,7 +491,7 @@
   <string name="wikipedia_languages_title">Języki Wikipedii</string>
   <string name="wikipedia_languages_your_languages_text">Twoje języki</string>
   <string name="wikipedia_languages_add_language_text">Dodaj język</string>
-  <string name="wikipedia_languages_remove_text">Usuń</string>
+  <string name="wikipedia_languages_remove_text">Usuń język</string>
   <string name="wikipedia_languages_remove_action_mode_title">Usuń język</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Usunąć wybrany język?</item>

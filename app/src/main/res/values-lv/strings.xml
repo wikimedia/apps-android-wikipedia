@@ -239,7 +239,7 @@
   <string name="wikipedia_languages_title">Vikipēdijas valodas</string>
   <string name="wikipedia_languages_your_languages_text">Tavas valodas</string>
   <string name="wikipedia_languages_add_language_text">Pievienot valodu</string>
-  <string name="wikipedia_languages_remove_text">Noņemt</string>
+  <string name="wikipedia_languages_remove_text" fuzzy="true">Noņemt</string>
   <string name="wikipedia_languages_remove_action_mode_title">Noņemt valodu</string>
   <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Noņemt izvēlētās valodas?</string>
   <string name="more_language_options">vairāk</string>

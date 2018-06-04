@@ -550,7 +550,7 @@
   <string name="wikipedia_languages_title">وڪيپيڊيا ٻوليون</string>
   <string name="wikipedia_languages_your_languages_text">توھان جون ٻوليون</string>
   <string name="wikipedia_languages_add_language_text">ٻولي وجھو</string>
-  <string name="wikipedia_languages_remove_text">هٽايو</string>
+  <string name="wikipedia_languages_remove_text" fuzzy="true">هٽايو</string>
   <string name="wikipedia_languages_remove_action_mode_title">ٻولي ھٽايو</string>
   <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">چونڊيل ٻول(ون) ھٽايو؟</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">سڀ ٻوليون ھٽائي نٿيون سگھجن</string>

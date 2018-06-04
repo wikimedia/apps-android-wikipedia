@@ -117,6 +117,9 @@
   <string name="create_account_next">Siguiente</string>
   <string name="create_account_button">Crear una cuenta</string>
   <string name="create_account_name_unavailable">El nome d\'usuariu «%s» nun ta disponible. Escueyi un nome distintu.</string>
+  <string name="create_account_ip_block_message">Sentímoslo, anguaño la to direición IP ta bloquiada pa crear cuentes nueves.</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_details">Detalles</string>
   <string name="preferences_general_heading">Xeneral</string>
   <string name="wikipedia_app_faq">EMF de la App Wikipedia</string>
   <string name="zero_charged_verbiage">L\'accesu llibre a Wikipedia yá nun ta activu.</string>
@@ -639,7 +642,7 @@
   <string name="wikipedia_languages_title">Llingües de Wikipedia</string>
   <string name="wikipedia_languages_your_languages_text">Les tos llingües</string>
   <string name="wikipedia_languages_add_language_text">Amestar llingua</string>
-  <string name="wikipedia_languages_remove_text">Desaniciar</string>
+  <string name="wikipedia_languages_remove_text">Desaniciar llingua</string>
   <string name="wikipedia_languages_remove_action_mode_title">Desaniciar llingua</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">¿Desaniciar la llingua escoyida?</item>

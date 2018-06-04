@@ -530,7 +530,7 @@
   <string name="wikipedia_languages_title">Wikipedia-Sproochen</string>
   <string name="wikipedia_languages_your_languages_text">Är Sprooch</string>
   <string name="wikipedia_languages_add_language_text">Sprooch derbäisetzen</string>
-  <string name="wikipedia_languages_remove_text">Ewechhuelen</string>
+  <string name="wikipedia_languages_remove_text">Sprooch ewechhuelen</string>
   <string name="wikipedia_languages_remove_action_mode_title">Sprooch ewechhuelen</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Erausgesicht Sprooch ewechhuelen?</item>

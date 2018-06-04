@@ -639,7 +639,7 @@
   <string name="wikipedia_languages_title">Езици на Уикипедия</string>
   <string name="wikipedia_languages_your_languages_text">Вашите езици</string>
   <string name="wikipedia_languages_add_language_text">Добавяне на език</string>
-  <string name="wikipedia_languages_remove_text">Премахване</string>
+  <string name="wikipedia_languages_remove_text">Премахване на езика</string>
   <string name="wikipedia_languages_remove_action_mode_title">Премахване на език</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Премахване на избрания език?</item>

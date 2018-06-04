@@ -641,7 +641,7 @@
   <string name="wikipedia_languages_title">Tungumál Wikipediu</string>
   <string name="wikipedia_languages_your_languages_text">Tungumálin þín</string>
   <string name="wikipedia_languages_add_language_text">Bæta við tungumáli</string>
-  <string name="wikipedia_languages_remove_text">Fjarlægja</string>
+  <string name="wikipedia_languages_remove_text" fuzzy="true">Fjarlægja</string>
   <string name="wikipedia_languages_remove_action_mode_title">Fjarlægja tungumál</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Fjarlægja valið tungumál?</item>

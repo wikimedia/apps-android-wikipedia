@@ -25,6 +25,7 @@
   <string name="search_hint_search_history">Zoekgeschiedenis</string>
   <string name="search_hint_search_my_lists">In mijn lijsten zoeken</string>
   <string name="search_hint_search_reading_list">In leeslijsten zoeken</string>
+  <string name="search_hint_search_languages">Zoeken naar een taal</string>
   <string name="nav_item_history">Geschiedenis</string>
   <string name="error_network_error">Er is geen verbinding met het internet.</string>
   <string name="page_error_retry">Opnieuw proberen</string>
@@ -33,6 +34,7 @@
   <string name="history_item_deleted">%s verwijderd uit geheugen</string>
   <string name="history_items_deleted">%d pagina\'s uit geschiedenis verwijderd</string>
   <string name="history_item_delete_undo">Ongedaan maken</string>
+  <string name="app_settings">Appinstellingen</string>
   <string name="dialog_title_clear_history">Browsergeschiedenis wissen</string>
   <string name="dialog_message_clear_history">Hierdoor wordt uw volledige browsergeschiedenis gewist en worden alle huidige open tabbladen gesloten. Weet u het zeker?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
@@ -60,16 +62,18 @@
   <string name="talk_page_link_text">Bekijk overlegpagina</string>
   <string name="edit_history_link_text">Bekijk bewerkingsgeschiedenis</string>
   <string name="map_view_link_text">Op een kaart bekijken</string>
+  <string name="other_languages_indication_text">In een andere taal lezen</string>
   <string name="language_count_link_text">Beschikbaar in %d andere talen</string>
   <string name="content_license_html">Inhoud is beschikbaar onder de &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie tenzij anders aangegeven</string>
   <string name="edit_save_action_license_logged_in">Door op te slaan gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie.</string>
   <string name="edit_save_action_license_anon">Door op te slaan gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie. Bewerkingen worden toegeschreven aan het IP-adres van uw apparaat. Als u zich &lt;a href=\"https://#login\"&gt;aanmeldt&lt;/a&gt;, hebt u meer privacy.</string>
-  <string name="preference_title_language" fuzzy="true">Wikipediataal</string>
+  <string name="preference_title_language">Wikipediatalen</string>
   <string name="preference_languages_filter_hint">Zoeken</string>
   <string name="langlinks_filter_hint">Zoeken</string>
   <string name="langlinks_empty">Deze pagina is niet beschikbaar in andere talen.</string>
-  <string name="langlinks_no_match" fuzzy="true">Geen talen gevonden die overeenkomen met uw zoekopdracht.</string>
+  <string name="langlinks_no_match">Geen talen gevonden</string>
   <string name="langlinks_activity_title">Andere talen</string>
+  <string name="langlinks_your_wikipedia_languages">Uw Wikipediatalen</string>
   <string name="menu_save_changes">Wijzigingen publiceren</string>
   <string name="dialog_saving_in_progress">Bezig met publiceren...</string>
   <string name="edit_saved_successfully">Bewerking gepubliceerd!</string>
@@ -97,6 +101,8 @@
   <string name="login_activity_title">Aanmelden bij Wikipedia</string>
   <string name="login_in_progress_dialog_message">Bezig met aanmelden…</string>
   <string name="login_success_toast">U bent aangemeld.</string>
+  <string name="reset_password_title">Uw wachtwoord instellen</string>
+  <string name="reset_password_hint">Nieuw wachtwoord</string>
   <string name="preference_title_logout">Afmelden</string>
   <string name="toast_logout_complete">Afgemeld</string>
   <string name="history_empty_title">Geen recent bekeken pagina\'s</string>
@@ -120,6 +126,7 @@
   <string name="create_account_generic_error">Het was niet mogelijk een account aan te maken</string>
   <string name="create_account_next">Volgende</string>
   <string name="create_account_button">Registreren</string>
+  <string name="create_account_ip_block_details">Details</string>
   <string name="preferences_general_heading">Algemeen</string>
   <string name="wikipedia_app_faq">Veelgestelde vragen over de Wikipedia-app</string>
   <string name="zero_charged_verbiage">Gratis toegang tot Wikipedia is niet meer actief.</string>
@@ -138,6 +145,8 @@
   <string name="send_feedback">Terugkoppeling over app geven</string>
   <string name="create_account_account_created_toast">Account aangemaakt!</string>
   <string name="preferences_heading_storage_and_syncing">Opslag en synchronisatie</string>
+  <string name="preferences_heading_data_usage">Gegevensgebruik</string>
+  <string name="preferences_heading_experimental">Experimenteel</string>
   <string name="preference_title_sync_reading_lists">Leeslijsten sychroniseren</string>
   <string name="preference_summary_sync_reading_lists">Leeslijsten tussen verschillende apparaten synchroniseren door deze op uw account op te slaan</string>
   <string name="preferences_privacy_settings_heading">Privacy</string>
@@ -188,6 +197,7 @@
   <string name="edit_summary_tag_links">Koppelingen toegevoegd</string>
   <string name="edit_summary_tag_other">Overige</string>
   <string name="edit_summary_tag_other_hint">Andere manieren waarop hoe u de pagina hebt verbeterd</string>
+  <string name="edit_conflict_title">Bewerkingsconflict</string>
   <string name="find_next">Volgende zoeken</string>
   <string name="find_previous">Vorige zoeken</string>
   <string name="find_first_occurence">Dit is het eerste resultaat</string>
@@ -321,6 +331,7 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d van de 1 pagina\'s offline beschikbaar, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d van de %2$d pagina\'s offline beschikbaar, %3$.2f MB</string>
   <string name="reading_list_sort">Sorteren</string>
+  <string name="reading_list_sort_ellipsis">Sorteren op…</string>
   <string name="reading_list_sort_by_name">Sorteren op naam</string>
   <string name="reading_list_sort_by_name_desc">Sorteren op naam (achterstevoren)</string>
   <string name="reading_list_sort_by_recent">Sorteren op datum van toevoeging (nieuwste)</string>
@@ -371,6 +382,8 @@
   <string name="reading_list_already_contains_selection">De gekozen lijst bevat alle geselecteerde pagina\'s reeds.</string>
   <string name="reading_list_added_articles_list_titled">%1$d pagina\'s aan %2$s toegevoegd</string>
   <string name="reading_list_delete_confirm">Weet u zeker dat u %s wilt verwijderen?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Annuleren</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Instellingen</string>
   <string name="default_reading_list_name">Opgeslagen</string>
   <string name="default_reading_list_description">Standaardlijst voor uw opgeslagen pagina\'s</string>
   <string name="no_user_lists_title">Pagina\'s in lijsten organiseren</string>
@@ -432,8 +445,8 @@
   <string name="view_featured_article_footer_saved_button_label">Opgeslagen</string>
   <string name="feed_configure_activity_title">Overzicht bewerken</string>
   <string name="feed_configure_menu_reset">Standaardoverzicht terugzetten</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">Alles selecteren</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">Alles deselecteren</string>
+  <string name="feed_configure_menu_select_all">Alles weergeven</string>
+  <string name="feed_configure_menu_deselect_all">Alles verbergen</string>
   <string name="feed_item_type_news">Pagina\'s over huidige gebeurtenissen</string>
   <string name="feed_item_type_on_this_day">Gebeurtenissen in de geschiedenis op deze dag</string>
   <string name="feed_item_type_continue_reading">Snelle link naar een open pagina in een van uw tabbladen</string>

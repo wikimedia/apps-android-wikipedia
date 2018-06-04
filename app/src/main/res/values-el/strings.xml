@@ -592,7 +592,7 @@
   <string name="wikipedia_languages_title">Γλώσσες Βικιπαίδειας</string>
   <string name="wikipedia_languages_your_languages_text">Οι γλώσσες σας</string>
   <string name="wikipedia_languages_add_language_text">Προσθήκη γλώσσας</string>
-  <string name="wikipedia_languages_remove_text">Αφαίρεση</string>
+  <string name="wikipedia_languages_remove_text">Αφαίρεση γλώσσας</string>
   <string name="wikipedia_languages_remove_action_mode_title">Αφαίρεση γλώσσας</string>
   <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Αφαίρεση των επιλεγμένων γλώσσα(-ών);</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Δεν μπορούν να αφαιρεθούν όλες οι γλώσσες</string>

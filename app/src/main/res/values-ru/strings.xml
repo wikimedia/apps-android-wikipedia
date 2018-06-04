@@ -679,7 +679,7 @@
   <string name="wikipedia_languages_title">Языки Википедии</string>
   <string name="wikipedia_languages_your_languages_text">Ваши языки</string>
   <string name="wikipedia_languages_add_language_text">Добавить язык</string>
-  <string name="wikipedia_languages_remove_text">Удалить</string>
+  <string name="wikipedia_languages_remove_text">Удалить язык</string>
   <string name="wikipedia_languages_remove_action_mode_title">Удалить язык</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Удалить выбранный язык?</item>

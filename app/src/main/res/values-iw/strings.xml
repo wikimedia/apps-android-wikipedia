@@ -650,7 +650,7 @@
   <string name="wikipedia_languages_title">שפות ויקיפדיה</string>
   <string name="wikipedia_languages_your_languages_text">השפות שלך</string>
   <string name="wikipedia_languages_add_language_text">הוספת שפה</string>
-  <string name="wikipedia_languages_remove_text">הסרה</string>
+  <string name="wikipedia_languages_remove_text">הסרת שפה</string>
   <string name="wikipedia_languages_remove_action_mode_title">הסרת שפה</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">להסיר את השפה שנבחרה?</item>

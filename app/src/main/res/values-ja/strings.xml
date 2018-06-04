@@ -28,6 +28,7 @@
   <string name="search_hint_search_history">検索履歴</string>
   <string name="search_hint_search_my_lists">リストを検索</string>
   <string name="search_hint_search_reading_list">あとで読むリストを検索</string>
+  <string name="search_hint_search_languages">言語を検索</string>
   <string name="nav_item_history">履歴</string>
   <string name="error_network_error">インターネットに接続できません。</string>
   <string name="page_error_retry">再試行</string>
@@ -36,6 +37,7 @@
   <string name="history_item_deleted">履歴から%sを削除しました</string>
   <string name="history_items_deleted">履歴から%d件の記事を削除しました</string>
   <string name="history_item_delete_undo">元に戻す</string>
+  <string name="app_settings">設定</string>
   <string name="dialog_title_clear_history">閲覧履歴を消去します</string>
   <string name="dialog_message_clear_history">あなたの閲覧履歴をすべて消去し、現在開いているタブをすべて閉じます。本当によろしいですか？</string>
   <string name="dialog_message_clear_history_yes">はい</string>
@@ -60,19 +62,21 @@
   <string name="nearby_zoom_to_location">地図上の場所へズームする</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; の貢献者のみなさん</string>
   <string name="last_updated_text">最終更新: %s</string>
-  <string name="talk_page_link_text" fuzzy="true">ノート</string>
-  <string name="edit_history_link_text" fuzzy="true">編集履歴</string>
+  <string name="talk_page_link_text">ノート</string>
+  <string name="edit_history_link_text">編集履歴</string>
   <string name="map_view_link_text">地図で見る</string>
+  <string name="other_languages_indication_text">別の言語で閲覧</string>
   <string name="language_count_link_text">他に%dの言語で利用可能</string>
   <string name="content_license_html">特記なき場合、コンテンツは&lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;で利用可能です</string>
   <string name="edit_save_action_license_logged_in">保存すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。</string>
   <string name="edit_save_action_license_anon">保存すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。編集はあなたのデバイスのIPアドレスと関連付けて記録されます。さらにプライバシーを求める場合は&lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt;してください。</string>
-  <string name="preference_title_language" fuzzy="true">ウィキペディアの言語</string>
+  <string name="preference_title_language">ウィキペディアの言語</string>
   <string name="preference_languages_filter_hint">検索</string>
   <string name="langlinks_filter_hint">検索</string>
   <string name="langlinks_empty">このページの他の言語版はありません。</string>
-  <string name="langlinks_no_match" fuzzy="true">入力したキーワードに一致する言語が見つかりません。</string>
+  <string name="langlinks_no_match">キーワードに一致する言語が見つかりません</string>
   <string name="langlinks_activity_title">他の言語で読む</string>
+  <string name="langlinks_your_wikipedia_languages">ウィキペディアの言語</string>
   <string name="menu_save_changes">変更を公開</string>
   <string name="dialog_saving_in_progress">公開中...</string>
   <string name="edit_saved_successfully">公開しました!</string>
@@ -109,6 +113,7 @@
   <string name="history_empty_title">履歴はまだありません！</string>
   <string name="history_empty_message">これまで読んだページを追跡できます。</string>
   <string name="search_empty_message">あなたの言語で自由な百科事典を検索して読んでみてください</string>
+  <string name="search_empty_message_multilingual_upgrade">いろんな言語でウィキペディアを検索</string>
   <string name="delete_selected_items">選択した項目を削除</string>
   <string name="wp_stylized">&lt;big&gt;ウィ&lt;/big&gt;キペディ&lt;big&gt;ア&lt;/big&gt;</string>
   <string name="create_account_username_hint">利用者名</string>
@@ -127,6 +132,10 @@
   <string name="create_account_generic_error">アカウントを作成できませんでした</string>
   <string name="create_account_next">次へ</string>
   <string name="create_account_button">アカウント作成</string>
+  <string name="create_account_name_unavailable">ユーザー名「%s」はご利用になれません。別の名前を選んでください。</string>
+  <string name="create_account_ip_block_message">申し訳ありませんが現在あなたのIPアドレスはアカウント作成がブロックされています。</string>
+  <string name="create_account_ip_block_help_url">https://ja.wikipedia.org/wiki/Wikipedia:FAQ 投稿ブロック</string>
+  <string name="create_account_ip_block_details">詳細</string>
   <string name="preferences_general_heading">全般</string>
   <string name="wikipedia_app_faq">ウィキペディアアプリについての FAQ</string>
   <string name="zero_charged_verbiage">ウィキペディアへの無料接続機能を無効にしました。</string>
@@ -145,8 +154,15 @@
   <string name="send_feedback">フィードバックを送る</string>
   <string name="create_account_account_created_toast">アカウントを作成しました!</string>
   <string name="preferences_heading_storage_and_syncing">保存領域と同期</string>
+  <string name="preferences_heading_syncing">同期</string>
+  <string name="preferences_heading_data_usage">通信量</string>
+  <string name="preferences_heading_experimental">実験的機能</string>
   <string name="preference_title_sync_reading_lists">あとで読むリストの同期</string>
+  <string name="preference_title_sync_reading_lists_from_account">あとで読むリストの同期を有効にする</string>
   <string name="preference_summary_sync_reading_lists">ウィキペディアアカウントにあとで読むリストを保存することで、異なるデバイス間でリストを同期させる</string>
+  <string name="preference_summary_sync_reading_lists_from_account">あなたのウィキペディアアカウント %s にあとで読むリストを保存して、リストをデバイス間で同期させる</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">アカウント%sから同期中のあとで読むリストを削除しますか？</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">この操作で、これまでに同期されたあとで読むリストをクラウド上のストレージから完全に削除します。本当にすべての同期中のあとで読むリストを %s のアカウントから削除しますか？</string>
   <string name="preferences_privacy_settings_heading">プライバシー</string>
   <string name="preference_title_eventlogging_opt_in">利用状況レポートを送信</string>
   <string name="preference_summary_eventlogging_opt_in">アプリの改善に役立てるため、ウィキメディア財団がアプリの使用情報を収集することを許可する</string>
@@ -169,6 +185,7 @@
   <string name="about_wikipedia_url">https://ja.m.wikipedia.org/wiki/Wikipedia:ウィキペディアについて</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja#オフラインでの閲覧とデータ</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -195,6 +212,8 @@
   <string name="edit_summary_tag_links">リンクを追加</string>
   <string name="edit_summary_tag_other">その他</string>
   <string name="edit_summary_tag_other_hint">ページのその他の改善</string>
+  <string name="edit_conflict_title">編集の競合</string>
+  <string name="edit_conflict_message">このページは他のユーザーによって変更されており、あなたの編集と競合しています。編集中のテキストをコピーして、戻ってページを読み込み直した上で、再度編集してください。</string>
   <string name="find_next">次を検索</string>
   <string name="find_previous">前を検索</string>
   <string name="find_first_occurence">これが1件目です</string>
@@ -258,6 +277,7 @@
   <string name="tool_tip_share">面白いと思った部分を選択して、お好みのSNSで共有しましょう!</string>
   <string name="page_view_in_browser">ブラウザーで閲覧</string>
   <string name="tool_tip_toc_button">このボタンをタップするか、画面右側からスライドすると、いつでも目次が呼び出せます。</string>
+  <string name="tool_tip_lang_button">アプリ内で、複数の言語でウィキペディアを検索して読めるようになりました。\n\n\nアイコンをタップして言語を追加しましょう。</string>
   <string name="error_response_malformed">サーバーからの応答が正しいフォーマットではありませんでした。</string>
   <string name="error_unknown">不明なエラーが発生しました。</string>
   <string name="format_error_server_message">メッセージ: 「%s」</string>
@@ -330,12 +350,15 @@
   <string name="format_reading_list_statistical_detail_singular">1つの記事のうちの%1$dをオフラインで利用できます。%2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%2$d件の記事のうち、%1$d件がオフラインで利用できます。  %3$.2f MB</string>
   <string name="reading_list_sort">並べ替え</string>
+  <string name="reading_list_sort_ellipsis">ソート順:</string>
   <string name="reading_list_sort_by_name">名前順に並べ替え</string>
   <string name="reading_list_sort_by_name_desc">名前順に並べ替え (降順)</string>
   <string name="reading_list_sort_by_recent">新しい方から並べ替え</string>
   <string name="reading_list_sort_by_recent_desc">古い方から並べ替え</string>
+  <string name="reading_list_sort_by_created">作成日で検索(降順)</string>
+  <string name="reading_list_sort_by_created_desc">作成日で検索(昇順)</string>
   <string name="reading_list_menu_delete">リストを削除</string>
-  <string name="reading_list_menu_rename" fuzzy="true">名前を変更</string>
+  <string name="reading_list_menu_rename">名前/説明を編集</string>
   <string name="reading_list_menu_edit_description">説明を編集</string>
   <string name="reading_list_action_menu_remove_from_offline">オフラインから削除</string>
   <string name="reading_list_action_menu_save_for_offline">オフラインで保存</string>
@@ -367,7 +390,12 @@
   <string name="reading_list_confirm_remove_article_from_offline">オフラインから削除</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">複数のリストに記事が表示されます</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">すべての閲覧リストに対して、%sはオフラインで利用できなくなります：</string>
+  <string name="reading_lists_sync_reminder_title">あとで読むリストの同期を停止しますか？</string>
+  <string name="reading_lists_sync_reminder_text">あとで読むリストに保存された記事を、あなたのウィキペディアアカウントで同期することができるようになりました。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja#Synced_reading_lists\"&gt;さらに詳しく&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">あとで読むリストはデバイスをまたいで同期できるようになりました。ウィキペディアアカウントにログインして、あなたのリストを保存しましょう。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja#Synced_reading_lists\"&gt;さらに詳しく&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_action">同期を有効にする</string>
   <string name="reading_list_login_reminder_title">リーディングリストを同期する</string>
+  <string name="reading_lists_login_reminder_text">あとで読むリストはデバイス間で同期できるようになりました。ウィキペディアのアカウントにログインして、リストの保存を許可してください。</string>
   <string name="reading_lists_confirm_remote_delete">これにより、以前に同期されたすべてのリーディングリストがリモートストレージから削除されます。続行しますか？</string>
   <string name="reading_lists_confirm_remote_delete_yes">はい</string>
   <string name="reading_lists_confirm_remote_delete_no">いいえ</string>
@@ -375,8 +403,22 @@
   <string name="reading_list_already_contains_selection">選択したリストには、すでに選択したすべてのページが含まれています。</string>
   <string name="reading_list_added_articles_list_titled">%1$dに%2$sを追加しました</string>
   <string name="reading_list_delete_confirm">%s を本当に削除しますか?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">ログインして同期を有効にする</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">ログインして、あとで読むリストをアカウントに保存することを許可</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">中止</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">ログイン</string>
+  <string name="reading_list_turned_sync_off_dialog_title">あとで読むリストの同期はオフになりました</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">設定</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">あとで読むリストの同期を有効にしますか？</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">次からは表示しない</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">同期を有効にする</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">やめます</string>
+  <string name="reading_list_login_option_reminder_dialog_title">あとで読むリストに記事が見つかりました</string>
+  <string name="reading_list_login_option_reminder_dialog_text">ログアウトしている間に、あとで読むリストに記事が追加されました。あなたのアカウントのあとで読むリストに、その記事を追加しますか？</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">はい、記事をあとで読むリストに追加します</string>
+  <string name="reading_list_login_option_reminder_dialog_no">いいえ、記事を削除します</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">アプリ内の保存した記事をそのままにしますか？</string>
   <string name="default_reading_list_name">保存済み</string>
   <string name="default_reading_list_description">保存したページの既定の一覧</string>
   <string name="no_user_lists_title">記事をリストにまとめる</string>
@@ -440,8 +482,8 @@
   <string name="view_featured_article_footer_saved_button_label">保存しました</string>
   <string name="feed_configure_activity_title">「探索する」カードのカスタマイズ</string>
   <string name="feed_configure_menu_reset">標準設定の表示を適用</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">すべて選択</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">すべての選択を解除</string>
+  <string name="feed_configure_menu_select_all">すべて表示</string>
+  <string name="feed_configure_menu_deselect_all">すべて隠す</string>
   <string name="feed_item_type_news">最近の出来事の記事</string>
   <string name="feed_item_type_on_this_day">過去に起こったこの日の出来事</string>
   <string name="feed_item_type_continue_reading">タブのどれかで開いたページを読むクイックリンク</string>
@@ -547,8 +589,8 @@
   <string name="onboarding_explore_text">絶えずアップデートしていく「探検」のフィードを追って、ウィキペディアの未知の世界に潜り込みましょう。過去の出来事を&lt;b&gt;今日は何の日&lt;/ b&gt;を学んだり、&lt;b&gt;おまかせ表示&lt;/ b&gt;で運にまかせるなど、フィードをあなたの興味のままに&lt;b&gt;カスタマイズ&lt;/ b&gt;することができます。</string>
   <string name="onboarding_save_to_reading_lists_title">あとで読むリストに保存</string>
   <string name="onboarding_save_to_reading_lists_text">後から読みたい記事のために「あとで読む」リストを作りましょう。オフラインでも読めます。</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">同期したリストを読む</string>
-  <string name="onboarding_reading_list_sync_text" fuzzy="true">あなたがオフラインでも、後で読む記事からリーディングリストを作成します。リーディングリストをバックアップしておくために、ウィキペディアアカウントを&lt;a href=\"#login\"&gt;ログインまたは作成&lt;/a&gt;してください。</string>
+  <string name="onboarding_reading_list_sync_title">あとで読むリストの同期</string>
+  <string name="onboarding_reading_list_sync_text">後で読みたい記事をまとめて、あとで読むリストを作成しましょう。オフラインで読むこともできます。ウィキペディアアカウントに&lt;a href=\"#login\"&gt;ログイン、またはアカウントを作成&lt;/a&gt;して、あとで読むリストを保存しましょう。</string>
   <string name="onboarding_analytics_title">匿名データを送信</string>
   <string name="onboarding_analytics_offline_text">アプリの使い方を教えて機能の向上にご協力ください。収集されるデータは匿名です。 &lt;a href=\"#privacy\"&gt;詳細&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">使用データを送信</string>
@@ -556,6 +598,7 @@
   <string name="onboarding_create_account_contributions">貢献を追跡して見てください</string>
   <string name="onboarding_create_account_preferences">設定を保存する</string>
   <string name="onboarding_got_it">了解!</string>
+  <string name="onboarding_multilingual_add_language_text">言語の追加または編集</string>
   <string name="app_shortcuts_random">おまかせ表示</string>
   <string name="app_shortcuts_continue_reading">続けて読む</string>
   <string name="app_shortcuts_search">検索</string>
@@ -570,5 +613,13 @@
     <item quantity="one">昨年</item>
     <item quantity="other">%d年前</item>
   </plurals>
+  <string name="languages_list_activity_title">言語を追加</string>
+  <string name="languages_list_all_text">すべての言語</string>
+  <string name="wikipedia_languages_title">ウィキペディアの言語</string>
+  <string name="wikipedia_languages_your_languages_text">お使いの言語</string>
+  <string name="wikipedia_languages_add_language_text">言語を追加</string>
+  <string name="wikipedia_languages_remove_text">言語を削除</string>
+  <string name="wikipedia_languages_remove_action_mode_title">言語を削除</string>
+  <string name="more_language_options">もっと見る</string>
   <string name="add_wikipedia_languages_text">Wikipedia に言語を追加する</string>
 </resources>

@@ -651,7 +651,7 @@
   <string name="wikipedia_languages_title">Bahasa Wikipedia</string>
   <string name="wikipedia_languages_your_languages_text">Bahasa Anda</string>
   <string name="wikipedia_languages_add_language_text">Tambah bahasa</string>
-  <string name="wikipedia_languages_remove_text">Hapus</string>
+  <string name="wikipedia_languages_remove_text" fuzzy="true">Hapus</string>
   <string name="wikipedia_languages_remove_action_mode_title">Hapus bahasa</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Hapus bahasa yang dipilih?</item>

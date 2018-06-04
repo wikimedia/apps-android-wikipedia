@@ -655,7 +655,7 @@
   <string name="wikipedia_languages_title">維基百科語言</string>
   <string name="wikipedia_languages_your_languages_text">您的語言</string>
   <string name="wikipedia_languages_add_language_text">新增語言</string>
-  <string name="wikipedia_languages_remove_text">移除</string>
+  <string name="wikipedia_languages_remove_text" fuzzy="true">移除</string>
   <string name="wikipedia_languages_remove_action_mode_title">移除語言</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">移除所選語言？</item>

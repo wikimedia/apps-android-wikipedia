@@ -642,7 +642,7 @@
   <string name="wikipedia_languages_title">Јазици на Википедија</string>
   <string name="wikipedia_languages_your_languages_text">Ваши јазици</string>
   <string name="wikipedia_languages_add_language_text">Додај јазик</string>
-  <string name="wikipedia_languages_remove_text">Отстрани</string>
+  <string name="wikipedia_languages_remove_text" fuzzy="true">Отстрани</string>
   <string name="wikipedia_languages_remove_action_mode_title">Отстрани јазик</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Да го отстранам избраниот јазик?</item>

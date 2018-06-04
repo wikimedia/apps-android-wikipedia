@@ -566,7 +566,7 @@
   <string name="wikipedia_languages_title">Бикипиэдьийэ омугун тыла</string>
   <string name="wikipedia_languages_your_languages_text">Эн тылларыҥ</string>
   <string name="wikipedia_languages_add_language_text">Тылы эбии</string>
-  <string name="wikipedia_languages_remove_text">Сот</string>
+  <string name="wikipedia_languages_remove_text" fuzzy="true">Сот</string>
   <string name="wikipedia_languages_remove_action_mode_title">Тылы сот</string>
   <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Талбыт тылларгын сотоҕун дуо?</string>
 </resources>

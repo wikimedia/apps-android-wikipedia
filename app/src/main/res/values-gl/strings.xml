@@ -619,7 +619,7 @@
   <string name="wikipedia_languages_title">Linguas de Wikipedia</string>
   <string name="wikipedia_languages_your_languages_text">As súas linguas</string>
   <string name="wikipedia_languages_add_language_text">Engadir lingua</string>
-  <string name="wikipedia_languages_remove_text">Eliminar</string>
+  <string name="wikipedia_languages_remove_text" fuzzy="true">Eliminar</string>
   <string name="wikipedia_languages_remove_action_mode_title">Eliminar lingua</string>
   <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Eliminar a, ou as, linguas seleccionadas?</string>
   <string name="wikipedia_languages_remove_dialog_content">Só verá contido nas linguas restantes de Wikipedia no fluxo de Explorar e nos filtros de procura rápida.</string>

@@ -501,5 +501,5 @@
   <string name="languages_list_all_text">An holl yezhoù</string>
   <string name="wikipedia_languages_title">Yezhoù Wikipedia</string>
   <string name="wikipedia_languages_add_language_text">Ouzhpennañ ur yezh</string>
-  <string name="wikipedia_languages_remove_text">Lemel</string>
+  <string name="wikipedia_languages_remove_text" fuzzy="true">Lemel</string>
 </resources>

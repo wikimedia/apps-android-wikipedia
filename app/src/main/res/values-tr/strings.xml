@@ -660,7 +660,7 @@
   <string name="wikipedia_languages_title">Vikipedi dilleri</string>
   <string name="wikipedia_languages_your_languages_text">Dilleriniz</string>
   <string name="wikipedia_languages_add_language_text">Dil ekle</string>
-  <string name="wikipedia_languages_remove_text">Kaldır</string>
+  <string name="wikipedia_languages_remove_text" fuzzy="true">Kaldır</string>
   <string name="wikipedia_languages_remove_action_mode_title">Dili kaldır</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Seçilen dili kaldır?</item>

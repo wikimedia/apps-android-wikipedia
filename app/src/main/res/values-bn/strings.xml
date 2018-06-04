@@ -126,6 +126,8 @@
   <string name="create_account_next">পরবর্তী</string>
   <string name="create_account_button">অ্যাকাউন্ট তৈরি করুন</string>
   <string name="create_account_name_unavailable">\"%s\" নামে কোনো ব্যবহারকারী উপলব্ধ নেই। দয়া করে অন্য কোনো নাম বাছুন।</string>
+  <string name="create_account_ip_block_message">দুঃখিত, নতুন অ্যাকাউন্ট তৈরি করা থেকে আপনার আইপি ঠিকানাকে অবরুদ্ধ করা হয়েছে।</string>
+  <string name="create_account_ip_block_details">বিস্তারিত</string>
   <string name="preferences_general_heading">সাধারণ</string>
   <string name="wikipedia_app_faq">উইকিপিডিয়া অ্যাপ প্রাজিপ্র</string>
   <string name="zero_charged_verbiage">উইকিপিডিয়ায় বিনামূল্যে প্রবেশাধিকার আর সক্রিয় নয়।</string>
@@ -551,7 +553,7 @@
   <string name="wikipedia_languages_title">উইকিপিডিয়ার ভাষা</string>
   <string name="wikipedia_languages_your_languages_text">আপনার ভাষাসমূহ</string>
   <string name="wikipedia_languages_add_language_text">ভাষা যোগ করুন</string>
-  <string name="wikipedia_languages_remove_text">সরান</string>
+  <string name="wikipedia_languages_remove_text" fuzzy="true">সরান</string>
   <string name="wikipedia_languages_remove_action_mode_title">ভাষা সরান</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">নির্বাচিত ভাষা সরাবেন?</item>

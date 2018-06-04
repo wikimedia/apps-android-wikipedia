@@ -644,7 +644,7 @@
   <string name="wikipedia_languages_title">Bahasa Wikipedia</string>
   <string name="wikipedia_languages_your_languages_text">Bahasa anda</string>
   <string name="wikipedia_languages_add_language_text">Tambahkan bahasa</string>
-  <string name="wikipedia_languages_remove_text">Buang</string>
+  <string name="wikipedia_languages_remove_text" fuzzy="true">Buang</string>
   <string name="wikipedia_languages_remove_action_mode_title">Buang bahasa</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Buang bahasa yang dipilih?</item>
