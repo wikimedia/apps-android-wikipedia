@@ -4,13 +4,19 @@ import android.support.annotation.NonNull;
 
 import com.google.gson.stream.MalformedJsonException;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
+import org.mockito.MockitoAnnotations;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.test.MockWebServerTest;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 
@@ -25,6 +31,11 @@ import static org.mockito.Mockito.verify;
 
 public class NearbyClientTest extends MockWebServerTest {
     @NonNull private final NearbyClient subject = new NearbyClient();
+    @Captor private ArgumentCaptor<ArrayList<NearbyPage>> nearbyResultCaptor;
+
+    @Before public void setup() {
+        MockitoAnnotations.initMocks(this);
+    }
 
     @Test public void testRequestSuccessHasResults() throws Throwable {
         enqueueFromFile("nearby.json");
@@ -58,11 +69,10 @@ public class NearbyClientTest extends MockWebServerTest {
 
         server().takeRequest();
 
-        ArgumentCaptor<NearbyResult> captor = ArgumentCaptor.forClass(NearbyResult.class);
-        verify(cb).success(eq(call), captor.capture());
+        verify(cb).success(eq(call), nearbyResultCaptor.capture());
 
-        NearbyResult result = captor.getValue();
-        assertThat(result.getList().size(), is(0));
+        List<NearbyPage> result = nearbyResultCaptor.getValue();
+        assertThat(result.size(), is(0));
     }
 
     @Test public void testLocationMissingLatOnlyIsExcludedFromResults() throws Throwable {
@@ -73,11 +83,10 @@ public class NearbyClientTest extends MockWebServerTest {
 
         server().takeRequest();
 
-        ArgumentCaptor<NearbyResult> captor = ArgumentCaptor.forClass(NearbyResult.class);
-        verify(cb).success(eq(call), captor.capture());
+        verify(cb).success(eq(call), nearbyResultCaptor.capture());
 
-        NearbyResult result = captor.getValue();
-        assertThat(result.getList().size(), is(0));
+        List<NearbyPage> result = nearbyResultCaptor.getValue();
+        assertThat(result.size(), is(0));
     }
 
     @Test public void testLocationMissingLonOnlyIsExcludedFromResults() throws Throwable {
@@ -88,11 +97,10 @@ public class NearbyClientTest extends MockWebServerTest {
 
         server().takeRequest();
 
-        ArgumentCaptor<NearbyResult> captor = ArgumentCaptor.forClass(NearbyResult.class);
-        verify(cb).success(eq(call), captor.capture());
+        verify(cb).success(eq(call), nearbyResultCaptor.capture());
 
-        NearbyResult result = captor.getValue();
-        assertThat(result.getList().size(), is(0));
+        List<NearbyPage> result = nearbyResultCaptor.getValue();
+        assertThat(result.size(), is(0));
     }
 
     @Test public void testRequestResponseApiError() throws Throwable {
@@ -130,7 +138,7 @@ public class NearbyClientTest extends MockWebServerTest {
         // Location objects contained in the NearbyPage members of the Nearby results will have
         // unique timestamps assigned on creation that cause direct comparison of the NearbyResults
         // to fail.  So, let's just check to ensure that we have a valid NearbyResult.
-        verify(cb).success(eq(call), any(NearbyResult.class));
+        verify(cb).success(eq(call), any(List.class));
         //noinspection unchecked
         verify(cb, never()).failure(any(Call.class), any(Throwable.class));
     }
@@ -139,7 +147,7 @@ public class NearbyClientTest extends MockWebServerTest {
                                        @NonNull NearbyClient.Callback cb,
                                        @NonNull Class<? extends Throwable> throwable) {
         //noinspection unchecked
-        verify(cb, never()).success(any(Call.class), any(NearbyResult.class));
+        verify(cb, never()).success(any(Call.class), any(List.class));
         verify(cb).failure(eq(call), isA(throwable));
     }
 

@@ -43,9 +43,9 @@ public class NearbyUnitTest {
     @Test public void testSort() throws Throwable {
         calcDistances(nearbyPages);
         Collections.sort(nearbyPages, new NearbyDistanceComparator());
-        assertThat("a", is(nearbyPages.get(0).getTitle()));
-        assertThat("b", is(nearbyPages.get(1).getTitle()));
-        assertThat("c", is(nearbyPages.get(2).getTitle()));
+        assertThat("a", is(nearbyPages.get(0).getTitle().getDisplayText()));
+        assertThat("b", is(nearbyPages.get(1).getTitle().getDisplayText()));
+        assertThat("c", is(nearbyPages.get(2).getTitle().getDisplayText()));
     }
 
     @Test public void testSortWithNullLocations() throws Throwable {
@@ -54,12 +54,12 @@ public class NearbyUnitTest {
         nearbyPages.add(new NearbyPage("e", location));
         calcDistances(nearbyPages);
         Collections.sort(nearbyPages, new NearbyDistanceComparator());
-        assertThat("a", is(nearbyPages.get(0).getTitle()));
-        assertThat("b", is(nearbyPages.get(1).getTitle()));
-        assertThat("c", is(nearbyPages.get(2).getTitle()));
+        assertThat("a", is(nearbyPages.get(0).getTitle().getDisplayText()));
+        assertThat("b", is(nearbyPages.get(1).getTitle().getDisplayText()));
+        assertThat("c", is(nearbyPages.get(2).getTitle().getDisplayText()));
         // the two null location values come last but in the same order as from the original list:
-        assertThat("d", is(nearbyPages.get(3).getTitle()));
-        assertThat("e", is(nearbyPages.get(4).getTitle()));
+        assertThat("d", is(nearbyPages.get(3).getTitle().getDisplayText()));
+        assertThat("e", is(nearbyPages.get(4).getTitle().getDisplayText()));
     }
 
     @Test public void testCompare() throws Throwable {

@@ -10,7 +10,8 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.WikiCachedService;
 
-import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Locale;
 
 import retrofit2.Call;
@@ -20,7 +21,7 @@ import retrofit2.http.Query;
 
 class NearbyClient {
     public interface Callback {
-        void success(@NonNull Call<MwQueryResponse> call, @NonNull NearbyResult result);
+        void success(@NonNull Call<MwQueryResponse> call, @NonNull List<NearbyPage> pages);
         void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught);
     }
 
@@ -46,14 +47,14 @@ class NearbyClient {
                 // response won't even have a "query" key.  Nor will we receive an error.
                 // Accordingly, let's assume that we just got an empty result set unless the
                 // API explicitly tells us we have an error.
-                if (response.body().success()) {
+                if (response.body() != null && response.body().success()) {
                     // noinspection ConstantConditions
-                    cb.success(call, new NearbyResult(wiki, response.body().query().nearbyPages()));
-                } else if (response.body().hasError()) {
+                    cb.success(call, response.body().query().nearbyPages(wiki));
+                } else if (response.body() != null && response.body().hasError()) {
                     // noinspection ConstantConditions
                     cb.failure(call, new MwException(response.body().getError()));
                 } else {
-                    cb.success(call, new NearbyResult(wiki, new ArrayList<>()));
+                    cb.success(call, Collections.emptyList());
                 }
             }
 

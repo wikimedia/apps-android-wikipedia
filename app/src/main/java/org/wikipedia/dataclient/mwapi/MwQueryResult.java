@@ -130,11 +130,11 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         return result;
     }
 
-    @NonNull public List<NearbyPage> nearbyPages() {
+    @NonNull public List<NearbyPage> nearbyPages(@NonNull WikiSite wiki) {
         List<NearbyPage> result = new ArrayList<>();
         if (pages != null) {
             for (MwQueryPage page : pages) {
-                NearbyPage nearbyPage = new NearbyPage(page);
+                NearbyPage nearbyPage = new NearbyPage(page, wiki);
                 if (nearbyPage.getLocation() != null) {
                     result.add(nearbyPage);
                 }

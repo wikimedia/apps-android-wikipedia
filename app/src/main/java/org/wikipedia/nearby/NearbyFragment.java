@@ -87,7 +87,9 @@ public class NearbyFragment extends Fragment {
     private LocationEngine locationEngine;
 
     private NearbyClient client;
-    private NearbyResult lastResult;
+    private List<Call<MwQueryResponse>> clientCalls = new ArrayList<>();
+    private NearbyResult currentResults = new NearbyResult();
+    private boolean clearResultsOnNextCall;
 
     private LocationChangeListener locationChangeListener = new LocationChangeListener();
     @Nullable private CameraPosition lastCameraPos;
@@ -128,7 +130,7 @@ public class NearbyFragment extends Fragment {
             lastCameraPos = savedInstanceState.getParcelable(NEARBY_LAST_CAMERA_POS);
             firstLocationLock = savedInstanceState.getBoolean(NEARBY_FIRST_LOCATION_LOCK);
             if (savedInstanceState.containsKey(NEARBY_LAST_RESULT)) {
-                lastResult = GsonUnmarshaller.unmarshal(NearbyResult.class, savedInstanceState.getString(NEARBY_LAST_RESULT));
+                currentResults = GsonUnmarshaller.unmarshal(NearbyResult.class, savedInstanceState.getString(NEARBY_LAST_RESULT));
             }
         }
 
@@ -193,8 +195,8 @@ public class NearbyFragment extends Fragment {
         if (mapboxMap != null) {
             outState.putParcelable(NEARBY_LAST_CAMERA_POS, mapboxMap.getCameraPosition());
         }
-        if (lastResult != null) {
-            outState.putString(NEARBY_LAST_RESULT, GsonMarshaller.marshal(lastResult));
+        if (currentResults != null) {
+            outState.putString(NEARBY_LAST_RESULT, GsonMarshaller.marshal(currentResults));
         }
     }
 
@@ -240,8 +242,7 @@ public class NearbyFragment extends Fragment {
             mapboxMap.setOnMarkerClickListener((@NonNull Marker marker) -> {
                 NearbyPage page = findNearbyPageFromMarker(marker);
                 if (page != null) {
-                    PageTitle title = new PageTitle(page.getTitle(), lastResult.getWiki(), page.getThumbUrl());
-                    onLoadPage(title, HistoryEntry.SOURCE_NEARBY, page.getLocation());
+                    onLoadPage(page.getTitle(), HistoryEntry.SOURCE_NEARBY, page.getLocation());
                     return true;
                 } else {
                     return false;
@@ -253,16 +254,14 @@ public class NearbyFragment extends Fragment {
             } else {
                 goToUserLocationOrPromptPermissions();
             }
-            if (lastResult != null) {
-                showNearbyPages(lastResult);
-            }
+            showNearbyPages();
         });
     }
 
     @Nullable
     private NearbyPage findNearbyPageFromMarker(Marker marker) {
-        for (NearbyPage page : lastResult.getList()) {
-            if (page.getTitle().equals(marker.getTitle())) {
+        for (NearbyPage page : currentResults.getList()) {
+            if (page.getTitle().getDisplayText().equals(marker.getTitle())) {
                 return page;
             }
         }
@@ -373,31 +372,48 @@ public class NearbyFragment extends Fragment {
 
             onLoading();
 
-            WikiSite wiki = WikipediaApp.getInstance().getWikiSite();
-            client.request(wiki, mapboxMap.getCameraPosition().target.getLatitude(),
-                    mapboxMap.getCameraPosition().target.getLongitude(), getMapRadius(),
-                    new NearbyClient.Callback() {
-                        @Override public void success(@NonNull Call<MwQueryResponse> call,
-                                                      @NonNull NearbyResult result) {
-                            if (!isResumed()) {
-                                return;
-                            }
-                            lastResult = result;
-                            showNearbyPages(result);
-                            onLoaded();
-                        }
+            // cancel any previous calls
+            for (Call<MwQueryResponse> call : clientCalls) {
+                call.cancel();
+            }
+            clientCalls.clear();
+            clearResultsOnNextCall = true;
 
-                        @Override public void failure(@NonNull Call<MwQueryResponse> call,
-                                                      @NonNull Throwable caught) {
-                            if (!isResumed()) {
-                                return;
+            // kick off client calls for all supported languages
+            for (String langCode : WikipediaApp.getInstance().language().getAppLanguageCodes()) {
+                clientCalls.add(client.request(WikiSite.forLanguageCode(langCode), mapboxMap.getCameraPosition().target.getLatitude(),
+                        mapboxMap.getCameraPosition().target.getLongitude(), getMapRadius(),
+                        new NearbyClient.Callback() {
+                            @Override
+                            public void success(@NonNull Call<MwQueryResponse> call,
+                                                @NonNull List<NearbyPage> pages) {
+                                if (!isAdded()) {
+                                    return;
+                                }
+                                if (clearResultsOnNextCall) {
+                                    currentResults.clear();
+                                    clearResultsOnNextCall = false;
+                                }
+                                clientCalls.remove(call);
+                                currentResults.add(pages);
+                                showNearbyPages();
+                                onLoaded();
                             }
-                            ThrowableUtil.AppError error = ThrowableUtil.getAppError(requireActivity(), caught);
-                            Toast.makeText(getActivity(), error.getError(), Toast.LENGTH_SHORT).show();
-                            L.e(caught);
-                            onLoaded();
-                        }
-                    });
+
+                            @Override
+                            public void failure(@NonNull Call<MwQueryResponse> call,
+                                                @NonNull Throwable caught) {
+                                if (!isAdded() || call.isCanceled()) {
+                                    return;
+                                }
+                                clientCalls.remove(call);
+                                ThrowableUtil.AppError error = ThrowableUtil.getAppError(requireActivity(), caught);
+                                Toast.makeText(getActivity(), error.getError(), Toast.LENGTH_SHORT).show();
+                                L.e(caught);
+                                onLoaded();
+                            }
+                        }));
+            }
         }
     };
 
@@ -415,7 +431,7 @@ public class NearbyFragment extends Fragment {
         return Math.max(width, height) / 2;
     }
 
-    private void showNearbyPages(NearbyResult result) {
+    private void showNearbyPages() {
         if (mapboxMap == null || getActivity() == null) {
             return;
         }
@@ -425,7 +441,7 @@ public class NearbyFragment extends Fragment {
         mapboxMap.removeAnnotations();
 
         List<MarkerOptions> optionsList = new ArrayList<>();
-        for (NearbyPage item : result.getList()) {
+        for (NearbyPage item : currentResults.getList()) {
             if (item.getLocation() != null) {
                 optionsList.add(createMarkerOptions(item));
             }
@@ -438,7 +454,7 @@ public class NearbyFragment extends Fragment {
         Location location = page.getLocation();
         return new MarkerOptions()
                 .position(new LatLng(location.getLatitude(), location.getLongitude()))
-                .title(page.getTitle())
+                .title(page.getTitle().getDisplayText())
                 .icon(markerIconPassive);
     }
 
