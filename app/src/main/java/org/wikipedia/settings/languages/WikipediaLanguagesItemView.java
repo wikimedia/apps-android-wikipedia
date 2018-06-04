@@ -80,6 +80,7 @@ public class WikipediaLanguagesItemView extends LinearLayout {
 
     public void setCheckBoxChecked(boolean checked) {
         checkBox.setChecked(checked);
+        updateBackgroundColor();
     }
 
     public void setDragHandleEnabled(boolean enabled) {
@@ -102,11 +103,15 @@ public class WikipediaLanguagesItemView extends LinearLayout {
         }
     }
 
+    private void updateBackgroundColor() {
+        setBackgroundColor(checkBox.isChecked()
+                ? ResourceUtil.getThemedColor(getContext(), R.attr.multi_select_background_color) : ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
+    }
+
     @OnCheckedChanged(R.id.wiki_language_checkbox) void onCheckedChanged() {
         if (callback != null) {
             callback.onCheckedChanged(position);
-            setBackgroundColor(checkBox.isChecked()
-                    ? ResourceUtil.getThemedColor(getContext(), R.attr.multi_select_background_color) : ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
+            updateBackgroundColor();
         }
     }
 
