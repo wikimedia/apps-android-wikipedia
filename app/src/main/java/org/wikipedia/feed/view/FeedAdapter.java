@@ -19,6 +19,7 @@ import org.wikipedia.feed.offline.OfflineCard;
 import org.wikipedia.feed.offline.OfflineCardView;
 import org.wikipedia.feed.random.RandomCardView;
 import org.wikipedia.feed.searchbar.SearchCardView;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
@@ -115,11 +116,13 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
         StaggeredGridLayoutManager.LayoutParams layoutParams
                 = (StaggeredGridLayoutManager.LayoutParams) view.getLayoutParams();
         layoutParams.setFullSpan(true);
+        final int bottomMargin = 16;
+        layoutParams.bottomMargin = DimenUtil.roundedDpToPx(bottomMargin);
 
         if (feedView != null && feedView.getColumns() > 1) {
             layoutParams.leftMargin = ((View) view.getParent()).getWidth() / 6;
             layoutParams.rightMargin = layoutParams.leftMargin;
-            view.setLayoutParams(layoutParams);
         }
+        view.setLayoutParams(layoutParams);
     }
 }
