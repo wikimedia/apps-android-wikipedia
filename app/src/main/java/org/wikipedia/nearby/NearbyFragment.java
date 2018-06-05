@@ -44,7 +44,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -70,7 +69,7 @@ public class NearbyFragment extends Fragment {
     public interface Callback {
         void onLoading();
         void onLoaded();
-        void onLoadPage(PageTitle title, int entrySource, @Nullable Location location);
+        void onLoadPage(@NonNull HistoryEntry entry, @Nullable Location location);
     }
 
     private static final String NEARBY_LAST_RESULT = "lastRes";
@@ -242,7 +241,7 @@ public class NearbyFragment extends Fragment {
             mapboxMap.setOnMarkerClickListener((@NonNull Marker marker) -> {
                 NearbyPage page = findNearbyPageFromMarker(marker);
                 if (page != null) {
-                    onLoadPage(page.getTitle(), HistoryEntry.SOURCE_NEARBY, page.getLocation());
+                    onLoadPage(new HistoryEntry(page.getTitle(), HistoryEntry.SOURCE_NEARBY), page.getLocation());
                     return true;
                 } else {
                     return false;
@@ -472,10 +471,10 @@ public class NearbyFragment extends Fragment {
         }
     }
 
-    private void onLoadPage(@NonNull PageTitle title, int entrySource, @Nullable Location location) {
+    private void onLoadPage(@NonNull HistoryEntry entry, @Nullable Location location) {
         Callback callback = callback();
         if (callback != null) {
-            callback.onLoadPage(title, entrySource, location);
+            callback.onLoadPage(entry, location);
         }
     }
 

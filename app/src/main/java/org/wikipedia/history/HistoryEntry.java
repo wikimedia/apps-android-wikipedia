@@ -3,7 +3,9 @@ package org.wikipedia.history;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.page.PageTitle;
 
 import java.util.Date;
@@ -40,6 +42,9 @@ public class HistoryEntry implements Parcelable {
     private final int source;
     private final int timeSpentSec;
 
+    // Transient variable, not stored in the db, to be set when navigating back and forth between articles.
+    @Nullable private String referrer;
+
     public HistoryEntry(@NonNull PageTitle title, @NonNull Date timestamp, int source,
                         int timeSpentSec) {
         this.title = title;
@@ -70,6 +75,14 @@ public class HistoryEntry implements Parcelable {
 
     public int getTimeSpentSec() {
         return timeSpentSec;
+    }
+
+    public void setReferrer(@Nullable String referrer) {
+        this.referrer = referrer;
+    }
+
+    @Nullable public String getReferrer() {
+        return referrer;
     }
 
     @Override
@@ -113,6 +126,7 @@ public class HistoryEntry implements Parcelable {
         dest.writeLong(getTimestamp().getTime());
         dest.writeInt(getSource());
         dest.writeInt(getTimeSpentSec());
+        dest.writeString(StringUtils.defaultString(referrer));
     }
 
     private HistoryEntry(Parcel in) {
@@ -120,6 +134,7 @@ public class HistoryEntry implements Parcelable {
         this.timestamp = new Date(in.readLong());
         this.source = in.readInt();
         this.timeSpentSec = in.readInt();
+        this.referrer = in.readString();
     }
 
     public static final Parcelable.Creator<HistoryEntry> CREATOR

@@ -81,7 +81,6 @@ import org.wikipedia.views.WikiPageErrorView;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
@@ -104,7 +103,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         void onPageDismissBottomSheet();
         void onPageLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry);
         void onPageInitWebView(@NonNull ObservableWebView v);
-        void onPageShowLinkPreview(@NonNull PageTitle title, int source);
+        void onPageShowLinkPreview(@NonNull HistoryEntry entry);
         void onPageLoadMainPageInForegroundTab();
         void onPageUpdateProgressBar(boolean visible, boolean indeterminate, int value);
         void onPageShowThemeChooser();
@@ -130,7 +129,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     private boolean pageRefreshed;
     private boolean errorState = false;
-    private HashMap<PageTitle, PageTitle> refererHeaderPageMap = new HashMap<>();
 
     private static final int REFRESH_SPINNER_ADDITIONAL_OFFSET = (int) (16 * DimenUtil.getDensityScalar());
 
@@ -438,18 +436,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 && ACTION_SHOW_TAB_LIST.equals(activity.getIntent().getAction());
     }
 
-    public boolean isRefererHeaderUrlAvailable(PageTitle target) {
-        return refererHeaderPageMap.containsKey(target);
-    }
-
-    public void setRefererHeaderPage(PageTitle target, PageTitle reference) {
-        refererHeaderPageMap.put(target, reference);
-    }
-
-    public PageTitle getRefererHeaderPage(PageTitle target) {
-        return refererHeaderPageMap.remove(target);
-    }
-
     private void initWebViewListeners() {
         webView.addOnUpOrCancelMotionEventListener(() -> {
             // update our session, since it's possible for the user to remain on the page for
@@ -482,11 +468,17 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             return;
         }
         dismissBottomSheet();
+        HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
+        if (model.getTitle() != null) {
+            historyEntry.setReferrer(model.getTitle().getCanonicalUri());
+        }
         if (title.namespace() != Namespace.MAIN || !isLinkPreviewEnabled()) {
-            HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
             loadPage(title, historyEntry);
         } else {
-            showLinkPreview(title, HistoryEntry.SOURCE_INTERNAL_LINK);
+            Callback callback = callback();
+            if (callback != null) {
+                callback.onPageShowLinkPreview(historyEntry);
+            }
         }
     }
 
@@ -1317,13 +1309,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         Callback callback = callback();
         if (callback != null) {
             callback.onPageLoadPage(title, entry);
-        }
-    }
-
-    private void showLinkPreview(@NonNull PageTitle title, int source) {
-        Callback callback = callback();
-        if (callback != null) {
-            callback.onPageShowLinkPreview(title, source);
         }
     }
 

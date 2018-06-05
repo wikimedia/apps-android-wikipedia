@@ -43,8 +43,8 @@ public class RbPageClient implements PageClient {
     //       part of the Gson augmentation package and eventually cut into a separate lib. Repeat
     //       everywhere a Response.body() == null check occurs that throws
     @SuppressWarnings("unchecked")
-    @NonNull @Override public Call<? extends PageSummary> summary(@NonNull String title) {
-        return service.summary(title);
+    @NonNull @Override public Call<? extends PageSummary> summary(@NonNull String title, @Nullable String referrerUrl) {
+        return service.summary(referrerUrl, title);
     }
 
     @SuppressWarnings("unchecked")

@@ -2,6 +2,7 @@ package org.wikipedia;
 
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,16 +23,22 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
         MenuItem.OnMenuItemClickListener {
     private final ContextMenuListener contextMenuListener;
     private final int historySource;
+    @Nullable private final String referrer;
 
     private PageTitle title;
     private HistoryEntry entry;
 
-    public LongPressHandler(@NonNull View view,
-                            int historySource,
+    public LongPressHandler(@NonNull View view, int historySource, @Nullable String referrer,
                             @NonNull ContextMenuListener listener) {
         this.historySource = historySource;
         this.contextMenuListener = listener;
+        this.referrer = referrer;
         view.setOnCreateContextMenuListener(this);
+    }
+
+    public LongPressHandler(@NonNull View view, int historySource,
+                            @NonNull ContextMenuListener listener) {
+        this(view, historySource, null, listener);
     }
 
     @Override
@@ -56,6 +63,7 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
         if (title != null && !title.isSpecial()) {
             hideSoftKeyboard(view);
             entry = new HistoryEntry(title, historySource);
+            entry.setReferrer(referrer);
             new MenuInflater(view.getContext()).inflate(R.menu.menu_page_long_press, menu);
             menu.setHeaderTitle(title.getDisplayText());
             for (int i = 0; i < menu.size(); i++) {

@@ -39,7 +39,8 @@ public interface MwPageService {
     @GET("w/api.php?action=query&format=json&formatversion=2&redirects=&converttitles="
             + "&prop=extracts%7Cpageimages%7Cpageprops&exsentences=5&piprop=thumbnail%7Cname"
             + "&pilicense=any&explaintext=&pithumbsize=" + Constants.PREFERRED_THUMB_SIZE)
-    @NonNull Call<MwQueryPageSummary> summary(@NonNull @Query("titles") String title,
+    @NonNull Call<MwQueryPageSummary> summary(@Nullable @Header("Referer") String referrerUrl,
+                                              @NonNull @Query("titles") String title,
                                               @Nullable @Query("uselang") String useLang);
 
     /**

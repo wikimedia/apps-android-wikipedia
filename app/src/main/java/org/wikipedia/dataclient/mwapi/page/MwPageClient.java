@@ -25,8 +25,8 @@ public class MwPageClient implements PageClient {
     }
 
     @SuppressWarnings("unchecked")
-    @NonNull @Override public Call<? extends PageSummary> summary(@NonNull String title) {
-        return service.summary(title, wiki.languageCode());
+    @NonNull @Override public Call<? extends PageSummary> summary(@NonNull String title, @Nullable String referrerUrl) {
+        return service.summary(referrerUrl, title, wiki.languageCode());
     }
 
     @SuppressWarnings("unchecked")

@@ -34,7 +34,8 @@ public interface RbPageService {
             ACCEPT_HEADER_SUMMARY
     })
     @GET("page/summary/{title}")
-    @NonNull Call<RbPageSummary> summary(@NonNull @Path("title") String title);
+    @NonNull Call<RbPageSummary> summary(@Nullable @Header("Referer") String referrerUrl,
+                                         @NonNull @Path("title") String title);
 
     /**
      * Gets the lead section and initial metadata of a given title.

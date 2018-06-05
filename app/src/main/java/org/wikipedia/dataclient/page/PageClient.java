@@ -17,7 +17,8 @@ public interface PageClient {
      *
      * @param title the page title to be used including prefix
      */
-    @NonNull <T extends PageSummary> Call<T> summary(@NonNull String title);
+    @NonNull <T extends PageSummary> Call<T> summary(@NonNull String title,
+                                                     @Nullable String referrerUrl);
 
     /**
      * Gets the lead section and initial metadata of a given title.

@@ -30,7 +30,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.database.contract.PageHistoryContract;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.MultiSelectActionModeCallback;
@@ -53,7 +52,7 @@ import static org.wikipedia.Constants.HISTORY_FRAGMENT_LOADER_ID;
 
 public class HistoryFragment extends Fragment implements BackPressedHandler {
     public interface Callback {
-        void onLoadPage(PageTitle title, HistoryEntry entry);
+        void onLoadPage(@NonNull HistoryEntry entry);
         void onClearHistory();
     }
 
@@ -194,10 +193,10 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    private void onPageClick(PageTitle title, HistoryEntry entry) {
+    private void onPageClick(@NonNull HistoryEntry entry) {
         Callback callback = callback();
         if (callback != null) {
-            callback.onLoadPage(title, entry);
+            callback.onLoadPage(entry);
         }
     }
 
@@ -445,8 +444,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             if (MultiSelectCallback.is(actionMode)) {
                 toggleSelectPage(indexedEntry);
             } else if (indexedEntry != null) {
-                HistoryEntry newEntry = new HistoryEntry(indexedEntry.getEntry().getTitle(), HistoryEntry.SOURCE_HISTORY);
-                onPageClick(indexedEntry.getEntry().getTitle(), newEntry);
+                onPageClick(new HistoryEntry(indexedEntry.getEntry().getTitle(), HistoryEntry.SOURCE_HISTORY));
             }
         }
 
