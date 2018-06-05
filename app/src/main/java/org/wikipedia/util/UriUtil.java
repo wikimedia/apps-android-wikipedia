@@ -23,10 +23,10 @@ import java.net.URLEncoder;
 import static org.wikipedia.zero.WikipediaZeroHandler.showZeroExitInterstitialDialog;
 
 public final class UriUtil {
-    public static final String LOCAL_URL_OFFLINE_LIBRARY = "#offlinelibrary";
     public static final String LOCAL_URL_SETTINGS = "#settings";
     public static final String LOCAL_URL_LOGIN = "#login";
     public static final String LOCAL_URL_CUSTOMIZE_FEED = "#customizefeed";
+    public static final String LOCAL_URL_LANGUAGES = "#languages";
 
     /**
      * Decodes a URL-encoded string into its UTF-8 equivalent. If the string cannot be decoded, the
