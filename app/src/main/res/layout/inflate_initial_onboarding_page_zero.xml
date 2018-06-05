@@ -7,5 +7,7 @@
     android:orientation="vertical"
     app:centeredImage="@drawable/illustration_app_onboarding_0"
     app:imageSize="160dp"
-    app:primaryText="@string/onboarding_welcome_title"
-    app:secondaryText="@string/onboarding_welcome_text" />
+    app:showListView="true"
+    app:dataType="@string/language_data"
+    app:primaryText="@string/onboarding_welcome_title_v2"
+    app:secondaryText="@string/onboarding_multilingual_secondary_text" />

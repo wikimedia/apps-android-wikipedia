@@ -133,7 +133,6 @@ public class InitialOnboardingFragment extends OnboardingFragment {
 
      enum OnboardingPage implements EnumCode {
         PAGE_WELCOME(R.layout.inflate_initial_onboarding_page_zero),
-        PAGE_MULTILINGUAL(R.layout.inflate_initial_onboarding_page_multilingual),
         PAGE_EXPLORE(R.layout.inflate_initial_onboarding_page_one),
         PAGE_READING_LISTS(R.layout.inflate_initial_onboarding_page_two),
         PAGE_USAGE_DATA(R.layout.inflate_initial_onboarding_page_three);
