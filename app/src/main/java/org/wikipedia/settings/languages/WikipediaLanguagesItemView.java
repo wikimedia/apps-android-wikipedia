@@ -23,6 +23,7 @@ import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
 import butterknife.OnLongClick;
 
+import static org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER;
 import static org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER;
 
 public class WikipediaLanguagesItemView extends LinearLayout {
@@ -62,7 +63,7 @@ public class WikipediaLanguagesItemView extends LinearLayout {
         this.position = position;
         orderView.setText(String.valueOf(position + 1));
         titleView.setText(StringUtils.capitalize(languageLocalizedName));
-        ViewUtil.formatLangButton(langCodeView, langCode, LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_SMALLER);
+        ViewUtil.formatLangButton(langCodeView, langCode, LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER);
         langCodeView.setText(langCode);
         langCodeView.setTextColor(ResourceUtil.getThemedColor(getContext(), R.attr.material_theme_de_emphasised_color));
         langCodeView.getBackground().setColorFilter(ResourceUtil.getThemedColor(getContext(), R.attr.material_theme_de_emphasised_color),
