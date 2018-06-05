@@ -80,6 +80,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
+import static org.wikipedia.Constants.ACTIVITY_REQUEST_SETTINGS;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
@@ -831,7 +832,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     private boolean settingsActivityRequested(int requestCode) {
-        return requestCode == SettingsActivity.ACTIVITY_REQUEST_SHOW_SETTINGS;
+        return requestCode == ACTIVITY_REQUEST_SETTINGS;
     }
 
     private boolean newArticleLanguageSelected(int requestCode, int resultCode) {

@@ -85,6 +85,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     private SearchFunnel funnel;
     private SearchInvokeSource invokeSource;
     private String searchLanguageCode;
+    private boolean languageChanged = false;
     public static final int LANG_BUTTON_TEXT_SIZE_LARGER = 12;
     public static final int LANG_BUTTON_TEXT_SIZE_SMALLER = 8;
     /**
@@ -187,6 +188,22 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
         return view;
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH) {
+            languageChanged = true;
+            int position = 0;
+            if (data != null && data.hasExtra(ACTIVITY_RESULT_LANG_POSITION_DATA)) {
+                position = data.getIntExtra(ACTIVITY_RESULT_LANG_POSITION_DATA, 0);
+            } else if (app.language().getAppLanguageCodes().contains(searchLanguageCode)) {
+                position = app.language().getAppLanguageCodes().indexOf(searchLanguageCode);
+            }
+            setUpLanguageScroll(position);
+            startSearch(query, true);
+        }
+    }
+
     private void setUpLanguageScroll(int position) {
         searchLanguageCode = app.language().getAppLanguageCode();
 
@@ -256,6 +273,10 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
      */
     public boolean isSearchActive() {
         return isSearchActive;
+    }
+
+    public boolean isLanguageChanged() {
+        return languageChanged;
     }
 
     @Override
@@ -364,6 +385,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
         funnel = new SearchFunnel(app, invokeSource);
         funnel.searchStart();
         isSearchActive = true;
+        languageChanged = false;
         Callback callback = callback();
         if (callback != null) {
             callback.onSearchOpen();
@@ -508,20 +530,5 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
 
     public String getSearchLanguageCode() {
         return searchLanguageCode;
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH) {
-            int position = 0;
-            if (data != null && data.hasExtra(ACTIVITY_RESULT_LANG_POSITION_DATA)) {
-                position = data.getIntExtra(ACTIVITY_RESULT_LANG_POSITION_DATA, 0);
-            } else if (app.language().getAppLanguageCodes().contains(searchLanguageCode)) {
-                position = app.language().getAppLanguageCodes().indexOf(searchLanguageCode);
-            }
-            setUpLanguageScroll(position);
-            startSearch(query, true);
-        }
     }
 }

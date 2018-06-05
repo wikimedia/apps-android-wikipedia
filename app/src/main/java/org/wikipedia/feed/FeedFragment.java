@@ -59,6 +59,7 @@ import butterknife.Unbinder;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_FEED_CONFIGURE;
+import static org.wikipedia.Constants.ACTIVITY_REQUEST_SETTINGS;
 import static org.wikipedia.language.AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
 import static org.wikipedia.language.AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
 
@@ -215,6 +216,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                 && resultCode == ConfigureActivity.CONFIGURATION_CHANGED_RESULT) {
             coordinator.updateHiddenCards();
             refresh();
+        } else if ((requestCode == ACTIVITY_REQUEST_SETTINGS
+                && resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED)
+                || requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
+            refresh();
         }
     }
 
@@ -316,7 +321,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         refresh();
     }
 
-    private void refresh() {
+    public void refresh() {
         funnel.refresh(coordinator.getAge());
         emptyContainer.setVisibility(View.GONE);
         coordinator.reset();
@@ -464,8 +469,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                     getCallback().onLoginRequested();
                 }
             } else if (uri.toString().equals(UriUtil.LOCAL_URL_SETTINGS)) {
-                startActivityForResult(SettingsActivity.newIntent(requireContext()),
-                        SettingsActivity.ACTIVITY_REQUEST_SHOW_SETTINGS);
+                startActivityForResult(SettingsActivity.newIntent(requireContext()), ACTIVITY_REQUEST_SETTINGS);
             } else if (uri.toString().equals(UriUtil.LOCAL_URL_CUSTOMIZE_FEED)) {
                 showConfigureActivity(card.type().code());
             } else if (uri.toString().equals(UriUtil.LOCAL_URL_LANGUAGES)) {
@@ -559,8 +563,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void settingsClick() {
-            startActivityForResult(SettingsActivity.newIntent(requireContext()),
-                    SettingsActivity.ACTIVITY_REQUEST_SHOW_SETTINGS);
+            startActivityForResult(SettingsActivity.newIntent(requireActivity()), ACTIVITY_REQUEST_SETTINGS);
         }
 
         @Override
