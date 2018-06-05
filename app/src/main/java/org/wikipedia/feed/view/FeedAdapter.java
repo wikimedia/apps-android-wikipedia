@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import org.wikipedia.feed.FeedCoordinatorBase;
 import org.wikipedia.feed.announcement.AnnouncementCardView;
 import org.wikipedia.feed.continuereading.ContinueReadingCardView;
+import org.wikipedia.feed.dayheader.DayHeaderCardView;
 import org.wikipedia.feed.image.FeaturedImageCardView;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
@@ -78,6 +79,8 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
         super.onViewAttachedToWindow(holder);
         if (holder.getView() instanceof SearchCardView) {
             adjustSearchView((SearchCardView) holder.getView());
+        } else if (holder.getView() instanceof DayHeaderCardView) {
+            adjustDayHeaderView((DayHeaderCardView) holder.getView());
         }
         holder.getView().setCallback(callback);
         if (callback != null) {
@@ -116,7 +119,7 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
         StaggeredGridLayoutManager.LayoutParams layoutParams
                 = (StaggeredGridLayoutManager.LayoutParams) view.getLayoutParams();
         layoutParams.setFullSpan(true);
-        final int bottomMargin = 16;
+        final int bottomMargin = 8;
         layoutParams.bottomMargin = DimenUtil.roundedDpToPx(bottomMargin);
 
         if (feedView != null && feedView.getColumns() > 1) {
@@ -124,5 +127,11 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
             layoutParams.rightMargin = layoutParams.leftMargin;
         }
         view.setLayoutParams(layoutParams);
+    }
+
+    private void adjustDayHeaderView(@NonNull DayHeaderCardView view) {
+        StaggeredGridLayoutManager.LayoutParams layoutParams
+                = (StaggeredGridLayoutManager.LayoutParams) view.getLayoutParams();
+        layoutParams.setFullSpan(true);
     }
 }
