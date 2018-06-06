@@ -34,7 +34,7 @@ public final class ThrowableUtil {
     private static boolean throwableContainsException(@NonNull Throwable e, Class<?> exClass) {
         Throwable t = e;
         while (t != null) {
-            if (t.getClass().equals(exClass)) {
+            if (exClass.isInstance(t)) {
                 return true;
             }
             t = t.getCause();
