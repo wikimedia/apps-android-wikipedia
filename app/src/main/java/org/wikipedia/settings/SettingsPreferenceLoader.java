@@ -18,6 +18,8 @@ import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
 import org.wikipedia.theme.ThemeFittingRoomActivity;
 import org.wikipedia.util.ReleaseUtil;
 
+import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
+
 /** UI code for app settings used by PreferenceFragment. */
 class SettingsPreferenceLoader extends BasePreferenceLoader {
 
@@ -59,7 +61,8 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
 
         Preference contentLanguagePref = findPreference(R.string.preference_key_language);
         contentLanguagePref.setOnPreferenceClickListener(preference -> {
-            getActivity().startActivity(new Intent(getActivity(), WikipediaLanguagesActivity.class));
+            getActivity().startActivityForResult(new Intent(getActivity(), WikipediaLanguagesActivity.class),
+                    ACTIVITY_REQUEST_ADD_A_LANGUAGE);
             return true;
         });
 

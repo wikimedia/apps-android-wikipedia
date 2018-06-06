@@ -379,6 +379,12 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         SearchFragment fragment = searchFragment();
         if (fragment != null) {
             closeSearchFragment(fragment);
+            if (fragment.isLanguageChanged()) {
+                Fragment currentFragment = ((NavTabFragmentPagerAdapter) viewPager.getAdapter()).getCurrentFragment();
+                if (currentFragment instanceof FeedFragment) {
+                    ((FeedFragment) currentFragment).refresh();
+                }
+            }
         }
 
         Callback callback = callback();
