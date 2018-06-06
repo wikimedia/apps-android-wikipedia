@@ -30,6 +30,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.database.contract.PageHistoryContract;
+import org.wikipedia.main.MainFragment;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.MultiSelectActionModeCallback;
@@ -480,6 +481,8 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         @Override
         protected void onQueryChange(String s) {
             currentSearchQuery = s.trim();
+            ((MainFragment) getParentFragment())
+                    .setBottomNavVisible(currentSearchQuery.length() == 0);
             restartLoader();
         }
 

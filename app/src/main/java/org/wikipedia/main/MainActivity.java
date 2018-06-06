@@ -19,6 +19,8 @@ import org.wikipedia.util.ResourceUtil;
 public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
         implements MainFragment.Callback {
 
+    private boolean controlNavTabInFragment;
+
     public static Intent newIntent(@NonNull Context context) {
         return new Intent(context, MainActivity.class);
     }
@@ -47,9 +49,11 @@ public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
         if (tab.equals(NavTab.EXPLORE)) {
             getToolbarWordmark().setVisibility(View.VISIBLE);
             getSupportActionBar().setTitle("");
+            controlNavTabInFragment = false;
         } else {
             getToolbarWordmark().setVisibility(View.GONE);
             getSupportActionBar().setTitle(tab.text());
+            controlNavTabInFragment = true;
         }
         getFragment().requestUpdateToolbarElevation();
     }
@@ -72,7 +76,9 @@ public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
     @Override
     public void onSupportActionModeStarted(@NonNull ActionMode mode) {
         super.onSupportActionModeStarted(mode);
-        getFragment().setBottomNavVisible(false);
+        if (!controlNavTabInFragment) {
+            getFragment().setBottomNavVisible(false);
+        }
     }
 
     @Override
