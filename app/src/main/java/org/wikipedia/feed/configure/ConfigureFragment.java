@@ -63,23 +63,23 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
                 }
                 // apply the new availability rules to our content types
                 FeedContentType.NEWS.getLangCodesSupported().clear();
-                if (!result.news().isEmpty() && !result.news().contains("*")) {
+                if (isLimitedToDomains(result.news())) {
                     addDomainNamesAsLangCodes(FeedContentType.NEWS.getLangCodesSupported(), result.news());
                 }
                 FeedContentType.ON_THIS_DAY.getLangCodesSupported().clear();
-                if (!result.onThisDay().isEmpty() && !result.onThisDay().contains("*")) {
+                if (isLimitedToDomains(result.onThisDay())) {
                     addDomainNamesAsLangCodes(FeedContentType.ON_THIS_DAY.getLangCodesSupported(), result.onThisDay());
                 }
                 FeedContentType.TRENDING_ARTICLES.getLangCodesSupported().clear();
-                if (!result.mostRead().isEmpty() && !result.mostRead().contains("*")) {
+                if (isLimitedToDomains(result.mostRead())) {
                     addDomainNamesAsLangCodes(FeedContentType.TRENDING_ARTICLES.getLangCodesSupported(), result.mostRead());
                 }
                 FeedContentType.FEATURED_ARTICLE.getLangCodesSupported().clear();
-                if (!result.featuredArticle().isEmpty() && !result.featuredArticle().contains("*")) {
+                if (isLimitedToDomains(result.featuredArticle())) {
                     addDomainNamesAsLangCodes(FeedContentType.FEATURED_ARTICLE.getLangCodesSupported(), result.featuredArticle());
                 }
                 FeedContentType.FEATURED_IMAGE.getLangCodesSupported().clear();
-                if (!result.featuredPicture().isEmpty() && !result.featuredPicture().contains("*")) {
+                if (isLimitedToDomains(result.featuredPicture())) {
                     addDomainNamesAsLangCodes(FeedContentType.FEATURED_IMAGE.getLangCodesSupported(), result.featuredPicture());
                 }
                 FeedContentType.saveState();
@@ -94,6 +94,10 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
                 }
                 prepareContentTypeList();
                 setupRecyclerView();
+            }
+
+            private boolean isLimitedToDomains(@NonNull List<String> domainNames) {
+                return !domainNames.isEmpty() && !domainNames.get(0).contains("*");
             }
 
             private void addDomainNamesAsLangCodes(@NonNull List<String> outList, @NonNull List<String> domainNames) {
