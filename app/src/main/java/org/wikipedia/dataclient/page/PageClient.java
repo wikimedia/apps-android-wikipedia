@@ -28,7 +28,7 @@ public interface PageClient {
      */
     @NonNull <T extends PageLead> Call<T> lead(@Nullable CacheControl cacheControl,
                                                @Nullable String saveOfflineHeader,
-                                               @Nullable String previousPageUrl,
+                                               @Nullable String referrerUrl,
                                                @NonNull String title,
                                                int leadThumbnailWidth);
 

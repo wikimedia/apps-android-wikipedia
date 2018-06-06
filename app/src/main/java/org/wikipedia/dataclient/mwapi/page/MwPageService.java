@@ -57,7 +57,7 @@ public interface MwPageService {
             + "&sections=0&sectionprop=toclevel%7Cline%7Canchor&noheadings=")
     @NonNull Call<MwMobileViewPageLead> lead(@Nullable @Header("Cache-Control") String cacheControl,
                                              @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
-                                             @Nullable @Header("Referer") String previousPageUrl,
+                                             @Nullable @Header("Referer") String referrerUrl,
                                              @NonNull @Query("page") String title,
                                              @Query("thumbwidth") int leadImageWidth,
                                              @Nullable @Query("uselang") String useLang);

@@ -50,11 +50,11 @@ public class RbPageClient implements PageClient {
     @SuppressWarnings("unchecked")
     @NonNull @Override public Call<? extends PageLead> lead(@Nullable CacheControl cacheControl,
                                                             @Nullable String saveOfflineHeader,
-                                                            @Nullable String previousPageUrl,
+                                                            @Nullable String referrerUrl,
                                                             @NonNull String title,
                                                             int leadThumbnailWidth) {
         return service.lead(cacheControl == null ? null : cacheControl.toString(),
-                saveOfflineHeader, previousPageUrl, title);
+                saveOfflineHeader, referrerUrl, title);
     }
 
     @SuppressWarnings("unchecked")
