@@ -57,6 +57,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
+import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_FEED_CONFIGURE;
 import static org.wikipedia.language.AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
 import static org.wikipedia.language.AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
@@ -176,7 +177,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                     .setTitle(R.string.dialog_of_remove_chinese_variants_from_app_lang_title)
                     .setMessage(R.string.dialog_of_remove_chinese_variants_from_app_lang_text)
                     .setPositiveButton(R.string.dialog_of_remove_chinese_variants_from_app_lang_edit, (dialog, which)
-                            -> startActivity(new Intent(requireActivity(), WikipediaLanguagesActivity.class)))
+                            -> showLanguagesActivity())
                     .setNegativeButton(R.string.dialog_of_remove_chinese_variants_from_app_lang_no, null)
                     .show();
         }
@@ -467,6 +468,8 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                         SettingsActivity.ACTIVITY_REQUEST_SHOW_SETTINGS);
             } else if (uri.toString().equals(UriUtil.LOCAL_URL_CUSTOMIZE_FEED)) {
                 showConfigureActivity(card.type().code());
+            } else if (uri.toString().equals(UriUtil.LOCAL_URL_LANGUAGES)) {
+                showLanguagesActivity();
             } else {
                 UriUtil.handleExternalLink(requireContext(), uri);
             }
@@ -534,6 +537,11 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     private void showConfigureActivity(int invokeSource) {
         startActivityForResult(ConfigureActivity.newIntent(requireActivity(), invokeSource),
                 Constants.ACTIVITY_REQUEST_FEED_CONFIGURE);
+    }
+
+    private void showLanguagesActivity() {
+        Intent intent = new Intent(requireActivity(), WikipediaLanguagesActivity.class);
+        startActivityForResult(intent, ACTIVITY_REQUEST_ADD_A_LANGUAGE);
     }
 
     private void showOverflowMenu(@NonNull View anchor) {
