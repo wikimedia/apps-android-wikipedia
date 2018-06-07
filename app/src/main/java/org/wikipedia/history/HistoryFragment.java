@@ -23,6 +23,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
@@ -31,6 +32,7 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.main.MainFragment;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.MultiSelectActionModeCallback;
@@ -110,6 +112,12 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        updateEmptyState();
+    }
+
+    @Override
     public void onDestroyView() {
         requireActivity().getSupportLoaderManager().destroyLoader(HISTORY_FRAGMENT_LOADER_ID);
         historyList.setAdapter(null);
@@ -138,15 +146,29 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         return false;
     }
 
+    private void updateEmptyState() {
+        updateEmptyState(null);
+    }
+
     private void updateEmptyState(@Nullable String searchQuery) {
         if (TextUtils.isEmpty(searchQuery)) {
             searchEmptyView.setVisibility(View.GONE);
-            historyEmptyView.setVisibility(adapter.isEmpty() ? View.VISIBLE : View.GONE);
+            setEmptyContainerVisibility(adapter.isEmpty());
         } else {
             searchEmptyView.setVisibility(adapter.isEmpty() ? View.VISIBLE : View.GONE);
-            historyEmptyView.setVisibility(View.GONE);
+            setEmptyContainerVisibility(false);
         }
         historyList.setVisibility(adapter.isEmpty() ? View.GONE : View.VISIBLE);
+    }
+
+    private void setEmptyContainerVisibility(boolean visible) {
+        if (visible) {
+            historyEmptyView.setVisibility(View.VISIBLE);
+            requireActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+        } else {
+            historyEmptyView.setVisibility(View.GONE);
+            DeviceUtil.setWindowSoftInputModeResizable(requireActivity());
+        }
     }
 
     @Override

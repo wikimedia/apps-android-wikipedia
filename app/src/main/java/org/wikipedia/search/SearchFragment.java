@@ -238,6 +238,12 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        DeviceUtil.setWindowSoftInputModeResizable(requireActivity());
+    }
+
+    @Override
     @NonNull
     public SearchFunnel getFunnel() {
         return funnel;

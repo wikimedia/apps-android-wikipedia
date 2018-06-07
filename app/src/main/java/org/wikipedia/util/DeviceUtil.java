@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
 import org.wikipedia.WikipediaApp;
@@ -63,6 +64,10 @@ public final class DeviceUtil {
         InputMethodManager keyboard = (InputMethodManager)view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         // Not using getCurrentFocus as that sometimes is null, but the keyboard is still up.
         keyboard.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    public static void setWindowSoftInputModeResizable(Activity activity) {
+        activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
     }
 
     public static boolean isLocationServiceEnabled(@NonNull Context context) {
