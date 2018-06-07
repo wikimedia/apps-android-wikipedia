@@ -603,8 +603,6 @@
   <string name="onboarding_skip">Saltar</string>
   <string name="onboarding_continue">Siguir</string>
   <string name="onboarding_get_started">Primeros pasos</string>
-  <string name="onboarding_welcome_title">La enciclopedia llibre</string>
-  <string name="onboarding_welcome_text">Wikipedia escríbese de mou collaborativu por voluntarios y ta compuesta por más de 40 millones d\'artículos en casi 300 llingües distintes. &lt;a href=\"#about\"&gt;Más información&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Nueves maneres d\'esplorar</string>
   <string name="onboarding_explore_text">Bucea nel universu de Wikipedia cola canal Esplorar, siempres anovándose.&lt;br&gt;&lt;b&gt;Personaliza&lt;/b&gt; la canal colo que t\'interese (por casu, conocer los acontecimientos históricos n\'&lt;b&gt;Un día como güei&lt;/b&gt;, o xugar a los daos con &lt;b&gt;Al debalu&lt;/b&gt;).</string>
   <string name="onboarding_save_to_reading_lists_title">Guardar en llistes de llectura</string>
@@ -619,7 +617,6 @@
   <string name="onboarding_create_account_contributions">Siguir el rastru a les tos contribuciones</string>
   <string name="onboarding_create_account_preferences">Guardar les preferencies</string>
   <string name="onboarding_got_it">Entendílo</string>
-  <string name="onboarding_multilingual_title">Buscar y lleer en casi 300 llingües</string>
   <string name="onboarding_multilingual_secondary_text">Atopamos les siguientes nel to preséu:</string>
   <string name="onboarding_multilingual_add_language_text">Añadir o editar idiomes</string>
   <string name="app_shortcuts_random">Al debalu</string>

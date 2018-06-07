@@ -129,6 +129,9 @@
   <string name="create_account_next">Selanjutnya</string>
   <string name="create_account_button">Buat akun baru</string>
   <string name="create_account_name_unavailable">Nama pengguna \"%s\" tidak tersedia. Silakan pilih nama yang berbeda.</string>
+  <string name="create_account_ip_block_message">Maaf, alamat IP Anda saat ini diblokir agar tidak membuat akun baru.</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_details">Rincian</string>
   <string name="preferences_general_heading">Umum</string>
   <string name="wikipedia_app_faq">Pertanyaan yang sering ditanyakan</string>
   <string name="zero_charged_verbiage">Akses gratis ke Wikipedia tidak lagi aktif.</string>
@@ -612,8 +615,6 @@
   <string name="onboarding_skip">Lewati</string>
   <string name="onboarding_continue">Lanjutkan</string>
   <string name="onboarding_get_started">Memulai</string>
-  <string name="onboarding_welcome_title">Ensiklopedia bebas</string>
-  <string name="onboarding_welcome_text">Wikipedia ditulis secara kolaboratif oleh sukarelawan dan terdiri dari lebih dari 40 juta artikel dalam hampir 300 bahasa yang berbeda. &lt;a href=\"#about\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Cara baru untuk menjelajah</string>
   <string name="onboarding_explore_text">Menyelam menyusuri lubang kelinci Wikipedia dengan umpan Jelajahi yang terus diperbarui. &lt;br/&gt; &lt;b&gt;Sesuaikan&lt;/b&gt; umpan untuk minat Anda – apakah itu mempelajari tentang peristiwa bersejarah &lt;b&gt;Pada hari ini&lt;/b&gt;, atau melempar dadu dengan &lt;b&gt;Sembarang&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Simpan ke daftar bacaan</string>
@@ -628,9 +629,9 @@
   <string name="onboarding_create_account_contributions">Catat kontribusi Anda</string>
   <string name="onboarding_create_account_preferences">Simpan preferensi Anda</string>
   <string name="onboarding_got_it">Mengerti</string>
-  <string name="onboarding_multilingual_title">Cari dan baca dalam hampir 300 bahasa</string>
   <string name="onboarding_multilingual_secondary_text">Kami telah menemukan bahasa berikut di perangkat Anda:</string>
   <string name="onboarding_multilingual_add_language_text">Tambah atau sunting bahasa</string>
+  <string name="onboarding_welcome_title_v2">Ensiklopedia Bebas\n…dalam hampir 300 bahasa</string>
   <string name="app_shortcuts_random">Sembarang</string>
   <string name="app_shortcuts_continue_reading">Lanjutkan membaca</string>
   <string name="app_shortcuts_search">Cari</string>
@@ -651,7 +652,7 @@
   <string name="wikipedia_languages_title">Bahasa Wikipedia</string>
   <string name="wikipedia_languages_your_languages_text">Bahasa Anda</string>
   <string name="wikipedia_languages_add_language_text">Tambah bahasa</string>
-  <string name="wikipedia_languages_remove_text" fuzzy="true">Hapus</string>
+  <string name="wikipedia_languages_remove_text">Hapus bahasa</string>
   <string name="wikipedia_languages_remove_action_mode_title">Hapus bahasa</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Hapus bahasa yang dipilih?</item>
@@ -662,4 +663,8 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Buat setidaknya satu bahasa Wikipedia yang dapat digunakan untuk mencari dan membaca konten.</string>
   <string name="more_language_options">lainnya</string>
   <string name="add_wikipedia_languages_text">Tambah bahasa Wikipedia</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Hapus varian Tionghoa dari bahasa aplikasi Anda?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Saat ini Anda memiliki varian bahasa Tionghoa Tradisional dan Sederhana yang disetel dalam bahasa aplikasi Anda. Perbarui pengaturan bahasa aplikasi Anda?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sunting bahasa</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Tidak, terima kasih</string>
 </resources>

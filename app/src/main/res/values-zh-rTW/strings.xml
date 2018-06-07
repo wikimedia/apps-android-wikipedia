@@ -135,7 +135,7 @@
   <string name="create_account_ip_block_details">詳情</string>
   <string name="preferences_general_heading">一般</string>
   <string name="wikipedia_app_faq">維基百科應用程式常見問題</string>
-  <string name="zero_charged_verbiage">免費訪問維基百科功能已不再提供。</string>
+  <string name="zero_charged_verbiage">免費存取維基百科的功能已不再提供。</string>
   <string name="zero_warn_when_leaving">離開維基百科零計劃時警告</string>
   <string name="zero_warn_when_leaving_summary">如果您的行動網路業者與維基百科零計劃有合作夥伴關係，並且免除存取維基百科應用程式時的流量費用，請勾選此設定來當您要離開維基百科並可能會被收取費用時讓您知悉。</string>
   <string name="zero_webpage_title">維基百科零計劃常見問題</string>
@@ -144,7 +144,7 @@
   <string name="zero_interstitial_leave_app">可能會有收取流量費用情況。要繼續前往至外部網站嗎？</string>
   <string name="zero_interstitial_continue">離開</string>
   <string name="zero_interstitial_cancel">留在這裡</string>
-  <string name="zero_learn_more">您的無線網路供應商可提供免費訪問維基百科內容。</string>
+  <string name="zero_learn_more">您的無線通訊業者可提供免費存取維基百科內容！</string>
   <string name="zero_learn_more_learn_more">了解更多</string>
   <string name="zero_learn_more_dismiss">關閉</string>
   <string name="edit_preview_fetching_dialog_message">取得預覽中…</string>
@@ -509,7 +509,7 @@
   <string name="view_featured_article_card_title">典範條目</string>
   <string name="view_featured_article_footer_save_button_label">儲存</string>
   <string name="view_featured_article_footer_saved_button_label">已儲存</string>
-  <string name="feed_configure_activity_title">設置訊息來源</string>
+  <string name="feed_configure_activity_title">自訂摘要</string>
   <string name="feed_configure_menu_reset">重新設定預設檢視</string>
   <string name="feed_configure_menu_select_all">顯示全部</string>
   <string name="feed_configure_menu_deselect_all">隱藏全部</string>
@@ -523,9 +523,9 @@
   <string name="feed_item_type_featured_image">來自維基共享資源的每日特色圖片</string>
   <string name="feed_item_type_main_page">帶有每日特色內容的維基百科首頁</string>
   <string name="feed_item_type_randomizer">產生隨機條目來閱讀</string>
-  <string name="feed_empty_message">您的探索訊息來源裡沒有內容</string>
+  <string name="feed_empty_message">您的探索摘要內無任何內容</string>
   <string name="feed_configure_onboarding_action">自訂</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;自訂您的探索來源&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;您現在可在您的探索來源裡挑選出所要顯示內容，並且可以排序您所喜愛的內容種類。</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;自訂您的探索摘要&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;您現在可在您的摘要內挑選出所要顯示內容，並且可以排序您所喜愛的內容種類。</string>
   <string name="description_edit_text_hint">標題說明</string>
   <string name="description_edit_save">發佈</string>
   <string name="description_edit_add_description">增加標題說明</string>
@@ -574,7 +574,7 @@
   <string name="offline_compilations_title">離線圖書館</string>
   <string name="offline_compilations_search_by_name">依條目包來搜尋匯編</string>
   <string name="offline_compilations_found_count">在我的離線圖書館（%d）</string>
-  <string name="offline_compilations_add">添加至我的離線圖書館</string>
+  <string name="offline_compilations_add">新增至我的離線圖書館</string>
   <string name="remote_compilations_title">離線圖書館</string>
   <string name="remote_compilations_description">透過離線圖書館，來讓您可現在就下載條目包於無法使用網路情況下閱讀內容。</string>
   <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
@@ -616,10 +616,8 @@
   <string name="onboarding_skip">略過</string>
   <string name="onboarding_continue">繼續</string>
   <string name="onboarding_get_started">入門</string>
-  <string name="onboarding_welcome_title">自由的百科全書</string>
-  <string name="onboarding_welcome_text">維基百科是透過志願者們所協作編寫，並且包含超過 4000 多萬條，以將近 300 種語言所建立的條目。&lt;a href=\"#about\"&gt;了解更多&lt;/a&gt;</string>
   <string name="onboarding_explore_title">探索的新方法</string>
-  <string name="onboarding_explore_text">一腳跳進不斷更新探索訊息來源的維基百科兔子洞裡頭。&lt;br/&gt; &lt;b&gt;自行定義&lt;/b&gt;訊息來源在您感興趣的項目 – 無論是在&lt;b&gt;歷史上的今天&lt;/b&gt;學習歷史事件，或是擲骰產生的&lt;b&gt;隨機&lt;/b&gt;內容。</string>
+  <string name="onboarding_explore_text">踏上時常更新探索摘要的維基百科之旅中。&lt;br/&gt; &lt;b&gt;自訂&lt;/b&gt;您感興趣的事物的摘要 – 無論是在&lt;b&gt;歷史上的今天&lt;/b&gt;瞭解歷史事件，或是擲骰產生的&lt;b&gt;隨機&lt;/b&gt;內容。</string>
   <string name="onboarding_save_to_reading_lists_title">儲存至閱讀清單</string>
   <string name="onboarding_save_to_reading_lists_text">建立感興趣條目的閱讀清單，讓您即使在離線時也可閱讀。</string>
   <string name="onboarding_reading_list_sync_title">帶同步的閱讀清單</string>
@@ -632,9 +630,9 @@
   <string name="onboarding_create_account_contributions">保持追蹤您的貢獻</string>
   <string name="onboarding_create_account_preferences">儲存您的偏好設定</string>
   <string name="onboarding_got_it">了解</string>
-  <string name="onboarding_multilingual_title">在近 300 種語言裡搜尋並閱讀</string>
   <string name="onboarding_multilingual_secondary_text">我們在您的裝置上找到以下語言：</string>
   <string name="onboarding_multilingual_add_language_text">添加或編輯語言</string>
+  <string name="onboarding_welcome_title_v2">自由的百科全書\n…近 300 種可用的語言版本</string>
   <string name="app_shortcuts_random">隨機</string>
   <string name="app_shortcuts_continue_reading">繼續閱讀</string>
   <string name="app_shortcuts_search">搜尋</string>
@@ -655,15 +653,19 @@
   <string name="wikipedia_languages_title">維基百科語言</string>
   <string name="wikipedia_languages_your_languages_text">您的語言</string>
   <string name="wikipedia_languages_add_language_text">新增語言</string>
-  <string name="wikipedia_languages_remove_text" fuzzy="true">移除</string>
+  <string name="wikipedia_languages_remove_text">移除語言</string>
   <string name="wikipedia_languages_remove_action_mode_title">移除語言</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">移除所選語言？</item>
     <item quantity="other">移除所選語言？</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">您僅能查看在探索訊息來源的內容，與快速搜尋其餘維基百科語言的過濾器。</string>
+  <string name="wikipedia_languages_remove_dialog_content">您僅能查看在探索摘要的內容，與快速搜尋其餘維基百科語言的篩選器。</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">無法移除所有語言</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">請保留至少一種用在搜尋與閱讀內容的維基語言。</string>
   <string name="more_language_options">更多</string>
-  <string name="add_wikipedia_languages_text">添加維基百科語言</string>
+  <string name="add_wikipedia_languages_text">新增維基百科語言</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">從您的應用程式語言裡移除中文異體?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">在您的應用程式語言裡，目前有繁體與簡體的中文異體設定。要更新您的應用程式語言設定嗎？</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">編輯語言</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">不用了，謝謝</string>
 </resources>

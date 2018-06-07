@@ -526,7 +526,6 @@
   <string name="onboarding_skip">এড়ান</string>
   <string name="onboarding_continue">অব্যাহত</string>
   <string name="onboarding_get_started">শুরু করুন</string>
-  <string name="onboarding_welcome_title">একটি মুক্ত বিশ্বকোষ</string>
   <string name="onboarding_explore_title">অন্বেষণ করার নতুন উপায়</string>
   <string name="onboarding_save_to_reading_lists_title">পড়ার তালিকায় সংরক্ষণ করুন</string>
   <string name="onboarding_analytics_switch_title">ব্যবহারের উপাত্ত পাঠান</string>

@@ -147,10 +147,10 @@
   <string name="preferences_heading_experimental">Експериментални</string>
   <string name="preference_title_sync_reading_lists">Синхронизация на списъците за четене</string>
   <string name="preference_title_sync_reading_lists_from_account">Включване на синхронизация за списъци за четене</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Позволяване на Уикимедия да синхронизира списъците Ви за четене, когато влезете в системата</string>
-  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Позволяване на Уикимедия да синхронизира списъци за четене със сметката Ви в Уикипедия %s</string>
+  <string name="preference_summary_sync_reading_lists">Синхронизиране на списъци за четене на различни устройства чрез запазването им в сметката Ви в Уикипедия</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Синхронизиране на списъци за четене на различни устройства чрез запазването им в сметката Ви „%s“ в Уикипедия</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Премахване на синхронизираните списъци за четене от „%s“?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Това ще изтрие напълно всички синхронизирани списъци за четене от външната памет. Премахване на всички синхронизирани списъци от сметката Ви %s?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Това ще изтрие напълно всички синхронизирани досега списъци за четене от външната памет. Премахване на всички синхронизирани списъци от сметката Ви „%s“?</string>
   <string name="preferences_privacy_settings_heading">Поверителност</string>
   <string name="preference_title_eventlogging_opt_in">Изпращане на доклади за употребата</string>
   <string name="preference_summary_eventlogging_opt_in">Позволяване на Уикимедия да събира информация за това как използвате приложението, с цел подобряването му</string>
@@ -378,6 +378,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s повече няма да е налична офлайн за всички списъци за четене:</string>
   <string name="reading_lists_sync_reminder_title">Включване на синхронизиране на списъци за четене?</string>
   <string name="reading_lists_sync_reminder_text">Статиите, съхранени в списъците Ви за четене, вече могат да се синхронизират със сметката Ви в Уикипедия. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Научете повече&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Списъците за четене вече могат да бъдат синхронизирани на различни устройства. Влезте във Вашата сметка в Уикипедия и позволете списъците Ви да бъдат запазвани. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Научете повече&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Включване на синхронизиране</string>
   <string name="reading_list_login_reminder_title">Синхронизация на списъците за четене</string>
   <string name="reading_lists_login_reminder_text">Списъците за четене вече могат да се синхронизират между устройства. Влезте в сметката си в Уикипедия, за да позволите съхранението на списъците си.</string>
@@ -402,11 +403,11 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Включване на синхронизиране</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Не, благодаря</string>
   <string name="reading_list_login_option_reminder_dialog_title">Открити статии в списъци за четене</string>
-  <string name="reading_list_login_option_reminder_dialog_text" fuzzy="true">Има статии в списъци за четене, запазени в Уикипедия приложението Ви. Желаете ли да ги запазите и да ги слеете със списъците за четене, синхронизирани в сметката Ви?</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Има запазени статии в списъка за четене, докато не сте били влезли в сметката си. Желаете ли да ги добавите към списъците за четене в сметката си?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Да, добавяне към списъците ми за четене</string>
   <string name="reading_list_login_option_reminder_dialog_no">Не, изтриване на статиите</string>
   <string name="reading_list_logout_option_reminder_dialog_title">Задържане на съхранените статии в приложението?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text" fuzzy="true">Тези статии са синхронизирани със сметката Ви в Уикипедия. Желаете ли да ги запазите на това устройство, след като излезете?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Тези статии вече са запазени в списъци за четене. Желаете ли да ги запазите там, след като излезете?</string>
   <string name="reading_list_logout_option_reminder_dialog_yes">Да, задържане на статиите в списъците</string>
   <string name="reading_list_logout_option_reminder_dialog_no">Не, изтриване на статиите от списъците</string>
   <string name="default_reading_list_name">Съхранено</string>
@@ -446,6 +447,7 @@
     <item quantity="one">Синхронизиране на Списъка за четене</item>
     <item quantity="other">Синхронизиране на Списъците за четене</item>
   </plurals>
+  <string name="notification_syncing_reading_list_channel_description">Напредък по синхронизирането на Списъците за четене</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Изтегляне на статия</item>
     <item quantity="other">Изтегляне на статии</item>
@@ -500,6 +502,7 @@
   <string name="feed_configure_menu_reset">Нулиране на изгледа по подразбиране</string>
   <string name="feed_configure_menu_select_all">Показване на всички</string>
   <string name="feed_configure_menu_deselect_all">Скриване на всички</string>
+  <string name="feed_configure_language_warning">Имайте предвид, че не всички видове карти са достъпни на всички езици в Уикипедия. Редактирайте избраните си езици в Настройки.</string>
   <string name="feed_item_type_news">Статии за текущи събития</string>
   <string name="feed_item_type_on_this_day">Събития в историята на този ден</string>
   <string name="feed_item_type_continue_reading">Бърза връзка обратно към четене на отворена статия в един от разделите Ви</string>
@@ -509,6 +512,7 @@
   <string name="feed_item_type_featured_image">Дневна избрана картинка от Общомедия</string>
   <string name="feed_item_type_main_page">Начална страница на Уикипедия с дневно избрано съдържание</string>
   <string name="feed_item_type_randomizer">Генериране на произволни статии за четене</string>
+  <string name="feed_empty_message">Няма нищо във вашата хранилка за Откриване</string>
   <string name="feed_configure_onboarding_action">Персонализиране</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Персонализирайте вашата хранилка за откриване&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Сега можете да изберете какво да се показва във Вашата хранилка, както и да давате приоритет на любимия си вид съдържание.</string>
   <string name="description_edit_text_hint">Описание на заглавието</string>
@@ -600,8 +604,6 @@
   <string name="onboarding_skip">Пропускане</string>
   <string name="onboarding_continue">Продължаване</string>
   <string name="onboarding_get_started">Започване</string>
-  <string name="onboarding_welcome_title">Свободната енциклопедия</string>
-  <string name="onboarding_welcome_text">Уикипедия се пише в сътрудничество от доброволци и е съставена от над 40 милиона статии на почти 300 езика. &lt;a href=\"#about\"&gt;Научете повече&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Нови начини за откриване</string>
   <string name="onboarding_explore_text">Гмурнете се в Уикипедия с постоянно обновяващата се хранилка за откриване. &lt;br/&gt; &lt;b&gt;Персонализирайте&lt;/b&gt; хранилката според Вашите интереси – опознайте историческите събития &lt;b&gt;На днешната дата&lt;/b&gt; или пробвайте късмета си със &lt;b&gt;Случайна&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Запазване в списъци за четене</string>
@@ -616,9 +618,9 @@
   <string name="onboarding_create_account_contributions">Бъдете в течение с приносите си</string>
   <string name="onboarding_create_account_preferences">Съхраняване на предпочитанията</string>
   <string name="onboarding_got_it">Разбрах</string>
-  <string name="onboarding_multilingual_title">Търсене и четене на почти 300 езика</string>
   <string name="onboarding_multilingual_secondary_text">Намерено е следното на Вашето устройство:</string>
   <string name="onboarding_multilingual_add_language_text">Добавяне или редактиране на езици</string>
+  <string name="onboarding_welcome_title_v2">Свободната енциклопедия\n...на почти 300 езика</string>
   <string name="app_shortcuts_random">Случайна</string>
   <string name="app_shortcuts_continue_reading">Продължаване с четенето</string>
   <string name="app_shortcuts_search">Търсене</string>
@@ -645,8 +647,13 @@
     <item quantity="one">Премахване на избрания език?</item>
     <item quantity="other">Премахване на избраните езици?</item>
   </plurals>
+  <string name="wikipedia_languages_remove_dialog_content">Ще виждате съдържание във вашата хранилка за Откриване и филтрите за бързо търсене само на останалите езици на Уикипедия.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Не могат да се премахнат всички езици</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Оставете поне един език на Уикипедия, на който да търсите и да четете съдържание.</string>
   <string name="more_language_options">още</string>
   <string name="add_wikipedia_languages_text">Добавяне на езици на Уикипедия</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Премахване на китайски вариант от езиците на приложението Ви?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Към момента имате както традиционен, така и опростен китайски вариант в езиците на приложението. Промяна на езиковите Ви настройки на приложението?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Редактиране на езици</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Не, благодаря</string>
 </resources>

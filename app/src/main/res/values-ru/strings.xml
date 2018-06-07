@@ -640,8 +640,6 @@
   <string name="onboarding_skip">Пропустить</string>
   <string name="onboarding_continue">Продолжить</string>
   <string name="onboarding_get_started">Начать</string>
-  <string name="onboarding_welcome_title">Свободная энциклопедия</string>
-  <string name="onboarding_welcome_text">Википедия создаётся путём совместной работы добровольцев и содержит более чем 40 миллионов статей на примерно 300 различных языках. &lt;a href=\"#about\"&gt;Узнать подробнее&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Новые способы исследований</string>
   <string name="onboarding_explore_text">Путешествуйте по лабиринтам Википедии с помощью постоянно обновляемой ленты. &lt;br/&gt;&lt;b&gt;Настройте&lt;/b&gt; ленту так, чтобы она отвечала вашим интересам — будь то изучение исторических событий, случившихся &lt;b&gt;в этот день&lt;/b&gt;, или положитесь &lt;b&gt;на удачу&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Сохранить в списки для чтения</string>
@@ -656,9 +654,9 @@
   <string name="onboarding_create_account_contributions">Отслеживание вашего вклада</string>
   <string name="onboarding_create_account_preferences">Сохранение ваших настроек</string>
   <string name="onboarding_got_it">Понятно</string>
-  <string name="onboarding_multilingual_title">Поиск и чтение статей почти на 300 языках</string>
   <string name="onboarding_multilingual_secondary_text">Мы нашли следующие языки на вашем устройстве:</string>
   <string name="onboarding_multilingual_add_language_text">Добавить или удалить язык</string>
+  <string name="onboarding_welcome_title_v2">Свободная энциклопедия\n…почти на 300 языках</string>
   <string name="app_shortcuts_random">Случайная</string>
   <string name="app_shortcuts_continue_reading">Продолжить чтение</string>
   <string name="app_shortcuts_search">Поиск</string>
@@ -690,4 +688,8 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Оставьте, по меньшей мере, один язык для поиска и чтения.</string>
   <string name="more_language_options">ещё языки</string>
   <string name="add_wikipedia_languages_text">Добавить языки Википедии</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Удалить китайский из списка языков?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">У вас в наличии и традиционный, и упрощённый китайские языки. Обновить языковые настройки, с возможностью удалить один из вариантов?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Редактировать языки</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Использовать текущие настройки</string>
 </resources>

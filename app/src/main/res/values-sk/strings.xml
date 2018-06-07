@@ -532,8 +532,6 @@
   <string name="onboarding_skip">Preskočiť</string>
   <string name="onboarding_continue">Pokračovať</string>
   <string name="onboarding_get_started">Začíname</string>
-  <string name="onboarding_welcome_title">Slobodná encyklopédia</string>
-  <string name="onboarding_welcome_text">Články na Wikipédii píšu dobrovoľníci a skladá sa z viac ako 40 miliónov článkov v takmer 300 jazykoch. &lt;a href=\"#about\"&gt;Ďalšie informácie&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Nové možnosti pre objavovanie</string>
   <string name="onboarding_explore_text" fuzzy="true">Objavte odporúčané články, často vyhľadávané témy a odporúčania k čítaniu článkov.</string>
   <string name="onboarding_save_to_reading_lists_title">Uložiť do zoznamov na prečítanie</string>

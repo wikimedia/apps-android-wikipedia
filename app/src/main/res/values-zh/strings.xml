@@ -616,8 +616,6 @@
   <string name="onboarding_skip">跳过</string>
   <string name="onboarding_continue">继续</string>
   <string name="onboarding_get_started">入门</string>
-  <string name="onboarding_welcome_title">自由的百科全书</string>
-  <string name="onboarding_welcome_text">维基百科由志愿者合作撰写，并包含将近300种不同语言的超过4000万个条目。&lt;a href=\"#about\"&gt;了解更多&lt;/a&gt;</string>
   <string name="onboarding_explore_title">浏览的新方式</string>
   <string name="onboarding_explore_text">通过不断更新的探索订阅源扑进维基百科的怀抱。&lt;br/&gt;&lt;b&gt;自定义&lt;/b&gt;您感兴趣内容的订阅源——无论是了解有关&lt;b&gt;历史上的今天&lt;/b&gt;，还是&lt;b&gt;随机&lt;/b&gt;掷骰子。</string>
   <string name="onboarding_save_to_reading_lists_title">保存至阅读列表</string>
@@ -632,9 +630,9 @@
   <string name="onboarding_create_account_contributions">保持追踪您的贡献</string>
   <string name="onboarding_create_account_preferences">保存您的参数设置</string>
   <string name="onboarding_got_it">明白了</string>
-  <string name="onboarding_multilingual_title">在近300种语言中搜索并阅读</string>
   <string name="onboarding_multilingual_secondary_text">我们在您的设备上找到以下语言：</string>
   <string name="onboarding_multilingual_add_language_text">添加或编辑语言</string>
+  <string name="onboarding_welcome_title_v2">自由的百科全书…拥有将近300种语言</string>
   <string name="app_shortcuts_random">随机</string>
   <string name="app_shortcuts_continue_reading">继续阅读</string>
   <string name="app_shortcuts_search">搜索</string>
@@ -666,4 +664,8 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">请保持至少一种维基百科语言供搜索和阅读内容。</string>
   <string name="more_language_options">更多</string>
   <string name="add_wikipedia_languages_text">添加维基百科语言</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">从您的应用语言中移除一种中文变体么？</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">当前在您的应用语言中同时有繁体和简体中文变体设置。更新您的应用语言设置么？</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">编辑语言</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">不用了，谢谢</string>
 </resources>

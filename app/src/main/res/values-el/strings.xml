@@ -559,7 +559,6 @@
   <string name="onboarding_skip">Παράβλεψη</string>
   <string name="onboarding_continue">Συνέχεια</string>
   <string name="onboarding_get_started">Ξεκινήστε</string>
-  <string name="onboarding_welcome_title">Η ελεύθερη εγκυκλοπαίδεια</string>
   <string name="onboarding_explore_title">Νέοι τρόποι να εξερευνήσετε</string>
   <string name="onboarding_save_to_reading_lists_title">Αποθήκευση στις λίστες ανάγνωσης</string>
   <string name="onboarding_reading_list_sync_text_v2">Μπορείτε να δημιουργήσετε λίστες ανάγνωσης από άρθρα που θέλετε να διαβάσετε αργότερα, ακόμα και όταν είστε εκτός σύνδεσης. &lt;br/&gt; Συνδεθείτε στον λογαριασμό σας στη Wikipedia για να συγχρονίσετε τις λίστες ανάγνωσης. &lt;a href=\"#login\"&gt; Εγγραφείτε στο Wikipedia &lt;/a&gt;</string>
@@ -569,7 +568,6 @@
   <string name="onboarding_create_account_contributions">Ιχνηλατήστε τις συνεισφορές σας</string>
   <string name="onboarding_create_account_preferences">Αποθήκευση των προτιμήσεών σας</string>
   <string name="onboarding_got_it">Κατάλαβα</string>
-  <string name="onboarding_multilingual_title">Αναζητήστε την και διαβάστε σε σχεδόν 300 γλώσσες</string>
   <string name="onboarding_multilingual_secondary_text">Έχουμε βρει τα ακόλουθα στην συσκευή σας:</string>
   <string name="onboarding_multilingual_add_language_text">Προσθήκη ή επεξεργασία γλωσσών</string>
   <string name="app_shortcuts_random">Τυχαία</string>

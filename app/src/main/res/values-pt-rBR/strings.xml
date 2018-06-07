@@ -626,8 +626,6 @@
   <string name="onboarding_skip">Pular</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Começar</string>
-  <string name="onboarding_welcome_title">A Enciclopédia Livre</string>
-  <string name="onboarding_welcome_text">A Wikipédia é escrita de forma colaborativa por voluntários e contém mais de 40 milhões de artigos em quase 300 línguas diferentes. &lt;a href=\"#about\"&gt;Saiba mais&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Novas maneiras de explorar</string>
   <string name="onboarding_explore_text">Mergulhe o buraco de coelho da Wikipédia com uma atualização constante Explore feed. &lt;br/&gt; &lt;b&gt;Customizar&lt;/b&gt; A alimentação de seus interesses - seja aprendendo sobre eventos históricos &lt;b&gt;Neste dia&lt;/b&gt;, ou rolando os dados com &lt;b&gt;Aleatória&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Salvar nas listas de leitura</string>
@@ -642,7 +640,6 @@
   <string name="onboarding_create_account_contributions">Acompanhe suas contribuições</string>
   <string name="onboarding_create_account_preferences">Salve suas preferências</string>
   <string name="onboarding_got_it">Entendi</string>
-  <string name="onboarding_multilingual_title">Pesquise e leia em quase 300 línguas</string>
   <string name="onboarding_multilingual_secondary_text">Encontramos as seguintes no seu dispositivo:</string>
   <string name="onboarding_multilingual_add_language_text">Acrescentar ou editar idiomas</string>
   <string name="app_shortcuts_random">Aleatório</string>

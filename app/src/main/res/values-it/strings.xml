@@ -507,7 +507,6 @@
   <string name="onboarding_create_account_contributions">Tieni traccia dei tuoi contributi</string>
   <string name="onboarding_create_account_preferences">Salva le tue preferenze</string>
   <string name="onboarding_got_it">Capito</string>
-  <string name="onboarding_multilingual_title">Cerca e leggi in quasi 300 lingue</string>
   <string name="onboarding_multilingual_add_language_text">Aggiungi o modifica lingue</string>
   <string name="app_shortcuts_random">Una pagina a caso</string>
   <string name="app_shortcuts_continue_reading">Continua a leggere</string>
@@ -526,7 +525,7 @@
   <string name="wikipedia_languages_title">Lingue di Wikipedia</string>
   <string name="wikipedia_languages_your_languages_text">Le tue lingue</string>
   <string name="wikipedia_languages_add_language_text">Aggiungi lingua</string>
-  <string name="wikipedia_languages_remove_text" fuzzy="true">Rimuovi</string>
+  <string name="wikipedia_languages_remove_text">Rimuovi lingua</string>
   <string name="wikipedia_languages_remove_action_mode_title">Rimuovi lingua</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Rimuovere la lingua selezionata?</item>
@@ -536,4 +535,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">Impossibile rimuovere tutte le lingue</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantieni almeno una lingua Wikipedia da cui potrai cercare e leggere il contenuto.</string>
   <string name="more_language_options">altro</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Modifica lingue</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No, grazie</string>
 </resources>

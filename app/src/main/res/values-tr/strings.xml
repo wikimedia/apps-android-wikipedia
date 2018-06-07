@@ -621,8 +621,6 @@
   <string name="onboarding_skip">Atla</string>
   <string name="onboarding_continue">Devam et</string>
   <string name="onboarding_get_started">Kullanmaya başla</string>
-  <string name="onboarding_welcome_title">Özgür ansiklopedi</string>
-  <string name="onboarding_welcome_text">Vikipedi, gönüllüler tarafından işbirliği içinde yazılmış ve yaklaşık 300 farklı dilde 40 milyondan fazla maddeden oluşmaktadır. &lt;a href=\"#about\"&gt;Daha fazla bilgi edinin&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Keşfetmenin yeni yolları</string>
   <string name="onboarding_explore_text">Vikipedi tavşan deliğine, sürekli Keşfet akışı ile dalın. &lt;br/&gt; Akışınızı ilgileriniz göre &lt;b&gt;özelleştirin&lt;/b&gt; – &lt;b&gt;Tarihte bugün&lt;/b&gt; ile tarihsel olaylar hakkında bilgi alın ya da &lt;b&gt;Rastgele&lt;/b&gt; ile zar atın.</string>
   <string name="onboarding_save_to_reading_lists_title">Okuma listesine kaydet</string>
@@ -637,7 +635,6 @@
   <string name="onboarding_create_account_contributions">Katkılarınızı takip edin</string>
   <string name="onboarding_create_account_preferences">Tercihlerinizi kaydedin</string>
   <string name="onboarding_got_it">Anladım</string>
-  <string name="onboarding_multilingual_title">Yaklaşık 300 dilde arama yapın ve okuyun</string>
   <string name="onboarding_multilingual_secondary_text">Cihazınızda aşağıdakilerini bulduk:</string>
   <string name="onboarding_multilingual_add_language_text">Dil ekle veya düzenle</string>
   <string name="app_shortcuts_random">Rastgele</string>

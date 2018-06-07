@@ -588,8 +588,6 @@
   <string name="onboarding_skip">Omet</string>
   <string name="onboarding_continue">Continua</string>
   <string name="onboarding_get_started">Primers passos</string>
-  <string name="onboarding_welcome_title">L’enciclopèdia lliure</string>
-  <string name="onboarding_welcome_text">La Viquipèdia s\'escriu de forma col·laborativa per voluntaris i consisteix en més de 40 milions d\'articles en gairebé 300 llengües diferents. &lt;a href=\"#about\"&gt;Aprèn més&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Noves formes d\'explorar</string>
   <string name="onboarding_explore_text">Capbussat a l\'univers de la Viquipèdia amb el canal Exploreu actualitzat contínuament. &lt;br/&gt;&lt;b&gt;Personalitza&lt;/b&gt; el canal amb els teus interessos, llegeix sobre els esdeveniments històrics de &lt;b&gt;Un dia com avui&lt;/b&gt; o juga als daus amb l\'&lt;b&gt;Article a l\'atzar&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Afegeix a la llista de lectura</string>
@@ -603,9 +601,9 @@
   <string name="onboarding_create_account_contributions">Estigueu al dia de les vostres contribucions</string>
   <string name="onboarding_create_account_preferences">Desa les preferències</string>
   <string name="onboarding_got_it">Entesos</string>
-  <string name="onboarding_multilingual_title">Cerqueu i llegiu en pràcticament 300 llengües</string>
   <string name="onboarding_multilingual_secondary_text">Hem trobat el següent en el dispositiu:</string>
   <string name="onboarding_multilingual_add_language_text">Afegeix o modifica més llengües</string>
+  <string name="onboarding_welcome_title_v2">L’enciclopèdia lliure…\n… en quasi 300 llengües</string>
   <string name="app_shortcuts_random">A l\'atzar</string>
   <string name="app_shortcuts_continue_reading">Continua llegint</string>
   <string name="app_shortcuts_search">Cerca</string>

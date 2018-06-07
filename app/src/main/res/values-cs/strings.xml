@@ -617,8 +617,6 @@
   <string name="onboarding_skip">Přeskočit</string>
   <string name="onboarding_continue">Pokračovat</string>
   <string name="onboarding_get_started">Začněte</string>
-  <string name="onboarding_welcome_title">Otevřená encyklopedie</string>
-  <string name="onboarding_welcome_text">Wikipedie je psána společně dobrovolníky a obsahuje více než 40 miliónů článku v téměř 300 různých jazycích. &lt;a href=\"#about\"&gt;Zjistit více&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Nové možnosti pro objevování</string>
   <string name="onboarding_explore_text">Ponořte se do Wikipedie s průběžně aktualizovaným kanál objevování. &lt;br/&gt; &lt;b&gt;Přizpůsobte&lt;/b&gt; si jej podle svých zájmů – ať už je to &lt;b&gt;Dnešek v minulosti&lt;/b&gt;, nebo &lt;b&gt;Náhodné&lt;/b&gt; články.</string>
   <string name="onboarding_save_to_reading_lists_title">Uložit do seznamu k přečtení</string>
@@ -633,7 +631,6 @@
   <string name="onboarding_create_account_contributions">Mějte přehled o svých příspěvcích</string>
   <string name="onboarding_create_account_preferences">Uložit nastavení</string>
   <string name="onboarding_got_it">Skrýt návrh</string>
-  <string name="onboarding_multilingual_title">Vyhledávejte a čtěte v téměř 300 jazycích</string>
   <string name="onboarding_multilingual_secondary_text">Na vašem zařízení jsme našli následující:</string>
   <string name="onboarding_multilingual_add_language_text">Přidat nebo editovat jazyky</string>
   <string name="app_shortcuts_random">Náhodně</string>

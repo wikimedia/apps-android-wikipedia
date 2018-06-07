@@ -588,8 +588,6 @@
   <string name="onboarding_skip">Utzi</string>
   <string name="onboarding_continue">Jarraitu</string>
   <string name="onboarding_get_started">Has zaitez!</string>
-  <string name="onboarding_welcome_title">Entziklopedia askea</string>
-  <string name="onboarding_welcome_text">Wikipedia boluntarioek elkarlanean idatzi dute eta 40 milioi artikulu baino gehiago biltzen ditu ia 300 hizkuntzatan. &lt;a href=\"#about\"&gt;Gehiago ikasi&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Exploratzeko era berriak</string>
   <string name="onboarding_explore_text">Murgildu zaitez Wikipedian etengabe Arakatzaile ezarpena eguneratuz.&lt;br/&gt; &lt;b&gt;Pertsonalizatu&lt;/b&gt; zure interesetako jarioa – bai gertakari historikoen inguruan ikasteko &lt;b&gt;Egun honetan&lt;/b&gt;, zein dadoa botaz &lt;b&gt;Ausazkoa&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Gordu irakurketa zerrendan</string>
@@ -604,7 +602,6 @@
   <string name="onboarding_create_account_contributions">Zure ekarpenen berri jaso</string>
   <string name="onboarding_create_account_preferences">Zure lehentasunak gorde</string>
   <string name="onboarding_got_it">Ulertuta</string>
-  <string name="onboarding_multilingual_title">Bilatu eta irakurri ia 300 hizkuntzatan</string>
   <string name="onboarding_multilingual_secondary_text">Hurrengoak aurkitu ditugu zure gailuan:</string>
   <string name="onboarding_multilingual_add_language_text">Hizkuntzak gehitu ala aldatu</string>
   <string name="app_shortcuts_random">Ausazkoa</string>

@@ -610,8 +610,6 @@
   <string name="onboarding_skip">건너뛰기</string>
   <string name="onboarding_continue">계속</string>
   <string name="onboarding_get_started">시작하기</string>
-  <string name="onboarding_welcome_title">우리 모두의 백과사전</string>
-  <string name="onboarding_welcome_text">위키백과는 자발적인 기여자들에 의해 협업으로 작성되며 약 300개의 언어의 40,000,000개 이상의 문서로 이루어져 있습니다. &lt;a href=\"#about\"&gt;더 알아보기&lt;/a&gt;</string>
   <string name="onboarding_explore_title">탐구를 위한 새로운 방법</string>
   <string name="onboarding_explore_text">늘 업데이트되는 둘러보기 피드로 위키백과를 탐험하세요. &lt;br/&gt; 피드를 당신의 관심사에 &lt;b&gt;맞춤 관리하세요&lt;/b&gt; – 그것이 &lt;b&gt;오늘의 역사&lt;/b&gt;에 대한 역사적 사건을 배우는 것이든, &lt;b&gt;임의 문서로&lt;/b&gt; 주사위를 던지는 것이든요.</string>
   <string name="onboarding_save_to_reading_lists_title">읽기 목록에 저장</string>
@@ -626,9 +624,9 @@
   <string name="onboarding_create_account_contributions">내 기여를 추적합니다</string>
   <string name="onboarding_create_account_preferences">환경 설정 저장하기</string>
   <string name="onboarding_got_it">알겠습니다</string>
-  <string name="onboarding_multilingual_title">약 300개의 언어에서 검색 및 읽기</string>
   <string name="onboarding_multilingual_secondary_text">장치에서 다음의 언어를 발견했습니다:</string>
   <string name="onboarding_multilingual_add_language_text">언어 추가 또는 편집</string>
+  <string name="onboarding_welcome_title_v2">우리 모두의 백과사전\n...약 300개의 언어 지원</string>
   <string name="app_shortcuts_random">임의 문서</string>
   <string name="app_shortcuts_continue_reading">계속 읽기</string>
   <string name="app_shortcuts_search">검색</string>
@@ -658,4 +656,8 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">내용을 검색하고 읽을 위키백과 언어는 적어도 하나를 유지하십시오.</string>
   <string name="more_language_options">더 보기</string>
   <string name="add_wikipedia_languages_text">위키백과 언어 추가</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">앱 언어에서 중국어를 제거하시겠습니까?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">현재 앱 언어에서 정체 중국어와 간체 중국어가 설정되어 있습니다. 앱 언어 설정을 업데이트하시겠습니까?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">언어 편집</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">괜찮습니다</string>
 </resources>

@@ -586,8 +586,6 @@
   <string name="onboarding_skip">Bỏ qua</string>
   <string name="onboarding_continue">Tiếp tục</string>
   <string name="onboarding_get_started">Bắt đầu</string>
-  <string name="onboarding_welcome_title">Bách khoa toàn thư mở</string>
-  <string name="onboarding_welcome_text">Wikipedia được viết nên từ sự phối hợp của các tình nguyên viên, chứa hơn 40 triệu bài viết trong gần 300 ngôn ngữ khác nhau. &lt;a href=\"#about\"&gt;Tìm hiểu thêm&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Cách thám hiểm mới</string>
   <string name="onboarding_explore_text" fuzzy="true">Khám phá các bài viết chọn lọc, đề tài thịnh hành, và gợi ý đọc bài trong nguồn cấp Thám hiểm.</string>
   <string name="onboarding_save_to_reading_lists_title">Lưu vào danh sách đọc</string>

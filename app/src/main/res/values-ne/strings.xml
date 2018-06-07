@@ -402,7 +402,6 @@
   <string name="onboarding_skip">छोड्नुहोस्</string>
   <string name="onboarding_continue">निरन्तरता दिनुहोस्</string>
   <string name="onboarding_get_started">सुरु गर्नुहोस्</string>
-  <string name="onboarding_welcome_title">स्वतन्त्र र खुल्ला  ज्ञानकोष</string>
   <string name="onboarding_explore_title">अन्वेषण गर्ने नयाँ तरिका</string>
   <string name="onboarding_explore_text" fuzzy="true">अन्वेषण नामक फिडमा विशेष लेख, प्रचलनमा रहेका शीर्षक र अध्ययनसम्बन्धी सुझावहरू फेला पार्नुहोस्।</string>
   <string name="onboarding_got_it">मैले बुझेँ</string>

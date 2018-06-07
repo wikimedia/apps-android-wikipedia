@@ -611,8 +611,6 @@
   <string name="onboarding_skip">לדלג</string>
   <string name="onboarding_continue">להמשיך</string>
   <string name="onboarding_get_started">להתחיל</string>
-  <string name="onboarding_welcome_title">האנציקלופדיה החופשית</string>
-  <string name="onboarding_welcome_text">ויקיפדיה נכתבת באופן שיתופי על־ידי מתנדבים ומכילה יותר מ־40 מיליון ערכים בכמעט 300 שפות שונות. &lt;a href=\"#about\"&gt;מידע נוסף&lt;/a&gt;</string>
   <string name="onboarding_explore_title">דרכים חדשות לחקור</string>
   <string name="onboarding_explore_text">תצללו לוויקיפדיה עם ההזנה המתעדכנת שלנו: \"לחקור\". &lt;br/&gt; תתאימו את ההזנה למה שמעניין אתכם – תלמדו על מה שקרה &lt;b&gt;היום בהיסטוריה&lt;/b&gt;, או תפתחו משהו &lt;b&gt;אקראי&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">שמירה לרשימות קריאה</string>
@@ -627,9 +625,9 @@
   <string name="onboarding_create_account_contributions">מעקב אחר התרומות שלך</string>
   <string name="onboarding_create_account_preferences">שמירת העדפות</string>
   <string name="onboarding_got_it">הבנתי</string>
-  <string name="onboarding_multilingual_title">חיפוש וקריאה בכ־300 שפות</string>
   <string name="onboarding_multilingual_secondary_text">מצאנו את השפות הבאות במכשיר שלך:</string>
   <string name="onboarding_multilingual_add_language_text">הוספה או עריכה של השפות</string>
+  <string name="onboarding_welcome_title_v2">האנציקלופדיה החופשית\n…כמעט ב־300 שפות</string>
   <string name="app_shortcuts_random">אקראי</string>
   <string name="app_shortcuts_continue_reading">המשך קריאה</string>
   <string name="app_shortcuts_search">חיפוש</string>
@@ -661,4 +659,8 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">יש להשאיר לפחות שפת ויקיפדיה אחת שבה ברצונך לחפש ולקרוא תוכן.</string>
   <string name="more_language_options">עוד</string>
   <string name="add_wikipedia_languages_text">הוספת שפות ויקיפדיה</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">להסיר גרסה אחת של סינית מהגדרות השפה של היישום?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">כרגע מוגדרות גם סינית מסורתית וגם סינית פשוטה בהגדרות השפה של היישום שלך. האם ברצונך לעדכן את הגדרות השפה של היישום?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">עריכת השפות</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">לא, תודה</string>
 </resources>

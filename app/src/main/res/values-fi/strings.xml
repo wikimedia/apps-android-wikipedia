@@ -614,8 +614,6 @@
   <string name="onboarding_skip">Ohita</string>
   <string name="onboarding_continue">Jatka</string>
   <string name="onboarding_get_started">Aloitetaan</string>
-  <string name="onboarding_welcome_title">Vapaa tietosanakirja</string>
-  <string name="onboarding_welcome_text">Wikipedia on kirjoitettu yhteistyössä vapaaehtoisten kanssa ja \nkoostuu yli 40 miljoonasta artikkelista lähes 300 eri kielellä. &lt;a href=\"#about\"&gt;Lue lisää&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Uusia tapoja tutkia</string>
   <string name="onboarding_explore_text">Sukella Wikipedian jäniksenkoloon jatkuvasti päivittyvällä Tutustu-syötteellä. &lt;br/&gt; &lt;b&gt;Mukauta&lt;/b&gt; syöte kiinnostuksen kohteillesi – onko se historiallisten tapahtumien oppimista &lt;b&gt;Tänä päivänä&lt;/b&gt;, tai heitä noppaa &lt;b&gt;satunnaisesti&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Tallenna lukuluetteloon</string>
@@ -630,7 +628,6 @@
   <string name="onboarding_create_account_contributions">Seuraa tekemiäsi muokkauksia</string>
   <string name="onboarding_create_account_preferences">Tallenna asetuksesi</string>
   <string name="onboarding_got_it">Selvä</string>
-  <string name="onboarding_multilingual_title">Etsi ja lue melkein 300 kielellä</string>
   <string name="onboarding_multilingual_secondary_text">Löysimme seuraavat laitteestasi:</string>
   <string name="onboarding_multilingual_add_language_text">Lisää tai muokkaa kieliä</string>
   <string name="app_shortcuts_random">Satunnainen</string>

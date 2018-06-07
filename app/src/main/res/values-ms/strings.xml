@@ -122,6 +122,9 @@
   <string name="create_account_next">Seterusnya</string>
   <string name="create_account_button">Buka akaun</string>
   <string name="create_account_name_unavailable">Nama pengguna \"%s\" tidak tersedia. Sila pilih nama lain.</string>
+  <string name="create_account_ip_block_message">Maaf, alamat IP anda kini disekat daripada membuat akaun baharu.</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_details">Butiran</string>
   <string name="preferences_general_heading">Umum</string>
   <string name="wikipedia_app_faq">Soalan Lazim Aplikasi Wikipedia</string>
   <string name="zero_charged_verbiage">Akses percuma ke Wikipedia tidak lagi aktif.</string>
@@ -605,8 +608,6 @@
   <string name="onboarding_skip">Langkau</string>
   <string name="onboarding_continue">Teruskan</string>
   <string name="onboarding_get_started">Memulakan</string>
-  <string name="onboarding_welcome_title">Ensiklopedia bebas</string>
-  <string name="onboarding_welcome_text">Wikipedia ditulis secara sukarela oleh sukarelawan dan terdiri daripada lebih 40 juta rencana dalam hampir 300 bahasa yang berbeza. &lt;a href=\"#about\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Cara baru untuk diterokai</string>
   <string name="onboarding_explore_text">Dengarkan lubang kelinci Wikipedia dengan mengemas kini suapan Jelajah secara berterusan. &lt;br/&gt; &lt;b&gt;Ubahsuai&lt;/b&gt; suapan untuk minat anda – sama ada pembelajaran tentang peristiwa sejarah &lt;b&gt;Pada hari ini&lt;/b&gt;, atau membaling dadu dengan &lt;b&gt;Rawak&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Simpan ke senarai bacaan</string>
@@ -621,9 +622,9 @@
   <string name="onboarding_create_account_contributions">Jejaki sumbangan anda</string>
   <string name="onboarding_create_account_preferences">Simpan keutamaan anda</string>
   <string name="onboarding_got_it">Faham</string>
-  <string name="onboarding_multilingual_title">Cari dan baca di hampir 300 bahasa</string>
   <string name="onboarding_multilingual_secondary_text">Kami telah menemui bahasa berikut pada peranti anda:</string>
   <string name="onboarding_multilingual_add_language_text">Tambah atau sunting bahasa</string>
+  <string name="onboarding_welcome_title_v2">Ensiklopedia Bebas\n…dalam hampir 300 bahasa</string>
   <string name="app_shortcuts_random">Rawak</string>
   <string name="app_shortcuts_continue_reading">Teruskan membaca</string>
   <string name="app_shortcuts_search">Cari</string>
@@ -644,7 +645,7 @@
   <string name="wikipedia_languages_title">Bahasa Wikipedia</string>
   <string name="wikipedia_languages_your_languages_text">Bahasa anda</string>
   <string name="wikipedia_languages_add_language_text">Tambahkan bahasa</string>
-  <string name="wikipedia_languages_remove_text" fuzzy="true">Buang</string>
+  <string name="wikipedia_languages_remove_text">Buang bahasa</string>
   <string name="wikipedia_languages_remove_action_mode_title">Buang bahasa</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Buang bahasa yang dipilih?</item>
@@ -655,4 +656,8 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Pastikan sekurang-kurangnya satu bahasa Wikipedia yang boleh digunakan untuk mencari dan membaca kandungan.</string>
   <string name="more_language_options">lagi</string>
   <string name="add_wikipedia_languages_text">Tambah bahasa Wikipedia</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Buang variasi Cina dari bahasa apl anda?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Anda kini mempunyai kedua-dua varian Cina Tradisional dan Sederhana yang ditetapkan dalam bahasa apl anda. Kemas kini tetapan apl aplikasi anda?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sunting bahasa</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Tak apalah</string>
 </resources>

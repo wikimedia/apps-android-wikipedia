@@ -410,7 +410,6 @@
   <string name="onboarding_skip">ကျော်ရန်</string>
   <string name="onboarding_continue">ဆက်လက်</string>
   <string name="onboarding_get_started">စတင်ပါ</string>
-  <string name="onboarding_welcome_title">အခမဲ့ လွတ်လပ်စွယ်စုံကျမ်း</string>
   <string name="onboarding_save_to_reading_lists_title">ဖတ်ရှုမည့်စာရင်းတွင် သိမ်းဆည်းရန်။</string>
   <string name="onboarding_save_to_reading_lists_text">နောင်တွင် သင်အော့ဖ်လိုင်းဖြစ်နေစဉ်တွင်တောင်မှ ဖတ်ရှုနိုင်ရန် ဖတ်ရှုမည့်စာရင်းအား ဖန်တီးပါ။</string>
   <string name="onboarding_got_it">ရပြီဟေ့</string>

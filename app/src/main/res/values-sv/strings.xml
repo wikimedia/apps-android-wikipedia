@@ -612,8 +612,6 @@
   <string name="onboarding_skip">Hoppa över</string>
   <string name="onboarding_continue">Fortsätt</string>
   <string name="onboarding_get_started">Kom igång</string>
-  <string name="onboarding_welcome_title">Den fria encyklopedin</string>
-  <string name="onboarding_welcome_text">Wikipedia skrivs tillsammans av frivilliga och består av fler än 40 miljoner artiklar på nästan 300 olika språk. &lt;a href=\"#about\"&gt;Läs mer&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Nya sätt att utforska</string>
   <string name="onboarding_explore_text">Gör en djupdykning i Wikipedia genom att uppdatera Utforskningsflödet. &lt;br/&gt; &lt;b&gt;Anpassa&lt;/b&gt; flödet för att möta dina intressen – vare sig det handlar om historiska händelser &lt;b&gt;på denna dag&lt;/b&gt; eller kasta tärningen och få en &lt;b&gt;slumpartikel&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Spara till läslistor</string>
@@ -628,7 +626,6 @@
   <string name="onboarding_create_account_contributions">Håll koll på dina bidrag</string>
   <string name="onboarding_create_account_preferences">Spara dina inställningar</string>
   <string name="onboarding_got_it">Jag förstår</string>
-  <string name="onboarding_multilingual_title">Sök och läs på nästan 300 språk</string>
   <string name="onboarding_multilingual_secondary_text">Vi har hittat följande på din enhet:</string>
   <string name="onboarding_multilingual_add_language_text">Lägg till eller redigera språk</string>
   <string name="app_shortcuts_random">Slumpartikel</string>
@@ -651,7 +648,7 @@
   <string name="wikipedia_languages_title">Wikipedia-språk</string>
   <string name="wikipedia_languages_your_languages_text">Dina språk</string>
   <string name="wikipedia_languages_add_language_text">Lägg till språk</string>
-  <string name="wikipedia_languages_remove_text" fuzzy="true">Ta bort</string>
+  <string name="wikipedia_languages_remove_text">Ta bort språk</string>
   <string name="wikipedia_languages_remove_action_mode_title">Ta bort språk</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Ta bort valt språk?</item>

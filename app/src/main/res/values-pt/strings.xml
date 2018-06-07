@@ -614,8 +614,6 @@
   <string name="onboarding_skip">Ignorar</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Começar</string>
-  <string name="onboarding_welcome_title">A enciclopédia livre</string>
-  <string name="onboarding_welcome_text">A Wikipédia é escrita de forma colaborativa por voluntários e contém mais de 40 milhões de artigos em quase 300 línguas diferentes. &lt;a href=\"#about\"&gt;Saiba mais&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Novas formas de explorar</string>
   <string name="onboarding_explore_text">Mergulhe no poço sem fundo da Wikipédia com um feed Explorar em constante atualização. &lt;br/&gt; &lt;b&gt;Personalize&lt;/b&gt; o feed com as suas preferências – quer seja acontecimentos históricos &lt;b&gt;Neste dia&lt;/b&gt;, ou assuntos ao calhas com &lt;b&gt;Aleatório&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Guardar nas listas de leitura</string>
@@ -630,9 +628,9 @@
   <string name="onboarding_create_account_contributions">Mantenha registos das suas contribuições</string>
   <string name="onboarding_create_account_preferences">Grave as suas preferências</string>
   <string name="onboarding_got_it">Percebido</string>
-  <string name="onboarding_multilingual_title">Pesquise e leia em quase 300 línguas</string>
   <string name="onboarding_multilingual_secondary_text">Encontrámos as seguintes no seu dispositivo:</string>
   <string name="onboarding_multilingual_add_language_text">Acrescentar ou editar línguas</string>
+  <string name="onboarding_welcome_title_v2">A Enciclopédia Livre\n... em quase 300 línguas</string>
   <string name="app_shortcuts_random">Aleatório</string>
   <string name="app_shortcuts_continue_reading">Continuar a ler</string>
   <string name="app_shortcuts_search">Pesquisar</string>
@@ -653,7 +651,7 @@
   <string name="wikipedia_languages_title">Línguas da Wikipédia</string>
   <string name="wikipedia_languages_your_languages_text">As suas línguas</string>
   <string name="wikipedia_languages_add_language_text">Adicionar língua</string>
-  <string name="wikipedia_languages_remove_text" fuzzy="true">Remover</string>
+  <string name="wikipedia_languages_remove_text">Remover língua</string>
   <string name="wikipedia_languages_remove_action_mode_title">Remover língua</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Remover a língua selecionada?</item>
@@ -664,4 +662,8 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantenha pelo menos uma língua da Wikipédia para pesquisar e ler o conteúdo.</string>
   <string name="more_language_options">mais</string>
   <string name="add_wikipedia_languages_text">Adicione as línguas da Wikipédia</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Remover uma variante do chinês das suas línguas da aplicação?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Neste momento tem as variantes tradicional e simplificado do chinês definidas nas suas línguas da aplicação. Atualizar as definições das suas línguas da aplicação?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Editar línguas</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Não, obrigado</string>
 </resources>

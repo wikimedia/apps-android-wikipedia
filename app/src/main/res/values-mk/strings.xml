@@ -603,8 +603,6 @@
   <string name="onboarding_skip">Прескокни</string>
   <string name="onboarding_continue">Продолжи</string>
   <string name="onboarding_get_started">Започнете</string>
-  <string name="onboarding_welcome_title">Слободната енциклопедија</string>
-  <string name="onboarding_welcome_text">Википедија е соработно дело кое го пишуваат доброволци и се состои од преку 40 милиони статии на речиси 300 различни јазици. &lt;a href=\"#about\"&gt;Дознајте повеќе&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Нови начини на истражување</string>
   <string name="onboarding_explore_text">Нурнете се длабоко во Википедија со постојано подновениот тековник „Истражи“.&lt;br/&gt; &lt;b&gt;Прилагодете&lt;/b&gt; го тековниот според вашите интереси — дознајте за историските настани кои се случиле &lt;b&gt;На денешен ден&lt;/b&gt; или пробајте си ја среќата со &lt;b&gt;Случајна&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Зачувување во списоци за читање</string>
@@ -619,9 +617,9 @@
   <string name="onboarding_create_account_contributions">Бидете во тек со вашите придонеси</string>
   <string name="onboarding_create_account_preferences">Зачувајете ги вашите поставки</string>
   <string name="onboarding_got_it">Јасно</string>
-  <string name="onboarding_multilingual_title">Пребарајте и читајте на речиси 300 јазици</string>
   <string name="onboarding_multilingual_secondary_text">Го пронајдов следново на вашиот уред:</string>
   <string name="onboarding_multilingual_add_language_text">Додај или измени јазици</string>
+  <string name="onboarding_welcome_title_v2">Слободната енциклопедија\n…на речиси 300 јазици</string>
   <string name="app_shortcuts_random">Случајна</string>
   <string name="app_shortcuts_continue_reading">Продолжете со читање</string>
   <string name="app_shortcuts_search">Пребарај</string>
@@ -642,7 +640,7 @@
   <string name="wikipedia_languages_title">Јазици на Википедија</string>
   <string name="wikipedia_languages_your_languages_text">Ваши јазици</string>
   <string name="wikipedia_languages_add_language_text">Додај јазик</string>
-  <string name="wikipedia_languages_remove_text" fuzzy="true">Отстрани</string>
+  <string name="wikipedia_languages_remove_text">Отстрани јазик</string>
   <string name="wikipedia_languages_remove_action_mode_title">Отстрани јазик</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Да го отстранам избраниот јазик?</item>
@@ -653,4 +651,8 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Задржете барем еден јазик на Википедија од кој ќе пребарувате и читате содржини.</string>
   <string name="more_language_options">повеќе</string>
   <string name="add_wikipedia_languages_text">Додај јазици</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Да отстранам кинеска варијанта од јазиците на прилогот?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Тековно имате и традиционален и упростен кинески во јазиците на прилогот. Да ги изменам јазичните поставки?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Измени јазици</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Не, благодарам</string>
 </resources>

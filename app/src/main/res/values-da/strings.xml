@@ -578,8 +578,6 @@
   <string name="onboarding_skip">Udelad</string>
   <string name="onboarding_continue">Fortsæt</string>
   <string name="onboarding_get_started">Kom i gang</string>
-  <string name="onboarding_welcome_title">Den frie encyklopædi</string>
-  <string name="onboarding_welcome_text">Wikipedia skrives i en fælles indsats og består af mere end 40 millioner artikler i næsten 300 forskellige sprog. &lt;a href=\"#about\"&gt;Lær mere&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Nye måder at udforske</string>
   <string name="onboarding_explore_text">Dyk ned i Wikipedias harehul med en konstant opdateret udforskningskilde. &lt;br/&gt; &lt;b&gt;Tilpas&lt;/b&gt; nyhedskilden til dine interesser – om det er historiske hændelser &lt;b&gt;På denne dag&lt;/b&gt;, eller et kast med terningen med &lt;b&gt;Vilkårlig&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Gem til læselister</string>

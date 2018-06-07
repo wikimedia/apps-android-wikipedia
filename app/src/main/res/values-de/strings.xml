@@ -606,8 +606,6 @@
   <string name="onboarding_skip">Überspringen</string>
   <string name="onboarding_continue">Fortfahren</string>
   <string name="onboarding_get_started">Anfangen</string>
-  <string name="onboarding_welcome_title">Die freie Enzyklopädie</string>
-  <string name="onboarding_welcome_text">Wikipedia wird kollaborativ von Freiwilligen erstellt und besteht aus mehr als 40 Millionen Artikeln in fast 300 unterschiedlichen Sprachen. &lt;a href=\"#about\"&gt;Mehr erfahren&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Neue Wege zum Entdecken</string>
   <string name="onboarding_explore_text">Tauche in das Wikipedia-Kaninchenloch ein mit einem ständig aktuellen Entdecken-Feed.&lt;br/&gt; &lt;b&gt;Passe&lt;/b&gt; den Feed deinen Interessen an – ob er dir historische Ereignisse &lt;b&gt;An diesem Tag&lt;/b&gt; nahebringt oder wirf den Würfel mit &lt;b&gt;Zufällig&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Zu den Leselisten speichern</string>
@@ -622,9 +620,9 @@
   <string name="onboarding_create_account_contributions">Verfolge deine Beiträge</string>
   <string name="onboarding_create_account_preferences">Speichere deine Einstellungen</string>
   <string name="onboarding_got_it">Verstanden</string>
-  <string name="onboarding_multilingual_title">In fast 300 Sprachen suchen und lesen</string>
   <string name="onboarding_multilingual_secondary_text">Wir haben das Folgende auf deinem Gerät gefunden:</string>
   <string name="onboarding_multilingual_add_language_text">Sprachen hinzufügen oder bearbeiten</string>
+  <string name="onboarding_welcome_title_v2">Die freie Enzyklopädie\n… in fast 300 Sprachen</string>
   <string name="app_shortcuts_random">Zufällig</string>
   <string name="app_shortcuts_continue_reading">Mit dem Lesen fortfahren</string>
   <string name="app_shortcuts_search">Suchen</string>
@@ -656,4 +654,8 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Mindestens eine Wikipedia-Sprache für die Suche und das Lesen von Inhalten behalten.</string>
   <string name="more_language_options">mehr</string>
   <string name="add_wikipedia_languages_text">Wikipedia-Sprachen hinzufügen</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Eine chinesische Variante von deinen App-Sprachen entfernen?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Du hast derzeit sowohl die Variantensätze für das traditionelle als auch für das vereinfachte Chinesisch in deinen App-Sprachen. Einstellungen für deine App-Sprachen aktualisieren?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sprachen bearbeiten</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nein danke</string>
 </resources>

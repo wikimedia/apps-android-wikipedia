@@ -408,9 +408,11 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">中止</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">ログイン</string>
   <string name="reading_list_turned_sync_off_dialog_title">あとで読むリストの同期はオフになりました</string>
+  <string name="reading_list_turned_sync_off_dialog_text">あとで読むリストの同期はあなたのアカウントではオフになっており、ログイン済みのデバイス上での保存された記事は今後バックアップされません。設定であとで読むリストの同期をオンにしてください。</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">設定</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">あとで読むリストの同期を有効にしますか？</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">あとで読むリストに保存された記事は、あなたのウィキペディアアカウントと同期できるようになりました。&lt;a href=\"#faq\"&gt;もっと詳しく&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">次からは表示しない</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">同期を有効にする</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">やめます</string>
@@ -419,6 +421,9 @@
   <string name="reading_list_login_option_reminder_dialog_yes">はい、記事をあとで読むリストに追加します</string>
   <string name="reading_list_login_option_reminder_dialog_no">いいえ、記事を削除します</string>
   <string name="reading_list_logout_option_reminder_dialog_title">アプリ内の保存した記事をそのままにしますか？</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">あとで読むリストに保存された記事があります。ログアウトした後でも保存したままにしますか？</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">はい、リスト内の記事をそのままにします。</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">いいえ、リストから記事を削除します。</string>
   <string name="default_reading_list_name">保存済み</string>
   <string name="default_reading_list_description">保存したページの既定の一覧</string>
   <string name="no_user_lists_title">記事をリストにまとめる</string>
@@ -427,6 +432,11 @@
   <string name="split_reading_list_message">あとで読むリストに登録できる項目数は%d件以下です。既存のリストでこの上限をオーバーしたものは分割されました。</string>
   <string name="reading_list_article_limit_message">リストに追加できません。「%1$s」はリスト項目の上限%2$d件に達しました。</string>
   <string name="reading_lists_limit_message">これ以上リストを作成できません。は1アカウント当たりのあとで読むリストの上限100件に達しました。</string>
+  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;あとで読むリストを同期&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;あとで読むリストをデバイス間で同期できるようになりました。ウィキペディアのアカウントにログインし、リストの保存を有効にしてみましょう。</string>
+  <string name="reading_lists_menu_create_list">リストを新規作成</string>
+  <string name="reading_lists_menu_sort_by">並び順:</string>
+  <string name="reading_lists_refresh_sync_option">同期を更新</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">ログイン / 登録</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">この記事は現在オフラインで利用できるようになります。</item>
     <item quantity="other">これらの記事はオフラインで利用できるようになります。</item>
@@ -447,9 +457,31 @@
   <string name="notification_syncing_pause_button">一時停止</string>
   <string name="notification_syncing_resume_button">継続</string>
   <string name="notification_syncing_cancel_button">中止</string>
-  <string name="notification_channel_name" fuzzy="true">同期中</string>
-  <string name="notification_syncing_title" fuzzy="true">記事%1$d件をダウンロード中…</string>
-  <string name="notification_syncing_description" fuzzy="true">残り%1$d件の記事</string>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">あとで読むリストを同期中</item>
+    <item quantity="other">あとで読むリストを同期中</item>
+  </plurals>
+  <string name="notification_syncing_reading_list_channel_description">あとで読むリストを同期中です</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">記事をダウンロード中</item>
+    <item quantity="other">記事をダウンロード中</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">%1$d記事をダウンロード中…</item>
+    <item quantity="other">%1$d記事をダウンロード中…</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">残り%1$d記事</item>
+    <item quantity="other">残り%1$d記事</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">リスト%1$d件を同期中…</item>
+    <item quantity="other">リスト%1$d件を同期中…</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">リスト残り%1$d件</item>
+    <item quantity="other">リスト残り%1$d件</item>
+  </plurals>
   <string name="view_continue_reading_card_title">続けて読む</string>
   <string name="view_because_you_read_card_title">こんな記事も読まれています</string>
   <string name="view_random_card_title">おまかせ表示</string>
@@ -484,6 +516,7 @@
   <string name="feed_configure_menu_reset">標準設定の表示を適用</string>
   <string name="feed_configure_menu_select_all">すべて表示</string>
   <string name="feed_configure_menu_deselect_all">すべて隠す</string>
+  <string name="feed_configure_language_warning">すべてのウィキペディアの言語で、すべてのカードの種類が利用できるわけではないことにご留意ください。設定で言語を選んでください。</string>
   <string name="feed_item_type_news">最近の出来事の記事</string>
   <string name="feed_item_type_on_this_day">過去に起こったこの日の出来事</string>
   <string name="feed_item_type_continue_reading">タブのどれかで開いたページを読むクイックリンク</string>
@@ -493,6 +526,7 @@
   <string name="feed_item_type_featured_image">ウィキメディア・コモンズより、今日の秀逸な画像</string>
   <string name="feed_item_type_main_page">ウィキペディアのメインページ。今日の選り抜き記事や画像を表示</string>
   <string name="feed_item_type_randomizer">記事をおまかせ表示する</string>
+  <string name="feed_empty_message">あなたの探索するフィードには何もありません。</string>
   <string name="feed_configure_onboarding_action">カスタマイズ</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Exploreフィードをカスタマイズする&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;フィードに表示するコンテンツを選択して、お気に入りのタイプのコンテンツに優先順位を付けることができるようになりました。</string>
   <string name="description_edit_text_hint">編集の要約</string>
@@ -535,6 +569,7 @@
   <string name="description_edit_revert_history">もしご興味があれば、&lt;a href=\"%1$s\"&gt;編集履歴&lt;/a&gt;をご覧ください。</string>
   <string name="offline_compilation_download_device_offline">インターネットに接続できません。オンラインに戻ったことを確認してから、もう一度お試しください。</string>
   <string name="offline_read_permission_rationale">オフラインブラウズには、端末のストレージにアクセスする権限が必要です。</string>
+  <string name="offline_read_final_rationale">オフラインライブラリを使用するには、端末のストレージにアクセスする権限が必要です。</string>
   <string name="offline_read_permission_error">デバイスストレージから読み取ることが許可されていません。</string>
   <string name="offline_card_sideloading_text">オフラインライブラリの記事でウィキペディアをオフラインで閲覧しています。</string>
   <string name="offline_my_compilations">オフラインライブラリを管理する</string>
@@ -583,14 +618,13 @@
   <string name="onboarding_skip">スキップ</string>
   <string name="onboarding_continue">続ける</string>
   <string name="onboarding_get_started">始めよう</string>
-  <string name="onboarding_welcome_title">フリー百科事典</string>
-  <string name="onboarding_welcome_text">ウィキペディアは、ボランティアによって共同で書かれ、およそ300の異なる言語で4千万件以上の記事で構成されています。 &lt;a href=\"#about\"&gt;詳細&lt;/a&gt;</string>
   <string name="onboarding_explore_title">新ツールで探検しよう</string>
   <string name="onboarding_explore_text">絶えずアップデートしていく「探検」のフィードを追って、ウィキペディアの未知の世界に潜り込みましょう。過去の出来事を&lt;b&gt;今日は何の日&lt;/ b&gt;を学んだり、&lt;b&gt;おまかせ表示&lt;/ b&gt;で運にまかせるなど、フィードをあなたの興味のままに&lt;b&gt;カスタマイズ&lt;/ b&gt;することができます。</string>
   <string name="onboarding_save_to_reading_lists_title">あとで読むリストに保存</string>
   <string name="onboarding_save_to_reading_lists_text">後から読みたい記事のために「あとで読む」リストを作りましょう。オフラインでも読めます。</string>
   <string name="onboarding_reading_list_sync_title">あとで読むリストの同期</string>
   <string name="onboarding_reading_list_sync_text">後で読みたい記事をまとめて、あとで読むリストを作成しましょう。オフラインで読むこともできます。ウィキペディアアカウントに&lt;a href=\"#login\"&gt;ログイン、またはアカウントを作成&lt;/a&gt;して、あとで読むリストを保存しましょう。</string>
+  <string name="onboarding_reading_list_sync_text_v2">後でオフラインになっても記事が読みたい、そんなあなたのためにあとで読むリストを作成できます。&lt;br/&gt;ウィキペディアのアカウントにログインして、あとで読むリストを同期しましょう&lt;a href=\"#login\"&gt;ウィキペディアに参加&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">匿名データを送信</string>
   <string name="onboarding_analytics_offline_text">アプリの使い方を教えて機能の向上にご協力ください。収集されるデータは匿名です。 &lt;a href=\"#privacy\"&gt;詳細&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">使用データを送信</string>
@@ -598,7 +632,9 @@
   <string name="onboarding_create_account_contributions">貢献を追跡して見てください</string>
   <string name="onboarding_create_account_preferences">設定を保存する</string>
   <string name="onboarding_got_it">了解!</string>
+  <string name="onboarding_multilingual_secondary_text">お使いの端末で次の言語が見つかりました：</string>
   <string name="onboarding_multilingual_add_language_text">言語の追加または編集</string>
+  <string name="onboarding_welcome_title_v2">自由な百科事典を\n…300近くの言語で</string>
   <string name="app_shortcuts_random">おまかせ表示</string>
   <string name="app_shortcuts_continue_reading">続けて読む</string>
   <string name="app_shortcuts_search">検索</string>
@@ -614,12 +650,24 @@
     <item quantity="other">%d年前</item>
   </plurals>
   <string name="languages_list_activity_title">言語を追加</string>
+  <string name="languages_list_suggested_text">こちらの記事もおすすめです</string>
   <string name="languages_list_all_text">すべての言語</string>
   <string name="wikipedia_languages_title">ウィキペディアの言語</string>
   <string name="wikipedia_languages_your_languages_text">お使いの言語</string>
   <string name="wikipedia_languages_add_language_text">言語を追加</string>
   <string name="wikipedia_languages_remove_text">言語を削除</string>
   <string name="wikipedia_languages_remove_action_mode_title">言語を削除</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">選択した言語を削除しますか？</item>
+    <item quantity="other">選択した言語を削除しますか？</item>
+  </plurals>
+  <string name="wikipedia_languages_remove_dialog_content">探索するフィードの記事と、残りのウィキペディアの言語のクイック検索フィルタのみが見えるようになります。</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">すべての言語を削除することはできません</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">検索して内容を読むためにはウィキペディアの言語が少なくとも1つは必要です。</string>
   <string name="more_language_options">もっと見る</string>
   <string name="add_wikipedia_languages_text">Wikipedia に言語を追加する</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">中国語の文字違い版をアプリの言語から削除しますか？</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">現在、繁体字と簡体字の両方の中国語版をアプリの言語として指定しています。アプリの言語設定を更新しますか？</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">言語の設定を編集</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">やめます</string>
 </resources>
