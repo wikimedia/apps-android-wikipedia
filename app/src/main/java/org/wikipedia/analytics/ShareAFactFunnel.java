@@ -10,7 +10,7 @@ import org.wikipedia.settings.Prefs;
 // https://meta.wikimedia.org/wiki/Schema:MobileWikiAppShareAFact
 public class ShareAFactFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppShareAFact";
-    private static final int REV_ID = 17837019;
+    private static final int REV_ID = 18118760;
 
     /**
      * The length value of 99 is somewhat arbitrary right now. We need to restrict the

@@ -9,7 +9,7 @@ import org.wikipedia.util.ReleaseUtil;
 // https://meta.wikimedia.org/wiki/Schema:MobileWikiAppWiktionaryPopup
 public class WiktionaryDialogFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppWiktionaryPopup";
-    private static final int REV_ID = 17837038;
+    private static final int REV_ID = 18118768;
 
     private final String text;
 

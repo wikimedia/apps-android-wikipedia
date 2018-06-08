@@ -9,7 +9,7 @@ import java.util.List;
 
 public class TabFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppTabs";
-    private static final int SCHEMA_REVISION = 17837025;
+    private static final int SCHEMA_REVISION = 18118767;
 
     public TabFunnel() {
         super(WikipediaApp.getInstance(), SCHEMA_NAME, SCHEMA_REVISION, Funnel.SAMPLE_LOG_100);

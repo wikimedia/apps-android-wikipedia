@@ -7,7 +7,7 @@ import org.wikipedia.WikipediaApp;
 
 public class IntentFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppIntents";
-    private static final int REV_ID = 17836922;
+    private static final int REV_ID = 18115555;
 
     public IntentFunnel(WikipediaApp app) {
         super(app, SCHEMA_NAME, REV_ID);

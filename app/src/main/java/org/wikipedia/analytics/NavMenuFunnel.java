@@ -4,7 +4,7 @@ import org.wikipedia.WikipediaApp;
 
 public class NavMenuFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppNavMenu";
-    private static final int REV_ID = 17836951;
+    private static final int REV_ID = 18118517;
 
     private static final String NAV_MENU_FEED = "Feed";
     private static final String NAV_MENU_HISTORY = "Recent";

@@ -11,7 +11,7 @@ import org.wikipedia.settings.Prefs;
 
 public class ReadingListsFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppReadingLists";
-    private static final int REV_ID = 17837080;
+    private static final int REV_ID = 18118739;
 
     public ReadingListsFunnel() {
         super(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID);
