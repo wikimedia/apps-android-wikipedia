@@ -65,7 +65,7 @@ public abstract class DatabaseTable<T> {
      * replaced with "IS NULL" in getPrimaryKeySelection(T obj, String[] selectionKeys).)
      */
     public String[] getPrimaryKeySelectionArgs(@NonNull T obj) {
-        return ArrayUtils.removeAllOccurences(getUnfilteredPrimaryKeySelectionArgs(obj), null);
+        return ArrayUtils.removeAllOccurrences(getUnfilteredPrimaryKeySelectionArgs(obj), null);
     }
 
     /**

@@ -7,7 +7,7 @@ import static org.apache.commons.lang3.ArrayUtils.indexOf;
 import static org.apache.commons.lang3.ArrayUtils.removeAll;
 
 // Some OEMs appear to have added a pre-v3.5, possibly re-v3.4, version of ArrayUtils to the system
-// path which does not contain removeAllOccurences(). This class is a partial copy of Apache
+// path which does not contain removeAllOccurrences(). This class is a partial copy of Apache
 // Commons' ArrayUtils
 // https://rink.hockeyapp.net/manage/apps/226650/app_versions/79/crash_reasons/156658637
 public final class ArrayUtils {
@@ -27,7 +27,7 @@ public final class ArrayUtils {
      * @return A new array containing the existing elements except the occurrences of the specified element.
      * @since 3.5
      */
-    public static <T> T[] removeAllOccurences(final T[] array, final T element) {
+    public static <T> T[] removeAllOccurrences(final T[] array, final T element) {
         int index = indexOf(array, element);
         if (index == INDEX_NOT_FOUND) {
             return org.apache.commons.lang3.ArrayUtils.clone(array);
