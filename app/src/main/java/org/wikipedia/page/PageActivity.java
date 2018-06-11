@@ -232,8 +232,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             // Only display "Read in other languages" if the article is in other languages
             otherLangItem.setVisible(pageFragment.getPage() != null && pageFragment.getPage().getPageProperties().getLanguageCount() != 0);
             otherLangItem.setEnabled(true);
-            shareItem.setEnabled(pageFragment.getPage() != null && pageFragment.getPage().isArticle());
-            addToListItem.setEnabled(pageFragment.getPage() != null && pageFragment.getPage().isArticle());
+            shareItem.setEnabled(pageFragment.getPage() != null);
+            addToListItem.setEnabled(pageFragment.getPage() != null);
             removeFromListsItem.setVisible(pageFragment.isPresentInOfflineLists());
             removeFromListsItem.setEnabled(pageFragment.isPresentInOfflineLists());
             findInPageItem.setEnabled(true);
