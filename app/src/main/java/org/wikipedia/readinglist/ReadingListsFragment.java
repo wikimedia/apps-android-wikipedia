@@ -20,6 +20,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -43,6 +44,7 @@ import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
@@ -275,15 +277,25 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         if (TextUtils.isEmpty(searchQuery)) {
             searchEmptyView.setVisibility(View.GONE);
             if (readingLists.size() == 1) {
-                emptyContainer.setVisibility(View.VISIBLE);
+                setEmptyContainerVisibility(true);
                 setUpEmptyContainer();
             }
-            emptyContainer.setVisibility(readingLists.size() == 1 ? View.VISIBLE : View.GONE);
+            setEmptyContainerVisibility(readingLists.size() == 1);
         } else {
             searchEmptyView.setVisibility(readingLists.isEmpty() ? View.VISIBLE : View.GONE);
-            emptyContainer.setVisibility(View.GONE);
+            setEmptyContainerVisibility(false);
         }
         contentContainer.setVisibility(readingLists.isEmpty() ? View.GONE : View.VISIBLE);
+    }
+
+    private void setEmptyContainerVisibility(boolean visible) {
+        if (visible) {
+            emptyContainer.setVisibility(View.VISIBLE);
+            requireActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+        } else {
+            emptyContainer.setVisibility(View.GONE);
+            DeviceUtil.setWindowSoftInputModeResizable(requireActivity());
+        }
     }
 
     private void setUpEmptyContainer() {
