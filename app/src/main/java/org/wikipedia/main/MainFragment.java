@@ -97,7 +97,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         return fragment;
     }
 
-    @Nullable @Override public View onCreateView(LayoutInflater inflater,
+    @Nullable @Override public View onCreateView(@NonNull LayoutInflater inflater,
                                                  @Nullable ViewGroup container,
                                                  @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
@@ -115,7 +115,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         });
 
         if (savedInstanceState == null) {
-            handleIntent(getActivity().getIntent());
+            handleIntent(requireActivity().getIntent());
         }
         return view;
     }
@@ -124,16 +124,16 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     public void onPause() {
         super.onPause();
         downloadReceiver.setCallback(null);
-        getContext().unregisterReceiver(downloadReceiver);
+        requireContext().unregisterReceiver(downloadReceiver);
     }
 
     @Override public void onResume() {
         super.onResume();
-        getContext().registerReceiver(downloadReceiver,
+        requireContext().registerReceiver(downloadReceiver,
                 new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
         downloadReceiver.setCallback(downloadReceiverCallback);
         // update toolbar, since Tab count might have changed
-        getActivity().invalidateOptionsMenu();
+        requireActivity().invalidateOptionsMenu();
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
     }
@@ -195,7 +195,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_SEARCH)) {
             openSearchFragment(SearchInvokeSource.APP_SHORTCUTS, null);
         } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_RANDOM)) {
-            startActivity(RandomActivity.newIntent(getActivity(), RandomActivity.INVOKE_SOURCE_SHORTCUT));
+            startActivity(RandomActivity.newIntent(requireActivity(), RandomActivity.INVOKE_SOURCE_SHORTCUT));
         } else if (Intent.ACTION_SEND.equals(intent.getAction())
                 && Constants.PLAIN_TEXT_MIME_TYPE.equals(intent.getType())) {
             funnel.logShareIntent();
@@ -213,13 +213,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)) {
             goToTab(NavTab.READING_LISTS);
         } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN)) {
-            startActivity(PageActivity.newIntent(getContext()));
+            startActivity(PageActivity.newIntent(requireContext()));
         }
     }
 
     @Override
     public void onFeedTabListRequested() {
-        startActivity(PageActivity.newIntentForTabList(getContext()));
+        startActivity(PageActivity.newIntentForTabList(requireContext()));
     }
 
     @Override public void onFeedSearchRequested() {
@@ -236,11 +236,11 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onFeedSelectPage(HistoryEntry entry) {
-        startActivity(PageActivity.newIntentForNewTab(getContext(), entry, entry.getTitle()));
+        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
     }
 
     @Override public void onFeedSelectPageFromExistingTab(HistoryEntry entry) {
-        startActivity(PageActivity.newIntentForExistingTab(getContext(), entry, entry.getTitle()));
+        startActivity(PageActivity.newIntentForExistingTab(requireContext(), entry, entry.getTitle()));
     }
 
     @Override public void onFeedAddPageToList(HistoryEntry entry) {
@@ -251,18 +251,18 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Override
     public void onFeedRemovePageFromList(@NonNull HistoryEntry entry) {
-        FeedbackUtil.showMessage(getActivity(),
+        FeedbackUtil.showMessage(requireActivity(),
                 getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
     }
 
     @Override public void onFeedSharePage(HistoryEntry entry) {
-        ShareUtil.shareText(getContext(), entry.getTitle());
+        ShareUtil.shareText(requireContext(), entry.getTitle());
     }
 
     @Override public void onFeedNewsItemSelected(@NonNull NewsItemCard card, @NonNull HorizontalScrollingListCardItemView view) {
         ActivityOptionsCompat options = ActivityOptionsCompat.
-                makeSceneTransitionAnimation(getActivity(), view.getImageView(), getString(R.string.transition_news_item));
-        startActivity(NewsActivity.newIntent(getActivity(), card.item(), card.wikiSite()), options.toBundle());
+                makeSceneTransitionAnimation(requireActivity(), view.getImageView(), getString(R.string.transition_news_item));
+        startActivity(NewsActivity.newIntent(requireActivity(), card.item(), card.wikiSite()), options.toBundle());
     }
 
     @Override public void onFeedShareImage(final FeaturedImageCard card) {
@@ -272,10 +272,10 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             @Override
             public void onSuccess(@Nullable Bitmap bitmap) {
                 if (bitmap != null) {
-                    ShareUtil.shareImage(getContext(),
+                    ShareUtil.shareImage(requireContext(),
                             bitmap,
                             new File(thumbUrl).getName(),
-                            ShareUtil.getFeaturedImageShareSubject(getContext(), card.age()),
+                            ShareUtil.getFeaturedImageShareSubject(requireContext(), card.age()),
                             fullSizeUrl);
                 } else {
                     FeedbackUtil.showMessage(MainFragment.this, getString(R.string.gallery_share_error, card.baseImage().title()));
@@ -285,7 +285,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onFeedDownloadImage(FeaturedImage image) {
-        if (!(PermissionUtil.hasWriteExternalStoragePermission(getContext()))) {
+        if (!(PermissionUtil.hasWriteExternalStoragePermission(requireContext()))) {
             setPendingDownload(image);
             requestWriteExternalStoragePermission();
         } else {
@@ -294,14 +294,14 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onFeaturedImageSelected(FeaturedImageCard card) {
-        startActivityForResult(GalleryActivity.newIntent(getActivity(), card.age(),
+        startActivityForResult(GalleryActivity.newIntent(requireActivity(), card.age(),
                 card.filename(), card.baseImage(), card.wikiSite(),
                 GalleryFunnel.SOURCE_FEED_FEATURED_IMAGE), Constants.ACTIVITY_REQUEST_GALLERY);
     }
 
     @Override
     public void onLoginRequested() {
-        startActivityForResult(LoginActivity.newIntent(getContext(), LoginFunnel.SOURCE_NAV),
+        startActivityForResult(LoginActivity.newIntent(requireContext(), LoginFunnel.SOURCE_NAV),
                 Constants.ACTIVITY_REQUEST_LOGIN);
     }
 
@@ -337,7 +337,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onLoadPage(@NonNull HistoryEntry entry) {
-        startActivity(PageActivity.newIntentForNewTab(getContext(), entry, entry.getTitle()));
+        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
     }
 
     @Override public void onClearHistory() {
@@ -358,12 +358,12 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Override
     public void onSearchResultShareLink(@NonNull PageTitle title) {
-        ShareUtil.shareText(getContext(), title);
+        ShareUtil.shareText(requireContext(), title);
     }
 
     @Override
     public void onSearchSelectPage(@NonNull HistoryEntry entry, boolean inNewTab) {
-        startActivity(PageActivity.newIntentForNewTab(getContext(), entry, entry.getTitle()));
+        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
     }
 
     @Override
@@ -395,7 +395,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Override
     public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {
-        startActivity(PageActivity.newIntentForNewTab(getContext(), entry, entry.getTitle()));
+        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
     }
 
     @Override
@@ -412,7 +412,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Override
     public void onLinkPreviewShareLink(@NonNull PageTitle title) {
-        ShareUtil.shareText(getContext(), title);
+        ShareUtil.shareText(requireContext(), title);
     }
 
     @Override
@@ -461,7 +461,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     private void copyLink(@NonNull String url) {
-        ClipboardUtil.setPlainText(getContext(), null, url);
+        ClipboardUtil.setPlainText(requireContext(), null, url);
         FeedbackUtil.showMessage(this, R.string.address_copied);
     }
 
@@ -471,7 +471,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     private void download(@NonNull FeaturedImage image) {
         setPendingDownload(null);
-        downloadReceiver.download(getContext(), image);
+        downloadReceiver.download(requireContext(), image);
         FeedbackUtil.showMessage(this, R.string.gallery_save_progress);
     }
 
@@ -520,7 +520,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     private class MediaDownloadReceiverCallback implements MediaDownloadReceiver.Callback {
         @Override
         public void onSuccess() {
-            FeedbackUtil.showMessage(getActivity(), R.string.gallery_save_success);
+            FeedbackUtil.showMessage(requireActivity(), R.string.gallery_save_success);
         }
     }
 
