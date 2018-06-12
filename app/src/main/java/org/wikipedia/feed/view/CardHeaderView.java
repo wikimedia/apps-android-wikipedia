@@ -30,6 +30,7 @@ import butterknife.OnClick;
 public class CardHeaderView extends ConstraintLayout {
     public interface Callback {
         boolean onRequestDismissCard(@NonNull Card card);
+        void onRequestEditCardLanguages(@NonNull Card card);
         void onRequestCustomize(@NonNull Card card);
     }
 
@@ -123,6 +124,8 @@ public class CardHeaderView extends ConstraintLayout {
     private void showOverflowMenu(View anchorView) {
         PopupMenu menu = new PopupMenu(anchorView.getContext(), anchorView);
         menu.getMenuInflater().inflate(R.menu.menu_feed_card_header, menu.getMenu());
+        MenuItem editCardLangItem = menu.getMenu().findItem(R.id.menu_feed_card_edit_card_languages);
+        editCardLangItem.setVisible(card.type().contentType().isPerLanguage());
         menu.setOnMenuItemClickListener(new CardHeaderMenuClickListener());
         menu.show();
     }
@@ -136,6 +139,13 @@ public class CardHeaderView extends ConstraintLayout {
                         return callback.onRequestDismissCard(card);
                     }
                     return false;
+
+                case R.id.menu_feed_card_edit_card_languages:
+                    if (callback != null & card != null) {
+                        callback.onRequestEditCardLanguages(card);
+                    }
+                    return true;
+
                 case R.id.menu_feed_card_customize:
                     if (callback != null & card != null) {
                         callback.onRequestCustomize(card);

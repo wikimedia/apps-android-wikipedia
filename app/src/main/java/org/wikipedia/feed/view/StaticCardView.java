@@ -80,6 +80,8 @@ public abstract class StaticCardView<T extends Card> extends DefaultFeedCardView
     private void showOverflowMenu(View anchorView) {
         PopupMenu menu = new PopupMenu(anchorView.getContext(), anchorView);
         menu.getMenuInflater().inflate(R.menu.menu_feed_card_header, menu.getMenu());
+        MenuItem editCardLangItem = menu.getMenu().findItem(R.id.menu_feed_card_edit_card_languages);
+        editCardLangItem.setVisible(getCard().type().contentType().isPerLanguage());
         menu.setOnMenuItemClickListener(new OverflowMenuClickListener());
         menu.show();
     }
@@ -93,6 +95,13 @@ public abstract class StaticCardView<T extends Card> extends DefaultFeedCardView
                         return getCallback().onRequestDismissCard(getCard());
                     }
                     return false;
+
+                case R.id.menu_feed_card_edit_card_languages:
+                    if (getCallback() != null & getCard() != null) {
+                        getCallback().onRequestEditCardLanguages(getCard());
+                    }
+                    return true;
+
                 case R.id.menu_feed_card_customize:
                     if (getCallback() != null & getCard() != null) {
                         getCallback().onRequestCustomize(getCard());
