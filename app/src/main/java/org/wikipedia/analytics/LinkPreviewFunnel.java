@@ -9,7 +9,7 @@ import org.wikipedia.util.ReleaseUtil;
 
 public class LinkPreviewFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppLinkPreview";
-    private static final int REV_ID = 17836926;
+    private static final int REV_ID = 18115548;
     private static final int PROD_LINK_PREVIEW_VERSION = 3;
     private final int source;
 

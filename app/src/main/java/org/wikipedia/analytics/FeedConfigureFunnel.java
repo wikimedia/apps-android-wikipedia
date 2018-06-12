@@ -11,7 +11,7 @@ import java.util.List;
 
 public class FeedConfigureFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppFeedConfigure";
-    private static final int REV_ID = 17836916;
+    private static final int REV_ID = 18115104;
 
     private final int source;
 

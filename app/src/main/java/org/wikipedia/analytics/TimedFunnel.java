@@ -28,7 +28,7 @@ import java.util.concurrent.TimeUnit;
 
     /** Override me for deviant implementations. */
     protected String getDurationFieldName() {
-        return "timeSpent";
+        return "time_spent";
     }
 
     protected void resetDuration() {

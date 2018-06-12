@@ -8,7 +8,7 @@ import org.wikipedia.dataclient.WikiSite;
 
 public class OnThisDayFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppOnThisDay";
-    private static final int REV_ID = 17836957;
+    private static final int REV_ID = 18118721;
 
     private final int source;
     private int maxScrolledPosition;

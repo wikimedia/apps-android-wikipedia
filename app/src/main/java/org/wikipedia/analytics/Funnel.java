@@ -25,9 +25,9 @@ abstract class Funnel {
     protected static final int SAMPLE_LOG_10 = 10;
     protected static final int SAMPLE_LOG_ALL = 1;
 
-    private static final String DEFAULT_TIMESTAMP_KEY = "ts";
-    private static final String DEFAULT_APP_INSTALL_ID_KEY = "appInstallID";
-    private static final String DEFAULT_SESSION_TOKEN_KEY = "sessionToken";
+    private static final String DEFAULT_TIMESTAMP_KEY = "client_dt";
+    private static final String DEFAULT_APP_INSTALL_ID_KEY = "app_install_id";
+    private static final String DEFAULT_SESSION_TOKEN_KEY = "session_token";
 
     private final String schemaName;
     private final int revision;

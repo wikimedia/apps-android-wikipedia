@@ -8,7 +8,7 @@ import org.wikipedia.WikipediaApp;
 
 public class InstallReferrerFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppInstallReferrer";
-    private static final int REV_ID = 17837162;
+    private static final int REV_ID = 18115554;
 
     // For an explanation of these parameters, refer to the schema documentation:
     // https://meta.wikimedia.org/wiki/Schema:MobileWikiAppInstallReferrer

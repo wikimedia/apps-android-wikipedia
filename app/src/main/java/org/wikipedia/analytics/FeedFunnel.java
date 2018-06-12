@@ -10,7 +10,7 @@ import java.util.List;
 
 public class FeedFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppFeed";
-    private static final int REVISION = 17836918;
+    private static final int REVISION = 18115458;
 
     private boolean entered;
     private static List<CardType> EXCLUDED_CARDS = Arrays.asList(CardType.SEARCH_BAR, CardType.PROGRESS);

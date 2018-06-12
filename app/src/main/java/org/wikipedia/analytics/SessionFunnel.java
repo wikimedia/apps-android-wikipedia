@@ -19,7 +19,7 @@ public class SessionFunnel extends Funnel {
     public static final int MIN_SESSION_TIMEOUT = 1;
 
     private static final String SCHEMA_NAME = "MobileWikiAppSessions";
-    private static final int REVISION = 17837013;
+    private static final int REVISION = 18115099;
 
     private SessionData sessionData;
     private long leadSectionStartTime;

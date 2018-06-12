@@ -9,7 +9,7 @@ import org.wikipedia.theme.Theme;
 
 public class AppearanceChangeFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppAppearanceSettings";
-    private static final int REV_ID = 17836887;
+    private static final int REV_ID = 18113727;
 
     public AppearanceChangeFunnel(WikipediaApp app, WikiSite wiki) {
         super(app, SCHEMA_NAME, REV_ID, wiki);
@@ -18,16 +18,16 @@ public class AppearanceChangeFunnel extends Funnel {
     public void logFontSizeChange(float currentFontSize, float newFontSize) {
         log(
                 "action", "fontSizeChange",
-                "currentValue", String.valueOf(currentFontSize),
-                "newValue", String.valueOf(newFontSize)
+                "current_value", String.valueOf(currentFontSize),
+                "new_value", String.valueOf(newFontSize)
         );
     }
 
     public void logThemeChange(Theme currentTheme, Theme newTheme) {
         log(
                 "action", "themeChange",
-                "currentValue", currentTheme.getFunnelName(),
-                "newValue", newTheme.getFunnelName()
+                "current_value", currentTheme.getFunnelName(),
+                "new_value", newTheme.getFunnelName()
         );
     }
 
