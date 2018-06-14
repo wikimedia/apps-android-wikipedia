@@ -141,10 +141,10 @@
   <string name="preferences_heading_experimental">Експериментальні</string>
   <string name="preference_title_sync_reading_lists">Синхронізувати список читання</string>
   <string name="preference_title_sync_reading_lists_from_account">Включити синхронізацію списків читання</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Дозволити Вікіпедії синхронізовувати списки читання після авторизації</string>
-  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Дозволити Вікімедіа синхронізовувати списки читання з обліковим записом Вікіпедії %S</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Видалити синхронізовані списки читання з вашого облікового запису %s?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Це повністю видалить всі раніше синхронізовані списки збережені віддалено. Видалити всі списки з %s?</string>
+  <string name="preference_summary_sync_reading_lists">Синхронізує списки для читання на різних пристроях зберігаючи у вашому обліковому запису Вікіпедії</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Дозволити Вікімедіа синхронізовувати списки читання з обліковим записом Вікіпедії %s</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Видалити синхронізовані списки читання з вашого облікового запису %s?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Це повністю видалить всі раніше синхронізовані списки збережені віддалено. Видалити всі списки з %s?</string>
   <string name="preferences_privacy_settings_heading">Конфіденційність</string>
   <string name="preference_title_eventlogging_opt_in">Надсилати звіти про використання</string>
   <string name="preference_summary_eventlogging_opt_in">Дозволити Вікімедіа збір інформації про те, як Ви використовуєте додаток, щоб зробити його кращим</string>
@@ -348,7 +348,7 @@
   <string name="reading_list_deleted">%s видалено</string>
   <string name="saved_list_empty_title">Списки для читання наразі відсутні</string>
   <string name="reading_lists_empty_message">Додавайте статті до списку читання щоб переглянути пізніше, навіть офлайн.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Створіть списки з статей, які ви хочете прочитати пізніше, навіть коли ви в автономному режимі!</string>
+  <string name="reading_lists_onboarding_intro">Додайте статті до списків читання, навіть коли ви в офлайн!</string>
   <string name="reading_lists_onboarding_for_example">Наприклад</string>
   <string name="reading_lists_onboarding_example1">Місця для відвідування</string>
   <string name="reading_lists_onboarding_example2">Улюблені тварини</string>
@@ -396,11 +396,14 @@
   <string name="notification_reverted">Ваше редагування статті &lt;strong&gt;%2$s&lt;/strong&gt; скасовано &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Вам подякували!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; висловлено подяку Вам за Ваше редагування сторінки &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_name" fuzzy="true">Синхронізація</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">Завантаження статті</item>
+    <item quantity="other">Завантаження статей</item>
+  </plurals>
   <string name="view_continue_reading_card_title">Продовжити читання</string>
   <string name="view_because_you_read_card_title">Тому, що Ви читали</string>
   <string name="view_random_card_title">Рандомайзер</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Читати випадкову статтю з Вікіпедії</string>
+  <string name="view_random_card_subtitle">Читати випадкові статті з Вікіпедії.</string>
   <string name="view_main_page_card_title">Сьогодні у Вікіпедії</string>
   <string name="view_main_page_card_subtitle">Головна сторінка на %s</string>
   <string name="view_featured_image_card_title">Зображення дня</string>
@@ -413,12 +416,12 @@
   <string name="most_read_list_card_title">Популярне</string>
   <string name="view_static_card_icon_content_description">Значок картки</string>
   <string name="view_card_news_title">У новинах</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">Учора</item>
     <item quantity="few">%d дні тому</item>
     <item quantity="other">%d днів тому</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Сьогодні</string>
+  <string name="view_continue_reading_card_subtitle_today">сьогодні</string>
   <string name="view_announcement_card_negative_action">Ні, дякую</string>
   <string name="view_offline_card_text">Вміст не може бути завантажений в автономному режимі.</string>
   <string name="view_featured_article_card_title">Вибрана стаття</string>
@@ -469,13 +472,13 @@
   <string name="offline_my_compilations">Керування автономною бібліотекою</string>
   <string name="offline_compilations_title">Автономна бібліотека</string>
   <string name="offline_compilations_search_by_name">Шукати добірки статтей за назвою</string>
-  <string name="offline_compilations_found_count" fuzzy="true">У моїй бібліотеці (%d)</string>
+  <string name="offline_compilations_found_count">У моїй офлайн-бібліотеці (%d)</string>
   <string name="offline_compilations_add">Додати в автономну бібліотеку</string>
   <string name="remote_compilations_title">Автономна бібліотека</string>
   <string name="remote_compilations_description">З автономною бібліотекою ви можете завантажувати добірки статей для читання на випадок відсутнього доступу до мережі.</string>
   <string name="offline_compilation_detail_button_remove">Вилучити</string>
   <string name="remote_compilation_download">Завантажити</string>
-  <string name="storage_used_by_compilations" fuzzy="true">використовується Вікіпедією</string>
+  <string name="storage_used_by_compilations">використовується офлайн-бібліотекою</string>
   <string name="storage_other_apps">Інші додатки</string>
   <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">1 хвилина залишилась</item>

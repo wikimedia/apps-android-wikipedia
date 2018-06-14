@@ -263,7 +263,7 @@
   <string name="alpha_update_notification_text">Нажмите, чтобы скачать</string>
   <string name="dialog_close_description">Закрыть</string>
   <string name="preference_title_show_images">Показывать изображения</string>
-  <string name="preference_summary_show_images">Включить или отключить загрузку изображений на страницах. Снимите этот флажок, если у вас медленное интернет-подключение или трафик на вашем тарифном плане ограничен.</string>
+  <string name="preference_summary_show_images">Включить или отключить загрузку изображений на страницах. Выключите эту настройку, если у вас медленное интернет-подключение или трафик на вашем тарифном плане ограничен.</string>
   <string name="read_more_section">Связанные статьи</string>
   <string name="about_article_section">Об этой статье</string>
   <string name="menu_gallery_visit_page">Перейти к странице файла</string>
@@ -325,7 +325,7 @@
   <string name="error_page_does_not_exist">Такой страницы не существует</string>
   <string name="view_wiki_error_message_offline">Не удаётся подключиться к Интернету</string>
   <string name="reference_title">Примечание %s</string>
-  <string name="theme_chooser_dialog_image_dimming_switch_label">Затемнение изображений (в Тёмной теме)</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Затемнение изображений</string>
   <string name="preference_title_prefer_offline_content">Приоритет офлайн-данным</string>
   <string name="preference_summary_prefer_offline_content">Экономит трафик, показывая офлайн-версию статьи, вместо того, чтобы каждый раз загружать самую свежую версию</string>
   <string name="preference_title_enable_offline_library">Включить автономную библиотеку</string>
@@ -347,7 +347,7 @@
   <string name="color_theme_select">Оформление</string>
   <string name="color_theme_light">Светлое</string>
   <string name="color_theme_dark">Тёмное</string>
-  <string name="color_theme_black">Чёрная</string>
+  <string name="color_theme_black">Чёрное</string>
   <string name="color_theme_test_title">Пример текста</string>
   <string name="color_theme_test_text">Двигайте слайдер для изменения размера текста, который используется при чтении статей. Для установки размера текста во всём приложении, измените размер текста для системы в целом.</string>
   <string name="preference_title_app_theme">Оформление приложения</string>
@@ -427,12 +427,12 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Отмена</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Войти</string>
   <string name="reading_list_turned_sync_off_dialog_title">Синхронизация списка чтения отключена</string>
-  <string name="reading_list_turned_sync_off_dialog_text">Синхронизация списка рассылки отключена для вашей учетной записи, и сохранённые статьи на ваших зарегистрированных в системе устройствах больше не копируются. Включите синхронизацию списка чтения в настройках.</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Синхронизация списка чтения отключена для вашей учётной записи, и сохранённые статьи на ваших зарегистрированных в системе устройствах больше не копируются. Включите синхронизацию списка чтения в настройках.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Настройки</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Включить синхронизацию списка чтения?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_text">Статьи, сохранённые в списках чтения, теперь могут быть синхронизированы с вашей учётной записью Википедии. &lt;a href=\"#faq\"&gt;Узнать больше&lt;/a&gt;</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Не показывай мне это снова</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Не показывать больше это сообщение</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Включить синхронизацию</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Нет, спасибо</string>
   <string name="reading_list_login_option_reminder_dialog_title">Найдены списки статей</string>
@@ -480,7 +480,7 @@
     <item quantity="one">Синхронизация списка для чтения</item>
     <item quantity="other">Синхронизация списков для чтения</item>
   </plurals>
-  <string name="notification_syncing_reading_list_channel_description">Синхронизации чтение списки прогресс</string>
+  <string name="notification_syncing_reading_list_channel_description">Статус синхронизации списков чтения</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Загрузка статьи</item>
     <item quantity="other">Загрузка статей</item>
@@ -516,6 +516,7 @@
   <string name="view_featured_image_card_download">Загрузить</string>
   <string name="menu_feed_card_dismiss">Скрыть эту карточку</string>
   <string name="menu_feed_card_dismissed">Карточка скрыта.</string>
+  <string name="menu_feed_card_edit_card_languages">Редактировать языки карточек</string>
   <string name="menu_feed_overflow_label">Больше настроек</string>
   <string name="feed_featured_image_share_subject">Лучшие изображения Викисклада</string>
   <string name="feed">Лента</string>
@@ -537,7 +538,7 @@
   <string name="feed_configure_menu_reset">Восстановить фильтры по умолчанию</string>
   <string name="feed_configure_menu_select_all">Показать все</string>
   <string name="feed_configure_menu_deselect_all">Спрятать все</string>
-  <string name="feed_configure_language_warning">Не все секции Ленты доступны в каждом языковом разделе википедии. При необходимости, отредактируйте список предпочитаемых языковых разделов в настройках.</string>
+  <string name="feed_configure_language_warning">Не все карточки Ленты доступны в каждом языковом разделе википедии. При необходимости, отредактируйте список предпочитаемых языковых разделов в настройках.</string>
   <string name="feed_item_type_news">Статьи о текущих событиях</string>
   <string name="feed_item_type_on_this_day">Исторические события в этот день</string>
   <string name="feed_item_type_continue_reading">Быстрая ссылка для возврата к статье, открытой в одной из ваших вкладок</string>

@@ -570,6 +570,7 @@
   <string name="onboarding_got_it">Κατάλαβα</string>
   <string name="onboarding_multilingual_secondary_text">Έχουμε βρει τα ακόλουθα στην συσκευή σας:</string>
   <string name="onboarding_multilingual_add_language_text">Προσθήκη ή επεξεργασία γλωσσών</string>
+  <string name="onboarding_welcome_title_v2">Η Ελεύθερη Εγκυκλοπαίδεια\n...σε σχεδόν 300 γλώσσες</string>
   <string name="app_shortcuts_random">Τυχαία</string>
   <string name="app_shortcuts_continue_reading">Συνέχεια ανάγνωσης</string>
   <string name="app_shortcuts_search">Αναζήτηση</string>
@@ -597,4 +598,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Κρατήστε τουλάχιστον μια γλώσσα Βικιπαίδειας από την οποία θα γίνεται αναζήτηση και ανάγνωση περιεχομένου.</string>
   <string name="more_language_options">περισσότερα</string>
   <string name="add_wikipedia_languages_text">Πρόσθεση γλωσσών Βικιπαίδειας</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Επεξεργασία γλωσσών</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Όχι, ευχαριστώ</string>
 </resources>

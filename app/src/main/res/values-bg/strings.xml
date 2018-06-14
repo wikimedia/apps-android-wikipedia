@@ -481,6 +481,7 @@
   <string name="view_featured_image_card_download">Изтегляне</string>
   <string name="menu_feed_card_dismiss">Скриване на картата</string>
   <string name="menu_feed_card_dismissed">Картата е скрита.</string>
+  <string name="menu_feed_card_edit_card_languages">Редактиране на езиците на картите</string>
   <string name="menu_feed_overflow_label">Допълнителни опции</string>
   <string name="feed_featured_image_share_subject">Избрана картинка от Общомедия</string>
   <string name="feed">Откриване</string>

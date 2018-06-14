@@ -479,6 +479,7 @@
   <string name="view_featured_image_card_download">Преземи</string>
   <string name="menu_feed_card_dismiss">Скриј ја картичкава</string>
   <string name="menu_feed_card_dismissed">Картичката е скриена.</string>
+  <string name="menu_feed_card_edit_card_languages">Измени јазици на картичките</string>
   <string name="menu_feed_overflow_label">Повеќе можности</string>
   <string name="feed_featured_image_share_subject">Избрана слика од Ризницата</string>
   <string name="feed">Истражете</string>

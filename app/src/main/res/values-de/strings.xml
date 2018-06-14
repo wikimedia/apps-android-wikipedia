@@ -482,6 +482,7 @@
   <string name="view_featured_image_card_download">Herunterladen</string>
   <string name="menu_feed_card_dismiss">Diese Karte ausblenden</string>
   <string name="menu_feed_card_dismissed">Karte ausgeblendet.</string>
+  <string name="menu_feed_card_edit_card_languages">Kartensprachen bearbeiten</string>
   <string name="menu_feed_overflow_label">Weitere Optionen</string>
   <string name="feed_featured_image_share_subject">Vorgestelltes Bild von Wikimedia Commons</string>
   <string name="feed">Entdecken</string>
