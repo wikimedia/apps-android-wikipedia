@@ -63,6 +63,8 @@
   <string name="login_2fa_hint">Divpakāpju autentifikācijas kods</string>
   <string name="menu_login">Pieslēgties</string>
   <string name="login_success_toast">Pieslēgšanās veiksmīga!</string>
+  <string name="reset_password_hint">Jaunā parole</string>
+  <string name="reset_password_button">Saglabāt un ieiet</string>
   <string name="preference_title_logout">Iziet</string>
   <string name="toast_logout_complete">Jūs esat izgājis</string>
   <string name="delete_selected_items">Dzēst izvēlētos vienumus</string>
@@ -78,6 +80,7 @@
   <string name="create_account_generic_error">Neizdevās izveidot kontu</string>
   <string name="create_account_next">Tālāk</string>
   <string name="create_account_button">Izveidot kontu</string>
+  <string name="create_account_ip_block_details">Papildinformācija</string>
   <string name="preferences_general_heading">Vispārīgi</string>
   <string name="wikipedia_app_faq">Vikipēdijas lietotnes BUJ</string>
   <string name="zero_charged_verbiage" fuzzy="true">Vikipēdija Zero ir izslēgts</string>
@@ -105,6 +108,8 @@
   <string name="about_translators_translatewiki">Šo lietotni iztulkoja brīvprātīgie tulkotāji no &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
   <string name="about_activity_title">Par</string>
+  <string name="edit_abandon_confirm_yes">Jā</string>
+  <string name="edit_abandon_confirm_no">Nē</string>
   <string name="user_blocked_from_editing_title">Bloķēts</string>
   <string name="edit_how_page_improved">Kā tu uzlaboji lapu?</string>
   <string name="edit_next">Tālāk</string>
@@ -122,12 +127,15 @@
   <string name="text_size_select">Fonta lielums</string>
   <string name="page_similar_titles">Līdzīgas lapas</string>
   <string name="search_did_you_mean">Vai jūs domājāt \"%s\"?</string>
+  <string name="clear_recent_searches_confirm_yes">Jā</string>
+  <string name="clear_recent_searches_confirm_no">Nē</string>
   <string name="table_infobox">Ātrie fakti</string>
   <string name="table_other">Vairāk informācijas</string>
   <string name="table_close">Aizvērt</string>
   <string name="dialog_close_description">Aizvērt</string>
   <string name="preference_title_show_images">Rādīt attēlus</string>
   <string name="read_more_section">Lasīt vairāk</string>
+  <string name="about_article_section">Par šo rakstu</string>
   <string name="license_title">Licence %s</string>
   <string name="gallery_menu_share">Dalīties</string>
   <string name="gallery_save_progress">Lejuplādē failu...</string>
@@ -140,6 +148,8 @@
   <string name="gallery_uploader_unknown">Augšupielādētājs nav zināms</string>
   <string name="menu_new_tab">Jauna cilne</string>
   <string name="menu_close_all_tabs">Aizvērt visas cilnes</string>
+  <string name="close_all_tabs_confirm_yes">Jā</string>
+  <string name="close_all_tabs_confirm_no">Nē</string>
   <string name="button_close_tab">Aizvērt cilni</string>
   <string name="error_unknown">Nezināma kļūda.</string>
   <string name="format_error_server_message">Ziņojums: \"%s\"</string>
@@ -185,11 +195,18 @@
   <string name="reading_lists_onboarding_example3">Kosmosa izpēte</string>
   <string name="reading_lists_onboarding_got_it">Sapratu</string>
   <string name="reading_list_remove_from_list">Noņemt no %s</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Jā</string>
+  <string name="reading_lists_confirm_remote_delete_no">Nē</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Atcelt</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">Labi</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nē, paldies</string>
   <string name="default_reading_list_name">Saglabāts</string>
   <string name="reading_lists_menu_create_list">Izveidot jaunu sarakstu</string>
   <string name="reading_lists_menu_sort_by">Kārtot pēc</string>
   <string name="user_option_sync_label">Izvēles</string>
   <string name="notification_reverted_title">Atcelts labojums</string>
+  <string name="notification_syncing_resume_button">Turpināt</string>
+  <string name="notification_syncing_cancel_button">Atcelt</string>
   <string name="view_continue_reading_card_title">Turpini lasīt</string>
   <string name="view_because_you_read_card_title">Jo tu lasīji</string>
   <string name="view_random_card_title">Nejauša lapa</string>
@@ -209,8 +226,10 @@
     <item quantity="one">Vakardien</item>
     <item quantity="other">Pirms %d dienām</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Šodien</string>
+  <string name="view_continue_reading_card_subtitle_today">šodien</string>
   <string name="view_announcement_card_negative_action">Nē, paldies</string>
+  <string name="view_featured_article_footer_save_button_label">Saglabāt</string>
+  <string name="view_featured_article_footer_saved_button_label">Saglabāts</string>
   <string name="feed_configure_menu_select_all">Rādīt visus</string>
   <string name="feed_configure_menu_deselect_all">Paslēpt visus</string>
   <string name="feed_configure_onboarding_action">Pielāgot</string>
@@ -228,10 +247,19 @@
   <string name="description_edit_help_about_title">Par</string>
   <string name="description_edit_help_tips_examples">Piemēram:</string>
   <string name="description_edit_help_more_info">Vairāk informācijas</string>
+  <string name="offline_compilation_detail_button_remove">Noņemt</string>
+  <string name="remote_compilation_download">Lejupielādēt</string>
+  <string name="compilation_download_widget_button_cancel_hint">Atcelt lejupielādi</string>
+  <string name="compilation_download_cancel_confirm_yes">Jā</string>
+  <string name="compilation_download_cancel_confirm_no">Nē</string>
+  <string name="compilation_share">Dalīties</string>
+  <string name="compilation_remove">Noņemt</string>
   <string name="onboarding_skip">Izlaist</string>
   <string name="onboarding_continue">Turpināt</string>
   <string name="onboarding_got_it">Sapratu</string>
   <string name="onboarding_multilingual_add_language_text">Pievienot vai labot valodas</string>
+  <string name="app_shortcuts_random">Nejaušs</string>
+  <string name="app_shortcuts_search">Meklēt</string>
   <string name="on_this_day_card_title">Šajā dienā</string>
   <string name="this_year">Šajā gadā</string>
   <string name="languages_list_activity_title">Pievienot valodu</string>
@@ -239,8 +267,11 @@
   <string name="wikipedia_languages_title">Vikipēdijas valodas</string>
   <string name="wikipedia_languages_your_languages_text">Tavas valodas</string>
   <string name="wikipedia_languages_add_language_text">Pievienot valodu</string>
-  <string name="wikipedia_languages_remove_text" fuzzy="true">Noņemt</string>
+  <string name="wikipedia_languages_remove_text">Noņemt valodu</string>
   <string name="wikipedia_languages_remove_action_mode_title">Noņemt valodu</string>
   <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Noņemt izvēlētās valodas?</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Nevar noņemt visas valodas</string>
   <string name="more_language_options">vairāk</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Labot valodas</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nē, paldies</string>
 </resources>

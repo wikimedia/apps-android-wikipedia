@@ -3,6 +3,7 @@
 * Adithyavr
 * Anamdas
 * Bhatakati aatma
+* Mgaved
 * NehalDaveND
 * Nitin1485
 * Pulkitsingh01
@@ -371,6 +372,7 @@
   <string name="reading_list_already_contains_selection">चुनी गयी सूची में चयनित पृष्ठ पहले से ही समाहित हैं।</string>
   <string name="reading_list_added_articles_list_titled">%2$s में %1$d आलेख जोड़े गए</string>
   <string name="reading_list_delete_confirm" fuzzy="true">क्या आप  \"%s\" को मिटाने हेतु निश्चित हैं?</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">ठीक है</string>
   <string name="reading_list_turned_sync_off_dialog_settings">सेटिंग्स</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">पठन सूची को सिंक करना चालू करें?</string>
   <string name="reading_list_login_option_reminder_dialog_text">जब आप लॉगआउट थे, इस पढ़ने की सूची में कुछ लेख बचा दिये गये थे। क्या आप इन्हें अपने खाते की पढ़ने की सूचियों में डालना चाहते हैं?</string>

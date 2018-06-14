@@ -46,7 +46,7 @@
   <string name="menu_page_find_in_page">Keresés a lapon</string>
   <string name="menu_page_content_issues">Tartalmi problémák</string>
   <string name="menu_page_font_and_theme">Betűtípus és téma</string>
-  <string name="menu_page_add_to_list">Hozzáadás az olvasási listához</string>
+  <string name="menu_page_add_to_list">Hozzáadás az olvasólistához</string>
   <string name="menu_page_share">Link megosztása</string>
   <string name="menu_long_press_open_page">Megnyitás</string>
   <string name="menu_long_press_open_in_new_tab">Megnyitás új fülön</string>
@@ -62,7 +62,7 @@
   <string name="talk_page_link_text">Vitalap megtekintése</string>
   <string name="edit_history_link_text">Laptörténet megtekintése</string>
   <string name="map_view_link_text">Megtekintés térképen</string>
-  <string name="other_languages_indication_text">Olvasd el más nyelven</string>
+  <string name="other_languages_indication_text">Olvasás más nyelven</string>
   <string name="language_count_link_text">Elérhető %d másik nyelven</string>
   <string name="content_license_html">A tartalom a &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt érhető el, ha nincs másképp feltüntetve</string>
   <string name="edit_save_action_license_logged_in">A mentéssel elfogadod a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlan engedélyt adsz annak felhasználására a &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt.</string>
@@ -130,11 +130,14 @@
   <string name="create_account_next">Következő</string>
   <string name="create_account_button">Regisztráció</string>
   <string name="create_account_name_unavailable">A(z) „%s” felhasználói név nem elérhető. Kérlek, válassz másikat.</string>
+  <string name="create_account_ip_block_message">Sajnáljuk, de az IP-címedről jelenleg nem lehet regisztrálni.</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_details">Részletek</string>
   <string name="preferences_general_heading">Általános</string>
-  <string name="wikipedia_app_faq">Wikipédia app GYIK</string>
+  <string name="wikipedia_app_faq">Wikipédia alkalmazás GYIK</string>
   <string name="zero_charged_verbiage">Az ingyenes Wikipédia-hozzáférés már nem aktív.</string>
   <string name="zero_warn_when_leaving">Figyelmeztetés, ha elhagyom a Wikipédia Zérót</string>
-  <string name="zero_warn_when_leaving_summary">Ha a mobilszolgáltatód lemond az adathozzáférési díjakról a Wikipédia Zéró programban, ennek a beállításnak a bekapcsolva tartása segít figyelni, hogy mikor hagyod el a Wikipédia appot, ami költségekkel járhat.</string>
+  <string name="zero_warn_when_leaving_summary">Ha a mobilszolgáltatód lemond az adathozzáférési díjakról a Wikipédia Zéró programban, ennek a beállításnak a bekapcsolva tartása segít figyelni, hogy mikor hagyod el a Wikipédia alkalmazást, ami költségekkel járhat.</string>
   <string name="zero_webpage_title">Wikipédia Zéró GYIK</string>
   <string name="zero_wikipedia_zero_heading">Wikipédia Zéró</string>
   <string name="zero_interstitial_title">Wikipédia Zéró elhagyása</string>
@@ -156,11 +159,12 @@
   <string name="preference_summary_sync_reading_lists">Olvasólistáid szinkronizálása különböző eszközeid között, a Wikipédia-fiókodba mentve őket</string>
   <string name="preference_summary_sync_reading_lists_from_account">Olvasólistáid szinkronizálása különböző eszközeid között, a(z) „%s” Wikipédia-fiókodba mentve őket</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Szinkronizált olvasólisták eltávolítása a(z) „%s” fiókból?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Ez teljesen eltávolítja az összes korábbi szinkronizált olvasólistát. Az összes szinkronizált olvasólista eltávolítása a(z) „%s” fiókból?</string>
   <string name="preferences_privacy_settings_heading">Adatküldés</string>
   <string name="preference_title_eventlogging_opt_in">Használati jelentés küldése</string>
   <string name="preference_summary_eventlogging_opt_in">A Wikimédia adatokat gyűjthet arról, hogy hogyan használod az appot, hogy még jobbá tehessük.</string>
   <string name="preference_title_auto_upload_crash_reports">Hibajelentés küldése</string>
-  <string name="preference_summary_auto_upload_crash_reports">Az app automatikusan küldhet hibajelentéseket a HockeyAppnek / egy harmadik fél szolgáltatónak, hogy elemezhessük az összeomlást, és gyorsabban és könnyebben kijavíthassuk a hibát.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Az alkalmazás automatikusan küldhet hibajelentéseket a HockeyAppnek / egy harmadik fél szolgáltatónak, hogy elemezhessük az összeomlást, és gyorsabban és könnyebben kijavíthassuk a hibát.</string>
   <string name="editing_error_spamblacklist">Tiltott webhelyre (%s) mutató linkeket helyeztél el. Távolítsd el őket, majd próbáld újra.</string>
   <string name="history_search_list_hint">Keresés az előzményekben</string>
   <string name="error_can_not_process_link">Nem lehet megjeleníteni ezt a hivatkozást</string>
@@ -204,6 +208,7 @@
   <string name="edit_summary_tag_other">Egyéb</string>
   <string name="edit_summary_tag_other_hint">Más módok, ahogy javítottad a lapot</string>
   <string name="edit_conflict_title">Szerkesztési ütközés</string>
+  <string name="edit_conflict_message">Ezt a lapot egy másik felhasználó már módosított, és ez ütközik a szerkesztéseddel. Légyszíves másold ki a szerkesztéseidet, menjél vissza az előző oldalra és frissítsed az oldalt, majd próbálkozz újra a szerkesztéssel.</string>
   <string name="find_next">Következő keresése</string>
   <string name="find_previous">Előző keresése</string>
   <string name="find_first_occurence">Ez az első találat</string>
@@ -319,6 +324,7 @@
   <string name="color_theme_dark">Sötét</string>
   <string name="color_theme_black">Fekete</string>
   <string name="color_theme_test_title">Mintaszöveg</string>
+  <string name="color_theme_test_text">Mozgasd a csúszkát az olvasott szöveg méretének megváltoztatásához. Az alkalmazás többi részében található szöveget méretének változtatása a rendszer szöveg méretének módosításával lehetséges.</string>
   <string name="preference_title_app_theme">Alkalmazástéma</string>
   <string name="preference_summary_color_theme">Váltás az alkalmazás sötét témájának használatára</string>
   <string name="text_size_increase">Betűméret növelése</string>
@@ -338,6 +344,7 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d / 1 cikk érhető el kapcsolat nélkül, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d / %2$d cikk érhető el kapcsolat nélkül, %3$.2f MB</string>
   <string name="reading_list_sort">Rendezés</string>
+  <string name="reading_list_sort_ellipsis">Rendezés módja</string>
   <string name="reading_list_sort_by_name">Rendezés név szerint</string>
   <string name="reading_list_sort_by_name_desc">Rendezés név szerint (fordítva)</string>
   <string name="reading_list_sort_by_recent">Rendezés a hozzáadás dátuma szerint (legújabb)</string>
@@ -371,17 +378,18 @@
   <string name="reading_list_empty">Nem adtál szócikket ehhez a listához.</string>
   <string name="reading_list_article_offline">Elérhető kapcsolat nélkül</string>
   <string name="reading_list_article_make_offline">A szócikk elérhetővé tétele kapcsolat nélkül</string>
-  <string name="reading_list_add_to_other_list">Hozzáadás egy másik olvasási listához</string>
+  <string name="reading_list_add_to_other_list">Hozzáadás egy másik olvasólistához</string>
   <string name="reading_list_remove_from_list">Eltávolítás a következőről: %s</string>
-  <string name="reading_list_remove_from_lists">Eltávolítás az olvasási listákról</string>
+  <string name="reading_list_remove_from_lists">Eltávolítás az olvasólistákról</string>
   <string name="reading_list_confirm_remove_article_from_offline">Eltávolítás a kapcsolat nélküliből</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">A szócikk több listán is rajta van</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s többé nem lesz elérhető kapcsolat nélkül egyik olvasólistánál sem:</string>
   <string name="reading_lists_sync_reminder_title">Bekapcsolod az olvasólisták szinkronizálását?</string>
   <string name="reading_lists_sync_reminder_text">Az olvasólistákra mentett szócikkek mostantól szinkronizálhatók a Wikipédia-fiókoddal. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Offline_olvasás\"&gt;További információk&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Az olvasólisták most már eszközök között is szinkronizálhatók. Jelentkezz meg a Wikipédia fiókodba, hogy el tudd menteni a listáidat. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;További információk&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Szinkronizálás engedélyezése</string>
   <string name="reading_list_login_reminder_title">Olvasólisták szinkronizálása</string>
-  <string name="reading_lists_login_reminder_text">Az olvasási listák mostantól szinkronizálhatók a különböző eszközeid között. Jelentkezz be a Wikipédia-fiókodba és engedélyezd a listáid mentését.</string>
+  <string name="reading_lists_login_reminder_text">Az olvasólisták mostantól szinkronizálhatók a különböző eszközeid között. Jelentkezz be a Wikipédia-fiókodba és engedélyezd a listáid mentését.</string>
   <string name="reading_lists_confirm_remote_delete">Ez törli az összes korábban szinkronizált olvasólistát a távoli tárolóból. Folytatod?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Igen</string>
   <string name="reading_lists_confirm_remote_delete_no">Nem</string>
@@ -390,24 +398,34 @@
   <string name="reading_list_added_articles_list_titled">%1$d szócikk hozzáadva ide: %2$s</string>
   <string name="reading_list_delete_confirm">Biztosan szeretnéd törölni a(z) %s olvasólistát?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Jelentkezz be a szinkronizálás engedélyezéséhez</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Jelentkezz be, ha az olvasólistádat a fiókodba akarod menteni.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Mégse</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Bejelentkezés</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Olvasólista szinkronizálás kikapcsolva</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Az olvasólista szinkronizálás ki van kapcsolva a fiókodban, így a mentett szócikkek nem frissülnek a bejelentkezett eszközökön. Az olvasólista szinkronizálását a Beállítások alatt tudom bekapcsolni.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Beállítások</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Bekapcsolod az olvasólisták szinkronizálását?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ne mutasd ez többet nekem</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Szinkronizáció engedélyezése</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Szinkronizálás engedélyezése</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nem, köszönöm</string>
+  <string name="reading_list_login_option_reminder_dialog_title">Olvasólistás szócikk találat</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Szócikket mentettél az olvasólistádba mialatt nem voltál bejelentkezve. Hozzá akarod adni ezeket a fiókodhoz tartozó olvasólistákhoz?</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">Igen, vedd fel az olvasólistáimhoz</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Nem, töröld a szócikkeket</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Frissen mentett szócikkek vannak az olvasólistáidban. Meg akarod tartani őket a kijelentkezés után?</string>
   <string name="default_reading_list_name">Elmentve</string>
   <string name="default_reading_list_description">Alapértelmezett lista a mentett szócikkeidnek</string>
   <string name="no_user_lists_title">Rendezd listákba a szócikkeket</string>
   <string name="no_user_lists_msg">Készíts listát a felkeresendő helyeknek, kedvenc témáidnak és sok minden másnak</string>
   <string name="reading_list_saved_list_rename">%1$s (felhasználó által létrehozva)</string>
-  <string name="split_reading_list_message">Egy olvasólista mostantól legfeljebb %d szócikket tartalmazhatnak. Az ennél nagyobb listák több listára lettek bontva.</string>
+  <string name="split_reading_list_message">Egy olvasólista mostantól legfeljebb %d szócikket tartalmazhat. Az ennél nagyobb listák több listára lettek bontva.</string>
   <string name="reading_list_article_limit_message">Nem adhatsz hozzá szócikket ehhez a listához. Elérted a listánkénti %2$d szócikkes határt a(z) „%1$s” listánál.</string>
   <string name="reading_lists_limit_message">Nem készíthetsz új olvasólistát. Elérted a fiókonkénti 100 listás határt.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Szinkronizáld az olvasólistáidat&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Az olvasási listák mostantól szinkronizálhatók a különböző eszközeid között. Jelentkezz be a Wikipédia-fiókodba és engedélyezd a listáid mentését.</string>
+  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Szinkronizáld az olvasólistáidat&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Az olvasólisták mostantól szinkronizálhatók a különböző eszközeid között. Jelentkezz be a Wikipédia-fiókodba és engedélyezd a listáid mentését.</string>
   <string name="reading_lists_menu_create_list">Új lista készítése</string>
   <string name="reading_lists_menu_sort_by">Rendezés</string>
+  <string name="reading_lists_refresh_sync_option">Szinkronizálás frissítése</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Regisztráció/bejelentkezés</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">A szócikk mostantól kapcsolat nélkül is elérhető.</item>
@@ -429,6 +447,11 @@
   <string name="notification_syncing_pause_button">Szünet</string>
   <string name="notification_syncing_resume_button">Folytatás</string>
   <string name="notification_syncing_cancel_button">Mégsem</string>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Olvasólista frissítése</item>
+    <item quantity="other">Olvasólisták frissítése</item>
+  </plurals>
+  <string name="notification_syncing_reading_list_channel_description">Olvasólisták frissítése folyamatban</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Szócikk letöltése</item>
     <item quantity="other">Szócikkek letöltése</item>
@@ -440,6 +463,14 @@
   <plurals name="notification_syncing_description">
     <item quantity="one">%1$d szócikk maradt</item>
     <item quantity="other">%1$d szócikk maradt</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Egy lista szinkronizálása…</item>
+    <item quantity="other">%1$d lista szinkronizálása…</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">egy lista van hátra</item>
+    <item quantity="other">%1$d lista van hátra</item>
   </plurals>
   <string name="view_continue_reading_card_title">Olvasás folytatása</string>
   <string name="view_because_you_read_card_title">Mert ezt olvastad:</string>
@@ -576,17 +607,18 @@
   <string name="onboarding_explore_text">Merülj alá a Wikipédiában a folyamatosan frissülő Felfedezés hírfolyammal!&lt;br /&gt; &lt;b&gt;Szabd testre&lt;/b&gt; a hírfolyamot az érdeklődésnek megfelelően – izgassanak bár az &lt;b&gt;Ezen a napon&lt;/b&gt; történt események, vagy ami épp &lt;b&gt;Találomra&lt;/b&gt; jön.</string>
   <string name="onboarding_save_to_reading_lists_title">Mentés olvasólistára</string>
   <string name="onboarding_save_to_reading_lists_text">Készíts olvasólistákat olyan szócikkekből, amiket később szeretnél elolvasni, akár internetkapcsolat nélkül is!</string>
-  <string name="onboarding_reading_list_sync_title">Olvasási listák szinkronizálással</string>
-  <string name="onboarding_reading_list_sync_text">Olvasási listákat hozhatsz létre olyan szócikkekből, amiket később akarsz elolvasni, amikor offline vagy például. &lt;a href=\"#login\"&gt;Jelentkezz be vagy hozz létre&lt;/a&gt; saját fiókot a Wikipédián, így az olvasási listáid szinkronizálva, azaz mentve lesznek.</string>
+  <string name="onboarding_reading_list_sync_title">Olvasólisták szinkronizálással</string>
+  <string name="onboarding_reading_list_sync_text">Olvasólistákat hozhatsz létre olyan szócikkekből, amiket később akarsz elolvasni, amikor offline vagy például. &lt;a href=\"#login\"&gt;Jelentkezz be vagy hozz létre&lt;/a&gt; saját fiókot a Wikipédián, így az olvasólistáid szinkronizálva, azaz mentve lesznek.</string>
   <string name="onboarding_analytics_title">Névtelen adatok küldése</string>
   <string name="onboarding_analytics_offline_text">Segíts jobbá tenni az alkalmazást a használati adatok megosztásával. A begyűjtött adatok anonimak. &lt;a href=\"#privacy\"&gt;Tudj meg többet&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Felhasználási adatok küldése</string>
-  <string name="onboarding_create_account_sync">Szinkronizálja az olvasási listáit</string>
+  <string name="onboarding_create_account_sync">Szinkronizálja az olvasólistáidat</string>
   <string name="onboarding_create_account_contributions">Hozzájárulásaid nyomon követése</string>
   <string name="onboarding_create_account_preferences">Beállítások mentése</string>
   <string name="onboarding_got_it">Értem</string>
   <string name="onboarding_multilingual_secondary_text">A következőket találtuk a készülékeden:</string>
   <string name="onboarding_multilingual_add_language_text">Nyelvek hozzáadása vagy szerkesztése</string>
+  <string name="onboarding_welcome_title_v2">Az ingyenes enciklopédia\n…közel 300 nyelven</string>
   <string name="app_shortcuts_random">Véletlen</string>
   <string name="app_shortcuts_continue_reading">Olvasás folytatása</string>
   <string name="app_shortcuts_search">Keresés</string>
@@ -607,7 +639,7 @@
   <string name="wikipedia_languages_title">Wikipédia nyelvek</string>
   <string name="wikipedia_languages_your_languages_text">Nyelveid</string>
   <string name="wikipedia_languages_add_language_text">Nyelv hozzáadása</string>
-  <string name="wikipedia_languages_remove_text" fuzzy="true">Eltávolítás</string>
+  <string name="wikipedia_languages_remove_text">Nyelv eltávolítása</string>
   <string name="wikipedia_languages_remove_action_mode_title">Nyelv eltávolítása</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Eltávolítod a kijelölt nyelvet?</item>
@@ -616,4 +648,8 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">Nem törölhető az összes nyelv</string>
   <string name="more_language_options">több</string>
   <string name="add_wikipedia_languages_text">Wikipédia-nyelvek hozzáadása</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Eltávolítod valamelyik kínai változatot az alkalmazás nyelvei közül?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Jelenleg mind a hagyományos, mind az egyszerűsített kínai nyelvi változat is be van állítva az alkalmazásban. Módosítod az alkalmazás nyelvi beállításait?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Nyelvek szerkesztése</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nem, köszönöm</string>
 </resources>

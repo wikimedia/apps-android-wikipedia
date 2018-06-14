@@ -414,6 +414,7 @@
   <string name="view_featured_image_card_download">Eroflueden</string>
   <string name="menu_feed_card_dismiss">Dës Kaart verstoppen</string>
   <string name="menu_feed_card_dismissed">Kaart verstoppt.</string>
+  <string name="menu_feed_card_edit_card_languages">D\'Sprooche vun der Kaart änneren</string>
   <string name="menu_feed_overflow_label">Méi Optiounen</string>
   <string name="feed_featured_image_share_subject">Qualitéitsbild vu Wikimedia Commons</string>
   <string name="feed">Entdecken</string>
@@ -538,6 +539,8 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">D\'Sprooche kënnen net all ewechgeholl ginn</string>
   <string name="more_language_options">méi</string>
   <string name="add_wikipedia_languages_text">Wikipedia-Sproochen derbäisetzen</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Eng chinesesch Variant vun Ären App Sproochen ewechhuelen?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Dir hutt elo esouwuel déi traditionell wéi déi vereinfacht chinesesch Variante an Ären App sproochen agestallt. Wëllt dir d\'Astellunge vun de Sprooche vun Ären Appen änneren?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sproochen änneren</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nee, merci</string>
 </resources>

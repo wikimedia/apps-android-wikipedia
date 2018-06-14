@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Chameleon222
+* Citadell
 * Danmichaelo
 * Jeblad
 * JohSan65
@@ -539,4 +540,5 @@
     <item quantity="one">I fjor</item>
     <item quantity="other">For %d år siden</item>
   </plurals>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Rediger språk</string>
 </resources>

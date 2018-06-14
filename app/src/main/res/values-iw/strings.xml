@@ -487,6 +487,7 @@
   <string name="view_featured_image_card_download">הורדה</string>
   <string name="menu_feed_card_dismiss">הסתרת הכרטיס הזה</string>
   <string name="menu_feed_card_dismissed">הכרטיס הוסתר.</string>
+  <string name="menu_feed_card_edit_card_languages">עריכת שפות הכרטיס</string>
   <string name="menu_feed_overflow_label">אפשרויות נוספות</string>
   <string name="feed_featured_image_share_subject">תמונה מומלצת מוויקישיתוף</string>
   <string name="feed">לחקור</string>

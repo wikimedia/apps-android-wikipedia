@@ -142,6 +142,8 @@
   <string name="create_account_next">Suivant</string>
   <string name="create_account_button">Créer un compte</string>
   <string name="create_account_name_unavailable">Le nom d\'utilisateur \"%s\" n\'est pas disponible. Veuillez choisir un autre nom.</string>
+  <string name="create_account_ip_block_message">Désolé, votre adresse IP est actuellement bloquée pour créer de nouveaux comptes.</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Détails</string>
   <string name="preferences_general_heading">Général</string>
   <string name="wikipedia_app_faq">FAQ des applis Wikipédia</string>
@@ -501,6 +503,7 @@
   <string name="view_featured_image_card_download">Télécharger</string>
   <string name="menu_feed_card_dismiss">Masquer cette carte</string>
   <string name="menu_feed_card_dismissed">Carte cachée.</string>
+  <string name="menu_feed_card_edit_card_languages">Modifier les langues de carte</string>
   <string name="menu_feed_overflow_label">Plus d’options</string>
   <string name="feed_featured_image_share_subject">Image sélectionnée de Wikimedia Commons</string>
   <string name="feed">Explorer</string>
@@ -641,6 +644,7 @@
   <string name="onboarding_got_it">C’est bon</string>
   <string name="onboarding_multilingual_secondary_text">Nous avons trouvé ceci sur votre appareil :</string>
   <string name="onboarding_multilingual_add_language_text">Ajouter ou modifier des langues</string>
+  <string name="onboarding_welcome_title_v2">L\'Encyclopédie Libre\n…dans presque 300 langages</string>
   <string name="app_shortcuts_random">Aléatoire</string>
   <string name="app_shortcuts_continue_reading">Continuer à lire</string>
   <string name="app_shortcuts_search">Rechercher</string>
@@ -672,4 +676,8 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Gardez au moins une langue Wikipedia avec laquelle vous pourrez chercher et lire du contenu.</string>
   <string name="more_language_options">plus</string>
   <string name="add_wikipedia_languages_text">Ajouter des langues Wikipédia</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Supprimer une variante du chinois de la langue des applications ?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Vous avez actuellement les deux variantes Chinois traditionnel et simplifié mises dans vos langues de l’application. Mettre à jour vos paramètres de langue de l’application ?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Modifier les langues</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Non merci</string>
 </resources>

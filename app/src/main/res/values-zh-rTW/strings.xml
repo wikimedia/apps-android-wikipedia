@@ -492,6 +492,7 @@
   <string name="view_featured_image_card_download">下載</string>
   <string name="menu_feed_card_dismiss">隱藏此卡片</string>
   <string name="menu_feed_card_dismissed">卡片已隱藏。</string>
+  <string name="menu_feed_card_edit_card_languages">編輯卡片語言</string>
   <string name="menu_feed_overflow_label">更多選項</string>
   <string name="feed_featured_image_share_subject">來自維基共享資源的特色圖片</string>
   <string name="feed">探索</string>
