@@ -16,7 +16,6 @@ import org.wikipedia.login.LoginActivity;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
 import org.wikipedia.theme.ThemeFittingRoomActivity;
-import org.wikipedia.util.ReleaseUtil;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
 
@@ -50,10 +49,6 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
             }
             return true;
         });
-
-        if (ReleaseUtil.isPreBetaRelease()) {
-            loadPreferences(R.xml.preferences_experimental);
-        }
 
         loadPreferences(R.xml.preferences_about);
 
