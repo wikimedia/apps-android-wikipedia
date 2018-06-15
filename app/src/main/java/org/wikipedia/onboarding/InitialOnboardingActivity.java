@@ -26,6 +26,7 @@ public class InitialOnboardingActivity
         if (getFragment().onBackPressed()) {
             return;
         }
+        setResult(RESULT_OK);
         finish();
     }
 
