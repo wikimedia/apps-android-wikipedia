@@ -128,7 +128,7 @@ public class SearchResultsFragment extends Fragment {
         Callback callback = callback();
         String suggestion = (String) searchSuggestion.getTag();
         if (callback != null && suggestion != null) {
-            callback.getFunnel().searchDidYouMean();
+            callback.getFunnel().searchDidYouMean(getSearchLanguageCode());
             callback.setSearchText(suggestion);
             startSearch(suggestion, true);
         }
@@ -521,14 +521,14 @@ public class SearchResultsFragment extends Fragment {
         // only transmit search results events if there are a nonzero number of results
         if (callback() != null && !resultList.isEmpty()) {
             // noinspection ConstantConditions
-            callback().getFunnel().searchResults(true, resultList.size(), displayTime(startTime));
+            callback().getFunnel().searchResults(true, resultList.size(), displayTime(startTime), getSearchLanguageCode());
         }
     }
 
     private void logError(boolean fullText, long startTime) {
         if (callback() != null) {
             // noinspection ConstantConditions
-            callback().getFunnel().searchError(fullText, displayTime(startTime));
+            callback().getFunnel().searchError(fullText, displayTime(startTime), getSearchLanguageCode());
         }
     }
 

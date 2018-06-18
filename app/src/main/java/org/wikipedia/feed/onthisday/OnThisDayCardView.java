@@ -19,8 +19,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.FeedFunnel;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.feed.view.FeedAdapter;
@@ -56,6 +59,8 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     @BindView(R.id.radio_image_view) View radio;
     @BindView(R.id.view_on_this_day_top_container) View topContainer;
     @BindView(R.id.view_on_this_day_text_container) View textContainer;
+    private FeedFunnel funnel = new FeedFunnel(WikipediaApp.getInstance());
+
     private int age;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
@@ -168,6 +173,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     }
 
     @OnClick({R.id.view_on_this_day_click_container}) void onMoreClick() {
+        funnel.cardClicked(CardType.ON_THIS_DAY, getCard().wikiSite().languageCode());
         ActivityOptionsCompat options = ActivityOptionsCompat.
                 makeSceneTransitionAnimation((Activity) getContext(), dayTextView, getContext().getString(R.string.transition_on_this_day));
         getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age, getCard().wikiSite(),
@@ -175,6 +181,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     }
 
     @OnClick({R.id.more_events_layout}) void onMoreFooterClick() {
+        funnel.cardClicked(CardType.ON_THIS_DAY, getCard().wikiSite().languageCode());
         ActivityOptionsCompat options = ActivityOptionsCompat.
                 makeSceneTransitionAnimation((Activity) getContext(), dayTextView, getContext().getString(R.string.transition_on_this_day));
         getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age, getCard().wikiSite(),

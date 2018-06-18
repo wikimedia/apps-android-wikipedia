@@ -22,7 +22,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.wikipedia.BackPressedHandler;
-import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
@@ -30,6 +29,7 @@ import org.wikipedia.analytics.SearchFunnel;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.database.contract.SearchHistoryContract;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.language.LanguageSettingsInvokeSource;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.settings.Prefs;
@@ -85,7 +85,9 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     private SearchFunnel funnel;
     private SearchInvokeSource invokeSource;
     private String searchLanguageCode;
+    private String tempLangCodeHolder;
     private boolean languageChanged = false;
+    private boolean langBtnClicked = false;
     public static final int LANG_BUTTON_TEXT_SIZE_LARGER = 12;
     public static final int LANG_BUTTON_TEXT_SIZE_SMALLER = 8;
     /**
@@ -106,7 +108,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
         @Override
         public boolean onClose() {
             closeSearch();
-            funnel.searchCancel();
+            funnel.searchCancel(searchLanguageCode);
             return false;
         }
     };
@@ -289,8 +291,8 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     public boolean onBackPressed() {
         if (isSearchActive) {
             // todo: activity or fragment transition
+            funnel.searchCancel(searchLanguageCode);
             closeSearch();
-            funnel.searchCancel();
             return true;
         }
         return false;
@@ -301,7 +303,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
         if (!isAdded()) {
             return;
         }
-        funnel.searchClick(position);
+        funnel.searchClick(position, searchLanguageCode);
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
         Callback callback = callback();
         if (callback != null) {
@@ -348,8 +350,9 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
 
     @OnClick(R.id.search_lang_button_container)
     void onLangButtonClick() {
-        Intent intent = new Intent(requireActivity(), WikipediaLanguagesActivity.class);
-        intent.putExtra(Constants.INTENT_EXTRA_LAUNCHED_FROM_SEARCH, true);
+        langBtnClicked = true;
+        tempLangCodeHolder = searchLanguageCode;
+        Intent intent = WikipediaLanguagesActivity.newIntent(requireActivity(), LanguageSettingsInvokeSource.SEARCH.text());
         startActivityForResult(intent, ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH);
     }
 
@@ -389,7 +392,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     private void openSearch() {
         // create a new funnel every time Search is opened, to get a new session ID
         funnel = new SearchFunnel(app, invokeSource);
-        funnel.searchStart();
+        funnel.searchStart(searchLanguageCode);
         isSearchActive = true;
         languageChanged = false;
         Callback callback = callback();
@@ -525,6 +528,16 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
 
     @Override
     public void onLanguageTabSelected(String selectedLanguageCode) {
+        if (langBtnClicked) {
+            //We need to skip an event when we return back from 'add languages' screen,
+            // because it triggers two events while re-drawing the UI
+            langBtnClicked = false;
+        } else {
+            //We need a temporary language code holder because the previously selected search language code[searchLanguageCode]
+            // gets overwritten when UI is re-drawn
+            funnel.searchLanguageSwitch(!TextUtils.isEmpty(tempLangCodeHolder) && !tempLangCodeHolder.equals(selectedLanguageCode) ? tempLangCodeHolder : searchLanguageCode, selectedLanguageCode);
+            tempLangCodeHolder = null;
+        }
         searchLanguageCode = selectedLanguageCode;
         startSearch(query, true);
     }

@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.StringUtil;
 
 import java.util.concurrent.TimeUnit;
 
@@ -23,7 +24,8 @@ public class DailyStatsFunnel extends Funnel {
     }
 
     public void log(long appInstallAgeDays) {
-        log("appInstallAgeDays", appInstallAgeDays);
+        log("appInstallAgeDays", appInstallAgeDays,
+                "languages", StringUtil.listToJsonArrayString(getApp().language().getAppLanguageCodes()));
     }
 
     @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) { }
