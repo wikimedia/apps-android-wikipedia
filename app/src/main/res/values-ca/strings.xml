@@ -158,6 +158,7 @@
   <string name="preference_summary_sync_reading_lists">Sincronitza les llistes de lectura entre diferents dispositius desant-les en el vostre compte de la Viquipèdia</string>
   <string name="preference_summary_sync_reading_lists_from_account">Sincronitza les llistes de lectura entre diferents dispositius desant-les en el vostre compte de la Viquipèdia «%s»</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Voleu suprimir les llistes de lectura sincronitzades de «%s»?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Això eliminarà completament totes les llistes de lectura sincronitzades de l\'emmagatzemament remot. Voleu suprimir totes les llistes sincronitzades del compte «%s»?</string>
   <string name="preferences_privacy_settings_heading">Privadesa</string>
   <string name="preference_title_eventlogging_opt_in">Envia informes sobre l\'ús de l\'aplicació</string>
   <string name="preference_summary_eventlogging_opt_in">Permetre a Viquimedia recollir informació sobre com utilitzeu l\'aplicació, a fi de poder-la millorar</string>
@@ -483,6 +484,7 @@
   <string name="view_featured_image_card_download">Descarrega</string>
   <string name="menu_feed_card_dismiss">Amaga la targeta</string>
   <string name="menu_feed_card_dismissed">S\'ha amagat la targeta.</string>
+  <string name="menu_feed_card_edit_card_languages">Modifica les llengües de la targeta</string>
   <string name="menu_feed_overflow_label">Més opcions</string>
   <string name="feed_featured_image_share_subject">Imatge destacada de Wikimedia Commons</string>
   <string name="feed">Exploreu</string>
@@ -504,6 +506,7 @@
   <string name="feed_configure_menu_reset">Restaura la vista per defecte</string>
   <string name="feed_configure_menu_select_all">Mostra-ho tot</string>
   <string name="feed_configure_menu_deselect_all">Amaga-ho tot</string>
+  <string name="feed_configure_language_warning">Tingueu en compte que no tots els tipus de targetes són disponibles en totes les llengües amb Viquipèdia. Modifiqueu les llengües seleccionades als paràmetres de l\'aplicació.</string>
   <string name="feed_item_type_news">Articles dels esdeveniments actuals</string>
   <string name="feed_item_type_on_this_day">Efemèrides</string>
   <string name="feed_item_type_continue_reading">Enllaç directe a l\'article obert en una de les teves pestanyes</string>
@@ -611,6 +614,7 @@
   <string name="onboarding_save_to_reading_lists_text">Crea llistes de lectures a partir d\'articles que vulguis llegir en un altre moment, encara que estiguis fora de línia.</string>
   <string name="onboarding_reading_list_sync_title">Llistes de lectura amb sincronització</string>
   <string name="onboarding_reading_list_sync_text">Crea llistes de lectura d\'articles que voleu llegir més endavant, fins i tot si esteu fora de línia. &lt;a href=\"#login\"&gt;Inicieu una sessió o creeu un compte&lt;/a&gt; a la Viquipèdia per a conservar una còpia de les vostres llistes de lectura.</string>
+  <string name="onboarding_reading_list_sync_text_v2">Podeu fer llistes de lectura d\'articles que voleu llegir més endavant, fins i tot quan sigueu fora de línia. &lt;br/&gt;Inicieu una sessió al vostre compte de Viquipèdia per sincronitzar les llistes de lectura. &lt;a href=\"#login\"&gt;Uniu-vos a la Viquipèdia&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Envia dades anònimes</string>
   <string name="onboarding_analytics_offline_text">Ajudeu a millorar l’aplicació permitint-nos conèixer com la feu servir. Les dades recollides són anònimes. &lt;a href=\"#privacy\"&gt;Més informació&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Envia les dades d\'ús</string>
@@ -643,6 +647,10 @@
   <string name="wikipedia_languages_add_language_text">Afegeix una llengua</string>
   <string name="wikipedia_languages_remove_text">Suprimeix la llengua</string>
   <string name="wikipedia_languages_remove_action_mode_title">Treu una llengua</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">Voleu suprimir la llengua seleccionada?</item>
+    <item quantity="other">Voleu suprimir les llengües seleccionades?</item>
+  </plurals>
   <string name="wikipedia_languages_remove_warning_dialog_title">No es poden suprimir totes les llengüe</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantingueu com a mínim una llengua de Viquipèdia a partir de la qual cercar i llegir contingut.</string>
   <string name="more_language_options">més</string>

@@ -4,6 +4,7 @@
 * Cûndûllah el-Kurdî
 * George Animal
 * Ghybu
+* Kur
 -->
 <resources>
   <string name="app_name_prod">Wîkîpediya</string>
@@ -184,6 +185,7 @@
   <string name="view_featured_image_card_title">Wêneyê rojê</string>
   <string name="view_featured_image_card_download">Daxe</string>
   <string name="menu_feed_card_dismiss">Vê kartê biveşêre</string>
+  <string name="menu_feed_card_edit_card_languages">Zimanên kartê sererast bike</string>
   <string name="view_card_news_title">Di nûçeyan de</string>
   <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">doh</item>
