@@ -18,6 +18,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.view.DraweeTransition;
@@ -32,6 +33,7 @@ import org.wikipedia.events.NetworkConnectEvent;
 import org.wikipedia.events.ReadingListsEnableDialogEvent;
 import org.wikipedia.events.ReadingListsMergeLocalDialogEvent;
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent;
+import org.wikipedia.events.ReadingListsSyncManuallyEvent;
 import org.wikipedia.events.SplitLargeListsEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.events.WikipediaZeroEnterEvent;
@@ -41,10 +43,13 @@ import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SiteInfoClient;
+import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.log.L;
+
+import java.text.ParseException;
 
 public abstract class BaseActivity extends AppCompatActivity {
     private static EventBusMethodsExclusive EXCLUSIVE_BUS_METHODS;
@@ -256,6 +261,15 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         @Subscribe public void on(ReadingListsEnableDialogEvent event) {
             ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(BaseActivity.this);
+        }
+
+        @Subscribe public void on(ReadingListsSyncManuallyEvent event) {
+            try {
+                Toast.makeText(BaseActivity.this, getString(R.string.reading_list_toast_last_sync,
+                        DateUtil.getReadingListsLastSyncDateString(Prefs.getReadingListsLastSyncTime())), Toast.LENGTH_SHORT).show();
+            } catch (ParseException e) {
+                // ignore
+            }
         }
     }
 }

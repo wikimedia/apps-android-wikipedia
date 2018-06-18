@@ -19,6 +19,7 @@ import org.wikipedia.events.ReadingListsEnableDialogEvent;
 import org.wikipedia.events.ReadingListsEnabledStatusEvent;
 import org.wikipedia.events.ReadingListsMergeLocalDialogEvent;
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent;
+import org.wikipedia.events.ReadingListsSyncManuallyEvent;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
@@ -557,6 +558,7 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
 
             if (shouldSendSyncEvent) {
                 SavedPageSyncService.sendSyncEvent();
+                WikipediaApp.getInstance().getBus().post(new ReadingListsSyncManuallyEvent());
             }
             if ((shouldRetry || shouldRetryWithForce) && !extras.containsKey(SYNC_EXTRAS_RETRYING)) {
                 Bundle b = new Bundle();
