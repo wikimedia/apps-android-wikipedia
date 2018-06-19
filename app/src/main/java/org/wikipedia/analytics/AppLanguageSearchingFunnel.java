@@ -4,7 +4,7 @@ import org.wikipedia.WikipediaApp;
 
 public class AppLanguageSearchingFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppLanguageSearching";
-    private static final int REV_ID = 18110978;
+    private static final int REV_ID = 18113721;
     private static String SESSION_TOKEN;
 
 
