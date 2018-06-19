@@ -81,10 +81,17 @@ public final class DeviceUtil {
         return locationMode != Settings.Secure.LOCATION_MODE_OFF;
     }
 
+    private static ConnectivityManager getConnectivityManager() {
+        return (ConnectivityManager) WikipediaApp.getInstance().getSystemService(Context.CONNECTIVITY_SERVICE);
+    }
+
     public static boolean isOnline() {
-        ConnectivityManager connManager = (ConnectivityManager) WikipediaApp.getInstance()
-                .getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo info = connManager.getActiveNetworkInfo();
+        NetworkInfo info = getConnectivityManager().getActiveNetworkInfo();
+        return info != null && info.isConnected();
+    }
+
+    public static boolean isOnWiFi() {
+        NetworkInfo info = getConnectivityManager().getNetworkInfo(ConnectivityManager.TYPE_WIFI);
         return info != null && info.isConnected();
     }
 
