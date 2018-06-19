@@ -168,12 +168,6 @@ public class ReadingListPage {
         this.offline = offline;
     }
 
-    public void forcedSave(boolean enabled) {
-        if (enabled) {
-            this.status = STATUS_QUEUE_FOR_FORCED_SAVE;
-        }
-    }
-
     public boolean saving() {
         return offline && (status == STATUS_QUEUE_FOR_SAVE || status == STATUS_QUEUE_FOR_FORCED_SAVE);
     }

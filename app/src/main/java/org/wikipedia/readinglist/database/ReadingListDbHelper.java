@@ -250,7 +250,9 @@ public class ReadingListDbHelper {
         db.beginTransaction();
         try {
             page.offline(offline);
-            page.forcedSave(forcedSave);
+            if (forcedSave) {
+                page.status(ReadingListPage.STATUS_QUEUE_FOR_FORCED_SAVE);
+            }
             updatePageInDb(db, page);
             db.setTransactionSuccessful();
         } finally {
@@ -268,7 +270,9 @@ public class ReadingListDbHelper {
                     continue;
                 }
                 page.offline(offline);
-                page.forcedSave(forcedSave);
+                if (forcedSave) {
+                    page.status(ReadingListPage.STATUS_QUEUE_FOR_FORCED_SAVE);
+                }
                 updatePageInDb(db, page);
             }
             db.setTransactionSuccessful();

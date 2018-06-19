@@ -50,7 +50,6 @@ import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
-import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.DeviceUtil;
@@ -472,14 +471,8 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
     private void saveSelectedPagesForOffline(List<ReadingListPage> selectedPages) {
         if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi()) {
-            SavedPageSyncService.forceDownloadPages();
-            new AlertDialog.Builder(requireActivity())
-                    .setTitle(R.string.dialog_title_download_only_over_wifi)
-                    .setMessage(R.string.dialog_text_download_only_over_wifi)
-                    .setPositiveButton(R.string.dialog_title_download_only_over_wifi_allow, (dialog, which)
-                            -> saveSelectedPagesForOffline(selectedPages, true))
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .show();
+            ReadingListsFragment.showMobileDataWarningDialog(requireActivity(), (dialog, which)
+                    -> saveSelectedPagesForOffline(selectedPages, true));
         } else {
             saveSelectedPagesForOffline(selectedPages, false);
         }
@@ -595,14 +588,8 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
     private void toggleOffline(@NonNull ReadingListPage page) {
         if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi() && !page.offline()) {
-            SavedPageSyncService.forceDownloadPages();
-            new AlertDialog.Builder(requireActivity())
-                    .setTitle(R.string.dialog_title_download_only_over_wifi)
-                    .setMessage(R.string.dialog_text_download_only_over_wifi)
-                    .setPositiveButton(R.string.dialog_title_download_only_over_wifi_allow, (dialog, which)
-                            -> toggleOffline(page, true))
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .show();
+            ReadingListsFragment.showMobileDataWarningDialog(requireActivity(), (dialog, which)
+                    -> toggleOffline(page, true));
         }  else {
             toggleOffline(page, false);
         }
