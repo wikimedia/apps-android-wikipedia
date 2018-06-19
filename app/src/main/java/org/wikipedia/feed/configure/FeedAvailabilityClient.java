@@ -22,9 +22,10 @@ class FeedAvailabilityClient {
         void failure(@NonNull Call<FeedAvailability> call, @NonNull Throwable caught);
     }
 
+    private final WikiSite wiki = new WikiSite("wikimedia.org");
     @NonNull private final WikiCachedService<Service> cachedService = new RbCachedService<>(Service.class);
 
-    public Call<FeedAvailability> request(@NonNull WikiSite wiki, @NonNull Callback cb) {
+    public Call<FeedAvailability> request(@NonNull Callback cb) {
         return request(cachedService.service(wiki), cb);
     }
 
