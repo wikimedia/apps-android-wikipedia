@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -83,6 +84,10 @@ public class PageItemView<T> extends FrameLayout {
 
     public void setActionHint(@StringRes int id) {
         primaryActionView.setContentDescription(getContext().getString(id));
+    }
+
+    public void setActionTint(int tint) {
+        DrawableCompat.setTint(primaryActionView.getDrawable(), ResourceUtil.getThemedColor(getContext(), tint));
     }
 
     public void setSecondaryActionIcon(@DrawableRes int id, boolean show) {

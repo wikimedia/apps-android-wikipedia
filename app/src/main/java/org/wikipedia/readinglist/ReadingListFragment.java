@@ -660,6 +660,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             getView().setImageUrl(page.thumbUrl());
             getView().setSelected(page.selected());
             getView().setActionIcon(R.drawable.ic_more_vert_white_24dp);
+            getView().setActionTint(R.attr.material_theme_de_emphasised_color);
             getView().setActionHint(R.string.abc_action_menu_overflow_description);
             getView().setSecondaryActionIcon(page.saving()
                     ? R.drawable.ic_download_started : R.drawable.ic_download_circle_gray_24dp,

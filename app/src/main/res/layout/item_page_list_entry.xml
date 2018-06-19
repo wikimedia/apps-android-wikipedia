@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/page_list_item_container"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?attr/paper_color"
     android:foreground="?attr/selectableItemBackground"
-    android:gravity="top">
+    android:gravity="top"
+    android:orientation="vertical">
 
     <!-- TODO: this probably shouldn't be part of an item cell since it has to do with a collection
                of cells and nothing to do with an individual. This manifests visually when the cell
@@ -19,23 +18,23 @@
         android:id="@+id/page_list_header_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/list_item_vertical_padding"
+        android:background="?attr/paper_color"
+        android:gravity="center_vertical"
+        android:paddingBottom="2dp"
         android:paddingLeft="@dimen/list_item_horizontal_padding"
         android:paddingRight="@dimen/list_item_horizontal_padding"
-        android:paddingBottom="2dp"
-        android:gravity="center_vertical"
-        android:background="?attr/paper_color"
+        android:paddingTop="@dimen/list_item_vertical_padding"
         android:textColor="?attr/section_title_color"
         android:visibility="gone"
-        tools:visibility="visible"
-        tools:text="Header text" />
+        tools:text="Header text"
+        tools:visibility="visible" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/list_item_vertical_padding"
         android:layout_marginStart="@dimen/list_item_horizontal_padding"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="@dimen/list_item_vertical_padding">
+        android:layout_marginTop="16dp">
 
         <FrameLayout
             android:id="@+id/page_list_item_image_container"
@@ -43,89 +42,81 @@
             android:layout_height="wrap_content">
 
             <com.facebook.drawee.view.SimpleDraweeView
-                style="@style/SimpleDraweeViewPlaceholder.Article"
                 android:id="@+id/page_list_item_image"
+                style="@style/SimpleDraweeViewPlaceholder.Article"
                 android:layout_width="@dimen/view_list_card_item_image"
                 android:layout_height="@dimen/view_list_card_item_image"
-                app:roundedCornerRadius="2dp"
-                app:backgroundImage="@color/base100" />
+                app:backgroundImage="@color/base100"
+                app:roundedCornerRadius="2dp" />
 
             <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/page_list_item_selected_image"
                 android:layout_width="@dimen/view_list_card_item_image"
                 android:layout_height="@dimen/view_list_card_item_image"
-                android:visibility="gone"
-                android:padding="8dp"
-                app:srcCompat="@drawable/ic_check_black_24dp"
-                android:tint="@android:color/white"
                 android:background="@drawable/button_shape_gray"
+                android:contentDescription="@null"
+                android:padding="8dp"
+                android:tint="@android:color/white"
+                android:visibility="gone"
                 app:backgroundTint="@color/accent50"
-                android:contentDescription="@null"/>
+                app:srcCompat="@drawable/ic_check_black_24dp" />
 
         </FrameLayout>
 
         <LinearLayout
+            android:id="@+id/item_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="-2dp"
             android:layout_gravity="center_vertical">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/page_list_item_title"
+                    style="@style/MaterialListTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    style="@style/MaterialListTitle"
-                    tools:text="Lorem ipsum"
-                    android:layout_toStartOf="@+id/page_list_item_action_secondary"
-                    android:layout_centerVertical="true"/>
+                    android:layout_gravity="center_vertical"
+                    tools:text="Lorem ipsum" />
 
-                <ImageView
-                    android:id="@+id/page_list_item_action_secondary"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:padding="8dp"
-                    android:layout_marginTop="-7dp"
-                    android:layout_marginBottom="-7dp"
-                    android:clickable="true"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    app:srcCompat="@drawable/ic_download_circle_gray_24dp"
-                    android:contentDescription="@null"
-                    android:visibility="gone"
-                    tools:visibility="visible"
-                    android:layout_toStartOf="@+id/page_list_item_action_primary"/>
+                <org.wikipedia.views.GoneIfEmptyTextView
+                    android:id="@+id/page_list_item_description"
+                    style="@style/MaterialListSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    tools:text="Lorem ipsum" />
+            </LinearLayout>
 
-                <android.support.v7.widget.AppCompatImageView
-                    android:id="@+id/page_list_item_action_primary"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:padding="8dp"
-                    android:clickable="true"
-                    android:layout_marginTop="-7dp"
-                    android:layout_marginBottom="-7dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    app:srcCompat="@drawable/ic_favorite_white_24dp"
-                    app:tint="?attr/material_theme_de_emphasised_color"
-                    app:tintMode="src_in"
-                    android:contentDescription="@null"
-                    android:visibility="gone"
-                    tools:visibility="visible"
-                    android:layout_alignParentEnd="true"/>
-            </RelativeLayout>
+            <ImageView
+                android:id="@+id/page_list_item_action_secondary"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@null"
+                android:visibility="gone"
+                app:srcCompat="@drawable/ic_download_circle_gray_24dp"
+                tools:visibility="visible" />
 
-            <org.wikipedia.views.GoneIfEmptyTextView
-                android:id="@+id/page_list_item_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="80dp"
-                style="@style/MaterialListSubtitle"
-                tools:text="Lorem ipsum"/>
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/page_list_item_action_primary"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@null"
+                android:visibility="gone"
+                app:srcCompat="@drawable/ic_favorite_white_24dp"
+                android:tint="?attr/material_theme_secondary_color"
+                app:tintMode="src_in"
+                tools:visibility="visible" />
         </LinearLayout>
 
     </LinearLayout>

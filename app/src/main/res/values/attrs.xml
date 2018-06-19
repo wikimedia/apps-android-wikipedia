@@ -12,6 +12,7 @@
     <attr name="edit_improve_tag_unselected_drawable" format="reference" />
     <attr name="lead_image_drawable" format="reference"/>
     <attr name="list_separator_drawable" format="reference"/>
+    <attr name="list_separator_drawable_bottom_content" format="reference"/>
     <attr name="nearby_marker_drawable" format="reference"/>
     <attr name="tab_item_selector" format="reference"/>
     <attr name="tab_shadow_drawable" format="reference"/>
