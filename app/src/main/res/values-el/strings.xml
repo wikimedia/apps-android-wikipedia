@@ -424,9 +424,18 @@
     <item quantity="one">Λήψη λήμματος</item>
     <item quantity="other">Λήψη λημμάτων</item>
   </plurals>
-  <string name="notification_syncing_title" fuzzy="true">Λήψη των %1$d λήμμα (-άτων)</string>
-  <string name="notification_syncing_description" fuzzy="true">Έχουν μείνει %1$d λήμματα</string>
-  <string name="notification_syncing_reading_list_title" fuzzy="true">Συγχρονισμός %1$d λίστα(-ών) σε εξέλιξη...</string>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">Λήψη %1$d λήμματος σε εξέλιξη...</item>
+    <item quantity="other">Λήψη %1$d λημμάτων σε εξέλιξη...</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">Έχει μείνει %1$d λήμμα</item>
+    <item quantity="other">Έχουν μείνει %1$d λήμματα</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Συγχρονισμός %1$d λίστας σε εξέλιξη...</item>
+    <item quantity="other">Συγχρονισμός %1$d λιστών σε εξέλιξη...</item>
+  </plurals>
   <plurals name="notification_syncing_reading_list_description">
     <item quantity="one">απομένει μια %1$d λίστα</item>
     <item quantity="other">απομένουν %1$d λίστες</item>
@@ -444,6 +453,7 @@
   <string name="view_featured_image_card_download">Λήψη</string>
   <string name="menu_feed_card_dismiss">Απόκρυψη αυτής της κάρτας</string>
   <string name="menu_feed_card_dismissed">Η κάρτα αποκρύφθηκε.</string>
+  <string name="menu_feed_card_edit_card_languages">Επεξεργασία καρτών γλώσσας</string>
   <string name="menu_feed_overflow_label">Περισσότερες επιλογές</string>
   <string name="feed_featured_image_share_subject">Προβεβλημμένη εικόνα από τα Wikimedia Commons</string>
   <string name="feed">Εξερεύνηση</string>
@@ -598,6 +608,7 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Κρατήστε τουλάχιστον μια γλώσσα Βικιπαίδειας από την οποία θα γίνεται αναζήτηση και ανάγνωση περιεχομένου.</string>
   <string name="more_language_options">περισσότερα</string>
   <string name="add_wikipedia_languages_text">Πρόσθεση γλωσσών Βικιπαίδειας</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Αφαίρεση μιας Κινεζικής παραλλαγής από τις γλώσσες εφαρμογής σας;</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Επεξεργασία γλωσσών</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Όχι, ευχαριστώ</string>
 </resources>
