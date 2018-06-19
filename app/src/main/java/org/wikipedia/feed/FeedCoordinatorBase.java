@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.dayheader.DayHeaderCard;
@@ -11,6 +12,7 @@ import org.wikipedia.feed.featured.FeaturedArticleCard;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
+import org.wikipedia.feed.model.WikiSiteCard;
 import org.wikipedia.feed.mostread.MostReadListCard;
 import org.wikipedia.feed.news.NewsListCard;
 import org.wikipedia.feed.offline.OfflineCard;
@@ -115,8 +117,10 @@ public abstract class FeedCoordinatorBase {
             FeedContentType.MAIN_PAGE.setEnabled(false);
             FeedContentType.saveState();
         } else if (card.type() == CardType.NEWS_LIST) {
-            FeedContentType.NEWS.setEnabled(false);
-            FeedContentType.saveState();
+            FeedContentType contentType = card.type().contentType();
+            FeedContentType.saveState(contentType, ((WikiSiteCard) card).wikiSite().languageCode());
+            // TODO: get more accurate list of the supported languages of this card
+            contentType.setEnabled(WikipediaApp.getInstance().language().getAppLanguageCodes().size() != contentType.getLangCodesDisabled().size());
         } else {
             addHiddenCard(card);
         }
@@ -133,8 +137,10 @@ public abstract class FeedCoordinatorBase {
             FeedContentType.MAIN_PAGE.setEnabled(true);
             FeedContentType.saveState();
         } else if (card.type() == CardType.NEWS_LIST) {
-            FeedContentType.NEWS.setEnabled(true);
-            FeedContentType.saveState();
+            FeedContentType contentType = card.type().contentType();
+            FeedContentType.undoSaveState(contentType, ((WikiSiteCard) card).wikiSite().languageCode());
+            // TODO: get more accurate list of the supported languages of this card
+            contentType.setEnabled(WikipediaApp.getInstance().language().getAppLanguageCodes().size() != contentType.getLangCodesDisabled().size());
         } else {
             unHideCard(card);
         }

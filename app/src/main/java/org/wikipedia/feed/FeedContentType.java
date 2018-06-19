@@ -173,6 +173,11 @@ public enum FeedContentType implements EnumCode {
         return list;
     }
 
+    public static void saveState(@NonNull FeedContentType type, @NonNull String disabledLangCode) {
+        type.langCodesDisabled.add(disabledLangCode);
+        saveState();
+    }
+
     public static void saveState() {
         List<Boolean> enabledList = new ArrayList<>();
         List<Integer> orderList = new ArrayList<>();
@@ -191,6 +196,11 @@ public enum FeedContentType implements EnumCode {
         Prefs.setFeedCardsOrder(orderList);
         Prefs.setFeedCardsLangSupported(langSupportedMap);
         Prefs.setFeedCardsLangDisabled(langDisabledMap);
+    }
+
+    public static void undoSaveState(@NonNull FeedContentType type, @NonNull String disabledLangCode) {
+        type.langCodesDisabled.remove(disabledLangCode);
+        saveState();
     }
 
     public static void restoreState() {
