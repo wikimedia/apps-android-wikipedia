@@ -12,7 +12,7 @@ public class SearchFunnel extends Funnel {
      * if you change the schema name or version.
      */
     private static final String SCHEMA_NAME = "MobileWikiAppSearch";
-    private static final int REVISION = 18137741;
+    private static final int REVISION = 18144116;
     private SearchInvokeSource source;
 
     public SearchFunnel(WikipediaApp app, SearchInvokeSource source) {
@@ -79,7 +79,7 @@ public class SearchFunnel extends Funnel {
 
     @Override
     protected JSONObject preprocessData(@NonNull JSONObject eventData) {
-        preprocessData(eventData, "source", source.code());
+        preprocessData(eventData, "invoke_source", source.code());
         return super.preprocessData(eventData);
     }
 }
