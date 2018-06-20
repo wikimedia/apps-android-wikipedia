@@ -53,7 +53,6 @@
         <item name="page_expanded_status_bar_color">@color/base12</item>
         <item name="page_toolbar_color">@color/base18</item>
         <item name="page_toolbar_icon_color">@color/base100</item>
-        <item name="edit_text_color">@color/base90</item>
         <item name="nav_tab_background_color">@color/base18</item>
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_dark</item>
         <item name="multi_select_background_color">@color/accent30</item>

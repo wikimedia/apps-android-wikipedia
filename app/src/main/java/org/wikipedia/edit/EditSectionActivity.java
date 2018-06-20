@@ -2,7 +2,6 @@ package org.wikipedia.edit;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,11 +16,9 @@ import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -483,42 +480,23 @@ public class EditSectionActivity extends BaseActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_edit_section, menu);
         MenuItem item = menu.findItem(R.id.menu_save_section);
-
-        if (editSummaryFragment.isActive()) {
-            item.setTitle(getString(R.string.edit_next));
-        } else if (editPreviewFragment.isActive()) {
-            item.setTitle(getString(R.string.edit_done));
-        } else {
-            item.setTitle(getString(R.string.edit_next));
-        }
+        item.setTitle(getString(editPreviewFragment.isActive() ? R.string.edit_done : R.string.edit_next));
 
         if (abusefilterEditResult != null) {
-            if (abusefilterEditResult.getType() == EditAbuseFilterResult.TYPE_ERROR) {
-                item.setEnabled(false);
-            } else {
-                item.setEnabled(true);
-            }
+            item.setEnabled(abusefilterEditResult.getType() != EditAbuseFilterResult.TYPE_ERROR);
         } else {
             item.setEnabled(sectionTextModified);
         }
 
         View v = getLayoutInflater().inflate(R.layout.item_edit_actionbar_button, null);
         item.setActionView(v);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.MATCH_PARENT);
-        v.setLayoutParams(params);
-        TextView txtView = v.findViewById(R.id.edit_actionbar_button_text);
-        txtView.setText(item.getTitle());
-        txtView.setTypeface(null, item.isEnabled() ? Typeface.BOLD : Typeface.NORMAL);
+        TextView textView = v.findViewById(R.id.edit_actionbar_button_text);
+        textView.setText(item.getTitle());
+        textView.setTextColor(ResourceUtil.getThemedColor(this,
+                item.isEnabled() ? R.attr.colorAccent : R.attr.material_theme_de_emphasised_color));
         v.setTag(item);
-        v.setClickable(true);
         v.setEnabled(item.isEnabled());
         v.setOnClickListener((view) -> onOptionsItemSelected((MenuItem) view.getTag()));
-
-        v.setBackgroundColor(ContextCompat.getColor(this, item.isEnabled()
-                ? (editPreviewFragment.isActive() ? R.color.accent50
-                : ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent)) : R.color.base50));
-
         return true;
     }
 

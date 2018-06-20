@@ -7,7 +7,6 @@
     <attr name="page_toolbar_color" format="reference"/>
     <attr name="page_toolbar_icon_color" format="reference"/>
     <attr name="toc_item_background" format="reference"/>
-    <attr name="edit_text_color" format="reference"/>
     <attr name="edit_improve_tag_selected_drawable" format="reference" />
     <attr name="edit_improve_tag_unselected_drawable" format="reference" />
     <attr name="lead_image_drawable" format="reference"/>
