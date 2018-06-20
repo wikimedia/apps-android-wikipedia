@@ -51,7 +51,6 @@ public class SavedPageSyncService extends JobIntentService {
     @NonNull private final PageImageUrlParser pageImageUrlParser
             = new PageImageUrlParser(new ImageTagParser(), new PixelDensityDescriptorParser());
     private SavedPageSyncNotification savedPageSyncNotification;
-    private static boolean SHOULD_SKIP_DOWNLOADING_PAGES = Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi();
 
     public SavedPageSyncService() {
         savedPageSyncNotification = SavedPageSyncNotification.getInstance();
@@ -65,24 +64,16 @@ public class SavedPageSyncService extends JobIntentService {
         WikipediaApp.getInstance().getMainThreadHandler().postDelayed(ENQUEUE_RUNNABLE, ENQUEUE_DELAY_MILLIS);
     }
 
-    public static void forceDownloadPages() {
-        SHOULD_SKIP_DOWNLOADING_PAGES = false;
-    }
-
     @Override protected void onHandleWork(@NonNull Intent intent) {
-
-        if (SHOULD_SKIP_DOWNLOADING_PAGES) {
-            // skip the action of downloading articles
-            return;
-        }
-
         if (ReadingListSyncAdapter.inProgress()) {
             // Reading list sync was started in the meantime, so bail.
             return;
         }
 
-        List<ReadingListPage> pagesToSave = ReadingListDbHelper.instance().getAllPagesToBeForcedSave().size() > 0
-                ? ReadingListDbHelper.instance().getAllPagesToBeForcedSave() : ReadingListDbHelper.instance().getAllPagesToBeSaved();
+        List<ReadingListPage> pagesToSave = ReadingListDbHelper.instance().getAllPagesToBeForcedSave();
+        if (!Prefs.isDownloadOnlyOverWiFiEnabled() || DeviceUtil.isOnWiFi()) {
+            pagesToSave.addAll(ReadingListDbHelper.instance().getAllPagesToBeSaved());
+        }
         List<ReadingListPage> pagesToUnsave = ReadingListDbHelper.instance().getAllPagesToBeUnsaved();
         List<ReadingListPage> pagesToDelete = ReadingListDbHelper.instance().getAllPagesToBeDeleted();
         boolean shouldSendSyncEvent = false;
@@ -120,7 +111,6 @@ public class SavedPageSyncService extends JobIntentService {
             } else {
                 savedPageSyncNotification.cancelNotification(getApplicationContext());
                 savedPageSyncNotification.setSyncCanceled(false);
-                SHOULD_SKIP_DOWNLOADING_PAGES = Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi();
                 if (shouldSendSyncEvent) {
                     sendSyncEvent();
                 }

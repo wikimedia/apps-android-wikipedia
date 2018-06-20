@@ -1,6 +1,8 @@
 package org.wikipedia.readinglist;
 
 import android.animation.LayoutTransition;
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -43,7 +45,6 @@ import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
-import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -406,14 +407,8 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         @Override
         public void onSaveAllOffline(@NonNull ReadingList readingList) {
             if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi()) {
-                SavedPageSyncService.forceDownloadPages();
-                new AlertDialog.Builder(requireActivity())
-                        .setTitle(R.string.dialog_title_download_only_over_wifi)
-                        .setMessage(R.string.dialog_text_download_only_over_wifi)
-                        .setPositiveButton(R.string.dialog_title_download_only_over_wifi_allow, (dialog, which)
-                                -> saveAllOffline(readingList, true))
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .show();
+                showMobileDataWarningDialog(requireActivity(), (dialog, which)
+                        -> saveAllOffline(readingList, true));
             } else {
                 saveAllOffline(readingList, false);
             }
@@ -425,6 +420,15 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
             updateLists();
             showMultiSelectOfflineStateChangeSnackbar(readingList.pages(), false);
         }
+    }
+
+    public static void showMobileDataWarningDialog(@NonNull Activity activity, @NonNull DialogInterface.OnClickListener listener) {
+        new AlertDialog.Builder(activity)
+                .setTitle(R.string.dialog_title_download_only_over_wifi)
+                .setMessage(R.string.dialog_text_download_only_over_wifi)
+                .setPositiveButton(R.string.dialog_title_download_only_over_wifi_allow, listener)
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
     }
 
     private void saveAllOffline(@NonNull ReadingList readingList, boolean forcedSave) {
