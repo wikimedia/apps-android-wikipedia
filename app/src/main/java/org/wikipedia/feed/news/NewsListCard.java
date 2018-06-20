@@ -37,6 +37,6 @@ public class NewsListCard extends ListCard<NewsItemCard> {
     }
 
     @Override protected int dismissHashCode() {
-        return (int) TimeUnit.MILLISECONDS.toDays(date.baseCalendar().getTime().getTime());
+        return (int) TimeUnit.MILLISECONDS.toDays(date.baseCalendar().getTime().getTime()) + wikiSite().hashCode();
     }
 }
