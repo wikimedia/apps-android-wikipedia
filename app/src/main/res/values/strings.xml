@@ -454,7 +454,7 @@
         <item quantity="one">This article will no longer be available offline.</item>
         <item quantity="other">These articles will no longer be available offline.</item>
     </plurals>
-    <string name="reading_list_toast_last_sync">Last sync: %s</string>
+    <string name="reading_list_toast_last_sync">Reading lists synced successfully</string>
     <!-- /Reading lists -->
 
     <!-- User options -->
