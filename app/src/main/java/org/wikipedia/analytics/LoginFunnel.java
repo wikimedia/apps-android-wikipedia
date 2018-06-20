@@ -7,7 +7,7 @@ import org.wikipedia.WikipediaApp;
  */
 public class LoginFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppLogin";
-    private static final int REVISION = 18115556;
+    private static final int REVISION = 18144592;
 
     public static final String SOURCE_NAV = "navigation";
     public static final String SOURCE_EDIT = "edit";
@@ -29,7 +29,7 @@ public class LoginFunnel extends Funnel {
         log(
                 "action", "start",
                 "source", source,
-                "editSessionToken", editSessionToken
+                "edit_session_token", editSessionToken
         );
     }
 
@@ -54,7 +54,7 @@ public class LoginFunnel extends Funnel {
     public void logError(String code) {
         log(
                 "action", "error",
-                "errorText", code
+                "error_text", code
         );
     }
 
