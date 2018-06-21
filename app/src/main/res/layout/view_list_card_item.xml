@@ -53,7 +53,6 @@
                     android:padding="8dp"
                     app:srcCompat="@drawable/ic_more_vert_white_24dp"
                     app:tint="?attr/material_theme_de_emphasised_color"
-                    app:tintMode="src_in"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/abc_action_menu_overflow_description"
                     android:layout_alignParentEnd="true"/>
