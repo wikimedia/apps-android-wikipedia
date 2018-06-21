@@ -28,8 +28,7 @@
                 android:layout_marginRight="16dp"
                 android:contentDescription="@null"
                 app:srcCompat="@drawable/ic_check_black_24dp"
-                app:tint="?attr/material_theme_secondary_color"
-                app:tintMode="src_in" />
+                app:tint="?attr/material_theme_secondary_color"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -51,8 +50,7 @@
                 android:layout_marginRight="16dp"
                 android:contentDescription="@null"
                 app:srcCompat="@drawable/ic_check_black_24dp"
-                app:tint="?attr/material_theme_secondary_color"
-                app:tintMode="src_in" />
+                app:tint="?attr/material_theme_secondary_color"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -74,8 +72,7 @@
                 android:layout_marginRight="16dp"
                 android:contentDescription="@null"
                 app:srcCompat="@drawable/ic_check_black_24dp"
-                app:tint="?attr/material_theme_secondary_color"
-                app:tintMode="src_in" />
+                app:tint="?attr/material_theme_secondary_color"/>
 
             <TextView
                 android:layout_width="match_parent"

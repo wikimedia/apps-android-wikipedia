@@ -231,6 +231,10 @@
   <string name="dialog_close_description">Затваряне</string>
   <string name="preference_title_show_images">Показване на изображения</string>
   <string name="preference_summary_show_images">Позволяване или забраняване на зареждането на изображения в страниците. Махнете отметката от тази настройка, ако Интернет връзката Ви е слаба или мобилните Ви данни са ограничени.</string>
+  <string name="preference_title_download_only_over_wifi">Сваляне само през Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi">Потвърждаване на изтегляне с мобилни данни?</string>
+  <string name="dialog_text_download_only_over_wifi">Опцията „Сваляне само през Wi-Fi“ е включена в настройките Ви. Желаете ли да разрешите използването на мобилните Ви данни само за това изтегляне?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Разрешаване</string>
   <string name="read_more_section">Прочетете повече</string>
   <string name="about_article_section">Относно тази статия</string>
   <string name="menu_gallery_visit_page">Към страницата на файла</string>
@@ -431,6 +435,7 @@
     <item quantity="one">Тази статия вече не е налична в офлайн режим.</item>
     <item quantity="other">Тези статии вече не са налични в офлайн режим.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Последна синхронизация: %s</string>
   <string name="user_option_sync_label">Предпочитания</string>
   <string name="notification_button_view_user">Беседа с потребителя</string>
   <string name="notification_talk_title">Ново съобщение в Уикипедия</string>

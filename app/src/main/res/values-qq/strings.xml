@@ -247,7 +247,7 @@
   <string name="preference_title_download_only_over_wifi">Preference title for users to download articles only over Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Title of the dialog that shows the confirmation of downloading articles using mobile data.</string>
   <string name="dialog_text_download_only_over_wifi">Description of the dialog that shows the confirmation of downloading articles using mobile data.</string>
-  <string name="dialog_title_download_only_over_wifi_allow">Positive option of the dialog that shows the confirmation of downloading articles using mobile data.</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Positive option of the dialog that shows the confirmation of downloading articles using mobile data.\n{{Identical|Allow}}</string>
   <string name="read_more_section">Title of the Read More section at the bottom of each page.\n\nThis section shows other automatically-selected articles, similarly to how it works with \"Related Articles\" ({{msg-mw|Relatedarticles-read-more-heading}}).\n\n{{Identical|Read more}}</string>
   <string name="about_article_section">Title of section that contains information specific to the current article.</string>
   <string name="menu_gallery_visit_page">Menu label for navigating to the File page for the current image being shown in the gallery.</string>

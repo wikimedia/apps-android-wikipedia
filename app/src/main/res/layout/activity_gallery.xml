@@ -85,14 +85,13 @@
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:background="@color/black38"
             android:gravity="center_vertical">
-            <ImageView
+            <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/gallery_license_icon"
                 android:layout_width="18dp"
                 android:layout_height="18dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 tools:src="@drawable/ic_license_cc"
-                android:tint="@color/white70"
-                android:tintMode="src_in"
+                app:tint="@color/white70"
                 android:contentDescription="@null"/>
             <org.wikipedia.views.AppTextView
                 android:id="@+id/gallery_credit_text"

@@ -11,6 +11,7 @@
 * Rajatkatiyar10
 * Rishi.Singh
 * Sachinkatiyar
+* Sagsag
 * Sahilrathod
 * Sfic
 * Siddhartha Ghai
@@ -540,4 +541,5 @@
     <item quantity="one">पिछले साल</item>
     <item quantity="other">%d साल पहले</item>
   </plurals>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">নাই, নালাগে দিয়ক</string>
 </resources>

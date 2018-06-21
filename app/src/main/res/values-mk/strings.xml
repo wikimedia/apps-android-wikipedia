@@ -229,6 +229,10 @@
   <string name="dialog_close_description">Затвори</string>
   <string name="preference_title_show_images">Прикажувај слики</string>
   <string name="preference_summary_show_images">Овозможи или оневозможи вчитување на слики во страниците. Отштиклирајте ја поставкава ако сегашната семрежна врска ви е бавна, или пак ако имате ограничен податочен пакет.</string>
+  <string name="preference_title_download_only_over_wifi">Преземај само преку Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi">Го потврдувате преземањето со мобилни податоци?</string>
+  <string name="dialog_text_download_only_over_wifi">Ја имате вклучено поставката „Преземај само преку Wi-Fi“. Дали би сакале да дозволите преземање со мобилни податоци само во овој случај?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Дозволи</string>
   <string name="read_more_section">Прочитајте повеќе</string>
   <string name="about_article_section">За статијава</string>
   <string name="menu_gallery_visit_page">Оди на податотечната страница</string>
@@ -429,6 +433,7 @@
     <item quantity="one">Статијава повеќе нема да биде достапна вонмрежно.</item>
     <item quantity="other">Статииве повеќе нема да бидат достапни вонмрежно.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync">Списоците за читање се успешно усогласени</string>
   <string name="user_option_sync_label">Поставки</string>
   <string name="notification_button_view_user">Разговарајте со корисникот</string>
   <string name="notification_talk_title">Нова порака на Википедија</string>

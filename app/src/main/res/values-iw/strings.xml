@@ -127,6 +127,7 @@
   <string name="create_account_button">יצירת חשבון</string>
   <string name="create_account_name_unavailable">שם המשתמש \"%s\" אינו זמין. נא לבחור שם משתמש אחר.</string>
   <string name="create_account_ip_block_message">מצטערים, כתובת ה־IP שלך חסומה כרגע מיצירת חשבונות חדשים.</string>
+  <string name="create_account_ip_block_help_url">https://he.wikipedia.org/wiki/WP:BLOCK</string>
   <string name="create_account_ip_block_details">פרטים</string>
   <string name="preferences_general_heading">כללי</string>
   <string name="wikipedia_app_faq">שו\"ת אפליקציית ויקיפדיה</string>
@@ -237,6 +238,10 @@
   <string name="dialog_close_description">סגירה</string>
   <string name="preference_title_show_images">להציג תמונות</string>
   <string name="preference_summary_show_images">הפעלה או כיבוי של טעינת תמונות בדפים. אפשר לכבות את ההגדרה הזאת אם חיבור האינטרנט שלך אטי או אם ספק התקשורת מגביל את צריכת הנתונים בקו שלך.</string>
+  <string name="preference_title_download_only_over_wifi">להוריד רק בווייפיי</string>
+  <string name="dialog_title_download_only_over_wifi">לאשר הורדה בנתונים ניידים?</string>
+  <string name="dialog_text_download_only_over_wifi">הפעלת את האפשרות \"להוריד רק בווייפיי\". האם לאפשר את השימוש בנתונים ניידים רק עבור ההורדה הזאת?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">לאפשר</string>
   <string name="read_more_section">לקרוא עוד</string>
   <string name="about_article_section">מידע על הערך הזה</string>
   <string name="menu_gallery_visit_page">ללכת לדף הקובץ</string>
@@ -437,6 +442,7 @@
     <item quantity="one">הערך הזה לא יהיה עוד זמין ללא חיבור לרשת.</item>
     <item quantity="other">הערכים האילה לא יהיו עוד זמינים ללא חיבור לרשת.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync">רשימות הקריאה סונכרנו בהצלחה</string>
   <string name="user_option_sync_label">העדפות</string>
   <string name="notification_button_view_user">לדבר עם משתמש</string>
   <string name="notification_talk_title">הודעה חדשה בוויקיפדיה</string>

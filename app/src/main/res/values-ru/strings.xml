@@ -264,6 +264,10 @@
   <string name="dialog_close_description">Закрыть</string>
   <string name="preference_title_show_images">Показывать изображения</string>
   <string name="preference_summary_show_images">Включить или отключить загрузку изображений на страницах. Выключите эту настройку, если у вас медленное интернет-подключение или трафик на вашем тарифном плане ограничен.</string>
+  <string name="preference_title_download_only_over_wifi">Скачивать только по Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi">Подтверждать скачивание по мобильной сети?</string>
+  <string name="dialog_text_download_only_over_wifi">В настройках вы указали «Скачивать только по Wi-Fi». Хотите только для текущей закачки использовать мобильную сеть?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Разрешить</string>
   <string name="read_more_section">Связанные статьи</string>
   <string name="about_article_section">Об этой статье</string>
   <string name="menu_gallery_visit_page">Перейти к странице файла</string>
@@ -464,6 +468,7 @@
     <item quantity="one">Эта статья больше не будет доступна в офлайн-режиме.</item>
     <item quantity="other">Эти статьи больше не будут доступны в офлайн-режиме.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Последняя синхронизация: %s</string>
   <string name="user_option_sync_label">Настройки</string>
   <string name="notification_button_view_user">Написать участнику</string>
   <string name="notification_talk_title">Новое сообщение в Википедии</string>

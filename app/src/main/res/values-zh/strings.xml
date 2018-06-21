@@ -242,6 +242,10 @@
   <string name="dialog_close_description">关闭</string>
   <string name="preference_title_show_images">显示图像</string>
   <string name="preference_summary_show_images">启用或停用页面中图像的加载功能。当您的网络连接过慢，或数据流量有限时，请不要选择该设置。</string>
+  <string name="preference_title_download_only_over_wifi">只在有Wi-Fi的情况下下载</string>
+  <string name="dialog_title_download_only_over_wifi">确认使用移动数据下载么？</string>
+  <string name="dialog_text_download_only_over_wifi">您已在设置中启用“只在有Wi-Fi的情况下下载”。您是否希望只在这次使用您的移动数据计划下载？</string>
+  <string name="dialog_title_download_only_over_wifi_allow">允许</string>
   <string name="read_more_section">阅读更多</string>
   <string name="about_article_section">关于此条目</string>
   <string name="menu_gallery_visit_page">前往文件页面</string>
@@ -442,6 +446,7 @@
     <item quantity="one">该条目将不再可以离线使用。</item>
     <item quantity="other">这些条目将不再可以离线使用。</item>
   </plurals>
+  <string name="reading_list_toast_last_sync">阅读列表已成功同步</string>
   <string name="user_option_sync_label">参数设置</string>
   <string name="notification_button_view_user">与用户讨论</string>
   <string name="notification_talk_title">维基百科上的新消息</string>
