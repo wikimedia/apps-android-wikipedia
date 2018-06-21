@@ -452,6 +452,7 @@
     <item quantity="one">Este artigo não estará mais disponível off-line.</item>
     <item quantity="other">Estes artigos não estarão mais disponíveis off-line.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Última sincronização: %s</string>
   <string name="user_option_sync_label">Preferências</string>
   <string name="notification_button_view_user">Falar com usuário</string>
   <string name="notification_talk_title">Nova mensagem na Wikipédia</string>

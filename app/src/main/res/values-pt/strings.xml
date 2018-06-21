@@ -240,6 +240,10 @@
   <string name="dialog_close_description">Fechar</string>
   <string name="preference_title_show_images">Mostrar imagens</string>
   <string name="preference_summary_show_images">Ativar ou desativar o carregamento das imagens nas páginas. Desmarque esta opção se a sua ligação à Internet está lenta ou se o seu plano de dados é limitado.</string>
+  <string name="preference_title_download_only_over_wifi">Descarregar só por Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi">Confirma o descarregamento usando dados móveis?</string>
+  <string name="dialog_text_download_only_over_wifi">Nas definições tem a opção \"Descarregar só por Wi-Fi\" ligada. Quer permitir a utilização do seu plano de dados móveis só para este descarregamento?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Permitir</string>
   <string name="read_more_section">Ler mais</string>
   <string name="about_article_section">Sobre este artigo</string>
   <string name="menu_gallery_visit_page">Ir para a página do ficheiro</string>
@@ -440,6 +444,7 @@
     <item quantity="one">Este artigo deixará de estar disponível sem acesso à Internet.</item>
     <item quantity="other">Estes artigos deixarão de estar disponíveis sem acesso à Internet.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Última sincronização: %s</string>
   <string name="user_option_sync_label">Preferências</string>
   <string name="notification_button_view_user">Falar com o utilizador</string>
   <string name="notification_talk_title">Mensagem nova na Wikipédia</string>

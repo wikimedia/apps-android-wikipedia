@@ -234,6 +234,9 @@
   <string name="dialog_close_description">বন্ধ</string>
   <string name="preference_title_show_images">ছবি প্রদর্শন</string>
   <string name="preference_summary_show_images">পাতায় ছবি লোড চালু বা বন্ধ করুন। যদি আপনার ইন্টারনেট সংযোগ ধীর হয়, বা যদি আপনার ডেটা প্ল্যান সীমিত হয় তাহলে এই সেটিংস থেকে টিক চিহ্ন তুলে নিন।</string>
+  <string name="preference_title_download_only_over_wifi">শুধু Wi-Fi-এ ডাউনলোড করুন</string>
+  <string name="dialog_title_download_only_over_wifi">আপনি মোবাইল ডেটা ব্যবহার করে ডাউনলোড করতে নিশ্চিত?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">মঞ্জুর</string>
   <string name="read_more_section">আরও জানুন</string>
   <string name="about_article_section">এই নিবন্ধ সম্পর্কে</string>
   <string name="menu_gallery_visit_page">ফাইলের পৃষ্ঠাতে যান</string>

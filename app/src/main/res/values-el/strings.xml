@@ -232,6 +232,7 @@
   <string name="dialog_close_description">Κλείσιμο</string>
   <string name="preference_title_show_images">Προβολή εικόνων</string>
   <string name="preference_summary_show_images">Ενεργοποιήσετε ή να απενεργοποιήσετε τη φόρτωση εικόνων σε σελίδες. Απενεργοποιήστε αυτή τη ρύθμιση, εάν η σύνδεσή σας στο Διαδίκτυο είναι αργή, ή αν το σχέδιο δεδομένων σας (διαθέσιμα Mb) είναι περιορισμένο.</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Επιτρέψτε</string>
   <string name="read_more_section">Διαβάστε περισσότερα</string>
   <string name="about_article_section">Σχετικά με αυτό το λήμμα</string>
   <string name="menu_gallery_visit_page">Μεταβείτε στη σελίδα αρχείου</string>
@@ -409,6 +410,7 @@
     <item quantity="one">Αυτό το λήμμα δεν θα είναι πλέον διαθέσιμο εκτός σύνδεσης.</item>
     <item quantity="other">Αυτά τα λήμματα δεν θα είναι πλέον διαθέσιμα εκτός σύνδεσης.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Τελευταίος συγχρονισμός: %s</string>
   <string name="user_option_sync_label">Προτιμήσεις</string>
   <string name="notification_button_view_user">Συζητήστε με τον χρήστη</string>
   <string name="notification_talk_title">Νέο μήνυμα στη Βικιπαίδεια</string>

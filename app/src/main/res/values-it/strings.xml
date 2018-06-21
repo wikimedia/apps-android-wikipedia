@@ -237,6 +237,7 @@
   <string name="dialog_close_description">Chiudi</string>
   <string name="preference_title_show_images">Mostra immagini</string>
   <string name="preference_summary_show_images">Abilitare o disabilitare il caricamento delle immagini nelle pagine. Deseleziona questa impostazione se la tua connessione Internet è lenta, o se il tuo traffico dati è limitato.</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Consenti</string>
   <string name="read_more_section">Per saperne di più</string>
   <string name="about_article_section">Su questa voce</string>
   <string name="menu_gallery_visit_page">Vai alla pagina del file</string>
@@ -385,6 +386,7 @@
     <item quantity="one">Questa voce non sarà più disponibile non in linea.</item>
     <item quantity="other">Queste voci non saranno più disponibili non in linea.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Ultima sincronizzazione: %s</string>
   <string name="user_option_sync_label">Preferenze</string>
   <string name="notification_talk_title">Nuovo messaggio su Wikipedia</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; ti ha lasciato un messaggio sulla tua pagina di discussione &lt;strong&gt;%2$s&lt;/strong&gt;</string>
