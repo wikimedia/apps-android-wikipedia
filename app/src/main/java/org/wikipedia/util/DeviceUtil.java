@@ -7,6 +7,7 @@ import android.content.pm.ResolveInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.view.View;
@@ -71,6 +72,9 @@ public final class DeviceUtil {
     }
 
     public static boolean isLocationServiceEnabled(@NonNull Context context) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+            return true;
+        }
         int locationMode = Settings.Secure.LOCATION_MODE_OFF;
         try {
             locationMode = Settings.Secure.getInt(context.getContentResolver(),

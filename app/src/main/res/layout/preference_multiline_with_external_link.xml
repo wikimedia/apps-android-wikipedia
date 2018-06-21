@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@android:id/title"
             android:layout_alignStart="@android:id/title"
+            android:layout_alignLeft="@android:id/title"
             android:textAppearance="@style/MaterialListSubtitle"
             android:maxLines="2" />
     </RelativeLayout>

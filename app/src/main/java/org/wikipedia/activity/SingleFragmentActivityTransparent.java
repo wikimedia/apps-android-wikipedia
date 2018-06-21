@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewCompat;
 
 import org.wikipedia.R;
 import org.wikipedia.theme.Theme;
@@ -20,7 +21,7 @@ public abstract class SingleFragmentActivityTransparent<T extends Fragment> exte
         super.onCreate(savedInstanceState);
 
         setContentView(getLayout());
-        findViewById(getContainerId()).setBackground(null);
+        ViewCompat.setBackground(findViewById(getContainerId()), null);
 
         if (!isFragmentCreated()) {
             addFragment(createFragment());

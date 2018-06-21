@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -81,7 +82,7 @@ public class ReadingListHeaderView extends FrameLayout {
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT));
 
-        gradientView.setBackground(GradientUtil.getPowerGradient(R.color.black54, Gravity.TOP));
+        ViewCompat.setBackground(gradientView, GradientUtil.getPowerGradient(R.color.black54, Gravity.TOP));
 
         if (isInEditMode()) {
             return;

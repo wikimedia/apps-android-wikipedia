@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.PointF;
 import android.net.Uri;
 import android.support.annotation.Nullable;
+import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -77,6 +78,6 @@ public class PageHeaderImageView extends FrameLayout {
         inflate(getContext(), R.layout.view_page_header_image, this);
         ButterKnife.bind(this);
 
-        gradientView.setBackground(getPowerGradient(R.color.black38, Gravity.TOP));
+        ViewCompat.setBackground(gradientView, getPowerGradient(R.color.black38, Gravity.TOP));
     }
 }

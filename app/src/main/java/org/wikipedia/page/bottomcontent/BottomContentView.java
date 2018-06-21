@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Paint;
 import android.net.Uri;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -422,7 +423,11 @@ public class BottomContentView extends LinearLayoutOverWebView
             View itemLayout = convertView.findViewById(R.id.item_layout);
             MarginLayoutParams layoutParams = (MarginLayoutParams) itemLayout.getLayoutParams();
             final int marginEnd = 8;
-            layoutParams.setMarginEnd((int) DimenUtil.dpToPx(marginEnd));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                layoutParams.setMarginEnd((int) DimenUtil.dpToPx(marginEnd));
+            } else {
+                layoutParams.rightMargin = (int) DimenUtil.dpToPx(marginEnd);
+            }
             itemLayout.setLayoutParams(layoutParams);
             primaryActionBtn.setOnClickListener(view -> CallbackTask.execute(() -> ReadingListDbHelper.instance().findPageInAnyList(result.getPageTitle()), new CallbackTask.DefaultCallback<ReadingListPage>() {
                 @Override

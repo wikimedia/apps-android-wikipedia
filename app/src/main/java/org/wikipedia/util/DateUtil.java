@@ -69,7 +69,11 @@ public final class DateUtil {
     }
 
     private static String getDateStringWithSkeletonPattern(@NonNull Date date, @NonNull String pattern) {
-        return new SimpleDateFormat(android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault()).format(date);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            return new SimpleDateFormat(android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault()).format(date);
+        } else {
+            return new SimpleDateFormat(pattern).format(date);
+        }
     }
 
     public static String getShortDateString(@NonNull Date date) {

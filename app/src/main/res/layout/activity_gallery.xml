@@ -98,6 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="8dp"
+                android:paddingLeft="8dp"
                 android:textIsSelectable="true"
                 tools:text="Credits"
                 android:textColor="@color/white70"

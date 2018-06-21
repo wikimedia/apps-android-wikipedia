@@ -34,6 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/list_item_vertical_padding"
         android:layout_marginStart="@dimen/list_item_horizontal_padding"
+        android:layout_marginLeft="@dimen/list_item_horizontal_padding"
         android:layout_marginTop="16dp">
 
         <FrameLayout
@@ -72,8 +73,8 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -99,6 +100,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@null"
                 android:visibility="gone"
@@ -110,6 +112,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@null"
                 android:visibility="gone"

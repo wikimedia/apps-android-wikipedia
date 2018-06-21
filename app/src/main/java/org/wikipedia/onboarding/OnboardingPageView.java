@@ -121,7 +121,7 @@ public class OnboardingPageView extends LinearLayout {
             Drawable background = array.getDrawable(R.styleable.OnboardingPageView_background);
 
             if (background != null) {
-                setBackground(background);
+                ViewCompat.setBackground(this, background);
             }
             imageViewCentered.setImageDrawable(centeredImage);
             primaryTextView.setText(primaryText);
@@ -187,7 +187,9 @@ public class OnboardingPageView extends LinearLayout {
 
         @Override
         public void onBindViewHolder(@NonNull OptionsViewHolder holder, int position) {
-            holder.optionLabelTextView.setTextDirection(ViewCompat.LAYOUT_DIRECTION_LTR == ViewCompat.getLayoutDirection(primaryTextView) ? TEXT_DIRECTION_LTR : TEXT_DIRECTION_RTL);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                holder.optionLabelTextView.setTextDirection(ViewCompat.LAYOUT_DIRECTION_LTR == ViewCompat.getLayoutDirection(primaryTextView) ? TEXT_DIRECTION_LTR : TEXT_DIRECTION_RTL);
+            }
             holder.optionLabelTextView.setText(String.format(getContext().getString(R.string.onboarding_option_string), String.valueOf(position + 1), items.get(position)));
         }
 

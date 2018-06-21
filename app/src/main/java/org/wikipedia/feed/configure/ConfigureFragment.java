@@ -50,6 +50,7 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_feed_configure, container, false);
         unbinder = ButterKnife.bind(this, view);
+        setupRecyclerView();
 
         funnel = new FeedConfigureFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().getWikiSite(),
                 requireActivity().getIntent().getIntExtra(ConfigureActivity.INVOKE_SOURCE_EXTRA, -1));
@@ -83,7 +84,6 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
                 }
                 FeedContentType.saveState();
                 prepareContentTypeList();
-                setupRecyclerView();
             }
 
             @Override
@@ -92,7 +92,6 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
                     return;
                 }
                 prepareContentTypeList();
-                setupRecyclerView();
             }
 
             private boolean isLimitedToDomains(@NonNull List<String> domainNames) {
@@ -159,7 +158,6 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
                 FeedContentType.restoreState();
                 prepareContentTypeList();
                 touch();
-                recyclerView.getAdapter().notifyDataSetChanged();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -190,6 +188,7 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
                 i.remove();
             }
         }
+        recyclerView.getAdapter().notifyDataSetChanged();
     }
 
     private void setupRecyclerView() {

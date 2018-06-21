@@ -373,9 +373,11 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             int pad2 = (int) DimenUtil.dpToPx(PADDING2);
             int pad3 = (int) DimenUtil.dpToPx(PADDING3);
 
-            descTextView.setPaddingRelative(pad1, 0, 0, 0);
-            pagesRecycler.setPaddingRelative(pad2, 0, 0, 0);
-            yearTextView.setPaddingRelative(pad3, 0, 0, 0);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                descTextView.setPaddingRelative(pad1, 0, 0, 0);
+                pagesRecycler.setPaddingRelative(pad2, 0, 0, 0);
+                yearTextView.setPaddingRelative(pad3, 0, 0, 0);
+            }
         }
 
         private void setPagesRecycler(OnThisDay.Event event) {

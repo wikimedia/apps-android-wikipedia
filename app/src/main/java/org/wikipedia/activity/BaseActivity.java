@@ -53,8 +53,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     private EventBusMethodsExclusive exclusiveBusMethods;
     private NetworkStateReceiver networkStateReceiver = new NetworkStateReceiver();
 
+    private boolean isDestroyed;
+
     @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        isDestroyed = false;
         localBusMethods = new EventBusMethodsNonExclusive();
         exclusiveBusMethods = new EventBusMethodsExclusive();
         WikipediaApp.getInstance().getBus().register(localBusMethods);
@@ -89,6 +92,14 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
         exclusiveBusMethods = null;
         super.onDestroy();
+        isDestroyed = true;
+    }
+
+    @Override public boolean isDestroyed() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            return super.isDestroyed();
+        }
+        return isDestroyed;
     }
 
     @Override protected void onResume() {

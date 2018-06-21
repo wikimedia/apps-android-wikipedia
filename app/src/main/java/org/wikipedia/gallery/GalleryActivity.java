@@ -17,6 +17,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -174,10 +175,10 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         toolbarContainer = findViewById(R.id.gallery_toolbar_container);
         infoContainer = findViewById(R.id.gallery_info_container);
 
-        findViewById(R.id.gallery_toolbar_gradient)
-                .setBackground(GradientUtil.getPowerGradient(R.color.black26, Gravity.TOP));
-        findViewById(R.id.gallery_info_gradient)
-                .setBackground(GradientUtil.getPowerGradient(R.color.black38, Gravity.BOTTOM));
+        ViewCompat.setBackground(findViewById(R.id.gallery_toolbar_gradient),
+                GradientUtil.getPowerGradient(R.color.black26, Gravity.TOP));
+        ViewCompat.setBackground(findViewById(R.id.gallery_info_gradient),
+                GradientUtil.getPowerGradient(R.color.black38, Gravity.BOTTOM));
 
         progressBar = findViewById(R.id.gallery_progressbar);
 

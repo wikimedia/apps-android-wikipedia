@@ -8,6 +8,7 @@ import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,7 +61,7 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
         unbinder = ButterKnife.bind(this, view);
         background = (GradientDrawable) ContextCompat.getDrawable(requireContext(), getBackgroundResId());
         background.mutate();
-        layout.setBackground(background);
+        ViewCompat.setBackground(layout, background);
         adapter = getAdapter();
         viewPager.setAdapter(adapter);
         doneButton.setText(getDoneButtonText());

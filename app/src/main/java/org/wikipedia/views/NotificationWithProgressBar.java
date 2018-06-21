@@ -135,7 +135,9 @@ public class NotificationWithProgressBar {
                                                         int requestCode) {
         Intent resultIntent = new Intent(context, targetClass);
         resultIntent.putExtra(intentExtra, true);
-        resultIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            resultIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        }
         return PendingIntent.getBroadcast(context, requestCode,
                 resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
     }

@@ -11,13 +11,15 @@
         android:layout_width="1dp"
         android:layout_height="100dp"
         android:background="?attr/chart_shade5"
-        android:layout_marginStart="27dp" />
+        android:layout_marginStart="27dp"
+        android:layout_marginLeft="27dp"/>
 
     <LinearLayout
         android:id="@+id/back_to_top_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginBottom="24dp"
         android:background="?attr/paper_color"
         android:clickable="true"
@@ -53,6 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
             android:layout_marginTop="2dp"
             android:layout_gravity="center_vertical"
             android:fontFamily="sans-serif-medium"

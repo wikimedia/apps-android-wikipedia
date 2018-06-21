@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.PorterDuff;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.widget.TextView;
 
@@ -25,7 +26,7 @@ public class LanguageItemHolder extends DefaultViewHolder<View> {
         langCodeView.setText(langCode);
         langCodeView.setTextColor(enabled ? ContextCompat.getColor(context, android.R.color.white)
                 : ResourceUtil.getThemedColor(context, R.attr.material_theme_de_emphasised_color));
-        langCodeView.setBackground(ContextCompat.getDrawable(context,
+        ViewCompat.setBackground(langCodeView, ContextCompat.getDrawable(context,
                 enabled ? R.drawable.lang_button_shape : R.drawable.lang_button_shape_border));
         langCodeView.getBackground().setColorFilter(enabled ? ContextCompat.getColor(context, R.color.base30)
                         : ResourceUtil.getThemedColor(context, R.attr.material_theme_de_emphasised_color),

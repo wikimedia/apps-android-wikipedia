@@ -3,6 +3,7 @@ package org.wikipedia.readinglist;
 import android.animation.LayoutTransition;
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -118,9 +119,11 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
 
         WikipediaApp.getInstance().getBus().register(eventBusMethods);
 
-        contentContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
-        emptyContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
-        ((ViewGroup)emptyContainer.getChildAt(0)).getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            contentContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+            emptyContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+            ((ViewGroup) emptyContainer.getChildAt(0)).getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+        }
         swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent));
         swipeRefreshLayout.setOnRefreshListener(() -> refreshSync(ReadingListsFragment.this, swipeRefreshLayout));
         if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {

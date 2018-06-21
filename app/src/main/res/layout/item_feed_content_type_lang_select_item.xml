@@ -11,7 +11,9 @@
     android:paddingTop="16dp"
     android:paddingBottom="16dp"
     android:paddingStart="24dp"
+    android:paddingLeft="24dp"
     android:paddingEnd="20dp"
+    android:paddingRight="20dp"
     android:background="?attr/selectableItemBackground"
     android:gravity="center_vertical">
 

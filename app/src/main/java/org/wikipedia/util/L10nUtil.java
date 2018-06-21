@@ -3,6 +3,7 @@ package org.wikipedia.util;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.util.SparseArray;
@@ -93,7 +94,9 @@ public final class L10nUtil {
      * @param lang Wiki code for the language based on which to set direction
      */
     public static void setConditionalTextDirection(View view, String lang) {
-        view.setTextDirection(isLangRTL(lang) ? View.TEXT_DIRECTION_RTL : View.TEXT_DIRECTION_LTR);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            view.setTextDirection(isLangRTL(lang) ? View.TEXT_DIRECTION_RTL : View.TEXT_DIRECTION_LTR);
+        }
     }
 
     /**
@@ -105,7 +108,9 @@ public final class L10nUtil {
      * @param lang Wiki code for the language based on which to set direction
      */
     public static void setConditionalLayoutDirection(View view, String lang) {
-        view.setLayoutDirection(isLangRTL(lang) ? View.LAYOUT_DIRECTION_RTL : View.LAYOUT_DIRECTION_LTR);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            view.setLayoutDirection(isLangRTL(lang) ? View.LAYOUT_DIRECTION_RTL : View.LAYOUT_DIRECTION_LTR);
+        }
     }
 
     /**
@@ -157,12 +162,16 @@ public final class L10nUtil {
     private static SparseArray<String> getStringsForLocale(@NonNull Locale targetLocale,
                                                            @StringRes int[] strings) {
         Configuration config = getCurrentConfiguration();
-        Locale systemLocale = ConfigurationCompat.getLocale(config);
-        setDesiredLocale(config, targetLocale);
-        SparseArray<String> localizedStrings = getTargetStrings(strings, config);
-        config.setLocale(systemLocale);
-        resetConfiguration(config);
-        return localizedStrings;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            Locale systemLocale = ConfigurationCompat.getLocale(config);
+            setDesiredLocale(config, targetLocale);
+            SparseArray<String> localizedStrings = getTargetStrings(strings, config);
+            config.setLocale(systemLocale);
+            resetConfiguration(config);
+            return localizedStrings;
+        } else {
+            return getTargetStrings(strings, config);
+        }
     }
 
     private static Configuration getCurrentConfiguration() {
@@ -200,6 +209,9 @@ public final class L10nUtil {
     }
 
     public static void setDesiredLocale(@NonNull Configuration config, @NonNull Locale desiredLocale) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            return;
+        }
         // when loads API in chinese variant, we can get zh-hant, zh-hans and zh
         // but if we want to display chinese correctly based on the article itself, we have to
         // detect the variant from the API responses; otherwise, we will only get english texts.

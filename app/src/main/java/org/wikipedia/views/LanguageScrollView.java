@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -85,8 +86,8 @@ public class LanguageScrollView extends ConstraintLayout {
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
-        if (gradientView.getBackground() == null) {
-            gradientView.setBackground(new GradientDrawable(ViewCompat.getLayoutDirection(this) == LAYOUT_DIRECTION_LTR
+        if (gradientView.getBackground() == null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            ViewCompat.setBackground(gradientView, new GradientDrawable(ViewCompat.getLayoutDirection(this) == LAYOUT_DIRECTION_LTR
                     ? GradientDrawable.Orientation.LEFT_RIGHT : GradientDrawable.Orientation.RIGHT_LEFT,
                     new int[]{Color.TRANSPARENT, ResourceUtil.getThemedColor(getContext(), R.attr.page_toolbar_color)}));
         }
@@ -161,7 +162,7 @@ public class LanguageScrollView extends ConstraintLayout {
             languageCodeTextView.setTextColor(textColor);
         }
         if (background != null) {
-            languageCodeTextView.setBackground(background);
+            ViewCompat.setBackground(languageCodeTextView, background);
         }
         if (backgroundColorTint != null) {
             languageCodeTextView.getBackground().setColorFilter(backgroundColorTint, PorterDuff.Mode.SRC_IN);
