@@ -60,8 +60,7 @@
                 android:background="?attr/actionBarItemBackground"
                 android:contentDescription="@string/abc_action_menu_overflow_description"
                 app:srcCompat="@drawable/ic_more_vert_white_24dp"
-                app:tint="?attr/material_theme_secondary_color"
-                app:tintMode="src_in"/>
+                app:tint="?attr/material_theme_secondary_color"/>
         </LinearLayout>
 
         <View

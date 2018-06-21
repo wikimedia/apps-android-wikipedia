@@ -9,7 +9,6 @@
         android:layout_gravity="center_horizontal"
         app:tint="?attr/material_theme_secondary_color"
         app:srcCompat="@drawable/ic_error_black_24dp"
-        app:tintMode="src_in"
         android:contentDescription="@null"/>
     <TextView
         android:id="@+id/view_link_preview_error_text"
