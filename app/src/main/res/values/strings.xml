@@ -47,6 +47,7 @@
     <string name="menu_text_select_copy">Copy</string>
     <string name="menu_text_select_define">Define</string>
     <string name="menu_text_select_share">Share</string>
+    <string name="menu_text_select_move">Move</string>
     <string name="menu_text_select_edit_here">Edit here</string>
 
     <!-- Nearby -->
@@ -348,6 +349,9 @@
     <string name="reading_list_title_exists">Reading list \"%s\" already exists.</string>
     <string name="reading_list_entry_empty">Please enter a title.</string>
     <string name="reading_list_added_to_named">Added to %s.</string>
+
+    <string name="reading_list_moved_to_named">Moved to %s.</string>
+
     <string name="reading_list_already_exists">This article is already in that list.</string>
     <string name="reading_list_added_view_button">View list</string>
     <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f MB</string>
@@ -390,6 +394,7 @@
     <string name="reading_list_article_offline">Available offline</string>
     <string name="reading_list_article_make_offline">Make this article available offline</string>
     <string name="reading_list_add_to_other_list">Add to another reading list</string>
+    <string name="reading_list_move_to_other_list">Move to another reading list</string>
     <string name="reading_list_remove_from_list">Remove from %s</string>
     <string name="reading_list_remove_from_lists">Remove from reading lists</string>
     <string name="reading_list_confirm_remove_article_from_offline">Remove from offline</string>
@@ -406,7 +411,8 @@
     <string name="reading_lists_confirm_remote_delete_no">No</string>
     <string name="reading_list_article_save_in_progress">The article is being downloaded, and it will be available offline when complete.</string>
     <string name="reading_list_already_contains_selection">The chosen list already contains all of the selected pages.</string>
-    <string name="reading_list_added_articles_list_titled">Added %1$d articles to %2$s</string>
+    <string name="reading_list_added_articles_list_titled">Added %1$d articles to %2$s.</string>
+    <string name="reading_list_moved_articles_list_titled">Moved %1$d articles to %2$s.</string>
     <string name="reading_list_delete_confirm">Are you sure you want to delete %s?</string>
     <string name="reading_list_preference_login_to_enable_sync_dialog_title">Log in to enable sync</string>
     <string name="reading_list_preference_login_to_enable_sync_dialog_text">Log in to allow your reading lists to be saved to your account.</string>

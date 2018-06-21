@@ -150,6 +150,22 @@ public class ReadingListDbHelper {
         }
     }
 
+    public void movePageToList(@NonNull ReadingList fromList, @NonNull ReadingList toList, @NonNull PageTitle title, boolean queueForSync) {
+        // TODO: Remove parameter <code>fromList</code> and get it inside the method.
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+        try {
+            movePageToList(db, fromList, toList, title);
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+        SavedPageSyncService.enqueue();
+        if (queueForSync) {
+            ReadingListSyncAdapter.manualSync();
+        }
+    }
+
     public void addPageToList(@NonNull ReadingList list, @NonNull PageTitle title, boolean queueForSync) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
@@ -216,6 +232,40 @@ public class ReadingListDbHelper {
         insertPageInDb(db, list, protoPage);
 
         WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(protoPage));
+    }
+
+    private void movePageToList(SQLiteDatabase db, @NonNull ReadingList fromList, @NonNull ReadingList toList, @NonNull PageTitle title) {
+        addPageToList(db, toList, title);
+
+        ReadingListPage page = new ReadingListPage(title);
+
+        ArrayList<ReadingListPage> list = new ArrayList<>();
+        list.add(page);
+
+        markPagesForDeletion(fromList, list);
+    }
+
+    public int movePagesToListIfNotExist(@NonNull ReadingList fromList, @NonNull ReadingList toList, @NonNull List<PageTitle> titles) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+        int numMoved = 0;
+        try {
+            for (PageTitle title : titles) {
+                if (getPageByTitle(db, toList, title) != null) {
+                    continue;
+                }
+                movePageToList(db, fromList, toList, title);
+                numMoved++;
+            }
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+        if (numMoved > 0) {
+            SavedPageSyncService.enqueue();
+            ReadingListSyncAdapter.manualSync();
+        }
+        return numMoved;
     }
 
     public void markPagesForDeletion(@NonNull ReadingList list, @NonNull List<ReadingListPage> pages) {
@@ -411,6 +461,36 @@ public class ReadingListDbHelper {
     public ReadingListPage getPageByTitle(@NonNull ReadingList list, @NonNull PageTitle title) {
         SQLiteDatabase db = getReadableDatabase();
         return getPageByTitle(db, list, title);
+    }
+
+    /**
+     *
+     * TODO: Testing.
+     *
+     * */
+    @Nullable
+    public ReadingList getReadingListByTitle(@NonNull String title) {
+        SQLiteDatabase db = getReadableDatabase();
+        try (Cursor cursor = db.query(ReadingListContract.TABLE, null,
+                ReadingListContract.Col.TITLE.getName() + " = ?", new String[]{title},
+                null, null, null)) {
+           if (cursor.moveToFirst()) {
+               return ReadingList.DATABASE_TABLE.fromCursor(cursor);
+            }
+        }
+        return null;
+    }
+
+    public ReadingList getReadingListById(long id) {
+        SQLiteDatabase db = getReadableDatabase();
+        try (Cursor cursor = db.query(ReadingListContract.TABLE, null,
+                ReadingListContract.Col.ID.getName() + " = ?", new String[]{Long.toString(id)},
+                null, null, null)) {
+            if (cursor.moveToFirst()) {
+                return ReadingList.DATABASE_TABLE.fromCursor(cursor);
+            }
+        }
+        return null;
     }
 
     @NonNull

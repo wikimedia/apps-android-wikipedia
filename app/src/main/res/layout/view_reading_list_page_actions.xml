@@ -83,6 +83,32 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/reading_list_item_move"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground">
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="@dimen/list_item_horizontal_padding"
+            android:layout_marginRight="@dimen/list_item_horizontal_padding"
+            android:layout_gravity="center_vertical"
+            app:srcCompat="@drawable/ic_share_black_24dp"
+            android:tint="?attr/secondary_text_color"
+            android:contentDescription="@null"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/list_item_horizontal_padding"
+            android:paddingRight="@dimen/list_item_horizontal_padding"
+            android:gravity="center_vertical"
+            android:textColor="?attr/primary_text_color"
+            android:textSize="16sp"
+            android:text="@string/menu_text_select_move"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/reading_list_item_add_to_other"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

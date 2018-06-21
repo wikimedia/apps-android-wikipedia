@@ -77,6 +77,14 @@ public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragm
         }
 
         @Override
+        public void onMove() {
+            dismiss();
+            if (callback() != null) {
+                callback().onAddItemToOther(pageIndex);
+            }
+        }
+
+        @Override
         public void onAddToOther() {
             dismiss();
             if (callback() != null) {
