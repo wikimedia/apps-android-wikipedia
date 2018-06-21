@@ -12,11 +12,9 @@ import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.replaceText;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static android.support.test.espresso.matcher.ViewMatchers.withClassName;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_1000;
 import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_2000;
@@ -47,16 +45,7 @@ public final class SearchBehaviors {
                         isDisplayed()));
         frameLayout.perform(click());
 
-        ViewInteraction plainPasteEditText = onView(
-                allOf(withId(R.id.preference_languages_filter),
-                        childAtPosition(
-                                childAtPosition(
-                                        withClassName(is("android.support.design.widget.TextInputLayout")),
-                                        0),
-                                0),
-                        isDisplayed()));
-        plainPasteEditText.perform(replaceText("test"), closeSoftKeyboard());
-        waitFor(WAIT_FOR_2000);
+        // TODO: correctly search for Test language.
 
         // take screenshot
         if (shouldTakeScreenshot) {
