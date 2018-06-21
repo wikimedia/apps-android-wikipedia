@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.util.StringUtil;
 
 import java.util.concurrent.TimeUnit;
@@ -20,12 +21,9 @@ public class DailyStatsFunnel extends Funnel {
     }
 
     public void log(Context context) {
-        log(getInstallAgeDays(context));
-    }
-
-    public void log(long appInstallAgeDays) {
-        log("appInstallAgeDays", appInstallAgeDays,
-                "languages", StringUtil.listToJsonArrayString(getApp().language().getAppLanguageCodes()));
+        log("appInstallAgeDays", getInstallAgeDays(context),
+                "languages", StringUtil.listToJsonArrayString(getApp().language().getAppLanguageCodes()),
+                "is_anon", AccountUtil.isLoggedIn() ? 0 : 1);
     }
 
     @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) { }
