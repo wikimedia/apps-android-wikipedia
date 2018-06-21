@@ -581,6 +581,17 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     @Override
+    public void onMoveItem(int pageIndex) {
+        ReadingListPage page = readingList == null ? null : readingList.pages().get(pageIndex);
+        if (page != null) {
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    MoveToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page),
+                            readingList,
+                            MoveToReadingListDialog.InvokeSource.READING_LIST_ACTIVITY));
+        }
+    }
+
+    @Override
     public void onDeleteItem(int pageIndex) {
         ReadingListPage page = readingList == null ? null : readingList.pages().get(pageIndex);
         deleteSinglePage(page);
@@ -639,6 +650,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     private class HeaderCallback implements ReadingListItemView.Callback {
         @Override
         public void onClick(@NonNull ReadingList readingList) {
+
         }
 
         @Override

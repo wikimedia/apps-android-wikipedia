@@ -155,8 +155,11 @@ public class ReadingListDbHelper {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
+            L.e("Calling intrinsic movePageToList");
             movePageToList(db, fromList, toList, title);
             db.setTransactionSuccessful();
+        } catch (Exception ex) {
+            L.e("movePageToList ex: " + ex.toString());
         } finally {
             db.endTransaction();
         }
@@ -242,6 +245,8 @@ public class ReadingListDbHelper {
         ArrayList<ReadingListPage> list = new ArrayList<>();
         list.add(page);
 
+        L.e("list (" + fromList.title() + ")" + " content: " + list.get(0).title());
+
         markPagesForDeletion(fromList, list);
     }
 
@@ -275,6 +280,8 @@ public class ReadingListDbHelper {
     public void markPagesForDeletion(@NonNull ReadingList list, @NonNull List<ReadingListPage> pages, boolean queueForSync) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
+        L.e("Page count before deletion: " + list.pages().size());
+        L.e("Marking for deletion (0): " + list.title() + " -> " + pages.get(0).title());
         try {
             for (ReadingListPage page : pages) {
                 page.status(ReadingListPage.STATUS_QUEUE_FOR_DELETE);
@@ -285,11 +292,15 @@ public class ReadingListDbHelper {
                 ReadingListSyncAdapter.manualSyncWithDeletePages(list, pages);
             }
 
+            L.e("Posting");
             WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(pages.toArray(new ReadingListPage[]{})));
+        } catch (Exception ex) {
+            L.e("markPagesForDeletion failed with: " + ex.toString());
         } finally {
             db.endTransaction();
         }
         SavedPageSyncService.enqueue();
+        L.e("Page count after deletion: " + list.pages().size());
     }
 
     public void markPageForOffline(@NonNull ReadingListPage page, boolean offline, boolean forcedSave) {
@@ -481,12 +492,18 @@ public class ReadingListDbHelper {
                 ReadingListContract.Col.TITLE.getName() + " = ?", new String[]{title},
                 null, null, null)) {
            if (cursor.moveToFirst()) {
-               return ReadingList.DATABASE_TABLE.fromCursor(cursor);
-            }
+               ReadingList found = ReadingList.DATABASE_TABLE.fromCursor(cursor);
+               populateListPages(db, found);
+               L.e("Cursor found: " + found.title() + " with " + found.pages().size() + " pages");
+               return found;
+            } else {
+               L.e("Cursor did not find any");
+           }
         }
         return null;
     }
 
+    @Nullable
     public ReadingList getReadingListById(long id) {
         SQLiteDatabase db = getReadableDatabase();
         try (Cursor cursor = db.query(ReadingListContract.TABLE, null,
