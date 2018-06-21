@@ -9,8 +9,10 @@ import android.content.SyncResult;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import android.widget.Toast;
 
 import org.wikipedia.BuildConfig;
+import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.csrf.CsrfTokenClient;
@@ -26,6 +28,7 @@ import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
@@ -110,7 +113,7 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
     }
 
     private static void manualSync(@NonNull Bundle extras) {
-        if (AccountUtil.account() == null) {
+        if (AccountUtil.account() == null || !DeviceUtil.isOnline()) {
             if (extras.containsKey(SYNC_EXTRAS_REFRESHING)) {
                 SavedPageSyncService.sendSyncEvent();
             }
@@ -557,6 +560,8 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
 
             if (shouldSendSyncEvent) {
                 SavedPageSyncService.sendSyncEvent();
+                WikipediaApp.getInstance().getMainThreadHandler().post(()
+                        -> Toast.makeText(WikipediaApp.getInstance(), R.string.reading_list_toast_last_sync, Toast.LENGTH_SHORT).show());
             }
             if ((shouldRetry || shouldRetryWithForce) && !extras.containsKey(SYNC_EXTRAS_RETRYING)) {
                 Bundle b = new Bundle();

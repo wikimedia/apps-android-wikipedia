@@ -462,7 +462,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
     private void removeSelectedPagesFromOffline(List<ReadingListPage> selectedPages) {
         if (!selectedPages.isEmpty()) {
-            ReadingListDbHelper.instance().markPagesForOffline(selectedPages, false);
+            ReadingListDbHelper.instance().markPagesForOffline(selectedPages, false, false);
             showMultiSelectOfflineStateChangeSnackbar(selectedPages, false);
             adapter.notifyDataSetChanged();
             update();
@@ -470,8 +470,17 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     private void saveSelectedPagesForOffline(List<ReadingListPage> selectedPages) {
+        if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi()) {
+            ReadingListsFragment.showMobileDataWarningDialog(requireActivity(), (dialog, which)
+                    -> saveSelectedPagesForOffline(selectedPages, true));
+        } else {
+            saveSelectedPagesForOffline(selectedPages, false);
+        }
+    }
+
+    private void saveSelectedPagesForOffline(@NonNull List<ReadingListPage> selectedPages, boolean forcedSave) {
         if (!selectedPages.isEmpty()) {
-            ReadingListDbHelper.instance().markPagesForOffline(selectedPages, true);
+            ReadingListDbHelper.instance().markPagesForOffline(selectedPages, true, forcedSave);
             showMultiSelectOfflineStateChangeSnackbar(selectedPages, true);
             adapter.notifyDataSetChanged();
             update();
@@ -578,7 +587,16 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     private void toggleOffline(@NonNull ReadingListPage page) {
-        ReadingListDbHelper.instance().markPageForOffline(page, !page.offline());
+        if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi() && !page.offline()) {
+            ReadingListsFragment.showMobileDataWarningDialog(requireActivity(), (dialog, which)
+                    -> toggleOffline(page, true));
+        }  else {
+            toggleOffline(page, false);
+        }
+    }
+
+    private void toggleOffline(@NonNull ReadingListPage page, boolean forcedSave) {
+        ReadingListDbHelper.instance().markPageForOffline(page, !page.offline(), forcedSave);
         if (getActivity() != null) {
             FeedbackUtil.showMessage(getActivity(), page.offline()
                     ? getQuantityString(R.plurals.reading_list_article_offline_message, 1)
@@ -660,6 +678,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             getView().setImageUrl(page.thumbUrl());
             getView().setSelected(page.selected());
             getView().setActionIcon(R.drawable.ic_more_vert_white_24dp);
+            getView().setActionTint(R.attr.material_theme_de_emphasised_color);
             getView().setActionHint(R.string.abc_action_menu_overflow_description);
             getView().setSecondaryActionIcon(page.saving()
                     ? R.drawable.ic_download_started : R.drawable.ic_download_circle_gray_24dp,

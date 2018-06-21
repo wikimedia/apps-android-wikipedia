@@ -12,6 +12,7 @@ public class ReadingListPage {
     public static final int STATUS_QUEUE_FOR_SAVE = 0;
     public static final int STATUS_SAVED = 1;
     public static final int STATUS_QUEUE_FOR_DELETE = 2;
+    public static final int STATUS_QUEUE_FOR_FORCED_SAVE = 3;
 
     public static final ReadingListPageTable DATABASE_TABLE = new ReadingListPageTable();
 
@@ -168,6 +169,6 @@ public class ReadingListPage {
     }
 
     public boolean saving() {
-        return offline && status == STATUS_QUEUE_FOR_SAVE;
+        return offline && (status == STATUS_QUEUE_FOR_SAVE || status == STATUS_QUEUE_FOR_FORCED_SAVE);
     }
 }

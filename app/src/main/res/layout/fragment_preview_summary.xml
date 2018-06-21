@@ -10,7 +10,7 @@
     android:padding="8dp"
     android:visibility="gone"
     tools:visibility="visible"
-    android:background="?android:windowBackground">
+    android:background="?attr/paper_color">
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
                 android:paddingRight="16dp"
                 android:imeOptions="actionDone|flagNoExtractUi"
                 android:maxLength="255"
-                android:textColor="?attr/edit_text_color"
+                android:textColor="?attr/primary_text_color"
                 android:maxLines="1" />
     </android.support.design.widget.TextInputLayout>
 

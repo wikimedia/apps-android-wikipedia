@@ -9,6 +9,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.RbSwitch;
 import org.wikipedia.util.ReleaseUtil;
+import org.wikipedia.util.StringUtil;
 
 public class SessionFunnel extends Funnel {
     /**
@@ -117,6 +118,7 @@ public class SessionFunnel extends Funnel {
                 "totalPages", sessionData.getTotalPages(),
                 "leadLatency", sessionData.getLeadLatency(),
                 "restLatency", sessionData.getRestLatency(),
+                "languages", StringUtil.listToJsonArrayString(getApp().language().getAppLanguageCodes()),
                 "apiMode", RbSwitch.INSTANCE.isRestBaseEnabled() ? 1 : 0
         );
     }

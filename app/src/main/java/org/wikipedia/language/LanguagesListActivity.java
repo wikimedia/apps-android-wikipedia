@@ -1,6 +1,7 @@
 package org.wikipedia.language;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -19,6 +20,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
+import org.wikipedia.analytics.AppLanguageSearchingFunnel;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.util.ResourceUtil;
@@ -34,6 +36,8 @@ import butterknife.ButterKnife;
 import retrofit2.Call;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.wikipedia.settings.languages.WikipediaLanguagesFragment.ADD_LANGUAGE_INTERACTIONS;
+import static org.wikipedia.settings.languages.WikipediaLanguagesFragment.SESSION_TOKEN;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class LanguagesListActivity extends BaseActivity {
@@ -47,6 +51,11 @@ public class LanguagesListActivity extends BaseActivity {
     private String currentSearchQuery;
     private ActionMode actionMode;
     private SearchActionModeCallback searchActionModeCallback;
+    private AppLanguageSearchingFunnel searchingFunnel;
+    int interactionsCount = 0;
+    private boolean isLanguageSearched;
+    public static final String LANGUAGE_SEARCHED = "language_searched";
+
 
     private final LanguagesListActivity.SiteMatrixCallback siteMatrixCallback = new LanguagesListActivity.SiteMatrixCallback();
     @Nullable private List<SiteMatrixClient.SiteInfo> siteInfoList;
@@ -69,8 +78,8 @@ public class LanguagesListActivity extends BaseActivity {
 
         searchActionModeCallback = new LanguagesListActivity.LanguageSearchCallback();
         new SiteMatrixClient().request(WikiSite.forLanguageCode(app.language().getSystemLanguageCode()), siteMatrixCallback);
-
-        // TODO: add funnel?
+        String sessionToken = getIntent().getStringExtra(SESSION_TOKEN);
+        searchingFunnel = new AppLanguageSearchingFunnel(sessionToken);
     }
 
     @Override
@@ -95,6 +104,10 @@ public class LanguagesListActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         hideSoftKeyboard(this);
+        Intent returnIntent = new Intent();
+        returnIntent.putExtra(LANGUAGE_SEARCHED, isLanguageSearched);
+        setResult(RESULT_OK, returnIntent);
+        searchingFunnel.logNoLanguageAdded(false, currentSearchQuery);
         super.onBackPressed();
     }
 
@@ -102,6 +115,10 @@ public class LanguagesListActivity extends BaseActivity {
         private LanguagesListAdapter languageAdapter = (LanguagesListAdapter) recyclerView.getAdapter();
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            //currentSearchQuery is cleared here, instead of onDestroyActionMode
+            // in order to make the most recent search string available to analytics
+            currentSearchQuery = "";
+            isLanguageSearched = true;
             actionMode = mode;
             ViewUtil.finishActionModeWhenTappingOnView(recyclerView, actionMode);
             return super.onCreateActionMode(mode, menu);
@@ -122,9 +139,6 @@ public class LanguagesListActivity extends BaseActivity {
         @Override
         public void onDestroyActionMode(ActionMode mode) {
             super.onDestroyActionMode(mode);
-            if (!TextUtils.isEmpty(currentSearchQuery)) {
-                currentSearchQuery = "";
-            }
             emptyView.setVisibility(View.GONE);
             languageAdapter.reset();
             actionMode = null;
@@ -191,11 +205,14 @@ public class LanguagesListActivity extends BaseActivity {
                     String lang = languageCodes.get(pos);
                     if (!lang.equals(app.getAppOrSystemLanguageCode())) {
                         app.language().addAppLanguageCode(lang);
-
-                        // TODO: add funnel?
                     }
+                    interactionsCount++;
+                    searchingFunnel.logLanguageAdded(true, lang, currentSearchQuery);
                     hideSoftKeyboard(LanguagesListActivity.this);
-                    setResult(RESULT_OK);
+                    Intent returnIntent = new Intent();
+                    returnIntent.putExtra(ADD_LANGUAGE_INTERACTIONS, interactionsCount);
+                    returnIntent.putExtra(LANGUAGE_SEARCHED, isLanguageSearched);
+                    setResult(RESULT_OK, returnIntent);
                     finish();
                 });
             }

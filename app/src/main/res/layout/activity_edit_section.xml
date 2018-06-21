@@ -5,7 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/paper_color">
 
     <ProgressBar
         android:id="@+id/edit_section_load_progress"
@@ -18,6 +19,8 @@
         android:id="@+id/edit_section_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
         android:visibility="gone"
         tools:visibility="visible">
         <org.wikipedia.views.PlainPasteEditText
@@ -28,7 +31,7 @@
             android:gravity="top|start"
             android:imeOptions="actionNone"
             android:scrollbars="vertical"
-            android:textColor="?attr/edit_text_color" />
+            android:textColor="?attr/primary_text_color" />
     </ScrollView>
 
     <LinearLayout

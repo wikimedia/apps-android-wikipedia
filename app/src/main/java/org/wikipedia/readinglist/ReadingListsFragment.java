@@ -1,6 +1,8 @@
 package org.wikipedia.readinglist;
 
 import android.animation.LayoutTransition;
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -404,17 +406,35 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
 
         @Override
         public void onSaveAllOffline(@NonNull ReadingList readingList) {
-            ReadingListDbHelper.instance().markPagesForOffline(readingList.pages(), true);
-            updateLists();
-            showMultiSelectOfflineStateChangeSnackbar(readingList.pages(), true);
+            if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi()) {
+                showMobileDataWarningDialog(requireActivity(), (dialog, which)
+                        -> saveAllOffline(readingList, true));
+            } else {
+                saveAllOffline(readingList, false);
+            }
         }
 
         @Override
         public void onRemoveAllOffline(@NonNull ReadingList readingList) {
-            ReadingListDbHelper.instance().markPagesForOffline(readingList.pages(), false);
+            ReadingListDbHelper.instance().markPagesForOffline(readingList.pages(), false, false);
             updateLists();
             showMultiSelectOfflineStateChangeSnackbar(readingList.pages(), false);
         }
+    }
+
+    public static void showMobileDataWarningDialog(@NonNull Activity activity, @NonNull DialogInterface.OnClickListener listener) {
+        new AlertDialog.Builder(activity)
+                .setTitle(R.string.dialog_title_download_only_over_wifi)
+                .setMessage(R.string.dialog_text_download_only_over_wifi)
+                .setPositiveButton(R.string.dialog_title_download_only_over_wifi_allow, listener)
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
+    }
+
+    private void saveAllOffline(@NonNull ReadingList readingList, boolean forcedSave) {
+        ReadingListDbHelper.instance().markPagesForOffline(readingList.pages(), true, forcedSave);
+        updateLists();
+        showMultiSelectOfflineStateChangeSnackbar(readingList.pages(), true);
     }
 
     private void showMultiSelectOfflineStateChangeSnackbar(List<ReadingListPage> pages, boolean offline) {

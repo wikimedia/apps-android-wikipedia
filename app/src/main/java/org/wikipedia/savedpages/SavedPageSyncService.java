@@ -25,6 +25,7 @@ import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.UriUtil;
@@ -69,7 +70,10 @@ public class SavedPageSyncService extends JobIntentService {
             return;
         }
 
-        List<ReadingListPage> pagesToSave = ReadingListDbHelper.instance().getAllPagesToBeSaved();
+        List<ReadingListPage> pagesToSave = ReadingListDbHelper.instance().getAllPagesToBeForcedSave();
+        if (!Prefs.isDownloadOnlyOverWiFiEnabled() || DeviceUtil.isOnWiFi()) {
+            pagesToSave.addAll(ReadingListDbHelper.instance().getAllPagesToBeSaved());
+        }
         List<ReadingListPage> pagesToUnsave = ReadingListDbHelper.instance().getAllPagesToBeUnsaved();
         List<ReadingListPage> pagesToDelete = ReadingListDbHelper.instance().getAllPagesToBeDeleted();
         boolean shouldSendSyncEvent = false;
@@ -175,7 +179,7 @@ public class SavedPageSyncService extends JobIntentService {
             } else if (savedPageSyncNotification.isSyncCanceled()) {
                 // Mark remaining pages as online-only!
                 queue.add(page);
-                ReadingListDbHelper.instance().markPagesForOffline(queue, false);
+                ReadingListDbHelper.instance().markPagesForOffline(queue, false, false);
                 break;
             }
             savedPageSyncNotification.setNotificationProgress(getApplicationContext(), itemsTotal, itemsSaved);

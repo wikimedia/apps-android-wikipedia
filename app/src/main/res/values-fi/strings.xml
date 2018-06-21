@@ -630,6 +630,7 @@
   <string name="onboarding_got_it">Selvä</string>
   <string name="onboarding_multilingual_secondary_text">Löysimme seuraavat laitteestasi:</string>
   <string name="onboarding_multilingual_add_language_text">Lisää tai muokkaa kieliä</string>
+  <string name="onboarding_welcome_title_v2">Vapaa tietosanakirja\n…lähes 300 kielellä</string>
   <string name="app_shortcuts_random">Satunnainen</string>
   <string name="app_shortcuts_continue_reading">Jatka lukemista</string>
   <string name="app_shortcuts_search">Etsi</string>
@@ -650,7 +651,7 @@
   <string name="wikipedia_languages_title">Wikipedia-kielet</string>
   <string name="wikipedia_languages_your_languages_text">Kielesi</string>
   <string name="wikipedia_languages_add_language_text">Lisää kieli</string>
-  <string name="wikipedia_languages_remove_text" fuzzy="true">Poista</string>
+  <string name="wikipedia_languages_remove_text">Poista kieli</string>
   <string name="wikipedia_languages_remove_action_mode_title">Poista kieli</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Poista valittu kieli?</item>

@@ -12,12 +12,17 @@ import android.text.TextUtils;
 import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 
+import com.google.gson.Gson;
+
+import org.json.JSONArray;
+
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public final class StringUtil {
     private static final String CSV_DELIMITER = ",";
@@ -172,5 +177,19 @@ public final class StringUtil {
         return sb;
     }
 
-    private StringUtil() { }
+    @NonNull
+    public static String listToJsonArrayString(@NonNull List<String> list) {
+        return new JSONArray(list).toString();
+    }
+
+    public static String stringToListMapToJSONString(@Nullable Map<String, List<Integer>> map) {
+        return new Gson().toJson(map);
+    }
+
+    public static String listToJSONString(@Nullable List<Integer> list) {
+        return new Gson().toJson(list);
+    }
+
+    private StringUtil() {
+    }
 }

@@ -32,6 +32,7 @@ import org.wikipedia.feed.configure.LanguageItemAdapter;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.feed.model.WikiSiteCard;
 import org.wikipedia.feed.mostread.MostReadArticlesActivity;
 import org.wikipedia.feed.mostread.MostReadListCard;
 import org.wikipedia.feed.news.NewsItemCard;
@@ -40,6 +41,7 @@ import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.language.LanguageSettingsInvokeSource;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
@@ -183,7 +185,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                     .setTitle(R.string.dialog_of_remove_chinese_variants_from_app_lang_title)
                     .setMessage(R.string.dialog_of_remove_chinese_variants_from_app_lang_text)
                     .setPositiveButton(R.string.dialog_of_remove_chinese_variants_from_app_lang_edit, (dialog, which)
-                            -> showLanguagesActivity())
+                            -> showLanguagesActivity(LanguageSettingsInvokeSource.CHINESE_VARIANT_REMOVAL.text()))
                     .setNegativeButton(R.string.dialog_of_remove_chinese_variants_from_app_lang_no, null)
                     .show();
         }
@@ -342,7 +344,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onShowCard(@Nullable Card card) {
             if (card != null) {
-                funnel.cardShown(card.type());
+                funnel.cardShown(card.type(), getCardLanguageCode(card));
             }
         }
 
@@ -371,7 +373,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry) {
             if (getCallback() != null) {
                 getCallback().onFeedSelectPage(entry);
-                funnel.cardClicked(card.type());
+                funnel.cardClicked(card.type(), getCardLanguageCode(card));
             }
         }
 
@@ -379,7 +381,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         public void onSelectPageFromExistingTab(@NonNull Card card, @NonNull HistoryEntry entry) {
             if (getCallback() != null) {
                 getCallback().onFeedSelectPageFromExistingTab(entry);
-                funnel.cardClicked(card.type());
+                funnel.cardClicked(card.type(), getCardLanguageCode(card));
             }
         }
 
@@ -444,7 +446,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onNewsItemSelected(@NonNull NewsItemCard card, @NonNull HorizontalScrollingListCardItemView view) {
             if (getCallback() != null) {
-                funnel.cardClicked(card.type());
+                funnel.cardClicked(card.type(), card.wikiSite().languageCode());
                 getCallback().onFeedNewsItemSelected(card, view);
             }
         }
@@ -466,14 +468,14 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onFeaturedImageSelected(@NonNull FeaturedImageCard card) {
             if (getCallback() != null) {
-                funnel.cardClicked(card.type());
+                funnel.cardClicked(card.type(), null);
                 getCallback().onFeaturedImageSelected(card);
             }
         }
 
         @Override
         public void onAnnouncementPositiveAction(@NonNull Card card, @NonNull Uri uri) {
-            funnel.cardClicked(card.type());
+            funnel.cardClicked(card.type(), getCardLanguageCode(card));
             if (uri.toString().equals(UriUtil.LOCAL_URL_LOGIN)) {
                 if (getCallback() != null) {
                     getCallback().onLoginRequested();
@@ -483,7 +485,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             } else if (uri.toString().equals(UriUtil.LOCAL_URL_CUSTOMIZE_FEED)) {
                 showConfigureActivity(card.type().code());
             } else if (uri.toString().equals(UriUtil.LOCAL_URL_LANGUAGES)) {
-                showLanguagesActivity();
+                showLanguagesActivity(LanguageSettingsInvokeSource.ANNOUNCEMENT.text());
             } else {
                 UriUtil.handleExternalLink(requireContext(), uri);
             }
@@ -574,8 +576,8 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                 Constants.ACTIVITY_REQUEST_FEED_CONFIGURE);
     }
 
-    private void showLanguagesActivity() {
-        Intent intent = new Intent(requireActivity(), WikipediaLanguagesActivity.class);
+    private void showLanguagesActivity(@NonNull String invokeSource) {
+        Intent intent = WikipediaLanguagesActivity.newIntent(requireActivity(), invokeSource);
         startActivityForResult(intent, ACTIVITY_REQUEST_ADD_A_LANGUAGE);
     }
 
@@ -621,5 +623,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             Prefs.setReadingListsLastSyncTime(null);
             Prefs.setReadingListSyncEnabled(false);
         }
+    }
+
+    @Nullable
+    public String getCardLanguageCode(@Nullable Card card) {
+        return (card instanceof WikiSiteCard) ? ((WikiSiteCard) card).wikiSite().languageCode() : null;
     }
 }

@@ -490,6 +490,7 @@
   <string name="view_featured_image_card_download">Descarregar</string>
   <string name="menu_feed_card_dismiss">Ocultar este cartão</string>
   <string name="menu_feed_card_dismissed">Cartão ocultado.</string>
+  <string name="menu_feed_card_edit_card_languages">Editar línguas do cartão</string>
   <string name="menu_feed_overflow_label">Mais opções</string>
   <string name="feed_featured_image_share_subject">Imagem destacada na wiki Wikimedia Commons</string>
   <string name="feed">Explorar</string>

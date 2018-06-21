@@ -61,7 +61,7 @@
   <string name="nearby_zoom_to_location">Small toast (popup) message on Nearby screen saying that the current location of the device was not available.</string>
   <string name="nearby_osm_license">Copyright message with a link to the OpenStreetMap Copyright and License. (Please preserve the anchor tag in its exact form.)</string>
   <string name="last_updated_text">Message in footer of article indicating when the article was last updated. \'%s\' is substituted with the appropriately formatted human-readable timestamp, such as \"seven days ago\".</string>
-  <string name="talk_page_link_text">Link text for accessing Talk pages. Use the same word in your language as is done on the web site, in an action phrase. Some use the term discussions.\n{{Identical|Talk}}</string>
+  <string name="talk_page_link_text">Link text for accessing Talk pages. Use the same word in your language as is done on the web site, in an action phrase. Some use the term discussions.</string>
   <string name="edit_history_link_text">Action link text for accessing the edit history for the current article.</string>
   <string name="map_view_link_text">Link text for viewing the current article on a map (assuming the article has geo coordinates).</string>
   <string name="other_languages_indication_text">Text indicating that the article is available for the user to read in an another language as well.</string>
@@ -244,6 +244,10 @@
   <string name="dialog_close_description">Button description for the close image button. The text is mainly for screen readers.\n{{Identical|Close}}</string>
   <string name="preference_title_show_images">Preference title for selecting whether images are loaded in pages.\n\nShown in the preferences screen along with the following:\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}\n* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}\n\n{{Identical|Show image}}</string>
   <string name="preference_summary_show_images">Description of the preference for whether images are loaded, mentioning that this setting should be disabled if the user\'s internet connection is slow, or if their data plan is limited or restricted.</string>
+  <string name="preference_title_download_only_over_wifi">Preference title for users to download articles only over Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi">Title of the dialog that shows the confirmation of downloading articles using mobile data.</string>
+  <string name="dialog_text_download_only_over_wifi">Description of the dialog that shows the confirmation of downloading articles using mobile data.</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Positive option of the dialog that shows the confirmation of downloading articles using mobile data.</string>
   <string name="read_more_section">Title of the Read More section at the bottom of each page.\n\nThis section shows other automatically-selected articles, similarly to how it works with \"Related Articles\" ({{msg-mw|Relatedarticles-read-more-heading}}).\n\n{{Identical|Read more}}</string>
   <string name="about_article_section">Title of section that contains information specific to the current article.</string>
   <string name="menu_gallery_visit_page">Menu label for navigating to the File page for the current image being shown in the gallery.</string>
@@ -444,6 +448,7 @@
     <item quantity="one">Message shown when a single reading list article is removed from offline availability.</item>
     <item quantity="other">Message shown when more than one reading list article is removed from offline availability.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync">Message informing the user that their reading lists were synced successfully.</string>
   <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.\n{{Identical|Preferences}}</string>
   <string name="notification_button_view_user">Button label for navigating to the talk page of the user who is the agent of the notification.</string>
   <string name="notification_talk_title">Title for notification when the user receives a new message on their Talk page.</string>

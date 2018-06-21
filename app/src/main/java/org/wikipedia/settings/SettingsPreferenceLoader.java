@@ -12,6 +12,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.language.LanguageSettingsInvokeSource;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
@@ -56,7 +57,7 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
 
         Preference contentLanguagePref = findPreference(R.string.preference_key_language);
         contentLanguagePref.setOnPreferenceClickListener(preference -> {
-            getActivity().startActivityForResult(new Intent(getActivity(), WikipediaLanguagesActivity.class),
+            getActivity().startActivityForResult(WikipediaLanguagesActivity.newIntent(getActivity(), LanguageSettingsInvokeSource.SETTINGS.text()),
                     ACTIVITY_REQUEST_ADD_A_LANGUAGE);
             return true;
         });
