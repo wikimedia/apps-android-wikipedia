@@ -6,20 +6,16 @@ import android.graphics.Paint;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.widget.AppCompatImageView;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.util.AttributeSet;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -35,7 +31,6 @@ import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageContainerLongPressHandler;
@@ -52,7 +47,6 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GeoUtil;
 import org.wikipedia.util.L10nUtil;
-import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ConfigurableTextView;
@@ -77,13 +71,11 @@ public class BottomContentView extends LinearLayoutOverWebView
         implements ObservableWebView.OnScrollChangeListener,
         ObservableWebView.OnContentHeightChangedListener {
 
-    public static final int READ_MORE_ITEM_EXTRA_END_PADDING = 8;
     private PageFragment parentFragment;
     private WebView webView;
     private boolean firstTimeShown = false;
     private int prevLayoutHeight;
     private Page page;
-    private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
     @BindView(R.id.page_languages_container) View pageLanguagesContainer;
     @BindView(R.id.page_languages_divider) View pageLanguagesDivider;
@@ -224,6 +216,7 @@ public class BottomContentView extends LinearLayoutOverWebView
             }
             if (!firstTimeShown && readMoreItems != null) {
                 firstTimeShown = true;
+                readMoreAdapter.notifyDataSetChanged();
                 funnel.logSuggestionsShown(page.getTitle(), readMoreItems.getResults());
             }
         }
@@ -420,14 +413,16 @@ public class BottomContentView extends LinearLayoutOverWebView
                         .inflate(R.layout.item_page_list_entry, parent, false);
             }
             SearchResult result = getItem(position);
-            View itemLayout = convertView.findViewById(R.id.item_layout);
             TextView pageTitleText = convertView.findViewById(R.id.page_list_item_title);
-            AppCompatImageView primaryActionBtn = convertView.findViewById(R.id.page_list_item_action_primary);
+            ImageView primaryActionBtn = convertView.findViewById(R.id.page_list_item_action_primary);
             primaryActionBtn.setVisibility(VISIBLE);
-            setPrimaryActionDrawable(primaryActionBtn, result.getPageTitle());
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(itemLayout.getLayoutParams());
-            layoutParams.setMargins(0, 0, (int) DimenUtil.dpToPx(READ_MORE_ITEM_EXTRA_END_PADDING), 0);
-            layoutParams.gravity = Gravity.CENTER_VERTICAL;
+            if (firstTimeShown) {
+                setPrimaryActionDrawable(primaryActionBtn, result.getPageTitle());
+            }
+            View itemLayout = convertView.findViewById(R.id.item_layout);
+            MarginLayoutParams layoutParams = (MarginLayoutParams) itemLayout.getLayoutParams();
+            final int marginEnd = 8;
+            layoutParams.setMarginEnd((int) DimenUtil.dpToPx(marginEnd));
             itemLayout.setLayoutParams(layoutParams);
             primaryActionBtn.setOnClickListener(view -> CallbackTask.execute(() -> ReadingListDbHelper.instance().findPageInAnyList(result.getPageTitle()), new CallbackTask.DefaultCallback<ReadingListPage>() {
                 @Override
@@ -463,16 +458,13 @@ public class BottomContentView extends LinearLayoutOverWebView
             return convertView;
         }
 
-        private void setPrimaryActionDrawable(AppCompatImageView primaryActionBtn, PageTitle pageTitle) {
+        private void setPrimaryActionDrawable(ImageView primaryActionBtn, PageTitle pageTitle) {
             CallbackTask.execute(() -> ReadingListDbHelper.instance().findPageInAnyList(pageTitle), new CallbackTask.DefaultCallback<ReadingListPage>() {
                 @Override
                 public void success(ReadingListPage page) {
-                    boolean pageInList = page != null;
-                    int actionIcon = pageInList
+                    primaryActionBtn.setImageResource(page != null
                             ? R.drawable.ic_bookmark_white_24dp
-                            : R.drawable.ic_bookmark_border_black_24dp;
-                    primaryActionBtn.setImageDrawable(ContextCompat.getDrawable(getContext(), actionIcon));
-                    DrawableCompat.setTint(primaryActionBtn.getDrawable(), ResourceUtil.getThemedColor(getContext(), R.attr.material_theme_secondary_color));
+                            : R.drawable.ic_bookmark_border_black_24dp);
                 }
             });
         }

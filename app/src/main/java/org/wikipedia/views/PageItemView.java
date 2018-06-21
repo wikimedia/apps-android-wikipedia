@@ -1,6 +1,7 @@
 package org.wikipedia.views;
 
 import android.content.Context;
+import android.support.annotation.AttrRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -86,7 +87,7 @@ public class PageItemView<T> extends FrameLayout {
         primaryActionView.setContentDescription(getContext().getString(id));
     }
 
-    public void setActionTint(int tint) {
+    public void setActionTint(@AttrRes int tint) {
         DrawableCompat.setTint(primaryActionView.getDrawable(), ResourceUtil.getThemedColor(getContext(), tint));
     }
 
