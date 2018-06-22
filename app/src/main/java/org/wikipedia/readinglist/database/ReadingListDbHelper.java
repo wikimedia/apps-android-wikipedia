@@ -246,8 +246,7 @@ public class ReadingListDbHelper {
         list.add(page);
 
         L.e("list (" + fromList.title() + ")" + " content: " + list.get(0).title());
-
-        markPagesForDeletion(fromList, list);
+        //markPagesForDeletion(fromList, list);
     }
 
     public int movePagesToListIfNotExist(@NonNull ReadingList fromList, @NonNull ReadingList toList, @NonNull List<PageTitle> titles) {
@@ -280,7 +279,6 @@ public class ReadingListDbHelper {
     public void markPagesForDeletion(@NonNull ReadingList list, @NonNull List<ReadingListPage> pages, boolean queueForSync) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
-        L.e("Page count before deletion: " + list.pages().size());
         L.e("Marking for deletion (0): " + list.title() + " -> " + pages.get(0).title());
         try {
             for (ReadingListPage page : pages) {
@@ -292,15 +290,11 @@ public class ReadingListDbHelper {
                 ReadingListSyncAdapter.manualSyncWithDeletePages(list, pages);
             }
 
-            L.e("Posting");
             WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(pages.toArray(new ReadingListPage[]{})));
-        } catch (Exception ex) {
-            L.e("markPagesForDeletion failed with: " + ex.toString());
         } finally {
             db.endTransaction();
         }
         SavedPageSyncService.enqueue();
-        L.e("Page count after deletion: " + list.pages().size());
     }
 
     public void markPageForOffline(@NonNull ReadingListPage page, boolean offline, boolean forcedSave) {
@@ -404,7 +398,7 @@ public class ReadingListDbHelper {
         int result = db.delete(ReadingListPageContract.TABLE,
                 ReadingListPageContract.Col.ID.getName() + " = ?", new String[]{Long.toString(page.id())});
         if (result != 1) {
-            L.w("Failed to delete db entry for page " + page.title());
+            L.w("Failed to delete db entry for page " + page.title() + " (" + result + ")");
         }
     }
 

@@ -21,7 +21,6 @@ import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
-import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.DimenUtil;
@@ -102,6 +101,19 @@ public class MoveToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         MoveToReadingListDialog dialog = new MoveToReadingListDialog();
         Bundle args = new Bundle();
         args.putParcelableArrayList("titles", new ArrayList<Parcelable>(pages));
+        args.putString("fromList", fromListName);
+        args.putInt("source", source.code());
+        dialog.setArguments(args);
+        dialog.setOnDismissListener(listener);
+        return dialog;
+    }
+
+    public static MoveToReadingListDialog newInstance(@NonNull PageTitle page, @NonNull String fromListName,
+                                                      InvokeSource source,
+                                                      @Nullable DialogInterface.OnDismissListener listener) {
+        MoveToReadingListDialog dialog = new MoveToReadingListDialog();
+        Bundle args = new Bundle();
+        args.putParcelableArrayList("titles", new ArrayList<Parcelable>(Collections.singletonList(page)));
         args.putString("fromList", fromListName);
         args.putInt("source", source.code());
         dialog.setArguments(args);
@@ -250,19 +262,25 @@ public class MoveToReadingListDialog extends ExtendedBottomSheetDialogFragment {
 
                     ReadingListDbHelper.instance().movePageToList(fromList, toList, title, true);
 
-                    List<ReadingListPage> pages = fromList.pages();
-                    ReadingListPage p = new ReadingListPage(title);
-                    L.e("pages.size() = " + pages.size());
-                    for (int i = 0; i < pages.size(); i++) {
-                        if (pages.get(i).title().equals(p.title())) {
-                            L.e("Removing " + pages.get(i).title() + " " + pages.get(i).id() + " which converges with " + title.getText() + " " + p.id());
-                            pages.remove(i);
+                    /*for (ReadingList rl : readingLists) {
+                        if (rl.title().equals(fromList.title())) {
+                            ReadingListPage p = new ReadingListPage(title);
+                            int size = rl.pages().size();
+                            L.e("pages.size() = " + size);
+                            for (int i = 0; i < size; i++) {
+                                if (rl.pages().get(i).title().equals(p.title())) {
+                                    L.e("Removing " + rl.pages().get(i).title() + " which converges with " + title.getText());
+                                    rl.pages().remove(i);
+                                    break;
+                                } else {
+                                    L.e("Skipping " + rl.pages().get(i).title() + " which diverges with " + title.getText());
+                                }
+                            }
                             break;
-                        } else {
-                            L.e("Skipping " + pages.get(i).title() + " " + pages.get(i).id() + " which diverges with " + title.getText() + " " + p.id());
                         }
                     }
-                    updateLists();
+
+                    updateLists();*/
                     showViewListSnackBar(toList, message);
 
                 }

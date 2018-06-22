@@ -1,5 +1,6 @@
 package org.wikipedia.readinglist;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -501,11 +502,13 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         }
     }
 
-    private void deleteSinglePage(@Nullable ReadingListPage page) {
+    private void deleteSinglePage(@Nullable ReadingListPage page, boolean showSnackbar) {
         if (readingList == null || page == null) {
             return;
         }
-        showDeleteItemsUndoSnackbar(readingList, Collections.singletonList(page));
+        if (showSnackbar) {
+            showDeleteItemsUndoSnackbar(readingList, Collections.singletonList(page));
+        }
         ReadingListDbHelper.instance().markPagesForDeletion(readingList, Collections.singletonList(page));
         readingList.pages().remove(page);
         funnel.logDeleteItem(readingList, 0);
@@ -585,16 +588,24 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         ReadingListPage page = readingList == null ? null : readingList.pages().get(pageIndex);
         if (page != null) {
             bottomSheetPresenter.show(getChildFragmentManager(),
-                    MoveToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page),
-                            readingList,
-                            MoveToReadingListDialog.InvokeSource.READING_LIST_ACTIVITY));
+                    MoveToReadingListDialog.newInstance(
+                            ReadingListPage.toPageTitle(page),
+                            readingList.title(),
+                            MoveToReadingListDialog.InvokeSource.READING_LIST_ACTIVITY,
+                            new DialogInterface.OnDismissListener() {
+                                @Override
+                                public void onDismiss(DialogInterface dialogInterface) {
+                                    deleteSinglePage(page, false);
+                                    update();
+                                }
+                            }));
         }
     }
 
     @Override
     public void onDeleteItem(int pageIndex) {
         ReadingListPage page = readingList == null ? null : readingList.pages().get(pageIndex);
-        deleteSinglePage(page);
+        deleteSinglePage(page, true);
     }
 
     private void toggleOffline(@NonNull ReadingListPage page) {
@@ -701,7 +712,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
         @Override
         public void onSwipe() {
-            deleteSinglePage(page);
+            deleteSinglePage(page, true);
         }
     }
 
