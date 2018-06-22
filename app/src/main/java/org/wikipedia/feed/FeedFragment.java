@@ -423,6 +423,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public boolean onRequestDismissCard(@NonNull Card card) {
             int position = coordinator.dismissCard(card);
+            if (position < 0) {
+                return false;
+            }
             funnel.dismissCard(card.type(), position);
             showDismissCardUndoSnackbar(card, position);
             return true;
