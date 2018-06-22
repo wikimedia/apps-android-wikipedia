@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,7 +37,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!--<LinearLayout
+            <LinearLayout
                 android:id="@+id/create_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -64,7 +65,7 @@
                     android:textColor="?attr/primary_text_color"
                     android:textSize="16sp"
                     android:text="@string/reading_list_create_new" />
-            </LinearLayout>-->
+            </LinearLayout>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/list_of_lists"

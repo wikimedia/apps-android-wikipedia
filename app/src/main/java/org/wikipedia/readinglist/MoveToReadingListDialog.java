@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.concurrency.CallbackTask;
@@ -68,7 +69,7 @@ public class MoveToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     //private View onboardingContainer;
     //private View onboardingButton;
     private InvokeSource invokeSource;
-    //private CreateButtonClickListener createClickListener = new CreateButtonClickListener();
+    private CreateButtonClickListener createClickListener = new CreateButtonClickListener();
 
     private List<ReadingList> readingLists = new ArrayList<>();
 
@@ -121,16 +122,13 @@ public class MoveToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         View rootView = inflater.inflate(R.layout.dialog_move_to_reading_list, container);
 
         listsContainer = rootView.findViewById(R.id.lists_container);
-        //onboardingContainer = rootView.findViewById(R.id.onboarding_container);
-        //onboardingButton = rootView.findViewById(R.id.onboarding_button);
-        //checkAndShowOnboarding();
 
         RecyclerView readingListView = rootView.findViewById(R.id.list_of_lists);
         readingListView.setLayoutManager(new LinearLayoutManager(getActivity()));
         readingListView.setAdapter(adapter);
 
-        //View createButton = rootView.findViewById(R.id.create_button);
-        //createButton.setOnClickListener(createClickListener);
+        View createButton = rootView.findViewById(R.id.create_button);
+        createButton.setOnClickListener(createClickListener);
 
         if (savedInstanceState == null) {
             // Log a click event, but only the first time the dialog is shown.
@@ -160,20 +158,6 @@ public class MoveToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         dismissListener = listener;
     }
 
-    /*private void checkAndShowOnboarding() {
-        boolean isOnboarding = PrefsOnboardingStateMachine.getInstance().isReadingListTutorialEnabled();
-        onboardingButton.setOnClickListener((v) -> {
-            onboardingContainer.setVisibility(View.GONE);
-            listsContainer.setVisibility(View.VISIBLE);
-            PrefsOnboardingStateMachine.getInstance().setReadingListTutorial();
-            if (readingLists.isEmpty()) {
-                //showCreateListDialog();
-            }
-        });
-        listsContainer.setVisibility(isOnboarding ? View.GONE : View.VISIBLE);
-        onboardingContainer.setVisibility(isOnboarding ? View.VISIBLE : View.GONE);
-    }*/
-
     private void updateLists() {
         CallbackTask.execute(() -> ReadingListDbHelper.instance().getAllLists(), new CallbackTask.DefaultCallback<List<ReadingList>>() {
             @Override
@@ -188,7 +172,7 @@ public class MoveToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         });
     }
 
-    /*private class CreateButtonClickListener implements View.OnClickListener {
+    private class CreateButtonClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
             if (readingLists.size() >= Constants.MAX_READING_LISTS_LIMIT) {
@@ -199,9 +183,9 @@ public class MoveToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                 showCreateListDialog();
             }
         }
-    }*/
+    }
 
-    /*private void showCreateListDialog() {
+    private void showCreateListDialog() {
         String title = getString(R.string.reading_list_name_sample);
         List<String> existingTitles = new ArrayList<>();
         for (ReadingList tempList : readingLists) {
@@ -210,9 +194,9 @@ public class MoveToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         ReadingListTitleDialog.readingListTitleDialog(requireContext(), title, "",
                 existingTitles, (text, description) -> {
                     ReadingList list = ReadingListDbHelper.instance().createList(text, description);
-                    moveAndDismiss(list, titles);
+                    moveAndDismiss(from, list, titles);
                 }).show();
-    }*/
+    }
 
     private void moveAndDismiss(@NonNull final ReadingList fromList,
                                 @NonNull final ReadingList toList,
