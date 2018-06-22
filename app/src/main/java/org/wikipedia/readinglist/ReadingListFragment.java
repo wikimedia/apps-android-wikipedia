@@ -590,7 +590,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             bottomSheetPresenter.show(getChildFragmentManager(),
                     MoveToReadingListDialog.newInstance(
                             ReadingListPage.toPageTitle(page),
-                            readingList.title(),
+                            readingList.id(),
                             MoveToReadingListDialog.InvokeSource.READING_LIST_ACTIVITY,
                             new DialogInterface.OnDismissListener() {
                                 @Override

@@ -474,11 +474,6 @@ public class ReadingListDbHelper {
         return getPageByTitle(db, list, title);
     }
 
-    /**
-     *
-     * TODO: Testing.
-     *
-     * */
     @Nullable
     public ReadingList getReadingListByTitle(@NonNull String title) {
         SQLiteDatabase db = getReadableDatabase();
@@ -504,7 +499,10 @@ public class ReadingListDbHelper {
                 ReadingListContract.Col.ID.getName() + " = ?", new String[]{Long.toString(id)},
                 null, null, null)) {
             if (cursor.moveToFirst()) {
-                return ReadingList.DATABASE_TABLE.fromCursor(cursor);
+                ReadingList found = ReadingList.DATABASE_TABLE.fromCursor(cursor);
+                populateListPages(db, found);
+                L.e("Cursor found: " + found.title() + " with " + found.pages().size() + " pages");
+                return found;
             }
         }
         return null;

@@ -75,46 +75,29 @@ public class MoveToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     @Nullable private DialogInterface.OnDismissListener dismissListener;
     private ReadingListItemCallback listItemCallback = new ReadingListItemCallback();
 
-    public static MoveToReadingListDialog newInstance(@NonNull PageTitle page, @NonNull String fromList,
+    public static MoveToReadingListDialog newInstance(@NonNull PageTitle page, @NonNull long fromList,
                                                       InvokeSource source) {
         return newInstance(Collections.singletonList(page), fromList, source,null);
     }
 
     public static MoveToReadingListDialog newInstance(@NonNull PageTitle page, @NonNull ReadingList fromList,
                                                       InvokeSource source) {
-        return newInstance(Collections.singletonList(page), fromList.title(), source,null);
+        return newInstance(Collections.singletonList(page), fromList.id(), source,null);
     }
 
-    /*public static MoveToReadingListDialog newInstance(@NonNull PageTitle title,@NonNull ReadingList fromList,
-                                                      @NonNull ReadingList toList, InvokeSource source,
+    public static MoveToReadingListDialog newInstance(@NonNull PageTitle page, @NonNull long fromListName,
+                                                      InvokeSource source,
                                                       @Nullable DialogInterface.OnDismissListener listener) {
-        return newInstance(Collections.singletonList(title), source, listener);
-    }*/
+        return newInstance(Collections.singletonList(page), fromListName, source, listener);
+    }
 
-    /*public static MoveToReadingListDialog newInstance(@NonNull List<PageTitle> titles, InvokeSource source) {
-        return newInstance(titles, source, null);
-    }*/
-
-    public static MoveToReadingListDialog newInstance(@NonNull List<PageTitle> pages, @NonNull String fromListName,
+    public static MoveToReadingListDialog newInstance(@NonNull List<PageTitle> pages, @NonNull long fromListName,
                                                       InvokeSource source,
                                                       @Nullable DialogInterface.OnDismissListener listener) {
         MoveToReadingListDialog dialog = new MoveToReadingListDialog();
         Bundle args = new Bundle();
         args.putParcelableArrayList("titles", new ArrayList<Parcelable>(pages));
-        args.putString("fromList", fromListName);
-        args.putInt("source", source.code());
-        dialog.setArguments(args);
-        dialog.setOnDismissListener(listener);
-        return dialog;
-    }
-
-    public static MoveToReadingListDialog newInstance(@NonNull PageTitle page, @NonNull String fromListName,
-                                                      InvokeSource source,
-                                                      @Nullable DialogInterface.OnDismissListener listener) {
-        MoveToReadingListDialog dialog = new MoveToReadingListDialog();
-        Bundle args = new Bundle();
-        args.putParcelableArrayList("titles", new ArrayList<Parcelable>(Collections.singletonList(page)));
-        args.putString("fromList", fromListName);
+        args.putLong("fromList", fromListName);
         args.putInt("source", source.code());
         dialog.setArguments(args);
         dialog.setOnDismissListener(listener);
@@ -126,7 +109,7 @@ public class MoveToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         super.onCreate(savedInstanceState);
         Bundle args = getArguments();
         titles = args.getParcelableArrayList("titles");
-        from = ReadingListDbHelper.instance().getReadingListByTitle(args.getString("fromList"));
+        from = ReadingListDbHelper.instance().getReadingListById(args.getLong("fromList"));
         L.e("from size() " + from.pages().size());
         invokeSource = InvokeSource.of(getArguments().getInt("source"));
         adapter = new ReadingListAdapter();
