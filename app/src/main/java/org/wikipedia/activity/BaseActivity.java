@@ -52,6 +52,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private EventBusMethodsNonExclusive localBusMethods;
     private EventBusMethodsExclusive exclusiveBusMethods;
     private NetworkStateReceiver networkStateReceiver = new NetworkStateReceiver();
+    private boolean previousNetworkState = DeviceUtil.isOnline();
 
     @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -193,12 +194,18 @@ public abstract class BaseActivity extends AppCompatActivity {
     private class NetworkStateReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (DeviceUtil.isOnline()) {
-                onGoOnline();
+            boolean isDeviceOnline = DeviceUtil.isOnline();
+
+            if (isDeviceOnline) {
+                if (!previousNetworkState) {
+                    onGoOnline();
+                }
                 SavedPageSyncService.enqueue();
             } else {
                 onGoOffline();
             }
+
+            previousNetworkState = isDeviceOnline;
         }
     }
 
