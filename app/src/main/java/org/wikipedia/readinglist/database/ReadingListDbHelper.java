@@ -151,15 +151,12 @@ public class ReadingListDbHelper {
     }
 
     public void movePageToList(@NonNull ReadingList fromList, @NonNull ReadingList toList, @NonNull PageTitle title, boolean queueForSync) {
-        // TODO: Remove parameter <code>fromList</code> and get it inside the method.
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
             L.e("Calling intrinsic movePageToList");
             movePageToList(db, fromList, toList, title);
             db.setTransactionSuccessful();
-        } catch (Exception ex) {
-            L.e("movePageToList ex: " + ex.toString());
         } finally {
             db.endTransaction();
         }
@@ -231,6 +228,8 @@ public class ReadingListDbHelper {
     }
 
     private void addPageToList(SQLiteDatabase db, @NonNull ReadingList list, @NonNull PageTitle title) {
+        L.e("Adding " + title.getText() + " to " + list.title());
+
         ReadingListPage protoPage = new ReadingListPage(title);
         insertPageInDb(db, list, protoPage);
 
@@ -240,13 +239,12 @@ public class ReadingListDbHelper {
     private void movePageToList(SQLiteDatabase db, @NonNull ReadingList fromList, @NonNull ReadingList toList, @NonNull PageTitle title) {
         addPageToList(db, toList, title);
 
-        ReadingListPage page = new ReadingListPage(title);
+        /*ReadingListPage page = new ReadingListPage(title);
 
         ArrayList<ReadingListPage> list = new ArrayList<>();
-        list.add(page);
+        list.add(page);*/
 
-        L.e("list (" + fromList.title() + ")" + " content: " + list.get(0).title());
-        //markPagesForDeletion(fromList, list);
+        L.e("list (" + fromList.title() + ")" + " content: " + title.getText());
     }
 
     public int movePagesToListIfNotExist(@NonNull ReadingList fromList, @NonNull ReadingList toList, @NonNull List<PageTitle> titles) {
@@ -255,6 +253,7 @@ public class ReadingListDbHelper {
         int numMoved = 0;
         try {
             for (PageTitle title : titles) {
+                // Check if the destination list contains the page to be moved.
                 if (getPageByTitle(db, toList, title) != null) {
                     continue;
                 }

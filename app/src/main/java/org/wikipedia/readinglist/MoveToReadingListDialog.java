@@ -1,6 +1,5 @@
 package org.wikipedia.readinglist;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
@@ -62,6 +61,11 @@ public class MoveToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         }
     }
 
+    public interface OnDismissSuccessListener {
+        void onDismiss(boolean success);
+        void onMultipleInputDismiss(List<Integer> inputIndices);
+    }
+
     private List<PageTitle> titles;
     private ReadingList from;
     private ReadingListAdapter adapter;
@@ -73,28 +77,28 @@ public class MoveToReadingListDialog extends ExtendedBottomSheetDialogFragment {
 
     private List<ReadingList> readingLists = new ArrayList<>();
 
-    @Nullable private DialogInterface.OnDismissListener dismissListener;
+    @Nullable private OnDismissSuccessListener dismissListener;
     private ReadingListItemCallback listItemCallback = new ReadingListItemCallback();
 
-    public static MoveToReadingListDialog newInstance(@NonNull PageTitle page, @NonNull long fromList,
+    public static MoveToReadingListDialog newInstance(@NonNull PageTitle page, long fromList,
                                                       InvokeSource source) {
         return newInstance(Collections.singletonList(page), fromList, source,null);
     }
 
-    public static MoveToReadingListDialog newInstance(@NonNull PageTitle page, @NonNull ReadingList fromList,
+    public static MoveToReadingListDialog newInstance(@NonNull PageTitle page, ReadingList fromList,
                                                       InvokeSource source) {
         return newInstance(Collections.singletonList(page), fromList.id(), source,null);
     }
 
-    public static MoveToReadingListDialog newInstance(@NonNull PageTitle page, @NonNull long fromListName,
+    public static MoveToReadingListDialog newInstance(@NonNull PageTitle page, long fromListName,
                                                       InvokeSource source,
-                                                      @Nullable DialogInterface.OnDismissListener listener) {
+                                                      @Nullable OnDismissSuccessListener listener) {
         return newInstance(Collections.singletonList(page), fromListName, source, listener);
     }
 
-    public static MoveToReadingListDialog newInstance(@NonNull List<PageTitle> pages, @NonNull long fromListName,
+    public static MoveToReadingListDialog newInstance(@NonNull List<PageTitle> pages, long fromListName,
                                                       InvokeSource source,
-                                                      @Nullable DialogInterface.OnDismissListener listener) {
+                                                      @Nullable OnDismissSuccessListener listener) {
         MoveToReadingListDialog dialog = new MoveToReadingListDialog();
         Bundle args = new Bundle();
         args.putParcelableArrayList("titles", new ArrayList<Parcelable>(pages));
@@ -149,12 +153,23 @@ public class MoveToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     @Override
     public void dismiss() {
         super.dismiss();
-        if (dismissListener != null) {
-            dismissListener.onDismiss(null);
-        }
     }
 
-    public void setOnDismissListener(DialogInterface.OnDismissListener listener) {
+    private void dismiss(boolean success) {
+        if (dismissListener != null) {
+            dismissListener.onDismiss(success);
+        }
+        dismiss();
+    }
+
+    private void dismiss(List<Integer> indices) {
+        if (dismissListener != null) {
+            dismissListener.onMultipleInputDismiss(indices);
+        }
+        dismiss();
+    }
+
+    public void setOnDismissListener(OnDismissSuccessListener listener) {
         dismissListener = listener;
     }
 
@@ -212,12 +227,11 @@ public class MoveToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         CallbackTask.execute(() -> ReadingListDbHelper.instance().pageExistsInList(toList, title), new CallbackTask.DefaultCallback<Boolean>() {
             @Override
             public void success(Boolean exists) {
-                L.e("success with exists = " + exists);
-
                 if (!isAdded()) {
                     return;
                 }
                 String message;
+                boolean success = false;
                 if (exists) {
                     message = getString(R.string.reading_list_already_exists);
                     showViewListSnackBar(toList, message);
@@ -225,33 +239,13 @@ public class MoveToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                     message = String.format(getString(R.string.reading_list_moved_to_named), toList.title());
                     new ReadingListsFunnel(title.getWikiSite()).logMoveToList(fromList, toList, 1, invokeSource);
 
-                    L.e("Calling movePageToList");
-
                     ReadingListDbHelper.instance().movePageToList(fromList, toList, title, true);
-
-                    /*for (ReadingList rl : readingLists) {
-                        if (rl.title().equals(fromList.title())) {
-                            ReadingListPage p = new ReadingListPage(title);
-                            int size = rl.pages().size();
-                            L.e("pages.size() = " + size);
-                            for (int i = 0; i < size; i++) {
-                                if (rl.pages().get(i).title().equals(p.title())) {
-                                    L.e("Removing " + rl.pages().get(i).title() + " which converges with " + title.getText());
-                                    rl.pages().remove(i);
-                                    break;
-                                } else {
-                                    L.e("Skipping " + rl.pages().get(i).title() + " which diverges with " + title.getText());
-                                }
-                            }
-                            break;
-                        }
-                    }
-
-                    updateLists();*/
                     showViewListSnackBar(toList, message);
 
+                    success = true;
                 }
-                dismiss();
+
+                dismiss(success);
             }
         });
     }
@@ -267,27 +261,28 @@ public class MoveToReadingListDialog extends ExtendedBottomSheetDialogFragment {
             return;
         }
 
-        if (titles.size() == 1) {
-            moveAndDismiss(fromList, toList, titles.get(0));
-            return;
-        }
-
-        CallbackTask.execute(() -> ReadingListDbHelper.instance().movePagesToListIfNotExist(fromList, toList, titles), new CallbackTask.DefaultCallback<Integer>() {
+        CallbackTask.execute(() -> ReadingListDbHelper.instance().addPagesToListIfNotExist(toList, titles), new CallbackTask.DefaultCallback<Integer>() {
             @Override
             public void success(Integer numAdded) {
                 if (!isAdded()) {
                     return;
                 }
                 String message;
+                List<Integer> indicesMoved = new ArrayList<>();
                 if (numAdded == 0) {
                     message = getString(R.string.reading_list_already_contains_selection);
                 } else {
                     message = String.format(getString(R.string.reading_list_moved_articles_list_titled), numAdded,
                             toList.title());
                     new ReadingListsFunnel().logMoveToList(fromList, toList, numAdded, invokeSource);
+                    for (int i = 0; i < titles.size(); i++) {
+                        //if (ReadingListDbHelper.instance().movePageToList(fromList, toList, titles.get(i), true)) {
+                            indicesMoved.add(i);
+                        //}
+                    }
                 }
                 showViewListSnackBar(toList, message);
-                dismiss();
+                dismiss(indicesMoved);
             }
         });
     }

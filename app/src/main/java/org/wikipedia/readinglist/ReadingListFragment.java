@@ -1,6 +1,5 @@
 package org.wikipedia.readinglist;
 
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -502,6 +501,37 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         }
     }
 
+    private void moveSelectedPagesToList() {
+        List<ReadingListPage> selectedPages = getSelectedPages();
+        if (!selectedPages.isEmpty()) {
+            L.e("selectedPages size " + selectedPages.size());
+
+            List<PageTitle> titles = new ArrayList<>();
+            for (ReadingListPage page : selectedPages) {
+                titles.add(ReadingListPage.toPageTitle(page));
+            }
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    MoveToReadingListDialog.newInstance(titles,
+                            readingList.id(),
+                            MoveToReadingListDialog.InvokeSource.READING_LIST_ACTIVITY,
+                            new MoveToReadingListDialog.OnDismissSuccessListener() {
+                                @Override
+                                public void onDismiss(boolean success) { }
+
+                                @Override
+                                public void onMultipleInputDismiss(List<Integer> inputIndices) {
+                                    L.e("inputIndices size " + inputIndices.size());
+                                    for (int i : inputIndices) {
+                                        L.e(i + " : " + selectedPages.get(i).title());
+                                        deleteSinglePage(selectedPages.get(i), false);
+                                    }
+                                }
+                            })
+            );
+            update();
+        }
+    }
+
     private void deleteSinglePage(@Nullable ReadingListPage page, boolean showSnackbar) {
         if (readingList == null || page == null) {
             return;
@@ -592,12 +622,17 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                             ReadingListPage.toPageTitle(page),
                             readingList.id(),
                             MoveToReadingListDialog.InvokeSource.READING_LIST_ACTIVITY,
-                            new DialogInterface.OnDismissListener() {
+                            new MoveToReadingListDialog.OnDismissSuccessListener() {
                                 @Override
-                                public void onDismiss(DialogInterface dialogInterface) {
-                                    deleteSinglePage(page, false);
-                                    update();
+                                public void onDismiss(boolean success) {
+                                    if (success) {
+                                        deleteSinglePage(page, false);
+                                        update();
+                                    }
                                 }
+
+                                @Override
+                                public void onMultipleInputDismiss(List<Integer> inputIndices) { }
                             }));
         }
     }
@@ -903,6 +938,10 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                     return true;
                 case R.id.menu_add_to_another_list:
                     addSelectedPagesToList();
+                    finishActionMode();
+                    return true;
+                case R.id.menu_move_to_another_list:
+                    moveSelectedPagesToList();
                     finishActionMode();
                     return true;
                 default:
