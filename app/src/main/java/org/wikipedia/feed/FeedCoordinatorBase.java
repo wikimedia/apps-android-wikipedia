@@ -168,11 +168,7 @@ public abstract class FeedCoordinatorBase {
     }
 
     private void removeProgressCard() {
-        int pos = cards.indexOf(progressCard);
-        if (pos < 0) {
-            return;
-        }
-        removeCard(progressCard, pos);
+        removeCard(progressCard, cards.indexOf(progressCard));
     }
 
     private void setOfflineState() {
@@ -220,6 +216,9 @@ public abstract class FeedCoordinatorBase {
     }
 
     private void insertCard(@NonNull Card card, int position) {
+        if (position < 0) {
+            return;
+        }
         cards.add(position, card);
         if (updateListener != null) {
             updateListener.insert(card, position);
@@ -227,6 +226,9 @@ public abstract class FeedCoordinatorBase {
     }
 
     private void removeCard(@NonNull Card card, int position) {
+        if (position < 0) {
+            return;
+        }
         cards.remove(card);
         if (updateListener != null) {
             updateListener.remove(card, position);
