@@ -5,8 +5,8 @@ import android.support.annotation.NonNull;
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.readinglist.MergeWithOtherReadingListDialog;
 import org.wikipedia.readinglist.MoveToReadingListDialog;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.settings.Prefs;
@@ -38,6 +38,10 @@ public class ReadingListsFunnel extends Funnel {
         );*/
     }
 
+    public void logMergeClick(MergeWithOtherReadingListDialog.InvokeSource source) {
+        // TODO
+    }
+
     public void logAddToList(ReadingList list, int listCount,
                              AddToReadingListDialog.InvokeSource source) {
         log(
@@ -57,6 +61,11 @@ public class ReadingListsFunnel extends Funnel {
                 "itemcount", list.pages().size(),
                 "listcount", listCount
         );*/
+    }
+
+    public void logMergeWithList(ReadingList fromList, ReadingList toList,
+                                 MergeWithOtherReadingListDialog.InvokeSource source) {
+        // TODO
     }
 
     public void logModifyList(ReadingList list, int listCount) {

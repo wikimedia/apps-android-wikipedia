@@ -207,6 +207,9 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             if (menu.findItem(R.id.menu_reading_list_rename) != null) {
                 menu.findItem(R.id.menu_reading_list_rename).setVisible(false);
             }
+            if (menu.findItem(R.id.menu_reading_list_merge) != null) {
+                menu.findItem(R.id.menu_reading_list_merge).setVisible(false);
+            }
             if (menu.findItem(R.id.menu_reading_list_delete) != null) {
                 menu.findItem(R.id.menu_reading_list_delete).setVisible(false);
             }
@@ -227,6 +230,9 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                 return true;
             case R.id.menu_reading_list_rename:
                 rename();
+                return true;
+            case R.id.menu_reading_list_merge:
+                merge();
                 return true;
             case R.id.menu_reading_list_delete:
                 delete();
@@ -532,6 +538,23 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         }
     }
 
+    private void merge() {
+        if (readingList == null) {
+            return;
+        }
+        bottomSheetPresenter.show(getChildFragmentManager(),
+            MergeWithOtherReadingListDialog.newInstance(readingList.id(),
+                MergeWithOtherReadingListDialog.InvokeSource.READING_LIST_ACTIVITY,
+                new MergeWithOtherReadingListDialog.OnDismissSuccessListener() {
+                    @Override
+                    public void onDismiss(boolean success) {
+                        if (success) {
+                            ReadingListDbHelper.instance().deleteList(readingList);
+                        }
+                    }
+                }));
+    }
+
     private void deleteSinglePage(@Nullable ReadingListPage page, boolean showSnackbar) {
         if (readingList == null || page == null) {
             return;
@@ -702,6 +725,10 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         @Override
         public void onRename(@NonNull ReadingList readingList) {
             rename();
+        }
+
+        public void onMerge(@NonNull ReadingList readingList) {
+            merge();
         }
 
         @Override

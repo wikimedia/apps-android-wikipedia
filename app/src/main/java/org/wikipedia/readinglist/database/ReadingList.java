@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.page.PageTitle;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -42,6 +43,14 @@ public class ReadingList {
 
     public List<ReadingListPage> pages() {
         return pages;
+    }
+
+    public List<PageTitle> titles() {
+        List<PageTitle> titles = new ArrayList<>();
+        for (ReadingListPage page : pages) {
+            titles.add(ReadingListPage.toPageTitle(page));
+        }
+        return titles;
     }
 
     public int numPagesOffline() {

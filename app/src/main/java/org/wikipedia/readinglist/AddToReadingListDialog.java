@@ -290,6 +290,10 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         }
 
         @Override
+        public void onMerge(@NonNull ReadingList readingList) {
+        }
+
+        @Override
         public void onDelete(@NonNull ReadingList readingList) {
         }
 

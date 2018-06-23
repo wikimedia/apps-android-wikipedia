@@ -396,6 +396,11 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         }
 
         @Override
+        public void onMerge(@NonNull ReadingList readingList) {
+
+        }
+
+        @Override
         public void onDelete(@NonNull ReadingList readingList) {
             AlertDialog.Builder alert = new AlertDialog.Builder(requireActivity());
             alert.setMessage(getString(R.string.reading_list_delete_confirm, readingList.title()));
