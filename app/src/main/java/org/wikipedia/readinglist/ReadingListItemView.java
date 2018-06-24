@@ -38,6 +38,7 @@ public class ReadingListItemView extends FrameLayout {
     public interface Callback {
         void onClick(@NonNull ReadingList readingList);
         void onRename(@NonNull ReadingList readingList);
+        void onMerge(@NonNull ReadingList readingList);
         void onDelete(@NonNull ReadingList readingList);
         void onSaveAllOffline(@NonNull ReadingList readingList);
         void onRemoveAllOffline(@NonNull ReadingList readingList);
@@ -125,6 +126,7 @@ public class ReadingListItemView extends FrameLayout {
 
         if (readingList.isDefault()) {
             menu.getMenu().findItem(R.id.menu_reading_list_rename).setVisible(false);
+            menu.getMenu().findItem(R.id.menu_reading_list_merge).setVisible(false);
             menu.getMenu().findItem(R.id.menu_reading_list_delete).setVisible(false);
         }
         menu.setOnMenuItemClickListener(new OverflowMenuClickListener(readingList));
@@ -253,6 +255,12 @@ public class ReadingListItemView extends FrameLayout {
                 case R.id.menu_reading_list_remove_all_offline:
                     if (callback != null && list != null) {
                         callback.onRemoveAllOffline(list);
+                        return true;
+                    }
+                    break;
+                case R.id.menu_reading_list_merge:
+                    if (callback != null && list != null) {
+                        callback.onMerge(list);
                         return true;
                     }
                     break;

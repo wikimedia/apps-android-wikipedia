@@ -47,6 +47,26 @@ public class ReadingListDbHelper {
         return lists;
     }
 
+    public List<ReadingList> getAllListsExcept(List<Long> ids) {
+        List<ReadingList> lists = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        try (Cursor cursor = db.query(ReadingListContract.TABLE, null, null, null, null, null, null)) {
+            while (cursor.moveToNext()) {
+                ReadingList list = ReadingList.DATABASE_TABLE.fromCursor(cursor);
+
+                if (ids.contains(list.id())) {
+                    continue;
+                }
+
+                lists.add(list);
+            }
+        }
+        for (ReadingList list : lists) {
+            populateListPages(db, list);
+        }
+        return lists;
+    }
+
     public List<ReadingList> getAllListsWithoutContents() {
         List<ReadingList> lists = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
@@ -150,6 +170,22 @@ public class ReadingListDbHelper {
         }
     }
 
+    public void movePageToList(@NonNull ReadingList fromList, @NonNull ReadingList toList, @NonNull PageTitle title, boolean queueForSync) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+        try {
+            L.e("Calling intrinsic movePageToList");
+            movePageToList(db, fromList, toList, title);
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+        SavedPageSyncService.enqueue();
+        if (queueForSync) {
+            ReadingListSyncAdapter.manualSync();
+        }
+    }
+
     public void addPageToList(@NonNull ReadingList list, @NonNull PageTitle title, boolean queueForSync) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
@@ -212,10 +248,47 @@ public class ReadingListDbHelper {
     }
 
     private void addPageToList(SQLiteDatabase db, @NonNull ReadingList list, @NonNull PageTitle title) {
+        L.e("Adding " + title.getText() + " to " + list.title());
+
         ReadingListPage protoPage = new ReadingListPage(title);
         insertPageInDb(db, list, protoPage);
 
         WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(protoPage));
+    }
+
+    private void movePageToList(SQLiteDatabase db, @NonNull ReadingList fromList, @NonNull ReadingList toList, @NonNull PageTitle title) {
+        addPageToList(db, toList, title);
+
+        /*ReadingListPage page = new ReadingListPage(title);
+
+        ArrayList<ReadingListPage> list = new ArrayList<>();
+        list.add(page);*/
+
+        L.e("list (" + fromList.title() + ")" + " content: " + title.getText());
+    }
+
+    public int movePagesToListIfNotExist(@NonNull ReadingList fromList, @NonNull ReadingList toList, @NonNull List<PageTitle> titles) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+        int numMoved = 0;
+        try {
+            for (PageTitle title : titles) {
+                // Check if the destination list contains the page to be moved.
+                if (getPageByTitle(db, toList, title) != null) {
+                    continue;
+                }
+                movePageToList(db, fromList, toList, title);
+                numMoved++;
+            }
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+        if (numMoved > 0) {
+            SavedPageSyncService.enqueue();
+            ReadingListSyncAdapter.manualSync();
+        }
+        return numMoved;
     }
 
     public void markPagesForDeletion(@NonNull ReadingList list, @NonNull List<ReadingListPage> pages) {
@@ -225,6 +298,7 @@ public class ReadingListDbHelper {
     public void markPagesForDeletion(@NonNull ReadingList list, @NonNull List<ReadingListPage> pages, boolean queueForSync) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
+        L.e("Marking for deletion (0): " + list.title() + " -> " + pages.get(0).title());
         try {
             for (ReadingListPage page : pages) {
                 page.status(ReadingListPage.STATUS_QUEUE_FOR_DELETE);
@@ -343,7 +417,7 @@ public class ReadingListDbHelper {
         int result = db.delete(ReadingListPageContract.TABLE,
                 ReadingListPageContract.Col.ID.getName() + " = ?", new String[]{Long.toString(page.id())});
         if (result != 1) {
-            L.w("Failed to delete db entry for page " + page.title());
+            L.w("Failed to delete db entry for page " + page.title() + " (" + result + ")");
         }
     }
 
@@ -417,6 +491,40 @@ public class ReadingListDbHelper {
     public ReadingListPage getPageByTitle(@NonNull ReadingList list, @NonNull PageTitle title) {
         SQLiteDatabase db = getReadableDatabase();
         return getPageByTitle(db, list, title);
+    }
+
+    @Nullable
+    public ReadingList getReadingListByTitle(@NonNull String title) {
+        SQLiteDatabase db = getReadableDatabase();
+        try (Cursor cursor = db.query(ReadingListContract.TABLE, null,
+                ReadingListContract.Col.TITLE.getName() + " = ?", new String[]{title},
+                null, null, null)) {
+           if (cursor.moveToFirst()) {
+               ReadingList found = ReadingList.DATABASE_TABLE.fromCursor(cursor);
+               populateListPages(db, found);
+               L.e("Cursor found: " + found.title() + " with " + found.pages().size() + " pages");
+               return found;
+            } else {
+               L.e("Cursor did not find any");
+           }
+        }
+        return null;
+    }
+
+    @Nullable
+    public ReadingList getReadingListById(long id) {
+        SQLiteDatabase db = getReadableDatabase();
+        try (Cursor cursor = db.query(ReadingListContract.TABLE, null,
+                ReadingListContract.Col.ID.getName() + " = ?", new String[]{Long.toString(id)},
+                null, null, null)) {
+            if (cursor.moveToFirst()) {
+                ReadingList found = ReadingList.DATABASE_TABLE.fromCursor(cursor);
+                populateListPages(db, found);
+                L.e("Cursor found: " + found.title() + " with " + found.pages().size() + " pages");
+                return found;
+            }
+        }
+        return null;
     }
 
     @NonNull

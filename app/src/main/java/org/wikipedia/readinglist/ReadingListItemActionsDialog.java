@@ -19,6 +19,7 @@ public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragm
         void onToggleItemOffline(int pageIndex);
         void onShareItem(int pageIndex);
         void onAddItemToOther(int pageIndex);
+        void onMoveItem(int pageIndex);
         void onDeleteItem(int pageIndex);
     }
 
@@ -73,6 +74,14 @@ public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragm
             dismiss();
             if (callback() != null) {
                 callback().onShareItem(pageIndex);
+            }
+        }
+
+        @Override
+        public void onMove() {
+            dismiss();
+            if (callback() != null) {
+                callback().onMoveItem(pageIndex);
             }
         }
 

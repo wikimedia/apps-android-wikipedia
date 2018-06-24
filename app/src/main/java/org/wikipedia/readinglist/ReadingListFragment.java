@@ -207,6 +207,9 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             if (menu.findItem(R.id.menu_reading_list_rename) != null) {
                 menu.findItem(R.id.menu_reading_list_rename).setVisible(false);
             }
+            if (menu.findItem(R.id.menu_reading_list_merge) != null) {
+                menu.findItem(R.id.menu_reading_list_merge).setVisible(false);
+            }
             if (menu.findItem(R.id.menu_reading_list_delete) != null) {
                 menu.findItem(R.id.menu_reading_list_delete).setVisible(false);
             }
@@ -226,7 +229,12 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                 setSortMode(ReadingList.SORT_BY_RECENT_DESC, ReadingList.SORT_BY_RECENT_ASC);
                 return true;
             case R.id.menu_reading_list_rename:
+                L.e("Calling rename()");
                 rename();
+                return true;
+            case R.id.menu_reading_list_merge:
+                L.e("Calling merge()");
+                merge();
                 return true;
             case R.id.menu_reading_list_delete:
                 delete();
@@ -501,11 +509,64 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         }
     }
 
-    private void deleteSinglePage(@Nullable ReadingListPage page) {
+    private void moveSelectedPagesToList() {
+        List<ReadingListPage> selectedPages = getSelectedPages();
+        if (!selectedPages.isEmpty()) {
+            L.e("selectedPages size " + selectedPages.size());
+
+            List<PageTitle> titles = new ArrayList<>();
+            for (ReadingListPage page : selectedPages) {
+                titles.add(ReadingListPage.toPageTitle(page));
+            }
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    MoveToReadingListDialog.newInstance(titles,
+                            readingList.id(),
+                            MoveToReadingListDialog.InvokeSource.READING_LIST_ACTIVITY,
+                            new MoveToReadingListDialog.OnDismissSuccessListener() {
+                                @Override
+                                public void onDismiss(boolean success) {
+
+                                }
+
+                                @Override
+                                public void onMultipleInputDismiss(List<Integer> inputIndices) {
+                                    L.e("inputIndices size " + inputIndices.size());
+                                    for (int i : inputIndices) {
+                                        L.e(i + " : " + selectedPages.get(i).title());
+                                        deleteSinglePage(selectedPages.get(i), false);
+                                    }
+                                }
+                            })
+            );
+            update();
+        }
+    }
+
+    private void merge() {
+        if (readingList == null) {
+            return;
+        }
+        bottomSheetPresenter.show(getChildFragmentManager(),
+            MergeWithOtherReadingListDialog.newInstance(readingList.id(),
+                MergeWithOtherReadingListDialog.InvokeSource.READING_LIST_ACTIVITY,
+                new MergeWithOtherReadingListDialog.OnDismissSuccessListener() {
+                    @Override
+                    public void onDismiss(boolean success) {
+                        /*if (success) {
+                            ReadingListDbHelper.instance().deleteList(readingList);
+                        }*/
+                        update();
+                    }
+                }));
+    }
+
+    private void deleteSinglePage(@Nullable ReadingListPage page, boolean showSnackbar) {
         if (readingList == null || page == null) {
             return;
         }
-        showDeleteItemsUndoSnackbar(readingList, Collections.singletonList(page));
+        if (showSnackbar) {
+            showDeleteItemsUndoSnackbar(readingList, Collections.singletonList(page));
+        }
         ReadingListDbHelper.instance().markPagesForDeletion(readingList, Collections.singletonList(page));
         readingList.pages().remove(page);
         funnel.logDeleteItem(readingList, 0);
@@ -581,9 +642,32 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     @Override
+    public void onMoveItem(int pageIndex) {
+        ReadingListPage page = readingList == null ? null : readingList.pages().get(pageIndex);
+        if (page != null) {
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    MoveToReadingListDialog.newInstance(
+                            ReadingListPage.toPageTitle(page),
+                            readingList.id(),
+                            MoveToReadingListDialog.InvokeSource.READING_LIST_ACTIVITY,
+                            new MoveToReadingListDialog.OnDismissSuccessListener() {
+                                @Override
+                                public void onDismiss(boolean success) {
+                                    if (success) {
+                                        deleteSinglePage(page, false);
+                                    }
+                                }
+
+                                @Override
+                                public void onMultipleInputDismiss(List<Integer> inputIndices) { }
+                            }));
+        }
+    }
+
+    @Override
     public void onDeleteItem(int pageIndex) {
         ReadingListPage page = readingList == null ? null : readingList.pages().get(pageIndex);
-        deleteSinglePage(page);
+        deleteSinglePage(page, true);
     }
 
     private void toggleOffline(@NonNull ReadingListPage page) {
@@ -639,11 +723,16 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     private class HeaderCallback implements ReadingListItemView.Callback {
         @Override
         public void onClick(@NonNull ReadingList readingList) {
+
         }
 
         @Override
         public void onRename(@NonNull ReadingList readingList) {
             rename();
+        }
+
+        public void onMerge(@NonNull ReadingList readingList) {
+            merge();
         }
 
         @Override
@@ -689,7 +778,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
         @Override
         public void onSwipe() {
-            deleteSinglePage(page);
+            deleteSinglePage(page, true);
         }
     }
 
@@ -880,6 +969,10 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                     return true;
                 case R.id.menu_add_to_another_list:
                     addSelectedPagesToList();
+                    finishActionMode();
+                    return true;
+                case R.id.menu_move_to_another_list:
+                    moveSelectedPagesToList();
                     finishActionMode();
                     return true;
                 default:

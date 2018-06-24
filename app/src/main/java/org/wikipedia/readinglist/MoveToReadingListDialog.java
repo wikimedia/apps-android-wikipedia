@@ -1,6 +1,5 @@
 package org.wikipedia.readinglist;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
@@ -18,7 +17,6 @@ import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
-import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
@@ -27,12 +25,13 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
+public class MoveToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     public enum InvokeSource implements EnumCode {
         BOOKMARK_BUTTON(0),
         CONTEXT_MENU(1),
@@ -43,8 +42,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         READING_LIST_ACTIVITY(6),
         MOST_READ_ACTIVITY(7),
         RANDOM_ACTIVITY(8),
-        ON_THIS_DAY_ACTIVITY(9),
-        READ_MORE_BOOKMARK_BUTTON(10);
+        ON_THIS_DAY_ACTIVITY(9);
 
         private static final EnumCodeMap<InvokeSource> MAP = new EnumCodeMap<>(InvokeSource.class);
 
@@ -63,37 +61,45 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         }
     }
 
+    public interface OnDismissSuccessListener {
+        void onDismiss(boolean success);
+        void onMultipleInputDismiss(List<Integer> inputIndices);
+    }
+
     private List<PageTitle> titles;
+    private ReadingList from;
     private ReadingListAdapter adapter;
-    private View listsContainer;
-    private View onboardingContainer;
-    private View onboardingButton;
     private InvokeSource invokeSource;
     private CreateButtonClickListener createClickListener = new CreateButtonClickListener();
 
     private List<ReadingList> readingLists = new ArrayList<>();
 
-    @Nullable private DialogInterface.OnDismissListener dismissListener;
+    @Nullable private OnDismissSuccessListener dismissListener;
     private ReadingListItemCallback listItemCallback = new ReadingListItemCallback();
 
-    public static AddToReadingListDialog newInstance(@NonNull PageTitle title, InvokeSource source) {
-        return newInstance(title, source, null);
+    public static MoveToReadingListDialog newInstance(@NonNull PageTitle page, long fromList,
+                                                      InvokeSource source) {
+        return newInstance(Collections.singletonList(page), fromList, source,null);
     }
 
-    public static AddToReadingListDialog newInstance(@NonNull PageTitle title, InvokeSource source,
-                                                     @Nullable DialogInterface.OnDismissListener listener) {
-        return newInstance(Collections.singletonList(title), source, listener);
+    public static MoveToReadingListDialog newInstance(@NonNull PageTitle page, ReadingList fromList,
+                                                      InvokeSource source) {
+        return newInstance(Collections.singletonList(page), fromList.id(), source,null);
     }
 
-    public static AddToReadingListDialog newInstance(@NonNull List<PageTitle> titles, InvokeSource source) {
-        return newInstance(titles, source, null);
+    public static MoveToReadingListDialog newInstance(@NonNull PageTitle page, long fromListName,
+                                                      InvokeSource source,
+                                                      @Nullable OnDismissSuccessListener listener) {
+        return newInstance(Collections.singletonList(page), fromListName, source, listener);
     }
 
-    public static AddToReadingListDialog newInstance(@NonNull List<PageTitle> titles, InvokeSource source,
-                                                     @Nullable DialogInterface.OnDismissListener listener) {
-        AddToReadingListDialog dialog = new AddToReadingListDialog();
+    public static MoveToReadingListDialog newInstance(@NonNull List<PageTitle> pages, long fromListName,
+                                                      InvokeSource source,
+                                                      @Nullable OnDismissSuccessListener listener) {
+        MoveToReadingListDialog dialog = new MoveToReadingListDialog();
         Bundle args = new Bundle();
-        args.putParcelableArrayList("titles", new ArrayList<Parcelable>(titles));
+        args.putParcelableArrayList("titles", new ArrayList<Parcelable>(pages));
+        args.putLong("fromList", fromListName);
         args.putInt("source", source.code());
         dialog.setArguments(args);
         dialog.setOnDismissListener(listener);
@@ -103,7 +109,10 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        titles = getArguments().getParcelableArrayList("titles");
+        Bundle args = getArguments();
+        titles = args.getParcelableArrayList("titles");
+        from = ReadingListDbHelper.instance().getReadingListById(args.getLong("fromList"));
+        L.e("from size() " + from.pages().size());
         invokeSource = InvokeSource.of(getArguments().getInt("source"));
         adapter = new ReadingListAdapter();
     }
@@ -111,12 +120,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.dialog_add_to_reading_list, container);
-
-        listsContainer = rootView.findViewById(R.id.lists_container);
-        onboardingContainer = rootView.findViewById(R.id.onboarding_container);
-        onboardingButton = rootView.findViewById(R.id.onboarding_button);
-        checkAndShowOnboarding();
+        View rootView = inflater.inflate(R.layout.dialog_move_to_reading_list, container);
 
         RecyclerView readingListView = rootView.findViewById(R.id.list_of_lists);
         readingListView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -127,7 +131,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
 
         if (savedInstanceState == null) {
             // Log a click event, but only the first time the dialog is shown.
-            new ReadingListsFunnel().logAddClick(invokeSource);
+            new ReadingListsFunnel().logMoveClick(invokeSource);
         }
 
         updateLists();
@@ -144,31 +148,28 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     @Override
     public void dismiss() {
         super.dismiss();
-        if (dismissListener != null) {
-            dismissListener.onDismiss(null);
-        }
     }
 
-    public void setOnDismissListener(DialogInterface.OnDismissListener listener) {
+    private void dismiss(boolean success) {
+        if (dismissListener != null) {
+            dismissListener.onDismiss(success);
+        }
+        dismiss();
+    }
+
+    private void dismiss(List<Integer> indices) {
+        if (dismissListener != null) {
+            dismissListener.onMultipleInputDismiss(indices);
+        }
+        dismiss();
+    }
+
+    public void setOnDismissListener(OnDismissSuccessListener listener) {
         dismissListener = listener;
     }
 
-    private void checkAndShowOnboarding() {
-        boolean isOnboarding = PrefsOnboardingStateMachine.getInstance().isReadingListTutorialEnabled();
-        onboardingButton.setOnClickListener((v) -> {
-            onboardingContainer.setVisibility(View.GONE);
-            listsContainer.setVisibility(View.VISIBLE);
-            PrefsOnboardingStateMachine.getInstance().setReadingListTutorial();
-            if (readingLists.isEmpty()) {
-                showCreateListDialog();
-            }
-        });
-        listsContainer.setVisibility(isOnboarding ? View.GONE : View.VISIBLE);
-        onboardingContainer.setVisibility(isOnboarding ? View.VISIBLE : View.GONE);
-    }
-
     private void updateLists() {
-        CallbackTask.execute(() -> ReadingListDbHelper.instance().getAllLists(), new CallbackTask.DefaultCallback<List<ReadingList>>() {
+        CallbackTask.execute(() -> ReadingListDbHelper.instance().getAllListsExcept(Collections.singletonList(from.id())), new CallbackTask.DefaultCallback<List<ReadingList>>() {
             @Override
             public void success(List<ReadingList> lists) {
                 if (getActivity() == null) {
@@ -203,73 +204,78 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         ReadingListTitleDialog.readingListTitleDialog(requireContext(), title, "",
                 existingTitles, (text, description) -> {
                     ReadingList list = ReadingListDbHelper.instance().createList(text, description);
-                    addAndDismiss(list, titles);
+                    moveAndDismiss(from, list, titles);
                 }).show();
     }
 
-    private void addAndDismiss(final ReadingList readingList, final PageTitle title) {
+    private void moveAndDismiss(@NonNull final ReadingList fromList,
+                                @NonNull final ReadingList toList,
+                                @NonNull final PageTitle title) {
 
-        if (readingList.pages().size() >= SiteInfoClient.getMaxPagesPerReadingList()) {
-            String message = getString(R.string.reading_list_article_limit_message, readingList.title(), SiteInfoClient.getMaxPagesPerReadingList());
+        if (toList.pages().size() >= SiteInfoClient.getMaxPagesPerReadingList()) {
+            String message = getString(R.string.reading_list_article_limit_message, toList.title(), SiteInfoClient.getMaxPagesPerReadingList());
             FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show();
             dismiss();
             return;
         }
 
-        CallbackTask.execute(() -> ReadingListDbHelper.instance().pageExistsInList(readingList, title), new CallbackTask.DefaultCallback<Boolean>() {
+        CallbackTask.execute(() -> ReadingListDbHelper.instance().pageExistsInList(toList, title), new CallbackTask.DefaultCallback<Boolean>() {
             @Override
             public void success(Boolean exists) {
                 if (!isAdded()) {
                     return;
                 }
                 String message;
+                boolean success = false;
                 if (exists) {
                     message = getString(R.string.reading_list_already_exists);
-                    showViewListSnackBar(readingList, message);
-
+                    showViewListSnackBar(toList, message);
                 } else {
-                    message = String.format(getString(R.string.reading_list_added_to_named), readingList.title());
-                    new ReadingListsFunnel(title.getWikiSite()).logAddToList(readingList, readingLists.size(), invokeSource);
+                    message = String.format(getString(R.string.reading_list_moved_to_named), toList.title());
+                    new ReadingListsFunnel(title.getWikiSite()).logMoveToList(fromList, toList, 1, invokeSource);
 
-                    ReadingListDbHelper.instance().addPageToList(readingList, title, true);
-                    showViewListSnackBar(readingList, message);
+                    ReadingListDbHelper.instance().movePageToList(fromList, toList, title, true);
+                    showViewListSnackBar(toList, message);
 
+                    success = true;
                 }
-                dismiss();
+
+                dismiss(success);
             }
         });
     }
 
-    private void addAndDismiss(final ReadingList readingList, final List<PageTitle> titles) {
+    private void moveAndDismiss(@NonNull final ReadingList fromList,
+                                @NonNull final ReadingList toList,
+                                @NonNull final List<PageTitle> titles) {
 
-        if ((readingList.pages().size() + titles.size()) > SiteInfoClient.getMaxPagesPerReadingList()) {
-            String message = getString(R.string.reading_list_article_limit_message, readingList.title(), SiteInfoClient.getMaxPagesPerReadingList());
+        if ((toList.pages().size() + titles.size()) > SiteInfoClient.getMaxPagesPerReadingList()) {
+            String message = getString(R.string.reading_list_article_limit_message, toList.title(), SiteInfoClient.getMaxPagesPerReadingList());
             FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show();
             dismiss();
             return;
         }
 
-        if (titles.size() == 1) {
-            addAndDismiss(readingList, titles.get(0));
-            return;
-        }
-
-        CallbackTask.execute(() -> ReadingListDbHelper.instance().addPagesToListIfNotExist(readingList, titles), new CallbackTask.DefaultCallback<Integer>() {
+        CallbackTask.execute(() -> ReadingListDbHelper.instance().addPagesToListIfNotExist(toList, titles), new CallbackTask.DefaultCallback<Integer>() {
             @Override
             public void success(Integer numAdded) {
                 if (!isAdded()) {
                     return;
                 }
                 String message;
+                List<Integer> indicesMoved = new ArrayList<>();
                 if (numAdded == 0) {
                     message = getString(R.string.reading_list_already_contains_selection);
                 } else {
-                    message = String.format(getString(R.string.reading_list_added_articles_list_titled), numAdded,
-                            readingList.title());
-                    new ReadingListsFunnel().logAddToList(readingList, readingLists.size(), invokeSource);
+                    message = String.format(getString(R.string.reading_list_moved_articles_list_titled), numAdded,
+                            toList.title());
+                    new ReadingListsFunnel().logMoveToList(fromList, toList, numAdded, invokeSource);
+                    for (int i = 0; i < titles.size(); i++) {
+                        indicesMoved.add(i);
+                    }
                 }
-                showViewListSnackBar(readingList, message);
-                dismiss();
+                showViewListSnackBar(toList, message);
+                dismiss(indicesMoved);
             }
         });
     }
@@ -282,7 +288,11 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private class ReadingListItemCallback implements ReadingListItemView.Callback {
         @Override
         public void onClick(@NonNull ReadingList readingList) {
-            addAndDismiss(readingList, titles);
+            if (titles.size() == 1) {
+                moveAndDismiss(from, readingList, titles.get(0));
+            } else {
+                moveAndDismiss(from, readingList, titles);
+            }
         }
 
         @Override

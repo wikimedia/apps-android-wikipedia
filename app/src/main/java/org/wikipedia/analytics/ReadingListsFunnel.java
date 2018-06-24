@@ -6,6 +6,8 @@ import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.readinglist.MergeWithOtherReadingListDialog;
+import org.wikipedia.readinglist.MoveToReadingListDialog;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.settings.Prefs;
 
@@ -28,6 +30,18 @@ public class ReadingListsFunnel extends Funnel {
         );
     }
 
+    public void logMoveClick(MoveToReadingListDialog.InvokeSource source) {
+        // TODO: Add the appropriate parameters.
+        /*log(
+                "action", "addclick",
+                "addsource", source.code()
+        );*/
+    }
+
+    public void logMergeClick(MergeWithOtherReadingListDialog.InvokeSource source) {
+        // TODO
+    }
+
     public void logAddToList(ReadingList list, int listCount,
                              AddToReadingListDialog.InvokeSource source) {
         log(
@@ -36,6 +50,22 @@ public class ReadingListsFunnel extends Funnel {
                 "itemcount", list.pages().size(),
                 "listcount", listCount
         );
+    }
+
+    public void logMoveToList(ReadingList fromList, ReadingList toList,
+                              int listCount, MoveToReadingListDialog.InvokeSource source) {
+        // TODO: Add the appropriate parameters.
+        /*log(
+                "action", list.pages().isEmpty() ? "addtonew" : "addtoexisting",
+                "addsource", source.code(),
+                "itemcount", list.pages().size(),
+                "listcount", listCount
+        );*/
+    }
+
+    public void logMergeWithList(ReadingList fromList, ReadingList toList,
+                                 MergeWithOtherReadingListDialog.InvokeSource source) {
+        // TODO
     }
 
     public void logModifyList(ReadingList list, int listCount) {

@@ -98,6 +98,14 @@ public final class Prefs {
                 getString(R.string.preference_key_cookie_map, null));
     }
 
+    public static void setMergeDoNotShowAgain(boolean show) {
+        setBoolean(R.string.preference_do_not_show_again_merge_warn, show);
+    }
+
+    public static boolean getMergeDoNotShowAgain() {
+        return getBoolean(R.string.preference_do_not_show_again_merge_warn, false);
+    }
+
     public static boolean crashedBeforeActivityCreated() {
         return getBoolean(R.string.preference_key_crashed_before_activity_created, true);
     }

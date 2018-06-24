@@ -396,6 +396,26 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         }
 
         @Override
+        public void onMerge(@NonNull ReadingList readingList) {
+            if (readingList.isDefault()) {
+                L.w("Attempted to merge default list.");
+                return;
+            }
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    MergeWithOtherReadingListDialog.newInstance(readingList.id(),
+                            MergeWithOtherReadingListDialog.InvokeSource.READING_LIST_ACTIVITY,
+                            new MergeWithOtherReadingListDialog.OnDismissSuccessListener() {
+                                @Override
+                                public void onDismiss(boolean success) {
+                                    updateLists();
+                                    /*if (success) {
+
+                                    }*/
+                                }
+                            }));
+        }
+
+        @Override
         public void onDelete(@NonNull ReadingList readingList) {
             AlertDialog.Builder alert = new AlertDialog.Builder(requireActivity());
             alert.setMessage(getString(R.string.reading_list_delete_confirm, readingList.title()));
