@@ -169,7 +169,7 @@ public class MoveToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private void updateLists() {
-        CallbackTask.execute(() -> ReadingListDbHelper.instance().getAllLists(), new CallbackTask.DefaultCallback<List<ReadingList>>() {
+        CallbackTask.execute(() -> ReadingListDbHelper.instance().getAllListsExcept(Collections.singletonList(from.id())), new CallbackTask.DefaultCallback<List<ReadingList>>() {
             @Override
             public void success(List<ReadingList> lists) {
                 if (getActivity() == null) {
@@ -288,7 +288,11 @@ public class MoveToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private class ReadingListItemCallback implements ReadingListItemView.Callback {
         @Override
         public void onClick(@NonNull ReadingList readingList) {
-            moveAndDismiss(from, readingList, titles);
+            if (titles.size() == 1) {
+                moveAndDismiss(from, readingList, titles.get(0));
+            } else {
+                moveAndDismiss(from, readingList, titles);
+            }
         }
 
         @Override

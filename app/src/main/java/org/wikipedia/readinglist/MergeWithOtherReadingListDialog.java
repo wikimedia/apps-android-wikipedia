@@ -29,6 +29,7 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MergeWithOtherReadingListDialog extends ExtendedBottomSheetDialogFragment {
@@ -135,7 +136,15 @@ public class MergeWithOtherReadingListDialog extends ExtendedBottomSheetDialogFr
         super.dismiss();
     }
 
-    private void dismiss(boolean success) {
+    private void dismiss(boolean success,
+                         @Nullable ReadingList viewList,
+                         @Nullable String message) {
+        if (success) {
+            ReadingListDbHelper.instance().deleteList(fromList);
+            if (viewList != null && message != null) {
+                showViewListSnackBar(viewList, message);
+            }
+        }
         if (dismissListener != null) {
             dismissListener.onDismiss(success);
         }
@@ -147,7 +156,7 @@ public class MergeWithOtherReadingListDialog extends ExtendedBottomSheetDialogFr
     }
 
     private void updateLists() {
-        CallbackTask.execute(() -> ReadingListDbHelper.instance().getAllLists(), new CallbackTask.DefaultCallback<List<ReadingList>>() {
+        CallbackTask.execute(() -> ReadingListDbHelper.instance().getAllListsExcept(Collections.singletonList(fromList.id())), new CallbackTask.DefaultCallback<List<ReadingList>>() {
             @Override
             public void success(List<ReadingList> lists) {
                 if (getActivity() == null) {
@@ -165,7 +174,7 @@ public class MergeWithOtherReadingListDialog extends ExtendedBottomSheetDialogFr
         public void onClick(View v) {
             if (readingLists.size() >= Constants.MAX_READING_LISTS_LIMIT) {
                 String message = getString(R.string.reading_lists_limit_message);
-                dismiss(false);
+                dismiss(false, null, null);
                 FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show();
             } else {
                 showCreateListDialog();
@@ -186,45 +195,12 @@ public class MergeWithOtherReadingListDialog extends ExtendedBottomSheetDialogFr
                 }).show();
     }
 
-    /*private void mergeAndDismiss(final ReadingList readingList, final PageTitle title) {
-
-        if (readingList.pages().size() >= SiteInfoClient.getMaxPagesPerReadingList()) {
-            String message = getString(R.string.reading_list_article_limit_message, readingList.title(), SiteInfoClient.getMaxPagesPerReadingList());
-            FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show();
-            dismiss();
-            return;
-        }
-
-        CallbackTask.execute(() -> ReadingListDbHelper.instance().pageExistsInList(readingList, title), new CallbackTask.DefaultCallback<Boolean>() {
-            @Override
-            public void success(Boolean exists) {
-                if (!isAdded()) {
-                    return;
-                }
-                String message;
-                if (exists) {
-                    message = getString(R.string.reading_list_already_exists);
-                    showViewListSnackBar(readingList, message);
-
-                } else {
-                    message = String.format(getString(R.string.reading_list_added_to_named), readingList.title());
-                    new ReadingListsFunnel(title.getWikiSite()).logMergeWithList(readingList, readingLists, invokeSource);
-
-                    ReadingListDbHelper.instance().addPageToList(readingList, title, true);
-                    showViewListSnackBar(readingList, message);
-
-                }
-                dismiss();
-            }
-        });
-    }*/
-
     private void mergeAndDismiss(final ReadingList readingList1, final ReadingList readingList2) {
 
         if ((readingList1.pages().size() + readingList2.pages().size()) > SiteInfoClient.getMaxPagesPerReadingList()) {
             String message = getString(R.string.reading_list_article_limit_message, readingList1.title(), SiteInfoClient.getMaxPagesPerReadingList());
             FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show();
-            dismiss(false);
+            dismiss(false, null, null);
             return;
         }
 
@@ -243,8 +219,7 @@ public class MergeWithOtherReadingListDialog extends ExtendedBottomSheetDialogFr
                             readingList2.title());
                     new ReadingListsFunnel().logMergeWithList(readingList1, readingList2, invokeSource);
                 }
-                showViewListSnackBar(readingList1, message);
-                dismiss(true);
+                dismiss(true, readingList2, message);
             }
         });
     }
@@ -258,7 +233,6 @@ public class MergeWithOtherReadingListDialog extends ExtendedBottomSheetDialogFr
         @Override
         public void onClick(@NonNull ReadingList readingList) {
             if (!Prefs.getMergeDoNotShowAgain()) {
-                final String dontShowAgainStr = getString(R.string.preference_do_not_show_again_merge_warn_text);
                 List<Boolean> dontShowAgain = new ArrayList<>();
                 dontShowAgain.add(false);
                 AlertDialog.Builder dialog = new AlertDialog.Builder(requireActivity());

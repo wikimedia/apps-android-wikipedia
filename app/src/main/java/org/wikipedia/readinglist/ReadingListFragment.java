@@ -229,9 +229,11 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                 setSortMode(ReadingList.SORT_BY_RECENT_DESC, ReadingList.SORT_BY_RECENT_ASC);
                 return true;
             case R.id.menu_reading_list_rename:
+                L.e("Calling rename()");
                 rename();
                 return true;
             case R.id.menu_reading_list_merge:
+                L.e("Calling merge()");
                 merge();
                 return true;
             case R.id.menu_reading_list_delete:
@@ -522,7 +524,9 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                             MoveToReadingListDialog.InvokeSource.READING_LIST_ACTIVITY,
                             new MoveToReadingListDialog.OnDismissSuccessListener() {
                                 @Override
-                                public void onDismiss(boolean success) { }
+                                public void onDismiss(boolean success) {
+
+                                }
 
                                 @Override
                                 public void onMultipleInputDismiss(List<Integer> inputIndices) {
@@ -548,9 +552,10 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                 new MergeWithOtherReadingListDialog.OnDismissSuccessListener() {
                     @Override
                     public void onDismiss(boolean success) {
-                        if (success) {
+                        /*if (success) {
                             ReadingListDbHelper.instance().deleteList(readingList);
-                        }
+                        }*/
+                        update();
                     }
                 }));
     }
@@ -650,7 +655,6 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                                 public void onDismiss(boolean success) {
                                     if (success) {
                                         deleteSinglePage(page, false);
-                                        update();
                                     }
                                 }
 

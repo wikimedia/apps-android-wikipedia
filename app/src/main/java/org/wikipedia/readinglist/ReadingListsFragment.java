@@ -397,7 +397,22 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
 
         @Override
         public void onMerge(@NonNull ReadingList readingList) {
+            if (readingList.isDefault()) {
+                L.w("Attempted to merge default list.");
+                return;
+            }
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    MergeWithOtherReadingListDialog.newInstance(readingList.id(),
+                            MergeWithOtherReadingListDialog.InvokeSource.READING_LIST_ACTIVITY,
+                            new MergeWithOtherReadingListDialog.OnDismissSuccessListener() {
+                                @Override
+                                public void onDismiss(boolean success) {
+                                    updateLists();
+                                    /*if (success) {
 
+                                    }*/
+                                }
+                            }));
         }
 
         @Override

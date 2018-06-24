@@ -47,6 +47,26 @@ public class ReadingListDbHelper {
         return lists;
     }
 
+    public List<ReadingList> getAllListsExcept(List<Long> ids) {
+        List<ReadingList> lists = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        try (Cursor cursor = db.query(ReadingListContract.TABLE, null, null, null, null, null, null)) {
+            while (cursor.moveToNext()) {
+                ReadingList list = ReadingList.DATABASE_TABLE.fromCursor(cursor);
+
+                if (ids.contains(list.id())) {
+                    continue;
+                }
+
+                lists.add(list);
+            }
+        }
+        for (ReadingList list : lists) {
+            populateListPages(db, list);
+        }
+        return lists;
+    }
+
     public List<ReadingList> getAllListsWithoutContents() {
         List<ReadingList> lists = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
