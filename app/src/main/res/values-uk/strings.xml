@@ -140,7 +140,7 @@
   <string name="preferences_heading_data_usage">Використання даних</string>
   <string name="preferences_heading_experimental">Експериментальні</string>
   <string name="preference_title_sync_reading_lists">Синхронізувати список читання</string>
-  <string name="preference_title_sync_reading_lists_from_account">Включити синхронізацію списків читання</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Включити синхронізацію списків читання</string>
   <string name="preference_summary_sync_reading_lists">Синхронізує списки для читання на різних пристроях зберігаючи у вашому обліковому запису Вікіпедії</string>
   <string name="preference_summary_sync_reading_lists_from_account">Дозволити Вікімедіа синхронізовувати списки читання з обліковим записом Вікіпедії %s</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Видалити синхронізовані списки читання з вашого облікового запису %s?</string>

@@ -153,7 +153,7 @@
   <string name="preferences_heading_data_usage">Utilização de dados</string>
   <string name="preferences_heading_experimental">Experimental</string>
   <string name="preference_title_sync_reading_lists">Sincronizar listas de leitura</string>
-  <string name="preference_title_sync_reading_lists_from_account">Ativar a sincronização das listas de leitura</string>
+  <string name="preference_title_sync_reading_lists_from_account">Sincronização das listas de leitura</string>
   <string name="preference_summary_sync_reading_lists">Sincronize as listas de leitura em dispositivos diferentes guardando-as na sua conta da Wikipédia</string>
   <string name="preference_summary_sync_reading_lists_from_account">Sincronize as listas de leitura em dispositivos diferentes guardando-as na sua conta da Wikipédia \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Remover as listas de leitura sincronizadas da sua conta \"%s\"?</string>
@@ -444,7 +444,7 @@
     <item quantity="one">Este artigo deixará de estar disponível sem acesso à Internet.</item>
     <item quantity="other">Estes artigos deixarão de estar disponíveis sem acesso à Internet.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync" fuzzy="true">Última sincronização: %s</string>
+  <string name="reading_list_toast_last_sync">As listas de leitura foram sincronizadas</string>
   <string name="user_option_sync_label">Preferências</string>
   <string name="notification_button_view_user">Falar com o utilizador</string>
   <string name="notification_talk_title">Mensagem nova na Wikipédia</string>

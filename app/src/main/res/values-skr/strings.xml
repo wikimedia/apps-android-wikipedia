@@ -149,6 +149,7 @@
   <string name="wiktionary_no_definitions_found">کوئی تعریف کائنی لبھی۔</string>
   <string name="dialog_close_description">بند کرو</string>
   <string name="preference_title_show_images">تصویراں ݙکھاؤ</string>
+  <string name="dialog_title_download_only_over_wifi_allow">اجازت</string>
   <string name="read_more_section">ٻیا پڑھو</string>
   <string name="about_article_section">ایں مضمون بارے</string>
   <string name="menu_gallery_visit_page">فائل ورقے تے ونڄو</string>

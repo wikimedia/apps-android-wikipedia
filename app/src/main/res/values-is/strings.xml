@@ -141,7 +141,7 @@
   <string name="preferences_heading_data_usage">Gagnamagn</string>
   <string name="preferences_heading_experimental">Á tilraunastigi</string>
   <string name="preference_title_sync_reading_lists">Samstilla leslista</string>
-  <string name="preference_title_sync_reading_lists_from_account">Virkja samstillingu leslista</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Virkja samstillingu leslista</string>
   <string name="preference_summary_sync_reading_lists">Samstilla leslista á milli mismunandi tækja með því að vista þá á Wikipedia-notandaaðganginn þinn</string>
   <string name="preference_summary_sync_reading_lists_from_account">Samstilla leslista á milli mismunandi tækja með því að vista þá á Wikipedia-notandaaðganginn \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Fjarlægja samstillta leslista af %s?</string>

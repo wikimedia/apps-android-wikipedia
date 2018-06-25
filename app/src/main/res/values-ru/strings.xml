@@ -177,7 +177,7 @@
   <string name="preferences_heading_data_usage">Использование трафика</string>
   <string name="preferences_heading_experimental">Экспериментальные</string>
   <string name="preference_title_sync_reading_lists">Синхронизация списков для чтения</string>
-  <string name="preference_title_sync_reading_lists_from_account">Синхронизацию списков для чтения</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Синхронизацию списков для чтения</string>
   <string name="preference_summary_sync_reading_lists">Синхронизирует списки для чтения на разных устройствах сохраняя в вашей учётной записи Википедии</string>
   <string name="preference_summary_sync_reading_lists_from_account">Синхронизирует списки для чтения на разных устройствах путём их сохранения в вашей учётной записи Википедии «%s»</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Удалить синхронизированные списки для чтения «%s»?</string>
@@ -468,7 +468,7 @@
     <item quantity="one">Эта статья больше не будет доступна в офлайн-режиме.</item>
     <item quantity="other">Эти статьи больше не будут доступны в офлайн-режиме.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync" fuzzy="true">Последняя синхронизация: %s</string>
+  <string name="reading_list_toast_last_sync">Списки чтения успешно синхронизированы</string>
   <string name="user_option_sync_label">Настройки</string>
   <string name="notification_button_view_user">Написать участнику</string>
   <string name="notification_talk_title">Новое сообщение в Википедии</string>

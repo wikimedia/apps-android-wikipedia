@@ -16,6 +16,7 @@
 * Sandipan
 * Shirayuki
 * ShockD
+* Tacsipacsi
 * Trizek (WMF)
 -->
 <resources>
@@ -415,7 +416,7 @@
   <string name="reading_list_turned_sync_off_dialog_ok">Negative answer to dismiss the dialog.\n{{Identical|OK}}</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Affirmative answer to confirm and redirect to the settings page.\n{{Identical|Settings}}</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Title of warning message shown to a user who is logged in who has not opted-in to syncing enters this screen at the first time.</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">Warning message shown to a user who is logged in who has not opted-in to syncing enters this screen at the first time, also contains a link to mediawiki FAQ page. (Please preserve the anchor tag in its exact form.)</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Warning message shown to a user who is logged in who has not opted in to syncing enters this screen at the first time, also contains a link to MediaWiki FAQ page. (Please preserve the anchor tag in its exact form.)</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">An option shows on dialog that does not allow to receive the message again.</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Affirmative answer to confirm and redirect to the settings page.</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Negative answer to dismiss the dialog.\n{{Identical|No thanks}}</string>

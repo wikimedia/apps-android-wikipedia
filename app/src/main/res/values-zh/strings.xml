@@ -2,6 +2,7 @@
 <!-- Authors:
 * Cwek
 * Davidzdh
+* Deathkon
 * Hudafu
 * Hydra
 * LNDDYL
@@ -155,7 +156,7 @@
   <string name="preferences_heading_data_usage">数据使用</string>
   <string name="preferences_heading_experimental">实验</string>
   <string name="preference_title_sync_reading_lists">同步阅读列表</string>
-  <string name="preference_title_sync_reading_lists_from_account">启用阅读列表同步</string>
+  <string name="preference_title_sync_reading_lists_from_account">同步阅读列表</string>
   <string name="preference_summary_sync_reading_lists">通过保存至您的维基百科账户，跨各种设备同步阅读列表</string>
   <string name="preference_summary_sync_reading_lists_from_account">通过保存到您的维基百科帐户“%s”，跨各种设备同步阅读列表</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">从“%s”移除同步的阅读列表么？</string>

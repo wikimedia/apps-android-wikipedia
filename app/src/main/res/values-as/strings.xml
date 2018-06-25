@@ -382,4 +382,5 @@
   <string name="onboarding_create_account_contributions">আপোনাৰ বৰঙণিৰ হিচাপ ৰাখক</string>
   <string name="onboarding_create_account_preferences">আপোনাৰ পছন্দসমূহ সাঁচি থওক</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ভাষাৰ সালসলনি কৰক</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">নালাগে দিয়ক</string>
 </resources>

@@ -143,7 +143,7 @@
   <string name="preferences_heading_data_usage">Uso de datos</string>
   <string name="preferences_heading_experimental">Experimental</string>
   <string name="preference_title_sync_reading_lists">Sincronizar as listas de lectura</string>
-  <string name="preference_title_sync_reading_lists_from_account">Habilita a sincronización das listas de lectura</string>
+  <string name="preference_title_sync_reading_lists_from_account">Sincronización das listas de lectura</string>
   <string name="preference_summary_sync_reading_lists">Sincronice as listas de lectura en dispositivos diferentes gardándoas na súa conta de Wikipedia</string>
   <string name="preference_summary_sync_reading_lists_from_account">Sincronice as listas de lectura en dispositivos diferentes gardándoas na súa conta de Wikikepdia \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Borrar as listas de lectura sincronizadas da súa conta \"%s\"?</string>

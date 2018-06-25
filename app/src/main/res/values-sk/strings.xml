@@ -140,7 +140,7 @@
   <string name="preferences_heading_data_usage">Spotreba dát</string>
   <string name="preferences_heading_experimental">Experimentálne</string>
   <string name="preference_title_sync_reading_lists">Synchronizovať zoznamy na prečítanie</string>
-  <string name="preference_title_sync_reading_lists_from_account">Povoliť synchronizáciu zoznamov na prečínanie</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Povoliť synchronizáciu zoznamov na prečínanie</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">Povolí Wikimedii synchronizovať vaše zoznamy na prečítanie keď ste prihlásení</string>
   <string name="preferences_privacy_settings_heading">Súkromie</string>
   <string name="preference_title_eventlogging_opt_in">Odosielať správu o používaní</string>

@@ -151,7 +151,7 @@
   <string name="preferences_heading_data_usage">שימוש בנתונים</string>
   <string name="preferences_heading_experimental">ניסיוני</string>
   <string name="preference_title_sync_reading_lists">סנכרון רשימות קריאה</string>
-  <string name="preference_title_sync_reading_lists_from_account">הפעלת סנכרון רשימות קריאה</string>
+  <string name="preference_title_sync_reading_lists_from_account">סנכרון רשימות קריאה</string>
   <string name="preference_summary_sync_reading_lists">סנכרון רשימות קריאה במכשירים שונים באמצעות שמירתם לחשבון הוויקיפדיה שלך</string>
   <string name="preference_summary_sync_reading_lists_from_account">סנכרון רשימות קריאה במכשירים שונים באמצעות שמירתם לחשבון הוויקיפדיה שלך \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">להסיר את רשימות הקריאה המסונכרנות שלך מהחשבון \"%s\"?</string>

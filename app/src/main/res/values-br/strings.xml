@@ -136,7 +136,7 @@
   <string name="preferences_heading_data_usage">Implij ar roadennoù</string>
   <string name="preferences_heading_experimental">Arnodel</string>
   <string name="preference_title_sync_reading_lists">Sinkronelaat ar rolloù lenn</string>
-  <string name="preference_title_sync_reading_lists_from_account">Gweredekaat sinkroneladur ar rolloù lenn</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Gweredekaat sinkroneladur ar rolloù lenn</string>
   <string name="preference_summary_sync_reading_lists">Sinkronelaat ar rolloù lenn etre ardivinkoù a bep seurt en ur enrollañ anezho en ho kont wikipedia</string>
   <string name="preference_summary_sync_reading_lists_from_account">Sinkronelaat ar rolloù lenn etre ardinvikoù a bep seurt en ur enrollañ anezho en ho kont Wikipedia « %s »</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Lemel ar rolloù lenn sinkronelaet diouzh ho kont « %s » ?</string>

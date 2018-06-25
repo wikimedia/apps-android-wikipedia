@@ -167,7 +167,7 @@
   <string name="preferences_heading_data_usage">Utilisation des données</string>
   <string name="preferences_heading_experimental">Expérimental</string>
   <string name="preference_title_sync_reading_lists">Synchroniser les listes de lecture</string>
-  <string name="preference_title_sync_reading_lists_from_account">Activer la synchronisation des listes de lecture</string>
+  <string name="preference_title_sync_reading_lists_from_account">Synchronisation des listes de lecture</string>
   <string name="preference_summary_sync_reading_lists">Synchroniser les listes de lecture entre différents appareils en les enregistrant dans votre compte Wikipédia</string>
   <string name="preference_summary_sync_reading_lists_from_account">Synchroniser les listes de lecture entre différents appareils en les enregistrant dans votre compte Wikipédia « %s »</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Supprimer les listes de lecture synchronisées de votre compte « %s » ?</string>
@@ -254,6 +254,10 @@
   <string name="dialog_close_description">Fermer</string>
   <string name="preference_title_show_images">Voir les images</string>
   <string name="preference_summary_show_images">Activer ou désactiver le chargement des images dans les pages. Décochez ce paramètre si votre connexion à Internet est lente, ou si votre volume de données est limité.</string>
+  <string name="preference_title_download_only_over_wifi">Télécharger seulement par le Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi">Confirmer le téléchargement en utilisant les données mobiles ?</string>
+  <string name="dialog_text_download_only_over_wifi">Vous avez « Télécharger seulement sur le Wi-Fi » d’activé dans les paramètres. Voulez-vous autoriser l’utilisation de votre plan de données mobiles pour ce téléchargement uniquement ?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Autoriser</string>
   <string name="read_more_section">En savoir plus</string>
   <string name="about_article_section">À propos de cet article</string>
   <string name="menu_gallery_visit_page">Aller à la page du fichier</string>
@@ -454,6 +458,7 @@
     <item quantity="one">Cet article n’est plus disponible hors connexion.</item>
     <item quantity="other">Ces articles ne sont plus disponibles hors connexion.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync">Listes de lecture bien synchronisées</string>
   <string name="user_option_sync_label">Préférences</string>
   <string name="notification_button_view_user">Parler à l’utilisateur</string>
   <string name="notification_talk_title">Nouveau message sur Wikipédia</string>

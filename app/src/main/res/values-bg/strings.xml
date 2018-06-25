@@ -146,7 +146,7 @@
   <string name="preferences_heading_data_usage">Използване на данните</string>
   <string name="preferences_heading_experimental">Експериментални</string>
   <string name="preference_title_sync_reading_lists">Синхронизация на списъците за четене</string>
-  <string name="preference_title_sync_reading_lists_from_account">Включване на синхронизация за списъци за четене</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Включване на синхронизация за списъци за четене</string>
   <string name="preference_summary_sync_reading_lists">Синхронизиране на списъци за четене на различни устройства чрез запазването им в сметката Ви в Уикипедия</string>
   <string name="preference_summary_sync_reading_lists_from_account">Синхронизиране на списъци за четене на различни устройства чрез запазването им в сметката Ви „%s“ в Уикипедия</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Премахване на синхронизираните списъци за четене от „%s“?</string>

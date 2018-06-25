@@ -162,7 +162,7 @@
   <string name="preferences_heading_data_usage">Veri kullanımı</string>
   <string name="preferences_heading_experimental">Deneysel</string>
   <string name="preference_title_sync_reading_lists">Okuma listelerini senkronize et</string>
-  <string name="preference_title_sync_reading_lists_from_account">Okuma listesi senkronizasyonunu etkinleştir</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Okuma listesi senkronizasyonunu etkinleştir</string>
   <string name="preference_summary_sync_reading_lists">Farklı cihazlarda okuma listelerini, Vikipedi hesabınıza kaydederek senkronize edin</string>
   <string name="preference_summary_sync_reading_lists_from_account">Okuma listelerini \"%s\" adlı Vikipedi hesabınıza kaydederek farklı cihazlarda senkronize edin</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Senkronize edilen okuma listeleri \"%s\" hesabından kaldırılsın mı?</string>

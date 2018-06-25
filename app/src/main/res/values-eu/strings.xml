@@ -148,7 +148,7 @@
   <string name="preferences_heading_data_usage">Data erabilera</string>
   <string name="preferences_heading_experimental">Esperimentala</string>
   <string name="preference_title_sync_reading_lists">Zure irakurketa zerrendak sinkronizatu</string>
-  <string name="preference_title_sync_reading_lists_from_account">Kontu honetarako irakurketa zerrendak sinkronizatzea ahalbidetu</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Kontu honetarako irakurketa zerrendak sinkronizatzea ahalbidetu</string>
   <string name="preference_summary_sync_reading_lists">Utzi zure irakurketa zerrendak gailuen zehar sinkronizatzen, zure Wikipedia kontuan gordez</string>
   <string name="preference_summary_sync_reading_lists_from_account">Utzi Wikipediak sinkroniza ditzala irakurketa zerrendak zure \"%s\" Wikipedia kontura gordez</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Zure %s kontutik kendu nahi dituzu sinkronizatutako irakurketa zerrendak?</string>

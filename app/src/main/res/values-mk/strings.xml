@@ -142,7 +142,7 @@
   <string name="preferences_heading_data_usage">Употреба на податоците</string>
   <string name="preferences_heading_experimental">Пробни</string>
   <string name="preference_title_sync_reading_lists">Усогласи списоци за читање</string>
-  <string name="preference_title_sync_reading_lists_from_account">Овозможи усогласување на списоци за читање</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Овозможи усогласување на списоци за читање</string>
   <string name="preference_summary_sync_reading_lists">Усогласувајте списоци за читање низ разни уреди зачувувајќи ги во вашата сметка на Википедија</string>
   <string name="preference_summary_sync_reading_lists_from_account">Усогласувајте списоци за читање низ разни уреди зачувувајќи ги во вашата сметка „%s“ на Википедија</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Да отстранам усогласени списоци за читање од вашата сметка „%s“?</string>

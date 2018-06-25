@@ -163,7 +163,7 @@
   <string name="preferences_heading_data_usage">Uso de datos</string>
   <string name="preferences_heading_experimental">Experimental</string>
   <string name="preference_title_sync_reading_lists">Sincronizar listas de lectura</string>
-  <string name="preference_title_sync_reading_lists_from_account">Activar sincronización de listas de lectura</string>
+  <string name="preference_title_sync_reading_lists_from_account">Sincronización de listas de lectura</string>
   <string name="preference_summary_sync_reading_lists">Guardar las listas de lectura en mi cuenta de Wikipedia y sincronizarlas en varios dispositivos</string>
   <string name="preference_summary_sync_reading_lists_from_account">Guarda tus listas de lectura en tu cuenta de Wikipedia «%s» y sincronízalas en varios dispositivos</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">¿Quieres quitar las listas de lectura sincronizadas de «%s»?</string>
@@ -250,6 +250,10 @@
   <string name="dialog_close_description">Cerrar</string>
   <string name="preference_title_show_images">Mostrar imágenes</string>
   <string name="preference_summary_show_images">Activar o desactivar la carga de imágenes en las páginas. Desmarca esta opción si tu conexión de Internet es lenta, o si tu plan de datos es limitado.</string>
+  <string name="preference_title_download_only_over_wifi">Descargar solo mediante wifi</string>
+  <string name="dialog_title_download_only_over_wifi">¿Confirmas la descarga a través de datos móviles?</string>
+  <string name="dialog_text_download_only_over_wifi">Has activado «Descargar solo mediante wifi». ¿Quieres permitir el uso del plan de datos móviles durante esta descarga solamente?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Permitir</string>
   <string name="read_more_section">Más información</string>
   <string name="about_article_section">Acerca de este artículo</string>
   <string name="menu_gallery_visit_page">Ir a la página del archivo</string>

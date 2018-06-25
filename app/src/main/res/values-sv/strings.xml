@@ -151,7 +151,7 @@
   <string name="preferences_heading_data_usage">Dataanvändning</string>
   <string name="preferences_heading_experimental">Experimentell</string>
   <string name="preference_title_sync_reading_lists">Synkroniserar läslistor</string>
-  <string name="preference_title_sync_reading_lists_from_account">Aktivera synkronisering av läslistor</string>
+  <string name="preference_title_sync_reading_lists_from_account">Synkronisering av läslistor</string>
   <string name="preference_summary_sync_reading_lists">Synkronisera läslistor över olika enheter genom att spara dem till ditt Wikipedia-konto</string>
   <string name="preference_summary_sync_reading_lists_from_account">Synkronisera läslistor över olika enheter genom att spara dem till ditt Wikipedia-konto %s</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Ta bort synkroniserade läslistor från \"%s\"?</string>
@@ -238,6 +238,10 @@
   <string name="dialog_close_description">Stäng</string>
   <string name="preference_title_show_images">Visa bilder</string>
   <string name="preference_summary_show_images">Aktivera eller inaktivera inläsning av bilder på sidor. Avmarkera denna inställning om din Internetanslutning är långsam eller om ditt dataabonnemang är begränsat.</string>
+  <string name="preference_title_download_only_over_wifi">Ladda endast ned via Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi">Bekräfta nedladdning via mobildata?</string>
+  <string name="dialog_text_download_only_over_wifi">Du har aktiverat \"Ladda endast ned via Wi-Fi\" i inställningarna. Vill du använda din mobildata för endast denna nedladdning?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Tillåt</string>
   <string name="read_more_section">Läs mer</string>
   <string name="about_article_section">Om denna artikel</string>
   <string name="menu_gallery_visit_page">Gå till filsida</string>
@@ -438,6 +442,7 @@
     <item quantity="one">Denna artikel kommer inte längre vara tillgänglig offline.</item>
     <item quantity="other">Dessa artiklar kommer inte längre vara tillgängliga offline.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync">Läslistorna har synkroniserats</string>
   <string name="user_option_sync_label">Inställningar</string>
   <string name="notification_button_view_user">Diskutera med användare</string>
   <string name="notification_talk_title">Nytt meddelande på Wikipedia</string>

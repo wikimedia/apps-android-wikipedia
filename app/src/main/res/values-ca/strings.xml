@@ -7,6 +7,7 @@
 * F3RaN
 * Fitoschido
 * Jaumeortola
+* Jey
 * Joan manel
 * Kippelboy
 * Lluis tgn
@@ -154,7 +155,7 @@
   <string name="preferences_heading_data_usage">Ús de dades</string>
   <string name="preferences_heading_experimental">Experimental</string>
   <string name="preference_title_sync_reading_lists">Sincronitza les llistes de lectura</string>
-  <string name="preference_title_sync_reading_lists_from_account">Habilita la sincronització de les llistes de lectura</string>
+  <string name="preference_title_sync_reading_lists_from_account">Sincronització de les llistes de lectura</string>
   <string name="preference_summary_sync_reading_lists">Sincronitza les llistes de lectura entre diferents dispositius desant-les en el vostre compte de la Viquipèdia</string>
   <string name="preference_summary_sync_reading_lists_from_account">Sincronitza les llistes de lectura entre diferents dispositius desant-les en el vostre compte de la Viquipèdia «%s»</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Voleu suprimir les llistes de lectura sincronitzades de «%s»?</string>
@@ -240,6 +241,8 @@
   <string name="dialog_close_description">Tanca</string>
   <string name="preference_title_show_images">Mostra imatges</string>
   <string name="preference_summary_show_images">Activa o desactiva la càrrega d\'imatges a les pàgines. Desactiveu aquest paràmetre si teniu una connexió a Internet lenta o dades limitades.</string>
+  <string name="preference_title_download_only_over_wifi">Baixa només amb Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Permet</string>
   <string name="read_more_section">Llegir més</string>
   <string name="about_article_section">Sobre aquest article</string>
   <string name="menu_gallery_visit_page">Vés a la pàgina del fitxer</string>
@@ -434,6 +437,7 @@
     <item quantity="one">Aquest article no continuarà estant disponible fora de línia.</item>
     <item quantity="other">Aquests articles no continuaran estant disponibles fora de línia.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync">Les llistes de lectura s’han sincronitzat correctament</string>
   <string name="user_option_sync_label">Preferències</string>
   <string name="notification_button_view_user">Parla amb l\'usuari</string>
   <string name="notification_talk_title">Missatge nou a la Viquipèdia</string>
@@ -475,7 +479,7 @@
   <string name="view_because_you_read_card_title">Com que has llegit</string>
   <string name="view_random_card_title">A l\'atzar</string>
   <string name="view_random_card_subtitle">Volteu per articles a l\'atzar per llegir de la Viquipèdia</string>
-  <string name="view_random_card_action">Llença el deu</string>
+  <string name="view_random_card_action">Tira el dau</string>
   <string name="view_next_random_article">Carrega un altre article a l\'atzar</string>
   <string name="view_main_page_card_title">Avui a la Viquipèdia</string>
   <string name="view_main_page_card_subtitle">Pàgina principal a %s</string>

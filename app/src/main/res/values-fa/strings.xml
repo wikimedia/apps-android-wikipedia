@@ -151,7 +151,7 @@
   <string name="preferences_heading_data_usage">مصرف دیتا</string>
   <string name="preferences_heading_experimental">آزمایشی</string>
   <string name="preference_title_sync_reading_lists">همسازسازی فهرست‌های مطالعه</string>
-  <string name="preference_title_sync_reading_lists_from_account">فعال‌کردن همگام‌سازی فهرست مطالعه</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">فعال‌کردن همگام‌سازی فهرست مطالعه</string>
   <string name="preference_summary_sync_reading_lists">همسان‌سازی فهرست خواند بین چند دستگاه متفاوت با ذخیرهٔ آنها در حساب کاربری ویکی‌پدیا</string>
   <string name="preference_summary_sync_reading_lists_from_account">همسان‌سازی فهرست خواند بین چند دستگاه متفاوت با ذخیرهٔ آنها در حساب کاربری «%s» در ویکی‌پدیا</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">فهرست‌های خواندن از \"%s\" حذف شود؟</string>

@@ -142,7 +142,7 @@
   <string name="preferences_heading_data_usage">Panggunaan data</string>
   <string name="preferences_heading_experimental">Eksperimental</string>
   <string name="preference_title_sync_reading_lists">Sinkronkon daftar bacaan</string>
-  <string name="preference_title_sync_reading_lists_from_account">Aktifkon sinkronisasi daftar bacaan</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Aktifkon sinkronisasi daftar bacaan</string>
   <string name="preference_summary_sync_reading_lists">Sinkronkon daftar bacaan i bahat perangkat dohot manyimpanna tu akun Wikipedia Mu</string>
   <string name="preference_summary_sync_reading_lists_from_account">Sinkronkon daftar bacaan i sude perangkat dohot manyimpanna tu akun Wikipedia Mu \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Apus daftar bacaan na isinkronkon tingon \"%s\"?</string>

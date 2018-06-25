@@ -150,7 +150,7 @@
   <string name="preferences_heading_data_usage">ডাটা ব্যাবহার</string>
   <string name="preferences_heading_experimental">পরীক্ষামূলক</string>
   <string name="preference_title_sync_reading_lists">পড়ার তালিকাগুলি সিঙ্ক করুন</string>
-  <string name="preference_title_sync_reading_lists_from_account">সুসংগত পড়ার তালিকা সক্ষম করুন</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">সুসংগত পড়ার তালিকা সক্ষম করুন</string>
   <string name="preference_summary_sync_reading_lists">বিভিন্ন যন্ত্রে পড়ার তালিকাগুলিকে সুসংগত করার জন্য তাঁদের আপনার উইকিপিডিয়া অ্যাকাউন্টে সংরক্ষণ করে</string>
   <string name="preference_summary_sync_reading_lists_from_account">বিভিন্ন যন্ত্রে পড়ার তালিকাগুলিকে সুসংগত করার জন্য তাঁদের আপনার \"%s\" উইকিপিডিয়া অ্যাকাউন্টে সংরক্ষণ করে</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\" থেকে সুসংগত পড়ার তালিকা বাদ দিতে ইচ্ছুক?</string>

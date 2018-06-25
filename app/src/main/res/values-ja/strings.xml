@@ -245,6 +245,10 @@
   <string name="dialog_close_description">閉じる</string>
   <string name="preference_title_show_images">画像を表示</string>
   <string name="preference_summary_show_images">ページ内の画像読み込みを有効/無効にします。インターネット接続が遅い時や、データ通信契約に上限があるときには、このチェックを外してください。</string>
+  <string name="preference_title_download_only_over_wifi">Wi-Fi環境でのみダウンロード</string>
+  <string name="dialog_title_download_only_over_wifi">モバイルデータ通信でダウンロードしてもよろしいですか？</string>
+  <string name="dialog_text_download_only_over_wifi">「Wi-Fi環境でのみダウンロード」が有効になっています。このダウンロードに限ってモバイルデータ通信でダウンロードしますか？</string>
+  <string name="dialog_title_download_only_over_wifi_allow">許可</string>
   <string name="read_more_section">さらに詳しく</string>
   <string name="about_article_section">この記事について</string>
   <string name="menu_gallery_visit_page">ファイルのページに移動</string>
@@ -445,6 +449,7 @@
     <item quantity="one">この記事はオフラインでは利用できなくなります。</item>
     <item quantity="other">これらの記事はオフラインで利用できなくなります。</item>
   </plurals>
+  <string name="reading_list_toast_last_sync">あとで読むリストの同期が完了しました</string>
   <string name="user_option_sync_label">設定</string>
   <string name="notification_button_view_user">ユーザーと話す</string>
   <string name="notification_talk_title">ウィキペディアで新しいメッセージがあります</string>

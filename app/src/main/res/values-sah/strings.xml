@@ -121,6 +121,7 @@
   <string name="create_account_next">Аныгыскы</string>
   <string name="create_account_button">Бэлиэтэнии</string>
   <string name="create_account_name_unavailable">Маннык аат \"%s\" сатаммат. Бука диэн, атын аатта тал.</string>
+  <string name="create_account_ip_block_details">Сиһилии</string>
   <string name="preferences_general_heading">Сүнньүнэн</string>
   <string name="wikipedia_app_faq">Бикипиэдьийэ баайылын туһунан ыйытыылар</string>
   <string name="zero_charged_verbiage">Бикипиэдьийэҕэ босхо киирии сатаммат буолбут.</string>
@@ -143,7 +144,7 @@
   <string name="preferences_heading_data_usage">Трафик</string>
   <string name="preferences_heading_experimental">Эксперимент быһыытынан</string>
   <string name="preference_title_sync_reading_lists">Мэнэйдэhии испиhиэгэ</string>
-  <string name="preference_title_sync_reading_lists_from_account">Ааҕыы испииһэгин мэнэйдээһинин холбоо</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Ааҕыы испииһэгин мэнэйдээһинин холбоо</string>
   <string name="preference_summary_sync_reading_lists">Бикипиэдьийэҕэ бэлиэтэммит ааккынан ааҕар испиһиэги араас тэриллэргэр тэҥниир мэнэйдээһин</string>
   <string name="preference_summary_sync_reading_lists_from_account">Бикипиэдьийэҕэ бэлиэтэммит \"%s\" ааккынан ааҕар испиһиэги араас тэриллэргэр тэҥниир мэнэйдээһин</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Мэнэйдэммит ааҕар испииһэктэри \"%s\" сотоҕун дуо?</string>
@@ -228,6 +229,10 @@
   <string name="dialog_close_description">Сап</string>
   <string name="preference_title_show_images">Ойуулары көрдөр</string>
   <string name="preference_summary_show_images">Ойуулары көрдөрөрү холбооһун эбэтэр араарыы. Бытаан эбэтэр сыаналаах интэриниэттээх буоллаххына чыычааҕын устан кэбис.</string>
+  <string name="preference_title_download_only_over_wifi">Wi-Fi баар эрэ буоллаҕына хачайдыырга</string>
+  <string name="dialog_title_download_only_over_wifi">Мобил ситиминэн хачайдыыры ыйытарга?</string>
+  <string name="dialog_text_download_only_over_wifi">Туруорууларгар «Wi-Fi баар эрэ буоллаҕына хачайдыырга» диэбиккин. Мобил ситими хачайдыырга билигин эрэ туттаары гынаҕын дуо?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Көҥүллүүргэ</string>
   <string name="read_more_section">Бу туһунан сиһилии</string>
   <string name="about_article_section">Бу ыстатыйа туһунан</string>
   <string name="menu_gallery_visit_page">Билэ сирэйигэр көһөргө</string>

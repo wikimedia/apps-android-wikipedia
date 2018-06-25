@@ -154,7 +154,7 @@
   <string name="preferences_heading_data_usage">Penggunaan data</string>
   <string name="preferences_heading_experimental">Eksperimental</string>
   <string name="preference_title_sync_reading_lists">Sinkronkan daftar bacaan</string>
-  <string name="preference_title_sync_reading_lists_from_account">Aktifkan sinkronisasi daftar bacaan</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Aktifkan sinkronisasi daftar bacaan</string>
   <string name="preference_summary_sync_reading_lists">Sinkronkan daftar bacaan di berbagai perangkat dengan menyimpannya ke akun Wikipedia Anda</string>
   <string name="preference_summary_sync_reading_lists_from_account">Sinkronkan daftar bacaan di berbagai perangkat dengan menyimpannya ke akun Wikipedia Anda \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Hapus daftar bacaan yang disinkronkan dari \"%s\"?</string>

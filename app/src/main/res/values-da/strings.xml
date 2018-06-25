@@ -2,6 +2,7 @@
 <!-- Authors:
 * Anders Feder
 * Christian List
+* Fitoschido
 * Gorbi
 * Jens Jensen
 * Joedalton
@@ -139,7 +140,7 @@
   <string name="preferences_heading_data_usage">Dataforbrug</string>
   <string name="preferences_heading_experimental">Eksperimentel</string>
   <string name="preference_title_sync_reading_lists">Synkroniser læselister</string>
-  <string name="preference_title_sync_reading_lists_from_account">Aktiver synkronisering af læselister</string>
+  <string name="preference_title_sync_reading_lists_from_account">Synkronisering af læselister</string>
   <string name="preference_summary_sync_reading_lists">Synkroniser læselister på tværs af forskellige enheder ved at gemme dem på din Wikipediakonto</string>
   <string name="preference_summary_sync_reading_lists_from_account">Synkroniser læselister på tværs af forskellige enheder ved at gemme dem på din Wikipediakonto »%s«</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Fjern synkroniserede læselister fra din »%s«?</string>

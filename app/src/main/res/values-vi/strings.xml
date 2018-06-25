@@ -144,15 +144,15 @@
   <string name="send_feedback">Gửi phản hồi về ứng dụng</string>
   <string name="create_account_account_created_toast">Đã mở tài khoản thành công!</string>
   <string name="preferences_heading_storage_and_syncing">Lưu trữ và đồng bộ</string>
-  <string name="preferences_heading_syncing">Đang đồng bộ hoá</string>
+  <string name="preferences_heading_syncing">Đang đồng bộ hóa</string>
   <string name="preferences_heading_data_usage">Sử dụng dữ liệu mạng</string>
   <string name="preferences_heading_experimental">Thử nghiệm</string>
   <string name="preference_title_sync_reading_lists">Đồng bộ hóa các danh sách đọc</string>
-  <string name="preference_title_sync_reading_lists_from_account">Bật đồng bộ hoá danh sách đọc</string>
-  <string name="preference_summary_sync_reading_lists">Đồng bộ hoá danh sách đọc giữa các thiết bị khác nhau bằng cách lưu chúng vào tài khoản Wikipedia</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Đồng bộ hoá danh sách đọc giữa các thiết bị khác nhau bằng cách lưu chúng vào tài khoản Wikipedia \"%s\"</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Xoá danh sách đọc đã được đồng bộ từ \"%s\"?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Điều này sẽ xoá bỏ hoàn toàn các danh sách đọc đã được đồng bộ trước đó từ các thiết bị khác. Bạn thật sự muốn xoá các danh sách đã đồng bộ từ tài khoản \"%s\" chứ?</string>
+  <string name="preference_title_sync_reading_lists_from_account">Đồng bộ hóa danh sách đọc</string>
+  <string name="preference_summary_sync_reading_lists">Đồng bộ hóa danh sách đọc giữa các thiết bị khác nhau bằng cách lưu chúng vào tài khoản Wikipedia</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Đồng bộ hóa danh sách đọc giữa các thiết bị khác nhau bằng cách lưu chúng vào tài khoản Wikipedia “%s”</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Xóa danh sách đọc đã được đồng bộ từ “%s”?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Điều này sẽ xóa bỏ hoàn toàn các danh sách đọc đã được đồng bộ trước đó từ các thiết bị khác. Bạn thật sự muốn xóa các danh sách đã đồng bộ từ tài khoản “%s” chứ?</string>
   <string name="preferences_privacy_settings_heading">Riêng tư</string>
   <string name="preference_title_eventlogging_opt_in">Gửi báo cáo sử dụng</string>
   <string name="preference_summary_eventlogging_opt_in">Cho phép Wikimedia thu thập thông tin về cách bạn sử dụng ứng dụng để giúp cải thiện ứng dụng</string>
@@ -380,12 +380,12 @@
   <string name="reading_list_confirm_remove_article_from_offline">Xóa khỏi bộ nhớ ngoại tuyến</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Bài nằm trong nhiều danh sách</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s hiện không còn có sẵn ngoại tuyến cho danh sách đọc nào:</string>
-  <string name="reading_lists_sync_reminder_title">Bật đồng bộ hoá danh sách đọc?</string>
-  <string name="reading_lists_sync_reminder_text">Các bài viết được lưu vào danh sách đọc bây giờ đã có thể được đồng bộ hoá vào tài khoản Wikipedia của bạn. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Tìm hiểu thêm&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_title">Bật đồng bộ hóa danh sách đọc?</string>
+  <string name="reading_lists_sync_reminder_text">Các bài viết được lưu vào danh sách đọc bây giờ đã có thể được đồng bộ hóa vào tài khoản Wikipedia của bạn. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Tìm hiểu thêm&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link">Danh sách đọc có thể được đồng bộ hóa. Đăng nhập vào tài khoản của bạn, chắc chắn rằng danh sách đọc của riêng bạn đã được lưu.</string>
-  <string name="reading_lists_sync_reminder_action">Bật đồng bộ hoá</string>
+  <string name="reading_lists_sync_reminder_action">Bật đồng bộ hóa</string>
   <string name="reading_list_login_reminder_title">Đồng bộ hóa các danh sách đọc</string>
-  <string name="reading_lists_login_reminder_text">Danh sách đọc bây giờ đã có thể được đồng bộ hoá xuyên suốt các thiết bị. Hãy đăng nhập vào tài khoản Wikipedia của bạn để cho phép các danh sách của bạn được lưu.</string>
+  <string name="reading_lists_login_reminder_text">Danh sách đọc bây giờ đã có thể được đồng bộ hóa xuyên suốt các thiết bị. Hãy đăng nhập vào tài khoản Wikipedia của bạn để cho phép các danh sách của bạn được lưu.</string>
   <string name="reading_lists_confirm_remote_delete">Điều này sẽ xóa tất cả những danh sách đọc được đồng bộ hóa trước đây khỏi lưu trữ từ xa. Bạn có muốn tiếp tục?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Có</string>
   <string name="reading_lists_confirm_remote_delete_no">Không</string>
@@ -393,22 +393,22 @@
   <string name="reading_list_already_contains_selection">Danh sách được chọn đã bao gồm tất cả các trang được chọn.</string>
   <string name="reading_list_added_articles_list_titled">Đã thêm %1$d bài viết vào %2$s</string>
   <string name="reading_list_delete_confirm">Bạn có chắc chắn muốn xóa %s?</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Đăng nhập để bật đồng bộ hoá</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Đăng nhập để bật đồng bộ hóa</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Đăng nhập để cho phép các danh sách đọc được lưu vào tài khoản của bạn.</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Huỷ</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Hủy bỏ</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Đăng nhập</string>
   <string name="reading_list_turned_sync_off_dialog_title">Đồng bộ hóa danh sách đọc đã tắt</string>
-  <string name="reading_list_turned_sync_off_dialog_text">Tài khoản của bạn đã tắt tính năng đồng bộ hoá danh sách đọc, và những bài viết bạn đã lưu trên các thiết bị bạn đã đăng nhập sẽ không còn được sao lưu nữa. Hãy bật đồng bộ hoá danh sách đọc trong Tuỳ chọn.</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Tài khoản của bạn đã tắt tính năng đồng bộ hóa danh sách đọc, và những bài viết bạn đã lưu trên các thiết bị bạn đã đăng nhập sẽ không còn được sao lưu nữa. Hãy bật đồng bộ hóa danh sách đọc trong Tùy chọn.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">Đã hiểu</string>
-  <string name="reading_list_turned_sync_off_dialog_settings">Tuỳ chọn</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">Bật đồng bộ hoá danh sách đọc?</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Tùy chọn</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Bật đồng bộ hóa danh sách đọc?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Đừng hiện tôi thông báo này nữa</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Bật đồng bộ hóa</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Không, cảm ơn</string>
   <string name="reading_list_login_option_reminder_dialog_title">Đã tìm thấy các bài viết của danh sách đọc</string>
   <string name="reading_list_login_option_reminder_dialog_text">Có bài viết đã được lưu vào danh sách đọc khi bạn chưa đăng nhập. Bạn muốn thêm chúng vào danh sách đọc trong tài khoản của bạn chứ?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Có, thêm chúng vào các danh sách đọc của tôi</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Không, hãy xoá các bài viết</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Không, hãy xóa các bài viết</string>
   <string name="reading_list_logout_option_reminder_dialog_title">Giữ các bài viết đã lưu trong ứng dụng?</string>
   <string name="reading_list_logout_option_reminder_dialog_text">Có bài viết hiện đã được lưu vào danh sách đọc. Bạn vẫn muốn giữ chúng lại sau khi đã đăng xuất chứ?</string>
   <string name="reading_list_logout_option_reminder_dialog_yes">Có, giữ các bài viết trong danh sách</string>
@@ -457,8 +457,8 @@
     <item quantity="other">còn %1$d bài viết</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_title">
-    <item quantity="one">Đang đồng bộ hoá %1$d danh sách…</item>
-    <item quantity="other">Đang đồng bộ hoá %1$d danh sách…</item>
+    <item quantity="one">Đang đồng bộ hóa %1$d danh sách…</item>
+    <item quantity="other">Đang đồng bộ hóa %1$d danh sách…</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_description">
     <item quantity="one">còn %1$d danh sách</item>
@@ -504,7 +504,7 @@
   <string name="feed_item_type_randomizer">Đưa ra danh sách các bài viết ngẫu nhiên để đọc</string>
   <string name="feed_empty_message">Không có gì trên Bảng tin khám phá của bạn</string>
   <string name="feed_configure_onboarding_action">Tùy chỉnh</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Tuỳ chỉnh Bảng tin khám phá&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Bây giờ, bạn đã có thể chọn thứ bạn muốn thấy trên bảng tin, đồng thời tập trung vào những dạng nội dung mà bạn yêu thích.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Tùy chỉnh Bảng tin khám phá&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Bây giờ, bạn đã có thể chọn thứ bạn muốn thấy trên bảng tin, đồng thời tập trung vào những dạng nội dung mà bạn yêu thích.</string>
   <string name="description_edit_text_hint">Miêu tả tiêu đề</string>
   <string name="description_edit_save">Đăng</string>
   <string name="description_edit_add_description">Thêm miêu tả tiêu đề</string>
@@ -615,14 +615,14 @@
   <string name="wikipedia_languages_title">Các ngôn ngữ của Wikipedia</string>
   <string name="wikipedia_languages_your_languages_text">Ngôn ngữ của bạn</string>
   <string name="wikipedia_languages_add_language_text">Thêm ngôn ngữ</string>
-  <string name="wikipedia_languages_remove_text">Xoá ngôn ngữ</string>
-  <string name="wikipedia_languages_remove_action_mode_title">Xoá ngôn ngữ</string>
+  <string name="wikipedia_languages_remove_text">Xóa ngôn ngữ</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Xóa ngôn ngữ</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
-    <item quantity="one">Xoá ngôn ngữ đã chọn?</item>
-    <item quantity="other">Xoá các ngôn ngữ đã chọn?</item>
+    <item quantity="one">Xóa ngôn ngữ đã chọn?</item>
+    <item quantity="other">Xóa các ngôn ngữ đã chọn?</item>
   </plurals>
   <string name="wikipedia_languages_remove_dialog_content">Từ bây giờ, những nội dung trên Bảng tin khám phá cũng như trong mục Tìm kiếm nhanh sẽ chỉ xuất hiện bằng các ngôn ngữ còn lại.</string>
-  <string name="wikipedia_languages_remove_warning_dialog_title">Không thể xoá hết ngôn ngữ</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Không thể xóa hết ngôn ngữ</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Hãy giữ lại ít nhất một ngôn ngữ Wikipedia để tìm và đọc nội dung.</string>
   <string name="more_language_options">thêm</string>
   <string name="add_wikipedia_languages_text">Thêm ngôn ngữ Wikipedia</string>

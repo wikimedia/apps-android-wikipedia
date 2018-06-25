@@ -156,7 +156,7 @@
   <string name="preferences_heading_data_usage">Používání dat</string>
   <string name="preferences_heading_experimental">Experimentální</string>
   <string name="preference_title_sync_reading_lists">Synchronizovat seznamy k přečtení</string>
-  <string name="preference_title_sync_reading_lists_from_account">Povolit synchronizaci seznamů k přečtení</string>
+  <string name="preference_title_sync_reading_lists_from_account">Synchronizace seznamů čtení</string>
   <string name="preference_summary_sync_reading_lists">Synchronizovat seznamy k přečtení napříč různými zařízeními jejich uložením do vašeho účtu na Wikipedii</string>
   <string name="preference_summary_sync_reading_lists_from_account">Synchronizovat seznamy k přečtení napříč různými zařízeními pomocí jejich uložení do vašeho účtu „%s“ na Wikipedii</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Odstranit synchronizované seznamy k přečtení z „%s“?</string>
@@ -243,6 +243,10 @@
   <string name="dialog_close_description">Zavřít</string>
   <string name="preference_title_show_images">Zobrazovat obrázky</string>
   <string name="preference_summary_show_images">Povolit nebo zakázat načítání obrázků na jednotlivých stránkách. Máte-li pomalé připojení k Internetu nebo omezený datový limit, odškrtněte toto nastavení.</string>
+  <string name="preference_title_download_only_over_wifi">Stahovat pouze přes Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi">Chcete stahovat pomocí mobilních dat?</string>
+  <string name="dialog_text_download_only_over_wifi">Máte zapnutou funkci \"Stahování pouze přes Wi-Fi\" v Nastavení. Chcete povolit používání mobilního dat pouze pro toto stahování?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Povolit</string>
   <string name="read_more_section">Číst dál</string>
   <string name="about_article_section">O tomto článku</string>
   <string name="menu_gallery_visit_page">Přejít na stránku souboru</string>
@@ -443,6 +447,7 @@
     <item quantity="one">Tento článek bude dostupný bez připojení k internetu.</item>
     <item quantity="other">Tyto články budou dostupné bez připojení k internetu.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync">Seznamy k přečtení byly úspěšně synchronizovány</string>
   <string name="user_option_sync_label">Nastavení</string>
   <string name="notification_button_view_user">Diskutovat s uživatelem</string>
   <string name="notification_talk_title">Nová zpráva na Wikipedii</string>
