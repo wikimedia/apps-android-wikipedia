@@ -124,10 +124,10 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
     public void onDestroyView() {
         unbinder.unbind();
         unbinder = null;
-        if (funnel != null) {
+        if (funnel != null && !orderedContentTypes.isEmpty()) {
             funnel.done(orderedContentTypes);
-            funnel = null;
         }
+        funnel = null;
         super.onDestroyView();
     }
 
