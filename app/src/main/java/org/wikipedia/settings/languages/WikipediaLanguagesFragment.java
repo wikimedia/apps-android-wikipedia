@@ -322,7 +322,11 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
         @Override
         public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
             super.clearView(recyclerView, viewHolder);
-            updateWikipediaLanguages();
+            recyclerView.post(() -> {
+                if (isAdded()) {
+                    updateWikipediaLanguages();
+                }
+            });
         }
     }
 
