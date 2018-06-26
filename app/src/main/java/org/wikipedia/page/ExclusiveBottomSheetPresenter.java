@@ -25,11 +25,17 @@ public class ExclusiveBottomSheetPresenter {
     }
 
     public void show(@NonNull FragmentManager manager, @NonNull DialogFragment dialog) {
+        if (manager.isStateSaved() || manager.isDestroyed()) {
+            return;
+        }
         dismiss(manager);
         dialog.show(manager, BOTTOM_SHEET_FRAGMENT_TAG);
     }
 
     public void show(@NonNull FragmentManager manager, @NonNull Dialog dialog) {
+        if (manager.isStateSaved() || manager.isDestroyed()) {
+            return;
+        }
         dismiss(manager);
         currentDialog = dialog;
         currentDialog.setOnDismissListener((dialogInterface) -> currentDialog = null);
@@ -37,6 +43,9 @@ public class ExclusiveBottomSheetPresenter {
     }
 
     public void dismiss(@NonNull FragmentManager manager) {
+        if (manager.isStateSaved() || manager.isDestroyed()) {
+            return;
+        }
         DialogFragment dialog = (DialogFragment) manager.findFragmentByTag(BOTTOM_SHEET_FRAGMENT_TAG);
         if (dialog != null) {
             dialog.dismiss();
