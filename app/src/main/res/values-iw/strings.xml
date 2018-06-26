@@ -344,7 +344,7 @@
   <string name="reading_list_added_view_button">הצגת הרשימה</string>
   <string name="format_reading_list_statistical_summary_singular">ערך אחד %1$.2f מ\"ב</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d ערכים %2$.2f מ\"ב</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d מתוך 1 ערכים זמינים ללא חיבור לרשת, %3$.2f מ\"ב</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d מתוך 1 ערכים זמינים ללא חיבור לרשת, %2$.2f מ\"ב</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d מתוך %2$d ערכים זמינים ללא חיבור לרשת, %3$.2f מ\"ב</string>
   <string name="reading_list_sort">מיון</string>
   <string name="reading_list_sort_ellipsis">מיון לפי...</string>
