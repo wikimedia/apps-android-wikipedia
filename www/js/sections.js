@@ -145,7 +145,7 @@ function clearContents() {
 function elementsForSection( section ) {
     var content, lazyDocument;
     var header = pagelib.EditTransform.newEditSectionHeader(document,
-              section.id, section.toclevel + 1,section.line);
+              section.id, section.toclevel + 1, section.line, !section.noedit);
     header.id = section.anchor;
     header.setAttribute( "dir", window.directionality );
     header.setAttribute( 'data-id', section.id );
