@@ -150,7 +150,7 @@ def copy_apk(flavor, version_name, abi):
 
 def find_output_apk_for(label, version_code):
     folder_path = 'releases'
-    file_pattern = '%s/wikipedia-%s.%s-%s-universal*.apk' % (folder_path, VERSION_START, version_code, label)
+    file_pattern = '%s/wikipedia-%s.%s-%s-*universal.apk' % (folder_path, VERSION_START, version_code, label)
     apk_files = glob.glob(file_pattern)
     if len(apk_files) == 1:
         return apk_files[0]
