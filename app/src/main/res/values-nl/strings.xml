@@ -2,6 +2,7 @@
 <!-- Authors:
 * Envlh
 * Festina90
+* KlaasZ4usV
 * Mainframe98
 * Mar(c)
 * Mathonius
@@ -102,12 +103,15 @@
   <string name="login_in_progress_dialog_message">Bezig met aanmelden…</string>
   <string name="login_success_toast">U bent aangemeld.</string>
   <string name="reset_password_title">Uw wachtwoord instellen</string>
+  <string name="reset_password_description">U bent met een tijdelijk wachtwoord aangemeld. Om het aanmelden te voltooien moet u hier een nieuw wachtwoord instellen.</string>
   <string name="reset_password_hint">Nieuw wachtwoord</string>
+  <string name="reset_password_button">Opslaan en aanmelden</string>
   <string name="preference_title_logout">Afmelden</string>
   <string name="toast_logout_complete">Afgemeld</string>
   <string name="history_empty_title">Geen recent bekeken pagina\'s</string>
   <string name="history_empty_message">Blijf op de hoogte van wat u hier hebt gelezen.</string>
   <string name="search_empty_message">Zoek en lees de vrije encyclopedie in uw eigen taal</string>
+  <string name="search_empty_message_multilingual_upgrade">Doorzoek Wikimedia in meer talen</string>
   <string name="delete_selected_items">Geselecteerde items verwijderen</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Gebruikersnaam</string>
@@ -126,6 +130,7 @@
   <string name="create_account_generic_error">Het was niet mogelijk een account aan te maken</string>
   <string name="create_account_next">Volgende</string>
   <string name="create_account_button">Registreren</string>
+  <string name="create_account_name_unavailable">De gebruikersnaam \"%s\" is niet beschikbaar. Kies een andere naam.</string>
   <string name="create_account_ip_block_details">Details</string>
   <string name="preferences_general_heading">Algemeen</string>
   <string name="wikipedia_app_faq">Veelgestelde vragen over de Wikipedia-app</string>
@@ -145,9 +150,11 @@
   <string name="send_feedback">Terugkoppeling over app geven</string>
   <string name="create_account_account_created_toast">Account aangemaakt!</string>
   <string name="preferences_heading_storage_and_syncing">Opslag en synchronisatie</string>
+  <string name="preferences_heading_syncing">Synchroniseren</string>
   <string name="preferences_heading_data_usage">Gegevensgebruik</string>
   <string name="preferences_heading_experimental">Experimenteel</string>
   <string name="preference_title_sync_reading_lists">Leeslijsten sychroniseren</string>
+  <string name="preference_title_sync_reading_lists_from_account">Leeslijst synchronisatie</string>
   <string name="preference_summary_sync_reading_lists">Leeslijsten tussen verschillende apparaten synchroniseren door deze op uw account op te slaan</string>
   <string name="preferences_privacy_settings_heading">Privacy</string>
   <string name="preference_title_eventlogging_opt_in">Gebruiksrapporten verzenden</string>
@@ -229,6 +236,8 @@
   <string name="dialog_close_description">Sluiten</string>
   <string name="preference_title_show_images">Afbeeldingen weergeven</string>
   <string name="preference_summary_show_images">Laden van afbeeldingen in pagina\'s in- of uitschakelen. Schakel deze instelling uit als uw internetverbinding langzaam is, of als u een beperkte hoeveelheid data kunt gebruiken.</string>
+  <string name="preference_title_download_only_over_wifi">Alleen downloaden via Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Toestaan</string>
   <string name="read_more_section">Meer lezen</string>
   <string name="about_article_section">Over deze pagina</string>
   <string name="menu_gallery_visit_page">Naar bestandspagina gaan</string>
@@ -383,11 +392,21 @@
   <string name="reading_list_added_articles_list_titled">%1$d pagina\'s aan %2$s toegevoegd</string>
   <string name="reading_list_delete_confirm">Weet u zeker dat u %s wilt verwijderen?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Annuleren</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Aanmelden</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Leeslijst synchronisatie uitgeschakeld</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Instellingen</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Niet opnieuw weergeven</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Synchronisatie inschakelen</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nee, bedankt</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">Ja, voeg deze toe aan mijn leeslijsten</string>
   <string name="default_reading_list_name">Opgeslagen</string>
   <string name="default_reading_list_description">Standaardlijst voor uw opgeslagen pagina\'s</string>
   <string name="no_user_lists_title">Pagina\'s in lijsten organiseren</string>
   <string name="reading_list_saved_list_rename">%1$s (aangemaakt door gebruiker)</string>
+  <string name="split_reading_list_message">Er is een limiet van %d per leeslijst. Bestaande lijsten met meer artikelen dan deze limiet zijn opgesplitst in meerdere lijsten.</string>
+  <string name="reading_lists_menu_create_list">Nieuwe lijst aanmaken</string>
+  <string name="reading_lists_menu_sort_by">Sorteren op</string>
   <string name="reading_lists_refresh_sync_option">Vernieuw synchronisatie</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Meld aan / registreer</string>
   <plurals name="reading_list_article_offline_message">
@@ -398,6 +417,7 @@
     <item quantity="one">Deze pagina zal niet meer offline beschikbaar zijn.</item>
     <item quantity="other">Deze pagina\'s zullen niet meer offline beschikbaar zijn.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync">Leeslijsten succesvol gesynchroniseerd</string>
   <string name="user_option_sync_label">Voorkeuren</string>
   <string name="notification_button_view_user">Met gebruiker overleggen</string>
   <string name="notification_talk_title">Nieuw bericht op Wikipedia</string>
@@ -412,7 +432,14 @@
   <string name="notification_syncing_cancel_button">Annuleren</string>
   <string name="notification_channel_name" fuzzy="true">Synchroniseren</string>
   <string name="notification_syncing_title" fuzzy="true">%1$d pagina(\'s) downloaden…</string>
-  <string name="notification_syncing_description" fuzzy="true">nog %1$d pagina(\'s)</string>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">nog %1$d artikel</item>
+    <item quantity="other">nog %1$d artikelen</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">nog %1$d lijst</item>
+    <item quantity="other">nog %1$d lijsten</item>
+  </plurals>
   <string name="view_continue_reading_card_title">Verder lezen</string>
   <string name="view_because_you_read_card_title">Omdat u hebt gelezen</string>
   <string name="view_random_card_title">Randomizer</string>
@@ -549,6 +576,7 @@
   <string name="onboarding_create_account_contributions">Blijf op de hoogte van uw bijdragen</string>
   <string name="onboarding_create_account_preferences">Uw voorkeuren opslaan</string>
   <string name="onboarding_got_it">Begrepen</string>
+  <string name="onboarding_welcome_title_v2">De vrije encycopedie\n...in bijna 300 talen</string>
   <string name="app_shortcuts_random">Willekeurig</string>
   <string name="app_shortcuts_continue_reading">Verder lezen</string>
   <string name="app_shortcuts_search">Zoeken</string>
@@ -563,4 +591,19 @@
     <item quantity="one">Vorig jaar</item>
     <item quantity="other">%d jaar geleden</item>
   </plurals>
+  <string name="languages_list_activity_title">Taal toevoegen</string>
+  <string name="languages_list_suggested_text">Voorgesteld</string>
+  <string name="languages_list_all_text">Alle talen</string>
+  <string name="wikipedia_languages_your_languages_text">Uw talen</string>
+  <string name="wikipedia_languages_add_language_text">Taal toevoegen</string>
+  <string name="wikipedia_languages_remove_text">Taal verwijderen</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Taal verwijderen</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">Geselecteerde taal verwijderen?</item>
+    <item quantity="other">Geselecteerde talen verwijderen?</item>
+  </plurals>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Kan niet alle talen verwijderen</string>
+  <string name="more_language_options">meer</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Talen aanpassen</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nee, bedankt</string>
 </resources>

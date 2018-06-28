@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Amaia
 * Athena in Wonderland
 * Codynguyen1116
 * Csbotero
@@ -121,6 +122,7 @@
   <string name="history_empty_title">No hay hay artículos visitados recientemente</string>
   <string name="history_empty_message">Consulta lo que has leído aquí.</string>
   <string name="search_empty_message">Busca y lee la enciclopedia libre en tu idioma</string>
+  <string name="search_empty_message_multilingual_upgrade">Buscar Wikipedia en más idiomas.</string>
   <string name="delete_selected_items">Eliminar los elementos seleccionados</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nombre de usuario</string>
@@ -140,6 +142,8 @@
   <string name="create_account_next">Siguiente</string>
   <string name="create_account_button">Crear cuenta</string>
   <string name="create_account_name_unavailable">No está disponible el nombre de usuario «%s». Elige otro.</string>
+  <string name="create_account_ip_block_message">Lo siento, tu dirección IP está actualmente bloqueada de crear nuevas cuentas.</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detalles</string>
   <string name="preferences_general_heading">General</string>
   <string name="wikipedia_app_faq">Preguntas frecuentes</string>
@@ -673,6 +677,7 @@
   </plurals>
   <string name="wikipedia_languages_remove_dialog_content">Solo verás contenido en los idiomas restantes de Wikipedia en el suministro Explorar y los filtros de búsqueda rápida.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">No es posible quitar todos los idiomas</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Conserva al menos un idioma Wikipedia por el cual buscar y leer contenido.</string>
   <string name="more_language_options">más</string>
   <string name="add_wikipedia_languages_text">Añadir idiomas de Wikipedia</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">¿Quieres quitar una variante del chino de los idiomas de la aplicación?</string>

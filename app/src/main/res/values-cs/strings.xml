@@ -338,7 +338,7 @@
   <string name="text_size_increase">Zvětšit velikost textu</string>
   <string name="text_size_decrease">Zmenšit velikost textu</string>
   <string name="text_size_percent_default">%s (Výchozí)</string>
-  <string name="nav_item_reading_lists">Moje seznamy</string>
+  <string name="nav_item_reading_lists">Moje seznamy k přečtení</string>
   <string name="reading_list_untitled">Bez názvu</string>
   <string name="reading_list_save_to">Uložit do seznamu k přečtení</string>
   <string name="reading_list_create_new">Vytvořit nový</string>
@@ -624,22 +624,22 @@
   <string name="onboarding_continue">Pokračovat</string>
   <string name="onboarding_get_started">Začněte</string>
   <string name="onboarding_explore_title">Nové možnosti pro objevování</string>
-  <string name="onboarding_explore_text">Ponořte se do Wikipedie s průběžně aktualizovaným kanál objevování. &lt;br/&gt; &lt;b&gt;Přizpůsobte&lt;/b&gt; si jej podle svých zájmů – ať už je to &lt;b&gt;Dnešek v minulosti&lt;/b&gt;, nebo &lt;b&gt;Náhodné&lt;/b&gt; články.</string>
+  <string name="onboarding_explore_text">Ponořte se do Wikipedie s průběžně aktualizovaným kanálem objevování. &lt;br/&gt; &lt;b&gt;Přizpůsobte&lt;/b&gt; si jej podle svých zájmů – ať už je to &lt;b&gt;Dnešek v minulosti&lt;/b&gt; nebo &lt;b&gt;Náhodné články&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Uložit do seznamu k přečtení</string>
   <string name="onboarding_save_to_reading_lists_text">Vytvářejte seznamy článků k přečtení, které chcete později přečíst, i když jste offline.</string>
   <string name="onboarding_reading_list_sync_title">Seznam k přečtení se synchronizací</string>
   <string name="onboarding_reading_list_sync_text">Vytvářejte seznamy článků k přečtení, které chcete později přečíst, i když jste offline. &lt;a href=\"#login\"&gt;Přihlaste se nebo si vytvořte&lt;/a&gt; účet na Wikipedii, abyste si seznamy článků k přečtení zálohovali.</string>
-  <string name="onboarding_reading_list_sync_text_v2">Můžete si vytvářet seznamy k přečtení z článků, které chcete číst, i když nejste přihlášení. &lt;br/&gt;Přihlaste se do svého účtu na Wikipedii, abyste mohl/a své seznamy čtení synchronizovat. &lt;a href=\"#login\"&gt;Připojit se k Wikipedii&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Posílat Anonymní data</string>
-  <string name="onboarding_analytics_offline_text">Pomozte udělat aplikaci lepší uvědoměním nás, jak ji používáte. Data jsou anonymní. &lt;a href=\"#privacy\"&gt;Zjistit více&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_text_v2">Můžete si vytvářet seznamy k přečtení z článků, které si chcete přečíst, i když se odhlásíte od svého účtu.&lt;br/&gt;Přihlaste se do svého účtu na Wikipedii, abyste mohli své seznamy k přečtení synchronizovat.&lt;br/&gt;&lt;a href=\"#login\"&gt;Připojte se k Wikipedii&lt;/a&gt;</string>
+  <string name="onboarding_analytics_title">Posílat anonymní data</string>
+  <string name="onboarding_analytics_offline_text">Pomozte udělat aplikaci lepší uvědoměním nás, jak ji používáte. Data jsou anonymní.&lt;br/&gt;&lt;a href=\"#privacy\"&gt;Zjistit více&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Odesílat informace o používání</string>
   <string name="onboarding_create_account_sync">Synchronizovat seznamy k přečtení</string>
   <string name="onboarding_create_account_contributions">Mějte přehled o svých příspěvcích</string>
   <string name="onboarding_create_account_preferences">Uložit nastavení</string>
   <string name="onboarding_got_it">Skrýt návrh</string>
-  <string name="onboarding_multilingual_secondary_text">Na vašem zařízení jsme našli následující:</string>
+  <string name="onboarding_multilingual_secondary_text">Na vašem zařízení jsme našli následující jazyky</string>
   <string name="onboarding_multilingual_add_language_text">Přidat nebo editovat jazyky</string>
-  <string name="onboarding_welcome_title_v2">Otevřená encyklopedie\n... v téměř 300 jazycích</string>
+  <string name="onboarding_welcome_title_v2">Otevřená encyklopedie\n...v téměř 300 jazycích</string>
   <string name="app_shortcuts_random">Náhodně</string>
   <string name="app_shortcuts_continue_reading">Pokračovat ve čtení</string>
   <string name="app_shortcuts_search">Hledat</string>

@@ -256,7 +256,7 @@
   <string name="preference_summary_show_images">Activer ou désactiver le chargement des images dans les pages. Décochez ce paramètre si votre connexion à Internet est lente, ou si votre volume de données est limité.</string>
   <string name="preference_title_download_only_over_wifi">Télécharger seulement par le Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Confirmer le téléchargement en utilisant les données mobiles ?</string>
-  <string name="dialog_text_download_only_over_wifi">Vous avez « Télécharger seulement sur le Wi-Fi » d’activé dans les paramètres. Voulez-vous autoriser l’utilisation de votre plan de données mobiles pour ce téléchargement uniquement ?</string>
+  <string name="dialog_text_download_only_over_wifi">Vous avez « Télécharger seulement par Wi-Fi » activé dans les paramètres. Voulez-vous autoriser l’utilisation de votre plan de données mobiles pour ce téléchargement uniquement ?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Autoriser</string>
   <string name="read_more_section">En savoir plus</string>
   <string name="about_article_section">À propos de cet article</string>
@@ -508,7 +508,7 @@
   <string name="view_featured_image_card_download">Télécharger</string>
   <string name="menu_feed_card_dismiss">Masquer cette carte</string>
   <string name="menu_feed_card_dismissed">Carte cachée.</string>
-  <string name="menu_feed_card_edit_card_languages">Modifier les langues de carte</string>
+  <string name="menu_feed_card_edit_card_languages">Modifier la langue des cartes</string>
   <string name="menu_feed_overflow_label">Plus d’options</string>
   <string name="feed_featured_image_share_subject">Image sélectionnée de Wikimedia Commons</string>
   <string name="feed">Explorer</string>

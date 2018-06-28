@@ -51,12 +51,13 @@
   <string name="other_languages_indication_text">לייענען אין אן אנדער שפראך</string>
   <string name="language_count_link_text">פֿאראן אין נאך %d שפראכן</string>
   <string name="content_license_html">אינהאלט איז פֿאראן אונטער &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; אחוץ ווען געוויזן אנדערשט</string>
-  <string name="preference_title_language" fuzzy="true">וויקיפעדיע־שפראך</string>
+  <string name="preference_title_language">וויקיפעדיע־שפראכן</string>
   <string name="preference_languages_filter_hint">זוכן</string>
   <string name="langlinks_filter_hint">זוכן</string>
   <string name="langlinks_empty">דער בלאט איז נישט פאראן אין אנדערע שפראכן.</string>
-  <string name="langlinks_no_match" fuzzy="true">קיין שפראכן נישט געטראפן וואס זענען צוגעפאסט צו אײַער פראגע.</string>
+  <string name="langlinks_no_match">קיין שפראכן נישט געטראפֿן</string>
   <string name="langlinks_activity_title">אַנדערע שפראַכן</string>
+  <string name="langlinks_your_wikipedia_languages">אייערע וויקיפעדיע שפראכן</string>
   <string name="menu_save_changes">פובליקירן ענדערונגען</string>
   <string name="dialog_saving_in_progress">פֿארעפֿנטלעכן…</string>
   <string name="edit_saved_successfully">רעדאקטירונג פֿארעפֿנטלעכט!</string>
@@ -77,6 +78,9 @@
   <string name="login_activity_title">ארײַנלאגירן צו וויקיפעדיע</string>
   <string name="login_in_progress_dialog_message">לאגירט אײַך אריין…</string>
   <string name="login_success_toast">אריינלאגירט מיט הצלחה!</string>
+  <string name="reset_password_title">שטעלן אײַער פאַסווארט</string>
+  <string name="reset_password_hint">ניי פּאסוואָרט</string>
+  <string name="reset_password_button">אויפֿהיטן און אריינלאגירן</string>
   <string name="preference_title_logout">אַרויסלאָגירן</string>
   <string name="toast_logout_complete">אַרויסלאגירט</string>
   <string name="history_empty_title">קיין לעצטיקע געוויזענע בלעטער נישט דא.</string>
@@ -172,6 +176,7 @@
   <string name="wiktionary_no_definitions_found">קיין דעפיניציעס נישט געטראפן.</string>
   <string name="dialog_close_description">פארמאכן</string>
   <string name="preference_title_show_images">ווייזן בילדער</string>
+  <string name="dialog_title_download_only_over_wifi_allow">דערלויבן</string>
   <string name="read_more_section">לייענט ווײטער</string>
   <string name="about_article_section">וועגן דעם ארטיקל</string>
   <string name="menu_gallery_visit_page">גיין צו טעקע־בלאט</string>
@@ -199,6 +204,10 @@
   <string name="button_get_directions">באקומען ריכטונגען</string>
   <string name="nav_item_donate">שטיצן וויקיפעדיע</string>
   <string name="enable_location_service">אַקטיווירן</string>
+  <string name="view_link_preview_error_button_dismiss">צומאַכן</string>
+  <string name="error_page_does_not_exist">דער בלאט עקזיסטירט נישט</string>
+  <string name="view_wiki_error_message_offline">מין קען נישט פארבינדן מיט דער אינטערנעץ</string>
+  <string name="reference_title">רעפֿערענץ %s</string>
   <string name="crash_report_dialog_dont_send_button">איבערהיפן</string>
   <string name="crash_report_dialog_always_send_button">אלעמאל שיקן</string>
   <string name="crash_report_dialog_send_button">שיקן</string>
@@ -216,9 +225,15 @@
   <string name="nav_item_reading_lists">מיינע ליסטעס</string>
   <string name="reading_list_create_new">שאפֿן ניי</string>
   <string name="reading_list_sort">סארטירן</string>
+  <string name="reading_list_menu_delete">אויסמעקן רשימה</string>
   <string name="reading_lists_onboarding_for_example">צום ביישפיל</string>
   <string name="reading_lists_onboarding_example3">קאסמאס אויספֿארשונג</string>
   <string name="reading_lists_onboarding_got_it">פארשטאנען</string>
+  <string name="reading_lists_confirm_remote_delete_yes">יא</string>
+  <string name="reading_lists_confirm_remote_delete_no">ניין</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">אַנולירן</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">אַרײנלאגירן</string>
+  <string name="default_reading_list_name">אויפֿגעהיטן</string>
   <string name="user_option_sync_label">פרעפֿערענצן</string>
   <string name="notification_syncing_cancel_button">אַנולירן</string>
   <string name="view_continue_reading_card_title">לייענען ווײטער</string>

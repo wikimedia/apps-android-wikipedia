@@ -156,7 +156,7 @@
   <string name="preferences_heading_data_usage">Datan käyttö</string>
   <string name="preferences_heading_experimental">Kokeellinen</string>
   <string name="preference_title_sync_reading_lists">Synkronoi lukulistat</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Ota lukulistojen synkronointi käyttöön</string>
+  <string name="preference_title_sync_reading_lists_from_account">Lukulistojen synkronointi</string>
   <string name="preference_summary_sync_reading_lists">Synkronoi lukulistat eri laitteiden välillä tallentamalla ne Wikipedia-tilillesi</string>
   <string name="preference_summary_sync_reading_lists_from_account">Synkronoi lukulistat eri laitteiden välillä tallentamalla ne Wikipedia-tilillesi \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Poista synkronoidut lukulistat tililtä \"%s\"?</string>
@@ -243,6 +243,8 @@
   <string name="dialog_close_description">Sulje</string>
   <string name="preference_title_show_images">Näytä kuvat</string>
   <string name="preference_summary_show_images">Ota käyttöön tai poista käytöstä kuvien lataaminen sivuilla. Ota tämä asetus pois käytöstä, jos internet-yhteytesi on hidas tai liittymäsi datakatto on lähes täynnä.</string>
+  <string name="dialog_title_download_only_over_wifi">Vahvista lataus mobiilidatalla?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Salli</string>
   <string name="read_more_section">Lue lisää</string>
   <string name="about_article_section">Tietoja tästä artikkelista</string>
   <string name="menu_gallery_visit_page">Mene tiedostosivulle</string>
@@ -442,6 +444,7 @@
     <item quantity="one">Tämä artikkeli ei ole enää käytettävissä offline-tilassa.</item>
     <item quantity="other">Nämä artikkelit eivät enää ole käytettävissä offline-tilassa.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync">Lukulistat synkronoitu onnistuneesti</string>
   <string name="user_option_sync_label">Asetukset</string>
   <string name="notification_button_view_user">Keskustele käyttäjän kanssa</string>
   <string name="notification_talk_title">Uusi viesti Wikipediassa</string>
