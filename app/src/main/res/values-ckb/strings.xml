@@ -15,6 +15,7 @@
   <string name="search_hint_search_history">گەڕان بە مێژوو</string>
   <string name="search_hint_search_my_lists">گەڕان لە پێڕستەکانم</string>
   <string name="search_hint_search_reading_list">گەڕان لە پێڕستی خوێندنەوە</string>
+  <string name="search_hint_search_languages">گەڕان بەدوای زمانێکدا</string>
   <string name="nav_item_history">مێژوو</string>
   <string name="error_network_error">ناتوانرێت ئینتەرنێت بھێندرێت.</string>
   <string name="page_error_retry">ھەوڵداناوە</string>
@@ -23,6 +24,7 @@
   <string name="history_item_deleted">%s سڕایەوە</string>
   <string name="history_items_deleted">%d وتار سڕایەوە</string>
   <string name="history_item_delete_undo">پووچەڵکردنەوە</string>
+  <string name="app_settings">ڕێکخستنەکان بەرنامە</string>
   <string name="dialog_title_clear_history">سڕینەوەی مێژووی گەڕانەکان</string>
   <string name="dialog_message_clear_history">ئەمە ھەموو مێژووی کردنەوەکانت دەسڕێتەوە، و ھەموو تابە کراوەکانی ئێستات دادەخات. تۆ دڵنیای؟</string>
   <string name="dialog_message_clear_history_yes">بەڵێ</string>
@@ -60,6 +62,7 @@
   <string name="langlinks_empty">ئەم پەڕەیە بە زمانەکانی تر بەردەست نییە.</string>
   <string name="langlinks_no_match" fuzzy="true">ھیچ زمانێک نەدۆزرایەوە گونجاوبێت لەگەڵ داواکارییەکەت.</string>
   <string name="langlinks_activity_title">زمانەکانی تر</string>
+  <string name="langlinks_your_wikipedia_languages">زمانەکانی ویکیپیدیاکەت</string>
   <string name="menu_save_changes">پاشەکەوتکردنی گۆڕانکارییەکان</string>
   <string name="dialog_saving_in_progress">پاشەکەوتکردن…</string>
   <string name="edit_saved_successfully">دەستکاری پاشەکەوت کرا!</string>
@@ -87,6 +90,7 @@
   <string name="login_activity_title">چوونە ناوەوە بۆ ویکیپیدیا</string>
   <string name="login_in_progress_dialog_message">چوونە ژوورەوە...</string>
   <string name="login_success_toast">سەرکەوتن لە چوونە ناوەوە!</string>
+  <string name="reset_password_title">تێپەڕوشەکەت بنووسە</string>
   <string name="preference_title_logout">دەرچوون</string>
   <string name="toast_logout_complete">چووە دەرەوە</string>
   <string name="history_empty_title">ھیچ وتارێکی تازەکراوە لێرە نییە</string>

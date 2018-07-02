@@ -140,6 +140,8 @@
   <string name="create_account_next">İleri</string>
   <string name="create_account_button">Hesap oluştur</string>
   <string name="create_account_name_unavailable">\"%s\" kullanıcı adı mevcut değil. Lütfen farklı bir kullanıcı adı seçin.</string>
+  <string name="create_account_ip_block_message">Üzgünüz, IP adresiniz yeni hesap oluşturulmasına engellenmiş.</string>
+  <string name="create_account_ip_block_details">Ayrıntılar</string>
   <string name="preferences_general_heading">Genel</string>
   <string name="wikipedia_app_faq">Vikipedi Uygulaması SSS</string>
   <string name="zero_charged_verbiage">Vikipedi\'ye ücretsiz erişim artık etkin değil.</string>
@@ -162,7 +164,7 @@
   <string name="preferences_heading_data_usage">Veri kullanımı</string>
   <string name="preferences_heading_experimental">Deneysel</string>
   <string name="preference_title_sync_reading_lists">Okuma listelerini senkronize et</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Okuma listesi senkronizasyonunu etkinleştir</string>
+  <string name="preference_title_sync_reading_lists_from_account">Okuma listesi senkronizasyonu</string>
   <string name="preference_summary_sync_reading_lists">Farklı cihazlarda okuma listelerini, Vikipedi hesabınıza kaydederek senkronize edin</string>
   <string name="preference_summary_sync_reading_lists_from_account">Okuma listelerini \"%s\" adlı Vikipedi hesabınıza kaydederek farklı cihazlarda senkronize edin</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Senkronize edilen okuma listeleri \"%s\" hesabından kaldırılsın mı?</string>
@@ -249,6 +251,10 @@
   <string name="dialog_close_description">Kapat</string>
   <string name="preference_title_show_images">Resimleri göster</string>
   <string name="preference_summary_show_images">Sayfalardaki resimlerin yüklenmesini etkinleştirin veya devre dışı bırakın. İnternet bağlantınız yavaş ya da veri paketiniz sınırlı ise bu seçeneği işaretlemeyin.</string>
+  <string name="preference_title_download_only_over_wifi">Sadece Wi-Fi ile indir</string>
+  <string name="dialog_title_download_only_over_wifi">Mobil veri ile indirmeyi onayla?</string>
+  <string name="dialog_text_download_only_over_wifi">Ayarlarda \"Sadece Wi-Fi ile indir\" seçtiniz. Sadece bu indirme için mobil verinizi kullanmaya izin vermek istiyor musunuz?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">İzin ver</string>
   <string name="read_more_section">Devamı</string>
   <string name="about_article_section">Bu madde hakkında</string>
   <string name="menu_gallery_visit_page">Dosya sayfasına git</string>
@@ -422,17 +428,17 @@
   <string name="reading_list_login_option_reminder_dialog_title">Okunan liste maddeleleri bulundu</string>
   <string name="reading_list_login_option_reminder_dialog_text" fuzzy="true">Vikipedi uygulamanıza kaydedilen okuma listesi makaleleri var. Bunları saklamak ve hesabınıza senkronize edilen okuma listeleri ile birleştirmek ister misiniz?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Evet, bunları okuma listeme ekleye</string>
-  <string name="reading_list_login_option_reminder_dialog_no" fuzzy="true">Hayır, uygulamada kayıtlı maddeleri sil</string>
-  <string name="reading_list_logout_option_reminder_dialog_title" fuzzy="true">Kaydedilen makaleleri cihaza sakla?</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Hayır, maddeleri sil</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Kaydedilen makaleleri uygulamada sakla?</string>
   <string name="reading_list_logout_option_reminder_dialog_text" fuzzy="true">Wikipedia hesabınıza senkronize edilen makaleler var. Çıkış yaptıktan sonra onları bu cihazda tutmak ister misiniz?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes" fuzzy="true">Evet, maddeleri cihazda sakla</string>
-  <string name="reading_list_logout_option_reminder_dialog_no" fuzzy="true">Hayır, cihazdan makaleleri sil</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Evet, maddeleri listelerde sakla</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Hayır, listelerden makaleleri sil</string>
   <string name="default_reading_list_name">Kaydedildi</string>
   <string name="default_reading_list_description">Kaydedilen maddeleriniz için varsayılan liste</string>
   <string name="no_user_lists_title">Maddeleri listelere göre düzenleyin</string>
   <string name="no_user_lists_msg">Seyahat edilecek yerler, favori konular ve daha pek çok şey için listeler oluşturun</string>
   <string name="reading_list_saved_list_rename">%1$s (kullanıcı oluşturuldu)</string>
-  <string name="split_reading_list_message" fuzzy="true">Okuma listesi başına %d madde sınırı vardır. Bu sınırı aşan mevcut listeler birden fazla listeye ayrılmıştır.</string>
+  <string name="split_reading_list_message">Okuma listesi başına %d madde sınırı vardır. Bu sınırı aşan mevcut listeler birden fazla listeye ayrılmıştır.</string>
   <string name="reading_list_article_limit_message">Bu listeye eklenemedi. \"%1$s\" için liste başına %2$d madde sınırına ulaştınız.</string>
   <string name="reading_lists_limit_message">Başka bir liste oluşturamazsınız. Hesap başına 100 okuma listesi sınırına ulaştınız.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Okuma listelerini senkronize et&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Okuma listeleri artık cihazlar arasında senkronize edilebilir. Wikipedia hesabınıza giriş yapın ve listelerinizin kaydedilmesine izin verin.</string>
@@ -448,6 +454,7 @@
     <item quantity="one">Bu maddeye artık çevrimdışı olarak erişilemez.</item>
     <item quantity="other">Bu maddelere artık çevrimdışı olarak erişilemez.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync">Okuma listeleri başarıyla eşitlendi</string>
   <string name="user_option_sync_label">Ayarlar</string>
   <string name="notification_button_view_user">Kullanıcıya mesaj at</string>
   <string name="notification_talk_title">Vikipedi\'de yeni mesaj</string>
@@ -464,6 +471,7 @@
     <item quantity="one">Okuma Listesi Senkronize Ediliyor</item>
     <item quantity="other">Okuma Listesi Senkronize Ediliyor</item>
   </plurals>
+  <string name="notification_syncing_reading_list_channel_description">Okuma listesi eşitlemesi sürüyor</string>
   <plurals name="notification_channel_name">
     <item quantity="one">madde indiriliyor</item>
     <item quantity="other">madde indiriliyor</item>
@@ -497,6 +505,7 @@
   <string name="view_featured_image_card_download">İndir</string>
   <string name="menu_feed_card_dismiss">Bu kartı gizle</string>
   <string name="menu_feed_card_dismissed">Kart gizlendi.</string>
+  <string name="menu_feed_card_edit_card_languages">Kart dillerini değiştir</string>
   <string name="menu_feed_overflow_label">Daha çok seçenek</string>
   <string name="feed_featured_image_share_subject">Wikimedia Commons\'tan seçkin resim</string>
   <string name="feed">Keşfet</string>
@@ -637,6 +646,7 @@
   <string name="onboarding_got_it">Anladım</string>
   <string name="onboarding_multilingual_secondary_text">Cihazınızda aşağıdakilerini bulduk:</string>
   <string name="onboarding_multilingual_add_language_text">Dil ekle veya düzenle</string>
+  <string name="onboarding_welcome_title_v2">Özgür Ansiklopedi\n...yaklaşık 300 dilde</string>
   <string name="app_shortcuts_random">Rastgele</string>
   <string name="app_shortcuts_continue_reading">Okumaya devam et</string>
   <string name="app_shortcuts_search">Arama</string>
@@ -657,7 +667,7 @@
   <string name="wikipedia_languages_title">Vikipedi dilleri</string>
   <string name="wikipedia_languages_your_languages_text">Dilleriniz</string>
   <string name="wikipedia_languages_add_language_text">Dil ekle</string>
-  <string name="wikipedia_languages_remove_text" fuzzy="true">Kaldır</string>
+  <string name="wikipedia_languages_remove_text">Dili kaldır</string>
   <string name="wikipedia_languages_remove_action_mode_title">Dili kaldır</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Seçilen dili kaldır?</item>
@@ -668,4 +678,8 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">İçeriği okumak ve içerikte arama yapmak için en az bir Vikipedi dili bırakın</string>
   <string name="more_language_options">daha fazlası</string>
   <string name="add_wikipedia_languages_text">Vikipedi dilleri ekleyin</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Uygulama dillerinden bir Çin varyasyonunu kaldır?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Uygulama dillerinde hem geleneksel hem de basit Çince varyasyonları seçili. Uygulama dilleri ayarlarını güncellemek istiyor musunuz?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Dilleri değiştir</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Hayır, teşekkürler</string>
 </resources>

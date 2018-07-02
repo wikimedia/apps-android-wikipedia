@@ -20,7 +20,7 @@
 <resources>
   <string name="app_name_prod">Wikipedie</string>
   <string name="app_name_beta">Wikipedie Beta</string>
-  <string name="app_name_alpha">Wikipedie Alfa</string>
+  <string name="app_name_alpha">Wikipedie ve verzi Α,α - Alfa</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Hledání ve Wikipedii</string>
   <string name="search_hint_search_history">Hledat v historii</string>
@@ -113,7 +113,7 @@
   <string name="search_empty_message">Prohledávejte a čtěte otevřenou encyklopedii ve svém jazyce</string>
   <string name="search_empty_message_multilingual_upgrade">Hledat na Wikipedii ve více jazycích</string>
   <string name="delete_selected_items">Smazat vybrané položky</string>
-  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;E&lt;/big&gt;</string>
+  <string name="wp_stylized">&lt;big&gt;B&lt;/big&gt;IKINOPEDI&lt;big&gt;E&lt;/big&gt;</string>
   <string name="create_account_username_hint">Uživatelské jméno</string>
   <string name="login_dont_have_account">Nemáte účet?</string>
   <string name="login_join_wikipedia">Připojte se k Wikipedii</string>
@@ -156,7 +156,7 @@
   <string name="preferences_heading_data_usage">Používání dat</string>
   <string name="preferences_heading_experimental">Experimentální</string>
   <string name="preference_title_sync_reading_lists">Synchronizovat seznamy k přečtení</string>
-  <string name="preference_title_sync_reading_lists_from_account">Synchronizace seznamů čtení</string>
+  <string name="preference_title_sync_reading_lists_from_account">Synchronizace seznamů k přečtení</string>
   <string name="preference_summary_sync_reading_lists">Synchronizovat seznamy k přečtení napříč různými zařízeními jejich uložením do vašeho účtu na Wikipedii</string>
   <string name="preference_summary_sync_reading_lists_from_account">Synchronizovat seznamy k přečtení napříč různými zařízeními pomocí jejich uložení do vašeho účtu „%s“ na Wikipedii</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Odstranit synchronizované seznamy k přečtení z „%s“?</string>
@@ -181,10 +181,10 @@
   <string name="privacy_policy_description">Ochrana osobních údajů</string>
   <string name="terms_of_use_description">Podmínky užití</string>
   <string name="about_wikipedia_url">https://cs.m.wikipedia.org/wiki/Nápověda:Úvod</string>
-  <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/cs</string>
+  <string name="privacy_policy_url">https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/cs&amp;mobileaction=toggle_view_mobile</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/cs</string>
+  <string name="terms_of_use_url">https://m.wikimediafoundation.org/wiki/Terms_of_Use/cs</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Použité knihovny</string>
@@ -375,8 +375,8 @@
   <string name="reading_list_item_delete_undo">Zpět</string>
   <string name="reading_list_deleted">Seznam %s smazán</string>
   <string name="saved_list_empty_title">Žádné uložené stránky</string>
-  <string name="reading_lists_empty_message">Přidávejte články do seznamů k přečtení později, i když nejste připojeni.</string>
-  <string name="reading_lists_onboarding_intro">Přidávejte články do seznamů k přečtení později, i když nejste připojeni!</string>
+  <string name="reading_lists_empty_message">Přidávejte články do seznamů k přečtení později, abyste si je mohli přečíst, i když nebudete připojeni k Internetu.</string>
+  <string name="reading_lists_onboarding_intro">Přidávejte články do seznamů k přečtení později, abyste si je mohli přecíst, i když nebudete připojeni!</string>
   <string name="reading_lists_onboarding_for_example">Například</string>
   <string name="reading_lists_onboarding_example1">Místa k navštívení</string>
   <string name="reading_lists_onboarding_example2">Oblíbená zvířata</string>
@@ -493,7 +493,7 @@
   <string name="view_next_random_article">Načíst další náhodný článek</string>
   <string name="view_main_page_card_title">Dnes na Wikipedii</string>
   <string name="view_main_page_card_subtitle">Hlavní strana %s</string>
-  <string name="view_main_page_card_action">Zobrazit hlavní stránku</string>
+  <string name="view_main_page_card_action">Zobrazit hlavní stranu</string>
   <string name="view_featured_image_card_title">Obrázek dne</string>
   <string name="view_featured_image_card_download">Stáhnout</string>
   <string name="menu_feed_card_dismiss">Skrýt tento návrh</string>
@@ -546,18 +546,18 @@
   <string name="description_edit_anon_limit">Děkujeme za Váš trvalý zájem o editaci popisů! Chcete-li provést další úpravy, přihlaste se prosím k účtu Wikipedie.</string>
   <string name="description_edit_license_notice">Změnou popisu souhlasím s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelně souhlasím s podmínkami licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Popis byl zveřejněn!</string>
-  <string name="description_edit_success_encouragement">Wikipedie je díky vám lepší než předtím</string>
+  <string name="description_edit_success_encouragement">Wikipedie je díky vám lepší než předtím, děkujeme ☺</string>
   <string name="description_edit_success_done">Hotovo</string>
   <string name="description_edit_success_did_you_know">Věděli jste, že?</string>
   <string name="description_edit_success_article_edit_hint">Články můžete v této aplikaci také editovat. Překlepy můžete příště opravit kliknutím na ikonu ^1</string>
   <string name="description_edit_tutorial_title_descriptions">Popis tématu</string>
-  <string name="description_edit_tutorial_title_descriptions_summary">Shrnuje článek tak, aby čtenář ihned věděl, o čem pojednává</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Shrnuje článek tak, aby čtenář i hned věděl, o čem pojednává</string>
   <string name="description_edit_tutorial_keep_it_short">Budťe struční</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">V ideálním případě jeden řádek o dvou až dvanácti slovech</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začít s úpravami</string>
   <string name="description_edit_tutorial_promise">Tímto slibuji, že této funkce nezneužiji.</string>
   <string name="description_edit_help_about_title">O aplikaci</string>
-  <string name="description_edit_help_description">Popis shrnuje základní informace o tématu článku, aby čtenáři ihned pochopili, o čem článek je.</string>
+  <string name="description_edit_help_description">Popis shrnuje základní informace o tématu článku, aby čtenáři i hned pochopili, o čem článek pojednává.</string>
   <string name="description_edit_help_tips">Tipy pro vytváření popisů</string>
   <string name="description_edit_help_tips_description">Ideální popis se vejde na jeden řádek a je 2 až 12 slov dlouhý. Nezačíná velkým písmenem, jen pokud je první slovo vlastní podstatné jméno.</string>
   <string name="description_edit_help_tips_examples">Například:</string>
@@ -566,7 +566,7 @@
   <string name="description_edit_help_tips_example2">nejvyšší hora na Zemi</string>
   <string name="description_edit_help_tips_example2_hint">popis článku o Mount Everest</string>
   <string name="description_edit_help_more_info">Více informací</string>
-  <string name="description_edit_help_meta_info">Popisy jsou uložené ve Wikidatech, projektu Wikimedia Foundation, který poskytuje svobodnou, společně vytvářenou, vícejazyčnou sekundární databázi podporující Wikipedii a další projekty.</string>
+  <string name="description_edit_help_meta_info">Popisy jsou uložené ve Wikidatech, projektu &lt;a href=\"http://cs.m.wikipedia.org/wiki/Nadace_Wikimedia\"&gt;Nadace Wikimedia&lt;/a&gt;, který poskytuje svobodnou, společně vytvářenou, vícejazyčnou sekundární databázi podporující Wikipedii a další projekty.</string>
   <string name="description_edit_revert_subtitle">Děkujeme, že editujete Wikipediiǃ</string>
   <string name="description_edit_revert_intro">Víme, že jste se snažili o to nejlepší, ale jeden z Wikipedistů měl obavy. Možné důvody vrácení vaší úpravy jsou:</string>
   <string name="description_edit_revert_reason1">váš příspěvek nedodržel některé z &lt;a href=\"%1$s\"&gt;pravidel&lt;/a&gt;.</string>

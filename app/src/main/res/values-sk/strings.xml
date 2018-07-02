@@ -15,7 +15,7 @@
 <resources>
   <string name="app_name_prod">Wikipédia</string>
   <string name="app_name_beta">Wikipédia Beta</string>
-  <string name="app_name_alpha">Wikipédia Alpha</string>
+  <string name="app_name_alpha">Wikipédia Alfa</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Hľadať</string>
   <string name="search_hint_search_history">Hľadať</string>

@@ -242,6 +242,7 @@
   <string name="preference_title_show_images">Mostra imatges</string>
   <string name="preference_summary_show_images">Activa o desactiva la càrrega d\'imatges a les pàgines. Desactiveu aquest paràmetre si teniu una connexió a Internet lenta o dades limitades.</string>
   <string name="preference_title_download_only_over_wifi">Baixa només amb Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi">Confirmeu la descarrega fent servir les dades del mòbil?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Permet</string>
   <string name="read_more_section">Llegir més</string>
   <string name="about_article_section">Sobre aquest article</string>
@@ -564,6 +565,7 @@
   <string name="description_edit_revert_history">Si hi esteu interessat, consulteu l\'&lt;a href=\"%1$s\"&gt;historial de modificacions&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">Sense connexió a Internet. Assegureu-vos que torneu a estar en línia i torneu-ho a provar.</string>
   <string name="offline_read_permission_rationale">Cal permís per accedir a l\'emmagatzematge del vostre dispositiu per a navegar fora de línia.</string>
+  <string name="offline_read_final_rationale">Cal permís per accedir a l\'emmagatzemament del vostre dispositiu per utilitzar la Biblioteca fora de línia.</string>
   <string name="offline_read_permission_error">No s\'han atorgat permisos per a llegir des del dispositiu d\'emmagatzematge.</string>
   <string name="offline_card_sideloading_text">Esteu navegant la Viquipèdia fora de línia des dels paquets d\'articles en la vostra biblioteca fora de línia.</string>
   <string name="offline_my_compilations">Gestiona la meva biblioteca fora de línia</string>
