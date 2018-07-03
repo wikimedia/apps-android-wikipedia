@@ -111,7 +111,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
 
     @Override
     public void onDestroyView() {
-        funnel.logLanguageSetting(invokeSource, initialLanguageList, StringUtil.listToJsonArrayString(app.language().getAppLanguageCodes()), interactionsCount, true);
+        funnel.logLanguageSetting(invokeSource, initialLanguageList, StringUtil.listToJsonArrayString(app.language().getAppLanguageCodes()), interactionsCount, isLanguageSearched);
         recyclerView.setAdapter(null);
         unbinder.unbind();
         unbinder = null;
