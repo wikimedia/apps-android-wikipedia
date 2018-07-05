@@ -178,7 +178,7 @@
   <string name="preferences_heading_data_usage">Использование трафика</string>
   <string name="preferences_heading_experimental">Экспериментальные</string>
   <string name="preference_title_sync_reading_lists">Синхронизация списков для чтения</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Синхронизацию списков для чтения</string>
+  <string name="preference_title_sync_reading_lists_from_account">Синхронизация списков для чтения</string>
   <string name="preference_summary_sync_reading_lists">Синхронизирует списки для чтения на разных устройствах сохраняя в вашей учётной записи Википедии</string>
   <string name="preference_summary_sync_reading_lists_from_account">Синхронизирует списки для чтения на разных устройствах путём их сохранения в вашей учётной записи Википедии «%s»</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Удалить синхронизированные списки для чтения «%s»?</string>
@@ -548,7 +548,7 @@
   <string name="feed_item_type_news">Статьи о текущих событиях</string>
   <string name="feed_item_type_on_this_day">Исторические события в этот день</string>
   <string name="feed_item_type_continue_reading">Быстрая ссылка для возврата к статье, открытой в одной из ваших вкладок</string>
-  <string name="feed_item_type_because_you_read">Предложения, основанные на недавно прочитанных вами статьях</string>
+  <string name="feed_item_type_because_you_read">Предложено, на основе прочитанного</string>
   <string name="feed_item_type_featured_article">Избранная статья дня в Википедии</string>
   <string name="feed_item_type_trending">Самые просматриваемые статьи за этот день</string>
   <string name="feed_item_type_featured_image">Избранное изображение дня с Викисклада</string>

@@ -32,6 +32,7 @@
   <string name="search_hint_search_history">इतिहास खोजें</string>
   <string name="search_hint_search_my_lists">मेरी सूचियाँ खोजें</string>
   <string name="search_hint_search_reading_list">पढ़ने वाली सूची खोजें</string>
+  <string name="search_hint_search_languages">भाषा के लिए खोजें</string>
   <string name="nav_item_history">इतिहास</string>
   <string name="error_network_error">इंटरनेट से कनेक्ट नहीं किया जा सकता।</string>
   <string name="page_error_retry">पुनः प्रयास करें</string>
@@ -40,6 +41,7 @@
   <string name="history_item_deleted">%s को इतिहास से हटाया गया</string>
   <string name="history_items_deleted">%d लेख इतिहास से हटाए गए</string>
   <string name="history_item_delete_undo">पूर्ववत करें</string>
+  <string name="app_settings">एप सेटिंग्स</string>
   <string name="dialog_title_clear_history">ब्राउज़िंग इतिहास साफ़ करें</string>
   <string name="dialog_message_clear_history">यह आपका सभी ब्राउज़िंग इतिहास मिटा देगा, और अभी खुले हुए टैब्स को भी बंद कर देगा। क्या आप करना चाहेंगे?</string>
   <string name="dialog_message_clear_history_yes">हाँ</string>
@@ -67,6 +69,7 @@
   <string name="talk_page_link_text">वार्ता पृष्ठ देखें</string>
   <string name="edit_history_link_text">सम्पादन इतिहास देखें</string>
   <string name="map_view_link_text">नक्शे पर देखें</string>
+  <string name="other_languages_indication_text">किसी अन्य भाषा में पढ़ें</string>
   <string name="language_count_link_text">%d अन्य भाषाओं में उपलब्ध</string>
   <string name="content_license_html">सामग्री &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; के अंतर्गत उपलब्ध है जबतक अलग से उल्लेख न किया गया हो</string>
   <string name="edit_save_action_license_logged_in">इसे सहेजते हुये आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हैं और अपने योगदान को &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के अन्तर्गत अपरिवर्तनीय रूप प्रकाशित कर रहे हैं।</string>
@@ -75,8 +78,9 @@
   <string name="preference_languages_filter_hint">खोज</string>
   <string name="langlinks_filter_hint">खोज</string>
   <string name="langlinks_empty">पृष्ठ अन्य भाषा में उपलब्ध नहीं है</string>
-  <string name="langlinks_no_match" fuzzy="true">खोज परिणाम में कोई भाषा नहीं मिली।</string>
+  <string name="langlinks_no_match">कोई भाषा नहीं मिली</string>
   <string name="langlinks_activity_title">अन्य भाषाएँ</string>
+  <string name="langlinks_your_wikipedia_languages">आपकी विकिपीडिया भाषाएं</string>
   <string name="menu_save_changes">परिवर्तन प्रकाशित करें</string>
   <string name="dialog_saving_in_progress">प्रकाशित किया जा रहा है…</string>
   <string name="edit_saved_successfully">सम्पादन प्रकाशित किया गया!</string>
@@ -104,11 +108,16 @@
   <string name="login_activity_title">विकिपीडिया में प्रवेश करें</string>
   <string name="login_in_progress_dialog_message">आपको प्रवेश दिया जा रहा है…</string>
   <string name="login_success_toast">सफलतापूर्वक प्रविष्ट</string>
+  <string name="reset_password_title">अपना पासवर्ड लगाएं</string>
+  <string name="reset_password_description">अपने एक अस्थाई पासवर्ड से लॉगिन किया। लॉगिन को पूरा करने के लिए यहाँ एक नया पासवर्ड जोड़ें।</string>
+  <string name="reset_password_hint">नया पासवर्ड</string>
+  <string name="reset_password_button">सहेजे और लॉगिन करें</string>
   <string name="preference_title_logout">प्रस्थान</string>
   <string name="toast_logout_complete">सत्र का अन्त हुआ।</string>
   <string name="history_empty_title">हाल ही में देखा गया कोई लेख नहीं</string>
   <string name="history_empty_message">ट्रैक करें जो आप यहाँ पढ़ रहे थे।</string>
   <string name="search_empty_message">खोजें और मुक्त ज्ञानकोश को अपनी भाषा में पढ़ें</string>
+  <string name="search_empty_message_multilingual_upgrade">विकिपीडिया को अधिक भाषाओं में खोजें</string>
   <string name="delete_selected_items">चयनित आइटम डिलीट करें</string>
   <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपीडि&lt;big&gt;या&lt;/big&gt;</string>
   <string name="create_account_username_hint">सदस्यनाम</string>
@@ -127,6 +136,10 @@
   <string name="create_account_generic_error">खाता नहीं बन सका</string>
   <string name="create_account_next">अगला</string>
   <string name="create_account_button">खाता बनायें</string>
+  <string name="create_account_name_unavailable">सदस्य नाम %s उपलब्ध नहीं है। कृपया कोई अलग नाम चुनें।</string>
+  <string name="create_account_ip_block_message">क्षमा करें, आपका आई पी एड्रेस वर्तमान में नये खाते बनने के लिए प्रतिबंधित है।</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_details">विवरण</string>
   <string name="preferences_general_heading">सामान्य</string>
   <string name="wikipedia_app_faq">विकिपीडिया एप FAQ</string>
   <string name="zero_charged_verbiage">विकिपीडिया में मुक्त प्रवेश अब और अधिक सक्रिय नहीं है।</string>
@@ -149,6 +162,7 @@
   <string name="preferences_heading_data_usage">डाटा उपयोग</string>
   <string name="preferences_heading_experimental">प्रयोगात्मक</string>
   <string name="preference_title_sync_reading_lists">अपनी पढ़ने वाली सूचियों को सिंक करें</string>
+  <string name="preference_title_sync_reading_lists_from_account">रीडिंग सूची सिंकिंग</string>
   <string name="preference_summary_sync_reading_lists">पढ़ने वाली सूचियां अपने विकिपीडिया खाते में संयोजित करके विभिन्न डिवाइस में सिंक करें।</string>
   <string name="preference_summary_sync_reading_lists_from_account">पढ़ने वाली सूचियां अपने विकिपीडिया खाते \"%s\" में संयोजित करके विभिन्न डिवाइस में सिंक करें</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">सिंक पढ़ने की सूचियों को \"%s\" से हटा दें?</string>
@@ -172,6 +186,9 @@
   <string name="about_description">विकिपीडिया एप के बारे में</string>
   <string name="privacy_policy_description">गोपनीयता नीति</string>
   <string name="terms_of_use_description">उपयोग की शर्तें</string>
+  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">लाइब्रेरीज़ का प्रयोग किया गया</string>
@@ -198,6 +215,7 @@
   <string name="edit_summary_tag_other">अन्य</string>
   <string name="edit_summary_tag_other_hint">अन्य तरीकों से आपके द्वारा पृष्ठ में सुधार</string>
   <string name="edit_conflict_title">संपादन अंतर्विरोध</string>
+  <string name="edit_conflict_message">इस पेज को पहले ही किसी अन्य यूज़र के द्वारा संपादित किया जा चुका है और आपके संपादन के साथ परस्पर-विरोध हो रहा है। कृपया अपने संपादन को कॉपी कर ले, वापस जाएं और पेज रिफ्रेश कर पुनः संपादन का प्रयास करें।</string>
   <string name="find_next">अगला ढूँढें</string>
   <string name="find_previous">पिछला ढूँढें</string>
   <string name="find_first_occurence">यह पहली घटना है</string>
@@ -229,6 +247,9 @@
   <string name="dialog_close_description">बंद करें</string>
   <string name="preference_title_show_images">चित्र दिखाएँ</string>
   <string name="preference_summary_show_images">चित्रों की लोडिंग को चालू या बंद करें। इस सेटिंग को अनचैक करें अगर आपका इंटरनेट कनेक्शन धीमा है, या आपका डेटा प्लान सीमित है।</string>
+  <string name="preference_title_download_only_over_wifi">केवल वाई-फाई पर ही डाउनलोड करें</string>
+  <string name="dialog_title_download_only_over_wifi">मोबाइल डेटा का उपयोग कर डाउनलोड करना सुनिश्चित करें?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">अनुमति दें</string>
   <string name="read_more_section">और पढ़ें</string>
   <string name="about_article_section">इस लेख के बारे में</string>
   <string name="menu_gallery_visit_page">फ़ाइल पेज पर जाएँ</string>
@@ -261,6 +282,7 @@
   <string name="tool_tip_share">किसी रोचक तथ्य को हाईलाइट करने के बाद उसे अपने पसंदीदा नेटवर्क पर साझा करने की कोशिश करें!</string>
   <string name="page_view_in_browser">पेज को ब्राउज़र में देखें</string>
   <string name="tool_tip_toc_button">सामग्री सारणी(टेबल) कभी भी इस बटन को दबाकर या स्क्रीन पर लेफ्ट या राईट से स्लाइड करके देखें।</string>
+  <string name="tool_tip_lang_button">आप अब एप में एक से अधिक विकिपीडिया भाषाओं में खोज और पढ़ सकते हैं।</string>
   <string name="error_response_malformed">सर्वर से सही रूप से प्रारूप प्राप्त नहीं हुआ।</string>
   <string name="error_unknown">एक अज्ञात त्रुटि हो गयी है।</string>
   <string name="format_error_server_message">सन्देश:\"%s\"</string>
@@ -311,6 +333,9 @@
   <string name="color_theme_select">विषय</string>
   <string name="color_theme_light">हल्का</string>
   <string name="color_theme_dark">गहरा</string>
+  <string name="color_theme_black">काला</string>
+  <string name="color_theme_test_title">नमूना टेक्स्ट</string>
+  <string name="preference_title_app_theme">एप थीम</string>
   <string name="preference_summary_color_theme">एप को डार्क थीम में परिवर्तित करें</string>
   <string name="text_size_increase">टेक्स्ट साइज़ बढ़ाएं</string>
   <string name="text_size_decrease">टेक्स्ट साइज़ घटाएं</string>
@@ -329,9 +354,10 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d में से 1 लेख ऑफलाइन उपलब्ध हैं, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%2$d में से %1$d लेख ऑफलाइन उपलब्ध हैं, %3$.2f MiB</string>
   <string name="reading_list_sort">छांटें</string>
+  <string name="reading_list_sort_ellipsis">के अनुसार क्रमबद्ध करें</string>
   <string name="reading_list_sort_by_name">नाम से छांटें</string>
   <string name="reading_list_sort_by_name_desc">नाम से छांटें (उल्टा)</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">हाल ही के में से छांटें</string>
+  <string name="reading_list_sort_by_recent">तारीख के अनुसार क्रमबद्ध करें (सबसे नए)</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">कुछ समय पहले के में से छांटें</string>
   <string name="reading_list_menu_delete">सूची को मिटायें</string>
   <string name="reading_list_menu_rename">नाम या विवरण बदलें</string>

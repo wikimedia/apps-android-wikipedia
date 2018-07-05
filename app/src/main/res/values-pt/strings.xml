@@ -6,6 +6,7 @@
 * Fúlvio
 * Hamilton Abreu
 * HenriqueCrang
+* Ldacosta
 * Macofe
 * Mansil
 * Ngl2016
@@ -240,7 +241,7 @@
   <string name="dialog_close_description">Fechar</string>
   <string name="preference_title_show_images">Mostrar imagens</string>
   <string name="preference_summary_show_images">Ativar ou desativar o carregamento das imagens nas páginas. Desmarque esta opção se a sua ligação à Internet está lenta ou se o seu plano de dados é limitado.</string>
-  <string name="preference_title_download_only_over_wifi">Descarregar só por Wi-Fi</string>
+  <string name="preference_title_download_only_over_wifi">Transferir só por Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Confirma o descarregamento usando dados móveis?</string>
   <string name="dialog_text_download_only_over_wifi">Nas definições tem a opção \"Descarregar só por Wi-Fi\" ligada. Quer permitir a utilização do seu plano de dados móveis só para este descarregamento?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Permitir</string>
@@ -495,7 +496,7 @@
   <string name="view_featured_image_card_download">Descarregar</string>
   <string name="menu_feed_card_dismiss">Ocultar este cartão</string>
   <string name="menu_feed_card_dismissed">Cartão ocultado.</string>
-  <string name="menu_feed_card_edit_card_languages">Editar línguas do cartão</string>
+  <string name="menu_feed_card_edit_card_languages">Editar os idiomas do cartão</string>
   <string name="menu_feed_overflow_label">Mais opções</string>
   <string name="feed_featured_image_share_subject">Imagem destacada na wiki Wikimedia Commons</string>
   <string name="feed">Explorar</string>

@@ -237,6 +237,7 @@
   <string name="preference_title_show_images">Afbeeldingen weergeven</string>
   <string name="preference_summary_show_images">Laden van afbeeldingen in pagina\'s in- of uitschakelen. Schakel deze instelling uit als uw internetverbinding langzaam is, of als u een beperkte hoeveelheid data kunt gebruiken.</string>
   <string name="preference_title_download_only_over_wifi">Alleen downloaden via Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi">Bevestig downloaden via mobiele data</string>
   <string name="dialog_title_download_only_over_wifi_allow">Toestaan</string>
   <string name="read_more_section">Meer lezen</string>
   <string name="about_article_section">Over deze pagina</string>
@@ -594,6 +595,7 @@
   <string name="languages_list_activity_title">Taal toevoegen</string>
   <string name="languages_list_suggested_text">Voorgesteld</string>
   <string name="languages_list_all_text">Alle talen</string>
+  <string name="wikipedia_languages_title">Wikipedia talen</string>
   <string name="wikipedia_languages_your_languages_text">Uw talen</string>
   <string name="wikipedia_languages_add_language_text">Taal toevoegen</string>
   <string name="wikipedia_languages_remove_text">Taal verwijderen</string>
