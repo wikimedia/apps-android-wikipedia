@@ -53,9 +53,14 @@ public final class EventLoggingService {
 
         @Override
         public Integer performTask() throws Throwable {
+            String eventStr = data.toString();
             String dataURL = Uri.parse(EVENTLOG_URL)
-                    .buildUpon().query(data.toString())
+                    .buildUpon().query(eventStr)
                     .build().toString();
+
+            if (ReleaseUtil.isDevRelease()) {
+                L.d(eventStr);
+            }
 
             if (dataURL.length() > MAX_URL_LEN) {
                 L.logRemoteErrorIfProd(new RemoteLogException("EventLogging max length exceeded")
