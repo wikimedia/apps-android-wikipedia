@@ -17,13 +17,13 @@ public class DailyStatsFunnel extends Funnel {
     private static final int SCHEMA_REVISION = 18115101;
 
     public DailyStatsFunnel(WikipediaApp app) {
-        super(app, SCHEMA_NAME, SCHEMA_REVISION, Funnel.SAMPLE_LOG_100);
+        super(app, SCHEMA_NAME, SCHEMA_REVISION, Funnel.SAMPLE_LOG_ALL);
     }
 
     public void log(Context context) {
         log("appInstallAgeDays", getInstallAgeDays(context),
                 "languages", StringUtil.listToJsonArrayString(getApp().language().getAppLanguageCodes()),
-                "is_anon", AccountUtil.isLoggedIn() ? 0 : 1);
+                "is_anon", AccountUtil.isLoggedIn());
     }
 
     @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) { }
