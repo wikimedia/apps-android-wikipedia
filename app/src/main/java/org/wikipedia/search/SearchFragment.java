@@ -36,6 +36,7 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.CabSearchView;
 import org.wikipedia.views.LanguageScrollView;
 import org.wikipedia.views.ViewUtil;
@@ -392,7 +393,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     private void openSearch() {
         // create a new funnel every time Search is opened, to get a new session ID
         funnel = new SearchFunnel(app, invokeSource);
-        funnel.searchStart(searchLanguageCode);
+        funnel.searchStart(StringUtil.listToJsonArrayString(app.language().getAppLanguageCodes()));
         isSearchActive = true;
         languageChanged = false;
         Callback callback = callback();

@@ -12,7 +12,7 @@ public class SearchFunnel extends Funnel {
      * if you change the schema name or version.
      */
     private static final String SCHEMA_NAME = "MobileWikiAppSearch";
-    private static final int REVISION = 18144266;
+    private static final int REVISION = 18204643;
     private SearchInvokeSource source;
 
     public SearchFunnel(WikipediaApp app, SearchInvokeSource source) {
@@ -20,10 +20,10 @@ public class SearchFunnel extends Funnel {
         this.source = source;
     }
 
-    public void searchStart(String languageCode) {
+    public void searchStart(String languageCodes) {
         log(
                 "action", "start",
-                "language", languageCode
+                "language", languageCodes
         );
     }
 
