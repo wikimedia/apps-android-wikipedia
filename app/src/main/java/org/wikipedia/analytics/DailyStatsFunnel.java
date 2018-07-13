@@ -23,7 +23,7 @@ public class DailyStatsFunnel extends Funnel {
     public void log(Context context) {
         log("appInstallAgeDays", getInstallAgeDays(context),
                 "languages", StringUtil.listToJsonArrayString(getApp().language().getAppLanguageCodes()),
-                "is_anon", AccountUtil.isLoggedIn());
+                "is_anon", !AccountUtil.isLoggedIn());
     }
 
     @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) { }
