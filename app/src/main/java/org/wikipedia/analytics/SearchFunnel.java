@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.search.SearchInvokeSource;
+import org.wikipedia.util.StringUtil;
 
 public class SearchFunnel extends Funnel {
     /**
@@ -20,10 +21,10 @@ public class SearchFunnel extends Funnel {
         this.source = source;
     }
 
-    public void searchStart(String languageCodes) {
+    public void searchStart() {
         log(
                 "action", "start",
-                "language", languageCodes
+                "language", StringUtil.listToJsonArrayString(getApp().language().getAppLanguageCodes())
         );
     }
 
