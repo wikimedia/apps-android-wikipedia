@@ -212,6 +212,7 @@ function displayRemainingSections(json, sequence, scrollY, fragment) {
     if (scrollY > 0 && !scrolled) {
         window.scrollTo( 0, scrollY );
     }
+    transformer.transform( "fixAudio", document );
     transformer.transform( "hideTables", document );
     lazyLoadTransformer.loadPlaceholders();
     bridge.sendMessage( "pageLoadComplete", { "sequence": sequence });
