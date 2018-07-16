@@ -13,6 +13,7 @@
   <string name="search_hint_search_history">Jujut pamaluruhan</string>
   <string name="search_hint_search_my_lists">Paluruh daptar kuring</string>
   <string name="search_hint_search_reading_list">Paluruh daptar bacaan</string>
+  <string name="search_hint_search_languages">Sungsi basa</string>
   <string name="nav_item_history">Jujutan</string>
   <string name="error_network_error">Teu bisa nyambungkeun kana internét</string>
   <string name="page_error_retry">Cobaan deui</string>
@@ -46,19 +47,21 @@
   <string name="nearby_zoom_to_location">Zum kana lokasi na péta</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;kontributor &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Ayaran panungtung %s</string>
-  <string name="talk_page_link_text" fuzzy="true">Obrolan</string>
-  <string name="edit_history_link_text" fuzzy="true">Jujutan édit</string>
+  <string name="talk_page_link_text">Tempo kaca obrolan</string>
+  <string name="edit_history_link_text">Tempo jujutan édit</string>
   <string name="map_view_link_text">Tempo dina péta</string>
+  <string name="other_languages_indication_text">Baca dina basa séjén</string>
   <string name="language_count_link_text">Nyangkaruk dina %d$1 basa séjén</string>
   <string name="content_license_html">Eusi ditangtayungan ku &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; iwal mun disebutkeun séjén</string>
   <string name="edit_save_action_license_logged_in">Ku nyimpenna, anjeun sapuk kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamakéan&lt;/a&gt;, sarta ngaleupaskeun kontribusi anjeun di handapeun  lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Ku nyimpenna, anjeun satuju kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamakéan&lt;/a&gt;, sarta ngaleupaskeun kontribusi anjeun di handapeun lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Éditan ditumbukeun ka alamat IP pakakas. Mun anjeun &lt;a href=\"https://#login\"&gt;asup log&lt;/a&gt;, anjeun bakal meunang privasi leuwih.</string>
-  <string name="preference_title_language" fuzzy="true">Basa Wikipédia</string>
+  <string name="preference_title_language">Basa-basa Wikipédia</string>
   <string name="preference_languages_filter_hint">Paluruh</string>
   <string name="langlinks_filter_hint">Paluruh</string>
   <string name="langlinks_empty">Ieu kaca can sayaga dina basa lianna</string>
-  <string name="langlinks_no_match" fuzzy="true">Teu manggihan basa nu cocog jeung kuéri anjeun.</string>
+  <string name="langlinks_no_match">Basana teu kapanggih</string>
   <string name="langlinks_activity_title">Basa séjén</string>
+  <string name="langlinks_your_wikipedia_languages">Basa-basa Wikipédia anjeun</string>
   <string name="menu_save_changes">Medalkeun parobahan</string>
   <string name="dialog_saving_in_progress">Keur medalkeun...</string>
   <string name="edit_saved_successfully">Éditan geus dimedalkeun</string>
@@ -86,11 +89,16 @@
   <string name="login_activity_title">Asup log ka Wikipédia</string>
   <string name="login_in_progress_dialog_message">Keur asup log...</string>
   <string name="login_success_toast">Asup log ngahasil!</string>
+  <string name="reset_password_title">Atur kecap sandi anjeun</string>
+  <string name="reset_password_description">Anjeun asup log migunakeun sandi saheulaanan. Pikeun nganggeuskeun asup log, jieun kecap sandi anyar di dieu.</string>
+  <string name="reset_password_hint">Sandi anyar</string>
+  <string name="reset_password_button">Simpen jeung asup log</string>
   <string name="preference_title_logout">Kaluar log</string>
   <string name="toast_logout_complete">Kaluar log</string>
   <string name="history_empty_title">Taya artikel nu anyar ditempo</string>
   <string name="history_empty_message">Lacak naon nu geus ku anjeun baca di dieu.</string>
   <string name="search_empty_message">Paluruh sarta baca énsiklopédi bébas dina basa anjeun</string>
+  <string name="search_empty_message_multilingual_upgrade">Sungsi Wikipédia dina basa lianna</string>
   <string name="delete_selected_items">Pupus leunjeuran nu dipilih</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Sandiasma</string>
@@ -109,6 +117,10 @@
   <string name="create_account_generic_error">Teu bisa nyieun akun</string>
   <string name="create_account_next">Saterusna</string>
   <string name="create_account_button">Jieun akun</string>
+  <string name="create_account_name_unavailable">Sandiasma \"%s\" teu bisa dipaké. Mangga pilih sandiasma lianna.</string>
+  <string name="create_account_ip_block_message">Hampura, alamat IP anjeun kiwari keur dipeungpeuk pikeun nyieun akun anyar.</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_details">Wincikan</string>
   <string name="preferences_general_heading">Umum</string>
   <string name="wikipedia_app_faq">NLD aplikasi Wikipédia</string>
   <string name="zero_charged_verbiage">Aksés haratis ka Wikipédia geus teu bisa.</string>
@@ -127,11 +139,15 @@
   <string name="send_feedback">Kirim eupan balik aplikasi</string>
   <string name="create_account_account_created_toast">Akun geus dijieun!</string>
   <string name="preferences_heading_storage_and_syncing">Paneundeunan jeung singkronisasi</string>
+  <string name="preferences_heading_syncing">Nyingkronkeun</string>
+  <string name="preferences_heading_data_usage">Pamakéan data</string>
+  <string name="preferences_heading_experimental">Uji coba</string>
   <string name="preference_title_sync_reading_lists">Singkronkeun daptar bacaan</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Singkronkeun daptar bacaan pikeun ieu akun</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Widian Wikimédia nyingkronkeun daptar bacaan anjeun nalika anjeun asup log</string>
-  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Widian Wikimédia ngarepokkeun daptar bacaeun kana akun Wikipédia anjeun %s</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Pupus daptar bacaeun nu disingkronkeun tina akun anjeun %s?</string>
+  <string name="preference_title_sync_reading_lists_from_account">Nyingkronkeun daptar bacaan</string>
+  <string name="preference_summary_sync_reading_lists">Sinkronkeun daptar bacaan di sakur perangkat ku diteundeun dina akun Wikipédia anjeun</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Sinkronkeun daptar bacaan dina sakur perangkat ku diteundeun dina akun Wikipédia anjeun \"%s\"</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Pupus daptar bacaeun anu disingkronkeun tina \"%s\"?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Peta ieu bakal ngahapus sakur daptar bacaeun anu disingkronkeun tina simpenan jauh. Hapus sakur daptar anu disingkronkeun tina akun anjeun \"%s\"?</string>
   <string name="preferences_privacy_settings_heading">Privasi</string>
   <string name="preference_title_eventlogging_opt_in">Kirim laporan pamakéan</string>
   <string name="preference_summary_eventlogging_opt_in">Heugbaékeun Wikimédia pikeun ngumpulkeun info ngeunaan cara anjeun migunakeun aplikasi sangkan aplikasi jadi leuwih hadé</string>
@@ -151,6 +167,9 @@
   <string name="about_description">Ngeunaan aplikasi Wikipédia</string>
   <string name="privacy_policy_description">Kawijakan privasi</string>
   <string name="terms_of_use_description">Katangtuan pamakéan</string>
+  <string name="about_wikipedia_url">https://su.m.wikipedia.org/wiki/Wikipedia:Ngeunaan</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.su</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Pabukon nu dipaké</string>
@@ -176,8 +195,12 @@
   <string name="edit_summary_tag_links">Nambakeun tutumbu</string>
   <string name="edit_summary_tag_other">Lianna</string>
   <string name="edit_summary_tag_other_hint">Cara séjén dina ngaropéa ieu kaca</string>
+  <string name="edit_conflict_title">Éditan bantrok</string>
+  <string name="edit_conflict_message">Kacana geus diédit ku séjén pamaké, sarta bantrok jeung éditan anjeun. Mangga salin éditan anjeun, balik deui, terus muat ulang kacana, terus coba asupkeun éditan anjeun.</string>
   <string name="find_next">Panggihan saterusna</string>
   <string name="find_previous">Panggihan saméméhna</string>
+  <string name="find_first_occurence">Ieu kajadian munggaran</string>
+  <string name="find_last_occurence">Ieu kajadian panungtung</string>
   <string name="abusefilter_title_warn">Ieu téh meureun editan teu konstruktif. Yakin anjeun rék medalkeunana?</string>
   <string name="abusefilter_title_disallow">Anjeun teu bisa medalkeun ieu éditan. Pék balik deui tuluy robah.</string>
   <string name="abusefilter_text_warn">Panyaring otomatis geus ngadidéntifikasi ieu éditan minangka poténsial teu konstruktif. Ieu meureun eusina hiji atawa leuwih perkara di handap:&lt;br /&gt;&lt;br /&gt;· Ngetik kalawan sagemblengna huruf badag&lt;br /&gt;· Ngosongkeun artikel atawa spam &lt;br /&gt;· Tutumbu luar atawa gambar nu teu rélevan &lt;br /&gt;· Karakter éta deui éta deui</string>
@@ -205,6 +228,8 @@
   <string name="dialog_close_description">Tutup</string>
   <string name="preference_title_show_images">Témbongkeun gambar</string>
   <string name="preference_summary_show_images">Ngahirupan atau mareuman pamuatan gambar dina kaca. Hapus centang ieu pangaturan mun sambungan internét anjeun lénglét, atawa mun pakét data anjeun kawates.</string>
+  <string name="preference_title_download_only_over_wifi">Unduh ukur ngaliwatan Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi">Unduh maké kuota data?</string>
   <string name="read_more_section">Baca leuwih jero</string>
   <string name="about_article_section">Ngeunaan ieu artikel</string>
   <string name="menu_gallery_visit_page">Miang ka kaca berkas</string>

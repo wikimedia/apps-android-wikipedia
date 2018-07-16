@@ -67,7 +67,7 @@
   <string name="language_count_link_text">Dostupný v %d dalších jazycích</string>
   <string name="content_license_html">Obsah je dostupný pod &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, pokud není uvedeno jinak</string>
   <string name="edit_save_action_license_logged_in">Uložením souhlasíte s &lt;a href=\"%1$s\"&gt;podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Uložením souhlasíte s &lt;a href=\"%1$s\"&gt;podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Úpravy budou přiřazeny IP adrese vašeho zařízení. Po &lt;a href=\"https://#login\"&gt;přihlášení&lt;/a&gt; budete mít více soukromí.</string>
+  <string name="edit_save_action_license_anon">Uložením souhlasíte s &lt;a href=\"%1$s\"&gt;podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.&lt;/br&gt;&lt;b&gt;&lt;b&gt;Editace bude přiřazena k IP adrese Vašeho zařízení.&lt;/b&gt;&lt;/b&gt; Po &lt;a href=\"https://#login\"&gt;přihlášení&lt;/a&gt; budete mít více soukromí.</string>
   <string name="preference_title_language">Jazyky Wikipedie</string>
   <string name="preference_languages_filter_hint">Hledat</string>
   <string name="langlinks_filter_hint">Hledat</string>
@@ -91,8 +91,8 @@
   <string name="search_history_no_results">Nebyly nalezeny žádné výsledky v historii</string>
   <string name="edit_section_captcha_message">V zájmu ochrany před automatickým spamováním vás prosíme o opsání slov, která vidíte níže</string>
   <string name="edit_section_captcha_hint">Zopakujte výše uvedená slova</string>
-  <string name="title_captcha">Zadejte Captcha</string>
-  <string name="edit_section_captcha_reload">Klepnutím načtete Captcha znovu</string>
+  <string name="title_captcha">Zadejte CAPTCHA</string>
+  <string name="edit_section_captcha_reload">Klepnutím načtete CAPTCHA znovu</string>
   <string name="nav_item_login">Přihlásit se do Wikipedie</string>
   <string name="login_username_hint">Uživatelské jméno</string>
   <string name="login_password_hint">Heslo</string>
@@ -265,7 +265,7 @@
   <string name="share_normal_button">Sdílet jako text</string>
   <string name="snippet_share_preview_image_desc">Náhled obrázku</string>
   <string name="cc_logo">Licence Creative Commons</string>
-  <string name="captcha_image">Obrázek Captcha</string>
+  <string name="captcha_image">Obrázek CAPTCHA</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Původce neznámý</string>
   <string name="menu_new_tab">Nová záložka</string>
@@ -288,7 +288,7 @@
   <string name="button_continue_to_article">Číst článek</string>
   <string name="button_add_to_reading_list">Přidat do seznamu k přečtení</string>
   <string name="page_offline_notice_cannot_load_while_offline">Články nelze načítat bez připojení k internetu.</string>
-  <string name="page_offline_notice_add_to_reading_list">Rada: Pokud článek přidáte do seznamu k přečtení, stáhne se, jakmile budete znovu připojeni.</string>
+  <string name="page_offline_notice_add_to_reading_list">Tip: Pokud článek přidáte do seznamu k přečtení, stáhne se, jakmile budete znovu připojeni.</string>
   <string name="page_offline_notice_last_date">Právě možná čtete neaktuální verzi tohoto článku, která byla uložena %s.</string>
   <string name="page_offline_notice_compilation_download_date">Čtete verzi z %1$s • %2$s</string>
   <string name="button_get_directions">Najít trasu</string>
@@ -406,11 +406,11 @@
   <string name="reading_list_added_articles_list_titled">Přidat %1$d do %2$s</string>
   <string name="reading_list_delete_confirm">Opravdu chcete odstranit „%s“?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Přihlašte se, abyste mohli povolit synchronizace</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Přihlaste se, abyste povolil/a ukládání seznamů k přečtení k vašemu účtu.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Přihlaste se, abyste povolili ukládání seznamů k přečtení k vašemu účtu.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Zrušit</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Přihlásit se</string>
   <string name="reading_list_turned_sync_off_dialog_title">Synchronizace seznamů k přečtení povolena</string>
-  <string name="reading_list_turned_sync_off_dialog_text">Synchronizace seznamů k přečtení je pro váš účet zrušena, a uložené články na vašich přihlášených přístrojích již nejsou zálohovány. Zapněte synchronizaci seznamů čtení ve vašem nastavení.</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Synchronizace seznamů k přečtení je pro váš účet zrušena, a uložené články na vašich přihlášených přístrojích již nejsou zálohovány. Zapněte synchronizaci seznamů k přečtení ve vašem nastavení.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Nastavení</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Zapnout synchronizaci seznamů k přečtení?</string>

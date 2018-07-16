@@ -15,6 +15,7 @@
 * SMAUG
 * ShakePilli
 * SuperPete
+* Surjection
 * Tumm1
 * Valtlait
 -->
@@ -133,6 +134,7 @@
   <string name="create_account_button">Luo tunnus</string>
   <string name="create_account_name_unavailable">Käyttäjänimi \"%s\" ei ole käytettävissä. Valitse toinen nimi.</string>
   <string name="create_account_ip_block_message">IP-osoitteesi on tällä hetkellä estetty luomasta uusia tunnuksia.</string>
+  <string name="create_account_ip_block_help_url">https://fi.wikipedia.org/wiki/Wikipedia:Esto</string>
   <string name="create_account_ip_block_details">Tiedot</string>
   <string name="preferences_general_heading">Yleiset</string>
   <string name="wikipedia_app_faq">Wikipedia-sovelluksen UKK</string>
@@ -243,7 +245,9 @@
   <string name="dialog_close_description">Sulje</string>
   <string name="preference_title_show_images">Näytä kuvat</string>
   <string name="preference_summary_show_images">Ota käyttöön tai poista käytöstä kuvien lataaminen sivuilla. Ota tämä asetus pois käytöstä, jos internet-yhteytesi on hidas tai liittymäsi datakatto on lähes täynnä.</string>
+  <string name="preference_title_download_only_over_wifi">Lataa vain Wi-Fi-yhteyden kautta</string>
   <string name="dialog_title_download_only_over_wifi">Vahvista lataus mobiilidatalla?</string>
+  <string name="dialog_text_download_only_over_wifi">Olet ottanut käyttöön \"Lataa vain Wi-Fi-yhteyden kautta\" -asetuksen. Haluatko käyttää mobiilidataasi vain tähän lataukseen?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Salli</string>
   <string name="read_more_section">Lue lisää</string>
   <string name="about_article_section">Tietoja tästä artikkelista</string>
@@ -277,6 +281,7 @@
   <string name="tool_tip_share">Korostettuasi mielenkiintoisen faktan, kokeile jakaa se suosikkiverkostoissasi!</string>
   <string name="page_view_in_browser">Näytä sivu selaimessa</string>
   <string name="tool_tip_toc_button">Tarkastele sisällysluetteloa napauttamalla tätä painiketta tai pyyhkäisemällä näytön oikealta reunalta vasemmalle.</string>
+  <string name="tool_tip_lang_button">Voit nyt lukea monenkielisiä Wikipedioita tällä sovelluksella.\n\n\nNäpäytä kuvaketta nähdäksesi lisää kieliä.</string>
   <string name="error_response_malformed">Palvelimen vastaus ei ollut oikein muotoiltu.</string>
   <string name="error_unknown">Tapahtui tuntematon virhe.</string>
   <string name="format_error_server_message">Viesti: ”%s”</string>
@@ -428,7 +433,7 @@
   <string name="no_user_lists_title">Järjestä artikkelit luetteloihin</string>
   <string name="no_user_lists_msg">Luo luetteloita matkakohteista, suosikkiaiheista ja paljon muuta</string>
   <string name="reading_list_saved_list_rename">%1$s (käyttäjän luoma)</string>
-  <string name="split_reading_list_message">On olemassa raja %d artikkelia per lukulista. Nykyiset listat joissa enemmän kuin tämä raja, on jaettu moniin listoihin.</string>
+  <string name="split_reading_list_message">On olemassa %d artikkelin raja lukulistaa kohden. Nykyiset tämän rajan ylittävät listat on jaettu moniin listoihin.</string>
   <string name="reading_list_article_limit_message">Ei voida lisätä tähän listaan. Olet saavuttanut %2$d artikkelin rajan per lista listalle \"%1$s\".</string>
   <string name="reading_lists_limit_message">Ei voida luoda toista listaa. Olet saavuttanut 100 lukulistan rajan per tili.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synkronoi lukulistat&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Lukulistoja voi nyt synkronoida laitteiden poikki. Kirjaudu Wikipedia-tilillesi ja salli listojesi tallentua.</string>
@@ -461,6 +466,7 @@
     <item quantity="one">Synkronoidaan lukulistaa</item>
     <item quantity="other">Synkronoidaan lukulistoja</item>
   </plurals>
+  <string name="notification_syncing_reading_list_channel_description">Lukulistojen synkronoinnin edistyminen</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Ladataan artikkelia</item>
     <item quantity="other">Ladataan artikkeleita</item>
@@ -494,6 +500,7 @@
   <string name="view_featured_image_card_download">Lataa</string>
   <string name="menu_feed_card_dismiss">Piilota tämä kortti</string>
   <string name="menu_feed_card_dismissed">Kortti piilotettu.</string>
+  <string name="menu_feed_card_edit_card_languages">Muokkaa kortin kieliä</string>
   <string name="menu_feed_overflow_label">Lisää vaihtoehtoja</string>
   <string name="feed_featured_image_share_subject">Suositeltu kuva Wikimedia Commonsista</string>
   <string name="feed">Tutki</string>
@@ -515,6 +522,7 @@
   <string name="feed_configure_menu_reset">Palauta oletusnäkymä</string>
   <string name="feed_configure_menu_select_all">Näytä kaikki</string>
   <string name="feed_configure_menu_deselect_all">Piilota kaikki</string>
+  <string name="feed_configure_language_warning">Huomaa, että kaikki korttityypit eivät ole saatavilla kaikilla Wikipedia-kielillä. Voit muokata valittuja kieliäsi asetuksista.</string>
   <string name="feed_item_type_news">Artikkelit ajankohtaisista tapahtumista</string>
   <string name="feed_item_type_on_this_day">Tapahtumat historiassa tänä päivänä</string>
   <string name="feed_item_type_continue_reading">Pikalinkki takaisin lukemaan avointa artikkelia yhdellä välilehdistasi</string>
@@ -660,9 +668,13 @@
     <item quantity="one">Poista valittu kieli?</item>
     <item quantity="other">Poista valitut kielet?</item>
   </plurals>
+  <string name="wikipedia_languages_remove_dialog_content">Näet muunkielisten Wikipedioiden sisältöä vain Tutki-syötteessä ja pikahakusuodattimilla.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Ei voi poistaa kaikkia kieliä</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Pidä vähintään yksi Wikipedian kieli jolla hakea ja lukea sisältöä.</string>
   <string name="more_language_options">lisää</string>
   <string name="add_wikipedia_languages_text">Lisää Wikipedia-kieliä</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Poista kiinan kielen muoto sovelluksen kielistä?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Sinulla on tällä hetkellä valittuna sekä perinteisen että yksinkertaistetun kiinan muotoja. Haluatko päivittää kieliasetuksiasi?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Muokkaa kieliä</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ei kiitos</string>
 </resources>

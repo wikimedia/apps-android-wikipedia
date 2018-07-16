@@ -56,12 +56,13 @@
   <string name="content_license_html">مواد &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; جي تحت موجود آھي نہ تہ ٻي صورت ۾ نوٽ ٿيل آهي</string>
   <string name="edit_save_action_license_logged_in">سانڍڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان، ۽ irrevocably پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس جي تحت ڏيڻ تي راضي ٿيو ٿا.</string>
   <string name="edit_save_action_license_anon">سانڍڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن &lt;/a&gt; ۽ irrevocably پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس تحت ڏيڻ تي راضي ٿيو ٿا. ترميمون توھان جي آءِپي پتي سان لاڳو ڪيون وينديون. جيڪڏهن توهان &lt;a href=\"https://#login\"&gt;داخل ٿيو&lt;/a&gt; ٿا، تہ توھان کي وڌيڪ ذاتيات هوندي.</string>
-  <string name="preference_title_language" fuzzy="true">وڪيپيڊيا ٻولي</string>
+  <string name="preference_title_language">وڪيپيڊيا جون ٻوليون</string>
   <string name="preference_languages_filter_hint">ڳوليو</string>
   <string name="langlinks_filter_hint">ڳوليو</string>
   <string name="langlinks_empty">هيءُ صفحو ٻين ٻولين ۾ دستياب نہ آهي.</string>
   <string name="langlinks_no_match">ڪي بہ ٻوليون نہ لڌيون</string>
   <string name="langlinks_activity_title">ٻيون ٻوليون</string>
+  <string name="langlinks_your_wikipedia_languages">اوهانجون وڪيپيڊيائي ٻوليون</string>
   <string name="menu_save_changes">تبديليون ڇاپيو</string>
   <string name="dialog_saving_in_progress">ڇاپيندي…</string>
   <string name="edit_saved_successfully">ترميم ڇاپجي وئي!</string>
@@ -88,11 +89,16 @@
   <string name="login_activity_title">وڪيپيڊيا ۾ داخل ٿيو</string>
   <string name="login_in_progress_dialog_message">توهان کي داخل ڪندي...</string>
   <string name="login_success_toast">ڪاميابيءَ سان داخل ٿيل!</string>
+  <string name="reset_password_title">پنھنجو پاسورڊ طي ڪريو</string>
+  <string name="reset_password_description">توھان ھڪ عارضي پاسورڊ سان داخل ٿيا. داخل ٿيڻ کي مڪمل ڪرڻ لاءِ ھڪ پاسورڊ ترتيب ڏيو.</string>
+  <string name="reset_password_hint">نئون پاسورڊ</string>
+  <string name="reset_password_button">محفوظ ڪريو ۽ داخل ٿيو</string>
   <string name="preference_title_logout">خارج ٿيو</string>
   <string name="toast_logout_complete">نڪري چڪا</string>
   <string name="history_empty_title">ڪي بہ تازا ڏٺل صفحا ڪونھن</string>
   <string name="history_empty_message">توھان ھتي جيڪو ڪجھ ڪري رھيا آھيو ان جو دڳ رکو.</string>
   <string name="search_empty_message">کليل انسائيڪلوپيڊيا پنھنجي ٻوليءَ ۾ ڳوليو ۽ پڙھو</string>
+  <string name="search_empty_message_multilingual_upgrade">وڪيپيڊيا کي وڌيڪ ٻولين ۾ ڳولهيو</string>
   <string name="delete_selected_items">چونڊيل شيون ڊاھيو</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">واپرائيندڙ-نانءُ</string>
@@ -111,6 +117,10 @@
   <string name="create_account_generic_error">کاتو کولي نہ سگھيو</string>
   <string name="create_account_next">اڳيون</string>
   <string name="create_account_button">کاتو کوليو</string>
+  <string name="create_account_name_unavailable">واپرائيندڙ جو نالو \"%s\" موجود ناهي. مهرباني ڪري ٻيو نالو چونڊيو.</string>
+  <string name="create_account_ip_block_message">معاف ڪجو، اوهان جي آئي پي تي نوان کاتا کولڻ تي بندش وڌل آهي.</string>
+  <string name="create_account_ip_block_help_url">https://sd.wikipedia.org/wiki/مدد:مون_تي_بندش_وڌي_وئي</string>
+  <string name="create_account_ip_block_details">تفصيل</string>
   <string name="preferences_general_heading">عام</string>
   <string name="wikipedia_app_faq">وڪيپيڊيا ايپ ڪپس</string>
   <string name="zero_charged_verbiage">وڪيپيڊيا تي مفت وڌيڪ رسائي ھاڻي وڌيڪ فعال نہ آھي.</string>
@@ -208,7 +218,7 @@
   <string name="dialog_close_description">بند ڪريو</string>
   <string name="preference_title_show_images">عڪس ڏيکاريو</string>
   <string name="preference_summary_show_images">صفحن ۾ عڪسن جو لوڊ ٿيڻ لائق يا نالائق بڻايو. هن ترتيب تان نشان هٽايو جيڪڏهن توهانجو انٽرنيٽ ڪنيڪشن آهستي آهي، يا توهان جو ڊيٽا منصوبو محدود آهي.</string>
-  <string name="preference_title_download_only_over_wifi">صرف واءِ فاءِ ذريعي ڊائونلوڊ ڪيو</string>
+  <string name="preference_title_download_only_over_wifi">رڳو واءِ فاءِ ذريعي ڊائونلوڊ ڪيو</string>
   <string name="dialog_title_download_only_over_wifi">موبائيل ڊيٽا سان ڊائونلوڊ ڪرڻ چاهيو ٿا؟</string>
   <string name="dialog_text_download_only_over_wifi">اوهان جي ترجيحات ۾ ”صرف واءِ فاءِ ذريعي ڊائونلوڊ ڪيو“ کليل آهي. ڇا اوهان اجازت ڏيندو ته موبائيل ڊيٽا سان ڊائونلوڊ ڪيون؟</string>
   <string name="dialog_title_download_only_over_wifi_allow">اجازت آهي</string>
@@ -398,8 +408,14 @@
   <string name="notification_syncing_pause_button">بيھو</string>
   <string name="notification_syncing_resume_button">ٻيھر ھلو</string>
   <string name="notification_syncing_cancel_button">رد</string>
-  <string name="notification_syncing_title" fuzzy="true">%1$d مضمون لاھيندي.،</string>
-  <string name="notification_syncing_description" fuzzy="true">%1$d مضمون رھن ٿا</string>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">لاهيندي %1$d مضمون…</item>
+    <item quantity="other">لاهيندي %1$d مضمون…</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">%1$d مضمون رهي ٿو</item>
+    <item quantity="other">%1$d مضمون رهن ٿا</item>
+  </plurals>
   <string name="view_continue_reading_card_title">پڙھڻ جاري رکو</string>
   <string name="view_because_you_read_card_title">ڇو تہ توھان پڙھو ٿا</string>
   <string name="view_random_card_title">بلاترتيبڪار</string>
@@ -427,7 +443,7 @@
   <string name="view_continue_reading_card_subtitle_read_date">%s پڙھو</string>
   <string name="view_announcement_card_negative_action">نہ مھرباني</string>
   <string name="view_offline_card_text">آفلائين ھجڻ مھل مواد نٿو لاھي سگھجي.</string>
-  <string name="view_featured_article_card_title">نمايان مضمون</string>
+  <string name="view_featured_article_card_title">چونڊ مضمون</string>
   <string name="view_featured_article_footer_save_button_label">سانڍيو</string>
   <string name="view_featured_article_footer_saved_button_label">سانڍيل</string>
   <string name="feed_configure_activity_title">پھاچل پنھنجايو</string>
@@ -437,7 +453,7 @@
   <string name="feed_item_type_news">ھاڻوڪن واقعن بابت مضمون</string>
   <string name="feed_item_type_on_this_day">ھن ڏينھن تي تاريخ ۾ واقعا</string>
   <string name="feed_item_type_because_you_read">توھان جي سوانح مان تازيل پڙھيل مضمونن تي ٻڌل صلاحون</string>
-  <string name="feed_item_type_featured_article">وڪيپيڊيا تي روزانو نمايان ڪيل مضمون</string>
+  <string name="feed_item_type_featured_article">وڪيپيڊيا تي روزانو چونڊيل مضمون</string>
   <string name="feed_item_type_trending">روزانو سڀ کان وڌيڪ ڏٺل مضمون</string>
   <string name="feed_item_type_featured_image">وڪيميڊيا العام مان روزانو نمايان ڪيل عڪس</string>
   <string name="feed_item_type_main_page">روزانو نمايان ڪيو ويندڙ مواد سان وڪيپيڊيا جو مک صفحو</string>
@@ -534,6 +550,9 @@
   <string name="onboarding_create_account_contributions">پنھنجين ڀاڱيدارين جو پتو رکو</string>
   <string name="onboarding_create_account_preferences">پنھنجون ترجيحون سانڍيو</string>
   <string name="onboarding_got_it">سمجھي ويئو</string>
+  <string name="onboarding_multilingual_secondary_text">اسان توھان جي اوزار تي ھي لڌيون آھن:</string>
+  <string name="onboarding_multilingual_add_language_text">وجهو يا ٻوليون سنواريو</string>
+  <string name="onboarding_welcome_title_v2">مفت انسائيڪلوپيڊيا\n...آهي لڳ ڀڳ 300 ٻولين ۾</string>
   <string name="app_shortcuts_random">بلاترتيب</string>
   <string name="app_shortcuts_continue_reading">پڙھڻ جاري رکو</string>
   <string name="app_shortcuts_search">ڳوليو</string>
@@ -554,10 +573,17 @@
   <string name="wikipedia_languages_title">وڪيپيڊيا ٻوليون</string>
   <string name="wikipedia_languages_your_languages_text">توھان جون ٻوليون</string>
   <string name="wikipedia_languages_add_language_text">ٻولي وجھو</string>
-  <string name="wikipedia_languages_remove_text" fuzzy="true">هٽايو</string>
+  <string name="wikipedia_languages_remove_text">ٻولي هٽايو</string>
   <string name="wikipedia_languages_remove_action_mode_title">ٻولي ھٽايو</string>
-  <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">چونڊيل ٻول(ون) ھٽايو؟</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">چونڊيل ٻولي هٽايون؟</item>
+    <item quantity="other">چونڊيل ٻوليون هٽايون؟</item>
+  </plurals>
   <string name="wikipedia_languages_remove_warning_dialog_title">سڀ ٻوليون ھٽائي نٿيون سگھجن</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">گھٽ ۾ گھٽ ھڪ وڪيپيڊيا ٻولي رکو جنھن ۾ مواد ڳولي ۽ پڙھي سگھجي.</string>
   <string name="more_language_options">وڌيڪ</string>
+  <string name="add_wikipedia_languages_text">وڪيپيڊيا ٻوليون داخل ڪيو</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">چيني ٻولي کي ايپ مان ختم ڪرڻ چاهيو ٿا؟</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ٻوليون سنواريو</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">نہ مھرباني</string>
 </resources>

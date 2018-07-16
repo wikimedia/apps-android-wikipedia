@@ -22,6 +22,7 @@
   <string name="search_hint_search_history">تاریخچہ میں تلاش کریں</string>
   <string name="search_hint_search_my_lists">میری فہرستوں میں تلاش کریں</string>
   <string name="search_hint_search_reading_list">فہرست مطالعہ میں تلاش کریں</string>
+  <string name="search_hint_search_languages">زبان تلاش کریں</string>
   <string name="nav_item_history">تاریخچہ</string>
   <string name="error_network_error">انٹرنیٹ سے رابطہ نہیں ہو سکا۔</string>
   <string name="page_error_retry">دوبارہ کوشش کریں</string>
@@ -30,6 +31,7 @@
   <string name="history_item_deleted">%s کو تاریخچے سے حذف کر دیا گیا</string>
   <string name="history_items_deleted">%d مضامین تاریخچے سے حذف کر دیے گئے</string>
   <string name="history_item_delete_undo">رد ترمیم</string>
+  <string name="app_settings">ایپ ترتیبات</string>
   <string name="dialog_title_clear_history">تاریخچہ مٹائیں</string>
   <string name="dialog_message_clear_history">یہ آپ کی براؤزنگ کا تمام تاریخچہ مٹا دے گا اور کھلے ہوئے تمام ٹیب بند کر دے گا۔ کیا آپ واقعی ایسا کرنا چاہتے ہیں؟</string>
   <string name="dialog_message_clear_history_yes">ہاں</string>
@@ -55,18 +57,20 @@
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;اوپن اسٹریٹ میپ&lt;/a&gt; کے مشارکت کنندگان</string>
   <string name="last_updated_text">آخری تجدید %s</string>
   <string name="talk_page_link_text">تبادلۂ خیال صفحہ دیکھیں</string>
-  <string name="edit_history_link_text" fuzzy="true">تاریخ میں ترمیم کریں</string>
+  <string name="edit_history_link_text">تاریخچہ دیکھیں</string>
   <string name="map_view_link_text">نقشے پر دیکھیں</string>
+  <string name="other_languages_indication_text">دوسری زبان میں پڑھیں</string>
   <string name="language_count_link_text">%d دیگر زبانوں میں دستیاب ہے</string>
   <string name="content_license_html">تمام مواد &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; اجازت نامے کے تحت دستیاب ہے جب تک اس کی مخالفت مذکور نہ ہو</string>
   <string name="edit_save_action_license_logged_in">محفوظ کرنے پر آپ کو &lt;a href=\"%1$s\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق اور ترامیم کو&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; اجازت نامے کے تحت آزاد سمجھا جائے گا۔</string>
   <string name="edit_save_action_license_anon">محفوظ کرنے پر آپ کو &lt;a href=\"%1$s\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق اور ترامیم کو&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; اجازت نامے کے تحت آزاد سمجھا جائے گا۔ واضح رہے کہ ان ترامیم کو آپ کے آئی پی پتے سے منسلک کیا جائے گا، تاہم اگر آپ &lt;a href=\"https://#login\"&gt;لاگ ان&lt;/a&gt; ہوجائیں تو آپکا آئی پی پتا ظاہر نہیں ہوگا۔</string>
-  <string name="preference_title_language" fuzzy="true">ویکیپیڈیا کی زبان منتخب کریں</string>
+  <string name="preference_title_language">ویکیپیڈیا کی زبانیں</string>
   <string name="preference_languages_filter_hint">تلاش</string>
   <string name="langlinks_filter_hint">تلاش</string>
   <string name="langlinks_empty">یہ صفحہ دوسری زبانوں میں دستیاب نہیں ہے۔</string>
-  <string name="langlinks_no_match" fuzzy="true">تلاش کے مطلوبہ نتائج کسی زبان میں نہیں ملے۔</string>
+  <string name="langlinks_no_match">کوئی زبان نہیں ملی</string>
   <string name="langlinks_activity_title">دیگر زبانیں</string>
+  <string name="langlinks_your_wikipedia_languages">آپ کی ویکیپیڈیا کی زبانیں</string>
   <string name="menu_save_changes">تبدیلیاں شائع کریں</string>
   <string name="dialog_saving_in_progress">شائع ہورہا ہے۔۔۔</string>
   <string name="edit_saved_successfully">ترمیم شائع ہوگئی!</string>
@@ -94,11 +98,16 @@
   <string name="login_activity_title">ویکیپیڈیا میں داخل ہوں</string>
   <string name="login_in_progress_dialog_message">داخل ہو رہے ہیں۔۔۔</string>
   <string name="login_success_toast">کامیابی سے داخل ہو گئے!</string>
+  <string name="reset_password_title">اپنا پاسورڈ سیٹ کریں</string>
+  <string name="reset_password_description">آپ ایک عارضی پاسورڈ سے لاگ ان ہیں۔ لاگ ان کو مکمل کرنے کے لیے براہ مہربانی یہاں ایک نیا پاسورڈ سیٹ کریں۔</string>
+  <string name="reset_password_hint">نیا پاسورڈ</string>
+  <string name="reset_password_button">محفوظ کریں اور داخل ہوں</string>
   <string name="preference_title_logout">خارج ہو جائیں</string>
   <string name="toast_logout_complete">خارج ہو گئے</string>
   <string name="history_empty_title">حال میں دیکھا گیا کوئی صفحہ نہیں</string>
   <string name="history_empty_message">آپ یہاں جو پڑھ رہے تھے اسے دیکھ سکتے ہیں۔</string>
   <string name="search_empty_message">اپنی زبان میں آزاد دائرۃ المعارف پڑھیں اور تلاش کریں</string>
+  <string name="search_empty_message_multilingual_upgrade">ویکیپیڈیا کو مزید زبانوں میں تلاش کریں</string>
   <string name="delete_selected_items">منتخب چیزوں کو حذف کریں</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;یکیپیڈ&lt;big&gt;یا&lt;/big&gt;</string>
   <string name="create_account_username_hint">صارف نام</string>
@@ -117,6 +126,9 @@
   <string name="create_account_generic_error">کھاتا نہیں بن سکا۔</string>
   <string name="create_account_next">آگے جائیں</string>
   <string name="create_account_button">کھاتہ بنائیں</string>
+  <string name="create_account_name_unavailable">\"%s\" کے نام کا صارف نہیں ملا۔ براہ مہربانی دوسرے نام کا انتخاب کریں۔</string>
+  <string name="create_account_ip_block_message">معذرت، آپ نئے کھاتے نہیں بنا سکتے کیونکہ آپ کے آئی پی پتہ پر پابندی عائد کر دی گئی ہے۔</string>
+  <string name="create_account_ip_block_details">تفصیلات</string>
   <string name="preferences_general_heading">عمومی</string>
   <string name="wikipedia_app_faq">ویکیپیڈیا اطلاقیہ کے عمومی سوالات</string>
   <string name="zero_charged_verbiage">ویکیپیڈیا زیرو بند ہے</string>
@@ -135,6 +147,9 @@
   <string name="send_feedback">ایپ پر ردعمل بھیجیے۔</string>
   <string name="create_account_account_created_toast">کھاتہ بن چکا ہے!</string>
   <string name="preferences_heading_storage_and_syncing">ذخیرہ اندوزی اور مطابقت پزیری</string>
+  <string name="preferences_heading_syncing">مطابقت داری ہو رہی ہے</string>
+  <string name="preferences_heading_data_usage">ڈیٹا کا استعمال</string>
+  <string name="preferences_heading_experimental">تجرباتی</string>
   <string name="preference_title_sync_reading_lists">مطالعہ کی فہرستوں کو باہم مطابق کریں</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">ویکیمیڈیا کو اس بات کی اجازت ہے کہ وہ آپ کے لاگ ان ہونے پر مطالعہ کی فہرستوں کو باہم مطابق کر دے</string>
   <string name="preferences_privacy_settings_heading">نجی نوعیت</string>
@@ -156,6 +171,8 @@
   <string name="about_description">ویکیپیڈیا ایپ کے بارے میں</string>
   <string name="privacy_policy_description">اصول برائے اخفائے راز</string>
   <string name="terms_of_use_description">استعمال کے شرائط</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">مستعمل کتب خانے</string>
@@ -178,9 +195,11 @@
   <string name="edit_preview">نمائش</string>
   <string name="edit_summary_tag_typo">درستی املا</string>
   <string name="edit_summary_tag_grammar">درستی قواعد</string>
-  <string name="edit_summary_tag_links">روابط شامل کیا</string>
+  <string name="edit_summary_tag_links">روابط شامل کیے</string>
   <string name="edit_summary_tag_other">دیگر</string>
   <string name="edit_summary_tag_other_hint">دوسرے طریقے جن سے آپ نے اس صفحہ کو بہتر کیا</string>
+  <string name="edit_conflict_title">تنازع ترمیم</string>
+  <string name="edit_conflict_message">آپ کی ترمیم کرنے سے پہلے ہی کسی دوسرے صارف نے ترمیم کر دی ہے۔ براہ مہربانی اپنی کی گئی تبدیلیوں کو کاپی کریں، واپس جائیں، صفحہ کو تازہ کریں اور پھر دوبارہ ترمیم کرنے کی کوشش کیجیے۔</string>
   <string name="find_next">اگلا ڈھونڈیں</string>
   <string name="find_previous">پچھلا ڈھونڈیں</string>
   <string name="abusefilter_title_warn">یہ ایک تخریبی ترمیم ہوسکتی ہے۔ کیا آپ اسے واقعی شائع کرنا چاہتے ہیں؟</string>
@@ -210,6 +229,8 @@
   <string name="dialog_close_description">بند کریں</string>
   <string name="preference_title_show_images">تصاویر دکھائیں</string>
   <string name="preference_summary_show_images">صفحات میں تصاویر کی نمائش کو فعال یا غیر فعال کریں۔ اگر آپ کا انٹرنیٹ کنکشن سست رفتار ہو یا آپ کے پاس ڈیٹا محدود ہو تو اسے غیر فعال رکھیں۔</string>
+  <string name="preference_title_download_only_over_wifi">صرف وائی فائی پر ڈاؤنلوڈ کریں</string>
+  <string name="dialog_title_download_only_over_wifi">کیا آپ واقعی میں موبائل ڈیٹا استعمال کرتے ہوئے ڈاؤنلوڈ کرنا چاہ رہے ہیں؟</string>
   <string name="read_more_section">مزید پڑھیں</string>
   <string name="about_article_section">اس مضمون کے متعلق</string>
   <string name="menu_gallery_visit_page">ملف کے صفحے پر جائیں</string>
@@ -291,9 +312,11 @@
   <string name="color_theme_select">مرکزی خیال</string>
   <string name="color_theme_light">ہلکا</string>
   <string name="color_theme_dark">گہرا</string>
+  <string name="preference_title_app_theme">ایپ تھیم</string>
   <string name="preference_summary_color_theme">اطلاقیے کو تاریک پوشاک پہنائیں</string>
   <string name="text_size_increase">متن کا حجم بڑھائیں</string>
   <string name="text_size_decrease">متن کا حجم گھٹائیں</string>
+  <string name="text_size_percent_default">%s (طے شدہ)</string>
   <string name="nav_item_reading_lists">مطالعہ کی فہرستیں</string>
   <string name="reading_list_untitled">بلا عنوان</string>
   <string name="reading_list_save_to">فہرست مطالعہ میں محفوظ کریں</string>
@@ -314,7 +337,7 @@
   <string name="reading_list_sort_by_recent" fuzzy="true">حالیہ تبدیلیوں کے اعتبار سے ترتیب دیں</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">حالیہ سرگرمیوں کے اعتبار سے ترتیب دیں</string>
   <string name="reading_list_menu_delete">فہرست کو حذف کریں</string>
-  <string name="reading_list_menu_rename" fuzzy="true">نام تبدیل کریں</string>
+  <string name="reading_list_menu_rename">نام/وضاحت میں ترمیم کریں</string>
   <string name="reading_list_menu_edit_description">وضاحت میں ترمیم کریں</string>
   <string name="reading_list_action_menu_remove_from_offline">آف لائن سے ہٹائیں</string>
   <string name="reading_list_action_menu_save_for_offline">آف لائن کے لیے محفوظ کریں</string>
@@ -329,8 +352,8 @@
   <string name="reading_list_item_delete_undo">ترمیم رد کریں</string>
   <string name="reading_list_deleted">%s حذف شدہ</string>
   <string name="saved_list_empty_title">یہاں اب تک کوئی فہرست مطالعہ موجود نہیں ہے۔</string>
-  <string name="reading_lists_empty_message" fuzzy="true">جن مضامین کو آپ پڑھتے ہیں انہیں \'مطالعہ کی فہرستوں\' میں شامل کریں تاکہ آپ انہیں آف لائن رہتے ہوئے بھی پڑھ سکیں۔</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">ان مضامین سے مطالعہ کی فہرستیں بنائیں جنہیں آپ بعد میں پڑھنا چاہتے ہیں، خواہ آپ آف لائن ہوں!</string>
+  <string name="reading_lists_empty_message">مضامین کو مطالعہ کی فہرست میں شامل کریں جنہیں آپ بعد میں پڑھنا چاہتے ہیں، خواہ آپ آف لائن ہوں۔</string>
+  <string name="reading_lists_onboarding_intro">مضامین کو مطالعہ کی فہرست میں شامل کریں جنہیں آپ بعد میں پڑھنا چاہتے ہیں، خواہ آپ آف لائن ہوں!</string>
   <string name="reading_lists_onboarding_for_example">مثلاً</string>
   <string name="reading_lists_onboarding_example1">دیکھنے کے مقامات</string>
   <string name="reading_lists_onboarding_example2">پسندیدہ جانور</string>
@@ -353,7 +376,13 @@
   <string name="reading_list_article_save_in_progress">یہ مضمون ڈاؤنلوڈ ہو رہا ہے، مکمل ہونے کے بعد یہ آف لائن دستیاب ہوگا۔</string>
   <string name="reading_list_already_contains_selection">منتخب فہرست میں تمام منتخب صفحات موجود ہیں۔</string>
   <string name="reading_list_added_articles_list_titled">%2$s میں %1$d مضامین شامل کیے گئے</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">کیا آپ یقینی طور پراس کو فہرست مطالعہ سے %s حذف کرنا چاہتے ہیں؟</string>
+  <string name="reading_list_delete_confirm">کیا آپ یقینی طور پر اس کو مطالعہ کی فہرست سے %s حذف کرنا چاہتے ہیں؟</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">داخل ہوں</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">ٹھیک ہے</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">ترتیبات</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">یہ مجھے دوبارہ نہ دکھائیں</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">نہیں شکریہ</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">محفوظ کردہ مضامین کو ایپ میں برقرار رکھیں؟</string>
   <string name="reading_lists_menu_create_list">نئی فہرست بنائیں</string>
   <string name="reading_lists_menu_sort_by">ترتیب بمطابق</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">دخول / اندراج</string>
@@ -378,8 +407,14 @@
   <string name="notification_syncing_resume_button">دوبارہ شروع کریں</string>
   <string name="notification_syncing_cancel_button">تنسیخ کریں</string>
   <string name="notification_channel_name" fuzzy="true">مطابقت پزیر ھو رہا ہے</string>
-  <string name="notification_syncing_title" fuzzy="true">%1$dمضامین سے مطابقت ھو رہی ہے</string>
-  <string name="notification_syncing_description" fuzzy="true">%1$dمضامین رہ گۓ ہیں</string>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">%1$d مضمون ڈاؤنلوڈ ہو رہا ہے…</item>
+    <item quantity="other">%1$d مضامین ڈاؤنلوڈ ہو رہے ہیں…</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">%1$d مضمون رہ گیا ہے</item>
+    <item quantity="other">%1$d مضامین رہ گئے ہیں</item>
+  </plurals>
   <string name="view_continue_reading_card_title">پڑھنا جاری یکھیں</string>
   <string name="view_because_you_read_card_title">کیونکہ آپ نے پڑھا</string>
   <string name="view_random_card_title">جستہ جستہ صفحات</string>
@@ -399,7 +434,7 @@
   <string name="most_read_list_card_title">مقبول صفحات</string>
   <string name="view_static_card_icon_content_description">کارڈ آئیکون</string>
   <string name="view_card_news_title">خبروں میں</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">گزشتہ کل</item>
     <item quantity="other">%d دن قبل</item>
   </plurals>
@@ -410,7 +445,10 @@
   <string name="view_featured_article_card_title">منتخب مضمون</string>
   <string name="view_featured_article_footer_save_button_label">محفوظ کریں</string>
   <string name="view_featured_article_footer_saved_button_label">محفوظ ہوگیا</string>
-  <string name="feed_configure_activity_title" fuzzy="true">ایکسپلور کارڈز کو خاص ہیئت دیں</string>
+  <string name="feed_configure_activity_title">فیڈ کو کسٹمائز کریں</string>
+  <string name="feed_configure_menu_reset">طے شدہ نمائش بحال کریں</string>
+  <string name="feed_configure_menu_select_all">سب دکھائيں</string>
+  <string name="feed_configure_menu_deselect_all">سب چھپائیں</string>
   <string name="description_edit_text_hint">عنوان کی وضاحت</string>
   <string name="description_edit_save">شائع کریں</string>
   <string name="description_edit_add_description">عنوان کی وضاحت درج کریں</string>
@@ -483,7 +521,32 @@
   <string name="onboarding_create_account_sync">مطالعہ کی فہرستوں کو باہم مطابق کریں</string>
   <string name="onboarding_create_account_contributions">اپنی شراکتوں پر نظر رکھیں</string>
   <string name="onboarding_create_account_preferences">اپنی ترجیحات محفوظ کریں</string>
+  <string name="onboarding_multilingual_secondary_text">ہمیں آپ کے آلات پر یہ ملا:</string>
+  <string name="onboarding_multilingual_add_language_text">زبانیں شامل یا ان میں ترمیم کریں</string>
+  <string name="onboarding_welcome_title_v2">آزاد دائرۃ المعارف\n…تقریباً 300 زبانوں میں</string>
   <string name="app_shortcuts_random">جستہ جستہ</string>
   <string name="app_shortcuts_continue_reading">مطالعہ جاری رکھیں</string>
   <string name="app_shortcuts_search">تلاش</string>
+  <string name="on_this_day_card_title">آج کے دن</string>
+  <string name="more_events_text">مزید اس دن</string>
+  <string name="this_year">اس سال</string>
+  <string name="languages_list_activity_title">زبان کا اضافہ کریں</string>
+  <string name="languages_list_suggested_text">تجویز کردہ</string>
+  <string name="languages_list_all_text">تمام زبانیں</string>
+  <string name="wikipedia_languages_title">ویکیپیڈیا زبانیں</string>
+  <string name="wikipedia_languages_your_languages_text">آپ کی زبانیں</string>
+  <string name="wikipedia_languages_add_language_text">زبان کا اضافہ کریں</string>
+  <string name="wikipedia_languages_remove_text">زبان ہٹائیں</string>
+  <string name="wikipedia_languages_remove_action_mode_title">زبان ہٹائیں</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">منتخب زبان ہٹائیں؟</item>
+    <item quantity="other">منتخب زبانیں ہٹائیں</item>
+  </plurals>
+  <string name="wikipedia_languages_remove_warning_dialog_title">تمام زبانیں نہیں ہٹا سکتے</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">کم از کم ویکیپیڈیا کی ایک زبان کو برقرار رکھیں جس سے تلاش کیا اور مواد کا مطالعہ کیا جا سکے۔</string>
+  <string name="more_language_options">مزید</string>
+  <string name="add_wikipedia_languages_text">ویکیپیڈیا کی زبانیں شامل کریں</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">اپنی ایپ کی زبانوں سے Chinese variant کو ختم کرنا چاہتے ہیں؟</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">زبانوں میں ترمیم</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">نہیں شکریہ</string>
 </resources>

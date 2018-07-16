@@ -243,6 +243,7 @@
   <string name="preference_summary_show_images">Activa o desactiva la càrrega d\'imatges a les pàgines. Desactiveu aquest paràmetre si teniu una connexió a Internet lenta o dades limitades.</string>
   <string name="preference_title_download_only_over_wifi">Baixa només amb Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Confirmeu la descarrega fent servir les dades del mòbil?</string>
+  <string name="dialog_text_download_only_over_wifi">Teniu activat «Baixa només amb Wi-Fi» a la configuració. Voleu permetre utilitzar dades mòbils només per a aquesta baixada?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Permet</string>
   <string name="read_more_section">Llegir més</string>
   <string name="about_article_section">Sobre aquest article</string>
@@ -390,9 +391,11 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">L\'article apareix en múltiples llistes</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ja no estarà disponible fora de línia a totes les llistes de lectura:</string>
   <string name="reading_lists_sync_reminder_title">Voleu activar la sincronització de les llistes de lectura?</string>
+  <string name="reading_lists_sync_reminder_text">Els articles que es desen a les llistes de lectura ara poden sincronitzar-se amb el vostre compte de Viquipèdia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Més informació&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link">Ara és possible sincronitzar les llistes de lectura amb diferents dispositius. Entreu al vostre compte de la Viquipèdia i permeteu que s’hi desin les vostres llistes. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Més informació&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Habilita la sincronització</string>
   <string name="reading_list_login_reminder_title">Sincronitza les llistes de lectura</string>
+  <string name="reading_lists_login_reminder_text">Les llistes de lectura poden sincronitzar-se entre dispositius. Inicieu una sessió amb el vostre compte de Viquipèdia i permeteu desar les llistes.</string>
   <string name="reading_lists_confirm_remote_delete">Això suprimirà qualsevol llista de lectura que s\'hagi sincronitzat prèviament a l\'emmagatzematge remot. Voleu procedir?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Sí</string>
   <string name="reading_lists_confirm_remote_delete_no">No</string>
@@ -408,6 +411,7 @@
   <string name="reading_list_turned_sync_off_dialog_ok">D\'acord</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Configuració</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Voleu activar la sincronització de les llistes de lectura?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Els articles desats a les llistes de lectura ara poden sincronitzar-se amb el vostre compte de Viquipèdia. &lt;a href=\"#faq\"&gt;Més informació&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">No m\'ho tornis a mostrar</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Habilita la sincronització</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No, gràcies</string>
@@ -661,6 +665,8 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantingueu com a mínim una llengua de Viquipèdia a partir de la qual cercar i llegir contingut.</string>
   <string name="more_language_options">més</string>
   <string name="add_wikipedia_languages_text">Afegeix llengües de la Viquipèdia</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Voleu suprimir una variant xinesa les llengües de l\'aplicació?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Ara teniu les variants tradicional i simplificada del xinès a les llengües de l\'aplicació? Voleu actualitzar la configuració de llengües de l\'aplicació?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Modifica les llengües</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No, gràcies</string>
 </resources>
