@@ -421,7 +421,7 @@
   <string name="reading_list_logout_option_reminder_dialog_text">Det finns sparade artiklar i läslistorna. Vill du behålla dem där när du loggar ut?</string>
   <string name="reading_list_logout_option_reminder_dialog_yes">Ja, behåll artiklar i listor</string>
   <string name="reading_list_logout_option_reminder_dialog_no">Nej, radera artiklar från listor</string>
-  <string name="default_reading_list_name">Sparades</string>
+  <string name="default_reading_list_name">Sparade</string>
   <string name="default_reading_list_description">Standardlista för dina sparade artiklar</string>
   <string name="no_user_lists_title">Organisera artiklar till listor</string>
   <string name="no_user_lists_msg">Skapa listor för platser att åka till, favoritämnen och mycket mer</string>
@@ -525,9 +525,9 @@
   <string name="feed_item_type_featured_image">Dagens utmärkta bild från Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Wikipedias huvudsida med dagens utmärkta innehåll</string>
   <string name="feed_item_type_randomizer">Generera slumpartiklar att läsa</string>
-  <string name="feed_empty_message">Det finns ingenting i ditt Utforskningsflöde.</string>
+  <string name="feed_empty_message">Det finns ingenting i ditt utforskarflöde.</string>
   <string name="feed_configure_onboarding_action">Anpassa</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Anpassa ditt Utforskningsflöde&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu välja vad som ska visas i ditt flöde och även prioritera dina favoritinnehållstyper.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Anpassa ditt utforskarflöde&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu välja vad som ska visas i ditt flöde och även prioritera dina favoritinnehållstyper.</string>
   <string name="description_edit_text_hint">Titelbeskrivning</string>
   <string name="description_edit_save">Publicera</string>
   <string name="description_edit_add_description">Lägg till titelbeskrivning</string>
@@ -619,7 +619,7 @@
   <string name="onboarding_continue">Fortsätt</string>
   <string name="onboarding_get_started">Kom igång</string>
   <string name="onboarding_explore_title">Nya sätt att utforska</string>
-  <string name="onboarding_explore_text">Gör en djupdykning i Wikipedia genom att uppdatera Utforskningsflödet. &lt;br/&gt; &lt;b&gt;Anpassa&lt;/b&gt; flödet för att möta dina intressen – vare sig det handlar om historiska händelser &lt;b&gt;på denna dag&lt;/b&gt; eller kasta tärningen och få en &lt;b&gt;slumpartikel&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Gör en djupdykning i Wikipedia genom att uppdatera utforskarflödet. &lt;br/&gt; &lt;b&gt;Anpassa&lt;/b&gt; flödet för att möta dina intressen – vare sig det handlar om historiska händelser &lt;b&gt;på denna dag&lt;/b&gt; eller kasta tärningen och få en &lt;b&gt;slumpartikel&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Spara till läslistor</string>
   <string name="onboarding_save_to_reading_lists_text">Skapa läslistor av artiklar du vill läsa senare, även när du är offline.</string>
   <string name="onboarding_reading_list_sync_title">Läslistor med synkronisering</string>
@@ -661,7 +661,7 @@
     <item quantity="one">Ta bort valt språk?</item>
     <item quantity="other">Ta bort valda språk?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Du kommer endast se innehåll i Utforskningsflödet och snabbsökningsfilter för tillgängliga Wikipedia-språk.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Du kommer endast se innehåll i utforskarflödet och snabbsökningsfilter för tillgängliga Wikipedia-språk.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Kan inte ta bort alla språk</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Behåll minst ett Wikipedia-språk att söka och läsa innehåll på.</string>
   <string name="more_language_options">fler</string>
