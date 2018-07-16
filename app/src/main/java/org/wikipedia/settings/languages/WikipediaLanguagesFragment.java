@@ -32,7 +32,6 @@ import org.wikipedia.views.MultiSelectActionModeCallback;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.UUID;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -44,6 +43,9 @@ import static org.wikipedia.language.LanguagesListActivity.LANGUAGE_SEARCHED;
 import static org.wikipedia.settings.languages.WikipediaLanguagesActivity.INVOKE_SOURCE_EXTRA;
 
 public class WikipediaLanguagesFragment extends Fragment implements WikipediaLanguagesItemView.Callback {
+    public static final String ACTIVITY_RESULT_LANG_POSITION_DATA = "activity_result_lang_position_data";
+    public static final String ADD_LANGUAGE_INTERACTIONS = "add_language_interactions";
+    public static final String SESSION_TOKEN = "session_token";
 
     @BindView(R.id.wikipedia_languages_recycler) RecyclerView recyclerView;
     private WikipediaApp app;
@@ -56,16 +58,11 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
     private List<String> selectedCodes = new ArrayList<>();
     private static final int NUM_HEADERS = 1;
     private static final int NUM_FOOTERS = 1;
-    AppLanguageSettingsFunnel funnel;
-    String invokeSource;
-    String initialLanguageList;
-    int interactionsCount;
-    boolean isLanguageSearched = false;
-    String sessionToken;
-
-    public static final String ACTIVITY_RESULT_LANG_POSITION_DATA = "activity_result_lang_position_data";
-    public static final String ADD_LANGUAGE_INTERACTIONS = "add_language_interactions";
-    public static final String SESSION_TOKEN = "session_token";
+    private AppLanguageSettingsFunnel funnel;
+    private String invokeSource;
+    private String initialLanguageList;
+    private int interactionsCount;
+    private boolean isLanguageSearched = false;
 
     @NonNull public static WikipediaLanguagesFragment newInstance(@NonNull String invokeSource) {
         WikipediaLanguagesFragment instance = new WikipediaLanguagesFragment();
@@ -81,8 +78,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
         app = WikipediaApp.getInstance();
         invokeSource = requireActivity().getIntent().getStringExtra(INVOKE_SOURCE_EXTRA);
         initialLanguageList = StringUtil.listToJsonArrayString(app.language().getAppLanguageCodes());
-        sessionToken = UUID.randomUUID().toString();
-        funnel = new AppLanguageSettingsFunnel(sessionToken);
+        funnel = new AppLanguageSettingsFunnel();
         unbinder = ButterKnife.bind(this, view);
 
         prepareWikipediaLanguagesList();
@@ -258,7 +254,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
                 holder.getView().setVisibility(checkboxEnabled ? View.GONE : View.VISIBLE);
                 holder.getView().setOnClickListener(v -> {
                     Intent intent = new Intent(requireActivity(), LanguagesListActivity.class);
-                    intent.putExtra(SESSION_TOKEN, sessionToken);
+                    intent.putExtra(SESSION_TOKEN, funnel.getSessionToken());
                     startActivityForResult(intent, ACTIVITY_REQUEST_ADD_A_LANGUAGE);
                     finishActionMode();
                 });

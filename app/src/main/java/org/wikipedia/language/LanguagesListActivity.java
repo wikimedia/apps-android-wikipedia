@@ -52,7 +52,7 @@ public class LanguagesListActivity extends BaseActivity {
     private ActionMode actionMode;
     private SearchActionModeCallback searchActionModeCallback;
     private AppLanguageSearchingFunnel searchingFunnel;
-    int interactionsCount = 0;
+    private int interactionsCount = 0;
     private boolean isLanguageSearched;
     public static final String LANGUAGE_SEARCHED = "language_searched";
 
@@ -78,8 +78,7 @@ public class LanguagesListActivity extends BaseActivity {
 
         searchActionModeCallback = new LanguagesListActivity.LanguageSearchCallback();
         new SiteMatrixClient().request(WikiSite.forLanguageCode(app.language().getSystemLanguageCode()), siteMatrixCallback);
-        String sessionToken = getIntent().getStringExtra(SESSION_TOKEN);
-        searchingFunnel = new AppLanguageSearchingFunnel(sessionToken);
+        searchingFunnel = new AppLanguageSearchingFunnel(getIntent().getStringExtra(SESSION_TOKEN));
     }
 
     @Override

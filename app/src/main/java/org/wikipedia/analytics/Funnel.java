@@ -126,14 +126,9 @@ abstract class Funnel {
         if (ReleaseUtil.isDevRelease()
                 || isUserInSamplingGroup(app.getAppInstallID(), getSampleRate())) {
             JSONObject eventData = new JSONObject();
-
-            //Build the string which is logged to debug EventLogging code
-            String logString = this.getClass().getSimpleName() + ": Sending event";
             for (int i = 0; i < params.length; i += 2) {
                 preprocessData(eventData, params[i].toString(), params[i + 1]);
-                logString += ", event_" + params[i] + " = " + params[i + 1];
             }
-            L.d(logString);
 
             EventLoggingEvent event = new EventLoggingEvent(
                     schemaName,

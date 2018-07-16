@@ -1,25 +1,23 @@
 package org.wikipedia.analytics;
 
+import android.support.annotation.NonNull;
+
+import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 
 public class AppLanguageSearchingFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppLanguageSearching";
-    private static final int REV_ID = 18113721;
-    private static String SESSION_TOKEN;
+    private static final int REV_ID = 18204518;
+    private final String settingsSessionToken;
 
-
-    public AppLanguageSearchingFunnel(String sessionToken) {
-        this(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_100);
-        SESSION_TOKEN = sessionToken;
-    }
-
-    private AppLanguageSearchingFunnel(WikipediaApp app, String schemaName, int revision, int sampleRate) {
-        super(app, schemaName, revision, sampleRate);
+    public AppLanguageSearchingFunnel(String settingsSessionToken) {
+        super(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_ALL);
+        this.settingsSessionToken = settingsSessionToken;
     }
 
     public void logLanguageAdded(boolean languageAdded, String languageCode, String searchString) {
         log(
-                "session_token", SESSION_TOKEN,
+                "language_settings_token", settingsSessionToken,
                 "added", languageAdded,
                 "language", languageCode,
                 "search_string", searchString
@@ -28,9 +26,11 @@ public class AppLanguageSearchingFunnel extends TimedFunnel {
 
     public void logNoLanguageAdded(boolean languageAdded, String searchString) {
         log(
-                "session_token", SESSION_TOKEN,
+                "language_settings_token", settingsSessionToken,
                 "added", languageAdded,
                 "search_string", searchString
         );
     }
+
+    @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) { }
 }
