@@ -45,7 +45,7 @@ public class FeedConfigureFunnel extends TimedFunnel {
                 "source", source,
                 "enabled_list", StringUtil.stringToListMapToJSONString(enabledMap),
                 "order_list", StringUtil.listToJSONString(orderedList),
-                "languages", StringUtil.listToJsonArrayString(WikipediaApp.getInstance().language().getAppLanguageCodes())
+                "languages", StringUtil.listToJsonArrayString(getApp().language().getAppLanguageCodes())
         );
     }
 }
