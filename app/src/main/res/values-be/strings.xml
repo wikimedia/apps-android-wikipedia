@@ -3,6 +3,7 @@
 * Artsiom91
 * Da voli
 * Envlh
+* Gorgich
 * Liashko
 * Mechanizatar
 * SimondR
@@ -17,6 +18,7 @@
   <string name="search_hint_search_history">Гісторыя пошуку</string>
   <string name="search_hint_search_my_lists">Пошук у маіх спісах</string>
   <string name="search_hint_search_reading_list">Пошук у спісе для чытання</string>
+  <string name="search_hint_search_languages">Пошук мовы</string>
   <string name="nav_item_history">Гісторыя</string>
   <string name="error_network_error">Не атрымліваецца падключыцца да Інтэрнэту.</string>
   <string name="page_error_retry">Паўтарыць</string>

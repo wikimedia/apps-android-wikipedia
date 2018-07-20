@@ -203,10 +203,10 @@
   <string name="find_previous">Alcontrar anterior</string>
   <string name="find_first_occurence">Esta ye la primera apaición</string>
   <string name="find_last_occurence">Esta ye la última apaición</string>
-  <string name="abusefilter_title_warn">Esta pué ser una edición non constructiva. ¿Tas seguru de que quies publicala?</string>
+  <string name="abusefilter_title_warn">Esta nun paez una edición constructiva. ¿Tas seguru de que quies publicala?</string>
   <string name="abusefilter_title_disallow">Nun puedes espublizar esta edición. Por favor vuelve atrás y cámbiala.</string>
-  <string name="abusefilter_text_warn">Un filtru automáticu identificó esta edición como posiblemente non constructiva. Pué contener una o más de les siguientes:&lt;br /&gt;&lt;br /&gt;· Escribir too en mayúscules&lt;br /&gt;· Dexar artículos en blanco o facer spam&lt;br /&gt;· Enllaces o imaxes esternos irrelevantes&lt;br /&gt;· Caráuteres repetíos</string>
-  <string name="abusefilter_text_disallow">Un filtru automáticu identificó esta edición como potencialmente non constructiva, o posible vandalismu.&lt;br /&gt;&lt;br /&gt;Wikipedia ye una enciclopedia y sólo pué ponese equí conteníu neutral y notable.</string>
+  <string name="abusefilter_text_warn">Un filtru automáticu identificó esta edición como posiblemente non constructiva. Puede contener una o más de les siguientes:&lt;br /&gt;&lt;br /&gt;· Escribir too en mayúscules&lt;br /&gt;· Dexar artículos en blancu o facer spam&lt;br /&gt;· Enllaces o imaxes esternos irrelevantes&lt;br /&gt;· Caráuteres repetíos</string>
+  <string name="abusefilter_text_disallow">Un filtru automáticu identificó esta edición como potencialmente non constructiva, o posible vandalismu.&lt;br /&gt;&lt;br /&gt;Wikipedia ye una enciclopedia y sólo puede ponese equí conteníu neutral y notable.</string>
   <string name="dialog_page_issues">Problemes de la páxina</string>
   <string name="button_page_issues">Problemes de la páxina</string>
   <string name="text_size_select">Tamañu de lletra</string>
@@ -270,7 +270,7 @@
   <string name="text_copied">Testu copiáu al cartafueyu.</string>
   <string name="button_continue_to_article">Lleer el artículu</string>
   <string name="button_add_to_reading_list">Añadir a llista de llectura</string>
-  <string name="page_offline_notice_cannot_load_while_offline">Nun pué cargase l\'artículu en tando sin conexón.</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Nun puede cargase l\'artículu en tando sin conexón.</string>
   <string name="page_offline_notice_add_to_reading_list">Gabitu: Añade l\'artículu a una llista de llectura y se descargará en coneutando.</string>
   <string name="page_offline_notice_last_date">Tas lleyendo una versión sin conexón d\'esti artículu guardada el %s.</string>
   <string name="page_offline_notice_compilation_download_date">Tas lleyendo la versión d\'esti artículu de %1$s • %2$s.</string>
