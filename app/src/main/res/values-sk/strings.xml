@@ -69,6 +69,7 @@
   <string name="langlinks_empty">Táto stránka nie je k dispozícii v iných jazykoch</string>
   <string name="langlinks_no_match">Zadaný výraz nezodpovedá žiadnemu jazyku.</string>
   <string name="langlinks_activity_title">Iné jazyky</string>
+  <string name="langlinks_your_wikipedia_languages">Vaše jazyky</string>
   <string name="menu_save_changes">Uverejniť zmeny</string>
   <string name="dialog_saving_in_progress">Zverejňuje sa...</string>
   <string name="edit_saved_successfully">Úprava bola uverejnená!</string>
@@ -91,6 +92,7 @@
   <string name="login_username_hint">Používateľské meno</string>
   <string name="login_password_hint">Heslo</string>
   <string name="login_2fa_hint">Kód pre dvojstupňové overenie</string>
+  <string name="login_2fa_other_workflow_error_msg">Vyžaduje sa dvojstupňové overenie. Prosím, vráťte sa a prihláste sa pomocou dvojstupňového overenia a skúste to znova.</string>
   <string name="menu_login">Prihlásiť sa</string>
   <string name="login_activity_title">Prihlásiť sa na Wikipédiu</string>
   <string name="login_in_progress_dialog_message">Prihlasujem…</string>
@@ -149,8 +151,9 @@
   <string name="preferences_heading_data_usage">Spotreba dát</string>
   <string name="preferences_heading_experimental">Experimentálne</string>
   <string name="preference_title_sync_reading_lists">Synchronizovať zoznamy na prečítanie</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Povoliť synchronizáciu zoznamov na prečínanie</string>
+  <string name="preference_title_sync_reading_lists_from_account">Synchronizácia zoznamov na prečítanie</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">Povolí Wikimedii synchronizovať vaše zoznamy na prečítanie keď ste prihlásení</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Chcete odstrániť synchronizované zoznamy na prečítanie z účtu „%s“?</string>
   <string name="preferences_privacy_settings_heading">Súkromie</string>
   <string name="preference_title_eventlogging_opt_in">Odosielať správu o používaní</string>
   <string name="preference_summary_eventlogging_opt_in">Povoliť Wikimedii zbierať informácie o vašom používaní aplikácie. Pomáha nám to skvalitniť aplikáciu.</string>
@@ -201,6 +204,7 @@
   <string name="edit_summary_tag_other">Inak</string>
   <string name="edit_summary_tag_other_hint">Iné spôsoby, ako ste vylepšili túto stránku</string>
   <string name="edit_conflict_title">Konflikt pri upravovaní</string>
+  <string name="edit_conflict_message">Táto stránka bola upravená iným používateľom a jeho úprava je v konflikte s tou vašou. Prosím, skopírujte svoju úpravu, obnovte článok a skúste to znova.</string>
   <string name="find_next">Nájsť ďalšie</string>
   <string name="find_previous">Nájsť predchádzajúce</string>
   <string name="find_first_occurence">Toto je prvý výskyt</string>
@@ -267,6 +271,7 @@
   <string name="tool_tip_share">Po zvýraznení zaujímavej skutočnosti ju môžete zdieľať na vašich obľúbených sietiach!</string>
   <string name="page_view_in_browser">Zobraziť stránku v prehliadači</string>
   <string name="tool_tip_toc_button">Obsah môžete zobraziť kedykoľvek ťuknutím na toto tlačidlo alebo posunutím obrazovky z pravého rohu vľavo.</string>
+  <string name="tool_tip_lang_button">V rámci aplikácie môžete vyhľadávať a čítať Wikipédiu vo viacerých jazykoch.\n\n\nĎalšie jazyky pridáte kliknutím na ikonu.</string>
   <string name="error_response_malformed">Odpoveď zo servera nebola správne naformátovaná.</string>
   <string name="error_unknown">Vyskytla sa neznáma chyba.</string>
   <string name="format_error_server_message">Správa: \"%s\"</string>
@@ -348,6 +353,8 @@
   <string name="reading_list_menu_edit_description">Upraviť popis</string>
   <string name="reading_list_action_menu_remove_from_offline">Odstrániť článok z offline úložiska</string>
   <string name="reading_list_action_menu_save_for_offline">Uložiť článok do zariadenia</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Odstrániť všetko z offline úložiska</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Uložiť všetko offline</string>
   <string name="reading_list_action_menu_add_to_another_list">Pridať do ďalšieho zoznamu</string>
   <string name="reading_list_name_sample">Môj zoznam na prečítanie</string>
   <string name="reading_list_name_hint">Názov zoznamu</string>
@@ -357,8 +364,8 @@
   <string name="reading_list_item_delete_undo">Vrátiť</string>
   <string name="reading_list_deleted">Zoznam %s bol odstránený</string>
   <string name="saved_list_empty_title">Zatiaľ nemáte žiadne zoznamy na prečítanie</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Uložte si články do zoznamov na prečítanie, aby ste si ich mohli pozrieť aj neskôr (dokonca aj offline).</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Z článkov, ktoré si chcete prečítať neskôr si môžete vytvoriť zoznamy na prečítanie!</string>
+  <string name="reading_lists_empty_message">Pridajte si články do zoznamov na prečítanie, aby ste si ich mohli pozrieť aj neskôr (dokonca aj offline).</string>
+  <string name="reading_lists_onboarding_intro">Články, ktoré si chcete prečítať neskôr si môžete pridať do zoznamov na prečítanie!</string>
   <string name="reading_lists_onboarding_for_example">Napríklad</string>
   <string name="reading_lists_onboarding_example1">Miesta, ktoré chcem navštíviť</string>
   <string name="reading_lists_onboarding_example2">Obľúbené zvieratá</string>
@@ -402,6 +409,12 @@
   <string name="reading_list_logout_option_reminder_dialog_yes">Áno, ponechať články v zoznamoch</string>
   <string name="reading_list_logout_option_reminder_dialog_no">Nie, odstrániť články zo zoznamov</string>
   <string name="default_reading_list_name">Uložené</string>
+  <string name="default_reading_list_description">Predvolený zoznam pre vaše uložené články</string>
+  <string name="no_user_lists_title">Usporiadajte si články do zoznamov</string>
+  <string name="reading_list_saved_list_rename">%1$s (vytvorený používateľom)</string>
+  <string name="split_reading_list_message">Zaviedli sme limit %d článkov na zoznam na prečítanie. Existujúce zoznamy prekračujúce tento limit budú rozdelené na viaceré zoznamy.</string>
+  <string name="reading_list_article_limit_message">Do tohoto zoznamu už nemôžete pridávať články. Dosiahli ste limit %2$d článkov pre zoznam „%1$s“.</string>
+  <string name="reading_lists_limit_message">Nemôžete vytvoriť ďalší zoznam. Dosiahli ste limit 100 zoznamov pre 1 účet.</string>
   <string name="reading_lists_menu_create_list">Vytvoriť nový zoznam</string>
   <string name="reading_lists_menu_sort_by">Zoradiť podľa</string>
   <string name="reading_lists_refresh_sync_option">Obnoviť synchronizáciu</string>
@@ -427,6 +440,7 @@
   <string name="notification_syncing_pause_button">Pozastaviť</string>
   <string name="notification_syncing_resume_button">Pokračovať</string>
   <string name="notification_syncing_cancel_button">Zrušiť</string>
+  <string name="notification_syncing_reading_list_channel_description">Pokrok v synchronizácii zoznamov na prečítanie</string>
   <string name="notification_channel_name" fuzzy="true">Synchronizovanie</string>
   <string name="notification_syncing_title" fuzzy="true">Preberá sa %1$d {{PLURAL:%1$d|článok|články|článkov}}…</string>
   <plurals name="notification_syncing_description">
@@ -446,6 +460,7 @@
   <string name="view_featured_image_card_download">Prevziať</string>
   <string name="menu_feed_card_dismiss">Skryť túto kartu</string>
   <string name="menu_feed_card_dismissed">Karta bola skrytá.</string>
+  <string name="menu_feed_card_edit_card_languages">Upraviť karty s jazykmi</string>
   <string name="menu_feed_overflow_label">Ďalšie nastavenia</string>
   <string name="feed_featured_image_share_subject">Odporúčaný obrázok z Wikimedia Commons</string>
   <string name="feed">Preskúmať</string>
@@ -509,6 +524,7 @@
   <string name="description_edit_revert_reason1">Vaša úprava nespĺňa jednu z &lt;a href=\"%1$s\"&gt;požiadavok&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">váš príspevok vyzeral ako experiment alebo vandalizmus</string>
   <string name="description_edit_revert_history">Viac sa môžete dozvedieť v &lt;a href=\"%1$s\"&gt;histórii úprav stránky&lt;/a&gt;.</string>
+  <string name="offline_compilation_download_device_offline">Nie ste pripojení na internet. Pripojte sa a skúste to znova.</string>
   <string name="offline_read_permission_rationale">Je požadované povolenie na prístup k úložisku vo Vašom zariadení pre používanie bez pripojenia k internetu.</string>
   <string name="offline_read_permission_error">Povolenie z úložiska v zariadení neudelené.</string>
   <string name="offline_my_compilations">Spravovať moju offline knižnicu</string>
@@ -589,7 +605,15 @@
   <string name="wikipedia_languages_add_language_text">Pridať jazyk</string>
   <string name="wikipedia_languages_remove_text">Odstrániť jazyk</string>
   <string name="wikipedia_languages_remove_action_mode_title">Odstrániť jazyk</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">Odstrániť vybraný jazyk?</item>
+    <item quantity="other">Odstrániť vybrané jazyky?</item>
+  </plurals>
   <string name="wikipedia_languages_remove_warning_dialog_title">Nemôžete odstrániť všetky jazyky</string>
+  <string name="more_language_options">viac</string>
+  <string name="add_wikipedia_languages_text">Pridať jazyky</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Chcete odstrániť variant čínštiny z vašich jazykov?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Vo vašich jazykoch máte tradičnú a zjednodušené čínštinu. Chcete aktualizovať svoje nastavenia jazyka?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Upraviť jazyky</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nie, vďaka</string>
 </resources>
