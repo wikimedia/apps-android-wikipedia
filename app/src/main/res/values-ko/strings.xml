@@ -483,7 +483,7 @@
   <string name="view_continue_reading_card_title">계속 읽기</string>
   <string name="view_because_you_read_card_title">읽었던 글 관련 추천</string>
   <string name="view_random_card_title">임의 문서 보기</string>
-  <string name="view_random_card_subtitle">위키백과로부터 읽을 임의의 문서를 넘겨보십시오.</string>
+  <string name="view_random_card_subtitle">카드를 넘겨 위키백과에서 임의의 문서를 읽어보세요.</string>
   <string name="view_random_card_action">주사위 던지기</string>
   <string name="view_next_random_article">다른 임의 문서 불러오기</string>
   <string name="view_main_page_card_title">오늘의 위키백과</string>
@@ -518,12 +518,12 @@
   <string name="feed_configure_language_warning">모든 카드 유형이 모든 위키백과 언어에서 사용할 수 있는 것은 아닙니다. 설정에서 선택된 언어를 수정하십시오.</string>
   <string name="feed_item_type_news">요즘 화제에 관한 글</string>
   <string name="feed_item_type_on_this_day">오늘의 역사의 사건</string>
-  <string name="feed_item_type_continue_reading">탭에 열려 있는 문서를 다시 읽기 위한 빠른 링크</string>
+  <string name="feed_item_type_continue_reading">탭에 열려 있는 문서를 다시 읽는 빠른 링크</string>
   <string name="feed_item_type_because_you_read">검색기록에 있는 최근 읽은 글 관련 추천</string>
   <string name="feed_item_type_featured_article">위키백과의 일일 알찬글</string>
   <string name="feed_item_type_trending">하루 중 가장 많이 본 글</string>
   <string name="feed_item_type_featured_image">위키미디어 공용의 일일 알찬글</string>
-  <string name="feed_item_type_main_page">매일매일 알찬 글이 바뀌는 위키백과의 대문</string>
+  <string name="feed_item_type_main_page">오늘의 알찬글을 보여주는 위키백과의 대문</string>
   <string name="feed_item_type_randomizer">읽어볼 임의 문서를 만듭니다</string>
   <string name="feed_empty_message">탐색 피드에서 할 일이 없습니다</string>
   <string name="feed_configure_onboarding_action">사용자 지정</string>
@@ -619,12 +619,12 @@
   <string name="onboarding_continue">계속</string>
   <string name="onboarding_get_started">시작하기</string>
   <string name="onboarding_explore_title">탐구를 위한 새로운 방법</string>
-  <string name="onboarding_explore_text">늘 업데이트되는 둘러보기 피드로 위키백과를 탐험하세요. &lt;br/&gt; 피드를 당신의 관심사에 &lt;b&gt;맞춤 관리하세요&lt;/b&gt; – 그것이 &lt;b&gt;오늘의 역사&lt;/b&gt;에 대한 역사적 사건을 배우는 것이든, &lt;b&gt;임의 문서로&lt;/b&gt; 주사위를 던지는 것이든요.</string>
+  <string name="onboarding_explore_text">늘 업데이트되는 둘러보기 피드로 위키백과를 탐험하세요.&lt;br/&gt;피드를 당신의 관심사에 &lt;b&gt;맞춤 관리하세요&lt;/b&gt; – 그것이 &lt;b&gt;오늘의 역사&lt;/b&gt;에 대한 역사적 사건을 배우는 것이든, 주사위를 굴려 &lt;b&gt;임의 문서로&lt;/b&gt; 가는 것이든요.</string>
   <string name="onboarding_save_to_reading_lists_title">읽기 목록에 저장</string>
   <string name="onboarding_save_to_reading_lists_text">나중에 읽고 싶은 글들을 읽기 목록으로 만듭니다. 오프라인에서도 이용이 가능합니다.</string>
   <string name="onboarding_reading_list_sync_title">읽기 목록 동기화</string>
   <string name="onboarding_reading_list_sync_text">나중에 오프라인 상태에서도 읽을 수 있도록 문서의 읽기 목록을 만듭니다. 읽기 목록을 보관하려면 위키백과 계정을 &lt;a href=\"#login\"&gt;만들거나 로그인&lt;/a&gt;하십시오.</string>
-  <string name="onboarding_reading_list_sync_text_v2">나중에, 오프라인 상태에서도 읽을 수 있도록 문서의 읽기 목록을 만들 수 있습니다.&lt;br/&gt;읽기 목록을 동기화하려면 위키백과 계정에 로그인하십시오. &lt;a href=\"#login\"&gt;위키백과 가입&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_text_v2">읽기 목록을 만들면 글을 나중에 읽거나 심지어는 오프라인 상태에서도 읽을 수 있습니다.&lt;br/&gt;읽기 목록을 동기화하려면 위키백과 계정에 로그인하십시오. &lt;a href=\"#login\"&gt;위키백과 가입&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">익명 데이터 보내기</string>
   <string name="onboarding_analytics_offline_text">앱 개선 지원을 위해 앱을 어떻게 사용하는지 알려주세요. 수집된 데이터는 익명으로 처리됩니다. &lt;a href=\"#privacy\"&gt;더 알아보기&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">사용 데이터 보내기</string>

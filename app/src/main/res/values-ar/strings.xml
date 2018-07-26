@@ -491,6 +491,7 @@
   <string name="onboarding_create_account_sync">زامن قوائم قراءاتك</string>
   <string name="onboarding_create_account_contributions">تتبع مساهماتك</string>
   <string name="onboarding_create_account_preferences">احفظ تفضيلاتك</string>
+  <string name="onboarding_multilingual_add_language_text">أضف أو عدل اللغات</string>
   <string name="onboarding_welcome_title_v2">الموسوعة الحرة ... في  أكثر  من 300 لغة</string>
   <string name="app_shortcuts_random">عشوائي</string>
   <string name="app_shortcuts_continue_reading">مواصلة القراءة</string>

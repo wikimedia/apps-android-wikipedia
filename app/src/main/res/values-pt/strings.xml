@@ -54,7 +54,7 @@
   <string name="menu_text_select_define">Definir</string>
   <string name="menu_text_select_share">Partilhar</string>
   <string name="menu_text_select_edit_here">Editar aqui</string>
-  <string name="nav_item_nearby">Nas redondezas</string>
+  <string name="nav_item_nearby">Aqui perto</string>
   <string name="nearby_zoom_to_location">Ampliar uma localização no mapa</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;Colaboradores do &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Última atualização: %s</string>
