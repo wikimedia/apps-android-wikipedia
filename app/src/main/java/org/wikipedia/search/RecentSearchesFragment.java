@@ -168,7 +168,7 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
 
         @Override
         public void bindView(View view, Context context, Cursor cursor) {
-            TextView textView = view.findViewById(R.id.text1);
+            TextView textView = (TextView) view;
             RecentSearch entry = getEntry(cursor);
             textView.setText(entry.getText());
             view.setTag(entry);

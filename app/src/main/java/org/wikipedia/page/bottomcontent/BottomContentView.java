@@ -9,11 +9,9 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -50,10 +48,9 @@ import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ConfigurableTextView;
-import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.LinearLayoutOverWebView;
 import org.wikipedia.views.ObservableWebView;
-import org.wikipedia.views.ViewUtil;
+import org.wikipedia.views.PageItemView;
 
 import java.util.List;
 
@@ -145,12 +142,6 @@ public class BottomContentView extends LinearLayoutOverWebView
         });
 
         readMoreList.setAdapter(readMoreAdapter);
-        readMoreList.setOnItemClickListener((AdapterView<?> parent, View view, int position, long id) -> {
-            PageTitle title = readMoreAdapter.getItem(position).getPageTitle();
-            HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
-            parentFragment.loadPage(title, historyEntry);
-            funnel.logSuggestionClicked(page.getTitle(), readMoreItems.getResults(), position);
-        });
 
         // hide ourselves by default
         hide();
@@ -383,7 +374,7 @@ public class BottomContentView extends LinearLayoutOverWebView
         }
     }
 
-    private final class ReadMoreAdapter extends BaseAdapter {
+    private final class ReadMoreAdapter extends BaseAdapter implements PageItemView.Callback<SearchResult> {
         private List<SearchResult> results;
 
         public void setResults(List<SearchResult> results) {
@@ -407,55 +398,28 @@ public class BottomContentView extends LinearLayoutOverWebView
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.item_page_list_entry, parent, false);
+        public View getView(int position, View convView, ViewGroup parent) {
+            PageItemView<SearchResult> itemView = (PageItemView<SearchResult>) convView;
+            if (itemView == null) {
+                itemView = new PageItemView<>(getContext());
             }
             SearchResult result = getItem(position);
-            TextView pageTitleText = convertView.findViewById(R.id.page_list_item_title);
-            ImageView primaryActionBtn = convertView.findViewById(R.id.page_list_item_action_primary);
+            itemView.setItem(result);
+
+            ImageView primaryActionBtn = itemView.findViewById(R.id.page_list_item_action_primary);
             primaryActionBtn.setVisibility(VISIBLE);
             if (firstTimeShown) {
                 setPrimaryActionDrawable(primaryActionBtn, result.getPageTitle());
             }
-            View itemLayout = convertView.findViewById(R.id.item_layout);
-            MarginLayoutParams layoutParams = (MarginLayoutParams) itemLayout.getLayoutParams();
-            final int marginEnd = 8;
-            layoutParams.setMarginEnd((int) DimenUtil.dpToPx(marginEnd));
-            itemLayout.setLayoutParams(layoutParams);
-            primaryActionBtn.setOnClickListener(view -> CallbackTask.execute(() -> ReadingListDbHelper.instance().findPageInAnyList(result.getPageTitle()), new CallbackTask.DefaultCallback<ReadingListPage>() {
-                @Override
-                public void success(ReadingListPage page) {
-                    boolean pageInList = page != null;
-                    if (!pageInList) {
-                        parentFragment.addToReadingList(result.getPageTitle(), AddToReadingListDialog.InvokeSource.READ_MORE_BOOKMARK_BUTTON);
-                    } else {
-                        new ReadingListBookmarkMenu(primaryActionBtn, new ReadingListBookmarkMenu.Callback() {
-                            @Override
-                            public void onAddRequest(@Nullable ReadingListPage page) {
-                                parentFragment.addToReadingList(result.getPageTitle(), AddToReadingListDialog.InvokeSource.READ_MORE_BOOKMARK_BUTTON);
-                            }
+            final int paddingEnd = 8;
+            itemView.setPaddingRelative(itemView.getPaddingStart(), itemView.getPaddingTop(),
+                    DimenUtil.roundedDpToPx(paddingEnd), itemView.getPaddingBottom());
 
-                            @Override
-                            public void onDeleted(@Nullable ReadingListPage page) {
-                                FeedbackUtil.showMessage((Activity) getContext(),
-                                        getContext().getString(R.string.reading_list_item_deleted, result.getPageTitle().getDisplayText()));
-                                setPrimaryActionDrawable(primaryActionBtn, result.getPageTitle());
-
-                            }
-                        }).show(result.getPageTitle());
-                    }
-
-                }
-            }));
-            pageTitleText.setText(result.getPageTitle().getDisplayText());
-
-            GoneIfEmptyTextView descriptionText = convertView.findViewById(R.id.page_list_item_description);
-            descriptionText.setText(StringUtils.capitalize(result.getPageTitle().getDescription()));
-
-            ViewUtil.loadImageUrlInto(convertView.findViewById(R.id.page_list_item_image), result.getPageTitle().getThumbUrl());
-            return convertView;
+            itemView.setCallback(this);
+            itemView.setTitle(result.getPageTitle().getDisplayText());
+            itemView.setDescription(StringUtils.capitalize(result.getPageTitle().getDescription()));
+            itemView.setImageUrl(result.getPageTitle().getThumbUrl());
+            return itemView;
         }
 
         private void setPrimaryActionDrawable(ImageView primaryActionBtn, PageTitle pageTitle) {
@@ -467,6 +431,53 @@ public class BottomContentView extends LinearLayoutOverWebView
                             : R.drawable.ic_bookmark_border_black_24dp);
                 }
             });
+        }
+
+        @Override public void onClick(@Nullable SearchResult item) {
+            PageTitle title = item.getPageTitle();
+            HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
+            parentFragment.loadPage(title, historyEntry);
+            funnel.logSuggestionClicked(page.getTitle(), readMoreItems.getResults(), results.indexOf(item));
+        }
+
+        @Override public void onActionClick(@Nullable SearchResult item, @NonNull View view) {
+            if (item == null) {
+                return;
+            }
+            CallbackTask.execute(() -> ReadingListDbHelper.instance().findPageInAnyList(item.getPageTitle()), new CallbackTask.DefaultCallback<ReadingListPage>() {
+                @Override
+                public void success(ReadingListPage page) {
+                    boolean pageInList = page != null;
+                    if (!pageInList) {
+                        parentFragment.addToReadingList(item.getPageTitle(), AddToReadingListDialog.InvokeSource.READ_MORE_BOOKMARK_BUTTON);
+                    } else {
+                        new ReadingListBookmarkMenu(view, new ReadingListBookmarkMenu.Callback() {
+                            @Override
+                            public void onAddRequest(@Nullable ReadingListPage page) {
+                                parentFragment.addToReadingList(item.getPageTitle(), AddToReadingListDialog.InvokeSource.READ_MORE_BOOKMARK_BUTTON);
+                            }
+
+                            @Override
+                            public void onDeleted(@Nullable ReadingListPage page) {
+                                FeedbackUtil.showMessage((Activity) getContext(),
+                                        getContext().getString(R.string.reading_list_item_deleted, item.getPageTitle().getDisplayText()));
+                                setPrimaryActionDrawable((ImageView) view, item.getPageTitle());
+
+                            }
+                        }).show(item.getPageTitle());
+                    }
+                }
+            });
+        }
+
+        @Override public boolean onLongClick(@Nullable SearchResult item) {
+            return false;
+        }
+
+        @Override public void onThumbClick(@Nullable SearchResult item) {
+        }
+
+        @Override public void onSecondaryActionClick(@Nullable SearchResult item, @NonNull View view) {
         }
     }
 

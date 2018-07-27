@@ -450,15 +450,17 @@ public class SearchResultsFragment extends Fragment {
             SearchResult result = (SearchResult) getItem(position);
 
             GoneIfEmptyTextView descriptionText = convertView.findViewById(R.id.page_list_item_description);
-            View redirectContainer = convertView.findViewById(R.id.page_list_item_redirect_container);
+            TextView redirectText = convertView.findViewById(R.id.page_list_item_redirect);
+            View redirectArrow = convertView.findViewById(R.id.page_list_item_redirect_arrow);
             if (TextUtils.isEmpty(result.getRedirectFrom())) {
-                redirectContainer.setVisibility(View.GONE);
+                redirectText.setVisibility(View.GONE);
+                redirectArrow.setVisibility(View.GONE);
                 descriptionText.setText(StringUtils.capitalize(result.getPageTitle().getDescription()));
             } else {
-                redirectContainer.setVisibility(View.VISIBLE);
-                descriptionText.setVisibility(View.GONE);
-                TextView redirectText = convertView.findViewById(R.id.page_list_item_redirect);
+                redirectText.setVisibility(View.VISIBLE);
+                redirectArrow.setVisibility(View.VISIBLE);
                 redirectText.setText(String.format(getString(R.string.search_redirect_from), result.getRedirectFrom()));
+                descriptionText.setVisibility(View.GONE);
             }
 
             // highlight search term within the text
