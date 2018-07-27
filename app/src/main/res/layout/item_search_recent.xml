@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/list_item_default_height"
-    android:foreground="?attr/selectableItemBackground"
-    android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/text1"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:fontFamily="sans-serif"
-        android:layout_marginStart="16dp"
-        android:gravity="center_vertical"
-        android:textColor="?attr/material_theme_primary_color"
-        android:textSize="16sp"
-        tools:text="Sample recent search term" />
-</LinearLayout>
+    android:fontFamily="sans-serif"
+    android:paddingStart="16dp"
+    android:gravity="center_vertical"
+    android:textColor="?attr/material_theme_primary_color"
+    android:textSize="16sp"
+    android:background="?attr/selectableItemBackground"
+    tools:text="Sample recent search term" />

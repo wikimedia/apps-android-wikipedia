@@ -1,12 +1,13 @@
 package org.wikipedia.readinglist;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.annotation.StyleRes;
+import android.support.constraint.ConstraintLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.widget.PopupMenu;
 import android.text.TextUtils;
@@ -14,7 +15,6 @@ import android.util.AttributeSet;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,6 +24,8 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import org.wikipedia.R;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListPage;
+import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
@@ -34,7 +36,7 @@ import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ReadingListItemView extends FrameLayout {
+public class ReadingListItemView extends ConstraintLayout {
     public interface Callback {
         void onClick(@NonNull ReadingList readingList);
         void onRename(@NonNull ReadingList readingList);
@@ -50,8 +52,6 @@ public class ReadingListItemView extends FrameLayout {
     @BindView(R.id.item_description) TextView descriptionView;
     @BindView(R.id.item_overflow_menu)View overflowButton;
 
-    @BindView(R.id.item_thumbnails_container) View thumbnailsContainer;
-    @BindView(R.id.item_image_container) View imageContainer;
     @BindView(R.id.default_list_empty_image) ImageView defaultListEmptyView;
     @BindViews({R.id.item_image_1, R.id.item_image_2, R.id.item_image_3, R.id.item_image_4}) List<SimpleDraweeView> imageViews;
 
@@ -73,12 +73,6 @@ public class ReadingListItemView extends FrameLayout {
         init();
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public ReadingListItemView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        init();
-    }
-
     public void setReadingList(@NonNull ReadingList readingList, @NonNull Description description) {
         this.readingList = readingList;
 
@@ -92,7 +86,7 @@ public class ReadingListItemView extends FrameLayout {
         statisticalDescriptionView.setText(text);
 
         updateDetails();
-        if (thumbnailsContainer.getVisibility() == VISIBLE) {
+        if (imageViews.get(0).getVisibility() == VISIBLE) {
             updateThumbnails();
         }
     }
@@ -106,7 +100,10 @@ public class ReadingListItemView extends FrameLayout {
     }
 
     public void setThumbnailVisible(boolean visible) {
-        thumbnailsContainer.setVisibility(visible ? VISIBLE : GONE);
+        for (View view : imageViews) {
+            view.setVisibility(visible ? VISIBLE : GONE);
+        }
+        defaultListEmptyView.setVisibility(visible ? VISIBLE : GONE);
     }
 
     public void setTitleTextAppearance(@StyleRes int id) {
@@ -135,9 +132,13 @@ public class ReadingListItemView extends FrameLayout {
         inflate(getContext(), R.layout.item_reading_list, this);
         ButterKnife.bind(this);
 
-        setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT));
-
+        setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        final int topBottomPadding = 16;
+        setPadding(0, DimenUtil.roundedDpToPx(topBottomPadding), 0, DimenUtil.roundedDpToPx(topBottomPadding));
+        setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            setForeground(ContextCompat.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
+        }
         setClickable(true);
         clearThumbnails();
     }
@@ -146,8 +147,9 @@ public class ReadingListItemView extends FrameLayout {
         if (readingList == null) {
             return;
         }
-        defaultListEmptyView.setVisibility((readingList.isDefault() && readingList.pages().size() == 0) ? VISIBLE : GONE);
-        imageContainer.setVisibility(defaultListEmptyView.getVisibility() == VISIBLE ? GONE : VISIBLE);
+
+        defaultListEmptyView.setVisibility((readingList.isDefault() && readingList.pages().size() == 0
+                && imageViews.get(0).getVisibility() == VISIBLE) ? VISIBLE : GONE);
         titleView.setText(readingList.title());
         if (readingList.isDefault()) {
             descriptionView.setText(getContext().getString(R.string.default_reading_list_description));
