@@ -2,6 +2,7 @@ package org.wikipedia.page;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -15,6 +16,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.ActionMode;
@@ -36,18 +38,25 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FindInPageFunnel;
 import org.wikipedia.analytics.GalleryFunnel;
+import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.analytics.PageScrollFunnel;
 import org.wikipedia.analytics.TabFunnel;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
 import org.wikipedia.descriptions.DescriptionEditActivity;
+import org.wikipedia.descriptions.DescriptionEditTutorialActivity;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.UpdateHistoryTask;
 import org.wikipedia.language.LangLinksActivity;
+import org.wikipedia.login.LoginActivity;
+import org.wikipedia.media.AvPlayer;
+import org.wikipedia.media.DefaultAvPlayer;
+import org.wikipedia.media.MediaPlayerImplementation;
 import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
 import org.wikipedia.page.action.PageActionTab;
 import org.wikipedia.page.action.PageActionToolbarHideHandler;
@@ -87,6 +96,7 @@ import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.page.PageActivity.ACTION_RESUME_READING;
 import static org.wikipedia.page.PageActivity.ACTION_SHOW_TAB_LIST;
 import static org.wikipedia.page.PageCacher.loadIntoCache;
+import static org.wikipedia.settings.Prefs.isDescriptionEditTutorialEnabled;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.DimenUtil.getContentTopOffset;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
@@ -162,6 +172,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private ShareHandler shareHandler;
     private TabsProvider tabsProvider;
     private ActiveTimer activeTimer = new ActiveTimer();
+    @Nullable private AvPlayer avPlayer;
+    @Nullable private AvCallback avCallback;
 
     private WikipediaApp app;
 
@@ -326,6 +338,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     @Override
     public void onDestroyView() {
+        if (avPlayer != null) {
+            avPlayer.deinit();
+            avPlayer = null;
+        }
         //uninitialize the bridge, so that no further JS events can have any effect.
         bridge.cleanup();
         tabsProvider.setTabsProviderListener(null);
@@ -785,11 +801,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    public void startDescriptionEditActivity() {
-        startActivityForResult(DescriptionEditActivity.newIntent(getContext(), getTitle()),
-                Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT);
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -1192,6 +1203,45 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 L.logRemoteErrorIfProd(e);
             }
         });
+        bridge.addListener("pronunciationClicked", (String messageType, JSONObject messagePayload) -> {
+            if (avPlayer == null) {
+                avPlayer = new DefaultAvPlayer(new MediaPlayerImplementation());
+                avPlayer.init();
+            }
+            if (avCallback == null) {
+                avCallback = new AvCallback();
+            }
+            if (!avPlayer.isPlaying()) {
+                updateProgressBar(true, true, 0);
+                avPlayer.play(getPage().getTitlePronunciationUrl(), avCallback, avCallback);
+            } else {
+                updateProgressBar(false, true, 0);
+                avPlayer.stop();
+            }
+        });
+    }
+
+    public void verifyLoggedInThenEditDescription() {
+        if (!AccountUtil.isLoggedIn() && Prefs.getTotalAnonDescriptionsEdited() >= getResources().getInteger(R.integer.description_max_anon_edits)) {
+            new AlertDialog.Builder(requireActivity())
+                    .setMessage(R.string.description_edit_anon_limit)
+                    .setPositiveButton(R.string.menu_login, (DialogInterface dialogInterface, int i) ->
+                            startActivity(LoginActivity.newIntent(requireContext(), LoginFunnel.SOURCE_EDIT)))
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show();
+        } else {
+            startDescriptionEditActivity();
+        }
+    }
+
+    private void startDescriptionEditActivity() {
+        if (isDescriptionEditTutorialEnabled()) {
+            startActivityForResult(DescriptionEditTutorialActivity.newIntent(requireContext()),
+                    Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL);
+        } else {
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), getTitle()),
+                    Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT);
+        }
     }
 
     /**
@@ -1409,6 +1459,23 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
             if (!(offline && PageActionTab.of(i).equals(PageActionTab.ADD_TO_READING_LIST))) {
                 tabLayout.disableTab(i);
+            }
+        }
+    }
+
+    private class AvCallback implements AvPlayer.Callback, AvPlayer.ErrorCallback {
+        @Override
+        public void onSuccess() {
+            if (avPlayer != null) {
+                avPlayer.stop();
+                updateProgressBar(false, true, 0);
+            }
+        }
+        @Override
+        public void onError() {
+            if (avPlayer != null) {
+                avPlayer.stop();
+                updateProgressBar(false, true, 0);
             }
         }
     }

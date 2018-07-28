@@ -26,4 +26,5 @@ public interface AvPlayer {
               @NonNull ErrorCallback errorCallback);
 
     void pause();
+    boolean isPlaying();
 }

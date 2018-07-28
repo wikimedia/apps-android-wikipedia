@@ -3,12 +3,10 @@ package org.wikipedia.media;
 import android.support.annotation.NonNull;
 
 public class DefaultAvPlayer implements AvPlayer {
-    @NonNull
-    private final AvPlayerImplementation player;
-    @NonNull
-    private final State state = new State();
+    @NonNull private final MediaPlayerImplementation player;
+    @NonNull private final State state = new State();
 
-    public DefaultAvPlayer(@NonNull AvPlayerImplementation player) {
+    public DefaultAvPlayer(@NonNull MediaPlayerImplementation player) {
         this.player = player;
     }
 
@@ -81,6 +79,11 @@ public class DefaultAvPlayer implements AvPlayer {
             player.pause();
         }
         state.setPaused();
+    }
+
+    @Override
+    public boolean isPlaying() {
+        return player.isPlaying();
     }
 
     private class StopCallbackWrapper implements Callback {

@@ -12,6 +12,7 @@ import android.util.SparseArray;
 import android.view.View;
 import android.widget.Toast;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,6 +30,7 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
+import org.wikipedia.descriptions.DescriptionEditClient;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
@@ -477,10 +479,14 @@ public class PageFragmentLoadState {
         SparseArray<String> localizedStrings = localizedStrings(page);
         return obj.put("sequence", sequenceNumber.get())
                 .put("title", page.getDisplayTitle())
+                .put("description", StringUtils.capitalize(model.getTitle().getDescription()))
+                .put("allowDescriptionEdit", DescriptionEditClient.isEditAllowed(page))
+                .put("hasPronunciation", !TextUtils.isEmpty(page.getTitlePronunciationUrl()))
                 .put("string_table_infobox", localizedStrings.get(R.string.table_infobox))
                 .put("string_table_other", localizedStrings.get(R.string.table_other))
                 .put("string_table_close", localizedStrings.get(R.string.table_close))
                 .put("string_expand_refs", localizedStrings.get(R.string.expand_refs))
+                .put("string_add_description", localizedStrings.get(R.string.description_edit_add_description))
                 .put("isBeta", ReleaseUtil.isPreProdRelease()) // True for any non-production release type
                 .put("siteLanguage", model.getTitle().getWikiSite().languageCode())
                 .put("siteBaseUrl", model.getTitle().getWikiSite().url())

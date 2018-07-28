@@ -8,12 +8,11 @@ import org.wikipedia.util.log.L;
 
 import java.io.IOException;
 
-public class MediaPlayerImplementation implements AvPlayerImplementation {
+public class MediaPlayerImplementation {
     private static final boolean VERBOSE = false;
 
     @NonNull private final MediaPlayer player = new MediaPlayer();
 
-    @Override
     public void deinit() {
         if (VERBOSE) {
             L.v("Releasing");
@@ -21,11 +20,9 @@ public class MediaPlayerImplementation implements AvPlayerImplementation {
         player.release();
     }
 
-    @Override
     public void init() {
     }
 
-    @Override
     public void load(@NonNull String path,
                      @NonNull AvPlayer.Callback callback,
                      @NonNull AvPlayer.ErrorCallback errorCallback) {
@@ -33,7 +30,6 @@ public class MediaPlayerImplementation implements AvPlayerImplementation {
                 new ErrorListenerErrorCallbackWrapper(errorCallback));
     }
 
-    @Override
     public void stop() {
         if (VERBOSE) {
             L.v("Stopping");
@@ -45,19 +41,21 @@ public class MediaPlayerImplementation implements AvPlayerImplementation {
         pause();
     }
 
-    @Override
     public void play(@NonNull AvPlayer.Callback callback,
                      @NonNull AvPlayer.ErrorCallback errorCallback) {
         play(new CompletionListenerCallbackWrapper(callback),
                 new ErrorListenerErrorCallbackWrapper(errorCallback));
     }
 
-    @Override
     public void pause() {
         if (VERBOSE) {
             L.v("Pausing");
         }
         player.pause();
+    }
+
+    public boolean isPlaying() {
+        return player.isPlaying();
     }
 
     private void load(@NonNull String path,
