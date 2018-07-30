@@ -419,6 +419,7 @@
   <string name="reading_list_login_option_reminder_dialog_yes">Sí, afegeix-les a les meves llistes de lectura</string>
   <string name="reading_list_login_option_reminder_dialog_no">No, elimina els articles</string>
   <string name="reading_list_logout_option_reminder_dialog_title">Voleu conservar els articles desats a l\'aplicació?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Hi ha articles ja desats en les llistes de lectura. Voleu conservar-los després de finalitzar la sessió?</string>
   <string name="reading_list_logout_option_reminder_dialog_yes">Sí, conserva els articles en les llistes</string>
   <string name="reading_list_logout_option_reminder_dialog_no">No, elimina els articles de les llistes</string>
   <string name="default_reading_list_name">Desats</string>
@@ -661,6 +662,7 @@
     <item quantity="one">Voleu suprimir la llengua seleccionada?</item>
     <item quantity="other">Voleu suprimir les llengües seleccionades?</item>
   </plurals>
+  <string name="wikipedia_languages_remove_dialog_content">Només veureu el contingut del canal d\'exploració i els filtres de cerca ràpids per a les llengües de Viquipèdia restants.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">No es poden suprimir totes les llengüe</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantingueu com a mínim una llengua de Viquipèdia a partir de la qual cercar i llegir contingut.</string>
   <string name="more_language_options">més</string>

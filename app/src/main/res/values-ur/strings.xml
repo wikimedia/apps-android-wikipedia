@@ -217,7 +217,7 @@
   <string name="clear_recent_searches_confirm_yes">ہاں</string>
   <string name="clear_recent_searches_confirm_no">نہیں</string>
   <string name="error_browser_not_found">ویب صفحہ نہیں کھولا جاسکا (کوئی براؤزر ایپ نہیں ملا)۔</string>
-  <string name="table_infobox">فوری حقائق</string>
+  <string name="table_infobox">اجمالی معلومات</string>
   <string name="table_other">مزید معلومات</string>
   <string name="table_close">بند</string>
   <string name="widget_name_featured_page">ویکیپیڈیا کا منتخب صفحہ</string>
