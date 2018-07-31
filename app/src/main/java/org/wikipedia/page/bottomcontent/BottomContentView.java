@@ -402,6 +402,7 @@ public class BottomContentView extends LinearLayoutOverWebView
             PageItemView<SearchResult> itemView = (PageItemView<SearchResult>) convView;
             if (itemView == null) {
                 itemView = new PageItemView<>(getContext());
+                itemView.setLayoutParams(new ListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             }
             SearchResult result = getItem(position);
             itemView.setItem(result);
