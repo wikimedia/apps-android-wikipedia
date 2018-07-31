@@ -2,9 +2,9 @@ package org.wikipedia.page;
 
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
@@ -13,6 +13,7 @@ import org.wikipedia.LongPressHandler.ListViewContextMenuListener;
 import org.wikipedia.R;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.views.PageItemView;
 
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 
@@ -26,7 +27,7 @@ public class PageInfoDialog extends NoDimBottomSheetDialog {
     private final ListView disambigList;
 
     public PageInfoDialog(final PageFragment fragment, PageInfo pageInfo, boolean startAtDisambig) {
-        super(fragment.getContext());
+        super(fragment.requireContext());
         View parentView = LayoutInflater.from(fragment.getContext()).inflate(R.layout.dialog_page_info, null);
         setContentView(parentView);
 
@@ -43,14 +44,29 @@ public class PageInfoDialog extends NoDimBottomSheetDialog {
 
         closeButton.setOnClickListener((View v) -> dismiss());
 
-        issuesList.setAdapter(new IssuesListAdapter(fragment.getActivity(), pageInfo.getContentIssues()));
-        disambigList.setAdapter(new DisambigListAdapter(fragment.getActivity(), pageInfo.getSimilarTitles()));
-        disambigList.setOnItemClickListener((AdapterView<?> parent, View view, int position, long id) -> {
-            PageTitle title = ((DisambigResult) disambigList.getAdapter().getItem(position)).getTitle();
-            HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_DISAMBIG);
-            dismiss();
-            fragment.loadPage(title, historyEntry);
-        });
+        issuesList.setAdapter(new IssuesListAdapter(fragment.requireActivity(), pageInfo.getContentIssues()));
+        disambigList.setAdapter(new DisambigListAdapter(fragment.requireActivity(), pageInfo.getSimilarTitles(), new PageItemView.Callback<DisambigResult>() {
+            @Override
+            public void onClick(@Nullable DisambigResult item) {
+                PageTitle title = item.getTitle();
+                HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_DISAMBIG);
+                dismiss();
+                fragment.loadPage(title, historyEntry);
+            }
+
+            @Override public boolean onLongClick(@Nullable DisambigResult item) {
+                return false;
+            }
+
+            @Override public void onThumbClick(@Nullable DisambigResult item) {
+            }
+
+            @Override public void onActionClick(@Nullable DisambigResult item, @NonNull View view) {
+            }
+
+            @Override public void onSecondaryActionClick(@Nullable DisambigResult item, @NonNull View view) {
+            }
+        }));
 
         if (fragment.callback() != null) {
             ListViewContextMenuListener contextMenuListener
@@ -80,7 +96,6 @@ public class PageInfoDialog extends NoDimBottomSheetDialog {
     }
 
     private void showDisambig() {
-        startExpanded();
         if (flipper.getCurrentView() != flipper.getChildAt(0)) {
             flipper.setInAnimation(getContext(), R.anim.slide_in_left);
             flipper.setOutAnimation(getContext(), R.anim.slide_out_right);
