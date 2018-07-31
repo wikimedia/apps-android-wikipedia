@@ -157,6 +157,7 @@
   <string name="preferences_heading_syncing">Section title for preferences related to syncing</string>
   <string name="preferences_heading_data_usage">Section title for preferences related to data usage</string>
   <string name="preferences_heading_experimental">Section title for experimental settings</string>
+  <string name="preference_title_download_reading_list_articles">Title of preference that, when checked, enables downloading the users\'s reading list articles after syncing.</string>
   <string name="preference_title_sync_reading_lists">Title of preference that, when checked, enables syncing the user\'s reading lists across devices</string>
   <string name="preference_title_sync_reading_lists_from_account">Title of preference that, when checked, enables syncing the user\'s reading lists across devices from this account</string>
   <string name="preference_summary_sync_reading_lists">Description of preference that, when checked, enables syncing the user\'s reading lists across devices</string>

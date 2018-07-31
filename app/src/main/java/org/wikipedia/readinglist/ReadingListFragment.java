@@ -474,7 +474,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             ReadingListsFragment.showMobileDataWarningDialog(requireActivity(), (dialog, which)
                     -> saveSelectedPagesForOffline(selectedPages, true));
         } else {
-            saveSelectedPagesForOffline(selectedPages, false);
+            saveSelectedPagesForOffline(selectedPages, !Prefs.isDownloadingReadingListArticlesEnabled());
         }
     }
 
@@ -591,7 +591,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             ReadingListsFragment.showMobileDataWarningDialog(requireActivity(), (dialog, which)
                     -> toggleOffline(page, true));
         }  else {
-            toggleOffline(page, false);
+            toggleOffline(page, !Prefs.isDownloadingReadingListArticlesEnabled());
         }
     }
 
