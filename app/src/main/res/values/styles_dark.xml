@@ -87,6 +87,7 @@
 
     <style name="LongPressAlertDialogDark" parent="AlertDialogDark">
         <item name="android:backgroundTint" tools:targetApi="21">?attr/paper_color</item>
+        <item name="android:background">?attr/paper_color</item>
     </style>
 
     <style name="DialogDark" parent="Theme.AppCompat.Dialog">
