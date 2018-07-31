@@ -3,24 +3,19 @@ package org.wikipedia.page;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.util.LruCache;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.TextView;
-
-import com.facebook.drawee.view.SimpleDraweeView;
+import android.widget.ListView;
 
 import org.apache.commons.lang3.StringUtils;
-import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagesClient;
-import org.wikipedia.views.GoneIfEmptyTextView;
-import org.wikipedia.views.ViewUtil;
+import org.wikipedia.views.PageItemView;
 import org.wikipedia.wikidata.DescriptionClient;
 
 import java.util.ArrayList;
@@ -37,10 +32,13 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
     @NonNull private final LruCache<String, String> pageImagesCache = new LruCache<>(MAX_CACHE_SIZE_IMAGES);
     private final DisambigResult[] items;
     private final WikiSite wiki = WikipediaApp.getInstance().getWikiSite();
+    private final PageItemView.Callback<DisambigResult> callback;
 
-    DisambigListAdapter(@NonNull Context context, @NonNull DisambigResult[] items) {
+    DisambigListAdapter(@NonNull Context context, @NonNull DisambigResult[] items,
+                        @NonNull PageItemView.Callback<DisambigResult> callback) {
         super(context, 0, items);
         this.items = items;
+        this.callback = callback;
         requestPageImages();
         fetchDescriptions();
     }
@@ -110,32 +108,19 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
         });
     }
 
-    class ViewHolder {
-        private SimpleDraweeView icon;
-        private TextView title;
-        private TextView description;
-    }
-
-    @Override @NonNull public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        ViewHolder holder;
-        if (convertView == null) {
-            convertView = inflater.inflate(R.layout.item_page_list_entry, parent, false);
-            holder = new ViewHolder();
-            holder.icon = convertView.findViewById(R.id.page_list_item_image);
-            holder.title = convertView.findViewById(R.id.page_list_item_title);
-            holder.description = (GoneIfEmptyTextView) convertView.findViewById(R.id.page_list_item_description);
-            convertView.setTag(holder);
-        } else {
-            // view already defined, retrieve view holder
-            holder = (ViewHolder) convertView.getTag();
+    @Override @NonNull public View getView(int position, View convView, @NonNull ViewGroup parent) {
+        PageItemView<DisambigResult> itemView = (PageItemView<DisambigResult>) convView;
+        if (itemView == null) {
+            itemView = new PageItemView<>(getContext());
+            itemView.setLayoutParams(new ListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         }
+        DisambigResult item = items[position];
+        itemView.setItem(item);
+        itemView.setCallback(callback);
 
-        final DisambigResult item = items[position];
-        holder.title.setText(item.getTitle().getDisplayText());
-        holder.description.setText(StringUtils.capitalize(item.getTitle().getDescription()));
-
-        ViewUtil.loadImageUrlInto(holder.icon, pageImagesCache.get(item.getTitle().getPrefixedText()));
-        return convertView;
+        itemView.setTitle(item.getTitle().getDisplayText());
+        itemView.setDescription(StringUtils.capitalize(item.getTitle().getDescription()));
+        itemView.setImageUrl(pageImagesCache.get(item.getTitle().getPrefixedText()));
+        return itemView;
     }
 }
