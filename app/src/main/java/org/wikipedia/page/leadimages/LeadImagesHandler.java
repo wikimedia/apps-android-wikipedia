@@ -1,6 +1,5 @@
 package org.wikipedia.page.leadimages;
 
-import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.PointF;
 import android.net.Uri;
@@ -8,36 +7,26 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.analytics.GalleryFunnel;
-import org.wikipedia.analytics.LoginFunnel;
-import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.descriptions.DescriptionEditClient;
-import org.wikipedia.descriptions.DescriptionEditTutorialActivity;
 import org.wikipedia.gallery.GalleryActivity;
-import org.wikipedia.login.LoginActivity;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ObservableWebView;
 
-import static org.wikipedia.settings.Prefs.isDescriptionEditTutorialEnabled;
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 
@@ -66,7 +55,6 @@ public class LeadImagesHandler {
                              @NonNull ObservableWebView webView,
                              @NonNull PageHeaderView pageHeaderView) {
         this.parentFragment = parentFragment;
-
         this.pageHeaderView = pageHeaderView;
         this.pageHeaderView.setWebView(webView);
 
@@ -74,9 +62,7 @@ public class LeadImagesHandler {
         webView.addOnScrollChangeListener(pageHeaderView);
 
         image = pageHeaderView.getImage();
-
         initDisplayDimensions();
-
         initArticleHeaderView();
 
         // hide ourselves by default
@@ -134,18 +120,8 @@ public class LeadImagesHandler {
         if (getPage() == null) {
             return;
         }
-
         initDisplayDimensions();
-
-        // set the page title text, and honor any HTML formatting in the title
         loadLeadImage();
-        pageHeaderView.setTitle(StringUtil.fromHtml(getPage().getDisplayTitle()));
-        pageHeaderView.setSubtitle(StringUtils.capitalize(getTitle().getDescription()));
-        pageHeaderView.setLocale(getPage().getTitle().getWikiSite().languageCode());
-        pageHeaderView.setPronunciation(getPage().getTitlePronunciationUrl());
-        pageHeaderView.setProtected(getPage().isProtected());
-        pageHeaderView.setAllowDescriptionEdit(DescriptionEditClient.isEditAllowed(getPage()));
-
         layoutViews(listener, sequence);
     }
 
@@ -242,67 +218,19 @@ public class LeadImagesHandler {
         pageHeaderView.setOnImageLoadListener(new ImageLoadListener());
         pageHeaderView.addOnLayoutChangeListener((View v, int left, int top, int right, int bottom,
                                        int oldLeft, int oldTop, int oldRight, int oldBottom) -> setWebViewPaddingTop());
-        pageHeaderView.setCallback(new PageHeaderView.Callback() {
-            @Override
-            public void onImageClicked() {
-                if (getPage() != null && isLeadImageEnabled()) {
-                    String imageName = getPage().getPageProperties().getLeadImageName();
-                    if (imageName != null) {
-                        String filename = "File:" + imageName;
-                        WikiSite wiki = getTitle().getWikiSite();
-                        getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
-                                parentFragment.getTitleOriginal(), filename, wiki,
-                                GalleryFunnel.SOURCE_LEAD_IMAGE),
-                                Constants.ACTIVITY_REQUEST_GALLERY);
-                    }
+        pageHeaderView.setCallback(() -> {
+            if (getPage() != null && isLeadImageEnabled()) {
+                String imageName = getPage().getPageProperties().getLeadImageName();
+                if (imageName != null) {
+                    String filename = "File:" + imageName;
+                    WikiSite wiki = getTitle().getWikiSite();
+                    getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
+                            parentFragment.getTitleOriginal(), filename, wiki,
+                            GalleryFunnel.SOURCE_LEAD_IMAGE),
+                            Constants.ACTIVITY_REQUEST_GALLERY);
                 }
             }
-
-            @Override
-            public void onDescriptionClicked() {
-                verifyDescriptionEditable();
-            }
-
-            @Override
-            public void onEditDescription() {
-                verifyDescriptionEditable();
-            }
-
-            @Override
-            public void onEditLeadSection() {
-                parentFragment.getEditHandler().startEditingSection(0, null);
-            }
         });
-    }
-
-    private void verifyDescriptionEditable() {
-        if (getPage() != null && getPage().getPageProperties().canEdit()) {
-            verifyLoggedInForDescriptionEdit();
-        } else {
-            parentFragment.getEditHandler().showUneditableDialog();
-        }
-    }
-
-    private void verifyLoggedInForDescriptionEdit() {
-        if (!AccountUtil.isLoggedIn() && Prefs.getTotalAnonDescriptionsEdited() >= parentFragment.getResources().getInteger(R.integer.description_max_anon_edits)) {
-            new AlertDialog.Builder(parentFragment.getContext())
-                    .setMessage(R.string.description_edit_anon_limit)
-                    .setPositiveButton(R.string.menu_login, (DialogInterface dialogInterface, int i) ->
-                            parentFragment.startActivity(LoginActivity.newIntent(parentFragment.getContext(), LoginFunnel.SOURCE_EDIT)))
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .show();
-        } else {
-            startDescriptionEditActivity();
-        }
-    }
-
-    private void startDescriptionEditActivity() {
-        if (isDescriptionEditTutorialEnabled()) {
-            parentFragment.startActivityForResult(DescriptionEditTutorialActivity.newIntent(parentFragment.getContext()),
-                    Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL);
-        } else {
-            parentFragment.startDescriptionEditActivity();
-        }
     }
 
     private boolean isMainPage() {

@@ -3,6 +3,10 @@ package org.wikipedia.edit;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.PopupMenu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
 import org.json.JSONObject;
 import org.wikipedia.Constants;
@@ -11,9 +15,11 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ProtectedEditAttemptFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.descriptions.DescriptionEditClient;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.Section;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.log.L;
 
 public class EditHandler implements CommunicationBridge.JSEventListener {
@@ -53,8 +59,8 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
         fragment.startActivityForResult(intent, Constants.ACTIVITY_REQUEST_EDIT_SECTION);
     }
 
-    public void showUneditableDialog() {
-        new AlertDialog.Builder(fragment.getActivity())
+    private void showUneditableDialog() {
+        new AlertDialog.Builder(fragment.requireActivity())
                 .setCancelable(false)
                 .setTitle(R.string.page_protected_can_not_edit_title)
                 .setMessage(AccountUtil.isLoggedIn()
@@ -71,7 +77,45 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
             return;
         }
         if (messageType.equals("editSectionClicked")) {
-            startEditingSection(messagePayload.optInt("sectionID"), null);
+            if (messagePayload.has("mainPencilClicked") && DescriptionEditClient.isEditAllowed(currentPage)) {
+                View tempView = new View(fragment.requireContext());
+                tempView.setX(DimenUtil.dpToPx(messagePayload.optInt("x")));
+                tempView.setY(DimenUtil.dpToPx(messagePayload.optInt("y")) - fragment.getWebView().getScrollY());
+                ((ViewGroup) fragment.getView()).addView(tempView);
+                PopupMenu menu = new PopupMenu(fragment.requireContext(), tempView, 0, 0, R.style.PagePopupMenu);
+                menu.getMenuInflater().inflate(R.menu.menu_page_header_edit, menu.getMenu());
+                menu.setOnMenuItemClickListener(new EditMenuClickListener());
+                menu.setOnDismissListener(menu1 -> ((ViewGroup) fragment.getView()).removeView(tempView));
+                menu.show();
+            } else if (messagePayload.has("editDescriptionClicked") && DescriptionEditClient.isEditAllowed(currentPage)) {
+                verifyDescriptionEditable();
+            } else {
+                startEditingSection(messagePayload.optInt("sectionID"), null);
+            }
+        }
+    }
+
+    private void verifyDescriptionEditable() {
+        if (currentPage != null && currentPage.getPageProperties().canEdit()) {
+            fragment.verifyLoggedInThenEditDescription();
+        } else {
+            showUneditableDialog();
+        }
+    }
+
+    private class EditMenuClickListener implements PopupMenu.OnMenuItemClickListener {
+        @Override
+        public boolean onMenuItemClick(MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.menu_page_header_edit_description:
+                    verifyDescriptionEditable();
+                    return true;
+                case R.id.menu_page_header_edit_lead_section:
+                    startEditingSection(0, null);
+                    return true;
+                default:
+                    return false;
+            }
         }
     }
 }

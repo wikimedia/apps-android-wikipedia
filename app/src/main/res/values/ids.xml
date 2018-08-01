@@ -9,5 +9,6 @@
         <item>@string/table_other</item>
         <item>@string/table_close</item>
         <item>@string/expand_refs</item>
+        <item>@string/description_edit_add_description</item>
     </array>
 </resources>
