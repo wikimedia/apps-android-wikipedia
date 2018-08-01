@@ -35,6 +35,7 @@
     <attr name="chart_shade4" format="color" />
     <attr name="chart_shade5" format="color" />
     <attr name="chart_shade7" format="color" />
+    <attr name="green_highlight_color" format="color" />
     <declare-styleable name="CabSearchView">
         <attr name="cabEnabled" format="boolean" />
     </declare-styleable>
