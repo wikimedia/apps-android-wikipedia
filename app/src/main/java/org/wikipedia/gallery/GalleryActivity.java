@@ -19,6 +19,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import android.view.Gravity;
@@ -61,6 +62,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 import static org.wikipedia.util.StringUtil.addUnderscores;
 import static org.wikipedia.util.StringUtil.removeUnderscores;
 import static org.wikipedia.util.StringUtil.strip;
@@ -84,13 +89,18 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @Nullable private WikiSite wiki;
     @NonNull private GalleryCollectionClient client = new GalleryCollectionClient();
 
-    private ViewGroup toolbarContainer;
-    private ViewGroup infoContainer;
-    private ProgressBar progressBar;
-    private TextView descriptionText;
-    private ImageView licenseIcon;
-    private TextView creditText;
-    private WikiErrorView errorView;
+    @BindView(R.id.gallery_toolbar_container) ViewGroup toolbarContainer;
+    @BindView(R.id.gallery_toolbar) Toolbar toolbar;
+    @BindView(R.id.gallery_toolbar_gradient) View toolbarGradient;
+    @BindView(R.id.gallery_info_container) ViewGroup infoContainer;
+    @BindView(R.id.gallery_info_gradient) View infoGradient;
+    @BindView(R.id.gallery_progressbar) ProgressBar progressBar;
+    @BindView(R.id.gallery_description_text) TextView descriptionText;
+    @BindView(R.id.gallery_license_icon) ImageView licenseIcon;
+    @BindView(R.id.gallery_credit_text) TextView creditText;
+    @BindView(R.id.gallery_item_pager) ViewPager galleryPager;
+    @BindView(R.id.view_gallery_error) WikiErrorView errorView;
+    @Nullable private Unbinder unbinder;
 
     private boolean controlsShowing = true;
     @Nullable private ViewPager.OnPageChangeListener pageChangeListener;
@@ -108,7 +118,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
      */
     private int initialImageIndex = -1;
 
-    private ViewPager galleryPager;
     private GalleryItemAdapter galleryAdapter;
     private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
     private MediaDownloadReceiverCallback downloadReceiverCallback = new MediaDownloadReceiverCallback();
@@ -165,36 +174,24 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_gallery);
-        setSupportActionBar(findViewById(R.id.gallery_toolbar));
+        unbinder = ButterKnife.bind(this);
+
+        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("");
 
-        toolbarContainer = findViewById(R.id.gallery_toolbar_container);
-        infoContainer = findViewById(R.id.gallery_info_container);
-
-        findViewById(R.id.gallery_toolbar_gradient)
-                .setBackground(GradientUtil.getPowerGradient(R.color.black26, Gravity.TOP));
-        findViewById(R.id.gallery_info_gradient)
-                .setBackground(GradientUtil.getPowerGradient(R.color.black38, Gravity.BOTTOM));
-
-        progressBar = findViewById(R.id.gallery_progressbar);
-
-        descriptionText = findViewById(R.id.gallery_description_text);
+        toolbarGradient.setBackground(GradientUtil.getPowerGradient(R.color.black26, Gravity.TOP));
+        infoGradient.setBackground(GradientUtil.getPowerGradient(R.color.black38, Gravity.BOTTOM));
         descriptionText.setMovementMethod(linkMovementMethod);
-
-        licenseIcon = findViewById(R.id.gallery_license_icon);
         licenseIcon.setOnClickListener(licenseShortClickListener);
         licenseIcon.setOnLongClickListener(licenseLongClickListener);
 
-        creditText = findViewById(R.id.gallery_credit_text);
-
-        errorView = findViewById(R.id.view_gallery_error);
         ((ImageView) errorView.findViewById(R.id.view_wiki_error_icon))
                 .setColorFilter(color(R.color.base70));
         ((TextView) errorView.findViewById(R.id.view_wiki_error_text))
                 .setTextColor(color(R.color.base70));
+
         errorView.setBackClickListener(v -> onBackPressed());
         errorView.setRetryClickListener(v -> {
             errorView.setVisibility(View.GONE);
@@ -209,7 +206,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
         galleryCache = new HashMap<>();
         galleryAdapter = new GalleryItemAdapter(this);
-        galleryPager = findViewById(R.id.gallery_item_pager);
         galleryPager.setAdapter(galleryAdapter);
         pageChangeListener = new GalleryPageChangeListener();
         galleryPager.addOnPageChangeListener(pageChangeListener);
@@ -245,6 +241,11 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @Override public void onDestroy() {
         galleryPager.removeOnPageChangeListener(pageChangeListener);
         pageChangeListener = null;
+
+        if (unbinder != null) {
+            unbinder.unbind();
+        }
+
         super.onDestroy();
     }
 

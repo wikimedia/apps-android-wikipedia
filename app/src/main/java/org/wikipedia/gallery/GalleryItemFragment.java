@@ -41,6 +41,9 @@ import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ZoomableDraweeViewWithBackground;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import retrofit2.Call;
 
 import static org.wikipedia.util.PermissionUtil.hasWriteExternalStoragePermission;
@@ -58,12 +61,14 @@ public class GalleryItemFragment extends Fragment {
         void onShare(@NonNull GalleryItem item, @Nullable Bitmap bitmap, @NonNull String subject, @NonNull PageTitle title);
     }
 
-    private ProgressBar progressBar;
-    private ZoomableDraweeViewWithBackground imageView;
-    private View videoContainer;
-    private VideoView videoView;
-    private SimpleDraweeView videoThumbnail;
-    private View videoPlayButton;
+    @BindView(R.id.gallery_item_progress_bar) ProgressBar progressBar;
+    @BindView(R.id.gallery_video_container) View videoContainer;
+    @BindView(R.id.gallery_video) VideoView videoView;
+    @BindView(R.id.gallery_video_thumbnail) SimpleDraweeView videoThumbnail;
+    @BindView(R.id.gallery_video_play_button) View videoPlayButton;
+    @BindView(R.id.gallery_image) ZoomableDraweeViewWithBackground imageView;
+    @Nullable private Unbinder unbinder;
+
     private MediaController mediaController;
 
     @NonNull private WikipediaApp app = WikipediaApp.getInstance();
@@ -111,12 +116,8 @@ public class GalleryItemFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_gallery_item, container, false);
-        progressBar = rootView.findViewById(R.id.gallery_item_progress_bar);
-        videoContainer = rootView.findViewById(R.id.gallery_video_container);
-        videoView = rootView.findViewById(R.id.gallery_video);
-        videoThumbnail = rootView.findViewById(R.id.gallery_video_thumbnail);
-        videoPlayButton = rootView.findViewById(R.id.gallery_video_play_button);
-        imageView = rootView.findViewById(R.id.gallery_image);
+        unbinder = ButterKnife.bind(this, rootView);
+
         imageView.setTapListener(new DoubleTapGestureListener(imageView) {
             @Override
             public boolean onSingleTapConfirmed(MotionEvent e) {
@@ -124,6 +125,7 @@ public class GalleryItemFragment extends Fragment {
                 return true;
             }
         });
+
         GenericDraweeHierarchy hierarchy = new GenericDraweeHierarchyBuilder(getResources())
                 .setActualImageScaleType(ScalingUtils.ScaleType.FIT_CENTER)
                 .build();
@@ -147,11 +149,13 @@ public class GalleryItemFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
-        super.onDestroyView();
         imageView.setController(null);
         imageView.setOnClickListener(null);
         videoThumbnail.setController(null);
         videoThumbnail.setOnClickListener(null);
+        unbinder.unbind();
+        unbinder = null;
+        super.onDestroyView();
     }
 
     private void updateProgressBar(boolean visible, boolean indeterminate, int value) {
