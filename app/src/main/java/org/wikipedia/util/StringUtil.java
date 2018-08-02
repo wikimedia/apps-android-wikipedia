@@ -115,6 +115,14 @@ public final class StringUtil {
         return text.substring(0, text.indexOf("#"));
     }
 
+    public static String removeNamespace(@NonNull String text) {
+        if (text.length() > text.indexOf(":")) {
+            return text.substring(text.indexOf(":") + 1, text.length());
+        } else {
+            return text;
+        }
+    }
+
     public static String removeHTMLTags(@NonNull String text) {
         return fromHtml(text).toString();
     }

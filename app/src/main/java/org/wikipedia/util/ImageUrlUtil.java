@@ -23,6 +23,15 @@ public final class ImageUrlUtil {
         return original;
     }
 
+    @NonNull
+    public static String getUrlForPreferredSize(@NonNull String original, int size) {
+        Matcher matcher = WIDTH_IN_IMAGE_URL_REGEX.matcher(original);
+        if (matcher.find() && Integer.parseInt(matcher.group(1)) != size) {
+            return original.replace(matcher.group(1), Integer.toString(size));
+        }
+        return original;
+    }
+
     private ImageUrlUtil() {
     }
 }

@@ -18,6 +18,8 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import org.wikipedia.R;
 import org.wikipedia.views.ViewUtil;
 
+import java.util.List;
+
 public class GalleryThumbnailScrollView extends RecyclerView {
     @NonNull private final Animation mPressAnimation;
     @NonNull private final Animation mReleaseAnimation;
@@ -47,8 +49,8 @@ public class GalleryThumbnailScrollView extends RecyclerView {
         mListener = listener;
     }
 
-    public void setGalleryCollection(@NonNull GalleryCollection collection) {
-        setAdapter(new GalleryViewAdapter(collection));
+    public void setGalleryList(@NonNull List<GalleryItem> list) {
+        setAdapter(new GalleryViewAdapter(list));
     }
 
     private class GalleryItemHolder extends ViewHolder implements OnClickListener, OnTouchListener {
@@ -64,13 +66,14 @@ public class GalleryThumbnailScrollView extends RecyclerView {
             mGalleryItem = item;
             mImageView.setOnClickListener(this);
             mImageView.setOnTouchListener(this);
-            ViewUtil.loadImageUrlInto(mImageView, mGalleryItem.getThumbUrl());
+            ViewUtil.loadImageUrlInto(mImageView, mGalleryItem.getThumbnailUrl());
         }
 
         @Override
         public void onClick(View v) {
             if (mListener != null) {
-                mListener.onGalleryItemClicked(mGalleryItem.getName());
+                // TODO: check which title will be used here
+                mListener.onGalleryItemClicked(mGalleryItem.getTitles().getCanonical());
             }
         }
 
@@ -92,15 +95,15 @@ public class GalleryThumbnailScrollView extends RecyclerView {
     }
 
     private final class GalleryViewAdapter extends RecyclerView.Adapter<GalleryItemHolder> {
-        @NonNull private final GalleryCollection mCollection;
+        @NonNull private final List<GalleryItem> list;
 
-        GalleryViewAdapter(@NonNull GalleryCollection collection) {
-            mCollection = collection;
+        GalleryViewAdapter(@NonNull List<GalleryItem> list) {
+            this.list = list;
         }
 
         @Override
         public int getItemCount() {
-            return mCollection.getItemList().size();
+            return  list.size();
         }
 
         @Override
@@ -112,7 +115,7 @@ public class GalleryThumbnailScrollView extends RecyclerView {
 
         @Override
         public void onBindViewHolder(GalleryItemHolder holder, int pos) {
-            holder.bindItem(mCollection.getItemList().get(pos));
+            holder.bindItem(list.get(pos));
         }
     }
 }
