@@ -126,6 +126,7 @@
   <string name="create_account_next">Tiếp</string>
   <string name="create_account_button">Mở tài khoản</string>
   <string name="create_account_name_unavailable">Tên người dùng \"%s\" không sẵn có. Xin hãy chọn một cái tên khác.</string>
+  <string name="create_account_ip_block_details">Chi tiết</string>
   <string name="preferences_general_heading">Tổng quát</string>
   <string name="wikipedia_app_faq">Câu hỏi thường gặp về ứng dụng Wikipedia</string>
   <string name="zero_charged_verbiage">Không còn có thể truy cập Wikipedia miễn phí.</string>
@@ -235,6 +236,9 @@
   <string name="dialog_close_description">Đóng</string>
   <string name="preference_title_show_images">Xem hình ảnh</string>
   <string name="preference_summary_show_images">Bật/tắt việc tải các hình ảnh trong trang. Tắt hình ảnh nếu có kết nối mạng chậm hoặc dữ liệu bị hạn chế.</string>
+  <string name="preference_title_download_only_over_wifi">Chỉ tải xuống qua Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi">Bạn có chắc chắn muốn tải về qua dữ liệu di động?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Cho phép</string>
   <string name="read_more_section">Đọc tiếp</string>
   <string name="about_article_section">Thông tin về bài viết</string>
   <string name="menu_gallery_visit_page">Xem trang tập tin</string>
@@ -597,9 +601,11 @@
   <string name="onboarding_create_account_contributions">Theo dõi các đóng góp của bạn</string>
   <string name="onboarding_create_account_preferences">Lưu tùy chọn của bạn</string>
   <string name="onboarding_got_it">Đã hiểu</string>
+  <string name="onboarding_welcome_title_v2">Bách khoa toàn thư mở\n…trong gần 300 ngôn ngữ</string>
   <string name="app_shortcuts_random">Ngẫu nhiên</string>
   <string name="app_shortcuts_continue_reading">Đọc tiếp</string>
   <string name="app_shortcuts_search">Tìm kiếm</string>
+  <string name="more_trending_text">Bài tương tự</string>
   <string name="on_this_day_card_title">Ngày này năm xưa</string>
   <string name="more_events_text">Xem thêm sự kiện</string>
   <string name="events_count_text">Đã có %1$s sự kiện từ %2$s–%3$d</string>
@@ -626,4 +632,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Hãy giữ lại ít nhất một ngôn ngữ Wikipedia để tìm và đọc nội dung.</string>
   <string name="more_language_options">thêm</string>
   <string name="add_wikipedia_languages_text">Thêm ngôn ngữ Wikipedia</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sửa ngôn ngữ</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Thôi</string>
 </resources>
