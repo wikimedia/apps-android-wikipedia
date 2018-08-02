@@ -243,7 +243,7 @@ public class ReadingListDbHelper {
     }
 
     public void markPageForOffline(@NonNull ReadingListPage page, boolean offline, boolean forcedSave) {
-        if (page.offline() == offline) {
+        if (page.offline() == offline && !forcedSave) {
             return;
         }
         SQLiteDatabase db = getWritableDatabase();
@@ -266,7 +266,7 @@ public class ReadingListDbHelper {
         db.beginTransaction();
         try {
             for (ReadingListPage page : pages) {
-                if (page.offline() == offline) {
+                if (page.offline() == offline && !forcedSave) {
                     continue;
                 }
                 page.offline(offline);
