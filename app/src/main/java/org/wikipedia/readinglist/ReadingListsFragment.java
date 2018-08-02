@@ -12,6 +12,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.util.DiffUtil;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -203,7 +204,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
                 Prefs.setReadingListSortMode(SORT_BY_NAME_ASC);
                 break;
         }
-        sortLists();
+        updateLists();
     }
 
     public static void refreshSync(@NonNull Fragment fragment, @NonNull SwipeRefreshLayout swipeRefreshLayout) {
@@ -236,16 +237,46 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
 
     private void updateLists(@Nullable final String searchQuery) {
         maybeShowOnboarding();
-        CallbackTask.execute(() -> ReadingListDbHelper.instance().getAllLists(), new CallbackTask.DefaultCallback<List<ReadingList>>() {
+        CallbackTask.execute(() -> {
+            List<ReadingList> lists = ReadingListDbHelper.instance().getAllLists();
+            lists = applySearchQuery(searchQuery, lists);
+            ReadingList.sort(lists, Prefs.getReadingListSortMode(SORT_BY_NAME_ASC));
+            return lists;
+        }, new CallbackTask.DefaultCallback<List<ReadingList>>() {
             @Override
             public void success(List<ReadingList> lists) {
                 if (getActivity() == null) {
                     return;
                 }
+                DiffUtil.DiffResult result = DiffUtil.calculateDiff(new DiffUtil.Callback() {
+                    @Override public int getOldListSize() {
+                        return readingLists.size();
+                    }
+                    @Override public int getNewListSize() {
+                        return lists.size();
+                    }
+
+                    @Override public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
+                        if (readingLists.size() <= oldItemPosition || lists.size() <= newItemPosition) {
+                            return false;
+                        }
+                        return readingLists.get(oldItemPosition).id() == lists.get(newItemPosition).id();
+                    }
+
+                    @Override public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
+                        if (readingLists.size() <= oldItemPosition || lists.size() <= newItemPosition) {
+                            return false;
+                        }
+                        return readingLists.get(oldItemPosition).id() == lists.get(newItemPosition).id()
+                                && readingLists.get(oldItemPosition).pages().size() == lists.get(newItemPosition).pages().size()
+                                && readingLists.get(oldItemPosition).numPagesOffline() == lists.get(newItemPosition).numPagesOffline();
+                    }
+                });
+                readingLists = lists;
+                result.dispatchUpdatesTo(adapter);
+
                 swipeRefreshLayout.setRefreshing(false);
-                readingLists = applySearchQuery(searchQuery, lists);
                 maybeShowListLimitMessage();
-                sortLists();
                 updateEmptyState(searchQuery);
                 maybeDeleteListFromIntent();
             }
@@ -487,11 +518,6 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
             updateLists();
         });
         snackbar.show();
-    }
-
-    private void sortLists() {
-        ReadingList.sort(readingLists, Prefs.getReadingListSortMode(SORT_BY_NAME_ASC));
-        adapter.notifyDataSetChanged();
     }
 
     private class ReadingListsSearchCallback extends SearchActionModeCallback {

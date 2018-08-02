@@ -105,6 +105,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         unbinder = ButterKnife.bind(this, view);
 
         viewPager.setAdapter(new NavTabFragmentPagerAdapter(getChildFragmentManager()));
+        viewPager.setOffscreenPageLimit(2);
         tabLayout.setOnNavigationItemSelectedListener(item -> {
             Fragment fragment = ((NavTabFragmentPagerAdapter) viewPager.getAdapter()).getCurrentFragment();
             if (fragment instanceof FeedFragment && item.getOrder() == 0) {
