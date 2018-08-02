@@ -64,6 +64,8 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.OnLongClick;
 import butterknife.Unbinder;
 
 import static org.wikipedia.util.StringUtil.addUnderscores;
@@ -133,21 +135,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         return galleryCache;
     }
 
-    private View.OnClickListener licenseShortClickListener = v -> {
-        if (v.getContentDescription() == null) {
-            return;
-        }
-        FeedbackUtil.showMessageAsPlainText((Activity) v.getContext(), v.getContentDescription());
-    };
-
-    private View.OnLongClickListener licenseLongClickListener = v -> {
-        String licenseUrl = (String) v.getTag();
-        if (!TextUtils.isEmpty(licenseUrl)) {
-            handleExternalLink(GalleryActivity.this, Uri.parse(resolveProtocolRelativeUrl(licenseUrl)));
-        }
-        return true;
-    };
-
     @NonNull
     public static Intent newIntent(@NonNull Context context, int age, @NonNull String filename,
                                    @NonNull FeaturedImage image, @NonNull WikiSite wiki, int source) {
@@ -184,8 +171,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         toolbarGradient.setBackground(GradientUtil.getPowerGradient(R.color.black26, Gravity.TOP));
         infoGradient.setBackground(GradientUtil.getPowerGradient(R.color.black38, Gravity.BOTTOM));
         descriptionText.setMovementMethod(linkMovementMethod);
-        licenseIcon.setOnClickListener(licenseShortClickListener);
-        licenseIcon.setOnLongClickListener(licenseLongClickListener);
 
         ((ImageView) errorView.findViewById(R.id.view_wiki_error_icon))
                 .setColorFilter(color(R.color.base70));
@@ -296,6 +281,21 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @Override
     protected void setTheme() {
         setTheme(Theme.DARK.getResourceId());
+    }
+
+    @OnClick(R.id.gallery_license_icon) void onClick(View v) {
+        if (v.getContentDescription() == null) {
+            return;
+        }
+        FeedbackUtil.showMessageAsPlainText((Activity) v.getContext(), v.getContentDescription());
+    }
+
+    @OnLongClick(R.id.gallery_license_icon) boolean onLongClick(View v) {
+        String licenseUrl = (String) v.getTag();
+        if (!TextUtils.isEmpty(licenseUrl)) {
+            handleExternalLink(GalleryActivity.this, Uri.parse(resolveProtocolRelativeUrl(licenseUrl)));
+        }
+        return true;
     }
 
     private class GalleryPageChangeListener extends ViewPager.SimpleOnPageChangeListener {
