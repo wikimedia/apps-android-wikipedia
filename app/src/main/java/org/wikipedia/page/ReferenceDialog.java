@@ -2,9 +2,9 @@ package org.wikipedia.page;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +13,9 @@ import android.widget.TextView;
 import com.rd.PageIndicatorView;
 
 import org.wikipedia.R;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.views.WrapContentViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,12 +27,9 @@ import butterknife.ButterKnife;
  * A dialog that displays the currently clicked reference.
  */
 public class ReferenceDialog extends BottomSheetDialog {
-    @BindView(R.id.reference_pager) ViewPager referencesViewPager;
+    @BindView(R.id.reference_pager) WrapContentViewPager referencesViewPager;
     @BindView(R.id.pageIndicatorView) PageIndicatorView pageIndicatorView;
-    @BindView(R.id.indicator_layout) View referencePagerIndicatorLayout;
-    @BindView(R.id.multiple_citations_layout) View multipleCitationsContainer;
-    @BindView(R.id.single_citation_layout) View singleCitationContainer;
-    @BindView(R.id.reference_text) TextView singleCitationReferenceText;
+    @BindView(R.id.indicator_divider) View pageIndicatorDivider;
     @BindView(R.id.reference_title_text) TextView singleCitationTitleText;
     private LinkHandler referenceLinkHandler;
 
@@ -40,33 +39,22 @@ public class ReferenceDialog extends BottomSheetDialog {
         setContentView(rootView);
         ButterKnife.bind(this);
         this.referenceLinkHandler = referenceLinkHandler;
-        referencesViewPager.setAdapter(new ReferencesAdapter(adjacentReferences));
-        referencesViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            }
 
-            @Override
-            public void onPageSelected(int position) {
-                pageIndicatorView.setSelection(position);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-            }
-        });
-
-        if (adjacentReferences.size() > 1) {
-            multipleCitationsContainer.setVisibility(View.VISIBLE);
-            singleCitationContainer.setVisibility(View.GONE);
-            pageIndicatorView.setCount(adjacentReferences.size());
-            referencesViewPager.setCurrentItem(selectedIndex, true);
+        if (adjacentReferences.size() == 1) {
+            pageIndicatorView.setVisibility(View.GONE);
+            ((ViewGroup) pageIndicatorView.getParent()).removeView(pageIndicatorView);
+            pageIndicatorDivider.setVisibility(View.GONE);
         } else {
-            multipleCitationsContainer.setVisibility(View.GONE);
-            singleCitationContainer.setVisibility(View.VISIBLE);
-            singleCitationReferenceText.setText(StringUtil.fromHtml(adjacentReferences.get(0).getLinkHtml()));
-            singleCitationTitleText.setText(getContext().getString(R.string.reference_title, adjacentReferences.get(0).getLinkText()));
+            final int pageIndicatorHeight = 56;
+            referencesViewPager.setMaxHeight(DimenUtil.getDisplayHeightPx() / 2 - DimenUtil.roundedDpToPx(pageIndicatorHeight));
+            BottomSheetBehavior behavior = BottomSheetBehavior.from((View) rootView.getParent());
+            behavior.setPeekHeight(DimenUtil.getDisplayHeightPx() / 2);
         }
+
+        referencesViewPager.setOffscreenPageLimit(2);
+        referencesViewPager.setAdapter(new ReferencesAdapter(adjacentReferences));
+        pageIndicatorView.setCount(adjacentReferences.size());
+        referencesViewPager.setCurrentItem(selectedIndex, true);
     }
 
     @Override
@@ -101,7 +89,6 @@ public class ReferenceDialog extends BottomSheetDialog {
             return view;
         }
 
-
         @Override
         public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
             View view = ((View) object);
@@ -118,5 +105,4 @@ public class ReferenceDialog extends BottomSheetDialog {
             return view == object;
         }
     }
-
 }
