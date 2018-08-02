@@ -3,15 +3,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <org.wikipedia.views.AppTextView
         android:id="@+id/reference_title_text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="54dp"
         android:fontFamily="sans-serif-medium"
-        android:padding="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:gravity="center_vertical"
         android:textColor="?android:textColorPrimary"
         android:textSize="16sp"
         tools:text="Reference [1]" />
@@ -25,28 +27,24 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical">
 
-        <FrameLayout
+        <org.wikipedia.views.AppTextView
+            android:id="@+id/reference_text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:fontFamily="sans-serif"
+            android:lineSpacingMultiplier="1.4"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:textColor="?android:textColorPrimary"
+            android:textIsSelectable="true"
+            android:textSize="16sp"
+            tools:text="Reference text" />
 
-            <org.wikipedia.views.AppTextView
-                android:id="@+id/reference_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:fontFamily="sans-serif"
-                android:lineSpacingMultiplier="1.4"
-                android:maxHeight="250dp"
-                android:paddingTop="16dp"
-                android:textColor="?android:textColorPrimary"
-                android:textIsSelectable="true"
-                android:textSize="16sp"
-                tools:text="Reference text" />
-        </FrameLayout>
     </ScrollView>
 
 </LinearLayout>

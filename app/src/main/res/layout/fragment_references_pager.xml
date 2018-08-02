@@ -5,44 +5,27 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <include
-        android:id="@+id/single_citation_layout"
-        layout="@layout/view_reference_pager_item" />
-
-    <LinearLayout
-        android:id="@+id/multiple_citations_layout"
+    <org.wikipedia.views.WrapContentViewPager
+        android:id="@+id/reference_pager"
         android:layout_width="match_parent"
-        android:layout_height="312dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content" />
 
-        <com.duolingo.open.rtlviewpager.RtlViewPager
-            android:id="@+id/reference_pager"
-            android:layout_width="match_parent"
-            android:layout_height="256dp"
-            android:layout_margin="0dp" />
+    <View
+        android:id="@+id/indicator_divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="?attr/material_theme_border_color"/>
 
-        <LinearLayout
-            android:id="@+id/indicator_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
+    <com.rd.PageIndicatorView
+        android:id="@+id/pageIndicatorView"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:paddingTop="24dp"
+        android:layout_gravity="center_horizontal"
+        app:piv_radius="4dp"
+        app:piv_rtl_mode="auto"
+        app:piv_selectedColor="?attr/material_theme_primary_color"
+        app:piv_unselectedColor="?attr/material_theme_border_color"
+        app:piv_viewPager="@id/reference_pager" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="?attr/material_theme_border_color" />
-
-            <com.rd.PageIndicatorView
-                android:id="@+id/pageIndicatorView"
-                android:layout_width="wrap_content"
-                android:layout_height="56dp"
-                android:layout_gravity="center"
-                app:piv_radius="4dp"
-                app:piv_rtl_mode="auto"
-                app:piv_selectedColor="?attr/material_theme_primary_color"
-                app:piv_unselectedColor="?attr/material_theme_border_color"
-                app:piv_viewPager="@id/reference_pager" />
-        </LinearLayout>
-    </LinearLayout>
 </LinearLayout>
