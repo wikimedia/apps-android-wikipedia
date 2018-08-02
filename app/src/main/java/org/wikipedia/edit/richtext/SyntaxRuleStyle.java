@@ -7,15 +7,15 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
+import org.wikipedia.util.ResourceUtil;
 
-import static android.support.v4.content.ContextCompat.getColor;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 public enum SyntaxRuleStyle {
     TEMPLATE {
         @NonNull @Override public SpanExtents createSpan(@NonNull Context ctx, int spanStart,
                                                          SyntaxRule syntaxItem) {
-            @ColorInt int color = getThemedColor(ctx, R.attr.material_theme_secondary_color);
+            @ColorInt int color = getThemedColor(ctx, R.attr.secondary_text_color);
             return new ColorSpanEx(color, Color.TRANSPARENT, spanStart, syntaxItem);
         }
     },
@@ -36,7 +36,7 @@ public enum SyntaxRuleStyle {
     REF {
         @NonNull @Override public SpanExtents createSpan(@NonNull Context ctx, int spanStart,
                                                          SyntaxRule syntaxItem) {
-            return new ColorSpanEx(getColor(ctx, R.color.green30), Color.TRANSPARENT, spanStart,
+            return new ColorSpanEx(ResourceUtil.getThemedColor(ctx, R.attr.green_highlight_color), Color.TRANSPARENT, spanStart,
                     syntaxItem);
         }
     },
