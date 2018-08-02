@@ -27,7 +27,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.BackPressedHandler;
@@ -1164,13 +1163,14 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         bridge.addListener("referenceClicked", new ReferenceHandler() {
             @Override
-            protected void onReferenceClicked(@NonNull String refHtml, @Nullable String refLinkText) {
+            protected void onReferenceClicked(int selectedIndex, @NonNull List<Reference> adjacentReferences) {
+
                 if (!isAdded()) {
                     Log.d("PageFragment", "Detached from activity, so stopping reference click.");
                     return;
                 }
-                showBottomSheet(new ReferenceDialog(getActivity(), linkHandler, refHtml,
-                        StringUtils.defaultString(refLinkText)));
+
+                showBottomSheet(new ReferenceDialog(getActivity(), selectedIndex, adjacentReferences, linkHandler));
             }
         });
         bridge.addListener("imageClicked", (String messageType, JSONObject messagePayload) -> {
