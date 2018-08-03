@@ -209,6 +209,10 @@
         <item name="android:textAlignment">center</item>
     </style>
 
+    <style name="ActionButtonOverflow" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="srcCompat">@drawable/ic_more_vert_themed_24dp</item>
+    </style>
+
     <style name="OverflowMenuItem" parent="@android:style/TextAppearance">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
