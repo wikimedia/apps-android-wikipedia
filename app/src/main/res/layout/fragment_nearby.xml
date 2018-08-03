@@ -33,11 +33,11 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/user_location_button"
-        style="@style/FloatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:contentDescription="@string/nearby_zoom_to_location"
+        app:useCompatPadding="true"
         app:backgroundTint="?attr/colorAccent"
         app:borderWidth="0dp"
         app:elevation="4dp"
