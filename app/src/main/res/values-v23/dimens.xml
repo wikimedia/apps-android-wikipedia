@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Value for android:lineSpacingMultiplier in the article title TextView.
-         Note that the default value is undocumented but less than 1.0. -->
-    <item name="lead_title_leading_scalar" format="float" type="dimen">1.05</item>
-    <item name="lead_subtitle_leading_scalar" format="float" type="dimen">1.17</item>
-    <item name="lead_subtitle_paragraph_scalar" format="float" type="dimen">1.15</item>
-</resources>

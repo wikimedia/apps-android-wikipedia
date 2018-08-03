@@ -17,7 +17,6 @@
     <dimen name="list_item_horizontal_padding">16dp</dimen>
     <dimen name="list_item_default_height">48dp</dimen>
     <dimen name="list_item_header_padding">8dp</dimen>
-    <dimen name="list_item_footer_padding">12dp</dimen>
     <dimen name="section_header_item_height">56dp</dimen>
 
     <!-- Default font size for WebView text based on system settings -->
@@ -39,10 +38,6 @@
     <!-- Default width of the lead image to be downloaded -->
     <dimen name="leadImageWidth">640dp</dimen>
     <item type="dimen" format="float" name="articleHeaderViewScreenHeightRatio">0.4</item>
-    <!-- Default font size of the page title -->
-    <dimen name="titleTextSize">28sp</dimen>
-    <!-- Default font size of the Wikidata description for the page -->
-    <dimen name="descriptionTextSize">14sp</dimen>
 
     <dimen name="content_margin">@dimen/activity_horizontal_margin</dimen>
 
@@ -71,15 +66,7 @@
 
     <dimen name="shadow_thickness">3dp</dimen>
 
-    <!-- Value for android:lineSpacingMultiplier in the article title TextView.
-         Note that the default value is undocumented but less than 1.0. -->
-    <item name="lead_title_leading_scalar" format="float" type="dimen">1.05</item>
-    <item name="lead_subtitle_leading_scalar" format="float" type="dimen">1.35</item>
-    <item name="lead_subtitle_paragraph_scalar" format="float" type="dimen">1.15</item>
     <dimen name="lead_no_image_top_offset_dp">56dp</dimen>
-
-    <dimen name="audio_url_span_loading_spinner_border_thickness">2dp</dimen>
-    <dimen name="audio_url_span_loading_spinner_radius">8dp</dimen>
 
     <!-- Maps -->
     <integer name="map_default_zoom">12</integer>
@@ -103,7 +90,6 @@
     <dimen name="view_card_header_large_height">96dp</dimen>
     <dimen name="view_card_footer_height">48dp</dimen>
     <dimen name="view_list_card_item_image">40dp</dimen>
-    <dimen name="overflow_elevation">16dp</dimen>
     <integer name="article_engagement_threshold_sec">30</integer>
 
     <!-- Description editing -->
