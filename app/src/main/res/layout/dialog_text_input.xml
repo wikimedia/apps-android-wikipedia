@@ -16,8 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapSentences"
-            style="?android:textAppearanceMedium"
-            />
+            android:textSize="16sp" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -29,8 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapSentences"
-            style="?android:textAppearanceMedium"
-            />
+            android:textSize="16sp" />
     </android.support.design.widget.TextInputLayout>
 
 </LinearLayout>
