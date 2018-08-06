@@ -59,17 +59,13 @@ public class ReferenceDialog extends BottomSheetDialog {
 
     @NonNull private String processLinkTextWithAlphaReferences(@NonNull String linkText) {
         boolean isLowercase = linkText.contains("lower");
-
         if (linkText.contains("alpha ")) {
             String[] strings = linkText.split(" ");
-            String alphaReference = StringUtil.getBase26String(Integer.valueOf(strings[strings.length - 1].replace("]", "")) - 1);
+            String alphaReference = StringUtil.getBase26String(Integer.valueOf(strings[strings.length - 1].replace("]", "")));
             alphaReference = isLowercase ? alphaReference.toLowerCase() : alphaReference;
-
             return getContext().getString(R.string.add_square_brackets_to_string, alphaReference);
         }
-
         return linkText;
-
     }
 
     @Override
