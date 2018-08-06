@@ -25,9 +25,8 @@ public abstract class ReferenceHandler implements CommunicationBridge.JSEventLis
     @Override
     public void onMessage(String messageType, JSONObject messagePayload) {
         try {
-            JSONObject adjacentReferencesObject = messagePayload.getJSONObject("adjacentReferences");
-            int selectedIndex = adjacentReferencesObject.getInt("selectedIndex");
-            JSONArray referencesGroup = adjacentReferencesObject.getJSONArray("referencesGroup");
+            int selectedIndex = messagePayload.getInt("selectedIndex");
+            JSONArray referencesGroup = messagePayload.getJSONArray("referencesGroup");
             List<Reference> adjacentReferencesList = new ArrayList<>();
             for (int i = 0; i < referencesGroup.length(); i++) {
                 JSONObject reference = (JSONObject) referencesGroup.get(i);
