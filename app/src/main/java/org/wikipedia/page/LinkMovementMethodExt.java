@@ -10,6 +10,7 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 
 import org.wikipedia.util.UriUtil;
+import org.wikipedia.util.log.L;
 
 import static org.wikipedia.util.UriUtil.decodeURL;
 
@@ -17,10 +18,15 @@ import static org.wikipedia.util.UriUtil.decodeURL;
  * Intercept web links and add special behavior for external links.
  */
 public class LinkMovementMethodExt extends LinkMovementMethod {
-    private UrlHandler handler;
+    @Nullable private UrlHandler handler;
+    @Nullable private UrlHandlerWithText handlerWithText;
 
-    public LinkMovementMethodExt(UrlHandler handler) {
+    public LinkMovementMethodExt(@Nullable UrlHandler handler) {
         this.handler = handler;
+    }
+
+    public LinkMovementMethodExt(@Nullable UrlHandlerWithText handler) {
+        this.handlerWithText = handler;
     }
 
     @Override
@@ -34,16 +40,31 @@ public class LinkMovementMethodExt extends LinkMovementMethod {
             final int off = layout.getOffsetForHorizontal(line, x);
             final URLSpan[] links = buffer.getSpans(off, off, URLSpan.class);
             if (links.length != 0) {
+                String linkText;
+                try {
+                    linkText = buffer.subSequence(buffer.getSpanStart(links[0]), buffer.getSpanEnd(links[0])).toString();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    linkText = "";
+                }
+                L.d(linkText);
                 String url = decodeURL(links[0].getURL());
-                handler.onUrlClick(url, UriUtil.getTitleFromUrl(url));
+                if (handler != null) {
+                    handler.onUrlClick(url);
+                } else if (handlerWithText != null) {
+                    handlerWithText.onUrlClick(url, UriUtil.getTitleFromUrl(url), linkText);
+                }
                 return true;
             }
         }
         return super.onTouchEvent(widget, buffer, event);
     }
 
-
     public interface UrlHandler {
-        void onUrlClick(@NonNull String url, @Nullable String titleString);
+        void onUrlClick(@NonNull String url);
+    }
+
+    public interface UrlHandlerWithText {
+        void onUrlClick(@NonNull String url, @Nullable String titleString, @NonNull String linkText);
     }
 }

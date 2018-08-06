@@ -181,9 +181,9 @@ public class EditPreviewFragment extends Fragment {
                 ThemeBridgeAdapter.setTheme(bridge);
             }
 
-            bridge.addListener("linkClicked", new LinkHandler(getActivity()) {
+            bridge.addListener("linkClicked", new LinkHandler(requireActivity()) {
                 @Override
-                public void onPageLinkClicked(@NonNull String href) {
+                public void onPageLinkClicked(@NonNull String href, @NonNull String linkText) {
                     // TODO: also need to handle references, issues, disambig, ... in preview eventually
                 }
 

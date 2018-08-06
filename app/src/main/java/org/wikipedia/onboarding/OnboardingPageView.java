@@ -132,7 +132,7 @@ public class OnboardingPageView extends LinearLayout {
             switchView.setText(switchText);
             setUpListContainer(showListView, listDataType);
             secondaryTextView.setMovementMethod(new LinkMovementMethodExt(
-                    (@NonNull String url, @Nullable String notUsed) -> {
+                    (@NonNull String url) -> {
                             if (callback != null) {
                                 callback.onLinkClick(OnboardingPageView.this, url);
                             }

@@ -3,7 +3,6 @@ package org.wikipedia.readinglist;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.CheckBox;
@@ -45,9 +44,7 @@ public final class ReadingListSyncBehaviorDialogs {
         CheckBox checkbox = view.findViewById(R.id.dialog_checkbox);
         message.setText(StringUtil.fromHtml(activity.getString(R.string.reading_list_prompt_turned_sync_on_dialog_text)));
         message.setMovementMethod(new LinkMovementMethodExt(
-                (@NonNull String url, @Nullable String notUsed) -> {
-                    FeedbackUtil.showAndroidAppFAQ(activity);
-                }));
+                (@NonNull String url) -> FeedbackUtil.showAndroidAppFAQ(activity)));
         new AlertDialog.Builder(activity)
                 .setCancelable(false)
                 .setTitle(R.string.reading_list_prompt_turned_sync_on_dialog_title)
@@ -73,9 +70,7 @@ public final class ReadingListSyncBehaviorDialogs {
         CheckBox checkbox = view.findViewById(R.id.dialog_checkbox);
         message.setText(StringUtil.fromHtml(activity.getString(R.string.reading_lists_login_reminder_text_with_link)));
         message.setMovementMethod(new LinkMovementMethodExt(
-                (@NonNull String url, @Nullable String notUsed) -> {
-                    FeedbackUtil.showAndroidAppFAQ(activity);
-                }));
+                (@NonNull String url) -> FeedbackUtil.showAndroidAppFAQ(activity)));
         new AlertDialog.Builder(activity)
                 .setCancelable(false)
                 .setTitle(R.string.reading_list_login_reminder_title)
