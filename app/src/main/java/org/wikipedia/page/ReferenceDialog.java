@@ -57,6 +57,21 @@ public class ReferenceDialog extends BottomSheetDialog {
         referencesViewPager.setCurrentItem(selectedIndex, true);
     }
 
+    @NonNull private String processLinkTextWithAlphaReferences(@NonNull String linkText) {
+        boolean isLowercase = linkText.contains("lower");
+
+        if (linkText.contains("alpha ")) {
+            String[] strings = linkText.split(" ");
+            String alphaReference = StringUtil.getBase26String(Integer.valueOf(strings[strings.length - 1].replace("]", "")) - 1);
+            alphaReference = isLowercase ? alphaReference.toLowerCase() : alphaReference;
+
+            return getContext().getString(R.string.add_square_brackets_to_string, alphaReference);
+        }
+
+        return linkText;
+
+    }
+
     @Override
     public void onBackPressed() {
         if (referencesViewPager.getCurrentItem() > 0) {
@@ -83,7 +98,7 @@ public class ReferenceDialog extends BottomSheetDialog {
             pagerReferenceText.setMovementMethod(new LinkMovementMethodExt(referenceLinkHandler));
 
             TextView pagerTitleText = view.findViewById(R.id.reference_title_text);
-            pagerTitleText.setText(getContext().getString(R.string.reference_title, references.get(position).getLinkText()));
+            pagerTitleText.setText(getContext().getString(R.string.reference_title, processLinkTextWithAlphaReferences(references.get(position).getLinkText())));
             container.addView(view);
 
             return view;

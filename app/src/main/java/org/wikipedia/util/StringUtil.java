@@ -177,6 +177,23 @@ public final class StringUtil {
         return sb;
     }
 
+    @SuppressWarnings("checkstyle:magicnumber")
+    @NonNull
+    public static String getBase26String(int number) {
+        if (number < 0) {
+            return "-" + getBase26String(-number - 1);
+        }
+
+        int quotient = number / 26;
+        int remainder = number % 26;
+        char letter = (char) ((int) 'A' + remainder);
+        if (quotient == 0) {
+            return "" + letter;
+        } else {
+            return getBase26String(quotient - 1) + letter;
+        }
+    }
+
     @NonNull
     public static String listToJsonArrayString(@NonNull List<String> list) {
         return new JSONArray(list).toString();
