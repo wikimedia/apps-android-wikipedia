@@ -15,13 +15,13 @@ public class StringUtilTest {
     @Test
     @SuppressWarnings("checkstyle:magicnumber")
     public void testGetBase26String() {
-        assertThat(StringUtil.getBase26String(0), is("A"));
-        assertThat(StringUtil.getBase26String(25), is("Z"));
-        assertThat(StringUtil.getBase26String(276), is("JQ"));
-        assertThat(StringUtil.getBase26String(2776), is("DBU"));
-        assertThat(StringUtil.getBase26String(26999), is("AMXL"));
-        assertThat(StringUtil.getBase26String(51), is("AZ"));
-        assertThat(StringUtil.getBase26String(52), is("BA"));
+        assertThat(StringUtil.getBase26String(1), is("A"));
+        assertThat(StringUtil.getBase26String(26), is("Z"));
+        assertThat(StringUtil.getBase26String(277), is("JQ"));
+        assertThat(StringUtil.getBase26String(2777), is("DBU"));
+        assertThat(StringUtil.getBase26String(27000), is("AMXL"));
+        assertThat(StringUtil.getBase26String(52), is("AZ"));
+        assertThat(StringUtil.getBase26String(53), is("BA"));
     }
 
     @Test

@@ -1,6 +1,7 @@
 package org.wikipedia.util;
 
 import android.os.Build;
+import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.Html;
@@ -177,21 +178,15 @@ public final class StringUtil {
         return sb;
     }
 
-    @SuppressWarnings("checkstyle:magicnumber")
     @NonNull
-    public static String getBase26String(int number) {
-        if (number < 0) {
-            return "-" + getBase26String(-number - 1);
+    public static String getBase26String(@IntRange(from = 1) int number) {
+        final int base = 26;
+        String str = "";
+        while (--number >= 0) {
+            str = (char)('A' + number % base) + str;
+            number /= base;
         }
-
-        int quotient = number / 26;
-        int remainder = number % 26;
-        char letter = (char) ((int) 'A' + remainder);
-        if (quotient == 0) {
-            return "" + letter;
-        } else {
-            return getBase26String(quotient - 1) + letter;
-        }
+        return str;
     }
 
     @NonNull
