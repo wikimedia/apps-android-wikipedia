@@ -9,6 +9,7 @@
 * Kenn.jensen
 * Mads Haupt
 * Mortenelling
+* Saederup92
 * Sarrus
 * Yuvipanda
 -->
@@ -54,9 +55,10 @@
   <string name="nearby_zoom_to_location">Zoom til et sted på kortet</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;-bidragsydere</string>
   <string name="last_updated_text">Sidst opdateret %s</string>
-  <string name="talk_page_link_text" fuzzy="true">Diskussion</string>
-  <string name="edit_history_link_text" fuzzy="true">Redigeringshistorik</string>
+  <string name="talk_page_link_text">Vis diskussionsside</string>
+  <string name="edit_history_link_text">Vis redigeringshistorik</string>
   <string name="map_view_link_text">Vis på et kort</string>
+  <string name="other_languages_indication_text">Læs på et andet sprog</string>
   <string name="language_count_link_text">Tilgængelig på %d andre sprog</string>
   <string name="content_license_html">Indholdet er udgivet under &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; medmindre andet er angivet</string>
   <string name="edit_save_action_license_logged_in">Ved at gemme, accepterer du &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dit bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen.</string>
@@ -118,6 +120,7 @@
   <string name="create_account_next">Næste</string>
   <string name="create_account_button">Opret konto</string>
   <string name="create_account_name_unavailable">Brugernavnet »%s« er ikke tilgængelig. Vælg venligst et andet navn.</string>
+  <string name="create_account_ip_block_details">Detaljer</string>
   <string name="preferences_general_heading">Generelt</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="zero_charged_verbiage">Fri adgang til Wikipedia er ikke længere aktiv.</string>
@@ -607,4 +610,5 @@
     <item quantity="one">Sidste år</item>
     <item quantity="other">%d år siden</item>
   </plurals>
+  <string name="languages_list_activity_title">Tilføj et sprog</string>
 </resources>

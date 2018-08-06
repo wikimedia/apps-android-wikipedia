@@ -403,6 +403,7 @@
   <string name="notification_reverted_title">Wycofana edycja</string>
   <string name="notification_thanks_title">Otrzymałeś podziękowania!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; podziękował Ci za edycję na stronie &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_channel_description">Postęp pobierania</string>
   <string name="notification_syncing_pause_button">Pauza</string>
   <string name="notification_syncing_resume_button">Wznów</string>
   <string name="notification_syncing_cancel_button">Przerwij</string>

@@ -17,11 +17,11 @@
   <string name="app_name_beta">Википедија бета</string>
   <string name="app_name_alpha">Википедија алфа</string>
   <string name="wikimedia">Викимедија</string>
-  <string name="search_hint">Претражи Википедију</string>
+  <string name="search_hint">Претрага Википедије</string>
   <string name="search_hint_search_history">Историја претраге</string>
-  <string name="search_hint_search_my_lists">Претражи моје спискове</string>
-  <string name="search_hint_search_reading_list">Претражи списап за читање</string>
-  <string name="search_hint_search_languages">Претражи језик</string>
+  <string name="search_hint_search_my_lists">Претрага у мојим списковима</string>
+  <string name="search_hint_search_reading_list">Претрага у списковима за читање</string>
+  <string name="search_hint_search_languages">Претрага језика</string>
   <string name="nav_item_history">Историја</string>
   <string name="error_network_error">Не могу да се повежем са интернетом.</string>
   <string name="page_error_retry">Покушај поново</string>
@@ -32,7 +32,7 @@
   <string name="history_item_delete_undo">Опозови</string>
   <string name="app_settings">Подешавања апликације</string>
   <string name="dialog_title_clear_history">Чишћење историје прегледања</string>
-  <string name="dialog_message_clear_history">Биће уклоњена сва историја прегледања и затворене све отворене картице. Наставити?</string>
+  <string name="dialog_message_clear_history">Овим ћете избрисати сву историју прегледања и затворити отворене картице. Јесте ли сигурни?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
   <string name="dialog_message_clear_history_no">Не</string>
   <string name="share_via">Делите помоћу апликације…</string>
@@ -53,16 +53,16 @@
   <string name="menu_text_select_edit_here">Уреди овде</string>
   <string name="nav_item_nearby">У близини</string>
   <string name="nearby_zoom_to_location">Зумирај локацију на мапи</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; сарадници</string>
+  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;Сарадници&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap-а&lt;/a&gt;</string>
   <string name="last_updated_text">Последње ажурирање: %s</string>
   <string name="talk_page_link_text">Страница за разговор</string>
   <string name="edit_history_link_text">Историја измена</string>
   <string name="map_view_link_text">Погледај на мапи</string>
-  <string name="other_languages_indication_text">Читај на другом језику</string>
+  <string name="other_languages_indication_text">Прочитај на другом језику</string>
   <string name="language_count_link_text">Доступан на %d других језика</string>
-  <string name="content_license_html">Садржај је доступан под лиценцом &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; осим ако је другачије наведено</string>
-  <string name="edit_save_action_license_logged_in">Чувањем измена слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање ваших доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Чувањем измена слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање ваших доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Измене ће бити приписане IP адреси вашег уређаја. Ако се &lt;a href=\"https://#login\"&gt;пријавите&lt;/a&gt;, имаћете већу приватност.</string>
+  <string name="content_license_html">Садржај је доступан под лиценцом &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, осим ако није другачије наведено</string>
+  <string name="edit_save_action_license_logged_in">Чувањем измена, слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање ваших доприноса по лиценци &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Чувањем измена, слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање ваших доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Измене ће бити приписане IP адреси вашег уређаја. Ако се &lt;a href=\"https://#login\"&gt;пријавите&lt;/a&gt;, имаћете већу приватност.</string>
   <string name="preference_title_language">Језици Википедије</string>
   <string name="preference_languages_filter_hint">Претрага</string>
   <string name="langlinks_filter_hint">Претражи</string>
@@ -73,7 +73,7 @@
   <string name="menu_save_changes">Објави измене</string>
   <string name="dialog_saving_in_progress">Објављујем…</string>
   <string name="edit_saved_successfully">Измена објављена!</string>
-  <string name="dialog_message_edit_failed">Грешка при уређивању!</string>
+  <string name="dialog_message_edit_failed">Уређивање није успело!</string>
   <string name="dialog_message_edit_failed_retry">Покушај поново</string>
   <string name="dialog_message_edit_failed_cancel">Откажи</string>
   <string name="dialog_message_leaving_edit">Ваше измене још увек нису сачуване. Заиста желите да напустите ову страницу?</string>
@@ -81,23 +81,24 @@
   <string name="dialog_message_leaving_edit_stay">Остани</string>
   <string name="menu_show_toc">Садржај</string>
   <string name="search_no_results_found">Нема резултата</string>
-  <string name="search_reading_list_no_results">Нису пронађени резултати на списку %s</string>
-  <string name="search_reading_lists_no_results">Нису пронађени резултати на списковима за читање</string>
-  <string name="search_history_no_results">Нису пронађени резултати у историји</string>
-  <string name="edit_section_captcha_message">У циљу заштите од нежељених порука, унесите речи испод</string>
-  <string name="edit_section_captcha_hint">Поновите речи изнад</string>
+  <string name="search_reading_list_no_results">Нема резултата на списку „%s“</string>
+  <string name="search_reading_lists_no_results">Нема резултата на списковима за читање</string>
+  <string name="search_history_no_results">Нема резултата у историји</string>
+  <string name="edit_section_captcha_message">Да бисте помогли у заштити против аутоматизованог нежељеног садржаја, унесите речи које су приказане испод</string>
+  <string name="edit_section_captcha_hint">Поново напишите речи изнад</string>
   <string name="title_captcha">Унесите одговор са слике</string>
-  <string name="edit_section_captcha_reload">Додирните слику за освежавање</string>
+  <string name="edit_section_captcha_reload">Додирните КЕПЧА-у да бисте је поново учитали</string>
   <string name="nav_item_login">Пријава на Википедију</string>
   <string name="login_username_hint">Корисничко име</string>
   <string name="login_password_hint">Лозинка</string>
-  <string name="login_2fa_hint">Двофакторски код за аутентификацију</string>
-  <string name="login_2fa_other_workflow_error_msg">Двофакторска аутентификација неопходна!  Вратите се на главне активности и пријавите са својим 2ФА токеном; покушајте поново.</string>
+  <string name="login_2fa_hint">Кôд верификације у два корака</string>
+  <string name="login_2fa_other_workflow_error_msg">Потребна је верификација у два корака! Вратите се на главну активност и пријавите се помоћу 2FA токена, па покушајте поново.</string>
   <string name="menu_login">Пријави ме</string>
   <string name="login_activity_title">Пријава на Википедију</string>
   <string name="login_in_progress_dialog_message">Пријављујем вас…</string>
   <string name="login_success_toast">Успешно сте пријављени!</string>
   <string name="reset_password_title">Поставите лозинку</string>
+  <string name="reset_password_description">Пријавили сте се са привременом лозинком. Да бисте завршили пријаву, овде поставите нову.</string>
   <string name="reset_password_hint">Нова лозинка</string>
   <string name="reset_password_button">Сачувај и пријави ме</string>
   <string name="preference_title_logout">Одјави ме</string>
@@ -124,6 +125,9 @@
   <string name="create_account_generic_error">Не могу да отворим налог</string>
   <string name="create_account_next">Следеће</string>
   <string name="create_account_button">Отвори налог</string>
+  <string name="create_account_name_unavailable">Корисничко име „%s“ је недоступно. Изаберите друго.</string>
+  <string name="create_account_ip_block_message">Нажалост, отварање нових налога са ваше IP адресе је блокирано.</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Детаљи</string>
   <string name="preferences_general_heading">Опште</string>
   <string name="wikipedia_app_faq">ЧПП о апликацији Википедија</string>
@@ -143,7 +147,15 @@
   <string name="send_feedback">Пошаљи повратну информацију</string>
   <string name="create_account_account_created_toast">Налог је отворен!</string>
   <string name="preferences_heading_storage_and_syncing">Складиште и синхр.</string>
-  <string name="preference_title_sync_reading_lists">Синхр. спискове за читање</string>
+  <string name="preferences_heading_syncing">Синхронизација</string>
+  <string name="preferences_heading_data_usage">Употреба података</string>
+  <string name="preferences_heading_experimental">Експериментално</string>
+  <string name="preference_title_sync_reading_lists">Синхронизуј листе за читање</string>
+  <string name="preference_title_sync_reading_lists_from_account">Синхронизација листа за читање</string>
+  <string name="preference_summary_sync_reading_lists">Синхронизујте спискове за читање на различитим уређајима тако што ћете их сачувати на свој налог на Википедији</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Синхронизујте листе за читање на различитим уређајима тако што ћете их сачувати на свој налог „%s“ на Википедији.</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Уклонити синхронизоване листе за читање са налога „%s“?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Овим ћете у потпуности избрисати све раније синхронизоване листе за читање са удаљеног складишта. Уклонити све синхронизоване листе са налога „%s“?</string>
   <string name="preferences_privacy_settings_heading">Приватност</string>
   <string name="preference_title_eventlogging_opt_in">Шаљи извештаје о употреби</string>
   <string name="preference_summary_eventlogging_opt_in">Дозволите Викимедији да прикупља информације о томе како користите апликацију у циљу њеног побољшања</string>
@@ -164,6 +176,8 @@
   <string name="privacy_policy_description">Политика приватности</string>
   <string name="terms_of_use_description">Услови коришћења</string>
   <string name="about_wikipedia_url">https://sr.m.wikipedia.org/wiki/Википедија:О_нама</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Коришћене библиотеке</string>
@@ -190,6 +204,7 @@
   <string name="edit_summary_tag_other">Друго</string>
   <string name="edit_summary_tag_other_hint">Други начини на које сте побољшали страницу</string>
   <string name="edit_conflict_title">Сукоб измена</string>
+  <string name="edit_conflict_message">Дошло је до сукоба измена јер је други корисник већ изменио страницу. Копирајте своје измене, вратите се и освежите страницу, па покушајте поново.</string>
   <string name="find_next">Пронађи следеће</string>
   <string name="find_previous">Пронађи претходно</string>
   <string name="find_first_occurence">Ово је прво појављивање</string>
@@ -221,6 +236,10 @@
   <string name="dialog_close_description">Затвори</string>
   <string name="preference_title_show_images">Приказ слика</string>
   <string name="preference_summary_show_images">Омогућавање или онемогућавање учитавања слика на страницама. Одзначите ово подешавање ако је ваша интернетска конекција слаба или вам је план података ограничен.</string>
+  <string name="preference_title_download_only_over_wifi">Преузимај само преко Wi-Fi-а</string>
+  <string name="dialog_title_download_only_over_wifi">Потврдити преузимање са мобилним подацима?</string>
+  <string name="dialog_text_download_only_over_wifi">У подешавањима сте омогућили опцију „Преузимај само преко Wi-Fi-а“. Желите ли да дозволите преузимање са мобилним подацима само у овом случају?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Дозволи</string>
   <string name="read_more_section">Детаљније</string>
   <string name="about_article_section">О чланку</string>
   <string name="menu_gallery_visit_page">Иди на страницу датотеке</string>
@@ -248,10 +267,12 @@
   <string name="close_all_tabs_confirm_yes">Да</string>
   <string name="close_all_tabs_confirm_no">Не</string>
   <string name="button_close_tab">Затвори картицу</string>
+  <string name="tool_tip_select_text_title">Задржите за избор</string>
   <string name="tool_tip_select_text">Притисните и држите било где у тексту да бисте га означили за копирање и дељење.</string>
   <string name="tool_tip_share">Након што означите занимљиву чињеницу, делите је на вашим омиљеним мрежама!</string>
   <string name="page_view_in_browser">Погледај у прегледачу</string>
   <string name="tool_tip_toc_button">Погледајте садржај било када кликом на ово дугме или слајдовањем с леве стране екрана.</string>
+  <string name="tool_tip_lang_button">Сада можете да претражујете и читате Википедију на више језика у апликацији.\n\n\nДодирните икону да бисте додали још језика.</string>
   <string name="error_response_malformed">Одговор сервера није исправно обликован.</string>
   <string name="error_unknown">Дошло је до непознате грешке.</string>
   <string name="format_error_server_message">Порука: „%s“</string>
@@ -261,6 +282,8 @@
   <string name="button_add_to_reading_list">Додај на списак за читање</string>
   <string name="page_offline_notice_cannot_load_while_offline">Чланак не може да се учита офлајн.</string>
   <string name="page_offline_notice_add_to_reading_list">Савет: Додајте чланак на списак читања; биће преузет када будете поново онлајн.</string>
+  <string name="page_offline_notice_last_date">Читате офлајн верзију чланка, који је сачуван %s.</string>
+  <string name="page_offline_notice_compilation_download_date">Читате верзију чланка из компилације %1$s • %2$s.</string>
   <string name="button_get_directions">Преузми путању</string>
   <string name="error_no_maps_app">Не могу да пронађем апликације које преузимају путању.</string>
   <string name="preference_title_show_link_previews">Прегледи веза</string>
@@ -278,6 +301,10 @@
   <string name="error_page_does_not_exist">Ова страница не постоји</string>
   <string name="view_wiki_error_message_offline">Не могу да се повежем на интернет</string>
   <string name="reference_title">Референца %s</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Затамњење слика (у тамној теми)</string>
+  <string name="preference_title_prefer_offline_content">Приоритет има офлајн садржај</string>
+  <string name="preference_summary_prefer_offline_content">Уштедите на саобраћају приказивањем офлајн верзије чланка уместо сталног преузимања најновије верзије.</string>
+  <string name="preference_title_enable_offline_library">Омогући офлајн библиотеку</string>
   <string name="crash_report_dialog_title">Апликација је отказала прошли пут</string>
   <string name="crash_report_dialog_text">Да ли бисте желели да пошаљете извештај о квару HockeyApp-у / сервису треће стране тако да Викимедија може да испита ваш случај и поправи баг који га је узроковао?</string>
   <string name="crash_report_dialog_dont_send_button">Прескочи</string>
@@ -310,14 +337,25 @@
   <string name="reading_list_added_to_named">Додато на списак %s.</string>
   <string name="reading_list_already_exists">Чланак се већ налази на том списку.</string>
   <string name="reading_list_added_view_button">Погледај списак</string>
+  <string name="format_reading_list_statistical_summary_singular">1 чланак, %1$.2f MB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d чланака, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_singular">Офлајн је доступно %1$d од 1 чланак, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">Офлајн је доступно %1$d од %2$d чланака, %3$.2f MB</string>
   <string name="reading_list_sort">Сортирај</string>
+  <string name="reading_list_sort_ellipsis">Сортирај по…</string>
   <string name="reading_list_sort_by_name">Сортирај по имену</string>
   <string name="reading_list_sort_by_name_desc">Сортирај по имену (обрнуто)</string>
   <string name="reading_list_sort_by_recent">Сортирај по датуму додавања (најновији)</string>
   <string name="reading_list_sort_by_recent_desc">Сортирај по датуму додавања (најстарији)</string>
+  <string name="reading_list_sort_by_created">Сортирај по датуму креирања (прво новији)</string>
+  <string name="reading_list_sort_by_created_desc">Сортирај по датуму креирања (прво старији)</string>
   <string name="reading_list_menu_delete">Избриши списак</string>
   <string name="reading_list_menu_rename">Уреди име/опис</string>
   <string name="reading_list_menu_edit_description">Уреди опис</string>
+  <string name="reading_list_action_menu_remove_from_offline">Уклони из офлајн меморије</string>
+  <string name="reading_list_action_menu_save_for_offline">Сачувај у офлајн меморију</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Уклони све из офлајн меморије</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Сачувај све у офлајн меморију</string>
   <string name="reading_list_action_menu_add_to_another_list">Додај на други списак</string>
   <string name="reading_list_name_sample">Мој списак за читање</string>
   <string name="reading_list_name_hint">Име овог списка</string>
@@ -344,12 +382,38 @@
   <string name="reading_list_confirm_remove_article_from_offline">Уклони са офлајна</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Чланак се појављује на више спискова</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s више неће да буде доступна офлајн за све спискове за читање:</string>
+  <string name="reading_lists_sync_reminder_title">Укључити синхронизацију листа за читање?</string>
   <string name="reading_lists_sync_reminder_action">Омогући синхронизацију</string>
-  <string name="reading_list_login_reminder_title">Синхронизујте списак за читање</string>
+  <string name="reading_list_login_reminder_title">Синхронизација листа за читање</string>
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
   <string name="reading_list_delete_confirm">Заиста желите да избришете %s?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Пријавите се да бисте омогућили синхронизацију</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Пријавите се како би листе за читање биле сачуване на ваш налог.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Откажи</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Пријави ме</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Синхронизација листа за читање је искључена</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">У реду</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Подешавања</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Укључити синхронизацију листа за читање?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Не приказуј поново</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Омогући синхронизацију</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Не, хвала</string>
+  <string name="reading_list_login_option_reminder_dialog_title">Пронађени чланци у листи за читање</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">Да, додај их у листе за читање</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Не, избриши чланке</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Задржати сачуване чланке у апликацији?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Да, задржи чланке у листама</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Не, избриши чланке са листа</string>
   <string name="default_reading_list_name">Сачувано</string>
+  <string name="default_reading_list_description">Подразумевана листа за сачуване чланке</string>
+  <string name="no_user_lists_title">Организујте чланке у листама</string>
+  <string name="reading_list_saved_list_rename">%1$s (направио корисник)</string>
+  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Синхронизација спискова за читање&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Спискови за читање се сада могу синхронизовати међу уређајима. Пријавите се с налогом на Википедији и дозволите чување спискова.</string>
+  <string name="reading_lists_menu_create_list">Направи нови списак</string>
+  <string name="reading_lists_menu_sort_by">Сортирај по</string>
+  <string name="reading_lists_refresh_sync_option">Освежи синхронизацију</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Пријава/регистрација</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Овај чланак ће бити доступан офлајн.</item>
     <item quantity="other">Ови чланаци ће бити доступни офлајн.</item>
@@ -358,6 +422,7 @@
     <item quantity="one">Овај чланак више неће бити доступан офлајн.</item>
     <item quantity="other">Ови чланци више неће бити доступни офлајн.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync">Листе за читање су успешно синхронизоване</string>
   <string name="user_option_sync_label">Подешавања</string>
   <string name="notification_button_view_user">Разговарај са корисником</string>
   <string name="notification_talk_title">Нова порука на Википедији</string>
@@ -370,9 +435,30 @@
   <string name="notification_syncing_pause_button">Паузирај</string>
   <string name="notification_syncing_resume_button">Настави</string>
   <string name="notification_syncing_cancel_button">Откажи</string>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Синхронизација листе за читање</item>
+    <item quantity="other">Синхронизација листа за читање</item>
+  </plurals>
+  <string name="notification_syncing_reading_list_channel_description">Напредак синхронизације листа за читање</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Преузимам чланак</item>
     <item quantity="other">Преузимам чланке</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">Преузимам %1$d чланак…</item>
+    <item quantity="other">Преузимам %1$d чланка…</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">Преостао је %1$d чланак</item>
+    <item quantity="other">Преостала су %1$d чланка</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Синхронизујем %1$d листу…</item>
+    <item quantity="other">Синхронизујем %1$d листе…</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">Преостала је %1$d листа</item>
+    <item quantity="other">Преостале су %1$d листе</item>
   </plurals>
   <string name="view_continue_reading_card_title">Настави читање</string>
   <string name="view_because_you_read_card_title">Будући да сте прочитали</string>
@@ -387,6 +473,7 @@
   <string name="view_featured_image_card_download">Преузми</string>
   <string name="menu_feed_card_dismiss">Сакрији</string>
   <string name="menu_feed_card_dismissed">Сакривено.</string>
+  <string name="menu_feed_card_edit_card_languages">Уреди језике картица</string>
   <string name="menu_feed_overflow_label">Више опција</string>
   <string name="feed_featured_image_share_subject">Изабрана слика са Оставе</string>
   <string name="feed">Истражи</string>
@@ -404,7 +491,11 @@
   <string name="view_featured_article_card_title">Сјајан чланак</string>
   <string name="view_featured_article_footer_save_button_label">Сачувај</string>
   <string name="view_featured_article_footer_saved_button_label">Сачувано</string>
+  <string name="feed_configure_activity_title">Прилагоди фид</string>
+  <string name="feed_configure_menu_reset">Врати подразумевани приказ</string>
   <string name="feed_configure_menu_select_all">Прикажи све</string>
+  <string name="feed_configure_menu_deselect_all">Сакриј све</string>
+  <string name="feed_item_type_news">Чланци о текућим догађајима</string>
   <string name="feed_item_type_on_this_day">Историјски догађаји на данашњи дан</string>
   <string name="feed_configure_onboarding_action">Прилагоди</string>
   <string name="description_edit_text_hint">Опис наслова</string>
@@ -445,35 +536,78 @@
   <string name="description_edit_revert_reason1">ваша измена није била у складу са неком од &lt;a href=\"%1$s\"&gt;смерница&lt;/a&gt;</string>
   <string name="description_edit_revert_reason2">ваша измена је изгледала као експеримент или вандализам</string>
   <string name="description_edit_revert_history">Ако сте заинтересовани, погледајте &lt;a href=\"%1$s\"&gt;историју уређивања&lt;/a&gt;.</string>
+  <string name="offline_compilations_title">Офлајн библиотека</string>
+  <string name="offline_compilations_search_by_name">Претражуј пакете чланака по имену</string>
+  <string name="offline_compilations_found_count">У мојој офлајн библиотеци (%d)</string>
+  <string name="offline_compilations_add">Додај у офлајн библиотеку</string>
   <string name="remote_compilations_title">Офлајн библиотека</string>
+  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
+  <string name="size_gb">%.2f GB</string>
+  <string name="size_mb">%.2f MB</string>
+  <string name="offline_compilation_detail_button_download_v2">Преузми • %s</string>
   <string name="offline_compilation_detail_button_remove">Уклони</string>
   <string name="remote_compilation_download">Преузми</string>
+  <string name="storage_size_free_v2">%s слободно</string>
+  <string name="storage_used_by_compilations">користи офлајн библиотека</string>
   <string name="storage_other_apps">Друге апликације</string>
+  <string name="offline_compilation_download_progress_text_v2">%1$s/%2$s</string>
   <string name="compilation_download_widget_button_cancel_hint">Откажи преузимање</string>
+  <string name="compilation_download_cancel_confirm">Заиста желите да откажете преузимање овог пакета чланака?</string>
   <string name="compilation_download_cancel_confirm_yes">Да</string>
   <string name="compilation_download_cancel_confirm_no">Не</string>
   <string name="compilation_share">Дели</string>
   <string name="compilation_remove">Уклони</string>
+  <string name="compilation_remove_confirm">Желите ли да уклоните ово из своје офлајн библиотеке?</string>
   <string name="offline_library_title">Офлајн библиотека</string>
+  <string name="offline_library_empty_title">У вашој офлајн библиотеци нема ништа</string>
   <string name="offline_library_empty_search">Претражите офлајн библиотеку</string>
+  <string name="offline_library_search_results_state">Резултати претраге за вашу офлајн библиотеку</string>
   <string name="offline_library_onboarding_button_done">Готово</string>
   <string name="offline_library_onboarding_build_library_title">Изградите Вашу офлајн библиотеку</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">Неометано читање</string>
+  <string name="offline_library_onboarding_store_knowledge_title">Складиштите више знања</string>
   <string name="onboarding_skip">Прескочи</string>
   <string name="onboarding_continue">Настави</string>
   <string name="onboarding_get_started">Почните!</string>
-  <string name="onboarding_explore_title">Нови начини истраживања</string>
+  <string name="onboarding_explore_title">Нови начини за истраживање</string>
+  <string name="onboarding_explore_text">Завирите у непознати свет Википедије помоћу фида „Истражи“ који се непрекидно ажурира.&lt;br/&gt; &lt;b&gt;Прилагодите&lt;/b&gt; фид својим интересима – упознајте историјске догађаје који су се одиграли &lt;b&gt;на данашњи дан&lt;/b&gt; или искушајте срећу са &lt;b&gt;случајним чланком&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Сачувајте на списак за читање</string>
-  <string name="onboarding_analytics_title">Пошаљи анонимне податке</string>
+  <string name="onboarding_reading_list_sync_title">Листе за читање са синхронизацијом</string>
+  <string name="onboarding_reading_list_sync_text_v2">Можете да правите листе за читање од чланака које желите да читате касније, чак и кад сте ван мреже. &lt;br/&gt;Пријавите се ради синхронизације листа за читање. &lt;a href=\"#login\"&gt;Придружите се Википедији.&lt;/a&gt;</string>
+  <string name="onboarding_analytics_title">Слање анонимних података</string>
+  <string name="onboarding_analytics_offline_text">Помозите нам да побољшамо апликацију слањем информација о употреби. Сакупљени подаци су анонимни. &lt;a href=\"#privacy\"&gt;Сазнајте више.&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">Шаљи податке о употреби</string>
   <string name="onboarding_create_account_sync">Синхронизујте Ваш списак за читање</string>
+  <string name="onboarding_create_account_contributions">Будите у току са вашим доприносима</string>
   <string name="onboarding_create_account_preferences">Сачувајте Ваша подешавања</string>
   <string name="onboarding_got_it">Разумем!</string>
+  <string name="onboarding_multilingual_add_language_text">Додај или уреди језике</string>
+  <string name="onboarding_welcome_title_v2">Слободна енциклопедија\nна готово 300 језика</string>
   <string name="app_shortcuts_random">Случајна</string>
   <string name="app_shortcuts_continue_reading">Настави читање</string>
   <string name="app_shortcuts_search">Претрага</string>
   <string name="more_trending_text">Више попут овога</string>
+  <string name="top_on_this_day">Популарно на %1$s</string>
   <string name="on_this_day_card_title">На данашњи дан</string>
   <string name="more_events_text">Више на овај дан</string>
   <string name="this_year">Ове године</string>
   <string name="back_to_top">Назад на врх</string>
+  <plurals name="diff_years">
+    <item quantity="one">Прошле године</item>
+    <item quantity="other">Пре %d године</item>
+  </plurals>
+  <string name="languages_list_activity_title">Додај језик</string>
+  <string name="languages_list_suggested_text">Предложени</string>
+  <string name="languages_list_all_text">Сви језици</string>
+  <string name="wikipedia_languages_title">Језици Википедије</string>
+  <string name="wikipedia_languages_your_languages_text">Ваши језици</string>
+  <string name="wikipedia_languages_add_language_text">Додај језик</string>
+  <string name="wikipedia_languages_remove_text">Уклони језик</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Уклањање језика</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Не могу да уклоним све језике</string>
+  <string name="more_language_options">још</string>
+  <string name="add_wikipedia_languages_text">Додај језике Википедије</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Уклонити кинески са списка језика?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Уреди језике</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Не, хвала</string>
 </resources>

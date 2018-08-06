@@ -69,7 +69,7 @@
   <string name="preference_languages_filter_hint">অনুসন্ধান</string>
   <string name="langlinks_filter_hint">অনুসন্ধান</string>
   <string name="langlinks_empty">এই পাতাটি অন্য কোনো ভাষায় উপলব্ধ নয়।</string>
-  <string name="langlinks_no_match" fuzzy="true">আপনার অনুসন্ধানের সাথে মিল আছে এমন কোনো ভাষা নেই।</string>
+  <string name="langlinks_no_match">কোনো ভাষা পাওয়া যায়নি</string>
   <string name="langlinks_activity_title">অন্যান্য ভাষাসমূহ</string>
   <string name="langlinks_your_wikipedia_languages">আপনার উইকিপিডিয়ার ভাষা</string>
   <string name="menu_save_changes">পরিবর্তন প্রকাশ করুন</string>
@@ -108,6 +108,7 @@
   <string name="history_empty_title">সম্প্রতি কোন নিবন্ধ দেখা হয়নি</string>
   <string name="history_empty_message">এখানে আপনি কি পড়ছেন তা অনুসরণ করুন।</string>
   <string name="search_empty_message">আপনার ভাষায় বিনামূল্যে বিশ্বকোষ অনুসন্ধান করুন ও পড়ুন</string>
+  <string name="search_empty_message_multilingual_upgrade">আরও ভাষাতে উইকিপিডিয়া অনুসন্ধান করুন</string>
   <string name="delete_selected_items">নির্বাচিত আইটেম অপসারণ করুন</string>
   <string name="wp_stylized">&lt;big&gt;উ&lt;/big&gt;ইকিপিডি&lt;big&gt;য়া&lt;/big&gt;</string>
   <string name="create_account_username_hint">ব্যবহারকারী নাম</string>
@@ -338,6 +339,7 @@
   <string name="format_reading_list_statistical_detail_singular">১টি নিবন্ধের %1$dটি অফলাইনে উপলব্ধ, %2$.2f মেগাবাইট</string>
   <string name="format_reading_list_statistical_detail_plural">%2$dটি নিবন্ধের %1$dটি অফলাইনে উপলব্ধ, %3$.2f মেগাবাইট</string>
   <string name="reading_list_sort">বাছাই করুন</string>
+  <string name="reading_list_sort_ellipsis">বাছাই করুন...</string>
   <string name="reading_list_sort_by_name">নাম অনুযায়ী বাছাই</string>
   <string name="reading_list_sort_by_name_desc">নাম অনুযায়ী বাছাই (বিপরীত)</string>
   <string name="reading_list_sort_by_recent" fuzzy="true">সাম্প্রতিক অনুযায়ী বাছাই</string>
@@ -381,9 +383,15 @@
   <string name="reading_lists_confirm_remote_delete_no">না</string>
   <string name="reading_list_added_articles_list_titled">%2$s-এ %1$dটি নিবন্ধ যোগ হয়েছে</string>
   <string name="reading_list_delete_confirm">আপনি কি নিশ্চিতভাবে এই %s অপসারণ করতে চান?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">বাতিল</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">প্রবেশ করুন</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">ঠিক আছে</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">সেটিং</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">না ধন্যবাদ</string>
   <string name="reading_list_login_option_reminder_dialog_no">না, নিবন্ধগুলি মুছুন</string>
   <string name="default_reading_list_name">সংরক্ষিত</string>
   <string name="reading_list_saved_list_rename">%1$s (ব্যবহারকারী তৈরি করেছেন)</string>
+  <string name="reading_lists_menu_create_list">নতুন তালিকা তৈরি করুন</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">প্রবেশ করুন / নিবন্ধন করুন</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">এই নিবন্ধটি এখন অফলাইনে উপলব্ধ হবে।</item>
@@ -412,6 +420,10 @@
   <plurals name="notification_syncing_description">
     <item quantity="one">%1$dটি নিবন্ধ বাকী</item>
     <item quantity="other">%1$dটি নিবন্ধ বাকী</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">%1$dটি তালিকা বাকী</item>
+    <item quantity="other">%1$dটি তালিকা বাকী</item>
   </plurals>
   <string name="view_continue_reading_card_title">পড়া অব্যাহত রাখুন</string>
   <string name="view_because_you_read_card_title">কারণ আপনি পড়েছেন</string>
@@ -536,6 +548,8 @@
   <string name="onboarding_create_account_contributions">আপনার অবদান অনুসরণ করুন</string>
   <string name="onboarding_create_account_preferences">আপনার পছন্দ সংরক্ষণ করে</string>
   <string name="onboarding_got_it">বুঝেছি</string>
+  <string name="onboarding_multilingual_secondary_text">আমরা আপনার ডিভাইসে নিম্নলিখিত খুঁজে পেয়েছি:</string>
+  <string name="onboarding_multilingual_add_language_text">ভাষা যোগ বা সম্পাদনা করুন</string>
   <string name="app_shortcuts_random">অজানাভাবে</string>
   <string name="app_shortcuts_continue_reading">পড়া অব্যাহত রাখুন</string>
   <string name="app_shortcuts_search">অনুসন্ধান</string>
@@ -556,7 +570,7 @@
   <string name="wikipedia_languages_title">উইকিপিডিয়ার ভাষা</string>
   <string name="wikipedia_languages_your_languages_text">আপনার ভাষাসমূহ</string>
   <string name="wikipedia_languages_add_language_text">ভাষা যোগ করুন</string>
-  <string name="wikipedia_languages_remove_text" fuzzy="true">সরান</string>
+  <string name="wikipedia_languages_remove_text">ভাষা সরান</string>
   <string name="wikipedia_languages_remove_action_mode_title">ভাষা সরান</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">নির্বাচিত ভাষা সরাবেন?</item>

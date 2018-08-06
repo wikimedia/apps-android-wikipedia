@@ -230,6 +230,10 @@
   <string name="dialog_close_description">Zarrar</string>
   <string name="preference_title_show_images">Amosar imaxes</string>
   <string name="preference_summary_show_images">Activar o desactivar la carga d\'imaxes nes páxines. Desmarca esta opción si la conexón a Internet va lenta, o si\'l to plan de datos tien llendes.</string>
+  <string name="preference_title_download_only_over_wifi">Descargar solo per Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi">¿Confirmes la descarga al traviés de datos móviles?</string>
+  <string name="dialog_text_download_only_over_wifi">Activasti «Descargar solo per Wi-Fi» na configuración. ¿Quies permitir usar el plan de datos móviles solamente pa esta descarga?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Permitir</string>
   <string name="read_more_section">Lleer más</string>
   <string name="about_article_section">Tocante a esti artículu</string>
   <string name="menu_gallery_visit_page">Dir a la páxina del ficheru</string>
@@ -430,6 +434,7 @@
     <item quantity="one">Esti artículu yá nun tará disponible sin conexón.</item>
     <item quantity="other">Estos artículos yá nun tarán disponibles sin conexón.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync">Les llistes de llectura sincronizáronse correutamente</string>
   <string name="user_option_sync_label">Preferencies</string>
   <string name="notification_button_view_user">Falar col usuariu</string>
   <string name="notification_talk_title">Mensaxe nuevu en Wikipedia</string>
