@@ -88,12 +88,12 @@
   <string name="privacy_policy_description">Купуялуулук саясаты</string>
   <string name="terms_of_use_description">Колдонуу шарттары</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Купуялуулук_саясаты</string>
-  <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Колдонуу_шарттары</string>
+  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="about_libraries_heading" fuzzy="true">колдонулган китепканалар</string>
   <string name="about_contributors_heading" fuzzy="true">авторлор</string>
   <string name="about_translators_heading" fuzzy="true">котормочулар</string>
   <string name="about_translators_translatewiki">Бул тиркеме &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;\'деги ыктыярчылар тарабынан которулган.</string>
-  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Уикимедиа Фонду&lt;/a&gt;нун өнүмү</string>
+  <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Уикимедиа Фонду&lt;/a&gt;нун өнүмү</string>
   <string name="about_activity_title">Тиркеме жөнүндө</string>
   <string name="edit_abandon_confirm">Барак өзгөрүлдү. Сиз өзгөртүүлөрдү сактабай чыгууңузга ишенесизби?</string>
   <string name="user_blocked_from_editing_title">Бөгөттөлгөн</string>

@@ -78,7 +78,7 @@
   <string name="about_contributors_heading" fuzzy="true">kontributuri</string>
   <string name="about_translators_heading">Tradutturi</string>
   <string name="about_translators_translatewiki">Din l-app ġiet tradotta minn tradutturi voluntiera fuq &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
-  <string name="about_wmf">Prodott tal-&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fondazzjoni Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf">Prodott tal-&lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondazzjoni Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Dwar</string>
   <string name="edit_abandon_confirm">Din il-paġna ġiet modifikata. Inti ċert li trid toħroġ mingħajr ma tissejvja l-modifiki tiegħek?</string>
   <string name="user_blocked_from_editing_title">Imblukkat</string>

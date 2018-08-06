@@ -84,7 +84,7 @@
   <string name="about_libraries_heading" fuzzy="true">китобхонаҳои истифодашуда</string>
   <string name="about_translators_heading" fuzzy="true">тарҷумонҳо</string>
   <string name="about_translators_translatewiki">Ин афзуна тавассути тарҷумонҳо ихтиёриҳо дар &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; тарҷума шудааст.</string>
-  <string name="about_wmf">Маҳсули кори &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Бунёди Викимедиа&lt;/a&gt;</string>
+  <string name="about_wmf">Маҳсули кори &lt;a href=\"https://wikimediafoundation.org/\"&gt;Бунёди Викимедиа&lt;/a&gt;</string>
   <string name="about_activity_title">Дар бораи</string>
   <string name="edit_next">Баъдӣ</string>
   <string name="edit_done">Захиракунӣ</string>

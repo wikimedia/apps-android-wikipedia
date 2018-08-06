@@ -115,7 +115,7 @@
   <string name="about_translators_heading">ଅନୁବାଦକଗଣ</string>
   <string name="about_translators_translatewiki">ଏହି ଆପଟି &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;ର ସ୍ୱେଚ୍ଛାସେବୀ ଅନୁବାଦକମାନଙ୍କ ଦେଇ ଅନୂଦିତ ।</string>
   <string name="about_app_license_heading">ଲାଇସେନ୍ସ</string>
-  <string name="about_wmf" fuzzy="true">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;ଉଇକିମିଡ଼ିଆ ଫାଉଣ୍ଡେସନ&lt;/a&gt;ର ଏକ ଉତ୍ପାଦ ।</string>
+  <string name="about_wmf" fuzzy="true">&lt;a href=\"https://wikimediafoundation.org/\"&gt;ଉଇକିମିଡ଼ିଆ ଫାଉଣ୍ଡେସନ&lt;/a&gt;ର ଏକ ଉତ୍ପାଦ ।</string>
   <string name="about_activity_title">ବିଷୟରେ</string>
   <string name="edit_abandon_confirm">ଏହି ପୃଷ୍ଠାଟି ବଦଳାଯାଇଛି । ଆପଣ ନିଜ ସମ୍ପାଦନାସବୁ ନ ସାଇତି ସେମିତି ବାହାରିଯିବା ବାବଦରେ ନିଶ୍ଚିତ ତ?</string>
   <string name="user_blocked_from_editing_title">କିଳାଯାଇଛି</string>

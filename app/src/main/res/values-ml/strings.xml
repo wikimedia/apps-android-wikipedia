@@ -117,7 +117,7 @@
   <string name="about_translators_heading">വിവർത്തകർ</string>
   <string name="about_translators_translatewiki">&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ഉള്ള വിവർത്തകരാണ് ഈ ആപ്പ് വിവർത്തനം ചെയ്തത്.</string>
   <string name="about_app_license_heading">ഉപയോഗാനുമതി</string>
-  <string name="about_wmf" fuzzy="true">ഒരു &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;വിക്കിമീഡിയ ഫൗണ്ടേഷൻ&lt;/a&gt; ഉത്പന്നം</string>
+  <string name="about_wmf" fuzzy="true">ഒരു &lt;a href=\"https://wikimediafoundation.org/\"&gt;വിക്കിമീഡിയ ഫൗണ്ടേഷൻ&lt;/a&gt; ഉത്പന്നം</string>
   <string name="about_activity_title">വിവരണം</string>
   <string name="edit_abandon_confirm">താളിൽ മാറ്റങ്ങളുണ്ട്. താങ്കൾ വരുത്തിയ മാറ്റങ്ങൾ സേവ് ചെയ്യാതെ പുറത്ത് പോകണം എന്നുറപ്പാണോ?</string>
   <string name="user_blocked_from_editing_title">തടയപ്പെട്ടിരിക്കുന്നു</string>

@@ -85,7 +85,7 @@ Oldindan yoqimli …</string>
   <string name="about_contributors_heading" fuzzy="true">mualliflar</string>
   <string name="about_translators_heading" fuzzy="true">tarjimonlar</string>
   <string name="about_translators_translatewiki">Dastur &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;da koʻngilli tarjimonlar tomonidan tarjima qilingan.</string>
-  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Vikimediya Fondi&lt;/a&gt;ning maxsuloti</string>
+  <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Vikimediya Fondi&lt;/a&gt;ning maxsuloti</string>
   <string name="about_activity_title">Dastur haqida</string>
   <string name="edit_abandon_confirm">Sahifa oʻzgartirildi. Oʻzgartirishlaringizni saqlamasdan chiqmoqchimisiz?</string>
   <string name="user_blocked_from_editing_title">Chetlatilgan</string>
