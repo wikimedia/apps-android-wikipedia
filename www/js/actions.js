@@ -15,10 +15,10 @@ ActionsHandler.prototype.register = function( action, fun ) {
 };
 
 bridge.registerListener( 'handleReference', function( payload ) {
-    handleReference( "#" + payload.anchor, null );
+    handleReference( "#" + payload.anchor, null, payload.text );
 } );
 
-function handleReference( href, linkNode ) {
+function handleReference( href, linkNode, linkText ) {
     var targetElem = document.getElementById(href.slice(1));
     if (linkNode && pagelib.ReferenceCollection.isCitation(href)){
         var adjacentReferences = pagelib.ReferenceCollection.collectNearbyReferences(document, linkNode);
@@ -29,7 +29,7 @@ function handleReference( href, linkNode ) {
             if ( refTexts.length > 0 ) {
                 targetElem = refTexts[0];
             }
-            bridge.sendMessage( 'referenceClicked', { "selectedIndex": 0, "referencesGroup": [ { "html": targetElem.innerHTML, "text": "" } ] });
+            bridge.sendMessage( 'referenceClicked', { "selectedIndex": 0, "referencesGroup": [ { "html": targetElem.innerHTML, "text": linkText } ] });
         } catch (e) {
             targetElem.scrollIntoView();
         }
@@ -66,14 +66,17 @@ document.onclick = function() {
         } else {
             var href = sourceNode.getAttribute( "href" );
             if ( href[0] === "#" ) {
-                handleReference(href, event.target);
+                handleReference(href, event.target, null);
             } else if (sourceNode.classList.contains( 'app_media' )) {
                 bridge.sendMessage( 'mediaClicked', { "href": href } );
             } else if (sourceNode.classList.contains( 'image' )) {
                 bridge.sendMessage( 'imageClicked', { "href": href } );
             } else {
-                bridge.sendMessage( 'linkClicked', sourceNode.hasAttribute( "title" ) ?
-                { "href": href, "title": sourceNode.getAttribute( "title" ) } : { "href": href } );
+                var response = { "href": href, "text": sourceNode.textContent };
+                if (sourceNode.hasAttribute( "title" )) {
+                    response.title = sourceNode.getAttribute( "title" );
+                }
+                bridge.sendMessage( 'linkClicked', response );
             }
             event.preventDefault();
         }

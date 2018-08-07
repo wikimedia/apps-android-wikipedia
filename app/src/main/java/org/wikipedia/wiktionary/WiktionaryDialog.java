@@ -203,7 +203,7 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private LinkMovementMethodExt linkMovementMethod =
-            new LinkMovementMethodExt((@NonNull String url, @Nullable String notUsed) -> {
+            new LinkMovementMethodExt((@NonNull String url) -> {
                 if (url.startsWith(PATH_WIKI) || url.startsWith(PATH_CURRENT)) {
                     dismiss();
                     showNewDialogForLink(url);

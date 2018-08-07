@@ -3,7 +3,6 @@ package org.wikipedia.settings;
 import android.content.Context;
 import android.net.Uri;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.preference.PreferenceViewHolder;
 import android.util.AttributeSet;
@@ -19,7 +18,7 @@ import static org.wikipedia.util.UriUtil.handleExternalLink;
 public class SwitchPreferenceWithLinks extends SwitchPreferenceMultiLine {
 
     private LinkMovementMethodExt movementMethod
-            = new LinkMovementMethodExt((@NonNull String url, @Nullable String titleString) -> handleExternalLink(getContext(), Uri.parse(url)));
+            = new LinkMovementMethodExt((@NonNull String url) -> handleExternalLink(getContext(), Uri.parse(url)));
 
     private View.OnClickListener onClickListener = (v) -> {
         SwitchPreferenceWithLinks sw = SwitchPreferenceWithLinks.this;

@@ -1139,12 +1139,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     private void setupMessageHandlers() {
-        linkHandler = new LinkHandler(getActivity()) {
-            @Override public void onPageLinkClicked(@NonNull String anchor) {
+        linkHandler = new LinkHandler(requireActivity()) {
+            @Override public void onPageLinkClicked(@NonNull String anchor, @NonNull String linkText) {
                 dismissBottomSheet();
                 JSONObject payload = new JSONObject();
                 try {
                     payload.put("anchor", anchor);
+                    payload.put("text", linkText);
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
@@ -1184,7 +1185,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                             GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
                             Constants.ACTIVITY_REQUEST_GALLERY);
                 } else {
-                    linkHandler.onUrlClick(href, messagePayload.optString("title"));
+                    linkHandler.onUrlClick(href, messagePayload.optString("title"), "");
                 }
             } catch (JSONException e) {
                 L.logRemoteErrorIfProd(e);

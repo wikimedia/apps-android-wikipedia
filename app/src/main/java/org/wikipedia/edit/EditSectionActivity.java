@@ -221,7 +221,7 @@ public class EditSectionActivity extends BaseActivity {
                 getString(R.string.terms_of_use_url),
                 getString(R.string.cc_by_sa_3_url))));
 
-        editLicenseText.setMovementMethod(new LinkMovementMethodExt((@NonNull String url, @Nullable String notUsed) -> {
+        editLicenseText.setMovementMethod(new LinkMovementMethodExt((@NonNull String url) -> {
             if (url.equals("https://#login")) {
                 funnel.logLoginAttempt();
                 Intent loginIntent = LoginActivity.newIntent(EditSectionActivity.this,

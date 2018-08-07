@@ -380,7 +380,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
      * the result. For external links, they will be bounced out to the Browser.
      */
     private LinkMovementMethodExt linkMovementMethod =
-        new LinkMovementMethodExt((@NonNull String url, @Nullable String notUsed) -> {
+        new LinkMovementMethodExt((@NonNull String url) -> {
         L.v("Link clicked was " + url);
         url = resolveProtocolRelativeUrl(url);
         if (url.startsWith("/wiki/")) {

@@ -30,7 +30,8 @@ public abstract class ReferenceHandler implements CommunicationBridge.JSEventLis
             List<Reference> adjacentReferencesList = new ArrayList<>();
             for (int i = 0; i < referencesGroup.length(); i++) {
                 JSONObject reference = (JSONObject) referencesGroup.get(i);
-                adjacentReferencesList.add(new Reference(StringUtils.defaultString(reference.getString("text")), StringUtils.defaultString(reference.getString("html"))));
+                adjacentReferencesList.add(new Reference(StringUtils.defaultString(reference.optString("text")),
+                        StringUtils.defaultString(reference.optString("html"))));
             }
 
             onReferenceClicked(selectedIndex, adjacentReferencesList);
