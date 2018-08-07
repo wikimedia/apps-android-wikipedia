@@ -1,6 +1,7 @@
 package org.wikipedia.dataclient.okhttp;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -39,6 +40,9 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
     private static final List<String> SUPPORTED_SCHEMES = Arrays.asList("http", "https");
     private static final String HEADER_CONTENT_TYPE = "content-type";
     private static final String CONTENT_TYPE_OGG = "application/ogg";
+    private static final String PCS_CSS_SITE = "/data/css/mobile/site";
+    private static final String ACCEPT = "Accept";
+    private static final String CSS_CONTENT_TYPE = "text/css";
 
     @NonNull public abstract PageViewModel getModel();
 
@@ -77,6 +81,16 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
             if (CONTENT_TYPE_OGG.equals(rsp.header(HEADER_CONTENT_TYPE))) {
                 rsp.close();
                 return super.shouldInterceptRequest(view, request);
+            } else if (request.getUrl().toString().contains(PCS_CSS_SITE) && request.getRequestHeaders().get(ACCEPT).contains(CSS_CONTENT_TYPE)) {
+                Context context = WikipediaApp.getInstance().getApplicationContext();
+                if (!WikipediaApp.getInstance().isOnline() && rsp.body() != null && rsp.body().contentType() != null) {
+                    new WebResourceResponse(rsp.body().contentType().type() + "/" + rsp.body().contentType().subtype(),
+                            rsp.body().contentType().charset(Charset.defaultCharset()).name(),
+                            rsp.code(),
+                            StringUtils.defaultIfBlank(rsp.message(), "Unknown error"),
+                            toMap(rsp.headers()),
+                            context.getAssets().open("styles.css"));
+                }
             } else {
                 // noinspection ConstantConditions
                 return new WebResourceResponse(rsp.body().contentType().type() + "/" + rsp.body().contentType().subtype(),

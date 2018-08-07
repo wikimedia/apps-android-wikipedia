@@ -13,7 +13,11 @@ import android.webkit.WebView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.FileUtil;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -36,24 +40,22 @@ public class CommunicationBridge {
 
     private boolean isDOMReady;
     private final List<String> pendingJSMessages = new ArrayList<>();
+    private String htmlString;
 
     public interface JSEventListener {
         void onMessage(String messageType, JSONObject messagePayload);
     }
 
     @SuppressLint({"AddJavascriptInterface", "SetJavaScriptEnabled"})
-    public CommunicationBridge(final WebView webView, final String baseURL) {
+    public CommunicationBridge(final WebView webView, final String baseUrl) {
         this.webView = webView;
         this.marshaller = new BridgeMarshaller();
 
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
-
         webView.setWebChromeClient(new CommunicatingChrome());
         webView.addJavascriptInterface(marshaller, "marshaller");
-
-        webView.loadUrl(baseURL); // TODO: remove once we finish the page load experiment
-
+        webView.loadUrl(baseUrl);
         eventListeners = new HashMap<>();
         this.addListener("DOMLoaded", (messageType, messagePayload) -> {
             isDOMReady = true;
@@ -61,6 +63,16 @@ public class CommunicationBridge {
                 CommunicationBridge.this.webView.loadUrl(jsString);
             }
         });
+    }
+
+    public void loadPageForWiki(String baseUrl, String fileName, String wikiLanguageDomain) {
+        try {
+            htmlString = FileUtil.readFile(WikipediaApp.getInstance().getAssets().open(fileName));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        htmlString = htmlString.replace(WikipediaApp.getInstance().getResources().getString(R.string.href_placeholder), wikiLanguageDomain);
+        webView.loadDataWithBaseURL(baseUrl, htmlString, "text/html", "utf-8", "");
     }
 
     public void cleanup() {

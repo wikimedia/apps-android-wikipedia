@@ -303,7 +303,6 @@ bridge.registerListener( "getTextSelection", function( payload ) {
 });
 
 function setWindowAttributes( payload ) {
-    document.head.getElementsByTagName("base")[0].setAttribute("href", payload.siteBaseUrl);
 
     window.sequence = payload.sequence;
     window.apiLevel = payload.apiLevel;

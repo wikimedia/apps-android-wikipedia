@@ -113,5 +113,6 @@
     <string name="language_data">multilingual</string>
     <string name="add_square_brackets_to_string">[%s]</string>
     <string name="empty" />
+    <string name="href_placeholder">####</string>
 
 </resources>

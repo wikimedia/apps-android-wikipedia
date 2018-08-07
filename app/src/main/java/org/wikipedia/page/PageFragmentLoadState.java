@@ -101,6 +101,7 @@ public class PageFragmentLoadState {
     private LeadImagesHandler leadImagesHandler;
     private EditHandler editHandler;
     private CompositeDisposable disposables = new CompositeDisposable();
+    private JSONObject newPageWrapper;
 
     @SuppressWarnings("checkstyle:parameternumber")
     public void setUp(@NonNull PageViewModel model,
@@ -123,6 +124,7 @@ public class PageFragmentLoadState {
     }
 
     public void load(boolean pushBackStack, int stagedScrollY) {
+        bridge.loadPageForWiki("file:///android_asset/index.html", "index.html", model.getTitle().getWikiSite().url());
         if (pushBackStack) {
             // update the topmost entry in the backstack, before we start overwriting things.
             updateCurrentBackStackItem();
