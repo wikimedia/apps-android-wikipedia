@@ -39,7 +39,7 @@ document.onclick = function() {
             if ( href[0] === "#" ) {
                 if(pagelib.ReferenceCollection.isCitation(href)){
                     var adjacentReferences = pagelib.ReferenceCollection.collectNearbyReferences(document,event.target);
-                    bridge.sendMessage( 'referenceClicked', { "adjacentReferences": adjacentReferences } );
+                    bridge.sendMessage( 'referenceClicked', adjacentReferences );
                 }
             } else if (sourceNode.classList.contains( 'app_media' )) {
                 bridge.sendMessage( 'mediaClicked', { "href": href } );
