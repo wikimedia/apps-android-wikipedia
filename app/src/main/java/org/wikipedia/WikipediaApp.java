@@ -42,6 +42,7 @@ import org.wikipedia.language.AcceptLanguageUtil;
 import org.wikipedia.language.AppLanguageState;
 import org.wikipedia.login.UserExtendedInfoClient;
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
+import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.search.RecentSearch;
 import org.wikipedia.settings.Prefs;
@@ -54,8 +55,10 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewAnimations;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -83,6 +86,8 @@ public class WikipediaApp extends Application {
     private RefWatcher refWatcher;
     private Bus bus;
     private Theme currentTheme = Theme.getFallback();
+    private List<Tab> tabList = new ArrayList<>();
+
     private WikipediaZeroHandler zeroHandler;
 
     private static WikipediaApp INSTANCE;
@@ -172,6 +177,8 @@ public class WikipediaApp extends Application {
         funnelManager = new FunnelManager(this);
         sessionFunnel = new SessionFunnel(this);
         database = new Database(this);
+
+        initTabs();
 
         enableWebViewDebugging();
 
@@ -323,6 +330,26 @@ public class WikipediaApp extends Application {
         return mainThreadHandler;
     }
 
+    public List<Tab> getTabList() {
+        return tabList;
+    }
+
+    public void commitTabState() {
+        if (tabList.isEmpty()) {
+            Prefs.clearTabs();
+            initTabs();
+        } else {
+            Prefs.setTabs(tabList);
+        }
+    }
+
+    public int getTabCount() {
+        // handle the case where we have a single tab with an empty backstack,
+        // which shouldn't count as a valid tab:
+        return tabList.size() > 1 ? tabList.size()
+                : tabList.isEmpty() ? 0 : tabList.get(0).getBackStack().isEmpty() ? 0 : tabList.size();
+    }
+
     /**
      * Gets the current size of the app's font. This is given as a device-specific size (not "sp"),
      * and can be passed directly to setTextSize() functions.
@@ -404,5 +431,15 @@ public class WikipediaApp extends Application {
                 L.e("Failed to get user ID for " + code, caught);
             }
         });
+    }
+
+    private void initTabs() {
+        if (Prefs.hasTabs()) {
+            tabList.addAll(Prefs.getTabs());
+        }
+
+        if (tabList.isEmpty()) {
+            tabList.add(new Tab());
+        }
     }
 }

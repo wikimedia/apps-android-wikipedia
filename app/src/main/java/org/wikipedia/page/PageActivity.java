@@ -165,8 +165,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         FeedbackUtil.setToolbarButtonLongPressToast(searchButton, tabsButton);
-        tabsButton.setImageDrawable(ContextCompat.getDrawable(pageFragment.getContext(),
-                ResourceUtil.getTabListIcon(pageFragment.getTabCount())));
+        tabsButton.setImageDrawable(ContextCompat.getDrawable(this, ResourceUtil.getTabListIcon(app.getTabCount())));
 
         toolbarHideHandler = new PageToolbarHideHandler(pageFragment, toolbarContainerView, toolbar, tabsButton);
 

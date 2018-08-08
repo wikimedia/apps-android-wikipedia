@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 
@@ -70,14 +71,14 @@ public class PageToolbarHideHandler extends ViewHideHandler {
 
     @Override
     protected void onScrolled(int oldScrollY, int scrollY) {
-        tabsButton.setImageDrawable(ContextCompat.getDrawable(pageFragment.getContext(),
-                ResourceUtil.getTabListIcon(pageFragment.getTabCount())));
+        tabsButton.setImageDrawable(ContextCompat.getDrawable(pageFragment.requireContext(),
+                ResourceUtil.getTabListIcon(WikipediaApp.getInstance().getTabCount())));
 
         int opacity = calculateScrollOpacity(scrollY);
         toolbarBackground.setAlpha(opacity);
         updateChildIconTint(toolbar, opacity);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            pageFragment.getActivity().getWindow()
+            pageFragment.requireActivity().getWindow()
                     .setStatusBarColor(calculateStatusBarTintForOpacity(opacity));
         }
     }
