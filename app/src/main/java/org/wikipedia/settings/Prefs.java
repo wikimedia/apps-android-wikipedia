@@ -271,6 +271,18 @@ public final class Prefs {
         setBoolean(R.string.preference_key_eventlogging_opt_in, enabled);
     }
 
+    public static String getAnnouncementsCountryOverride() {
+        return getString(R.string.preference_key_announcement_country_override, null);
+    }
+
+    public static boolean ignoreDateForAnnouncements() {
+        return getBoolean(R.string.preference_key_announcement_ignore_date, false);
+    }
+
+    public static int announcementsVersionCode() {
+        return getInt(R.string.preference_key_announcement_version_code, 0);
+    }
+
     public static boolean useRestBaseSetManually() {
         return getBoolean(R.string.preference_key_use_restbase_manual, false);
     }

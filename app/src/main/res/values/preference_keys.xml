@@ -19,6 +19,9 @@
     <string name="preference_key_toc_tutorial_enabled">tocTutorialEnabled</string>
     <string name="preference_key_multilingual_search_tutorial_enabled">multilingualSearchTutorialEnabled</string>
     <string name="preference_key_show_images">showImages</string>
+    <string name="preference_key_announcement_country_override">announcementCountryOverride</string>
+    <string name="preference_key_announcement_ignore_date">announcementIgnoreDate</string>
+    <string name="preference_key_announcement_version_code">announcementVersionCode</string>
     <string name="preference_key_use_restbase">useRestbase</string>
     <string name="preference_key_use_restbase_manual">useRestbase_setManually</string>
     <string name="preference_key_restbase_ticket">restbaseTicket</string>

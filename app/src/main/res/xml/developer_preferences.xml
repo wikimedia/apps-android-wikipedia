@@ -6,6 +6,26 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/preferences_developer_announcements_heading">
+
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/EditTextAutoSummarizePreference"
+            android:key="@string/preference_key_announcement_country_override"
+            android:title="@string/preferences_developer_announcement_country_override"
+            android:dialogMessage="@string/preferences_developer_announcement_country_override_hint" />
+
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_announcement_ignore_date"
+            android:title="@string/preferences_developer_announcement_ignore_date" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_announcement_version_code"
+            android:title="@string/preference_key_announcement_version_code"
+            android:dialogMessage="@string/preferences_developer_announcement_version_code_hint"/>
+
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/preferences_developer_restbase_heading">
 
         <SwitchPreferenceCompat

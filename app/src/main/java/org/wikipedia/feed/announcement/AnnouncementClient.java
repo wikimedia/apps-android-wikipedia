@@ -146,6 +146,10 @@ public class AnnouncementClient implements FeedClient {
     }
 
     private static boolean matchesCountryCode(@NonNull Announcement announcement, String country) {
+        String announcementsCountryOverride = Prefs.getAnnouncementsCountryOverride();
+        if (!TextUtils.isEmpty(announcementsCountryOverride)) {
+            country = announcementsCountryOverride;
+        }
         if (TextUtils.isEmpty(country)) {
             return false;
         }
@@ -156,6 +160,9 @@ public class AnnouncementClient implements FeedClient {
     }
 
     private static boolean matchesDate(@NonNull Announcement announcement, Date date) {
+        if (Prefs.ignoreDateForAnnouncements()) {
+            return true;
+        }
         if (announcement.startTime() != null && announcement.startTime().after(date)) {
             return false;
         }
@@ -179,11 +186,13 @@ public class AnnouncementClient implements FeedClient {
     }
 
     private static boolean matchesVersionCodes(@Nullable String minVersion, @Nullable String maxVersion) {
+        int versionCode = (Prefs.announcementsVersionCode() > 0)
+                ? Prefs.announcementsVersionCode() : WikipediaApp.getInstance().getVersionCode();
         try {
-            if (!TextUtils.isEmpty(minVersion) && Integer.parseInt(minVersion) > WikipediaApp.getInstance().getVersionCode()) {
+            if (!TextUtils.isEmpty(minVersion) && Integer.parseInt(minVersion) > versionCode) {
                 return false;
             }
-            if (!TextUtils.isEmpty(maxVersion) && Integer.parseInt(maxVersion) < WikipediaApp.getInstance().getVersionCode()) {
+            if (!TextUtils.isEmpty(maxVersion) && Integer.parseInt(maxVersion) < versionCode) {
                 return false;
             }
         } catch (NumberFormatException e) {
