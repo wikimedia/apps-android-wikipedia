@@ -136,12 +136,30 @@ public class AnnouncementClient implements FeedClient {
                               @NonNull Date date) {
         if (announcement == null
                 || !(announcement.platforms().contains(PLATFORM_CODE) || announcement.platforms().contains(PLATFORM_CODE_NEW))
-                || TextUtils.isEmpty(country)
-                || !announcement.countries().contains(country)
-                || (announcement.startTime() != null && announcement.startTime().after(date))
-                || (announcement.endTime() != null && announcement.endTime().before(date))
+                || !matchesCountryCode(announcement, country)
+                || !matchesDate(announcement, date)
                 || !matchesVersionCodes(announcement.minVersion(), announcement.maxVersion())
                 || !matchesConditions(announcement)) {
+            return false;
+        }
+        return true;
+    }
+
+    private static boolean matchesCountryCode(@NonNull Announcement announcement, String country) {
+        if (TextUtils.isEmpty(country)) {
+            return false;
+        }
+        if (!announcement.countries().contains(country)) {
+            return false;
+        }
+        return true;
+    }
+
+    private static boolean matchesDate(@NonNull Announcement announcement, Date date) {
+        if (announcement.startTime() != null && announcement.startTime().after(date)) {
+            return false;
+        }
+        if (announcement.endTime() != null && announcement.endTime().before(date)) {
             return false;
         }
         return true;
