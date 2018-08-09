@@ -22,6 +22,7 @@
   <string name="search_hint_search_history">Søgehistorik</string>
   <string name="search_hint_search_my_lists">Søg i mine lister</string>
   <string name="search_hint_search_reading_list">Søg i læseliste</string>
+  <string name="search_hint_search_languages">Søg efter et sprog</string>
   <string name="nav_item_history">Historik</string>
   <string name="error_network_error">Kan ikke oprette forbindelse til internettet.</string>
   <string name="page_error_retry">Prøv igen</string>
@@ -63,12 +64,13 @@
   <string name="content_license_html">Indholdet er udgivet under &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; medmindre andet er angivet</string>
   <string name="edit_save_action_license_logged_in">Ved at gemme, accepterer du &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dit bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen.</string>
   <string name="edit_save_action_license_anon">Ved at gemme, accepterer du &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dit bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen. Ændringer vil blive tilskrevet IP-adressen for din enhed. Hvis du &lt;a href=\"https://#login\"&gt;logger på&lt;/a&gt;, vil du have mere privatliv.</string>
-  <string name="preference_title_language" fuzzy="true">Wikipediasprog</string>
+  <string name="preference_title_language">Wikipediasprog</string>
   <string name="preference_languages_filter_hint">Søg</string>
   <string name="langlinks_filter_hint">Søg</string>
   <string name="langlinks_empty">Denne side er ikke tilgængelig på andre sprog</string>
-  <string name="langlinks_no_match" fuzzy="true">Ingen fundne sprog der passer til din forespørgsel.</string>
+  <string name="langlinks_no_match">Intet sprog blev fundet</string>
   <string name="langlinks_activity_title">Andre sprog</string>
+  <string name="langlinks_your_wikipedia_languages">Dine Wikipedia-sprog</string>
   <string name="menu_save_changes">Offentliggør ændringer</string>
   <string name="dialog_saving_in_progress">Offentliggører…</string>
   <string name="edit_saved_successfully">Redigering offentliggjort!</string>
@@ -96,6 +98,9 @@
   <string name="login_activity_title">Log på Wikipedia</string>
   <string name="login_in_progress_dialog_message">Logger dig på…</string>
   <string name="login_success_toast">Du er nu logget på!</string>
+  <string name="reset_password_title">Sæt din adgangskode</string>
+  <string name="reset_password_hint">Ny adgangskode</string>
+  <string name="reset_password_button">Gem og logind</string>
   <string name="preference_title_logout">Log af</string>
   <string name="toast_logout_complete">Logget af</string>
   <string name="history_empty_title">Ingen nyligt læste artikler.</string>
@@ -228,6 +233,8 @@
   <string name="dialog_close_description">Luk</string>
   <string name="preference_title_show_images">Vis billeder</string>
   <string name="preference_summary_show_images">Slå indlæsning af billeder på sider til eller fra. Fravælg denne indstilling, hvis din internetforbindelse er langsom, eller hvis dit dataabonnement er begrænset.</string>
+  <string name="preference_title_download_only_over_wifi">Download kun via WI-FI</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Tillad</string>
   <string name="read_more_section">Læs mere</string>
   <string name="about_article_section">Om denne artikel</string>
   <string name="menu_gallery_visit_page">Gå til filside</string>
@@ -478,8 +485,8 @@
   <string name="view_featured_article_footer_saved_button_label">Gemt</string>
   <string name="feed_configure_activity_title">Tilpas nyhedskilden</string>
   <string name="feed_configure_menu_reset">Gendan standardvisningen</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">Vælg alle</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">Fravælg alle</string>
+  <string name="feed_configure_menu_select_all">Vis alt</string>
+  <string name="feed_configure_menu_deselect_all">Skjul alt</string>
   <string name="feed_item_type_news">Artikler om aktuelle hændelser</string>
   <string name="feed_item_type_on_this_day">Historiske hændelser på denne dag</string>
   <string name="feed_item_type_continue_reading">Hurtig henvisning tilbage til en åben artikel i et af dine faneblade</string>
@@ -596,6 +603,7 @@
   <string name="onboarding_create_account_contributions">Hold styr på dine bidrag</string>
   <string name="onboarding_create_account_preferences">Gem dine præferencer</string>
   <string name="onboarding_got_it">O.k.</string>
+  <string name="onboarding_multilingual_add_language_text">Tilføj eller rediger sprog</string>
   <string name="app_shortcuts_random">Vilkårlig</string>
   <string name="app_shortcuts_continue_reading">Fortsæt læsning</string>
   <string name="app_shortcuts_search">Søg</string>
@@ -611,4 +619,15 @@
     <item quantity="other">%d år siden</item>
   </plurals>
   <string name="languages_list_activity_title">Tilføj et sprog</string>
+  <string name="languages_list_all_text">Alle sprog</string>
+  <string name="wikipedia_languages_title">Wikipedia sprog</string>
+  <string name="wikipedia_languages_your_languages_text">Dine sprog</string>
+  <string name="wikipedia_languages_add_language_text">Tilføj sprog</string>
+  <string name="wikipedia_languages_remove_text">Fjern sprog</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Fjern sprog</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Kan ikke fjerne alle sprog</string>
+  <string name="more_language_options">mere</string>
+  <string name="add_wikipedia_languages_text">Tilføj Wikipedia sprog</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Rediger sprog</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nej tak</string>
 </resources>

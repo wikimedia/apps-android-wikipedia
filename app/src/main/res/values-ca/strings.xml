@@ -416,6 +416,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Habilita la sincronització</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No, gràcies</string>
   <string name="reading_list_login_option_reminder_dialog_title">S\'han trobat articles de llistes de lectura</string>
+  <string name="reading_list_login_option_reminder_dialog_text">S\'han desat articles a la llista de lectura mentre no havíeu iniciat la sessió. Voleu afegir-los a les llistes de lectura del vostre compte?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Sí, afegeix-les a les meves llistes de lectura</string>
   <string name="reading_list_login_option_reminder_dialog_no">No, elimina els articles</string>
   <string name="reading_list_logout_option_reminder_dialog_title">Voleu conservar els articles desats a l\'aplicació?</string>

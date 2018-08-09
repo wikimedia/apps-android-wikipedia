@@ -130,7 +130,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detaljer</string>
   <string name="preferences_general_heading">Allmänt</string>
-  <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
+  <string name="wikipedia_app_faq">Vanliga frågor om Wikipedia-appen</string>
   <string name="zero_charged_verbiage">Fri tillgång till Wikipedia är inte längre aktiv.</string>
   <string name="zero_warn_when_leaving">Varna om jag lämnar Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Om din mobiloperatör ingått ett partnerskap med Wikipedia Zero, som ger dig tillgång till Wikipedia utan datatrafiksavgifter, varnas du om du lämnar appen och riskerar att betala för datatrafik om du har aktiverat denna inställning.</string>
@@ -176,7 +176,7 @@
   <string name="privacy_policy_description">Integritetspolicy</string>
   <string name="terms_of_use_description">Användarvillkor</string>
   <string name="about_wikipedia_url">https://sv.m.wikipedia.org/wiki/Wikipedia:Om</string>
-  <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv#Läsa_offline_och_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
@@ -332,7 +332,7 @@
   <string name="preference_summary_color_theme">Byt till appens mörka färgtema</string>
   <string name="text_size_increase">Öka textstorlek</string>
   <string name="text_size_decrease">Minska textstorlek</string>
-  <string name="text_size_percent_default">%s (Standard)</string>
+  <string name="text_size_percent_default">%s (standard)</string>
   <string name="nav_item_reading_lists">Mina listor</string>
   <string name="reading_list_untitled">Namnlös</string>
   <string name="reading_list_save_to">Spara i läslista</string>
@@ -370,8 +370,8 @@
   <string name="reading_list_item_delete_undo">Ångra</string>
   <string name="reading_list_deleted">%s raderades</string>
   <string name="saved_list_empty_title">Inga sparade sidor ännu</string>
-  <string name="reading_lists_empty_message">Lägg till artiklar i en lista att läsa senare, även när du är offline.</string>
-  <string name="reading_lists_onboarding_intro">Lägg till artiklar i en lista för att läsa senare, även när du är offline.</string>
+  <string name="reading_lists_empty_message">Lägg till artiklar i en lista för att läsa senare, även när du saknar uppkoppling.</string>
+  <string name="reading_lists_onboarding_intro">Lägg till artiklar i en lista för att läsa senare, även när du saknar uppkoppling!</string>
   <string name="reading_lists_onboarding_for_example">Till exempel</string>
   <string name="reading_lists_onboarding_example1">Platser att besöka</string>
   <string name="reading_lists_onboarding_example2">Favoritdjur</string>

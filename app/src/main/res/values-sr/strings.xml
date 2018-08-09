@@ -60,7 +60,7 @@
   <string name="map_view_link_text">Погледај на мапи</string>
   <string name="other_languages_indication_text">Прочитај на другом језику</string>
   <string name="language_count_link_text">Доступан на %d других језика</string>
-  <string name="content_license_html">Садржај је доступан под лиценцом &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, осим ако није другачије наведено</string>
+  <string name="content_license_html">Садржај је доступан под лиценцом &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; осим ако је другачије наведено</string>
   <string name="edit_save_action_license_logged_in">Чувањем измена, слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање ваших доприноса по лиценци &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Чувањем измена, слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање ваших доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Измене ће бити приписане IP адреси вашег уређаја. Ако се &lt;a href=\"https://#login\"&gt;пријавите&lt;/a&gt;, имаћете већу приватност.</string>
   <string name="preference_title_language">Језици Википедије</string>
@@ -81,9 +81,9 @@
   <string name="dialog_message_leaving_edit_stay">Остани</string>
   <string name="menu_show_toc">Садржај</string>
   <string name="search_no_results_found">Нема резултата</string>
-  <string name="search_reading_list_no_results">Нема резултата на списку „%s“</string>
-  <string name="search_reading_lists_no_results">Нема резултата на списковима за читање</string>
-  <string name="search_history_no_results">Нема резултата у историји</string>
+  <string name="search_reading_list_no_results">Нису пронађени резултати на списку „%s”</string>
+  <string name="search_reading_lists_no_results">Нису пронађени резултати на списковима за читање</string>
+  <string name="search_history_no_results">Нису пронађени резултати у историји</string>
   <string name="edit_section_captcha_message">Да бисте помогли у заштити против аутоматизованог нежељеног садржаја, унесите речи које су приказане испод</string>
   <string name="edit_section_captcha_hint">Поново напишите речи изнад</string>
   <string name="title_captcha">Унесите одговор са слике</string>
@@ -91,8 +91,8 @@
   <string name="nav_item_login">Пријава на Википедију</string>
   <string name="login_username_hint">Корисничко име</string>
   <string name="login_password_hint">Лозинка</string>
-  <string name="login_2fa_hint">Кôд верификације у два корака</string>
-  <string name="login_2fa_other_workflow_error_msg">Потребна је верификација у два корака! Вратите се на главну активност и пријавите се помоћу 2FA токена, па покушајте поново.</string>
+  <string name="login_2fa_hint">Двофакторски код за аутентификацију</string>
+  <string name="login_2fa_other_workflow_error_msg">Двофакторска аутентификација неопходна!  Вратите се на главне активности и пријавите са својим 2ФА токеном; покушајте поново.</string>
   <string name="menu_login">Пријави ме</string>
   <string name="login_activity_title">Пријава на Википедију</string>
   <string name="login_in_progress_dialog_message">Пријављујем вас…</string>
@@ -325,6 +325,7 @@
   <string name="color_theme_black">Црна</string>
   <string name="color_theme_test_title">Пример текста</string>
   <string name="preference_title_app_theme">Тема апликације</string>
+  <string name="preference_summary_color_theme">Промените тему апликације у тамну</string>
   <string name="text_size_increase">Повећај величину текста</string>
   <string name="text_size_decrease">Смањи величину текста</string>
   <string name="text_size_percent_default">%s (подразумевано)</string>
@@ -409,6 +410,8 @@
   <string name="default_reading_list_description">Подразумевана листа за сачуване чланке</string>
   <string name="no_user_lists_title">Организујте чланке у листама</string>
   <string name="reading_list_saved_list_rename">%1$s (направио корисник)</string>
+  <string name="reading_list_article_limit_message">Не могу да додам у ову листу. Достигли сте ограничење од %2$d чланака по листи за „%1$s“.</string>
+  <string name="reading_lists_limit_message">Не могу да направим другу листу. Достигли сте ограничење од 100 листа за читање по налогу.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Синхронизација спискова за читање&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Спискови за читање се сада могу синхронизовати међу уређајима. Пријавите се с налогом на Википедији и дозволите чување спискова.</string>
   <string name="reading_lists_menu_create_list">Направи нови списак</string>
   <string name="reading_lists_menu_sort_by">Сортирај по</string>
@@ -497,6 +500,8 @@
   <string name="feed_configure_menu_deselect_all">Сакриј све</string>
   <string name="feed_item_type_news">Чланци о текућим догађајима</string>
   <string name="feed_item_type_on_this_day">Историјски догађаји на данашњи дан</string>
+  <string name="feed_item_type_featured_article">Изабрани чланак дана на Википедији</string>
+  <string name="feed_item_type_randomizer">Генеришите случајне чланке за читање</string>
   <string name="feed_configure_onboarding_action">Прилагоди</string>
   <string name="description_edit_text_hint">Опис наслова</string>
   <string name="description_edit_save">Објави</string>
@@ -536,6 +541,7 @@
   <string name="description_edit_revert_reason1">ваша измена није била у складу са неком од &lt;a href=\"%1$s\"&gt;смерница&lt;/a&gt;</string>
   <string name="description_edit_revert_reason2">ваша измена је изгледала као експеримент или вандализам</string>
   <string name="description_edit_revert_history">Ако сте заинтересовани, погледајте &lt;a href=\"%1$s\"&gt;историју уређивања&lt;/a&gt;.</string>
+  <string name="offline_compilation_download_device_offline">Нема везе са интернетом. Уверите се да сте повезани па покушајте поново.</string>
   <string name="offline_compilations_title">Офлајн библиотека</string>
   <string name="offline_compilations_search_by_name">Претражуј пакете чланака по имену</string>
   <string name="offline_compilations_found_count">У мојој офлајн библиотеци (%d)</string>
