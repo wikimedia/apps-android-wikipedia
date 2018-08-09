@@ -382,7 +382,6 @@ function setTitleElement( parentNode ) {
         audioAnchor.innerHTML = audioIcon.outerHTML;
         h1.appendChild(audioAnchor);
     }
-    titleDiv.appendChild(h1);
 
     // Div that will contain the description and edit pencil
     var descriptionDiv = document.createElement( "div" );
@@ -421,8 +420,11 @@ function setTitleElement( parentNode ) {
 
     descriptionDiv.appendChild(mainEditPencilAnchor);
     descriptionDiv.appendChild(descriptionSpan);
-    titleDiv.appendChild(descriptionDiv);
-    titleDiv.appendChild(dividerLine);
+    if (!window.isMainPage) {
+        titleDiv.appendChild(h1);
+        titleDiv.appendChild(descriptionDiv);
+        titleDiv.appendChild(dividerLine);
+    }
     parentNode.appendChild(titleDiv);
 }
 
