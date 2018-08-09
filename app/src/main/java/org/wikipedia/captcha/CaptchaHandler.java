@@ -21,8 +21,10 @@ import com.facebook.imagepipeline.image.ImageInfo;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.ViewAnimations;
 
 import retrofit2.Call;
@@ -49,6 +51,7 @@ public class CaptchaHandler {
         this.primaryView = primaryView;
         this.prevTitle = prevTitle;
 
+        TextView requestAccountText = activity.findViewById(R.id.request_account_text);
         captchaContainer = activity.findViewById(R.id.captcha_container);
         captchaImage = activity.findViewById(R.id.captcha_image);
         captchaText = ((TextInputLayout) activity.findViewById(R.id.captcha_text)).getEditText();
@@ -60,6 +63,8 @@ public class CaptchaHandler {
             submitButton.setVisibility(View.VISIBLE);
         }
 
+        requestAccountText.setText(StringUtil.fromHtml(activity.getString(R.string.edit_section_captcha_request_an_account_message)));
+        requestAccountText.setMovementMethod(new LinkMovementMethodExt((url) -> FeedbackUtil.showAndroidAppRequestAnAccount(activity)));
         captchaImage.setOnClickListener((v) -> {
             captchaProgress.setVisibility(View.VISIBLE);
 

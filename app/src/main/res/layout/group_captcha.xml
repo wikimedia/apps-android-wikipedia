@@ -22,6 +22,15 @@
         android:textColor="?attr/primary_text_color"
         android:layout_margin="0dp"/>
 
+    <TextView
+        android:id="@+id/request_account_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/edit_section_captcha_request_an_account_message"
+        style="@style/MaterialListSubtitle"
+        android:textColor="?attr/primary_text_color"/>
+
     <FrameLayout
         android:layout_width="240dp"
         android:layout_height="wrap_content"

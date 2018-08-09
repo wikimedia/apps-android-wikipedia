@@ -677,4 +677,6 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Description of the dialog that prompts to the users about removing a Chinese variant from the app languages.</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Affirmative answer to open the Wikipedia languages page to manage the existing languages that have been set up.</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Negative answer to keep the existing app languages settings.</string>
+  <string name="edit_section_captcha_request_an_account_message">Text informing the user that there is an alternate way to create an account, if in case the user cannot read the captcha, with a link to the page to request an account. </string>
+  <string name="android_app_request_an_account_url">URL leading to the page of Wikimedia account request. If you can find the appropriate language specific URL of the mobile site please do so</string>
 </resources>
