@@ -195,10 +195,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
 
     applySectionTransforms(content, true);
 
-    bridge.sendMessage( "pageInfo", {
-      "issues" : collectIssues(),
-      "disambiguations" : collectDisambig()
-    });
     //if there were no page issues, then hide the container
     if (!issuesContainer.hasChildNodes()) {
         document.getElementById( "content" ).removeChild(issuesContainer);
@@ -264,6 +260,10 @@ function displayRemainingSections(json, sequence, scrollY, fragment) {
     var contentWrapper = document.getElementById( "content" );
     var scrolled = false;
 
+    var response = { "sequence": sequence };
+    response.issues = collectIssues();
+    response.disambiguations = collectDisambig();
+
     json.sections.forEach(function (section) {
         elementsForSection(section).forEach(function (element) {
             contentWrapper.appendChild(element);
@@ -286,7 +286,7 @@ function displayRemainingSections(json, sequence, scrollY, fragment) {
     transformer.transform( "fixAudio", document );
     transformer.transform( "hideTables", document );
     lazyLoadTransformer.loadPlaceholders();
-    bridge.sendMessage( "pageLoadComplete", { "sequence": sequence });
+    bridge.sendMessage( "pageLoadComplete", response );
 }
 
 var remainingRequest;

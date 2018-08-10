@@ -713,6 +713,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         model.setCurEntry(entry);
         model.setReadingListPage(null);
         model.setForceNetwork(isRefresh);
+        pageInfo = null;
 
         updateProgressBar(true, true, 0);
 
@@ -921,7 +922,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         tocHandler.scrollToSection(sectionAnchor);
     }
 
-    public void onPageLoadComplete() {
+    public void onPageLoadComplete(@Nullable PageInfo pageInfo) {
+        this.pageInfo = pageInfo;
         refreshView.setEnabled(true);
         if (callback() != null) {
             callback().onPageInvalidateOptionsMenu();
@@ -1252,13 +1254,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             tabsProvider.invalidate();
         }
         return false;
-    }
-
-    public void updatePageInfo(@Nullable PageInfo pageInfo) {
-        this.pageInfo = pageInfo;
-        if (getActivity() != null) {
-            getActivity().invalidateOptionsMenu();
-        }
     }
 
     private void checkAndShowSelectTextOnboarding() {
