@@ -238,9 +238,7 @@ public class PageFragmentLoadState {
         ErrorCallback callback = networkErrorCallback;
         networkErrorCallback = null;
         loading = false;
-        if (fragment.callback() != null) {
-            fragment.callback().onPageInvalidateOptionsMenu();
-        }
+        fragment.requireActivity().invalidateOptionsMenu();
         if (callback != null) {
             callback.call(caught);
         }
@@ -346,8 +344,8 @@ public class PageFragmentLoadState {
             return;
         }
         loading = true;
+        fragment.requireActivity().invalidateOptionsMenu();
         if (fragment.callback() != null) {
-            fragment.callback().onPageInvalidateOptionsMenu();
             fragment.callback().onPageUpdateProgressBar(true, true, 0);
         }
         pageLoadLeadSection(sequenceNumber.get());
@@ -579,7 +577,7 @@ public class PageFragmentLoadState {
             if (!fragment.isAdded()) {
                 return;
             }
-            fragment.callback().onPageInvalidateOptionsMenu();
+            fragment.requireActivity().invalidateOptionsMenu();
             pageLoadRemainingSections(sequenceNumber.get());
         });
 

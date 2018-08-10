@@ -122,7 +122,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                                     @NonNull AddToReadingListDialog.InvokeSource source);
         void onPageRemoveFromReadingLists(@NonNull PageTitle title);
         void onPagePopFragment();
-        void onPageInvalidateOptionsMenu();
         void onPageLoadError(@NonNull PageTitle title);
         void onPageLoadErrorBackPressed();
         void onPageHideAllContent();
@@ -742,9 +741,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             return;
         }
         pageActionTabsCallback.updateBookmark(model.isInReadingList());
-        if (callback() != null) {
-            callback().onPageInvalidateOptionsMenu();
-        }
+        requireActivity().invalidateOptionsMenu();
     }
 
     public void updateBookmarkAndMenuOptionsFromDao() {
@@ -756,9 +753,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 }
                 model.setReadingListPage(page);
                 pageActionTabsCallback.updateBookmark(page != null);
-                if (callback() != null) {
-                    callback().onPageInvalidateOptionsMenu();
-                }
+                requireActivity().invalidateOptionsMenu();
             }
         });
     }
@@ -925,9 +920,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public void onPageLoadComplete(@Nullable PageInfo pageInfo) {
         this.pageInfo = pageInfo;
         refreshView.setEnabled(true);
-        if (callback() != null) {
-            callback().onPageInvalidateOptionsMenu();
-        }
+        requireActivity().invalidateOptionsMenu();
+
         setupToC(model, pageFragmentLoadState.isFirstPage());
         editHandler.setPage(model.getPage());
         initPageScrollFunnel();
