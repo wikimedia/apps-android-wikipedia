@@ -249,19 +249,6 @@ public class PageFragmentLoadState {
     }
 
     private void setUpBridgeListeners() {
-        bridge.addListener("onBeginNewPage", new SynchronousBridgeListener() {
-            @Override
-            public void onMessage(JSONObject payload) {
-                try {
-                    if (!sequenceNumber.inSync(payload.getInt("sequence"))) {
-                        return;
-                    }
-                    pageLoadWebViewReady();
-                } catch (JSONException e) {
-                    L.logRemoteErrorIfProd(e);
-                }
-            }
-        });
         bridge.addListener("loadRemainingError", new SynchronousBridgeListener() {
             @Override
             public void onMessage(JSONObject payload) {
@@ -335,8 +322,7 @@ public class PageFragmentLoadState {
                     return;
                 }
                 model.setReadingListPage(page);
-                fragment.updateBookmarkAndMenuOptions();
-                pageLoadPrepareWebView();
+                pageLoadFromNetwork((final Throwable networkError) -> fragment.onPageLoadError(networkError));
             }
             @Override
             public void failure(Throwable caught) {
@@ -344,27 +330,16 @@ public class PageFragmentLoadState {
                     return;
                 }
                 L.w(caught);
-                fragment.updateBookmarkAndMenuOptions();
-                pageLoadPrepareWebView();
+                pageLoadFromNetwork((final Throwable networkError) -> fragment.onPageLoadError(networkError));
             }
         });
     }
 
-    private void pageLoadPrepareWebView() {
-        try {
-            JSONObject wrapper = new JSONObject();
-            // whatever we pass to this event will be passed back to us by the WebView!
-            wrapper.put("sequence", sequenceNumber.get());
-            bridge.sendMessage("beginNewPage", wrapper);
-        } catch (JSONException e) {
-            L.logRemoteErrorIfProd(e);
-        }
-    }
-
-    private void pageLoadWebViewReady() {
+    private void pageLoadFromNetwork(final ErrorCallback errorCallback) {
         if (model.getTitle() == null) {
             return;
         }
+        fragment.updateBookmarkAndMenuOptions();
         // stage any section-specific link target from the title, since the title may be
         // replaced (normalized)
         sectionTargetFromTitle = model.getTitle().getFragment();
@@ -372,10 +347,6 @@ public class PageFragmentLoadState {
         L10nUtil.setupDirectionality(model.getTitle().getWikiSite().languageCode(), Locale.getDefault(),
                 bridge);
 
-        pageLoadFromNetwork((final Throwable networkError) -> fragment.onPageLoadError(networkError));
-    }
-
-    private void pageLoadFromNetwork(final ErrorCallback errorCallback) {
         networkErrorCallback = errorCallback;
         if (!fragment.isAdded()) {
             return;
