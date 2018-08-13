@@ -305,6 +305,7 @@
   <string name="preference_title_prefer_offline_content">Приоритет има офлајн садржај</string>
   <string name="preference_summary_prefer_offline_content">Уштедите на саобраћају приказивањем офлајн верзије чланка уместо сталног преузимања најновије верзије.</string>
   <string name="preference_title_enable_offline_library">Омогући офлајн библиотеку</string>
+  <string name="preference_summary_enable_offline_library">Приступ пакетима са чланцима Википедије (приказани као .ZIM датотеке) који су преузети на ваш уређај за читање када сте ван мреже. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Сазнајте више&lt;/a&gt;.</string>
   <string name="crash_report_dialog_title">Апликација је отказала прошли пут</string>
   <string name="crash_report_dialog_text">Да ли бисте желели да пошаљете извештај о квару HockeyApp-у / сервису треће стране тако да Викимедија може да испита ваш случај и поправи баг који га је узроковао?</string>
   <string name="crash_report_dialog_dont_send_button">Прескочи</string>
@@ -324,6 +325,7 @@
   <string name="color_theme_dark">Тамна</string>
   <string name="color_theme_black">Црна</string>
   <string name="color_theme_test_title">Пример текста</string>
+  <string name="color_theme_test_text">Превлачите клизач за промену величине текста у чланцима које читате. Да бисте поставили величину фонта у целој апликацији, промените је у подешавањима система.</string>
   <string name="preference_title_app_theme">Тема апликације</string>
   <string name="preference_summary_color_theme">Промените тему апликације у тамну</string>
   <string name="text_size_increase">Повећај величину текста</string>
@@ -366,8 +368,8 @@
   <string name="reading_list_item_delete_undo">Опозови</string>
   <string name="reading_list_deleted">Списак %s је избрисан</string>
   <string name="saved_list_empty_title">Нема спискова за читање још увек</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Спремите чланке на списак за читање тако да их можете погледати касније, чак и када се офлајн.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Направите спискове за читање тако да можете да читате касније, чак и када сте офлајн!</string>
+  <string name="reading_lists_empty_message">Додајте чланке у листу за читање касније, чак и када сте офлајн.</string>
+  <string name="reading_lists_onboarding_intro">Додајте чланке у листу за читање касније, чак и када сте офлајн!</string>
   <string name="reading_lists_onboarding_for_example">На пример</string>
   <string name="reading_lists_onboarding_example1">Места за посету</string>
   <string name="reading_lists_onboarding_example2">Омиљене животиње</string>
@@ -384,10 +386,16 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Чланак се појављује на више спискова</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s више неће да буде доступна офлајн за све спискове за читање:</string>
   <string name="reading_lists_sync_reminder_title">Укључити синхронизацију листа за читање?</string>
+  <string name="reading_lists_sync_reminder_text">Чланци сачувани у листама за читање сада могу бити синхронизовани са вашим налогом на Википедији. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сазнајте више&lt;/a&gt;.</string>
+  <string name="reading_lists_login_reminder_text_with_link">Листе за читање сада могу бити синхронизоване међу уређајима. Пријавите се на ваш налог на Википедији и дозволите чување листа. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сазнајте више&lt;/a&gt;.</string>
   <string name="reading_lists_sync_reminder_action">Омогући синхронизацију</string>
   <string name="reading_list_login_reminder_title">Синхронизација листа за читање</string>
+  <string name="reading_lists_login_reminder_text">Листе за читање сада могу бити синхронизоване међу уређајима. Пријавите се на ваш налог на Википедији и дозволите чување листа.</string>
+  <string name="reading_lists_confirm_remote_delete">Овим ћете избрисати све раније синхронизоване листе за читање са удаљеног складишта. Наставити?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
+  <string name="reading_list_already_contains_selection">Изабрана листа већ садржи све изабране странице.</string>
+  <string name="reading_list_added_articles_list_titled">У листу „%2$s“ су додати чланци (%1$d)</string>
   <string name="reading_list_delete_confirm">Заиста желите да избришете %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Пријавите се да бисте омогућили синхронизацију</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Пријавите се како би листе за читање биле сачуване на ваш налог.</string>
@@ -501,6 +509,8 @@
   <string name="feed_item_type_news">Чланци о текућим догађајима</string>
   <string name="feed_item_type_on_this_day">Историјски догађаји на данашњи дан</string>
   <string name="feed_item_type_featured_article">Изабрани чланак дана на Википедији</string>
+  <string name="feed_item_type_trending">Најчитанији чланци за данас</string>
+  <string name="feed_item_type_featured_image">Изабрана слика дана са Викиоставе</string>
   <string name="feed_item_type_randomizer">Генеришите случајне чланке за читање</string>
   <string name="feed_configure_onboarding_action">Прилагоди</string>
   <string name="description_edit_text_hint">Опис наслова</string>
@@ -542,6 +552,7 @@
   <string name="description_edit_revert_reason2">ваша измена је изгледала као експеримент или вандализам</string>
   <string name="description_edit_revert_history">Ако сте заинтересовани, погледајте &lt;a href=\"%1$s\"&gt;историју уређивања&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">Нема везе са интернетом. Уверите се да сте повезани па покушајте поново.</string>
+  <string name="offline_my_compilations">Управљај мојом офлајн библиотеком</string>
   <string name="offline_compilations_title">Офлајн библиотека</string>
   <string name="offline_compilations_search_by_name">Претражуј пакете чланака по имену</string>
   <string name="offline_compilations_found_count">У мојој офлајн библиотеци (%d)</string>

@@ -106,6 +106,7 @@
   <string name="history_empty_title">Ingen nyligt læste artikler.</string>
   <string name="history_empty_message">Hold styr på hvad du har læst her.</string>
   <string name="search_empty_message">Søg og læs den frie encyklopædi på dit sprog</string>
+  <string name="search_empty_message_multilingual_upgrade">Søg på Wikipedia i flere sprog</string>
   <string name="delete_selected_items">Slet valgte elementer</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Brugernavn</string>
@@ -347,7 +348,7 @@
   <string name="reading_list_sort_by_created">Sorter efter dato oprettet (nyeste)</string>
   <string name="reading_list_sort_by_created_desc">Sorter efter dato oprettet (ældste)</string>
   <string name="reading_list_menu_delete">Slet liste</string>
-  <string name="reading_list_menu_rename" fuzzy="true">Omdøb</string>
+  <string name="reading_list_menu_rename">Rediger navn/beskrivelse</string>
   <string name="reading_list_menu_edit_description">Rediger beskrivelse</string>
   <string name="reading_list_action_menu_remove_from_offline">Fjern lokal version</string>
   <string name="reading_list_action_menu_save_for_offline">Gem lokalt</string>
@@ -452,7 +453,10 @@
   <string name="notification_syncing_title" fuzzy="true">Henter %1$d artikler …</string>
   <string name="notification_syncing_description" fuzzy="true">%1$d artikler tilbage</string>
   <string name="notification_syncing_reading_list_title" fuzzy="true">Synkroniserer %1$d lister …</string>
-  <string name="notification_syncing_reading_list_description" fuzzy="true">%1$d lister tilbage</string>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">%1$d liste tilbage</item>
+    <item quantity="other">%1$d lister tilbage</item>
+  </plurals>
   <string name="view_continue_reading_card_title">Fortsæt læsning</string>
   <string name="view_because_you_read_card_title">Fordi du læste</string>
   <string name="view_random_card_title">Tilfældighedsgenerator</string>
@@ -466,6 +470,7 @@
   <string name="view_featured_image_card_download">Hent</string>
   <string name="menu_feed_card_dismiss">Skjul dette kort</string>
   <string name="menu_feed_card_dismissed">Kort skjult.</string>
+  <string name="menu_feed_card_edit_card_languages">Rediger sprog for kortene</string>
   <string name="menu_feed_overflow_label">Flere indstillinger</string>
   <string name="feed_featured_image_share_subject">Fremhævet billede fra Wikimedia Commons</string>
   <string name="feed">Udforsk</string>
@@ -603,7 +608,9 @@
   <string name="onboarding_create_account_contributions">Hold styr på dine bidrag</string>
   <string name="onboarding_create_account_preferences">Gem dine præferencer</string>
   <string name="onboarding_got_it">O.k.</string>
+  <string name="onboarding_multilingual_secondary_text">Vi har fundet følgende på din enhed:</string>
   <string name="onboarding_multilingual_add_language_text">Tilføj eller rediger sprog</string>
+  <string name="onboarding_welcome_title_v2">Den frie encyklopædi\n…på næsten 300 sprog</string>
   <string name="app_shortcuts_random">Vilkårlig</string>
   <string name="app_shortcuts_continue_reading">Fortsæt læsning</string>
   <string name="app_shortcuts_search">Søg</string>
@@ -619,6 +626,7 @@
     <item quantity="other">%d år siden</item>
   </plurals>
   <string name="languages_list_activity_title">Tilføj et sprog</string>
+  <string name="languages_list_suggested_text">Anbefalet</string>
   <string name="languages_list_all_text">Alle sprog</string>
   <string name="wikipedia_languages_title">Wikipedia sprog</string>
   <string name="wikipedia_languages_your_languages_text">Dine sprog</string>
@@ -626,8 +634,10 @@
   <string name="wikipedia_languages_remove_text">Fjern sprog</string>
   <string name="wikipedia_languages_remove_action_mode_title">Fjern sprog</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Kan ikke fjerne alle sprog</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Behold mindst et Wikipedia-sprog som du kan søge og læse indhold på.</string>
   <string name="more_language_options">mere</string>
   <string name="add_wikipedia_languages_text">Tilføj Wikipedia sprog</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Fjern en kinesisk variant fra dine app sprog?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Rediger sprog</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nej tak</string>
 </resources>

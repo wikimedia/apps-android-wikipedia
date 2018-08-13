@@ -626,7 +626,7 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">İnternete erişemediğinizde Çevrimdışı Kitaplığınızdaki maddeleri okumaya ve aramaya devam edin.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Daha fazla bilgi sakla</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">Cihazınızın kaldırabileceği kadar çok Vikipedi içeriği indirin. Çevrimdışı Kitaplık, harici depolama alanındaki madde paketlerine de erişebilir.</string>
-  <string name="offline_library_main_page_hint_html">Bu Ana Sayfa, bu madde paketinin içeriğine genel bir bakış sağlamaktadır.&lt;br /&gt;&lt;br /&gt;Çevrimdışıyken mevcut maddeleri arayarak Çevrimdışı Kitaplığınızdaki herhangi bir madde paketinin içeriğini de keşfedebilirsiniz.</string>
+  <string name="offline_library_main_page_hint_html">Bu anasayfa, bu madde paketinin içeriğine genel bir bakış sağlamaktadır.&lt;br /&gt;&lt;br /&gt;Çevrimdışıyken mevcut maddeleri arayarak Çevrimdışı Kitaplığınızdaki herhangi bir madde paketinin içeriğini de keşfedebilirsiniz.</string>
   <string name="onboarding_skip">Atla</string>
   <string name="onboarding_continue">Devam et</string>
   <string name="onboarding_get_started">Kullanmaya başla</string>

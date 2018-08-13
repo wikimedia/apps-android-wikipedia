@@ -19,7 +19,7 @@
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Tìm trong Wikipedia</string>
   <string name="search_hint_search_history">Tìm trong lịch sử</string>
-  <string name="search_hint_search_my_lists">Tìm trong danh sách</string>
+  <string name="search_hint_search_my_lists">Tìm trong danh sách đọc của tôi</string>
   <string name="search_hint_search_reading_list">Tìm trong danh sách đọc</string>
   <string name="search_hint_search_languages">Tìm một ngôn ngữ</string>
   <string name="nav_item_history">Lịch sử</string>
@@ -61,13 +61,13 @@
   <string name="other_languages_indication_text">Đọc trong ngôn ngữ khác</string>
   <string name="language_count_link_text">Có sẵn trong %d ngôn ngữ khác</string>
   <string name="content_license_html">Nội dung được phát hành theo &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; nếu không ghi giấy phép khác</string>
-  <string name="edit_save_action_license_logged_in">Với việc lưu trang, bạn chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Với việc lưu trang, bạn chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Các sửa đổi của  bạn sẽ ghi rõ địa chỉ IP của thiết bị của bạn. Bạn có thể &lt;a href=\"https://#login\"&gt;đăng nhập&lt;/a&gt; để bảo vệ quyền riêng tư của bạn một chút hơn.</string>
+  <string name="edit_save_action_license_logged_in">Bằng việc lưu trang, bạn chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Bằng việc lưu trang, bạn chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Các sửa đổi của bạn sẽ ghi rõ địa chỉ IP của thiết bị của bạn. Bạn có thể &lt;a href=\"https://#login\"&gt;đăng nhập&lt;/a&gt; để bảo vệ quyền riêng tư của bạn một chút hơn.</string>
   <string name="preference_title_language">Các ngôn ngữ của Wikipedia</string>
   <string name="preference_languages_filter_hint">Tìm kiếm</string>
   <string name="langlinks_filter_hint">Tìm kiếm</string>
   <string name="langlinks_empty">Trang này không có sẵn trong ngôn ngữ khác.</string>
-  <string name="langlinks_no_match">Không tìm thấy ngôn ngữ.</string>
+  <string name="langlinks_no_match">Không tìm thấy ngôn ngữ</string>
   <string name="langlinks_activity_title">Ngôn ngữ khác</string>
   <string name="langlinks_your_wikipedia_languages">Các ngôn ngữ Wikipedia của bạn</string>
   <string name="menu_save_changes">Đăng các thay đổi</string>
@@ -82,7 +82,7 @@
   <string name="menu_show_toc">Mục lục</string>
   <string name="search_no_results_found">Không tìm thấy kết quả</string>
   <string name="search_reading_list_no_results">Không tìm thấy kết quả trong \"%s\"</string>
-  <string name="search_reading_lists_no_results">Không tìm thấy kết quả trong danh sách xem</string>
+  <string name="search_reading_lists_no_results">Không tìm thấy kết quả trong danh sách đọc</string>
   <string name="search_history_no_results">Không tìm thấy kết quả trong lịch sử</string>
   <string name="edit_section_captcha_message">Để giúp tránh các sửa đổi spam tự động, xin vui lòng nhập các từ xuất hiện ở dưới</string>
   <string name="edit_section_captcha_hint">Lặp lại các từ bên trên</string>
@@ -91,7 +91,7 @@
   <string name="nav_item_login">Đăng nhập vào Wikipedia</string>
   <string name="login_username_hint">Tên người dùng</string>
   <string name="login_password_hint">Mật khẩu</string>
-  <string name="login_2fa_hint">Mã Xác thực dùng Hai Nhân tố</string>
+  <string name="login_2fa_hint">Mã Xác thực Hai yếu tố</string>
   <string name="login_2fa_other_workflow_error_msg">Yêu cầu xác thực dùng hai nhân tố! Xin hãy quay lại hoạt động chính, đăng nhập bằng mã xác thực dùng hai nhân tố, và thử lại.</string>
   <string name="menu_login">Đăng nhập</string>
   <string name="login_activity_title">Đăng nhập vào Wikipedia</string>

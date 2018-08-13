@@ -22,25 +22,41 @@
   <string name="page_error_back_to_main">Vegere</string>
   <string name="menu_clear_all_history">Dîrokê paqij bike</string>
   <string name="history_item_deleted">%s ji dîroka gerokê hate rakirin</string>
+  <string name="history_items_deleted">%d gotar ji dîrokê hatin rakirin</string>
   <string name="history_item_delete_undo">Betal bike</string>
+  <string name="app_settings">Eyarên sepanê</string>
   <string name="dialog_title_clear_history">Dîroka lêgerînê jê bibe</string>
+  <string name="dialog_message_clear_history">Ev wê hemû dîroka çavlêgerandinên te jê bibe, û hemû paceyên ku niha vekirî bin bigire. Jidil dixwazî?</string>
   <string name="dialog_message_clear_history_yes">Erê</string>
   <string name="dialog_message_clear_history_no">Na</string>
   <string name="share_via">Bi awayê $ parve bike</string>
+  <string name="search_redirect_from">Ji %s hate beralîkirin</string>
   <string name="menu_page_show_tabs">Hilpêkînan nîşan bide</string>
   <string name="menu_page_other_languages">Ziman biguherîne</string>
   <string name="menu_page_find_in_page">Di nav rûpelê de bibîne</string>
+  <string name="menu_page_content_issues">Pirsgirêkên naverokê</string>
   <string name="menu_page_font_and_theme">Font û tema</string>
+  <string name="menu_page_add_to_list">Îlaweyî lîsta xwendinê bike</string>
   <string name="menu_page_share">Girêdanê parve bike</string>
   <string name="menu_long_press_open_page">Veke</string>
   <string name="menu_long_press_open_in_new_tab">Di hilpêkînek nû de veke</string>
   <string name="menu_long_press_copy_page">Navnîşana girêdanê kopî bike</string>
   <string name="menu_text_select_copy">Kopî bike</string>
+  <string name="menu_text_select_define">Tarîf bike</string>
   <string name="menu_text_select_share">Parve bike</string>
+  <string name="menu_text_select_edit_here">Vê derê biguherîne</string>
+  <string name="nav_item_nearby">Yên nêzîk</string>
+  <string name="nearby_zoom_to_location">Di nexşeyê de zûm bike ser cihekÎ</string>
+  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;Beşdarên &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMapê&lt;/a&gt;</string>
+  <string name="last_updated_text">Nûkirina dawîn: %s</string>
   <string name="talk_page_link_text">Rûpela gotûbêjê bibîne</string>
+  <string name="edit_history_link_text">Dîroka sererastkirinê bibîne</string>
   <string name="map_view_link_text">Ser nexşeyek bibîne</string>
   <string name="other_languages_indication_text">Bi zimanekî din bixwîne</string>
   <string name="language_count_link_text">Bi %d zimanên din jî berdest e</string>
+  <string name="content_license_html">Naverok di bin lîsansa &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de berdest e heta ku eksa wê bê gotin</string>
+  <string name="edit_save_action_license_logged_in">Bi qeydkirinê, tu &lt;a href=\"%1$s\"&gt;Şertên Bikaranînê&lt;/a&gt; qebûl dikî, û bi awayekî paşveneger beşdariyên xwe di bin lîsansa &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de belav dikî.</string>
+  <string name="edit_save_action_license_anon">Bi qeydkirinê, tu &lt;a href=\"%1$s\"&gt;Şertên Bikaranînê&lt;/a&gt; qebûl dikî, û bi awayekî paşveneger beşdariyên xwe di bin lîsansa &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de belav dikî. Sererastkirin wê bi adrêsa te ya IPyê ya cîhaza te re bêne girêdan. Eger &lt;a href=\"https://#login\"&gt;têkevî&lt;/a&gt;, wê veşaritîya te zêdetir bê muhafezekirin.</string>
   <string name="preference_title_language">Zimanên Wîkîpediyayê</string>
   <string name="preference_languages_filter_hint">Lêgerîn</string>
   <string name="langlinks_filter_hint">Lêgerîn</string>
@@ -83,6 +99,9 @@
   <string name="toast_logout_complete">Hate derketin</string>
   <string name="history_empty_title">Rûpelên ku te di demên dawî de dîtibe tine ne!</string>
   <string name="history_empty_message">Yên ku te xwendiye ji vir bişopîne.</string>
+  <string name="search_empty_message">Ansîklopediya azad bi zimanê xwe bixwîne û lê bigere</string>
+  <string name="search_empty_message_multilingual_upgrade">Bi zêdetir zimanan lêgerîna Wîkîpediyayê bike</string>
+  <string name="delete_selected_items">Hêmanên bijartî jê bibe</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;ÎKÎPEDIY&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Navê bikarhêner</string>
   <string name="login_dont_have_account">Hesabek te tine ye?</string>
@@ -95,10 +114,19 @@
   <string name="create_account_password_repeat_hint">Şîfreyê dîsa binivîse</string>
   <string name="create_account_passwords_mismatch_error">Şîfre li hev nayên</string>
   <string name="create_account_email_error">Navnîşana enameyê ya derbasdar</string>
+  <string name="create_account_username_error">Karakterên nenas ya di navê bikarhêneriyê de</string>
+  <string name="create_account_password_error">Şîfre nederbasdar e</string>
   <string name="create_account_generic_error">Hesab nikarîbû were çêkirin</string>
   <string name="create_account_next">Pêşve</string>
   <string name="create_account_button">Hesabekî çêke</string>
+  <string name="create_account_name_unavailable">Navê bikarhêneriyê ya \"%s\" ne berdest e. Xêra xwe navekî din bibijêre.</string>
+  <string name="create_account_ip_block_message">Bibore, adrêsa te ya IPyê aniha ji bo çêkirina hesabên bû blokkirî ye.</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_details">Dêtay</string>
   <string name="preferences_general_heading">Giştî</string>
+  <string name="wikipedia_app_faq">Sepana Wîkîpediyayê PPP</string>
+  <string name="zero_charged_verbiage">Gihîna belaş ya ji bo Wîkîpediyayê êdî ne aktîv e.</string>
+  <string name="zero_warn_when_leaving">Eger ji Wikipedia Zero bê derketin hişyarî bide</string>
   <string name="zero_wikipedia_zero_heading">Wîkîpediya Zero</string>
   <string name="zero_interstitial_continue">Jê derkeve</string>
   <string name="zero_interstitial_cancel">Li vir bimîne</string>
@@ -151,6 +179,8 @@
   <string name="format_error_server_message">Peyam:\"%s\"</string>
   <string name="button_continue_to_article">Gotarê bixwîne</string>
   <string name="nav_item_donate">Piştgiriyê bide Wîkîpediyayê</string>
+  <string name="enable_location_service">Çalak bike</string>
+  <string name="location_permissions_enable_action">Veke</string>
   <string name="crash_report_dialog_dont_send_button">Derbaske</string>
   <string name="crash_report_dialog_send_button">Bişîne</string>
   <string name="crash_report_activity_title">Çewtiya sepanê</string>
@@ -203,6 +233,9 @@
   <string name="wikipedia_languages_title">Zimanên Wîkîpediyayê</string>
   <string name="wikipedia_languages_your_languages_text">Zimanên te</string>
   <string name="wikipedia_languages_add_language_text">Zimaneke îlawe bike</string>
-  <string name="wikipedia_languages_remove_text" fuzzy="true">Jê bibe</string>
-  <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Bila zimanê(n) bijartî jê werin rakirin?</string>
+  <string name="wikipedia_languages_remove_text">Zimanê jê bibe</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">Bila zimanê bijartî jê were rakirin?</item>
+    <item quantity="other">Bila zimanên bijartî jê werin rakirin?</item>
+  </plurals>
 </resources>

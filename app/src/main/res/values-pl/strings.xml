@@ -183,6 +183,8 @@
   <string name="terms_of_use_description">Warunki użytkowania</string>
   <string name="about_wikipedia_url">https://pl.m.wikipedia.org/wiki/Wikipedia:O_Wikipedii</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/pl</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pl</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/pl</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.pl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pl</string>
@@ -346,6 +348,7 @@
   <string name="reading_list_action_menu_save_for_offline">Zapisz na później</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Usuń wszystkie pozycje z zapisanych na później</string>
   <string name="reading_list_action_menu_save_all_for_offline">Zapisz wszystkie pozycje na później</string>
+  <string name="reading_list_action_menu_add_to_another_list">Dodaj do innej listy</string>
   <string name="reading_list_name_sample">Moja lista</string>
   <string name="reading_list_name_hint">Nazwa tej listy</string>
   <string name="reading_list_description_hint">Opis (opcjonalnie)</string>
@@ -407,8 +410,14 @@
   <string name="notification_syncing_pause_button">Pauza</string>
   <string name="notification_syncing_resume_button">Wznów</string>
   <string name="notification_syncing_cancel_button">Przerwij</string>
-  <string name="notification_channel_name" fuzzy="true">Synchronizowanie</string>
-  <string name="notification_syncing_title" fuzzy="true">Pobieranie %1$d artykułu(-ów)...</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">Pobieranie artykułu</item>
+    <item quantity="other">Pobieranie artykułów</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">Pobieranie %1$d artykułu...</item>
+    <item quantity="other">Pobieranie %1$d artykułów...</item>
+  </plurals>
   <string name="view_continue_reading_card_title">Kontynuuj czytanie</string>
   <string name="view_because_you_read_card_title">Ponieważ czytasz</string>
   <string name="view_random_card_title">Losowy artykuł</string>
@@ -439,6 +448,8 @@
   <string name="feed_configure_menu_reset">Przywróć domyślny widok</string>
   <string name="feed_configure_menu_select_all">Pokaż wszystko</string>
   <string name="feed_configure_menu_deselect_all">Ukryj wszystko</string>
+  <string name="feed_item_type_news">Artykuły o bieżących wydarzeniach</string>
+  <string name="feed_item_type_on_this_day">Wydarzenia w historii w tym dniu</string>
   <string name="feed_item_type_featured_article">Dzisiejszy wyróżniony artykuł na Wikipedii</string>
   <string name="feed_item_type_main_page">Strona główna Wikipedii zawierająca dzienną wyróżnioną treść</string>
   <string name="feed_item_type_randomizer">Wylosuj artykuł do przeczytania</string>
@@ -496,6 +507,7 @@
   <string name="onboarding_create_account_sync">Zzynchronizuj swoje listy czytania</string>
   <string name="onboarding_create_account_contributions">Śledź swój wkład</string>
   <string name="onboarding_create_account_preferences">Zapisz swoje preferencje</string>
+  <string name="onboarding_multilingual_add_language_text">Dodaj lub edytuj języki</string>
   <string name="onboarding_welcome_title_v2">Wolna encyklopedia\n...w prawie 300 językach</string>
   <string name="app_shortcuts_random">Losowa strona</string>
   <string name="app_shortcuts_continue_reading">Czytaj dalej</string>
