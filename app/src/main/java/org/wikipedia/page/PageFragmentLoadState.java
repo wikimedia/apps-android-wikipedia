@@ -145,8 +145,6 @@ public class PageFragmentLoadState {
         // will invalidate themselves upon completion.
         sequenceNumber.increase();
 
-        fragment.updatePageInfo(null);
-
         // kick off an event to the WebView that will cause it to clear its contents,
         // and then report back to us when the clearing is complete, so that we can synchronize
         // the transitions of our native components to the new page content.
@@ -300,16 +298,12 @@ public class PageFragmentLoadState {
                     L.e(e);
                 }
 
-                loading = false;
-                networkErrorCallback = null;
-                fragment.onPageLoadComplete();
-            }
-        });
-        bridge.addListener("pageInfo", (String message, JSONObject payload) -> {
-            if (fragment.isAdded()) {
                 PageInfo pageInfo = PageInfoUnmarshaller.unmarshal(model.getTitle(),
                         model.getTitle().getWikiSite(), payload);
-                fragment.updatePageInfo(pageInfo);
+
+                loading = false;
+                networkErrorCallback = null;
+                fragment.onPageLoadComplete(pageInfo);
             }
         });
     }
