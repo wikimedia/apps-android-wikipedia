@@ -28,17 +28,6 @@ bridge.registerListener( "setPaddingBottom", function( payload ) {
     document.body.style.paddingBottom = payload.paddingBottom + "px";
 });
 
-bridge.registerListener( "beginNewPage", function( payload ) {
-    clearContents();
-    // fire an event back to the app, but with a slight timeout, which should
-    // have the effect of "waiting" until the page contents have cleared before sending the
-    // event, allowing synchronization of sorts between the WebView and the app.
-    // (If we find a better way to synchronize the two, it can be done here, as well)
-    setTimeout( function() {
-        bridge.sendMessage( "onBeginNewPage", payload );
-    }, 10);
-});
-
 function getLeadParagraph() {
     var text = "";
     var plist = document.getElementsByTagName( "p" );
