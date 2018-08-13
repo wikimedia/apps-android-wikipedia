@@ -19,7 +19,6 @@ import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 
 import org.wikipedia.R;
-import org.wikipedia.main.MainActivity;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
@@ -72,7 +71,7 @@ public final class NotificationPresenter {
             addAction(context, builder, n.getContents().getLinks().getSecondary().get(1), REQUEST_CODE_ACTION + 2);
         }
 
-        Intent activityIntent = MainActivity.newIntent(context);
+        Intent activityIntent = NotificationActivity.newIntent(context);
 
         switch (n.type()) {
             case Notification.TYPE_EDIT_USER_TALK:

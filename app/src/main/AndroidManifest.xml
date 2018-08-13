@@ -232,6 +232,12 @@
             android:label="@string/preference_title_app_theme"
             android:theme="@style/AppTheme.ActionBar"/>
 
+        <activity
+            android:name=".notifications.NotificationActivity"
+            android:label="@string/notifications_activity_title"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
+            android:theme="@style/AppTheme.ActionBar" />
+
         <provider
             android:authorities="${applicationId}"
             android:name=".database.AppContentProvider"

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="?attr/paper_color">
+
+    <TextView
+        android:id="@+id/notification_item_text"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:paddingLeft="@dimen/list_item_horizontal_padding"
+        android:paddingRight="@dimen/list_item_horizontal_padding"
+        android:gravity="center_vertical"
+        android:textColor="?attr/primary_text_color"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-medium"
+        android:maxLines="1"
+        android:ellipsize="end"
+        tools:text="Notification text"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="?attr/material_theme_border_color"/>
+
+    <LinearLayout
+        android:id="@+id/notification_action_primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground">
+        <ImageView
+            android:id="@+id/notification_action_primary_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="@dimen/list_item_horizontal_padding"
+            android:layout_marginRight="@dimen/list_item_horizontal_padding"
+            android:layout_gravity="center_vertical"
+            app:srcCompat="@drawable/ic_arrow_forward_black_24dp"
+            android:tint="?attr/secondary_text_color"
+            android:contentDescription="@null"/>
+        <TextView
+            android:id="@+id/notification_action_primary_text"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/list_item_horizontal_padding"
+            android:paddingRight="@dimen/list_item_horizontal_padding"
+            android:gravity="center_vertical"
+            android:textColor="?attr/primary_text_color"
+            android:textSize="16sp"
+            tools:text="Lorem ipsum"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/notification_action_secondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground">
+        <ImageView
+            android:id="@+id/notification_action_secondary_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="@dimen/list_item_horizontal_padding"
+            android:layout_marginRight="@dimen/list_item_horizontal_padding"
+            android:layout_gravity="center_vertical"
+            app:srcCompat="@drawable/ic_arrow_forward_black_24dp"
+            android:tint="?attr/secondary_text_color"
+            android:contentDescription="@null"/>
+        <TextView
+            android:id="@+id/notification_action_secondary_text"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/list_item_horizontal_padding"
+            android:paddingRight="@dimen/list_item_horizontal_padding"
+            android:gravity="center_vertical"
+            android:textColor="?attr/primary_text_color"
+            android:textSize="16sp"
+            tools:text="Lorem ipsum"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/notification_action_tertiary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground">
+        <ImageView
+            android:id="@+id/notification_action_tertiary_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="@dimen/list_item_horizontal_padding"
+            android:layout_marginRight="@dimen/list_item_horizontal_padding"
+            android:layout_gravity="center_vertical"
+            app:srcCompat="@drawable/ic_arrow_forward_black_24dp"
+            android:tint="?attr/secondary_text_color"
+            android:contentDescription="@null"/>
+        <TextView
+            android:id="@+id/notification_action_tertiary_text"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/list_item_horizontal_padding"
+            android:paddingRight="@dimen/list_item_horizontal_padding"
+            android:gravity="center_vertical"
+            android:textColor="?attr/primary_text_color"
+            android:textSize="16sp"
+            tools:text="Lorem ipsum"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:background="?attr/material_theme_border_color"/>
+
+    <LinearLayout
+        android:id="@+id/notification_item_archive"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground">
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="@dimen/list_item_horizontal_padding"
+            android:layout_marginRight="@dimen/list_item_horizontal_padding"
+            android:layout_gravity="center_vertical"
+            app:srcCompat="@drawable/ic_archive_white_24dp"
+            android:tint="?attr/secondary_text_color"
+            android:contentDescription="@null"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/list_item_horizontal_padding"
+            android:paddingRight="@dimen/list_item_horizontal_padding"
+            android:gravity="center_vertical"
+            android:textColor="?attr/primary_text_color"
+            android:textSize="16sp"
+            android:text="@string/notifications_archive"/>
+    </LinearLayout>
+</LinearLayout>

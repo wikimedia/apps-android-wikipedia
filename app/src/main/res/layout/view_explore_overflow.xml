@@ -54,6 +54,11 @@
         android:background="?attr/paper_color">
 
         <TextView
+            android:id="@+id/explore_overflow_notifications"
+            style="@style/OverflowMenuItem"
+            android:text="@string/notifications_activity_title"/>
+
+        <TextView
             android:id="@+id/explore_overflow_configure_cards"
             style="@style/OverflowMenuItem"
             android:text="@string/feed_configure_activity_title"/>
