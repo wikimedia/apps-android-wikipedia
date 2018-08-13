@@ -412,15 +412,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     /**
-     * Load a new page, and put it on top of the backstack.
-     * @param title Title of the page to load.
-     * @param entry HistoryEntry associated with this page.
-     */
-    public void loadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
-        loadPage(title, entry, TabPosition.CURRENT_TAB);
-    }
-
-    /**
      * Load a new page, and put it on top of the backstack, optionally allowing state loss of the
      * fragment manager. Useful for when this function is called from an AsyncTask result.
      * @param title Title of the page to load.
@@ -542,7 +533,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @Override
     public void onPageLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
-        loadPage(title, entry);
+        loadPage(title, entry, TabPosition.CURRENT_TAB);
     }
 
     @Override
@@ -566,7 +557,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         bottomSheetPresenter.show(getSupportFragmentManager(), new ThemeChooserDialog());
     }
 
-    @Nullable
     @Override
     public void onPageStartSupportActionMode(@NonNull ActionMode.Callback callback) {
         startActionMode(callback);
@@ -601,11 +591,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Override
     public void onPagePopFragment() {
         finish();
-    }
-
-    @Override
-    public void onPageInvalidateOptionsMenu() {
-        supportInvalidateOptionsMenu();
     }
 
     @Override
