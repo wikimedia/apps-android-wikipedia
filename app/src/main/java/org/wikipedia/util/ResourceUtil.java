@@ -12,11 +12,14 @@ import android.support.annotation.AnyRes;
 import android.support.annotation.ArrayRes;
 import android.support.annotation.AttrRes;
 import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.graphics.drawable.VectorDrawableCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.TypedValue;
 
 import org.wikipedia.R;
@@ -58,11 +61,14 @@ public final class ResourceUtil {
     }
 
     @NonNull
-    public static Bitmap bitmapFromVectorDrawable(@NonNull Context context, @DrawableRes int id) {
+    public static Bitmap bitmapFromVectorDrawable(@NonNull Context context, @DrawableRes int id, @ColorRes Integer tintColor) {
         Drawable vectorDrawable = VectorDrawableCompat.create(context.getResources(), id, null);
         int width = vectorDrawable.getIntrinsicWidth();
         int height = vectorDrawable.getIntrinsicHeight();
         vectorDrawable.setBounds(0, 0, width, height);
+        if (tintColor != null) {
+            DrawableCompat.setTint(vectorDrawable, ContextCompat.getColor(context, tintColor));
+        }
         Bitmap bm = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bm);
         vectorDrawable.draw(canvas);

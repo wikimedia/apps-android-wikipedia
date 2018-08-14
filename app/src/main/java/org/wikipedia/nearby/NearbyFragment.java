@@ -115,7 +115,7 @@ public class NearbyFragment extends Fragment {
 
         markerIconPassive = IconFactory.getInstance(requireContext())
                 .fromBitmap(ResourceUtil.bitmapFromVectorDrawable(requireContext(),
-                        R.drawable.ic_map_marker));
+                        R.drawable.ic_map_marker, null));
 
         osmLicenseTextView.setText(StringUtil.fromHtml(getString(R.string.nearby_osm_license)));
         osmLicenseTextView.setMovementMethod(LinkMovementMethod.getInstance());
