@@ -113,14 +113,14 @@
   <string name="about_description">Övver de Wikkipehdija Äpp</string>
   <string name="privacy_policy_description">Rääjelle för der Daateschotz un de Jeheimhaldung</string>
   <string name="terms_of_use_description">Bedengonge för der Jebruch</string>
-  <string name="privacy_policy_url" fuzzy="true">https://m.wikimediafoundation.org/wiki/Privacy_Policy/ksh</string>
-  <string name="terms_of_use_url">//m.wikimediafoundation.org/wiki/Terms_of_Use/ksh</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="about_libraries_heading">Jebruchte Projrammbibblijothke</string>
   <string name="about_contributors_heading">Schrihver</string>
   <string name="about_translators_heading">Övversäzer</string>
   <string name="about_translators_translatewiki">Heh di Äpp wohd vun Freiwelleje op &lt;a href=\"https://translatewiki.net\"&gt;&lt;i&gt;translatewiki.net&lt;/i&gt;&lt;/a&gt; övversaz.</string>
   <string name="about_app_license_heading">Lėzänz</string>
-  <string name="about_wmf" fuzzy="true">Jemaat vun der &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikkimehdija-Schtefftong&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">Jemaat vun der &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikkimehdija-Schtefftong&lt;/a&gt;</string>
   <string name="about_activity_title">Övver</string>
   <string name="edit_abandon_confirm">Di Sigg es verändert. Wells De verhaftesch fott jonn, der ohne di Ännderonge faß ze hallde?</string>
   <string name="user_blocked_from_editing_title">Jeschpächt</string>

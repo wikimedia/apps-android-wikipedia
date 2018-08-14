@@ -125,7 +125,7 @@
   <string name="about_translators_heading">अनुवादकाः</string>
   <string name="about_translators_translatewiki">&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; इत्यस्मिन् जाले एतस्य अनुप्रयोगस्य अनुवादः स्वयंसेव्यनुवादकेन कृतः ।</string>
   <string name="about_app_license_heading">अनुज्ञापत्रम्</string>
-  <string name="about_wmf" fuzzy="true">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;विकिमीडिया फाउण्डेशन्&lt;/a&gt;-संस्थायाः उत्पादनम् अस्ति ।</string>
+  <string name="about_wmf" fuzzy="true">&lt;a href=\"https://wikimediafoundation.org/\"&gt;विकिमीडिया फाउण्डेशन्&lt;/a&gt;-संस्थायाः उत्पादनम् अस्ति ।</string>
   <string name="about_activity_title">विवरणम्</string>
   <string name="edit_abandon_confirm">पृष्ठेऽस्मिन् परिवर्तनम् अभवत् । भवान्/भवती  निश्चयने परिवर्तनानि अरक्षित्वा निर्गन्तुम् इच्छति ?</string>
   <string name="user_blocked_from_editing_title">अवरुद्धम्</string>

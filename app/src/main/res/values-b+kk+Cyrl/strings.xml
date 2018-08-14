@@ -84,7 +84,7 @@
   <string name="about_contributors_heading" fuzzy="true">авторлар</string>
   <string name="about_translators_heading" fuzzy="true">аудармашылар</string>
   <string name="about_translators_translatewiki">Бұл қосымшаны &lt;ahref=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; аудару жобасында ерікті аудармашылар аударған.</string>
-  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Уикимедиа Қоры&lt;/a&gt; өнімі</string>
+  <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Уикимедиа Қоры&lt;/a&gt; өнімі</string>
   <string name="about_activity_title">Жоба туралы</string>
   <string name="edit_abandon_confirm">Бұл бет өзгертілген. Бұл бетті сақтамай кеткіңіз келгеніне сенімдісіз бе?</string>
   <string name="user_blocked_from_editing_title">Бұғатталған</string>

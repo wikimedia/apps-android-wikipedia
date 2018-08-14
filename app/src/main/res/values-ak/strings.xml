@@ -79,7 +79,7 @@
   <string name="about_description">Efa Wikipedia adwinade yi</string>
   <string name="about_libraries_heading" fuzzy="true">Libraries used</string>
   <string name="about_contributors_heading" fuzzy="true">aboafo</string>
-  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt; adwinade</string>
+  <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt; adwinade</string>
   <string name="about_activity_title">ɛho nsɛm</string>
   <string name="edit_abandon_confirm">Saa krataa yi asesa. Wogyedi sɛ wopɛsɛ wofi a womfa wo nsakrae no nsie?</string>
   <string name="user_blocked_from_editing_title">ɛho nni kwan</string>

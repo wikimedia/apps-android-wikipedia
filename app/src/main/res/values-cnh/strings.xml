@@ -92,7 +92,7 @@
   <string name="about_contributors_heading" fuzzy="true">Teltumtu pawl</string>
   <string name="about_translators_heading" fuzzy="true">Holh Lettu</string>
   <string name="about_translators_translatewiki">Hi app cu zaanghleicawi holh lettu nih &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; a leh hna.</string>
-  <string name="about_wmf" fuzzy="true">Wikimedia Foundation &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt; thil a si.</string>
+  <string name="about_wmf" fuzzy="true">Wikimedia Foundation &lt;a href=\"https://wikimediafoundation.org/\"&gt; thil a si.</string>
   <string name="about_activity_title">Konglam</string>
   <string name="edit_abandon_confirm">Hi cahmai cu thlenremh a si. Na remhnak pawl khon loin maw na chuah ko lai?</string>
   <string name="user_blocked_from_editing_title">Block a si</string>

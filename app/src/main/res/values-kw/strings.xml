@@ -95,7 +95,7 @@
   <string name="about_contributors_heading" fuzzy="true">kevrohoyon</string>
   <string name="about_translators_heading" fuzzy="true">treylyoryon</string>
   <string name="about_translators_translatewiki">Treylyes veu an app ma gans an dreylyoryon orth &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
-  <string name="about_wmf">Askorras gans an &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fondyans Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf">Askorras gans an &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondyans Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">A-dro</string>
   <string name="edit_abandon_confirm">Chanjyes re beu an folen. Owgh hwi sur bos hwans dhywgh kwytya heb gwitha agas chanjyow?</string>
   <string name="user_blocked_from_editing_title">Lettyes</string>

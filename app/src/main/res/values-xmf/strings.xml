@@ -124,7 +124,7 @@
   <string name="about_translators_heading">მათანგალეფი</string>
   <string name="about_translators_translatewiki">თე აპლიკაცია თანგილი რე მოხალისე მათანგალეფიშით ათაქ: &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">ლიცენზია</string>
-  <string name="about_wmf">&lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;ფონდ ვიკიმედიაშ&lt;/a&gt; პროდუქტი</string>
+  <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;ფონდ ვიკიმედიაშ&lt;/a&gt; პროდუქტი</string>
   <string name="about_activity_title">-შენი</string>
   <string name="edit_abandon_confirm">თე ხასჷლაქ გეახალჷ. გოკონანო თქვან თირაფეფიშ ჩუალაშ უმუშო გიშულა?</string>
   <string name="user_blocked_from_editing_title">ბლოკირი რე</string>

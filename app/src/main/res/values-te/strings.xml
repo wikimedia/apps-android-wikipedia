@@ -122,7 +122,7 @@
   <string name="about_translators_heading">అనువాదకులు</string>
   <string name="about_translators_translatewiki">ఈ అనువర్తనం &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; వద్ద స్వచ్చంద అనువాదకారులచే అనువదించబడింది.</string>
   <string name="about_app_license_heading">లైసెన్సు</string>
-  <string name="about_wmf" fuzzy="true">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt; వారి ఉత్పత్తి</string>
+  <string name="about_wmf" fuzzy="true">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt; వారి ఉత్పత్తి</string>
   <string name="about_activity_title">గురించి</string>
   <string name="edit_abandon_confirm">ఈ పేజి సవరించబడింది. మార్పులని భద్రపరచకుండా ఖచ్చితంగా వదిలేయాలని అనుకుంటున్నారా?</string>
   <string name="user_blocked_from_editing_title">నిరోధించబడింది</string>

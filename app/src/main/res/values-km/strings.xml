@@ -143,7 +143,7 @@
   <string name="about_translators_heading">អ្នកបកប្រែ</string>
   <string name="about_translators_translatewiki">កម្មវិធីនេះត្រូវបានបកប្រែដោយអ្នកស្ម័គ្រចិត្តបកប្រែនៅ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;។</string>
   <string name="about_app_license_heading">អាជ្ញាប័ណ្ណ</string>
-  <string name="about_wmf">ផលិតផលរបស់ &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;មូលនិធិវិគីភីឌា&lt;/a&gt;</string>
+  <string name="about_wmf">ផលិតផលរបស់ &lt;a href=\"https://wikimediafoundation.org/\"&gt;មូលនិធិវិគីភីឌា&lt;/a&gt;</string>
   <string name="about_activity_title">អំពី</string>
   <string name="edit_abandon_confirm">ទំព័រនេះត្រូវបានកែប្រែ។ តើអ្នកប្រាកដជាចង់ចាកចេញដោយមិនរក្សាទុកកំណែប្រែរបស់អ្នកឬ?</string>
   <string name="edit_abandon_confirm_yes">បាទ / ចាស៎</string>
