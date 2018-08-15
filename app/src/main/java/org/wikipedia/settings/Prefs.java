@@ -730,5 +730,31 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_show_remove_chinese_variant_prompt, true);
     }
 
+    @NonNull public static List<Long> getLocallyKnownNotifications() {
+        List<Long> list = new ArrayList<>();
+        if (!contains(R.string.preference_key_locally_known_notifications)) {
+            return list;
+        }
+        //noinspection unchecked
+        List<Long> tempList = GsonUnmarshaller.unmarshal(new TypeToken<ArrayList<Long>>(){},
+                getString(R.string.preference_key_locally_known_notifications, null));
+        if (tempList != null) {
+            list.addAll(tempList);
+        }
+        return list;
+    }
+
+    public static void setLocallyKnownNotifications(@NonNull List<Long> list) {
+        setString(R.string.preference_key_locally_known_notifications, GsonMarshaller.marshal(list));
+    }
+
+    public static String getRemoteNotificationsSeenTime() {
+        return getString(R.string.preference_key_remote_notifications_seen_time, "");
+    }
+
+    public static void setRemoteNotificationsSeenTime(@Nullable String seenTime) {
+        setString(R.string.preference_key_remote_notifications_seen_time, seenTime);
+    }
+
     private Prefs() { }
 }

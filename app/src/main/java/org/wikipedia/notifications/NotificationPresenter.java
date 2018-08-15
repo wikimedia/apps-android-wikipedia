@@ -1,103 +1,138 @@
 package org.wikipedia.notifications;
 
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
-import android.text.Spanned;
+import android.text.TextUtils;
 
-import org.wikipedia.Constants;
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.page.PageActivity;
-import org.wikipedia.util.ShareUtil;
+import org.wikipedia.main.MainActivity;
+import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
 
 public final class NotificationPresenter {
-    private static final int REQUEST_CODE_PAGE = 0;
-    private static final int REQUEST_CODE_HISTORY = 1;
-    private static final int REQUEST_CODE_AGENT = 2;
-    private static final String CHANNEL_ID = "GENERAL_CHANNEL";
+    private static final int REQUEST_CODE_ACTIVITY = 0;
+    private static final int REQUEST_CODE_ACTION = 1;
+    private static final String CHANNEL_ID = "MEDIAWIKI_ECHO_CHANNEL";
 
-    public static void showNotification(@NonNull Context context, Notification n) {
-        @StringRes int title;
-        Spanned description;
-        @DrawableRes int icon;
-        @ColorInt int color;
+    public static void showNotification(@NonNull Context context, @NonNull Notification n, @NonNull String wikiSiteName) {
+        String title;
+        @DrawableRes int icon = R.drawable.ic_wikipedia_w;
+        @ColorRes int color = R.color.base30;
 
-        Uri historyUri = uriForPath(n, "Special:History/"
-                + (n.isFromWikidata() ? n.title().text() : n.title().full()));
-        Uri agentUri = uriForPath(n, "User:" + n.agent().name());
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        if (notificationManager == null) {
+            return;
+        }
 
-        Intent pageIntent = PageActivity.newIntent(context, n.title().full());
-
-        PendingIntent historyIntent = PendingIntent.getActivity(context, REQUEST_CODE_HISTORY,
-                ShareUtil.createChooserIntent(new Intent(Intent.ACTION_VIEW, historyUri), null,
-                        context), PendingIntent.FLAG_UPDATE_CURRENT);
-
-        PendingIntent agentIntent = PendingIntent.getActivity(context, REQUEST_CODE_AGENT,
-                ShareUtil.createChooserIntent(new Intent(Intent.ACTION_VIEW, agentUri), null,
-                        context), PendingIntent.FLAG_UPDATE_CURRENT);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationChannel notificationChannel = notificationManager.getNotificationChannel(CHANNEL_ID);
+            if (notificationChannel == null) {
+                int importance = NotificationManager.IMPORTANCE_HIGH;
+                notificationChannel = new NotificationChannel(CHANNEL_ID,
+                        context.getString(R.string.notification_echo_channel_description), importance);
+                notificationChannel.setLightColor(ContextCompat.getColor(context, R.color.accent50));
+                notificationChannel.enableVibration(true);
+                notificationManager.createNotificationChannel(notificationChannel);
+            }
+        }
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setAutoCancel(true);
 
+
+        title = StringUtil.fromHtml(n.getContents() != null ? n.getContents().getHeader() : "").toString();
+
+        if (n.getContents() != null && n.getContents().getLinks() != null
+                && n.getContents().getLinks().getPrimary() != null) {
+            addAction(context, builder, n.getContents().getLinks().getPrimary(), REQUEST_CODE_ACTION);
+        }
+        if (n.getContents() != null && n.getContents().getLinks() != null
+                && n.getContents().getLinks().getSecondary() != null && n.getContents().getLinks().getSecondary().size() > 0) {
+            addAction(context, builder, n.getContents().getLinks().getSecondary().get(0), REQUEST_CODE_ACTION + 1);
+        }
+        if (n.getContents() != null && n.getContents().getLinks() != null
+                && n.getContents().getLinks().getSecondary() != null && n.getContents().getLinks().getSecondary().size() > 1) {
+            addAction(context, builder, n.getContents().getLinks().getSecondary().get(1), REQUEST_CODE_ACTION + 2);
+        }
+
+        Intent activityIntent = MainActivity.newIntent(context);
+
         switch (n.type()) {
             case Notification.TYPE_EDIT_USER_TALK:
-                description = StringUtil.fromHtml(context.getString(R.string.notification_talk, n.agent().name(), n.title().full()));
                 icon = R.drawable.ic_chat_white_24dp;
-                title = R.string.notification_talk_title;
-                color = ContextCompat.getColor(context, R.color.accent50);
-                builder.addAction(0, context.getString(R.string.notification_button_view_user), agentIntent);
+                color = R.color.accent50;
                 break;
             case Notification.TYPE_REVERTED:
-                pageIntent.putExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER, n.title().text());
-                description = StringUtil.fromHtml(context.getString(R.string.notification_reverted, n.agent().name(), n.title().full()));
                 icon = R.drawable.ic_rotate_left_white_24dp;
-                title = R.string.notification_reverted_title;
-                color = ContextCompat.getColor(context, R.color.red50);
+                color = R.color.red50;
                 builder.setPriority(NotificationCompat.PRIORITY_MAX);
                 break;
             case Notification.TYPE_EDIT_THANK:
-                description = StringUtil.fromHtml(context.getString(R.string.notification_thanks, n.agent().name(), n.title().full()));
-                icon = R.drawable.ic_favorite_white_24dp;
-                title = R.string.notification_thanks_title;
-                color = ContextCompat.getColor(context, R.color.green50);
-                builder.addAction(0, context.getString(R.string.notification_button_view_user), agentIntent);
+                icon = R.drawable.ic_usertalk_constructive;
+                color = R.color.green50;
+                break;
+            case Notification.TYPE_EDIT_MILESTONE:
+                icon = R.drawable.ic_mode_edit_white_24dp;
+                color = R.color.accent50;
                 break;
             default:
-                return;
+                break;
         }
 
-        builder.setContentIntent(PendingIntent.getActivity(context, REQUEST_CODE_PAGE, pageIntent, PendingIntent.FLAG_UPDATE_CURRENT))
-                .setStyle(new NotificationCompat.BigTextStyle().bigText(description))
-                .setContentText(description)
-                .setSmallIcon(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
-                        ? icon : R.mipmap.launcher)
-                .setColor(color)
-                .setContentTitle(context.getString(title));
+        builder.setContentIntent(PendingIntent.getActivity(context, REQUEST_CODE_ACTIVITY, activityIntent, PendingIntent.FLAG_UPDATE_CURRENT))
+                .setLargeIcon(drawNotificationBitmap(context, color, icon))
+                .setSmallIcon(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? R.drawable.ic_wikipedia_w : R.mipmap.launcher)
+                .setColor(ContextCompat.getColor(context, color))
+                .setContentTitle(wikiSiteName)
+                .setContentText(title)
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(title));
 
-        NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        manager.notify((int) n.id(), builder.build());
+        notificationManager.notify((int) n.id(), builder.build());
     }
 
-    private static Uri uriForPath(@NonNull Notification n, @NonNull String path) {
-        return new Uri.Builder()
-                .scheme(WikipediaApp.getInstance().getWikiSite().scheme())
-                .authority(n.isFromWikidata() ? "m.wikidata.org" : WikipediaApp.getInstance().getWikiSite().mobileAuthority())
-                .appendPath("wiki")
-                .appendPath(path)
-                .build();
+    private static void addAction(Context context, NotificationCompat.Builder builder, Notification.Link link, int requestCode) {
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, requestCode,
+                new Intent(Intent.ACTION_VIEW, Uri.parse(link.getUrl())), PendingIntent.FLAG_UPDATE_CURRENT);
+        String labelStr;
+        if (!TextUtils.isEmpty(link.getTooltip())) {
+            labelStr = StringUtil.fromHtml(link.getTooltip()).toString();
+        } else {
+            labelStr = StringUtil.fromHtml(link.getLabel()).toString();
+        }
+        builder.addAction(0, labelStr, pendingIntent);
+    }
+
+    private static Bitmap drawNotificationBitmap(@NonNull Context context, @ColorRes int color, @DrawableRes int icon) {
+        final int bitmapHalfSize = DimenUtil.roundedDpToPx(20);
+        final int iconHalfSize = DimenUtil.roundedDpToPx(12);
+        Bitmap bmp = Bitmap.createBitmap(bitmapHalfSize * 2, bitmapHalfSize * 2, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bmp);
+        Paint p = new Paint();
+        p.setAntiAlias(true);
+        p.setColor(ContextCompat.getColor(context, color));
+        canvas.drawCircle(bitmapHalfSize, bitmapHalfSize, bitmapHalfSize, p);
+        Bitmap iconBmp = ResourceUtil.bitmapFromVectorDrawable(context, icon, android.R.color.white);
+        canvas.drawBitmap(iconBmp, null, new Rect(bitmapHalfSize - iconHalfSize, bitmapHalfSize - iconHalfSize,
+                bitmapHalfSize + iconHalfSize, bitmapHalfSize + iconHalfSize), null);
+        iconBmp.recycle();
+        return bmp;
     }
 
     private NotificationPresenter() {

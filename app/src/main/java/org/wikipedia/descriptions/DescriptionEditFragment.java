@@ -59,7 +59,6 @@ public class DescriptionEditFragment extends Fragment {
                 Prefs.incrementTotalAnonDescriptionsEdited();
             }
             Prefs.setLastDescriptionEditTime(new Date().getTime());
-            WikipediaApp.getInstance().listenForNotifications();
 
             if (getActivity() == null)  {
                 return;

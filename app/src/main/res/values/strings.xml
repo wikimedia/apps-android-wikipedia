@@ -502,6 +502,7 @@
         <item quantity="one">%1$d list left</item>
         <item quantity="other">%1$d lists left</item>
     </plurals>
+    <string name="notification_echo_channel_description">Wikipedia notifications</string>
     <!-- /Notifications -->
 
     <!-- The Feed -->

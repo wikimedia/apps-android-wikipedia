@@ -38,6 +38,16 @@ public final class NotificationClient {
         void failure(Throwable t);
     }
 
+    public interface PollCallback {
+        void success(@NonNull String lastNotificationTime);
+        void failure(Throwable t);
+    }
+
+    public interface MarkReadCallback {
+        void success(@NonNull String timeStamp);
+        void failure(Throwable t);
+    }
+
     @NonNull private MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
     @VisibleForTesting static class CallbackAdapter implements retrofit2.Callback<MwQueryResponse> {
@@ -63,31 +73,25 @@ public final class NotificationClient {
         }
     }
 
-    @VisibleForTesting static class UnreadCallbackAdapter implements retrofit2.Callback<MwQueryResponse> {
-        @NonNull private final UnreadWikisCallback callback;
-
-        UnreadCallbackAdapter(@NonNull UnreadWikisCallback callback) {
-            this.callback = callback;
-        }
-
-        @Override public void onResponse(@NonNull Call<MwQueryResponse> call, @NonNull Response<MwQueryResponse> response) {
-            if (response.body() != null && response.body().query() != null
-                    && response.body().query().unreadNotificationWikis() != null) {
-                // noinspection ConstantConditions
-                callback.success(response.body().query().unreadNotificationWikis());
-            } else {
-                callback.failure(new JsonParseException("Notification response is malformed."));
-            }
-        }
-
-        @Override public void onFailure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
-            L.v(caught);
-            callback.failure(caught);
-        }
-    }
-
     public void getUnreadNotificationWikis(@NonNull WikiSite wiki, @NonNull UnreadWikisCallback callback) {
-        cachedService.service(wiki).getUnreadNotificationWikis().enqueue(new UnreadCallbackAdapter(callback));
+        cachedService.service(wiki).getUnreadNotificationWikis().enqueue(new retrofit2.Callback<MwQueryResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<MwQueryResponse> call, @NonNull Response<MwQueryResponse> response) {
+                if (response.body() != null && response.body().query() != null
+                        && response.body().query().unreadNotificationWikis() != null) {
+                    // noinspection ConstantConditions
+                    callback.success(response.body().query().unreadNotificationWikis());
+                } else {
+                    callback.failure(new JsonParseException("Notification response is malformed."));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
+                L.v(caught);
+                callback.failure(caught);
+            }
+        });
     }
 
     public void getNotificationsWithForeignSummary(@NonNull WikiSite wiki, @NonNull final Callback callback) {
@@ -99,6 +103,36 @@ public final class NotificationClient {
         cachedService.service(wiki).getAllNotifications(wikis.length > 0 ? TextUtils.join("|", wikis) : null,
                 displayArchived ? "read" : "!read", TextUtils.isEmpty(continueStr) ? null : continueStr)
                 .enqueue(new CallbackAdapter(callback));
+    }
+
+    public void getLastUnreadNotificationTime(@NonNull WikiSite wiki, @NonNull final PollCallback callback) {
+        cachedService.service(wiki).getLastUnreadNotification().enqueue(new retrofit2.Callback<MwQueryResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<MwQueryResponse> call, @NonNull Response<MwQueryResponse> response) {
+                if (response.body() != null && response.body().query() != null
+                        && response.body().query().notifications() != null) {
+                    String latestTime = "";
+                    if (response.body().query().notifications().list() != null
+                            && response.body().query().notifications().list().size() > 0) {
+                        // noinspection ConstantConditions
+                        for (Notification n : response.body().query().notifications().list()) {
+                            if (n.getUtcIso8601().compareTo(latestTime) > 0) {
+                                latestTime = n.getUtcIso8601();
+                            }
+                        }
+                    }
+                    callback.success(latestTime);
+                } else {
+                    callback.failure(new JsonParseException("Notification response is malformed."));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
+                L.v(caught);
+                callback.failure(caught);
+            }
+        });
     }
 
     public void markRead(@NonNull WikiSite wiki, @NonNull List<Notification> notifications) {
@@ -131,6 +165,32 @@ public final class NotificationClient {
         });
     }
 
+    private void markSeen(@NonNull WikiSite wiki, @NonNull MarkReadCallback callback) {
+        CsrfTokenClient tokenClient = new CsrfTokenClient(wiki, WikipediaApp.getInstance().getWikiSite());
+        tokenClient.request(new CsrfTokenClient.DefaultCallback() {
+            @Override
+            public void success(@NonNull String token) {
+                cachedService.service(wiki).markSeen(token)
+                        .enqueue(new retrofit2.Callback<MwQueryResponse>() {
+                            @Override
+                            public void onResponse(@NonNull Call<MwQueryResponse> call, @NonNull Response<MwQueryResponse> response) {
+                                if (response.body() != null && response.body().query() != null
+                                        && response.body().query().getEchoMarkSeen() != null && !TextUtils.isEmpty(response.body().query().getEchoMarkSeen().getTimestamp())) {
+                                    callback.success(response.body().query().getEchoMarkSeen().getTimestamp());
+                                } else {
+                                    callback.failure(new JsonParseException("Notification response is malformed."));
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable t) {
+                                callback.failure(t);
+                            }
+                        });
+            }
+        });
+    }
+
     @VisibleForTesting @NonNull
     Call<MwQueryResponse> requestNotifications(@NonNull Service service, @NonNull String wikiList) {
         return service.getAllNotifications(wikiList, "!read", null);
@@ -155,6 +215,21 @@ public final class NotificationClient {
         @Headers("Cache-Control: no-cache")
         @POST(ACTION + "echomarkread")
         Call<MwQueryResponse> markRead(@Field("token") @NonNull String token, @Field("list") @Nullable String readList, @Field("unreadlist") @Nullable String unreadList);
+
+        @FormUrlEncoded
+        @Headers("Cache-Control: no-cache")
+        @POST(ACTION + "echomarkseen&type=all&timestampFormat=ISO_8601")
+        Call<MwQueryResponse> markSeen(@Field("token") @NonNull String token);
+
+        @Headers("Cache-Control: no-cache")
+        @GET(ACTION + "query&meta=notifications&notwikis=*&notfilter=!read&notprop=seenTime|count")
+        @NonNull
+        Call<MwQueryResponse> getSeenTimeAndCount();
+
+        @Headers("Cache-Control: no-cache")
+        @GET(ACTION + "query&meta=notifications&notprop=list&notfilter=!read&notlimit=1")
+        @NonNull
+        Call<MwQueryResponse> getLastUnreadNotification();
 
         @Headers("Cache-Control: no-cache")
         @GET(ACTION + "query&meta=unreadnotificationpages&unplimit=max&unpwikis=*")

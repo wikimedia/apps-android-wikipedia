@@ -73,6 +73,10 @@ public class Notification {
         return timestamp != null ? timestamp.date() : new Date();
     }
 
+    @NonNull String getUtcIso8601() {
+        return StringUtils.defaultString(timestamp != null ? timestamp.utciso8601 : null);
+    }
+
     @Nullable Map<String, Source> getSources() {
         return sources;
     }
@@ -231,6 +235,19 @@ public class Notification {
 
         @Nullable public Source getSource() {
             return source;
+        }
+    }
+
+    public static class SeenTime {
+        @SuppressWarnings("unused,NullableProblems") @Nullable private String alert;
+        @SuppressWarnings("unused,NullableProblems") @Nullable private String message;
+
+        @Nullable public String getAlert() {
+            return alert;
+        }
+
+        @Nullable public String getMessage() {
+            return message;
         }
     }
 }

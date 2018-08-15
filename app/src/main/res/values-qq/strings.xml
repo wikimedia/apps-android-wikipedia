@@ -490,6 +490,7 @@
     <item quantity="one">Text of notification shows the remaining list. The \"%1$d\" symbol corresponds to the amount of remaining lists.</item>
     <item quantity="other">Text of notification shows the remaining lists. The \"%1$d\" symbol corresponds to the amount of remaining lists.</item>
   </plurals>
+  <string name="notification_echo_channel_description">Description for the notification channel that will show Echo notifications.</string>
   <string name="view_continue_reading_card_title">Label for card in the feed that reminds the user to continue reading an article from their browsing history.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
   <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
