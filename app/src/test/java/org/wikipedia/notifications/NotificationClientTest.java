@@ -20,14 +20,14 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
 public class NotificationClientTest extends MockWebServerTest {
-    @NonNull private NotificationClient client = NotificationClient.instance();
+    @NonNull private NotificationClient client = new NotificationClient();
 
     @Test public void testRequestSuccess() throws Throwable {
         enqueueFromFile("notifications.json");
         NotificationClient.Callback cb = mock(NotificationClient.Callback.class);
         request(cb);
         server().takeRequest();
-        verify(cb).success(anyListOf(Notification.class));
+        verify(cb).success(anyListOf(Notification.class), any());
         //noinspection unchecked
         verify(cb, never()).failure(any(Throwable.class));
     }
@@ -37,7 +37,7 @@ public class NotificationClientTest extends MockWebServerTest {
         NotificationClient.Callback cb = mock(NotificationClient.Callback.class);
         request(cb);
         server().takeRequest();
-        verify(cb, never()).success(anyListOf(Notification.class));
+        verify(cb, never()).success(anyListOf(Notification.class), any());
         verify(cb).failure(any(Throwable.class));
     }
 

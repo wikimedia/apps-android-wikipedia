@@ -88,7 +88,7 @@ public final class NotificationPresenter {
                 .setContentTitle(context.getString(title));
 
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        manager.notify(n.id(), builder.build());
+        manager.notify((int) n.id(), builder.build());
     }
 
     private static Uri uriForPath(@NonNull Notification n, @NonNull String path) {
