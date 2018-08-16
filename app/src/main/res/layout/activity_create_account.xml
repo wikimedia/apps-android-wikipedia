@@ -90,7 +90,16 @@
                             android:inputType="textEmailAddress"
                             android:maxLines="1" />
                     </android.support.design.widget.TextInputLayout>
-
+                    <TextView
+                        android:id="@+id/email_recommendation_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/email_recommendation_message"
+                        style="@style/RtlAwareTextView"
+                        android:enabled="false"
+                        android:textSize="12sp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="0dp"/>
                     <TextView
                         android:id="@+id/create_account_submit_button"
                         android:layout_width="match_parent"
