@@ -127,14 +127,12 @@ public final class SharedPreferenceCookieManager implements CookieJar {
         for (String domainSpec : cookieJar.keySet()) {
             List<Cookie> cookiesForDomainSpec = cookieJar.get(domainSpec);
 
-            // For sites outside the wikipedia.org domain, like wikidata.org,
-            // transfer the centralauth cookies from wikipedia.org, too.
-            if (domain.equals("www.wikidata.org") && domainSpec.endsWith("wikipedia.org")) {
-                buildCookieList(cookieList, cookiesForDomainSpec, CENTRALAUTH_PREFIX);
-            }
-
             if (domain.endsWith(domainSpec)) {
                 buildCookieList(cookieList, cookiesForDomainSpec, null);
+            } else if (domainSpec.endsWith("wikipedia.org")) {
+                // For sites outside the wikipedia.org domain, transfer the centralauth cookies
+                // from wikipedia.org unconditionally.
+                buildCookieList(cookieList, cookiesForDomainSpec, CENTRALAUTH_PREFIX);
             }
         }
         return cookieList;
