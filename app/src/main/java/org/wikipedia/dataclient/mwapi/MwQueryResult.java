@@ -35,6 +35,7 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
     @SuppressWarnings("unused") @Nullable private MarkReadResponse echomarkread;
     @SuppressWarnings("unused,NullableProblems")
     @Nullable private NotificationList notifications;
+    @Nullable private Map<String, Notification.UnreadNotificationWikiItem> unreadnotificationpages;
     @SuppressWarnings("unused") @SerializedName("general")
     @Nullable private SiteInfo generalSiteInfo;
 
@@ -65,8 +66,12 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         return tokens != null ? tokens.login() : null;
     }
 
-    @Nullable public List<Notification> notifications() {
-        return notifications != null ? notifications.list() : null;
+    @Nullable public NotificationList notifications() {
+        return notifications;
+    }
+
+    @Nullable public Map<String, Notification.UnreadNotificationWikiItem> unreadNotificationWikis() {
+        return unreadnotificationpages;
     }
 
     @Nullable public String captchaId() {
@@ -247,11 +252,16 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         }
     }
 
-    private static class NotificationList {
+    public static class NotificationList {
         @SuppressWarnings("unused") @Nullable private List<Notification> list;
+        @SuppressWarnings("unused") @SerializedName("continue") @Nullable private String continueStr;
 
-        @Nullable private List<Notification> list() {
+        @Nullable public List<Notification> list() {
             return list;
+        }
+
+        @Nullable public String getContinue() {
+            return continueStr;
         }
     }
 }

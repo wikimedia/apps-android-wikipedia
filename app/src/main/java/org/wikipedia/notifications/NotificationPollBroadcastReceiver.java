@@ -7,11 +7,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
 import org.wikipedia.wikidata.EntityClient;
@@ -22,6 +24,9 @@ import java.util.concurrent.TimeUnit;
 
 public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     public static final String ACTION_POLL = "action_notification_poll";
+
+    private NotificationClient client = new NotificationClient();
+    private WikiSite wikidataSite = new WikiSite("www.wikidata.org", "");
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -58,15 +63,15 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     }
 
     private void pollNotifications(@NonNull final Context context) {
-        NotificationClient.instance().getNotifications(new NotificationClient.Callback() {
+        client.getAllNotifications(wikidataSite, new NotificationClient.Callback() {
             @Override
-            public void success(@NonNull List<Notification> notifications) {
+            public void success(@NonNull List<Notification> notifications, @Nullable String continueStr) {
                 if (notifications.isEmpty()) {
                     return;
                 }
 
                 // Mark these notifications as read, so that they won't appear again.
-                NotificationClient.instance().markRead(notifications);
+                client.markRead(wikidataSite, notifications);
 
                 for (final Notification n : notifications) {
 
@@ -99,7 +104,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
             public void failure(Throwable t) {
                 L.e(t);
             }
-        }, EntityClient.WIKIDATA_WIKI);
+        }, false, null, EntityClient.WIKIDATA_WIKI);
     }
 
     private boolean lastDescriptionEditedWithin(int days) {

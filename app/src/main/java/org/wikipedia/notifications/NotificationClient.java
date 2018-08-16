@@ -1,6 +1,7 @@
 package org.wikipedia.notifications;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 
@@ -10,10 +11,11 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
-import org.wikipedia.dataclient.retrofit.RetrofitFactory;
+import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.util.log.L;
 
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Response;
@@ -25,24 +27,18 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public final class NotificationClient {
-    @NonNull private final Service service;
-    @NonNull private final CsrfTokenClient editTokenClient;
 
     public interface Callback {
-        void success(@NonNull List<Notification> notifications);
+        void success(@NonNull List<Notification> notifications, @Nullable String continueStr);
         void failure(Throwable t);
     }
 
-    private static final NotificationClient INSTANCE = new NotificationClient(new WikiSite("www.wikidata.org", ""));
-
-    public static NotificationClient instance() {
-        return INSTANCE;
+    public interface UnreadWikisCallback {
+        void success(@NonNull Map<String, Notification.UnreadNotificationWikiItem> wikiMap);
+        void failure(Throwable t);
     }
 
-    private NotificationClient(@NonNull WikiSite wiki) {
-        service = RetrofitFactory.newInstance(wiki).create(Service.class);
-        editTokenClient = new CsrfTokenClient(wiki, WikipediaApp.getInstance().getWikiSite());
-    }
+    @NonNull private MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
     @VisibleForTesting static class CallbackAdapter implements retrofit2.Callback<MwQueryResponse> {
         @NonNull private final Callback callback;
@@ -51,73 +47,118 @@ public final class NotificationClient {
             this.callback = callback;
         }
 
-        @Override public void onResponse(Call<MwQueryResponse> call, Response<MwQueryResponse> response) {
-            if (response.body() != null && response.body().query() != null) {
+        @Override public void onResponse(@NonNull Call<MwQueryResponse> call, @NonNull Response<MwQueryResponse> response) {
+            if (response.body() != null && response.body().query() != null
+                    && response.body().query().notifications() != null) {
                 // noinspection ConstantConditions
-                callback.success(response.body().query().notifications());
+                callback.success(response.body().query().notifications().list(), response.body().query().notifications().getContinue());
             } else {
                 callback.failure(new JsonParseException("Notification response is malformed."));
             }
         }
 
-        @Override public void onFailure(Call<MwQueryResponse> call, Throwable caught) {
+        @Override public void onFailure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
             L.v(caught);
             callback.failure(caught);
         }
     }
 
-    /**
-     * Obrain a list of unread notifications for the user who is currently logged in.
-     * @param callback Callback that will receive the list of notifications.
-     * @param wikis List of wiki names for which notifications should be received. These must be
-     *              in the "DB name" format, as in "enwiki", "zhwiki", "wikidatawiki", etc.
-     */
-    public void getNotifications(@NonNull final Callback callback, @NonNull String... wikis) {
-        String wikiList = TextUtils.join("|", wikis);
-        requestNotifications(service, wikiList).enqueue(new CallbackAdapter(callback));
+    @VisibleForTesting static class UnreadCallbackAdapter implements retrofit2.Callback<MwQueryResponse> {
+        @NonNull private final UnreadWikisCallback callback;
+
+        UnreadCallbackAdapter(@NonNull UnreadWikisCallback callback) {
+            this.callback = callback;
+        }
+
+        @Override public void onResponse(@NonNull Call<MwQueryResponse> call, @NonNull Response<MwQueryResponse> response) {
+            if (response.body() != null && response.body().query() != null
+                    && response.body().query().unreadNotificationWikis() != null) {
+                // noinspection ConstantConditions
+                callback.success(response.body().query().unreadNotificationWikis());
+            } else {
+                callback.failure(new JsonParseException("Notification response is malformed."));
+            }
+        }
+
+        @Override public void onFailure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
+            L.v(caught);
+            callback.failure(caught);
+        }
     }
 
-    public void markRead(List<Notification> notifications) {
+    public void getUnreadNotificationWikis(@NonNull WikiSite wiki, @NonNull UnreadWikisCallback callback) {
+        cachedService.service(wiki).getUnreadNotificationWikis().enqueue(new UnreadCallbackAdapter(callback));
+    }
+
+    public void getNotificationsWithForeignSummary(@NonNull WikiSite wiki, @NonNull final Callback callback) {
+        cachedService.service(wiki).getForeignSummary().enqueue(new CallbackAdapter(callback));
+    }
+
+    public void getAllNotifications(@NonNull WikiSite wiki, @NonNull final Callback callback, boolean displayArchived,
+                                    @Nullable String continueStr, @NonNull String... wikis) {
+        cachedService.service(wiki).getAllNotifications(wikis.length > 0 ? TextUtils.join("|", wikis) : null,
+                displayArchived ? "read" : "!read", TextUtils.isEmpty(continueStr) ? null : continueStr)
+                .enqueue(new CallbackAdapter(callback));
+    }
+
+    public void markRead(@NonNull WikiSite wiki, @NonNull List<Notification> notifications) {
+        markRead(wiki, notifications, false);
+    }
+
+    public void markUnread(@NonNull WikiSite wiki, @NonNull List<Notification> notifications) {
+        markRead(wiki, notifications, true);
+    }
+
+    private void markRead(@NonNull WikiSite wiki, @NonNull List<Notification> notifications, boolean unread) {
         final String idListStr = TextUtils.join("|", notifications);
+        CsrfTokenClient editTokenClient = new CsrfTokenClient(wiki, WikipediaApp.getInstance().getWikiSite());
         editTokenClient.request(new CsrfTokenClient.DefaultCallback() {
             @Override
             public void success(@NonNull String token) {
-                requestMarkRead(service, token, idListStr).enqueue(new retrofit2.Callback<MwQueryResponse>() {
-                    @Override
-                    public void onResponse(Call<MwQueryResponse> call, Response<MwQueryResponse> response) {
-                        // don't care about the response for now.
-                    }
+                cachedService.service(wiki).markRead(token, unread ? null : idListStr, unread ? idListStr : null)
+                        .enqueue(new retrofit2.Callback<MwQueryResponse>() {
+                            @Override
+                            public void onResponse(@NonNull Call<MwQueryResponse> call, @NonNull Response<MwQueryResponse> response) {
+                                // don't care about the response for now.
+                            }
 
-                    @Override
-                    public void onFailure(Call<MwQueryResponse> call, Throwable t) {
-                        L.e(t);
-                    }
-                });
+                            @Override
+                            public void onFailure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable t) {
+                                L.e(t);
+                            }
+                        });
             }
         });
     }
 
     @VisibleForTesting @NonNull
     Call<MwQueryResponse> requestNotifications(@NonNull Service service, @NonNull String wikiList) {
-        return service.getNotifications(wikiList);
-    }
-
-    @VisibleForTesting @NonNull
-    Call<MwQueryResponse> requestMarkRead(@NonNull Service service, @NonNull String token, @NonNull String idList) {
-        return service.markRead(token, idList);
+        return service.getAllNotifications(wikiList, "!read", null);
     }
 
     @VisibleForTesting interface Service {
         String ACTION = "w/api.php?format=json&formatversion=2&action=";
 
         @Headers("Cache-Control: no-cache")
-        @GET(ACTION + "query&meta=notifications&notfilter=!read&notprop=list")
+        @GET(ACTION + "query&meta=notifications&notcrosswikisummary=1&notlimit=1")
         @NonNull
-        Call<MwQueryResponse> getNotifications(@Query("notwikis") @NonNull String wikiList);
+        Call<MwQueryResponse> getForeignSummary();
+
+        @Headers("Cache-Control: no-cache")
+        @GET(ACTION + "query&meta=notifications&notformat=model&notlimit=max")
+        @NonNull
+        Call<MwQueryResponse> getAllNotifications(@Query("notwikis") @Nullable String wikiList,
+                                                  @Query("notfilter") @Nullable String filter,
+                                                  @Query("notcontinue") @Nullable String continueStr);
 
         @FormUrlEncoded
         @Headers("Cache-Control: no-cache")
         @POST(ACTION + "echomarkread")
-        Call<MwQueryResponse> markRead(@Field("token") @NonNull String token, @Field("list") @NonNull String idList);
+        Call<MwQueryResponse> markRead(@Field("token") @NonNull String token, @Field("list") @Nullable String readList, @Field("unreadlist") @Nullable String unreadList);
+
+        @Headers("Cache-Control: no-cache")
+        @GET(ACTION + "query&meta=unreadnotificationpages&unplimit=max&unpwikis=*")
+        @NonNull
+        Call<MwQueryResponse> getUnreadNotificationWikis();
     }
 }
