@@ -490,6 +490,9 @@
     <item quantity="one">Text of notification shows the remaining list. The \"%1$d\" symbol corresponds to the amount of remaining lists.</item>
     <item quantity="other">Text of notification shows the remaining lists. The \"%1$d\" symbol corresponds to the amount of remaining lists.</item>
   </plurals>
+  <string name="notifications_poll_enable_title">Title of alert dialog asking the user to enable polling of notifications.</string>
+  <string name="notifications_poll_enable_positive">Positive response for enabling polling of notifications.</string>
+  <string name="notifications_poll_enable_negative">Negative response for enabling polling of notifications.</string>
   <string name="notifications_empty_message">Message shown when the user has no new notifications.</string>
   <string name="notifications_view_archived_button_text">Button label for navigating to the list of archived notifications.</string>
   <string name="notification_echo_channel_description">Description for the notification channel that will show Echo notifications.</string>

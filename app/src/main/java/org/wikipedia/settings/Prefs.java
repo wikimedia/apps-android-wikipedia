@@ -561,6 +561,18 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_notification_poll_enable, false);
     }
 
+    public static void setNotificationPollEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_notification_poll_enable, enabled);
+    }
+
+    public static boolean notificationPollReminderEnabled() {
+        return getBoolean(R.string.preference_key_notification_poll_reminder, true);
+    }
+
+    public static void setNotificationPollReminderEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_notification_poll_reminder, enabled);
+    }
+
     public static boolean notificationWelcomeEnabled() {
         return getBoolean(R.string.preference_key_notification_welcome_enable, true);
     }
