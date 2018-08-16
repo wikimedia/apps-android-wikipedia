@@ -107,7 +107,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         viewPager.setAdapter(new NavTabFragmentPagerAdapter(getChildFragmentManager()));
         viewPager.setOffscreenPageLimit(2);
         tabLayout.setOnNavigationItemSelectedListener(item -> {
-            Fragment fragment = ((NavTabFragmentPagerAdapter) viewPager.getAdapter()).getCurrentFragment();
+            Fragment fragment = getCurrentFragment();
             if (fragment instanceof FeedFragment && item.getOrder() == 0) {
                 ((FeedFragment) fragment).scrollToTop();
             }
@@ -321,7 +321,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     public void requestUpdateToolbarElevation() {
-        Fragment fragment = ((NavTabFragmentPagerAdapter) viewPager.getAdapter()).getCurrentFragment();
+        Fragment fragment = getCurrentFragment();
         updateToolbarElevation(!(fragment instanceof FeedFragment) || ((FeedFragment) fragment).shouldElevateToolbar());
     }
 
@@ -381,7 +381,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (fragment != null) {
             closeSearchFragment(fragment);
             if (fragment.isLanguageChanged()) {
-                Fragment currentFragment = ((NavTabFragmentPagerAdapter) viewPager.getAdapter()).getCurrentFragment();
+                Fragment currentFragment = getCurrentFragment();
                 if (currentFragment instanceof FeedFragment) {
                     ((FeedFragment) currentFragment).refresh();
                 }
@@ -423,7 +423,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             return true;
         }
 
-        Fragment fragment = ((NavTabFragmentPagerAdapter) viewPager.getAdapter()).getCurrentFragment();
+        Fragment fragment = getCurrentFragment();
         if (fragment instanceof BackPressedHandler && ((BackPressedHandler) fragment).onBackPressed()) {
             return true;
         }
@@ -436,14 +436,14 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     public void onGoOffline() {
-        Fragment fragment = ((NavTabFragmentPagerAdapter) viewPager.getAdapter()).getCurrentFragment();
+        Fragment fragment = getCurrentFragment();
         if (fragment instanceof FeedFragment) {
             ((FeedFragment) fragment).onGoOffline();
         }
     }
 
     public void onGoOnline() {
-        Fragment fragment = ((NavTabFragmentPagerAdapter) viewPager.getAdapter()).getCurrentFragment();
+        Fragment fragment = getCurrentFragment();
         if (fragment instanceof FeedFragment) {
             ((FeedFragment) fragment).onGoOnline();
         }
@@ -516,6 +516,10 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     private void goToTab(@NonNull NavTab tab) {
         tabLayout.setSelectedItemId(tab.code());
         cancelSearch();
+    }
+
+    private Fragment getCurrentFragment() {
+        return ((NavTabFragmentPagerAdapter) viewPager.getAdapter()).getCurrentFragment();
     }
 
     private class MediaDownloadReceiverCallback implements MediaDownloadReceiver.Callback {
