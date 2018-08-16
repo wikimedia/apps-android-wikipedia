@@ -490,6 +490,8 @@
     <item quantity="one">Text of notification shows the remaining list. The \"%1$d\" symbol corresponds to the amount of remaining lists.</item>
     <item quantity="other">Text of notification shows the remaining lists. The \"%1$d\" symbol corresponds to the amount of remaining lists.</item>
   </plurals>
+  <string name="notifications_empty_message">Message shown when the user has no new notifications.</string>
+  <string name="notifications_view_archived_button_text">Button label for navigating to the list of archived notifications.</string>
   <string name="notification_echo_channel_description">Description for the notification channel that will show Echo notifications.</string>
   <string name="notifications_activity_title">Title for the activity where the list of notifications for the current user is shown.</string>
   <string name="notifications_activity_title_archived">Title for the activity where the list of archived notifications for the current user is shown.</string>
@@ -502,6 +504,16 @@
     <item quantity="one">Message shown when a single notification is archived.</item>
     <item quantity="other">Message shown when multiple notifications are archived. The %d is replaced with the number of notifications.</item>
   </plurals>
+  <string name="notification_preferences_title">Title of activity where the notification preferences are managed.</string>
+  <string name="preference_title_notification_poll">Label for settings switch that enables or disables polling of new notifications.</string>
+  <string name="preference_summary_notification_poll">Short summary explaining what polling of notification means.</string>
+  <string name="preference_category_notification_types">Label for the settings category that contains the types of notifications that are shown in the app.</string>
+  <string name="preference_title_notification_welcome">Label for settings switch that enables or disables Welcome notifications.</string>
+  <string name="preference_summary_notification_welcome">Short summary explaining what Welcome notifications are.</string>
+  <string name="preference_title_notification_milestone">Label for settings switch that enables or disables Milestone notifications.</string>
+  <string name="preference_summary_notification_milestone">Short summary explaining what Milestone notifications are.</string>
+  <string name="preference_title_notification_thanks">Label for settings switch that enables or disables Thanks notifications.</string>
+  <string name="preference_summary_notification_thanks">Short summary explaining what Thanks notifications are.</string>
   <string name="view_continue_reading_card_title">Label for card in the feed that reminds the user to continue reading an article from their browsing history.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
   <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>

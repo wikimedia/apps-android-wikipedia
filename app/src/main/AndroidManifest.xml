@@ -134,6 +134,10 @@
             android:theme="@style/AppTheme.ActionBar"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
+            android:name=".settings.NotificationSettingsActivity"
+            android:label="@string/notification_preferences_title"
+            android:theme="@style/AppTheme.ActionBar" />
+        <activity
             android:name=".settings.AboutActivity"
             android:label="@string/about_activity_title"
             android:theme="@style/AppTheme.ActionBar" />

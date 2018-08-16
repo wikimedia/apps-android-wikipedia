@@ -30,6 +30,7 @@ import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.settings.NotificationSettingsActivity;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -50,6 +51,7 @@ import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
@@ -59,6 +61,8 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
     @BindView(R.id.notifications_recycler_view) RecyclerView recyclerView;
     @BindView(R.id.notifications_progress_bar) View progressBarView;
     @BindView(R.id.notifications_error_view) WikiErrorView errorView;
+    @BindView(R.id.notifications_empty_container) View emptyContainerView;
+    @BindView(R.id.notifications_view_archived_button) View archivedButtonView;
 
     private List<Notification> notificationList = new ArrayList<>();
     private List<NotificationListItemContainer> notificationContainerList = new ArrayList<>();
@@ -125,17 +129,14 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_notifications_view_archived:
-                displayArchived = true;
-                beginUpdateList();
+                onViewArchivedClick(null);
                 return true;
             case R.id.menu_notifications_view_unread:
                 displayArchived = false;
                 beginUpdateList();
                 return true;
             case R.id.menu_notifications_prefs:
-
-                // TODO
-
+                startActivity(NotificationSettingsActivity.newIntent(this));
                 return true;
             case R.id.menu_notifications_search:
                 startSupportActionMode(searchActionModeCallback);
@@ -155,10 +156,17 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         super.onBackPressed();
     }
 
+    @OnClick(R.id.notifications_view_archived_button)
+    void onViewArchivedClick(View v) {
+        displayArchived = true;
+        beginUpdateList();
+    }
+
 
     private void beginUpdateList() {
         errorView.setVisibility(View.GONE);
         recyclerView.setVisibility(View.GONE);
+        emptyContainerView.setVisibility(View.GONE);
         progressBarView.setVisibility(View.VISIBLE);
         getSupportActionBar().setTitle(displayArchived ? R.string.notifications_activity_title_archived : R.string.notifications_activity_title);
 
@@ -227,6 +235,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         L.e(t);
         progressBarView.setVisibility(View.GONE);
         recyclerView.setVisibility(View.GONE);
+        emptyContainerView.setVisibility(View.GONE);
         errorView.setError(t);
         errorView.setVisibility(View.VISIBLE);
     }
@@ -278,6 +287,13 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
             notificationContainerList.add(new NotificationListItemContainer(n));
         }
         recyclerView.getAdapter().notifyDataSetChanged();
+
+        if (notificationContainerList.isEmpty()) {
+            emptyContainerView.setVisibility(View.VISIBLE);
+            archivedButtonView.setVisibility(displayArchived ? View.GONE : View.VISIBLE);
+        } else {
+            emptyContainerView.setVisibility(View.GONE);
+        }
     }
 
     private void deleteItems(List<NotificationListItemContainer> items, boolean markUnread) {
@@ -617,6 +633,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         public void onDestroyActionMode(ActionMode mode) {
             super.onDestroyActionMode(mode);
             actionMode = null;
+            currentSearchQuery = null;
             postprocessAndDisplay();
         }
 
