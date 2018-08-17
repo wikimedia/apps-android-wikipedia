@@ -470,7 +470,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     private void saveSelectedPagesForOffline(List<ReadingListPage> selectedPages) {
-        if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi()) {
+        if (shouldForceDownloadOverMobileData()) {
             ReadingListsFragment.showMobileDataWarningDialog(requireActivity(), (dialog, which)
                     -> saveSelectedPagesForOffline(selectedPages, true));
         } else {
@@ -587,7 +587,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     private void toggleOffline(@NonNull ReadingListPage page) {
-        if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi() && !page.offline()) {
+        if (shouldForceDownloadOverMobileData()) {
             ReadingListsFragment.showMobileDataWarningDialog(requireActivity(), (dialog, which)
                     -> toggleOffline(page, true));
         }  else {
@@ -617,6 +617,10 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
     @NonNull private String getQuantityString(@PluralsRes int id, int quantity, Object... formatArgs) {
         return getResources().getQuantityString(id, quantity, formatArgs);
+    }
+
+    private boolean shouldForceDownloadOverMobileData() {
+        return Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi();
     }
 
     private class AppBarListener implements AppBarLayout.OnOffsetChangedListener {
@@ -814,6 +818,11 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         @Override
         public void onSecondaryActionClick(@Nullable ReadingListPage page, @NonNull View view) {
             if (page != null) {
+                if (shouldForceDownloadOverMobileData()
+                        && page.status() == ReadingListPage.STATUS_QUEUE_FOR_SAVE) {
+                    page.offline(false);
+                }
+
                 if (page.saving()) {
                     Toast.makeText(getContext(), R.string.reading_list_article_save_in_progress, Toast.LENGTH_LONG).show();
                 } else {
