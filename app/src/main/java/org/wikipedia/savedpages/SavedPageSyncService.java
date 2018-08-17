@@ -71,7 +71,8 @@ public class SavedPageSyncService extends JobIntentService {
         }
 
         List<ReadingListPage> pagesToSave = ReadingListDbHelper.instance().getAllPagesToBeForcedSave();
-        if (!Prefs.isDownloadOnlyOverWiFiEnabled() || DeviceUtil.isOnWiFi()) {
+        if ((!Prefs.isDownloadOnlyOverWiFiEnabled() || DeviceUtil.isOnWiFi())
+                && Prefs.isDownloadingReadingListArticlesEnabled()) {
             pagesToSave.addAll(ReadingListDbHelper.instance().getAllPagesToBeSaved());
         }
         List<ReadingListPage> pagesToUnsave = ReadingListDbHelper.instance().getAllPagesToBeUnsaved();

@@ -7,6 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.settings.Prefs;
 
 public class ReadingListPage {
     public static final int STATUS_QUEUE_FOR_SAVE = 0;
@@ -52,7 +53,7 @@ public class ReadingListPage {
         this.thumbUrl = title.getThumbUrl();
         this.description = title.getDescription();
         listId = -1;
-        offline = true;
+        offline = Prefs.isDownloadingReadingListArticlesEnabled();
         status = STATUS_QUEUE_FOR_SAVE;
         long now = System.currentTimeMillis();
         mtime = now;

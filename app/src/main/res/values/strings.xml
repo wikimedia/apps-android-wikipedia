@@ -153,6 +153,7 @@
     <string name="preferences_heading_experimental">Experimental</string>
     <string name="preference_title_sync_reading_lists">Sync reading lists</string>
     <string name="preference_title_sync_reading_lists_from_account">Reading list syncing</string>
+    <string name="preference_title_download_reading_list_articles">Download reading list articles</string>
     <string name="preference_summary_sync_reading_lists">Sync reading lists across different devices by saving them to your Wikipedia account</string>
     <string name="preference_summary_sync_reading_lists_from_account">Sync reading lists across different devices by saving them to your Wikipedia account \"%s\"</string>
     <string name="preference_dialog_of_turning_off_reading_list_sync_title">Remove synced reading lists from \"%s\"?</string>

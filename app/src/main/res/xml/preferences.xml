@@ -25,6 +25,10 @@
             android:key="@string/preference_key_sync_reading_lists"
             android:defaultValue="false"
             android:title="@string/preference_title_sync_reading_lists_from_account"/>
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_download_reading_list_articles"
+            android:defaultValue="true"
+            android:title="@string/preference_title_download_reading_list_articles"/>
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/preferences_heading_data_usage">

@@ -414,6 +414,10 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_download_only_over_wifi, false);
     }
 
+    public static boolean isDownloadingReadingListArticlesEnabled() {
+        return getBoolean(R.string.preference_key_download_reading_list_articles, true);
+    }
+
     private static String getLastRunTimeKey(@NonNull String task) {
         return getKey(R.string.preference_key_last_run_time_format, task);
     }
