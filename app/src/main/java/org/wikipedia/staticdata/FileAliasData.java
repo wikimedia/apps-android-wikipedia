@@ -21,7 +21,7 @@ public final class FileAliasData {
 
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static Map<String, String> newMap() {
-        final int size = 293;
+        final int size = 294;
         Map<String, String> map = new HashMap<>(size);
         map.put("ab", "Афаил");
         map.put("ace", "Beureukaih");
@@ -243,6 +243,7 @@ public final class FileAliasData {
         map.put("rw", "File");
         map.put("sa", "सञ्चिका");
         map.put("sah", "Билэ");
+        map.put("sat", "ᱨᱮᱫ");
         map.put("sc", "File");
         map.put("scn", "File");
         map.put("sco", "File");

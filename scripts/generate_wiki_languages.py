@@ -75,7 +75,7 @@ for key, value in data[u"sitematrix"].items():
         continue
     if language_code == 'no':  # T114042
         language_code = 'nb'
-    add_lang(language_code, value[u"name"], value[u"localname"], rank)
+    add_lang(language_code, value[u"name"].replace("'", "\\'"), value[u"localname"].replace("'", "\\'"), rank)
 
 
 add_lang(key='test', local_name='Test', eng_name='Test', rank=0)

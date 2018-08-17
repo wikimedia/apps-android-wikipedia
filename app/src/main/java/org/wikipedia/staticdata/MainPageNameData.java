@@ -21,7 +21,7 @@ public final class MainPageNameData {
 
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static Map<String, String> newMap() {
-        final int size = 293;
+        final int size = 294;
         Map<String, String> map = new HashMap<>(size);
         map.put("ab", "Ихадоу адаҟьа");
         map.put("ace", "Ôn Keuë");
@@ -130,7 +130,7 @@ public final class MainPageNameData {
         map.put("ia", "Pagina principal");
         map.put("id", "Halaman Utama");
         map.put("ie", "Principal págine");
-        map.put("ig", "Ihü Mbu");
+        map.put("ig", "Ihu m̀bụ");
         map.put("ik", "Makpiġaaq Kanna");
         map.put("ilo", "Umuna a Panid");
         map.put("inh", "Керттера оагӀув");
@@ -167,7 +167,7 @@ public final class MainPageNameData {
         map.put("lb", "Haaptsäit");
         map.put("lbe", "Агьаммур лажин");
         map.put("lez", "Кьилин ччин");
-        map.put("lfn", "Paje Xef");
+        map.put("lfn", "Paje xef");
         map.put("lg", "Olupapula Olusooka");
         map.put("li", "Veurblaad");
         map.put("lij", "Pagina prinçipâ");
@@ -243,6 +243,7 @@ public final class MainPageNameData {
         map.put("rw", "Intangiriro");
         map.put("sa", "मुख्यपृष्ठम्");
         map.put("sah", "Сүрүн сирэй");
+        map.put("sat", "ᱢᱩᱬᱩᱛ ᱥᱟᱦᱴᱟ");
         map.put("sc", "Pàgina printzipale");
         map.put("scn", "Pàggina principali");
         map.put("sco", "Main Page");
