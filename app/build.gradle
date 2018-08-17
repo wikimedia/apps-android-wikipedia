@@ -39,8 +39,7 @@ def computeVersionName(label) {
 final JavaVersion JAVA_VERSION = JavaVersion.VERSION_1_8
 android {
     // Keep version in sync with /project.properties
-    compileSdkVersion 27
-    buildToolsVersion '27.0.3'
+    compileSdkVersion 28
 
     compileOptions {
         sourceCompatibility = JAVA_VERSION
@@ -55,7 +54,7 @@ android {
     defaultConfig {
         applicationId 'org.wikipedia'
         minSdkVersion 19
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 239
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
@@ -194,7 +193,7 @@ dependencies {
     // Debug with ./gradlew -q app:dependencies --configuration compile
 
     String okHttpVersion = '3.10.0'
-    String supportVersion = '27.1.1'
+    String supportVersion = '28.0.0'
     String retrofitVersion = '2.4.0'
     String espressoVersion = '3.0.1'
     String butterKnifeVersion = '8.8.1'
@@ -217,7 +216,10 @@ dependencies {
     implementation "com.android.support:palette-v7:$supportVersion"
     implementation "com.android.support:preference-v14:$supportVersion"
 
-    implementation 'com.github.michael-rapp:chrome-like-tab-switcher:0.3.4'
+    implementation ('com.github.michael-rapp:chrome-like-tab-switcher:0.3.4') {
+        // TODO: remove when this component updates its own dependency on Support 28.0.0
+        exclude group: 'com.android.support'
+    }
     implementation 'com.duolingo.open:rtl-viewpager:1.0.3'
     implementation "com.facebook.fresco:animated-gif:$frescoVersion"
     implementation "com.facebook.fresco:fresco:$frescoVersion"

@@ -61,7 +61,7 @@ public class MainDrawerView extends ScrollView {
             accountNameView.setText(AccountUtil.getUserName());
             accountNameView.setVisibility(VISIBLE);
             loginLogoutButton.setText(getContext().getString(R.string.preference_title_logout));
-            loginLogoutButton.setTextColor(ResourceUtil.getThemedColor(getContext(), R.attr.textColorError));
+            loginLogoutButton.setTextColor(ResourceUtil.getThemedColor(getContext(), R.attr.colorError));
             accountAvatar.setVisibility(View.VISIBLE);
             accountWikiGlobe.setVisibility(View.GONE);
             notificationsContainer.setVisibility(View.VISIBLE);

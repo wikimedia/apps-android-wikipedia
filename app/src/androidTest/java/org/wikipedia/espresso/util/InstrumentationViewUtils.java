@@ -41,7 +41,7 @@ public final class InstrumentationViewUtils {
 
         //Click App Theme
         ViewInteraction recyclerView = onView(
-                allOf(withId(R.id.list),
+                allOf(withId(android.R.id.list),
                         childAtPosition(
                                 withId(android.R.id.list_container),
                                 0)));
@@ -79,7 +79,7 @@ public final class InstrumentationViewUtils {
 
         //Click App Theme
         ViewInteraction recyclerView = onView(
-                allOf(withId(R.id.list),
+                allOf(withId(android.R.id.list),
                         childAtPosition(
                                 withId(android.R.id.list_container),
                                 0)));
