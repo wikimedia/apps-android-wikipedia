@@ -159,7 +159,7 @@
   <string name="privacy_policy_description">தகவல் பாதுகாப்பு</string>
   <string name="terms_of_use_description">பயன்பாட்டு விதிமுறைகள்</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/ta</string>
-  <string name="terms_of_use_url">https://meta.wikimedia.org/wiki/Terms_of_use/ta</string>
+  <string name="terms_of_use_url" fuzzy="true">https://meta.wikimedia.org/wiki/Terms_of_use/ta</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">பயன்படுத்தும் நிரலகங்கள்</string>
@@ -167,7 +167,7 @@
   <string name="about_translators_heading">மொழிபெயர்ப்பாளர்கள்</string>
   <string name="about_translators_translatewiki">இந்த நிரல் &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-இல் உள்ள தன்னார்வ மொழிபெயர்ப்பாளர்களால் மொழிபெயர்க்கப்பட்டது.</string>
   <string name="about_app_license_heading">உரிமம்</string>
-  <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;விக்கிமீடியா நிறுவனத்தின்&lt;/a&gt; உருவாக்கம்</string>
+  <string name="about_wmf" fuzzy="true">&lt;a href=\"https://wikimediafoundation.org/\"&gt;விக்கிமீடியா நிறுவனத்தின்&lt;/a&gt; உருவாக்கம்</string>
   <string name="about_activity_title">இதுபற்றி</string>
   <string name="edit_abandon_confirm">இந்தப் பக்கத்தில் மாற்றங்கள் உள்ளன. உறுதியாக உங்கள் மாற்றங்களை பதிப்பிடாமல் வெளியேற விரும்புகிறீர்களா?</string>
   <string name="edit_abandon_confirm_yes">ஆம்</string>

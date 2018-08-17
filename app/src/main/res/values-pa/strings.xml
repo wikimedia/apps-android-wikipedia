@@ -127,7 +127,7 @@
   <string name="privacy_policy_description">ਪਰਦਾ ਨੀਤੀ</string>
   <string name="terms_of_use_description">ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="about_libraries_heading">ਵਰਤੀਆਂ ਲਾਇਬ੍ਰੇਰੀਆਂ</string>
   <string name="about_contributors_heading">ਯੋਗਦਾਨੀ</string>
   <string name="about_translators_heading">ਅਨੁਵਾਦਕ</string>

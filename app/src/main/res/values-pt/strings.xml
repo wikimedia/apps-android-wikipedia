@@ -88,6 +88,7 @@
   <string name="search_reading_lists_no_results">Não foram encontrados resultados nas listas de leitura</string>
   <string name="search_history_no_results">Não foram encontrados resultados no histórico</string>
   <string name="edit_section_captcha_message">Para ajudar a proteger contra sistemas automatizados de inserção de \'\'spam\'\', introduza as palavras que aparecem abaixo, por favor</string>
+  <string name="edit_section_captcha_request_an_account_message">Não consegue ver a imagem? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Saiba mais&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Repita as palavras acima</string>
   <string name="title_captcha">Introduza o CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toque no CAPTCHA para recarregar</string>
@@ -183,6 +184,7 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt</string>
   <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.pt</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt</string>
   <string name="about_libraries_heading">Bibliotecas usadas</string>

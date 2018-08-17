@@ -136,7 +136,7 @@
   <string name="about_translators_heading">Tradukantoj</string>
   <string name="about_translators_translatewiki">Ĉi tiu aplikaĵo estis tradukita de volontulaj tradukantoj ĉe &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Permesilo</string>
-  <string name="about_wmf">Produkto de &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondaĵo Vikimedio&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">Produkto de &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondaĵo Vikimedio&lt;/a&gt;</string>
   <string name="about_activity_title">Pri</string>
   <string name="edit_abandon_confirm">Ĉi tiu paĝo estis modifita. Ĉu vi certas ke vi volas eliri sen konservi viajn modifojn?</string>
   <string name="user_blocked_from_editing_title">Forbarita</string>

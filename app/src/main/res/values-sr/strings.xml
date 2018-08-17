@@ -35,7 +35,7 @@
   <string name="dialog_message_clear_history">Овим ћете избрисати сву историју прегледања и затворити отворене картице. Јесте ли сигурни?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
   <string name="dialog_message_clear_history_no">Не</string>
-  <string name="share_via">Делите помоћу апликације…</string>
+  <string name="share_via">Делите помоћу</string>
   <string name="search_redirect_from">Преусмерено са %s</string>
   <string name="menu_page_show_tabs">Прикажи картице</string>
   <string name="menu_page_other_languages">Промени језик</string>
@@ -48,7 +48,7 @@
   <string name="menu_long_press_open_in_new_tab">Отвори у новој картици</string>
   <string name="menu_long_press_copy_page">Копирај адресу везе</string>
   <string name="menu_text_select_copy">Копирај</string>
-  <string name="menu_text_select_define">Значење</string>
+  <string name="menu_text_select_define">Дефиниши</string>
   <string name="menu_text_select_share">Дели</string>
   <string name="menu_text_select_edit_here">Уреди овде</string>
   <string name="nav_item_nearby">У близини</string>
@@ -58,7 +58,7 @@
   <string name="talk_page_link_text">Страница за разговор</string>
   <string name="edit_history_link_text">Историја измена</string>
   <string name="map_view_link_text">Погледај на мапи</string>
-  <string name="other_languages_indication_text">Прочитај на другом језику</string>
+  <string name="other_languages_indication_text">Читај на другом језику</string>
   <string name="language_count_link_text">Доступан на %d других језика</string>
   <string name="content_license_html">Садржај је доступан под лиценцом &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; осим ако је другачије наведено</string>
   <string name="edit_save_action_license_logged_in">Чувањем измена, слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање ваших доприноса по лиценци &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -85,6 +85,7 @@
   <string name="search_reading_lists_no_results">Нису пронађени резултати на списковима за читање</string>
   <string name="search_history_no_results">Нису пронађени резултати у историји</string>
   <string name="edit_section_captcha_message">Да бисте помогли у заштити против аутоматизованог нежељеног садржаја, унесите речи које су приказане испод</string>
+  <string name="edit_section_captcha_request_an_account_message">Не видите слику? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Сазнајте више&lt;/a&gt;.</string>
   <string name="edit_section_captcha_hint">Поново напишите речи изнад</string>
   <string name="title_captcha">Унесите одговор са слике</string>
   <string name="edit_section_captcha_reload">Додирните КЕПЧА-у да бисте је поново учитали</string>
@@ -178,6 +179,7 @@
   <string name="about_wikipedia_url">https://sr.m.wikipedia.org/wiki/Википедија:О_нама</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Коришћене библиотеке</string>
@@ -394,6 +396,7 @@
   <string name="reading_lists_confirm_remote_delete">Овим ћете избрисати све раније синхронизоване листе за читање са удаљеног складишта. Наставити?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
+  <string name="reading_list_article_save_in_progress">Чланак се преузима. По завршетку преузимања ће бити доступан офлајн.</string>
   <string name="reading_list_already_contains_selection">Изабрана листа већ садржи све изабране странице.</string>
   <string name="reading_list_added_articles_list_titled">У листу „%2$s“ су додати чланци (%1$d)</string>
   <string name="reading_list_delete_confirm">Заиста желите да избришете %s?</string>
@@ -402,22 +405,28 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Откажи</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Пријави ме</string>
   <string name="reading_list_turned_sync_off_dialog_title">Синхронизација листа за читање је искључена</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Синхронизација спискова за читање је искључена за ваш налог. Сачувани чланци на уређајима са којих сте пријављени више неће бити копирани. Укључите синхронизацију спискова за читање у подешавањима.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">У реду</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Подешавања</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Укључити синхронизацију листа за читање?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Чланци сачувани на списковима за читање сада могу бити синхронизовани са вашим налогом на Википедији. &lt;a href=\"#faq\"&gt;Сазнајте више&lt;/a&gt;.</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Не приказуј поново</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Омогући синхронизацију</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Не, хвала</string>
   <string name="reading_list_login_option_reminder_dialog_title">Пронађени чланци у листи за читање</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Чланци су сачувани на списак за читање док сте били одјављени. Желите ли да их додате на списак за читање на вашем налогу?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Да, додај их у листе за читање</string>
   <string name="reading_list_login_option_reminder_dialog_no">Не, избриши чланке</string>
   <string name="reading_list_logout_option_reminder_dialog_title">Задржати сачуване чланке у апликацији?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Постоје чланци који су сачувани на спискове за читање. Желите ли да их задржите тамо након одјаве?</string>
   <string name="reading_list_logout_option_reminder_dialog_yes">Да, задржи чланке у листама</string>
   <string name="reading_list_logout_option_reminder_dialog_no">Не, избриши чланке са листа</string>
   <string name="default_reading_list_name">Сачувано</string>
   <string name="default_reading_list_description">Подразумевана листа за сачуване чланке</string>
   <string name="no_user_lists_title">Организујте чланке у листама</string>
+  <string name="no_user_lists_msg">Направите спискове о местима која желите да посетите, о омиљеним темама и друго</string>
   <string name="reading_list_saved_list_rename">%1$s (направио корисник)</string>
+  <string name="split_reading_list_message">Сваки списак за читање прима највише %d чланака. Постојећи спискови са више чланака су раздвојени на неколико њих.</string>
   <string name="reading_list_article_limit_message">Не могу да додам у ову листу. Достигли сте ограничење од %2$d чланака по листи за „%1$s“.</string>
   <string name="reading_lists_limit_message">Не могу да направим другу листу. Достигли сте ограничење од 100 листа за читање по налогу.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Синхронизација спискова за читање&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Спискови за читање се сада могу синхронизовати међу уређајима. Пријавите се с налогом на Википедији и дозволите чување спискова.</string>
@@ -506,13 +515,19 @@
   <string name="feed_configure_menu_reset">Врати подразумевани приказ</string>
   <string name="feed_configure_menu_select_all">Прикажи све</string>
   <string name="feed_configure_menu_deselect_all">Сакриј све</string>
+  <string name="feed_configure_language_warning">Имајте на уму да нису сви типови картица доступни на сваком језику на Википедији. Уредите изабране језике у подешавањима.</string>
   <string name="feed_item_type_news">Чланци о текућим догађајима</string>
   <string name="feed_item_type_on_this_day">Историјски догађаји на данашњи дан</string>
+  <string name="feed_item_type_continue_reading">Брзи линк за враћање на чланак отворен у картици</string>
+  <string name="feed_item_type_because_you_read">Предлози на основу недавно прочитаног чланка из историје</string>
   <string name="feed_item_type_featured_article">Изабрани чланак дана на Википедији</string>
   <string name="feed_item_type_trending">Најчитанији чланци за данас</string>
   <string name="feed_item_type_featured_image">Изабрана слика дана са Викиоставе</string>
+  <string name="feed_item_type_main_page">Главна страница Википедије са садржајем дана</string>
   <string name="feed_item_type_randomizer">Генеришите случајне чланке за читање</string>
+  <string name="feed_empty_message">Ваш фид „Истражи“ је празан</string>
   <string name="feed_configure_onboarding_action">Прилагоди</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Прилагодите фид „Истражи“&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Сада можете да изаберете шта желите да се приказује у фиду, као и да дате предност вашем омиљеном типу садржаја.</string>
   <string name="description_edit_text_hint">Опис наслова</string>
   <string name="description_edit_save">Објави</string>
   <string name="description_edit_add_description">Додај опис наслова</string>
@@ -552,12 +567,17 @@
   <string name="description_edit_revert_reason2">ваша измена је изгледала као експеримент или вандализам</string>
   <string name="description_edit_revert_history">Ако сте заинтересовани, погледајте &lt;a href=\"%1$s\"&gt;историју уређивања&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">Нема везе са интернетом. Уверите се да сте повезани па покушајте поново.</string>
+  <string name="offline_read_permission_rationale">Потребна је дозвола за приступ меморијском простору уређаја ради прегледања офлајн.</string>
+  <string name="offline_read_final_rationale">Потребна је дозвола за приступ меморијском простору уређаја ради коришћења офлајн библиотеке.</string>
+  <string name="offline_read_permission_error">Није додељена дозвола за читање меморијског простора уређаја.</string>
+  <string name="offline_card_sideloading_text">Сада прегледате Википедију офлајн помоћу пакета чланака у вашој офлајн библиотеци.</string>
   <string name="offline_my_compilations">Управљај мојом офлајн библиотеком</string>
   <string name="offline_compilations_title">Офлајн библиотека</string>
   <string name="offline_compilations_search_by_name">Претражуј пакете чланака по имену</string>
   <string name="offline_compilations_found_count">У мојој офлајн библиотеци (%d)</string>
   <string name="offline_compilations_add">Додај у офлајн библиотеку</string>
   <string name="remote_compilations_title">Офлајн библиотека</string>
+  <string name="remote_compilations_description">Помоћу офлајн библиотеке можете да преузимате пакете чланака за читање када нисте повезани са интернетом.</string>
   <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
@@ -568,6 +588,10 @@
   <string name="storage_used_by_compilations">користи офлајн библиотека</string>
   <string name="storage_other_apps">Друге апликације</string>
   <string name="offline_compilation_download_progress_text_v2">%1$s/%2$s</string>
+  <plurals name="offline_compilation_download_time_remaining">
+    <item quantity="one">Преостао је 1 минут</item>
+    <item quantity="other">Преостала су %d минута</item>
+  </plurals>
   <string name="compilation_download_widget_button_cancel_hint">Откажи преузимање</string>
   <string name="compilation_download_cancel_confirm">Заиста желите да откажете преузимање овог пакета чланака?</string>
   <string name="compilation_download_cancel_confirm_yes">Да</string>
@@ -577,19 +601,28 @@
   <string name="compilation_remove_confirm">Желите ли да уклоните ово из своје офлајн библиотеке?</string>
   <string name="offline_library_title">Офлајн библиотека</string>
   <string name="offline_library_empty_title">У вашој офлајн библиотеци нема ништа</string>
+  <string name="offline_library_empty_description_sideload">„Пакети чланака“ у вашој офлајн библиотеци представљају унапред упаковане скупове чланака за згодно складиштење на уређају, тако да можете наставити са читањем када сте офлајн.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Сазнајте више&lt;/a&gt;.</string>
+  <string name="offline_library_packs_hint">Пакети чланака у вашој библиотеци остају доступни за читање и када сте офлајн. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Сазнајте више&lt;/a&gt;.</string>
+  <string name="offline_library_data_usage_hint">Желите да уштедите мобилне податке? Изаберите „Приоритет има офлајн садржај“ у подешавањима да бисте прво приказали офлајн верзију чланака, чак и када сте повезани са интернетом. &lt;a href=\"#settings\"&gt;Идите у подешавања&lt;/a&gt;.</string>
   <string name="offline_library_empty_search">Претражите офлајн библиотеку</string>
   <string name="offline_library_search_results_state">Резултати претраге за вашу офлајн библиотеку</string>
   <string name="offline_library_onboarding_button_done">Готово</string>
   <string name="offline_library_onboarding_build_library_title">Изградите Вашу офлајн библиотеку</string>
+  <string name="offline_library_onboarding_build_library_subtitle">Преузмите пакете чланака Википедије сада да касније не бисте трошили мобилне податке.</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">Неометано читање</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Наставите да читате и претражујете чланке у офлајн библиотеци када немате приступ интернету.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Складиштите више знања</string>
+  <string name="offline_library_onboarding_store_knowledge_subtitle">Преузмите колико год чланака са Википедије ваш уређај може да ускладишти. Офлајн библиотека може да приступи пакетима чланака и на екстерној меморији.</string>
+  <string name="offline_library_main_page_hint_html">Главна страница садржи преглед садржаја овог пакета чланака.&lt;br /&gt;&lt;br /&gt;Док сте офлајн, можете и да истражујете садржај било ког пакета у офлајн библиотеци претрагом доступних чланака.</string>
   <string name="onboarding_skip">Прескочи</string>
   <string name="onboarding_continue">Настави</string>
   <string name="onboarding_get_started">Почните!</string>
   <string name="onboarding_explore_title">Нови начини за истраживање</string>
   <string name="onboarding_explore_text">Завирите у непознати свет Википедије помоћу фида „Истражи“ који се непрекидно ажурира.&lt;br/&gt; &lt;b&gt;Прилагодите&lt;/b&gt; фид својим интересима – упознајте историјске догађаје који су се одиграли &lt;b&gt;на данашњи дан&lt;/b&gt; или искушајте срећу са &lt;b&gt;случајним чланком&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Сачувајте на списак за читање</string>
+  <string name="onboarding_save_to_reading_lists_text">Правите спискове за читање од чланака које желите да читате касније, чак и када сте офлајн.</string>
   <string name="onboarding_reading_list_sync_title">Листе за читање са синхронизацијом</string>
+  <string name="onboarding_reading_list_sync_text">Правите спискове за читање од чланака које желите да читате касније, чак и када сте офлајн. &lt;a href=\"#login\"&gt;Пријавите се или отворите&lt;/a&gt; налог на Википедији да бисте сачували спискове за читање.</string>
   <string name="onboarding_reading_list_sync_text_v2">Можете да правите листе за читање од чланака које желите да читате касније, чак и кад сте ван мреже. &lt;br/&gt;Пријавите се ради синхронизације листа за читање. &lt;a href=\"#login\"&gt;Придружите се Википедији.&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Слање анонимних података</string>
   <string name="onboarding_analytics_offline_text">Помозите нам да побољшамо апликацију слањем информација о употреби. Сакупљени подаци су анонимни. &lt;a href=\"#privacy\"&gt;Сазнајте више.&lt;/a&gt;</string>
@@ -598,6 +631,7 @@
   <string name="onboarding_create_account_contributions">Будите у току са вашим доприносима</string>
   <string name="onboarding_create_account_preferences">Сачувајте Ваша подешавања</string>
   <string name="onboarding_got_it">Разумем!</string>
+  <string name="onboarding_multilingual_secondary_text">Пронашли смо следеће на вашем уређају:</string>
   <string name="onboarding_multilingual_add_language_text">Додај или уреди језике</string>
   <string name="onboarding_welcome_title_v2">Слободна енциклопедија\nна готово 300 језика</string>
   <string name="app_shortcuts_random">Случајна</string>
@@ -607,6 +641,7 @@
   <string name="top_on_this_day">Популарно на %1$s</string>
   <string name="on_this_day_card_title">На данашњи дан</string>
   <string name="more_events_text">Више на овај дан</string>
+  <string name="events_count_text">%1$s догађаја %2$s–%3$d</string>
   <string name="this_year">Ове године</string>
   <string name="back_to_top">Назад на врх</string>
   <plurals name="diff_years">
@@ -621,10 +656,17 @@
   <string name="wikipedia_languages_add_language_text">Додај језик</string>
   <string name="wikipedia_languages_remove_text">Уклони језик</string>
   <string name="wikipedia_languages_remove_action_mode_title">Уклањање језика</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">Уклонити изабрани језик?</item>
+    <item quantity="other">Уклонити изабране језике?</item>
+  </plurals>
+  <string name="wikipedia_languages_remove_dialog_content">Садржај у фиду „Истражи“ и филтерима за брзу претрагу ће се односити само на преостале језике на Википедији.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Не могу да уклоним све језике</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Задржите бар један језик за претрагу и читање.</string>
   <string name="more_language_options">још</string>
   <string name="add_wikipedia_languages_text">Додај језике Википедије</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Уклонити кинески са списка језика?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Тренутно имате и традиционални и поједностављени кинески у језицима апликације. Променити подешавања језика?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Уреди језике</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Не, хвала</string>
 </resources>

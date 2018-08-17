@@ -100,6 +100,7 @@
   <string name="search_reading_lists_no_results">Nenhum resultado encontrado em listas de leitura</string>
   <string name="search_history_no_results">Nenhum resultado encontrado no histórico</string>
   <string name="edit_section_captcha_message">Para ajudar a proteger contra spam automatizado, digite as palavras abaixo</string>
+  <string name="edit_section_captcha_request_an_account_message">Não consegue ver a imagem? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Saiba mais&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Repita as palavras de cima</string>
   <string name="title_captcha">Digite o CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toque no CAPTCHA para atualizar</string>
@@ -194,7 +195,8 @@
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt-br</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/pt-br</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.pt</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt</string>
   <string name="about_libraries_heading">Bibliotecas usadas</string>
@@ -203,7 +205,7 @@
   <string name="about_translators_translatewiki">Este aplicativo foi traduzido pelos tradutores voluntários na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licença</string>
   <string name="about_app_license">Código fonte disponível em &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sob a &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Licença Apache 2.0&lt;/a&gt;. A menos que especificado, o conteúdo é disponibilizado sob a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Licença Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
-  <string name="about_wmf">Um produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundação Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf">Um produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
   <string name="edit_abandon_confirm">A página foi modificada. Tem certeza que pretende sair sem salvar as suas alterações?</string>
   <string name="edit_abandon_confirm_yes">Sim</string>

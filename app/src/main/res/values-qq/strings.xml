@@ -92,6 +92,7 @@
   <string name="search_reading_lists_no_results">Message shown when there are no reading lists whose name matches the specified search term.</string>
   <string name="search_history_no_results">Message shown when there are no history entries that match the specified search term.</string>
   <string name="edit_section_captcha_message">A label for the CAPTCHA screen.</string>
+  <string name="edit_section_captcha_request_an_account_message">Text informing the user that there is an alternate way to create an account, if in case the user cannot read the captcha, with a link to the page to request an account.</string>
   <string name="edit_section_captcha_hint">A call to action to write the CAPTCHA string.</string>
   <string name="title_captcha">A call to action to write the CAPTCHA string.</string>
   <string name="edit_section_captcha_reload">Call to action. \"Tap\" is imperative verb, \"touch the touchscreen\".</string>
@@ -187,6 +188,7 @@
   <string name="offline_reading_and_data_url">URL leading to the Offline reading and data section of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site please do so.</string>
   <string name="android_app_faq_url">URL leading to the page of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site please do so.</string>
   <string name="terms_of_use_url">URL leading to the Wikimedia Foundation terms of use. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://foundation.m.wikimedia.org/wiki/Terms_of_Use/de\nPlease test the URL to make sure it works</string>
+  <string name="android_app_request_an_account_url">URL leading to the page of Wikimedia account request. If you can find the appropriate language specific URL of the mobile site please do so</string>
   <string name="cc_by_sa_3_url">URL for details about the Creative Commons CC BY-SA 3.0 license. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
   <string name="cc_0_url">URL for details about the Creative Commons CC0 license. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
   <string name="about_libraries_heading">Heading for section that lists the libraries that have been used in the app</string>
@@ -677,6 +679,4 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Description of the dialog that prompts to the users about removing a Chinese variant from the app languages.</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Affirmative answer to open the Wikipedia languages page to manage the existing languages that have been set up.</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Negative answer to keep the existing app languages settings.</string>
-  <string name="edit_section_captcha_request_an_account_message">Text informing the user that there is an alternate way to create an account, if in case the user cannot read the captcha, with a link to the page to request an account. </string>
-  <string name="android_app_request_an_account_url">URL leading to the page of Wikimedia account request. If you can find the appropriate language specific URL of the mobile site please do so</string>
 </resources>

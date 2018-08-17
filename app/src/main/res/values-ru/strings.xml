@@ -112,6 +112,7 @@
   <string name="search_reading_lists_no_results">Не найдено результатов в списках для чтения</string>
   <string name="search_history_no_results">Не найдено результатов в истории</string>
   <string name="edit_section_captcha_message">Для того, что бы помочь нам защититься от автоматизированного спама, пожалуйста, введите слова, которые показаны ниже</string>
+  <string name="edit_section_captcha_request_an_account_message">Не видите изображений капчи? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Пройдите по этой ссылке&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Повторите слова, показанные выше</string>
   <string name="title_captcha">Введите капчу</string>
   <string name="edit_section_captcha_reload">Коснитесь капчи для её обновления</string>
@@ -203,10 +204,11 @@
   <string name="privacy_policy_description">Политика конфиденциальности</string>
   <string name="terms_of_use_description">Условия использования</string>
   <string name="about_wikipedia_url">https://ru.m.wikipedia.org/wiki/Википедия:Описание</string>
-  <string name="privacy_policy_url">https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/ru</string>
+  <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/ru</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Чтение_в_офлайне_и_данные</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/ru</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/ru</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ru</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
   <string name="about_libraries_heading">Используемые библиотеки</string>

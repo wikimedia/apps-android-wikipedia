@@ -79,6 +79,7 @@
   <string name="search_reading_lists_no_results">Keine Ergebnisse in den Leselisten gefunden</string>
   <string name="search_history_no_results">Keine Ergebnisse im Verlauf gefunden</string>
   <string name="edit_section_captcha_message">Zum Schutz vor automatisiertem Spam gib bitte die unten erscheinenden Wörter ein.</string>
+  <string name="edit_section_captcha_request_an_account_message">Kannst du das Bild nicht sehen? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Mehr erfahren&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Wörter von oben wiederholen</string>
   <string name="title_captcha">Captcha eingeben</string>
   <string name="edit_section_captcha_reload">Tippen zum Aktualisieren des Captchas</string>
@@ -170,10 +171,11 @@
   <string name="privacy_policy_description">Datenschutzrichtlinie</string>
   <string name="terms_of_use_description">Nutzungsbedingungen</string>
   <string name="about_wikipedia_url">https://de.m.wikipedia.org/wiki/Wikipedia:Über_Wikipedia</string>
-  <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/de</string>
+  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy/de</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/de</string>
   <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/de</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.de</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.de</string>
   <string name="about_libraries_heading">Verwendete Bibliotheken</string>

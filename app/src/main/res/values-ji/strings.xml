@@ -140,7 +140,7 @@
   <string name="about_translators_heading">איבערזעצער</string>
   <string name="about_translators_translatewiki">דער אפ איז געווארן איבערגעזעצט דורך די וואלונטיר איבערזעצער בײַ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">לייסענס</string>
-  <string name="about_wmf">א פראדוקט פון דער &lt;a href=\"https://wikimediafoundation.org/\"&gt;וויקימעדיע פֿונדאציע&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">א פראדוקט פון דער &lt;a href=\"https://wikimediafoundation.org/\"&gt;וויקימעדיע פֿונדאציע&lt;/a&gt;</string>
   <string name="about_activity_title">וועגן</string>
   <string name="edit_abandon_confirm_yes">יא</string>
   <string name="edit_abandon_confirm_no">ניין</string>

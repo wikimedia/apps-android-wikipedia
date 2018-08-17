@@ -119,6 +119,7 @@
   <string name="create_account_next">Næsta</string>
   <string name="create_account_button">Stofna aðgang</string>
   <string name="create_account_name_unavailable">Notandanafnið \"%s\" er ekki tiltækt. Veldu eitthvað annað nafn.</string>
+  <string name="create_account_ip_block_details">Nánar</string>
   <string name="preferences_general_heading">Almennt</string>
   <string name="wikipedia_app_faq">Algengar spurningar um Wikipedia Zero</string>
   <string name="zero_charged_verbiage">Frjáls aðgangur að Wikipedia er ekki lengur virkur.</string>
@@ -141,7 +142,7 @@
   <string name="preferences_heading_data_usage">Gagnamagn</string>
   <string name="preferences_heading_experimental">Á tilraunastigi</string>
   <string name="preference_title_sync_reading_lists">Samstilla leslista</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Virkja samstillingu leslista</string>
+  <string name="preference_title_sync_reading_lists_from_account">Samstilling leslista</string>
   <string name="preference_summary_sync_reading_lists">Samstilla leslista á milli mismunandi tækja með því að vista þá á Wikipedia-notandaaðganginn þinn</string>
   <string name="preference_summary_sync_reading_lists_from_account">Samstilla leslista á milli mismunandi tækja með því að vista þá á Wikipedia-notandaaðganginn \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Fjarlægja samstillta leslista af %s?</string>
@@ -169,7 +170,7 @@
   <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">notuð aðgerðasöfn</string>
@@ -228,6 +229,8 @@
   <string name="dialog_close_description">Loka</string>
   <string name="preference_title_show_images">Birta myndir</string>
   <string name="preference_summary_show_images">Virkja eða afvirkja hleðslu mynda í síðum. Taktu hakið úr þessu ef nettengingin þín er hægvirk, eða ef þú þarft að borga aukalega fyrir gagnamagnið.</string>
+  <string name="preference_title_download_only_over_wifi">Einungis sækja í gegnum Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Leyfa</string>
   <string name="read_more_section">Lesa meira</string>
   <string name="about_article_section">Um þessa grein</string>
   <string name="menu_gallery_visit_page">Fara á síðu skráarinnar</string>
@@ -618,6 +621,7 @@
   <string name="onboarding_got_it">Náði því</string>
   <string name="onboarding_multilingual_secondary_text">Við fundum eftirtalin tungumál á tækinu þínu:</string>
   <string name="onboarding_multilingual_add_language_text">Bæta við eða breyta tungumálum</string>
+  <string name="onboarding_welcome_title_v2">Frjálsa alfræðin\n…á næstum 300 tungumálum</string>
   <string name="app_shortcuts_random">Handahófsvalið</string>
   <string name="app_shortcuts_continue_reading">Halda lestri áfram</string>
   <string name="app_shortcuts_search">Leita</string>
@@ -638,7 +642,7 @@
   <string name="wikipedia_languages_title">Tungumál Wikipediu</string>
   <string name="wikipedia_languages_your_languages_text">Tungumálin þín</string>
   <string name="wikipedia_languages_add_language_text">Bæta við tungumáli</string>
-  <string name="wikipedia_languages_remove_text" fuzzy="true">Fjarlægja</string>
+  <string name="wikipedia_languages_remove_text">Fjarlægja tungumál</string>
   <string name="wikipedia_languages_remove_action_mode_title">Fjarlægja tungumál</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Fjarlægja valið tungumál?</item>
@@ -649,4 +653,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Haltu að minnsta kosti einu Wikipedia-tungumáli til að leita að og lesa efni.</string>
   <string name="more_language_options">meira</string>
   <string name="add_wikipedia_languages_text">Bæta við Wikipedia-tungumálum</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Breyta tungumálum</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nei, takk</string>
 </resources>

@@ -88,6 +88,7 @@
   <string name="search_reading_lists_no_results">Tidak ada hasil ditemukan dalam daftar bacaan</string>
   <string name="search_history_no_results">Tidak ada hasil ditemukan dalam riwayat</string>
   <string name="edit_section_captcha_message">Untuk membantu melindungi terhadap spam otomatis, masukkan kata-kata yang muncul di bawah ini</string>
+  <string name="edit_section_captcha_request_an_account_message">Tidak dapat melihat gambar? &lt;a href=\"https://id.wikipedia.org/wiki/Wikipedia:Mohon_buatkan_akun\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ulangi kata-kata dari atas</string>
   <string name="title_captcha">Masukkan CAPTCHA</string>
   <string name="edit_section_captcha_reload">Ketuk CAPTCHA untuk memuat ulang</string>
@@ -154,7 +155,7 @@
   <string name="preferences_heading_data_usage">Penggunaan data</string>
   <string name="preferences_heading_experimental">Eksperimental</string>
   <string name="preference_title_sync_reading_lists">Sinkronkan daftar bacaan</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Aktifkan sinkronisasi daftar bacaan</string>
+  <string name="preference_title_sync_reading_lists_from_account">Sinkronisasi daftar bacaan</string>
   <string name="preference_summary_sync_reading_lists">Sinkronkan daftar bacaan di berbagai perangkat dengan menyimpannya ke akun Wikipedia Anda</string>
   <string name="preference_summary_sync_reading_lists_from_account">Sinkronkan daftar bacaan di berbagai perangkat dengan menyimpannya ke akun Wikipedia Anda \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Hapus daftar bacaan yang disinkronkan dari \"%s\"?</string>
@@ -182,7 +183,8 @@
   <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/id#Baca_secara_luring_dan_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/id</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/id</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/id</string>
+  <string name="android_app_request_an_account_url">https://id.wikipedia.org/wiki/Wikipedia:Mohon_buatkan_akun</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.id</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Pustaka yang digunakan</string>
@@ -241,6 +243,10 @@
   <string name="dialog_close_description">Tutup</string>
   <string name="preference_title_show_images">Tampilkan gambar</string>
   <string name="preference_summary_show_images">Mengaktifkan atau menonaktifkan pemuatan gambar dalam halaman. Hapus centang pengaturan ini jika sambungan Internet Anda lambat, atau jika paket data Anda terbatas.</string>
+  <string name="preference_title_download_only_over_wifi">Unduh hanya melalui Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi">Konfirmasikan unduhan menggunakan data seluler?</string>
+  <string name="dialog_text_download_only_over_wifi">Anda memiliki \"Unduh hanya melalui Wi-Fi\" yang diaktifkan di pengaturan. Apakah Anda ingin mengizinkan menggunakan paket data seluler Anda untuk unduhan ini saja?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Izinkan</string>
   <string name="read_more_section">Baca lebih lanjut</string>
   <string name="about_article_section">Mengenai artikel ini</string>
   <string name="menu_gallery_visit_page">Pergi ke halaman berkas</string>
@@ -441,6 +447,7 @@
     <item quantity="one">Artikel ini tidak lagi tersedia secara luring.</item>
     <item quantity="other">Artikel-artikel ini tidak lagi tersedia secara luring.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync">Daftar bacaan berhasil disinkronkan</string>
   <string name="user_option_sync_label">Preferensi</string>
   <string name="notification_button_view_user">Bicara ke pengguna</string>
   <string name="notification_talk_title">Pesan baru di Wikipedia</string>
@@ -491,6 +498,7 @@
   <string name="view_featured_image_card_download">Unduh</string>
   <string name="menu_feed_card_dismiss">Sembunyikan kartu ini</string>
   <string name="menu_feed_card_dismissed">Kartu disembunyikan.</string>
+  <string name="menu_feed_card_edit_card_languages">Sunting kartu bahasa</string>
   <string name="menu_feed_overflow_label">Opsi lainnya</string>
   <string name="feed_featured_image_share_subject">Gambar pilihan dari Wikimedia Commons</string>
   <string name="feed">Jelajahi</string>

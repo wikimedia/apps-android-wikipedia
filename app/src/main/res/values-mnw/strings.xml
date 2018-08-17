@@ -95,7 +95,7 @@
   <string name="toast_logout_complete">တိတ်တုဲ</string>
   <string name="history_empty_title">လိက်ပရေင်ဂှ် မၞိဟ်မဗဵုဗှ်လဝ် ဟွံမဲဏီ</string>
   <string name="history_empty_message">ကလေင်ကျောဝ် မုမၞးမဗှ်လဝ် ပ္ဍဲဒၞာဲဏအ်၊၊</string>
-  <string name="search_empty_message">ဂၠာဲ တုဲတှ်ေ ဗှ် ပြကိုဟ်အညာ သက္ကုၚုဟ် နကဵု အရေဝ်ဘာသာမၞး</string>
+  <string name="search_empty_message">ဂၠာဲ တုဲတှ်ေ ဗှ် ပြကိုဟ်ဗိသ္တာ သက္ကုၚုဟ် နကဵု အရေဝ်ဘာသာမၞး</string>
   <string name="search_empty_message_multilingual_upgrade">ဂၠာဲ ပ္ဍဲ ဝဳကဳပဳဒဳယာ နကဵုအရေဝ်ဘာသာတၞဟ်</string>
   <string name="delete_selected_items">ဇိုတ်ထောအ် တင်ဂၞင် မရုဲစှ်လဝ်</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
@@ -133,7 +133,7 @@
   <string name="zero_learn_more">ဝါင်ယျာလေတ်မၞး နွံကဵု အခေါင်မလုပ် Wikipedia သက္ကုၚုဟ်</string>
   <string name="zero_learn_more_learn_more">ဆက် ဗ္တောန်</string>
   <string name="zero_learn_more_dismiss">ပလီု</string>
-  <string name="edit_preview_fetching_dialog_message">အဃောမကၠောန်ဒၟံင် သွက်ဂွံဗဵု</string>
+  <string name="edit_preview_fetching_dialog_message">အဃောမပလေဝ်ဒၟံင် နမူနာ...</string>
   <string name="send_feedback">ပလံင် လညာတ်ဇကု စပ်ကဵု app</string>
   <string name="create_account_account_created_toast">အကံက်ဂှ် ကၠောန်ဂွံ ဗွဲမအံင်ဇၞး!</string>
   <string name="preferences_heading_storage_and_syncing">ဒၞာဲမဂိုင်ဒိပ် ကေုာံ မချဳဓရာင်</string>
@@ -176,7 +176,7 @@
   <string name="about_translators_translatewiki">app ဏအ်ဂှ် ကၠာဲစၠောအ်လဝ် နကဵုမၞိဟ်မကၠာဲဘာသာ နကဵုစေတနာ ပ္ဍဲ&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">လာင်ဇြေန်</string>
   <string name="about_app_license">ကုဒ် တင်ဂၞင် မကလိဂွံမာန် ပ္ဍဲ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Unless otherwise specified, content is available under a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt; Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
-  <string name="about_wmf">မဒှ်အရာ မကၠောန်ပတိတ် နူ &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">မဒှ်အရာ မကၠောန်ပတိတ် နူ &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">ပရူ</string>
   <string name="edit_abandon_confirm">မုက်လိက်ဏအ် ပလေဝ်ပလေတ်လဝ်၊၊ မၞး မိက်ဂွံတိတ် နူမုက်လိက် သီုဟွံဂိုင်သိပ် ကွေဟ်ဟ်ရဟာ？</string>
   <string name="edit_abandon_confirm_yes">ယွံ</string>
@@ -187,7 +187,7 @@
   <string name="edit_how_page_improved">ဗီုလဵု မၞး ဂွံပခိုဟ်ပတိုန် မုက်လိက်ရော？</string>
   <string name="edit_next">ဂတ</string>
   <string name="edit_done">တြးပတိတ်</string>
-  <string name="edit_preview">ကလေင်ဗဵု</string>
+  <string name="edit_preview">နမူနာ</string>
   <string name="edit_summary_tag_typo">ပလေဝ်ပလေတ် ဗီုပြင်</string>
   <string name="edit_summary_tag_grammar">ပလေဝ်ပလေတ် သဒ္ဒါ</string>
   <string name="edit_summary_tag_links">စုတ် လေန်</string>
@@ -246,7 +246,7 @@
   <string name="expand_refs">မုက်တေပ် သွက်ဂွံ ဇၞော်ပတိုန်</string>
   <string name="share_snippet_button">ပါ်ပရအ် နဒဒှ် ဗီုရုပ်</string>
   <string name="share_normal_button">ပါ်ပရအ် နဒဒှ် လိက်</string>
-  <string name="snippet_share_preview_image_desc">ကလေင်ဗဵု ဗီုရုပ်</string>
+  <string name="snippet_share_preview_image_desc">ဗီုရုပ် နမူနာ</string>
   <string name="cc_logo">Creative Commons license</string>
   <string name="captcha_image">ဗီုရုပ် Captcha</string>
   <string name="gallery_fair_use_license">သုင်စောဲ ဗဗွဲဓဝ်</string>
@@ -276,7 +276,7 @@
   <string name="page_offline_notice_compilation_download_date">မၞး ဗှ်ဒၟံင် လိက်ပရေင်ဏအ် နကဵုမူ နူ%1$s %2$s</string>
   <string name="button_get_directions">ကေတ် directions</string>
   <string name="error_no_maps_app">app မပံက် directions ဏအ်ဂွံ ဂၠာဲဟွံဆဵု၊၊</string>
-  <string name="preference_title_show_link_previews">ထ္ၜး လေန် ဗဗဵုကၠာ</string>
+  <string name="preference_title_show_link_previews">ထ္ၜး လေန် နမူနာ</string>
   <string name="preference_summary_show_link_previews">ထ္ၜး ဗဗဵုကၠာ လိက်ပရေင် ကာလ ကောန်လဴ မၞုံ လတူလေန်၊၊</string>
   <string name="nav_item_donate">ထံက်ပင် ဝဳကဳပဳဒဳယာ</string>
   <string name="error_voice_search_not_available">သၠးအခေါင်၊ ဝှာင်ရမ္သာင်ဂှ် ဟွံလုပ်အဝေါင်၊၊</string>
@@ -621,7 +621,7 @@
   <string name="onboarding_got_it">ကလိဂွံ</string>
   <string name="onboarding_multilingual_secondary_text">အရာ ဗွဲသၟဝ်ဝွံ ပိုဲဂွံဆဵု ပ္ဍဲ device မၞး -</string>
   <string name="onboarding_multilingual_add_language_text">စုတ် ဟွံသေင်မ္ဂး ပလေဝ် အရေဝ်ဘာသာ</string>
-  <string name="onboarding_welcome_title_v2">ပြကိုဟ်အညာ သက္ကုၚုဟ် \n… နကဵု အရေဝ်ဘာသာ ကြပ်ပေင် ၃၀၀၊၊</string>
+  <string name="onboarding_welcome_title_v2">ပြကိုဟ်ဗိသ္တာ သက္ကုၚုဟ် \n… နကဵု အရေဝ်ဘာသာ ကြပ်ပေင် ၃၀၀၊၊</string>
   <string name="app_shortcuts_random">ပရိုင်မွဲမွဲ</string>
   <string name="app_shortcuts_continue_reading">ဆက် ဗှ်</string>
   <string name="app_shortcuts_search">ဂၠာဲ</string>

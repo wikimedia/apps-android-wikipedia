@@ -81,6 +81,7 @@
   <string name="search_reading_lists_no_results">Tiada hasil ditemui dalam senarai bacaan</string>
   <string name="search_history_no_results">Tiada hasil ditemui dalam sejarah</string>
   <string name="edit_section_captcha_message">Sebagai perlindungan daripada spam automatik, sila taipkan kata-kata yang tertera di bawah</string>
+  <string name="edit_section_captcha_request_an_account_message">Tidak dapat melihat imej itu? &lt;a href=\"https://ms.wikipedia.org/wiki/Wikipedia:Permohonan_akaun\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ulangi kata-kata dari atas</string>
   <string name="title_captcha">Taipkan captcha</string>
   <string name="edit_section_captcha_reload">Ketik CAPTCHA untuk muat semula</string>
@@ -147,7 +148,7 @@
   <string name="preferences_heading_data_usage">Data yang digunakan</string>
   <string name="preferences_heading_experimental">Percubaan</string>
   <string name="preference_title_sync_reading_lists">Menyegerakkan senarai bacaan</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Dayakan penyegerakan senarai bacaan</string>
+  <string name="preference_title_sync_reading_lists_from_account">Penyegerakan senarai bacaan</string>
   <string name="preference_summary_sync_reading_lists">Segerakkan senarai bacaan merentas peranti yang berbeza dengan menyimpannya ke akaun Wikipedia anda</string>
   <string name="preference_summary_sync_reading_lists_from_account">Segerakkan senarai bacaan merentas peranti yang berbeza dengan menyimpannya ke akaun Wikipedia anda \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Buang senarai bacaan yang diselaraskan dari \"%s\"?</string>
@@ -176,6 +177,7 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="android_app_request_an_account_url">https://ms.wikipedia.org/wiki/Wikipedia:Permohonan_akaun</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ms</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ms</string>
   <string name="about_libraries_heading">Perpustakaan yang digunakan</string>
@@ -234,6 +236,10 @@
   <string name="dialog_close_description">Tutup</string>
   <string name="preference_title_show_images">Paparkan imej</string>
   <string name="preference_summary_show_images">Hidupkan atau matikan ciri-ciri memuatkan gambar dalam laman. Anda disaran supaya mematikan ciri-ciri ini jika sambungan internet anda perlahan ataupun pelan data anda terhad.</string>
+  <string name="preference_title_download_only_over_wifi">Muat turun hanya melalui Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi">Sahkan muat turun menggunakan data mudah alih?</string>
+  <string name="dialog_text_download_only_over_wifi">Anda mempunyai \"Muat turun sahaja melalui Wi-Fi\" dihidupkan dalam tetapan. Adakah anda mahu membenarkan menggunakan pelan data mudah alih anda untuk muat turun ini sahaja?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Benarkan</string>
   <string name="read_more_section">Selanjutnya</string>
   <string name="about_article_section">Mengenai rencana ini</string>
   <string name="menu_gallery_visit_page">Pergi ke laman fail</string>
@@ -434,6 +440,7 @@
     <item quantity="one">Rencana ini tidak lagi tersedia di luar talian.</item>
     <item quantity="other">Rencana-rencana ini tidak lagi tersedia di luar talian.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync">Senarai bacaan berjaya disegerakkan</string>
   <string name="user_option_sync_label">Keutamaan</string>
   <string name="notification_button_view_user">Bincang ke pengguna</string>
   <string name="notification_talk_title">Mesej baru pada Wikipedia</string>
@@ -484,6 +491,7 @@
   <string name="view_featured_image_card_download">Muat turun</string>
   <string name="menu_feed_card_dismiss">Sembunyikan kad ini</string>
   <string name="menu_feed_card_dismissed">Kad disembunyikan.</string>
+  <string name="menu_feed_card_edit_card_languages">Sunting kad bahasa</string>
   <string name="menu_feed_overflow_label">Opsyen lain</string>
   <string name="feed_featured_image_share_subject">Gambar pilihan dari Wikimedia Commons</string>
   <string name="feed">Jelajah</string>

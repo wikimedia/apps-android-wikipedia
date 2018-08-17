@@ -195,7 +195,7 @@
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/es</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/es</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/es</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.es</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.es</string>
   <string name="about_libraries_heading">Bibliotecas utilizadas</string>
@@ -204,7 +204,7 @@
   <string name="about_translators_translatewiki">Esta aplicación fue traducida por traductores voluntarios en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencia</string>
   <string name="about_app_license">Código fuente disponible en &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; y &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; bajo la &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Licencia Apache 2.0&lt;/a&gt;. A menos que se especifique lo contrario, el contenido está disponible bajo la &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt; Licencia Atribución-CompartirIgual de Creative Commons&lt;/a&gt;.</string>
-  <string name="about_wmf">Un producto de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundación Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">Un producto de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundación Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Acerca de</string>
   <string name="edit_abandon_confirm">Se ha modificado la página. ¿Quieres salir sin guardar los cambios?</string>
   <string name="edit_abandon_confirm_yes">Sí</string>

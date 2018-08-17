@@ -6,11 +6,13 @@
 * Los688
 * Omotecho
 * Otokoume
+* Penn Station
 * Runequest77
 * S2KTS
 * Shirayuki
 * Suchichi02
 * Sujiniku
+* Suyama
 * Takot
 * Thibaut120094
 * Wicklo
@@ -92,6 +94,7 @@
   <string name="search_reading_lists_no_results">あとで読むリストにはありませんでした</string>
   <string name="search_history_no_results">履歴には見つかりませんでした</string>
   <string name="edit_section_captcha_message">自動投稿スパム避けのため、以下に表示される言葉を入力してください</string>
+  <string name="edit_section_captcha_request_an_account_message">画像が表示されませんか？&lt;a href=//ja.wikipedia.org/wiki/Help:ログイン#アカウントの作成&gt;こちらも確認&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">上記の言葉を繰り返してください</string>
   <string name="title_captcha">CAPTCHA を入力</string>
   <string name="edit_section_captcha_reload">タップすると CAPTCHA を再読み込みします</string>
@@ -186,7 +189,8 @@
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja#オフラインでの閲覧とデータ</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="android_app_request_an_account_url">//ja.wikipedia.org/wiki/Help:ログイン#アカウントの作成</string>
   <string name="cc_by_sa_3_url">http://creativecommons.org/licenses/by-sa/3.0/deed.ja</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ja</string>
   <string name="about_libraries_heading">使用しているライブラリ</string>
@@ -200,7 +204,7 @@
   <string name="edit_abandon_confirm">ページが変更されています。変更を保存せずに終了してもよろしいですか?</string>
   <string name="edit_abandon_confirm_yes">はい</string>
   <string name="edit_abandon_confirm_no">いいえ</string>
-  <string name="user_blocked_from_editing_title">ブロック済み</string>
+  <string name="user_blocked_from_editing_title">ブロック済</string>
   <string name="user_logged_in_blocked_from_editing">あなたの利用者アカウントはこのウィキで編集ブロックされています。</string>
   <string name="user_anon_blocked_from_editing">あなたの IP アドレスは編集ブロックされています。</string>
   <string name="edit_how_page_improved">このページでどんな点を改善しましたか？</string>

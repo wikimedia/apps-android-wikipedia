@@ -93,6 +93,7 @@
   <string name="search_reading_lists_no_results">읽기 목록에 결과가 없습니다</string>
   <string name="search_history_no_results">역사에 결과가 없습니다</string>
   <string name="edit_section_captcha_message">자동화된 스팸으로부터 보호하기 위해, 아래에 나타나는 낱말을 입력해 주세요</string>
+  <string name="edit_section_captcha_request_an_account_message">그림이 보이지 않습니까? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;더 알아보기&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">위의 낱말을 한 번 더 입력하세요</string>
   <string name="title_captcha">캡차를 입력하세요</string>
   <string name="edit_section_captcha_reload">새로 고치려면 캡차를 누르세요</string>
@@ -186,6 +187,7 @@
   <string name="about_wikipedia_url">https://ko.m.wikipedia.org/wiki/위키백과:소개</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ko#오프라인 읽기 및 데이터</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ko</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ko</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ko</string>
   <string name="about_libraries_heading">사용된 라이브러리</string>

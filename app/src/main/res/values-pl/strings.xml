@@ -185,7 +185,8 @@
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/pl</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pl</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/pl</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/pl</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.pl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pl</string>
   <string name="about_libraries_heading">Użyte biblioteki</string>
@@ -194,7 +195,7 @@
   <string name="about_translators_translatewiki">Ta aplikacja została przetłumaczona przez tłumaczy wolontariuszy korzystających z &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencja</string>
   <string name="about_app_license">Kod źródłowy jest dostępny na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; oraz &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; na licencji &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Dopóki inaczej nie określono, zawartość jest dostępna na licencji &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
-  <string name="about_wmf">Produkt &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundacji Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">Produkt &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundacji Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikacji</string>
   <string name="edit_abandon_confirm">Strona została zmodyfikowana. Czy na pewno chcesz zakończyć pracę bez zapisywania zmian?</string>
   <string name="edit_abandon_confirm_yes">Tak</string>
@@ -442,6 +443,7 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">dzisiaj</string>
   <string name="view_announcement_card_negative_action">Nie, dziękuję</string>
+  <string name="view_offline_card_text">Treści nie można załadować w trybie offline.</string>
   <string name="view_featured_article_card_title">Wyróżniony artykuł</string>
   <string name="view_featured_article_footer_save_button_label">Zapisz</string>
   <string name="view_featured_article_footer_saved_button_label">Zapisane</string>
@@ -478,6 +480,7 @@
   <string name="description_edit_revert_reason2">twój wpis wyglądał na eksperyment lub wandalizm.</string>
   <string name="description_edit_revert_history" fuzzy="true">Jeśli jesteś zainteresowany, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">Brak połączenia z Internetem. Upewnij się, że jesteś znów online i spróbuj ponownie.</string>
+  <string name="offline_my_compilations">Zarządzaj moją biblioteką offline</string>
   <string name="offline_compilations_found_count" fuzzy="true">W mojej bibliotece (%d)</string>
   <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
   <string name="size_gb">%.2f GB</string>
@@ -489,6 +492,7 @@
   <string name="storage_other_apps">Inne aplikacje</string>
   <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
   <string name="compilation_download_widget_button_cancel_hint">Anuluj pobieranie</string>
+  <string name="compilation_download_cancel_confirm">Czy na pewno chcesz anulować pobieranie tego pakietu artykułów?</string>
   <string name="compilation_download_cancel_confirm_yes">Tak</string>
   <string name="compilation_download_cancel_confirm_no">Nie</string>
   <string name="compilation_share">Udostępnij</string>

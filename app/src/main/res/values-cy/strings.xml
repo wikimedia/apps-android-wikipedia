@@ -133,7 +133,7 @@
   <string name="about_translators_heading">Cyfieithwyr</string>
   <string name="about_translators_translatewiki">Cyfieithwyd gan &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Trwydded</string>
-  <string name="about_wmf">Un o gynnyrch &lt;a href=\"https://wikimediafoundation.org/\"&gt;Sefydliad Wicimedia&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">Un o gynnyrch &lt;a href=\"https://wikimediafoundation.org/\"&gt;Sefydliad Wicimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Amdanom</string>
   <string name="edit_abandon_confirm">Mae\'r dudalen wedi cael ei newid. Ydych chi\'n siwr eich bod chi am ymadael heb roi eich newidiadau ar gadw?</string>
   <string name="user_blocked_from_editing_title">Wedi ei flocio</string>

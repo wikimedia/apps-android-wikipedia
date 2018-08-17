@@ -138,7 +138,7 @@
   <string name="about_contributors_heading">Kontributeri</string>
   <string name="about_translators_heading">Tradukisti</string>
   <string name="about_app_license_heading">Licenco</string>
-  <string name="about_wmf">Produkturo del &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">Produkturo del &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Pri</string>
   <string name="edit_abandon_confirm">Ca pagino modifikesis. Ka tu fakte deziras ekirar sen salvar tua modifikuri?</string>
   <string name="edit_abandon_confirm_yes">Yes</string>
