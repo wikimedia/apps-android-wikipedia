@@ -164,6 +164,7 @@
   <string name="preferences_heading_experimental">تجريبيّ</string>
   <string name="preference_title_sync_reading_lists">مزامنة قوائم القراءة</string>
   <string name="preference_title_sync_reading_lists_from_account">مزامنة قائمة القراءة</string>
+  <string name="preference_title_download_reading_list_articles">تنزيل مقالات قائمة القراءة</string>
   <string name="preference_summary_sync_reading_lists">مزامنة قائمة قراءتك عبر الأجهزة المختلفة من خلال حفظها إلى حساب ويكيبيديا الخاص بك</string>
   <string name="preference_summary_sync_reading_lists_from_account">مزامنة قائمة قراءتك عبر الأجهزة المختلفة من خلال حفظها إلى حساب ويكيبيديا الخاص بك %s</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">هل تريد إزالة قوائم القراءة التي تمت مزامنتها من \"%s\"؟</string>

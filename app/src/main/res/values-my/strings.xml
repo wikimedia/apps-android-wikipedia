@@ -147,6 +147,7 @@
   <string name="preferences_heading_experimental">စမ်းသပ်လေ့လာဆဲ</string>
   <string name="preference_title_sync_reading_lists">စာဖတ်စာရင်းများအား sync လုပ်ရန်</string>
   <string name="preference_title_sync_reading_lists_from_account">စာဖတ်စာရင်းအား sync လုပ်နေသည်</string>
+  <string name="preference_title_download_reading_list_articles">စာဖတ်စာရင်း ဆောင်းပါးများ ဒေါင်းလုတ်ရန်</string>
   <string name="preference_summary_sync_reading_lists">မတူညီသော စက်ပစ္စည်းများရှိ sync လုပ်ထားသော စာဖတ်စာရင်းများကို သင်၏ဝီကီပီးဒီးယားအကောင့်ထဲတွင် သိမ်းရန်</string>
   <string name="preference_summary_sync_reading_lists_from_account">မတူညီသော စက်ပစ္စည်းများရှိ sync လုပ်ထားသော စာဖတ်စာရင်းများကို သင်၏ဝီကီပီးဒီးယားအကောင့် \"%s\" ထဲတွင် သိမ်းရန်</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">%s မှ sync လုပ်ထားသော စာဖတ်စာရင်းကို ဖယ်ရှားမည်လော</string>

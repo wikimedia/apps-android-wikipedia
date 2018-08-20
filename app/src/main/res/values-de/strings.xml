@@ -147,6 +147,7 @@
   <string name="preferences_heading_experimental">Experimentell</string>
   <string name="preference_title_sync_reading_lists">Leselisten synchronisieren</string>
   <string name="preference_title_sync_reading_lists_from_account">Synchronisierung von Leselisten</string>
+  <string name="preference_title_download_reading_list_articles">Leselistenartikel herunterladen</string>
   <string name="preference_summary_sync_reading_lists">Synchronisiere Leselisten zwischen unterschiedlichen Geräten durch das Speichern der Listen in dein Wikipedia-Benutzerkonto</string>
   <string name="preference_summary_sync_reading_lists_from_account">Synchronisiere Leselisten zwischen unterschiedlichen Geräten durch das Speichern der Listen in dein Wikipedia-Benutzerkonto „%s“</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Synchronisierte Leselisten von „%s“ entfernen?</string>

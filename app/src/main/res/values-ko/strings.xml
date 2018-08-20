@@ -161,6 +161,7 @@
   <string name="preferences_heading_experimental">실험 기능</string>
   <string name="preference_title_sync_reading_lists">읽기 목록 동기화</string>
   <string name="preference_title_sync_reading_lists_from_account">읽기 목록 동기화</string>
+  <string name="preference_title_download_reading_list_articles">읽기 목록 문서 다운로드</string>
   <string name="preference_summary_sync_reading_lists">위키백과 계정에 읽기 목록을 저장하여 각기 다른 장치 간에 읽기 목록을 동기화합니다</string>
   <string name="preference_summary_sync_reading_lists_from_account">읽기 목록을 위키백과 계정 \"%s\"에 저장하여 각기 다른 장치 간에 읽기 목록을 동기화합니다</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\"에서 동기화된 읽기 목록을 제거하시겠습니까?</string>

@@ -175,6 +175,7 @@
   <string name="page_protected_sysop">Ta strona jest całkowicie zabezpieczona.</string>
   <string name="page_protected_other">Ta strona została zabezpieczona do następujących poziomów: %s</string>
   <string name="page_protected_can_not_edit">Twoje konto nie ma w tej chwili wystarczających uprawnień do edycji tej strony.</string>
+  <string name="page_protected_can_not_edit_anon">Niestety, tej strony nie można obecnie edytować anonimowo.</string>
   <string name="page_protected_can_not_edit_title">Ta strona jest zabezpieczona</string>
   <string name="settings_item_preferences">Ustawienia</string>
   <string name="settings_activity_title">Ustawienia</string>
@@ -195,7 +196,7 @@
   <string name="about_translators_translatewiki">Ta aplikacja została przetłumaczona przez tłumaczy wolontariuszy korzystających z &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencja</string>
   <string name="about_app_license">Kod źródłowy jest dostępny na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; oraz &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; na licencji &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Dopóki inaczej nie określono, zawartość jest dostępna na licencji &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">Produkt &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundacji Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf">Produkt &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikacji</string>
   <string name="edit_abandon_confirm">Strona została zmodyfikowana. Czy na pewno chcesz zakończyć pracę bez zapisywania zmian?</string>
   <string name="edit_abandon_confirm_yes">Tak</string>
@@ -478,7 +479,7 @@
   <string name="description_edit_help_more_info">Więcej informacji</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_reason2">twój wpis wyglądał na eksperyment lub wandalizm.</string>
-  <string name="description_edit_revert_history" fuzzy="true">Jeśli jesteś zainteresowany, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>
+  <string name="description_edit_revert_history">Jeśli jesteś zainteresowany, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">Brak połączenia z Internetem. Upewnij się, że jesteś znów online i spróbuj ponownie.</string>
   <string name="offline_my_compilations">Zarządzaj moją biblioteką offline</string>
   <string name="offline_compilations_found_count" fuzzy="true">W mojej bibliotece (%d)</string>
@@ -516,6 +517,7 @@
   <string name="app_shortcuts_random">Losowa strona</string>
   <string name="app_shortcuts_continue_reading">Czytaj dalej</string>
   <string name="app_shortcuts_search">Szukaj</string>
+  <string name="this_year">W tym roku</string>
   <string name="back_to_top">Powrót do góry</string>
   <string name="languages_list_activity_title">Dodaj język</string>
   <string name="languages_list_suggested_text">Sugerowany</string>
@@ -532,5 +534,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">Nie można usunąć wszystkich języków</string>
   <string name="more_language_options">więcej</string>
   <string name="add_wikipedia_languages_text">Dodaj języki Wikipedii</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Edytuj języki</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nie, dziękuję</string>
 </resources>

@@ -136,6 +136,7 @@
   <string name="preferences_heading_experimental">Experimentell</string>
   <string name="preference_title_sync_reading_lists">Lieslëschte synchroniséieren</string>
   <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Synchronisatioun vun de Lieschlëschten aschalten</string>
+  <string name="preference_title_download_reading_list_articles">Artikele vun der Lieslëscht eroflueden</string>
   <string name="preference_summary_sync_reading_lists">Synchroniséiert Lieslëschten tëscht verschiddenen Apparater duerch d\'Späichere dovun an Ärem Wikipedia-Benotzerkont</string>
   <string name="preferences_privacy_settings_heading">Dateschutz</string>
   <string name="preference_title_eventlogging_opt_in">Rapporten iwwer d\'Benotze schécken</string>

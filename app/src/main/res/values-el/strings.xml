@@ -149,6 +149,7 @@
   <string name="preferences_heading_experimental">Πειραματικό</string>
   <string name="preference_title_sync_reading_lists">Συγχρονισμός λιστών ανάγνωσης</string>
   <string name="preference_title_sync_reading_lists_from_account">Συγχρονισμός λιστών ανάγνωσης</string>
+  <string name="preference_title_download_reading_list_articles">Λήψη λημμάτων της λίστας ανάγνωσης</string>
   <string name="preference_summary_sync_reading_lists">Συγχρονισμός των λιστών ανάγνωσης μεταξύ διαφόρων συσκευών αποθηκεύοντάς τις στον λογαριασμό σας στη Βικιπαίδεια</string>
   <string name="preference_summary_sync_reading_lists_from_account">Συγχρονισμός των λιστών ανάγνωσης μεταξύ διαφορετικών συσκευών αποθηκεύοντάς τις στο λογαριασμός σας στη Βικιπαίδεια \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Αφαίρεση συγχρονισμένων λιστών ανάγνωσης από «%s»;</string>

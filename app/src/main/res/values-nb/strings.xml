@@ -153,6 +153,7 @@
   <string name="preferences_heading_experimental">Eksperimentelt</string>
   <string name="preference_title_sync_reading_lists">Synkroniser leselister</string>
   <string name="preference_title_sync_reading_lists_from_account">Synkronisering av leselister</string>
+  <string name="preference_title_download_reading_list_articles">Last ned leselisteartikler</string>
   <string name="preference_summary_sync_reading_lists">Synkroniser leselistene på tvers av ulike enheter ved å lagre dem i Wikipedia-kontoen din</string>
   <string name="preference_summary_sync_reading_lists_from_account">Synkroniser leselistene på tvers av ulike enheter ved å lagre dem i Wikipedia-kontoen «%s»</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Fjerne synkroniserte leselister fra kontoen «%s»?</string>

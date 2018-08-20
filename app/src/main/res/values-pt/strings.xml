@@ -156,6 +156,7 @@
   <string name="preferences_heading_experimental">Experimental</string>
   <string name="preference_title_sync_reading_lists">Sincronizar listas de leitura</string>
   <string name="preference_title_sync_reading_lists_from_account">Sincronização das listas de leitura</string>
+  <string name="preference_title_download_reading_list_articles">Descarregar artigos das listas de leitura</string>
   <string name="preference_summary_sync_reading_lists">Sincronize as listas de leitura em dispositivos diferentes guardando-as na sua conta da Wikipédia</string>
   <string name="preference_summary_sync_reading_lists_from_account">Sincronize as listas de leitura em dispositivos diferentes guardando-as na sua conta da Wikipédia \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Remover as listas de leitura sincronizadas da sua conta \"%s\"?</string>
