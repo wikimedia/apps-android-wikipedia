@@ -18,8 +18,8 @@ public final class PageInfoUnmarshaller {
         DisambigResult[] disambiguations;
         String[] issues;
         try {
-            disambiguations = parseDisambigJson(wiki, jsonObj.getJSONArray("disambiguations"));
-            issues = jsonArrayToStringArray(jsonObj.getJSONArray("issues"));
+            disambiguations = parseDisambigJson(wiki, jsonObj.optJSONArray("disambiguations"));
+            issues = jsonArrayToStringArray(jsonObj.optJSONArray("issues"));
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }

@@ -359,11 +359,13 @@ function collectDisambig() {
 function collectIssues() {
     var res = [];
     var issues = document.querySelectorAll( 'table.ambox' );
-    var i = 0,
-        len = issues.length;
+    var i = 0, len = issues.length, issue;
     for (; i < len; i++) {
         // .ambox- is used e.g. on eswiki
-        res.push( issues[i].querySelector( '.mbox-text, .ambox-text' ).innerHTML );
+        issue = issues[i].querySelector( '.mbox-text, .ambox-text' );
+        if (issue) {
+            res.push( issue.innerHTML );
+        }
     }
     return res;
 }
