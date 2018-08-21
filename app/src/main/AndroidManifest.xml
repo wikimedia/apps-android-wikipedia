@@ -295,6 +295,7 @@
 
         <receiver android:name=".notifications.NotificationPollBroadcastReceiver">
             <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name=".notifications.NotificationPollBroadcastReceiver.ACTION_POLL" />
             </intent-filter>
         </receiver>

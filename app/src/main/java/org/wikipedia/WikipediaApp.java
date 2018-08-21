@@ -76,7 +76,6 @@ public class WikipediaApp extends Application {
     private AppLanguageState appLanguageState;
     private FunnelManager funnelManager;
     private SessionFunnel sessionFunnel;
-    private NotificationPollBroadcastReceiver notificationReceiver = new NotificationPollBroadcastReceiver();
     private NetworkConnectivityReceiver connectivityReceiver = new NetworkConnectivityReceiver();
     private Database database;
     private String userAgent;
@@ -198,7 +197,8 @@ public class WikipediaApp extends Application {
 
         registerConnectivityReceiver();
 
-        listenForNotifications();
+        // Kick the notification receiver, in case it hasn't yet been started by the system.
+        NotificationPollBroadcastReceiver.startPollTask(this);
     }
 
     public int getVersionCode() {
@@ -370,12 +370,6 @@ public class WikipediaApp extends Application {
         L.v("logging out");
         AccountUtil.removeAccount();
         SharedPreferenceCookieManager.getInstance().clearAllCookies();
-    }
-
-    public void listenForNotifications() {
-        if (!Prefs.suppressNotificationPolling()) {
-            notificationReceiver.startPollTask(this);
-        }
     }
 
     private void initExceptionHandling() {

@@ -33,8 +33,8 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
     @SuppressWarnings("unused,NullableProblems") @SerializedName("authmanagerinfo")
     @Nullable private MwAuthManagerInfo amInfo;
     @SuppressWarnings("unused") @Nullable private MarkReadResponse echomarkread;
-    @SuppressWarnings("unused,NullableProblems")
-    @Nullable private NotificationList notifications;
+    @SuppressWarnings("unused") @Nullable private MarkReadResponse echomarkseen;
+    @SuppressWarnings("unused,NullableProblems") @Nullable private NotificationList notifications;
     @Nullable private Map<String, Notification.UnreadNotificationWikiItem> unreadnotificationpages;
     @SuppressWarnings("unused") @SerializedName("general")
     @Nullable private SiteInfo generalSiteInfo;
@@ -72,6 +72,10 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
 
     @Nullable public Map<String, Notification.UnreadNotificationWikiItem> unreadNotificationWikis() {
         return unreadnotificationpages;
+    }
+
+    @Nullable public MarkReadResponse getEchoMarkSeen() {
+        return echomarkseen;
     }
 
     @Nullable public String captchaId() {
@@ -244,15 +248,23 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         }
     }
 
-    private static class MarkReadResponse {
+    public static class MarkReadResponse {
         @SuppressWarnings("unused") @Nullable private String result;
+        @SuppressWarnings("unused,NullableProblems") @Nullable private String timestamp;
 
-        @Nullable public String result() {
+        @Nullable public String getResult() {
             return result;
+        }
+
+        @Nullable public String getTimestamp() {
+            return timestamp;
         }
     }
 
     public static class NotificationList {
+        @SuppressWarnings("unused") private int count;
+        @SuppressWarnings("unused") private int rawcount;
+        @SuppressWarnings("unused") @Nullable private Notification.SeenTime seenTime;
         @SuppressWarnings("unused") @Nullable private List<Notification> list;
         @SuppressWarnings("unused") @SerializedName("continue") @Nullable private String continueStr;
 
@@ -262,6 +274,14 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
 
         @Nullable public String getContinue() {
             return continueStr;
+        }
+
+        public int getCount() {
+            return count;
+        }
+
+        @Nullable public Notification.SeenTime getSeenTime() {
+            return seenTime;
         }
     }
 }
