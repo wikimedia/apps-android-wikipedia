@@ -42,6 +42,7 @@ import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
+import org.wikipedia.notifications.NotificationActivity;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
@@ -625,6 +626,11 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             }
             Prefs.setReadingListsLastSyncTime(null);
             Prefs.setReadingListSyncEnabled(false);
+        }
+
+        @Override
+        public void notificationsClick() {
+            startActivity(NotificationActivity.newIntent(requireActivity()));
         }
     }
 

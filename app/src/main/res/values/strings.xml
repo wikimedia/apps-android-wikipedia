@@ -503,6 +503,17 @@
         <item quantity="other">%1$d lists left</item>
     </plurals>
     <string name="notification_echo_channel_description">Wikipedia notifications</string>
+    <string name="notifications_activity_title">Notifications</string>
+    <string name="notifications_activity_title_archived">Notifications (archived)</string>
+    <string name="notifications_search">Search notifications</string>
+    <string name="notifications_view_unread">View unread</string>
+    <string name="notifications_view_archived">View archived</string>
+    <string name="notifications_prefs">Notification preferences</string>
+    <string name="notifications_archive">Mark read and archive</string>
+    <plurals name="notification_archive_message">
+        <item quantity="one">Notification archived</item>
+        <item quantity="other">%d notifications archived</item>
+    </plurals>
     <!-- /Notifications -->
 
     <!-- The Feed -->

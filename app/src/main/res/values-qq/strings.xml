@@ -491,6 +491,17 @@
     <item quantity="other">Text of notification shows the remaining lists. The \"%1$d\" symbol corresponds to the amount of remaining lists.</item>
   </plurals>
   <string name="notification_echo_channel_description">Description for the notification channel that will show Echo notifications.</string>
+  <string name="notifications_activity_title">Title for the activity where the list of notifications for the current user is shown.</string>
+  <string name="notifications_activity_title_archived">Title for the activity where the list of archived notifications for the current user is shown.</string>
+  <string name="notifications_search">Menu label for searching through the notifications for the current user.</string>
+  <string name="notifications_view_unread">Menu label for viewing unread notifications.</string>
+  <string name="notifications_view_archived">Menu label for viewing archived (read) notifications.</string>
+  <string name="notifications_prefs">Menu label for navigating to the preferences for showing notifications in the app.</string>
+  <string name="notifications_archive">Menu label for marking the current notification as read, and archiving it.</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">Message shown when a single notification is archived.</item>
+    <item quantity="other">Message shown when multiple notifications are archived. The %d is replaced with the number of notifications.</item>
+  </plurals>
   <string name="view_continue_reading_card_title">Label for card in the feed that reminds the user to continue reading an article from their browsing history.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
   <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>

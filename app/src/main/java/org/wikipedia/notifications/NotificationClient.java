@@ -99,8 +99,8 @@ public final class NotificationClient {
     }
 
     public void getAllNotifications(@NonNull WikiSite wiki, @NonNull final Callback callback, boolean displayArchived,
-                                    @Nullable String continueStr, @NonNull String... wikis) {
-        cachedService.service(wiki).getAllNotifications(wikis.length > 0 ? TextUtils.join("|", wikis) : null,
+                                    @Nullable String continueStr, @Nullable String[] wikis) {
+        cachedService.service(wiki).getAllNotifications(wikis != null && wikis.length > 0 ? TextUtils.join("|", wikis) : "*",
                 displayArchived ? "read" : "!read", TextUtils.isEmpty(continueStr) ? null : continueStr)
                 .enqueue(new CallbackAdapter(callback));
     }

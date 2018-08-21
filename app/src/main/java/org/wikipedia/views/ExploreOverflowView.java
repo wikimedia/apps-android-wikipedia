@@ -28,6 +28,7 @@ public class ExploreOverflowView extends FrameLayout {
     public interface Callback {
         void loginClick();
         void logoutClick();
+        void notificationsClick();
         void settingsClick();
         void donateClick();
         void configureCardsClick();
@@ -35,6 +36,7 @@ public class ExploreOverflowView extends FrameLayout {
 
     @BindView(R.id.explore_overflow_account_name) TextView accountName;
     @BindView(R.id.explore_overflow_log_out) View logout;
+    @BindView(R.id.explore_overflow_notifications) View notificationsView;
     @Nullable private Callback callback;
     @Nullable private PopupWindow popupWindowHost;
 
@@ -56,7 +58,7 @@ public class ExploreOverflowView extends FrameLayout {
 
     @OnClick({R.id.explore_overflow_settings, R.id.explore_overflow_donate,
             R.id.explore_overflow_account_container, R.id.explore_overflow_log_out,
-            R.id.explore_overflow_configure_cards})
+            R.id.explore_overflow_configure_cards, R.id.explore_overflow_notifications})
     void onItemClick(View view) {
         if (popupWindowHost != null) {
             popupWindowHost.dismiss();
@@ -70,6 +72,9 @@ public class ExploreOverflowView extends FrameLayout {
                 if (!AccountUtil.isLoggedIn()) {
                     callback.loginClick();
                 }
+                break;
+            case R.id.explore_overflow_notifications:
+                callback.notificationsClick();
                 break;
             case R.id.explore_overflow_configure_cards:
                 callback.configureCardsClick();
@@ -100,9 +105,11 @@ public class ExploreOverflowView extends FrameLayout {
         if (AccountUtil.isLoggedIn()) {
             accountName.setText(AccountUtil.getUserName());
             logout.setVisibility(VISIBLE);
+            notificationsView.setVisibility(VISIBLE);
         } else {
             accountName.setText(R.string.nav_item_login);
             logout.setVisibility(GONE);
+            notificationsView.setVisibility(GONE);
         }
     }
 }
