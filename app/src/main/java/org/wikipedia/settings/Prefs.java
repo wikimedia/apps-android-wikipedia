@@ -557,8 +557,20 @@ public final class Prefs {
         setBoolean(R.string.preference_key_dim_dark_mode_images, enabled);
     }
 
-    public static boolean suppressNotificationPolling() {
-        return getBoolean(R.string.preference_key_suppress_notification_polling, false);
+    public static boolean notificationPollEnabled() {
+        return getBoolean(R.string.preference_key_notification_poll_enable, false);
+    }
+
+    public static boolean notificationWelcomeEnabled() {
+        return getBoolean(R.string.preference_key_notification_welcome_enable, true);
+    }
+
+    public static boolean notificationMilestoneEnabled() {
+        return getBoolean(R.string.preference_key_notification_milestone_enable, true);
+    }
+
+    public static boolean notificationThanksEnabled() {
+        return getBoolean(R.string.preference_key_notification_thanks_enable, true);
     }
 
     public static boolean preferOfflineContent() {

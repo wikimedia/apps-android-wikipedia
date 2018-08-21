@@ -37,7 +37,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
         if (TextUtils.equals(intent.getAction(), Intent.ACTION_BOOT_COMPLETED)) {
             startPollTask(context);
         } else if (TextUtils.equals(intent.getAction(), ACTION_POLL)) {
-            if (!AccountUtil.isLoggedIn() || Prefs.suppressNotificationPolling()) {
+            if (!AccountUtil.isLoggedIn() || !Prefs.notificationPollEnabled()) {
                 return;
             }
 
