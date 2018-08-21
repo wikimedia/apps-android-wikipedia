@@ -66,6 +66,7 @@
     <string name="preference_key_permission_asked">permissionAsked</string>
     <string name="preference_key_dim_dark_mode_images">dimDarkModeImages</string>
     <string name="preference_key_suppress_notification_polling">suppressNotificationPolling</string>
+    <string name="preference_key_notification_poll_reminder">enableNotificationPollingReminder</string>
     <string name="preference_key_notification_poll_enable">enableNotificationPolling</string>
     <string name="preference_key_notification_welcome_enable">enableWelcomeNotification</string>
     <string name="preference_key_notification_milestone_enable">enableMilestoneNotification</string>

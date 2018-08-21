@@ -108,6 +108,8 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         });
 
         beginUpdateList();
+
+        NotificationSettingsActivity.promptEnablePollDialog(this);
     }
 
     @Override
