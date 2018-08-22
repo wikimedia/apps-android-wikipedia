@@ -157,6 +157,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             startActivity(data);
         } else if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN
                 && resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
+            refreshExploreFeed();
             FeedbackUtil.showMessage(this, R.string.login_success_toast);
         } else {
             super.onActivityResult(requestCode, resultCode, data);
@@ -381,10 +382,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (fragment != null) {
             closeSearchFragment(fragment);
             if (fragment.isLanguageChanged()) {
-                Fragment currentFragment = getCurrentFragment();
-                if (currentFragment instanceof FeedFragment) {
-                    ((FeedFragment) currentFragment).refresh();
-                }
+                refreshExploreFeed();
             }
         }
 
@@ -516,6 +514,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     private void goToTab(@NonNull NavTab tab) {
         tabLayout.setSelectedItemId(tab.code());
         cancelSearch();
+    }
+
+    private void refreshExploreFeed() {
+        Fragment fragment = getCurrentFragment();
+        if (fragment instanceof FeedFragment) {
+            ((FeedFragment) fragment).refresh();
+        }
     }
 
     private Fragment getCurrentFragment() {
