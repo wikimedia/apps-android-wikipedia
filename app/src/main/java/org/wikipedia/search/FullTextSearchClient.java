@@ -31,12 +31,6 @@ public class FullTextSearchClient {
         return request(cachedService.service(wiki), wiki, searchTerm, cont, gsrOffset, limit, cb);
     }
 
-    public Call<MwQueryResponse> requestMoreLike(@NonNull WikiSite wiki, @NonNull String searchTerm,
-                                                 @Nullable String cont, @Nullable String gsrOffset,
-                                                 int limit, @NonNull Callback cb) {
-        return request(cachedService.service(wiki), wiki, moreLike(searchTerm), cont, gsrOffset, limit, cb);
-    }
-
     @VisibleForTesting Call<MwQueryResponse> request(@NonNull Service service,
                                                      @NonNull final WikiSite wiki,
                                                      @NonNull String searchTerm,
@@ -102,9 +96,5 @@ public class FullTextSearchClient {
                                                @Query("gsrlimit") int gsrLimit,
                                                @Query("continue") String cont,
                                                @Query("gsroffset") String gsrOffset);
-    }
-
-    @NonNull private String moreLike(@Nullable String searchTerm) {
-        return "morelike:" + searchTerm;
     }
 }

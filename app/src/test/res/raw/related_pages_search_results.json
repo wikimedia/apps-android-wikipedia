@@ -1,0 +1,177 @@
+{
+    "pages": [{
+        "pageid": 33702,
+        "ns": 0,
+        "index": 19,
+        "type": "standard",
+        "title": "Wolf",
+        "displaytitle": "Wolf",
+        "namespace": {
+            "id": 0,
+            "text": ""
+        },
+        "titles": {
+            "canonical": "Wolf",
+            "normalized": "Wolf",
+            "display": "Wolf"
+        },
+        "thumbnail": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/European_grey_wolf_in_Prague_zoo.jpg/291px-European_grey_wolf_in_Prague_zoo.jpg",
+            "width": 291,
+            "height": 320
+        },
+        "originalimage": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/a/ab/European_grey_wolf_in_Prague_zoo.jpg",
+            "width": 1412,
+            "height": 1552
+        },
+        "lang": "en",
+        "dir": "ltr",
+        "revision": "855281275",
+        "tid": "ce283516-a5f5-11e8-ab3b-ccb113296fc7",
+        "timestamp": "2018-08-17T05:26:48Z",
+        "description": "species of mammal",
+        "extract": "The wolf, also known as the gray wolf, timber wolf, western wolf, and its other subspecies is a canine native to the wilderness and remote areas of Eurasia and North America. It is the largest extant member of its family, with males averaging 43–45 kg (95–99 lb) and females 36–38.5 kg (79–85 lb). Like the red wolf, it is distinguished from other Canis species by its larger size and less pointed features, particularly on the ears and muzzle. Its winter fur is long and bushy and predominantly a mottled gray in color, although nearly pure white, red, and brown to black also occur. Mammal Species of the World, a standard reference work in zoology, recognises 38 subspecies of C. lupus..",
+        "extract_html": "<p>The <b>wolf</b>, also known as the <b>gray wolf</b>, <b>timber wolf</b>, <b>western wolf</b>, and its other subspecies is a canine native to the wilderness and remote areas of Eurasia and North America. It is the largest extant member of its family, with males averaging 43–45 kg (95–99 lb) and females 36–38.5 kg (79–85 lb). Like the red wolf, it is distinguished from other <i>Canis</i> species by its larger size and less pointed features, particularly on the ears and muzzle. Its winter fur is long and bushy and predominantly a mottled gray in color, although nearly pure white, red, and brown to black also occur. <i>Mammal Species of the World</i>, a standard reference work in zoology, recognises 38 subspecies of <i>C. lupus</i>..</p>",
+        "normalizedtitle": "Wolf"
+    }, {
+        "pageid": 62893,
+        "ns": 0,
+        "index": 6,
+        "type": "standard",
+        "title": "Dingo",
+        "displaytitle": "Dingo",
+        "namespace": {
+            "id": 0,
+            "text": ""
+        },
+        "titles": {
+            "canonical": "Dingo",
+            "normalized": "Dingo",
+            "display": "Dingo"
+        },
+        "thumbnail": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Dingo_walking.jpg/320px-Dingo_walking.jpg",
+            "width": 320,
+            "height": 170
+        },
+        "originalimage": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/9/98/Dingo_walking.jpg",
+            "width": 487,
+            "height": 259
+        },
+        "lang": "en",
+        "dir": "ltr",
+        "revision": "855391560",
+        "tid": "19bf86da-a611-11e8-81e0-df69a20262cf",
+        "timestamp": "2018-08-17T23:30:55Z",
+        "description": "Canis lupus australian",
+        "extract": "The dingo is a type of feral dog native to Australia. Its taxonomic status is debated. The first British colonists to arrive established a settlement at Port Jackson in 1788 and recorded dingoes living there with indigenous Australians. Although the dingo exists in the wild, it associates with humans but has not been selectively bred as have other domesticated animals. It is a medium-sized canid that possesses a lean, hardy body adapted for speed, agility and stamina. The dingo's three main coat colours are described as being either light ginger, black and tan, or creamy white. The head is the widest part of the dingo, is wedge-shaped, and large in proportion to the body. The dingo skull differs to that of the domestic dog by its larger palatal width, longer rostrum, shorter skull height, and wider sagittal crest. One can regard the dingo as an ecotype or an ecospecies which has adapted to Australia's unique environment. It is listed as a \"vulnerable species\" on the IUCN Red List due to declining numbers caused by hybridization with the domestic dog.",
+        "extract_html": "<p>The <b>dingo</b> is a type of feral dog native to Australia. Its taxonomic status is debated. The first British colonists to arrive established a settlement at Port Jackson in 1788 and recorded dingoes living there with indigenous Australians. Although the dingo exists in the wild, it associates with humans but has not been selectively bred as have other domesticated animals. It is a medium-sized canid that possesses a lean, hardy body adapted for speed, agility and stamina. The dingo's three main coat colours are described as being either light ginger, black and tan, or creamy white. The head is the widest part of the dingo, is wedge-shaped, and large in proportion to the body. The dingo skull differs to that of the domestic dog by its larger palatal width, longer rostrum, shorter skull height, and wider sagittal crest. One can regard the dingo as an ecotype or an ecospecies which has adapted to Australia's unique environment. It is listed as a &quot;vulnerable species&quot; on the IUCN Red List due to declining numbers caused by hybridization with the domestic dog.</p>",
+        "normalizedtitle": "Dingo"
+    }, {
+        "pageid": 403300,
+        "ns": 0,
+        "index": 16,
+        "type": "standard",
+        "title": "Canis",
+        "displaytitle": "<i>Canis</i>",
+        "namespace": {
+            "id": 0,
+            "text": ""
+        },
+        "titles": {
+            "canonical": "Canis",
+            "normalized": "Canis",
+            "display": "<i>Canis</i>"
+        },
+        "thumbnail": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Canis.jpg/223px-Canis.jpg",
+            "width": 223,
+            "height": 320
+        },
+        "originalimage": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Canis.jpg",
+            "width": 2800,
+            "height": 4024
+        },
+        "lang": "en",
+        "dir": "ltr",
+        "revision": "855521281",
+        "tid": "7972f3ca-a501-11e8-b794-b18962a72806",
+        "timestamp": "2018-08-18T22:46:37Z",
+        "description": "genus of mammals",
+        "extract": "Canis is a genus of the Canidae containing multiple extant species, such as wolves, coyotes, jackals, dingoes, and dogs. Species of this genus are distinguished by their moderate to large size, their massive, well-developed skulls and dentition, long legs, and comparatively short ears and tails.",
+        "extract_html": "<p><i><b>Canis</b></i> is a genus of the Canidae containing multiple extant species, such as wolves, coyotes, jackals, dingoes, and dogs. Species of this genus are distinguished by their moderate to large size, their massive, well-developed skulls and dentition, long legs, and comparatively short ears and tails.</p>",
+        "normalizedtitle": "Canis"
+    }, {
+        "pageid": 441452,
+        "ns": 0,
+        "index": 17,
+        "type": "standard",
+        "title": "Saarloos_wolfdog",
+        "displaytitle": "Saarloos wolfdog",
+        "namespace": {
+            "id": 0,
+            "text": ""
+        },
+        "titles": {
+            "canonical": "Saarloos_wolfdog",
+            "normalized": "Saarloos wolfdog",
+            "display": "Saarloos wolfdog"
+        },
+        "thumbnail": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Bow_bow.jpg/213px-Bow_bow.jpg",
+            "width": 213,
+            "height": 320
+        },
+        "originalimage": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Bow_bow.jpg",
+            "width": 1027,
+            "height": 1540
+        },
+        "lang": "en",
+        "dir": "ltr",
+        "revision": "855253783",
+        "tid": "ba12af02-a540-11e8-85b2-4f2120e71031",
+        "timestamp": "2018-08-17T00:14:47Z",
+        "description": "dog breed, canid hybrid",
+        "extract": "The Saarloos wolfdog or Saarloos wolfhound is an established breed of dog originating from wolfdog hybrid crosses.",
+        "extract_html": "<p>The <b>Saarloos wolfdog</b> or <b>Saarloos wolfhound</b> is an established breed of dog originating from wolfdog hybrid crosses.</p>",
+        "normalizedtitle": "Saarloos wolfdog"
+    }, {
+        "pageid": 968202,
+        "ns": 0,
+        "index": 10,
+        "type": "standard",
+        "title": "Dog_intelligence",
+        "displaytitle": "Dog intelligence",
+        "namespace": {
+            "id": 0,
+            "text": ""
+        },
+        "titles": {
+            "canonical": "Dog_intelligence",
+            "normalized": "Dog intelligence",
+            "display": "Dog intelligence"
+        },
+        "thumbnail": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Vizsla_r%C3%A1h%C3%BAz_a_vadra.jpg/320px-Vizsla_r%C3%A1h%C3%BAz_a_vadra.jpg",
+            "width": 320,
+            "height": 214
+        },
+        "originalimage": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Vizsla_r%C3%A1h%C3%BAz_a_vadra.jpg",
+            "width": 640,
+            "height": 427
+        },
+        "lang": "en",
+        "dir": "ltr",
+        "revision": "851689587",
+        "tid": "aa4f0e1e-a401-11e8-8cf9-20bf79246778",
+        "timestamp": "2018-07-23T23:36:35Z",
+        "extract": "Dog intelligence or dog cognition is the process in dogs of acquiring, storing in memory, retrieving, combining, comparing, and using in new situations information and conceptual skills.",
+        "extract_html": "<p><b>Dog intelligence</b> or <b>dog cognition</b> is the process in dogs of acquiring, storing in memory, retrieving, combining, comparing, and using in new situations information and conceptual skills.</p>",
+        "normalizedtitle": "Dog intelligence"
+    }]
+}
