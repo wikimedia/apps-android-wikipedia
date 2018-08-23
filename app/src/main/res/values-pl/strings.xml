@@ -420,6 +420,18 @@
     <item quantity="one">Pobieranie %1$d artykułu...</item>
     <item quantity="other">Pobieranie %1$d artykułów...</item>
   </plurals>
+  <string name="notification_echo_channel_description">Powiadomienia z Wikipedii</string>
+  <string name="notifications_activity_title">Powiadomienia</string>
+  <string name="notifications_activity_title_archived">Powiadomienia (zarchiwizowane)</string>
+  <string name="notifications_view_unread">Zobacz nieprzeczytane</string>
+  <string name="notifications_view_archived">Zobacz zarchiwizowane</string>
+  <string name="notifications_prefs">Preferencje powiadomień</string>
+  <string name="notifications_archive">Oznacz jako przeczytane i zarchiwizuj</string>
+  <string name="notifications_poll_enable_negative">Nie teraz</string>
+  <string name="notifications_view_archived_button_text">Zobacz powiadomienia zarchiwizowane</string>
+  <string name="notification_preferences_title">Preferencje powiadomień</string>
+  <string name="preference_title_notification_welcome">Powitanie</string>
+  <string name="preference_title_notification_thanks">Podziękowania</string>
   <string name="view_continue_reading_card_title">Kontynuuj czytanie</string>
   <string name="view_because_you_read_card_title">Ponieważ czytasz</string>
   <string name="view_random_card_title">Losowy artykuł</string>

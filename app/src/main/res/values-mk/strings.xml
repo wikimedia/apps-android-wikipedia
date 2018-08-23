@@ -474,6 +474,33 @@
     <item quantity="one">Преостанува %1$d список</item>
     <item quantity="other">Преостануваат %1$d списоци</item>
   </plurals>
+  <string name="notification_echo_channel_description">Известувања за Википедија</string>
+  <string name="notifications_activity_title">Известувања</string>
+  <string name="notifications_activity_title_archived">Известувања (архивирани)</string>
+  <string name="notifications_search">Пребарај известувања</string>
+  <string name="notifications_view_unread">Погл. непрочитани</string>
+  <string name="notifications_view_archived">Погл. архивирани</string>
+  <string name="notifications_prefs">Нагодувања на известувањата</string>
+  <string name="notifications_archive">Означи како прочитано и архивирај</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">Известувањето е архивирано</item>
+    <item quantity="other">Архивирани се %d известувања</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">Овозможи известувања</string>
+  <string name="notifications_poll_enable_positive">Овозможи</string>
+  <string name="notifications_poll_enable_negative">Не сега</string>
+  <string name="notifications_empty_message">Немате нови известувања!</string>
+  <string name="notifications_view_archived_button_text">Погл. архивирани известувања</string>
+  <string name="notification_preferences_title">Нагодувања на известувањата</string>
+  <string name="preference_title_notification_poll">Известувања за анкети</string>
+  <string name="preference_summary_notification_poll">Дозволи му на прилогот да користи податоци за да проверува нови известувања во позадина.</string>
+  <string name="preference_category_notification_types">Видови известувања во прилог</string>
+  <string name="preference_title_notification_welcome">Добредојде</string>
+  <string name="preference_summary_notification_welcome">Создадена е сметка</string>
+  <string name="preference_title_notification_milestone">Достигнувања</string>
+  <string name="preference_summary_notification_milestone">Достигнати се извесни броеви на уредувања</string>
+  <string name="preference_title_notification_thanks">Благодарности</string>
+  <string name="preference_summary_notification_thanks">Некој ви благодари за уредување</string>
   <string name="view_continue_reading_card_title">Продолжете со читање</string>
   <string name="view_because_you_read_card_title">Бидејќи читавте</string>
   <string name="view_random_card_title">Случаен избирач</string>

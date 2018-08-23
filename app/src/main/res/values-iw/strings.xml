@@ -86,6 +86,7 @@
   <string name="search_reading_lists_no_results">לא נמצאו תוצאות ברשימות קריאה</string>
   <string name="search_history_no_results">לא נמצאו תוצאות בהיסטוריה</string>
   <string name="edit_section_captcha_message">כדי לסייע בהגנה מפני ספאם, הזינו את המילים המופיעות להלן</string>
+  <string name="edit_section_captcha_request_an_account_message">לא רואים את התמונה? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;מידע נוסף&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">נא לחזור על המילים לעיל</string>
   <string name="title_captcha">נא להזין קוד אימות אנוש</string>
   <string name="edit_section_captcha_reload">יש ללחוץ על תמונת האימות לשם רענון</string>
@@ -153,6 +154,7 @@
   <string name="preferences_heading_experimental">ניסיוני</string>
   <string name="preference_title_sync_reading_lists">סנכרון רשימות קריאה</string>
   <string name="preference_title_sync_reading_lists_from_account">סנכרון רשימות קריאה</string>
+  <string name="preference_title_download_reading_list_articles">להוריד למכשיר ערכים מרשימת הקריאה</string>
   <string name="preference_summary_sync_reading_lists">סנכרון רשימות קריאה במכשירים שונים באמצעות שמירתם לחשבון הוויקיפדיה שלך</string>
   <string name="preference_summary_sync_reading_lists_from_account">סנכרון רשימות קריאה במכשירים שונים באמצעות שמירתם לחשבון הוויקיפדיה שלך \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">להסיר את רשימות הקריאה המסונכרנות שלך מהחשבון \"%s\"?</string>
@@ -189,7 +191,7 @@
   <string name="about_translators_translatewiki">האפליקציה הזה תורגמה על־ידי מתרגמים מתנדבים באתר &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">רישיון</string>
   <string name="about_app_license">קוד המקור זמין ב־&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; לפי תנאי &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;רישיון Apache 2.0&lt;/a&gt;. אלא אם נאמר אחרת, התוכן זמין לפי &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;רישיון קריאייטיב קומונז–ייחוס–שיתוף זהה&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">מוצר של &lt;a href=\"https://wikimediafoundation.org/\"&gt;קרן ויקימדיה&lt;/a&gt;</string>
+  <string name="about_wmf">מוצר של &lt;a href=\"https://wikimediafoundation.org/\"&gt;קרן ויקימדיה&lt;/a&gt;</string>
   <string name="about_activity_title">אודות</string>
   <string name="edit_abandon_confirm">הדף שוּנה. האם ברצונך לצאת בלי לשמור את השינויים שלך?</string>
   <string name="edit_abandon_confirm_yes">כן</string>
@@ -275,7 +277,7 @@
   <string name="tool_tip_share">אחרי שהארת עובדה מעניינת זה הזמן לנסות לשתף אותה ברשתות האהובות עליך!</string>
   <string name="page_view_in_browser">להציג את הדף בדפדפן</string>
   <string name="tool_tip_toc_button">ר\' את תוכן העניינים בכל זמן באמצעות לחיצה על הכפתור הזה או החלקה מהקצה השמאלי של המסך.</string>
-  <string name="tool_tip_lang_button">עכשיו אפשר לחפש ולקרוא ערכים בוויקיפדיה בשפות מרובות באמצעות היישום.\n\n\nיש ללחוץ על הצלמית כדי להוסיף שפות נוספות.</string>
+  <string name="tool_tip_lang_button">עכשיו אפשר לחפש ולקרוא ערכים בוויקיפדיה בשפות מרובות באמצעות האפליקציה.\n\n\nיש ללחוץ על הצלמית כדי להוסיף שפות נוספות.</string>
   <string name="error_response_malformed">התשובה מהשרת לא מעוצבת נכון.</string>
   <string name="error_unknown">אירעה שגיאה בלתי־ידועה.</string>
   <string name="format_error_server_message">הודעה: \"%s\"</string>
@@ -481,6 +483,33 @@
     <item quantity="one">נשארה רשימה אחת</item>
     <item quantity="other">נשארו %1$d רשימות</item>
   </plurals>
+  <string name="notification_echo_channel_description">הודעות ויקיפדיה</string>
+  <string name="notifications_activity_title">הודעות</string>
+  <string name="notifications_activity_title_archived">הודעות (ארכיון)</string>
+  <string name="notifications_search">חיפוש הודעות</string>
+  <string name="notifications_view_unread">הצגת הודעות שלא נקראו</string>
+  <string name="notifications_view_archived">הצגת ארכיון</string>
+  <string name="notifications_prefs">העדפות הודעות</string>
+  <string name="notifications_archive">לסמן שההודעה נקראה ולשמור בארכיון</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">ההודעה נשלחה לארכיון</item>
+    <item quantity="other">%d הודעות נשלחו לארכיון</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">הפעלת הודעות</string>
+  <string name="notifications_poll_enable_positive">הפעלה</string>
+  <string name="notifications_poll_enable_negative">לא עכשיו</string>
+  <string name="notifications_empty_message">קראת את כל ההודעות!</string>
+  <string name="notifications_view_archived_button_text">להציג הודעות בארכיון</string>
+  <string name="notification_preferences_title">העדפות הודעות</string>
+  <string name="preference_title_notification_poll">דגימת הודעות</string>
+  <string name="preference_summary_notification_poll">לאפשר לאפליקציה להשתמש בנתונים כדי לבדוק הודעות חדשות ברקע.</string>
+  <string name="preference_category_notification_types">סוגי הודעות באפליקציה</string>
+  <string name="preference_title_notification_welcome">ברוך בואך</string>
+  <string name="preference_summary_notification_welcome">נוצר חשבון</string>
+  <string name="preference_title_notification_milestone">אבן דרך</string>
+  <string name="preference_summary_notification_milestone">הגעת למניין עריכות מסוים</string>
+  <string name="preference_title_notification_thanks">תודה</string>
+  <string name="preference_summary_notification_thanks">מישהו מודה לך על עריכה</string>
   <string name="view_continue_reading_card_title">להמשיך לקרוא</string>
   <string name="view_because_you_read_card_title">כי כבר קראת</string>
   <string name="view_random_card_title">ערך אקראי</string>
@@ -667,8 +696,8 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">יש להשאיר לפחות שפת ויקיפדיה אחת שבה ברצונך לחפש ולקרוא תוכן.</string>
   <string name="more_language_options">עוד</string>
   <string name="add_wikipedia_languages_text">הוספת שפות ויקיפדיה</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">להסיר גרסה אחת של סינית מהגדרות השפה של היישום?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">כרגע מוגדרות גם סינית מסורתית וגם סינית פשוטה בהגדרות השפה של היישום שלך. האם ברצונך לעדכן את הגדרות השפה של היישום?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">להסיר גרסה אחת של סינית מהגדרות השפה של האפליקציה?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">כרגע מוגדרות גם סינית מסורתית וגם סינית מפושטת בהגדרות השפה של האפליקציה שלך. האם ברצונך לעדכן את הגדרות השפה של האפליקציה?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">עריכת השפות</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">לא, תודה</string>
 </resources>

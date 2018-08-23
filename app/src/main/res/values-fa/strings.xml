@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* AliNabipr
 * Alifakoor
 * Alirezaaa
 * Arash.pt
@@ -463,6 +464,16 @@
   <string name="notification_channel_name" fuzzy="true">همگام سازی</string>
   <string name="notification_syncing_title" fuzzy="true">بارگیری %1$d مقاله(ها)...</string>
   <string name="notification_syncing_description" fuzzy="true">%1$d مقاله(ها) باقی مانده اند</string>
+  <string name="notification_echo_channel_description">اعلان‌های ویکی‌پدیا</string>
+  <string name="notifications_activity_title">اعلان‌ها</string>
+  <string name="notifications_activity_title_archived">اعلان‌ها (بایگانی‌شده)</string>
+  <string name="notifications_search">جست‌وجو در اعلان‌ها</string>
+  <string name="notifications_view_archived">نمایش بایگانی‌شده</string>
+  <string name="notifications_poll_enable_title">فعال‌سازی اعلان‌ها</string>
+  <string name="notifications_poll_enable_positive">فعال سازی</string>
+  <string name="preference_title_notification_welcome">خوش‌آمدید</string>
+  <string name="preference_summary_notification_welcome">یک حساب کاربری ساخته‌شد.</string>
+  <string name="preference_summary_notification_thanks">شخصی برای ویرایش از شما تشکر می‌کند.</string>
   <string name="view_continue_reading_card_title">ادامه دادن به خواندن</string>
   <string name="view_because_you_read_card_title">چون شما مطالعه می‌کنید</string>
   <string name="view_random_card_title">تصادفی</string>

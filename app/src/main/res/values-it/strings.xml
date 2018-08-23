@@ -191,7 +191,7 @@
   <string name="about_translators_translatewiki">Questa applicazione è stata tradotta da traduttori volontari su &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenza</string>
   <string name="about_app_license">Codice sorgente disponibile su &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; in base alla &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Licenza Apache 2.0&lt;/a&gt;. Se non diversamente specificato, il contenuto è disponibile sotto la &lt;a href=\"https://it.wikipedia.org/wiki/Wikipedia:Testo_della_Creative_Commons_Attribuzione-Condividi_allo_stesso_modo_3.0_Unported\"&gt;licenza Creative Commons Attribuzione-Condividi allo stesso modo&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">Un prodotto della &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
+  <string name="about_wmf">Un prodotto della &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Informazioni</string>
   <string name="edit_abandon_confirm">La pagina è stata modificata. Sei sicuro di voler uscire senza salvare le modifiche?</string>
   <string name="edit_abandon_confirm_yes">Sì</string>
@@ -411,6 +411,24 @@
     <item quantity="one">%1$d voce rimanente</item>
     <item quantity="other">%1$d voci rimanenti</item>
   </plurals>
+  <string name="notification_echo_channel_description">Notifiche di Wikipedia</string>
+  <string name="notifications_activity_title">Notifiche</string>
+  <string name="notifications_activity_title_archived">Notifiche (archiviate)</string>
+  <string name="notifications_search">Cerca notifiche</string>
+  <string name="notifications_view_unread">Vedi non lette</string>
+  <string name="notifications_view_archived">Vedi archiviate</string>
+  <string name="notifications_prefs">Preferenze sulle notifiche</string>
+  <string name="notifications_archive">Segna come letta e archivia</string>
+  <string name="notifications_poll_enable_title">Attiva le notifiche</string>
+  <string name="notifications_poll_enable_positive">Attiva</string>
+  <string name="notifications_poll_enable_negative">Non ora</string>
+  <string name="notifications_view_archived_button_text">Vedi notifiche archiviate</string>
+  <string name="notification_preferences_title">Preferenze sulle notifiche</string>
+  <string name="preference_summary_notification_poll">Consenti all\'applicazione di utilizzare i dati per verificare nuove notifiche in background.</string>
+  <string name="preference_title_notification_welcome">Benvenuto</string>
+  <string name="preference_title_notification_milestone">Pietra miliare</string>
+  <string name="preference_title_notification_thanks">Ringraziamenti</string>
+  <string name="preference_summary_notification_thanks">Qualcuno ti ha ringraziato per una modifica</string>
   <string name="view_continue_reading_card_title">Continua a leggere</string>
   <string name="view_because_you_read_card_title">Perché hai letto</string>
   <string name="view_random_card_title">Una pagina a caso</string>

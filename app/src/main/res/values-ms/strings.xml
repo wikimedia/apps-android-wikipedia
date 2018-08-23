@@ -149,6 +149,7 @@
   <string name="preferences_heading_experimental">Percubaan</string>
   <string name="preference_title_sync_reading_lists">Menyegerakkan senarai bacaan</string>
   <string name="preference_title_sync_reading_lists_from_account">Penyegerakan senarai bacaan</string>
+  <string name="preference_title_download_reading_list_articles">Muat turun rencana senarai bacaan</string>
   <string name="preference_summary_sync_reading_lists">Segerakkan senarai bacaan merentas peranti yang berbeza dengan menyimpannya ke akaun Wikipedia anda</string>
   <string name="preference_summary_sync_reading_lists_from_account">Segerakkan senarai bacaan merentas peranti yang berbeza dengan menyimpannya ke akaun Wikipedia anda \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Buang senarai bacaan yang diselaraskan dari \"%s\"?</string>

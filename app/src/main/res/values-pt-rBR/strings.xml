@@ -498,6 +498,33 @@
     <item quantity="one">faltam %1$d lista</item>
     <item quantity="other">faltam %1$d listas</item>
   </plurals>
+  <string name="notification_echo_channel_description">Notificações da Wikipédia</string>
+  <string name="notifications_activity_title">Notificações</string>
+  <string name="notifications_activity_title_archived">Notificações (arquivadas)</string>
+  <string name="notifications_search">Pesquisar nas notificações</string>
+  <string name="notifications_view_unread">Ver não lidas</string>
+  <string name="notifications_view_archived">Ver arquivadas</string>
+  <string name="notifications_prefs">Preferências de notificação</string>
+  <string name="notifications_archive">Marcar como lida e arquivar</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">Notificação arquivada</item>
+    <item quantity="other">%d notificações arquivadas</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">Ativar notificações</string>
+  <string name="notifications_poll_enable_positive">Ativar</string>
+  <string name="notifications_poll_enable_negative">Agora não</string>
+  <string name="notifications_empty_message">Já leu todas as notificações!</string>
+  <string name="notifications_view_archived_button_text">Ver notificações arquivadas</string>
+  <string name="notification_preferences_title">Preferências de notificação</string>
+  <string name="preference_title_notification_poll">Pesquisa sobre notificações</string>
+  <string name="preference_summary_notification_poll">Permitir que o aplicativo use dados para verificar em segundo plano se existem novas notificações</string>
+  <string name="preference_category_notification_types">Tipos de notificações no aplicativo</string>
+  <string name="preference_title_notification_welcome">Bem-vindo(a)</string>
+  <string name="preference_summary_notification_welcome">É criada uma conta</string>
+  <string name="preference_title_notification_milestone">Objetivo</string>
+  <string name="preference_summary_notification_milestone">São atingidos determinados números de edições</string>
+  <string name="preference_title_notification_thanks">Agradecimento</string>
+  <string name="preference_summary_notification_thanks">Alguém agradece uma edição sua</string>
   <string name="view_continue_reading_card_title">Continue lendo</string>
   <string name="view_because_you_read_card_title">Porque você leu</string>
   <string name="view_random_card_title">Aleatório</string>

@@ -180,6 +180,7 @@
   <string name="preferences_heading_experimental">Экспериментальные</string>
   <string name="preference_title_sync_reading_lists">Синхронизация списков для чтения</string>
   <string name="preference_title_sync_reading_lists_from_account">Синхронизация списков для чтения</string>
+  <string name="preference_title_download_reading_list_articles">Скачивать статьи из списка для чтения</string>
   <string name="preference_summary_sync_reading_lists">Синхронизирует списки для чтения на разных устройствах сохраняя в вашей учётной записи Википедии</string>
   <string name="preference_summary_sync_reading_lists_from_account">Синхронизирует списки для чтения на разных устройствах путём их сохранения в вашей учётной записи Википедии «%s»</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Удалить синхронизированные списки для чтения «%s»?</string>
@@ -511,6 +512,12 @@
     <item quantity="few">Осталось %1$d списка</item>
     <item quantity="other">Осталось %1$d списков</item>
   </plurals>
+  <string name="notification_echo_channel_description">Уведомления Википедии</string>
+  <string name="notifications_activity_title">Уведомления</string>
+  <string name="notifications_poll_enable_positive">Включить</string>
+  <string name="notifications_poll_enable_negative">Не сейчас</string>
+  <string name="notification_preferences_title">Настройки уведомлений</string>
+  <string name="preference_summary_notification_welcome">Учётная запись создана</string>
   <string name="view_continue_reading_card_title">Продолжить чтение</string>
   <string name="view_because_you_read_card_title">На основе прочитанного</string>
   <string name="view_random_card_title">Рандомизатор</string>

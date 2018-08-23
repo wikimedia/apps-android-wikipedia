@@ -481,6 +481,28 @@
     <item quantity="one">%1$d liste gjenstår</item>
     <item quantity="other">%1$d lister gjenstår</item>
   </plurals>
+  <string name="notification_echo_channel_description">Wikipedia-varsler</string>
+  <string name="notifications_activity_title">Varsler</string>
+  <string name="notifications_activity_title_archived">Varsler (arkivert)</string>
+  <string name="notifications_search">Søk i varsler</string>
+  <string name="notifications_view_unread">Vis uleste</string>
+  <string name="notifications_view_archived">Vis arkiverte</string>
+  <string name="notifications_prefs">Varselinnstillinger</string>
+  <string name="notifications_archive">Merk som lest og arkiver</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">Varsel arkivert</item>
+    <item quantity="other">%d varsler arkivert</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">Slå på varsler</string>
+  <string name="notifications_poll_enable_negative">Ikke nå</string>
+  <string name="notification_preferences_title">Varselinnstillinger</string>
+  <string name="preference_summary_notification_poll">La appen bruke data for å sjekke nye varsler i bakgrunnen.</string>
+  <string name="preference_title_notification_welcome">Velommen</string>
+  <string name="preference_summary_notification_welcome">En konto er opprettet</string>
+  <string name="preference_title_notification_milestone">Milepæl</string>
+  <string name="preference_summary_notification_milestone">Visse antall redigeringer oppnås</string>
+  <string name="preference_title_notification_thanks">Takk</string>
+  <string name="preference_summary_notification_thanks">Noen takket deg for en redigering</string>
   <string name="view_continue_reading_card_title">Fortsett å lese</string>
   <string name="view_because_you_read_card_title">Fordi du leste</string>
   <string name="view_random_card_title">Tilfeldighetsgenerator</string>

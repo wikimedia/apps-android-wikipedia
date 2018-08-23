@@ -488,6 +488,33 @@
     <item quantity="one">剩下 %1$d 個清單</item>
     <item quantity="other">剩下 %1$d 個清單</item>
   </plurals>
+  <string name="notification_echo_channel_description">維基百科通知</string>
+  <string name="notifications_activity_title">通知</string>
+  <string name="notifications_activity_title_archived">通知（存檔）</string>
+  <string name="notifications_search">搜尋通知</string>
+  <string name="notifications_view_unread">檢視未讀</string>
+  <string name="notifications_view_archived">檢視存檔</string>
+  <string name="notifications_prefs">通知偏好設定</string>
+  <string name="notifications_archive">標記為已讀並存檔</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">通知已存檔</item>
+    <item quantity="other">%d 個通知已存檔</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">啟用通知</string>
+  <string name="notifications_poll_enable_positive">啟用</string>
+  <string name="notifications_poll_enable_negative">不要現在</string>
+  <string name="notifications_empty_message">您尚未有新通知！</string>
+  <string name="notifications_view_archived_button_text">檢視存檔通知</string>
+  <string name="notification_preferences_title">通知偏好設定</string>
+  <string name="preference_title_notification_poll">調查通知</string>
+  <string name="preference_summary_notification_poll">允許應用程式在背景執行使用資料來檢查新的通知。</string>
+  <string name="preference_category_notification_types">In-app 通知類型</string>
+  <string name="preference_title_notification_welcome">歡迎</string>
+  <string name="preference_summary_notification_welcome">在有帳號被建立時</string>
+  <string name="preference_title_notification_milestone">里程碑</string>
+  <string name="preference_summary_notification_milestone">當達到某種程度的編輯數</string>
+  <string name="preference_title_notification_thanks">感謝</string>
+  <string name="preference_summary_notification_thanks">某人感謝您所做的編輯</string>
   <string name="view_continue_reading_card_title">繼續閱讀</string>
   <string name="view_because_you_read_card_title">您曾閱讀過的</string>
   <string name="view_random_card_title">隨機條目產生器</string>

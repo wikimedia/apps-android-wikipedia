@@ -80,6 +80,7 @@
   <string name="search_reading_lists_no_results">Ааҕыы испииһэгэр туох да көстүбэтэ</string>
   <string name="search_history_no_results">Устуоруйатыгар туох да көстүбэтэ</string>
   <string name="edit_section_captcha_message">Аптамаатынан ыытыллар спаамтан көмүскэнэбит, бука диэн, аллара көстөр тыллары ук</string>
+  <string name="edit_section_captcha_request_an_account_message">Капча ойуута көстүбэт дуо? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Бу сигэни батаа&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Үөһэ көстөр тыллары хатылаа</string>
   <string name="title_captcha">Капчаны киллэр</string>
   <string name="edit_section_captcha_reload">Капчаны таарыйан саҥардан биэриэххин сөп</string>
@@ -121,6 +122,8 @@
   <string name="create_account_next">Аныгыскы</string>
   <string name="create_account_button">Бэлиэтэнии</string>
   <string name="create_account_name_unavailable">Маннык аат \"%s\" сатаммат. Бука диэн, атын аатта тал.</string>
+  <string name="create_account_ip_block_message">Баалаама, Эн IP-гыттан саҥа бэлиэ-ааты оҥорор бобуллубут эбит.</string>
+  <string name="create_account_ip_block_help_url">https://sah.wikipedia.org/wiki/Бикипиэдьийэ:Хаачччахтааһын сиэрэ</string>
   <string name="create_account_ip_block_details">Сиһилии</string>
   <string name="preferences_general_heading">Сүнньүнэн</string>
   <string name="wikipedia_app_faq">Бикипиэдьийэ баайылын туһунан ыйытыылар</string>
@@ -144,7 +147,7 @@
   <string name="preferences_heading_data_usage">Трафик</string>
   <string name="preferences_heading_experimental">Эксперимент быһыытынан</string>
   <string name="preference_title_sync_reading_lists">Мэнэйдэhии испиhиэгэ</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Ааҕыы испииһэгин мэнэйдээһинин холбоо</string>
+  <string name="preference_title_sync_reading_lists_from_account">Ааҕыы испииһэгин мэнэйдээһинин ыыт</string>
   <string name="preference_summary_sync_reading_lists">Бикипиэдьийэҕэ бэлиэтэммит ааккынан ааҕар испиһиэги араас тэриллэргэр тэҥниир мэнэйдээһин</string>
   <string name="preference_summary_sync_reading_lists_from_account">Бикипиэдьийэҕэ бэлиэтэммит \"%s\" ааккынан ааҕар испиһиэги араас тэриллэргэр тэҥниир мэнэйдээһин</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Мэнэйдэммит ааҕар испииһэктэри \"%s\" сотоҕун дуо?</string>

@@ -483,6 +483,31 @@
   <plurals name="notification_syncing_reading_list_description">
     <item quantity="other">목록 %1$d개 남음</item>
   </plurals>
+  <string name="notification_echo_channel_description">위키백과 알림</string>
+  <string name="notifications_activity_title">알림</string>
+  <string name="notifications_activity_title_archived">알림 (보관됨)</string>
+  <string name="notifications_search">알림 검색</string>
+  <string name="notifications_view_unread">읽지 않은 항목 보기</string>
+  <string name="notifications_view_archived">보관한 항목 보기</string>
+  <string name="notifications_prefs">알림 환경 설정</string>
+  <string name="notifications_archive">읽은 것으로 표시하고 보관</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">알림이 보관되었습니다</item>
+    <item quantity="other">알림 %d개가 보관되었습니다</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">알림 사용</string>
+  <string name="notifications_poll_enable_positive">사용</string>
+  <string name="notifications_poll_enable_negative">지금은 괜찮습니다</string>
+  <string name="notifications_empty_message">모든 알림을 다 읽었습니다!</string>
+  <string name="notifications_view_archived_button_text">보관된 알림 보기</string>
+  <string name="notification_preferences_title">알림 환경 설정</string>
+  <string name="preference_summary_notification_poll">앱이 백그라운드에서 새 알림을 확인할 수 있게 합니다.</string>
+  <string name="preference_category_notification_types">앱 내 알림 유형</string>
+  <string name="preference_title_notification_welcome">환영합니다</string>
+  <string name="preference_summary_notification_welcome">계정이 생성되었습니다</string>
+  <string name="preference_summary_notification_milestone">특정 편집 수에 도달했습니다</string>
+  <string name="preference_title_notification_thanks">감사 표현</string>
+  <string name="preference_summary_notification_thanks">누군가가 편집에 대해 감사를 표했습니다</string>
   <string name="view_continue_reading_card_title">계속 읽기</string>
   <string name="view_because_you_read_card_title">읽었던 글 관련 추천</string>
   <string name="view_random_card_title">임의 문서 보기</string>

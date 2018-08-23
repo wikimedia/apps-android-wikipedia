@@ -6,6 +6,7 @@
 * Mainframe98
 * Mar(c)
 * Mathonius
+* McDutchie
 * MedShot
 * Mirolith
 * Patio
@@ -442,6 +443,7 @@
     <item quantity="one">nog %1$d lijst</item>
     <item quantity="other">nog %1$d lijsten</item>
   </plurals>
+  <string name="notifications_poll_enable_negative">Nu niet</string>
   <string name="view_continue_reading_card_title">Verder lezen</string>
   <string name="view_because_you_read_card_title">Omdat u hebt gelezen</string>
   <string name="view_random_card_title">Randomizer</string>

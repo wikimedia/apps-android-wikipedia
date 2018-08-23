@@ -4,6 +4,7 @@
 * Ely en
 * Envlh
 * Fitoschido
+* Kyouko
 * Macofe
 * Matrafox
 * Minisarm
@@ -254,6 +255,16 @@
   <string name="reading_lists_onboarding_got_it">Am înțeles</string>
   <string name="reading_list_delete_confirm" fuzzy="true">Sigur doriți să ștergeți această listă %s de lecturi?</string>
   <string name="user_option_sync_label">Preferințe</string>
+  <string name="notifications_activity_title">Notificări</string>
+  <string name="notifications_activity_title_archived">Notificări (arhivate)</string>
+  <string name="notifications_view_archived">Vezi arhivate</string>
+  <string name="notifications_prefs">Preferințe pentru notificări</string>
+  <string name="notifications_archive">Marchează ca citit și arhivează</string>
+  <string name="notifications_poll_enable_title">Activați notificările</string>
+  <string name="notifications_poll_enable_positive">Activează</string>
+  <string name="notifications_poll_enable_negative">Nu acum</string>
+  <string name="notifications_empty_message">Ați ajuns la curent cu toate notificările!</string>
+  <string name="preference_summary_notification_poll">Permite aplicației să verifice în fundal dacă apar notificări noi.</string>
   <string name="view_continue_reading_card_title">Continuă lectura</string>
   <string name="view_because_you_read_card_title">Pentru că ați citit</string>
   <string name="view_random_card_title">Aleatoriu</string>
