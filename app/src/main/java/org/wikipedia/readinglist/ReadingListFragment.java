@@ -39,6 +39,7 @@ import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
+import org.wikipedia.events.PageDownloadEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.main.MainActivity;
@@ -78,8 +79,12 @@ import okhttp3.CacheControl;
 import retrofit2.Call;
 import retrofit2.Response;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 import static org.wikipedia.readinglist.ReadingListActivity.EXTRA_READING_LIST_ID;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
+import static org.wikipedia.views.CircularProgressBar.MAX_PROGRESS;
+import static org.wikipedia.views.CircularProgressBar.MIN_PROGRESS;
 
 public class ReadingListFragment extends Fragment implements ReadingListItemActionsDialog.Callback {
     @BindView(R.id.reading_list_toolbar) Toolbar toolbar;
@@ -254,7 +259,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         if (readingList == null) {
             return;
         }
-        emptyView.setVisibility(readingList.pages().isEmpty() ? View.VISIBLE : View.GONE);
+        emptyView.setVisibility(readingList.pages().isEmpty() ? VISIBLE : GONE);
         headerView.setReadingList(readingList, ReadingListItemView.Description.DETAIL);
         headerImageView.setReadingList(readingList);
         ReadingList.sort(readingList, Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC));
@@ -310,13 +315,13 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
     private void updateEmptyState(@Nullable String searchQuery) {
         if (TextUtils.isEmpty(searchQuery)) {
-            searchEmptyView.setVisibility(View.GONE);
-            recyclerView.setVisibility(View.VISIBLE);
-            emptyView.setVisibility(displayedPages.isEmpty() ? View.VISIBLE : View.GONE);
+            searchEmptyView.setVisibility(GONE);
+            recyclerView.setVisibility(VISIBLE);
+            emptyView.setVisibility(displayedPages.isEmpty() ? VISIBLE : GONE);
         } else {
-            recyclerView.setVisibility(displayedPages.isEmpty() ? View.GONE : View.VISIBLE);
-            searchEmptyView.setVisibility(displayedPages.isEmpty() ? View.VISIBLE : View.GONE);
-            emptyView.setVisibility(View.GONE);
+            recyclerView.setVisibility(displayedPages.isEmpty() ? GONE : VISIBLE);
+            searchEmptyView.setVisibility(displayedPages.isEmpty() ? VISIBLE : GONE);
+            emptyView.setVisibility(GONE);
         }
     }
 
@@ -480,10 +485,19 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
     private void saveSelectedPagesForOffline(@NonNull List<ReadingListPage> selectedPages, boolean forcedSave) {
         if (!selectedPages.isEmpty()) {
+            for (ReadingListPage page : selectedPages) {
+                updatePageProgress(page);
+            }
             ReadingListDbHelper.instance().markPagesForOffline(selectedPages, true, forcedSave);
             showMultiSelectOfflineStateChangeSnackbar(selectedPages, true);
             adapter.notifyDataSetChanged();
             update();
+        }
+    }
+
+    private void updatePageProgress(ReadingListPage page) {
+        if (!page.offline()) {
+            page.downloadProgress(MIN_PROGRESS);
         }
     }
 
@@ -587,6 +601,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     private void toggleOffline(@NonNull ReadingListPage page) {
+        updatePageProgress(page);
         if (shouldForceDownloadOverMobileData()) {
             ReadingListsFragment.showMobileDataWarningDialog(requireActivity(), (dialog, which)
                     -> toggleOffline(page, true));
@@ -684,9 +699,10 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             getView().setActionIcon(R.drawable.ic_more_vert_white_24dp);
             getView().setActionTint(R.attr.material_theme_de_emphasised_color);
             getView().setActionHint(R.string.abc_action_menu_overflow_description);
-            getView().setSecondaryActionIcon(page.saving()
-                    ? R.drawable.ic_download_started : R.drawable.ic_download_circle_gray_24dp,
+            getView().setSecondaryActionIcon(page.saving() ? R.drawable.ic_download_in_progress : R.drawable.ic_download_circle_gray_24dp,
                     !page.offline() || page.saving());
+            getView().setCircularProgressVisibility(page.downloadProgress() == 0 || page.downloadProgress() == MAX_PROGRESS ? GONE : VISIBLE);
+            getView().makeProgress(page.downloadProgress() == MAX_PROGRESS ? 0 : page.downloadProgress());
             getView().setSecondaryActionHint(R.string.reading_list_article_make_offline);
             showViewInGreyIfNotCached(page, getView());
         }
@@ -817,6 +833,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
         @Override
         public void onSecondaryActionClick(@Nullable ReadingListPage page, @NonNull View view) {
+
             if (page != null) {
                 if (shouldForceDownloadOverMobileData()
                         && page.status() == ReadingListPage.STATUS_QUEUE_FOR_SAVE) {
@@ -913,5 +930,23 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                 updateReadingListData();
             }
         }
+
+        @Subscribe
+        public void on(@NonNull PageDownloadEvent event) {
+            int pagePosition = getPagePositionInList(event.getPage());
+            if (pagePosition != -1) {
+                displayedPages.get(pagePosition).downloadProgress(event.getPage().downloadProgress());
+                adapter.notifyDataSetChanged();
+            }
+        }
+    }
+
+    private int getPagePositionInList(ReadingListPage page) {
+        for (ReadingListPage readingListPage : displayedPages) {
+            if (readingListPage.title().equals(page.title())) {
+                return displayedPages.indexOf(readingListPage);
+            }
+        }
+        return -1;
     }
 }

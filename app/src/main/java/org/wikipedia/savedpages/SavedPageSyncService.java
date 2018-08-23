@@ -16,6 +16,7 @@ import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageRemaining;
+import org.wikipedia.events.PageDownloadEvent;
 import org.wikipedia.html.ImageTagParser;
 import org.wikipedia.html.PixelDensityDescriptorParser;
 import org.wikipedia.page.PageTitle;
@@ -32,6 +33,7 @@ import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -41,10 +43,15 @@ import okhttp3.Request;
 import okhttp3.Response;
 import retrofit2.Call;
 
+import static org.wikipedia.views.CircularProgressBar.MAX_PROGRESS;
+
 public class SavedPageSyncService extends JobIntentService {
     // Unique job ID for this service (do not duplicate).
     private static final int JOB_ID = 1000;
     private static final int ENQUEUE_DELAY_MILLIS = 2000;
+    public static final int LEAD_SECTION_PROGRESS = 25;
+    public static final int SECTIONS_PROGRESS = 50;
+
     private static Runnable ENQUEUE_RUNNABLE = () -> enqueueWork(WikipediaApp.getInstance(),
             SavedPageSyncService.class, JOB_ID, new Intent(WikipediaApp.getInstance(), SavedPageSyncService.class));
 
@@ -238,8 +245,14 @@ public class SavedPageSyncService extends JobIntentService {
         Call<PageRemaining> sectionsCall = reqPageSections(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
 
         retrofit2.Response<PageLead> leadRsp = leadCall.execute();
+        page.downloadProgress(LEAD_SECTION_PROGRESS);
+        WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
+
         totalSize += responseSize(leadRsp);
         retrofit2.Response<PageRemaining> sectionsRsp = sectionsCall.execute();
+        page.downloadProgress(SECTIONS_PROGRESS);
+        WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
+
         totalSize += responseSize(sectionsRsp);
 
         Set<String> imageUrls = new HashSet<>(pageImageUrlParser.parse(leadRsp.body()));
@@ -254,7 +267,7 @@ public class SavedPageSyncService extends JobIntentService {
         page.description(leadRsp.body().getDescription());
 
         if (Prefs.isImageDownloadEnabled()) {
-            totalSize += reqSaveImages(pageTitle.getWikiSite(), imageUrls);
+            totalSize += reqSaveImages(page, imageUrls);
         }
 
         String title = pageTitle.getPrefixedText();
@@ -280,20 +293,30 @@ public class SavedPageSyncService extends JobIntentService {
         return client.sections(cacheControl, saveOfflineHeader, title);
     }
 
-    private long reqSaveImages(@NonNull WikiSite wiki, @NonNull Iterable<String> urls) throws IOException, InterruptedException {
+    private long reqSaveImages(@NonNull ReadingListPage page, @NonNull Iterable<String> urls) throws IOException, InterruptedException {
+        int numOfImages = ((Collection<?>) urls).size();
         long totalSize = 0;
+        float percentage = SECTIONS_PROGRESS;
+        float updateRate = (float) SECTIONS_PROGRESS / numOfImages;
         for (String url : urls) {
             if (savedPageSyncNotification.isSyncPaused() || savedPageSyncNotification.isSyncCanceled()) {
                 throw new InterruptedException("Sync paused or cancelled.");
             }
             try {
-                totalSize += reqSaveImage(wiki, url);
+                totalSize += reqSaveImage(page.wiki(), url);
+                percentage += updateRate;
+                page.downloadProgress((int) percentage);
+                WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
+
             } catch (Exception e) {
                 if (isRetryable(e)) {
                     throw e;
                 }
             }
         }
+        page.downloadProgress(MAX_PROGRESS);
+        WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
+
         return totalSize;
     }
 

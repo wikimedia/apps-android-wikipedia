@@ -34,6 +34,7 @@ public class ReadingListPage {
 
     private long revId;
     private long remoteId;
+    private int downloadProgress;
 
     private transient boolean selected;
     @Nullable private transient String accentAndCaseInvariantTitle;
@@ -171,5 +172,13 @@ public class ReadingListPage {
 
     public boolean saving() {
         return offline && (status == STATUS_QUEUE_FOR_SAVE || status == STATUS_QUEUE_FOR_FORCED_SAVE);
+    }
+
+    public void downloadProgress(int downloadProgress) {
+        this.downloadProgress = downloadProgress;
+    }
+
+    public int downloadProgress() {
+        return downloadProgress;
     }
 }
