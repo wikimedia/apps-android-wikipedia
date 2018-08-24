@@ -103,7 +103,7 @@ public final class NotificationPresenter {
                 .setContentText(title)
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(title));
 
-        notificationManager.notify((int) n.id(), builder.build());
+        notificationManager.notify((int) n.key(), builder.build());
     }
 
     private static void addAction(Context context, NotificationCompat.Builder builder, Notification.Link link, int requestCode) {

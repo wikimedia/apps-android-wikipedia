@@ -136,10 +136,13 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
 
         for (final Notification n : notifications) {
             knownNotifications.add(n);
-            if (locallyKnownNotifications.contains(n.id())) {
+            if (locallyKnownNotifications.contains(n.key())) {
                 continue;
             }
-            locallyKnownNotifications.add(n.id());
+            locallyKnownNotifications.add(n.key());
+            if (locallyKnownNotifications.size() > MAX_LOCALLY_KNOWN_NOTIFICATIONS) {
+                locallyKnownNotifications.remove(0);
+            }
             locallyKnownModified = true;
 
             NotificationPresenter.showNotification(context, n, dbNameWikiNameMap.containsKey(n.wiki()) ? dbNameWikiNameMap.get(n.wiki()) : n.wiki());

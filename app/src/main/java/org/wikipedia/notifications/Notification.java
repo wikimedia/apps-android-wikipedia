@@ -49,6 +49,10 @@ public class Notification {
         return id;
     }
 
+    public long key() {
+        return id + wiki().hashCode();
+    }
+
     @NonNull public String type() {
         return StringUtils.defaultString(type);
     }

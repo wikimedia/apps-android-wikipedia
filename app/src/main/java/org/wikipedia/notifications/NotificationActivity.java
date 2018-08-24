@@ -392,7 +392,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
     public void onArchive(@NonNull Notification notification) {
         bottomSheetPresenter.dismiss(getSupportFragmentManager());
         for (NotificationListItemContainer c : notificationContainerList) {
-            if (c.notification != null && c.notification.id() == notification.id()) {
+            if (c.notification != null && c.notification.key() == notification.key()) {
                 deleteItems(Collections.singletonList(c), false);
                 break;
             }
