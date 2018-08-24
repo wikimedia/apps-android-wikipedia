@@ -14,7 +14,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.analytics.NotificationFunnel;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.json.GsonUtil;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
@@ -114,10 +116,13 @@ public class NotificationItemActionsDialog extends ExtendedBottomSheetDialogFrag
             R.id.notification_action_secondary,
             R.id.notification_action_tertiary})
     void onActionClick(View v) {
-        String url = (String) v.getTag();
+        Notification.Link link = (Notification.Link) v.getTag();
+        int linkIndex = v.getId() == R.id.notification_action_primary ? 0 : v.getId() == R.id.notification_action_secondary ? 1 : 2;
+        String url = link.getUrl();
         if (TextUtils.isEmpty(url)) {
             return;
         }
+        new NotificationFunnel(WikipediaApp.getInstance(), notification).logAction(linkIndex, link);
         linkHandler.setWikiSite(new WikiSite(url));
         linkHandler.onUrlClick(url, null, "");
     }
@@ -133,7 +138,7 @@ public class NotificationItemActionsDialog extends ExtendedBottomSheetDialogFrag
         } else {
             iconView.setImageResource(R.drawable.ic_arrow_forward_black_24dp);
         }
-        containerView.setTag(link.getUrl());
+        containerView.setTag(link);
         containerView.setVisibility(View.VISIBLE);
     }
 

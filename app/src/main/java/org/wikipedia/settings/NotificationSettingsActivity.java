@@ -10,7 +10,9 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.SingleFragmentActivity;
+import org.wikipedia.analytics.NotificationPreferencesFunnel;
 
 public class NotificationSettingsActivity extends SingleFragmentActivity<NotificationSettingsFragment> {
     public static Intent newIntent(@NonNull Context ctx) {
@@ -20,6 +22,11 @@ public class NotificationSettingsActivity extends SingleFragmentActivity<Notific
     @Override
     public NotificationSettingsFragment createFragment() {
         return NotificationSettingsFragment.newInstance();
+    }
+
+    @Override protected void onDestroy() {
+        new NotificationPreferencesFunnel(WikipediaApp.getInstance()).done();
+        super.onDestroy();
     }
 
     public static void promptEnablePollDialog(@NonNull Activity activity) {
