@@ -18,6 +18,7 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -108,7 +109,8 @@ public final class NotificationPresenter {
 
     private static void addAction(Context context, NotificationCompat.Builder builder, Notification.Link link, int requestCode) {
         PendingIntent pendingIntent = PendingIntent.getActivity(context, requestCode,
-                new Intent(Intent.ACTION_VIEW, Uri.parse(link.getUrl())), PendingIntent.FLAG_UPDATE_CURRENT);
+                new Intent(Intent.ACTION_VIEW, Uri.parse(link.getUrl())).putExtra(Constants.INTENT_EXTRA_VIEW_FROM_NOTIFICATION, true),
+                PendingIntent.FLAG_UPDATE_CURRENT);
         String labelStr;
         if (!TextUtils.isEmpty(link.getTooltip())) {
             labelStr = StringUtil.fromHtml(link.getTooltip()).toString();

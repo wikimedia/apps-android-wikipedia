@@ -37,6 +37,7 @@ public class HistoryEntry implements Parcelable {
     public static final int SOURCE_ON_THIS_DAY_CARD = 23;
     public static final int SOURCE_ON_THIS_DAY_ACTIVITY = 24;
     public static final int SOURCE_NOTIFICATION = 25;
+    public static final int SOURCE_NOTIFICATION_SYSTEM = 26;
 
     @NonNull private final PageTitle title;
     @NonNull private final Date timestamp;
