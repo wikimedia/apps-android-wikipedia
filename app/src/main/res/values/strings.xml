@@ -125,6 +125,11 @@
     <string name="create_account_password_error">The password is invalid</string>
     <string name="create_account_generic_error">Could not create account</string>
     <string name="create_account_next">Next</string>
+    <string name="email_recommendation_dialog_title">Create account with no email address?</string>
+    <string name="email_recommendation_dialog_message"><![CDATA[Although the email address is optional, it is <b>highly recommended</b>, since an email is needed for account recovery if you ever lose your password.]]></string>
+    <string name="email_recommendation_message">Recommended since email is needed for account recovery.</string>
+    <string name="email_recommendation_dialog_create_without_email_action">Continue without email</string>
+    <string name="email_recommendation_dialog_create_with_email_action">Add an email address</string>
     <string name="create_account_button">Create account</string>
     <string name="create_account_name_unavailable">The user name \"%s\" is not available. Please choose a different name.</string>
     <string name="create_account_ip_block_message">Sorry, your IP address is currently blocked from creating new accounts.</string>

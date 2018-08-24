@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -54,7 +55,7 @@ public class CreateAccountActivity extends BaseActivity {
     private static final int PASSWORD_MIN_LENGTH = 6;
 
     public enum ValidateResult {
-        SUCCESS, INVALID_USERNAME, INVALID_PASSWORD, PASSWORD_MISMATCH, INVALID_EMAIL
+        SUCCESS, INVALID_USERNAME, INVALID_PASSWORD, PASSWORD_MISMATCH, NO_EMAIL, INVALID_EMAIL
     }
 
     private CreateAccountInfoClient createAccountInfoClient;
@@ -289,11 +290,32 @@ public class CreateAccountActivity extends BaseActivity {
                 emailInput.requestFocus();
                 emailInput.setError(getString(R.string.create_account_email_error));
                 return;
+
+            case NO_EMAIL:
+                new AlertDialog.Builder(this)
+                        .setCancelable(false)
+                        .setTitle(R.string.email_recommendation_dialog_title)
+                        .setMessage(StringUtil.fromHtml(getResources().getString(R.string.email_recommendation_dialog_message)))
+                        .setPositiveButton(R.string.email_recommendation_dialog_create_without_email_action,
+                                (dialogInterface, i) -> {
+                                    createAccount();
+                                })
+                        .setNegativeButton(R.string.email_recommendation_dialog_create_with_email_action,
+                                (dialogInterface, i) -> {
+                                    emailInput.requestFocus();
+                                })
+                        .show();
+                break;
+
             case SUCCESS:
+                createAccount();
             default:
                 break;
         }
 
+    }
+
+    private void createAccount() {
         if (captchaHandler.isActive() && captchaHandler.token() != null) {
             doCreateAccount(captchaHandler.token());
         } else {
@@ -313,6 +335,8 @@ public class CreateAccountActivity extends BaseActivity {
             return ValidateResult.PASSWORD_MISMATCH;
         } else if (!TextUtils.isEmpty(email) && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             return ValidateResult.INVALID_EMAIL;
+        } else if (TextUtils.isEmpty(email)) {
+            return ValidateResult.NO_EMAIL;
         }
         return ValidateResult.SUCCESS;
     }

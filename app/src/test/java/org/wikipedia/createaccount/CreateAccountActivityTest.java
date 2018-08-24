@@ -11,16 +11,14 @@ import static org.wikipedia.createaccount.CreateAccountActivity.validateInput;
 
 @RunWith(RobolectricTestRunner.class) public class CreateAccountActivityTest {
 
-    @Test public void testValidateInputSuccess() throws Throwable {
-        assertThat(validateInput("user", "password", "password",  ""),
-                is(ValidateResult.SUCCESS));
-    }
-
     @Test public void testValidateInputSuccessWithEmail() throws Throwable {
         assertThat(validateInput("user", "password", "password", "test@example.com"),
                 is(ValidateResult.SUCCESS));
     }
-
+    @Test public void testValidateInvalidEmail() throws Throwable {
+        assertThat(validateInput("user", "password", "password", ""),
+                is(ValidateResult.NO_EMAIL));
+    }
     @Test public void testValidateInputInvalidUser() throws Throwable {
         assertThat(validateInput("user[]", "password", "password", ""),
                 is(ValidateResult.INVALID_USERNAME));
