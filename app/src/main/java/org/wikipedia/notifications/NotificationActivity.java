@@ -24,6 +24,7 @@ import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
+import org.wikipedia.analytics.NotificationFunnel;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.SearchActionModeCallback;
@@ -47,6 +48,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
@@ -300,6 +302,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
 
     private void deleteItems(List<NotificationListItemContainer> items, boolean markUnread) {
         Map<WikiSite, List<Notification>> notificationsPerWiki = new HashMap<>();
+        Long selectionKey = items.size() > 1 ? new Random().nextLong() : null;
 
         for (NotificationListItemContainer item : items) {
             WikiSite wiki = dbNameMap.containsKey(item.notification.wiki())
@@ -312,6 +315,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
                 notificationList.add(item.notification);
             } else {
                 notificationList.remove(item.notification);
+                new NotificationFunnel(WikipediaApp.getInstance(), item.notification).logMarkRead(selectionKey);
             }
         }
 
