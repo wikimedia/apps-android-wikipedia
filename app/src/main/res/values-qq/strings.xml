@@ -306,6 +306,8 @@
   <string name="error_no_maps_app">Error displayed when the device does not have any apps installed that are capable of providing directions to a location.</string>
   <string name="preference_title_show_link_previews">Title of the preference for enabling or disabling link previews.\n\nShown in the preferences screen along with the following:\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}\n* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}</string>
   <string name="preference_summary_show_link_previews">Description of the preference for enabling or disabling link previews.</string>
+  <string name="preference_title_collapse_tables">Title of the preference for enabling or disabling automatic collapsing of infoboxes and other tables.</string>
+  <string name="preference_summary_collapse_tables">Description of the preference for enabling or disabling automatic collapsing of infoboxes and other tables.</string>
   <string name="nav_item_donate">Text in navigation sidebar that when tapped leads to a web page where the user may donate to Wikipedia.</string>
   <string name="error_voice_search_not_available">Error displayed when the device does not support voice recognition.</string>
   <string name="location_service_disabled">Message shown when trying to use location services but they are unavailable</string>

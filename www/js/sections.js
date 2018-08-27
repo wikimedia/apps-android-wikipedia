@@ -76,6 +76,7 @@ function setWindowAttributes( payload ) {
     window.isBeta = payload.isBeta;
     window.siteLanguage = payload.siteLanguage;
     window.showImages = payload.showImages;
+    window.collapseTables = payload.collapseTables;
 }
 
 function isRtl() {

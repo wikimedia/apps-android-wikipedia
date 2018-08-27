@@ -10,8 +10,8 @@ function toggleCollapseClickCallback() {
 }
 
 transformer.register( "hideTables", function(document) {
-    pagelib.CollapseTable.collapseTables(window, document, window.pageTitle,
-        window.isMainPage, window.string_table_infobox,
+    pagelib.CollapseTable.adjustTables(window, document, window.pageTitle,
+        window.isMainPage, window.collapseTables, window.string_table_infobox,
         window.string_table_other, window.string_table_close,
         scrollWithDecorOffset);
 });

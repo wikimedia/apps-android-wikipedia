@@ -12,6 +12,11 @@
             android:defaultValue="true"
             android:title="@string/preference_title_show_link_previews"
             android:summary="@string/preference_summary_show_link_previews" />
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_collapse_tables"
+            android:defaultValue="true"
+            android:title="@string/preference_title_collapse_tables"
+            android:summary="@string/preference_summary_collapse_tables" />
         <org.wikipedia.settings.PreferenceMultiLine
             android:key="@string/preference_key_color_theme"
             android:defaultValue="0"
