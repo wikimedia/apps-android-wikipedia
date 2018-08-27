@@ -133,6 +133,11 @@
   <string name="create_account_password_error">Error shown when the password is not valid.</string>
   <string name="create_account_generic_error">Used as a generic error message during account creation when a more specific error message cannot be given to the user.</string>
   <string name="create_account_next">Button text on Create Account screen to go \"next\" (to CAPTCHA).\n{{Identical|Next}}</string>
+  <string name="email_recommendation_dialog_title">Title to the dialog which recommends the user to enter an email address during account creation.</string>
+  <string name="email_recommendation_dialog_message">Dialog message recommending the user to enter an email address during account creation, since it would be useful during account recovery.</string>
+  <string name="email_recommendation_message">Suggestion message recommending the user to enter an email address during account creation, since it would be useful during account recovery.</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Action message, to proceed to create an account, without entering an emai</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Action message, suggesting that the user can enter an email before proceeding to create an account</string>
   <string name="create_account_button">Button text on Create Account screen to go start creating the account (may also go to a CAPTCHA screen first).\n{{Identical|Create account}}</string>
   <string name="create_account_name_unavailable">Error message shown when the selected user name is not available for a new account. The \"%s\" symbol is replaced with the requested user name.</string>
   <string name="create_account_ip_block_message">Message shown if the user\'s IP address is blocked from creating an account.</string>
@@ -512,7 +517,7 @@
   <string name="preference_title_notification_poll">Label for settings switch that enables or disables polling of new notifications.\n\n{{doc-important|\"Poll\" is a verb here. This is about the polling of notifications, not about notifications of polls.}}</string>
   <string name="preference_summary_notification_poll">Short summary explaining what polling of notification means.</string>
   <string name="preference_category_notification_types">Label for the settings category that contains the types of notifications that are shown in the app.</string>
-  <string name="preference_title_notification_welcome">Label for settings switch that enables or disables Welcome notifications.</string>
+  <string name="preference_title_notification_welcome">Label for settings switch that enables or disables Welcome notifications.\n{{Identical|Welcome}}</string>
   <string name="preference_summary_notification_welcome">Short summary explaining what Welcome notifications are.</string>
   <string name="preference_title_notification_milestone">Label for settings switch that enables or disables Milestone notifications.</string>
   <string name="preference_summary_notification_milestone">Short summary explaining what Milestone notifications are.</string>
@@ -708,9 +713,4 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Description of the dialog that prompts to the users about removing a Chinese variant from the app languages.</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Affirmative answer to open the Wikipedia languages page to manage the existing languages that have been set up.</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Negative answer to keep the existing app languages settings.</string>
-  <string name="email_recommendation_dialog_title">Title to the dialog which recommends the user to enter an email address during account creation.</string>
-  <string name="email_recommendation_dialog_message">Dialog message recommending the user to enter an email address during account creation, since it would be useful during account recovery.</string>
-  <string name="email_recommendation_message">Suggestion message recommending the user to enter an email address during account creation, since it would be useful during account recovery.</string>
-  <string name="email_recommendation_dialog_create_without_email_action">Action message, to proceed to create an account, without entering an emai</string>
-  <string name="email_recommendation_dialog_create_with_email_action">Action message, suggesting that the user can enter an email before proceeding to create an account</string>
 </resources>

@@ -123,6 +123,7 @@
   <string name="create_account_password_error">Ο κωδικός δεν είναι σωστός</string>
   <string name="create_account_generic_error">Δεν ήταν δυνατή η δημιουργία λογαριασμού</string>
   <string name="create_account_next">Επόμενο</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Συνέχεια χωρίς διεύθυνση ηλεκτρονικού ταχυδρομείου</string>
   <string name="create_account_button">Δημιουργία λογαριασμού</string>
   <string name="create_account_name_unavailable">Το όνομα χρήστη «%s» δεν είναι διαθέσιμο. Παρακαλούμε επίλεξε διαφορετικό όνομα.</string>
   <string name="create_account_ip_block_details">Λεπτομέρειες</string>
@@ -444,6 +445,7 @@
     <item quantity="other">απομένουν %1$d λίστες</item>
   </plurals>
   <string name="notifications_activity_title">Ενημερώσεις</string>
+  <string name="notifications_search">Αναζήτηση ειδοποιήσεων</string>
   <string name="notifications_view_unread">Προβολή μη αναγνωσμένων</string>
   <string name="notifications_poll_enable_positive">Ενεργοποιημένο</string>
   <string name="notifications_poll_enable_negative">Όχι τώρα</string>

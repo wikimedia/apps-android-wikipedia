@@ -90,6 +90,7 @@
   <string name="search_reading_lists_no_results">V seznamech k přečtení nebyly nalezeny žádné výsledky</string>
   <string name="search_history_no_results">Nebyly nalezeny žádné výsledky v historii</string>
   <string name="edit_section_captcha_message">V zájmu ochrany před automatickým spamováním vás prosíme o opsání slov, která vidíte níže</string>
+  <string name="edit_section_captcha_request_an_account_message">Nevidíte obrázek? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Více informací&lt;/a&gt; (anglicky)</string>
   <string name="edit_section_captcha_hint">Zopakujte výše uvedená slova</string>
   <string name="title_captcha">Zadejte CAPTCHA</string>
   <string name="edit_section_captcha_reload">Klepnutím načtete CAPTCHA znovu</string>
@@ -129,6 +130,11 @@
   <string name="create_account_password_error">Heslo není platné</string>
   <string name="create_account_generic_error">Nepodařilo se vytvořit uživatelský účet</string>
   <string name="create_account_next">Další</string>
+  <string name="email_recommendation_dialog_title">Chcete vytvořit účet bez e-mailové adresy?</string>
+  <string name="email_recommendation_dialog_message">Ačkoli je e-mailová adresa nepovinná, je &lt;b&gt;důležitá&lt;/ b&gt;, protože e-mail je potřebný k obnovení účtu, pokud zapomenete heslo.</string>
+  <string name="email_recommendation_message">E-mail je doporučený, protože pro obnovení účtu je potřebný.</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Dokončit bez e-mailu</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Přidat e-mailovou adresu</string>
   <string name="create_account_button">Vytvořit účet</string>
   <string name="create_account_name_unavailable">Uživatelské jméno „%s“ není k dispozici. Zvolte si prosím jiné.</string>
   <string name="create_account_ip_block_message">Je nám líto, Vaše IP adresa je v současné době zablokována k vytváření nových účtů.</string>
@@ -157,13 +163,14 @@
   <string name="preferences_heading_experimental">Experimentální</string>
   <string name="preference_title_sync_reading_lists">Synchronizovat seznamy k přečtení</string>
   <string name="preference_title_sync_reading_lists_from_account">Synchronizace seznamů k přečtení</string>
+  <string name="preference_title_download_reading_list_articles">Stáhnout články v seznamu k přečtení</string>
   <string name="preference_summary_sync_reading_lists">Synchronizovat seznamy k přečtení napříč různými zařízeními jejich uložením do vašeho účtu na Wikipedii</string>
   <string name="preference_summary_sync_reading_lists_from_account">Synchronizovat seznamy k přečtení napříč různými zařízeními pomocí jejich uložení do vašeho účtu „%s“ na Wikipedii</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Odstranit synchronizované seznamy k přečtení z „%s“?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Tato akce odstraní všechny předtím synchronizované seznamy k přečtení z úložného prostoru. Odstranit všechny synchronizované seznamy z vašeho účtu „%s“?</string>
   <string name="preferences_privacy_settings_heading">Soukromí</string>
   <string name="preference_title_eventlogging_opt_in">Odesílat zprávy o využití</string>
-  <string name="preference_summary_eventlogging_opt_in">Umožnit nadaci Wikimedia sbírat informace o tom, jak aplikaci používáte, abychom ji mohli zlepšovat</string>
+  <string name="preference_summary_eventlogging_opt_in">Umožnit Nadaci Wikimedia sbírat informace o tom, jak aplikaci používáte, abychom ji mohli zlepšovat</string>
   <string name="preference_title_auto_upload_crash_reports">Posílat zprávy o pádu</string>
   <string name="preference_summary_auto_upload_crash_reports">Umožní aplikaci automaticky odesílat hlášení o pádu HockeyApp, poskytovateli služeb třetích stran, abychom mohli její pád přezkoumat a opravit chybu rychleji a jednodušeji.</string>
   <string name="editing_error_spamblacklist">Detekovány odkazy na zablokované domény (%s). Odstraňte je prosím a zkuste to znovu.</string>
@@ -181,10 +188,11 @@
   <string name="privacy_policy_description">Ochrana osobních údajů</string>
   <string name="terms_of_use_description">Podmínky užití</string>
   <string name="about_wikipedia_url">https://cs.m.wikipedia.org/wiki/Nápověda:Úvod</string>
-  <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/cs&amp;mobileaction=toggle_view_mobile</string>
+  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/cs</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Použité knihovny</string>
@@ -193,7 +201,7 @@
   <string name="about_translators_translatewiki">Tuto aplikaci přeložili dobrovolní překladatelé na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
   <string name="about_app_license">Zdrojový kód je dostupný na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; za podmínek &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Pokud není uvedeno jinak, je obsah dostupný za podmínek &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie:Text_licence_Creative_Commons_Attribution-ShareAlike_3.0_Unported\"&gt;licence Creative Commons Uveďte autora-Zachovejte licenci&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">Produkt &lt;a href=\"https://wikimediafoundation.org/\"&gt;Nadace Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf">Produkt &lt;a href=\"https://wikimediafoundation.org/\"&gt;Nadace Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikaci</string>
   <string name="edit_abandon_confirm">Stránka byla změněna. Jste si jisti, že chcete odejít bez uložení změn?</string>
   <string name="edit_abandon_confirm_yes">Ano</string>
@@ -398,7 +406,7 @@
   <string name="reading_lists_sync_reminder_action">Povolit synchronizaci</string>
   <string name="reading_list_login_reminder_title">Synchronizovat seznamy k přečtení</string>
   <string name="reading_lists_login_reminder_text">Seznamy k přečtení mohou být nyní synchronizovány napříč zařízeními. Přihlaste se do svého účtu na Wikipedii a povolte ukládání vašich seznamů.</string>
-  <string name="reading_lists_confirm_remote_delete">Tímto odstraníte všechny dříve synchronizované seznamy ke čtení ze vzdáleného úložiště. Pokračovat?</string>
+  <string name="reading_lists_confirm_remote_delete">Tímto odstraníte všechny dříve synchronizované seznamy k přečtení ze vzdáleného úložiště (cloudu). Pokračovat?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ano</string>
   <string name="reading_lists_confirm_remote_delete_no">Ne</string>
   <string name="reading_list_article_save_in_progress">Článek se stahuje. Až se stahování dokončí, bude článek dostupný i bez připojení k internetu (offline).</string>
@@ -419,7 +427,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Povolit synchronizaci</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ne, děkuji</string>
   <string name="reading_list_login_option_reminder_dialog_title">Nalezeny články v seznamu k přečtení</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Články byly uloženy na seznam k přečtení, když jste nebyli přihlášeni. Chcete je přidat do seznamů čtení na vašem účtu?</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Články byly uloženy v seznamu k přečtení, když jste nebyli přihlášeni. Chcete je přidat do seznamů k přečtení do vašeho účtu?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Ano, přidat články do tohoto seznamu k přečtení</string>
   <string name="reading_list_login_option_reminder_dialog_no">Ne, odstranit články</string>
   <string name="reading_list_logout_option_reminder_dialog_title">Ponechat uložené články v aplikaci?</string>
@@ -485,6 +493,34 @@
     <item quantity="one">zbývá %1$d seznam</item>
     <item quantity="other">zbývá %1$d seznamů</item>
   </plurals>
+  <string name="notification_echo_channel_description">Notifikace z Wikipedie</string>
+  <string name="notifications_activity_title">Notifikace</string>
+  <string name="notifications_activity_title_archived">Notifikace (archivované)</string>
+  <string name="notifications_search">Hledat v notifikacích</string>
+  <string name="notifications_view_unread">Zobrazit nepřečtené</string>
+  <string name="notifications_view_archived">Archivované notifikace</string>
+  <string name="notifications_prefs">Preference notifikací</string>
+  <string name="notifications_archive">Označit přečtené jako archivované</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">Notifikace byla archivována</item>
+    <item quantity="two">2 notifikace byly archivovány</item>
+    <item quantity="other">three=3 notifikace byly archivovány</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">Aktivovat notifikace</string>
+  <string name="notifications_poll_enable_positive">Zapnout</string>
+  <string name="notifications_poll_enable_negative">Teď ne</string>
+  <string name="notifications_empty_message">Přečetli jste si všechny notifikace!</string>
+  <string name="notifications_view_archived_button_text">Zobrazit archivované notifikace</string>
+  <string name="notification_preferences_title">Nastavení notifikací</string>
+  <string name="preference_title_notification_poll">Kontrola nových notifikací</string>
+  <string name="preference_summary_notification_poll">Povolte aplikaci používaní dat ke kontrole nových notifikací na pozadí.</string>
+  <string name="preference_category_notification_types">Typy notifikací v aplikaci</string>
+  <string name="preference_title_notification_welcome">Vítejte</string>
+  <string name="preference_summary_notification_welcome">Účet byl vytvořen</string>
+  <string name="preference_title_notification_milestone">Milník</string>
+  <string name="preference_summary_notification_milestone">Dosáhli jste určitého počtu editací</string>
+  <string name="preference_title_notification_thanks">Poděkování</string>
+  <string name="preference_summary_notification_thanks">Někdo Vám poděkoval za Vaši editaci</string>
   <string name="view_continue_reading_card_title">Pokračovat ve čtení</string>
   <string name="view_because_you_read_card_title">Protože čtete</string>
   <string name="view_random_card_title">Náhodný článek</string>

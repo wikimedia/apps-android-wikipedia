@@ -34,6 +34,7 @@
 * Smigles
 * Staspotanin2
 * Stjn
+* Vlad5250
 * WindEwriX
 * Wirbel78
 * Yuryleb
@@ -152,6 +153,9 @@
   <string name="create_account_password_error">Некорректный пароль</string>
   <string name="create_account_generic_error">Невозможно создать учётную запись</string>
   <string name="create_account_next">Далее</string>
+  <string name="email_recommendation_dialog_title">Создать учётную запись без электронного адреса?</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Продолжить без эл. почты</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Добавить адрес эл. почты</string>
   <string name="create_account_button">Создать учётную запись</string>
   <string name="create_account_name_unavailable">Имя пользователя \"%s\" недоступно. Пожалуйста, укажите иное имя.</string>
   <string name="create_account_ip_block_message">Извините, ваш IP-адрес заблокирован от создания новых учётных записей.</string>
@@ -514,10 +518,29 @@
   </plurals>
   <string name="notification_echo_channel_description">Уведомления Википедии</string>
   <string name="notifications_activity_title">Уведомления</string>
+  <string name="notifications_activity_title_archived">Уведомления (архивированные)</string>
+  <string name="notifications_search">Искать уведомления</string>
+  <string name="notifications_view_unread">Просмотр непрочитанных</string>
+  <string name="notifications_view_archived">Просмотр архивированных</string>
+  <string name="notifications_prefs">Настройки уведомлений</string>
+  <string name="notifications_archive">Отметить как прочитанное и архивировать</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">Уведомление архивировано</item>
+    <item quantity="other">Архивировано %d уведомлений</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">Включить уведомления</string>
   <string name="notifications_poll_enable_positive">Включить</string>
   <string name="notifications_poll_enable_negative">Не сейчас</string>
+  <string name="notifications_empty_message">Нет новых извещений!</string>
+  <string name="notifications_view_archived_button_text">Просмотреть архивированные уведомления</string>
   <string name="notification_preferences_title">Настройки уведомлений</string>
+  <string name="preference_title_notification_poll">Извещения об опросах</string>
+  <string name="preference_summary_notification_poll">Позволяет приложению использовать данные для проверки новых уведомлений в фоне.</string>
+  <string name="preference_category_notification_types">Виды извещений в приложении</string>
+  <string name="preference_title_notification_welcome">Добро пожаловать</string>
   <string name="preference_summary_notification_welcome">Учётная запись создана</string>
+  <string name="preference_summary_notification_milestone">Достигнуто определённое число правок</string>
+  <string name="preference_title_notification_thanks">Благодарность</string>
   <string name="view_continue_reading_card_title">Продолжить чтение</string>
   <string name="view_because_you_read_card_title">На основе прочитанного</string>
   <string name="view_random_card_title">Рандомизатор</string>

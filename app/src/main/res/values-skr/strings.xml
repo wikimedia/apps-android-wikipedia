@@ -219,6 +219,10 @@
   <string name="user_option_sync_label">ترجیحات</string>
   <string name="notification_syncing_pause_button">اجھکو</string>
   <string name="notification_syncing_cancel_button">منسوخ</string>
+  <string name="notifications_poll_enable_positive">فعال کرو</string>
+  <string name="preference_title_notification_welcome">ست بسم اللہ</string>
+  <string name="preference_title_notification_milestone">سنگ میل</string>
+  <string name="preference_title_notification_thanks">شکریہ</string>
   <string name="view_featured_image_card_download">ڈاؤن لوڈ ، لہاوݨ</string>
   <string name="menu_feed_card_dismiss">ایں کارڈ کوں لکاؤ</string>
   <string name="menu_feed_overflow_label">ٻئے اختیار</string>

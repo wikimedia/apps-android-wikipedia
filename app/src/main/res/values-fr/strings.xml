@@ -141,6 +141,11 @@
   <string name="create_account_password_error">Le mot de passe n’est pas valide</string>
   <string name="create_account_generic_error">Impossible de créer le compte</string>
   <string name="create_account_next">Suivant</string>
+  <string name="email_recommendation_dialog_title">Créer un compte sans adresse courriel ?</string>
+  <string name="email_recommendation_dialog_message">Bien que l\'adresse courriel soit optionnelle, elle est &lt;b&gt;hautement recommandée&lt;/b&gt;, car elle est nécessaire pour que vous puissiez récupérer votre compte si jamais vous perdiez votre mot de passe.</string>
+  <string name="email_recommendation_message">Recommandé car l\'adresse courriel permet de récupérer les informations du compte.</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Continuer sans adresse courriel</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Ajouter une adresse courriel</string>
   <string name="create_account_button">Créer un compte</string>
   <string name="create_account_name_unavailable">Le nom d\'utilisateur \"%s\" n\'est pas disponible. Veuillez choisir un autre nom.</string>
   <string name="create_account_ip_block_message">Désolé, votre adresse IP est actuellement bloquée pour créer de nouveaux comptes.</string>

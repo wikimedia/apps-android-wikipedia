@@ -172,8 +172,10 @@
   <string name="privacy_policy_description">ကိုယ်ရေးကိုယ်တာ မူဝါဒ</string>
   <string name="terms_of_use_description">အသုံးပြုခြင်းဆိုင်ရာ သတ်မှတ်ချက်များ</string>
   <string name="about_wikipedia_url">https://my.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/my</string>
   <string name="android_app_request_an_account_url">https://my.wikipedia.org/wiki/Wikipedia:အကောင့်တစ်ခု_တောင်းဆိုရန်</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -341,7 +343,7 @@
   <string name="format_reading_list_statistical_summary_plural">ဆောင်းပါး %1$d ခု၊ %2$.2f မက်ဂါဘိုက်</string>
   <string name="format_reading_list_statistical_detail_singular">ဆောင်းပါး ၁ ခု၏ %1$d ကို အင်တာနက်မရှိပဲ ဖတ်ရှုနိုင်သည်၊ %2$.2f မက်ဂါဘိုက်။</string>
   <string name="format_reading_list_statistical_detail_plural">ဆောင်းပါးများ %2$d ခု၏ %1$d ခုသည် အော့ဖ်လိုင်းတွင် ရရှိနိုင်ပါပြီ၊ %3$.2f MB</string>
-  <string name="reading_list_sort">စီစဉ်</string>
+  <string name="reading_list_sort">စီစဉ်ရန်</string>
   <string name="reading_list_sort_ellipsis">အစဉ်လိုက်...</string>
   <string name="reading_list_sort_by_name">အမည်ဖြင့် စီစဉ်</string>
   <string name="reading_list_sort_by_name_desc">အမည်ဖြင့် စီစဉ် (ပြောင်းပြန်)</string>
@@ -427,6 +429,7 @@
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;စာဖတ်စာရင်းများအား sync လုပ်ရန်&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;စာဖတ်စာရင်းများကို ယခုအခါ စက်ပစ္စည်းများတွင် sync လုပ်နိုင်ပါပြီ။ သင်၏ဝီကီပီးဒီးယားအကောင့်သို့ လော့အင်ဝင်ပြီး စာရင်းများကို သိမ်းဆည်းခွင့်ပေးပါ။</string>
   <string name="reading_lists_menu_create_list">စာရင်းသစ် ဖန်တီးပါ</string>
   <string name="reading_lists_menu_sort_by">အစဉ်လိုက်</string>
+  <string name="reading_lists_refresh_sync_option">sync လုပ်ခြင်းကို ပြန်လည်ဆန်းသစ်ရန်</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">ဝင်ရန် / မှတ်ပုံတင်ရန်</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">ဤဆောင်းပါးကို အင်တာနက်မရှိချိန်တွင် အသုံးပြုနိုင်ပါပြီ</item>
@@ -474,6 +477,33 @@
     <item quantity="one">စာရင်း %1$d ကျန်ရှိ</item>
     <item quantity="other">စာရင်းများ %1$d ကျန်ရှိ</item>
   </plurals>
+  <string name="notification_echo_channel_description">ဝီကီပီးဒီးယား အသိပေးချက်များ</string>
+  <string name="notifications_activity_title">အသိပေးချက်များ</string>
+  <string name="notifications_activity_title_archived">အသိပေးချက်များ (မော်ကွန်းတင်ပြီး)</string>
+  <string name="notifications_search">အသိပေးချက်များ ရှာဖွေရန်</string>
+  <string name="notifications_view_unread">မဖတ်ရသေးသော အသိပေးချက်ကို ကြည့်ရန်</string>
+  <string name="notifications_view_archived">မော်ကွန်းတင်ပြီးသားကို ကြည့်ရန်</string>
+  <string name="notifications_prefs">အသိပေးချက် ရွေးချယ်စရာများ</string>
+  <string name="notifications_archive">ဖတ်ရှုပြီးကြောင်းမှတ်သားပြီး မော်ကွန်းတင်မည်</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">အသိပေးချက်ကို မော်ကွန်းတင်ခဲ့သည်</item>
+    <item quantity="other">%d အသိပေးချက်များကို မော်ကွန်းတင်ခဲ့သည်</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">အသိပေးချက်များ ခွင့်ပြုရန်</string>
+  <string name="notifications_poll_enable_positive">လုပ်ခွင့်ပြုရန်</string>
+  <string name="notifications_poll_enable_negative">အခု မဟုတ်ပါ</string>
+  <string name="notifications_empty_message">အသိပေးချက်များအားလုံးကို သင် ကြည့်ပြီးပါပြီ</string>
+  <string name="notifications_view_archived_button_text">မော်ကွန်း အသိပေးချက်များကို ကြည့်ရန်</string>
+  <string name="notification_preferences_title">အသိပေးချက် ရွေးချယ်စရာများ</string>
+  <string name="preference_title_notification_poll">အသိပေးချက်များကို မဲဆန္ဒပေးရန်</string>
+  <string name="preference_summary_notification_poll">နောက်ခံမှ အသိပေးချက်အသစ်များကို စစ်ဆေးရန် ဒေတာသုံးစွဲခွင့်ကို app အား ခွင့်ပြုမည်။</string>
+  <string name="preference_category_notification_types">app ထဲရှိ အသိပေးချက် အမျိူးအစားများ</string>
+  <string name="preference_title_notification_welcome">ကြိုဆိုပါသည်</string>
+  <string name="preference_summary_notification_welcome">အကောင့်တစ်ခု ဖန်တီးခဲ့သည်</string>
+  <string name="preference_title_notification_milestone">မှတ်တိုင်</string>
+  <string name="preference_summary_notification_milestone">သေချာသော တည်းဖြတ်မှုအရေအတွက် ရောက်ရှိခဲ့ပါသည်</string>
+  <string name="preference_title_notification_thanks">ကျေးဇူးတင်ပါသည်</string>
+  <string name="preference_summary_notification_thanks">တည်းဖြတ်မှုတစ်ခုအတွက် တစ်စုံတစ်ယောက်က သင့်ကိုကျေးဇူးတင်သည်</string>
   <string name="view_continue_reading_card_title">ဆက်လက်ဖတ်ရှုရန်</string>
   <string name="view_because_you_read_card_title">သင်ဖတ်ရှုခဲ့သောကြောင့်</string>
   <string name="view_random_card_title">ကျပန်းစဉ်</string>

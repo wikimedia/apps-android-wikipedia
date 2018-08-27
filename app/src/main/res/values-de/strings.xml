@@ -119,6 +119,11 @@
   <string name="create_account_password_error">Das Passwort ist ungültig</string>
   <string name="create_account_generic_error">Benutzerkonto konnte nicht erstellt werden</string>
   <string name="create_account_next">Nächste</string>
+  <string name="email_recommendation_dialog_title">Benutzerkonto ohne E-Mail-Adresse erstellen?</string>
+  <string name="email_recommendation_dialog_message">Obwohl die E-Mail-Adresse optional ist, wird sie &lt;b&gt;dringend empfohlen&lt;/b&gt;, da eine E-Mail-Adresse zur Wiederherstellung des Benutzerkontos benötigt wird, falls du dein Passwort verlieren solltest.</string>
+  <string name="email_recommendation_message">Empfohlen, da eine E-Mail-Adresse zur Wiederherstellung des Benutzerkontos erforderlich ist.</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Ohne E-Mail-Adresse fortfahren</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Eine E-Mail-Adresse hinzufügen</string>
   <string name="create_account_button">Benutzerkonto erstellen</string>
   <string name="create_account_name_unavailable">Der Benutzername „%s“ ist nicht verfügbar. Bitte wähle einen anderen Namen aus.</string>
   <string name="create_account_ip_block_message">Leider ist deine IP-Adresse derzeit für das Erstellen neuer Benutzerkonten gesperrt.</string>

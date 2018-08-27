@@ -86,6 +86,7 @@
   <string name="search_reading_lists_no_results">Ez dira emaitzarik aurkitu irakurketa zerrendetan</string>
   <string name="search_history_no_results">Historian ez da emaitzik aurkitu</string>
   <string name="edit_section_captcha_message">Spam automatikoaren aurka babesteko, mesedez idatzi jarraian ageri diren hitzak</string>
+  <string name="edit_section_captcha_request_an_account_message">Ezin duzu argazkia ikusi? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Gehiago ikasi&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Goiko hitzak errepikatu</string>
   <string name="title_captcha">Sartu CAPTCHA</string>
   <string name="edit_section_captcha_reload">CAPTCHA sakatu eguneratu</string>
@@ -125,6 +126,8 @@
   <string name="create_account_password_error">Pasahitza ez du balio</string>
   <string name="create_account_generic_error">Ezin izan da kontua sortu</string>
   <string name="create_account_next">Hurrengoa</string>
+  <string name="email_recommendation_dialog_title">Kontua sortu email helbiderik gabe?</string>
+  <string name="email_recommendation_dialog_message">Nahiz eta email helbidea aukerazkoa izan, &lt;b&gt; gomendagarria da &lt;/b&gt;, inoiz pasahitza galtzen baduzu, email helbide bat behar delako kontua berrezartzeko.</string>
   <string name="create_account_button">Kontua sortu</string>
   <string name="create_account_name_unavailable">%s erabiltzaile-izena ez dago erabilgarri. Mesedez hauta ezazu beste izen bat.</string>
   <string name="create_account_ip_block_message">Barkatu, zure IP helbidea blokeatuta dago, eta ezin du kontu berririk sortu.</string>
@@ -153,6 +156,7 @@
   <string name="preferences_heading_experimental">Esperimentala</string>
   <string name="preference_title_sync_reading_lists">Zure irakurketa zerrendak sinkronizatu</string>
   <string name="preference_title_sync_reading_lists_from_account">Irakurketa zerrendaren sinkronizazioa</string>
+  <string name="preference_title_download_reading_list_articles">Jaitsi irakurketa zerrendako artikuluak</string>
   <string name="preference_summary_sync_reading_lists">Utzi zure irakurketa zerrendak gailuen zehar sinkronizatzen, zure Wikipedia kontuan gordez</string>
   <string name="preference_summary_sync_reading_lists_from_account">Utzi Wikipediak sinkroniza ditzala irakurketa zerrendak zure \"%s\" Wikipedia kontura gordez</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Zure %s kontutik kendu nahi dituzu sinkronizatutako irakurketa zerrendak?</string>
@@ -179,6 +183,7 @@
   <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.eu</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.eu</string>
   <string name="about_libraries_heading">Erabilitako liburutegiak</string>
@@ -187,7 +192,7 @@
   <string name="about_translators_translatewiki">Aplikazio hau boluntarioek itzuli dute hementxe &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lizentzia</string>
   <string name="about_app_license">Iturri kodea eskuragarri hemen &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Unless otherwise specified, content is available under a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Fundazioaren&lt;/a&gt; produktua</string>
+  <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Fundazioaren&lt;/a&gt; produktua</string>
   <string name="about_activity_title">Honi buruz</string>
   <string name="edit_abandon_confirm">Orrialde honek aldaketak jasan ditu. Ziur zaude zure aldaketak gorde gabe irten nahi duzula?</string>
   <string name="edit_abandon_confirm_yes">Bai</string>
@@ -479,6 +484,23 @@
     <item quantity="one">Zerrenda %1$d faltan…</item>
     <item quantity="other">%1$d zerrenda faltan...</item>
   </plurals>
+  <string name="notification_echo_channel_description">Wikipedia jakinarazpenak</string>
+  <string name="notifications_activity_title">Jakinarazpenak</string>
+  <string name="notifications_activity_title_archived">Jakinarazpenak (erregistratuta)</string>
+  <string name="notifications_search">Jakinarazpenak bilatu</string>
+  <string name="notifications_view_unread">Ikusi irakurri gabekoa</string>
+  <string name="notifications_view_archived">Ikusi artxibatutakoa</string>
+  <string name="notifications_prefs">Jakinarazpen lehentasunak</string>
+  <string name="notifications_archive">Markatu irakurrita gisa eta artxibatu</string>
+  <string name="notifications_poll_enable_title">Jakinarazpenak gaitu</string>
+  <string name="notifications_poll_enable_positive">Gaitu</string>
+  <string name="notifications_poll_enable_negative">Orain ez</string>
+  <string name="notifications_empty_message">Jakinarazpenen artean harrapatuta zaude!</string>
+  <string name="notifications_view_archived_button_text">Ikusi artxibatutako jakinarazpenak</string>
+  <string name="notification_preferences_title">Jakinarazpen lehentasunak</string>
+  <string name="preference_title_notification_welcome">Ongi etorri</string>
+  <string name="preference_summary_notification_welcome">Kontu bat sortu da</string>
+  <string name="preference_title_notification_thanks">Eskerrik asko</string>
   <string name="view_continue_reading_card_title">Irakurtzen jarraitu</string>
   <string name="view_because_you_read_card_title">Irakurtzen duzulako</string>
   <string name="view_random_card_title">Ausazkoa</string>

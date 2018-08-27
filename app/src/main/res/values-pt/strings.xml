@@ -128,6 +128,11 @@
   <string name="create_account_password_error">A palavra-passe é inválida</string>
   <string name="create_account_generic_error">Não foi possível criar conta</string>
   <string name="create_account_next">Seguinte</string>
+  <string name="email_recommendation_dialog_title">Criar conta sem endereço de correio eletrónico?</string>
+  <string name="email_recommendation_dialog_message">Embora o endereço de correio eletrónico seja opcional, ele é &lt;b&gt;altamente recomendado&lt;/b&gt;, porque será necessário um correio eletrónico para recuperar a conta se perder a sua palavra-passe.</string>
+  <string name="email_recommendation_message">Recomendada porque é necessário um correio eletrónico para recuperação da conta.</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Continuar sem correio eletrónico</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Adicionar um endereço de correio eletrónico</string>
   <string name="create_account_button">Criar conta</string>
   <string name="create_account_name_unavailable">O nome de utilizador \"%s\" não está disponível. Escolha um nome diferente, por favor.</string>
   <string name="create_account_ip_block_message">Desculpe, o seu endereço IP está presentemente impedido de criar contas.</string>

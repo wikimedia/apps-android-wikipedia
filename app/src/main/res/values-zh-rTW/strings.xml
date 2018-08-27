@@ -130,6 +130,11 @@
   <string name="create_account_password_error">密碼無效</string>
   <string name="create_account_generic_error">無法建立帳號</string>
   <string name="create_account_next">下一步</string>
+  <string name="email_recommendation_dialog_title">不帶電子郵件地址來建立帳帳？</string>
+  <string name="email_recommendation_dialog_message">雖然電子郵件地址是選用項目，但&lt;b&gt;強烈建議&lt;/b&gt;填寫，因為當您遺失密碼時需要透過電子郵件來回復帳號。</string>
+  <string name="email_recommendation_message">因回復帳號需要用到電子郵件，建議填寫。</string>
+  <string name="email_recommendation_dialog_create_without_email_action">不帶電子郵件繼續</string>
+  <string name="email_recommendation_dialog_create_with_email_action">添加電子郵件地址</string>
   <string name="create_account_button">建立帳號</string>
   <string name="create_account_name_unavailable">使用者名稱「%s」不可用。請選擇其它名稱。</string>
   <string name="create_account_ip_block_message">很抱歉，您的 IP 位址目前已被封鎖而無法建立新帳號。</string>

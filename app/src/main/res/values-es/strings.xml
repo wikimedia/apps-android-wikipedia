@@ -140,6 +140,9 @@
   <string name="create_account_password_error">La contraseña no es válida</string>
   <string name="create_account_generic_error">No se pudo crear la cuenta</string>
   <string name="create_account_next">Siguiente</string>
+  <string name="email_recommendation_dialog_title">¿Crear una cuenta sin dirección de correo electrónico?</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Continuar sin correo electrónico</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Añadir dirección de correo electrónico</string>
   <string name="create_account_button">Crear cuenta</string>
   <string name="create_account_name_unavailable">No está disponible el nombre de usuario «%s». Elige otro.</string>
   <string name="create_account_ip_block_message">Lo siento, tu dirección IP está actualmente bloqueada de crear nuevas cuentas.</string>

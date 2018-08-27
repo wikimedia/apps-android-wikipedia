@@ -116,6 +116,11 @@
   <string name="create_account_password_error">Лозинката е неважечка</string>
   <string name="create_account_generic_error">Не можам да направам корисничка сметка</string>
   <string name="create_account_next">Следно</string>
+  <string name="email_recommendation_dialog_title">Да ја создадам сметката без е-пошта?</string>
+  <string name="email_recommendation_dialog_message">Иако е-поштата не е задолжителна, истата &lt;b&gt;изречно се препорачува&lt;/b&gt; бидејќи ќе ви треба за поваток на сметката ако ја заборавите лозинката.</string>
+  <string name="email_recommendation_message">Се препорачува, бидејќи е-поштата е потребна за повраток на сметката.</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Продолжи без е-пошта</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Додај е-пошта</string>
   <string name="create_account_button">Направи сметка</string>
   <string name="create_account_name_unavailable">Корисничкото име „%s“ е недостапно. Изберете друго.</string>
   <string name="create_account_ip_block_message">За жал, вашата IP-адреса во мигов е спречена да создава нови сметки.</string>

@@ -80,6 +80,7 @@
   <string name="search_reading_lists_no_results">Не са открити резултати в списъка за четене</string>
   <string name="search_history_no_results">Не са открити резултати в историята</string>
   <string name="edit_section_captcha_message">За защита от автоматизиран спам, моля, напишете думите, които излизат по-долу.</string>
+  <string name="edit_section_captcha_request_an_account_message">Не можете да видите изображението? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Научете повече&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Напишете горепоказаните думи</string>
   <string name="title_captcha">Въведете знаците от картинката</string>
   <string name="edit_section_captcha_reload">Докоснете CAPTCHA за презареждане</string>
@@ -119,6 +120,11 @@
   <string name="create_account_password_error">Паролата е невалидна</string>
   <string name="create_account_generic_error">Не може да бъде създадена сметка</string>
   <string name="create_account_next">Следваща</string>
+  <string name="email_recommendation_dialog_title">Създаване на сметка без е-поща?</string>
+  <string name="email_recommendation_dialog_message">Въпреки че е-пощата не е задължителна, тя &lt;b&gt;силно се препоръчва&lt;/b&gt;, тъй като е нужна за възстановяване на сметката, ако някога забравите паролата си.</string>
+  <string name="email_recommendation_message">Препоръчва се, тъй като е-пощата е нужна за възстановяване на сметката.</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Продължаване без е-поща</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Добавяне на адрес за е-поща</string>
   <string name="create_account_button">Създаване на сметка</string>
   <string name="create_account_name_unavailable">Потребителското име „%s“ не е налично. Моля, изберете различно име.</string>
   <string name="create_account_ip_block_message">За съжаление вашият IP адрес към момента е блокиран за създаване на нови сметки.</string>
@@ -146,7 +152,8 @@
   <string name="preferences_heading_data_usage">Използване на данните</string>
   <string name="preferences_heading_experimental">Експериментални</string>
   <string name="preference_title_sync_reading_lists">Синхронизация на списъците за четене</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Включване на синхронизация за списъци за четене</string>
+  <string name="preference_title_sync_reading_lists_from_account">Синхронизация на списъци за четене</string>
+  <string name="preference_title_download_reading_list_articles">Изтегляне на статии от списъците за четене</string>
   <string name="preference_summary_sync_reading_lists">Синхронизиране на списъци за четене на различни устройства чрез запазването им в сметката Ви в Уикипедия</string>
   <string name="preference_summary_sync_reading_lists_from_account">Синхронизиране на списъци за четене на различни устройства чрез запазването им в сметката Ви „%s“ в Уикипедия</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Премахване на синхронизираните списъци за четене от „%s“?</string>
@@ -173,6 +180,7 @@
   <string name="about_wikipedia_url">https://bg.m.wikipedia.org/wiki/Уикипедия:За_Уикипедия</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Използвани библиотеки</string>
@@ -435,7 +443,7 @@
     <item quantity="one">Тази статия вече не е налична в офлайн режим.</item>
     <item quantity="other">Тези статии вече не са налични в офлайн режим.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync" fuzzy="true">Последна синхронизация: %s</string>
+  <string name="reading_list_toast_last_sync">Списъците за четене са синхронизирани успешно</string>
   <string name="user_option_sync_label">Предпочитания</string>
   <string name="notification_button_view_user">Беседа с потребителя</string>
   <string name="notification_talk_title">Ново съобщение в Уикипедия</string>
@@ -473,6 +481,32 @@
     <item quantity="one">остава %1$d списък</item>
     <item quantity="other">остават %1$d списъка</item>
   </plurals>
+  <string name="notification_echo_channel_description">Известия от Уикипедия</string>
+  <string name="notifications_activity_title">Известия</string>
+  <string name="notifications_activity_title_archived">Известия (архивирани)</string>
+  <string name="notifications_search">Търсене на известия</string>
+  <string name="notifications_view_unread">Преглеждане на непрочетени</string>
+  <string name="notifications_view_archived">Преглеждане на архивирани</string>
+  <string name="notifications_prefs">Настройки на известията</string>
+  <string name="notifications_archive">Отбелязване като прочетено и архивиране</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">Известието е архивирано</item>
+    <item quantity="other">Архивирани са %d известия</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">Включване на известия</string>
+  <string name="notifications_poll_enable_positive">Включване</string>
+  <string name="notifications_poll_enable_negative">Не сега</string>
+  <string name="notifications_empty_message">Нямате нови известия!</string>
+  <string name="notifications_view_archived_button_text">Преглеждане на архивирани известия</string>
+  <string name="notification_preferences_title">Настройки на известията</string>
+  <string name="preference_summary_notification_poll">Позволяване на приложението да използва данни за проверка на нови известия в заден план.</string>
+  <string name="preference_category_notification_types">Видове известия в приложението</string>
+  <string name="preference_title_notification_welcome">Добре дошли</string>
+  <string name="preference_summary_notification_welcome">Създадена е сметка</string>
+  <string name="preference_title_notification_milestone">Достижение</string>
+  <string name="preference_summary_notification_milestone">Достигнат е определен брой редакции</string>
+  <string name="preference_title_notification_thanks">Благодарност</string>
+  <string name="preference_summary_notification_thanks">Някой Ви благодари за редакция</string>
   <string name="view_continue_reading_card_title">Продължаване на четенето</string>
   <string name="view_because_you_read_card_title">Защото сте чели</string>
   <string name="view_random_card_title">Случайна статия</string>

@@ -75,6 +75,7 @@
   <string name="search_reading_lists_no_results">အရာမဂၠာဲဂှ် ဟွံဂွံဆဵု ပ္ဍဲစရင် လိက်ဗွဟ်</string>
   <string name="search_history_no_results">အရာမဂၠာဲဂှ် ဟွံဂွံဆဵု ပ္ဍဲလိက်မဗှ်လဝ်တုဲ</string>
   <string name="edit_section_captcha_message">တၞဟ်န မဂွံဆဵုဒၞာ အရာမပထုဲပလီုတုဲ၊ ပဂုန်တုဲ တက်စုတ် မလိက် မဗမံက်လဝ်ဏအ် ဗွဲသၟဝ်ဂှ်ညိ၊၊</string>
+  <string name="edit_section_captcha_request_an_account_message">ဗီုရုပ်ဂှ် ဟွံဂွံဆဵုကေတ်ဟာ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;မိက်ဂွံ ဆက်တီမ္ဂးLearn more&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">ကလေင်တက်စုတ် အတိုင်မလိက် ဗွဲလတူဂှ်</string>
   <string name="title_captcha">ဍဵု CAPTCHA</string>
   <string name="edit_section_captcha_reload">ဍဵု CAPTCHA သွက်ဂွံ ကလေင်ပၠောပ်</string>
@@ -142,6 +143,7 @@
   <string name="preferences_heading_experimental">မစမ်ၜတ်</string>
   <string name="preference_title_sync_reading_lists">ပချဳဓရာင် စရင်လိက်မဗှ်လဝ်</string>
   <string name="preference_title_sync_reading_lists_from_account">ပချဳဓရာင် စရင် လ္ိက်ဗွဟ်</string>
+  <string name="preference_title_download_reading_list_articles">တံင်လုပ်ကေတ် လိက်ပရေင် ပ္ဍဲ စရင်လိက်ဗွဟ်</string>
   <string name="preference_summary_sync_reading_lists">ပချဳဓရာင် စရင် လိက်ဗွဟ် နကဵုဒဳဝါက်တၞဟ်ဟ် သွက်ဂွံ ဂိုင်ဒေပ် စရင်တအ် ပ္ဍဲအကံက် ဝဳကဳပဳဒဳယာ မၞး</string>
   <string name="preference_summary_sync_reading_lists_from_account">ပချဳဓရာင် စရင် လိက်ဗွဟ် ပ္ဍဲအကံက် ဝဳကဳပဳဒဳယာမၞး %s</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">ပတိတ်ထောအ် ပွမပချဳဓရာင် စရင် ဗွဟ် နူ %s？</string>
@@ -168,6 +170,7 @@
   <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">တိုက်ဗွဟ်လိက် မသုင်စောဲလဝ်</string>
@@ -176,7 +179,7 @@
   <string name="about_translators_translatewiki">app ဏအ်ဂှ် ကၠာဲစၠောအ်လဝ် နကဵုမၞိဟ်မကၠာဲဘာသာ နကဵုစေတနာ ပ္ဍဲ&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">လာင်ဇြေန်</string>
   <string name="about_app_license">ကုဒ် တင်ဂၞင် မကလိဂွံမာန် ပ္ဍဲ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Unless otherwise specified, content is available under a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt; Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">မဒှ်အရာ မကၠောန်ပတိတ် နူ &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
+  <string name="about_wmf">မဒှ်အရာ မကၠောန်ပတိတ် နူ &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">ပရူ</string>
   <string name="edit_abandon_confirm">မုက်လိက်ဏအ် ပလေဝ်ပလေတ်လဝ်၊၊ မၞး မိက်ဂွံတိတ် နူမုက်လိက် သီုဟွံဂိုင်သိပ် ကွေဟ်ဟ်ရဟာ？</string>
   <string name="edit_abandon_confirm_yes">ယွံ</string>
@@ -468,6 +471,33 @@
     <item quantity="one">%1$d list left</item>
     <item quantity="other">%1$d lists left</item>
   </plurals>
+  <string name="notification_echo_channel_description">တင်မကဵုသမ္တီ ဝဳကဳပဳဒဳယာဂမၠိုင်</string>
+  <string name="notifications_activity_title">တင်မကဵုသမ္တီဂမၠိုင်</string>
+  <string name="notifications_activity_title_archived">တင်မကဵုသမ္တီဂမၠိုင် (မစိုပ်တရဴ)</string>
+  <string name="notifications_search">ဂၠာဲ တင်မကဵုသမ္တီဂမၠိုင်</string>
+  <string name="notifications_view_unread">ဗဵု ဟွံဂွံဗှ်ဏီ</string>
+  <string name="notifications_view_archived">ဗဵု အရာမစိုပ်တရဴ</string>
+  <string name="notifications_prefs">မရုဲစှ် တင်မကဵုသမ္တီဂမၠိုင်</string>
+  <string name="notifications_archive">ကဵုသမ္တီ ဒဒှ်မဗှ်တုဲ ကေုာံ မစိုပ်တရဴတုဲ</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">Notification archived</item>
+    <item quantity="other">%d notifications archived</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">ကဵုအခေါင် တင်မကဵုသမ္တီဂမၠိုင်</string>
+  <string name="notifications_poll_enable_positive">ကဵုအခေါင်</string>
+  <string name="notifications_poll_enable_negative">လၟုဟ် ဟွံသေင်ဏီ</string>
+  <string name="notifications_empty_message">မၞး မဂွံဗဵုကေတ် တင်မကဵုသမ္တီတအ် ဖအိုတ်ရ၊၊</string>
+  <string name="notifications_view_archived_button_text">ဗဵု တင်မကဵုသမ္တီ အရာမစိုပ်လဝ်တရဴ</string>
+  <string name="notification_preferences_title">မရုဲစှ် တင်မကဵုသမ္တီဂမၠိုင်</string>
+  <string name="preference_title_notification_poll">စုတ်မာဲ တင်မကဵုသမ္တီဂမၠိုင်</string>
+  <string name="preference_summary_notification_poll">ကဵုအခေါင် အာပ် သွက်ဂွံ စကာ ဒါတာ သွက်ဂွံစဳစောတ် တင်မကဵုသမ္တီတၟိဂမၠိုင် ပ္ဍဲလက္ကရဴ၊၊</string>
+  <string name="preference_category_notification_types">ဂကူ တင်မကဵုသမ္တီ အေန်-အာပ်</string>
+  <string name="preference_title_notification_welcome">ဒုင်တၠုင်ရအဴ</string>
+  <string name="preference_summary_notification_welcome">အကံက်မွဲဂှ် ခၞံဗဒှ်လဝ်တုဲ</string>
+  <string name="preference_title_notification_milestone">တၟအ်တိုင်စၟတ်သမ္တီ</string>
+  <string name="preference_summary_notification_milestone">အပံင်လၟိဟ် မပလေဝ်ဒါန် ဗွဲမချိုတ်ပၠိုတ်ဂှ် စိုပ်အာတရဴရ၊၊</string>
+  <string name="preference_title_notification_thanks">တင်ဂုန်ရ</string>
+  <string name="preference_summary_notification_thanks">ဟိုတ်နူ မၞးမပလေဝ်ဒါန်လဝ်တုဲ ညးမွဲမွဲ ဟီုဂလာန် တင်ဂုန် ကုမၞး၊၊</string>
   <string name="view_continue_reading_card_title">ဆက် ဗှ်</string>
   <string name="view_because_you_read_card_title">ဟိုတ်နူ မၞး ဗှ်</string>
   <string name="view_random_card_title">ဂဇျောမ်</string>

@@ -85,6 +85,7 @@
   <string name="search_reading_lists_no_results">V zoznamoch na prečítanie neboli nájdené žiadne výsledky</string>
   <string name="search_history_no_results">V histórii neboli nájdené žiadne výsledky</string>
   <string name="edit_section_captcha_message">Kvôli ochrane pred automatizovaným spamom, prosím zadajte slová ktoré sa objavujú nižšie.</string>
+  <string name="edit_section_captcha_request_an_account_message">Nevidíte obrázok? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Ďalšie informácie&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Zadajte text z obrázku vyššie</string>
   <string name="title_captcha">Zadajte text</string>
   <string name="edit_section_captcha_reload">Ťuknutím načítate captchu znovu</string>
@@ -124,6 +125,9 @@
   <string name="create_account_password_error">Heslo je neplatné</string>
   <string name="create_account_generic_error">Nepodarilo sa vytvoriť účet</string>
   <string name="create_account_next">Ďalej</string>
+  <string name="email_recommendation_dialog_title">Chcete vytvoriť účet bez e-mailovej adresy?</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Pokračovať bez e-mailovej adresy</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Pridať e-mailovú adresu</string>
   <string name="create_account_button">Vytvoriť účet</string>
   <string name="create_account_name_unavailable">Používateľské meno \"%s\" nie je k dispozícii. Prosím, vyberte si iné meno.</string>
   <string name="create_account_ip_block_message">Je nám to ľúto, no z vašej IP adresy nie je možné vytvárať nové účty.</string>
@@ -412,6 +416,7 @@
   <string name="default_reading_list_name">Uložené</string>
   <string name="default_reading_list_description">Predvolený zoznam pre vaše uložené články</string>
   <string name="no_user_lists_title">Usporiadajte si články do zoznamov</string>
+  <string name="no_user_lists_msg">Vytvorte si zoznamy miest, kam sa chcete vydať, zoznamy obľúbených tém a ďalšie</string>
   <string name="reading_list_saved_list_rename">%1$s (vytvorený používateľom)</string>
   <string name="split_reading_list_message">Zaviedli sme limit %d článkov na zoznam na prečítanie. Existujúce zoznamy prekračujúce tento limit budú rozdelené na viaceré zoznamy.</string>
   <string name="reading_list_article_limit_message">Do tohoto zoznamu už nemôžete pridávať články. Dosiahli ste limit %2$d článkov pre zoznam „%1$s“.</string>
@@ -448,6 +453,23 @@
     <item quantity="one">Ostáva %1$d článok</item>
     <item quantity="other">Ostávajú %1$d články</item>
   </plurals>
+  <string name="notification_echo_channel_description">Upozornenia vo Wikipédii</string>
+  <string name="notifications_activity_title">Upozornenia</string>
+  <string name="notifications_activity_title_archived">Upozornenia (archivované)</string>
+  <string name="notifications_search">Hľadať</string>
+  <string name="notifications_view_unread">Zobraziť neprečítané</string>
+  <string name="notifications_view_archived">Zobraziť archivované</string>
+  <string name="notifications_prefs">Nastavenia upozornení</string>
+  <string name="notifications_archive">Označiť ako prečítané a archivovať</string>
+  <string name="notifications_poll_enable_title">Povoliť upozornenia</string>
+  <string name="notifications_poll_enable_positive">Povoliť</string>
+  <string name="notifications_poll_enable_negative">Teraz nie</string>
+  <string name="notifications_empty_message">Nemáte žiadne nové upozornenia!</string>
+  <string name="notifications_view_archived_button_text">Zobraziť archivované upozornenia</string>
+  <string name="notification_preferences_title">Nastavenia upozornení</string>
+  <string name="preference_title_notification_welcome">Vitajte</string>
+  <string name="preference_title_notification_thanks">Ďakujeme</string>
+  <string name="preference_summary_notification_thanks">Niekto vám poďakoval za úpravu</string>
   <string name="view_continue_reading_card_title">Pokračujte v čítaní</string>
   <string name="view_because_you_read_card_title">Pretože ste čítali</string>
   <string name="view_random_card_title">Randomizér</string>

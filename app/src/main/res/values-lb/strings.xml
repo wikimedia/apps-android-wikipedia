@@ -111,6 +111,10 @@
   <string name="create_account_password_error">D\'Passwuert ass net valabel</string>
   <string name="create_account_generic_error">Benotzerkont konnt net opgemaach ginn</string>
   <string name="create_account_next">Weider</string>
+  <string name="email_recommendation_dialog_title">Benotzerkont ouni E-Mail-Adress uleeën?</string>
+  <string name="email_recommendation_message">Recommandéiert wëll eng E-Mail-Adress gebraucht gëtt fir e Benotzerkont ze restauréieren.</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Ouni E-mail-Adress virufueren</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Eng E-Mail-Adress derbäisetzen</string>
   <string name="create_account_button">Benotzerkont uleeën</string>
   <string name="create_account_ip_block_message">Pardon, Är IP-Adress ass aktuell gespaart fir d\'uleeë vun neie Benotzerkonten.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
@@ -406,6 +410,22 @@
     <item quantity="one">nach %1$d Lëscht</item>
     <item quantity="other">nach %1$d%1$d Lëschten</item>
   </plurals>
+  <string name="notification_echo_channel_description">Wikipedia Notifikatiounen</string>
+  <string name="notifications_activity_title">Notifikatiounen</string>
+  <string name="notifications_activity_title_archived">Notifikatiounen (archivéiert)</string>
+  <string name="notifications_search">An den Notifikatioune sichen</string>
+  <string name="notifications_view_unread">Déi net geliest weisen</string>
+  <string name="notifications_prefs">Astellunge vun den Notifikatiounen</string>
+  <string name="notifications_archive">Als geliest markéieren an archivéieren</string>
+  <string name="notifications_poll_enable_title">Notifikatiounen aktivéieren</string>
+  <string name="notifications_poll_enable_positive">Aschalten</string>
+  <string name="notifications_poll_enable_negative">Net elo</string>
+  <string name="notifications_view_archived_button_text">Archivéiert Notifikatioune weisen</string>
+  <string name="notification_preferences_title">Astellunge vun den Notifikatiounen</string>
+  <string name="preference_title_notification_welcome">Wëllkomm</string>
+  <string name="preference_title_notification_milestone">Meilesteen</string>
+  <string name="preference_title_notification_thanks">Merci</string>
+  <string name="preference_summary_notification_thanks">Et seet Een Iech Merci fir eng Ännerung</string>
   <string name="view_continue_reading_card_title">Virufuere mat Liesen</string>
   <string name="view_because_you_read_card_title">Well Dir liest</string>
   <string name="view_random_card_title">Zoufallsgenerator</string>

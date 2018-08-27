@@ -130,6 +130,10 @@
   <string name="create_account_password_error">La contrasenya no és vàlida</string>
   <string name="create_account_generic_error">No s\'ha pogut crear el compte</string>
   <string name="create_account_next">Següent</string>
+  <string name="email_recommendation_dialog_title">Voleu crear un compte sense adreça electrònica?</string>
+  <string name="email_recommendation_message">Recomanat atès que cal una adreça electrònica per poder recuperar la informació del compte.</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Continua sense adreça electrònica</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Afegeix una adreçà electrònica</string>
   <string name="create_account_button">Crea un compte</string>
   <string name="create_account_name_unavailable">El nom d’usuari «%s» no és disponible. Trieu-ne un altre.</string>
   <string name="create_account_ip_block_message">Ho sentim, s\'ha blocat la vostra adreça IP per crear comptes nous.</string>
@@ -487,6 +491,25 @@
     <item quantity="one">%queda 1$d llista</item>
     <item quantity="other">queden %1$d llistes</item>
   </plurals>
+  <string name="notification_echo_channel_description">Notificacions de la Viquipèdia</string>
+  <string name="notifications_activity_title">Notificacions</string>
+  <string name="notifications_activity_title_archived">Notificacions (arxivada)</string>
+  <string name="notifications_search">Cerca a les notificacions</string>
+  <string name="notifications_view_unread">Mostra les no llegides</string>
+  <string name="notifications_view_archived">Mostra les arxivades</string>
+  <string name="notifications_prefs">Preferències de notificació</string>
+  <string name="notifications_archive">Marca les llegides i arxiva-les</string>
+  <string name="notifications_poll_enable_title">Habilita les notificacions</string>
+  <string name="notifications_poll_enable_positive">Habilita</string>
+  <string name="notifications_poll_enable_negative">Ara no</string>
+  <string name="notifications_empty_message">Esteu al dia amb les notificacions!</string>
+  <string name="notifications_view_archived_button_text">Mostra les notificacions arxivades</string>
+  <string name="notification_preferences_title">Preferències de notificació</string>
+  <string name="preference_title_notification_welcome">Benvinguda</string>
+  <string name="preference_summary_notification_welcome">S\'ha creat un compte</string>
+  <string name="preference_title_notification_milestone">Fita</string>
+  <string name="preference_title_notification_thanks">Gràcies</string>
+  <string name="preference_summary_notification_thanks">Algú us ha agraït una modificació</string>
   <string name="view_continue_reading_card_title">Continua llegint</string>
   <string name="view_because_you_read_card_title">Perquè vau llegir</string>
   <string name="view_random_card_title">A l\'atzar</string>

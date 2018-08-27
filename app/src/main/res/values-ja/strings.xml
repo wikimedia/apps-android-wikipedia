@@ -134,6 +134,11 @@
   <string name="create_account_password_error">パスワードが無効です</string>
   <string name="create_account_generic_error">アカウントを作成できませんでした</string>
   <string name="create_account_next">次へ</string>
+  <string name="email_recommendation_dialog_title">メールアドレスなしでアカウントを作成しますか？</string>
+  <string name="email_recommendation_dialog_message">メールアドレスはオプションではありますが、もしパスワードを忘れた場合にアカウント復元に必要なため&lt;b&gt;強く推奨します&lt;/b&gt;。</string>
+  <string name="email_recommendation_message">アカウント復元にはメールアドレスが必要なため推奨します。</string>
+  <string name="email_recommendation_dialog_create_without_email_action">メールアドレスなしで先に進む</string>
+  <string name="email_recommendation_dialog_create_with_email_action">メールアドレスを設定</string>
   <string name="create_account_button">アカウント作成</string>
   <string name="create_account_name_unavailable">ユーザー名「%s」はご利用になれません。別の名前を選んでください。</string>
   <string name="create_account_ip_block_message">申し訳ありませんが現在あなたのIPアドレスはアカウント作成がブロックされています。</string>
@@ -162,6 +167,7 @@
   <string name="preferences_heading_experimental">実験的機能</string>
   <string name="preference_title_sync_reading_lists">あとで読むリストの同期</string>
   <string name="preference_title_sync_reading_lists_from_account">あとで読むリストの同期を有効にする</string>
+  <string name="preference_title_download_reading_list_articles">あとで読むリストの記事をダウンロード</string>
   <string name="preference_summary_sync_reading_lists">ウィキペディアアカウントにあとで読むリストを保存することで、異なるデバイス間でリストを同期させる</string>
   <string name="preference_summary_sync_reading_lists_from_account">あなたのウィキペディアアカウント %s にあとで読むリストを保存して、リストをデバイス間で同期させる</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">アカウント%sから同期中のあとで読むリストを削除しますか？</string>
@@ -491,6 +497,19 @@
     <item quantity="one">リスト残り%1$d件</item>
     <item quantity="other">リスト残り%1$d件</item>
   </plurals>
+  <string name="notification_echo_channel_description">ウィキペディアの通知</string>
+  <string name="notifications_activity_title">通知</string>
+  <string name="notifications_activity_title_archived">通知 (アーカイブ済み)</string>
+  <string name="notifications_search">通知を検索</string>
+  <string name="notifications_view_unread">未読を見る</string>
+  <string name="notifications_view_archived">アーカイブ済みを表示</string>
+  <string name="notifications_prefs">通知の設定</string>
+  <string name="notifications_archive">既読にしてアーカイブ</string>
+  <string name="notifications_poll_enable_title">通知を有効にする</string>
+  <string name="notifications_poll_enable_positive">有効にする</string>
+  <string name="notifications_poll_enable_negative">今はしない</string>
+  <string name="preference_title_notification_welcome">ようこそ</string>
+  <string name="preference_summary_notification_welcome">アカウントが作成されました</string>
   <string name="view_continue_reading_card_title">続けて読む</string>
   <string name="view_because_you_read_card_title">こんな記事も読まれています</string>
   <string name="view_random_card_title">おまかせ表示</string>

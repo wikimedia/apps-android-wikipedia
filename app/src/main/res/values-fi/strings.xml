@@ -92,6 +92,7 @@
   <string name="search_reading_lists_no_results">Lukulistasta ei löytynyt tuloksia</string>
   <string name="search_history_no_results">Hakuhistoriastasi ei löytynyt tuloksia tällä haulla</string>
   <string name="edit_section_captcha_message">Kirjoita alla olevat sanat roskapostin torjumiseksi</string>
+  <string name="edit_section_captcha_request_an_account_message">Etkö näe kuvaa? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Lue lisää&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Toista edeltävät sanat</string>
   <string name="title_captcha">Kirjoita roskapostisuojauksen kirjaimet</string>
   <string name="edit_section_captcha_reload">Lataa uusi napauttamalla</string>
@@ -131,6 +132,11 @@
   <string name="create_account_password_error">Salasana on virheellinen</string>
   <string name="create_account_generic_error">Tunnusta ei voitu luoda</string>
   <string name="create_account_next">Seuraava</string>
+  <string name="email_recommendation_dialog_title">Luo tunnus ilman sähköpostiosoitetta?</string>
+  <string name="email_recommendation_dialog_message">Vaikkakin sähköpostiosoite on vapaaehtoinen, sen antamista &lt;b&gt;suositellaan erityisesti&lt;/b&gt;, sillä sähköpostiosoite tarvitaan tunnuksen palauttamiseksi mikäli ikinä hukkaat salasanasi.</string>
+  <string name="email_recommendation_message">Suositellaan, sillä sähköpostiosoite tarvitaan tunnuksen palauttamiseksi.</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Jatka ilman sähköpostiosoitetta</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Lisää sähköpostiosoite</string>
   <string name="create_account_button">Luo tunnus</string>
   <string name="create_account_name_unavailable">Käyttäjänimi \"%s\" ei ole käytettävissä. Valitse toinen nimi.</string>
   <string name="create_account_ip_block_message">IP-osoitteesi on tällä hetkellä estetty luomasta uusia tunnuksia.</string>
@@ -487,6 +493,29 @@
     <item quantity="one">%1$d lista jäljellä</item>
     <item quantity="other">%1$d listaa jäljellä</item>
   </plurals>
+  <string name="notification_echo_channel_description">Wikipedia-ilmoitukset</string>
+  <string name="notifications_activity_title">Ilmoitukset</string>
+  <string name="notifications_activity_title_archived">Ilmoitukset (arkistoidut)</string>
+  <string name="notifications_view_unread">Tarkastele lukemattomia</string>
+  <string name="notifications_view_archived">Tarkastele arkistoituja</string>
+  <string name="notifications_prefs">Ilmoitusasetukset</string>
+  <string name="notifications_archive">Merkitse luetuksi ja arkistoi</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">Ilmoitus arkistoitu</item>
+    <item quantity="other">%d ilmoitusta arkistoitu</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">Ota ilmoitukset käyttöön</string>
+  <string name="notifications_poll_enable_positive">Ota käyttöön</string>
+  <string name="notifications_poll_enable_negative">Ei nyt</string>
+  <string name="notifications_view_archived_button_text">Tarkastele arkistoituja ilmoituksia</string>
+  <string name="notification_preferences_title">Ilmoitusasetukset</string>
+  <string name="preference_category_notification_types">Sovelluksensisäisten ilmoitusten tyypit</string>
+  <string name="preference_title_notification_welcome">Tervetuloa</string>
+  <string name="preference_summary_notification_welcome">Käyttäjätunnus luodaan</string>
+  <string name="preference_title_notification_milestone">Virstanpylväs</string>
+  <string name="preference_summary_notification_milestone">Tietty muokkausmäärä saavutetaan</string>
+  <string name="preference_title_notification_thanks">Kiitokset</string>
+  <string name="preference_summary_notification_thanks">Joku kiittää sinua muokkauksestasi</string>
   <string name="view_continue_reading_card_title">Jatka lukemista</string>
   <string name="view_because_you_read_card_title">Koska luit</string>
   <string name="view_random_card_title">Satunnaistaminen</string>
