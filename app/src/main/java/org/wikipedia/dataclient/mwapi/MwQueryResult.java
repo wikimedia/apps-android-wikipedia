@@ -190,6 +190,7 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
             for (MwQueryPage page : pages) {
                 if (page.title().equals(convertedTitle.to())) {
                     page.convertedFrom(convertedTitle.from());
+                    page.convertedTo(convertedTitle.to());
                 }
             }
         }
@@ -214,7 +215,7 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         }
     }
 
-    private static class ConvertedTitle {
+    public static class ConvertedTitle {
         @SuppressWarnings("unused") @Nullable private String from;
         @SuppressWarnings("unused") @Nullable private String to;
 

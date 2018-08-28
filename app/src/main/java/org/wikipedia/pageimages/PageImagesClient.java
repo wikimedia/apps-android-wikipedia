@@ -54,14 +54,16 @@ public class PageImagesClient {
                         titlesMap.put(title.getPrefixedText(), title);
                     }
                     Map<String, String> thumbnailSourcesMap = new ArrayMap<>();
+                    Map<String, String> convertedTitleMap = new ArrayMap<>();
 
                     // noinspection ConstantConditions
                     for (MwQueryPage page : response.body().query().pages()) {
                         thumbnailSourcesMap.put(new PageTitle(null, page.title(),
                                 wiki).getPrefixedText(), page.thumbUrl());
                         if (!TextUtils.isEmpty(page.convertedFrom())) {
-                            thumbnailSourcesMap.put(new PageTitle(null, page.convertedFrom(),
-                                    wiki).getPrefixedText(), page.thumbUrl());
+                            PageTitle pageTitle = new PageTitle(null, page.convertedFrom(), wiki);
+                            convertedTitleMap.put(pageTitle.getPrefixedText(), page.convertedTo());
+                            thumbnailSourcesMap.put(pageTitle.getPrefixedText(), page.thumbUrl());
                         }
                         if (!TextUtils.isEmpty(page.redirectFrom())) {
                             thumbnailSourcesMap.put(new PageTitle(null, page.redirectFrom(),
@@ -72,6 +74,7 @@ public class PageImagesClient {
                     for (String key : titlesMap.keySet()) {
                         if (thumbnailSourcesMap.containsKey(key)) {
                             PageTitle title = titlesMap.get(key);
+                            title.setConvertedText(convertedTitleMap.get(key));
                             pageImagesMap.put(title, new PageImage(title, thumbnailSourcesMap.get(key)));
                         }
                     }

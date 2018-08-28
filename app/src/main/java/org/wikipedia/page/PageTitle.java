@@ -73,6 +73,8 @@ public class PageTitle implements Parcelable {
     @SerializedName("site") @NonNull private final WikiSite wiki;
     @Nullable private String description;
     @Nullable private final PageProperties properties;
+    // TODO: remove after the restbase endpoint supports ZH variants.
+    @Nullable private String convertedText;
 
     /**
      * Creates a new PageTitle object.
@@ -175,6 +177,7 @@ public class PageTitle implements Parcelable {
         this.properties = json.has("properties") ? new PageProperties(json.optJSONObject("properties")) : null;
         this.thumbUrl = json.optString("thumbUrl", null);
         this.description = json.optString("description", null);
+        this.convertedText = json.optString("convertedText", null);
     }
 
     @Nullable
@@ -219,6 +222,15 @@ public class PageTitle implements Parcelable {
         this.description = description;
     }
 
+    @NonNull
+    public String getConvertedText() {
+        return convertedText == null ? getPrefixedText() : convertedText;
+    }
+
+    public void setConvertedText(@Nullable String convertedText) {
+        this.convertedText = convertedText;
+    }
+
     @NonNull public String getDisplayText() {
         return getPrefixedText().replace("_", " ");
     }
@@ -252,6 +264,7 @@ public class PageTitle implements Parcelable {
             }
             json.put("thumbUrl", getThumbUrl());
             json.put("description", getDescription());
+            json.put("convertedText", getConvertedText());
             return json;
         } catch (JSONException e) {
             throw new RuntimeException(e);
@@ -321,6 +334,7 @@ public class PageTitle implements Parcelable {
         parcel.writeParcelable(properties, flags);
         parcel.writeString(thumbUrl);
         parcel.writeString(description);
+        parcel.writeString(convertedText);
     }
 
     @Override public boolean equals(Object o) {
@@ -383,5 +397,6 @@ public class PageTitle implements Parcelable {
         properties = in.readParcelable(PageProperties.class.getClassLoader());
         thumbUrl = in.readString();
         description = in.readString();
+        convertedText = in.readString();
     }
 }

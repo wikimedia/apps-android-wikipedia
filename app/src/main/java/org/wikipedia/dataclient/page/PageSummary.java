@@ -14,6 +14,7 @@ public interface PageSummary {
     @Nullable ServiceError getError();
     @Nullable String getTitle();
     @Nullable String getDisplayTitle();
+    @Nullable String getConvertedTitle();
     @Nullable String getExtract();
     @Nullable String getExtractHtml();
     @Nullable String getThumbnailUrl();

@@ -51,6 +51,11 @@ public class RbPageSummary implements PageSummary {
     }
 
     @Override @NonNull
+    public String getConvertedTitle() {
+        return title;
+    }
+
+    @Override @NonNull
     public Namespace getNamespace() {
         return namespace == null ? Namespace.MAIN : Namespace.of(namespace.id());
     }
