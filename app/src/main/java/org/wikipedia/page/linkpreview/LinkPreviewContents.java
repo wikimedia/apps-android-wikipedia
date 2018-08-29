@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 import android.text.Html;
 import android.text.TextUtils;
 
+import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
@@ -20,6 +22,7 @@ public class LinkPreviewContents {
 
     private final PageTitle title;
     private final CharSequence extract;
+    private final boolean disambiguation;
 
     public PageTitle getTitle() {
         return title;
@@ -29,13 +32,23 @@ public class LinkPreviewContents {
         return extract;
     }
 
+    public boolean isDisambiguation() {
+        return disambiguation;
+    }
+
     LinkPreviewContents(@NonNull PageSummary pageSummary, @NonNull WikiSite wiki) {
         title = new PageTitle(pageSummary.getTitle(), wiki);
+        disambiguation = pageSummary.getType().equals(PageSummary.TYPE_DISAMBIGUATION);
+        String extractStr;
         if (pageSummary instanceof RbPageSummary) {
-            extract = Html.fromHtml(pageSummary.getExtractHtml());
+            extractStr = pageSummary.getExtractHtml();
         } else {
-            extract = createLegacyExtractText(pageSummary, title.getWikiSite());
+            extractStr = createLegacyExtractText(pageSummary, title.getWikiSite());
         }
+        if (disambiguation) {
+            extractStr = "<p>" + WikipediaApp.getInstance().getString(R.string.link_preview_disambiguation_description) + "</p>" + extractStr;
+        }
+        extract = Html.fromHtml(extractStr);
         title.setThumbUrl(pageSummary.getThumbnailUrl());
     }
 

@@ -2,6 +2,7 @@ package org.wikipedia.dataclient.restbase.page;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -21,6 +22,7 @@ import org.wikipedia.page.PageTitle;
  * is sent as "normalizedtitle".
  */
 public class RbPageSummary implements PageSummary {
+    @SuppressWarnings("unused") @Nullable private String type;
     @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String title;
     @SuppressWarnings("unused") @Nullable private String normalizedtitle;
     @SuppressWarnings("unused,NullableProblems") @NonNull private String displaytitle;
@@ -61,6 +63,11 @@ public class RbPageSummary implements PageSummary {
     @Override @NonNull
     public Namespace getNamespace() {
         return namespace == null ? Namespace.MAIN : Namespace.of(namespace.id());
+    }
+
+    @Override @NonNull
+    public String getType() {
+        return TextUtils.isEmpty(type) ? TYPE_STANDARD : type;
     }
 
     @Override @Nullable

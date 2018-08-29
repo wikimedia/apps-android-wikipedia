@@ -63,4 +63,13 @@ public class MwQueryPageSummary extends MwQueryResponse implements PageSummary {
         }
         return query().firstPage().namespace();
     }
+
+    @NonNull @Override
+    public String getType() {
+        if (query() != null && query().firstPage() != null && query().firstPage().pageProps() != null
+                && query().firstPage().pageProps().isDisambiguation()) {
+            return TYPE_DISAMBIGUATION;
+        }
+        return TYPE_STANDARD;
+    }
 }

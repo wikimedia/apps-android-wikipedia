@@ -180,6 +180,7 @@ public class MwQueryPage extends BaseModel {
     public static class PageProps {
         @SuppressWarnings("unused") @SerializedName("wikibase_item") @Nullable private String wikiBaseItem;
         @SuppressWarnings("unused") @Nullable private String displaytitle;
+        @SuppressWarnings("unused") @Nullable private String disambiguation;
 
         @Nullable public String getDisplayTitle() {
             return displaytitle;
@@ -187,6 +188,10 @@ public class MwQueryPage extends BaseModel {
 
         @Nullable public String getWikiBaseItem() {
             return wikiBaseItem;
+        }
+
+        public boolean isDisambiguation() {
+            return disambiguation != null;
         }
     }
 }

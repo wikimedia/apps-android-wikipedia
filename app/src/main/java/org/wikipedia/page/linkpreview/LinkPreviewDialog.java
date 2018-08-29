@@ -257,6 +257,10 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
             extractText.setText(contents.getExtract());
         }
         ViewUtil.loadImageUrlInto(thumbnailView, contents.getTitle().getThumbUrl());
+        if (overlayView != null) {
+            overlayView.setPrimaryButtonText(getStringForArticleLanguage(pageTitle,
+                    contents.isDisambiguation() ? R.string.button_continue_to_disambiguation : R.string.button_continue_to_article));
+        }
     }
 
     private retrofit2.Callback<PageSummary> linkPreviewCallback
