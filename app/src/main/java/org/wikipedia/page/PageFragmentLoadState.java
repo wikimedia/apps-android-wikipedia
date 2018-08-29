@@ -457,7 +457,8 @@ public class PageFragmentLoadState {
                 .put("isFilePage", page.isFilePage())
                 .put("fromRestBase", page.isFromRestBase())
                 .put("apiLevel", Build.VERSION.SDK_INT)
-                .put("showImages", Prefs.isImageDownloadEnabled());
+                .put("showImages", Prefs.isImageDownloadEnabled())
+                .put("collapseTables", Prefs.isCollapseTablesEnabled());
     }
 
     private JSONObject leadSectionPayload(@NonNull Page page) {
