@@ -32,6 +32,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.NotificationSettingsActivity;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -280,15 +281,24 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         notificationContainerList.clear();
         long millis = Long.MAX_VALUE;
         for (Notification n : notificationList) {
-            if (!TextUtils.isEmpty(currentSearchQuery) && n.getContents() != null
-                    && !n.getContents().getHeader().contains(currentSearchQuery)) {
-                continue;
+
+            // TODO: remove this condition when the time is right.
+            if ((n.type().equals(Notification.TYPE_WELCOME) && Prefs.notificationWelcomeEnabled())
+                    || (n.type().equals(Notification.TYPE_EDIT_THANK) && Prefs.notificationThanksEnabled())
+                    || (n.type().equals(Notification.TYPE_EDIT_MILESTONE) && Prefs.notificationMilestoneEnabled())
+                    || Prefs.showAllNotifications()) {
+
+                if (!TextUtils.isEmpty(currentSearchQuery) && n.getContents() != null
+                        && !n.getContents().getHeader().contains(currentSearchQuery)) {
+                    continue;
+                }
+                if (millis - n.getTimestamp().getTime() > TimeUnit.DAYS.toMillis(1)) {
+                    notificationContainerList.add(new NotificationListItemContainer(n.getTimestamp()));
+                    millis = n.getTimestamp().getTime();
+                }
+                notificationContainerList.add(new NotificationListItemContainer(n));
+
             }
-            if (millis - n.getTimestamp().getTime() > TimeUnit.DAYS.toMillis(1)) {
-                notificationContainerList.add(new NotificationListItemContainer(n.getTimestamp()));
-                millis = n.getTimestamp().getTime();
-            }
-            notificationContainerList.add(new NotificationListItemContainer(n));
         }
         recyclerView.getAdapter().notifyDataSetChanged();
 

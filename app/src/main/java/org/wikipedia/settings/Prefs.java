@@ -589,6 +589,10 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_notification_thanks_enable, true);
     }
 
+    public static boolean showAllNotifications() {
+        return getBoolean(R.string.preference_key_notification_show_all, false);
+    }
+
     public static boolean preferOfflineContent() {
         return getBoolean(R.string.preference_key_prefer_offline_content, false);
     }

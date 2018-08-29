@@ -145,8 +145,15 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
             }
             locallyKnownModified = true;
 
-            NotificationPresenter.showNotification(context, n, dbNameWikiNameMap.containsKey(n.wiki()) ? dbNameWikiNameMap.get(n.wiki()) : n.wiki());
+            // TODO: remove these conditions when the time is right.
+            if ((n.type().equals(Notification.TYPE_WELCOME) && Prefs.notificationWelcomeEnabled())
+                    || (n.type().equals(Notification.TYPE_EDIT_THANK) && Prefs.notificationThanksEnabled())
+                    || (n.type().equals(Notification.TYPE_EDIT_MILESTONE) && Prefs.notificationMilestoneEnabled())
+                    || Prefs.showAllNotifications()) {
 
+                NotificationPresenter.showNotification(context, n, dbNameWikiNameMap.containsKey(n.wiki()) ? dbNameWikiNameMap.get(n.wiki()) : n.wiki());
+
+            }
         }
 
         if (locallyKnownModified) {
