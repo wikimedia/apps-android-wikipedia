@@ -35,6 +35,7 @@ public class MwQueryPage extends BaseModel {
     @SuppressWarnings("unused") @SerializedName("videoinfo") @Nullable private List<VideoInfo> videoInfo;
     @Nullable private String redirectFrom;
     @Nullable private String convertedFrom;
+    @Nullable private String convertedTo;
 
     @NonNull public String title() {
         return title;
@@ -108,6 +109,14 @@ public class MwQueryPage extends BaseModel {
 
     public void convertedFrom(@Nullable String from) {
         convertedFrom = from;
+    }
+
+    @Nullable public String convertedTo() {
+        return convertedTo;
+    }
+
+    public void convertedTo(@Nullable String to) {
+        convertedTo = to;
     }
 
     public void appendTitleFragment(@Nullable String fragment) {

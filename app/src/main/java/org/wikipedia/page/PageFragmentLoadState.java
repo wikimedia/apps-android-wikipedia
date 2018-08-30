@@ -598,6 +598,8 @@ public class PageFragmentLoadState {
                             app.getDatabaseClient(PageImage.class)
                                     .upsert(pageImage, PageImageHistoryContract.Image.SELECTION);
                             updateThumbnail(pageImage.getImageName());
+                            // TODO: remove after the restbase endpoint supports ZH variants
+                            model.getTitle().setConvertedText(pageImage.getTitle().getConvertedText());
                         }
                     }
                     @Override public void failure(@NonNull Call<MwQueryResponse> call,

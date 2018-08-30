@@ -27,6 +27,14 @@ public class MwQueryPageSummary extends MwQueryResponse implements PageSummary {
                 ? query().firstPage().pageProps().getDisplayTitle() : query().firstPage().title();
     }
 
+    @Override @Nullable public String getConvertedTitle() {
+        if (query() == null || query().firstPage() == null) {
+            return null;
+        }
+        return (query().firstPage().convertedTo() != null && !TextUtils.isEmpty(query().firstPage().convertedTo()))
+                ? query().firstPage().convertedTo() : query().firstPage().title();
+    }
+
     @Override @Nullable
     public String getExtract() {
         if (query() == null || query().firstPage() == null) {
