@@ -464,6 +464,11 @@ public class BottomContentView extends LinearLayoutOverWebView
                                 setPrimaryActionDrawable((ImageView) view, pageTitle);
 
                             }
+
+                            @Override
+                            public void onShare() {
+                                // ignore
+                            }
                         }).show(pageTitle);
                     }
                 }

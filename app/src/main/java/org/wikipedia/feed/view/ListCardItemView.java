@@ -7,9 +7,6 @@ import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.PopupMenu;
-import android.view.Gravity;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -20,6 +17,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.readinglist.ReadingListBookmarkMenu;
+import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.GoneIfEmptyTextView;
@@ -84,10 +83,28 @@ public class ListCardItemView extends ConstraintLayout {
     }
 
     @OnClick(R.id.view_list_card_item_menu) void showOverflowMenu(View anchorView) {
-        PopupMenu menu = new PopupMenu(getContext(), anchorView, Gravity.END);
-        menu.getMenuInflater().inflate(R.menu.menu_feed_card_item, menu.getMenu());
-        menu.setOnMenuItemClickListener(new CardItemMenuClickListener());
-        menu.show();
+        new ReadingListBookmarkMenu(anchorView, true, new ReadingListBookmarkMenu.Callback() {
+            @Override
+            public void onAddRequest(@Nullable ReadingListPage page) {
+                if (getCallback() != null && entry != null) {
+                    getCallback().onAddPageToList(entry);
+                }
+            }
+
+            @Override
+            public void onDeleted(@Nullable ReadingListPage page) {
+                if (getCallback() != null && entry != null) {
+                    getCallback().onRemovePageFromList(entry);
+                }
+            }
+
+            @Override
+            public void onShare() {
+                if (getCallback() != null && entry != null) {
+                    getCallback().onSharePage(entry);
+                }
+            }
+        }).show(entry.getTitle());
     }
 
     @VisibleForTesting @Nullable Callback getCallback() {
@@ -108,27 +125,5 @@ public class ListCardItemView extends ConstraintLayout {
 
     @VisibleForTesting void setSubtitle(@Nullable CharSequence text) {
         subtitleView.setText(text != null ? StringUtils.capitalize(text.toString()) : null);
-    }
-
-    private class CardItemMenuClickListener implements PopupMenu.OnMenuItemClickListener {
-        @Override public boolean onMenuItemClick(MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.menu_feed_card_item_save:
-                    if (callback != null && entry != null) {
-                        callback.onAddPageToList(entry);
-                        return true;
-                    }
-                    break;
-                case R.id.menu_feed_card_item_share:
-                    if (callback != null && entry != null) {
-                        callback.onSharePage(entry);
-                        return true;
-                    }
-                    break;
-                default:
-                    break;
-            }
-            return false;
-        }
     }
 }
