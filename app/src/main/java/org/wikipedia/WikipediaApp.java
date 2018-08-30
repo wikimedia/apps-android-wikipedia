@@ -154,6 +154,7 @@ public class WikipediaApp extends Application {
     public void onCreate() {
         super.onCreate();
 
+        WikiSite.setDefaultBaseUrl(Prefs.getMediaWikiBaseUrl());
         zeroHandler = new WikipediaZeroHandler(this);
 
         // HockeyApp exception handling interferes with the test runner, so enable it only for

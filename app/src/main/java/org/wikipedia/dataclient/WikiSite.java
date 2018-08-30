@@ -10,7 +10,6 @@ import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.language.AppLanguageLookUpTable;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.UriUtil;
 
 /**
@@ -39,6 +38,7 @@ import org.wikipedia.util.UriUtil;
  */
 public class WikiSite implements Parcelable {
     public static final String DEFAULT_SCHEME = "https";
+    private static String DEFAULT_BASE_URL;
 
     public static final Parcelable.Creator<WikiSite> CREATOR = new Parcelable.Creator<WikiSite>() {
         @Override
@@ -57,11 +57,15 @@ public class WikiSite implements Parcelable {
     @NonNull private String languageCode;
 
     public static boolean supportedAuthority(@NonNull String authority) {
-        return authority.endsWith(Prefs.getMediaWikiBaseUri().getAuthority());
+        return authority.endsWith(Uri.parse(DEFAULT_BASE_URL).getAuthority());
+    }
+
+    public static void setDefaultBaseUrl(@NonNull String url) {
+        DEFAULT_BASE_URL = url;
     }
 
     public static WikiSite forLanguageCode(@NonNull String languageCode) {
-        Uri uri = ensureScheme(Prefs.getMediaWikiBaseUri());
+        Uri uri = ensureScheme(Uri.parse(DEFAULT_BASE_URL));
         return new WikiSite((languageCode.isEmpty()
                 ? "" : (languageCodeToSubdomain(languageCode) + ".")) + uri.getAuthority(),
                 languageCode);

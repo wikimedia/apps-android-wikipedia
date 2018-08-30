@@ -86,7 +86,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @NonNull private WikipediaApp app = WikipediaApp.getInstance();
     @NonNull private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     @Nullable private PageTitle pageTitle;
-    @Nullable private WikiSite wiki;
 
     @BindView(R.id.gallery_toolbar_container) ViewGroup toolbarContainer;
     @BindView(R.id.gallery_toolbar) Toolbar toolbar;
@@ -173,14 +172,14 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             pageTitle = getIntent().getParcelableExtra(EXTRA_PAGETITLE);
         }
         initialFilename = getIntent().getStringExtra(EXTRA_FILENAME);
-        wiki = getIntent().getParcelableExtra(EXTRA_WIKI);
 
         galleryAdapter = new GalleryItemAdapter(GalleryActivity.this);
         galleryPager.setAdapter(galleryAdapter);
         pageChangeListener = new GalleryPageChangeListener();
         galleryPager.addOnPageChangeListener(pageChangeListener);
 
-        funnel = new GalleryFunnel(app, wiki, getIntent().getIntExtra(EXTRA_SOURCE, 0));
+        funnel = new GalleryFunnel(app, getIntent().getParcelableExtra(EXTRA_WIKI),
+                getIntent().getIntExtra(EXTRA_SOURCE, 0));
 
         if (savedInstanceState == null) {
             if (initialFilename != null) {

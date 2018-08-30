@@ -1,6 +1,5 @@
 package org.wikipedia.settings;
 
-import android.net.Uri;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -329,9 +328,8 @@ public final class Prefs {
     }
 
     @NonNull
-    public static Uri getMediaWikiBaseUri() {
-        return Uri.parse(defaultIfBlank(getString(R.string.preference_key_mediawiki_base_uri, null),
-                Constants.WIKIPEDIA_URL));
+    public static String getMediaWikiBaseUrl() {
+        return defaultIfBlank(getString(R.string.preference_key_mediawiki_base_uri, null), Constants.WIKIPEDIA_URL);
     }
 
     public static boolean getMediaWikiBaseUriSupportsLangCode() {
