@@ -44,7 +44,7 @@ public class ImageLicenseFetchClientTest extends MockWebServerTest{
 
         ImageLicense result = captor.getValue();
 
-        assertThat(result.getLicense(), is("cc-by-sa-4.0"));
+        assertThat(result.getLicenseName(), is("cc-by-sa-4.0"));
         assertThat(result.getLicenseShortName(), is("CC BY-SA 4.0"));
         assertThat(result.getLicenseUrl(), is("http://creativecommons.org/licenses/by-sa/4.0"));
     }

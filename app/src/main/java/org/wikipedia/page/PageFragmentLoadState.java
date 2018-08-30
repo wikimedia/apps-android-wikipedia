@@ -600,6 +600,7 @@ public class PageFragmentLoadState {
                             updateThumbnail(pageImage.getImageName());
                             // TODO: remove after the restbase endpoint supports ZH variants
                             model.getTitle().setConvertedText(pageImage.getTitle().getConvertedText());
+                            model.getTitleOriginal().setConvertedText(pageImage.getTitle().getConvertedText());
                         }
                     }
                     @Override public void failure(@NonNull Call<MwQueryResponse> call,

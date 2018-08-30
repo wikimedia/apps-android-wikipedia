@@ -3,125 +3,151 @@ package org.wikipedia.gallery;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.apache.commons.lang3.StringUtils;
+import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.lang3.StringUtils;
+import org.wikipedia.util.ImageUrlUtil;
+import org.wikipedia.util.StringUtil;
+
+import java.io.Serializable;
 import java.util.List;
 
-public class GalleryItem {
-    @NonNull private String name;
-    @Nullable private String url;
-    @NonNull private String mimeType;
-    @Nullable private ExtMetadata metadata;
-    @Nullable private String thumbUrl;
-    private int width;
-    private int height;
-    @NonNull private ImageLicense license;
-    @Nullable private List<Derivative> derivatives;
+import static org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE;
 
-    public GalleryItem(@NonNull String title, @NonNull ImageInfo imageInfo) {
-        boolean video = imageInfo instanceof VideoInfo;
-        this.name = title;
-        this.url = video ? StringUtils.defaultString(getWebmUrlIfExists((VideoInfo) imageInfo), "")
-                : StringUtils.defaultString(imageInfo.getOriginalUrl(), "");
-        this.mimeType = imageInfo.getMimeType();
-        this.thumbUrl = imageInfo.getThumbUrl();
-        this.width = imageInfo.getWidth();
-        this.height = imageInfo.getHeight();
-        this.metadata = imageInfo.getMetadata();
-        this.license = this.metadata != null ? new ImageLicense(this.metadata) : new ImageLicense();
+public class GalleryItem implements Serializable {
+    @SuppressWarnings("unused") @SerializedName("section_id") private int sectionId;
+    @SuppressWarnings("unused,NullableProblems") @NonNull private String type;
+    @SuppressWarnings("unused,NullableProblems") @Nullable @SerializedName("audio_type") private String audioType;
+    @SuppressWarnings("unused") @Nullable private TextInfo caption;
+    @SuppressWarnings("unused") private boolean showInGallery;
+    @SuppressWarnings("unused") @NonNull private Titles titles;
+    @SuppressWarnings("unused") @NonNull private ImageInfo thumbnail;
+    @SuppressWarnings("unused") @Nullable private ImageInfo original;
+    @SuppressWarnings("unused") @Nullable private List<VideoInfo> sources;
+    @SuppressWarnings("unused,NullableProblems") @Nullable @SerializedName("file_page") private String filePage;
+    @SuppressWarnings("unused") @Nullable private ArtistInfo artist;
+    @SuppressWarnings("unused") private double duration;
+    @SuppressWarnings("unused") @NonNull private ImageLicense license;
+    @SuppressWarnings("unused") @Nullable private TextInfo description;
+    // FIXME: The type of credit will return either string or another type of object
+    // @SuppressWarnings("unused") @Nullable private String credit;
 
-        if (video) {
-            this.derivatives = ((VideoInfo) imageInfo).getDerivatives();
-        }
-    }
-
-    private String getWebmUrlIfExists(@NonNull VideoInfo videoInfo) {
-        if (videoInfo.getDerivatives() != null) {
-            for (Derivative derivative : videoInfo.getDerivatives()) {
-                if (derivative.getType() != null && derivative.getType().contains("webm")) {
-                    return derivative.getSrc();
-                }
-            }
-        }
-        return null;
-    }
-
-    // GalleryItem constructor for Featured Images from the feed, where we know enough to display it
-    // in the gallery but don't have a lot of extra info
-    GalleryItem(String name) {
-        this.name = name;
-        this.url = null;
-        this.mimeType = "*/*";
-        this.thumbUrl = null;
-        this.metadata = null;
-        this.width = 0;
-        this.height = 0;
+    public GalleryItem(@NonNull String title) {
+        this.type = "*/*";
+        this.titles = new Titles(title, StringUtil.addUnderscores(title), title);
+        this.original = new ImageInfo();
+        this.thumbnail = new ImageInfo();
+        this.description = new TextInfo();
         this.license = new ImageLicense();
     }
 
-    @NonNull public String getName() {
-        return name;
+    @NonNull
+    public String getType() {
+        return StringUtils.defaultString(type);
     }
 
-    // TODO: Convert to Uri
-    @Nullable public String getUrl() {
-        return url;
+    @NonNull
+    public String getAudioType() {
+        return StringUtils.defaultString(audioType);
     }
 
-    void setUrl(@NonNull String url) {
-        this.url = url;
+    @Nullable
+    public TextInfo getCaption() {
+        return caption;
     }
 
-    @NonNull public String getMimeType() {
-        return mimeType;
+    public boolean isShowInGallery() {
+        return showInGallery;
     }
 
-    void setMimeType(@NonNull String mimeType) {
-        this.mimeType = mimeType;
+    @NonNull
+    public Titles getTitles() {
+        return titles;
     }
 
-    @Nullable public ExtMetadata getMetadata() {
-        return metadata;
+    @NonNull
+    public ImageInfo getThumbnail() {
+        return thumbnail;
     }
 
-    // TODO: Convert to Uri
-    @Nullable public String getThumbUrl() {
-        return thumbUrl;
+    @NonNull
+    public String getThumbnailUrl() {
+        return StringUtils.defaultString(getThumbnail().getSource());
     }
 
-    void setThumbUrl(@NonNull String thumbUrl) {
-        this.thumbUrl = thumbUrl;
+    @NonNull
+    public String getPreferredSizedImageUrl() {
+        return ImageUrlUtil.getUrlForPreferredSize(getThumbnailUrl(), PREFERRED_GALLERY_IMAGE_SIZE);
     }
 
-    public int getWidth() {
-        return width;
+    @Nullable
+    public ImageInfo getOriginal() {
+        return original;
     }
 
-    void setWidth(int width) {
-        this.width = width;
+    @Nullable
+    public List<VideoInfo> getSources() {
+        return sources;
     }
 
-    public int getHeight() {
-        return height;
+    @Nullable
+    public VideoInfo getOriginalVideoSource() {
+        // TODO: the getSources has different levels of source,
+        // should have an option that allows user to chose which quality to play
+        return sources == null || sources.size() == 0
+                ? null : sources.get(sources.size() - 1);
     }
 
-    void setHeight(int height) {
-        this.height = height;
+    public double getDuration() {
+        return duration;
     }
 
-    @NonNull public ImageLicense getLicense() {
+    @NonNull
+    public String getFilePage() {
+        return StringUtils.defaultString(filePage);
+    }
+
+    @Nullable
+    public ArtistInfo getArtist() {
+        return artist;
+    }
+
+    @NonNull
+    public ImageLicense getLicense() {
         return license;
     }
 
-    void setLicense(@NonNull ImageLicense license) {
-        this.license = license;
+    @Nullable
+    public TextInfo getDescription() {
+        return description;
     }
 
-    @NonNull public String getLicenseUrl() {
-        return license.getLicenseUrl();
-    }
+    // TODO: Move the following models into a folder
 
-    @Nullable public List<Derivative> getDerivatives() {
-        return derivatives;
+    public static class Titles {
+        @SuppressWarnings("unused,NullableProblems") @Nullable private String canonical;
+        @SuppressWarnings("unused,NullableProblems") @Nullable private String normalized;
+        @SuppressWarnings("unused,NullableProblems") @Nullable private String display;
+
+        Titles(@NonNull String display, @NonNull String canonical, @NonNull String normalized) {
+            this.display = display;
+            this.canonical = canonical;
+            this.normalized = normalized;
+        }
+
+        @NonNull
+        public String getCanonical() {
+            return StringUtils.defaultString(canonical);
+        }
+
+        @NonNull
+        public String getNormalized() {
+            return StringUtils.defaultString(normalized);
+        }
+
+        @NonNull
+        public String getDisplay() {
+            return StringUtils.defaultString(display);
+        }
     }
 }

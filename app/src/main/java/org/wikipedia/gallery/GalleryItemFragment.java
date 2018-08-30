@@ -31,28 +31,26 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
-import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ZoomableDraweeViewWithBackground;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import retrofit2.Call;
 
 import static org.wikipedia.util.PermissionUtil.hasWriteExternalStoragePermission;
 import static org.wikipedia.util.PermissionUtil.requestWriteStorageRuntimePermissions;
 
 public class GalleryItemFragment extends Fragment {
     public static final String ARG_PAGETITLE = "pageTitle";
-    public static final String ARG_MEDIATITLE = "imageTitle";
-    public static final String ARG_MIMETYPE = "mimeType";
+    public static final String ARG_GALLERY_ITEM = "galleryItem";
     public static final String ARG_FEED_FEATURED_IMAGE = "feedFeaturedImage";
     public static final String ARG_AGE = "age";
 
@@ -70,30 +68,26 @@ public class GalleryItemFragment extends Fragment {
     @Nullable private Unbinder unbinder;
 
     private MediaController mediaController;
+    private int age;
 
     @NonNull private WikipediaApp app = WikipediaApp.getInstance();
     @Nullable private GalleryActivity parentActivity;
     @Nullable private PageTitle pageTitle;
     @SuppressWarnings("NullableProblems") @NonNull private PageTitle imageTitle;
-    @Nullable private String mimeType;
-    private int age;
-
     @Nullable private GalleryItem galleryItem;
     @Nullable public GalleryItem getGalleryItem() {
         return galleryItem;
     }
 
-    public static GalleryItemFragment newInstance(@Nullable PageTitle pageTitle, @NonNull WikiSite wiki,
-                                                  @NonNull GalleryItem galleryItemProto) {
+    public static GalleryItemFragment newInstance(@Nullable PageTitle pageTitle, @NonNull GalleryItem galleryItem) {
         GalleryItemFragment f = new GalleryItemFragment();
         Bundle args = new Bundle();
         args.putParcelable(ARG_PAGETITLE, pageTitle);
-        args.putParcelable(ARG_MEDIATITLE, new PageTitle(galleryItemProto.getName(), wiki));
-        args.putString(ARG_MIMETYPE, galleryItemProto.getMimeType());
+        args.putSerializable(ARG_GALLERY_ITEM, galleryItem);
 
-        if (galleryItemProto instanceof FeaturedImageGalleryItem) {
+        if (galleryItem instanceof FeaturedImageGalleryItem) {
             args.putBoolean(ARG_FEED_FEATURED_IMAGE, true);
-            args.putInt(ARG_AGE, ((FeaturedImageGalleryItem) galleryItemProto).getAge());
+            args.putInt(ARG_AGE, ((FeaturedImageGalleryItem) galleryItem).getAge());
         }
 
         f.setArguments(args);
@@ -103,10 +97,11 @@ public class GalleryItemFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        galleryItem = (GalleryItem) getArguments().getSerializable(ARG_GALLERY_ITEM);
         pageTitle = getArguments().getParcelable(ARG_PAGETITLE);
-        //noinspection ConstantConditions
-        imageTitle = getArguments().getParcelable(ARG_MEDIATITLE);
-        mimeType = getArguments().getString(ARG_MIMETYPE);
+        // TODO: other way not to use the deprecated method?
+        imageTitle = new PageTitle(Namespace.FILE.toLegacyString(),
+                StringUtil.removeNamespace(galleryItem.getTitles().getCanonical()), app.getWikiSite());
 
         if (getArguments().getBoolean(ARG_FEED_FEATURED_IMAGE)) {
             age = getArguments().getInt(ARG_AGE);
@@ -114,7 +109,7 @@ public class GalleryItemFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_gallery_item, container, false);
         unbinder = ButterKnife.bind(this, rootView);
 
@@ -138,13 +133,8 @@ public class GalleryItemFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
         parentActivity = (GalleryActivity) getActivity();
-        // do we already have a prepopulated item in the gallery cache?
-        galleryItem = parentActivity.getGalleryCache().get(imageTitle);
-        if (galleryItem == null) {
-            loadGalleryItem();
-        } else {
-            loadMedia();
-        }
+
+        loadMedia();
     }
 
     @Override
@@ -180,9 +170,9 @@ public class GalleryItemFragment extends Fragment {
         }
         menu.findItem(R.id.menu_gallery_visit_page).setEnabled(galleryItem != null);
         menu.findItem(R.id.menu_gallery_share).setEnabled(galleryItem != null
-                && !TextUtils.isEmpty(galleryItem.getUrl()) && imageView.getDrawable() != null);
+                && !TextUtils.isEmpty(galleryItem.getThumbnailUrl()) && imageView.getDrawable() != null);
         menu.findItem(R.id.menu_gallery_save).setEnabled(galleryItem != null
-                && !TextUtils.isEmpty(galleryItem.getUrl()) && imageView.getDrawable() != null);
+                && !TextUtils.isEmpty(galleryItem.getThumbnailUrl()) && imageView.getDrawable() != null);
     }
 
     @Override
@@ -244,52 +234,13 @@ public class GalleryItemFragment extends Fragment {
     }
 
     /**
-     * Perform a network request to load information and metadata for our gallery item.
-     */
-    private void loadGalleryItem() {
-        updateProgressBar(true, true, 0);
-        new GalleryItemClient().request(imageTitle.getWikiSite(), imageTitle,
-                new GalleryItemClient.Callback() {
-                    @Override
-                    public void success(@NonNull Call<MwQueryResponse> call, @NonNull GalleryItem result) {
-                        if (!isAdded()) {
-                            return;
-                        }
-                        galleryItem = result;
-                        parentActivity.getGalleryCache().put(pageTitle, result);
-                        loadMedia();
-                    }
-
-                    @Override
-                    public void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
-                        if (!isAdded()) {
-                            return;
-                        }
-                        updateProgressBar(false, true, 0);
-                        parentActivity.showError(caught, true);
-                        L.e(caught);
-                    }
-                }, FileUtil.isVideo(mimeType));
-    }
-
-    /**
      * Load the actual media associated with our gallery item into the UI.
      */
     private void loadMedia() {
-        if (FileUtil.isVideo(mimeType)) {
+        if (FileUtil.isVideo(galleryItem.getType())) {
             loadVideo();
         } else {
-            // it's actually OK to use the thumbUrl in all cases, and here's why:
-            // - in the case of a JPG or PNG image:
-            //     - if the image is bigger than the requested thumbnail size, then the
-            //       thumbnail will correctly be a scaled-down version of the image, so
-            //       that it won't overload the device's bitmap buffer.
-            //     - if the image is smaller than the requested thumbnail size, then the
-            //       thumbnail url will be the same as the actual image url.
-            // - in the case of an SVG file:
-            //     - we need the thumbnail image anyway, since the ImageView can't
-            //       display SVGs.
-            loadImage(galleryItem.getThumbUrl());
+            loadImage(galleryItem.getPreferredSizedImageUrl());
         }
 
         parentActivity.supportInvalidateOptionsMenu();
@@ -305,7 +256,7 @@ public class GalleryItemFragment extends Fragment {
                 return;
             }
             loading = true;
-            L.d("Loading video from url: " + galleryItem.getUrl());
+            L.d("Loading video from url: " + galleryItem.getOriginalVideoSource().getOriginalUrl());
             videoView.setVisibility(View.VISIBLE);
             mediaController = new MediaController(parentActivity);
             updateProgressBar(true, true, 0);
@@ -331,7 +282,7 @@ public class GalleryItemFragment extends Fragment {
                 loading = false;
                 return true;
             });
-            videoView.setVideoURI(Uri.parse(galleryItem.getUrl()));
+            videoView.setVideoURI(Uri.parse(galleryItem.getOriginalVideoSource().getOriginalUrl()));
         }
     };
 
@@ -339,13 +290,13 @@ public class GalleryItemFragment extends Fragment {
         videoContainer.setVisibility(View.VISIBLE);
         videoPlayButton.setVisibility(View.VISIBLE);
         videoView.setVisibility(View.GONE);
-        if (TextUtils.isEmpty(galleryItem.getThumbUrl())) {
+        if (TextUtils.isEmpty(galleryItem.getThumbnailUrl())) {
             videoThumbnail.setVisibility(View.GONE);
         } else {
             // show the video thumbnail while the video loads...
             videoThumbnail.setVisibility(View.VISIBLE);
             videoThumbnail.setController(Fresco.newDraweeControllerBuilder()
-                    .setUri(galleryItem.getThumbUrl())
+                    .setUri(galleryItem.getThumbnail().getSource())
                     .setAutoPlayAnimations(true)
                     .setControllerListener(new BaseControllerListener<ImageInfo>() {
                         @Override
@@ -367,6 +318,7 @@ public class GalleryItemFragment extends Fragment {
         imageView.setVisibility(View.VISIBLE);
         L.v("Loading image from url: " + url);
 
+        updateProgressBar(true, true, 0);
         imageView.setDrawBackground(false);
         imageView.setController(Fresco.newDraweeControllerBuilder()
                 .setUri(url)
@@ -374,9 +326,6 @@ public class GalleryItemFragment extends Fragment {
                 .setControllerListener(new BaseControllerListener<ImageInfo>() {
                     @Override
                     public void onFinalImageSet(String id, ImageInfo imageInfo, Animatable animatable) {
-                        if (!isAdded()) {
-                            return;
-                        }
                         imageView.setDrawBackground(true);
                         updateProgressBar(false, true, 0);
                         parentActivity.supportInvalidateOptionsMenu();
@@ -384,11 +333,9 @@ public class GalleryItemFragment extends Fragment {
 
                     @Override
                     public void onFailure(String id, Throwable throwable) {
-                        if (!isAdded()) {
-                            return;
-                        }
                         updateProgressBar(false, true, 0);
                         FeedbackUtil.showMessage(getActivity(), R.string.gallery_error_draw_failed);
+                        L.d(throwable);
                     }
                 })
                 .build());
@@ -398,7 +345,7 @@ public class GalleryItemFragment extends Fragment {
         if (galleryItem == null) {
             return;
         }
-        new ImagePipelineBitmapGetter(galleryItem.getThumbUrl()){
+        new ImagePipelineBitmapGetter(galleryItem.getPreferredSizedImageUrl()){
             @Override
             public void onSuccess(@Nullable Bitmap bitmap) {
                 if (!isAdded()) {
@@ -433,7 +380,7 @@ public class GalleryItemFragment extends Fragment {
     @Nullable
     private String getShareSubject() {
         if (getArguments().getBoolean(ARG_FEED_FEATURED_IMAGE)) {
-            return ShareUtil.getFeaturedImageShareSubject(getContext(), age);
+            return ShareUtil.getFeaturedImageShareSubject(requireContext(), age);
         }
         return pageTitle != null ? pageTitle.getDisplayText() : null;
     }

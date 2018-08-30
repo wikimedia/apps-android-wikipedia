@@ -52,6 +52,7 @@ public final class Constants {
     public static final int API_QUERY_MAX_TITLES = 50;
 
     public static final int PREFERRED_THUMB_SIZE = 320;
+    public static final int PREFERRED_GALLERY_IMAGE_SIZE = 1280;
 
     public static final int MAX_TABS = 100;
     public static final int MAX_READING_LIST_ARTICLE_LIMIT = 5000;

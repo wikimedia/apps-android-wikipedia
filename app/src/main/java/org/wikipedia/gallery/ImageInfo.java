@@ -5,14 +5,16 @@ import android.support.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
- * Gson POJO for a standard image info object as returned by the API ImageInfo module via
- * GalleryCollectionClient's request
+ * Gson POJO for a standard image info object as returned by the API ImageInfo module
  */
 public class ImageInfo {
     @SuppressWarnings("unused") private int size;
     @SuppressWarnings("unused") private int width;
     @SuppressWarnings("unused") private int height;
+    @SuppressWarnings("unused,NullableProblems") @Nullable private String source;
     @SuppressWarnings("unused") @SerializedName("thumburl") @Nullable private String thumbUrl;
     @SuppressWarnings("unused") @SerializedName("thumbwidth") private int thumbWidth;
     @SuppressWarnings("unused") @SerializedName("thumbheight") private int thumbHeight;
@@ -21,6 +23,15 @@ public class ImageInfo {
     @SuppressWarnings("unused") @SerializedName("descriptionshorturl") @Nullable private String descriptionShortUrl;
     @SuppressWarnings("unused,NullableProblems") @SerializedName("mime") @NonNull private String mimeType = "*/*";
     @SuppressWarnings("unused") @SerializedName("extmetadata")@Nullable private ExtMetadata metadata;
+
+    @NonNull
+    public String getSource() {
+        return StringUtils.defaultString(source);
+    }
+
+    public void setSource(@Nullable String source) {
+        this.source = source;
+    }
 
     public int getSize() {
         return size;
@@ -38,28 +49,8 @@ public class ImageInfo {
         return thumbUrl;
     }
 
-    public int getThumbWidth() {
-        return thumbWidth;
-    }
-
-    public int getThumbHeight() {
-        return thumbHeight;
-    }
-
     @Nullable public String getOriginalUrl() {
-        return originalUrl;
-    }
-
-    @Nullable public String getDescriptionUrl() {
-        return descriptionUrl;
-    }
-
-    @Nullable public String getDescriptionShortUrl() {
-        return descriptionShortUrl;
-    }
-
-    @NonNull public String getMimeType() {
-        return mimeType;
+        return StringUtils.defaultString(originalUrl);
     }
 
     @Nullable public ExtMetadata getMetadata() {
