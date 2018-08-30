@@ -22,15 +22,6 @@ import static org.mockito.Mockito.when;
         assertThat(new PageTitle("Talk", "India",  WikiSite.forLanguageCode("ta")).equals("Something else"), is(false));
     }
 
-    @Test public void testJsonSerialization() throws Throwable {
-        WikiSite enwiki = WikiSite.forLanguageCode("en");
-        PageTitle title = new PageTitle(null, "Test title",  enwiki);
-        assertThat(title, is(new PageTitle(title.toJSON())));
-
-        title = new PageTitle("Talk", "Test title",  enwiki);
-        assertThat(new PageTitle(title.toJSON()), is(title));
-    }
-
     @Test public void testPrefixedText() throws Throwable {
         WikiSite enwiki = WikiSite.forLanguageCode("en");
 

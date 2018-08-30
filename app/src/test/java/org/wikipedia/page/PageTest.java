@@ -1,11 +1,9 @@
 package org.wikipedia.page;
 
-import org.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.page.BasePageLeadTest;
 
 import java.util.ArrayList;
 
@@ -20,18 +18,18 @@ public class PageTest {
     @Test
     public void testMediaWikiMarshalling() throws Throwable {
         PageTitle title = new PageTitle("Main page", WIKI, "//foo/thumb.jpg");
-        PageProperties props = new PageProperties(new JSONObject(BasePageLeadTest.getEnglishMainPageJson()));
+        PageProperties props = new PageProperties(title, true);
 
-        Page page = new Page(title, new ArrayList<Section>(), props, Page.MEDIAWIKI_ORIGIN);
+        Page page = new Page(title, new ArrayList<>(), props, Page.MEDIAWIKI_ORIGIN);
         assertThat(page.isFromRestBase(), is(false));
     }
 
     @Test
     public void testRestBaseMarshalling() throws Throwable {
         PageTitle title = new PageTitle("Main page", WIKI, "//foo/thumb.jpg");
-        PageProperties props = new PageProperties(new JSONObject(BasePageLeadTest.getEnglishMainPageJson()));
+        PageProperties props = new PageProperties(title, true);
 
-        Page page = new Page(title, new ArrayList<Section>(), props, Page.RESTBASE_ORIGIN);
+        Page page = new Page(title, new ArrayList<>(), props, Page.RESTBASE_ORIGIN);
         assertThat(page.isFromRestBase(), is(true));
     }
 }
