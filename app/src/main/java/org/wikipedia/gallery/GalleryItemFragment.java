@@ -31,6 +31,7 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
@@ -99,9 +100,9 @@ public class GalleryItemFragment extends Fragment {
         super.onCreate(savedInstanceState);
         galleryItem = (GalleryItem) getArguments().getSerializable(ARG_GALLERY_ITEM);
         pageTitle = getArguments().getParcelable(ARG_PAGETITLE);
-        // TODO: other way not to use the deprecated method?
         imageTitle = new PageTitle(Namespace.FILE.toLegacyString(),
-                StringUtil.removeNamespace(galleryItem.getTitles().getCanonical()), app.getWikiSite());
+                StringUtil.removeNamespace(galleryItem.getTitles().getCanonical()),
+                new WikiSite(galleryItem.getFilePage()));
 
         if (getArguments().getBoolean(ARG_FEED_FEATURED_IMAGE)) {
             age = getArguments().getInt(ARG_AGE);

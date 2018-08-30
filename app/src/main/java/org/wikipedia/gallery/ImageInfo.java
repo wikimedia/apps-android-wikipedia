@@ -7,10 +7,12 @@ import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
+
 /**
  * Gson POJO for a standard image info object as returned by the API ImageInfo module
  */
-public class ImageInfo {
+public class ImageInfo implements Serializable {
     @SuppressWarnings("unused") private int size;
     @SuppressWarnings("unused") private int width;
     @SuppressWarnings("unused") private int height;
