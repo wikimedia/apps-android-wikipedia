@@ -1,6 +1,5 @@
 package org.wikipedia.test;
 
-import org.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
@@ -23,7 +22,9 @@ import org.wikipedia.pageimages.PageImage;
     }
 
     @Test public void testPageProperties() throws Throwable {
-        PageProperties props = new PageProperties(new JSONObject("{\"protection\":{\"edit\":[\"autoconfirmed\"],\"move\":[\"sysop\"]},\"id\":15580374,\"displaytitle\":\"Something\",\"revision\":615503846,\"lastmodified\":\"\",\"editable\":false,\"mainpage\":false}"));
+        WikiSite wiki = WikiSite.forLanguageCode("en");
+        PageTitle title = new PageTitle("Talk", "India", wiki);
+        PageProperties props = new PageProperties(title, false);
         TestParcelUtil.test(props);
     }
 

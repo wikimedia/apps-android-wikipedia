@@ -8,14 +8,9 @@ import android.text.TextUtils;
 
 import com.google.gson.annotations.SerializedName;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.crash.RemoteLogException;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.log.L;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -164,22 +159,6 @@ public class PageTitle implements Parcelable {
         this.properties = properties;
     }
 
-    public PageTitle(JSONObject json) {
-        this.namespace = json.optString("namespace", null);
-        this.text = json.optString("text", null);
-        this.fragment = json.optString("fragment", null);
-        if (json.has("site")) {
-            wiki = new WikiSite(json.optString("site"), json.optString("languageCode"));
-        } else {
-            L.logRemoteErrorIfProd(new RemoteLogException("wiki is null").put("json", json.toString()));
-            wiki = WikipediaApp.getInstance().getWikiSite();
-        }
-        this.properties = json.has("properties") ? new PageProperties(json.optJSONObject("properties")) : null;
-        this.thumbUrl = json.optString("thumbUrl", null);
-        this.description = json.optString("description", null);
-        this.convertedText = json.optString("convertedText", null);
-    }
-
     @Nullable
     public String getNamespace() {
         return namespace;
@@ -253,22 +232,6 @@ public class PageTitle implements Parcelable {
 
     public boolean isDisambiguationPage() {
         return properties != null && properties.isDisambiguationPage();
-    }
-
-    public JSONObject toJSON() {
-        try {
-            JSONObject json = toIdentifierJSON();
-            json.put("languageCode", wiki.languageCode());
-            if (properties != null) {
-                json.put("properties", properties.toJSON());
-            }
-            json.put("thumbUrl", getThumbUrl());
-            json.put("description", getDescription());
-            json.put("convertedText", getConvertedText());
-            return json;
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     public String getCanonicalUri() {
@@ -359,20 +322,6 @@ public class PageTitle implements Parcelable {
 
     @Override public int describeContents() {
         return 0;
-    }
-
-    /** Please keep the ID stable. */
-    private JSONObject toIdentifierJSON() {
-        try {
-            JSONObject json = new JSONObject();
-            json.put("namespace", getNamespace());
-            json.put("text", getText());
-            json.put("fragment", getFragment());
-            json.put("site", wiki.authority());
-            return json;
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     private String getUriForDomain(String domain) {
