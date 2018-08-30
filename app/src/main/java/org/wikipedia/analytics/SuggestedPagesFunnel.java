@@ -5,8 +5,8 @@ import android.text.TextUtils;
 
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.search.SearchResult;
 
 import java.util.List;
 
@@ -36,7 +36,7 @@ public class SuggestedPagesFunnel extends Funnel {
         this.latency = latency;
     }
 
-    public void logSuggestionsShown(PageTitle currentPageTitle, List<SearchResult> suggestedTitles) {
+    public void logSuggestionsShown(PageTitle currentPageTitle, List<RbPageSummary> suggestedTitles) {
         log(
                 currentPageTitle.getWikiSite(),
                 "action", "shown",
@@ -46,7 +46,7 @@ public class SuggestedPagesFunnel extends Funnel {
         );
     }
 
-    public void logSuggestionClicked(PageTitle currentPageTitle, List<SearchResult> suggestedTitles,
+    public void logSuggestionClicked(PageTitle currentPageTitle, List<RbPageSummary> suggestedTitles,
                                      int clickedIndex) {
         log(
                 currentPageTitle.getWikiSite(),

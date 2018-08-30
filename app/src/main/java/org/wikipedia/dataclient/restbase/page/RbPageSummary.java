@@ -5,10 +5,12 @@ import android.support.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.dataclient.restbase.RbServiceError;
 import org.wikipedia.json.annotations.Required;
 import org.wikipedia.page.Namespace;
+import org.wikipedia.page.PageTitle;
 
 /**
  * A standardized page summary object constructed by RESTBase, used for link previews and as the
@@ -28,6 +30,7 @@ public class RbPageSummary implements PageSummary {
     @SuppressWarnings("unused") @Nullable private String description;
     @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
     @SuppressWarnings("unused") @Nullable @SerializedName("originalimage") private Thumbnail originalImage;
+    @SuppressWarnings("unused") @Nullable private String lang;
 
     @Override
     public boolean hasError() {
@@ -88,6 +91,11 @@ public class RbPageSummary implements PageSummary {
     @Nullable
     public String getOriginalImageUrl() {
         return originalImage == null ? null : originalImage.getUrl();
+    }
+
+    @NonNull
+    public PageTitle getPageTitle(@NonNull WikiSite wiki) {
+        return new PageTitle(getTitle(), wiki, getThumbnailUrl(), getDescription());
     }
 
     /**

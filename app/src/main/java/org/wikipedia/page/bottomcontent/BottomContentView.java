@@ -27,7 +27,8 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SuggestedPagesFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.concurrency.CallbackTask;
-import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.dataclient.restbase.RbRelatedPages;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Page;
@@ -38,9 +39,7 @@ import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
-import org.wikipedia.search.FullTextSearchClient;
-import org.wikipedia.search.SearchResult;
-import org.wikipedia.search.SearchResults;
+import org.wikipedia.search.RelatedPagesSearchClient;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GeoUtil;
@@ -90,7 +89,7 @@ public class BottomContentView extends LinearLayoutOverWebView
 
     private SuggestedPagesFunnel funnel;
     private ReadMoreAdapter readMoreAdapter = new ReadMoreAdapter();
-    private SearchResults readMoreItems;
+    private List<RbPageSummary> readMoreItems;
     private CommunicationBridge bridge;
 
     public BottomContentView(Context context) {
@@ -184,7 +183,7 @@ public class BottomContentView extends LinearLayoutOverWebView
     }
 
     @OnClick(R.id.page_view_map_container) void onViewMapClick(View v) {
-        GeoUtil.sendGeoIntent(parentFragment.getActivity(), page.getPageProperties().getGeo(), page.getDisplayTitle());
+        GeoUtil.sendGeoIntent(parentFragment.requireActivity(), page.getPageProperties().getGeo(), page.getDisplayTitle());
     }
 
     @Override
@@ -208,7 +207,7 @@ public class BottomContentView extends LinearLayoutOverWebView
             if (!firstTimeShown && readMoreItems != null) {
                 firstTimeShown = true;
                 readMoreAdapter.notifyDataSetChanged();
-                funnel.logSuggestionsShown(page.getTitle(), readMoreItems.getResults());
+                funnel.logSuggestionsShown(page.getTitle(), readMoreItems);
             }
         }
     }
@@ -309,30 +308,28 @@ public class BottomContentView extends LinearLayoutOverWebView
             return;
         }
         final long timeMillis = System.currentTimeMillis();
-        new FullTextSearchClient().requestMoreLike(entry.getTitle().getWikiSite(),
-                entry.getTitle().getPrefixedText(), null, null,
-                Constants.MAX_SUGGESTION_RESULTS * 2, new FullTextSearchClient.Callback() {
-                    @Override
-                    public void success(@NonNull Call<MwQueryResponse> call,
-                                        @NonNull SearchResults results) {
-                        funnel.setLatency(System.currentTimeMillis() - timeMillis);
-                        readMoreItems = SearchResults.filter(results, entry.getTitle().getPrefixedText(), true);
-                        if (!readMoreItems.getResults().isEmpty()) {
-                            readMoreAdapter.setResults(results.getResults());
-                            showReadMore();
-                        } else {
-                            // If there's no results, just hide the section
-                            hideReadMore();
-                        }
-                    }
 
-                    @Override
-                    public void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
-                        // Read More titles are expendable.
-                        L.w("Error while fetching Read More titles.", caught);
-                    }
+        new RelatedPagesSearchClient().request(entry.getTitle().getConvertedText(), entry.getTitle().getWikiSite(),
+                Constants.MAX_SUGGESTION_RESULTS * 2, new RelatedPagesSearchClient.Callback() {
+            @Override
+            public void success(@NonNull Call<RbRelatedPages> call, @Nullable List<RbPageSummary> results) {
+                funnel.setLatency(System.currentTimeMillis() - timeMillis);
+                readMoreItems = results;
+                if (readMoreItems != null && readMoreItems.size() > 0) {
+                    readMoreAdapter.setResults(results);
+                    showReadMore();
+                } else {
+                    // If there's no results, just hide the section
+                    hideReadMore();
                 }
-        );
+            }
+
+            @Override
+            public void failure(@NonNull Call<RbRelatedPages> call, @NonNull Throwable caught) {
+                // Read More titles are expendable.
+                L.w("Error while fetching Read More titles.", caught);
+            }
+        });
     }
 
     private void hideReadMore() {
@@ -358,26 +355,26 @@ public class BottomContentView extends LinearLayoutOverWebView
         @Override
         public PageTitle getTitleForListPosition(int position) {
             lastPosition = position;
-            return ((SearchResult) readMoreList.getAdapter().getItem(position)).getPageTitle();
+            return ((RbPageSummary) readMoreList.getAdapter().getItem(position)).getPageTitle(page.getTitle().getWikiSite());
         }
 
         @Override
         public void onOpenLink(PageTitle title, HistoryEntry entry) {
             super.onOpenLink(title, entry);
-            funnel.logSuggestionClicked(page.getTitle(), readMoreItems.getResults(), lastPosition);
+            funnel.logSuggestionClicked(page.getTitle(), readMoreItems, lastPosition);
         }
 
         @Override
         public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
             super.onOpenInNewTab(title, entry);
-            funnel.logSuggestionClicked(page.getTitle(), readMoreItems.getResults(), lastPosition);
+            funnel.logSuggestionClicked(page.getTitle(), readMoreItems, lastPosition);
         }
     }
 
-    private final class ReadMoreAdapter extends BaseAdapter implements PageItemView.Callback<SearchResult> {
-        private List<SearchResult> results;
+    private final class ReadMoreAdapter extends BaseAdapter implements PageItemView.Callback<RbPageSummary> {
+        private List<RbPageSummary> results;
 
-        public void setResults(List<SearchResult> results) {
+        public void setResults(List<RbPageSummary> results) {
             this.results = results;
             notifyDataSetChanged();
         }
@@ -388,7 +385,7 @@ public class BottomContentView extends LinearLayoutOverWebView
         }
 
         @Override
-        public SearchResult getItem(int position) {
+        public RbPageSummary getItem(int position) {
             return results.get(position);
         }
 
@@ -399,27 +396,28 @@ public class BottomContentView extends LinearLayoutOverWebView
 
         @Override
         public View getView(int position, View convView, ViewGroup parent) {
-            PageItemView<SearchResult> itemView = (PageItemView<SearchResult>) convView;
+            PageItemView<RbPageSummary> itemView = (PageItemView<RbPageSummary>) convView;
             if (itemView == null) {
                 itemView = new PageItemView<>(getContext());
                 itemView.setLayoutParams(new ListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             }
-            SearchResult result = getItem(position);
+            RbPageSummary result = getItem(position);
+            PageTitle pageTitle = result.getPageTitle(page.getTitle().getWikiSite());
             itemView.setItem(result);
 
             ImageView primaryActionBtn = itemView.findViewById(R.id.page_list_item_action_primary);
             primaryActionBtn.setVisibility(VISIBLE);
             if (firstTimeShown) {
-                setPrimaryActionDrawable(primaryActionBtn, result.getPageTitle());
+                setPrimaryActionDrawable(primaryActionBtn, pageTitle);
             }
             final int paddingEnd = 8;
             itemView.setPaddingRelative(itemView.getPaddingStart(), itemView.getPaddingTop(),
                     DimenUtil.roundedDpToPx(paddingEnd), itemView.getPaddingBottom());
 
             itemView.setCallback(this);
-            itemView.setTitle(result.getPageTitle().getDisplayText());
-            itemView.setDescription(StringUtils.capitalize(result.getPageTitle().getDescription()));
-            itemView.setImageUrl(result.getPageTitle().getThumbUrl());
+            itemView.setTitle(pageTitle.getDisplayText());
+            itemView.setDescription(StringUtils.capitalize(pageTitle.getDescription()));
+            itemView.setImageUrl(pageTitle.getThumbUrl());
             return itemView;
         }
 
@@ -434,51 +432,52 @@ public class BottomContentView extends LinearLayoutOverWebView
             });
         }
 
-        @Override public void onClick(@Nullable SearchResult item) {
-            PageTitle title = item.getPageTitle();
+        @Override public void onClick(@Nullable RbPageSummary item) {
+            PageTitle title = item.getPageTitle(page.getTitle().getWikiSite());
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
             parentFragment.loadPage(title, historyEntry);
-            funnel.logSuggestionClicked(page.getTitle(), readMoreItems.getResults(), results.indexOf(item));
+            funnel.logSuggestionClicked(page.getTitle(), readMoreItems, results.indexOf(item));
         }
 
-        @Override public void onActionClick(@Nullable SearchResult item, @NonNull View view) {
+        @Override public void onActionClick(@Nullable RbPageSummary item, @NonNull View view) {
             if (item == null) {
                 return;
             }
-            CallbackTask.execute(() -> ReadingListDbHelper.instance().findPageInAnyList(item.getPageTitle()), new CallbackTask.DefaultCallback<ReadingListPage>() {
+            PageTitle pageTitle = item.getPageTitle(page.getTitle().getWikiSite());
+            CallbackTask.execute(() -> ReadingListDbHelper.instance().findPageInAnyList(pageTitle), new CallbackTask.DefaultCallback<ReadingListPage>() {
                 @Override
                 public void success(ReadingListPage page) {
                     boolean pageInList = page != null;
                     if (!pageInList) {
-                        parentFragment.addToReadingList(item.getPageTitle(), AddToReadingListDialog.InvokeSource.READ_MORE_BOOKMARK_BUTTON);
+                        parentFragment.addToReadingList(pageTitle, AddToReadingListDialog.InvokeSource.READ_MORE_BOOKMARK_BUTTON);
                     } else {
                         new ReadingListBookmarkMenu(view, new ReadingListBookmarkMenu.Callback() {
                             @Override
                             public void onAddRequest(@Nullable ReadingListPage page) {
-                                parentFragment.addToReadingList(item.getPageTitle(), AddToReadingListDialog.InvokeSource.READ_MORE_BOOKMARK_BUTTON);
+                                parentFragment.addToReadingList(pageTitle, AddToReadingListDialog.InvokeSource.READ_MORE_BOOKMARK_BUTTON);
                             }
 
                             @Override
                             public void onDeleted(@Nullable ReadingListPage page) {
                                 FeedbackUtil.showMessage((Activity) getContext(),
-                                        getContext().getString(R.string.reading_list_item_deleted, item.getPageTitle().getDisplayText()));
-                                setPrimaryActionDrawable((ImageView) view, item.getPageTitle());
+                                        getContext().getString(R.string.reading_list_item_deleted, pageTitle.getDisplayText()));
+                                setPrimaryActionDrawable((ImageView) view, pageTitle);
 
                             }
-                        }).show(item.getPageTitle());
+                        }).show(pageTitle);
                     }
                 }
             });
         }
 
-        @Override public boolean onLongClick(@Nullable SearchResult item) {
+        @Override public boolean onLongClick(@Nullable RbPageSummary item) {
             return false;
         }
 
-        @Override public void onThumbClick(@Nullable SearchResult item) {
+        @Override public void onThumbClick(@Nullable RbPageSummary item) {
         }
 
-        @Override public void onSecondaryActionClick(@Nullable SearchResult item, @NonNull View view) {
+        @Override public void onSecondaryActionClick(@Nullable RbPageSummary item, @NonNull View view) {
         }
     }
 

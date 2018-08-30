@@ -4,15 +4,17 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import org.wikipedia.Constants;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.dataclient.restbase.RbRelatedPages;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.feed.FeedCoordinator;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.bottomcontent.MainPageReadMoreTopicTask;
 import org.wikipedia.search.FullTextSearchClient;
-import org.wikipedia.search.SearchResult;
-import org.wikipedia.search.SearchResults;
+import org.wikipedia.search.RelatedPagesSearchClient;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
@@ -20,8 +22,6 @@ import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;
-
-import static org.wikipedia.Constants.SUGGESTION_REQUEST_ITEMS;
 
 public class BecauseYouReadClient extends FullTextSearchClient implements FeedClient {
     @Nullable private MainPageReadMoreTopicTask readMoreTopicTask;
@@ -60,29 +60,28 @@ public class BecauseYouReadClient extends FullTextSearchClient implements FeedCl
 
     private void getCardForHistoryEntry(@NonNull final HistoryEntry entry,
                                         final FeedClient.Callback cb) {
-        requestMoreLike(entry.getTitle().getWikiSite(), entry.getTitle().getDisplayText(),
-                null, null, SUGGESTION_REQUEST_ITEMS, new FullTextSearchClient.Callback() {
-            @Override public void success(@NonNull Call<MwQueryResponse> call,
-                                          @NonNull SearchResults results) {
-                SearchResults filteredResults = SearchResults
-                        .filter(results, entry.getTitle().getText(), false);
-                FeedCoordinator.postCardsToCallback(cb, filteredResults.getResults().isEmpty()
+
+        new RelatedPagesSearchClient().request(entry.getTitle().getConvertedText(), entry.getTitle().getWikiSite(),
+                Constants.SUGGESTION_REQUEST_ITEMS, new RelatedPagesSearchClient.Callback() {
+            @Override
+            public void success(@NonNull Call<RbRelatedPages> call, @Nullable List<RbPageSummary> results) {
+                FeedCoordinator.postCardsToCallback(cb, (results == null || results.size() == 0)
                         ? Collections.emptyList()
                         : Collections.singletonList(toBecauseYouReadCard(results, entry)));
             }
 
-            @Override public void failure(@NonNull Call<MwQueryResponse> call,
-                                          @NonNull Throwable caught) {
+            @Override
+            public void failure(@NonNull Call<RbRelatedPages> call, @NonNull Throwable caught) {
                 cb.error(caught);
             }
         });
     }
 
-    @NonNull private BecauseYouReadCard toBecauseYouReadCard(@NonNull SearchResults results,
+    @NonNull private BecauseYouReadCard toBecauseYouReadCard(@NonNull List<RbPageSummary> results,
                                                              @NonNull HistoryEntry entry) {
         List<BecauseYouReadItemCard> itemCards = new ArrayList<>();
-        for (SearchResult result : results.getResults()) {
-            itemCards.add(new BecauseYouReadItemCard(result.getPageTitle()));
+        for (RbPageSummary result : results) {
+            itemCards.add(new BecauseYouReadItemCard(result.getPageTitle(entry.getTitle().getWikiSite())));
         }
         return new BecauseYouReadCard(entry, itemCards);
     }

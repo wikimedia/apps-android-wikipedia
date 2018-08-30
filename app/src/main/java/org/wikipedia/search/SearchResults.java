@@ -3,12 +3,8 @@ package org.wikipedia.search;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.Constants;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
-import org.wikipedia.page.PageTitle;
-import org.wikipedia.util.ReleaseUtil;
-import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -53,17 +49,6 @@ public class SearchResults {
         this.suggestion = suggestion;
     }
 
-    /**
-     * Constructor for filtered results (currently also used by legacy MW API AsyncTasks).
-     */
-    public SearchResults(@NonNull List<SearchResult> results,
-                         @Nullable Map<String, String> continuation,
-                         @Nullable String suggestion) {
-        this.results = results;
-        this.continuation = continuation;
-        this.suggestion = suggestion;
-    }
-
     @NonNull public List<SearchResult> getResults() {
         return results;
     }
@@ -74,34 +59,6 @@ public class SearchResults {
 
     @Nullable public Map<String, String> getContinuation() {
         return continuation;
-    }
-
-    /**
-     * Filter the list of results to make sure the original page title isn't one of them
-     * and the suggestions have thumbnails if required.
-     *
-     * @param searchResults original results from server
-     * @return filtered results
-     */
-    @NonNull public static SearchResults filter(SearchResults searchResults, String title,
-                                                boolean requireThumbnail) {
-        final boolean verbose = ReleaseUtil.isDevRelease();
-        List<SearchResult> filteredResults = new ArrayList<>();
-        List<SearchResult> results = searchResults.getResults();
-        for (int i = 0; i < results.size() && filteredResults.size() < Constants.MAX_SUGGESTION_RESULTS; i++) {
-            final SearchResult res = results.get(i);
-            final PageTitle pageTitle = res.getPageTitle();
-            if (verbose) {
-                L.v(pageTitle.getPrefixedText());
-            }
-
-            if (!title.equalsIgnoreCase(pageTitle.getPrefixedText())
-                    && (!requireThumbnail || pageTitle.getThumbUrl() != null)
-                    && !(pageTitle.isMainPage() || pageTitle.isDisambiguationPage())) {
-                filteredResults.add(res);
-            }
-        }
-        return new SearchResults(filteredResults, null, null);
     }
 }
 
