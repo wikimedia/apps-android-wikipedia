@@ -143,7 +143,7 @@ public class PageTitle implements Parcelable {
             String namespaceOrLanguage = parts[0];
             if (Arrays.asList(Locale.getISOLanguages()).contains(namespaceOrLanguage)) {
                 this.namespace = null;
-                this.wiki = WikiSite.forLanguageCode(namespaceOrLanguage);
+                this.wiki = new WikiSite(wiki.authority(), namespaceOrLanguage);
             } else {
                 this.wiki = wiki;
                 this.namespace = namespaceOrLanguage;
