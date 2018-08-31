@@ -7,7 +7,7 @@ import org.wikipedia.dataclient.mwapi.MwResponse;
 
 import java.util.Map;
 
-class Entities extends MwResponse {
+public class Entities extends MwResponse {
     @SuppressWarnings("unused") @Nullable private Map<String, Entity> entities;
     @SuppressWarnings("unused") private int success;
 

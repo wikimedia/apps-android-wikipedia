@@ -5,25 +5,19 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.csrf.CsrfTokenClient;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
-import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 import org.wikipedia.useroption.UserOption;
 import org.wikipedia.util.log.L;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.Query;
 
 public class UserOptionDataClient {
     @NonNull private final WikiSite wiki;
-    @NonNull private final Service service;
 
     public interface UserInfoCallback {
         void success(@NonNull UserInfo userInfo);
@@ -36,7 +30,6 @@ public class UserOptionDataClient {
 
     public UserOptionDataClient(@NonNull WikiSite wiki) {
         this.wiki = wiki;
-        service = RetrofitFactory.newInstance(wiki).create(Service.class);
     }
 
     public void get(@NonNull final UserInfoCallback callback) {
@@ -45,7 +38,7 @@ public class UserOptionDataClient {
         new CsrfTokenClient(wiki, app().getWikiSite()).request(new CsrfTokenClient.DefaultCallback() {
             @Override
             public void success(@NonNull String token) {
-                service.get().enqueue(new Callback<MwQueryResponse>() {
+                ServiceFactory.get(wiki).getUserOptions().enqueue(new Callback<MwQueryResponse>() {
                     @Override
                     public void onResponse(Call<MwQueryResponse> call, Response<MwQueryResponse> response) {
                         if (response.body() != null && response.body().success()) {
@@ -67,18 +60,18 @@ public class UserOptionDataClient {
         new CsrfTokenClient(wiki, app().getWikiSite()).request(new CsrfTokenClient.DefaultCallback() {
             @Override
             public void success(@NonNull String token) {
-                service.post(token, option.key(), option.val()).enqueue(new Callback<PostResponse>() {
+                ServiceFactory.get(wiki).postUserOption(token, option.key(), option.val()).enqueue(new Callback<MwPostResponse>() {
                     @Override
-                    public void onResponse(Call<PostResponse> call, Response<PostResponse> response) {
-                        if (response.body() != null && !response.body().success(response.body().result())) {
-                            L.e("Bad response for wiki " + wiki.authority() + " = " + response.body().result());
+                    public void onResponse(Call<MwPostResponse> call, Response<MwPostResponse> response) {
+                        if (response.body() != null && !response.body().success(response.body().getOptions())) {
+                            L.e("Bad response for wiki " + wiki.authority() + " = " + response.body().getOptions());
                         } else if (callback != null) {
                             callback.success();
                         }
                     }
 
                     @Override
-                    public void onFailure(Call<PostResponse> call, Throwable caught) {
+                    public void onFailure(Call<MwPostResponse> call, Throwable caught) {
                         L.e(caught);
                         if (callback != null) {
                             callback.failure(caught);
@@ -93,18 +86,18 @@ public class UserOptionDataClient {
         new CsrfTokenClient(wiki, app().getWikiSite()).request(new CsrfTokenClient.DefaultCallback() {
             @Override
             public void success(@NonNull String token) {
-                service.delete(token, key).enqueue(new Callback<PostResponse>() {
+                ServiceFactory.get(wiki).deleteUserOption(token, key).enqueue(new Callback<MwPostResponse>() {
                     @Override
-                    public void onResponse(Call<PostResponse> call, Response<PostResponse> response) {
-                        if (response.body() != null && !response.body().success(response.body().result())) {
-                            L.e("Bad response for wiki " + wiki.authority() + " = " + response.body().result());
+                    public void onResponse(Call<MwPostResponse> call, Response<MwPostResponse> response) {
+                        if (response.body() != null && !response.body().success(response.body().getOptions())) {
+                            L.e("Bad response for wiki " + wiki.authority() + " = " + response.body().getOptions());
                         } else if (callback != null) {
                             callback.success();
                         }
                     }
 
                     @Override
-                    public void onFailure(Call<PostResponse> call, Throwable caught) {
+                    public void onFailure(Call<MwPostResponse> call, Throwable caught) {
                         L.e(caught);
                         if (callback != null) {
                             callback.failure(caught);
@@ -117,32 +110,5 @@ public class UserOptionDataClient {
 
     private static WikipediaApp app() {
         return WikipediaApp.getInstance();
-    }
-
-    // todo: rename service
-    private interface Service {
-        String ACTION = "w/api.php?format=json&formatversion=2&action=";
-
-        @GET(ACTION + "query&meta=userinfo&uiprop=options")
-        @NonNull Call<MwQueryResponse> get();
-
-        @FormUrlEncoded
-        @POST(ACTION + "options")
-        @NonNull Call<PostResponse> post(@Field("token") @NonNull String token,
-                                         @Query("optionname") @NonNull String key,
-                                         @Query("optionvalue") @Nullable String value);
-
-        @FormUrlEncoded
-        @POST(ACTION + "options")
-        @NonNull Call<PostResponse> delete(@Field("token") @NonNull String token,
-                                           @Query("change") @NonNull String key);
-    }
-
-    private static class PostResponse extends MwPostResponse {
-        @SuppressWarnings("unused") private String options;
-
-        public String result() {
-            return options;
-        }
     }
 }

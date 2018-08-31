@@ -6,6 +6,7 @@ import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
 import org.wikipedia.captcha.CaptchaResult;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
@@ -140,7 +141,7 @@ public class EditClientTest extends MockWebServerTest {
 
     private Call<Edit> request(@NonNull EditClient.Callback cb, boolean loggedIn) {
         PageTitle title = new PageTitle(null, "TEST", WikiSite.forLanguageCode("test"));
-        return subject.request(service(EditClient.Service.class), title, 0, "new text", "token",
+        return subject.request(service(Service.class), title, 0, "new text", "token",
                 "summary", null, loggedIn, "captchaId", "captchaSubmission", cb);
     }
 }

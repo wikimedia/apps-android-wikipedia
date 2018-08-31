@@ -9,12 +9,12 @@ import android.widget.Toast;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.dataclient.Service;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
-import org.wikipedia.dataclient.retrofit.MwCachedService;
-import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.login.LoginClient;
 import org.wikipedia.login.LoginResult;
 import org.wikipedia.util.log.L;
@@ -23,14 +23,11 @@ import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.Response;
-import retrofit2.http.GET;
-import retrofit2.http.Headers;
 
 public class CsrfTokenClient {
-    static final String ANON_TOKEN = "+\\";
+    private static final String ANON_TOKEN = "+\\";
     private static final int MAX_RETRIES = 1;
     private static final int MAX_RETRIES_OF_LOGIN_BLOCKING = 2;
-    @NonNull private final WikiCachedService<Service> cachedService = new MwCachedService<>(Service.class);
     @NonNull private final WikiSite csrfWikiSite;
     @NonNull private final WikiSite loginWikiSite;
     private int retries = 0;
@@ -53,8 +50,7 @@ public class CsrfTokenClient {
             retryWithLogin(new RuntimeException("Forcing login..."), callback);
             return;
         }
-        Service service = cachedService.service(csrfWikiSite);
-        csrfTokenCall = request(service, callback);
+        csrfTokenCall = request(ServiceFactory.get(csrfWikiSite), callback);
     }
 
     public void cancel() {
@@ -139,7 +135,7 @@ public class CsrfTokenClient {
 
     @NonNull public String getTokenBlocking() throws Throwable {
         String token = "";
-        Service service = cachedService.service(csrfWikiSite);
+        Service service = ServiceFactory.get(csrfWikiSite);
 
         for (int retry = 0; retry < MAX_RETRIES_OF_LOGIN_BLOCKING; retry++) {
             try {
@@ -149,7 +145,7 @@ public class CsrfTokenClient {
                             AccountUtil.getPassword(), "");
                 }
 
-                Response<MwQueryResponse> response = service.request().execute();
+                Response<MwQueryResponse> response = service.getCsrfToken().execute();
                 if (response.body() == null || !response.body().success()
                         || TextUtils.isEmpty(response.body().query().csrfToken())) {
                     continue;
@@ -171,7 +167,7 @@ public class CsrfTokenClient {
 
     @VisibleForTesting @NonNull Call<MwQueryResponse> requestToken(@NonNull Service service,
                                                                    @NonNull final Callback cb) {
-        Call<MwQueryResponse> call = service.request();
+        Call<MwQueryResponse> call = service.getCsrfToken();
         call.enqueue(new retrofit2.Callback<MwQueryResponse>() {
             @Override
             public void onResponse(@NonNull Call<MwQueryResponse> call, @NonNull Response<MwQueryResponse> response) {
@@ -222,11 +218,5 @@ public class CsrfTokenClient {
 
     private interface RetryCallback {
         void retry();
-    }
-
-    @VisibleForTesting interface Service {
-        @Headers("Cache-Control: no-cache")
-        @GET("w/api.php?action=query&format=json&formatversion=2&meta=tokens&type=csrf")
-        Call<MwQueryResponse> request();
     }
 }

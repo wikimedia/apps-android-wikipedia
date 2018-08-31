@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.test.MockWebServerTest;
@@ -87,7 +88,7 @@ public class CreateAccountClientTest extends MockWebServerTest {
     }
 
     private Call<CreateAccountResponse> request(@NonNull CreateAccountClient.Callback cb) {
-        return subject.request(service(CreateAccountClient.Service.class), "user", "pass", "pass",
+        return subject.request(service(Service.class), "user", "pass", "pass",
                 "token", "email", "11235813", "fibonacci", cb);
     }
 }

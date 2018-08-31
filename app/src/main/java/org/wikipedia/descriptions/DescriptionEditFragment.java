@@ -18,6 +18,7 @@ import org.wikipedia.analytics.DescriptionEditFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.login.LoginClient.LoginFailedException;
@@ -50,7 +51,7 @@ public class DescriptionEditFragment extends Fragment {
     private Unbinder unbinder;
     private PageTitle pageTitle;
     @Nullable private CsrfTokenClient csrfClient;
-    @Nullable private Call<DescriptionEdit> descriptionEditCall;
+    @Nullable private Call<MwPostResponse> descriptionEditCall;
     @Nullable private DescriptionEditFunnel funnel;
 
     private Runnable successRunnable = new Runnable() {
@@ -196,7 +197,7 @@ public class DescriptionEditFragment extends Fragment {
                     editView.getDescription(), editToken,
                     new DescriptionEditClient.Callback() {
                         @Override @SuppressWarnings("checkstyle:magicnumber")
-                        public void success(@NonNull Call<DescriptionEdit> call) {
+                        public void success(@NonNull Call<MwPostResponse> call) {
                             // TODO: remove this artificial delay if someday we get a reliable way
                             // to determine whether the change has propagated to the relevant
                             // RESTBase endpoints.
@@ -206,7 +207,7 @@ public class DescriptionEditFragment extends Fragment {
                             }
                         }
 
-                        @Override public void abusefilter(@NonNull Call<DescriptionEdit> call,
+                        @Override public void abusefilter(@NonNull Call<MwPostResponse> call,
                                                           @Nullable String code,
                                                           @Nullable String info) {
                             editView.setSaveState(false);
@@ -219,12 +220,12 @@ public class DescriptionEditFragment extends Fragment {
                         }
 
                         @Override
-                        public void invalidLogin(@NonNull Call<DescriptionEdit> call,
+                        public void invalidLogin(@NonNull Call<MwPostResponse> call,
                                                  @NonNull Throwable caught) {
                             getEditTokenThenSave(true);
                         }
 
-                        @Override public void failure(@NonNull Call<DescriptionEdit> call,
+                        @Override public void failure(@NonNull Call<MwPostResponse> call,
                                                       @NonNull Throwable caught) {
                             editFailed(caught);
                             if (funnel != null) {

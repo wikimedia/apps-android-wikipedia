@@ -8,8 +8,9 @@ import android.text.TextUtils;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.dataclient.Service;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 import org.wikipedia.feed.FeedCoordinator;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.model.Card;
@@ -21,15 +22,9 @@ import org.wikipedia.util.log.L;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.http.GET;
-import retrofit2.http.Headers;
-
-import static org.wikipedia.Constants.ACCEPT_HEADER_PREFIX;
 
 public class AnnouncementClient implements FeedClient {
     private static final String PLATFORM_CODE = "AndroidApp";
@@ -40,11 +35,7 @@ public class AnnouncementClient implements FeedClient {
     @Override
     public void request(@NonNull Context context, @NonNull WikiSite wiki, int age, @NonNull Callback cb) {
         cancel();
-        String endpoint = String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), wiki.scheme(),
-                wiki.authority());
-        Retrofit retrofit = RetrofitFactory.newInstance(endpoint, wiki);
-        Service service = retrofit.create(Service.class);
-        call = request(service);
+        call = request(ServiceFactory.get(wiki));
         call.enqueue(new CallbackAdapter(cb, true));
     }
 
@@ -58,20 +49,9 @@ public class AnnouncementClient implements FeedClient {
     }
 
     @VisibleForTesting
-    interface Service {
-        /**
-         * Gets a list of announcements that are currently in effect.
-         */
-        @NonNull
-        @Headers(ACCEPT_HEADER_PREFIX + "announcements/0.1.0\"")
-        @GET("feed/announcements")
-        Call<AnnouncementList> get();
-    }
-
-    @VisibleForTesting
     @NonNull
     Call<AnnouncementList> request(@NonNull Service service) {
-        return service.get();
+        return service.getAnnouncements();
     }
 
     @VisibleForTesting

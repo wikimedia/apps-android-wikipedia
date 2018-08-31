@@ -8,10 +8,10 @@ import android.support.v4.util.ArraySet;
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
+import org.wikipedia.dataclient.Service;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
-import org.wikipedia.dataclient.retrofit.MwCachedService;
-import org.wikipedia.dataclient.retrofit.WikiCachedService;
 
 import java.util.Collections;
 import java.util.List;
@@ -19,15 +19,11 @@ import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Response;
-import retrofit2.http.GET;
-import retrofit2.http.Query;
 
 /**
  * Retrofit DataClient to retrieve user info and group membership information for a specific user.
  */
 public class UserExtendedInfoClient {
-    @NonNull private final WikiCachedService<Service> cachedService = new MwCachedService<>(Service.class);
-
     @Nullable private Call<MwQueryResponse> call;
 
     public interface Callback {
@@ -36,14 +32,14 @@ public class UserExtendedInfoClient {
     }
 
     public Call<MwQueryResponse> request(@NonNull WikiSite wiki, @NonNull String userName, @NonNull Callback cb) {
-        return request(cachedService.service(wiki), userName, cb);
+        return request(ServiceFactory.get(wiki), userName, cb);
     }
 
     @VisibleForTesting Call<MwQueryResponse> request(@NonNull Service service,
                                                      @NonNull final String userName,
                                                      @NonNull final Callback cb) {
         cancel();
-        call = service.request(userName);
+        call = service.getUserInfo(userName);
         // noinspection ConstantConditions
         call.enqueue(new retrofit2.Callback<MwQueryResponse>() {
             @Override
@@ -82,11 +78,6 @@ public class UserExtendedInfoClient {
         }
         call.cancel();
         call = null;
-    }
-
-    @VisibleForTesting interface Service {
-        @GET("w/api.php?action=query&format=json&formatversion=2&meta=userinfo&list=users&usprop=groups|cancreate")
-        Call<MwQueryResponse> request(@Query("ususers") @NonNull String userName);
     }
 
     public static class ListUserResponse {

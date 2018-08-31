@@ -25,6 +25,7 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.dataclient.ServiceError;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.gallery.Gallery;
@@ -201,7 +202,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     private void loadContent() {
         PageClientFactory
                 .create(pageTitle.getWikiSite(), pageTitle.namespace())
-                .summary(pageTitle.getPrefixedText(), historyEntry.getReferrer())
+                .summary(ServiceFactory.get(pageTitle.getWikiSite()), pageTitle.getPrefixedText(), historyEntry.getReferrer())
                 .enqueue(linkPreviewCallback);
     }
 

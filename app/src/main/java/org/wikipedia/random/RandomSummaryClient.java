@@ -5,30 +5,23 @@ import android.support.annotation.VisibleForTesting;
 
 import com.google.gson.JsonParseException;
 
+import org.wikipedia.dataclient.Service;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
-import org.wikipedia.dataclient.retrofit.RbCachedService;
-import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.util.log.L;
 
 import retrofit2.Call;
 import retrofit2.Response;
-import retrofit2.http.GET;
-import retrofit2.http.Headers;
-
-import static org.wikipedia.Constants.ACCEPT_HEADER_SUMMARY;
 
 public class RandomSummaryClient {
-    @NonNull private final WikiCachedService<Service> cachedService
-            = new RbCachedService<>(Service.class);
-
     public Call<RbPageSummary> request(@NonNull WikiSite wiki, @NonNull Callback cb) {
-        return request(cachedService.service(wiki), cb);
+        return request(ServiceFactory.get(wiki), cb);
     }
 
     @VisibleForTesting Call<RbPageSummary> request(@NonNull Service service,
                                                    @NonNull final Callback cb) {
-        Call<RbPageSummary> call = service.get();
+        Call<RbPageSummary> call = service.getRandomSummary();
         call.enqueue(new retrofit2.Callback<RbPageSummary>() {
             @Override
             public void onResponse(@NonNull Call<RbPageSummary> call,
@@ -47,12 +40,6 @@ public class RandomSummaryClient {
             }
         });
         return call;
-    }
-
-    @VisibleForTesting interface Service {
-        @Headers(ACCEPT_HEADER_SUMMARY)
-        @GET("page/random/summary")
-        @NonNull Call<RbPageSummary> get();
     }
 
     public interface Callback {

@@ -5,9 +5,9 @@ import android.support.annotation.VisibleForTesting;
 
 import com.google.gson.JsonObject;
 
+import org.wikipedia.dataclient.Service;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.retrofit.MwCachedService;
-import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.json.GsonUtil;
 
 import java.io.IOException;
@@ -16,7 +16,6 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Response;
-import retrofit2.http.GET;
 
 public class SiteMatrixClient {
     public interface Callback {
@@ -24,14 +23,12 @@ public class SiteMatrixClient {
         void failure(@NonNull Call<SiteMatrix> call, @NonNull Throwable caught);
     }
 
-    @NonNull private final WikiCachedService<Service> cachedService = new MwCachedService<>(Service.class);
-
     public Call<SiteMatrix> request(@NonNull WikiSite wiki, @NonNull Callback cb) {
-        return request(cachedService.service(wiki), cb);
+        return request(ServiceFactory.get(wiki), cb);
     }
 
     @VisibleForTesting Call<SiteMatrix> request(@NonNull Service service, @NonNull final Callback cb) {
-        Call<SiteMatrix> call = service.siteMatrix();
+        Call<SiteMatrix> call = service.getSiteMatrix();
         call.enqueue(new retrofit2.Callback<SiteMatrix>() {
             @Override
             public void onResponse(@NonNull Call<SiteMatrix> call, @NonNull Response<SiteMatrix> response) {
@@ -93,10 +90,5 @@ public class SiteMatrixClient {
         @NonNull public String localName() {
             return localname;
         }
-    }
-
-    @VisibleForTesting interface Service {
-        @GET("w/api.php?action=sitematrix&format=json&smtype=language&smlangprop=code%7Cname%7Clocalname")
-        Call<SiteMatrix> siteMatrix();
     }
 }

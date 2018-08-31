@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
@@ -105,6 +106,6 @@ public class LangLinksClientTest extends MockWebServerTest {
 
     private Call<MwQueryResponse> request(@NonNull LangLinksClient.Callback cb) {
         PageTitle title = new PageTitle(null, "Scientology", WikiSite.forLanguageCode("en"));
-        return subject.request(service(LangLinksClient.Service.class), title, cb);
+        return subject.request(service(Service.class), title, cb);
     }
 }

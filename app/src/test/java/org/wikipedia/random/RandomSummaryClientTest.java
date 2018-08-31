@@ -5,9 +5,9 @@ import android.support.annotation.NonNull;
 import com.google.gson.JsonParseException;
 
 import org.junit.Test;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.random.RandomSummaryClient.Callback;
-import org.wikipedia.random.RandomSummaryClient.Service;
 import org.wikipedia.test.MockWebServerTest;
 
 import java.io.IOException;

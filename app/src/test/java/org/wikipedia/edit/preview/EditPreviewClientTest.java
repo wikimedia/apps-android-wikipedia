@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
@@ -82,6 +83,6 @@ public class EditPreviewClientTest extends MockWebServerTest {
     }
 
     private Call<EditPreview> request(@NonNull EditPreviewClient.Callback cb) {
-        return subject.request(service(EditPreviewClient.Service.class), title, "wikitext of change", cb);
+        return subject.request(service(Service.class), title, "wikitext of change", cb);
     }
 }

@@ -7,6 +7,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
@@ -117,7 +118,7 @@ public class FullTextSearchClientTest extends MockWebServerTest {
     @SuppressWarnings("checkstyle:magicnumber")
     private Call<MwQueryResponse> request(@Nullable Map<String, String> continuation,
                                           @NonNull FullTextSearchClient.Callback cb) {
-        return subject.request(service(FullTextSearchClient.Service.class), TESTWIKI, "qb",
+        return subject.request(service(Service.class), TESTWIKI, "qb",
                 valOrNull(continuation, "continue"), valOrNull(continuation, "gsroffset"), 20, cb);
     }
 

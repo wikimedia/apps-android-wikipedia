@@ -7,11 +7,11 @@ import com.google.gson.JsonParseException;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.test.MockWebServerTest;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.zero.ZeroConfigClient.Callback;
-import org.wikipedia.zero.ZeroConfigClient.Service;
 
 import okhttp3.mockwebserver.RecordedRequest;
 import retrofit2.Call;

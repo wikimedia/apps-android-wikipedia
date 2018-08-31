@@ -3,6 +3,7 @@ package org.wikipedia.dataclient.mwapi.page;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageLead;
@@ -16,34 +17,34 @@ import retrofit2.Call;
  * Retrofit web service client for MediaWiki PHP API.
  */
 public class MwPageClient implements PageClient {
-    @NonNull private final MwPageService service;
     @NonNull private final WikiSite wiki;
 
-    public MwPageClient(@NonNull MwPageService service, @NonNull WikiSite wiki) {
-        this.service = service;
+    public MwPageClient(@NonNull WikiSite wiki) {
         this.wiki = wiki;
     }
 
     @SuppressWarnings("unchecked")
-    @NonNull @Override public Call<? extends PageSummary> summary(@NonNull String title, @Nullable String referrerUrl) {
-        return service.summary(referrerUrl, title, wiki.languageCode());
+    @NonNull @Override public Call<? extends PageSummary> summary(@NonNull Service service, @NonNull String title, @Nullable String referrerUrl) {
+        return service.getSummary(referrerUrl, title, wiki.languageCode());
     }
 
     @SuppressWarnings("unchecked")
-    @NonNull @Override public Call<? extends PageLead> lead(@Nullable CacheControl cacheControl,
+    @NonNull @Override public Call<? extends PageLead> lead(@NonNull Service service,
+                                                            @Nullable CacheControl cacheControl,
                                                             @Nullable String saveOfflineHeader,
                                                             @Nullable String referrerUrl,
                                                             @NonNull String title,
                                                             int leadImageWidth) {
-        return service.lead(cacheControl == null ? null : cacheControl.toString(),
+        return service.getLeadSection(cacheControl == null ? null : cacheControl.toString(),
                 saveOfflineHeader, referrerUrl, title, leadImageWidth, wiki.languageCode());
     }
 
     @SuppressWarnings("unchecked")
-    @NonNull @Override public Call<? extends PageRemaining> sections(@Nullable CacheControl cacheControl,
+    @NonNull @Override public Call<? extends PageRemaining> sections(@NonNull Service service,
+                                                                     @Nullable CacheControl cacheControl,
                                                                      @Nullable String saveOfflineHeader,
                                                                      @NonNull String title) {
-        return service.sections(cacheControl == null ? null : cacheControl.toString(),
+        return service.getRemainingSections(cacheControl == null ? null : cacheControl.toString(),
                 saveOfflineHeader, title, wiki.languageCode());
     }
 }

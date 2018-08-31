@@ -9,10 +9,6 @@ public final class Constants {
     public static final String WIKIPEDIA_URL = "https://wikipedia.org/";
     public static final String PLAIN_TEXT_MIME_TYPE = "text/plain";
 
-    public static final String ACCEPT_HEADER_PREFIX = "accept: application/json; charset=utf-8; "
-            + "profile=\"https://www.mediawiki.org/wiki/Specs/";
-    public static final String ACCEPT_HEADER_SUMMARY = ACCEPT_HEADER_PREFIX + "Summary/1.2.0\"";
-
     public static final int ACTIVITY_REQUEST_SETTINGS = 41;
     public static final int ACTIVITY_REQUEST_CREATE_ACCOUNT = 42;
     public static final int ACTIVITY_REQUEST_RESET_PASSWORD = 43;
@@ -45,13 +41,10 @@ public final class Constants {
     public static final String INTENT_EXTRA_NOTIFICATION_SYNC_PAUSE_RESUME = "syncPauseResume";
     public static final String INTENT_EXTRA_NOTIFICATION_SYNC_CANCEL = "syncCancel";
 
-    public static final int PROGRESS_BAR_MAX_VALUE = 10_000;
-
     public static final int MAX_SUGGESTION_RESULTS = 3;
     public static final int SUGGESTION_REQUEST_ITEMS = 5;
     public static final int API_QUERY_MAX_TITLES = 50;
 
-    public static final int PREFERRED_THUMB_SIZE = 320;
     public static final int PREFERRED_GALLERY_IMAGE_SIZE = 1280;
 
     public static final int MAX_TABS = 100;

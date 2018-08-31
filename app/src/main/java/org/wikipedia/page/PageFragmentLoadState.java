@@ -23,6 +23,7 @@ import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.dataclient.ServiceError;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
@@ -356,7 +357,7 @@ public class PageFragmentLoadState {
         app.getSessionFunnel().leadSectionFetchStart();
         PageClientFactory
                 .create(model.getTitle().getWikiSite(), model.getTitle().namespace())
-                .lead(model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
+                .lead(ServiceFactory.get(model.getTitle().getWikiSite()), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
                         model.getCurEntry().getReferrer(), model.getTitle().getPrefixedText(), calculateLeadImageWidth())
                 .enqueue(new retrofit2.Callback<PageLead>() {
                     @Override public void onResponse(@NonNull Call<PageLead> call, @NonNull Response<PageLead> rsp) {
@@ -618,7 +619,7 @@ public class PageFragmentLoadState {
 
         Request request = PageClientFactory
                 .create(model.getTitle().getWikiSite(), model.getTitle().namespace())
-                .sections(model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK : null,
+                .sections(ServiceFactory.get(model.getTitle().getWikiSite()), model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK : null,
                         model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
                         model.getTitle().getPrefixedText())
                 .request();

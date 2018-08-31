@@ -3,6 +3,7 @@ package org.wikipedia.wikidata;
 import android.support.annotation.NonNull;
 
 import org.junit.Test;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.test.MockWebServerTest;
 import org.wikipedia.test.TestFileUtil;
@@ -17,8 +18,6 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
 public class EntityClientTest extends MockWebServerTest {
-    @NonNull private EntityClient client = EntityClient.instance();
-
     @Test public void testRequestLabelSuccess() throws Throwable {
         enqueueFromFile("wikidata_entity_label.json");
         EntityClient.LabelCallback cb = mock(EntityClient.LabelCallback.class);
@@ -76,7 +75,7 @@ public class EntityClientTest extends MockWebServerTest {
 
     private void request(@NonNull final EntityClient.LabelCallback cb,
                          @NonNull final String qNumber, @NonNull final String langCode) {
-        Call<Entities> call = client.requestLabels(service(EntityClient.Service.class), qNumber, langCode);
+        Call<Entities> call = new EntityClient().requestLabels(service(Service.class), qNumber, langCode);
         call.enqueue(new EntityClient.LabelCallbackAdapter(cb, qNumber, langCode));
     }
 }

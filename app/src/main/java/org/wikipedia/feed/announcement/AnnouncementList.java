@@ -9,7 +9,7 @@ import org.wikipedia.model.BaseModel;
 import java.util.Collections;
 import java.util.List;
 
-class AnnouncementList extends BaseModel {
+public class AnnouncementList extends BaseModel {
 
     @SuppressWarnings("unused") @SerializedName("announce") @NonNull private List<Announcement> items = Collections.emptyList();
 

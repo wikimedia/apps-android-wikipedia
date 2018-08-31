@@ -6,6 +6,7 @@ import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
@@ -88,6 +89,6 @@ public class ImageLicenseFetchClientTest extends MockWebServerTest{
     }
 
     private Call<MwQueryResponse> request(@NonNull ImageLicenseFetchClient.Callback cb) {
-        return subject.request(service(ImageLicenseFetchClient.Service.class), PAGE_TITLE_MARK_SELBY, cb);
+        return subject.request(service(Service.class), PAGE_TITLE_MARK_SELBY, cb);
     }
 }

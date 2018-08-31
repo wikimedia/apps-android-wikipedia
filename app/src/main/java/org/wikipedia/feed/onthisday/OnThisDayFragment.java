@@ -26,6 +26,7 @@ import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.OnThisDayFunnel;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
@@ -151,7 +152,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         eventsRecycler.setVisibility(View.GONE);
         errorView.setVisibility(View.GONE);
 
-        new OnThisDayFullListClient().request(month + 1, date, wiki).enqueue(new Callback<OnThisDay>() {
+        ServiceFactory.get(wiki).getOnThisDay(month + 1, date).enqueue(new Callback<OnThisDay>() {
             @Override
             public void onResponse(@NonNull Call<OnThisDay> call, @NonNull Response<OnThisDay> response) {
                 if (!isAdded()) {

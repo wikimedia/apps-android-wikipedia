@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.wikipedia.Constants.PREFERRED_THUMB_SIZE;
+import static org.wikipedia.dataclient.Service.PREFERRED_THUMB_SIZE;
 import static org.wikipedia.util.ImageUrlUtil.getUrlForSize;
 
 public class ImageUrlTest {

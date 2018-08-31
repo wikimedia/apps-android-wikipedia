@@ -36,6 +36,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.concurrency.CallbackTask;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
@@ -708,7 +709,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         try {
             PageTitle pageTitle = ReadingListPage.toPageTitle(page);
             PageClientFactory.create(pageTitle.getWikiSite(), pageTitle.namespace())
-                    .lead(CacheControl.FORCE_CACHE, null, null, pageTitle.getPrefixedText(), DimenUtil.calculateLeadImageWidth())
+                    .lead(ServiceFactory.get(pageTitle.getWikiSite()), CacheControl.FORCE_CACHE, null, null, pageTitle.getPrefixedText(), DimenUtil.calculateLeadImageWidth())
                     .enqueue(new retrofit2.Callback<PageLead>() {
                         @Override public void onResponse(@NonNull Call<PageLead> call, @NonNull Response<PageLead> rsp) {
                             view.setTextGrayedOut((rsp.raw().cacheResponse() == null

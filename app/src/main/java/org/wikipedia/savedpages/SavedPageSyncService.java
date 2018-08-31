@@ -8,6 +8,7 @@ import android.text.TextUtils;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.PageImageHistoryContract;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
@@ -269,7 +270,7 @@ public class SavedPageSyncService extends JobIntentService {
         PageClient client = newPageClient(pageTitle);
         String title = pageTitle.getPrefixedText();
         int thumbnailWidth = DimenUtil.calculateLeadImageWidth();
-        return client.lead(cacheControl, saveOfflineHeader, null, title, thumbnailWidth);
+        return client.lead(ServiceFactory.get(pageTitle.getWikiSite()), cacheControl, saveOfflineHeader, null, title, thumbnailWidth);
     }
 
     @NonNull private Call<PageRemaining> reqPageSections(@Nullable CacheControl cacheControl,
@@ -277,7 +278,7 @@ public class SavedPageSyncService extends JobIntentService {
                                                          @NonNull PageTitle pageTitle) {
         PageClient client = newPageClient(pageTitle);
         String title = pageTitle.getPrefixedText();
-        return client.sections(cacheControl, saveOfflineHeader, title);
+        return client.sections(ServiceFactory.get(pageTitle.getWikiSite()), cacheControl, saveOfflineHeader, title);
     }
 
     private long reqSaveImages(@NonNull WikiSite wiki, @NonNull Iterable<String> urls) throws IOException, InterruptedException {

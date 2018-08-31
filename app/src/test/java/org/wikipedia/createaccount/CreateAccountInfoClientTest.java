@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
@@ -78,6 +79,6 @@ public class CreateAccountInfoClientTest extends MockWebServerTest {
     }
 
     private Call<MwQueryResponse> request(@NonNull CreateAccountInfoClient.Callback cb) {
-        return subject.request(service(CreateAccountInfoClient.Service.class), cb);
+        return subject.request(service(Service.class), cb);
     }
 }
