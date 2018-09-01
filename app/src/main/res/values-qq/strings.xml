@@ -471,6 +471,7 @@
     <item quantity="other">Message shown when more than one reading list article is removed from offline availability.</item>
   </plurals>
   <string name="reading_list_toast_last_sync">Message informing the user that their reading lists were synced successfully.</string>
+  <string name="reading_list_menu_last_sync">Message informing the user that their reading lists were synced successfully. The \"%s\" symbol is replaced with the last synced time.</string>
   <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.\n{{Identical|Preferences}}</string>
   <string name="notification_button_view_user">Button label for navigating to the talk page of the user who is the agent of the notification.</string>
   <string name="notification_talk_title">Title for notification when the user receives a new message on their Talk page.</string>

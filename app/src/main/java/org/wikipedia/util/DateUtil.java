@@ -98,6 +98,10 @@ public final class DateUtil {
         return df.parse(dateStr);
     }
 
+    public static String getReadingListsLastSyncDateString(@NonNull String dateStr) throws ParseException {
+        return getDateStringWithSkeletonPattern(getIso8601DateFormat().parse(dateStr), "d MMM yyyy HH:mm");
+    }
+
     @NonNull public static String yearToStringWithEra(int year) {
         Calendar cal = new GregorianCalendar(year, 1, 1);
         return getDateStringWithSkeletonPattern(cal.getTime(), year < 0 ? "y GG" : "y");
