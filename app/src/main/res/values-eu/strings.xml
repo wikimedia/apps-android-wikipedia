@@ -128,6 +128,9 @@
   <string name="create_account_next">Hurrengoa</string>
   <string name="email_recommendation_dialog_title">Kontua sortu email helbiderik gabe?</string>
   <string name="email_recommendation_dialog_message">Nahiz eta email helbidea aukerazkoa izan, &lt;b&gt; gomendagarria da &lt;/b&gt;, inoiz pasahitza galtzen baduzu, email helbide bat behar delako kontua berrezartzeko.</string>
+  <string name="email_recommendation_message">Gomendatzen da, emaila behar delako kontua berrezartzeko.</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Jarraitu email gabe</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Gehitu e-mail helbidea</string>
   <string name="create_account_button">Kontua sortu</string>
   <string name="create_account_name_unavailable">%s erabiltzaile-izena ez dago erabilgarri. Mesedez hauta ezazu beste izen bat.</string>
   <string name="create_account_ip_block_message">Barkatu, zure IP helbidea blokeatuta dago, eta ezin du kontu berririk sortu.</string>
@@ -501,6 +504,7 @@
   <string name="preference_title_notification_welcome">Ongi etorri</string>
   <string name="preference_summary_notification_welcome">Kontu bat sortu da</string>
   <string name="preference_title_notification_thanks">Eskerrik asko</string>
+  <string name="preference_summary_notification_thanks">Norbaitek eskertu du zure aldaketa</string>
   <string name="view_continue_reading_card_title">Irakurtzen jarraitu</string>
   <string name="view_because_you_read_card_title">Irakurtzen duzulako</string>
   <string name="view_random_card_title">Ausazkoa</string>

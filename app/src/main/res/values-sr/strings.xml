@@ -59,7 +59,7 @@
   <string name="edit_history_link_text">Погледај историју измена</string>
   <string name="map_view_link_text">Погледај на мапи</string>
   <string name="other_languages_indication_text">Прочитај на другом језику</string>
-  <string name="language_count_link_text">Доступан на другим језицима: %d</string>
+  <string name="language_count_link_text">Доступан на другим језицима (%d)</string>
   <string name="content_license_html">Садржај је доступан под лиценцом &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, осим ако је другачије наведено</string>
   <string name="edit_save_action_license_logged_in">Чувањем измена, слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање својих доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Чувањем измена, слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање својих доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Измене ће бити приписане IP адреси вашег уређаја. Ако се &lt;a href=\"https://#login\"&gt;пријавите&lt;/a&gt;, имаћете већу приватност.</string>
@@ -118,16 +118,16 @@
   <string name="create_account_activity_title">Отворите налог</string>
   <string name="dialog_create_account_checking_progress">Потврђујем</string>
   <string name="create_account_email_hint">Имејл (опционално)</string>
-  <string name="create_account_password_repeat_hint">Поново упишите лозинку</string>
+  <string name="create_account_password_repeat_hint">Поновите лозинку</string>
   <string name="create_account_passwords_mismatch_error">Лозинке се не поклапају</string>
   <string name="create_account_email_error">Неважећа имејл-адреса</string>
   <string name="create_account_username_error">Неважећи знакови у корисничком имену</string>
   <string name="create_account_password_error">Лозинка није важећа</string>
   <string name="create_account_generic_error">Не могу да отворим налог</string>
   <string name="create_account_next">Следеће</string>
-  <string name="email_recommendation_dialog_title">Да направим налог без имејл-адресе?</string>
-  <string name="email_recommendation_dialog_message">Иако је имејл-адреса опционална, &lt;b&gt;препоручује&lt;/b&gt; се, пошто је имејл потребан за опоравак налога, ако икада изгубите лозинку.</string>
-  <string name="email_recommendation_message">Препоручује се пошто је имејл потребан за опоравак налога.</string>
+  <string name="email_recommendation_dialog_title">Отворити налог без имејл-адресе?</string>
+  <string name="email_recommendation_dialog_message">Иако је имејл-адреса опционална, &lt;b&gt;препоручује&lt;/b&gt; се, будући да је потребна за опоравак налога, ако икада заборавите лозинку.</string>
+  <string name="email_recommendation_message">Препоручује се, будући да је имејл потребан за опоравак налога.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Настави без имејла</string>
   <string name="email_recommendation_dialog_create_with_email_action">Додај имејл-адресу</string>
   <string name="create_account_button">Отвори налог</string>
@@ -149,7 +149,7 @@
   <string name="zero_learn_more">Ваш мобилни оператер је омогућио бесплатан приступ садржају Википедије.</string>
   <string name="zero_learn_more_learn_more">Сазнајте више</string>
   <string name="zero_learn_more_dismiss">Одбаци</string>
-  <string name="edit_preview_fetching_dialog_message">Добављујем преглед…</string>
+  <string name="edit_preview_fetching_dialog_message">Добављам преглед…</string>
   <string name="send_feedback">Пошаљи повратне информације</string>
   <string name="create_account_account_created_toast">Налог је отворен.</string>
   <string name="preferences_heading_storage_and_syncing">Складиште и синхронизација</string>
@@ -195,7 +195,7 @@
   <string name="about_translators_heading">Преводиоци</string>
   <string name="about_translators_translatewiki">Ову апликацију су превели добровољци сајта &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
-  <string name="about_app_license">Изворни кôд је доступан на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit-у&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub-у&lt;/a&gt; под лиценцом &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Садржај је доступан под лиценцом &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;, осим ако је другачије наведено.</string>
+  <string name="about_app_license">Изворни кôд је доступан на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit-у&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub-у&lt;/a&gt; под лиценцом &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Садржај је доступан под лиценцом &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;, осим ако није другачије наведено.</string>
   <string name="about_wmf">Производ &lt;a href=\"https://wikimediafoundation.org/\"&gt;Задужбине Викимедија&lt;/a&gt;</string>
   <string name="about_activity_title">О апликацији</string>
   <string name="edit_abandon_confirm">Страница је измењена. Заиста желите да изађете без чувања измена?</string>
@@ -267,7 +267,7 @@
   <string name="share_snippet_button">Дели као слику</string>
   <string name="share_normal_button">Дели као текст</string>
   <string name="snippet_share_preview_image_desc">Преглед слике</string>
-  <string name="cc_logo">Лиценца Кријејтив комонс</string>
+  <string name="cc_logo">Лиценца Creative Commons</string>
   <string name="captcha_image">CAPTCHA слика</string>
   <string name="gallery_fair_use_license">Поштена употреба</string>
   <string name="gallery_uploader_unknown">Непознат отпремалац</string>
@@ -304,7 +304,7 @@
   <string name="enable_location_service">Омогући</string>
   <string name="location_permissions_enable_prompt">Омогућите услуге локације да бисте видели места недалеко од себе.</string>
   <string name="location_permissions_enable_action">Укључи</string>
-  <string name="error_webview_updating">Веб-приказ за Андроид се тренутно ажурира. Покушајте поново за који тренутак.</string>
+  <string name="error_webview_updating">Android System WebView се тренутно ажурира. Покушајте поново за који тренутак.</string>
   <string name="multi_select_items_selected">Изабрано: %d</string>
   <string name="error_message_generic">Дошло је до грешке</string>
   <string name="view_link_preview_error_button_dismiss">Одбаци</string>
@@ -674,7 +674,7 @@
   <string name="app_shortcuts_continue_reading">Настави читање</string>
   <string name="app_shortcuts_search">Претражи</string>
   <string name="more_trending_text">Више попут овог</string>
-  <string name="top_on_this_day">Актуелно %1$s</string>
+  <string name="top_on_this_day">Актуелно за %1$s</string>
   <string name="on_this_day_card_title">На данашњи дан</string>
   <string name="more_events_text">Више на овај дан</string>
   <string name="events_count_text">%1$s догађаја %2$s–%3$d</string>

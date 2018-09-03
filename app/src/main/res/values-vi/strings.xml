@@ -6,6 +6,7 @@
 * Levietduong
 * Minh Nguyen
 * Nguyên Lê
+* Nhatminh01
 * Phjtieudoc
 * Quenhitran
 * Quoclinh94
@@ -85,6 +86,7 @@
   <string name="search_reading_lists_no_results">Không tìm thấy kết quả trong danh sách đọc</string>
   <string name="search_history_no_results">Không tìm thấy kết quả trong lịch sử</string>
   <string name="edit_section_captcha_message">Để giúp tránh các sửa đổi spam tự động, xin vui lòng nhập các từ xuất hiện ở dưới</string>
+  <string name="edit_section_captcha_request_an_account_message">Không đọc được các chữ trong hình này? &lt;a href=\"https://vi.wikipedia.org/wiki/Wikipedia:Yêu_cầu_tạo_tài_khoản\"&gt;Tìm hiểu thêm&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Lặp lại các từ bên trên</string>
   <string name="title_captcha">Nhập CAPTCHA</string>
   <string name="edit_section_captcha_reload">Chạm vào CAPTCHA để tải lại</string>
@@ -124,8 +126,15 @@
   <string name="create_account_password_error">Mật khẩu không hợp lệ</string>
   <string name="create_account_generic_error">Không thể mở tài khoản</string>
   <string name="create_account_next">Tiếp</string>
+  <string name="email_recommendation_dialog_title">Mở tài khoản mà không cung cấp địa chỉ thư điện tử?</string>
+  <string name="email_recommendation_dialog_message">Mặc dù không được bắt buộc, chúng tôi &lt;b&gt;rất khuyến khích&lt;/b&gt; cung cấp địa chỉ thư điện tử, vì địa chỉ thư điện tử được yêu cầu để phục hồi tài khoản nếu trường hợp bạn quên mật khẩu.</string>
+  <string name="email_recommendation_message">Khuyến khích vì địa chỉ thư điện tử được yêu cầu để phục hồi tài khoản.</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Bỏ qua việc cung cấp địa chỉ thư điện tử</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Đặt địa chỉ thư điện tử</string>
   <string name="create_account_button">Mở tài khoản</string>
   <string name="create_account_name_unavailable">Tên người dùng \"%s\" không sẵn có. Xin hãy chọn một cái tên khác.</string>
+  <string name="create_account_ip_block_message">Đáng tiếc, địa chỉ IP của bạn hiện đang được cấm không được mở tài khoản mới.</string>
+  <string name="create_account_ip_block_help_url">https://vi.wikipedia.org/wiki/Trợ_giúp:Tôi_đã_bị_cấm</string>
   <string name="create_account_ip_block_details">Chi tiết</string>
   <string name="preferences_general_heading">Tổng quát</string>
   <string name="wikipedia_app_faq">Câu hỏi thường gặp về ứng dụng Wikipedia</string>
@@ -150,6 +159,7 @@
   <string name="preferences_heading_experimental">Thử nghiệm</string>
   <string name="preference_title_sync_reading_lists">Đồng bộ hóa các danh sách đọc</string>
   <string name="preference_title_sync_reading_lists_from_account">Đồng bộ hóa danh sách đọc</string>
+  <string name="preference_title_download_reading_list_articles">Tải về bài trong danh sách đọc</string>
   <string name="preference_summary_sync_reading_lists">Đồng bộ hóa danh sách đọc giữa các thiết bị khác nhau bằng cách lưu chúng vào tài khoản Wikipedia</string>
   <string name="preference_summary_sync_reading_lists_from_account">Đồng bộ hóa danh sách đọc giữa các thiết bị khác nhau bằng cách lưu chúng vào tài khoản Wikipedia “%s”</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Xóa danh sách đọc đã được đồng bộ từ “%s”?</string>
@@ -178,6 +188,7 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/vi?uselang=vi</string>
+  <string name="android_app_request_an_account_url">https://vi.wikipedia.org/wiki/Wikipedia:Yêu_cầu_tạo_tài_khoản</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Thư viện được sử dụng</string>
@@ -238,6 +249,7 @@
   <string name="preference_summary_show_images">Bật/tắt việc tải các hình ảnh trong trang. Tắt hình ảnh nếu có kết nối mạng chậm hoặc dữ liệu bị hạn chế.</string>
   <string name="preference_title_download_only_over_wifi">Chỉ tải xuống qua Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Bạn có chắc chắn muốn tải về qua dữ liệu di động?</string>
+  <string name="dialog_text_download_only_over_wifi">Bạn đã bật “Chỉ tải xuống qua Wi-Fi” trong tùy chọn. Bạn có muốn cho phép sử dụng dữ liệu di động cho tác vụ tải về này nói riêng?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Cho phép</string>
   <string name="read_more_section">Đọc tiếp</string>
   <string name="about_article_section">Thông tin về bài viết</string>
@@ -287,6 +299,8 @@
   <string name="error_no_maps_app">Không tìm thấy ứng dụng nào có khả năng chỉ đường.</string>
   <string name="preference_title_show_link_previews">Hiện bản xem trước</string>
   <string name="preference_summary_show_link_previews">Hiện một bản xem nhanh của bài viết khi chạm vào liên kết.</string>
+  <string name="preference_title_collapse_tables">Thu gọn các bảng</string>
+  <string name="preference_summary_collapse_tables">Tự động thu gọn các bảng trong bài viết, chẳng hạn như hộp thông tin, danh sách chú thích, và danh sách chú thích tham khảo.</string>
   <string name="nav_item_donate">Hỗ trợ Wikimedia</string>
   <string name="error_voice_search_not_available">Rất tiếc, chức năng nhận dạng tiếng nói không có sẵn.</string>
   <string name="location_service_disabled">Dịch vụ định vị đang tắt.</string>
@@ -406,6 +420,7 @@
   <string name="reading_list_turned_sync_off_dialog_ok">Đã hiểu</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Tùy chọn</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Bật đồng bộ hóa danh sách đọc?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Hiện có thể đồng bộ hóa các bài đã lưu vào danh sách đọc vào tài khoản Wikipedia của bạn. &lt;a href=\"#faq\"&gt;Tìm hiểu thêm&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Đừng hiện tôi thông báo này nữa</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Bật đồng bộ hóa</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Không, cảm ơn</string>
@@ -422,8 +437,10 @@
   <string name="no_user_lists_title">Sắp xếp bài viết vào các danh sách</string>
   <string name="no_user_lists_msg">Tạo danh sách về những nơi bạn muốn du lịch, về những chủ đề bạn yêu thích và nhiều hơn nữa</string>
   <string name="reading_list_saved_list_rename">%1$s (do người dùng tạo)</string>
+  <string name="split_reading_list_message">Mỗi danh sách đọc có hạn chế %d bài. Các danh sách đã tồn tại vượt quá hạn chế này đã được chia thành nhiều danh sách.</string>
   <string name="reading_list_article_limit_message">Không thể thêm vào danh sách này. Bạn đã đạt giới hạn %2$d bài viết của danh sách \"%1$s\".</string>
   <string name="reading_lists_limit_message">Không thể tạo thêm danh sách đọc. Bạn đã đạt giới hạn 100 danh sách tối đa trong một tài khoản.</string>
+  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Đồng bộ hóa danh sách đọc&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Hiện có thể đồng bộ hóa các danh sách đọc qua nhiều thiết bị. Đăng nhập vào tài khoản Wikipedia của bạn và quyết định cho phép lưu các danh sách của bạn.</string>
   <string name="reading_lists_menu_create_list">Tạo danh sách mới</string>
   <string name="reading_lists_menu_sort_by">Sắp xếp theo</string>
   <string name="reading_lists_refresh_sync_option">Làm mới đồng bộ hóa</string>
@@ -436,6 +453,7 @@
     <item quantity="one">Bài này hiện không còn có sẵn ngoại tuyến.</item>
     <item quantity="other">Các bài này hiện không còn có sẵn ngoại tuyến.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync">Đã đồng bộ hóa các danh sách đọc thành công</string>
   <string name="user_option_sync_label">Tùy chọn</string>
   <string name="notification_button_view_user">Thảo luận với người dùng</string>
   <string name="notification_talk_title">Tin nhắn mới tại Wikipedia</string>
@@ -448,6 +466,11 @@
   <string name="notification_syncing_pause_button">Tạm ngừng</string>
   <string name="notification_syncing_resume_button">Tiếp tục</string>
   <string name="notification_syncing_cancel_button">Hủy bỏ</string>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Đang Đồng bộ hóa Danh sách Đọc</item>
+    <item quantity="other">Đang Đồng bộ hóa các Danh sách Đọc</item>
+  </plurals>
+  <string name="notification_syncing_reading_list_channel_description">Tiến trình đồng bộ hóa danh sách đọc</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Đang tải về bài viết</item>
     <item quantity="other">Đang tải về các bài viết</item>
@@ -468,6 +491,33 @@
     <item quantity="one">còn %1$d danh sách</item>
     <item quantity="other">còn %1$d danh sách</item>
   </plurals>
+  <string name="notification_echo_channel_description">Thông báo Wikipedia</string>
+  <string name="notifications_activity_title">Thông báo</string>
+  <string name="notifications_activity_title_archived">Thông báo (lưu trữ)</string>
+  <string name="notifications_search">Tìm thông báo</string>
+  <string name="notifications_view_unread">Xem thông báo chưa đọc</string>
+  <string name="notifications_view_archived">Xem lưu trữ</string>
+  <string name="notifications_prefs">Tùy chọn thông báo</string>
+  <string name="notifications_archive">Đánh dấu đã đọc và lưu trữ</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">Đã lưu trữ thông báo</item>
+    <item quantity="other">Đã lưu trữ %d thông báo</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">Bật thông báo</string>
+  <string name="notifications_poll_enable_positive">Bật</string>
+  <string name="notifications_poll_enable_negative">Để sau</string>
+  <string name="notifications_empty_message">Bạn đã đọc các thông báo mới!</string>
+  <string name="notifications_view_archived_button_text">Xem thông báo đã lưu trữ</string>
+  <string name="notification_preferences_title">Tùy chọn thông báo</string>
+  <string name="preference_title_notification_poll">Tự động kiểm tra thông báo</string>
+  <string name="preference_summary_notification_poll">Cho phép ứng dụng sử dụng dữ liệu di động để tự động kiểm tra thông báo mới trong nền.</string>
+  <string name="preference_category_notification_types">Các loại thông báo trong ứng dụng</string>
+  <string name="preference_title_notification_welcome">Chào mừng</string>
+  <string name="preference_summary_notification_welcome">Bạn mở tài khoản mới</string>
+  <string name="preference_title_notification_milestone">Mốc</string>
+  <string name="preference_summary_notification_milestone">Bạn đạt đến số lần sửa đổi cụ thể</string>
+  <string name="preference_title_notification_thanks">Cảm ơn</string>
+  <string name="preference_summary_notification_thanks">Người khác gửi lời cảm ơn cho bạn vì một sửa đổi</string>
   <string name="view_continue_reading_card_title">Đọc tiếp</string>
   <string name="view_because_you_read_card_title">Vì bạn đã đọc</string>
   <string name="view_random_card_title">Ngẫu nhiên</string>
@@ -481,6 +531,7 @@
   <string name="view_featured_image_card_download">Tải về</string>
   <string name="menu_feed_card_dismiss">Ẩn thẻ này</string>
   <string name="menu_feed_card_dismissed">Thẻ đã ẩn.</string>
+  <string name="menu_feed_card_edit_card_languages">Sửa ngôn ngữ phiếu</string>
   <string name="menu_feed_overflow_label">Thêm tùy chọn</string>
   <string name="feed_featured_image_share_subject">Hình ảnh chọn lọc từ Wikimedia Commons</string>
   <string name="feed">Thám hiểm</string>
@@ -499,11 +550,17 @@
   <string name="view_featured_article_footer_save_button_label">Lưu</string>
   <string name="view_featured_article_footer_saved_button_label">Đã lưu</string>
   <string name="feed_configure_activity_title">Tùy biến nguồn cấp</string>
+  <string name="feed_configure_menu_reset">Mặc định lại tùy chọn</string>
   <string name="feed_configure_menu_select_all">Hiển thị tất cả</string>
   <string name="feed_configure_menu_deselect_all">Ẩn tất cả</string>
+  <string name="feed_configure_language_warning">Một số loại phiếu không có sẵn trong một số ngôn ngữ Wikipedia. Sửa đổi các ngôn ngữ của bạn trong Tùy chọn.</string>
   <string name="feed_item_type_news">Bài về thời sự</string>
   <string name="feed_item_type_on_this_day">Sự kiện xảy ra ngày này năm xưa</string>
+  <string name="feed_item_type_continue_reading">Liên kết để nhanh chóng quay lại bài đang mở trong một trong các thẻ của bạn</string>
+  <string name="feed_item_type_because_you_read">Gợi ý đọc bài tùy theo bài đã đọc gần đây</string>
+  <string name="feed_item_type_featured_article">Bài viết chọn lọc trong ngày tại Wikipedia</string>
   <string name="feed_item_type_trending">Các bài viết được xem nhiều nhất trong ngày</string>
+  <string name="feed_item_type_featured_image">Hình ảnh chọn lọc trong ngày từ Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Trang chính của Wikipedia với các nội dung chọn lọc hằng ngày</string>
   <string name="feed_item_type_randomizer">Đưa ra danh sách các bài viết ngẫu nhiên để đọc</string>
   <string name="feed_empty_message">Không có gì trên Bảng tin khám phá của bạn</string>
@@ -550,7 +607,9 @@
   <string name="description_edit_revert_history">Bạn có thể xem &lt;a href=\"%1$s\"&gt;lịch sử sửa đổi&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">Không thể kết nối với Internet. Hãy chắc chắn kết nối lại và thử lại.</string>
   <string name="offline_read_permission_rationale">Cần có quyền truy cập lưu trữ trên thiết bị của bạn để duyệt ngoại tuyến.</string>
+  <string name="offline_read_final_rationale">Cần có quyền truy cập lưu trữ trên thiết bị của bạn để sử dụng Thư viện Ngoài tuyến.</string>
   <string name="offline_read_permission_error">Chưa cấp quyền đọc thiết bị lưu trữ.</string>
+  <string name="offline_card_sideloading_text">Bạn hiện đang duyệt Wikipedia ngoại tuyến với các gói bài trong Thư viện Ngoại tuyến của bạn.</string>
   <string name="offline_my_compilations">Quản lý thư viện ngoại tuyến</string>
   <string name="offline_compilations_title">Thư viện Ngoại tuyến</string>
   <string name="offline_compilations_search_by_name">Tìm gói bài theo tên</string>
@@ -578,6 +637,9 @@
   <string name="compilation_remove_confirm">Bạn có chắc chắn muốn xóa gói bài này khỏi Thư viện Ngoại tuyến của bạn?</string>
   <string name="offline_library_title">Thư viện Ngoại tuyến</string>
   <string name="offline_library_empty_title">Không có gì trong Thư viện Ngoại tuyến</string>
+  <string name="offline_library_empty_description_sideload">“Gói bài” trong Thư viện Ngoại tuyến là tập hợp bài viết được tạo ra để lưu trên thiết bị một cách tiện lợi để cho bạn tiếp tục đọc ngay cả khi ngoại tuyến.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support?uselang=vi\"&gt;Tìm hiểu thêm&lt;/a&gt;</string>
+  <string name="offline_library_packs_hint">Các gói bài trong thư viện của bạn tiếp tục có sẵn để đọc ngay cả khi bạn ngoại tuyến. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support?uselang=vi\"&gt;Tìm hiểu thêm&lt;/a&gt;</string>
+  <string name="offline_library_data_usage_hint">Muốn tiết kiệm mức sử dụng dữ liệu di động? Bật tùy chọn “Tải nội dung ngoại tuyến nếu có thể” trong Tùy chọn để hiển thị các bài ngoại tuyến trước tên, ngay cả khi bạn đang trực tuyến. &lt;a href=\"#settings\"&gt;Đi đến Tùy chọn&lt;/a&gt;</string>
   <string name="offline_library_empty_search">Tìm kiếm trong Thư viện Ngoại tuyến</string>
   <string name="offline_library_search_results_state">Kết quả tìm kiếm từ Thư viện Ngoại tuyến</string>
   <string name="offline_library_onboarding_button_done">Xong</string>
@@ -587,25 +649,32 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Tiếp tục đọc và tìm bài trong Thư viện Ngoại tuyến của bạn khi bạn mất kết nối Internet.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Lưu trữ thêm kiến thức</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">Tải về nhiều nội dung Wikipedia bằng sức chứa của thiết bị này. Thư viện Ngoại tuyến cũng có thể truy cập gói bài từ thiết bị lưu trữ bên ngoài.</string>
+  <string name="offline_library_main_page_hint_html">Trang Chính này tóm tắt nội dung của gói bài này.&lt;br /&gt;&lt;br /&gt;Bạn cũng có thể duyệt nội dung gói bài trong Thư viện Ngoại tuyến bằng cách tìm bài khi ngoại tuyến.</string>
   <string name="onboarding_skip">Bỏ qua</string>
   <string name="onboarding_continue">Tiếp tục</string>
   <string name="onboarding_get_started">Bắt đầu</string>
   <string name="onboarding_explore_title">Cách thám hiểm mới</string>
   <string name="onboarding_explore_text" fuzzy="true">Khám phá các bài viết chọn lọc, đề tài thịnh hành, và gợi ý đọc bài trong nguồn cấp Thám hiểm.</string>
   <string name="onboarding_save_to_reading_lists_title">Lưu vào danh sách đọc</string>
+  <string name="onboarding_save_to_reading_lists_text">Tạo danh sách đọc có các bài bạn muốn đọc sau, ngay cả khi ngoại tuyến.</string>
   <string name="onboarding_reading_list_sync_title">Danh sách đọc có thể đồng bộ hóa</string>
-  <string name="onboarding_reading_list_sync_text" fuzzy="true">Tạo các danh sách đọc có những bài bạn muốn đọc sau, ngay cả khi ngoại tuyến. &lt;a href=\"#login\"&gt;Đăng nhập vào hoặc mở&lt;/a&gt; tài khoản Wikipedia sao lưu các danh sách đọc của bạn.</string>
+  <string name="onboarding_reading_list_sync_text">Tạo các danh sách đọc có những bài bạn muốn đọc sau, ngay cả khi ngoại tuyến. &lt;a href=\"#login\"&gt;Đăng nhập vào hoặc mở&lt;/a&gt; tài khoản Wikipedia để sao lưu các danh sách đọc của bạn.</string>
+  <string name="onboarding_reading_list_sync_text_v2">Bạn có thể tạo danh sách đọc có các bài bạn muốn đọc sau, ngay cả khi bạn đang ngoại tuyến. &lt;br/&gt;Đăng nhập vào tài khoản Wikipedia của bạn để đồng bộ hóa các danh sách đọc của bạn. &lt;a href=\"#login\"&gt;Tham gia Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Gửi dữ liệu vô danh</string>
+  <string name="onboarding_analytics_offline_text">Giúp cải thiện ứng dụng bằng cách cho chúng tôi biết bạn sử dụng nó như thế nào. Tất cả các dữ liệu được thu tập được vô danh hóa. &lt;a href=\"#privacy\"&gt;Tìm hiểu thêm&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Gửi dữ liệu về cách dùng</string>
   <string name="onboarding_create_account_sync">Đồng bộ hóa các danh sách đọc</string>
   <string name="onboarding_create_account_contributions">Theo dõi các đóng góp của bạn</string>
   <string name="onboarding_create_account_preferences">Lưu tùy chọn của bạn</string>
   <string name="onboarding_got_it">Đã hiểu</string>
+  <string name="onboarding_multilingual_secondary_text">Đã tìm thấy các ngôn ngữ sau trên thiết bị của bạn:</string>
+  <string name="onboarding_multilingual_add_language_text">Thêm và sửa ngôn ngữ</string>
   <string name="onboarding_welcome_title_v2">Bách khoa toàn thư mở\n…trong gần 300 ngôn ngữ</string>
   <string name="app_shortcuts_random">Ngẫu nhiên</string>
   <string name="app_shortcuts_continue_reading">Đọc tiếp</string>
   <string name="app_shortcuts_search">Tìm kiếm</string>
   <string name="more_trending_text">Bài tương tự</string>
+  <string name="top_on_this_day">Xu hướng tại %1$s</string>
   <string name="on_this_day_card_title">Ngày này năm xưa</string>
   <string name="more_events_text">Xem thêm sự kiện</string>
   <string name="events_count_text">Đã có %1$s sự kiện từ %2$s–%3$d</string>
@@ -632,6 +701,8 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Hãy giữ lại ít nhất một ngôn ngữ Wikipedia để tìm và đọc nội dung.</string>
   <string name="more_language_options">thêm</string>
   <string name="add_wikipedia_languages_text">Thêm ngôn ngữ Wikipedia</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Xóa biến thể tiếng Trung khỏi các ngôn ngữ ứng dụng của bạn?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Tiếng Trung phồn thể và giản thể đều được kích hoạt trong ngôn ngữ ứng dụng của bạn. Bạn có muốn cập nhật tùy chọn ngôn ngữ ứng dụng?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sửa ngôn ngữ</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Thôi</string>
 </resources>

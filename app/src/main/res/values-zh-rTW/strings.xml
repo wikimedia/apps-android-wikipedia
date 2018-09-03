@@ -303,6 +303,8 @@
   <string name="error_no_maps_app">無法找到任何提供路線的應用程式。</string>
   <string name="preference_title_show_link_previews">顯示連結預覽</string>
   <string name="preference_summary_show_link_previews">在點選連結時，顯示條目的快速預覽。</string>
+  <string name="preference_title_collapse_tables">折疊表格</string>
+  <string name="preference_summary_collapse_tables">自動折疊在條目裡的表格，例如像是資訊框、參考資料、註解等等。</string>
   <string name="nav_item_donate">支持維基百科</string>
   <string name="error_voice_search_not_available">很抱歉，不提供語音辨識。</string>
   <string name="location_service_disabled">已停用位置服務。</string>

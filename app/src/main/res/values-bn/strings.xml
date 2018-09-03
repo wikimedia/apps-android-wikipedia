@@ -126,6 +126,8 @@
   <string name="create_account_password_error">পাসওয়ার্ড ভুল</string>
   <string name="create_account_generic_error">অ্যাকাউন্ট তৈরী করা যাচ্ছে না</string>
   <string name="create_account_next">পরবর্তী</string>
+  <string name="email_recommendation_dialog_title">কোন ইমেল ঠিকানা ছাড়াই অ্যাকাউন্ট তৈরি করবেন?</string>
+  <string name="email_recommendation_dialog_create_with_email_action">একটি ইমেইল ঠিকানা যোগ করুন</string>
   <string name="create_account_button">অ্যাকাউন্ট তৈরি করুন</string>
   <string name="create_account_name_unavailable">\"%s\" নামে কোনো ব্যবহারকারী উপলব্ধ নেই। দয়া করে অন্য কোনো নাম বাছুন।</string>
   <string name="create_account_ip_block_message">দুঃখিত, নতুন অ্যাকাউন্ট তৈরি করা থেকে আপনার আইপি ঠিকানাকে অবরুদ্ধ করা হয়েছে।</string>
@@ -189,7 +191,7 @@
   <string name="about_translators_translatewiki">এই অ্যাপ্লিকেশন স্বেচ্ছাসেবী অনুবাদকদের দ্বারা &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-এ অনূদিত হয়েছে।</string>
   <string name="about_app_license_heading">লাইসেন্স</string>
   <string name="about_app_license">উৎস কোড &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;অ্যাপাচি ২.০ লাইসেন্সের&lt;/a&gt; অধীনে &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;জেরিট&lt;/a&gt; ও &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;গিটহাবে&lt;/a&gt; উপলব্ধ। অন্যথায় নির্দিষ্ট করা না থাকলে, বিষয়বস্তু &lt;a href=\"https://bn.wikipedia.org/wiki/উইকিপিডিয়া:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ক্রিয়েটিভ কমন্স অ্যাট্রিবিউশন-শেয়ারঅ্যালাইক লাইসেন্সের&lt;/a&gt; অধীনে উপলব্ধ।</string>
-  <string name="about_wmf" fuzzy="true">&lt;a href=\"https://wikimediafoundation.org/\"&gt;উইকিমিডিয়া ফাউন্ডেশনের&lt;/a&gt; একটি পণ্য</string>
+  <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;উইকিমিডিয়া ফাউন্ডেশনের&lt;/a&gt; একটি পণ্য</string>
   <string name="about_activity_title">পরিচিতি</string>
   <string name="edit_abandon_confirm">এই পাতাটি পরিবর্তিত হয়েছে। আপনি কী নিশ্চিত যে আপনার পরিবর্তন সংরক্ষণ না করেই প্রস্থান করবেন?</string>
   <string name="edit_abandon_confirm_yes">হ্যাঁ</string>
@@ -271,6 +273,7 @@
   <string name="tool_tip_share">একটি আকর্ষণীয় তথ্য আলোকপাত করার পর, আপনার প্রিয় নেটওয়ার্কে তা জানানোর চেষ্টা করুন!</string>
   <string name="page_view_in_browser">ব্রাউজারে পাতা দেখুন</string>
   <string name="tool_tip_toc_button">যেকোন সময় এই বোতাম টোকা দিয়ে, বা পর্দার ডান প্রান্ত থেকে টেনে আনার দ্বারা টেবিলের বিষয়বস্তু দেখুন।</string>
+  <string name="tool_tip_lang_button">আপনি অ্যাপের মধ্যে এখন একাধিক উইকিপিডিয়ার ভাষায় অনুসন্ধান করতে এবং পড়তে পারবেন।\n\n\nআরো ভাষা যোগ করতে আইকনে আলতো চাপুন।</string>
   <string name="error_response_malformed">সার্ভার থেকে প্রতিক্রিয়া সঠিকভাবে বিন্যস্ত হয় নি।</string>
   <string name="error_unknown">একটি অজানা ত্রুটি দেখা দিয়েছে।</string>
   <string name="format_error_server_message">বার্তা: \"%s\"</string>
@@ -392,6 +395,7 @@
   <string name="default_reading_list_name">সংরক্ষিত</string>
   <string name="reading_list_saved_list_rename">%1$s (ব্যবহারকারী তৈরি করেছেন)</string>
   <string name="reading_lists_menu_create_list">নতুন তালিকা তৈরি করুন</string>
+  <string name="reading_lists_menu_sort_by">সাজান</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">প্রবেশ করুন / নিবন্ধন করুন</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">এই নিবন্ধটি এখন অফলাইনে উপলব্ধ হবে।</item>
@@ -425,6 +429,15 @@
     <item quantity="one">%1$dটি তালিকা বাকী</item>
     <item quantity="other">%1$dটি তালিকা বাকী</item>
   </plurals>
+  <string name="notifications_poll_enable_title">বিজ্ঞপ্তি সক্রিয় করুন</string>
+  <string name="notifications_poll_enable_positive">সক্ষম করুন</string>
+  <string name="notifications_poll_enable_negative">এখন নয়</string>
+  <string name="notifications_view_archived_button_text">সংরক্ষণাগারভুক্ত বিজ্ঞপ্তিগুলি দেখুন</string>
+  <string name="notification_preferences_title">বিজ্ঞপ্তির পছন্দসমূহ</string>
+  <string name="preference_title_notification_welcome">স্বাগতম</string>
+  <string name="preference_summary_notification_welcome">একটি অ্যাকাউন্ট তৈরি করা হয়েছে</string>
+  <string name="preference_title_notification_milestone">মাইলফলক</string>
+  <string name="preference_title_notification_thanks">ধন্যবাদ</string>
   <string name="view_continue_reading_card_title">পড়া অব্যাহত রাখুন</string>
   <string name="view_because_you_read_card_title">কারণ আপনি পড়েছেন</string>
   <string name="view_random_card_title">অজানা পাতা</string>
@@ -550,6 +563,7 @@
   <string name="onboarding_got_it">বুঝেছি</string>
   <string name="onboarding_multilingual_secondary_text">আমরা আপনার ডিভাইসে নিম্নলিখিত খুঁজে পেয়েছি:</string>
   <string name="onboarding_multilingual_add_language_text">ভাষা যোগ বা সম্পাদনা করুন</string>
+  <string name="onboarding_welcome_title_v2">একটি মুক্ত বিশ্বকোষ\n...প্রায় ৩০০টি ভাষায়</string>
   <string name="app_shortcuts_random">অজানাভাবে</string>
   <string name="app_shortcuts_continue_reading">পড়া অব্যাহত রাখুন</string>
   <string name="app_shortcuts_search">অনুসন্ধান</string>
@@ -578,6 +592,7 @@
   </plurals>
   <string name="wikipedia_languages_remove_warning_dialog_title">সমস্ত ভাষা সরানো যাবে না</string>
   <string name="more_language_options">আরো</string>
+  <string name="add_wikipedia_languages_text">উইকিপিডিয়ার ভাষা যোগ করুন</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ভাষা সম্পাদনা করুন</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">না ধন্যবাদ</string>
 </resources>

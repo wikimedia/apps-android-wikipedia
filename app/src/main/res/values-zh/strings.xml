@@ -90,6 +90,7 @@
   <string name="search_reading_lists_no_results">在阅读列表中找不到结果</string>
   <string name="search_history_no_results">在历史中找不到结果</string>
   <string name="edit_section_captcha_message">为了防止自动垃圾信息，请输入下面显示的文字</string>
+  <string name="edit_section_captcha_request_an_account_message">无法看到图片么？&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:账号请求\"&gt;了解更多&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">请输入验证码中的文字</string>
   <string name="title_captcha">输入验证码</string>
   <string name="edit_section_captcha_reload">点按验证码重新加载</string>
@@ -129,6 +130,11 @@
   <string name="create_account_password_error">密码无效</string>
   <string name="create_account_generic_error">无法创建账户</string>
   <string name="create_account_next">下一步</string>
+  <string name="email_recommendation_dialog_title">创建账户而不填写电子邮件地址么？</string>
+  <string name="email_recommendation_dialog_message">虽然电子邮件地址是可选项，但&lt;b&gt;强烈建议您填写&lt;/b&gt;，因为当您忘记您的密码时，需要电子邮件才能找回账户。</string>
+  <string name="email_recommendation_message">建议填写，因为需要电子邮件方能找回账户。</string>
+  <string name="email_recommendation_dialog_create_without_email_action">继续而不填写电子邮件</string>
+  <string name="email_recommendation_dialog_create_with_email_action">添加电子邮件地址</string>
   <string name="create_account_button">创建账户</string>
   <string name="create_account_name_unavailable">用户名“%s”不可用。请选择不同的用户名。</string>
   <string name="create_account_ip_block_message">对不起，您的IP地址当前被封禁，不能创建新账户。</string>
@@ -157,6 +163,7 @@
   <string name="preferences_heading_experimental">实验</string>
   <string name="preference_title_sync_reading_lists">同步阅读列表</string>
   <string name="preference_title_sync_reading_lists_from_account">阅读列表同步</string>
+  <string name="preference_title_download_reading_list_articles">下载阅读列表条目</string>
   <string name="preference_summary_sync_reading_lists">通过保存至您的维基百科账户，跨各种设备同步阅读列表</string>
   <string name="preference_summary_sync_reading_lists_from_account">通过保存到您的维基百科帐户“%s”，跨各种设备同步阅读列表</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">从“%s”移除同步的阅读列表么？</string>
@@ -185,6 +192,7 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#离线阅读和数据</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh</string>
   <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.zh</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh</string>
   <string name="about_libraries_heading">使用的库</string>
@@ -485,6 +493,33 @@
     <item quantity="one">剩余%1$d个列表</item>
     <item quantity="other">剩余%1$d个列表</item>
   </plurals>
+  <string name="notification_echo_channel_description">维基百科通知</string>
+  <string name="notifications_activity_title">通知</string>
+  <string name="notifications_activity_title_archived">通知（已存档）</string>
+  <string name="notifications_search">搜索通知</string>
+  <string name="notifications_view_unread">查看未读</string>
+  <string name="notifications_view_archived">查看已存档</string>
+  <string name="notifications_prefs">通知参数设置</string>
+  <string name="notifications_archive">标记为已读并存档</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">通知已存档</item>
+    <item quantity="other">%d条通知已存档</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">启用通知</string>
+  <string name="notifications_poll_enable_positive">启用</string>
+  <string name="notifications_poll_enable_negative">不是现在</string>
+  <string name="notifications_empty_message">您已阅读所有通知！</string>
+  <string name="notifications_view_archived_button_text">查看已存档通知</string>
+  <string name="notification_preferences_title">通知参数设置</string>
+  <string name="preference_title_notification_poll">投票通知</string>
+  <string name="preference_summary_notification_poll">允许应用使用数据在后台检查新通知。</string>
+  <string name="preference_category_notification_types">应用内通知类型</string>
+  <string name="preference_title_notification_welcome">欢迎</string>
+  <string name="preference_summary_notification_welcome">已创建一个账户</string>
+  <string name="preference_title_notification_milestone">里程碑</string>
+  <string name="preference_summary_notification_milestone">已达成某个编辑数</string>
+  <string name="preference_title_notification_thanks">感谢</string>
+  <string name="preference_summary_notification_thanks">有人感谢了您的一次编辑</string>
   <string name="view_continue_reading_card_title">继续阅读</string>
   <string name="view_because_you_read_card_title">因为您阅读</string>
   <string name="view_random_card_title">随机产生条目器</string>

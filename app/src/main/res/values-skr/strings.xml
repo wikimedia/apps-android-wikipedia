@@ -94,6 +94,7 @@
   <string name="create_account_password_error">پاس ورڈ ٹھیک کائنی</string>
   <string name="create_account_generic_error">کھاتہ نی کھُل سڳیا</string>
   <string name="create_account_next">اڳوں تے ونڄو</string>
+  <string name="email_recommendation_dialog_create_with_email_action">ہک ای میل پتہ شامل کرو</string>
   <string name="create_account_button">کھاتہ کھولو</string>
   <string name="create_account_ip_block_details">تفصیلاں</string>
   <string name="preferences_general_heading">عمومی</string>
@@ -220,6 +221,7 @@
   <string name="notification_syncing_pause_button">اجھکو</string>
   <string name="notification_syncing_cancel_button">منسوخ</string>
   <string name="notifications_poll_enable_positive">فعال کرو</string>
+  <string name="notifications_poll_enable_negative">ہُݨ نہ</string>
   <string name="preference_title_notification_welcome">ست بسم اللہ</string>
   <string name="preference_title_notification_milestone">سنگ میل</string>
   <string name="preference_title_notification_thanks">شکریہ</string>

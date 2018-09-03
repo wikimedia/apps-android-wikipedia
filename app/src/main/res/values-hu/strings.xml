@@ -89,6 +89,7 @@
   <string name="search_reading_lists_no_results">Nincs találat az olvasólistákban</string>
   <string name="search_history_no_results">Nincs találat az előzményekben</string>
   <string name="edit_section_captcha_message">Az automatikus spam elleni védekezés érdekében írd be az alább megjelenő szavakat</string>
+  <string name="edit_section_captcha_request_an_account_message">Nem látod a képet? &lt;a href=\"https://hu.wikipedia.org/wiki/Wikipédia:Felhasználói_fiók_kérése\"&gt;Tudj meg többet&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ismételd meg a fenti szavakat</string>
   <string name="title_captcha">Add meg a CAPTCHA-t</string>
   <string name="edit_section_captcha_reload">Érintsd meg a CAPTCHA-t az újratöltéshez</string>
@@ -128,6 +129,11 @@
   <string name="create_account_password_error">A jelszó érvénytelen</string>
   <string name="create_account_generic_error">Nem sikerült a fiók létrehozása</string>
   <string name="create_account_next">Következő</string>
+  <string name="email_recommendation_dialog_title">Biztos létrehozod a fiókot e-mail-cím nélkül?</string>
+  <string name="email_recommendation_dialog_message">Noha az e-mail-cím opcionális, megadása &lt;b&gt;erősen javallott&lt;/b&gt;, hogy elfelejtett jelszó esetén helyreállíthasd fiókodat.</string>
+  <string name="email_recommendation_message">Ajánlott a fiók egy esetleges helyreállítsa végett.</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Folytatás e-mail-cím nélkül</string>
+  <string name="email_recommendation_dialog_create_with_email_action">E-mail-cím megadása</string>
   <string name="create_account_button">Regisztráció</string>
   <string name="create_account_name_unavailable">A(z) „%s” felhasználói név nem elérhető. Kérlek, válassz másikat.</string>
   <string name="create_account_ip_block_message">Sajnáljuk, de az IP-címedről jelenleg nem lehet regisztrálni.</string>
@@ -182,6 +188,7 @@
   <string name="about_wikipedia_url">https://hu.m.wikipedia.org/wiki/Wikipédia:Rólunk</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Offline_olvasás</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="android_app_request_an_account_url">https://hu.wikipedia.org/wiki/Wikipédia:Felhasználói_fiók_kérése</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.hu</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.hu</string>
   <string name="about_libraries_heading">Felhasznált könyvtárak</string>
@@ -190,7 +197,7 @@
   <string name="about_translators_translatewiki">Ezt az alkalmazást önkéntesek fordították a &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; segítségével.</string>
   <string name="about_app_license_heading">Licenc</string>
   <string name="about_app_license">A forráskód elérhető &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerriten&lt;/a&gt; és &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubon&lt;/a&gt; az &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; alatt. Ha nincs másként jelezve, a tartalom egy &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creatice Commons Nevezd meg! – Így add tovább! licenc&lt;/a&gt; alatt érhető el.</string>
-  <string name="about_wmf" fuzzy="true">A &lt;a href=\"https://wikimediafoundation.org\"&gt;Wikimédia Alapítvány&lt;/a&gt; terméke</string>
+  <string name="about_wmf">A &lt;a href=\"https://wikimediafoundation.org\"&gt;Wikimédia Alapítvány&lt;/a&gt; terméke</string>
   <string name="about_activity_title">Névjegy</string>
   <string name="edit_abandon_confirm">A lap megváltozott. Biztos mentés nélkül akarsz kilépni?</string>
   <string name="edit_abandon_confirm_yes">Igen</string>
@@ -290,6 +297,8 @@
   <string name="error_no_maps_app">Nem található útvonaltervező alkalmazás.</string>
   <string name="preference_title_show_link_previews">Linkek előnézetének megjelenítése</string>
   <string name="preference_summary_show_link_previews">A szócikk rövid előnézetének megjelenítése linkek megérintésekor.</string>
+  <string name="preference_title_collapse_tables">Táblázatok összecsukása</string>
+  <string name="preference_summary_collapse_tables">Automatikusan összecsukja a szócikkek táblázatait, mint például az infoboxokat, jegyzeteket és megjegyzéseket.</string>
   <string name="nav_item_donate">Támogasd a Wikipédiát!</string>
   <string name="error_voice_search_not_available">Sajnáljuk, a hangfelismerés nem elérhető.</string>
   <string name="location_service_disabled">A helyszolgáltatások nem érhetők el.</string>
@@ -480,6 +489,27 @@
     <item quantity="one">egy lista van hátra</item>
     <item quantity="other">%1$d lista van hátra</item>
   </plurals>
+  <string name="notification_echo_channel_description">Wikipédia értesítések</string>
+  <string name="notifications_activity_title">Értesítések</string>
+  <string name="notifications_activity_title_archived">Archivált értesítések</string>
+  <string name="notifications_view_unread">Olvasatlanok megtekintése</string>
+  <string name="notifications_view_archived">Archiváltak megtekintése</string>
+  <string name="notifications_prefs">Értesítések beállításai</string>
+  <string name="notifications_archive">Olvasottnak jelölés és archiválás</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">Értesítés archiválva</item>
+    <item quantity="other">%d db értesítés archiválva</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">Értesítések bekapcsolása</string>
+  <string name="notifications_poll_enable_positive">Engedélyezés</string>
+  <string name="notifications_poll_enable_negative">Ne most</string>
+  <string name="notifications_view_archived_button_text">Archivált értesítések megtekintése</string>
+  <string name="notification_preferences_title">Értesítések beállításai</string>
+  <string name="preference_title_notification_welcome">Üdvözlések</string>
+  <string name="preference_summary_notification_welcome">Létre lett hozva egy fiók</string>
+  <string name="preference_title_notification_milestone">Mérföldkövek</string>
+  <string name="preference_title_notification_thanks">Köszönetek</string>
+  <string name="preference_summary_notification_thanks">Valaki megköszönte egy szerkesztésedet</string>
   <string name="view_continue_reading_card_title">Olvasás folytatása</string>
   <string name="view_because_you_read_card_title">Mert ezt olvastad:</string>
   <string name="view_random_card_title">Találomra</string>
@@ -658,6 +688,7 @@
     <item quantity="other">Eltávolítod a kijelölt nyelveket?</item>
   </plurals>
   <string name="wikipedia_languages_remove_warning_dialog_title">Nem törölhető az összes nyelv</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Tarts meg legalább egy Wikipédia nyelvet amin keresni és olvasni szeretnél.</string>
   <string name="more_language_options">több</string>
   <string name="add_wikipedia_languages_text">Wikipédia-nyelvek hozzáadása</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Eltávolítod valamelyik kínai változatot az alkalmazás nyelvei közül?</string>

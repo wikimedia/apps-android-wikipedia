@@ -10,6 +10,7 @@
 * Iwan Novirion
 * Kenrick95
 * Macofe
+* Mas ady
 * Relly Komaruzaman
 * Riemogerz
 * Rizkiahmadz
@@ -128,6 +129,7 @@
   <string name="create_account_password_error">Kata sandi tidak sah</string>
   <string name="create_account_generic_error">Tidak dapat membuat akun</string>
   <string name="create_account_next">Selanjutnya</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Tambahkan alamat surel</string>
   <string name="create_account_button">Buat akun baru</string>
   <string name="create_account_name_unavailable">Nama pengguna \"%s\" tidak tersedia. Silakan pilih nama yang berbeda.</string>
   <string name="create_account_ip_block_message">Maaf, alamat IP Anda saat ini diblokir agar tidak membuat akun baru.</string>
@@ -486,6 +488,22 @@
     <item quantity="one">%1$d daftar tersisa</item>
     <item quantity="other">%1$d daftar tersisa</item>
   </plurals>
+  <string name="notification_echo_channel_description">Pemberitahuan Wikipedia</string>
+  <string name="notifications_activity_title">Pemberitahuan</string>
+  <string name="notifications_activity_title_archived">Pemberitahuan (diarsipkan)</string>
+  <string name="notifications_search">Cari pemberitahuan</string>
+  <string name="notifications_view_unread">Lihat pemberitahuan belum dibaca</string>
+  <string name="notifications_view_archived">Lihat pemberitahuan diarsipkan</string>
+  <string name="notifications_prefs">Pengaturan pemberitahuan</string>
+  <string name="notifications_archive">Tandai sudah dibaca dan arsipkan</string>
+  <string name="notifications_poll_enable_title">Aktifkan pemberitahuan</string>
+  <string name="notifications_poll_enable_positive">Aktif</string>
+  <string name="notifications_poll_enable_negative">Nanti</string>
+  <string name="notification_preferences_title">Pengaturan pemberitahuan</string>
+  <string name="preference_title_notification_welcome">Selamat datang</string>
+  <string name="preference_summary_notification_welcome">Akun telah dibuat</string>
+  <string name="preference_title_notification_milestone">Pencapaian</string>
+  <string name="preference_title_notification_thanks">Terima kasih</string>
   <string name="view_continue_reading_card_title">Lanjutkan membaca</string>
   <string name="view_because_you_read_card_title">Karena Anda membaca</string>
   <string name="view_random_card_title">Artikel sembarang</string>

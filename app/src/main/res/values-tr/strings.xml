@@ -105,7 +105,7 @@
   <string name="nav_item_login">Vikipedi\'de oturum aç</string>
   <string name="login_username_hint">Kullanıcı adı</string>
   <string name="login_password_hint">Parola</string>
-  <string name="login_2fa_hint">İki Faktörlü Kimlik Doğrulama Kodu</string>
+  <string name="login_2fa_hint">İki Aşamalı Doğrulama Kodu</string>
   <string name="login_2fa_other_workflow_error_msg">İki faktörlü kimlik doğrulaması gerekli. Lütfen ana faaliyetinize dönün ve 2FKD anahtarınızla giriş yapıp, ardından tekrar deneyin.</string>
   <string name="menu_login">Oturum aç</string>
   <string name="login_activity_title">Vikipedi\'ye giriş yap</string>

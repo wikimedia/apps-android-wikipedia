@@ -304,6 +304,8 @@
   <string name="error_no_maps_app">주어진 경로의 앱을 찾지 못하였습니다.</string>
   <string name="preference_title_show_link_previews">링크 미리보기 보이기</string>
   <string name="preference_summary_show_link_previews">문서의 링크를 터치할 때 빠른 미리보기를 보이기</string>
+  <string name="preference_title_collapse_tables">표 접기</string>
+  <string name="preference_summary_collapse_tables">정보상자, 각주, 내용주 등 문서 안의 표를 자동으로 접습니다.</string>
   <string name="nav_item_donate">위키백과 지원</string>
   <string name="error_voice_search_not_available">죄송합니다. 음성 인식을 이용할 수 없습니다.</string>
   <string name="location_service_disabled">위치 서비스를 사용할 수 없습니다.</string>

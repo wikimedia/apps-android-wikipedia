@@ -292,6 +292,8 @@
   <string name="error_no_maps_app">Es konnten keine Apps gefunden werden, die Richtungen zur Verfügung stellen.</string>
   <string name="preference_title_show_link_previews">Vorschaubilder von Links anzeigen</string>
   <string name="preference_summary_show_link_previews">Zeigt eine schnelle Vorschau von Artikeln beim Antippen von Links.</string>
+  <string name="preference_title_collapse_tables">Tabellen einklappen</string>
+  <string name="preference_summary_collapse_tables">Tabellen in Artikeln wie Infoboxen, Einzelnachweise und Anmerkungen automatisch einklappen.</string>
   <string name="nav_item_donate">Wikipedia unterstützen</string>
   <string name="error_voice_search_not_available">Leider ist die Stimmenerkennung nicht verfügbar.</string>
   <string name="location_service_disabled">Standortdienste sind deaktiviert.</string>

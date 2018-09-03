@@ -29,6 +29,7 @@
 * Ole Yves
 * Patrick Star
 * Ping08
+* Pplex.vhs
 * Redredsonia
 * SimondR
 * Smigles
@@ -541,6 +542,7 @@
   <string name="preference_summary_notification_welcome">Учётная запись создана</string>
   <string name="preference_summary_notification_milestone">Достигнуто определённое число правок</string>
   <string name="preference_title_notification_thanks">Благодарность</string>
+  <string name="preference_summary_notification_thanks">Кто-то поблагодарил вас за правку</string>
   <string name="view_continue_reading_card_title">Продолжить чтение</string>
   <string name="view_because_you_read_card_title">На основе прочитанного</string>
   <string name="view_random_card_title">Рандомизатор</string>

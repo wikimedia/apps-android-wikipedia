@@ -301,6 +301,8 @@
   <string name="error_no_maps_app">Não foi possível encontrar aplicações que forneçam indicações.</string>
   <string name="preference_title_show_link_previews">Mostrar antevisões das hiperligações</string>
   <string name="preference_summary_show_link_previews">Mostra uma antevisão rápida de artigos ao tocar em hiperligações.</string>
+  <string name="preference_title_collapse_tables">Recolher tabelas</string>
+  <string name="preference_summary_collapse_tables">Recolher automaticamente as tabelas nos artigos, como as caixas informativas, referências e notas.</string>
   <string name="nav_item_donate">Apoie a Wikipédia</string>
   <string name="error_voice_search_not_available">Desculpe, o reconhecimento de voz não está disponível.</string>
   <string name="location_service_disabled">Os serviços de localização estão desativados.</string>

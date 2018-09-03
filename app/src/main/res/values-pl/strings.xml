@@ -3,6 +3,7 @@
 * Alan ffm
 * Alchemik
 * Chrumps
+* Darellur
 * DeRudySoulStorm
 * Debeet
 * Devwebtel
@@ -136,6 +137,8 @@
   <string name="create_account_password_error">Hasło jest nieprawidłowe</string>
   <string name="create_account_generic_error">Nie można utworzyć konta</string>
   <string name="create_account_next">Dalej</string>
+  <string name="email_recommendation_dialog_title">Założyć konto bez adresu e-mail?</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Dodaj adres e‐mail</string>
   <string name="create_account_button">Utwórz konto</string>
   <string name="create_account_name_unavailable">Nazwa użytkownika „%s” nie jest dostępna. Proszę wybrać inną nazwę.</string>
   <string name="create_account_ip_block_message">Niestety, twój adres IP jest obecnie zablokowany podczas tworzenia nowych kont.</string>
@@ -290,6 +293,7 @@
   <string name="error_no_maps_app">Nie udało się znaleźć aplikacji do nawigacji.</string>
   <string name="preference_title_show_link_previews">Pokaż podgląd linków</string>
   <string name="preference_summary_show_link_previews">Pokaż szybki podgląd artykułów po kliknięciu na linki.</string>
+  <string name="preference_summary_collapse_tables">Automatyczne zwinięcie w artykułach tabel, takich jak infoboksy, odnośniki i uwagi.</string>
   <string name="nav_item_donate">Wspomóż Wikipedię</string>
   <string name="error_voice_search_not_available">Przepraszamy, rozpoznawanie mowy nie jest dostępne.</string>
   <string name="location_service_disabled">Usługi lokalizacji są wyłączone.</string>
@@ -455,6 +459,7 @@
     <item quantity="other">%d dni temu</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">dzisiaj</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Czytany %s</string>
   <string name="view_announcement_card_negative_action">Nie, dziękuję</string>
   <string name="view_offline_card_text">Treści nie można załadować w trybie offline.</string>
   <string name="view_featured_article_card_title">Wyróżniony artykuł</string>

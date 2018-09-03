@@ -289,6 +289,8 @@
   <string name="error_no_maps_app">Не можев да најдам прилози што даваат насоки.</string>
   <string name="preference_title_show_link_previews">Прегледи на врски</string>
   <string name="preference_summary_show_link_previews">Дава брз преглед на статијата кога ќе се допре на нејзината врска</string>
+  <string name="preference_title_collapse_tables">Склопи табели</string>
+  <string name="preference_summary_collapse_tables">Автоматски склопувај ги табелите во статии како со инфокутиите, наводите и белешките.</string>
   <string name="nav_item_donate">Поддржете ја Википедија</string>
   <string name="error_voice_search_not_available">За жал, гласовното препознавање не е достапно.</string>
   <string name="location_service_disabled">Местоположбените услуги се оневозможени.</string>

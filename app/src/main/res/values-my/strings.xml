@@ -556,7 +556,7 @@
   <string name="description_edit_save">လွှင့်တင်ရန်</string>
   <string name="description_edit_add_description">ဖော်ပြချက်အတို ပေါင်းထည့်ရန်</string>
   <string name="description_edit_edit_description">ဖော်ပြချက် ပြင်ဆင်ရန်</string>
-  <string name="description_edit_cancel_hint">မလုပ်တော့</string>
+  <string name="description_edit_cancel_hint">မလုပ်တော့ပါ</string>
   <string name="description_edit_help_title">အကူအညီ:ခေါင်းစဉ် ဖော်ပြချက်များ</string>
   <string name="description_edit_help_about_wikidata">ဝီကီဒေတာအကြောင်း</string>
   <string name="description_edit_help_wikidata_guide">ဖော်ပြချက်များ ရေးသားရန်အတွက် ဝီကီဒေတာ လမ်းညွှန်</string>

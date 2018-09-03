@@ -263,6 +263,7 @@
   <string name="error_no_maps_app">Et konnte keng Appe fonnt ginn déi Richtungen zur Verfügung stellen.</string>
   <string name="preference_title_show_link_previews">Weise wéi de Link ausgesi wäert</string>
   <string name="preference_summary_show_link_previews">Kuerz weise wéi den Artikel ausgesäit wann een op d\'Linken tippt.</string>
+  <string name="preference_title_collapse_tables">Tabellen zesummeklappen</string>
   <string name="nav_item_donate">Ënnerstëtzt Wikipedia</string>
   <string name="error_voice_search_not_available">Leider ass d\'Erkennung vun der Stëmm net disponibel.</string>
   <string name="location_service_disabled">Lokalisatiouns-Servicer sinn ausgeschalt.</string>
@@ -415,14 +416,17 @@
   <string name="notifications_activity_title_archived">Notifikatiounen (archivéiert)</string>
   <string name="notifications_search">An den Notifikatioune sichen</string>
   <string name="notifications_view_unread">Déi net geliest weisen</string>
+  <string name="notifications_view_archived">Déi archivéiert weisen</string>
   <string name="notifications_prefs">Astellunge vun den Notifikatiounen</string>
   <string name="notifications_archive">Als geliest markéieren an archivéieren</string>
   <string name="notifications_poll_enable_title">Notifikatiounen aktivéieren</string>
   <string name="notifications_poll_enable_positive">Aschalten</string>
   <string name="notifications_poll_enable_negative">Net elo</string>
+  <string name="notifications_empty_message">Dir hutt keng nei Notifikatioune méi!</string>
   <string name="notifications_view_archived_button_text">Archivéiert Notifikatioune weisen</string>
   <string name="notification_preferences_title">Astellunge vun den Notifikatiounen</string>
   <string name="preference_title_notification_welcome">Wëllkomm</string>
+  <string name="preference_summary_notification_welcome">E Benotzerkont gouf ugeluecht</string>
   <string name="preference_title_notification_milestone">Meilesteen</string>
   <string name="preference_title_notification_thanks">Merci</string>
   <string name="preference_summary_notification_thanks">Et seet Een Iech Merci fir eng Ännerung</string>

@@ -115,6 +115,10 @@
   <string name="create_account_password_error">မလိက်ပၞုက် ဟွံလုပ်အဝေါင်</string>
   <string name="create_account_generic_error">ခၞံဗဒှ် အကံက် ဟွံဂွံ</string>
   <string name="create_account_next">ဂတ</string>
+  <string name="email_recommendation_dialog_message">ၜိုန်ရ ဌာန်ဒၟံင် အဳမေလ်ဂှ် ဗၟံက်ထ္ၜးလဝ်ကီုလေဝ် အဳမေလ် သွက်ဂွံ ကလေင်ဗၟံက်ထ္ၜး ကာလမၞး မဝိုတ်စ မလိက်ဓလုက်မၞးဂှ်  &lt;b&gt;အာတ်မိက်ဒှ် ဗွဲမဇၞော်ကဵုဒြဟတ်&lt;/b&gt; ရ၊၊</string>
+  <string name="email_recommendation_message">တင်အာတ်မိက် အဳမေလ်ဂှ် နွံပၟိက်ဒၟံင် သွက်ဂွံကလေင် ဗၟံက်ထ္ၜး၊၊</string>
+  <string name="email_recommendation_dialog_create_without_email_action">ဆက်ကၠောန် နကဵု သက္ကု အဳမေလ်</string>
+  <string name="email_recommendation_dialog_create_with_email_action">စုတ် ဌာန်ဒၟံင် အဳမေလ် မွဲ</string>
   <string name="create_account_button">ခၞံကၠောန် အကံက်</string>
   <string name="create_account_name_unavailable">ယၟုအသုင်စောဲ %s ဂှ် ဟွံလုပ်အဝေါင်၊၊ ပဂုန်တုဲ ရုဲစှ် ယၟုတၞဟ်ညိ၊၊</string>
   <string name="create_account_ip_block_message">သၠးအခေါင်၊ IP address မၞး ပြဟ်ဟ်ဏအ် ဒးဒုင်ကၟာတ်လဝ် သွက်ဂွံ ခၞံကၠောန် အကံက်တၟိ၊၊</string>

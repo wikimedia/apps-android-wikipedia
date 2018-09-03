@@ -117,6 +117,11 @@
   <string name="create_account_password_error">La contraseña ye inválida</string>
   <string name="create_account_generic_error">Nun pudo crease la cuenta</string>
   <string name="create_account_next">Siguiente</string>
+  <string name="email_recommendation_dialog_title">¿Crear una cuenta ensin dirección de corréu electrónicu?</string>
+  <string name="email_recommendation_dialog_message">Anque la direición de corréu ye opcional, ye &lt;b&gt;enforma recomendable&lt;/b&gt;, porque precises un corréu pa recuperar la cuenta si perdieras la contraseña.</string>
+  <string name="email_recommendation_message">Recomendable porque precises un corréu pa recuperar una cuenta.</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Siguir ensin corréu electrónicu</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Añadir una direición de corréu</string>
   <string name="create_account_button">Crear una cuenta</string>
   <string name="create_account_name_unavailable">El nome d\'usuariu «%s» nun ta disponible. Escueyi un nome distintu.</string>
   <string name="create_account_ip_block_message">Sentímoslo, anguaño la to direición IP ta bloquiada pa crear cuentes nueves.</string>
@@ -145,6 +150,7 @@
   <string name="preferences_heading_experimental">Esperimental</string>
   <string name="preference_title_sync_reading_lists">Sincronizar llistes de llectura</string>
   <string name="preference_title_sync_reading_lists_from_account">Sincronización de llistes de llectura</string>
+  <string name="preference_title_download_reading_list_articles">Descargar los artículos de la llista de llectura</string>
   <string name="preference_summary_sync_reading_lists">Sincronizar les llistes de llectura ente distintos preseos guardándoles na to cuenta de Wikipedia</string>
   <string name="preference_summary_sync_reading_lists_from_account">Sincronizar les llistes de llectura ente distintos preseos guardándoles na to cuenta de Wikipedia «%s»</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">¿Desaniciar les llistes de llectura sincronizaes de «%s»?</string>
@@ -284,6 +290,8 @@
   <string name="error_no_maps_app">Nun pudo alcontrase nenguna app qu\'ufra indicaciones</string>
   <string name="preference_title_show_link_previews">Amosar vistes previes de los enllaces</string>
   <string name="preference_summary_show_link_previews">Amosar una vista previa rápida de los artículos al pulsiar nos enllaces.</string>
+  <string name="preference_title_collapse_tables">Plegar les tables</string>
+  <string name="preference_summary_collapse_tables">Plegar automáticamente les tables de los artículos, tales como fiches, referencies y notes</string>
   <string name="nav_item_donate">Sofita a Wikipedia</string>
   <string name="error_voice_search_not_available">La reconocencia de voz nun ta disponible.</string>
   <string name="location_service_disabled">Los servicios de llocalización tan desactivaos.</string>
@@ -474,6 +482,33 @@
     <item quantity="one">Queda %1$d llista</item>
     <item quantity="other">Queden %1$d llistes</item>
   </plurals>
+  <string name="notification_echo_channel_description">Avisos de Wikipedia</string>
+  <string name="notifications_activity_title">Avisos</string>
+  <string name="notifications_activity_title_archived">Avisos (archivaos)</string>
+  <string name="notifications_search">Buscar nos avisos</string>
+  <string name="notifications_view_unread">Ver los nun lleíos</string>
+  <string name="notifications_view_archived">Ver los archivaos</string>
+  <string name="notifications_prefs">Preferencies d\'avisos</string>
+  <string name="notifications_archive">Marcar como lleíos y archivar</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">Avisu archiváu</item>
+    <item quantity="other">%d avisos archivaos</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">Activar los avisos</string>
+  <string name="notifications_poll_enable_positive">Activar</string>
+  <string name="notifications_poll_enable_negative">Agora non</string>
+  <string name="notifications_empty_message">Tas al día colos avisos</string>
+  <string name="notifications_view_archived_button_text">Ver los avisos archivaos</string>
+  <string name="notification_preferences_title">Preferencies d\'avisos</string>
+  <string name="preference_title_notification_poll">Comprobar avisos</string>
+  <string name="preference_summary_notification_poll">Permitir a la app consumir datos pa buscar avisos nuevos en segundu planu.</string>
+  <string name="preference_category_notification_types">Tipos d\'avisos na app</string>
+  <string name="preference_title_notification_welcome">Bienveníos</string>
+  <string name="preference_summary_notification_welcome">Creóse una cuenta</string>
+  <string name="preference_title_notification_milestone">Finxu</string>
+  <string name="preference_summary_notification_milestone">Algamóse un númberu d\'ediciones</string>
+  <string name="preference_title_notification_thanks">Agradecimientos</string>
+  <string name="preference_summary_notification_thanks">Dalguién agradecióte una edición</string>
   <string name="view_continue_reading_card_title">Siguir lleyendo</string>
   <string name="view_because_you_read_card_title">Porque lleísti</string>
   <string name="view_random_card_title">Al debalu</string>

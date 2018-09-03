@@ -2,6 +2,7 @@
 <!-- Authors:
 * Amire80
 * Anders Feder
+* Bencemac
 * Joao Xavier
 * Kaganer
 * KuboF
@@ -136,7 +137,7 @@
   <string name="email_recommendation_dialog_title">Title to the dialog which recommends the user to enter an email address during account creation.</string>
   <string name="email_recommendation_dialog_message">Dialog message recommending the user to enter an email address during account creation, since it would be useful during account recovery.</string>
   <string name="email_recommendation_message">Suggestion message recommending the user to enter an email address during account creation, since it would be useful during account recovery.</string>
-  <string name="email_recommendation_dialog_create_without_email_action">Action message, to proceed to create an account, without entering an emai</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Action message, to proceed to create an account, without entering an email</string>
   <string name="email_recommendation_dialog_create_with_email_action">Action message, suggesting that the user can enter an email before proceeding to create an account</string>
   <string name="create_account_button">Button text on Create Account screen to go start creating the account (may also go to a CAPTCHA screen first).\n{{Identical|Create account}}</string>
   <string name="create_account_name_unavailable">Error message shown when the selected user name is not available for a new account. The \"%s\" symbol is replaced with the requested user name.</string>

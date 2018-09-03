@@ -307,6 +307,8 @@
   <string name="error_no_maps_app">ルートを示すアプリが見つかりませんでした。</string>
   <string name="preference_title_show_link_previews">リンクのプレビューを表示</string>
   <string name="preference_summary_show_link_previews">リンクをタップしたときに、記事のクイックプレビューを表示します。</string>
+  <string name="preference_title_collapse_tables">表を閉じる</string>
+  <string name="preference_summary_collapse_tables">記事内の基本データ、参考文献、脚注などの表を自動的に閉じる</string>
   <string name="nav_item_donate">ウィキペディアを支援する</string>
   <string name="error_voice_search_not_available">申し訳ございません。音声認識は現在ご利用いただけません。</string>
   <string name="location_service_disabled">位置情報サービスが停止されています。</string>
@@ -508,8 +510,14 @@
   <string name="notifications_poll_enable_title">通知を有効にする</string>
   <string name="notifications_poll_enable_positive">有効にする</string>
   <string name="notifications_poll_enable_negative">今はしない</string>
+  <string name="notifications_empty_message">通知をすべて読みました!</string>
+  <string name="notifications_view_archived_button_text">アーカイブした通知を表示</string>
+  <string name="notification_preferences_title">通知の設定</string>
+  <string name="preference_title_notification_poll">通知に投票</string>
   <string name="preference_title_notification_welcome">ようこそ</string>
   <string name="preference_summary_notification_welcome">アカウントが作成されました</string>
+  <string name="preference_title_notification_thanks">感謝</string>
+  <string name="preference_summary_notification_thanks">誰かがあなたの編集に謝意を示しました</string>
   <string name="view_continue_reading_card_title">続けて読む</string>
   <string name="view_because_you_read_card_title">こんな記事も読まれています</string>
   <string name="view_random_card_title">おまかせ表示</string>
