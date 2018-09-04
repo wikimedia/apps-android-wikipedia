@@ -15,6 +15,7 @@ import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.PopupMenu;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -122,7 +123,7 @@ public class CardHeaderView extends ConstraintLayout {
     }
 
     private void showOverflowMenu(View anchorView) {
-        PopupMenu menu = new PopupMenu(anchorView.getContext(), anchorView);
+        PopupMenu menu = new PopupMenu(anchorView.getContext(), anchorView, Gravity.END);
         menu.getMenuInflater().inflate(R.menu.menu_feed_card_header, menu.getMenu());
         MenuItem editCardLangItem = menu.getMenu().findItem(R.id.menu_feed_card_edit_card_languages);
         editCardLangItem.setVisible(card.type().contentType().isPerLanguage());

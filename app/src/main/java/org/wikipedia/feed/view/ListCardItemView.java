@@ -8,6 +8,7 @@ import android.support.annotation.VisibleForTesting;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.PopupMenu;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -83,7 +84,7 @@ public class ListCardItemView extends ConstraintLayout {
     }
 
     @OnClick(R.id.view_list_card_item_menu) void showOverflowMenu(View anchorView) {
-        PopupMenu menu = new PopupMenu(getContext(), anchorView);
+        PopupMenu menu = new PopupMenu(getContext(), anchorView, Gravity.END);
         menu.getMenuInflater().inflate(R.menu.menu_feed_card_item, menu.getMenu());
         menu.setOnMenuItemClickListener(new CardItemMenuClickListener());
         menu.show();

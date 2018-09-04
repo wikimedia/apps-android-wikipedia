@@ -6,6 +6,7 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.PopupMenu;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -78,7 +79,7 @@ public abstract class StaticCardView<T extends Card> extends DefaultFeedCardView
     }
 
     private void showOverflowMenu(View anchorView) {
-        PopupMenu menu = new PopupMenu(anchorView.getContext(), anchorView);
+        PopupMenu menu = new PopupMenu(anchorView.getContext(), anchorView, Gravity.END);
         menu.getMenuInflater().inflate(R.menu.menu_feed_card_header, menu.getMenu());
         MenuItem editCardLangItem = menu.getMenu().findItem(R.id.menu_feed_card_edit_card_languages);
         editCardLangItem.setVisible(getCard().type().contentType().isPerLanguage());
