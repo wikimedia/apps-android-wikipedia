@@ -10,8 +10,14 @@ import org.wikipedia.page.Namespace;
  * Represents a summary of a page, useful for page previews.
  */
 public interface PageSummary {
+    String TYPE_STANDARD = "standard";
+    String TYPE_DISAMBIGUATION = "disambiguation";
+    String TYPE_MAIN_PAGE = "mainpage";
+    String TYPE_NO_EXTRACT = "no-extract";
+
     boolean hasError();
     @Nullable ServiceError getError();
+    @NonNull String getType();
     @Nullable String getTitle();
     @Nullable String getDisplayTitle();
     @Nullable String getConvertedTitle();

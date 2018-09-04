@@ -290,6 +290,8 @@
     <string name="address_copied">Address copied to clipboard.</string>
     <string name="text_copied">Text copied to clipboard.</string>
     <string name="button_continue_to_article">Read article</string>
+    <string name="button_continue_to_disambiguation">View similar pages</string>
+    <string name="link_preview_disambiguation_description">This title relates to more than one page:</string>
     <string name="button_add_to_reading_list">Add to reading list</string>
     <string name="page_offline_notice_cannot_load_while_offline">Article cannot be loaded while offline.</string>
     <string name="page_offline_notice_add_to_reading_list">Hint: Add the article to a reading list and it will be downloaded once you\'re back online.</string>
