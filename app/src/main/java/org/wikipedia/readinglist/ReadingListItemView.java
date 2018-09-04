@@ -12,6 +12,7 @@ import android.support.v4.widget.TextViewCompat;
 import android.support.v7.widget.PopupMenu;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -117,7 +118,7 @@ public class ReadingListItemView extends ConstraintLayout {
     }
 
     @OnClick(R.id.item_overflow_menu) void showOverflowMenu(View anchorView) {
-        PopupMenu menu = new PopupMenu(getContext(), anchorView);
+        PopupMenu menu = new PopupMenu(getContext(), anchorView, Gravity.END);
         menu.getMenuInflater().inflate(R.menu.menu_reading_list_item, menu.getMenu());
 
         if (readingList.isDefault()) {
