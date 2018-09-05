@@ -77,6 +77,8 @@
         <item name="shadow_background_drawable">@android:drawable/dialog_holo_dark_frame</item>
         <item name="tab_counts_shape_border">@drawable/tab_counts_shape_border_dark</item>
         <item name="page_tab_counts_shape_border">@drawable/page_tab_counts_shape_border_dark</item>
+        <item name="thumb_off_color">@color/base70</item>
+        <item name="track_off_color">@color/base100</item>
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base14</item>

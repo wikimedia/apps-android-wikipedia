@@ -305,6 +305,10 @@
         <item name="android:listPreferredItemPaddingStart">@dimen/activity_horizontal_margin</item>
         <item name="android:listPreferredItemPaddingRight">@dimen/activity_horizontal_margin</item>
         <item name="android:listPreferredItemPaddingEnd">@dimen/activity_horizontal_margin</item>
+        <item name="colorControlActivated">?android:attr/colorAccent</item>
+        <item name="colorSwitchThumbNormal">?attr/thumb_off_color</item>
+        <item name="android:colorForeground">?attr/track_off_color</item>
+        <item name="android:disabledAlpha">0.5</item>
     </style>
 
     <style name="AppPreferenceFragment" parent="PreferenceFragment.Material">
