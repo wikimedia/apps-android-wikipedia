@@ -1,0 +1,2 @@
+- Istotne ulepszenia interfejsu dla list czytelniczych - Teraz można wybrać wiele artykułów z listy od razu - Poszczególne artykuły z listy do czytania można teraz włączać / wyłączać. - Obrazy są teraz buforowane w celu zapewnienia dostępności w trybie on /offline - Losowa karta danych pobiera teraz losowy artykuł z list czytelniczych użytkownika
+w trybie offline - Wiele innych poprawek i aktualizacji interfejsu użytkownika
