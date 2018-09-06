@@ -5,7 +5,9 @@ import android.support.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
 
-public class TextInfo {
+import java.io.Serializable;
+
+public class TextInfo implements Serializable {
 
     @SuppressWarnings("unused,NullableProblems") @Nullable private String html;
     @SuppressWarnings("unused,NullableProblems") @Nullable private String text;

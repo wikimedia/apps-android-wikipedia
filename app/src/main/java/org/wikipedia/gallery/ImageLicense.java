@@ -7,11 +7,12 @@ import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.R;
 
+import java.io.Serializable;
 import java.util.Locale;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
-public class ImageLicense {
+public class ImageLicense implements Serializable {
     private static final String CREATIVE_COMMONS_PREFIX = "cc";
     private static final String PUBLIC_DOMAIN_PREFIX = "pd";
 

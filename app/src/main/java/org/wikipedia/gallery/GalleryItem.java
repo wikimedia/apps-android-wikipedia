@@ -104,7 +104,8 @@ public class GalleryItem implements Serializable {
 
     @NonNull
     public String getFilePage() {
-        return StringUtils.defaultString(filePage);
+        // return the base url of Wiki Commons for WikiSite() if the file_page is null.
+        return filePage == null ? "https://commons.wikimedia.org" : StringUtils.defaultString(filePage);
     }
 
     @Nullable
@@ -124,7 +125,7 @@ public class GalleryItem implements Serializable {
 
     // TODO: Move the following models into a folder
 
-    public static class Titles {
+    public static class Titles implements Serializable {
         @SuppressWarnings("unused,NullableProblems") @Nullable private String canonical;
         @SuppressWarnings("unused,NullableProblems") @Nullable private String normalized;
         @SuppressWarnings("unused,NullableProblems") @Nullable private String display;
