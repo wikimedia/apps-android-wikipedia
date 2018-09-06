@@ -280,6 +280,8 @@
   <string name="address_copied">Indirizzo copiato negli appunti.</string>
   <string name="text_copied">Testo copiato negli appunti.</string>
   <string name="button_continue_to_article">Leggi voce</string>
+  <string name="button_continue_to_disambiguation">Vedi pagine simili</string>
+  <string name="link_preview_disambiguation_description">Questo titolo si riferisce a più di una pagina:</string>
   <string name="button_add_to_reading_list">Aggiungi all\'elenco di lettura</string>
   <string name="page_offline_notice_cannot_load_while_offline">Non è possibile caricare la voce in assenza di connessione.</string>
   <string name="page_offline_notice_add_to_reading_list">Suggerimento: Aggiungere l\'articolo alla lista di lettura e sarà scaricato appena sarai collegato a internet.</string>

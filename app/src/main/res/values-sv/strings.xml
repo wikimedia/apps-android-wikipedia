@@ -125,6 +125,11 @@
   <string name="create_account_password_error">Lösenordet är ogiltigt</string>
   <string name="create_account_generic_error">Kan inte skapa konto</string>
   <string name="create_account_next">Nästa</string>
+  <string name="email_recommendation_dialog_title">Skapa konto utan en e-postadress?</string>
+  <string name="email_recommendation_dialog_message">Även om det är valfritt att ange en e-postadress &lt;b&gt;rekommenderas det starkt&lt;/b&gt; eftersom du behöver en e-postadress för att återställa kontot om du skulle förlora ditt lösenord.</string>
+  <string name="email_recommendation_message">Rekommenderas eftersom e-postadress behövs för att återställa kontot.</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Fortsätt utan e-post</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Lägg till en e-postadress</string>
   <string name="create_account_button">Skapa konto</string>
   <string name="create_account_name_unavailable">Användarnamnet \"%s\" är inte tillgängligt. Var god välj ett annat namn.</string>
   <string name="create_account_ip_block_message">Tyvärr, din IP-adress har för tillfället blockerats från att skapa nya konton.</string>
@@ -284,6 +289,8 @@
   <string name="address_copied">Adressen kopierades till urklipp.</string>
   <string name="text_copied">Texten kopierades till urklipp.</string>
   <string name="button_continue_to_article">Läs artikeln</string>
+  <string name="button_continue_to_disambiguation">Visa liknande sidor</string>
+  <string name="link_preview_disambiguation_description">Denna titel relaterar till fler än en sida:</string>
   <string name="button_add_to_reading_list">Lägg till i läslista</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artikeln kan inte läsas in i offlineläge.</string>
   <string name="page_offline_notice_add_to_reading_list">Tips: Lägg till artikeln i en läslista och den kommer att laddas ned så fort du blir online igen.</string>
@@ -293,6 +300,8 @@
   <string name="error_no_maps_app">Kunde inte hitta några appar som kan ge vägbeskrivningar.</string>
   <string name="preference_title_show_link_previews">Visa förhandsvisning för länkar</string>
   <string name="preference_summary_show_link_previews">Visar en kort förhandsvisning av artiklar när du trycker på länkar.</string>
+  <string name="preference_title_collapse_tables">Stäng tableller</string>
+  <string name="preference_summary_collapse_tables">Stänger automatiskt tabeller i artiklar, som inforutor, referenser och anmärkningar.</string>
   <string name="nav_item_donate">Stöd Wikipedia</string>
   <string name="error_voice_search_not_available">Tyvärr, röststyrning är inte tillgänglig.</string>
   <string name="location_service_disabled">Platstjänster är inaktiverade.</string>
@@ -385,7 +394,7 @@
   <string name="reading_list_article_offline">Tillgänglig offline</string>
   <string name="reading_list_article_make_offline">Gör denna artikel tillgänglig offline</string>
   <string name="reading_list_add_to_other_list">Lägg till en annan läslista</string>
-  <string name="reading_list_remove_from_list">Ta bort from %s</string>
+  <string name="reading_list_remove_from_list">Ta bort från %s</string>
   <string name="reading_list_remove_from_lists">Ta bort från läslistor</string>
   <string name="reading_list_confirm_remove_article_from_offline">Ta bort från offline</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikeln förekommer i flera listor</string>

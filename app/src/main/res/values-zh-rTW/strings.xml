@@ -294,6 +294,8 @@
   <string name="address_copied">網址已複製至剪貼簿。</string>
   <string name="text_copied">文字已複製至剪貼簿。</string>
   <string name="button_continue_to_article">閱讀條目</string>
+  <string name="button_continue_to_disambiguation">檢視相似的頁面</string>
+  <string name="link_preview_disambiguation_description">此標題與一個以上頁面相關：</string>
   <string name="button_add_to_reading_list">新增至閱讀清單</string>
   <string name="page_offline_notice_cannot_load_while_offline">條目不能在離線時載入。</string>
   <string name="page_offline_notice_add_to_reading_list">提示：將條目新增至閱讀清單，令您可在返回線上時下載。</string>

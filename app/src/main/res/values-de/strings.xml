@@ -283,6 +283,8 @@
   <string name="address_copied">Adresse in die Zwischenablage kopiert.</string>
   <string name="text_copied">Text in die Zwischenablage kopiert.</string>
   <string name="button_continue_to_article">Artikel lesen</string>
+  <string name="button_continue_to_disambiguation">Ähnliche Seiten ansehen</string>
+  <string name="link_preview_disambiguation_description">Dieser Titel ist mehr als einer Seite ähnlich:</string>
   <string name="button_add_to_reading_list">Zur Leseliste hinzufügen</string>
   <string name="page_offline_notice_cannot_load_while_offline">Der Artikel kann nicht geladen werden, während du offline bist.</string>
   <string name="page_offline_notice_add_to_reading_list">Tipp: Füge den Artikel zu einer Leseliste hinzu, dann wird er heruntergeladen, sobald du wieder online bist.</string>

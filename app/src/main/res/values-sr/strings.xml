@@ -84,9 +84,9 @@
   <string name="search_reading_list_no_results">Нису пронађени резултати на списку „%s”</string>
   <string name="search_reading_lists_no_results">Нису пронађени резултати на списковима за читање</string>
   <string name="search_history_no_results">Нису пронађени резултати у историји</string>
-  <string name="edit_section_captcha_message">Да бисте помогли у заштити против аутоматизованог нежељеног садржаја, унесите речи које су приказане испод</string>
+  <string name="edit_section_captcha_message">Да бисте помогли у заштити против аутоматизованог непожељног садржаја, унесите речи које су приказане испод</string>
   <string name="edit_section_captcha_request_an_account_message">Не видите слику? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Сазнајте више&lt;/a&gt;.</string>
-  <string name="edit_section_captcha_hint">Поново напишите речи изнад</string>
+  <string name="edit_section_captcha_hint">Поновите речи изнад</string>
   <string name="title_captcha">Унесите CAPTCHA текст</string>
   <string name="edit_section_captcha_reload">Додирните CAPTCHA слику да бисте је поново учитали</string>
   <string name="nav_item_login">Пријава на Википедију</string>
@@ -115,7 +115,7 @@
   <string name="login_join_wikipedia">Придружите се Википедији</string>
   <string name="login_forgot_password">Заборавили сте лозинку?</string>
   <string name="create_account_already_have">Већ имате налог?</string>
-  <string name="create_account_activity_title">Отворите налог</string>
+  <string name="create_account_activity_title">Отварање налога</string>
   <string name="dialog_create_account_checking_progress">Потврђујем</string>
   <string name="create_account_email_hint">Имејл (опционално)</string>
   <string name="create_account_password_repeat_hint">Поновите лозинку</string>
@@ -289,6 +289,8 @@
   <string name="address_copied">Адреса је копирана у оставу.</string>
   <string name="text_copied">Текст је копиран.</string>
   <string name="button_continue_to_article">Прочитај чланак</string>
+  <string name="button_continue_to_disambiguation">Сличне странице</string>
+  <string name="link_preview_disambiguation_description">Овај наслов се односи на више од једне странице:</string>
   <string name="button_add_to_reading_list">Додај на списак за читање</string>
   <string name="page_offline_notice_cannot_load_while_offline">Чланак не може да се учита офлајн.</string>
   <string name="page_offline_notice_add_to_reading_list">Савет: додајте чланак на списак за читање и он ће бити преузет чим будете онлајн.</string>
@@ -298,6 +300,8 @@
   <string name="error_no_maps_app">Не могу да пронађем ниједну апликацију која пружа путању.</string>
   <string name="preference_title_show_link_previews">Прегледи линкова</string>
   <string name="preference_summary_show_link_previews">Приказује кратки преглед чланака притиском на линкове.</string>
+  <string name="preference_title_collapse_tables">Скупљање табела</string>
+  <string name="preference_summary_collapse_tables">Аутоматски скупља табеле у чланцима, попут инфокутија, референаца и  напомена.</string>
   <string name="nav_item_donate">Подржите Википедију</string>
   <string name="error_voice_search_not_available">Нажалост, препознавање гласа није доступно.</string>
   <string name="location_service_disabled">Услуге локације су онемогућене.</string>

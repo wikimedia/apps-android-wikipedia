@@ -3,6 +3,7 @@
 * GAMEZONE628
 * Hzy980512
 * Kanon und wikipedia
+* Kkairri
 * Los688
 * Omotecho
 * Otokoume
@@ -298,6 +299,8 @@
   <string name="address_copied">アドレスがクリップボードにコピーされました。</string>
   <string name="text_copied">テキストがクリップボードにコピーされました。</string>
   <string name="button_continue_to_article">記事を読む</string>
+  <string name="button_continue_to_disambiguation">類似のページを表示</string>
+  <string name="link_preview_disambiguation_description">このタイトルに関連するページは複数あります:</string>
   <string name="button_add_to_reading_list">あとで読むリストに追加</string>
   <string name="page_offline_notice_cannot_load_while_offline">オフラインでは記事を読み込めません。</string>
   <string name="page_offline_notice_add_to_reading_list">ヒント: 記事をあとで読むリストに追加すると、次にオンラインになったときにダウンロードします。</string>
@@ -507,6 +510,10 @@
   <string name="notifications_view_archived">アーカイブ済みを表示</string>
   <string name="notifications_prefs">通知の設定</string>
   <string name="notifications_archive">既読にしてアーカイブ</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">通知をアーカイブしました</item>
+    <item quantity="other">通知を%d件アーカイブしました</item>
+  </plurals>
   <string name="notifications_poll_enable_title">通知を有効にする</string>
   <string name="notifications_poll_enable_positive">有効にする</string>
   <string name="notifications_poll_enable_negative">今はしない</string>
@@ -514,8 +521,12 @@
   <string name="notifications_view_archived_button_text">アーカイブした通知を表示</string>
   <string name="notification_preferences_title">通知の設定</string>
   <string name="preference_title_notification_poll">通知に投票</string>
+  <string name="preference_summary_notification_poll">バックグラウンドで新規通知をチェックするのにアプリがデータ通信するのを許可する</string>
+  <string name="preference_category_notification_types">アプリ内通知の種類</string>
   <string name="preference_title_notification_welcome">ようこそ</string>
   <string name="preference_summary_notification_welcome">アカウントが作成されました</string>
+  <string name="preference_title_notification_milestone">マイルストーン</string>
+  <string name="preference_summary_notification_milestone">編集回数が特定の回数に達したとき</string>
   <string name="preference_title_notification_thanks">感謝</string>
   <string name="preference_summary_notification_thanks">誰かがあなたの編集に謝意を示しました</string>
   <string name="view_continue_reading_card_title">続けて読む</string>

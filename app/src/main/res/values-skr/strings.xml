@@ -169,6 +169,7 @@
   <string name="button_close_tab">ٹیب بند کرو</string>
   <string name="format_error_server_message">سنیہا:%s</string>
   <string name="button_continue_to_article">مضمون پڑھو</string>
+  <string name="button_continue_to_disambiguation">رلدے ملدے ورقے ݙیکھو</string>
   <string name="button_add_to_reading_list">مطالعہ دی فہرست وچ شامل کرو</string>
   <string name="enable_location_service">فعال کرو</string>
   <string name="location_permissions_enable_action">بند کرو</string>

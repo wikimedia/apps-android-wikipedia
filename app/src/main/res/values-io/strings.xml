@@ -108,6 +108,11 @@
   <string name="create_account_password_error">La pasovorto esas nevalida</string>
   <string name="create_account_generic_error">Ne povis krear konto</string>
   <string name="create_account_next">Sequanta</string>
+  <string name="email_recommendation_dialog_title">Krear konto sen adreso di e-posto?</string>
+  <string name="email_recommendation_dialog_message">Malgre ke ne obligesas informar la e-posto, &lt;b&gt;esas sempre preferinda mencionar ol&lt;/b&gt;, pro ke se vu ulatempe oblivios o perdos vua pasovorto, vu bezonos havar e-posto por rekuperar ol.</string>
+  <string name="email_recommendation_message">Konsilebla, pro ke por rekuperar ula konto, ula e-posto bezonesas.</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Durar, sen e-posto</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Adjuntar adreso di e-posto</string>
   <string name="create_account_button">Krear konto</string>
   <string name="preferences_general_heading">generale</string>
   <string name="wikipedia_app_faq">FAQ pri la Wikipedio</string>
@@ -216,7 +221,10 @@
   <string name="tool_tip_select_text">Kliktez e mantenez preso ulaloke en la texto por selektar, kopiar e forsendar ol.</string>
   <string name="format_error_server_message">Mesajo: \"%s\"</string>
   <string name="button_continue_to_article">Lektar artiklo</string>
+  <string name="button_continue_to_disambiguation">Vidar simila pagini</string>
+  <string name="link_preview_disambiguation_description">Ica titulo relatas a du o plusa pagini:</string>
   <string name="button_add_to_reading_list">Adjuntar a lekto-listo</string>
+  <string name="preference_title_collapse_tables">Rekoliar tabeli</string>
   <string name="enable_location_service">Permisar</string>
   <string name="location_permissions_enable_prompt">Permisez acesar vua lokizo, por vidar loki proxim vu.</string>
   <string name="location_permissions_enable_action">enswichez</string>

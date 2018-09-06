@@ -120,6 +120,11 @@
   <string name="create_account_password_error">စကားဝှက်သည် မရေရာပါ</string>
   <string name="create_account_generic_error">အကောင့်ဖန်တီးမရနိုင်ပါ</string>
   <string name="create_account_next">ရှေ့</string>
+  <string name="email_recommendation_dialog_title">အီးမေးလိပ်စာမပါဘဲ အကောင့်ဖန်တီးမှာလား?</string>
+  <string name="email_recommendation_dialog_message">အီးမေးလ်လိပ်စာသည် မဖြစ်မနေထည့်စရာ မလိုအပ်သော်လည်း သင်၏စကားဝှက် ပျောက်ဆုံးသွားပါက အကောင့်ပြန်လည်ဆယ်ယူရန် အီးမေးလ်ကို လိုအပ်သောကြောင့် &lt;b&gt;ထည့်သွင်းရန်&lt;/b&gt; များစွာထောက်ခံပါသည်။</string>
+  <string name="email_recommendation_message">အကောင့်ပြန်လည်ဆယ်ယူရာတွင် အီးမေးလ်လိုအပ်သောကြောင့် ထောက်ခံထားပါသည်။</string>
+  <string name="email_recommendation_dialog_create_without_email_action">အီးမေးလ်မပါဘဲ ဆက်လုပ်မည်</string>
+  <string name="email_recommendation_dialog_create_with_email_action">အီးမေးလ်လိပ်စာတစ်ခု ပေါင်းထည့်ပါ</string>
   <string name="create_account_button">အကောင့် ဖန်တီးရန်</string>
   <string name="create_account_name_unavailable">အသုံးပြုသူအမည် %s သည် မရနိုင်ပါ။ ကျေးဇူးပြု၍ ကွဲပြားသော နာမည်တစ်ခု ရွေးချယ်ပါ။</string>
   <string name="create_account_ip_block_message">သင်၏ အိုင်ပီလိပ်စာကို အကောင့်ဖန်တီးခြင်းမှ လက်ရှိ ပိတ်ပင်တားဆီးထားပါသည်။</string>
@@ -278,6 +283,8 @@
   <string name="address_copied">လိပ်စာအား ကူးယူပြီး။</string>
   <string name="text_copied">စာသားအား ကူးယူပြီး။</string>
   <string name="button_continue_to_article">ဆောင်းပါး ဖတ်ရှုရန်</string>
+  <string name="button_continue_to_disambiguation">ဆင်တူစာမျက်နှာများကို ကြည့်ရန်</string>
+  <string name="link_preview_disambiguation_description">ဤခေါင်းစဉ်သည် စာမျက်နှာတစ်ခုထက်ပို၍ ဆက်နွယ်သည်:</string>
   <string name="button_add_to_reading_list">ဖတ်ရှုစာရင်းသို့ ပေါင်းထည့်ရန်</string>
   <string name="page_offline_notice_cannot_load_while_offline">အင်တာနက်မရှိချိန်တွင် ဆောင်းပါးများကို ဖတ်ရှုရန် မဖြစ်နိုင်ပါ။</string>
   <string name="page_offline_notice_add_to_reading_list">အရိပ်အမြွက်: ဆောင်းပါးကို စာဖတ်စာရင်းသို့ ပေါင်းထည့်ပါ၊ အွန်လိုင်းပြန်ဖြစ်လာချိန်တွင် ယင်းသည် ဒေါင်းလုတ်ဆွဲသွားပါလိမ့်မည်။</string>

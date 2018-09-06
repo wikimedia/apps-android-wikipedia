@@ -124,6 +124,8 @@
   <string name="create_account_password_error">Adgangskoden er ugyldig</string>
   <string name="create_account_generic_error">Kunne ikke oprette konto</string>
   <string name="create_account_next">Næste</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Fortsæt uden email</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Tilføj en email adresse</string>
   <string name="create_account_button">Opret konto</string>
   <string name="create_account_name_unavailable">Brugernavnet »%s« er ikke tilgængelig. Vælg venligst et andet navn.</string>
   <string name="create_account_ip_block_details">Detaljer</string>
@@ -457,6 +459,12 @@
     <item quantity="one">%1$d liste tilbage</item>
     <item quantity="other">%1$d lister tilbage</item>
   </plurals>
+  <string name="notifications_poll_enable_positive">Aktiver</string>
+  <string name="notifications_poll_enable_negative">Ikke nu</string>
+  <string name="preference_title_notification_welcome">Velkommen</string>
+  <string name="preference_summary_notification_welcome">En konto er oprettet</string>
+  <string name="preference_title_notification_milestone">Milepæle</string>
+  <string name="preference_title_notification_thanks">Tak</string>
   <string name="view_continue_reading_card_title">Fortsæt læsning</string>
   <string name="view_because_you_read_card_title">Fordi du læste</string>
   <string name="view_random_card_title">Tilfældighedsgenerator</string>

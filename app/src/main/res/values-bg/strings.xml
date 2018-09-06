@@ -291,6 +291,8 @@
   <string name="error_no_maps_app">Не са намерени приложения, предоставящи навигация.</string>
   <string name="preference_title_show_link_previews">Предварителен преглед на връзки</string>
   <string name="preference_summary_show_link_previews">Показва бърз предварителен преглед на статии, когато се натисне връзка.</string>
+  <string name="preference_title_collapse_tables">Свиване на таблици</string>
+  <string name="preference_summary_collapse_tables">Автоматично свиване на таблиците в статиите, като например инфокутии, източници и бележки.</string>
   <string name="nav_item_donate">Подкрепете Уикипедия</string>
   <string name="error_voice_search_not_available">За съжаление, гласовото разпознаване не е достъпно.</string>
   <string name="location_service_disabled">Услугите за местоположение са изключени.</string>

@@ -305,6 +305,8 @@
   <string name="address_copied">Adresse copiée dans le presse-papier.</string>
   <string name="text_copied">Texte copié dans le presse-papier.</string>
   <string name="button_continue_to_article">Lire l’article</string>
+  <string name="button_continue_to_disambiguation">Afficher les pages similaires</string>
+  <string name="link_preview_disambiguation_description">Ce titre fait référence à plus d’une page :</string>
   <string name="button_add_to_reading_list">Ajouter à la liste de lecture</string>
   <string name="page_offline_notice_cannot_load_while_offline">L’article ne peut pas être chargé hors connexion.</string>
   <string name="page_offline_notice_add_to_reading_list">Astuce : ajoutez l’article à une liste de lecture et il sera téléchargé une fois que vous serez à nouveau connecté.</string>
