@@ -17,6 +17,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.PageAvailableOfflineHandler;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.DimenUtil;
@@ -73,6 +74,7 @@ public class ListCardItemView extends ConstraintLayout {
         setTitle(entry.getTitle().getDisplayText());
         setSubtitle(entry.getTitle().getDescription());
         setImage(entry.getTitle().getThumbUrl());
+        PageAvailableOfflineHandler.INSTANCE.check(entry.getTitle(), this::setViewsGreyedOut);
         return this;
     }
 
@@ -125,5 +127,20 @@ public class ListCardItemView extends ConstraintLayout {
 
     @VisibleForTesting void setSubtitle(@Nullable CharSequence text) {
         subtitleView.setText(text != null ? StringUtils.capitalize(text.toString()) : null);
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private void setViewsGreyedOut(boolean greyedOut) {
+
+        // Cannot use isAttachedToWindow() because the first two item will be reset when the setHistoryEntry() getting called even they are not visible.
+        if (titleView == null || subtitleView == null || imageView == null) {
+            return;
+        }
+
+        titleView.setTextColor(greyedOut
+                ? ContextCompat.getColor(getContext(), R.color.base30) : ResourceUtil.getThemedColor(getContext(), R.attr.primary_text_color));
+        subtitleView.setTextColor(greyedOut
+                ? ContextCompat.getColor(getContext(), R.color.base50) : ResourceUtil.getThemedColor(getContext(), R.attr.secondary_text_color));
+        imageView.setAlpha(greyedOut ? 0.5f : 1.0f);
     }
 }

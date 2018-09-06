@@ -38,8 +38,6 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ReadingListsFunnel;
-import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
-import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.events.PageDownloadEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.SearchActionModeCallback;
@@ -47,6 +45,7 @@ import org.wikipedia.main.MainActivity;
 import org.wikipedia.main.floatingqueue.FloatingQueueView;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
+import org.wikipedia.page.PageAvailableOfflineHandler;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
@@ -85,7 +84,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.CacheControl;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -759,32 +757,13 @@ public class ReadingListFragment extends Fragment implements
             getView().setCircularProgressVisibility(page.downloadProgress() > 0 && page.downloadProgress() < MAX_PROGRESS);
             getView().setProgress(page.downloadProgress() == MAX_PROGRESS ? 0 : page.downloadProgress());
             getView().setSecondaryActionHint(R.string.reading_list_article_make_offline);
-            showViewInGreyIfNotCached(page, getView());
+            PageAvailableOfflineHandler.INSTANCE.check(page, getView()::setViewsGreyedOut);
         }
 
         @Override
         public void onSwipe() {
             deleteSinglePage(page);
         }
-    }
-
-    private void showViewInGreyIfNotCached(ReadingListPage page, PageItemView view) {
-
-        if ((page.offline() && !page.saving()) || WikipediaApp.getInstance().isOnline()) {
-            view.setTextGrayedOut(false);
-            return;
-        }
-
-        // TODO: Should we check all the page if it is cached instead of only checking lead section?
-        PageTitle pageTitle = ReadingListPage.toPageTitle(page);
-        disposables.add(PageClientFactory.create(pageTitle.getWikiSite(), pageTitle.namespace())
-                .lead(pageTitle.getWikiSite(), CacheControl.FORCE_CACHE, null, null, pageTitle.getPrefixedText(), DimenUtil.calculateLeadImageWidth())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(rsp -> view.setTextGrayedOut((rsp.raw().cacheResponse() == null
-                        || rsp.raw().networkResponse() != null)
-                        && !OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(rsp.headers().get(OfflineCacheInterceptor.SAVE_HEADER))),
-                        caught -> view.setTextGrayedOut(!WikipediaApp.getInstance().isOnline())));
     }
 
     private class ReadingListHeaderHolder extends RecyclerView.ViewHolder {

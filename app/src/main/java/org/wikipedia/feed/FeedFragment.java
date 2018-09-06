@@ -296,11 +296,15 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     }
 
     public void onGoOffline() {
-        refresh();
+        feedAdapter.notifyDataSetChanged();
+        coordinator.requestOfflineCard();
     }
 
     public void onGoOnline() {
-        refresh();
+        feedAdapter.notifyDataSetChanged();
+        coordinator.removeOfflineCard();
+        coordinator.incrementAge();
+        coordinator.more(app.getWikiSite());
     }
 
     public void refresh() {

@@ -167,6 +167,22 @@ public abstract class FeedCoordinatorBase {
         requestCard(wiki);
     }
 
+    void requestOfflineCard() {
+        if (!(getLastCard() instanceof OfflineCard)) {
+            appendCard(new OfflineCard());
+        }
+    }
+
+    void removeOfflineCard() {
+        if (getLastCard() instanceof OfflineCard) {
+            dismissCard(getLastCard());
+        }
+    }
+
+    private Card getLastCard() {
+        return cards.size() > 1 ? cards.get(cards.size() - 1) : null;
+    }
+
     private void removeProgressCard() {
         removeCard(progressCard, cards.indexOf(progressCard));
     }
