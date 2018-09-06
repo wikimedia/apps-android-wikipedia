@@ -217,6 +217,7 @@ dependencies {
     implementation "com.android.support:palette-v7:$supportVersion"
     implementation "com.android.support:preference-v14:$supportVersion"
 
+    implementation 'com.github.michael-rapp:chrome-like-tab-switcher:0.3.4'
     implementation 'com.duolingo.open:rtl-viewpager:1.0.3'
     implementation "com.facebook.fresco:animated-gif:$frescoVersion"
     implementation "com.facebook.fresco:fresco:$frescoVersion"

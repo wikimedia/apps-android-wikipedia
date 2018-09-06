@@ -69,6 +69,11 @@
                 android:layout_gravity="bottom|center_horizontal"
                 android:layout_marginBottom="80dp"/>
 
+            <FrameLayout
+                android:id="@+id/new_tab_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
         </android.support.design.widget.CoordinatorLayout>
 
     </org.wikipedia.views.SwipeRefreshLayoutWithScroll>

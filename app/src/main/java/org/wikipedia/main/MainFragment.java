@@ -32,6 +32,7 @@ import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
+import org.wikipedia.feed.mainpage.MainPageClient;
 import org.wikipedia.feed.news.NewsActivity;
 import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
@@ -49,6 +50,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
+import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.search.SearchFragment;
@@ -159,6 +161,17 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 && resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             refreshExploreFeed();
             FeedbackUtil.showMessage(this, R.string.login_success_toast);
+        } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
+            if (WikipediaApp.getInstance().getTabCount() == 0) {
+                // They browsed the tabs and cleared all of them, without wanting to open a new tab.
+                return;
+            }
+            if (resultCode == TabActivity.RESULT_NEW_TAB) {
+                HistoryEntry entry = new HistoryEntry(MainPageClient.getMainPageTitle(), HistoryEntry.SOURCE_MAIN_PAGE);
+                startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
+            } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
+                startActivity(PageActivity.newIntent(requireContext()));
+            }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
@@ -221,7 +234,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Override
     public void onFeedTabListRequested() {
-        startActivity(PageActivity.newIntentForTabList(requireContext()));
+        startActivityForResult(TabActivity.newIntent(requireContext()), Constants.ACTIVITY_REQUEST_BROWSE_TABS);
     }
 
     @Override public void onFeedSearchRequested() {

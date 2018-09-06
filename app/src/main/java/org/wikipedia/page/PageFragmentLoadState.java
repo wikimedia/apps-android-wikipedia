@@ -380,7 +380,6 @@ public class PageFragmentLoadState {
     private void updateThumbnail(String thumbUrl) {
         model.getTitle().setThumbUrl(thumbUrl);
         model.getTitleOriginal().setThumbUrl(thumbUrl);
-        fragment.invalidateTabs();
     }
 
     /**

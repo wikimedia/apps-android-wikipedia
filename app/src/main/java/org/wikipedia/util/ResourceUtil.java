@@ -21,6 +21,7 @@ import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.TypedValue;
+import android.view.MenuItem;
 
 import org.wikipedia.R;
 
@@ -114,6 +115,14 @@ public final class ResourceUtil {
                 .appendPath(res.getResourceTypeName(id))
                 .appendPath(res.getResourceEntryName(id))
                 .build();
+    }
+
+    public static void setMenuItemTint(@NonNull MenuItem item, @ColorInt int color) {
+        Drawable icon = item.getIcon();
+        Drawable wrapped = DrawableCompat.wrap(icon);
+        icon.mutate();
+        DrawableCompat.setTint(wrapped, color);
+        item.setIcon(wrapped);
     }
 
     private static void checkId(@IdRes int id) {

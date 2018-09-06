@@ -16,24 +16,6 @@
         android:layout="@layout/fragment_page"
         tools:layout="@layout/fragment_page" />
 
-    <!-- tabs container -->
-    <FrameLayout
-        android:id="@+id/tabs_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone">
-        <ListView
-            android:id="@+id/tabs_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:divider="@null"
-            android:dividerHeight="0dp"
-            android:stackFromBottom="true"
-            android:transcriptMode="alwaysScroll"
-            android:listSelector="?attr/tab_item_selector"
-            />
-    </FrameLayout>
-
     <LinearLayout
         android:id="@+id/page_toolbar_container"
         android:layout_width="match_parent"
@@ -54,12 +36,12 @@
                 app:navigationIcon="@drawable/ic_close_themed_24dp">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:gravity="center_vertical|end">
                     <android.support.v7.widget.AppCompatImageView
                         android:id="@+id/page_toolbar_button_search"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:paddingLeft="12dp"
                         android:paddingRight="12dp"
                         android:contentDescription="@string/search_hint"
@@ -68,7 +50,7 @@
                     <android.support.v7.widget.AppCompatImageView
                         android:id="@+id/page_toolbar_button_show_tabs"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:paddingLeft="12dp"
                         android:paddingRight="12dp"
                         android:contentDescription="@string/menu_page_show_tabs"

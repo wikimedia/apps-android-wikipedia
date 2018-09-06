@@ -18,7 +18,6 @@ import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
@@ -28,6 +27,8 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -53,8 +54,7 @@ import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LangLinksActivity;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
-import org.wikipedia.page.tabs.TabsProvider;
-import org.wikipedia.page.tabs.TabsProvider.TabPosition;
+import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.search.SearchFragment;
@@ -90,7 +90,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public static final String ACTION_LOAD_IN_NEW_TAB = "org.wikipedia.load_in_new_tab";
     public static final String ACTION_LOAD_IN_CURRENT_TAB = "org.wikipedia.load_in_current_tab";
     public static final String ACTION_LOAD_FROM_EXISTING_TAB = "org.wikipedia.load_from_existing_tab";
-    public static final String ACTION_SHOW_TAB_LIST = "org.wikipedia.show_tab_list";
     public static final String ACTION_RESUME_READING = "org.wikipedia.resume_reading";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
@@ -98,7 +97,13 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private static final String LANGUAGE_CODE_BUNDLE_KEY = "language";
 
-    @BindView(R.id.tabs_container) View tabsContainerView;
+    public enum TabPosition {
+        CURRENT_TAB,
+        NEW_TAB_BACKGROUND,
+        NEW_TAB_FOREGROUND,
+        EXISTING_TAB
+    }
+
     @BindView(R.id.page_progress_bar) ProgressBar progressBar;
     @BindView(R.id.page_toolbar_container) View toolbarContainerView;
     @BindView(R.id.page_toolbar) Toolbar toolbar;
@@ -165,7 +170,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         FeedbackUtil.setToolbarButtonLongPressToast(searchButton, tabsButton);
-        tabsButton.setImageDrawable(ContextCompat.getDrawable(this, ResourceUtil.getTabListIcon(app.getTabCount())));
 
         toolbarHideHandler = new PageToolbarHideHandler(pageFragment, toolbarContainerView, toolbar, tabsButton);
 
@@ -210,6 +214,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             return false;
         }
 
+        toolbarHideHandler.onScrolled(pageFragment.getWebView().getScrollY(), pageFragment.getWebView().getScrollY());
+
         MenuItem otherLangItem = menu.findItem(R.id.menu_page_other_languages);
         MenuItem shareItem = menu.findItem(R.id.menu_page_share);
         MenuItem addToListItem = menu.findItem(R.id.menu_page_add_to_list);
@@ -250,7 +256,13 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @OnClick(R.id.page_toolbar_button_show_tabs)
     public void onShowTabsButtonClicked() {
-        pageFragment.enterTabMode(false);
+        TabActivity.captureFirstTabBitmap(pageFragment.getContainerView());
+        startActivityForResult(TabActivity.newIntent(this), Constants.ACTIVITY_REQUEST_BROWSE_TABS);
+    }
+
+    public void animateTabsButton() {
+        Animation anim = AnimationUtils.loadAnimation(this, R.anim.tab_list_zoom_enter);
+        tabsButton.startAnimation(anim);
     }
 
     private void finishActionMode() {
@@ -331,11 +343,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 .putExtra(EXTRA_PAGETITLE, title);
     }
 
-    @NonNull
-    public static Intent newIntentForTabList(@NonNull Context context) {
-        return new Intent(ACTION_SHOW_TAB_LIST).setClass(context, PageActivity.class);
-    }
-
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
@@ -372,8 +379,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
             HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
             loadPage(title, historyEntry, TabPosition.EXISTING_TAB);
-        } else if (ACTION_SHOW_TAB_LIST.equals(intent.getAction())
-                || ACTION_RESUME_READING.equals(intent.getAction())
+        } else if (ACTION_RESUME_READING.equals(intent.getAction())
                 || intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)) {
             // do nothing, since this will be handled indirectly by PageFragment.
         } else if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
@@ -440,7 +446,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             return;
         }
 
-        tabsContainerView.post(() -> {
+        toolbarContainerView.post(() -> {
             if (!pageFragment.isAdded()) {
                 return;
             }
@@ -607,8 +613,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @Override
     public void onSearchSelectPage(@NonNull HistoryEntry entry, boolean inNewTab) {
-        loadPage(entry.getTitle(), entry, inNewTab ? TabsProvider.TabPosition.NEW_TAB_BACKGROUND
-                : TabsProvider.TabPosition.CURRENT_TAB);
+        loadPage(entry.getTitle(), entry, inNewTab ? TabPosition.NEW_TAB_BACKGROUND
+                : TabPosition.CURRENT_TAB);
     }
 
     @Override
@@ -745,13 +751,24 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             handleSettingsActivityResult(resultCode);
         } else if (newArticleLanguageSelected(requestCode, resultCode) || galleryPageSelected(requestCode, resultCode)) {
             handleLangLinkOrPageResult(data);
+        } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
+            if (app.getTabCount() == 0) {
+                // They browsed the tabs and cleared all of them, without wanting to open a new tab.
+                finish();
+                return;
+            }
+            if (resultCode == TabActivity.RESULT_NEW_TAB) {
+                loadMainPageInForegroundTab();
+            } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
+                pageFragment.reloadFromBackstack();
+            }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
 
     private void handleLangLinkOrPageResult(final Intent data) {
-        tabsContainerView.post(() -> handleIntent(data));
+        toolbarContainerView.post(() -> handleIntent(data));
     }
 
     @Override
