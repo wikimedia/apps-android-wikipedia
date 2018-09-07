@@ -16,6 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapSentences"
+            android:textColor="?attr/material_theme_primary_color"
+            android:textColorHint="?attr/material_theme_de_emphasised_color"
             android:textSize="16sp" />
     </android.support.design.widget.TextInputLayout>
 
@@ -28,6 +30,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapSentences"
+            android:textColor="?attr/material_theme_primary_color"
+            android:textColorHint="?attr/material_theme_de_emphasised_color"
             android:textSize="16sp" />
     </android.support.design.widget.TextInputLayout>
 
