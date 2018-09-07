@@ -8,7 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.ParameterizedRobolectricTestRunner;
 import org.robolectric.ParameterizedRobolectricTestRunner.Parameters;
-import org.wikipedia.Constants;
+import org.wikipedia.dataclient.Service;
 
 import java.util.Arrays;
 
@@ -44,7 +44,7 @@ import static org.wikipedia.json.GsonUnmarshaller.unmarshal;
         },
         STRING() {
             @Nullable @Override Uri val() {
-                return Uri.parse(Constants.WIKIPEDIA_URL);
+                return Uri.parse(Service.WIKIPEDIA_URL);
             }
         },
         OPAQUE() {

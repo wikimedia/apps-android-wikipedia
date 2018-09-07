@@ -17,6 +17,7 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.DescriptionEditFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.csrf.CsrfTokenClient;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.json.GsonMarshaller;
@@ -150,7 +151,7 @@ public class DescriptionEditFragment extends Fragment {
     }
 
     private class EditViewCallback implements DescriptionEditView.Callback {
-        private final WikiSite wikiData = new WikiSite("www.wikidata.org", "");
+        private final WikiSite wikiData = new WikiSite(Service.WIKIDATA_URL, "");
 
         @Override
         public void onSaveClick() {
@@ -159,7 +160,7 @@ public class DescriptionEditFragment extends Fragment {
 
             cancelCalls();
 
-            csrfClient = new CsrfTokenClient(new WikiSite("www.wikidata.org", ""),
+            csrfClient = new CsrfTokenClient(new WikiSite(Service.WIKIDATA_URL, ""),
                     pageTitle.getWikiSite());
             getEditTokenThenSave(false);
 

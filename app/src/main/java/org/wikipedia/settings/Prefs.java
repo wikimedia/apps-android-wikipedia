@@ -7,10 +7,10 @@ import android.text.TextUtils;
 
 import com.google.gson.reflect.TypeToken;
 
-import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.analytics.SessionData;
 import org.wikipedia.analytics.SessionFunnel;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
@@ -329,7 +329,7 @@ public final class Prefs {
 
     @NonNull
     public static String getMediaWikiBaseUrl() {
-        return defaultIfBlank(getString(R.string.preference_key_mediawiki_base_uri, null), Constants.WIKIPEDIA_URL);
+        return defaultIfBlank(getString(R.string.preference_key_mediawiki_base_uri, null), Service.WIKIPEDIA_URL);
     }
 
     public static boolean getMediaWikiBaseUriSupportsLangCode() {

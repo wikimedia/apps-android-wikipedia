@@ -8,9 +8,9 @@ import android.widget.Toast;
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
-import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
@@ -74,7 +74,7 @@ public class LoginClient {
                @Nullable final String retypedPassword, @Nullable final String twoFactorCode,
                @Nullable final String loginToken, @NonNull final LoginCallback cb) {
         loginCall = TextUtils.isEmpty(twoFactorCode) && TextUtils.isEmpty(retypedPassword)
-                ? ServiceFactory.get(wiki).postLogIn(userName, password, loginToken, Constants.WIKIPEDIA_URL)
+                ? ServiceFactory.get(wiki).postLogIn(userName, password, loginToken, Service.WIKIPEDIA_URL)
                 : ServiceFactory.get(wiki).postLogIn(userName, password, retypedPassword, twoFactorCode, loginToken, true);
         loginCall.enqueue(new Callback<LoginResponse>() {
             @Override
@@ -123,7 +123,7 @@ public class LoginClient {
         String loginToken = tokenResponse.body().query().loginToken();
 
         Call<LoginResponse> tempLoginCall = StringUtils.defaultIfEmpty(twoFactorCode, "").isEmpty()
-                ? ServiceFactory.get(wiki).postLogIn(userName, password, loginToken, Constants.WIKIPEDIA_URL)
+                ? ServiceFactory.get(wiki).postLogIn(userName, password, loginToken, Service.WIKIPEDIA_URL)
                 : ServiceFactory.get(wiki).postLogIn(userName, password, null, twoFactorCode, loginToken, true);
         Response<LoginResponse> response = tempLoginCall.execute();
         LoginResponse loginResponse = response.body();

@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
-import org.wikipedia.Constants;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
@@ -37,7 +36,7 @@ class CreateAccountClient {
                                         @Nullable String captchaId, @Nullable String captchaWord,
                                         @NonNull final Callback cb) {
         Call<CreateAccountResponse> call = service.postCreateAccount(username, password, retype, token,
-                Constants.WIKIPEDIA_URL, email, captchaId, captchaWord);
+                Service.WIKIPEDIA_URL, email, captchaId, captchaWord);
         call.enqueue(new retrofit2.Callback<CreateAccountResponse>() {
             @Override
             public void onResponse(@NonNull Call<CreateAccountResponse> call, @NonNull Response<CreateAccountResponse> response) {

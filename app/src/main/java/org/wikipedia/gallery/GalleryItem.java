@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.StringUtil;
 
@@ -105,7 +106,7 @@ public class GalleryItem implements Serializable {
     @NonNull
     public String getFilePage() {
         // return the base url of Wiki Commons for WikiSite() if the file_page is null.
-        return filePage == null ? "https://commons.wikimedia.org" : StringUtils.defaultString(filePage);
+        return filePage == null ? Service.COMMONS_URL : StringUtils.defaultString(filePage);
     }
 
     @Nullable
