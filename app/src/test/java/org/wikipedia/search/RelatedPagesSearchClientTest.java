@@ -6,6 +6,7 @@ import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.restbase.RbRelatedPages;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
@@ -121,6 +122,6 @@ public class RelatedPagesSearchClientTest extends MockWebServerTest {
 
     @SuppressWarnings("checkstyle:magicnumber")
     private Call<RbRelatedPages> request(int limit, @NonNull RelatedPagesSearchClient.Callback cb) {
-        return subject.request(service(RelatedPagesSearchClient.Service.class), "test", limit, cb);
+        return subject.request(service(Service.class), "test", limit, cb);
     }
 }

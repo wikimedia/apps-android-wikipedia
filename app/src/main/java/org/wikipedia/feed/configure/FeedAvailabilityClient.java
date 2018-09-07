@@ -5,32 +5,30 @@ import android.support.annotation.VisibleForTesting;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.wikipedia.dataclient.Service;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.retrofit.RbCachedService;
-import org.wikipedia.dataclient.retrofit.WikiCachedService;
 
 import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Response;
-import retrofit2.http.GET;
 
-class FeedAvailabilityClient {
+public class FeedAvailabilityClient {
     public interface Callback {
         void success(@NonNull Call<FeedAvailability> call, @NonNull FeedAvailability result);
         void failure(@NonNull Call<FeedAvailability> call, @NonNull Throwable caught);
     }
 
     private final WikiSite wiki = new WikiSite("wikimedia.org");
-    @NonNull private final WikiCachedService<Service> cachedService = new RbCachedService<>(Service.class);
 
     public Call<FeedAvailability> request(@NonNull Callback cb) {
-        return request(cachedService.service(wiki), cb);
+        return request(ServiceFactory.get(wiki), cb);
     }
 
     @VisibleForTesting Call<FeedAvailability> request(@NonNull Service service, @NonNull final Callback cb) {
-        Call<FeedAvailability> call = service.get();
+        Call<FeedAvailability> call = service.getFeedAvailability();
         call.enqueue(new retrofit2.Callback<FeedAvailability>() {
             @Override
             public void onResponse(@NonNull Call<FeedAvailability> call, @NonNull Response<FeedAvailability> response) {
@@ -49,12 +47,6 @@ class FeedAvailabilityClient {
             }
         });
         return call;
-    }
-
-    @VisibleForTesting interface Service {
-        @NonNull
-        @GET("feed/availability")
-        Call<FeedAvailability> get();
     }
 
     public class FeedAvailability {

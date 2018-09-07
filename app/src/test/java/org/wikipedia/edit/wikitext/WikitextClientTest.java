@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
@@ -84,6 +85,6 @@ public class WikitextClientTest extends MockWebServerTest {
     }
 
     private Call<MwQueryResponse> request(@NonNull WikitextClient.Callback cb) {
-        return subject.request(service(WikitextClient.Service.class), title, 0, cb);
+        return subject.request(service(Service.class), title, 0, cb);
     }
 }

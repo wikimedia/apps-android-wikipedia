@@ -6,6 +6,7 @@ import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
@@ -94,7 +95,7 @@ public class ReadingListPageInfoClientTest extends MockWebServerTest {
     }
 
     private Call<MwQueryResponse> request(@NonNull ReadingListPageInfoClient.Callback cb) {
-        return subject.request(service(ReadingListPageInfoClient.Service.class),
+        return subject.request(service(Service.class),
                 Collections.singletonList(new PageTitle("test", WikiSite.forLanguageCode("test"))), cb);
     }
 }

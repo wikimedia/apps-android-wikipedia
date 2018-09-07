@@ -6,6 +6,7 @@ import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
@@ -96,7 +97,7 @@ public class DescriptionClientTest extends MockWebServerTest {
     }
 
     private Call<MwQueryResponse> request(@NonNull DescriptionClient.Callback cb) {
-        return subject.request(service(DescriptionClient.Service.class),
+        return subject.request(service(Service.class),
                 Arrays.asList(PAGE_TITLE_BIDEN, PAGE_TITLE_OBAMA), cb);
     }
 }

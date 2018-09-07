@@ -15,6 +15,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.WiktionaryDialogFunnel;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageClientFactory;
@@ -113,7 +114,7 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
         //       https://wiktionary.org.
         PageClient pageClient = PageClientFactory.create(new WikiSite(pageTitle.getWikiSite().subdomain() + WIKTIONARY_DOMAIN), Namespace.MAIN);
         if (pageClient instanceof RbPageClient) {
-            ((RbPageClient) pageClient).define(
+            ((RbPageClient) pageClient).define(ServiceFactory.get(pageTitle.getWikiSite()),
                     addUnderscores(selectedText),
                     definitionOnLoadCallback);
         } else {

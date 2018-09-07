@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.MockitoAnnotations;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
@@ -153,6 +154,6 @@ public class NearbyClientTest extends MockWebServerTest {
 
     private Call<MwQueryResponse> request(@NonNull NearbyClient.Callback cb) {
         return subject.request(WikiSite.forLanguageCode("test"),
-                service(NearbyClient.Service.class), 0, 0, 0, cb);
+                service(Service.class), 0, 0, 0, cb);
     }
 }

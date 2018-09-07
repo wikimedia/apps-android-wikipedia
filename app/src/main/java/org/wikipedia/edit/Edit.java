@@ -4,7 +4,7 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 
-class Edit extends MwPostResponse {
+public class Edit extends MwPostResponse {
     @SuppressWarnings("unused,") @Nullable private Result edit;
 
     @Nullable Result edit() {

@@ -5,32 +5,19 @@ import android.support.annotation.VisibleForTesting;
 
 import com.google.gson.JsonParseException;
 
+import org.wikipedia.dataclient.Service;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 
 import retrofit2.Call;
 import retrofit2.Response;
-import retrofit2.http.GET;
-import retrofit2.http.Query;
 
 public final class EntityClient {
     public static final String WIKIDATA_WIKI = "wikidatawiki";
-    @NonNull private final Service service;
 
     public interface LabelCallback {
         void success(@NonNull String label);
         void failure(@NonNull Throwable t);
-    }
-
-    private static final EntityClient INSTANCE = new EntityClient();
-
-    public static EntityClient instance() {
-        return INSTANCE;
-    }
-
-    private EntityClient() {
-        service = RetrofitFactory.newInstance(new WikiSite("www.wikidata.org", ""))
-                .create(Service.class);
     }
 
     @VisibleForTesting
@@ -69,20 +56,12 @@ public final class EntityClient {
 
     public void getLabelForLang(@NonNull final String qNumber, @NonNull final String langCode,
                                 @NonNull final LabelCallback callback) {
-        requestLabels(service, qNumber, langCode).enqueue(new LabelCallbackAdapter(callback, qNumber, langCode));
+        requestLabels(ServiceFactory.get(new WikiSite(Service.WIKIDATA_URL)), qNumber, langCode).enqueue(new LabelCallbackAdapter(callback, qNumber, langCode));
     }
 
     @VisibleForTesting @NonNull
     Call<Entities> requestLabels(@NonNull Service service, @NonNull final String qNumber,
                                  @NonNull final String langCode) {
-        return service.getLabels(qNumber, langCode);
-    }
-
-    @VisibleForTesting interface Service {
-        String ACTION = "w/api.php?action=wbgetentities&format=json&formatversion=2";
-
-        @GET(ACTION + "&props=labels&languagefallback=1")
-        @NonNull Call<Entities> getLabels(@Query("ids") @NonNull String idList,
-                                          @Query("languages") @NonNull String langList);
+        return service.getWikidataLabels(qNumber, langCode);
     }
 }

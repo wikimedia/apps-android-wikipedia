@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import org.junit.Before;
 import org.junit.Test;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.page.BasePageLeadTest;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageLead;
@@ -25,7 +26,7 @@ public class MwMobileViewPageLeadTest extends BasePageLeadTest {
 
     @Before public void setUp() throws Throwable {
         super.setUp();
-        subject = new MwPageClient(service(MwPageService.class), WikipediaApp.getInstance().getWikiSite());
+        subject = new MwPageClient(WikipediaApp.getInstance().getWikiSite());
     }
 
     @Test public void testEnglishMainPage() throws Exception {
@@ -56,7 +57,7 @@ public class MwMobileViewPageLeadTest extends BasePageLeadTest {
     @Test @SuppressWarnings("checkstyle:magicnumber") public void testThumbUrls() throws Throwable {
         enqueueFromFile("page_lead_mw.json");
         final TestLatch latch = new TestLatch();
-        subject.lead(CacheControl.FORCE_NETWORK, null, null, "foo", 640)
+        subject.lead(service(Service.class), CacheControl.FORCE_NETWORK, null, null, "foo", 640)
                 .enqueue(new Callback<PageLead>() {
                     @Override
                     public void onResponse(@NonNull Call<PageLead> call, @NonNull Response<PageLead> response) {

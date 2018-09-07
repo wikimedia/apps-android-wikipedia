@@ -5,9 +5,9 @@ import android.support.annotation.NonNull;
 
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.edit.EditClient.Callback;
-import org.wikipedia.edit.EditClient.Service;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.test.MockWebServerTest;
 

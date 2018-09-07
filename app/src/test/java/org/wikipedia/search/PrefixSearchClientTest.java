@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
@@ -89,6 +90,6 @@ public class PrefixSearchClientTest extends MockWebServerTest {
     }
 
     private Call<PrefixSearchResponse> request(@NonNull String title, @NonNull PrefixSearchClient.Callback cb) {
-        return subject.request(service(PrefixSearchClient.Service.class), TESTWIKI, title, cb);
+        return subject.request(service(Service.class), TESTWIKI, title, cb);
     }
 }

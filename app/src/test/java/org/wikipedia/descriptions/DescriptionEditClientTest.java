@@ -5,10 +5,11 @@ import android.support.annotation.NonNull;
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
+import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.descriptions.DescriptionEditClient.Callback;
-import org.wikipedia.descriptions.DescriptionEditClient.Service;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
@@ -38,7 +39,7 @@ public class DescriptionEditClientTest extends MockWebServerTest {
         enqueueFromFile("description_edit.json");
 
         Callback cb = mock(Callback.class);
-        Call<DescriptionEdit> call = request(cb);
+        Call<MwPostResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackSuccess(call, cb);
@@ -48,7 +49,7 @@ public class DescriptionEditClientTest extends MockWebServerTest {
         enqueueFromFile("description_edit_abusefilter_warning.json");
 
         Callback cb = mock(Callback.class);
-        Call<DescriptionEdit> call = request(cb);
+        Call<MwPostResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackAbusefilter(call, cb, "abusefilter-warning",
@@ -59,7 +60,7 @@ public class DescriptionEditClientTest extends MockWebServerTest {
         enqueueFromFile("description_edit_abusefilter_disallowed.json");
 
         Callback cb = mock(Callback.class);
-        Call<DescriptionEdit> call = request(cb);
+        Call<MwPostResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackAbusefilter(call, cb, "abusefilter-disallowed",
@@ -70,7 +71,7 @@ public class DescriptionEditClientTest extends MockWebServerTest {
         enqueueFromFile("api_error.json");
 
         Callback cb = mock(Callback.class);
-        Call<DescriptionEdit> call = request(cb);
+        Call<MwPostResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, MwException.class);
@@ -80,7 +81,7 @@ public class DescriptionEditClientTest extends MockWebServerTest {
         enqueueFromFile("description_edit_unknown_site.json");
 
         Callback cb = mock(Callback.class);
-        Call<DescriptionEdit> call = request(cb);
+        Call<MwPostResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, MwException.class);
@@ -90,7 +91,7 @@ public class DescriptionEditClientTest extends MockWebServerTest {
         server().enqueue("'");
 
         Callback cb = mock(Callback.class);
-        Call<DescriptionEdit> call = request(cb);
+        Call<MwPostResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, MalformedJsonException.class);
@@ -118,7 +119,7 @@ public class DescriptionEditClientTest extends MockWebServerTest {
         assertThat(DescriptionEditClient.isEditAllowed(page), is(false));
     }
 
-    private void assertCallbackSuccess(@NonNull Call<DescriptionEdit> call,
+    private void assertCallbackSuccess(@NonNull Call<MwPostResponse> call,
                                        @NonNull Callback cb) {
         verify(cb).success(eq(call));
         //noinspection unchecked
@@ -127,7 +128,7 @@ public class DescriptionEditClientTest extends MockWebServerTest {
         verify(cb, never()).failure(any(Call.class), any(Throwable.class));
     }
 
-    private void assertCallbackAbusefilter(@NonNull Call<DescriptionEdit> call,
+    private void assertCallbackAbusefilter(@NonNull Call<MwPostResponse> call,
                                            @NonNull Callback cb,
                                            String expectedCode,
                                            String expectedMessage) {
@@ -138,7 +139,7 @@ public class DescriptionEditClientTest extends MockWebServerTest {
         verify(cb, never()).failure(any(Call.class), any(Throwable.class));
     }
 
-    private void assertCallbackFailure(@NonNull Call<DescriptionEdit> call,
+    private void assertCallbackFailure(@NonNull Call<MwPostResponse> call,
                                        @NonNull Callback cb,
                                        @NonNull Class<? extends Throwable> throwable) {
         //noinspection unchecked
@@ -148,7 +149,7 @@ public class DescriptionEditClientTest extends MockWebServerTest {
         verify(cb).failure(eq(call), isA(throwable));
     }
 
-    private Call<DescriptionEdit> request(@NonNull Callback cb) {
+    private Call<MwPostResponse> request(@NonNull Callback cb) {
         final PageTitle pageTitle = new PageTitle("foo", WikiSite.forLanguageCode("en"));
         return subject.request(service(Service.class), pageTitle, "some new description",
                 MOCK_EDIT_TOKEN, false, cb);

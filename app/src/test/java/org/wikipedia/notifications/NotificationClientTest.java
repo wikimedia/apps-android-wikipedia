@@ -3,6 +3,7 @@ package org.wikipedia.notifications;
 import android.support.annotation.NonNull;
 
 import org.junit.Test;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.test.MockWebServerTest;
@@ -51,7 +52,7 @@ public class NotificationClientTest extends MockWebServerTest {
     }
 
     private void request(@NonNull final NotificationClient.Callback cb) {
-        Call<MwQueryResponse> call = client.requestNotifications((service(NotificationClient.Service.class)),
+        Call<MwQueryResponse> call = client.requestNotifications((service(Service.class)),
                 EntityClient.WIKIDATA_WIKI);
         call.enqueue(new NotificationClient.CallbackAdapter(cb));
     }

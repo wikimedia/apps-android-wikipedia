@@ -11,12 +11,11 @@ import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
-import org.wikipedia.dataclient.retrofit.MwCachedService;
-import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
@@ -26,17 +25,11 @@ import java.util.Map;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.Headers;
-import retrofit2.http.POST;
 
 /**
  * Responsible for making login related requests to the server.
  */
 public class LoginClient {
-    @NonNull private final WikiCachedService<Service> cachedService = new MwCachedService<>(Service.class);
-
     @Nullable private Call<MwQueryResponse> tokenCall;
     @Nullable private Call<LoginResponse> loginCall;
 
@@ -51,7 +44,7 @@ public class LoginClient {
                         @NonNull final String password, @NonNull final LoginCallback cb) {
         cancel();
 
-        tokenCall = cachedService.service(wiki).requestLoginToken();
+        tokenCall = ServiceFactory.get(wiki).getLoginToken();
         tokenCall.enqueue(new Callback<MwQueryResponse>() {
             @Override public void onResponse(@NonNull Call<MwQueryResponse> call,
                                              @NonNull Response<MwQueryResponse> response) {
@@ -81,8 +74,8 @@ public class LoginClient {
                @Nullable final String retypedPassword, @Nullable final String twoFactorCode,
                @Nullable final String loginToken, @NonNull final LoginCallback cb) {
         loginCall = TextUtils.isEmpty(twoFactorCode) && TextUtils.isEmpty(retypedPassword)
-                ? cachedService.service(wiki).logIn(userName, password, loginToken, Constants.WIKIPEDIA_URL)
-                : cachedService.service(wiki).logIn(userName, password, retypedPassword, twoFactorCode, loginToken, true);
+                ? ServiceFactory.get(wiki).postLogIn(userName, password, loginToken, Constants.WIKIPEDIA_URL)
+                : ServiceFactory.get(wiki).postLogIn(userName, password, retypedPassword, twoFactorCode, loginToken, true);
         loginCall.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(@NonNull Call<LoginResponse> call, @NonNull Response<LoginResponse> response) {
@@ -122,7 +115,7 @@ public class LoginClient {
 
     public void loginBlocking(@NonNull final WikiSite wiki, @NonNull final String userName,
                               @NonNull final String password, @Nullable final String twoFactorCode) throws Throwable {
-        Response<MwQueryResponse> tokenResponse = cachedService.service(wiki).requestLoginToken().execute();
+        Response<MwQueryResponse> tokenResponse = ServiceFactory.get(wiki).getLoginToken().execute();
         if (tokenResponse.body() == null || !tokenResponse.body().success()
                 || TextUtils.isEmpty(tokenResponse.body().query().loginToken())) {
             throw new IOException("Unexpected response when getting login token.");
@@ -130,8 +123,8 @@ public class LoginClient {
         String loginToken = tokenResponse.body().query().loginToken();
 
         Call<LoginResponse> tempLoginCall = StringUtils.defaultIfEmpty(twoFactorCode, "").isEmpty()
-                ? cachedService.service(wiki).logIn(userName, password, loginToken, Constants.WIKIPEDIA_URL)
-                : cachedService.service(wiki).logIn(userName, password, null, twoFactorCode, loginToken, true);
+                ? ServiceFactory.get(wiki).postLogIn(userName, password, loginToken, Constants.WIKIPEDIA_URL)
+                : ServiceFactory.get(wiki).postLogIn(userName, password, null, twoFactorCode, loginToken, true);
         Response<LoginResponse> response = tempLoginCall.execute();
         LoginResponse loginResponse = response.body();
         if (loginResponse == null) {
@@ -200,34 +193,7 @@ public class LoginClient {
         loginCall = null;
     }
 
-    private interface Service {
-
-        /** Request a login token to be used later to log in. */
-        @NonNull
-        @Headers("Cache-Control: no-cache")
-        @POST("w/api.php?format=json&formatversion=2&action=query&meta=tokens&type=login")
-        Call<MwQueryResponse> requestLoginToken();
-
-        /** Actually log in. Has to be x-www-form-urlencoded */
-        @NonNull
-        @Headers("Cache-Control: no-cache")
-        @FormUrlEncoded
-        @POST("w/api.php?action=clientlogin&format=json&formatversion=2&rememberMe=")
-        Call<LoginResponse> logIn(@Field("username") String user, @Field("password") String pass,
-                                  @Field("logintoken") String token, @Field("loginreturnurl") String url);
-
-        /** Actually log in. Has to be x-www-form-urlencoded */
-        @NonNull
-        @Headers("Cache-Control: no-cache")
-        @FormUrlEncoded
-        @POST("w/api.php?action=clientlogin&format=json&formatversion=2&rememberMe=")
-        Call<LoginResponse> logIn(@Field("username") String user, @Field("password") String pass,
-                                  @Field("retype") String retypedPass, @Field("OATHToken") String twoFactorCode,
-                                  @Field("logintoken") String token,
-                                  @Field("logincontinue") boolean loginContinue);
-    }
-
-    private static final class LoginResponse {
+    public static final class LoginResponse {
         @SuppressWarnings("unused") @SerializedName("error") @Nullable
         private MwServiceError error;
 

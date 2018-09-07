@@ -3,6 +3,8 @@ package org.wikipedia.dataclient.page;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import org.wikipedia.dataclient.Service;
+
 import okhttp3.CacheControl;
 import retrofit2.Call;
 
@@ -17,7 +19,8 @@ public interface PageClient {
      *
      * @param title the page title to be used including prefix
      */
-    @NonNull <T extends PageSummary> Call<T> summary(@NonNull String title,
+    @NonNull <T extends PageSummary> Call<T> summary(@NonNull Service service,
+                                                     @NonNull String title,
                                                      @Nullable String referrerUrl);
 
     /**
@@ -26,7 +29,8 @@ public interface PageClient {
      * @param title the page title with prefix if necessary
      * @param leadThumbnailWidth one of the bucket widths for the lead image
      */
-    @NonNull <T extends PageLead> Call<T> lead(@Nullable CacheControl cacheControl,
+    @NonNull <T extends PageLead> Call<T> lead(@NonNull Service service,
+                                               @Nullable CacheControl cacheControl,
                                                @Nullable String saveOfflineHeader,
                                                @Nullable String referrerUrl,
                                                @NonNull String title,
@@ -37,7 +41,8 @@ public interface PageClient {
      *
      * @param title the page title to be used including prefix
      */
-    @NonNull <T extends PageRemaining> Call<T> sections(@Nullable CacheControl cacheControl,
+    @NonNull <T extends PageRemaining> Call<T> sections(@NonNull Service service,
+                                                        @Nullable CacheControl cacheControl,
                                                         @Nullable String saveOfflineHeader,
                                                         @NonNull String title);
 }

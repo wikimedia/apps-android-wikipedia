@@ -6,6 +6,7 @@ import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.test.MockWebServerTest;
 
 import java.util.List;
@@ -166,6 +167,6 @@ public class GalleryClientTest extends MockWebServerTest {
     }
 
     private Call<Gallery> request(@NonNull GalleryClient.Callback cb, @NonNull String...types) {
-        return client.request(service(GalleryClient.Service.class), "test", cb, types);
+        return client.request(service(Service.class), "test", cb, types);
     }
 }

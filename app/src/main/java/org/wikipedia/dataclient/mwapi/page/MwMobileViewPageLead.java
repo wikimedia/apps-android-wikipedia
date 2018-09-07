@@ -23,7 +23,7 @@ import org.wikipedia.util.log.L;
 import java.util.Collections;
 import java.util.List;
 
-import static org.wikipedia.Constants.PREFERRED_THUMB_SIZE;
+import static org.wikipedia.dataclient.Service.PREFERRED_THUMB_SIZE;
 import static org.wikipedia.util.ImageUrlUtil.getUrlForSize;
 
 /**

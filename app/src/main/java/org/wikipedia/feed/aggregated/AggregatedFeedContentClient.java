@@ -5,8 +5,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 import org.wikipedia.feed.FeedContentType;
 import org.wikipedia.feed.FeedCoordinator;
 import org.wikipedia.feed.dataclient.FeedClient;
@@ -17,25 +17,16 @@ import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.feed.mostread.MostReadListCard;
 import org.wikipedia.feed.news.NewsListCard;
 import org.wikipedia.feed.onthisday.OnThisDayCard;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.http.GET;
-import retrofit2.http.Header;
-import retrofit2.http.Headers;
-import retrofit2.http.Path;
-
-import static org.wikipedia.Constants.ACCEPT_HEADER_PREFIX;
 
 public class AggregatedFeedContentClient {
     @NonNull private Map<String, Call<AggregatedFeedContent>> calls = new HashMap<>();
@@ -156,10 +147,8 @@ public class AggregatedFeedContentClient {
         numResponsesExpected = FeedContentType.getAggregatedLanguages().size();
         for (String lang : FeedContentType.getAggregatedLanguages()) {
             WikiSite wiki = WikiSite.forLanguageCode(lang);
-            String endpoint = String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), wiki.scheme(), wiki.authority());
-            Retrofit retrofit = RetrofitFactory.newInstance(endpoint, wiki);
-            AggregatedFeedContentClient.Service service = retrofit.create(Service.class);
-            Call<AggregatedFeedContent> call = service.get(lang, date.year(), date.month(), date.date());
+            Call<AggregatedFeedContent> call = ServiceFactory.get(wiki)
+                    .getAggregatedFeed(lang, date.year(), date.month(), date.date());
             call.enqueue(cb);
             calls.put(lang, call);
         }
@@ -172,24 +161,6 @@ public class AggregatedFeedContentClient {
         calls.clear();
         numResponsesReceived = 0;
         numResponsesExpected = 0;
-    }
-
-    private interface Service {
-
-        /**
-         * Gets aggregated content for the feed for the date provided.
-         *
-         * @param year four-digit year
-         * @param month two-digit month
-         * @param day two-digit day
-         */
-        @NonNull
-        @Headers(ACCEPT_HEADER_PREFIX + "aggregated-feed/0.5.0\"")
-        @GET("feed/featured/{year}/{month}/{day}")
-        Call<AggregatedFeedContent> get(@Header("X-Lang") String lang,
-                                        @Path("year") String year,
-                                        @Path("month") String month,
-                                        @Path("day") String day);
     }
 
     private abstract static class BaseClient implements FeedClient, retrofit2.Callback<AggregatedFeedContent> {

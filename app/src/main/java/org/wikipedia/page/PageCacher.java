@@ -3,6 +3,7 @@ package org.wikipedia.page;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.dataclient.page.PageClient;
@@ -43,14 +44,14 @@ final class PageCacher {
 
     @NonNull
     private static Call<PageLead> leadReq(@NonNull PageClient client, @NonNull PageTitle title) {
-        return client.lead(null, null, null, title.getPrefixedText(),
+        return client.lead(ServiceFactory.get(title.getWikiSite()), null, null, null, title.getPrefixedText(),
                 calculateLeadImageWidth());
     }
 
     @NonNull
     private static Call<PageRemaining> remainingReq(@NonNull PageClient client,
                                                     @NonNull PageTitle title) {
-        return client.sections(null, null, title.getPrefixedText());
+        return client.sections(ServiceFactory.get(title.getWikiSite()), null, null, title.getPrefixedText());
     }
 
     private static void fetchImages(@NonNull final WikiSite wiki,

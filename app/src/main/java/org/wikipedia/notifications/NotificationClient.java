@@ -9,9 +9,10 @@ import com.google.gson.JsonParseException;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.csrf.CsrfTokenClient;
+import org.wikipedia.dataclient.Service;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
-import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.util.log.L;
 
 import java.util.List;
@@ -19,12 +20,6 @@ import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Response;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.GET;
-import retrofit2.http.Headers;
-import retrofit2.http.POST;
-import retrofit2.http.Query;
 
 public final class NotificationClient {
 
@@ -47,8 +42,6 @@ public final class NotificationClient {
         void success(@NonNull String timeStamp);
         void failure(Throwable t);
     }
-
-    @NonNull private MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
     @VisibleForTesting static class CallbackAdapter implements retrofit2.Callback<MwQueryResponse> {
         @NonNull private final Callback callback;
@@ -74,7 +67,7 @@ public final class NotificationClient {
     }
 
     public void getUnreadNotificationWikis(@NonNull WikiSite wiki, @NonNull UnreadWikisCallback callback) {
-        cachedService.service(wiki).getUnreadNotificationWikis().enqueue(new retrofit2.Callback<MwQueryResponse>() {
+        ServiceFactory.get(wiki).getUnreadNotificationWikis().enqueue(new retrofit2.Callback<MwQueryResponse>() {
             @Override
             public void onResponse(@NonNull Call<MwQueryResponse> call, @NonNull Response<MwQueryResponse> response) {
                 if (response.body() != null && response.body().query() != null
@@ -95,18 +88,18 @@ public final class NotificationClient {
     }
 
     public void getNotificationsWithForeignSummary(@NonNull WikiSite wiki, @NonNull final Callback callback) {
-        cachedService.service(wiki).getForeignSummary().enqueue(new CallbackAdapter(callback));
+        ServiceFactory.get(wiki).getForeignSummary().enqueue(new CallbackAdapter(callback));
     }
 
     public void getAllNotifications(@NonNull WikiSite wiki, @NonNull final Callback callback, boolean displayArchived,
                                     @Nullable String continueStr, @Nullable String[] wikis) {
-        cachedService.service(wiki).getAllNotifications(wikis != null && wikis.length > 0 ? TextUtils.join("|", wikis) : "*",
+        ServiceFactory.get(wiki).getAllNotifications(wikis != null && wikis.length > 0 ? TextUtils.join("|", wikis) : "*",
                 displayArchived ? "read" : "!read", TextUtils.isEmpty(continueStr) ? null : continueStr)
                 .enqueue(new CallbackAdapter(callback));
     }
 
     public void getLastUnreadNotificationTime(@NonNull WikiSite wiki, @NonNull final PollCallback callback) {
-        cachedService.service(wiki).getLastUnreadNotification().enqueue(new retrofit2.Callback<MwQueryResponse>() {
+        ServiceFactory.get(wiki).getLastUnreadNotification().enqueue(new retrofit2.Callback<MwQueryResponse>() {
             @Override
             public void onResponse(@NonNull Call<MwQueryResponse> call, @NonNull Response<MwQueryResponse> response) {
                 if (response.body() != null && response.body().query() != null
@@ -149,7 +142,7 @@ public final class NotificationClient {
         editTokenClient.request(new CsrfTokenClient.DefaultCallback() {
             @Override
             public void success(@NonNull String token) {
-                cachedService.service(wiki).markRead(token, unread ? null : idListStr, unread ? idListStr : null)
+                ServiceFactory.get(wiki).markRead(token, unread ? null : idListStr, unread ? idListStr : null)
                         .enqueue(new retrofit2.Callback<MwQueryResponse>() {
                             @Override
                             public void onResponse(@NonNull Call<MwQueryResponse> call, @NonNull Response<MwQueryResponse> response) {
@@ -170,7 +163,7 @@ public final class NotificationClient {
         tokenClient.request(new CsrfTokenClient.DefaultCallback() {
             @Override
             public void success(@NonNull String token) {
-                cachedService.service(wiki).markSeen(token)
+                ServiceFactory.get(wiki).markSeen(token)
                         .enqueue(new retrofit2.Callback<MwQueryResponse>() {
                             @Override
                             public void onResponse(@NonNull Call<MwQueryResponse> call, @NonNull Response<MwQueryResponse> response) {
@@ -194,46 +187,5 @@ public final class NotificationClient {
     @VisibleForTesting @NonNull
     Call<MwQueryResponse> requestNotifications(@NonNull Service service, @NonNull String wikiList) {
         return service.getAllNotifications(wikiList, "!read", null);
-    }
-
-    @VisibleForTesting interface Service {
-        String ACTION = "w/api.php?format=json&formatversion=2&action=";
-
-        @Headers("Cache-Control: no-cache")
-        @GET(ACTION + "query&meta=notifications&notcrosswikisummary=1&notlimit=1")
-        @NonNull
-        Call<MwQueryResponse> getForeignSummary();
-
-        @Headers("Cache-Control: no-cache")
-        @GET(ACTION + "query&meta=notifications&notformat=model&notlimit=max")
-        @NonNull
-        Call<MwQueryResponse> getAllNotifications(@Query("notwikis") @Nullable String wikiList,
-                                                  @Query("notfilter") @Nullable String filter,
-                                                  @Query("notcontinue") @Nullable String continueStr);
-
-        @FormUrlEncoded
-        @Headers("Cache-Control: no-cache")
-        @POST(ACTION + "echomarkread")
-        Call<MwQueryResponse> markRead(@Field("token") @NonNull String token, @Field("list") @Nullable String readList, @Field("unreadlist") @Nullable String unreadList);
-
-        @FormUrlEncoded
-        @Headers("Cache-Control: no-cache")
-        @POST(ACTION + "echomarkseen&type=all&timestampFormat=ISO_8601")
-        Call<MwQueryResponse> markSeen(@Field("token") @NonNull String token);
-
-        @Headers("Cache-Control: no-cache")
-        @GET(ACTION + "query&meta=notifications&notwikis=*&notfilter=!read&notprop=seenTime|count")
-        @NonNull
-        Call<MwQueryResponse> getSeenTimeAndCount();
-
-        @Headers("Cache-Control: no-cache")
-        @GET(ACTION + "query&meta=notifications&notprop=list&notfilter=!read&notlimit=1")
-        @NonNull
-        Call<MwQueryResponse> getLastUnreadNotification();
-
-        @Headers("Cache-Control: no-cache")
-        @GET(ACTION + "query&meta=unreadnotificationpages&unplimit=max&unpwikis=*")
-        @NonNull
-        Call<MwQueryResponse> getUnreadNotificationWikis();
     }
 }

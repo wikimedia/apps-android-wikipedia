@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.feed.dataclient.FeedClient.Callback;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.json.GsonUnmarshaller;
@@ -129,7 +130,7 @@ public class AnnouncementClientTest extends MockWebServerTest {
     }
 
     private void request(@NonNull Callback cb) {
-        Call<AnnouncementList> call = client.request(service(AnnouncementClient.Service.class));
+        Call<AnnouncementList> call = client.request(service(Service.class));
         call.enqueue(new AnnouncementClient.CallbackAdapter(cb, false));
     }
 }

@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.dataclient.mwapi.MwResponse;
 
-class CreateAccountResponse extends MwResponse {
+public class CreateAccountResponse extends MwResponse {
     @SuppressWarnings("unused") @Nullable private Result createaccount;
 
     @Nullable String status() {
