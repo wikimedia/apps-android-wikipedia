@@ -1,13 +1,11 @@
-package org.wikipedia.nearby;
+package org.wikipedia.dataclient.mwapi;
 
 import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.page.PageTitle;
 
 import java.util.List;
@@ -23,14 +21,17 @@ public class NearbyPage {
         title = new PageTitle(page.title(), wiki);
         title.setThumbUrl(page.thumbUrl());
         List<MwQueryPage.Coordinates> coordinates = page.coordinates();
-        if (coordinates != null && !coordinates.isEmpty()) {
+        if (coordinates == null || coordinates.isEmpty()) {
+            return;
+        }
+        if (coordinates.get(0).lat() != null && coordinates.get(0).lon() != null) {
             location = new Location(title.getPrefixedText());
-            location.setLatitude(page.coordinates().get(0).lat());
-            location.setLongitude(page.coordinates().get(0).lon());
+            location.setLatitude(coordinates.get(0).lat());
+            location.setLongitude(coordinates.get(0).lon());
         }
     }
 
-    @VisibleForTesting NearbyPage(@NonNull String title, @Nullable Location location) {
+    public NearbyPage(@NonNull String title, @Nullable Location location) {
         this.title = new PageTitle(title, WikipediaApp.getInstance().getWikiSite());
         this.location = location;
     }

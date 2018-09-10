@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
+import org.wikipedia.dataclient.mwapi.NearbyPage;
 
 import java.util.Collections;
 import java.util.Comparator;

@@ -8,7 +8,6 @@ import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.gallery.ImageInfo;
 import org.wikipedia.gallery.VideoInfo;
-import org.wikipedia.json.annotations.Required;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.page.Namespace;
 
@@ -150,20 +149,13 @@ public class MwQueryPage extends BaseModel {
     }
 
     public static class Coordinates {
-        // Use Double object type rather than primitive type so that the presence of the fields can
-        // be checked correctly by the RequiredFieldsCheckOnReadTypeAdapter.
-        @SuppressWarnings("unused") @Required @NonNull private Double lat;
-        @SuppressWarnings("unused") @Required @NonNull private Double lon;
+        @SuppressWarnings("unused") @Nullable private Double lat;
+        @SuppressWarnings("unused") @Nullable private Double lon;
 
-        public Coordinates(double lat, double lon) {
-            this.lat = lat;
-            this.lon = lon;
-        }
-
-        public double lat() {
+        @Nullable public Double lat() {
             return lat;
         }
-        public double lon() {
+        @Nullable public Double lon() {
             return lon;
         }
     }

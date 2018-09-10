@@ -298,7 +298,7 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=coordinates|description|pageimages"
             + "&colimit=50&piprop=thumbnail&pilicense=any"
             + "&generator=geosearch&ggslimit=50&pithumbsize=" + PREFERRED_THUMB_SIZE)
-    @NonNull Call<MwQueryResponse> nearbySearch(@NonNull @Query("ggscoord") String coord,
+    @NonNull Observable<MwQueryResponse> nearbySearch(@NonNull @Query("ggscoord") String coord,
                                                 @Query("ggsradius") double radius);
 
 

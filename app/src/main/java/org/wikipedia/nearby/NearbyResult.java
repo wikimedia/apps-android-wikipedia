@@ -3,6 +3,7 @@ package org.wikipedia.nearby;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.mwapi.NearbyPage;
 
 import java.util.ArrayList;
 import java.util.Iterator;

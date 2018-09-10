@@ -1,159 +1,121 @@
 package org.wikipedia.nearby;
 
-import android.support.annotation.NonNull;
-
 import com.google.gson.stream.MalformedJsonException;
 
-import org.junit.Before;
 import org.junit.Test;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
-import org.mockito.MockitoAnnotations;
-import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
-import org.wikipedia.dataclient.okhttp.HttpStatusException;
-import org.wikipedia.test.MockWebServerTest;
+import org.wikipedia.dataclient.mwapi.NearbyPage;
+import org.wikipedia.test.MockRetrofitTest;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-import retrofit2.Call;
+import io.reactivex.functions.Function;
+import io.reactivex.observers.TestObserver;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.eq;
-import static org.mockito.Matchers.isA;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
-
-public class NearbyClientTest extends MockWebServerTest {
-    @NonNull private final NearbyClient subject = new NearbyClient();
-    @Captor private ArgumentCaptor<ArrayList<NearbyPage>> nearbyResultCaptor;
-
-    @Before public void setup() {
-        MockitoAnnotations.initMocks(this);
-    }
+@SuppressWarnings("checkstyle:magicnumber")
+public class NearbyClientTest extends MockRetrofitTest {
 
     @Test public void testRequestSuccessHasResults() throws Throwable {
         enqueueFromFile("nearby.json");
+        TestObserver<List<NearbyPage>> observer = new TestObserver<>();
 
-        NearbyClient.Callback cb = mock(NearbyClient.Callback.class);
-        Call<MwQueryResponse> call = request(cb);
+        getApiService().nearbySearch("0|0", 1)
+                .map(response -> response.query().nearbyPages(WikiSite.forLanguageCode("en")))
+                .subscribe(observer);
 
-        server().takeRequest();
-        assertCallbackSuccess(call, cb);
+        observer.assertComplete().assertNoErrors()
+                .assertValue(nearbyPages -> nearbyPages.get(0).getTitle().getDisplayText().equals("Bean Hollow State Beach")
+                        && nearbyPages.get(0).getLocation().getLatitude() == 37.22583333
+                        && nearbyPages.get(0).getLocation().getLongitude() == -122.40888889);
     }
 
     @Test public void testRequestNoResults() throws Throwable {
         enqueueFromFile("nearby_empty.json");
+        TestObserver<List<NearbyPage>> observer = new TestObserver<>();
 
-        NearbyClient.Callback cb = mock(NearbyClient.Callback.class);
-        request(cb);
+        getApiService().nearbySearch("0|0", 1)
+                .map((Function<MwQueryResponse, List<NearbyPage>>) response
+                        -> response.query() != null ? response.query().nearbyPages(WikiSite.forLanguageCode("en")) : Collections.emptyList())
+                .subscribe(observer);
 
-        server().takeRequest();
-
-        // If no results are found we don't call success() or failure() but just do nothing;
-        // here, just make sure we're not hitting an error.
-        // noinspection unchecked
-        verify(cb, never()).failure(any(Call.class), any(Throwable.class));
+        observer.assertComplete().assertNoErrors()
+                .assertValue(List::isEmpty);
     }
 
     @Test public void testLocationMissingCoordsIsExcludedFromResults() throws Throwable {
         enqueueFromFile("nearby_missing_coords.json");
+        TestObserver<List<NearbyPage>> observer = new TestObserver<>();
 
-        NearbyClient.Callback cb = mock(NearbyClient.Callback.class);
-        Call<MwQueryResponse> call = request(cb);
+        getApiService().nearbySearch("0|0", 1)
+                .map(response -> response.query().nearbyPages(WikiSite.forLanguageCode("en")))
+                .subscribe(observer);
 
-        server().takeRequest();
-
-        verify(cb).success(eq(call), nearbyResultCaptor.capture());
-
-        List<NearbyPage> result = nearbyResultCaptor.getValue();
-        assertThat(result.size(), is(0));
+        observer.assertComplete().assertNoErrors()
+                .assertValue(List::isEmpty);
     }
 
     @Test public void testLocationMissingLatOnlyIsExcludedFromResults() throws Throwable {
         enqueueFromFile("nearby_missing_lat.json");
+        TestObserver<List<NearbyPage>> observer = new TestObserver<>();
 
-        NearbyClient.Callback cb = mock(NearbyClient.Callback.class);
-        Call<MwQueryResponse> call = request(cb);
+        getApiService().nearbySearch("0|0", 1)
+                .map(response -> response.query().nearbyPages(WikiSite.forLanguageCode("en")))
+                .subscribe(observer);
 
-        server().takeRequest();
-
-        verify(cb).success(eq(call), nearbyResultCaptor.capture());
-
-        List<NearbyPage> result = nearbyResultCaptor.getValue();
-        assertThat(result.size(), is(0));
+        observer.assertComplete().assertNoErrors()
+                .assertValue(List::isEmpty);
     }
 
     @Test public void testLocationMissingLonOnlyIsExcludedFromResults() throws Throwable {
         enqueueFromFile("nearby_missing_lon.json");
+        TestObserver<List<NearbyPage>> observer = new TestObserver<>();
 
-        NearbyClient.Callback cb = mock(NearbyClient.Callback.class);
-        Call<MwQueryResponse> call = request(cb);
+        getApiService().nearbySearch("0|0", 1)
+                .map(response -> response.query().nearbyPages(WikiSite.forLanguageCode("en")))
+                .subscribe(observer);
 
-        server().takeRequest();
-
-        verify(cb).success(eq(call), nearbyResultCaptor.capture());
-
-        List<NearbyPage> result = nearbyResultCaptor.getValue();
-        assertThat(result.size(), is(0));
+        observer.assertComplete().assertNoErrors()
+                .assertValue(List::isEmpty);
     }
 
     @Test public void testRequestResponseApiError() throws Throwable {
         enqueueFromFile("api_error.json");
+        TestObserver<List<NearbyPage>> observer = new TestObserver<>();
 
-        NearbyClient.Callback cb = mock(NearbyClient.Callback.class);
-        Call<MwQueryResponse> call = request(cb);
+        getApiService().nearbySearch("0|0", 1)
+                .map(response -> {
+                    if (response != null && response.hasError()) {
+                        throw new MwException(response.getError());
+                    }
+                    return response.query().nearbyPages(WikiSite.forLanguageCode("en"));
+                })
+                .subscribe(observer);
 
-        server().takeRequest();
-        assertCallbackFailure(call, cb, MwException.class);
+        observer.assertError(MwException.class);
     }
 
     @Test public void testRequestResponseFailure() throws Throwable {
         enqueue404();
+        TestObserver<List<NearbyPage>> observer = new TestObserver<>();
 
-        NearbyClient.Callback cb = mock(NearbyClient.Callback.class);
-        Call<MwQueryResponse> call = request(cb);
+        getApiService().nearbySearch("0|0", 1)
+                .map(response -> response.query().nearbyPages(WikiSite.forLanguageCode("en")))
+                .subscribe(observer);
 
-        server().takeRequest();
-        assertCallbackFailure(call, cb, HttpStatusException.class);
+        observer.assertError(Exception.class);
     }
 
     @Test public void testRequestResponseMalformed() throws Throwable {
         server().enqueue("(✿ ♥‿♥)");
+        TestObserver<List<NearbyPage>> observer = new TestObserver<>();
 
-        NearbyClient.Callback cb = mock(NearbyClient.Callback.class);
-        Call<MwQueryResponse> call = request(cb);
+        getApiService().nearbySearch("0|0", 1)
+                .map(response -> response.query().nearbyPages(WikiSite.forLanguageCode("en")))
+                .subscribe(observer);
 
-        server().takeRequest();
-        assertCallbackFailure(call, cb, MalformedJsonException.class);
-    }
-
-    private void assertCallbackSuccess(@NonNull Call<MwQueryResponse> call,
-                                       @NonNull NearbyClient.Callback cb) {
-        // Location objects contained in the NearbyPage members of the Nearby results will have
-        // unique timestamps assigned on creation that cause direct comparison of the NearbyResults
-        // to fail.  So, let's just check to ensure that we have a valid NearbyResult.
-        verify(cb).success(eq(call), any(List.class));
-        //noinspection unchecked
-        verify(cb, never()).failure(any(Call.class), any(Throwable.class));
-    }
-
-    private void assertCallbackFailure(@NonNull Call<MwQueryResponse> call,
-                                       @NonNull NearbyClient.Callback cb,
-                                       @NonNull Class<? extends Throwable> throwable) {
-        //noinspection unchecked
-        verify(cb, never()).success(any(Call.class), any(List.class));
-        verify(cb).failure(eq(call), isA(throwable));
-    }
-
-    private Call<MwQueryResponse> request(@NonNull NearbyClient.Callback cb) {
-        return subject.request(WikiSite.forLanguageCode("test"),
-                service(Service.class), 0, 0, 0, cb);
+        observer.assertError(MalformedJsonException.class);
     }
 }

@@ -39,8 +39,11 @@ import com.mapbox.services.android.telemetry.location.LocationEngineProvider;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.dataclient.mwapi.NearbyPage;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
@@ -54,13 +57,18 @@ import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
-import retrofit2.Call;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Function;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Displays a list of nearby pages.
@@ -76,17 +84,17 @@ public class NearbyFragment extends Fragment {
     private static final String NEARBY_LAST_CAMERA_POS = "lastCameraPos";
     private static final String NEARBY_FIRST_LOCATION_LOCK = "firstLocationLock";
     private static final int GO_TO_LOCATION_PERMISSION_REQUEST = 50;
+    private static final int MAX_RADIUS = 10_000;
 
     @BindView(R.id.mapview) MapView mapView;
     @BindView(R.id.osm_license) TextView osmLicenseTextView;
     private Unbinder unbinder;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     @Nullable private MapboxMap mapboxMap;
     private Icon markerIconPassive;
     private LocationEngine locationEngine;
 
-    private NearbyClient client;
-    private List<Call<MwQueryResponse>> clientCalls = new ArrayList<>();
     private NearbyResult currentResults = new NearbyResult();
     private boolean clearResultsOnNextCall;
 
@@ -101,8 +109,6 @@ public class NearbyFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        client = new NearbyClient();
-
         Mapbox.getInstance(requireContext().getApplicationContext(),
                 getString(R.string.mapbox_public_token));
         MapboxTelemetry.getInstance().setTelemetryEnabled(false);
@@ -180,6 +186,7 @@ public class NearbyFragment extends Fragment {
 
     @Override
     public void onDestroy() {
+        disposables.clear();
         super.onDestroy();
         WikipediaApp.getInstance().getRefWatcher().watch(this);
     }
@@ -370,48 +377,40 @@ public class NearbyFragment extends Fragment {
             }
 
             onLoading();
-
-            // cancel any previous calls
-            for (Call<MwQueryResponse> call : clientCalls) {
-                call.cancel();
-            }
-            clientCalls.clear();
             clearResultsOnNextCall = true;
+
+            String latLng = String.format(Locale.ROOT, "%f|%f",
+                    mapboxMap.getCameraPosition().target.getLatitude(),
+                    mapboxMap.getCameraPosition().target.getLongitude());
+            double radius = Math.min(MAX_RADIUS, getMapRadius());
 
             // kick off client calls for all supported languages
             for (String langCode : WikipediaApp.getInstance().language().getAppLanguageCodes()) {
-                clientCalls.add(client.request(WikiSite.forLanguageCode(langCode), mapboxMap.getCameraPosition().target.getLatitude(),
-                        mapboxMap.getCameraPosition().target.getLongitude(), getMapRadius(),
-                        new NearbyClient.Callback() {
-                            @Override
-                            public void success(@NonNull Call<MwQueryResponse> call,
-                                                @NonNull List<NearbyPage> pages) {
-                                if (!isAdded()) {
-                                    return;
-                                }
-                                if (clearResultsOnNextCall) {
-                                    currentResults.clear();
-                                    clearResultsOnNextCall = false;
-                                }
-                                clientCalls.remove(call);
-                                currentResults.add(pages);
-                                showNearbyPages();
-                                onLoaded();
+                disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(langCode)).nearbySearch(latLng, radius)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .map((Function<MwQueryResponse, List<NearbyPage>>) response -> {
+                            if (response != null && response.success() && response.query() != null) {
+                                // noinspection ConstantConditions
+                                return response.query().nearbyPages(WikiSite.forLanguageCode(langCode));
+                            } else if (response != null && response.hasError()) {
+                                // noinspection ConstantConditions
+                                throw new MwException(response.getError());
                             }
-
-                            @Override
-                            public void failure(@NonNull Call<MwQueryResponse> call,
-                                                @NonNull Throwable caught) {
-                                if (!isAdded() || call.isCanceled()) {
-                                    return;
-                                }
-                                clientCalls.remove(call);
-                                ThrowableUtil.AppError error = ThrowableUtil.getAppError(requireActivity(), caught);
-                                Toast.makeText(getActivity(), error.getError(), Toast.LENGTH_SHORT).show();
-                                L.e(caught);
-                                onLoaded();
+                            return Collections.emptyList();
+                        })
+                        .subscribe(pages -> {
+                            if (clearResultsOnNextCall) {
+                                currentResults.clear();
+                                clearResultsOnNextCall = false;
                             }
-                        }));
+                            currentResults.add(pages);
+                            showNearbyPages();
+                        }, caught -> {
+                            ThrowableUtil.AppError error = ThrowableUtil.getAppError(requireActivity(), caught);
+                            Toast.makeText(getActivity(), error.getError(), Toast.LENGTH_SHORT).show();
+                            L.e(caught);
+                        }, () -> onLoaded()));
             }
         }
     };

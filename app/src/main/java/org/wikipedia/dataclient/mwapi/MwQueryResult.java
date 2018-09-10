@@ -12,7 +12,6 @@ import org.wikipedia.gallery.VideoInfo;
 import org.wikipedia.json.PostProcessingTypeAdapter;
 import org.wikipedia.login.UserExtendedInfoClient;
 import org.wikipedia.model.BaseModel;
-import org.wikipedia.nearby.NearbyPage;
 import org.wikipedia.notifications.Notification;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.SiteInfo;
