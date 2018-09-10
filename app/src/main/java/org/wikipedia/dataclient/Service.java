@@ -50,7 +50,7 @@ import retrofit2.http.Query;
  */
 public interface Service {
     String WIKIPEDIA_URL = "https://wikipedia.org/";
-    String WIKIDATA_URL = "https://wikidata.org/";
+    String WIKIDATA_URL = "https://www.wikidata.org/";
     String COMMONS_URL = "https://commons.wikimedia.org/";
     String META_URL = "https://meta.wikimedia.org/";
 
