@@ -28,10 +28,7 @@ import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageSummary;
-import org.wikipedia.gallery.Gallery;
 import org.wikipedia.gallery.GalleryActivity;
-import org.wikipedia.gallery.GalleryClient;
-import org.wikipedia.gallery.GalleryItem;
 import org.wikipedia.gallery.GalleryThumbnailScrollView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
@@ -41,8 +38,9 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewUtil;
 
-import java.util.List;
-
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 import retrofit2.Response;
 
@@ -77,6 +75,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     private PageTitle pageTitle;
     @Nullable private Location location;
     private LinkPreviewFunnel funnel;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     public static LinkPreviewDialog newInstance(@NonNull HistoryEntry entry, @Nullable Location location) {
         LinkPreviewDialog dialog = new LinkPreviewDialog();
@@ -159,6 +158,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     @Override
     public void onDestroyView() {
+        disposables.clear();
         thumbnailGallery.setGalleryViewListener(null);
         toolbarView.setOnClickListener(null);
         overflowButton.setOnClickListener(null);
@@ -208,24 +208,16 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private void loadGallery() {
         if (isImageDownloadEnabled()) {
-            new GalleryClient().request(pageTitle.getConvertedText(), pageTitle.getWikiSite(), new GalleryClient.Callback() {
-                @Override
-                public void success(@NonNull Call<Gallery> call, @NonNull List<GalleryItem> results) {
-                    if (!isAdded()) {
-                        return;
-                    }
-                    thumbnailGallery.setGalleryList(results);
-                    thumbnailGallery.setGalleryViewListener(galleryViewListener);
-                }
-
-                @Override
-                public void failure(@NonNull Call<Gallery> call, @NonNull Throwable caught) {
-                    if (!isAdded()) {
-                        return;
-                    }
-                    L.w("Failed to fetch gallery collection.", caught);
-                }
-            }, "image", "video");
+            disposables.add(ServiceFactory.get(pageTitle.getWikiSite()).getMedia(pageTitle.getConvertedText())
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(gallery -> {
+                        thumbnailGallery.setGalleryList(gallery.getItems("image", "video"));
+                        thumbnailGallery.setGalleryViewListener(galleryViewListener);
+                    }, caught -> {
+                        // ignore errors
+                        L.w("Failed to fetch gallery collection.", caught);
+                    }));
         }
     }
 
