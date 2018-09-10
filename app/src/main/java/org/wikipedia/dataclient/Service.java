@@ -32,6 +32,7 @@ import org.wikipedia.zero.ZeroConfig;
 
 import java.util.Map;
 
+import io.reactivex.Observable;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -123,7 +124,7 @@ public interface Service {
     @NonNull Call<RbRelatedPages> getRelatedPages(@Path("title") String title);
 
     @GET(REST_API_PREFIX + "page/media/{title}")
-    @NonNull Call<Gallery> getMedia(@Path("title") String title);
+    @NonNull Observable<Gallery> getMedia(@Path("title") String title);
 
     @GET(REST_API_PREFIX + "feed/onthisday/events/{mm}/{dd}")
     @NonNull Call<OnThisDay> getOnThisDay(@Path("mm") int month, @Path("dd") int day);

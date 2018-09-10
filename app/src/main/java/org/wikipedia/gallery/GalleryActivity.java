@@ -34,6 +34,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.GalleryFunnel;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.history.HistoryEntry;
@@ -64,7 +65,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
 import butterknife.Unbinder;
-import retrofit2.Call;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.util.StringUtil.addUnderscores;
 import static org.wikipedia.util.StringUtil.removeUnderscores;
@@ -99,6 +102,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @BindView(R.id.gallery_item_pager) ViewPager galleryPager;
     @BindView(R.id.view_gallery_error) WikiErrorView errorView;
     @Nullable private Unbinder unbinder;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     private boolean controlsShowing = true;
     @Nullable private ViewPager.OnPageChangeListener pageChangeListener;
@@ -208,6 +212,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     }
 
     @Override public void onDestroy() {
+        disposables.clear();
         galleryPager.removeOnPageChangeListener(pageChangeListener);
         pageChangeListener = null;
 
@@ -439,25 +444,17 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             return;
         }
         updateProgressBar(true, true, 0);
-        new GalleryClient().request(pageTitle.getConvertedText(), pageTitle.getWikiSite(), new GalleryClient.Callback() {
-            @Override
-            public void success(@NonNull Call<Gallery> call, @NonNull List<GalleryItem> results) {
-                if (isDestroyed()) {
-                    return;
-                }
-                updateProgressBar(false, true, 0);
-                applyGalleryList(results);
-            }
 
-            @Override
-            public void failure(@NonNull Call<Gallery> call, @NonNull Throwable caught) {
-                if (isDestroyed()) {
-                    return;
-                }
-                updateProgressBar(false, true, 0);
-                showError(caught, false);
-            }
-        }, "image", "video");
+        disposables.add(ServiceFactory.get(pageTitle.getWikiSite()).getMedia(pageTitle.getConvertedText())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(gallery -> {
+                    updateProgressBar(false, true, 0);
+                    applyGalleryList(gallery.getItems("image", "video"));
+                }, caught -> {
+                    updateProgressBar(false, true, 0);
+                    showError(caught, false);
+                }));
     }
 
     /**
