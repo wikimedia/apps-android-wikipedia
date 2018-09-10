@@ -20,7 +20,7 @@ public class ImageLicense implements Serializable {
     @NonNull @SerializedName("code") private final String licenseShortName;
     @NonNull @SerializedName("url") private final String licenseUrl;
 
-    ImageLicense(@NonNull ExtMetadata metadata) {
+    public ImageLicense(@NonNull ExtMetadata metadata) {
         this.license = metadata.license() != null ? metadata.license().value() : "";
         this.licenseShortName = metadata.licenseShortName() != null ? metadata.licenseShortName().value() : "";
         this.licenseUrl = metadata.licenseUrl() != null ? metadata.licenseUrl().value() : "";

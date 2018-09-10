@@ -19,9 +19,10 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.analytics.ShareAFactFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.dataclient.ServiceFactory;
+import org.wikipedia.dataclient.mwapi.MwException;
+import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.gallery.ImageLicense;
-import org.wikipedia.gallery.ImageLicenseFetchClient;
 import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.NoDimBottomSheetDialog;
@@ -40,7 +41,9 @@ import org.wikipedia.wiktionary.WiktionaryDialog;
 import java.util.Arrays;
 import java.util.Locale;
 
-import retrofit2.Call;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.analytics.ShareAFactFunnel.ShareMode;
 
@@ -58,6 +61,7 @@ public class ShareHandler {
     @NonNull private final CommunicationBridge bridge;
     @Nullable private ActionMode webViewActionMode;
     @Nullable private ShareAFactFunnel funnel;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     private void createFunnel() {
         WikipediaApp app = WikipediaApp.getInstance();
@@ -88,6 +92,10 @@ public class ShareHandler {
                     L.d("Unknown purpose=" + purpose);
             }
         });
+    }
+
+    public void dispose() {
+        disposables.clear();
     }
 
     private void onHighlightText() {
@@ -129,29 +137,36 @@ public class ShareHandler {
         final PageTitle title = fragment.getTitle();
         final String leadImageNameText = fragment.getPage().getPageProperties().getLeadImageName() != null
                 ? fragment.getPage().getPageProperties().getLeadImageName() : "";
+        final PageTitle imageTitle = new PageTitle(Namespace.FILE.toLegacyString(), leadImageNameText, title.getWikiSite());
 
-        new ImageLicenseFetchClient().request(title.getWikiSite(),
-                new PageTitle(Namespace.FILE.toLegacyString(), leadImageNameText, title.getWikiSite()),
-                new ImageLicenseFetchClient.Callback() {
-                    @Override public void success(@NonNull Call<MwQueryResponse> call,
-                                                  @NonNull ImageLicense result) {
-                        final Bitmap snippetBitmap = SnippetImage.getSnippetImage(fragment.getContext(),
-                                fragment.getLeadImageBitmap(),
-                                title.getDisplayText(),
-                                fragment.getPage().isMainPage() ? "" : StringUtils.capitalize(title.getDescription()),
-                                selectedText,
-                                result);
-                        fragment.showBottomSheet(new PreviewDialog(fragment.getContext(),
-                                snippetBitmap, title, selectedText, funnel));
-                    }
+        disposables.add(ServiceFactory.get(title.getWikiSite()).getImageExtMetadata(imageTitle.getPrefixedText())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(response -> {
+                    if (response.success()) {
+                        // noinspection ConstantConditions
+                        MwQueryPage page = response.query().pages().get(0);
+                        return page.imageInfo() != null && page.imageInfo().getMetadata() != null
+                                ? new ImageLicense(page.imageInfo().getMetadata())
+                                : new ImageLicense();
 
-                    @Override public void failure(@NonNull Call<MwQueryResponse> call,
-                                                  @NonNull Throwable caught) {
-                        // If we failed to get license info for the lead image, just share the text
-                        PreviewDialog.shareAsText(fragment.getContext(), title, selectedText, funnel);
-                        L.e("Error fetching image license info for " + title.getDisplayText(), caught);
                     }
-                });
+                    throw new MwException(response.getError());
+                })
+                .subscribe(imageLicense -> {
+                    final Bitmap snippetBitmap = SnippetImage.getSnippetImage(fragment.requireContext(),
+                            fragment.getLeadImageBitmap(),
+                            title.getDisplayText(),
+                            fragment.getPage().isMainPage() ? "" : StringUtils.capitalize(title.getDescription()),
+                            selectedText,
+                            imageLicense);
+                    fragment.showBottomSheet(new PreviewDialog(fragment.getContext(),
+                            snippetBitmap, title, selectedText, funnel));
+                }, caught -> {
+                    // If we failed to get license info for the lead image, just share the text
+                    PreviewDialog.shareAsText(fragment.requireContext(), title, selectedText, funnel);
+                    L.e("Error fetching image license info for " + title.getDisplayText(), caught);
+                }));
     }
 
     /**
@@ -204,7 +219,7 @@ public class ShareHandler {
 
     private void postShowShareToolTip(final MenuItem shareItem) {
         fragment.getView().post(() -> {
-            View shareItemView = ActivityUtil.getMenuItemView(fragment.getActivity(), shareItem);
+            View shareItemView = ActivityUtil.getMenuItemView(fragment.requireActivity(), shareItem);
             if (shareItemView != null) {
                 showShareToolTip(shareItemView);
             }
@@ -212,7 +227,7 @@ public class ShareHandler {
     }
 
     private void showShareToolTip(@NonNull View shareItemView) {
-        FeedbackUtil.showTapTargetView(fragment.getActivity(), shareItemView,
+        FeedbackUtil.showTapTargetView(fragment.requireActivity(), shareItemView,
                 R.string.menu_text_select_share, R.string.tool_tip_share, null);
     }
 

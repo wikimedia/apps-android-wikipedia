@@ -25,6 +25,7 @@ public class PageInfoDialog extends NoDimBottomSheetDialog {
     private final TextView disambigHeading;
     private final TextView issuesHeading;
     private final ListView disambigList;
+    private DisambigListAdapter adapter;
 
     public PageInfoDialog(final PageFragment fragment, PageInfo pageInfo, boolean startAtDisambig) {
         super(fragment.requireContext());
@@ -45,7 +46,7 @@ public class PageInfoDialog extends NoDimBottomSheetDialog {
         closeButton.setOnClickListener((View v) -> dismiss());
 
         issuesList.setAdapter(new IssuesListAdapter(fragment.requireActivity(), pageInfo.getContentIssues()));
-        disambigList.setAdapter(new DisambigListAdapter(fragment.requireActivity(), pageInfo.getSimilarTitles(), new PageItemView.Callback<DisambigResult>() {
+        adapter = new DisambigListAdapter(fragment.requireActivity(), pageInfo.getSimilarTitles(), new PageItemView.Callback<DisambigResult>() {
             @Override
             public void onClick(@Nullable DisambigResult item) {
                 PageTitle title = item.getTitle();
@@ -66,7 +67,8 @@ public class PageInfoDialog extends NoDimBottomSheetDialog {
 
             @Override public void onSecondaryActionClick(@Nullable DisambigResult item, @NonNull View view) {
             }
-        }));
+        });
+        disambigList.setAdapter(adapter);
 
         if (fragment.callback() != null) {
             ListViewContextMenuListener contextMenuListener
@@ -93,6 +95,14 @@ public class PageInfoDialog extends NoDimBottomSheetDialog {
         } else {
             showIssues();
         }
+    }
+
+    @Override
+    public void onStop() {
+        if (adapter != null) {
+            adapter.dispose();
+        }
+        super.onStop();
     }
 
     private void showDisambig() {

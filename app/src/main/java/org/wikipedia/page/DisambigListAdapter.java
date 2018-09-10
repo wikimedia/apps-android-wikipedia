@@ -3,6 +3,7 @@ package org.wikipedia.page;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.util.LruCache;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -10,19 +11,21 @@ import android.widget.ListView;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
-import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.pageimages.PageImage;
-import org.wikipedia.pageimages.PageImagesClient;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.PageItemView;
-import org.wikipedia.wikidata.DescriptionClient;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import retrofit2.Call;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * ListAdapter for disambiguation items.
@@ -33,6 +36,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
     private final DisambigResult[] items;
     private final WikiSite wiki = WikipediaApp.getInstance().getWikiSite();
     private final PageItemView.Callback<DisambigResult> callback;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     DisambigListAdapter(@NonNull Context context, @NonNull DisambigResult[] items,
                         @NonNull PageItemView.Callback<DisambigResult> callback) {
@@ -41,6 +45,10 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
         this.callback = callback;
         requestPageImages();
         fetchDescriptions();
+    }
+
+    void dispose() {
+        disposables.clear();
     }
 
     private void requestPageImages() {
@@ -55,24 +63,19 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
             return;
         }
 
-        new PageImagesClient().request(wiki, titleList,
-                new PageImagesClient.Callback() {
-                    @Override public void success(@NonNull Call<MwQueryResponse> call,
-                                                  @NonNull Map<PageTitle, PageImage> results) {
-                        for (Map.Entry<PageTitle, PageImage> entry : results.entrySet()) {
-                            if (entry.getValue() == null || entry.getValue().getImageName() == null) {
-                                continue;
-                            }
-                            pageImagesCache.put(entry.getKey().getPrefixedText(), entry.getValue().getImageName());
+        disposables.add(ServiceFactory.get(wiki).getPageImages(TextUtils.join("|", titleList))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(queryResponse -> PageImage.imageMapFromPages(wiki, titleList, queryResponse.query().pages()))
+                .subscribe(map -> {
+                    for (Map.Entry<PageTitle, PageImage> entry : map.entrySet()) {
+                        if (entry.getValue() == null || entry.getValue().getImageName() == null) {
+                            continue;
                         }
-                        notifyDataSetInvalidated();
+                        pageImagesCache.put(entry.getKey().getPrefixedText(), entry.getValue().getImageName());
                     }
-                    @Override public void failure(@NonNull Call<MwQueryResponse> call,
-                                                  @NonNull Throwable caught) {
-                        // Don't actually do anything.
-                        // Thumbnails are expendable
-                    }
-                });
+                    notifyDataSetInvalidated();
+                }, L::w));
     }
 
     /**
@@ -87,25 +90,29 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
             return;
         }
 
-        new DescriptionClient().request(wiki, titleList, new DescriptionClient.Callback() {
-            @Override public void success(@NonNull Call<MwQueryResponse> call,
-                                          @NonNull List<MwQueryPage> results) {
-                for (MwQueryPage page : results) {
-                    PageTitle pageTitle = new PageTitle(null, page.title(), wiki);
-                    for (PageTitle title : titleList) {
-                        if (title.getPrefixedText().equals(pageTitle.getPrefixedText())
-                                || title.getDisplayText().equals(pageTitle.getDisplayText())) {
-                            title.setDescription(page.description());
-                            break;
+        disposables.add(ServiceFactory.get(wiki).getDescription(TextUtils.join("|", titleList))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(response -> {
+                    if (response.success()) {
+                        // noinspection ConstantConditions
+                        return response.query().pages();
+                    }
+                    throw new MwException(response.getError());
+                })
+                .subscribe(pages -> {
+                    for (MwQueryPage page : pages) {
+                        PageTitle pageTitle = new PageTitle(null, page.title(), wiki);
+                        for (PageTitle title : titleList) {
+                            if (title.getPrefixedText().equals(pageTitle.getPrefixedText())
+                                    || title.getDisplayText().equals(pageTitle.getDisplayText())) {
+                                title.setDescription(page.description());
+                                break;
+                            }
                         }
                     }
-                }
-                notifyDataSetChanged();
-            }
-            @Override public void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
-                // descriptions are expendable
-            }
-        });
+                    notifyDataSetChanged();
+                }));
     }
 
     @Override @NonNull public View getView(int position, View convView, @NonNull ViewGroup parent) {

@@ -271,11 +271,7 @@ public interface Service {
 
     @GET(MW_API_PREFIX + "action=query&prop=pageimages&piprop=thumbnail"
             + "&converttitles=&pilicense=any&pithumbsize=" + PREFERRED_THUMB_SIZE)
-    @NonNull Call<MwQueryResponse> getPageImages(@NonNull @Query("titles") String titles);
-
-    @GET(MW_API_PREFIX + "action=query&prop=description|pageimages"
-            + "&piprop=thumbnail&pilicense=any&continue=&pithumbsize=" + PREFERRED_THUMB_SIZE)
-    @NonNull Call<MwQueryResponse> getPageImagesWithDescription(@NonNull @Query("titles") String titles);
+    @NonNull Observable<MwQueryResponse> getPageImages(@NonNull @Query("titles") String titles);
 
     @GET(MW_API_PREFIX + "action=query&redirects="
             + "&converttitles=&prop=description|pageimages&piprop=thumbnail"
@@ -311,10 +307,10 @@ public interface Service {
     @NonNull Observable<MwQueryResponse> getLangLinks(@NonNull @Query("titles") String title);
 
     @GET(MW_API_PREFIX + "action=query&prop=description")
-    @NonNull Call<MwQueryResponse> getDescription(@NonNull @Query("titles") String titles);
+    @NonNull Observable<MwQueryResponse> getDescription(@NonNull @Query("titles") String titles);
 
     @GET(MW_API_PREFIX + "action=query&prop=imageinfo&iiprop=extmetadata")
-    @NonNull Call<MwQueryResponse> getImageExtMetadata(@NonNull @Query("titles") String titles);
+    @NonNull Observable<MwQueryResponse> getImageExtMetadata(@NonNull @Query("titles") String titles);
 
     @GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname")
     @NonNull Observable<SiteMatrix> getSiteMatrix();
