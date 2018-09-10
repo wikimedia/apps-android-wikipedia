@@ -289,7 +289,7 @@
   <string name="address_copied">Адреса је копирана у оставу.</string>
   <string name="text_copied">Текст је копиран.</string>
   <string name="button_continue_to_article">Прочитај чланак</string>
-  <string name="button_continue_to_disambiguation">Сличне странице</string>
+  <string name="button_continue_to_disambiguation">Погледај сличне странице</string>
   <string name="link_preview_disambiguation_description">Овај наслов се односи на више од једне странице:</string>
   <string name="button_add_to_reading_list">Додај на списак за читање</string>
   <string name="page_offline_notice_cannot_load_while_offline">Чланак не може да се учита офлајн.</string>
@@ -301,7 +301,7 @@
   <string name="preference_title_show_link_previews">Прегледи линкова</string>
   <string name="preference_summary_show_link_previews">Приказује кратки преглед чланака притиском на линкове.</string>
   <string name="preference_title_collapse_tables">Скупљање табела</string>
-  <string name="preference_summary_collapse_tables">Аутоматски скупља табеле у чланцима, попут инфокутија, референаца и  напомена.</string>
+  <string name="preference_summary_collapse_tables">Аутоматски скупља табеле у чланцима, попут инфокутија, референци и напомена.</string>
   <string name="nav_item_donate">Подржите Википедију</string>
   <string name="error_voice_search_not_available">Нажалост, препознавање гласа није доступно.</string>
   <string name="location_service_disabled">Услуге локације су онемогућене.</string>

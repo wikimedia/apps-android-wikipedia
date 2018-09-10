@@ -131,7 +131,7 @@
   <string name="create_account_generic_error">Nepodařilo se vytvořit uživatelský účet</string>
   <string name="create_account_next">Další</string>
   <string name="email_recommendation_dialog_title">Chcete vytvořit účet bez e-mailové adresy?</string>
-  <string name="email_recommendation_dialog_message">Ačkoli je e-mailová adresa nepovinná, je &lt;b&gt;důležitá&lt;/ b&gt;, protože e-mail je potřebný k obnovení účtu, pokud zapomenete heslo.</string>
+  <string name="email_recommendation_dialog_message">Přesto že je e-mail nepovinný, je &lt;b&gt;velmi důležitý&lt;/ b&gt; k obnovení Vašeho účtu.</string>
   <string name="email_recommendation_message">E-mail je doporučený, protože pro obnovení účtu je potřebný.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Dokončit bez e-mailu</string>
   <string name="email_recommendation_dialog_create_with_email_action">Přidat e-mailovou adresu</string>
@@ -294,6 +294,8 @@
   <string name="address_copied">Adresa zkopírována do schránky.</string>
   <string name="text_copied">Text zkopírován do schránky.</string>
   <string name="button_continue_to_article">Číst článek</string>
+  <string name="button_continue_to_disambiguation">Zobrazit podobné stránky</string>
+  <string name="link_preview_disambiguation_description">Tento název má více než jedna stránka:</string>
   <string name="button_add_to_reading_list">Přidat do seznamu k přečtení</string>
   <string name="page_offline_notice_cannot_load_while_offline">Články nelze načítat bez připojení k internetu.</string>
   <string name="page_offline_notice_add_to_reading_list">Tip: Pokud článek přidáte do seznamu k přečtení, stáhne se, jakmile budete znovu připojeni.</string>

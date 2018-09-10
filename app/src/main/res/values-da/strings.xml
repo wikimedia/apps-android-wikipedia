@@ -124,6 +124,7 @@
   <string name="create_account_password_error">Adgangskoden er ugyldig</string>
   <string name="create_account_generic_error">Kunne ikke oprette konto</string>
   <string name="create_account_next">Næste</string>
+  <string name="email_recommendation_dialog_title">Opret konto uden email adresse?</string>
   <string name="email_recommendation_dialog_create_without_email_action">Fortsæt uden email</string>
   <string name="email_recommendation_dialog_create_with_email_action">Tilføj en email adresse</string>
   <string name="create_account_button">Opret konto</string>

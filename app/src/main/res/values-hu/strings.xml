@@ -288,6 +288,7 @@
   <string name="address_copied">Cím a vágólapra másolva.</string>
   <string name="text_copied">Szöveg a vágólapra másolva.</string>
   <string name="button_continue_to_article">Cikk elolvasása</string>
+  <string name="button_continue_to_disambiguation">Hasonló lapok megtekintése</string>
   <string name="button_add_to_reading_list">Hozzáadás az olvasólistához</string>
   <string name="page_offline_notice_cannot_load_while_offline">A szócikk nem tölthető be kapcsolat nélkül.</string>
   <string name="page_offline_notice_add_to_reading_list">Tipp: Add hozzá a szócikket egy olvasólistához, hogy letöltődjön, amikor kapcsolódsz az internethez.</string>

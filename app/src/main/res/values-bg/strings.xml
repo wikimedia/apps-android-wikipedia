@@ -282,6 +282,8 @@
   <string name="address_copied">Адресът е копиран в клипборда</string>
   <string name="text_copied">Текстът е копиран в клипборда</string>
   <string name="button_continue_to_article">Прочитане на статията</string>
+  <string name="button_continue_to_disambiguation">Преглед на подобните страници</string>
+  <string name="link_preview_disambiguation_description">Това заглавие се отнася за повече от една страница:</string>
   <string name="button_add_to_reading_list">Добавяне към списъка за четене</string>
   <string name="page_offline_notice_cannot_load_while_offline">Статията не може да бъде заредена в офлайн режим.</string>
   <string name="page_offline_notice_add_to_reading_list">Съвет: Добавете статията към списък за четене и тя ще бъде изтеглена щом се свържете към Интернет.</string>

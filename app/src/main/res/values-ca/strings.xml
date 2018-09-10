@@ -131,6 +131,7 @@
   <string name="create_account_generic_error">No s\'ha pogut crear el compte</string>
   <string name="create_account_next">Següent</string>
   <string name="email_recommendation_dialog_title">Voleu crear un compte sense adreça electrònica?</string>
+  <string name="email_recommendation_dialog_message">Encara que l\'adreça electrònica és opcional, és &lt;b&gt;altament recomanable&lt;/b&gt;, atès que cal disposar d\'una adreça electrònica en la recuperació d\'un compte si mai en perdeu la contrasenya.</string>
   <string name="email_recommendation_message">Recomanat atès que cal una adreça electrònica per poder recuperar la informació del compte.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Continua sense adreça electrònica</string>
   <string name="email_recommendation_dialog_create_with_email_action">Afegeix una adreçà electrònica</string>
@@ -292,6 +293,8 @@
   <string name="address_copied">Adreça copiada al porta-retalls.</string>
   <string name="text_copied">Text copiat al porta-retalls.</string>
   <string name="button_continue_to_article">Llegeix l\'article</string>
+  <string name="button_continue_to_disambiguation">Mosta pàgines semblants</string>
+  <string name="link_preview_disambiguation_description">Aquest títol es relaciona a més d\'una pàgina:</string>
   <string name="button_add_to_reading_list">Afegeix a la llista de lectura</string>
   <string name="page_offline_notice_cannot_load_while_offline">No es pot carregar l\'article mentre estigueu fora de línia.</string>
   <string name="page_offline_notice_add_to_reading_list">Pista: En afegir l\'article a una llista de lectura es baixarà una vegada torneu a estar en línia.</string>

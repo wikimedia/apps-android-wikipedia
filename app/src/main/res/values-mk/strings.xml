@@ -280,6 +280,8 @@
   <string name="address_copied">Адресата е ставена во меѓускладот</string>
   <string name="text_copied">Текстот е ставен во меѓускладот.</string>
   <string name="button_continue_to_article">Прочитајте ја статијата</string>
+  <string name="button_continue_to_disambiguation">Погл. слични страници</string>
+  <string name="link_preview_disambiguation_description">Насловот се однесува на повеќе од една страница:</string>
   <string name="button_add_to_reading_list">Додај во список за читање</string>
   <string name="page_offline_notice_cannot_load_while_offline">Статијата не може да се вчита додека не сте на линија.</string>
   <string name="page_offline_notice_add_to_reading_list">Совет: Додајте ја статијата во список за читање, па истата ќе биде преземена кога ќе добиете линија.</string>
