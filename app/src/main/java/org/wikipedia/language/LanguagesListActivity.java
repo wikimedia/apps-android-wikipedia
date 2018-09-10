@@ -21,9 +21,11 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.AppLanguageSearchingFunnel;
-import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.ServiceFactory;
+import org.wikipedia.dataclient.mwapi.SiteMatrix;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.ViewUtil;
 
@@ -33,7 +35,9 @@ import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import retrofit2.Call;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.settings.languages.WikipediaLanguagesFragment.ADD_LANGUAGE_INTERACTIONS;
@@ -55,10 +59,9 @@ public class LanguagesListActivity extends BaseActivity {
     private int interactionsCount = 0;
     private boolean isLanguageSearched;
     public static final String LANGUAGE_SEARCHED = "language_searched";
+    private CompositeDisposable disposables = new CompositeDisposable();
 
-
-    private final LanguagesListActivity.SiteMatrixCallback siteMatrixCallback = new LanguagesListActivity.SiteMatrixCallback();
-    @Nullable private List<SiteMatrixClient.SiteInfo> siteInfoList;
+    @Nullable private List<SiteMatrix.SiteInfo> siteInfoList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,8 +80,14 @@ public class LanguagesListActivity extends BaseActivity {
         progressBar.setVisibility(View.VISIBLE);
 
         searchActionModeCallback = new LanguagesListActivity.LanguageSearchCallback();
-        new SiteMatrixClient().request(WikiSite.forLanguageCode(app.language().getSystemLanguageCode()), siteMatrixCallback);
         searchingFunnel = new AppLanguageSearchingFunnel(getIntent().getStringExtra(SESSION_TOKEN));
+        requestLanguages();
+    }
+
+    @Override
+    public void onDestroy() {
+        disposables.clear();
+        super.onDestroy();
     }
 
     @Override
@@ -266,7 +275,7 @@ public class LanguagesListActivity extends BaseActivity {
     private String getCanonicalName(@NonNull String code) {
         String canonicalName = null;
         if (siteInfoList != null) {
-            for (SiteMatrixClient.SiteInfo info : siteInfoList) {
+            for (SiteMatrix.SiteInfo info : siteInfoList) {
                 if (code.equals(info.code())) {
                     canonicalName = info.localName();
                     break;
@@ -321,25 +330,15 @@ public class LanguagesListActivity extends BaseActivity {
         }
     }
 
-    // TODO: should remove same SiteMatrixCallback class in LanguagePreferenceDialog?
-    private class SiteMatrixCallback implements SiteMatrixClient.Callback {
-        @Override
-        public void success(@NonNull Call<SiteMatrixClient.SiteMatrix> call, @NonNull List<SiteMatrixClient.SiteInfo> sites) {
-            if (isDestroyed()) {
-                return;
-            }
-            progressBar.setVisibility(View.INVISIBLE);
-            siteInfoList = sites;
-            adapter.notifyDataSetChanged();
-        }
-
-        @Override
-        public void failure(@NonNull Call<SiteMatrixClient.SiteMatrix> call, @NonNull Throwable caught) {
-            if (isDestroyed()) {
-                return;
-            }
-            progressBar.setVisibility(View.INVISIBLE);
-            adapter.notifyDataSetChanged();
-        }
+    private void requestLanguages() {
+        disposables.add(ServiceFactory.get(app.getWikiSite()).getSiteMatrix()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(SiteMatrix::getSites)
+                .subscribe(sites -> siteInfoList = sites, L::e,
+                        () -> {
+                            progressBar.setVisibility(View.INVISIBLE);
+                            adapter.notifyDataSetChanged();
+                        }));
     }
 }

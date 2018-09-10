@@ -7,6 +7,7 @@ import org.wikipedia.captcha.Captcha;
 import org.wikipedia.createaccount.CreateAccountResponse;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.dataclient.mwapi.SiteMatrix;
 import org.wikipedia.dataclient.mwapi.page.MwMobileViewPageLead;
 import org.wikipedia.dataclient.mwapi.page.MwMobileViewPageRemaining;
 import org.wikipedia.dataclient.mwapi.page.MwQueryPageSummary;
@@ -23,7 +24,6 @@ import org.wikipedia.feed.announcement.AnnouncementList;
 import org.wikipedia.feed.configure.FeedAvailabilityClient;
 import org.wikipedia.feed.onthisday.OnThisDay;
 import org.wikipedia.gallery.Gallery;
-import org.wikipedia.language.SiteMatrixClient;
 import org.wikipedia.login.LoginClient;
 import org.wikipedia.readinglist.sync.SyncedReadingLists;
 import org.wikipedia.search.PrefixSearchResponse;
@@ -308,7 +308,7 @@ public interface Service {
     @NonNull Call<Captcha> getNewCaptcha();
 
     @GET(MW_API_PREFIX + "action=query&prop=langlinks&lllimit=500&redirects=&converttitles=")
-    @NonNull Call<MwQueryResponse> getLangLinks(@NonNull @Query("titles") String title);
+    @NonNull Observable<MwQueryResponse> getLangLinks(@NonNull @Query("titles") String title);
 
     @GET(MW_API_PREFIX + "action=query&prop=description")
     @NonNull Call<MwQueryResponse> getDescription(@NonNull @Query("titles") String titles);
@@ -317,7 +317,7 @@ public interface Service {
     @NonNull Call<MwQueryResponse> getImageExtMetadata(@NonNull @Query("titles") String titles);
 
     @GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname")
-    @NonNull Call<SiteMatrixClient.SiteMatrix> getSiteMatrix();
+    @NonNull Observable<SiteMatrix> getSiteMatrix();
 
     @GET(MW_API_PREFIX + "action=query&meta=siteinfo")
     @NonNull Call<MwQueryResponse> getSiteInfo();

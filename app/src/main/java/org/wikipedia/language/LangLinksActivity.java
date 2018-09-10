@@ -22,14 +22,17 @@ import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.dataclient.mwapi.MwException;
+import org.wikipedia.dataclient.mwapi.SiteMatrix;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.ViewAnimations;
 import org.wikipedia.views.ViewUtil;
@@ -43,7 +46,9 @@ import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import retrofit2.Call;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
@@ -62,7 +67,7 @@ public class LangLinksActivity extends BaseActivity {
     private PageTitle title;
 
     private WikipediaApp app;
-    private LangLinksClient client;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     @BindView(R.id.langlinks_load_progress) View langLinksProgress;
     @BindView(R.id.langlinks_error) WikiErrorView langLinksError;
@@ -74,8 +79,7 @@ public class LangLinksActivity extends BaseActivity {
     private ActionMode actionMode;
     private SearchActionModeCallback searchActionModeCallback;
 
-    private final SiteMatrixCallback siteMatrixCallback = new SiteMatrixCallback();
-    @Nullable private List<SiteMatrixClient.SiteInfo> siteInfoList;
+    @Nullable private List<SiteMatrix.SiteInfo> siteInfoList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -98,14 +102,18 @@ public class LangLinksActivity extends BaseActivity {
         langLinksEmpty.setVisibility(View.GONE);
         langLinksProgress.setVisibility(View.VISIBLE);
 
-        client = new LangLinksClient();
-
         fetchLangLinks();
 
         langLinksError.setRetryClickListener((v) -> {
             ViewAnimations.crossFade(langLinksError, langLinksProgress);
             fetchLangLinks();
         });
+    }
+
+    @Override
+    public void onDestroy() {
+        disposables.clear();
+        super.onDestroy();
     }
 
     @Override
@@ -209,7 +217,17 @@ public class LangLinksActivity extends BaseActivity {
             langLinksList.setAdapter(adapter);
             langLinksList.setLayoutManager(new LinearLayoutManager(this));
             searchActionModeCallback = new LanguageSearchCallback();
-            new SiteMatrixClient().request(WikiSite.forLanguageCode(app.language().getSystemLanguageCode()), siteMatrixCallback);
+
+            disposables.add(ServiceFactory.get(app.getWikiSite()).getSiteMatrix()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .map(SiteMatrix::getSites)
+                    .subscribe(sites -> siteInfoList = sites, L::e,
+                            () -> {
+                                langLinksProgress.setVisibility(View.INVISIBLE);
+                                adapter.notifyDataSetChanged();
+                            }));
+
             ViewAnimations.crossFade(langLinksProgress, langLinksList);
         }
 
@@ -218,68 +236,68 @@ public class LangLinksActivity extends BaseActivity {
 
     private void fetchLangLinks() {
         if (languageEntries == null) {
-            client.request(title.getWikiSite(), title, new ClientCallback());
+            disposables.add(ServiceFactory.get(title.getWikiSite()).getLangLinks(title.getPrefixedText())
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(response -> {
+                        if (!response.success()) {
+                            throw response.getError() != null ? new MwException(response.getError()) : new RuntimeException();
+                        }
+
+                        languageEntries = response.query().langLinks();
+                        updateLanguageEntriesSupported(languageEntries);
+                        sortLanguageEntriesByMru(languageEntries);
+                        displayLangLinks();
+
+                    }, caught -> {
+                        ViewAnimations.crossFade(langLinksProgress, langLinksError);
+                        langLinksError.setError(caught);
+                    }));
         } else {
             displayLangLinks();
         }
     }
 
-    private class ClientCallback implements LangLinksClient.Callback {
-        @Override public void success(@NonNull Call<MwQueryResponse> call,
-                                      @NonNull List<PageTitle> links) {
-            languageEntries = links;
-            updateLanguageEntriesSupported(languageEntries);
-            sortLanguageEntriesByMru(languageEntries);
-            displayLangLinks();
-        }
+    private void updateLanguageEntriesSupported(List<PageTitle> languageEntries) {
+        boolean haveChineseEntry = false;
+        for (ListIterator<PageTitle> it = languageEntries.listIterator(); it.hasNext();) {
+            PageTitle link = it.next();
+            String languageCode = link.getWikiSite().languageCode();
 
-        @Override public void failure(@NonNull Call<MwQueryResponse> call,
-                                      @NonNull Throwable caught) {
-            ViewAnimations.crossFade(langLinksProgress, langLinksError);
-            langLinksError.setError(caught);
-        }
+            if (GOTHIC_LANGUAGE_CODE.equals(languageCode)) {
+                // Remove Gothic since it causes Android to segfault.
+                it.remove();
+            } else if ("be-x-old".equals(languageCode)) {
+                // Replace legacy name of тарашкевіца language with the correct name.
+                // TODO: Can probably be removed when T111853 is resolved.
+                it.remove();
+                it.add(new PageTitle(link.getText(), WikiSite.forLanguageCode("be-tarask")));
+            } else if (AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE.equals(languageCode)) {
+                // Replace Chinese with Simplified and Traditional dialects.
+                haveChineseEntry = true;
+                it.remove();
+                for (String dialect : Arrays.asList(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE,
+                        AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
 
-        private void updateLanguageEntriesSupported(List<PageTitle> languageEntries) {
-            boolean haveChineseEntry = false;
-            for (ListIterator<PageTitle> it = languageEntries.listIterator(); it.hasNext();) {
-                PageTitle link = it.next();
-                String languageCode = link.getWikiSite().languageCode();
-
-                if (GOTHIC_LANGUAGE_CODE.equals(languageCode)) {
-                    // Remove Gothic since it causes Android to segfault.
-                    it.remove();
-                } else if ("be-x-old".equals(languageCode)) {
-                    // Replace legacy name of тарашкевіца language with the correct name.
-                    // TODO: Can probably be removed when T111853 is resolved.
-                    it.remove();
-                    it.add(new PageTitle(link.getText(), WikiSite.forLanguageCode("be-tarask")));
-                } else if (AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE.equals(languageCode)) {
-                    // Replace Chinese with Simplified and Traditional dialects.
-                    haveChineseEntry = true;
-                    it.remove();
-                    for (String dialect : Arrays.asList(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE,
-                            AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
-
-                        it.add(new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(dialect) : link.getPrefixedText(),
-                                WikiSite.forLanguageCode(dialect)));
-                    }
+                    it.add(new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(dialect) : link.getPrefixedText(),
+                            WikiSite.forLanguageCode(dialect)));
                 }
             }
-
-            if (!haveChineseEntry) {
-                addChineseEntriesIfNeeded(title, languageEntries);
-            }
         }
 
-        private void sortLanguageEntriesByMru(List<PageTitle> entries) {
-            int addIndex = 0;
-            for (String language : app.language().getMruLanguageCodes()) {
-                for (int i = 0; i < entries.size(); i++) {
-                    if (entries.get(i).getWikiSite().languageCode().equals(language)) {
-                        PageTitle entry = entries.remove(i);
-                        entries.add(addIndex++, entry);
-                        break;
-                    }
+        if (!haveChineseEntry) {
+            addChineseEntriesIfNeeded(title, languageEntries);
+        }
+    }
+
+    private void sortLanguageEntriesByMru(List<PageTitle> entries) {
+        int addIndex = 0;
+        for (String language : app.language().getMruLanguageCodes()) {
+            for (int i = 0; i < entries.size(); i++) {
+                if (entries.get(i).getWikiSite().languageCode().equals(language)) {
+                    PageTitle entry = entries.remove(i);
+                    entries.add(addIndex++, entry);
+                    break;
                 }
             }
         }
@@ -465,7 +483,7 @@ public class LangLinksActivity extends BaseActivity {
     private String getCanonicalName(@NonNull String code) {
         String canonicalName = null;
         if (siteInfoList != null) {
-            for (SiteMatrixClient.SiteInfo info : siteInfoList) {
+            for (SiteMatrix.SiteInfo info : siteInfoList) {
                 if (code.equals(info.code())) {
                     canonicalName = info.localName();
                     break;
@@ -476,26 +494,5 @@ public class LangLinksActivity extends BaseActivity {
             canonicalName = app.language().getAppLanguageCanonicalName(code);
         }
         return canonicalName;
-    }
-
-    private class SiteMatrixCallback implements SiteMatrixClient.Callback {
-        @Override
-        public void success(@NonNull Call<SiteMatrixClient.SiteMatrix> call, @NonNull List<SiteMatrixClient.SiteInfo> sites) {
-            if (isDestroyed()) {
-                return;
-            }
-            langLinksProgress.setVisibility(View.INVISIBLE);
-            siteInfoList = sites;
-            adapter.notifyDataSetChanged();
-        }
-
-        @Override
-        public void failure(@NonNull Call<SiteMatrixClient.SiteMatrix> call, @NonNull Throwable caught) {
-            if (isDestroyed()) {
-                return;
-            }
-            langLinksProgress.setVisibility(View.INVISIBLE);
-            adapter.notifyDataSetChanged();
-        }
     }
 }
