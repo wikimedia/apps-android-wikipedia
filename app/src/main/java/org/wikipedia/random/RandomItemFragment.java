@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.log.L;
@@ -25,7 +26,9 @@ import org.wikipedia.views.WikiErrorView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import retrofit2.Call;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class RandomItemFragment extends Fragment {
     @BindView(R.id.random_item_container) ViewGroup containerView;
@@ -36,6 +39,7 @@ public class RandomItemFragment extends Fragment {
     @BindView(R.id.view_random_article_card_extract) TextView extractView;
     @BindView(R.id.random_item_error_view) WikiErrorView errorView;
 
+    private CompositeDisposable disposables = new CompositeDisposable();
     @Nullable private RbPageSummary summary;
     private int pagerPosition = -1;
 
@@ -62,14 +66,13 @@ public class RandomItemFragment extends Fragment {
         setRetainInstance(true);
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_random_item, container, false);
         ButterKnife.bind(this, view);
         imageView.setLegacyVisibilityHandlingEnabled(true);
-        errorView.setBackClickListener(v -> getActivity().finish());
+        errorView.setBackClickListener(v -> requireActivity().finish());
         errorView.setRetryClickListener(v -> {
             progressBar.setVisibility(View.VISIBLE);
             getRandomPage();
@@ -81,26 +84,21 @@ public class RandomItemFragment extends Fragment {
         return view;
     }
 
-    private void getRandomPage() {
-        new RandomSummaryClient().request(WikipediaApp.getInstance().getWikiSite(), new RandomSummaryClient.Callback() {
-            @Override
-            public void onSuccess(@NonNull Call<RbPageSummary> call, @NonNull RbPageSummary pageSummary) {
-                summary = pageSummary;
-                if (!isAdded()) {
-                    return;
-                }
-                updateContents();
-                parent().onChildLoaded();
-            }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        disposables.clear();
+    }
 
-            @Override
-            public void onError(@NonNull Call<RbPageSummary> call, @NonNull Throwable t) {
-                if (!isAdded()) {
-                    return;
-                }
-                setErrorState(t);
-            }
-        });
+    private void getRandomPage() {
+        disposables.add(ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getRandomSummary()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(pageSummary -> {
+                    summary = pageSummary;
+                    updateContents();
+                    parent().onChildLoaded();
+                }, this::setErrorState));
     }
 
     private void setErrorState(@NonNull Throwable t) {
@@ -150,6 +148,6 @@ public class RandomItemFragment extends Fragment {
     }
 
     private RandomFragment parent() {
-        return (RandomFragment) getActivity().getSupportFragmentManager().getFragments().get(0);
+        return (RandomFragment) requireActivity().getSupportFragmentManager().getFragments().get(0);
     }
 }

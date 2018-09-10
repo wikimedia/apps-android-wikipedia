@@ -1,15 +1,23 @@
 package org.wikipedia.feed.random;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.view.View;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.feed.view.StaticCardView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.random.RandomArticleRequestHandler;
+import org.wikipedia.readinglist.database.ReadingListDbHelper;
+import org.wikipedia.readinglist.database.ReadingListPage;
+
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class RandomCardView extends StaticCardView<RandomCard> {
     public interface Callback {
@@ -45,25 +53,32 @@ public class RandomCardView extends StaticCardView<RandomCard> {
         }
     }
 
+    @SuppressLint("CheckResult")
     public void getRandomPage() {
-        if (getCallback() != null && getCard() != null) {
-            setProgress(true);
-            RandomArticleRequestHandler.getRandomPage(new RandomArticleRequestHandler.Callback() {
-                @Override
-                public void onSuccess(@NonNull PageTitle pageTitle) {
+        setProgress(true);
+        ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getRandomSummary()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(pageSummary -> new PageTitle(null, pageSummary.getTitle(), WikipediaApp.getInstance().getWikiSite()))
+                .onErrorResumeNext(throwable -> {
+                    return Observable.fromCallable(() -> {
+                                ReadingListPage page = ReadingListDbHelper.instance().getRandomPage();
+                                if (page == null) {
+                                    throw (Exception) throwable;
+                                }
+                                return ReadingListPage.toPageTitle(page);
+                            }
+                    );
+                })
+                .subscribe(pageTitle -> {
                     if (getCallback() != null && getCard() != null) {
                         getCallback().onSelectPage(getCard(),
                                 new HistoryEntry(pageTitle, HistoryEntry.SOURCE_FEED_RANDOM));
                     }
-                    setProgress(false);
-                }
-
-                @Override
-                public void onError(Throwable t) {
-                    getCallback().onGetRandomError(t, RandomCardView.this);
-                    setProgress(false);
-                }
-            });
-        }
+                }, t -> {
+                    if (getCallback() != null && getCard() != null) {
+                        getCallback().onGetRandomError(t, RandomCardView.this);
+                    }
+                }, () -> setProgress(false));
     }
 }

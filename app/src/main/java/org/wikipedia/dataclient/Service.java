@@ -117,7 +117,7 @@ public interface Service {
 
     @Headers(ACCEPT_HEADER_SUMMARY)
     @GET(REST_API_PREFIX + "page/random/summary")
-    @NonNull Call<RbPageSummary> getRandomSummary();
+    @NonNull Observable<RbPageSummary> getRandomSummary();
 
     @Headers(ACCEPT_HEADER_SUMMARY)
     @GET(REST_API_PREFIX + "page/related/{title}")
