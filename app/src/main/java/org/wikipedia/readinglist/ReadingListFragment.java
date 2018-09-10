@@ -8,6 +8,7 @@ import android.support.annotation.PluralsRes;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
@@ -44,6 +45,7 @@ import org.wikipedia.events.PageDownloadEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.main.MainActivity;
+import org.wikipedia.main.floatingqueue.FloatingQueueView;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
@@ -87,7 +89,8 @@ import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 import static org.wikipedia.views.CircularProgressBar.MAX_PROGRESS;
 import static org.wikipedia.views.CircularProgressBar.MIN_PROGRESS;
 
-public class ReadingListFragment extends Fragment implements ReadingListItemActionsDialog.Callback {
+public class ReadingListFragment extends Fragment implements
+        ReadingListItemActionsDialog.Callback, FloatingQueueView.Callback{
     @BindView(R.id.reading_list_toolbar) Toolbar toolbar;
     @BindView(R.id.reading_list_toolbar_container) CollapsingToolbarLayout toolBarLayout;
     @BindView(R.id.reading_list_app_bar) AppBarLayout appBarLayout;
@@ -96,6 +99,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     @BindView(R.id.reading_list_empty_text) TextView emptyView;
     @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
     @BindView(R.id.reading_list_swipe_refresh) SwipeRefreshLayout swipeRefreshLayout;
+    @BindView(R.id.floating_queue_view) FloatingQueueView floatingQueueView;
     private Unbinder unbinder;
 
     @NonNull private final EventBusMethods eventBusMethods = new EventBusMethods();
@@ -115,6 +119,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     private SearchCallback searchActionModeCallback = new SearchCallback();
     private MultiSelectActionModeCallback multiSelectActionModeCallback = new MultiSelectCallback();
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
+    private LinearLayoutManager linearLayoutManager;
     private boolean toolbarExpanded = true;
 
     @NonNull private List<ReadingListPage> displayedPages = new ArrayList<>();
@@ -148,7 +153,8 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(touchCallback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        linearLayoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable));
 
@@ -162,6 +168,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
         WikipediaApp.getInstance().getBus().register(eventBusMethods);
 
+        floatingQueueView.setCallback(this);
         swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent));
         swipeRefreshLayout.setOnRefreshListener(() -> ReadingListsFragment.refreshSync(ReadingListFragment.this, swipeRefreshLayout));
         if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
@@ -179,9 +186,16 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+        floatingQueueView.animation(true);
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         updateReadingListData();
+        floatingQueueView.update();
     }
 
     @Override public void onDestroyView() {
@@ -250,6 +264,15 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+
+    @Override
+    public void onFloatingQueueClicked(@NonNull PageTitle title) {
+        Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
+                floatingQueueView.getImageView(), getString(R.string.transition_floating_queue)).toBundle();
+        startActivity(PageActivity.newIntentForExistingTab(requireContext(),
+                new HistoryEntry(title, HistoryEntry.SOURCE_FLOATING_QUEUE), title), bundle);
     }
 
     private AppCompatActivity getAppCompatActivity() {
@@ -751,15 +774,28 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     private final class ReadingListPageItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         private static final int TYPE_HEADER = 0;
         private static final int TYPE_ITEM = 1;
+        private static final int TYPE_FOOTER = 2;
+
+        private boolean isFooterEnabled() {
+            boolean isLastItemBeenCovered = false;
+            if (linearLayoutManager != null && adapter != null) {
+                isLastItemBeenCovered = linearLayoutManager.findLastCompletelyVisibleItemPosition() < (displayedPages.size() + 1);
+            }
+            return floatingQueueView.getVisibility() == View.VISIBLE && isLastItemBeenCovered;
+        }
 
         @Override
         public int getItemCount() {
-            return 1 + displayedPages.size();
+            return 1 + displayedPages.size() + (isFooterEnabled() ? 1 : 0);
         }
 
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int type) {
-            if (type == TYPE_HEADER) {
+            if (type == TYPE_FOOTER) {
+                LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+                View view = inflater.inflate(R.layout.view_empty_footer, parent, false);
+                return new FooterViewHolder(view);
+            } else if (type == TYPE_HEADER) {
                 return new ReadingListHeaderHolder(headerView);
             }
             return new ReadingListPageItemHolder(new PageItemView<>(requireContext()));
@@ -774,7 +810,14 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
         @Override
         public int getItemViewType(int position) {
-            return position == 0 ? TYPE_HEADER : TYPE_ITEM;
+            if (position == 0) {
+                return TYPE_HEADER;
+            } else if (position == getItemCount() - 1
+                    && isFooterEnabled()) {
+                return TYPE_FOOTER;
+            } else {
+                return TYPE_ITEM;
+            }
         }
 
         @Override public void onViewAttachedToWindow(@NonNull RecyclerView.ViewHolder holder) {
@@ -789,6 +832,12 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                 ((ReadingListPageItemHolder) holder).getView().setCallback(null);
             }
             super.onViewDetachedFromWindow(holder);
+        }
+    }
+
+    private class FooterViewHolder extends RecyclerView.ViewHolder {
+        FooterViewHolder(View view) {
+            super(view);
         }
     }
 
@@ -856,6 +905,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             actionMode = mode;
             recyclerView.stopScroll();
             appBarLayout.setExpanded(false, false);
+            floatingQueueView.setVisibility(View.GONE);
             ViewUtil.finishActionModeWhenTappingOnView(getView(), actionMode);
             return super.onCreateActionMode(mode, menu);
         }
@@ -869,6 +919,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         public void onDestroyActionMode(ActionMode mode) {
             super.onDestroyActionMode(mode);
             actionMode = null;
+            floatingQueueView.setVisibility(View.VISIBLE);
             setSearchQuery(null);
         }
 

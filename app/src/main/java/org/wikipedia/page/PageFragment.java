@@ -26,6 +26,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import org.json.JSONException;
@@ -62,6 +63,7 @@ import org.wikipedia.page.action.PageActionTab;
 import org.wikipedia.page.action.PageActionToolbarHideHandler;
 import org.wikipedia.page.bottomcontent.BottomContentView;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
+import org.wikipedia.page.leadimages.PageHeaderView;
 import org.wikipedia.page.shareafact.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.readinglist.AddToReadingListDialog;
@@ -73,6 +75,7 @@ import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.theme.ThemeBridgeAdapter;
 import org.wikipedia.util.ActiveTimer;
+import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
@@ -96,6 +99,7 @@ import static org.wikipedia.settings.Prefs.isDescriptionEditTutorialEnabled;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.DimenUtil.getContentTopOffset;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
+import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 import static org.wikipedia.util.ThrowableUtil.isOffline;
@@ -145,6 +149,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     private PageScrollFunnel pageScrollFunnel;
     private LeadImagesHandler leadImagesHandler;
+    private PageHeaderView pageHeaderView;
     private BottomContentView bottomContentView;
     private ObservableWebView webView;
     private CoordinatorLayout containerView;
@@ -289,6 +294,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AnimationUtil.setSharedElementTransitions(requireActivity());
         app = (WikipediaApp) getActivity().getApplicationContext();
         model = new PageViewModel();
         pageFragmentLoadState = new PageFragmentLoadState();
@@ -298,6 +304,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_page, container, false);
+
+        pageHeaderView = rootView.findViewById(R.id.page_header_view);
+        DimenUtil.setViewHeight(pageHeaderView.getPageHeaderImageView(), leadImageHeightForDevice());
 
         webView = rootView.findViewById(R.id.page_web_view);
         initWebViewListeners();
@@ -393,8 +402,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         tocHandler = new ToCHandler(this, tocDrawer, bridge);
 
         // TODO: initialize View references in onCreateView().
-        leadImagesHandler = new LeadImagesHandler(this, bridge, webView,
-                getView().findViewById(R.id.page_header_view));
+        leadImagesHandler = new LeadImagesHandler(this, bridge, webView, pageHeaderView);
 
         bottomContentView.setup(this, bridge, webView);
 
@@ -559,6 +567,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     public void openFromExistingTab(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
+        if (!title.isMainPage() && !title.isFilePage()) {
+            String imageUrl = Prefs.getFloatingQueueImage() == null ? title.getThumbUrl() : Prefs.getFloatingQueueImage();
+            pageHeaderView.loadImage(imageUrl);
+        }
+
         // find the tab in which this title appears...
         int selectedTabPosition = -1;
         for (Tab tab : app.getTabList()) {
@@ -626,8 +639,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         errorState = false;
         errorView.setVisibility(View.GONE);
         tabLayout.enableAllTabs();
-
-        leadImagesHandler.hide();
 
         model.setTitle(title);
         model.setTitleOriginal(title);
@@ -769,6 +780,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     @NonNull public TabLayout getTabLayout() {
         return tabLayout;
+    }
+
+    public ImageView getLeadImageView() {
+        return pageHeaderView.getImage();
     }
 
     public void showFindInPage() {
@@ -943,6 +958,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     PageInfo getPageInfo() {
         return pageInfo;
+    }
+
+    public void saveLeadImageUrl() {
+        leadImagesHandler.saveLeadImageUrl();
     }
 
     boolean isLoading() {

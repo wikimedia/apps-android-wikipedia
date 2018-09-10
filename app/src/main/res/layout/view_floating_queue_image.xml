@@ -4,23 +4,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
-        android:id="@+id/view_page_header_image_placeholder"
+        android:id="@+id/view_floating_queue_image_placeholder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="?lead_image_drawable"
         android:contentDescription="@null" />
 
     <org.wikipedia.views.FaceAndColorDetectImageView
-        android:id="@+id/view_page_header_image_image"
+        android:id="@+id/view_floating_queue_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:actualImageScaleType="focusCrop"
         android:contentDescription="@null"
-        android:transitionName="@string/transition_floating_queue" />
+        android:transitionName="@string/transition_floating_queue"
+        app:actualImageScaleType="focusCrop"
+        app:placeholderImage="@drawable/ic_image_gray_opaque_24dp"
+        app:failureImage="@drawable/ic_image_gray_opaque_24dp"
+        app:fadeDuration="0"
+        />
 
-    <View
-        android:id="@+id/view_page_header_image_gradient"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 </merge>

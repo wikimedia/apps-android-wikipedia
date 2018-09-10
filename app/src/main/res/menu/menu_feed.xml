@@ -13,9 +13,6 @@
         android:title="@string/search_hint"
         android:icon="@drawable/ic_search_white_24dp"
         app:showAsAction="always"/>
-    <item android:id="@+id/menu_feed_tabs"
-        android:title="@string/menu_page_show_tabs"
-        app:showAsAction="always"/>
     <item android:id="@+id/menu_overflow_button"
         android:title="@string/menu_feed_overflow_label"
         android:icon="@drawable/ic_more_vert_white_24dp"

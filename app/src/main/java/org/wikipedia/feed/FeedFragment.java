@@ -272,14 +272,8 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         MenuItem searchItem = menu.findItem(R.id.menu_feed_search);
-        MenuItem tabsItem = menu.findItem(R.id.menu_feed_tabs);
         if (searchItem != null) {
             searchItem.setVisible(searchIconVisible);
-        }
-        if (tabsItem != null) {
-            int tabCount = app.getTabCount();
-            tabsItem.setIcon(ResourceUtil.getTabListIcon(tabCount));
-            tabsItem.setVisible(tabCount > 0);
         }
     }
 
@@ -289,11 +283,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             case R.id.menu_feed_search:
                 if (getCallback() != null) {
                     getCallback().onFeedSearchRequested();
-                }
-                return true;
-            case R.id.menu_feed_tabs:
-                if (getCallback() != null) {
-                    getCallback().onFeedTabListRequested();
                 }
                 return true;
             case R.id.menu_overflow_button:

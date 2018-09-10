@@ -111,4 +111,7 @@
     <!-- Dialog -->
     <dimen name="dialog_line_spacing_extra">5sp</dimen>
 
+    <!-- Floating Queue -->
+    <dimen name="floating_queue_container_height">64dp</dimen>
+
 </resources>

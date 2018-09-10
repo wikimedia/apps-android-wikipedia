@@ -39,6 +39,7 @@ import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.events.ArticleSavedOrDeletedEvent;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.history.SearchActionModeCallback;
+import org.wikipedia.main.MainActivity;
 import org.wikipedia.main.MainFragment;
 import org.wikipedia.onboarding.OnboardingView;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
@@ -89,6 +90,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
     private ReadingListAdapter adapter = new ReadingListAdapter();
     private ReadingListItemCallback listItemCallback = new ReadingListItemCallback();
     private ReadingListsSearchCallback searchActionModeCallback = new ReadingListsSearchCallback();
+    private LinearLayoutManager linearLayoutManager;
     @Nullable private ActionMode actionMode;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private static final int SAVE_COUNT_LIMIT = 3;
@@ -114,9 +116,10 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_reading_lists, container, false);
         unbinder = ButterKnife.bind(this, view);
+        linearLayoutManager = new LinearLayoutManager(getContext());
 
         searchEmptyView.setEmptyText(R.string.search_reading_lists_no_results);
-        readingListView.setLayoutManager(new LinearLayoutManager(getContext()));
+        readingListView.setLayoutManager(linearLayoutManager);
         readingListView.setAdapter(adapter);
         readingListView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable));
 
@@ -368,30 +371,70 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         }
     }
 
-    private final class ReadingListAdapter extends RecyclerView.Adapter<ReadingListItemHolder> {
+    private class FooterViewHolder extends RecyclerView.ViewHolder {
+        FooterViewHolder(View view) {
+            super(view);
+        }
+    }
+
+    private final class ReadingListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+        private static final int VIEW_TYPE_ITEM = 0;
+        private static final int VIEW_TYPE_FOOTER = 1;
+
+        private boolean isFooterEnabled() {
+            boolean isLastItemBeenCovered = false;
+            if (linearLayoutManager != null && adapter != null) {
+                isLastItemBeenCovered = linearLayoutManager.findLastCompletelyVisibleItemPosition() < readingLists.size();
+            }
+            return ((MainActivity) requireActivity()).isFloatingQueueEnabled() && isLastItemBeenCovered;
+        }
+
+        @Override
+        public int getItemViewType(int position) {
+            if (position == getItemCount() - 1
+                    && isFooterEnabled()) {
+                return VIEW_TYPE_FOOTER;
+            } else {
+                return VIEW_TYPE_ITEM;
+            }
+        }
+
         @Override
         public int getItemCount() {
-            return readingLists.size();
+            return readingLists.size() + (isFooterEnabled() ? 1 : 0);
         }
 
         @Override
-        public ReadingListItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int pos) {
-            ReadingListItemView view = new ReadingListItemView(getContext());
-            return new ReadingListItemHolder(view);
+        public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int pos) {
+            if (pos == VIEW_TYPE_FOOTER) {
+                LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+                View view = inflater.inflate(R.layout.view_empty_footer, parent, false);
+                return new FooterViewHolder(view);
+            } else {
+                ReadingListItemView view = new ReadingListItemView(getContext());
+                return new ReadingListItemHolder(view);
+            }
         }
 
         @Override
-        public void onBindViewHolder(@NonNull ReadingListItemHolder holder, int pos) {
-            holder.bindItem(readingLists.get(pos));
+        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int pos) {
+            if (holder instanceof ReadingListItemHolder) {
+                ((ReadingListItemHolder) holder).bindItem(readingLists.get(pos));
+            }
         }
 
-        @Override public void onViewAttachedToWindow(@NonNull ReadingListItemHolder holder) {
+        @Override public void onViewAttachedToWindow(@NonNull RecyclerView.ViewHolder holder) {
             super.onViewAttachedToWindow(holder);
-            holder.getView().setCallback(listItemCallback);
+            if (holder instanceof ReadingListItemHolder) {
+                ((ReadingListItemHolder) holder).getView().setCallback(listItemCallback);
+            }
         }
 
-        @Override public void onViewDetachedFromWindow(@NonNull ReadingListItemHolder holder) {
-            holder.getView().setCallback(null);
+        @Override public void onViewDetachedFromWindow(@NonNull RecyclerView.ViewHolder holder) {
+            if (holder instanceof ReadingListItemHolder) {
+                ((ReadingListItemHolder) holder).getView().setCallback(null);
+            }
             super.onViewDetachedFromWindow(holder);
         }
     }
@@ -530,6 +573,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
 
             ViewUtil.finishActionModeWhenTappingOnView(getView(), actionMode);
             ViewUtil.finishActionModeWhenTappingOnView(emptyContainer, actionMode);
+            ((MainFragment) getParentFragment()).getFloatingQueueView().setVisibility(View.GONE);
 
             return super.onCreateActionMode(mode, menu);
         }
@@ -546,6 +590,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         public void onDestroyActionMode(ActionMode mode) {
             super.onDestroyActionMode(mode);
             actionMode = null;
+            ((MainFragment) getParentFragment()).getFloatingQueueView().setVisibility(View.VISIBLE);
             updateLists();
         }
 

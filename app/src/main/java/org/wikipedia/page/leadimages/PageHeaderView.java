@@ -26,6 +26,7 @@ import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 public class PageHeaderView extends LinearLayoutOverWebView implements ObservableWebView.OnScrollChangeListener {
     @BindView(R.id.view_page_header_image) PageHeaderImageView image;
     @Nullable private Callback callback;
+    private boolean isImageLoaded;
 
     public interface Callback {
         void onImageClicked();
@@ -66,6 +67,10 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
         return image.getImage();
     }
 
+    public PageHeaderImageView getPageHeaderImageView() {
+        return image;
+    }
+
     public void setOnImageLoadListener(@Nullable FaceAndColorDetectImageView.OnImageLoadListener listener) {
         image.setLoadListener(listener);
     }
@@ -78,6 +83,11 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
         image.load(url);
         int height = url == null ? 0 : leadImageHeightForDevice();
         setMinimumHeight(height);
+        isImageLoaded = true;
+    }
+
+    public boolean isImageLoaded() {
+        return isImageLoaded;
     }
 
     public void setAnimationPaused(boolean paused) {
@@ -125,7 +135,6 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
         inflate(getContext(), R.layout.view_page_header, this);
         setOrientation(VERTICAL);
         ButterKnife.bind(this);
-        hide();
     }
 
     private int getDimensionPixelSize(@DimenRes int id) {

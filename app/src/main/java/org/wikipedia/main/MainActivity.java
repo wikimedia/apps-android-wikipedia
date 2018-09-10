@@ -14,6 +14,7 @@ import org.wikipedia.appshortcuts.AppShortcuts;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.onboarding.InitialOnboardingActivity;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.ResourceUtil;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_INITIAL_ONBOARDING;
@@ -30,7 +31,7 @@ public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setSharedElementTransitions();
+        AnimationUtil.setSharedElementTransitions(this);
         new AppShortcuts().init();
 
         if (Prefs.isInitialOnboardingEnabled() && savedInstanceState == null) {
@@ -46,6 +47,14 @@ public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
 
     @Override protected MainFragment createFragment() {
         return MainFragment.newInstance();
+    }
+
+    public boolean isFloatingQueueEnabled() {
+        return getFragment().getFloatingQueueView().getVisibility() == View.VISIBLE;
+    }
+
+    public View getFloatingQueueImageView() {
+        return getFragment().getFloatingQueueView().getImageView();
     }
 
     @Override

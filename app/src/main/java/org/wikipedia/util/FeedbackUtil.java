@@ -13,6 +13,7 @@ import android.support.v4.content.ContextCompat;
 import android.text.method.LinkMovementMethod;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,11 +48,11 @@ public final class FeedbackUtil {
     }
 
     public static void showMessage(Fragment fragment, @StringRes int text) {
-        makeSnackbar(fragment.getActivity(), fragment.getString(text), Snackbar.LENGTH_LONG).show();
+        makeSnackbar(fragment.requireActivity(), fragment.getString(text), Snackbar.LENGTH_LONG).show();
     }
 
     public static void showMessage(Fragment fragment, @NonNull String text) {
-        makeSnackbar(fragment.getActivity(), text, Snackbar.LENGTH_LONG).show();
+        makeSnackbar(fragment.requireActivity(), text, Snackbar.LENGTH_LONG).show();
     }
 
     public static void showMessage(Activity activity, @StringRes int resId) {
@@ -130,6 +131,22 @@ public final class FeedbackUtil {
             int tabLayoutHeight = ((PageActivity) activity).getTabLayout().getHeight();
             params.setMargins(params.leftMargin, params.topMargin, params.rightMargin, params.bottomMargin + tabLayoutHeight);
             snackbar.getView().setLayoutParams(params);
+        } else if (activity instanceof MainActivity) {
+            ViewGroup view = activity.findViewById(R.id.floating_queue_view);
+            if (((MainActivity) activity).isFloatingQueueEnabled()
+                    && view.getTranslationY() == 0) {
+                snackbar.addCallback(new Snackbar.Callback() {
+                    @Override
+                    public void onShown(Snackbar snackbar) {
+                        view.animate().translationY(-snackbar.getView().getHeight());
+                    }
+
+                    @Override
+                    public void onDismissed(Snackbar snackbar, int event) {
+                        view.animate().translationY(0);
+                    }
+                });
+            }
         }
     }
 

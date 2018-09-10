@@ -31,6 +31,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -96,6 +97,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_on_this_day, container, false);
+        AnimationUtil.setSharedElementTransitions(requireActivity());
         unbinder = ButterKnife.bind(this, view);
         int age = requireActivity().getIntent().getIntExtra(AGE, 0);
         wiki = requireActivity().getIntent().getParcelableExtra(WIKISITE);

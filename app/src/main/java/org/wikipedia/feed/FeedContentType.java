@@ -8,7 +8,6 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.aggregated.AggregatedFeedContentClient;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadClient;
-import org.wikipedia.feed.continuereading.ContinueReadingClient;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.mainpage.MainPageClient;
 import org.wikipedia.feed.random.RandomClient;
@@ -34,13 +33,6 @@ public enum FeedContentType implements EnumCode {
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age, boolean isOnline) {
             return isEnabled() && isOnline ? new AggregatedFeedContentClient.OnThisDayFeed(aggregatedClient) : null;
-        }
-    },
-    CONTINUE_READING(2, R.string.view_continue_reading_card_title, R.string.feed_item_type_continue_reading, false) {
-        @Nullable
-        @Override
-        public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age, boolean isOnline) {
-            return isEnabled() ? new ContinueReadingClient() : null;
         }
     },
     TRENDING_ARTICLES(3, R.string.most_read_list_card_title, R.string.feed_item_type_trending, true) {

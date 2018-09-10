@@ -9,13 +9,10 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Constants;
-import org.wikipedia.R;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
@@ -23,6 +20,7 @@ import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ObservableWebView;
@@ -46,7 +44,7 @@ public class LeadImagesHandler {
     @NonNull private final CommunicationBridge bridge;
 
     @NonNull private final PageHeaderView pageHeaderView;
-    private View image;
+    private String leadImageUrl;
 
     private int displayHeightDp;
 
@@ -61,12 +59,8 @@ public class LeadImagesHandler {
         this.bridge = bridge;
         webView.addOnScrollChangeListener(pageHeaderView);
 
-        image = pageHeaderView.getImage();
         initDisplayDimensions();
         initArticleHeaderView();
-
-        // hide ourselves by default
-        hide();
     }
 
     /**
@@ -173,7 +167,13 @@ public class LeadImagesHandler {
     }
 
     private void loadLeadImage() {
-        loadLeadImage(getLeadImageUrl());
+        leadImageUrl = getLeadImageUrl();
+        if (leadImageUrl == null) {
+            loadLeadImage(null);
+        } else if (!leadImageUrl.equals(Prefs.getFloatingQueueImage()) || !pageHeaderView.isImageLoaded()) {
+            loadLeadImage(leadImageUrl);
+            saveLeadImageUrl();
+        }
     }
 
     private void loadLeadImage(@Nullable String url) {
@@ -209,9 +209,8 @@ public class LeadImagesHandler {
                 .toString();
     }
 
-    private void startKenBurnsAnimation() {
-        Animation anim = AnimationUtils.loadAnimation(getActivity(), R.anim.lead_image_zoom);
-        image.startAnimation(anim);
+    public void saveLeadImageUrl() {
+        Prefs.setFloatingQueueImage(leadImageUrl);
     }
 
     private void initArticleHeaderView() {
@@ -262,7 +261,6 @@ public class LeadImagesHandler {
                     if (faceLocation != null) {
                         pageHeaderView.setImageFocus(faceLocation);
                     }
-                    startKenBurnsAnimation();
                 }
             });
         }

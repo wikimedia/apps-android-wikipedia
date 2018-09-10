@@ -123,7 +123,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
             View itemView = LayoutInflater.
                     from(viewGroup.getContext()).
                     inflate(R.layout.item_on_this_day_pages, viewGroup, false);
-            return new OnThisDayPagesViewHolder((CardView) itemView, wiki, isSingleCard);
+            return new OnThisDayPagesViewHolder((Activity) viewGroup.getContext(), (CardView) itemView, wiki, isSingleCard);
         }
 
         @Override
