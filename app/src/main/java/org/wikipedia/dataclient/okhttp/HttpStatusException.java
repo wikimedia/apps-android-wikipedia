@@ -29,6 +29,12 @@ public class HttpStatusException extends IOException {
         }
     }
 
+    public HttpStatusException(@Nullable ServiceError error) {
+        serviceError = error;
+        code = 0;
+        url = "";
+    }
+
     public int code() {
         return code;
     }

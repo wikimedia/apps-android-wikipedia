@@ -24,10 +24,9 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
-import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.dataclient.ServiceFactory;
+import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.page.PageClientFactory;
-import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.gallery.GalleryThumbnailScrollView;
 import org.wikipedia.history.HistoryEntry;
@@ -41,8 +40,6 @@ import org.wikipedia.views.ViewUtil;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.Call;
-import retrofit2.Response;
 
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
@@ -200,10 +197,32 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     }
 
     private void loadContent() {
-        PageClientFactory
-                .create(pageTitle.getWikiSite(), pageTitle.namespace())
+        disposables.add(PageClientFactory.create(pageTitle.getWikiSite(), pageTitle.namespace())
                 .summary(ServiceFactory.get(pageTitle.getWikiSite()), pageTitle.getPrefixedText(), historyEntry.getReferrer())
-                .enqueue(linkPreviewCallback);
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(summary -> {
+                    if (summary != null && !summary.hasError()) {
+
+                        // TODO: Remove this logic once Parsoid starts supporting language variants.
+                        if (pageTitle.getWikiSite().languageCode().equals(pageTitle.getWikiSite().subdomain())) {
+                            titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
+                        } else {
+                            titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
+                        }
+
+                        // TODO: remove after the restbase endpoint supports ZH variants
+                        pageTitle.setConvertedText(summary.getConvertedTitle());
+                        showPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
+
+                    } else {
+                        throw summary != null ? new HttpStatusException(summary.getError()) : new RuntimeException();
+                    }
+                }, caught -> {
+                    L.e(caught);
+                    titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
+                    showError(caught);
+                }));
     }
 
     private void loadGallery() {
@@ -255,44 +274,6 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                     contents.isDisambiguation() ? R.string.button_continue_to_disambiguation : R.string.button_continue_to_article));
         }
     }
-
-    private retrofit2.Callback<PageSummary> linkPreviewCallback
-            = new retrofit2.Callback<PageSummary>() {
-        @Override public void onResponse(@NonNull Call<PageSummary> call, @NonNull Response<PageSummary> rsp) {
-            if (!isAdded()) {
-                return;
-            }
-
-            PageSummary summary = rsp.body();
-            if (summary != null && !summary.hasError()) {
-
-                // TODO: Remove this logic once Parsoid starts supporting language variants.
-                if (pageTitle.getWikiSite().languageCode().equals(pageTitle.getWikiSite().subdomain())) {
-                    titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
-                } else {
-                    titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
-                }
-
-                // TODO: remove after the restbase endpoint supports ZH variants
-                pageTitle.setConvertedText(summary.getConvertedTitle());
-                showPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
-            } else {
-                titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
-                showError(null);
-                logError(summary != null && summary.hasError() ? summary.getError() : null,
-                        "Page summary network request failed");
-            }
-        }
-
-        @Override public void onFailure(@NonNull Call<PageSummary> call, @NonNull Throwable caught) {
-            L.e(caught);
-            if (!isAdded()) {
-                return;
-            }
-            titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
-            showError(caught);
-        }
-    };
 
     private PopupMenu.OnMenuItemClickListener menuListener = new PopupMenu.OnMenuItemClickListener() {
         @Override
@@ -350,13 +331,6 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         if (callback != null) {
             callback.onLinkPreviewLoadPage(title, entry, inNewTab);
         }
-    }
-
-    private void logError(@Nullable ServiceError error, @NonNull String message) {
-        if (error != null) {
-            message += ": " + error.toString();
-        }
-        L.e(message);
     }
 
     private class OverlayViewCallback implements LinkPreviewOverlayView.Callback {

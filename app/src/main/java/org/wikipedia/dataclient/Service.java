@@ -75,7 +75,7 @@ public interface Service {
             ACCEPT_HEADER_SUMMARY
     })
     @GET(REST_API_PREFIX + "page/summary/{title}")
-    @NonNull Call<RbPageSummary> getSummary(@Nullable @Header("Referer") String referrerUrl,
+    @NonNull Observable<RbPageSummary> getSummary(@Nullable @Header("Referer") String referrerUrl,
                                             @NonNull @Path("title") String title);
 
     /**
@@ -113,7 +113,7 @@ public interface Service {
      */
     @Headers(ACCEPT_HEADER_DEFINITION)
     @GET(REST_API_PREFIX + "page/definition/{title}")
-    @NonNull Call<Map<String, RbDefinition.Usage[]>> getDefinition(@NonNull @Path("title") String title);
+    @NonNull Observable<Map<String, RbDefinition.Usage[]>> getDefinition(@NonNull @Path("title") String title);
 
     @Headers(ACCEPT_HEADER_SUMMARY)
     @GET(REST_API_PREFIX + "page/random/summary")
@@ -230,7 +230,7 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&redirects=&converttitles="
             + "&prop=extracts|pageimages|pageprops&exsentences=5&piprop=thumbnail|name"
             + "&pilicense=any&explaintext=&pithumbsize=" + PREFERRED_THUMB_SIZE)
-    @NonNull Call<MwQueryPageSummary> getSummary(@Nullable @Header("Referer") String referrerUrl,
+    @NonNull Observable<MwQueryPageSummary> getSummary(@Nullable @Header("Referer") String referrerUrl,
                                                  @NonNull @Query("titles") String title,
                                                  @Nullable @Query("uselang") String useLang);
 
