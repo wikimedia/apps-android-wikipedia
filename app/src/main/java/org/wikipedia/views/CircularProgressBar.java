@@ -1,22 +1,15 @@
 package org.wikipedia.views;
 
-import android.animation.Animator;
-import android.animation.PropertyValuesHolder;
-import android.animation.TypeEvaluator;
-import android.animation.ValueAnimator;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.animation.AccelerateDecelerateInterpolator;
 
 import org.wikipedia.R;
 import org.wikipedia.util.DimenUtil;
@@ -28,21 +21,14 @@ public class CircularProgressBar extends View {
     private static final int PROGRESS_BACKGROUND_MIN_ANGLE = 0;
     private static final int PROGRESS_BACKGROUND_MAX_ANGLE = 360;
     private static final int DEFAULT_STROKE_WIDTH_DP = 0;
-    private static final int DEFAULT_ANIMATION_DURATION = 1_000;
-    private static final double DEFAULT_MAX_PROGRESS = 100.0;
     public static final int MIN_PROGRESS = 5;
     public static final int MAX_PROGRESS = 100;
-    private static final String PROPERTY_ANGLE = "angle";
 
     private Paint progressPaint;
     private Paint progressBackgroundPaint;
     private int sweepAngle = 0;
     private RectF circleBounds;
-    private double maxProgressValue = DEFAULT_MAX_PROGRESS;
-    private double progressValue;
-    private double finalAngle = 0;
-    private ValueAnimator progressAnimator;
-
+    private double maxProgressValue = MAX_PROGRESS;
 
     public CircularProgressBar(@NonNull Context context) {
         super(context);
@@ -59,18 +45,11 @@ public class CircularProgressBar extends View {
         init(context, attrs);
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public CircularProgressBar(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        init(context, attrs);
-    }
-
     private void init(@NonNull Context context, @Nullable AttributeSet attrs) {
 
         int progressColor = ResourceUtil.getThemedColor(getContext(), R.attr.colorAccent);
         int progressBackgroundColor = ResourceUtil.getThemedColor(getContext(), R.attr.material_theme_de_emphasised_color);
         int progressStrokeWidth = (int) DimenUtil.dpToPx(DEFAULT_STROKE_WIDTH_DP);
-
 
         if (attrs != null) {
             TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CircularProgressBar);
@@ -168,15 +147,6 @@ public class CircularProgressBar extends View {
     }
 
     @Override
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-
-        if (progressAnimator != null) {
-            progressAnimator.cancel();
-        }
-    }
-
-    @Override
     protected void onDraw(Canvas canvas) {
         drawProgressBackground(canvas);
         drawProgress(canvas);
@@ -191,48 +161,13 @@ public class CircularProgressBar extends View {
         canvas.drawArc(circleBounds, PROGRESS_START_ANGLE, sweepAngle, true, progressPaint);
     }
 
-
-    public void setMaxProgress(double maxProgress) {
-        maxProgressValue = maxProgress;
-        if (maxProgressValue < progressValue) {
-            setCurrentProgress(maxProgress);
-        }
-        invalidate();
-    }
-
     public void setCurrentProgress(double currentProgress) {
         if (currentProgress > maxProgressValue) {
             maxProgressValue = currentProgress;
         }
 
-        setProgress(currentProgress, maxProgressValue);
-    }
-
-    public void setProgress(double current, double max) {
-
-        finalAngle = current / max * PROGRESS_BACKGROUND_MAX_ANGLE;
-
-        final PropertyValuesHolder angleProperty = PropertyValuesHolder.ofInt(PROPERTY_ANGLE, sweepAngle, (int) finalAngle);
-
-        double oldCurrentProgress = progressValue;
-
-        maxProgressValue = max;
-        progressValue = Math.min(current, max);
-
-        if (progressAnimator != null) {
-            progressAnimator.cancel();
-        }
-
-        progressAnimator = ValueAnimator.ofObject((TypeEvaluator<Double>) (fraction, startValue, endValue) -> (startValue + (endValue - startValue) * fraction), oldCurrentProgress, progressValue);
-        progressAnimator.setDuration(DEFAULT_ANIMATION_DURATION);
-        progressAnimator.setValues(angleProperty);
-        progressAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
-        progressAnimator.addUpdateListener(animation -> {
-            sweepAngle = (int) animation.getAnimatedValue(PROPERTY_ANGLE);
-            invalidate();
-        });
-        progressAnimator.addListener(new DefaultAnimatorListener());
-        progressAnimator.start();
+        sweepAngle = (int) (currentProgress / maxProgressValue * PROGRESS_BACKGROUND_MAX_ANGLE);
+        invalidate();
     }
 
     public void setProgressColor(@ColorInt int color) {
@@ -258,38 +193,4 @@ public class CircularProgressBar extends View {
     public float getProgressStrokeWidth() {
         return progressPaint.getStrokeWidth();
     }
-
-    class DefaultAnimatorListener implements Animator.AnimatorListener {
-        @Override
-        public void onAnimationStart(Animator animation, boolean isReverse) {
-
-        }
-
-        @Override
-        public void onAnimationEnd(Animator animation, boolean isReverse) {
-
-        }
-
-        @Override
-        public void onAnimationStart(Animator animation) {
-
-        }
-
-        @Override
-        public void onAnimationEnd(Animator animation) {
-
-        }
-
-        @Override
-        public void onAnimationCancel(Animator animation) {
-            sweepAngle = (int) finalAngle;
-            progressAnimator = null;
-        }
-
-        @Override
-        public void onAnimationRepeat(Animator animation) {
-
-        }
-    }
-
 }

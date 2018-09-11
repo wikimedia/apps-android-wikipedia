@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SimpleItemAnimator;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.Spanned;
@@ -150,6 +151,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable));
+        ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
 
         headerView = new ReadingListItemView(getContext());
         headerView.setCallback(headerCallback);
@@ -486,7 +488,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     private void saveSelectedPagesForOffline(@NonNull List<ReadingListPage> selectedPages, boolean forcedSave) {
         if (!selectedPages.isEmpty()) {
             for (ReadingListPage page : selectedPages) {
-                updatePageProgress(page);
+                resetPageProgress(page);
             }
             ReadingListDbHelper.instance().markPagesForOffline(selectedPages, true, forcedSave);
             showMultiSelectOfflineStateChangeSnackbar(selectedPages, true);
@@ -495,7 +497,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         }
     }
 
-    private void updatePageProgress(ReadingListPage page) {
+    private void resetPageProgress(ReadingListPage page) {
         if (!page.offline()) {
             page.downloadProgress(MIN_PROGRESS);
         }
@@ -601,7 +603,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     private void toggleOffline(@NonNull ReadingListPage page) {
-        updatePageProgress(page);
+        resetPageProgress(page);
         if (shouldForceDownloadOverMobileData()) {
             ReadingListsFragment.showMobileDataWarningDialog(requireActivity(), (dialog, which)
                     -> toggleOffline(page, true));
@@ -701,8 +703,8 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             getView().setActionHint(R.string.abc_action_menu_overflow_description);
             getView().setSecondaryActionIcon(page.saving() ? R.drawable.ic_download_in_progress : R.drawable.ic_download_circle_gray_24dp,
                     !page.offline() || page.saving());
-            getView().setCircularProgressVisibility(page.downloadProgress() == 0 || page.downloadProgress() == MAX_PROGRESS ? GONE : VISIBLE);
-            getView().makeProgress(page.downloadProgress() == MAX_PROGRESS ? 0 : page.downloadProgress());
+            getView().setCircularProgressVisibility(page.downloadProgress() > 0 && page.downloadProgress() < MAX_PROGRESS);
+            getView().setProgress(page.downloadProgress() == MAX_PROGRESS ? 0 : page.downloadProgress());
             getView().setSecondaryActionHint(R.string.reading_list_article_make_offline);
             showViewInGreyIfNotCached(page, getView());
         }
@@ -833,7 +835,6 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
         @Override
         public void onSecondaryActionClick(@Nullable ReadingListPage page, @NonNull View view) {
-
             if (page != null) {
                 if (shouldForceDownloadOverMobileData()
                         && page.status() == ReadingListPage.STATUS_QUEUE_FOR_SAVE) {
@@ -936,14 +937,14 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             int pagePosition = getPagePositionInList(event.getPage());
             if (pagePosition != -1) {
                 displayedPages.get(pagePosition).downloadProgress(event.getPage().downloadProgress());
-                adapter.notifyDataSetChanged();
+                adapter.notifyItemChanged(pagePosition + 1);
             }
         }
     }
 
     private int getPagePositionInList(ReadingListPage page) {
         for (ReadingListPage readingListPage : displayedPages) {
-            if (readingListPage.title().equals(page.title())) {
+            if (readingListPage.id() == page.id()) {
                 return displayedPages.indexOf(readingListPage);
             }
         }

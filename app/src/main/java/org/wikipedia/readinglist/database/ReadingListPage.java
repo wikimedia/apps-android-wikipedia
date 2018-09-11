@@ -34,8 +34,8 @@ public class ReadingListPage {
 
     private long revId;
     private long remoteId;
-    private int downloadProgress;
 
+    private transient int downloadProgress;
     private transient boolean selected;
     @Nullable private transient String accentAndCaseInvariantTitle;
 

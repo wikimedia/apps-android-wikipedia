@@ -60,7 +60,7 @@
         android:layout_marginStart="16dp"
         android:paddingEnd="8dp"
         app:layout_constraintBottom_toTopOf="@id/page_list_item_description"
-        app:layout_constraintEnd_toStartOf="@id/page_list_secondary_container"
+        app:layout_constraintEnd_toStartOf="@id/page_list_item_secondary_container"
         app:layout_constraintStart_toEndOf="@id/page_list_item_image"
         app:layout_constraintTop_toBottomOf="@id/page_list_header_text"
         app:layout_constraintVertical_chainStyle="packed"
@@ -80,7 +80,7 @@
         tools:text="Lorem ipsum" />
 
     <FrameLayout
-        android:id="@+id/page_list_secondary_container"
+        android:id="@+id/page_list_item_secondary_container"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginEnd="16dp"
@@ -88,12 +88,12 @@
         app:layout_constraintEnd_toStartOf="@id/page_list_item_action_primary"
         app:layout_constraintTop_toTopOf="@id/page_list_item_title">
         <org.wikipedia.views.CircularProgressBar
-            android:id="@+id/circular_progress_bar"
+            android:id="@+id/page_list_item_circular_progress_bar"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="center"
             android:visibility="gone"
-            app:progressBackgroundColor="?attr/material_theme_de_emphasised_color"
+            app:progressBackgroundColor="?attr/chart_shade5"
             app:progressColor="?attr/colorAccent" />
         <ImageView
             android:id="@+id/page_list_item_action_secondary"
