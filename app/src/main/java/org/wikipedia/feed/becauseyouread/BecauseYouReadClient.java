@@ -6,14 +6,12 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.Constants;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.restbase.RbRelatedPages;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.feed.FeedCoordinator;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.bottomcontent.MainPageReadMoreTopicTask;
-import org.wikipedia.search.FullTextSearchClient;
 import org.wikipedia.search.RelatedPagesSearchClient;
 import org.wikipedia.util.log.L;
 
@@ -23,9 +21,8 @@ import java.util.List;
 
 import retrofit2.Call;
 
-public class BecauseYouReadClient extends FullTextSearchClient implements FeedClient {
+public class BecauseYouReadClient implements FeedClient {
     @Nullable private MainPageReadMoreTopicTask readMoreTopicTask;
-    @Nullable private Call<MwQueryResponse> fullTextSearchCall;
 
     @Override public void request(@NonNull Context context, @NonNull final WikiSite wiki, int age,
                                   @NonNull final FeedClient.Callback cb) {
@@ -51,10 +48,6 @@ public class BecauseYouReadClient extends FullTextSearchClient implements FeedCl
         if (readMoreTopicTask != null) {
             readMoreTopicTask.cancel();
             readMoreTopicTask = null;
-        }
-        if (fullTextSearchCall != null) {
-            fullTextSearchCall.cancel();
-            fullTextSearchCall = null;
         }
     }
 

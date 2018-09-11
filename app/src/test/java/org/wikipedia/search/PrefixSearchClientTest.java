@@ -1,95 +1,73 @@
 package org.wikipedia.search;
 
-import android.support.annotation.NonNull;
-
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
-import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
-import org.wikipedia.dataclient.okhttp.HttpStatusException;
-import org.wikipedia.test.MockWebServerTest;
+import org.wikipedia.test.MockRetrofitTest;
 
-import retrofit2.Call;
+import io.reactivex.Observable;
+import io.reactivex.observers.TestObserver;
 
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.eq;
-import static org.mockito.Matchers.isA;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
-
-public class PrefixSearchClientTest extends MockWebServerTest {
+public class PrefixSearchClientTest extends MockRetrofitTest {
     private static final WikiSite TESTWIKI = new WikiSite("test.wikimedia.org");
-    private final PrefixSearchClient subject = new PrefixSearchClient();
+    private static final int BATCH_SIZE = 20;
+
+    private Observable<SearchResults> getObservable() {
+        return getApiService().prefixSearch("foo", BATCH_SIZE, "foo")
+                .map(response -> {
+                    if (response != null && response.success() && response.query().pages() != null) {
+                        // noinspection ConstantConditions
+                        return new SearchResults(response.query().pages(), TESTWIKI, response.continuation(),
+                                response.suggestion());
+                    } else if (response != null && response.hasError()) {
+                        // noinspection ConstantConditions
+                        throw new MwException(response.getError());
+                    }
+                    return new SearchResults();
+                });
+    }
 
     @Test public void testRequestSuccess() throws Throwable {
         enqueueFromFile("prefix_search_results.json");
+        TestObserver<SearchResults> observer = new TestObserver<>();
+        getObservable().subscribe(observer);
 
-        PrefixSearchClient.Callback cb = mock(PrefixSearchClient.Callback.class);
-        Call<PrefixSearchResponse> call = request("foo", cb);
-
-        server().takeRequest();
-        assertCallbackSuccess(call, cb);
+        observer.assertComplete().assertNoErrors()
+                .assertValue(result -> result.getResults().get(0).getPageTitle().getDisplayText().equals("Narthecium"));
     }
 
     @Test public void testRequestSuccessNoResults() throws Throwable {
         enqueueFromFile("prefix_search_results_empty.json");
+        TestObserver<SearchResults> observer = new TestObserver<>();
+        getObservable().subscribe(observer);
 
-        PrefixSearchClient.Callback cb = mock(PrefixSearchClient.Callback.class);
-        Call<PrefixSearchResponse> call = request("bar", cb);
-
-        server().takeRequest();
-        assertCallbackSuccess(call, cb);
+        observer.assertComplete().assertNoErrors()
+                .assertValue(result -> result.getResults().isEmpty());
     }
 
     @Test public void testRequestResponseApiError() throws Throwable {
         enqueueFromFile("api_error.json");
+        TestObserver<SearchResults> observer = new TestObserver<>();
+        getObservable().subscribe(observer);
 
-        PrefixSearchClient.Callback cb = mock(PrefixSearchClient.Callback.class);
-        Call<PrefixSearchResponse> call = request("foo", cb);
-
-        server().takeRequest();
-        assertCallbackFailure(call, cb, MwException.class);
+        observer.assertError(Exception.class);
     }
 
     @Test public void testRequestResponseFailure() throws Throwable {
         enqueue404();
+        TestObserver<SearchResults> observer = new TestObserver<>();
+        getObservable().subscribe(observer);
 
-        PrefixSearchClient.Callback cb = mock(PrefixSearchClient.Callback.class);
-        Call<PrefixSearchResponse> call = request("foo", cb);
-
-        server().takeRequest();
-        assertCallbackFailure(call, cb, HttpStatusException.class);
+        observer.assertError(Exception.class);
     }
 
     @Test public void testRequestResponseMalformed() throws Throwable {
         server().enqueue("'");
+        TestObserver<SearchResults> observer = new TestObserver<>();
+        getObservable().subscribe(observer);
 
-        PrefixSearchClient.Callback cb = mock(PrefixSearchClient.Callback.class);
-        Call<PrefixSearchResponse> call = request("foo", cb);
-
-        server().takeRequest();
-        assertCallbackFailure(call, cb, MalformedJsonException.class);
-    }
-
-    private void assertCallbackSuccess(@NonNull Call<PrefixSearchResponse> call,
-                                       @NonNull PrefixSearchClient.Callback cb) {
-        verify(cb).success(eq(call), any(SearchResults.class));
-        //noinspection unchecked
-        verify(cb, never()).failure(any(Call.class), any(Throwable.class));
-    }
-
-    private void assertCallbackFailure(@NonNull Call<PrefixSearchResponse> call,
-                                       @NonNull PrefixSearchClient.Callback cb,
-                                       @NonNull Class<? extends Throwable> throwable) {
-        //noinspection unchecked
-        verify(cb, never()).success(any(Call.class), any(SearchResults.class));
-        verify(cb).failure(eq(call), isA(throwable));
-    }
-
-    private Call<PrefixSearchResponse> request(@NonNull String title, @NonNull PrefixSearchClient.Callback cb) {
-        return subject.request(service(Service.class), TESTWIKI, title, cb);
+        observer.assertError(MalformedJsonException.class);
     }
 }
