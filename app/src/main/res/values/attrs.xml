@@ -76,4 +76,13 @@
         <attr name="tickDrawable" format="reference" />
         <attr name="centerDrawable" format="reference" />
     </declare-styleable>
+
+
+    <declare-styleable name="CircularProgressBar">
+
+        <attr name="progressColor" format="color" />
+        <attr name="progressBackgroundColor" format="color" />
+        <attr name="progressStrokeWidth" format="dimension" />
+
+    </declare-styleable>
 </resources>

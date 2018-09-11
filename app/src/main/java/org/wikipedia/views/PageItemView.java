@@ -28,12 +28,14 @@ import butterknife.OnClick;
 import butterknife.OnLongClick;
 
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
+import static org.wikipedia.views.CircularProgressBar.MAX_PROGRESS;
 
 /*
  * TODO: Use this for future RecyclerView updates where we show a list of pages
  * (e.g. History, Search, Disambiguation)
  */
 public class PageItemView<T> extends ConstraintLayout {
+
     public interface Callback<T> {
         void onClick(@Nullable T item);
         boolean onLongClick(@Nullable T item);
@@ -49,6 +51,7 @@ public class PageItemView<T> extends ConstraintLayout {
     @BindView(R.id.page_list_item_action_secondary) ImageView secondaryActionView;
     @BindView(R.id.page_list_item_selected_image) View imageSelectedView;
     @BindView(R.id.page_list_header_text) GoneIfEmptyTextView headerView;
+    @BindView(R.id.circular_progress_bar) CircularProgressBar circularProgressBar;
 
     @Nullable private Callback<T> callback;
     @Nullable private T item;
@@ -97,6 +100,16 @@ public class PageItemView<T> extends ConstraintLayout {
             secondaryActionView.setImageResource(id);
         }
         secondaryActionView.setVisibility(show ? VISIBLE : GONE);
+
+        circularProgressBar.setMaxProgress(MAX_PROGRESS);
+    }
+
+    public void makeProgress(int progress) {
+        circularProgressBar.setCurrentProgress(progress);
+    }
+
+    public void setCircularProgressVisibility(int visibility) {
+        circularProgressBar.setVisibility(visibility);
     }
 
     public void setSecondaryActionHint(@StringRes int id) {
