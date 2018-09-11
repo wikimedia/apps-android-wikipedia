@@ -36,6 +36,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.concurrency.CallbackTask;
+import org.wikipedia.events.ArticleSavedOrDeletedEvent;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.main.MainFragment;
@@ -90,6 +91,8 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
     private ReadingListsSearchCallback searchActionModeCallback = new ReadingListsSearchCallback();
     @Nullable private ActionMode actionMode;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
+    private static final int SAVE_COUNT_LIMIT = 3;
+
 
     @NonNull public static ReadingListsFragment newInstance() {
         return new ReadingListsFragment();
@@ -564,6 +567,26 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
                     updateLists();
                 }
             });
+        }
+
+        @Subscribe
+        public void on(ArticleSavedOrDeletedEvent event) {
+            if (event.isAdded()) {
+                if (Prefs.getReadingListsPageSaveCount() < SAVE_COUNT_LIMIT) {
+                    showReadingListsSyncDialog();
+                    Prefs.setReadingListsPageSaveCount(Prefs.getReadingListsPageSaveCount() + 1);
+                }
+            }
+        }
+    }
+
+    private void showReadingListsSyncDialog() {
+        if (!Prefs.isReadingListSyncEnabled()) {
+            if (AccountUtil.isLoggedIn()) {
+                ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(requireActivity());
+            } else {
+                ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(requireActivity());
+            }
         }
     }
 

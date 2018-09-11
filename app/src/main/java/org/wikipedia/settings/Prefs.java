@@ -436,6 +436,14 @@ public final class Prefs {
         setInt(R.string.preference_key_reading_list_sort_mode, sortMode);
     }
 
+    public static int getReadingListsPageSaveCount() {
+        return getInt(R.string.preference_key_save_count_reading_lists, 0);
+    }
+
+    public static void setReadingListsPageSaveCount(int saveCount) {
+        setInt(R.string.preference_key_save_count_reading_lists, saveCount);
+    }
+
     public static int getReadingListPageSortMode(int defaultValue) {
         return getInt(R.string.preference_key_reading_list_page_sort_mode, defaultValue);
     }

@@ -97,4 +97,5 @@
     <string name="preference_key_download_reading_list_articles">downloadReadingListArticles</string>
     <string name="preference_key_locally_known_notifications">locallyKnownNotifications</string>
     <string name="preference_key_remote_notifications_seen_time">remoteNotificationsSeenTime</string>
+    <string name="preference_key_save_count_reading_lists">saveCountReadingLists</string>
 </resources>

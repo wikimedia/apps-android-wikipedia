@@ -181,7 +181,7 @@ public class ReadingListDbHelper {
             }
             db.setTransactionSuccessful();
 
-            WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(pages.toArray(new ReadingListPage[]{})));
+            WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(true, pages.toArray(new ReadingListPage[]{})));
         } finally {
             db.endTransaction();
         }
@@ -214,8 +214,7 @@ public class ReadingListDbHelper {
     private void addPageToList(SQLiteDatabase db, @NonNull ReadingList list, @NonNull PageTitle title) {
         ReadingListPage protoPage = new ReadingListPage(title);
         insertPageInDb(db, list, protoPage);
-
-        WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(protoPage));
+        WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(true, protoPage));
     }
 
     public void markPagesForDeletion(@NonNull ReadingList list, @NonNull List<ReadingListPage> pages) {
@@ -235,7 +234,7 @@ public class ReadingListDbHelper {
                 ReadingListSyncAdapter.manualSyncWithDeletePages(list, pages);
             }
 
-            WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(pages.toArray(new ReadingListPage[]{})));
+            WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(false, pages.toArray(new ReadingListPage[]{})));
         } finally {
             db.endTransaction();
         }
