@@ -17,18 +17,17 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.WiktionaryDialogFunnel;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.page.PageClient;
-import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.restbase.RbDefinition;
-import org.wikipedia.dataclient.restbase.page.RbPageClient;
-import org.wikipedia.dataclient.restbase.page.RbPageClient.DefinitionCallback;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.page.LinkMovementMethodExt;
-import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.AppTextView;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 import static org.wikipedia.util.StringUtil.addUnderscores;
@@ -60,6 +59,7 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
     private RbDefinition currentDefinition;
     private View rootView;
     private WiktionaryDialogFunnel funnel;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     public static WiktionaryDialog newInstance(@NonNull PageTitle title, @NonNull String selectedText) {
         WiktionaryDialog dialog = new WiktionaryDialog();
@@ -79,6 +79,12 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
         super.onCreate(savedInstanceState);
         pageTitle = getArguments().getParcelable(TITLE);
         selectedText = getArguments().getString(SELECTED_TEXT);
+    }
+
+    @Override
+    public void onDestroy() {
+        disposables.clear();
+        super.onDestroy();
     }
 
     @Override
@@ -111,38 +117,19 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
         }
 
         // TODO: centralize the Wiktionary domain better. Maybe a SharedPreference that defaults to
-        //       https://wiktionary.org.
-        PageClient pageClient = PageClientFactory.create(new WikiSite(pageTitle.getWikiSite().subdomain() + WIKTIONARY_DOMAIN), Namespace.MAIN);
-        if (pageClient instanceof RbPageClient) {
-            ((RbPageClient) pageClient).define(ServiceFactory.get(pageTitle.getWikiSite()),
-                    addUnderscores(selectedText),
-                    definitionOnLoadCallback);
-        } else {
-            L.i("Wiktionary definitions require mobile content service loading!");
-            displayNoDefinitionsFound();
-        }
+        disposables.add(ServiceFactory.get(new WikiSite(pageTitle.getWikiSite().subdomain() + WIKTIONARY_DOMAIN)).getDefinition(addUnderscores(selectedText))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(RbDefinition::new)
+                .subscribe(definition -> {
+                    progressBar.setVisibility(View.GONE);
+                    currentDefinition = definition;
+                    layOutDefinitionsByUsage();
+                }, throwable -> {
+                    displayNoDefinitionsFound();
+                    L.e(throwable);
+                }));
     }
-
-    private DefinitionCallback definitionOnLoadCallback = new DefinitionCallback() {
-        @Override
-        public void success(@NonNull RbDefinition definition) {
-            if (!isAdded()) {
-                return;
-            }
-            progressBar.setVisibility(View.GONE);
-            currentDefinition = definition;
-            layOutDefinitionsByUsage();
-        }
-
-        @Override
-        public void failure(@NonNull Throwable throwable) {
-            if (!isAdded()) {
-                return;
-            }
-            displayNoDefinitionsFound();
-            L.e(throwable);
-        }
-    };
 
     private void displayNoDefinitionsFound() {
         TextView noDefinitionsFoundView = rootView.findViewById(R.id.wiktionary_no_definitions_found);

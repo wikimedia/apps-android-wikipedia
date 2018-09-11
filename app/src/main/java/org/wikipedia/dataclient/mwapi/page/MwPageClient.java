@@ -10,6 +10,7 @@ import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.dataclient.page.PageSummary;
 
+import io.reactivex.Observable;
 import okhttp3.CacheControl;
 import retrofit2.Call;
 
@@ -24,7 +25,7 @@ public class MwPageClient implements PageClient {
     }
 
     @SuppressWarnings("unchecked")
-    @NonNull @Override public Call<? extends PageSummary> summary(@NonNull Service service, @NonNull String title, @Nullable String referrerUrl) {
+    @NonNull @Override public Observable<? extends PageSummary> summary(@NonNull Service service, @NonNull String title, @Nullable String referrerUrl) {
         return service.getSummary(referrerUrl, title, wiki.languageCode());
     }
 

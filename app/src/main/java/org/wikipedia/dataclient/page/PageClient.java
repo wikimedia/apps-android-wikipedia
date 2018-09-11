@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.dataclient.Service;
 
+import io.reactivex.Observable;
 import okhttp3.CacheControl;
 import retrofit2.Call;
 
@@ -19,9 +20,9 @@ public interface PageClient {
      *
      * @param title the page title to be used including prefix
      */
-    @NonNull <T extends PageSummary> Call<T> summary(@NonNull Service service,
-                                                     @NonNull String title,
-                                                     @Nullable String referrerUrl);
+    @NonNull <T extends PageSummary> Observable<T> summary(@NonNull Service service,
+                                                           @NonNull String title,
+                                                           @Nullable String referrerUrl);
 
     /**
      * Gets the lead section and initial metadata of a given title.
