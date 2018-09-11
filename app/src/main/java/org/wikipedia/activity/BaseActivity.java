@@ -78,6 +78,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         registerReceiver(networkStateReceiver, filter);
+
+        DeviceUtil.setLightSystemUiVisibility(this);
     }
 
     @Override protected void onDestroy() {

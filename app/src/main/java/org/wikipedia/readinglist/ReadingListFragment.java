@@ -1,6 +1,6 @@
 package org.wikipedia.readinglist;
 
-import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -58,6 +58,7 @@ import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
@@ -150,8 +151,9 @@ public class ReadingListFragment extends Fragment implements
         getAppCompatActivity().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getAppCompatActivity().getSupportActionBar().setTitle("");
 
+        resetStatusBarTheme(true);
         appBarLayout.addOnOffsetChangedListener(appBarListener);
-        toolBarLayout.setCollapsedTitleTextColor(Color.WHITE);
+        toolBarLayout.setCollapsedTitleTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_icon_color));
 
         ItemTouchHelper.Callback touchCallback = new SwipeableItemTouchHelperCallback(requireContext());
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(touchCallback);
@@ -235,6 +237,14 @@ public class ReadingListFragment extends Fragment implements
         int sortMode = Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC);
         sortByNameItem.setTitle(sortMode == ReadingList.SORT_BY_NAME_ASC ? R.string.reading_list_sort_by_name_desc : R.string.reading_list_sort_by_name);
         sortByRecentItem.setTitle(sortMode == ReadingList.SORT_BY_RECENT_DESC ? R.string.reading_list_sort_by_recent_desc : R.string.reading_list_sort_by_recent);
+
+        MenuItem searchItem = menu.findItem(R.id.menu_search_lists);
+        MenuItem sortOptionsItem = menu.findItem(R.id.menu_sort_options);
+        searchItem.getIcon().setColorFilter(toolbarExpanded ? getResources().getColor(android.R.color.white)
+                : ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_icon_color), PorterDuff.Mode.SRC_IN);
+        sortOptionsItem.getIcon().setColorFilter(toolbarExpanded ? getResources().getColor(android.R.color.white)
+                : ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_icon_color), PorterDuff.Mode.SRC_IN);
+
         if (readingList != null && readingList.isDefault()) {
             if (menu.findItem(R.id.menu_reading_list_rename) != null) {
                 menu.findItem(R.id.menu_reading_list_rename).setVisible(false);
@@ -289,6 +299,19 @@ public class ReadingListFragment extends Fragment implements
 
     private AppCompatActivity getAppCompatActivity() {
         return (AppCompatActivity) getActivity();
+    }
+
+    private void resetStatusBarTheme(boolean reset) {
+        if (toolbar != null) {
+            if (reset) {
+                DeviceUtil.resetSystemUiVisibility(requireActivity());
+            } else {
+                DeviceUtil.setLightSystemUiVisibility(requireActivity());
+            }
+
+            toolbar.getNavigationIcon().setColorFilter(reset ? getResources().getColor(android.R.color.white)
+                    : ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_icon_color), PorterDuff.Mode.SRC_IN);
+        }
     }
 
     private void update() {
@@ -680,6 +703,11 @@ public class ReadingListFragment extends Fragment implements
                 getAppCompatActivity().supportInvalidateOptionsMenu();
                 toolbarExpanded = false;
             }
+
+            // FIXME: reset status bar theme will make the swipeRefreshLayout goes wrong on swiping
+            resetStatusBarTheme(toolbarExpanded);
+            // prevent swiping when collapsing the view
+            swipeRefreshLayout.setEnabled(verticalOffset == 0);
         }
     }
 

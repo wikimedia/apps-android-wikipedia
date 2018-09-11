@@ -7,6 +7,7 @@ import android.content.pm.ResolveInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.theme.Theme;
 import org.wikipedia.util.log.L;
 
 import java.util.List;
@@ -68,6 +70,23 @@ public final class DeviceUtil {
 
     public static void setWindowSoftInputModeResizable(Activity activity) {
         activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+    }
+
+    public static void setLightSystemUiVisibility(@NonNull Activity activity) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (WikipediaApp.getInstance().getCurrentTheme() == Theme.LIGHT) {
+                // this make the system recognizes the status bar is light and will make status bar icons become visible
+                activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            } else {
+                resetSystemUiVisibility(activity);
+            }
+        }
+    }
+
+    public static void resetSystemUiVisibility(@NonNull Activity activity) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            activity.getWindow().getDecorView().setSystemUiVisibility(0);
+        }
     }
 
     public static boolean isLocationServiceEnabled(@NonNull Context context) {

@@ -39,9 +39,9 @@
         android:layout_gravity="top|end"
         android:contentDescription="@string/nearby_zoom_to_location"
         app:useCompatPadding="true"
-        app:backgroundTint="?attr/colorAccent"
+        app:backgroundTint="@android:color/white"
         app:borderWidth="0dp"
         app:elevation="4dp"
-        app:srcCompat="@drawable/ic_my_location_white_24dp" />
+        app:srcCompat="@drawable/ic_my_location_24dp" />
 
 </FrameLayout>

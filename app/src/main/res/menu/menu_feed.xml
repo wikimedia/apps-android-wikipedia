@@ -11,10 +11,10 @@
     -->
     <item android:id="@+id/menu_feed_search"
         android:title="@string/search_hint"
-        android:icon="@drawable/ic_search_white_24dp"
+        android:icon="@drawable/ic_search_main_themed_24dp"
         app:showAsAction="always"/>
     <item android:id="@+id/menu_overflow_button"
         android:title="@string/menu_feed_overflow_label"
-        android:icon="@drawable/ic_more_vert_white_24dp"
+        android:icon="@drawable/ic_more_vert_main_themed_24dp"
         app:showAsAction="always"/>
 </menu>

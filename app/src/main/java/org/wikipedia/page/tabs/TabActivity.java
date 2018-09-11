@@ -26,6 +26,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
@@ -107,6 +108,7 @@ public class TabActivity extends BaseActivity {
         funnel.logEnterList(app.getTabCount());
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            DeviceUtil.resetSystemUiVisibility(this);
             setStatusBarColor(R.color.base20);
         }
         setSupportActionBar(tabToolbar);

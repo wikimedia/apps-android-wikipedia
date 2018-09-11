@@ -19,7 +19,7 @@
         style="@style/ToolbarStyle"
         android:background="?attr/main_toolbar_color"
         android:theme="@style/ToolbarTheme"
-        app:titleTextColor="@android:color/white"
+        app:titleTextColor="?attr/main_toolbar_title_color"
         android:elevation="4dp">
 
         <ImageView
@@ -27,6 +27,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/feed_header_wordmark"
+            app:tint="?attr/main_toolbar_title_color"
             android:contentDescription="@null"/>
 
     </android.support.v7.widget.Toolbar>

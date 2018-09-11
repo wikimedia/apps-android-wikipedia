@@ -49,7 +49,7 @@
                             android:layout_marginBottom="4dp"
                             android:layout_marginEnd="8dp"
                             android:fontFamily="serif"
-                            android:textColor="?attr/primary_text_color"
+                            android:textColor="?attr/main_toolbar_title_color"
                             android:textSize="24sp"
                             android:textStyle="normal"
                             android:transitionName="@string/transition_on_this_day"
@@ -60,7 +60,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:tint="@color/base100"
+                            android:tint="?attr/main_toolbar_icon_color"
                             app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp" />
                     </LinearLayout>
 
@@ -70,7 +70,7 @@
                         android:alpha="0.5"
                         android:text="@string/on_this_day_card_title"
                         android:textAllCaps="true"
-                        android:textColor="@color/base100"
+                        android:textColor="?attr/main_toolbar_title_color"
                         android:textSize="14sp" />
 
                     <TextView
@@ -79,7 +79,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:alpha="0.5"
-                        android:textColor="@color/base100"
+                        android:textColor="?attr/main_toolbar_title_color"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -92,7 +92,7 @@
                     android:layout_marginBottom="-36dp"
                     android:alpha="0.5"
                     android:contentDescription="@null"
-                    android:tint="@color/base100"
+                    android:tint="?attr/main_toolbar_icon_color"
                     app:srcCompat="@drawable/ic_event_black_24dp" />
             </FrameLayout>
 
@@ -118,7 +118,7 @@
                         android:fontFamily="sans-serif-medium"
                         android:letterSpacing="0.01"
                         android:lineSpacingExtra="8sp"
-                        android:textColor="@color/base100"
+                        android:textColor="?attr/main_toolbar_title_color"
                         android:textSize="20sp"
                         android:gravity="center_vertical"
                         android:textStyle="normal"
@@ -128,7 +128,7 @@
                         android:id="@+id/drop_down_toolbar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:tint="@color/base100"
+                        android:tint="?attr/main_toolbar_icon_color"
                         app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp" />
                 </LinearLayout>
 
@@ -145,7 +145,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:contentDescription="@null"
-                        android:tint="@color/base100"
+                        android:tint="?attr/main_toolbar_icon_color"
                         app:srcCompat="@drawable/ic_empty_event" />
 
                     <TextView
@@ -155,7 +155,7 @@
                         android:layout_marginStart="6dp"
                         android:layout_marginTop="8dp"
                         style="@style/TextViewCentered"
-                        android:textColor="@color/base100"
+                        android:textColor="?attr/main_toolbar_title_color"
                         android:textSize="8sp"
                         tools:text="12" />
                 </FrameLayout>

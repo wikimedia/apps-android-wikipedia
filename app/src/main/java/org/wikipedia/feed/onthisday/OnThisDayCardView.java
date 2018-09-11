@@ -151,7 +151,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
         headerView.setTitle(card.title())
                 .setSubtitle(card.subtitle())
                 .setImage(R.drawable.ic_otd_icon)
-                .setImageCircleColor(ResourceUtil.getThemedAttributeId(getContext(), R.attr.main_toolbar_color))
+                .setImageCircleColor(ResourceUtil.getThemedAttributeId(getContext(), R.attr.colorAccent))
                 .setLangCode(card.wikiSite().languageCode())
                 .setCard(card)
                 .setCallback(getCallback());

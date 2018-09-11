@@ -32,7 +32,7 @@ public class ThemeFittingRoomFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_theme_fitting_room, container, false);
         unbinder = ButterKnife.bind(this, view);
 
@@ -53,7 +53,7 @@ public class ThemeFittingRoomFragment extends Fragment {
 
     private void updateTextSize() {
         final float titleMultiplier = 1.6f;
-        float fontSize = WikipediaApp.getInstance().getFontSize(getActivity().getWindow());
+        float fontSize = WikipediaApp.getInstance().getFontSize(requireActivity().getWindow());
         testText.setTextSize(fontSize);
         testTitle.setTextSize(fontSize * titleMultiplier);
     }

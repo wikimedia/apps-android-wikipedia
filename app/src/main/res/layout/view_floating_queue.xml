@@ -63,7 +63,7 @@
             android:lineSpacingExtra="2sp"
             android:gravity="center"
             android:textAlignment="center"
-            android:background="@drawable/tab_counts_shape_border"
+            android:background="?attr/tab_counts_shape_border"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="parent"

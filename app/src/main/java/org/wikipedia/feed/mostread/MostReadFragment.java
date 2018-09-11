@@ -50,11 +50,11 @@ public class MostReadFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_most_read, container, false);
         unbinder = ButterKnife.bind(this, view);
-        MostReadListCard card = GsonUnmarshaller.unmarshal(MostReadListCard.class, getActivity().getIntent().getStringExtra(MOST_READ_CARD));
+        MostReadListCard card = GsonUnmarshaller.unmarshal(MostReadListCard.class, requireActivity().getIntent().getStringExtra(MOST_READ_CARD));
 
         getAppCompatActivity().getSupportActionBar().setTitle(String.format(getString(R.string.top_on_this_day), card.subtitle()));
 
@@ -72,7 +72,7 @@ public class MostReadFragment extends Fragment {
 
     private void initRecycler() {
         mostReadLinks.setLayoutManager(new LinearLayoutManager(getContext()));
-        mostReadLinks.addItemDecoration(new DrawableItemDecoration(getContext(), R.attr.list_separator_drawable));
+        mostReadLinks.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable));
         mostReadLinks.setNestedScrollingEnabled(false);
     }
 
@@ -85,13 +85,14 @@ public class MostReadFragment extends Fragment {
             this.callback = callback;
         }
 
+        @NonNull
         @Override
-        public DefaultViewHolder<ListCardItemView> onCreateViewHolder(ViewGroup parent, int viewType) {
+        public DefaultViewHolder<ListCardItemView> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             return new DefaultViewHolder<>(new ListCardItemView(parent.getContext()));
         }
 
         @Override
-        public void onBindViewHolder(DefaultViewHolder<ListCardItemView> holder, int position) {
+        public void onBindViewHolder(@NonNull DefaultViewHolder<ListCardItemView> holder, int position) {
             MostReadItemCard card = item(position);
             holder.getView().setCard(card)
                     .setHistoryEntry(new HistoryEntry(card.pageTitle(),
@@ -107,7 +108,7 @@ public class MostReadFragment extends Fragment {
     private class Callback implements ListCardItemView.Callback {
         @Override
         public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry) {
-            startActivity(PageActivity.newIntentForNewTab(getContext(), entry, entry.getTitle()));
+            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
         }
 
         @Override

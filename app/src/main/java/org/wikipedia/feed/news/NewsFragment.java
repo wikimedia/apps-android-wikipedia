@@ -1,5 +1,6 @@
 package org.wikipedia.feed.news;
 
+import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -26,7 +27,9 @@ import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.GradientUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
@@ -66,7 +69,7 @@ public class NewsFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_news, container, false);
         unbinder = ButterKnife.bind(this, view);
@@ -76,13 +79,19 @@ public class NewsFragment extends Fragment {
         getAppCompatActivity().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getAppCompatActivity().getSupportActionBar().setTitle("");
 
-        NewsItem item = GsonUnmarshaller.unmarshal(NewsItem.class, getActivity().getIntent().getStringExtra(EXTRA_NEWS_ITEM));
-        WikiSite wiki = GsonUnmarshaller.unmarshal(WikiSite.class, getActivity().getIntent().getStringExtra(EXTRA_WIKI));
+        NewsItem item = GsonUnmarshaller.unmarshal(NewsItem.class, requireActivity().getIntent().getStringExtra(EXTRA_NEWS_ITEM));
+        WikiSite wiki = GsonUnmarshaller.unmarshal(WikiSite.class, requireActivity().getIntent().getStringExtra(EXTRA_WIKI));
 
         Uri imageUri = item.featureImage();
         if (imageUri == null) {
             appBarLayout.setExpanded(false, false);
         }
+
+        resetStatusBarTheme(true);
+        appBarLayout.addOnOffsetChangedListener((layout, offset) ->
+                resetStatusBarTheme((layout.getTotalScrollRange() + offset) > layout.getTotalScrollRange() / 2)
+        );
+
         image.loadImage(imageUri);
         text.setText(stripHtml(item.story()));
         initRecycler();
@@ -97,13 +106,26 @@ public class NewsFragment extends Fragment {
     }
 
     private AppCompatActivity getAppCompatActivity() {
-        return (AppCompatActivity) getActivity();
+        return (AppCompatActivity) requireActivity();
     }
 
     private void initRecycler() {
-        links.setLayoutManager(new LinearLayoutManager(getContext()));
-        links.addItemDecoration(new DrawableItemDecoration(getContext(), R.attr.list_separator_drawable));
+        links.setLayoutManager(new LinearLayoutManager(requireContext()));
+        links.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable));
         links.setNestedScrollingEnabled(false);
+    }
+
+    private void resetStatusBarTheme(boolean reset) {
+        if (toolbar != null) {
+            if (reset) {
+                DeviceUtil.resetSystemUiVisibility(requireActivity());
+            } else {
+                DeviceUtil.setLightSystemUiVisibility(requireActivity());
+            }
+
+            toolbar.getNavigationIcon().setColorFilter(reset ? getResources().getColor(android.R.color.white)
+                    : ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_icon_color), PorterDuff.Mode.SRC_IN);
+        }
     }
 
     private static class RecyclerAdapter extends DefaultRecyclerAdapter<NewsLinkCard, ListCardItemView> {
@@ -114,12 +136,13 @@ public class NewsFragment extends Fragment {
             this.callback = callback;
         }
 
-        @Override public DefaultViewHolder<ListCardItemView> onCreateViewHolder(ViewGroup parent, int viewType) {
+        @NonNull
+        @Override public DefaultViewHolder<ListCardItemView> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             return new DefaultViewHolder<>(new ListCardItemView(parent.getContext()));
         }
 
         @Override
-        public void onBindViewHolder(DefaultViewHolder<ListCardItemView> holder, int position) {
+        public void onBindViewHolder(@NonNull DefaultViewHolder<ListCardItemView> holder, int position) {
             NewsLinkCard card = item(position);
             holder.getView().setCard(card)
                     .setHistoryEntry(new HistoryEntry(card.pageTitle(), HistoryEntry.SOURCE_NEWS))
@@ -130,7 +153,7 @@ public class NewsFragment extends Fragment {
     private class Callback implements ListCardItemView.Callback {
         @Override
         public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry) {
-            startActivity(PageActivity.newIntentForNewTab(getContext(), entry, entry.getTitle()));
+            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
         }
 
         @Override
@@ -147,7 +170,7 @@ public class NewsFragment extends Fragment {
 
         @Override
         public void onSharePage(@NonNull HistoryEntry entry) {
-            ShareUtil.shareText(getActivity(), entry.getTitle());
+            ShareUtil.shareText(requireActivity(), entry.getTitle());
         }
     }
 

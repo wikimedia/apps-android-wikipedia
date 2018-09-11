@@ -252,7 +252,7 @@ public class LoginActivity extends BaseActivity {
             }
 
             @Override
-            public void twoFactorPrompt(@NonNull Throwable caught, @NonNull String token) {
+            public void twoFactorPrompt(@NonNull Throwable caught, @Nullable String token) {
                 if (!progressDialog.isShowing()) {
                     // no longer attached to activity!
                     return;

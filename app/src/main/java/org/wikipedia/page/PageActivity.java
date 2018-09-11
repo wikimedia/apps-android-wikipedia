@@ -64,7 +64,6 @@ import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.views.ObservableWebView;
@@ -163,7 +162,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         pageFragment = (PageFragment) getSupportFragmentManager().findFragmentById(R.id.page_fragment);
 
-        setStatusBarColor(ResourceUtil.getThemedAttributeId(this, R.attr.page_status_bar_color));
         setSupportActionBar(toolbar);
         clearActionBarTitle();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -817,7 +815,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             Menu menu = mode.getMenu();
             menu.clear();
             mode.getMenuInflater().inflate(R.menu.menu_text_select, menu);
-            ViewUtil.setCloseButtonInActionMode(pageFragment.getContext(), mode);
+            ViewUtil.setCloseButtonInActionMode(pageFragment.requireContext(), mode);
             pageFragment.onActionModeShown(mode);
         }
     }

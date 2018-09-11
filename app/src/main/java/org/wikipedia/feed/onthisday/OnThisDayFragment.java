@@ -2,7 +2,6 @@ package org.wikipedia.feed.onthisday;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -120,7 +119,8 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
                     return;
                 }
                 updateContents(age);
-                ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), dayText.getCurrentTextColor(), Color.WHITE);
+                ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), dayText.getCurrentTextColor(),
+                        ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_title_color));
                 colorAnimation.addUpdateListener(animator -> {
                     if (dayText != null) {
                         dayText.setTextColor((Integer) animator.getAnimatedValue());
@@ -129,7 +129,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
                 colorAnimation.start();
             }, animDelay);
         } else {
-            dayText.setTextColor(Color.WHITE);
+            dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_title_color));
             updateContents(age);
         }
 
@@ -196,7 +196,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         getAppCompatActivity().setSupportActionBar(toolbar);
         getAppCompatActivity().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getAppCompatActivity().getSupportActionBar().setTitle("");
-        collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
+        collapsingToolbarLayout.setCollapsedTitleTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_title_color));
         dayText.setText(DateUtil.getMonthOnlyDateString(date.getTime()));
         indicatorLayout.setAlpha((date.get(Calendar.MONTH) == Calendar.getInstance().get(Calendar.MONTH) && date.get(Calendar.DATE) == Calendar.getInstance().get(Calendar.DATE)) ? HALF_ALPHA : 1.0f);
         indicatorDate.setText(String.format(Locale.getDefault(), "%d", Calendar.getInstance().get(Calendar.DATE)));

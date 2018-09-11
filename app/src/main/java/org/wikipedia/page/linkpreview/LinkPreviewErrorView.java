@@ -77,6 +77,9 @@ public class LinkPreviewErrorView extends LinearLayout {
 
         @Override public void onSecondaryClick() {
         }
+
+        @Override public void onTertiaryClick() {
+        }
     }
 
     private class OverlayViewDismissCallback implements LinkPreviewOverlayView.Callback {
@@ -87,6 +90,9 @@ public class LinkPreviewErrorView extends LinearLayout {
         }
 
         @Override public void onSecondaryClick() {
+        }
+
+        @Override public void onTertiaryClick() {
         }
     }
 }

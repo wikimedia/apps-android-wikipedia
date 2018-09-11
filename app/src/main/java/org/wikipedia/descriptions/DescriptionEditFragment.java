@@ -66,7 +66,7 @@ public class DescriptionEditFragment extends Fragment {
                 return;
             }
             editView.setSaveState(false);
-            startActivityForResult(DescriptionEditSuccessActivity.newIntent(getContext()),
+            startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext()),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS);
         }
     };
@@ -93,7 +93,7 @@ public class DescriptionEditFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_description_edit, container, false);
         unbinder = ButterKnife.bind(this, view);
@@ -142,8 +142,8 @@ public class DescriptionEditFragment extends Fragment {
     }
 
     private void finish() {
-        hideSoftKeyboard(getActivity());
-        getActivity().finish();
+        hideSoftKeyboard(requireActivity());
+        requireActivity().finish();
     }
 
     private Callback callback() {
@@ -246,7 +246,7 @@ public class DescriptionEditFragment extends Fragment {
 
         @Override
         public void onHelpClick() {
-            startActivity(DescriptionEditHelpActivity.newIntent(getContext()));
+            startActivity(DescriptionEditHelpActivity.newIntent(requireContext()));
         }
 
         @Override

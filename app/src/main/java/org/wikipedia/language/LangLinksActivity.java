@@ -31,7 +31,6 @@ import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.SiteInfoClient;
-import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.ViewAnimations;
@@ -84,7 +83,6 @@ public class LangLinksActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStatusBarColor(ResourceUtil.getThemedAttributeId(this, R.attr.page_status_bar_color));
         setContentView(R.layout.activity_langlinks);
         ButterKnife.bind(this);
         app = WikipediaApp.getInstance();

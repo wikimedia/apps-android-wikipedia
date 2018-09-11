@@ -62,7 +62,7 @@ public class EditPreviewFragment extends Fragment {
     private EditFunnel funnel;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View parent = inflater.inflate(R.layout.fragment_preview_edit, container, false);
         webview = parent.findViewById(R.id.edit_preview_webview);
         previewContainer = parent.findViewById(R.id.edit_preview_container);
@@ -205,7 +205,7 @@ public class EditPreviewFragment extends Fragment {
                  */
                 private void showLeavingEditDialogue(final Runnable runnable) {
                     //Ask the user if they really meant to leave the edit workflow
-                    final AlertDialog leavingEditDialog = new AlertDialog.Builder(getActivity())
+                    final AlertDialog leavingEditDialog = new AlertDialog.Builder(requireActivity())
                             .setMessage(R.string.dialog_message_leaving_edit)
                             .setPositiveButton(R.string.dialog_message_leaving_edit_leave, (dialog, which) -> {
                                 //They meant to leave; close dialogue and run specified action
@@ -234,7 +234,7 @@ public class EditPreviewFragment extends Fragment {
         }
 
         ViewAnimations.fadeIn(previewContainer, () -> parentActivity.supportInvalidateOptionsMenu());
-        ViewAnimations.fadeOut(getActivity().findViewById(R.id.edit_section_container));
+        ViewAnimations.fadeOut(requireActivity().findViewById(R.id.edit_section_container));
 
         JSONObject payload = new JSONObject();
         try {
@@ -254,7 +254,7 @@ public class EditPreviewFragment extends Fragment {
      * @param wikiText The text of the section to be shown in the Preview.
      */
     public void showPreview(final PageTitle title, final String wikiText) {
-        hideSoftKeyboard(getActivity());
+        hideSoftKeyboard(requireActivity());
         progressDialog.show();
 
         new EditPreviewClient().request(parentActivity.getPageTitle().getWikiSite(), title, wikiText,
@@ -329,7 +329,7 @@ public class EditPreviewFragment extends Fragment {
      * When fade-out completes, the state of the actionbar button(s) is updated.
      */
     public void hide() {
-        View editSectionContainer = getActivity().findViewById(R.id.edit_section_container);
+        View editSectionContainer = requireActivity().findViewById(R.id.edit_section_container);
         ViewAnimations.crossFade(previewContainer, editSectionContainer, () -> parentActivity.supportInvalidateOptionsMenu());
     }
 
@@ -338,7 +338,7 @@ public class EditPreviewFragment extends Fragment {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString("previewHTML", previewHTML);
         outState.putBoolean("isActive", isActive());

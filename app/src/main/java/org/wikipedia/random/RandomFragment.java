@@ -58,14 +58,14 @@ public class RandomFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_random, container, false);
         unbinder = ButterKnife.bind(this, view);
         FeedbackUtil.setToolbarButtonLongPressToast(nextButton, saveButton);
 
         randomPager.setOffscreenPageLimit(2);
-        randomPager.setAdapter(new RandomItemAdapter((AppCompatActivity) getActivity()));
+        randomPager.setAdapter(new RandomItemAdapter((AppCompatActivity) requireActivity()));
         randomPager.setPageTransformer(true, new RandomPagerTransformer());
         randomPager.addOnPageChangeListener(viewPagerListener);
 
@@ -76,7 +76,7 @@ public class RandomFragment extends Fragment {
         }
 
         funnel = new RandomizerFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().getWikiSite(),
-                getActivity().getIntent().getIntExtra(RandomActivity.INVOKE_SOURCE_EXTRA, 0));
+                requireActivity().getIntent().getIntExtra(RandomActivity.INVOKE_SOURCE_EXTRA, 0));
         return view;
     }
 
@@ -144,7 +144,7 @@ public class RandomFragment extends Fragment {
     }
 
     public void onSelectPage(@NonNull PageTitle title) {
-        startActivity(PageActivity.newIntentForNewTab(getActivity(),
+        startActivity(PageActivity.newIntentForNewTab(requireActivity(),
                 new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM), title));
     }
 
@@ -222,7 +222,7 @@ public class RandomFragment extends Fragment {
     private class RandomPagerTransformer implements ViewPager.PageTransformer {
         @SuppressWarnings("magicnumber")
         @Override
-        public void transformPage(View view, float position) {
+        public void transformPage(@NonNull View view, float position) {
             if (position < -1) { // [-Infinity,-1)
                 // This page is way off-screen to the left.
                 view.setRotation(0f);

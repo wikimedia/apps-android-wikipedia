@@ -132,13 +132,13 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         return rootView;
     }
 
-    public void goToLinkedPage() {
+    public void goToLinkedPage(boolean inNewTab) {
         navigateSuccess = true;
         funnel.logNavigate();
         if (getDialog() != null) {
             getDialog().dismiss();
         }
-        loadPage(pageTitle, historyEntry, false);
+        loadPage(pageTitle, historyEntry, inNewTab);
     }
 
     @Override public void onResume() {
@@ -148,7 +148,8 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
             overlayView = new LinkPreviewOverlayView(getContext());
             overlayView.setCallback(new OverlayViewCallback());
             overlayView.setPrimaryButtonText(getStringForArticleLanguage(pageTitle, R.string.button_continue_to_article));
-            overlayView.showSecondaryButton(location != null);
+            overlayView.setSecondaryButtonText(getStringForArticleLanguage(pageTitle, R.string.menu_long_press_open_in_new_tab));
+            overlayView.showTertiaryButton(location != null);
             containerView.addView(overlayView);
         }
     }
@@ -252,6 +253,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         progressBar.setVisibility(View.GONE);
         contentContainer.setVisibility(View.GONE);
         overlayView.showSecondaryButton(false);
+        overlayView.showTertiaryButton(false);
         errorContainer.setVisibility(View.VISIBLE);
         errorContainer.setError(caught);
         errorContainer.setCallback(this);
@@ -280,10 +282,6 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         public boolean onMenuItemClick(MenuItem item) {
             Callback callback = callback();
             switch (item.getItemId()) {
-                case R.id.menu_link_preview_open_in_new_tab:
-                    loadPage(pageTitle, historyEntry, true);
-                    dismiss();
-                    return true;
                 case R.id.menu_link_preview_add_to_list:
                     if (callback != null) {
                         callback.onLinkPreviewAddToList(pageTitle);
@@ -317,7 +315,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         }
     };
 
-    private View.OnClickListener goToPageListener = (View v) -> goToLinkedPage();
+    private View.OnClickListener goToPageListener = (View v) -> goToLinkedPage(false);
 
     private void goToExternalMapsApp() {
         if (location != null) {
@@ -336,11 +334,16 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     private class OverlayViewCallback implements LinkPreviewOverlayView.Callback {
         @Override
         public void onPrimaryClick() {
-            goToLinkedPage();
+            goToLinkedPage(false);
         }
 
         @Override
         public void onSecondaryClick() {
+            goToLinkedPage(true);
+        }
+
+        @Override
+        public void onTertiaryClick() {
             goToExternalMapsApp();
         }
     }

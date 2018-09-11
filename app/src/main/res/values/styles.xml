@@ -93,7 +93,7 @@
     </style>
 
     <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
-        <item name="colorControlNormal">@android:color/white</item>
+        <item name="colorControlNormal">?attr/main_toolbar_icon_color</item>
         <item name="colorControlActivated">@color/base30</item>
         <item name="colorControlHighlight">@color/base30</item>
     </style>
@@ -119,7 +119,7 @@
     </style>
 
     <style name="ToolBarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColor">?attr/main_toolbar_title_color</item>
     </style>
 
     <style name="PageToolbarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
@@ -146,11 +146,11 @@
     </style>
 
     <style name="ActionModeTitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColor">?attr/main_toolbar_title_color</item>
     </style>
 
     <style name="ActionModeSubtitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle">
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColor">?attr/main_toolbar_title_color</item>
     </style>
 
     <style name="PageActionModeTitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
@@ -162,15 +162,14 @@
     </style>
 
     <style name="SearchViewStyle" parent="@style/Widget.AppCompat.SearchView">
-        <item name="closeIcon">@drawable/ic_close_white_24dp</item>
-        <item name="searchIcon">@drawable/ic_search_white_24dp</item>
-        <item name="searchHintIcon">@drawable/ic_search_white_24dp</item>
+        <item name="closeIcon">@drawable/ic_close_main_themed_24dp</item>
+        <item name="searchIcon">@drawable/ic_search_main_themed_24dp</item>
+        <item name="searchHintIcon">@drawable/ic_search_main_themed_24dp</item>
     </style>
 
     <style name="SearchViewEditTextStyle" parent="@style/Widget.AppCompat.AutoCompleteTextView">
         <item name="android:textCursorDrawable">@null</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:textColorHint">@color/white50</item>
+        <item name="android:textColor">?attr/main_toolbar_icon_color</item>
     </style>
 
     <style name="PageSearchViewStyle" parent="@style/Widget.AppCompat.SearchView">
@@ -182,7 +181,7 @@
     <style name="PageSearchViewEditTextStyle" parent="@style/Widget.AppCompat.AutoCompleteTextView">
         <item name="android:textCursorDrawable">@drawable/custom_cursor</item>
         <item name="android:textColor">?attr/page_toolbar_icon_color</item>
-        <item name="android:textColorHint">@color/white50</item>
+        <item name="android:textColorHint">?attr/page_toolbar_icon_color</item>
     </style>
 
     <style name="LanguagesListSearchViewEditTextStyle" parent="@style/Widget.AppCompat.AutoCompleteTextView">

@@ -17,10 +17,12 @@ public class LinkPreviewOverlayView extends FrameLayout {
     public interface Callback {
         void onPrimaryClick();
         void onSecondaryClick();
+        void onTertiaryClick();
     }
 
     @BindView(R.id.link_preview_primary_button) TextView primaryButton;
-    @BindView(R.id.link_preview_secondary_button) View secondaryButton;
+    @BindView(R.id.link_preview_secondary_button) TextView secondaryButton;
+    @BindView(R.id.link_preview_tertiary_button) View tertiaryButton;
 
     @Nullable private Callback callback;
 
@@ -51,6 +53,14 @@ public class LinkPreviewOverlayView extends FrameLayout {
         secondaryButton.setVisibility(show ? VISIBLE : GONE);
     }
 
+    public void setSecondaryButtonText(@Nullable CharSequence text) {
+        secondaryButton.setText(text);
+    }
+
+    public void showTertiaryButton(boolean show) {
+        tertiaryButton.setVisibility(show ? VISIBLE : GONE);
+    }
+
     @OnClick(R.id.link_preview_primary_button) void onPrimaryClick(View view) {
         if (callback != null) {
             callback.onPrimaryClick();
@@ -60,6 +70,12 @@ public class LinkPreviewOverlayView extends FrameLayout {
     @OnClick(R.id.link_preview_secondary_button) void onSecondaryClick(View view) {
         if (callback != null) {
             callback.onSecondaryClick();
+        }
+    }
+
+    @OnClick(R.id.link_preview_tertiary_button) void onTertiaryClick(View view) {
+        if (callback != null) {
+            callback.onTertiaryClick();
         }
     }
 

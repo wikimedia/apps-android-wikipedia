@@ -16,7 +16,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/link_preview_secondary_button"
+            android:id="@+id/link_preview_tertiary_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -26,6 +26,20 @@
             android:background="?attr/selectableItemBackground"
             style="@style/TransparentButton"
             android:text="@string/button_get_directions"/>
+
+        <TextView
+            android:id="@+id/link_preview_secondary_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:textColor="?attr/colorAccent"
+            android:background="?attr/selectableItemBackground"
+            style="@style/TransparentButton"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/menu_long_press_open_in_new_tab"/>
+
         <TextView
             android:id="@+id/link_preview_primary_button"
             android:layout_width="0dp"

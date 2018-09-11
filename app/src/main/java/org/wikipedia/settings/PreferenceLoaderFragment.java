@@ -19,7 +19,7 @@ abstract class PreferenceLoaderFragment extends PreferenceFragmentCompat
     @Override
     public RecyclerView onCreateRecyclerView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         RecyclerView v = super.onCreateRecyclerView(inflater, parent, savedInstanceState);
-        v.setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
+        v.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color));
         return v;
     }
 }

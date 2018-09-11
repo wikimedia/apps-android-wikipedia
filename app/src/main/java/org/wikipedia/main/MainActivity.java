@@ -15,7 +15,6 @@ import org.wikipedia.navtab.NavTab;
 import org.wikipedia.onboarding.InitialOnboardingActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.AnimationUtil;
-import org.wikipedia.util.ResourceUtil;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_INITIAL_ONBOARDING;
 
@@ -74,13 +73,11 @@ public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
     @Override
     public void onSearchOpen() {
         getToolbar().setVisibility(View.GONE);
-        setStatusBarColor(ResourceUtil.getThemedAttributeId(this, R.attr.page_status_bar_color));
     }
 
     @Override
     public void onSearchClose(boolean shouldFinishActivity) {
         getToolbar().setVisibility(View.VISIBLE);
-        setStatusBarColor(ResourceUtil.getThemedAttributeId(this, R.attr.main_status_bar_color));
         if (shouldFinishActivity) {
             finish();
         }
