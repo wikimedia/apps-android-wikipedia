@@ -127,6 +127,11 @@ public class RandomFragment extends Fragment {
                             getString(R.string.reading_list_item_deleted, title.getDisplayText()));
                     updateSaveShareButton(title);
                 }
+
+                @Override
+                public void onShare() {
+                    // ignore
+                }
             }).show(title);
         } else {
             onAddPageToList(title);

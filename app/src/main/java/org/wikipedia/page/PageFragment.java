@@ -207,6 +207,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                             callback().onPageRemoveFromReadingLists(getTitle());
                         }
                     }
+
+                    @Override
+                    public void onShare() {
+                        // ignore
+                    }
                 }).show(getTitle());
             } else {
                 addToReadingList(getTitle(), AddToReadingListDialog.InvokeSource.BOOKMARK_BUTTON);

@@ -184,6 +184,11 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
                             getCallback().onRemovePageFromList(getEntry());
                         }
                     }
+
+                    @Override
+                    public void onShare() {
+                        // ignore
+                    }
                 }).show(getEntry().getTitle());
             }
         }
