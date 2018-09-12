@@ -15,7 +15,6 @@ import org.wikipedia.model.BaseModel;
 import org.wikipedia.notifications.Notification;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.SiteInfo;
-import org.wikipedia.useroption.dataclient.UserInfo;
 
 import java.util.ArrayList;
 import java.util.HashMap;
