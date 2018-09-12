@@ -362,7 +362,7 @@ public interface Service {
     @NonNull Observable<MwQueryResponse> getAuthManagerInfo();
 
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&list=users&usprop=groups|cancreate")
-    @NonNull Call<MwQueryResponse> getUserInfo(@Query("ususers") @NonNull String userName);
+    @NonNull Observable<MwQueryResponse> getUserInfo(@Query("ususers") @NonNull String userName);
 
 
     // ------- Notifications -------

@@ -1,83 +1,39 @@
 package org.wikipedia.login;
 
-import android.support.annotation.NonNull;
-
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
-import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
-import org.wikipedia.dataclient.okhttp.HttpStatusException;
-import org.wikipedia.test.MockWebServerTest;
+import org.wikipedia.test.MockRetrofitTest;
 
-import retrofit2.Call;
+import io.reactivex.observers.TestObserver;
 
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.eq;
-import static org.mockito.Matchers.isA;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
-
-public class UserExtendedInfoClientTest extends MockWebServerTest {
-    private UserExtendedInfoClient subject = new UserExtendedInfoClient();
+public class UserExtendedInfoClientTest extends MockRetrofitTest {
 
     @Test public void testRequestSuccess() throws Throwable {
         enqueueFromFile("user_extended_info.json");
+        TestObserver<MwQueryResponse> observer = new TestObserver<>();
+        getApiService().getUserInfo("USER").subscribe(observer);
 
-        UserExtendedInfoClient.Callback cb = mock(UserExtendedInfoClient.Callback.class);
-        Call<MwQueryResponse> call = request(cb);
-
-        server().takeRequest();
-        assertCallbackSuccess(call, cb);
-    }
-
-    @Test public void testRequestResponseApiError() throws Throwable {
-        enqueueFromFile("api_error.json");
-
-        UserExtendedInfoClient.Callback cb = mock(UserExtendedInfoClient.Callback.class);
-        Call<MwQueryResponse> call = request(cb);
-
-        server().takeRequest();
-        assertCallbackFailure(call, cb, LoginClient.LoginFailedException.class);
+        final int id = 24531888;
+        observer.assertComplete().assertNoErrors()
+                .assertValue(result -> result.query().userInfo().id() == id
+                        && result.query().getUserResponse("USER").name().equals("USER"));
     }
 
     @Test public void testRequestResponse404() throws Throwable {
         enqueue404();
+        TestObserver<MwQueryResponse> observer = new TestObserver<>();
+        getApiService().getUserInfo("USER").subscribe(observer);
 
-        UserExtendedInfoClient.Callback cb = mock(UserExtendedInfoClient.Callback.class);
-        Call<MwQueryResponse> call = request(cb);
-
-        server().takeRequest();
-        assertCallbackFailure(call, cb, HttpStatusException.class);
+        observer.assertError(Exception.class);
     }
 
     @Test public void testRequestResponseMalformed() throws Throwable {
         server().enqueue("┏━┓ ︵  /(^.^/)");
+        TestObserver<MwQueryResponse> observer = new TestObserver<>();
+        getApiService().getUserInfo("USER").subscribe(observer);
 
-        UserExtendedInfoClient.Callback cb = mock(UserExtendedInfoClient.Callback.class);
-        Call<MwQueryResponse> call = request(cb);
-
-        server().takeRequest();
-        assertCallbackFailure(call, cb, MalformedJsonException.class);
-    }
-
-    private void assertCallbackSuccess(@NonNull Call<MwQueryResponse> call,
-                                       @NonNull UserExtendedInfoClient.Callback cb) {
-        verify(cb).success(eq(call), any(Integer.class), any(UserExtendedInfoClient.ListUserResponse.class));
-        //noinspection unchecked
-        verify(cb, never()).failure(any(Call.class), any(Throwable.class));
-    }
-
-    private void assertCallbackFailure(@NonNull Call<MwQueryResponse> call,
-                                       @NonNull UserExtendedInfoClient.Callback cb,
-                                       @NonNull Class<? extends Throwable> throwable) {
-        //noinspection unchecked
-        verify(cb, never()).success(any(Call.class), any(Integer.class), any(UserExtendedInfoClient.ListUserResponse.class));
-        verify(cb).failure(eq(call), isA(throwable));
-    }
-
-    private Call<MwQueryResponse> request(@NonNull UserExtendedInfoClient.Callback cb) {
-        return subject.request(service(Service.class), "USER", cb);
+        observer.assertError(MalformedJsonException.class);
     }
 }

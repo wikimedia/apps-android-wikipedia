@@ -1,5 +1,6 @@
 package org.wikipedia.login;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -13,6 +14,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.ListUserResponse;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
@@ -22,6 +24,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -151,25 +155,23 @@ public class LoginClient {
         }
     }
 
+    @SuppressLint("CheckResult")
     private void getExtendedInfo(@NonNull final WikiSite wiki, @NonNull String userName,
                                  @NonNull final LoginResult loginResult, @NonNull final LoginCallback cb) {
-        UserExtendedInfoClient infoClient = new UserExtendedInfoClient();
-        infoClient.request(wiki, userName, new UserExtendedInfoClient.Callback() {
-            @Override
-            public void success(@NonNull Call<MwQueryResponse> call, int id, @NonNull UserExtendedInfoClient.ListUserResponse user) {
-                loginResult.setUserId(id);
-                loginResult.setGroups(user.getGroups());
-                cb.success(loginResult);
-
-                L.v("Found user ID " + id + " for " + wiki.subdomain());
-            }
-
-            @Override
-            public void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
-                L.e("Login succeeded but getting group information failed. " + caught);
-                cb.error(caught);
-            }
-        });
+        ServiceFactory.get(wiki).getUserInfo(userName)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> {
+                    ListUserResponse user = response.query().getUserResponse(userName);
+                    int id = response.query().userInfo().id();
+                    loginResult.setUserId(id);
+                    loginResult.setGroups(user.getGroups());
+                    cb.success(loginResult);
+                    L.v("Found user ID " + id + " for " + wiki.subdomain());
+                }, caught -> {
+                    L.e("Login succeeded but getting group information failed. " + caught);
+                    cb.error(caught);
+                });
     }
 
     public void cancel() {

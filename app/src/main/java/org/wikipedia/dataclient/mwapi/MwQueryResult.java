@@ -10,7 +10,6 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.gallery.ImageInfo;
 import org.wikipedia.gallery.VideoInfo;
 import org.wikipedia.json.PostProcessingTypeAdapter;
-import org.wikipedia.login.UserExtendedInfoClient;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.notifications.Notification;
 import org.wikipedia.page.PageTitle;
@@ -26,7 +25,7 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
     @SuppressWarnings("unused") @Nullable private List<Redirect> redirects;
     @SuppressWarnings("unused") @Nullable private List<ConvertedTitle> converted;
     @SuppressWarnings("unused") @SerializedName("userinfo") private UserInfo userInfo;
-    @SuppressWarnings("unused") @Nullable private List<UserExtendedInfoClient.ListUserResponse> users;
+    @SuppressWarnings("unused") @Nullable private List<ListUserResponse> users;
     @SuppressWarnings("unused") @Nullable private Tokens tokens;
     @SuppressWarnings("unused,NullableProblems") @SerializedName("authmanagerinfo")
     @Nullable private MwAuthManagerInfo amInfo;
@@ -88,9 +87,9 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         return captchaId;
     }
 
-    @Nullable public UserExtendedInfoClient.ListUserResponse getUserResponse(@NonNull String userName) {
+    @Nullable public ListUserResponse getUserResponse(@NonNull String userName) {
         if (users != null) {
-            for (UserExtendedInfoClient.ListUserResponse user : users) {
+            for (ListUserResponse user : users) {
                 // MediaWiki user names are case sensitive, but the first letter is always capitalized.
                 if (StringUtils.capitalize(userName).equals(user.name())) {
                     return user;

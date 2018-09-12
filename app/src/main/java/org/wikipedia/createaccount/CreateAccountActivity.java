@@ -24,8 +24,7 @@ import org.wikipedia.captcha.CaptchaResult;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwQueryResponse;
-import org.wikipedia.login.UserExtendedInfoClient;
+import org.wikipedia.dataclient.mwapi.ListUserResponse;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
@@ -42,7 +41,6 @@ import butterknife.OnClick;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.Call;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
@@ -384,25 +382,17 @@ public class CreateAccountActivity extends BaseActivity {
         }
 
         public void run() {
-            new UserExtendedInfoClient().request(wiki, userName, new UserExtendedInfoClient.Callback() {
-                @Override
-                public void success(@NonNull Call<MwQueryResponse> call, int id,
-                                    @NonNull UserExtendedInfoClient.ListUserResponse user) {
-                    if (isDestroyed()) {
-                        return;
-                    }
-                    if (user.canCreate()) {
-                        usernameInput.setErrorEnabled(false);
-                    } else {
-                        usernameInput.setError(getString(R.string.create_account_name_unavailable, userName));
-                    }
-                }
-
-                @Override
-                public void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
-                    // silently ignore.
-                }
-            });
+            disposables.add(ServiceFactory.get(wiki).getUserInfo(userName)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(response -> {
+                        ListUserResponse user = response.query().getUserResponse(userName);
+                        if (user.canCreate()) {
+                            usernameInput.setErrorEnabled(false);
+                        } else {
+                            usernameInput.setError(getString(R.string.create_account_name_unavailable, userName));
+                        }
+                    }));
         }
     }
 }

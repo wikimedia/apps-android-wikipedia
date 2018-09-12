@@ -1,5 +1,6 @@
 package org.wikipedia;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Application;
 import android.content.IntentFilter;
@@ -28,10 +29,10 @@ import org.wikipedia.crash.CrashReporter;
 import org.wikipedia.crash.hockeyapp.HockeyAppCrashReporter;
 import org.wikipedia.database.Database;
 import org.wikipedia.database.DatabaseClient;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.fresco.DisabledCache;
-import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.okhttp.CacheableOkHttpNetworkFetcher;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.edit.summaries.EditSummary;
@@ -40,7 +41,6 @@ import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.AcceptLanguageUtil;
 import org.wikipedia.language.AppLanguageState;
-import org.wikipedia.login.UserExtendedInfoClient;
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.pageimages.PageImage;
@@ -62,7 +62,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import retrofit2.Call;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.settings.Prefs.getTextSizeMultiplier;
@@ -80,7 +81,6 @@ public class WikipediaApp extends Application {
     private Database database;
     private String userAgent;
     private WikiSite wiki;
-    private UserExtendedInfoClient userInfoClient = new UserExtendedInfoClient();
     private CrashReporter crashReporter;
     private RefWatcher refWatcher;
     private Bus bus;
@@ -406,26 +406,23 @@ public class WikipediaApp extends Application {
         registerReceiver(connectivityReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
     }
 
+    @SuppressLint("CheckResult")
     private void getUserIdForLanguage(@NonNull final String code) {
         if (!AccountUtil.isLoggedIn() || TextUtils.isEmpty(AccountUtil.getUserName())) {
             return;
         }
         final WikiSite wikiSite = WikiSite.forLanguageCode(code);
-        userInfoClient.request(wikiSite, AccountUtil.getUserName(), new UserExtendedInfoClient.Callback() {
-            @Override
-            public void success(@NonNull Call<MwQueryResponse> call, int id,
-                                @NonNull UserExtendedInfoClient.ListUserResponse user) {
-                if (AccountUtil.isLoggedIn()) {
-                    AccountUtil.putUserIdForLanguage(code, id);
-                    L.v("Found user ID " + id + " for " + code);
-                }
-            }
-
-            @Override
-            public void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
-                L.e("Failed to get user ID for " + code, caught);
-            }
-        });
+        ServiceFactory.get(wikiSite).getUserInfo(AccountUtil.getUserName())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> {
+                    if (AccountUtil.isLoggedIn() && response.query().getUserResponse(AccountUtil.getUserName()) != null) {
+                        // noinspection ConstantConditions
+                        int id = response.query().userInfo().id();
+                        AccountUtil.putUserIdForLanguage(code, id);
+                        L.d("Found user ID " + id + " for " + code);
+                    }
+                }, caught -> L.e("Failed to get user ID for " + code, caught));
     }
 
     private void initTabs() {
