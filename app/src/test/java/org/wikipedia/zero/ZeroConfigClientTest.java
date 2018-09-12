@@ -1,118 +1,65 @@
 package org.wikipedia.zero;
 
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 
-import com.google.gson.JsonParseException;
+import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
-import org.mockito.ArgumentCaptor;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.dataclient.Service;
-import org.wikipedia.dataclient.mwapi.MwException;
-import org.wikipedia.test.MockWebServerTest;
-import org.wikipedia.util.UriUtil;
-import org.wikipedia.zero.ZeroConfigClient.Callback;
+import org.wikipedia.test.MockRetrofitTest;
 
-import okhttp3.mockwebserver.RecordedRequest;
-import retrofit2.Call;
+import io.reactivex.observers.TestObserver;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.isA;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
-
-public class ZeroConfigClientTest extends MockWebServerTest {
-    @NonNull private ZeroConfigClient client = new ZeroConfigClient();
+public class ZeroConfigClientTest extends MockRetrofitTest {
     @NonNull private static String USER_AGENT = WikipediaApp.getInstance().getUserAgent();
 
     @Test public void testRequestEligible() throws Throwable {
         enqueueFromFile("wikipedia_zero_test_eligible.json");
+        TestObserver<ZeroConfig> observer = new TestObserver<>();
 
-        Callback cb = mock(Callback.class);
-        request(cb);
+        getApiService().getZeroConfig(USER_AGENT)
+                .subscribe(observer);
 
-        RecordedRequest req = server().takeRequest();
-        assertRequestIssued(req, USER_AGENT);
-
-        ArgumentCaptor<ZeroConfig> captor = ArgumentCaptor.forClass(ZeroConfig.class);
-        //noinspection unchecked
-        verify(cb).success(any(Call.class), captor.capture());
-        ZeroConfig config = captor.getValue();
-
-        assertThat(config, isA(ZeroConfig.class));
+        observer.assertComplete().assertNoErrors()
+                .assertValue(result -> result.getMessage().equals("Overstay your stay!")
+                        && result.getBackground() == Color.CYAN
+                        && result.getForeground() == Color.WHITE
+                        && result.getExitTitle().equals("You are leaving free Wikipedia service")
+                        && result.getExitWarning().equals("Data charges will be applied to your account")
+                        && result.getPartnerInfoText().equals("Learn more at zero.wikimedia.org")
+                        && result.getBannerUrl().equals("https://zero.wikimedia.org"));
     }
 
     @Test public void testRequestIneligible() throws Throwable {
         enqueueEmptyJson();
+        TestObserver<ZeroConfig> observer = new TestObserver<>();
 
-        Callback cb = mock(Callback.class);
-        request(cb);
+        getApiService().getZeroConfig(USER_AGENT)
+                .subscribe(observer);
 
-        RecordedRequest req = server().takeRequest();
-        assertRequestIssued(req, USER_AGENT);
-
-        ArgumentCaptor<ZeroConfig> captor = ArgumentCaptor.forClass(ZeroConfig.class);
-        //noinspection unchecked
-        verify(cb).success(any(Call.class), captor.capture());
-        ZeroConfig config = captor.getValue();
-
-        assertThat(config, is(new ZeroConfig()));
+        observer.assertComplete().assertNoErrors()
+                .assertValue(result -> !result.isEligible());
     }
 
     @Test public void testRequestMalformed() throws Throwable {
         server().enqueue("'");
+        TestObserver<ZeroConfig> observer = new TestObserver<>();
 
-        Callback cb = mock(Callback.class);
-        request(cb);
+        getApiService().getZeroConfig(USER_AGENT)
+                .subscribe(observer);
 
-        RecordedRequest req = server().takeRequest();
-        assertRequestIssued(req, USER_AGENT);
-
-        //noinspection unchecked
-        verify(cb).failure(any(Call.class), any(JsonParseException.class));
-    }
-
-    @Test public void testRequestApiError() throws Throwable {
-        enqueueFromFile("api_error.json");
-
-        Callback cb = mock(Callback.class);
-        request(cb);
-
-        RecordedRequest req = server().takeRequest();
-        assertRequestIssued(req, USER_AGENT);
-
-        //noinspection unchecked
-        verify(cb).failure(any(Call.class), any(MwException.class));
+        observer.assertError(MalformedJsonException.class);
     }
 
     @Test public void testRequestFailure() throws Throwable {
         enqueue404();
+        enqueueFromFile("api_error.json");
+        TestObserver<ZeroConfig> observer = new TestObserver<>();
 
-        Callback cb = mock(Callback.class);
-        Call<ZeroConfig> call = request(cb);
+        getApiService().getZeroConfig(USER_AGENT)
+                .subscribe(observer);
 
-        RecordedRequest req = server().takeRequest();
-        assertRequestIssued(req, USER_AGENT);
-
-        assertCallbackFailure(call, cb);
-    }
-
-    @NonNull private Call<ZeroConfig> request(@NonNull Callback cb) {
-        return client.request(service(Service.class), USER_AGENT, cb);
-    }
-
-    private void assertRequestIssued(@NonNull RecordedRequest req, @NonNull String userAgent) {
-        assertThat(req.getPath(), containsString(UriUtil.encodeURL(userAgent).replace("+", "%20")));
-    }
-
-    private void assertCallbackFailure(@NonNull Call<ZeroConfig> call, @NonNull Callback cb) {
-        //noinspection unchecked
-        verify(cb, never()).success(any(Call.class), any(ZeroConfig.class));
-        verify(cb).failure(eq(call), any(Throwable.class));
+        observer.assertError(Exception.class);
     }
 }
