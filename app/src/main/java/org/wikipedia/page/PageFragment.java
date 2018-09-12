@@ -12,6 +12,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -63,7 +64,6 @@ import org.wikipedia.page.bottomcontent.BottomContentView;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.shareafact.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
-import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.RemoveFromReadingListsDialog;
@@ -75,7 +75,6 @@ import org.wikipedia.theme.ThemeBridgeAdapter;
 import org.wikipedia.util.ActiveTimer;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.ThrowableUtil;
@@ -92,7 +91,6 @@ import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.page.PageActivity.ACTION_RESUME_READING;
-import static org.wikipedia.page.PageActivity.ACTION_SHOW_TAB_LIST;
 import static org.wikipedia.page.PageCacher.loadIntoCache;
 import static org.wikipedia.settings.Prefs.isDescriptionEditTutorialEnabled;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
@@ -149,6 +147,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private LeadImagesHandler leadImagesHandler;
     private BottomContentView bottomContentView;
     private ObservableWebView webView;
+    private CoordinatorLayout containerView;
     private SwipeRefreshLayoutWithScroll refreshView;
     private WikiPageErrorView errorView;
     private WikiDrawerLayout tocDrawer;
@@ -160,7 +159,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private EditHandler editHandler;
     private ActionMode findInPageActionMode;
     private ShareHandler shareHandler;
-    private TabsProvider tabsProvider;
     private ActiveTimer activeTimer = new ActiveTimer();
     @Nullable private AvPlayer avPlayer;
     @Nullable private AvCallback avCallback;
@@ -284,6 +282,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         return bottomContentView;
     }
 
+    public ViewGroup getContainerView() {
+        return containerView;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -303,6 +305,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         tocDrawer = rootView.findViewById(R.id.page_toc_drawer);
         tocDrawer.setDragEdgeWidth(getResources().getDimensionPixelSize(R.dimen.drawer_drag_margin));
 
+        containerView = rootView.findViewById(R.id.page_contents_container);
         refreshView = rootView.findViewById(R.id.page_refresh_container);
         int swipeOffset = getContentTopOffsetPx(getActivity()) + REFRESH_SPINNER_ADDITIONAL_OFFSET;
         refreshView.setProgressViewOffset(false, -swipeOffset, swipeOffset);
@@ -336,7 +339,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
         //uninitialize the bridge, so that no further JS events can have any effect.
         bridge.cleanup();
-        tabsProvider.setTabsProviderListener(null);
         webView.clearAllListeners();
         ((ViewGroup) webView.getParent()).removeView(webView);
         webView = null;
@@ -396,8 +398,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         bottomContentView.setup(this, bridge, webView);
 
         shareHandler = new ShareHandler(this, bridge);
-        tabsProvider = new TabsProvider(this, app.getTabList());
-        tabsProvider.setTabsProviderListener(tabsProviderListener);
 
         if (callback() != null) {
             LongPressHandler.WebViewContextMenuListener contextMenuListener
@@ -408,15 +408,16 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         pageFragmentLoadState.setUp(model, this, refreshView, webView, bridge, leadImagesHandler, getCurrentTab().getBackStack());
 
         if (shouldLoadFromBackstack(getActivity()) || savedInstanceState != null) {
-            if (!pageFragmentLoadState.backStackEmpty()) {
-                pageFragmentLoadState.loadFromBackStack();
-            } else {
-                loadMainPageInForegroundTab();
-            }
+            reloadFromBackstack();
         }
+    }
 
-        if (shouldShowTabList(getActivity())) {
-            showTabList();
+    public void reloadFromBackstack() {
+        pageFragmentLoadState.setBackStack(getCurrentTab().getBackStack());
+        if (!pageFragmentLoadState.backStackEmpty()) {
+            pageFragmentLoadState.loadFromBackStack();
+        } else {
+            loadMainPageInForegroundTab();
         }
     }
 
@@ -434,14 +435,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     private boolean shouldLoadFromBackstack(@NonNull Activity activity) {
         return activity.getIntent() != null
-                && (ACTION_SHOW_TAB_LIST.equals(activity.getIntent().getAction())
-                || ACTION_RESUME_READING.equals(activity.getIntent().getAction())
+                && (ACTION_RESUME_READING.equals(activity.getIntent().getAction())
                 || activity.getIntent().hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING));
-    }
-
-    private boolean shouldShowTabList(@NonNull Activity activity) {
-        return activity.getIntent() != null
-                && ACTION_SHOW_TAB_LIST.equals(activity.getIntent().getAction());
     }
 
     private void initWebViewListeners() {
@@ -490,79 +485,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    private TabsProvider.TabsProviderListener tabsProviderListener = new TabsProvider.TabsProviderListener() {
-        @Override
-        public void onEnterTabView() {
-            tabFunnel = new TabFunnel();
-            tabFunnel.logEnterList(app.getTabList().size());
-            leadImagesHandler.setAnimationPaused(true);
-        }
-
-        @Override
-        public void onCancelTabView() {
-            tabsProvider.exitTabMode();
-            tabFunnel.logCancel(app.getTabList().size());
-            leadImagesHandler.setAnimationPaused(false);
-            if (tabsProvider.shouldPopFragment()) {
-                Callback callback = callback();
-                if (callback != null) {
-                    callback.onPagePopFragment();
-                }
-            }
-        }
-
-        @Override
-        public void onTabSelected(int position) {
-            setCurrentTab(position, true);
-            tabsProvider.exitTabMode();
-            tabFunnel.logSelect(app.getTabList().size(), position);
-            leadImagesHandler.setAnimationPaused(false);
-        }
-
-        @Override
-        public void onNewTabRequested() {
-            // just load the main page into a new tab...
-            loadMainPageInForegroundTab();
-            tabFunnel.logCreateNew(app.getTabList().size());
-
-            // Set the current tab to the new opened tab
-            tabsProvider.exitTabMode();
-            leadImagesHandler.setAnimationPaused(false);
-        }
-
-        @Override
-        public void onCloseTabRequested(int position) {
-            if (!ReleaseUtil.isDevRelease() && (position < 0 || position >= app.getTabList().size())) {
-                // According to T109998, the position may possibly be out-of-bounds, but we can't
-                // reproduce it. We'll handle this case, but only for non-dev builds, so that we
-                // can investigate the issue further if we happen upon it ourselves.
-                return;
-            }
-            app.getTabList().remove(position);
-            tabFunnel.logClose(app.getTabList().size(), position);
-            tabsProvider.invalidate();
-            getActivity().invalidateOptionsMenu();
-            if (app.getTabList().size() == 0) {
-                tabFunnel.logCancel(app.getTabList().size());
-                tabsProvider.exitTabMode();
-                // and if the last tab was closed, then finish the activity!
-                if (!tabsProvider.shouldPopFragment()) {
-                    getActivity().finish();
-                }
-            } else if (position == app.getTabList().size()) {
-                // if it's the topmost tab, then load the topmost page in the next tab.
-                pageFragmentLoadState.setBackStack(getCurrentTab().getBackStack());
-                pageFragmentLoadState.loadFromBackStack();
-            }
-        }
-
-        @Override
-        public void onCloseAllTabs() {
-            app.getTabList().clear();
-            getActivity().finish();
-        }
-    };
-
     @Override
     public void onPause() {
         super.onPause();
@@ -596,15 +518,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (!pageFragmentLoadState.isLoading() && !errorState) {
             pageFragmentLoadState.layoutLeadImage();
         }
-        tabsProvider.onConfigurationChanged();
     }
 
     public Tab getCurrentTab() {
         return app.getTabList().get(app.getTabList().size() - 1);
-    }
-
-    public void invalidateTabs() {
-        tabsProvider.invalidate();
     }
 
     private void setCurrentTab(int position, boolean updatePrevBackStackItem) {
@@ -613,7 +530,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (position < app.getTabList().size() - 1) {
             Tab tab = app.getTabList().remove(position);
             app.getTabList().add(tab);
-            tabsProvider.invalidate();
             if (updatePrevBackStackItem) {
                 pageFragmentLoadState.updateCurrentBackStackItem();
             }
@@ -627,7 +543,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             openInNewForegroundTabFromMenu(title, entry);
         } else {
             openInNewTabFromMenu(title, entry, getBackgroundTabPosition());
-            tabsProvider.showAndHideTabs();
+            ((PageActivity) requireActivity()).animateTabsButton();
         }
     }
 
@@ -1036,10 +952,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         return bridge;
     }
 
-    void enterTabMode(boolean launchedExternally) {
-        tabsProvider.enterTabMode(launchedExternally);
-    }
-
     private void setupToC(@NonNull PageViewModel model, boolean isFirstPage) {
         tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite(), isFirstPage);
         tocHandler.setEnabled(true);
@@ -1065,12 +977,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         showBottomSheet(new PageInfoDialog(this, pageInfo, startAtDisambig));
     }
 
-    private void showTabList() {
-        // Doesn't seem to be a way around doing a post() here...
-        // Without post(), the tab picker layout is inflated with wrong dimensions.
-        webView.post(() -> tabsProvider.enterTabMode(true));
-    }
-
     protected void clearActivityActionBarTitle() {
         FragmentActivity currentActivity = getActivity();
         if (currentActivity instanceof PageActivity) {
@@ -1090,13 +996,12 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             // put this tab in the requested position
             app.getTabList().add(position, tab);
             trimTabCount();
-            tabsProvider.invalidate();
             // add the requested page to its backstack
             tab.getBackStack().add(new PageBackStackItem(title, entry));
             if (!isForeground) {
                 loadIntoCache(title);
             }
-            getActivity().invalidateOptionsMenu();
+            requireActivity().invalidateOptionsMenu();
         } else {
             getCurrentTab().getBackStack().add(new PageBackStackItem(title, entry));
         }
@@ -1244,13 +1149,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (pageFragmentLoadState.popBackStack()) {
             return true;
         }
-        if (tabsProvider.onBackPressed()) {
-            return true;
-        }
         if (app.getTabList().size() > 1) {
             // if we're at the end of the current tab's backstack, then pop the current tab.
             app.getTabList().remove(app.getTabList().size() - 1);
-            tabsProvider.invalidate();
         }
         return false;
     }
@@ -1375,10 +1276,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (callback != null) {
             callback.onPageAddToReadingList(title, source);
         }
-    }
-
-    public View getTabsContainerView() {
-        return getActivity().findViewById(R.id.tabs_container);
     }
 
     public void startLangLinksActivity() {
