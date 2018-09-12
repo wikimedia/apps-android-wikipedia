@@ -1,30 +1,28 @@
-package org.wikipedia.createaccount;
+package org.wikipedia.dataclient.mwapi;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.dataclient.mwapi.MwResponse;
-
 public class CreateAccountResponse extends MwResponse {
     @SuppressWarnings("unused") @Nullable private Result createaccount;
 
-    @Nullable String status() {
+    @Nullable public String status() {
         return createaccount.status();
     }
 
-    @Nullable String user() {
+    @Nullable public String user() {
         return createaccount.user();
     }
 
-    @Nullable String message() {
+    @Nullable public String message() {
         return createaccount.message();
     }
 
-    boolean hasResult() {
+    public boolean hasResult() {
         return success() && createaccount != null;
     }
 
-    static class Result {
+    public static class Result {
         @SuppressWarnings("unused,NullableProblems") @NonNull private String status;
         @SuppressWarnings("unused") @Nullable private String message;
         @SuppressWarnings("unused") @Nullable private String username;

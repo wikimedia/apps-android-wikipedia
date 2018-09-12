@@ -21,6 +21,8 @@ import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.CreateAccountFunnel;
 import org.wikipedia.captcha.CaptchaHandler;
 import org.wikipedia.captcha.CaptchaResult;
+import org.wikipedia.dataclient.Service;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.login.UserExtendedInfoClient;
@@ -37,6 +39,9 @@ import java.util.regex.Pattern;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
@@ -58,8 +63,7 @@ public class CreateAccountActivity extends BaseActivity {
         SUCCESS, INVALID_USERNAME, INVALID_PASSWORD, PASSWORD_MISMATCH, NO_EMAIL, INVALID_EMAIL
     }
 
-    private CreateAccountInfoClient createAccountInfoClient;
-    private CreateAccountClient createAccountClient;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     @BindView(R.id.create_account_primary_container) View primaryContainer;
     @BindView(R.id.create_account_onboarding_container) View onboardingContainer;
@@ -99,8 +103,6 @@ public class CreateAccountActivity extends BaseActivity {
         errorView.setRetryClickListener((v) -> errorView.setVisibility(View.GONE));
 
         wiki = WikipediaApp.getInstance().getWikiSite();
-        createAccountInfoClient = new CreateAccountInfoClient();
-        createAccountClient = new CreateAccountClient();
 
         captchaHandler = new CaptchaHandler(this, WikipediaApp.getInstance().getWikiSite(),
                 progressDialog, primaryContainer, getString(R.string.create_account_activity_title),
@@ -172,26 +174,23 @@ public class CreateAccountActivity extends BaseActivity {
     }
 
     public void getCreateAccountInfo() {
-        createAccountInfoClient.request(wiki, new CreateAccountInfoClient.Callback() {
-            @Override
-            public void success(@NonNull Call<MwQueryResponse> call,
-                                @NonNull CreateAccountInfoResult result) {
-                if (result.token() == null) {
-                    handleAccountCreationError(getString(R.string.create_account_generic_error));
-                } else if (result.hasCaptcha()) {
-                    captchaHandler.handleCaptcha(result.token(), new CaptchaResult(result.captchaId()));
-                } else {
-                    doCreateAccount(result.token());
-                }
-            }
-
-            @Override
-            public void failure(@NonNull Call<MwQueryResponse> call,
-                                @NonNull Throwable caught) {
-                showError(caught);
-                L.e(caught);
-            }
-        });
+        disposables.add(ServiceFactory.get(wiki).getAuthManagerInfo()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> {
+                    String token = response.query().createAccountToken();
+                    String captchaId = response.query().captchaId();
+                    if (TextUtils.isEmpty(token)) {
+                        handleAccountCreationError(getString(R.string.create_account_generic_error));
+                    } else if (!TextUtils.isEmpty(captchaId)) {
+                        captchaHandler.handleCaptcha(token, new CaptchaResult(captchaId));
+                    } else {
+                        doCreateAccount(token);
+                    }
+                }, caught -> {
+                    showError(caught);
+                    L.e(caught);
+                }));
     }
 
     public void doCreateAccount(@NonNull String token) {
@@ -204,37 +203,27 @@ public class CreateAccountActivity extends BaseActivity {
         String password = getText(passwordInput).toString();
         String repeat = getText(passwordRepeatInput).toString();
 
-        createAccountClient.request(wiki, getText(usernameInput).toString(),
-                password, repeat, token, email,
+        disposables.add(ServiceFactory.get(wiki).postCreateAccount(getText(usernameInput).toString(), password, repeat, token, Service.WIKIPEDIA_URL,
+                email,
                 captchaHandler.isActive() ? captchaHandler.captchaId() : "null",
-                captchaHandler.isActive() ? captchaHandler.captchaWord() : "null",
-                new CreateAccountClient.Callback() {
-                    @Override
-                    public void success(@NonNull Call<CreateAccountResponse> call,
-                                        @NonNull final CreateAccountSuccessResult result) {
-                        if (!progressDialog.isShowing()) {
-                            // no longer attached to activity!
-                            return;
-                        }
-                        finishWithUserResult(result);
-
+                captchaHandler.isActive() ? captchaHandler.captchaWord() : "null")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> {
+                    if ("PASS".equals(response.status())) {
+                        finishWithUserResult(new CreateAccountSuccessResult(response.user()));
+                    } else {
+                        throw new CreateAccountException(response.message());
                     }
-
-                    @Override
-                    public void failure(@NonNull Call<CreateAccountResponse> call, @NonNull Throwable caught) {
-                        L.e(caught.toString());
-                        if (!progressDialog.isShowing()) {
-                            // no longer attached to activity!
-                            return;
-                        }
-                        progressDialog.dismiss();
-                        if (caught instanceof CreateAccountException) {
-                            handleAccountCreationError(caught.getMessage());
-                        } else {
-                            showError(caught);
-                        }
+                }, caught -> {
+                    L.e(caught.toString());
+                    progressDialog.dismiss();
+                    if (caught instanceof CreateAccountException) {
+                        handleAccountCreationError(caught.getMessage());
+                    } else {
+                        showError(caught);
                     }
-                });
+                }));
     }
 
     @Override
@@ -257,6 +246,7 @@ public class CreateAccountActivity extends BaseActivity {
 
     @Override
     public void onDestroy() {
+        disposables.clear();
         captchaHandler.dispose();
         usernameInput.getEditText().removeTextChangedListener(userNameTextWatcher);
         super.onDestroy();

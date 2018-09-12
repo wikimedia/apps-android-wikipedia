@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.captcha.Captcha;
-import org.wikipedia.createaccount.CreateAccountResponse;
+import org.wikipedia.dataclient.mwapi.CreateAccountResponse;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.SiteMatrix;
@@ -331,7 +331,7 @@ public interface Service {
     @SuppressWarnings("checkstyle:parameternumber")
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=createaccount&createmessageformat=html")
-    @NonNull Call<CreateAccountResponse> postCreateAccount(@NonNull @Field("username") String user,
+    @NonNull Observable<CreateAccountResponse> postCreateAccount(@NonNull @Field("username") String user,
                                                            @NonNull @Field("password") String pass,
                                                            @NonNull @Field("retype") String retype,
                                                            @NonNull @Field("createtoken") String token,
@@ -359,7 +359,7 @@ public interface Service {
                                                        @Field("logincontinue") boolean loginContinue);
 
     @GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo|tokens&amirequestsfor=create&type=createaccount")
-    @NonNull Call<MwQueryResponse> getAuthManagerInfo();
+    @NonNull Observable<MwQueryResponse> getAuthManagerInfo();
 
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&list=users&usprop=groups|cancreate")
     @NonNull Call<MwQueryResponse> getUserInfo(@Query("ususers") @NonNull String userName);
