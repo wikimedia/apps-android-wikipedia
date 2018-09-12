@@ -20,6 +20,7 @@ import com.facebook.imagepipeline.image.ImageInfo;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.util.DeviceUtil;
@@ -27,7 +28,9 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.ViewAnimations;
 
-import retrofit2.Call;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class CaptchaHandler {
     private final Activity activity;
@@ -39,6 +42,7 @@ public class CaptchaHandler {
     private final View primaryView;
     private final String prevTitle;
     private ProgressDialog progressDialog;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     @Nullable private String token;
     @Nullable private CaptchaResult captchaResult;
@@ -68,21 +72,16 @@ public class CaptchaHandler {
         captchaImage.setOnClickListener((v) -> {
             captchaProgress.setVisibility(View.VISIBLE);
 
-            new CaptchaClient().request(wiki, new CaptchaClient.Callback() {
-                @Override
-                public void success(@NonNull Call<Captcha> call, @NonNull CaptchaResult result) {
-                    captchaResult = result;
-                    captchaProgress.setVisibility(View.GONE);
-                    handleCaptcha(true);
-                }
-
-                @Override
-                public void failure(@NonNull Call<Captcha> call, @NonNull Throwable caught) {
-                    cancelCaptcha();
-                    captchaProgress.setVisibility(View.GONE);
-                    FeedbackUtil.showError(activity, caught);
-                }
-            });
+            disposables.add(ServiceFactory.get(wiki).getNewCaptcha()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(response -> {
+                        captchaResult = new CaptchaResult(response.captchaId());
+                        handleCaptcha(true);
+                    }, caught -> {
+                        cancelCaptcha();
+                        FeedbackUtil.showError(activity, caught);
+                    }, () -> captchaProgress.setVisibility(View.GONE)));
         });
     }
 
@@ -118,6 +117,10 @@ public class CaptchaHandler {
     public void saveState(Bundle outState) {
         outState.putString("token", token);
         outState.putParcelable("captcha", captchaResult);
+    }
+
+    public void dispose() {
+        disposables.clear();
     }
 
     public boolean isActive() {
@@ -175,13 +178,12 @@ public class CaptchaHandler {
         ViewAnimations.crossFade(captchaContainer, primaryView);
     }
 
-    public boolean cancelCaptcha() {
+    public void cancelCaptcha() {
         if (captchaResult == null) {
-            return false;
+            return;
         }
         captchaResult = null;
         captchaText.setText("");
         hideCaptcha();
-        return true;
     }
 }

@@ -204,6 +204,7 @@ public class EditSectionActivity extends BaseActivity {
 
     @Override
     public void onDestroy() {
+        captchaHandler.dispose();
         cancelCalls();
         if (progressDialog.isShowing()) {
             progressDialog.dismiss();
