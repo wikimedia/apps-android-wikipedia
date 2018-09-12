@@ -25,6 +25,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.NotificationFunnel;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.SearchActionModeCallback;
@@ -55,6 +56,9 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
@@ -69,7 +73,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
 
     private List<Notification> notificationList = new ArrayList<>();
     private List<NotificationListItemContainer> notificationContainerList = new ArrayList<>();
-    private NotificationClient client = new NotificationClient();
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     private Map<String, WikiSite> dbNameMap = new HashMap<>();
     @Nullable private String currentContinueStr;
@@ -81,7 +85,6 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
 
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private boolean displayArchived;
-    private int updateSequence;
 
     public static Intent newIntent(@NonNull Context context) {
         return new Intent(context, NotificationActivity.class);
@@ -113,6 +116,12 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         beginUpdateList();
 
         NotificationSettingsActivity.promptEnablePollDialog(this);
+    }
+
+    @Override
+    public void onDestroy() {
+        disposables.clear();
+        super.onDestroy();
     }
 
     @Override
@@ -176,64 +185,38 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         getSupportActionBar().setTitle(displayArchived ? R.string.notifications_activity_title_archived : R.string.notifications_activity_title);
 
         currentContinueStr = null;
-        updateSequence++;
+        disposables.clear();
 
         // if we're not checking for unread notifications, then short-circuit straight to fetching them.
         if (displayArchived) {
-            getOrContinueNotifications(updateSequence);
+            getOrContinueNotifications();
             return;
         }
 
-        client.getUnreadNotificationWikis(WikipediaApp.getInstance().getWikiSite(), new NotificationClient.UnreadWikisCallback() {
-            private int sequence = updateSequence;
-
-            @Override
-            public void success(@NonNull Map<String, Notification.UnreadNotificationWikiItem> wikiMap) {
-                if (isDestroyed() || sequence != updateSequence) {
-                    return;
-                }
-
-                dbNameMap.clear();
-                for (String key : wikiMap.keySet()) {
-                    if (wikiMap.get(key).getSource() != null) {
-                        dbNameMap.put(key, new WikiSite(wikiMap.get(key).getSource().getBase()));
+        disposables.add(ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getUnreadNotificationWikis()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> {
+                    Map<String, Notification.UnreadNotificationWikiItem> wikiMap = response.query().unreadNotificationWikis();
+                    dbNameMap.clear();
+                    for (String key : wikiMap.keySet()) {
+                        if (wikiMap.get(key).getSource() != null) {
+                            dbNameMap.put(key, new WikiSite(wikiMap.get(key).getSource().getBase()));
+                        }
                     }
-                }
-
-                getOrContinueNotifications(sequence);
-            }
-
-            @Override
-            public void failure(Throwable t) {
-                if (isDestroyed() || sequence != updateSequence) {
-                    return;
-                }
-                setErrorState(t);
-            }
-        });
+                    getOrContinueNotifications();
+                }, this::setErrorState));
     }
 
-    private void getOrContinueNotifications(int sequence) {
+    private void getOrContinueNotifications() {
         progressBarView.setVisibility(View.VISIBLE);
-
-        client.getAllNotifications(WikipediaApp.getInstance().getWikiSite(), new NotificationClient.Callback() {
-            @Override
-            public void success(@NonNull List<Notification> notifications, @Nullable String continueStr) {
-                if (isDestroyed() || sequence != updateSequence) {
-                    return;
-                }
-                onNotificationsComplete(notifications, !TextUtils.isEmpty(currentContinueStr));
-                currentContinueStr = continueStr;
-            }
-
-            @Override
-            public void failure(Throwable t) {
-                if (isDestroyed() || sequence != updateSequence) {
-                    return;
-                }
-                setErrorState(t);
-            }
-        }, displayArchived, currentContinueStr, null);
+        disposables.add(ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getAllNotifications("*", displayArchived ? "read" : "!read", currentContinueStr)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> {
+                    onNotificationsComplete(response.query().notifications().list(), !TextUtils.isEmpty(currentContinueStr));
+                    currentContinueStr = response.query().notifications().getContinue();
+                }, this::setErrorState));
     }
 
     private void setErrorState(Throwable t) {
@@ -331,9 +314,9 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
 
         for (WikiSite wiki : notificationsPerWiki.keySet()) {
             if (markUnread) {
-                client.markUnread(wiki, notificationsPerWiki.get(wiki));
+                NotificationPollBroadcastReceiver.markRead(wiki, notificationsPerWiki.get(wiki), true);
             } else {
-                client.markRead(wiki, notificationsPerWiki.get(wiki));
+                NotificationPollBroadcastReceiver.markRead(wiki, notificationsPerWiki.get(wiki), false);
                 showDeleteItemsUndoSnackbar(items);
             }
         }
@@ -627,7 +610,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
 
             // if we're at the bottom of the list, and we have a continuation string, then execute it.
             if (pos == notificationContainerList.size() - 1 && !TextUtils.isEmpty(currentContinueStr)) {
-                getOrContinueNotifications(++updateSequence);
+                getOrContinueNotifications();
             }
         }
     }

@@ -1,5 +1,6 @@
 package org.wikipedia.notifications;
 
+import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -7,12 +8,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.csrf.CsrfTokenClient;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
@@ -23,11 +25,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+
 public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     public static final String ACTION_POLL = "action_notification_poll";
     private static final int MAX_LOCALLY_KNOWN_NOTIFICATIONS = 32;
 
-    private NotificationClient client = new NotificationClient();
     private Map<String, WikiSite> dbNameWikiSiteMap = new HashMap<>();
     private Map<String, String> dbNameWikiNameMap = new HashMap<>();
     private List<Long> locallyKnownNotifications;
@@ -65,67 +69,59 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
         return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
+    @SuppressLint("CheckResult")
     private void pollNotifications(@NonNull final Context context) {
-        client.getLastUnreadNotificationTime(WikipediaApp.getInstance().getWikiSite(), new NotificationClient.PollCallback() {
-            @Override
-            public void success(@NonNull String lastNotificationTime) {
-                if (lastNotificationTime.compareTo(Prefs.getRemoteNotificationsSeenTime()) <= 0) {
-                    // we're in sync!
-                    return;
-                }
-                Prefs.setRemoteNotificationsSeenTime(lastNotificationTime);
-                retrieveNotifications(context);
-            }
-
-            @Override
-            public void failure(Throwable t) {
-                L.e(t);
-                // TODO
-            }
-        });
+        ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getLastUnreadNotification()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> {
+                    String lastNotificationTime = "";
+                    if (response.query().notifications().list() != null
+                            && response.query().notifications().list().size() > 0) {
+                        for (Notification n : response.query().notifications().list()) {
+                            if (n.getUtcIso8601().compareTo(lastNotificationTime) > 0) {
+                                lastNotificationTime = n.getUtcIso8601();
+                            }
+                        }
+                    }
+                    if (lastNotificationTime.compareTo(Prefs.getRemoteNotificationsSeenTime()) <= 0) {
+                        // we're in sync!
+                        return;
+                    }
+                    Prefs.setRemoteNotificationsSeenTime(lastNotificationTime);
+                    retrieveNotifications(context);
+                }, L::e);
     }
 
+    @SuppressLint("CheckResult")
     private void retrieveNotifications(@NonNull final Context context) {
         dbNameWikiSiteMap.clear();
         dbNameWikiSiteMap.clear();
-        client.getUnreadNotificationWikis(WikipediaApp.getInstance().getWikiSite(), new NotificationClient.UnreadWikisCallback() {
-            @Override
-            public void success(@NonNull Map<String, Notification.UnreadNotificationWikiItem> wikiMap) {
-                List<String> wikis = new ArrayList<>();
-                wikis.addAll(wikiMap.keySet());
-                for (String dbName : wikiMap.keySet()) {
-                    if (wikiMap.get(dbName).getSource() != null) {
-                        dbNameWikiSiteMap.put(dbName, new WikiSite(wikiMap.get(dbName).getSource().getBase()));
-                        dbNameWikiNameMap.put(dbName, wikiMap.get(dbName).getSource().getTitle());
+        ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getUnreadNotificationWikis()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> {
+                    Map<String, Notification.UnreadNotificationWikiItem> wikiMap = response.query().unreadNotificationWikis();
+                    List<String> wikis = new ArrayList<>();
+                    wikis.addAll(wikiMap.keySet());
+                    for (String dbName : wikiMap.keySet()) {
+                        if (wikiMap.get(dbName).getSource() != null) {
+                            dbNameWikiSiteMap.put(dbName, new WikiSite(wikiMap.get(dbName).getSource().getBase()));
+                            dbNameWikiNameMap.put(dbName, wikiMap.get(dbName).getSource().getTitle());
+                        }
                     }
-                }
-
-                getFullNotifications(context, wikis);
-            }
-
-            @Override
-            public void failure(Throwable t) {
-                L.e(t);
-                // TODO
-            }
-        });
+                    getFullNotifications(context, wikis);
+                }, L::e);
     }
 
+    @SuppressLint("CheckResult")
     private void getFullNotifications(@NonNull final Context context, @NonNull List<String> foreignWikis) {
-        client.getAllNotifications(WikipediaApp.getInstance().getWikiSite(), new NotificationClient.Callback() {
-            @Override
-            public void success(@NonNull List<Notification> notifications, @Nullable String continueStr) {
-                onNotificationsComplete(context, notifications);
-            }
-
-            @Override
-            public void failure(Throwable t) {
-                L.e(t);
-                // TODO
-            }
-        }, false, null, foreignWikis.toArray(new String[0]));
+        ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getAllNotifications(foreignWikis.isEmpty() ? "*" : TextUtils.join("|", foreignWikis), "!read", null)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> onNotificationsComplete(context, response.query().notifications().list()),
+                        L::e);
     }
-
 
     private void onNotificationsComplete(@NonNull final Context context, @NonNull List<Notification> notifications) {
         if (notifications.isEmpty()) {
@@ -178,7 +174,21 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
         }
 
         for (WikiSite wiki : notificationsPerWiki.keySet()) {
-            client.markRead(wiki, notificationsPerWiki.get(wiki));
+            markRead(wiki, notificationsPerWiki.get(wiki), false);
         }
+    }
+
+    public static void markRead(@NonNull WikiSite wiki, @NonNull List<Notification> notifications, boolean unread) {
+        final String idListStr = TextUtils.join("|", notifications);
+        CsrfTokenClient editTokenClient = new CsrfTokenClient(wiki, WikipediaApp.getInstance().getWikiSite());
+        editTokenClient.request(new CsrfTokenClient.DefaultCallback() {
+            @SuppressLint("CheckResult")
+            @Override
+            public void success(@NonNull String token) {
+                ServiceFactory.get(wiki).markRead(token, unread ? null : idListStr, unread ? idListStr : null)
+                        .subscribeOn(Schedulers.io())
+                        .subscribe(response -> { }, L::e);
+            }
+        });
     }
 }
