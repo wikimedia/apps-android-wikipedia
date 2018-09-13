@@ -20,8 +20,9 @@ import org.wikipedia.LongPressHandler;
 import org.wikipedia.R;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.SearchFunnel;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
@@ -31,7 +32,6 @@ import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 
-import java.io.IOException;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +42,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemClick;
 import butterknife.Unbinder;
-import retrofit2.Call;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
@@ -80,8 +82,7 @@ public class SearchResultsFragment extends Fragment {
     private String currentSearchTerm = "";
     @Nullable private SearchResults lastFullTextResults;
     @NonNull private final List<SearchResult> totalResults = new ArrayList<>();
-    private PrefixSearchClient prefixSearchClient = new PrefixSearchClient();
-    private FullTextSearchClient fullTextSearchClient = new FullTextSearchClient();
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -114,6 +115,12 @@ public class SearchResultsFragment extends Fragment {
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();
+    }
+
+    @Override
+    public void onDestroy() {
+        disposables.clear();
+        super.onDestroy();
     }
 
     @OnItemClick(R.id.search_results_list) void onItemClick(ListView view, int position) {
@@ -201,37 +208,41 @@ public class SearchResultsFragment extends Fragment {
         final long startTime = System.nanoTime();
         updateProgressBar(true);
 
-        prefixSearchClient.request(WikiSite.forLanguageCode(getSearchLanguageCode()), searchTerm, new PrefixSearchClient.Callback() {
-            @Override
-            public void success(@NonNull Call<PrefixSearchResponse> call, @NonNull SearchResults results) {
-                if (!isAdded()) {
-                    return;
-                }
-                updateProgressBar(false);
-                searchErrorView.setVisibility(View.GONE);
-                handleResults(results, searchTerm, startTime);
-            }
-
-            @Override
-            public void failure(@NonNull Call<PrefixSearchResponse> call, @NonNull Throwable caught) {
-                if (callCanceledIoException(caught)) {
-                    return;
-                }
-                if (isAdded()) {
-                    updateProgressBar(false);
+        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(getSearchLanguageCode())).prefixSearch(searchTerm, BATCH_SIZE, searchTerm)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(response -> {
+                    if (response != null && response.success() && response.query().pages() != null) {
+                        // noinspection ConstantConditions
+                        return new SearchResults(response.query().pages(),
+                                WikiSite.forLanguageCode(getSearchLanguageCode()), response.continuation(),
+                                response.suggestion());
+                    } else if (response != null && response.hasError()) {
+                        // noinspection ConstantConditions
+                        throw new MwException(response.getError());
+                    }
+                    // A prefix search query with no results will return the following:
+                    //
+                    // {
+                    //   "batchcomplete": true,
+                    //   "query": {
+                    //      "search": []
+                    //   }
+                    // }
+                    //
+                    // Just return an empty SearchResults() in this case.
+                    return new SearchResults();
+                })
+                .subscribe(results -> {
+                    searchErrorView.setVisibility(View.GONE);
+                    handleResults(results, searchTerm, startTime);
+                }, caught -> {
                     searchEmptyView.setVisibility(View.GONE);
                     searchErrorView.setVisibility(View.VISIBLE);
                     searchErrorView.setError(caught);
                     searchResultsContainer.setVisibility(View.GONE);
-                }
-                logError(false, startTime);
-            }
-        });
-    }
-
-    /* Catch and discard exceptions thrown when our Retrofit calls are (intentionally) canceled. */
-    private boolean callCanceledIoException(@NonNull Throwable caught) {
-        return caught instanceof IOException && "Canceled".equals(caught.getMessage());
+                    logError(false, startTime);
+                }, () -> updateProgressBar(false)));
     }
 
     private void handleResults(@NonNull SearchResults results, @NonNull String searchTerm, long startTime) {
@@ -279,8 +290,7 @@ public class SearchResultsFragment extends Fragment {
     private void cancelSearchTask() {
         updateProgressBar(false);
         searchHandler.removeMessages(MESSAGE_SEARCH);
-        prefixSearchClient.cancel();
-        fullTextSearchClient.cancel();
+        disposables.clear();
     }
 
     private void doFullTextSearch(final String searchTerm,
@@ -289,13 +299,49 @@ public class SearchResultsFragment extends Fragment {
         final long startTime = System.nanoTime();
         updateProgressBar(true);
 
-        fullTextSearchClient.request(
-                WikiSite.forLanguageCode(getSearchLanguageCode()),
-                searchTerm,
-                continueOffset != null ? continueOffset.get("continue") : null,
-                continueOffset != null ? continueOffset.get("gsroffset") : null,
-                BATCH_SIZE,
-                new FullTextSearchCallback(searchTerm, startTime, clearOnSuccess));
+        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(getSearchLanguageCode())).fullTextSearch(searchTerm, BATCH_SIZE,
+                continueOffset != null ? continueOffset.get("continue") : null, continueOffset != null ? continueOffset.get("gsroffset") : null)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(response -> {
+                    if (response.success()) {
+                        // noinspection ConstantConditions
+                        return new SearchResults(response.query().pages(), WikiSite.forLanguageCode(getSearchLanguageCode()),
+                                response.continuation(), null);
+                    } else if (response.hasError()) {
+                        // noinspection ConstantConditions
+                        throw new MwException(response.getError());
+                    }
+                    // A 'morelike' search query with no results will just return an API warning:
+                    //
+                    // {
+                    //   "batchcomplete": true,
+                    //   "warnings": {
+                    //      "search": {
+                    //        "warnings": "No valid titles provided to 'morelike'."
+                    //      }
+                    //   }
+                    // }
+                    //
+                    // Just return an empty SearchResults() in this case.
+                    return new SearchResults();
+                })
+        .subscribe(results -> {
+            List<SearchResult> resultList = results.getResults();
+            cache(resultList, searchTerm);
+            log(resultList, startTime);
+            if (clearOnSuccess) {
+                clearResults(false);
+            }
+            searchErrorView.setVisibility(View.GONE);
+
+            // full text special:
+            SearchResultsFragment.this.lastFullTextResults = results;
+            displayResults(resultList);
+        }, throwable -> {
+            // If there's an error, just log it and let the existing prefix search results be.
+            logError(true, startTime);
+        }, () -> updateProgressBar(false)));
     }
 
     @Nullable
@@ -536,48 +582,6 @@ public class SearchResultsFragment extends Fragment {
 
     private int displayTime(long startTime) {
         return (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
-    }
-
-    private final class FullTextSearchCallback implements FullTextSearchClient.Callback {
-        @NonNull private String searchTerm = "";
-        private long startTime;
-        private boolean clearOnSuccess;
-
-        private FullTextSearchCallback(@NonNull String searchTerm, long startTime, boolean clearOnSuccess) {
-            this.searchTerm = searchTerm;
-            this.startTime = startTime;
-            this.clearOnSuccess = clearOnSuccess;
-        }
-
-        @Override public void success(@NonNull Call<MwQueryResponse> call,
-                                      @NonNull SearchResults results) {
-            List<SearchResult> resultList = results.getResults();
-            cache(resultList, searchTerm);
-            log(resultList, startTime);
-
-            if (!isAdded()) {
-                return;
-            }
-            if (clearOnSuccess) {
-                clearResults(false);
-            }
-            updateProgressBar(false);
-            searchErrorView.setVisibility(View.GONE);
-
-            // full text special:
-            SearchResultsFragment.this.lastFullTextResults = results;
-
-            displayResults(resultList);
-        }
-
-        @Override public void failure(@NonNull Call<MwQueryResponse> call,
-                                      @NonNull Throwable caught) {
-            // If there's an error, just log it and let the existing prefix search results be.
-            logError(true, startTime);
-            if (isAdded()) {
-                updateProgressBar(false);
-            }
-        }
     }
 
     @Nullable

@@ -277,7 +277,7 @@ public interface Service {
             + "&converttitles=&prop=description|pageimages&piprop=thumbnail"
             + "&pilicense=any&generator=prefixsearch&gpsnamespace=0&list=search&srnamespace=0"
             + "&srwhat=text&srinfo=suggestion&srprop=&sroffset=0&srlimit=1&pithumbsize=" + PREFERRED_THUMB_SIZE)
-    @NonNull Call<PrefixSearchResponse> prefixSearch(@Query("gpssearch") String title,
+    @NonNull Observable<PrefixSearchResponse> prefixSearch(@Query("gpssearch") String title,
                                                      @Query("gpslimit") int maxResults,
                                                      @Query("srsearch") String repeat);
 
@@ -286,7 +286,7 @@ public interface Service {
             + "&generator=search&gsrnamespace=0&gsrwhat=text"
             + "&gsrinfo=&gsrprop=redirecttitle&piprop=thumbnail&pilicense=any&pithumbsize="
             + PREFERRED_THUMB_SIZE)
-    @NonNull Call<MwQueryResponse> fullTextSearch(@Query("gsrsearch") String searchTerm,
+    @NonNull Observable<MwQueryResponse> fullTextSearch(@Query("gsrsearch") String searchTerm,
                                                   @Query("gsrlimit") int gsrLimit,
                                                   @Query("continue") String cont,
                                                   @Query("gsroffset") String gsrOffset);
