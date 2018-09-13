@@ -131,6 +131,11 @@
   <string name="create_account_password_error">Het wachtwoord is ongeldig.</string>
   <string name="create_account_generic_error">Het was niet mogelijk een account aan te maken</string>
   <string name="create_account_next">Volgende</string>
+  <string name="email_recommendation_dialog_title">Account aanmaken zonder e-mailadres?</string>
+  <string name="email_recommendation_dialog_message">Een e-mailadres is optioneel, maar wordt wel &lt;b&gt;zeer aanbevolen&lt;/b&gt; gezien deze nodig is voor accountherstel indien uw ooit uw wachtwoord vergeet.</string>
+  <string name="email_recommendation_message">Aanbevolen gezien een e-mailadres nodig is voor accountherstel.</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Doorgaan zonder e-mail</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Een e-mailadres toevoegen</string>
   <string name="create_account_button">Registreren</string>
   <string name="create_account_name_unavailable">De gebruikersnaam \"%s\" is niet beschikbaar. Kies een andere naam.</string>
   <string name="create_account_ip_block_message">Sorry, uw IP-adres is op dit moment geblokkeerd voor het aanmaken van nieuwe accounts.</string>
@@ -158,7 +163,10 @@
   <string name="preferences_heading_experimental">Experimenteel</string>
   <string name="preference_title_sync_reading_lists">Leeslijsten sychroniseren</string>
   <string name="preference_title_sync_reading_lists_from_account">Leeslijst synchronisatie</string>
+  <string name="preference_title_download_reading_list_articles">Leeslijstpagina\'s downloaden</string>
   <string name="preference_summary_sync_reading_lists">Leeslijsten tussen verschillende apparaten synchroniseren door deze op uw account op te slaan</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Leeslijsten synchroniseren met verschillende apparaten door ze te koppelen met uw Wikipedia-account \"%s\"</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Gesynchroniseerde leeslijsten van \"%s\" verwijderen&gt;?</string>
   <string name="preferences_privacy_settings_heading">Privacy</string>
   <string name="preference_title_eventlogging_opt_in">Gebruiksrapporten verzenden</string>
   <string name="preference_summary_eventlogging_opt_in">Geef Wikimedia toestemming om informatie te verzamelen over hoe u de app gebruikt om de app te kunnen verbeteren</string>
@@ -289,6 +297,7 @@
   <string name="error_no_maps_app">Er zijn geen apps gevonden die routebeschrijvingen bieden.</string>
   <string name="preference_title_show_link_previews">Voorvertoningen van koppelingen weergeven</string>
   <string name="preference_summary_show_link_previews">Korte voorvertoning weergeven van pagina\'s bij het aanraken van koppelingen.</string>
+  <string name="preference_title_collapse_tables">Tabellen inklappen</string>
   <string name="nav_item_donate">Steun Wikipedia</string>
   <string name="error_voice_search_not_available">Spraakherkenning is helaas niet beschikbaar.</string>
   <string name="location_service_disabled">Locatievoorzieningen zijn uitgeschakeld.</string>

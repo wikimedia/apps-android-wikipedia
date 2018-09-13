@@ -136,6 +136,11 @@
   <string name="create_account_password_error">كلمة المرور غير صالحة</string>
   <string name="create_account_generic_error">تعذّر إنشاء الحساب</string>
   <string name="create_account_next">التالي</string>
+  <string name="email_recommendation_dialog_title">إنشاء حساب بدون عنوان بريد إلكتروني؟</string>
+  <string name="email_recommendation_dialog_message">على الرغم من أن عنوان البريد الإلكتروني اختياري، فإنه &lt;b&gt;موصى به جدا&lt;/b&gt;، بما أنه هناك حاجة لبريد إلكتروني لاسترجاع الحساب لو فقدت كلمة السر الخاصة بك.</string>
+  <string name="email_recommendation_message">موصى به بما أن عنوان البريد الإلكتروني ضروري من أجل استرجاع الحساب.</string>
+  <string name="email_recommendation_dialog_create_without_email_action">الاستمرار بدون بريد إلكتروني</string>
+  <string name="email_recommendation_dialog_create_with_email_action">إضافة عنوان بريد إلكتروني</string>
   <string name="create_account_button">أنشئ حسابًا</string>
   <string name="create_account_name_unavailable">اسم المستخدم \"%s\" غير متوفر; يُرجَى اختيار اسم مختلف.</string>
   <string name="create_account_ip_block_message">عذرا، تم منع عنوان الآيبي الخاص بك حاليا من إنشاء حسابات جديدة.</string>
@@ -191,6 +196,7 @@
   <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/ar</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -293,6 +299,8 @@
   <string name="address_copied">نُسخ المسار إلى الحافظة.</string>
   <string name="text_copied">تم نسخ النص  إلى الحافظة.</string>
   <string name="button_continue_to_article">اقرأ المقالة</string>
+  <string name="button_continue_to_disambiguation">عرض صفحات مشابهة</string>
+  <string name="link_preview_disambiguation_description">يرتبط هذا العنوان بأكثر من صفحة واحدة:</string>
   <string name="button_add_to_reading_list">أضف إلى قائمة القراءة</string>
   <string name="page_offline_notice_cannot_load_while_offline">لا يمكن تحميل المقالة في حالة عدم الاتصال.</string>
   <string name="page_offline_notice_add_to_reading_list">ملحوظة: أضف المقالة إلى قائمة قراءة وسيتم تنزيلها حينما تعاود الاتصال بالشبكة.</string>
@@ -302,6 +310,8 @@
   <string name="error_no_maps_app">تعذّر إيجاد أي تطبيقٍ يوفر الاتجاهات</string>
   <string name="preference_title_show_link_previews">إظهار معايناتٍ للوصلة</string>
   <string name="preference_summary_show_link_previews">إظهار معاينة سريعة للمقالات حين النقر على الوصلات.</string>
+  <string name="preference_title_collapse_tables">طوي الجداول</string>
+  <string name="preference_summary_collapse_tables">تلقائيا اطو الجداول في المقالات، مثل صناديق المعلومات، المراجع، والملاحظات.</string>
   <string name="nav_item_donate">ادعم ويكيبيديا</string>
   <string name="error_voice_search_not_available">عفوا، التعرف على الصوت ليس متاح.</string>
   <string name="location_service_disabled">خدمات الموقع معطلة.</string>
@@ -492,6 +502,33 @@
     <item quantity="one">%1$d مقالة متبقية</item>
     <item quantity="other">%1$d مقالات متبقية</item>
   </plurals>
+  <string name="notification_echo_channel_description">إخطارات ويكيبيديا</string>
+  <string name="notifications_activity_title">الإشعارات</string>
+  <string name="notifications_activity_title_archived">الإشعارات (مؤرشفة)</string>
+  <string name="notifications_search">إشعارات البحث</string>
+  <string name="notifications_view_unread">عرض غير المقروء</string>
+  <string name="notifications_view_archived">عرض المؤرشف</string>
+  <string name="notifications_prefs">تفضيلات الإشعارات</string>
+  <string name="notifications_archive">التعليم كمقروء والأرشفة</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">تمت أرشفة الإشعار</item>
+    <item quantity="other">تمت أرشفة %d إشعارا</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">تفعيل الإشعارات</string>
+  <string name="notifications_poll_enable_positive">تفعيل</string>
+  <string name="notifications_poll_enable_negative">ليس الآن</string>
+  <string name="notifications_empty_message">أنت قرأت كل الإشعارات!</string>
+  <string name="notifications_view_archived_button_text">عرض الإشعارات المؤرشفة</string>
+  <string name="notification_preferences_title">تفضيلات الإشعارات</string>
+  <string name="preference_title_notification_poll">إشعارات الاستقصاء</string>
+  <string name="preference_summary_notification_poll">السماح للتطبيق باستخدام البيانات للتحقق من الإشعارات الجديدة في الخلفية.</string>
+  <string name="preference_category_notification_types">أنواع الإشعارات في التطبيق</string>
+  <string name="preference_title_notification_welcome">مرحبا</string>
+  <string name="preference_summary_notification_welcome">تم إنشاء حساب</string>
+  <string name="preference_title_notification_milestone">معلم</string>
+  <string name="preference_summary_notification_milestone">عند الوصول لعدد معين من التعديلات</string>
+  <string name="preference_title_notification_thanks">شكرا</string>
+  <string name="preference_summary_notification_thanks">شخص ما يشكرك على تعديل ما</string>
   <string name="view_continue_reading_card_title">واصل القراءة</string>
   <string name="view_because_you_read_card_title">لأنك قرأت</string>
   <string name="view_random_card_title">صفحات عشوائية</string>

@@ -551,7 +551,7 @@
   <string name="view_featured_article_footer_save_button_label">저장</string>
   <string name="view_featured_article_footer_saved_button_label">저장됨</string>
   <string name="feed_configure_activity_title">피드 사용자 지정</string>
-  <string name="feed_configure_menu_reset">기본값으로 복구</string>
+  <string name="feed_configure_menu_reset">기본 보기로 복구</string>
   <string name="feed_configure_menu_select_all">모두 보기</string>
   <string name="feed_configure_menu_deselect_all">모두 숨기기</string>
   <string name="feed_configure_language_warning">모든 카드 유형이 모든 위키백과 언어에서 사용할 수 있는 것은 아닙니다. 설정에서 선택된 언어를 수정하십시오.</string>

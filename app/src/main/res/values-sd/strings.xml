@@ -56,13 +56,13 @@
   <string name="content_license_html">مواد &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; جي تحت موجود آھي نہ تہ ٻي صورت ۾ نوٽ ٿيل آهي</string>
   <string name="edit_save_action_license_logged_in">سانڍڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان، ۽ يقينن پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس جي تحت ڏيڻ تي راضي ٿيو ٿا.</string>
   <string name="edit_save_action_license_anon">سانڍڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن &lt;/a&gt; ۽ irrevocably پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس تحت ڏيڻ تي راضي ٿيو ٿا. ترميمون توھان جي آءِپي پتي سان لاڳو ڪيون وينديون. جيڪڏهن توهان &lt;a href=\"https://#login\"&gt;داخل ٿيو&lt;/a&gt; ٿا، تہ توھان کي وڌيڪ ذاتيات هوندي.</string>
-  <string name="preference_title_language">وڪيپيڊيا جون ٻوليون</string>
+  <string name="preference_title_language">وڪيپيڊيا ٻوليون</string>
   <string name="preference_languages_filter_hint">ڳوليو</string>
   <string name="langlinks_filter_hint">ڳوليو</string>
   <string name="langlinks_empty">هيءُ صفحو ٻين ٻولين ۾ دستياب نہ آهي.</string>
   <string name="langlinks_no_match">ڪي بہ ٻوليون نہ لڌيون</string>
   <string name="langlinks_activity_title">ٻيون ٻوليون</string>
-  <string name="langlinks_your_wikipedia_languages">اوهانجون وڪيپيڊيائي ٻوليون</string>
+  <string name="langlinks_your_wikipedia_languages">اوهانجون وڪيپيڊيا ٻوليون</string>
   <string name="menu_save_changes">تبديليون ڇاپيو</string>
   <string name="dialog_saving_in_progress">ڇاپيندي…</string>
   <string name="edit_saved_successfully">ترميم ڇاپجي وئي!</string>
@@ -78,28 +78,28 @@
   <string name="search_reading_lists_no_results">پڙھڻ جي فھرستن ۾ ڪي بہ نتيجا نہ لڌا</string>
   <string name="search_history_no_results">سوانح ۾ ڪي بہ نتيجا نہ لڌا</string>
   <string name="edit_section_captcha_message">آٽوميٽڊ اسپام کان بچڻ ۾ مدد لاءِ، براءِ مھرباني ھيٺ ظاھر ٿيندڙ لفظ داخل ڪريو</string>
-  <string name="edit_section_captcha_request_an_account_message">تصوير نظر نه پئي اچي؟ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;وڌيڪ ڏسو&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">تصوير نظر نہ پئي اچي؟ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;وڌيڪ ڏسو&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">مٿي ڏنل لفظ ورجايو</string>
   <string name="title_captcha">ڪيپچا ڄاڻايو</string>
   <string name="edit_section_captcha_reload">ٻيھر اتارڻ لاءِ CAPTCHA تي ٽيپ ڪريو</string>
   <string name="nav_item_login">وڪيپيڊيا ۾ داخل ٿيو</string>
   <string name="login_username_hint">واپرائيندڙ-نانءُ</string>
   <string name="login_password_hint">ڳجھولفظ</string>
-  <string name="login_2fa_hint">ٻه مرحلا تصديق ڪوڊ</string>
+  <string name="login_2fa_hint">ٻہ مرحلا تصديق ڪوڊ</string>
   <string name="menu_login">داخل ٿيو</string>
   <string name="login_activity_title">وڪيپيڊيا ۾ داخل ٿيو</string>
   <string name="login_in_progress_dialog_message">توهان کي داخل ڪندي...</string>
   <string name="login_success_toast">ڪاميابيءَ سان داخل ٿيل!</string>
-  <string name="reset_password_title">پنھنجو پاسورڊ طي ڪريو</string>
-  <string name="reset_password_description">توھان ھڪ عارضي پاسورڊ سان داخل ٿيا. داخل ٿيڻ کي مڪمل ڪرڻ لاءِ ھڪ پاسورڊ ترتيب ڏيو.</string>
-  <string name="reset_password_hint">نئون پاسورڊ</string>
+  <string name="reset_password_title">پنھنجو ڳجھولفظ طي ڪريو</string>
+  <string name="reset_password_description">توھان ھڪ عارضي ڳجھي-لفظ سان داخل ٿيا. داخل ٿيڻ کي مڪمل ڪرڻ لاءِ پنھننو ھڪ نئون ڳجھولفظ ترتيب ڪريو.</string>
+  <string name="reset_password_hint">نئون ڳجھولفظ</string>
   <string name="reset_password_button">محفوظ ڪريو ۽ داخل ٿيو</string>
   <string name="preference_title_logout">خارج ٿيو</string>
   <string name="toast_logout_complete">نڪري چڪا</string>
   <string name="history_empty_title">ڪي بہ تازا ڏٺل صفحا ڪونھن</string>
   <string name="history_empty_message">توھان ھتي جيڪو ڪجھ ڪري رھيا آھيو ان جو دڳ رکو.</string>
   <string name="search_empty_message">کليل انسائيڪلوپيڊيا پنھنجي ٻوليءَ ۾ ڳوليو ۽ پڙھو</string>
-  <string name="search_empty_message_multilingual_upgrade">وڪيپيڊيا کي وڌيڪ ٻولين ۾ ڳولهيو</string>
+  <string name="search_empty_message_multilingual_upgrade">وڪيپيڊيا کي وڌيڪ ٻولين ۾ ڳوليو</string>
   <string name="delete_selected_items">چونڊيل شيون ڊاھيو</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">واپرائيندڙ-نانءُ</string>
@@ -117,8 +117,11 @@
   <string name="create_account_password_error">ڳجھولفظ ناقابلِڪار آھي</string>
   <string name="create_account_generic_error">کاتو کولي نہ سگھيو</string>
   <string name="create_account_next">اڳيون</string>
+  <string name="email_recommendation_dialog_title">بغير برقٽپال جي کاتو کوليون؟</string>
+  <string name="email_recommendation_dialog_create_without_email_action">برقٽپال سواءِ جاري رکو</string>
+  <string name="email_recommendation_dialog_create_with_email_action">ڪو برقٽپال پتو وجھو</string>
   <string name="create_account_button">کاتو کوليو</string>
-  <string name="create_account_name_unavailable">واپرائيندڙ جو نالو \"%s\" موجود ناهي. مهرباني ڪري ٻيو نالو چونڊيو.</string>
+  <string name="create_account_name_unavailable">واپرائيندڙ جو نالو \"%s\" موجود ناهي. مھرباني ڪري مختلف نالو چونڊيو.</string>
   <string name="create_account_ip_block_message">معاف ڪجو، اوهان جي آئي پي تي نوان کاتا کولڻ تي بندش وڌل آهي.</string>
   <string name="create_account_ip_block_help_url">https://sd.wikipedia.org/wiki/مدد:مون_تي_بندش_وڌي_وئي</string>
   <string name="create_account_ip_block_details">تفصيل</string>
@@ -141,6 +144,7 @@
   <string name="create_account_account_created_toast">کاتو کلي چڪو!</string>
   <string name="preferences_heading_data_usage">ڊيٽا کپت</string>
   <string name="preferences_heading_experimental">تجرباتي</string>
+  <string name="preference_title_download_reading_list_articles">پڙھڻ جي فھرست جا مضمون لاھيو</string>
   <string name="preferences_privacy_settings_heading">ّذاتيات</string>
   <string name="preference_title_eventlogging_opt_in">استعمال جون رپورٽون اماڻيو</string>
   <string name="preference_summary_eventlogging_opt_in">وڪيميڊيا ايپ کي اجازت ڏيو ته توهان هن ايپ ڪيئن استعمال ڪريو ٿا جي معلومات جمع ڪري ته جيئن هن ايپ کي وڌيڪ بهتر بڻائي سگھجي</string>
@@ -170,7 +174,7 @@
   <string name="about_translators_translatewiki">هيءَ ايپ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; تي موجود رضاڪار ترجميڪارن ترجمو ڪري ڏني.</string>
   <string name="about_app_license_heading">لائسنس</string>
   <string name="about_app_license">سورس ڪوڊ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ۽ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; جي تحت &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; موجود آھي. جيسيتائين ٻي صورت ۾ وضاحت ڪئي وڃي، مواد &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ڪريئيٽو ڪامنز انتساب-ھڪجھڙي ڀاڱيداري لائسنس جي تحت موجود آھي&lt;/a&gt;.</string>
-  <string name="about_wmf">هڪ ڪم &lt;a href=\"https://wikimediafoundation.org/\"&gt;وڪيميڊيا فائونڊيشن جو&lt;/a&gt;</string>
+  <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;وڪيميڊيا فائونڊيشن&lt;/a&gt; جي مصنوع</string>
   <string name="about_activity_title">بابت</string>
   <string name="edit_abandon_confirm">هيءُ صفحو ترميم ٿي چڪو آهي. توهان کي پڪ آهي تہ توهان تبديليون سانڍڻ کان سواءِ ڇڏي وڃڻ چاهيو ٿا؟</string>
   <string name="edit_abandon_confirm_yes">ھا</string>
@@ -221,7 +225,7 @@
   <string name="preference_summary_show_images">صفحن ۾ عڪسن جو لوڊ ٿيڻ لائق يا نالائق بڻايو. هن ترتيب تان نشان هٽايو جيڪڏهن توهانجو انٽرنيٽ ڪنيڪشن آهستي آهي، يا توهان جو ڊيٽا منصوبو محدود آهي.</string>
   <string name="preference_title_download_only_over_wifi">رڳو واءِ فاءِ ذريعي ڊائونلوڊ ڪيو</string>
   <string name="dialog_title_download_only_over_wifi">موبائيل ڊيٽا سان ڊائونلوڊ ڪرڻ چاهيو ٿا؟</string>
-  <string name="dialog_text_download_only_over_wifi">اوهان جي ترجيحات ۾ ”صرف واءِ فاءِ ذريعي ڊائونلوڊ ڪيو“ کليل آهي. ڇا اوهان اجازت ڏيندو ته موبائيل ڊيٽا سان ڊائونلوڊ ڪيون؟</string>
+  <string name="dialog_text_download_only_over_wifi">اوهان جي ترجيحن ۾ ”صرف واءِ فاءِ ذريعي ڊائونلوڊ ڪيو“ کليل آهي. ڇا اوهان اجازت ڏيندو تہ موبائيل ڊيٽا سان ڊائونلوڊ ڪيون؟</string>
   <string name="dialog_title_download_only_over_wifi_allow">اجازت آهي</string>
   <string name="read_more_section">وڌيڪ پڙهو</string>
   <string name="about_article_section">هن مضمون بابت</string>
@@ -261,6 +265,8 @@
   <string name="address_copied">پتي جو پرت ڪلپبورڊ رکيو ويو.</string>
   <string name="text_copied">ٽيڪسٽ جو پرت ڪلپبورڊ تي رکيو ويو.</string>
   <string name="button_continue_to_article">مضمون پڙهو</string>
+  <string name="button_continue_to_disambiguation">ھڪجڙا صفحا ڏيکاريو</string>
+  <string name="link_preview_disambiguation_description">ھي عنوان ھڪ کان وڌيڪ صفحن سان تعلق رکي ٿو:</string>
   <string name="button_add_to_reading_list">پڙھڻ جي فھرست ۾ وجھو</string>
   <string name="page_offline_notice_cannot_load_while_offline">آفلائين ھجڻ وقت صفحو لاھي نٿو سگھجي.</string>
   <string name="page_offline_notice_add_to_reading_list">اشارو:ڪو بہ مضمون پنھنجي پڙھڻ جي فھرست ۾ شامل ڪريو ان کي لاٿو ويندو جڏھن توھان ٻيھر آنلائين ٿيندئو.</string>
@@ -270,6 +276,7 @@
   <string name="error_no_maps_app">ھدايتون مھيا ڪندڙ ڪي بہ ايپس لڀجي نہ سگھيون.</string>
   <string name="preference_title_show_link_previews">ڳنڍڻن جي پيش نگاھ ڏيکاريو</string>
   <string name="preference_summary_show_link_previews">ڳنڍڻن تي رکڻ وقت صفحن تي تڪڙي پيش نگاھ ڏيکاريو.</string>
+  <string name="preference_title_collapse_tables">جدولون کوليو</string>
   <string name="nav_item_donate">وڪيپيڊيا کي سوورٽ ڪريو</string>
   <string name="error_voice_search_not_available">معاف ڪجو، آواز شناس موجود نہ آھي.</string>
   <string name="location_service_disabled">مڪانيت سرور معذور ڪيل آھن.</string>
@@ -417,6 +424,30 @@
     <item quantity="one">%1$d مضمون رهي ٿو</item>
     <item quantity="other">%1$d مضمون رهن ٿا</item>
   </plurals>
+  <string name="notification_echo_channel_description">وڪيپيڊيا اطلاع</string>
+  <string name="notifications_activity_title">اطلاع</string>
+  <string name="notifications_activity_title_archived">اطلاع (سانڍيل)</string>
+  <string name="notifications_search">اطلاع ڳوليو</string>
+  <string name="notifications_view_unread">نہ پڙھيل ڏيکاريو</string>
+  <string name="notifications_view_archived">سانڍيل ڏيکاريو</string>
+  <string name="notifications_prefs">اطلاعن جون ترجيحون</string>
+  <string name="notifications_archive">پڙھيل طور نشان لاڳايو ۽ سانڍيو</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">اطلاع سانڍيو</item>
+    <item quantity="other">%d اطلاع سانڍيا</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">اطلاع قابلِڪار ڪريو</string>
+  <string name="notifications_poll_enable_positive">قابلِڪار ڪريو</string>
+  <string name="notifications_poll_enable_negative">ھاڻي نہ</string>
+  <string name="notifications_empty_message">توھان سڀ اطلاع ڏسي ورتا آھن!</string>
+  <string name="notifications_view_archived_button_text">سانڍيل اطلاع ڏيکاريو</string>
+  <string name="notification_preferences_title">اطلاعن جون ترجيحون</string>
+  <string name="preference_category_notification_types">ايپ-۾ اطلاعن جا قسم</string>
+  <string name="preference_title_notification_welcome">ڀليڪار</string>
+  <string name="preference_summary_notification_welcome">ھڪ کاتو کوليو ويو آھي</string>
+  <string name="preference_title_notification_milestone">سنگ ميل</string>
+  <string name="preference_title_notification_thanks">مھرباني</string>
+  <string name="preference_summary_notification_thanks">ڪوئي توھان جي ڪنھن ترميم لاءِ مھرباني چئي ٿو</string>
   <string name="view_continue_reading_card_title">پڙھڻ جاري رکو</string>
   <string name="view_because_you_read_card_title">ڇو تہ توھان پڙھو ٿا</string>
   <string name="view_random_card_title">بلاترتيبڪار</string>
@@ -430,6 +461,7 @@
   <string name="view_featured_image_card_download">لاهيو</string>
   <string name="menu_feed_card_dismiss">ھن ڪارڊ کي لڪايو</string>
   <string name="menu_feed_card_dismissed">ڪارڊ لڪيل.</string>
+  <string name="menu_feed_card_edit_card_languages">ڪارڊ جون ٻوليون سنواريو</string>
   <string name="menu_feed_overflow_label">وڌيڪ چارا</string>
   <string name="feed_featured_image_share_subject">وڪيميڊيا العام مان نمايان ڪيل تصوير</string>
   <string name="feed">کوجيو</string>

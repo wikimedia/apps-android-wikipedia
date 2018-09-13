@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * 1917 Ekim Devrimi
+* Alidemirtas
 * Bulgu
 * Envlh
 * Fitoschido
@@ -99,6 +100,7 @@
   <string name="search_reading_lists_no_results">Okuma listelerinde sonuç bulunamadı</string>
   <string name="search_history_no_results">Geçmişte sonuç bulunamadı</string>
   <string name="edit_section_captcha_message">Otomatik spamlara karşı korunmaya yardımcı olmak için aşağıda görünen kelimeleri yazınız.</string>
+  <string name="edit_section_captcha_request_an_account_message">Resmi göremiyor musunuz? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Daha fazlasını öğrenin&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Yukarıdaki kelimeleri tekrarlayın</string>
   <string name="title_captcha">CAPTCHA\'yı girin</string>
   <string name="edit_section_captcha_reload">Güvenlik kodunu yenilemek için üzerine dokunun</string>
@@ -138,6 +140,7 @@
   <string name="create_account_password_error">Parola geçersiz</string>
   <string name="create_account_generic_error">Hesap oluşturulamadı</string>
   <string name="create_account_next">İleri</string>
+  <string name="email_recommendation_dialog_title">E-posta adresi olmadan hesap oluşturulsun mu?</string>
   <string name="create_account_button">Hesap oluştur</string>
   <string name="create_account_name_unavailable">\"%s\" kullanıcı adı mevcut değil. Lütfen farklı bir kullanıcı adı seçin.</string>
   <string name="create_account_ip_block_message">Üzgünüz, IP adresiniz yeni hesap oluşturulmasına engellenmiş.</string>
@@ -294,6 +297,8 @@
   <string name="address_copied">Adres panoya kopyalandı.</string>
   <string name="text_copied">Metin panoya kopyalandı.</string>
   <string name="button_continue_to_article">Maddeyi oku</string>
+  <string name="button_continue_to_disambiguation">Benzer sayfaları görüntüle</string>
+  <string name="link_preview_disambiguation_description">Bu başlık birden fazla sayfayla ilişkilidir:</string>
   <string name="button_add_to_reading_list">Okuma listesine ekle</string>
   <string name="page_offline_notice_cannot_load_while_offline">Madde çevrimdışıyken yüklenemez.</string>
   <string name="page_offline_notice_add_to_reading_list">İpucu: Maddeyi bir okuma listesine ekleyin; böylece yeniden çevrimiçi olduğunuzda indirilsin.</string>
@@ -303,6 +308,8 @@
   <string name="error_no_maps_app">Tarif verebilecek herhangi bir uygulama bulunamadı.</string>
   <string name="preference_title_show_link_previews">Bağlantı ön izlemelerini görüntüle</string>
   <string name="preference_summary_show_link_previews">Bağlantılara dokununca kısa bir ön izleme görüntülenir.</string>
+  <string name="preference_title_collapse_tables">Tabloları daralt</string>
+  <string name="preference_summary_collapse_tables">Bilgi kutuları, referanslar ve notlar gibi makalelerdeki tabloları otomatik olarak daralt.</string>
   <string name="nav_item_donate">Vikipedi\'ye Destek Ol</string>
   <string name="error_voice_search_not_available">Üzgünüz, ses tanıma kullanılabilir değil.</string>
   <string name="location_service_disabled">Konum hizmetleri devre dışı.</string>
@@ -492,6 +499,33 @@
     <item quantity="one">%1$d liste kaldı</item>
     <item quantity="other">%1$d liste kaldı</item>
   </plurals>
+  <string name="notification_echo_channel_description">Wikipedia bildirimleri</string>
+  <string name="notifications_activity_title">Bildirimler</string>
+  <string name="notifications_activity_title_archived">Bildirimler (arşivlenmiş)</string>
+  <string name="notifications_search">Arama bildirimleri</string>
+  <string name="notifications_view_unread">Okunmamışları görüntüle</string>
+  <string name="notifications_view_archived">Arşivlenmiş görünümü görüntüle</string>
+  <string name="notifications_prefs">Bildirim tercihleri</string>
+  <string name="notifications_archive">Okundu olarak ve arşivle işaretle</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">Bildirim arşivlendi</item>
+    <item quantity="other">%d bildirim arşivlendi</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">Bildirimleri etkinleştir</string>
+  <string name="notifications_poll_enable_positive">Etkin</string>
+  <string name="notifications_poll_enable_negative">Şimdi değil</string>
+  <string name="notifications_empty_message">Tüm bildirimleri yakaladınız!</string>
+  <string name="notifications_view_archived_button_text">Arşivlenmiş bildirimleri görüntüle</string>
+  <string name="notification_preferences_title">Bildirim tercihleri</string>
+  <string name="preference_title_notification_poll">Anket tercihleri</string>
+  <string name="preference_summary_notification_poll">Uygulamanın, arka planda yeni bildirimleri kontrol etmek için veri kullanmasına izin verin.</string>
+  <string name="preference_category_notification_types">Uygulama içi bildirim türleri</string>
+  <string name="preference_title_notification_welcome">Hoş geldiniz</string>
+  <string name="preference_summary_notification_welcome">Bir hesap oluşturuldu</string>
+  <string name="preference_title_notification_milestone">Kilometre taşı</string>
+  <string name="preference_summary_notification_milestone">Belirli düzenleme sayılarına ulaşıldı</string>
+  <string name="preference_title_notification_thanks">Teşekkürler</string>
+  <string name="preference_summary_notification_thanks">Birisi sizin bir düzenlemeniz için teşekkür etti</string>
   <string name="view_continue_reading_card_title">Okumaya devam et</string>
   <string name="view_because_you_read_card_title">Okuduğun için</string>
   <string name="view_random_card_title">Rastgele</string>

@@ -319,6 +319,7 @@
   <string name="text_copied">Текст скопирован в буфер обмена.</string>
   <string name="button_continue_to_article">Читать статью</string>
   <string name="button_continue_to_disambiguation">Просмотр схожих страниц</string>
+  <string name="link_preview_disambiguation_description">Такой заголовок относится к нескольким страницам:</string>
   <string name="button_add_to_reading_list">Добавить в список для чтения</string>
   <string name="page_offline_notice_cannot_load_while_offline">Статья не может быть загружена без подключения к Интернету.</string>
   <string name="page_offline_notice_add_to_reading_list">Подсказка: Добавьте эту статью в список к прочтению, и она будет загружена, как только появится подключение к сети.</string>

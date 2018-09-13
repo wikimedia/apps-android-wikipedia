@@ -287,7 +287,7 @@
   <string name="error_unknown">Дошло је до непознате грешке.</string>
   <string name="format_error_server_message">Порука: „%s”</string>
   <string name="address_copied">Адреса је копирана у оставу.</string>
-  <string name="text_copied">Текст је копиран.</string>
+  <string name="text_copied">Текст је копиран у оставу.</string>
   <string name="button_continue_to_article">Прочитај чланак</string>
   <string name="button_continue_to_disambiguation">Погледај сличне странице</string>
   <string name="link_preview_disambiguation_description">Овај наслов се односи на више од једне странице:</string>
@@ -555,7 +555,7 @@
   <string name="feed_configure_menu_select_all">Прикажи све</string>
   <string name="feed_configure_menu_deselect_all">Сакриј све</string>
   <string name="feed_configure_language_warning">Имајте на уму да нису сви типови картица доступни на сваком језику Википедије. Уредите изабране језике у подешавањима.</string>
-  <string name="feed_item_type_news">Чланци о актуелним догађајима</string>
+  <string name="feed_item_type_news">Чланци о тренутним догађајима</string>
   <string name="feed_item_type_on_this_day">Историјски догађаји на данашњи дан</string>
   <string name="feed_item_type_continue_reading">Брзи линк за враћање на чланак отворен у картици</string>
   <string name="feed_item_type_because_you_read">Предлози на основу недавно прочитаног чланка из историје</string>

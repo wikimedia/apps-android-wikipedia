@@ -84,6 +84,7 @@
   <string name="search_reading_lists_no_results">Non se atoparon resultados nas listas de lectura</string>
   <string name="search_history_no_results">Non se atoparon resultados no histórico</string>
   <string name="edit_section_captcha_message">Para axudar na protección contra o spam automatizado, introduza as palabras que aparecen abaixo</string>
+  <string name="edit_section_captcha_request_an_account_message">Non pode ver a imaxe? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Máis información&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Repita as palabras de arriba</string>
   <string name="title_captcha">Introducir o captcha</string>
   <string name="edit_section_captcha_reload">Toque o CAPTCHA para recargalo</string>
@@ -123,6 +124,8 @@
   <string name="create_account_password_error">O contrasinal non é válido</string>
   <string name="create_account_generic_error">Non se puido crear a conta</string>
   <string name="create_account_next">Seguinte</string>
+  <string name="email_recommendation_dialog_title">Crear unha conta sen enderezo de correo electrónico?</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Continuar sen correo electrónico</string>
   <string name="create_account_button">Crear unha conta</string>
   <string name="create_account_name_unavailable">O nome de usuario \"%s\" non está dispoñible. Por favor, escolla un nome diferente.</string>
   <string name="create_account_ip_block_message">Sentímolo, o seu enderezo IP está bloqueado actualmente para crear novas contas.</string>
