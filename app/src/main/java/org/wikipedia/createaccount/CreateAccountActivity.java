@@ -257,6 +257,7 @@ public class CreateAccountActivity extends BaseActivity {
 
     @Override
     public void onDestroy() {
+        captchaHandler.dispose();
         usernameInput.getEditText().removeTextChangedListener(userNameTextWatcher);
         super.onDestroy();
     }

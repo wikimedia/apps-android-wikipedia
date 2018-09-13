@@ -301,7 +301,7 @@ public interface Service {
     // ------- Miscellaneous -------
 
     @GET(MW_API_PREFIX + "action=fancycaptchareload")
-    @NonNull Call<Captcha> getNewCaptcha();
+    @NonNull Observable<Captcha> getNewCaptcha();
 
     @GET(MW_API_PREFIX + "action=query&prop=langlinks&lllimit=500&redirects=&converttitles=")
     @NonNull Observable<MwQueryResponse> getLangLinks(@NonNull @Query("titles") String title);

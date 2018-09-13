@@ -1,84 +1,55 @@
 package org.wikipedia.captcha;
 
-import android.support.annotation.NonNull;
-
-import com.google.gson.stream.MalformedJsonException;
-
 import org.junit.Test;
-import org.wikipedia.captcha.CaptchaClient.Callback;
-import org.wikipedia.dataclient.Service;
-import org.wikipedia.dataclient.mwapi.MwException;
-import org.wikipedia.dataclient.okhttp.HttpStatusException;
-import org.wikipedia.test.MockWebServerTest;
+import org.wikipedia.test.MockRetrofitTest;
 
-import retrofit2.Call;
+import io.reactivex.observers.TestObserver;
 
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.eq;
-import static org.mockito.Matchers.isA;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
-
-public class CaptchaClientTest extends MockWebServerTest {
-    @NonNull private final CaptchaClient subject = new CaptchaClient();
+public class CaptchaClientTest extends MockRetrofitTest {
 
     @Test public void testRequestSuccess() throws Throwable {
-        CaptchaResult expected = new CaptchaResult("1572672319");
         enqueueFromFile("captcha.json");
+        TestObserver<CaptchaResult> observer = new TestObserver<>();
 
-        Callback cb = mock(Callback.class);
-        Call<Captcha> call = request(cb);
+        getApiService().getNewCaptcha()
+                .map(response -> new CaptchaResult(response.captchaId()))
+                .subscribe(observer);
 
-        server().takeRequest();
-        assertCallbackSuccess(call, cb, expected);
+        observer.assertComplete().assertNoErrors()
+                .assertValue(result -> result.getCaptchaId().equals("1572672319"));
     }
 
     @Test public void testRequestResponseApiError() throws Throwable {
         enqueueFromFile("api_error.json");
+        TestObserver<CaptchaResult> observer = new TestObserver<>();
 
-        Callback cb = mock(Callback.class);
-        Call<Captcha> call = request(cb);
+        getApiService().getNewCaptcha()
+                .map(response -> new CaptchaResult(response.captchaId()))
+                .subscribe(observer);
 
-        server().takeRequest();
-        assertCallbackFailure(call, cb, MwException.class);
+        observer.assertError(Exception.class);
     }
 
     @Test public void testRequestResponseFailure() throws Throwable {
         enqueue404();
+        TestObserver<CaptchaResult> observer = new TestObserver<>();
 
-        Callback cb = mock(Callback.class);
-        Call<Captcha> call = request(cb);
+        getApiService().getNewCaptcha()
+                .map(response -> new CaptchaResult(response.captchaId()))
+                .subscribe(observer);
 
-        server().takeRequest();
-        assertCallbackFailure(call, cb, HttpStatusException.class);
+        observer.assertError(Exception.class);
     }
 
     @Test public void testRequestResponseMalformed() throws Throwable {
         server().enqueue("'");
+        TestObserver<CaptchaResult> observer = new TestObserver<>();
 
-        Callback cb = mock(Callback.class);
-        Call<Captcha> call = request(cb);
+        getApiService().getNewCaptcha()
+                .map(response -> new CaptchaResult(response.captchaId()))
+                .subscribe(observer);
 
-        server().takeRequest();
-        assertCallbackFailure(call, cb, MalformedJsonException.class);
+        observer.assertError(Exception.class);
     }
 
-    private void assertCallbackSuccess(@NonNull Call<Captcha> call, @NonNull Callback cb,
-                                       @NonNull CaptchaResult expected) {
-        verify(cb).success(eq(call), eq(expected));
-        //noinspection unchecked
-        verify(cb, never()).failure(any(Call.class), any(Throwable.class));
-    }
-
-    private void assertCallbackFailure(@NonNull Call<Captcha> call, @NonNull Callback cb,
-                                       @NonNull Class<? extends Throwable> throwable) {
-        //noinspection unchecked
-        verify(cb, never()).success(any(Call.class), any(CaptchaResult.class));
-        verify(cb).failure(eq(call), isA(throwable));
-    }
-
-    private Call<Captcha> request(@NonNull Callback cb) {
-        return subject.request(service(Service.class), cb);
-    }
 }
