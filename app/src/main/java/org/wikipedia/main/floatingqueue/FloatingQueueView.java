@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -17,6 +16,7 @@ import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
+import org.wikipedia.views.TabCountsView;
 
 import java.util.List;
 
@@ -25,18 +25,14 @@ import butterknife.ButterKnife;
 
 public class FloatingQueueView extends FrameLayout {
 
-    // TODO: convert this file to Kotlin
-
     public interface Callback {
         void onFloatingQueueClicked(@NonNull PageTitle title);
     }
 
     @BindView(R.id.floating_queue_thumbnail) FaceAndColorDetectImageView floatingQueueThumbnail;
     @BindView(R.id.floating_queue_article) TextView floatingQueueArticle;
-    @BindView(R.id.floating_queue_counts) TextView floatingQueueCounts;
+    @BindView(R.id.floating_queue_counts) TabCountsView floatingQueueCounts;
 
-    private static final float TAB_COUNT_TEXT_SIZE_DEFAULT = 12;
-    private static final float TAB_COUNT_TEXT_SIZE_SMALL = 8;
     private static final int ANIMATION_DELAY_MILLIS = 300;
     private Callback callback;
     private boolean openPageFromFloatingQueue;
@@ -88,10 +84,7 @@ public class FloatingQueueView extends FrameLayout {
                     floatingQueueThumbnail.setTag(imageUrl);
                 }
 
-                floatingQueueCounts.setText(String.valueOf(tabList.size()));
-                floatingQueueCounts.setTextSize(TypedValue.COMPLEX_UNIT_SP, tabList.size() > 99
-                        ? TAB_COUNT_TEXT_SIZE_SMALL
-                        : TAB_COUNT_TEXT_SIZE_DEFAULT);
+                floatingQueueCounts.setTabSize(tabList.size());
 
                 setOnClickListener((v) -> {
                     openPageFromFloatingQueue = true;

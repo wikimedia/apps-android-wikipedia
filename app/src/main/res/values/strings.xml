@@ -6,6 +6,8 @@
 
     <string name="wikimedia">Wikimedia</string>
 
+    <string name="nav_item_back">Back</string>
+    <string name="nav_item_forward">Forward</string>
     <string name="search_hint">Search Wikipedia</string>
     <string name="search_hint_search_history">Search history</string>
     <string name="search_hint_search_my_lists">Search my lists</string>
@@ -37,6 +39,9 @@
     <string name="menu_page_font_and_theme">Font and theme</string>
     <string name="menu_page_add_to_list">Add to reading list</string>
     <string name="menu_page_share">Share link</string>
+    <string name="menu_page_open_a_new_tab">Open a new tab</string>
+    <string name="menu_page_reading_lists">Reading lists</string>
+    <string name="menu_page_recently_viewed">Recently viewed</string>
 
     <!-- Long press menu -->
     <string name="menu_long_press_open_page">Open</string>

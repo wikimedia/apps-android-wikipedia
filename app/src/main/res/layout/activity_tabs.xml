@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/base20"
-        android:theme="@style/ToolbarTheme">
+        android:theme="@style/TabToolbarTheme">
     </android.support.v7.widget.Toolbar>
 
 </FrameLayout>

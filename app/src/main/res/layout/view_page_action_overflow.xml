@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/page_action_overflow_card_container"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="-2dp"
+    android:layout_marginEnd="2dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="?attr/material_theme_border_color"
+        android:showDividers="middle"
+        android:divider="?attr/list_separator_drawable"
+        android:minWidth="160dp">
+
+        <LinearLayout
+            style="@style/OverflowMenuItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="13dp"
+            android:paddingBottom="13dp"
+            android:background="?attr/paper_color"
+            android:paddingLeft="0dp"
+            android:gravity="center_vertical">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/page_action_overflow_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:contentDescription="@string/nav_item_back"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:srcCompat="@drawable/ic_arrow_back_themed_24dp"
+                app:tint="?attr/page_toolbar_icon_color"/>
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/page_action_overflow_forward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:contentDescription="@string/nav_item_forward"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:srcCompat="@drawable/ic_arrow_forward_black_24dp"
+                app:tint="?attr/page_toolbar_icon_color"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="?attr/paper_color">
+
+            <TextView
+                android:id="@+id/page_action_overflow_open_a_new_tab"
+                style="@style/OverflowMenuItem"
+                android:text="@string/menu_page_open_a_new_tab"/>
+
+            <TextView
+                android:id="@+id/page_action_overflow_reading_lists"
+                style="@style/OverflowMenuItem"
+                android:text="@string/menu_page_reading_lists"/>
+
+            <TextView
+                android:id="@+id/page_action_overflow_recently_viewed"
+                style="@style/OverflowMenuItem"
+                android:text="@string/menu_page_recently_viewed"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

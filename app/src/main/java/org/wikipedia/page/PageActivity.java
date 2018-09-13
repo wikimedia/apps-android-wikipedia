@@ -16,7 +16,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
@@ -28,6 +27,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -51,6 +51,8 @@ import org.wikipedia.feed.mainpage.MainPageClient;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LangLinksActivity;
+import org.wikipedia.main.MainActivity;
+import org.wikipedia.navtab.NavTab;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
@@ -67,6 +69,8 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.views.ObservableWebView;
+import org.wikipedia.views.PageActionOverflowView;
+import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 import org.wikipedia.wiktionary.WiktionaryDialog;
@@ -107,7 +111,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @BindView(R.id.page_toolbar_container) View toolbarContainerView;
     @BindView(R.id.page_toolbar) Toolbar toolbar;
     @BindView(R.id.page_toolbar_button_search) ImageView searchButton;
-    @BindView(R.id.page_toolbar_button_show_tabs) ImageView tabsButton;
+    @BindView(R.id.page_toolbar_button_show_tabs) TabCountsView tabsButton;
+    @BindView(R.id.page_toolbar_button_show_overflow_menu) ImageView overflowButton;
     @Nullable private Unbinder unbinder;
 
     private PageFragment pageFragment;
@@ -118,6 +123,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private PageToolbarHideHandler toolbarHideHandler;
+    private OverflowCallback overflowCallback = new OverflowCallback();
 
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
@@ -166,7 +172,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         clearActionBarTitle();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        FeedbackUtil.setToolbarButtonLongPressToast(searchButton, tabsButton);
+        FeedbackUtil.setToolbarButtonLongPressToast(searchButton, tabsButton, overflowButton);
 
         toolbarHideHandler = new PageToolbarHideHandler(pageFragment, toolbarContainerView, toolbar, tabsButton);
 
@@ -198,56 +204,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        if (!isSearching()) {
-            getMenuInflater().inflate(R.menu.menu_page_actions, menu);
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        super.onPrepareOptionsMenu(menu);
-        if (isSearching()) {
-            return false;
-        }
-
-        toolbarHideHandler.onScrolled(pageFragment.getWebView().getScrollY(), pageFragment.getWebView().getScrollY());
-
-        MenuItem otherLangItem = menu.findItem(R.id.menu_page_other_languages);
-        MenuItem shareItem = menu.findItem(R.id.menu_page_share);
-        MenuItem addToListItem = menu.findItem(R.id.menu_page_add_to_list);
-        MenuItem removeFromListsItem = menu.findItem(R.id.menu_page_remove_from_list);
-        MenuItem findInPageItem = menu.findItem(R.id.menu_page_find_in_page);
-        MenuItem contentIssues = menu.findItem(R.id.menu_page_content_issues);
-        MenuItem similarTitles = menu.findItem(R.id.menu_page_similar_titles);
-        MenuItem themeChooserItem = menu.findItem(R.id.menu_page_font_and_theme);
-
-        if (pageFragment.isLoading() || pageFragment.getErrorState()) {
-            otherLangItem.setEnabled(false);
-            shareItem.setEnabled(false);
-            addToListItem.setEnabled(false);
-            findInPageItem.setEnabled(false);
-            contentIssues.setEnabled(false);
-            similarTitles.setEnabled(false);
-            themeChooserItem.setEnabled(false);
-            removeFromListsItem.setEnabled(false);
-        } else {
-            // Only display "Read in other languages" if the article is in other languages
-            otherLangItem.setVisible(pageFragment.getPage() != null && pageFragment.getPage().getPageProperties().getLanguageCount() != 0);
-            otherLangItem.setEnabled(true);
-            shareItem.setEnabled(pageFragment.getPage() != null);
-            addToListItem.setEnabled(pageFragment.getPage() != null);
-            removeFromListsItem.setVisible(pageFragment.isPresentInOfflineLists());
-            removeFromListsItem.setEnabled(pageFragment.isPresentInOfflineLists());
-            findInPageItem.setEnabled(true);
-            themeChooserItem.setEnabled(true);
-            updateMenuPageInfo(menu);
-        }
-        return true;
-    }
 
     @OnClick(R.id.page_toolbar_button_search)
     public void onSearchButtonClicked() {
@@ -260,9 +216,15 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         startActivityForResult(TabActivity.newIntent(this), Constants.ACTIVITY_REQUEST_BROWSE_TABS);
     }
 
+    @OnClick(R.id.page_toolbar_button_show_overflow_menu)
+    public void onShowOverflowMenuButtonClicked() {
+        showOverflowMenu(toolbar.findViewById(R.id.page_toolbar_button_show_overflow_menu));
+    }
+
     public void animateTabsButton() {
         Animation anim = AnimationUtils.loadAnimation(this, R.anim.tab_list_zoom_enter);
         tabsButton.startAnimation(anim);
+        tabsButton.setTabSize(WikipediaApp.getInstance().getTabCount());
     }
 
     private void finishActionMode() {
@@ -740,6 +702,37 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 || getIntent().getAction().equals(ACTION_RESUME_READING);
     }
 
+    private void showOverflowMenu(@NonNull View anchor) {
+        PageActionOverflowView overflowView = new PageActionOverflowView(this);
+        overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab());
+    }
+
+    private class OverflowCallback implements PageActionOverflowView.Callback {
+        @Override
+        public void forwardClick() {
+            pageFragment.goForward();
+        }
+        @Override
+        public void backwardClick() {
+            onBackPressed();
+        }
+        @Override
+        public void openNewTabClick() {
+            // TODO: add funnel?
+            loadMainPageInForegroundTab();
+        }
+        @Override
+        public void readingListsClick() {
+            startActivity(MainActivity.newIntent(PageActivity.this)
+                    .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.READING_LISTS.code()));
+        }
+        @Override
+        public void recentlyViewedClick() {
+            startActivity(MainActivity.newIntent(PageActivity.this)
+                    .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.HISTORY.code()));
+        }
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -900,6 +893,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
     }
 
+    // TODO: where should handle these information?
     private void updateMenuPageInfo(@NonNull Menu menu) {
         MenuItem contentIssues = menu.findItem(R.id.menu_page_content_issues);
         MenuItem similarTitles = menu.findItem(R.id.menu_page_similar_titles);
@@ -920,7 +914,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 .findFragmentById(R.id.activity_page_container);
     }
 
-    @NonNull public TabLayout getTabLayout() {
+    @NonNull public ViewGroup getTabLayout() {
         return pageFragment.getTabLayout();
     }
 

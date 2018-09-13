@@ -34,6 +34,7 @@ import org.wikipedia.edit.EditHandler;
 import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
+import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.settings.Prefs;
@@ -83,12 +84,7 @@ public class PageFragmentLoadState {
 
     private boolean loading;
 
-    /**
-     * List of lightweight history items to serve as the backstack for this fragment.
-     * Since the list consists of Parcelable objects, it can be saved and restored from the
-     * savedInstanceState of the fragment.
-     */
-    @NonNull private List<PageBackStackItem> backStack = new ArrayList<>();
+    @NonNull private Tab currentTab = new Tab();
 
     @NonNull private final SequenceNumber sequenceNumber = new SequenceNumber();
 
@@ -120,7 +116,7 @@ public class PageFragmentLoadState {
                       @NonNull ObservableWebView webView,
                       @NonNull CommunicationBridge bridge,
                       @NonNull LeadImagesHandler leadImagesHandler,
-                      @NonNull List<PageBackStackItem> backStack) {
+                      @NonNull Tab tab) {
         this.model = model;
         this.fragment = fragment;
         this.refreshView = refreshView;
@@ -130,14 +126,14 @@ public class PageFragmentLoadState {
 
         setUpBridgeListeners();
 
-        this.backStack = backStack;
+        this.currentTab = tab;
     }
 
     public void load(boolean pushBackStack, int stagedScrollY) {
         if (pushBackStack) {
             // update the topmost entry in the backstack, before we start overwriting things.
             updateCurrentBackStackItem();
-            pushBackStack();
+            currentTab.pushBackStackItem(new PageBackStackItem(model.getTitleOriginal(), model.getCurEntry()));
         }
 
         loading = true;
@@ -162,10 +158,10 @@ public class PageFragmentLoadState {
     }
 
     public void loadFromBackStack() {
-        if (backStack.isEmpty()) {
+        if (currentTab.getBackStack().isEmpty()) {
             return;
         }
-        PageBackStackItem item = backStack.get(backStack.size() - 1);
+        PageBackStackItem item = currentTab.getBackStack().get(currentTab.getBackStackPosition());
         // display the page based on the backstack item, stage the scrollY position based on
         // the backstack item.
         fragment.loadPage(item.getTitle(), item.getHistoryEntry(), false, item.getScrollY());
@@ -173,10 +169,10 @@ public class PageFragmentLoadState {
     }
 
     public void updateCurrentBackStackItem() {
-        if (backStack.isEmpty()) {
+        if (currentTab.getBackStack().isEmpty()) {
             return;
         }
-        PageBackStackItem item = backStack.get(backStack.size() - 1);
+        PageBackStackItem item = currentTab.getBackStack().get(currentTab.getBackStackPosition());
         item.setScrollY(webView.getScrollY());
         if (model.getTitle() != null) {
             // Preserve metadata of the current PageTitle into our backstack, so that
@@ -187,25 +183,32 @@ public class PageFragmentLoadState {
         }
     }
 
-    public void setBackStack(@NonNull List<PageBackStackItem> backStack) {
-        this.backStack = backStack;
+    public void setTab(@NonNull Tab tab) {
+        this.currentTab = tab;
     }
 
-    public boolean popBackStack() {
-        if (!backStack.isEmpty()) {
-            backStack.remove(backStack.size() - 1);
+    public boolean goBack() {
+        if (currentTab.canGoBack()) {
+            currentTab.moveBack();
+            if (!backStackEmpty()) {
+                loadFromBackStack();
+                return true;
+            }
         }
+        return false;
+    }
 
-        if (!backStack.isEmpty()) {
+    public boolean goForward() {
+        if (currentTab.canGoForward()) {
+            currentTab.moveForward();
             loadFromBackStack();
             return true;
         }
-
         return false;
     }
 
     public boolean backStackEmpty() {
-        return backStack.isEmpty();
+        return currentTab.getBackStack().isEmpty();
     }
 
     public void setEditHandler(EditHandler editHandler) {
@@ -228,7 +231,7 @@ public class PageFragmentLoadState {
     }
 
     public boolean isFirstPage() {
-        return backStack.size() <= 1 && !webView.canGoBack();
+        return currentTab.getBackStack().size() <= 1 && !webView.canGoBack();
     }
 
     @VisibleForTesting
@@ -369,14 +372,6 @@ public class PageFragmentLoadState {
     private void updateThumbnail(String thumbUrl) {
         model.getTitle().setThumbUrl(thumbUrl);
         model.getTitleOriginal().setThumbUrl(thumbUrl);
-    }
-
-    /**
-     * Push the current page title onto the backstack.
-     */
-    private void pushBackStack() {
-        PageBackStackItem item = new PageBackStackItem(model.getTitleOriginal(), model.getCurEntry());
-        backStack.add(item);
     }
 
     private void layoutLeadImage(@Nullable Runnable runnable) {

@@ -234,6 +234,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             openSearchFragment(SearchInvokeSource.WIDGET, null);
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)) {
             goToTab(NavTab.READING_LISTS);
+        } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)) {
+            goToTab(NavTab.EXPLORE);
         } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN)) {
             startActivity(PageActivity.newIntent(requireContext()));
             requireActivity().finish();

@@ -7,7 +7,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.View;
@@ -17,7 +16,7 @@ import android.widget.ImageView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.views.TabCountsView;
 
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
@@ -30,14 +29,14 @@ public class PageToolbarHideHandler extends ViewHideHandler {
     @NonNull private PageFragment pageFragment;
     @NonNull private Toolbar toolbar;
     @NonNull private Drawable toolbarBackground;
-    @NonNull private ImageView tabsButton;
+    @NonNull private TabCountsView tabsButton;
 
     @ColorInt private int themedIconColor;
     @ColorInt private int baseStatusBarColor;
     @ColorInt private int themedStatusBarColor;
 
     public PageToolbarHideHandler(@NonNull PageFragment pageFragment, @NonNull View hideableView,
-                                  @NonNull Toolbar toolbar, @NonNull ImageView tabsButton) {
+                                  @NonNull Toolbar toolbar, @NonNull TabCountsView tabsButton) {
         super(hideableView, null, Gravity.TOP);
         this.pageFragment = pageFragment;
         this.toolbar = toolbar;
@@ -71,8 +70,7 @@ public class PageToolbarHideHandler extends ViewHideHandler {
 
     @Override
     protected void onScrolled(int oldScrollY, int scrollY) {
-        tabsButton.setImageDrawable(ContextCompat.getDrawable(pageFragment.requireContext(),
-                ResourceUtil.getTabListIcon(WikipediaApp.getInstance().getTabCount())));
+        tabsButton.setTabSize(WikipediaApp.getInstance().getTabCount());
 
         int opacity = calculateScrollOpacity(scrollY);
         toolbarBackground.setAlpha(opacity);
@@ -104,6 +102,9 @@ public class PageToolbarHideHandler extends ViewHideHandler {
                 if (icon != null) {
                     icon.setColorFilter(iconColor, PorterDuff.Mode.SRC_IN);
                 }
+            } else if (childView instanceof TabCountsView) {
+                ((TabCountsView) childView).setTextColor(iconColor);
+                childView.getBackground().setColorFilter(iconColor, PorterDuff.Mode.SRC_IN);
             } else if (childView instanceof ViewGroup) {
                 updateChildIconTint((ViewGroup) childView, opacity);
             }

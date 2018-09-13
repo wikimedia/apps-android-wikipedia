@@ -52,7 +52,7 @@
             android:textColor="?attr/material_theme_de_emphasised_color"
             android:textSize="12sp" />
 
-        <TextView
+        <org.wikipedia.views.TabCountsView
             android:id="@+id/floating_queue_counts"
             android:layout_width="18dp"
             android:layout_height="18dp"

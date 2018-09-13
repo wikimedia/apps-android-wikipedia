@@ -1,6 +1,5 @@
 package org.wikipedia.page;
 
-import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
@@ -243,8 +242,8 @@ class ToCHandler {
     }
 
     private void showTocOnboarding() {
-        TabLayout pageActionTabLayout = fragment.getActivity().findViewById(R.id.page_actions_tab_layout);
-        TabLayout.Tab tocTab = pageActionTabLayout.getTabAt(PageActionTab.VIEW_TOC.code());
+        PageActionTabLayout pageActionTabLayout = fragment.getActivity().findViewById(R.id.page_actions_tab_layout);
+        View tocTab = pageActionTabLayout.getChildAt(PageActionTab.VIEW_TOC.code());
         try {
             Field f = tocTab.getClass().getDeclaredField("mView");
             f.setAccessible(true);

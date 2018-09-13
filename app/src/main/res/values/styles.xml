@@ -104,6 +104,12 @@
         <item name="colorControlHighlight">?android:attr/textColorTertiary</item>
     </style>
 
+    <style name="TabToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="colorControlActivated">?android:attr/textColorTertiary</item>
+        <item name="colorControlHighlight">?android:attr/textColorTertiary</item>
+    </style>
+
     <style name="ToolbarStyle" parent="@style/Widget.AppCompat.ActionBar">
         <item name="background">?attr/main_toolbar_color</item>
         <item name="navigationIcon">?attr/homeAsUpIndicator</item>

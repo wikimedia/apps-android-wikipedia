@@ -76,6 +76,7 @@
         <item name="randomizer_dice_icon_color">@android:color/white</item>
         <item name="shadow_background_drawable">@android:drawable/dialog_holo_light_frame</item>
         <item name="tab_counts_shape_border">@drawable/tab_counts_shape_border_light</item>
+        <item name="page_tab_counts_shape_border">@drawable/page_tab_counts_shape_border_light</item>
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base100</item>

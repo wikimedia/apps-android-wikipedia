@@ -13,7 +13,6 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -81,7 +80,6 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
-import org.wikipedia.views.ConfigurableTabLayout;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 import org.wikipedia.views.WikiDrawerLayout;
@@ -160,7 +158,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private SwipeRefreshLayoutWithScroll refreshView;
     private WikiPageErrorView errorView;
     private WikiDrawerLayout tocDrawer;
-    private ConfigurableTabLayout tabLayout;
+    private PageActionTabLayout tabLayout;
     private ToCHandler tocHandler;
 
     private CommunicationBridge bridge;
@@ -177,27 +175,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     @NonNull
     private final SwipeRefreshLayout.OnRefreshListener pageRefreshListener = this::refreshPage;
-
-    @NonNull
-    private final TabLayout.OnTabSelectedListener pageActionTabListener
-            = new TabLayout.OnTabSelectedListener() {
-        @Override
-        public void onTabSelected(TabLayout.Tab tab) {
-            if (tabLayout.isEnabled(tab)) {
-                PageActionTab.of(tab.getPosition()).select(pageActionTabsCallback);
-            }
-        }
-
-        @Override
-        public void onTabUnselected(TabLayout.Tab tab) {
-
-        }
-
-        @Override
-        public void onTabReselected(TabLayout.Tab tab) {
-            onTabSelected(tab);
-        }
-    };
 
     private PageActionTab.Callback pageActionTabsCallback = new PageActionTab.Callback() {
         @Override
@@ -239,6 +216,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onFindInPageTabSelected() {
             showFindInPage();
+        }
+
+        @Override
+        public void onFontAndThemeTabSelected() {
+            showThemeChooser();
         }
 
         @Override
@@ -328,7 +310,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         refreshView.setOnRefreshListener(pageRefreshListener);
 
         tabLayout = rootView.findViewById(R.id.page_actions_tab_layout);
-        tabLayout.addOnTabSelectedListener(pageActionTabListener);
+        tabLayout.setPageActionTabsCallback(pageActionTabsCallback);
 
         errorView = rootView.findViewById(R.id.page_error);
 
@@ -421,7 +403,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             new LongPressHandler(webView, HistoryEntry.SOURCE_INTERNAL_LINK, contextMenuListener);
         }
 
-        pageFragmentLoadState.setUp(model, this, refreshView, webView, bridge, leadImagesHandler, getCurrentTab().getBackStack());
+        pageFragmentLoadState.setUp(model, this, refreshView, webView, bridge, leadImagesHandler, getCurrentTab());
 
         if (shouldLoadFromBackstack(getActivity()) || savedInstanceState != null) {
             reloadFromBackstack();
@@ -429,7 +411,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     public void reloadFromBackstack() {
-        pageFragmentLoadState.setBackStack(getCurrentTab().getBackStack());
+        pageFragmentLoadState.setTab(getCurrentTab());
         if (!pageFragmentLoadState.backStackEmpty()) {
             pageFragmentLoadState.loadFromBackStack();
         } else {
@@ -549,7 +531,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             if (updatePrevBackStackItem) {
                 pageFragmentLoadState.updateCurrentBackStackItem();
             }
-            pageFragmentLoadState.setBackStack(tab.getBackStack());
+            pageFragmentLoadState.setTab(tab);
             pageFragmentLoadState.loadFromBackStack();
         }
     }
@@ -776,7 +758,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    @NonNull public TabLayout getTabLayout() {
+    @NonNull public ViewGroup getTabLayout() {
         return tabLayout;
     }
 
@@ -976,9 +958,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     private void setBookmarkIconForPageSavedState(boolean pageSaved) {
-        TabLayout.Tab bookmarkTab = tabLayout.getTabAt(PageActionTab.ADD_TO_READING_LIST.code());
+        View bookmarkTab = tabLayout.getChildAt(PageActionTab.ADD_TO_READING_LIST.code());
         if (bookmarkTab != null) {
-            bookmarkTab.setIcon(pageSaved ? R.drawable.ic_bookmark_white_24dp
+            ((ImageView) bookmarkTab).setImageResource(pageSaved ? R.drawable.ic_bookmark_white_24dp
                     : R.drawable.ic_bookmark_border_white_24dp);
         }
     }
@@ -1009,7 +991,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             boolean isForeground = position == getForegroundTabPosition();
             // if the requested position is at the top, then make its backstack current
             if (isForeground) {
-                pageFragmentLoadState.setBackStack(tab.getBackStack());
+                pageFragmentLoadState.setTab(tab);
             }
             // put this tab in the requested position
             app.getTabList().add(position, tab);
@@ -1164,7 +1146,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (closeFindInPage()) {
             return true;
         }
-        if (pageFragmentLoadState.popBackStack()) {
+        if (pageFragmentLoadState.goBack()) {
             return true;
         }
         if (app.getTabList().size() > 1) {
@@ -1172,6 +1154,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             app.getTabList().remove(app.getTabList().size() - 1);
         }
         return false;
+    }
+
+    public void goForward() {
+        pageFragmentLoadState.goForward();
     }
 
     private void checkAndShowSelectTextOnboarding() {
@@ -1333,7 +1319,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     private void disableActionTabs(@Nullable Throwable caught) {
         boolean offline = caught != null && isOffline(caught);
-        for (int i = 0; i < tabLayout.getTabCount(); i++) {
+        for (int i = 0; i < tabLayout.getChildCount(); i++) {
             if (!(offline && PageActionTab.of(i).equals(PageActionTab.ADD_TO_READING_LIST))) {
                 tabLayout.disableTab(i);
             }
