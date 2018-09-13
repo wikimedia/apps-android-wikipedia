@@ -25,7 +25,6 @@ import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.mwapi.MwException;
-import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
@@ -37,7 +36,6 @@ import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.pageimages.PageImage;
-import org.wikipedia.pageimages.PageImagesClient;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.Prefs;
@@ -53,11 +51,11 @@ import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
+import io.reactivex.Completable;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.CacheControl;
 import okhttp3.Protocol;
 import okhttp3.Request;
@@ -588,26 +586,11 @@ public class PageFragmentLoadState {
                 new HistoryEntry(model.getTitle(), curEntry.getTimestamp(), curEntry.getSource()));
         model.getCurEntry().setReferrer(curEntry.getReferrer());
 
-        // Fetch larger thumbnail URL from the network, and save it to our DB.
-        new PageImagesClient().request(model.getTitle().getWikiSite(), Collections.singletonList(model.getTitle()),
-                new PageImagesClient.Callback() {
-                    @Override public void success(@NonNull Call<MwQueryResponse> call,
-                                                  @NonNull Map<PageTitle, PageImage> results) {
-                        if (results.containsKey(model.getTitle())) {
-                            PageImage pageImage = results.get(model.getTitle());
-                            app.getDatabaseClient(PageImage.class)
-                                    .upsert(pageImage, PageImageHistoryContract.Image.SELECTION);
-                            updateThumbnail(pageImage.getImageName());
-                            // TODO: remove after the restbase endpoint supports ZH variants
-                            model.getTitle().setConvertedText(pageImage.getTitle().getConvertedText());
-                            model.getTitleOriginal().setConvertedText(pageImage.getTitle().getConvertedText());
-                        }
-                    }
-                    @Override public void failure(@NonNull Call<MwQueryResponse> call,
-                                                  @NonNull Throwable caught) {
-                        L.w(caught);
-                    }
-                });
+        // Save the thumbnail URL to the DB
+        PageImage pageImage = new PageImage(model.getTitle(), pageLead.getThumbUrl());
+        Completable.fromAction(() -> app.getDatabaseClient(PageImage.class).upsert(pageImage, PageImageHistoryContract.Image.SELECTION)).subscribeOn(Schedulers.io()).subscribe();
+
+        updateThumbnail(pageImage.getImageName());
     }
 
     private void pageLoadRemainingSections(final int startSequenceNum) {

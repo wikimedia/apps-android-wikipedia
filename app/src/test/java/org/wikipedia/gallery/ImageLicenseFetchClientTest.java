@@ -1,94 +1,81 @@
 package org.wikipedia.gallery;
 
-import android.support.annotation.NonNull;
-
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
-import org.mockito.ArgumentCaptor;
-import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
-import org.wikipedia.dataclient.mwapi.MwQueryResponse;
-import org.wikipedia.dataclient.okhttp.HttpStatusException;
+import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.test.MockWebServerTest;
+import org.wikipedia.test.MockRetrofitTest;
 
-import retrofit2.Call;
+import io.reactivex.observers.TestObserver;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.eq;
-import static org.mockito.Matchers.isA;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
-
-public class ImageLicenseFetchClientTest extends MockWebServerTest{
+public class ImageLicenseFetchClientTest extends MockRetrofitTest {
     private static final WikiSite WIKISITE_TEST = WikiSite.forLanguageCode("test");
     private static final PageTitle PAGE_TITLE_MARK_SELBY =
             new PageTitle("File:Mark_Selby_at_Snooker_German_Masters_(DerHexer)_2015-02-04_02.jpg",
                           WIKISITE_TEST);
 
-    @NonNull private final ImageLicenseFetchClient subject = new ImageLicenseFetchClient();
-
     @Test public void testRequestSuccess() throws Throwable {
         enqueueFromFile("image_license.json");
+        TestObserver<ImageLicense> observer = new TestObserver<>();
 
-        ImageLicenseFetchClient.Callback cb = mock(ImageLicenseFetchClient.Callback.class);
-        Call<MwQueryResponse> call = request(cb);
+        getApiService().getImageExtMetadata(PAGE_TITLE_MARK_SELBY.getPrefixedText())
+                .map(response -> {
+                    if (response.success()) {
+                        // noinspection ConstantConditions
+                        MwQueryPage page = response.query().pages().get(0);
+                        return page.imageInfo() != null && page.imageInfo().getMetadata() != null
+                                ? new ImageLicense(page.imageInfo().getMetadata())
+                                : new ImageLicense();
 
-        server().takeRequest();
-        ArgumentCaptor<ImageLicense> captor = ArgumentCaptor.forClass(ImageLicense.class);
-        verify(cb).success(eq(call), captor.capture());
+                    }
+                    throw new MwException(response.getError());
+                })
+                .subscribe(observer);
 
-        ImageLicense result = captor.getValue();
-
-        assertThat(result.getLicenseName(), is("cc-by-sa-4.0"));
-        assertThat(result.getLicenseShortName(), is("CC BY-SA 4.0"));
-        assertThat(result.getLicenseUrl(), is("http://creativecommons.org/licenses/by-sa/4.0"));
+        observer.assertComplete().assertNoErrors()
+                .assertValue(result -> result.getLicenseName().equals("cc-by-sa-4.0")
+                        && result.getLicenseShortName().equals("CC BY-SA 4.0")
+                        && result.getLicenseUrl().equals("http://creativecommons.org/licenses/by-sa/4.0"));
     }
 
     @Test public void testRequestResponseApiError() throws Throwable {
         enqueueFromFile("api_error.json");
+        TestObserver<ImageLicense> observer = new TestObserver<>();
 
-        ImageLicenseFetchClient.Callback cb = mock(ImageLicenseFetchClient.Callback.class);
-        Call<MwQueryResponse> call = request(cb);
+        getApiService().getImageExtMetadata(PAGE_TITLE_MARK_SELBY.getPrefixedText())
+                .map(response -> {
+                    if (!response.success()) {
+                        throw new MwException(response.getError());
+                    }
+                    return new ImageLicense();
+                })
+                .subscribe(observer);
 
-        server().takeRequest();
-        assertCallbackFailure(call, cb, MwException.class);
+        observer.assertError(Exception.class);
     }
 
     @Test public void testRequestResponseFailure() throws Throwable {
         enqueue404();
+        TestObserver<ImageLicense> observer = new TestObserver<>();
 
-        ImageLicenseFetchClient.Callback cb = mock(ImageLicenseFetchClient.Callback.class);
-        Call<MwQueryResponse> call = request(cb);
+        getApiService().getImageExtMetadata(PAGE_TITLE_MARK_SELBY.getPrefixedText())
+                .map(response -> new ImageLicense())
+                .subscribe(observer);
 
-        server().takeRequest();
-        assertCallbackFailure(call, cb, HttpStatusException.class);
+        observer.assertError(Exception.class);
     }
 
     @Test public void testRequestResponseMalformed() throws Throwable {
         server().enqueue("'");
+        TestObserver<ImageLicense> observer = new TestObserver<>();
 
-        ImageLicenseFetchClient.Callback cb = mock(ImageLicenseFetchClient.Callback.class);
-        Call<MwQueryResponse> call = request(cb);
+        getApiService().getImageExtMetadata(PAGE_TITLE_MARK_SELBY.getPrefixedText())
+                .map(response -> new ImageLicense())
+                .subscribe(observer);
 
-        server().takeRequest();
-        assertCallbackFailure(call, cb, MalformedJsonException.class);
-    }
-
-    private void assertCallbackFailure(@NonNull Call<MwQueryResponse> call,
-                                       @NonNull ImageLicenseFetchClient.Callback cb,
-                                       @NonNull Class<? extends Throwable> throwable) {
-        //noinspection unchecked
-        verify(cb, never()).success(any(Call.class), any(ImageLicense.class));
-        verify(cb).failure(eq(call), isA(throwable));
-    }
-
-    private Call<MwQueryResponse> request(@NonNull ImageLicenseFetchClient.Callback cb) {
-        return subject.request(service(Service.class), PAGE_TITLE_MARK_SELBY, cb);
+        observer.assertError(MalformedJsonException.class);
     }
 }

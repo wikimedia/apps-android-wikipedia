@@ -339,6 +339,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
         //uninitialize the bridge, so that no further JS events can have any effect.
         bridge.cleanup();
+        shareHandler.dispose();
         webView.clearAllListeners();
         ((ViewGroup) webView.getParent()).removeView(webView);
         webView = null;
