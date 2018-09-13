@@ -82,7 +82,6 @@ import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
-import org.wikipedia.views.WikiDrawerLayout;
 import org.wikipedia.views.WikiPageErrorView;
 
 import java.util.Date;
@@ -125,7 +124,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         void onPageAddToReadingList(@NonNull PageTitle title,
                                     @NonNull AddToReadingListDialog.InvokeSource source);
         void onPageRemoveFromReadingLists(@NonNull PageTitle title);
-        void onPagePopFragment();
         void onPageLoadError(@NonNull PageTitle title);
         void onPageLoadErrorBackPressed();
         void onPageHideAllContent();
@@ -133,10 +131,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         void onPageSetToolbarForceNoFace(boolean force);
         void onPageSetToolbarElevationEnabled(boolean enabled);
     }
-
-    public static final int TOC_ACTION_SHOW = 0;
-    public static final int TOC_ACTION_HIDE = 1;
-    public static final int TOC_ACTION_TOGGLE = 2;
 
     private boolean pageRefreshed;
     private boolean errorState = false;
@@ -157,7 +151,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private CoordinatorLayout containerView;
     private SwipeRefreshLayoutWithScroll refreshView;
     private WikiPageErrorView errorView;
-    private WikiDrawerLayout tocDrawer;
     private PageActionTabLayout tabLayout;
     private ToCHandler tocHandler;
 
@@ -225,7 +218,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void onViewToCTabSelected() {
-            toggleToC(TOC_ACTION_TOGGLE);
+            tocHandler.show();
         }
 
         @Override
@@ -297,9 +290,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         webView = rootView.findViewById(R.id.page_web_view);
         initWebViewListeners();
-
-        tocDrawer = rootView.findViewById(R.id.page_toc_drawer);
-        tocDrawer.setDragEdgeWidth(getResources().getDimensionPixelSize(R.dimen.drawer_drag_margin));
 
         containerView = rootView.findViewById(R.id.page_contents_container);
         refreshView = rootView.findViewById(R.id.page_refresh_container);
@@ -388,7 +378,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         editHandler = new EditHandler(this, bridge);
         pageFragmentLoadState.setEditHandler(editHandler);
 
-        tocHandler = new ToCHandler(this, tocDrawer, bridge);
+        tocHandler = new ToCHandler(this, getActivity().getWindow().getDecorView().findViewById(R.id.toc_container),
+                getActivity().getWindow().getDecorView().findViewById(R.id.page_scroller_button), bridge);
 
         // TODO: initialize View references in onCreateView().
         leadImagesHandler = new LeadImagesHandler(this, bridge, webView, pageHeaderView);
@@ -864,8 +855,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (!isAdded()) {
             return;
         }
-        // in any case, make sure the TOC drawer is closed
-        tocDrawer.closeDrawers();
         updateProgressBar(false, true, 0);
         refreshView.setRefreshing(false);
 
@@ -910,30 +899,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         model.setCurEntry(new HistoryEntry(model.getTitle(), HistoryEntry.SOURCE_HISTORY));
         loadPage(model.getTitle(), model.getCurEntry(), false, stagedScrollY, true);
-    }
-
-    public void toggleToC(int action) {
-        // tocHandler could still be null while the page is loading
-        if (tocHandler == null) {
-            return;
-        }
-        switch (action) {
-            case TOC_ACTION_SHOW:
-                tocHandler.show();
-                break;
-            case TOC_ACTION_HIDE:
-                tocHandler.hide();
-                break;
-            case TOC_ACTION_TOGGLE:
-                if (tocHandler.isVisible()) {
-                    tocHandler.hide();
-                } else {
-                    tocHandler.show();
-                }
-                break;
-            default:
-                throw new RuntimeException("Unknown action!");
-        }
     }
 
     PageInfo getPageInfo() {

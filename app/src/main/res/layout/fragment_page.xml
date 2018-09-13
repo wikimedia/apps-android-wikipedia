@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<org.wikipedia.views.WikiDrawerLayout
+<org.wikipedia.views.SwipeRefreshLayoutWithScroll
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/page_toc_drawer"
+    android:id="@+id/page_refresh_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/paper_color">
 
-    <org.wikipedia.views.SwipeRefreshLayoutWithScroll
-        android:id="@+id/page_refresh_container"
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/page_contents_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <android.support.design.widget.CoordinatorLayout
-            android:id="@+id/page_contents_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
             <org.wikipedia.views.ObservableWebView
                 android:id="@+id/page_web_view"
@@ -73,10 +67,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
-        </android.support.design.widget.CoordinatorLayout>
+    </android.support.design.widget.CoordinatorLayout>
 
-    </org.wikipedia.views.SwipeRefreshLayoutWithScroll>
-
-    <include layout="@layout/fragment_page_toc"/>
-
-</org.wikipedia.views.WikiDrawerLayout>
+</org.wikipedia.views.SwipeRefreshLayoutWithScroll>

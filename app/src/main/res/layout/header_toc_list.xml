@@ -9,6 +9,5 @@
     android:fontFamily="serif"
     android:padding="16dp"
     android:textStyle="bold"
-    android:background="?attr/toc_item_background"
     tools:text="Sample title"/>
 

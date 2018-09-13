@@ -289,6 +289,7 @@
     <string name="tool_tip_share">After highlighting an interesting fact, try sharing it on your favorite networks!</string>
     <string name="page_view_in_browser">View page in browser</string>
     <string name="tool_tip_toc_button">See the table of contents anytime by tapping this button, or sliding from the right edge of the screen.</string>
+    <string name="tool_tip_toc_button_new">Description of the function of the scrollable button that shows the Table of Contents, and allows the user to quickly swipe through the sections of the current article.</string>
     <string name="tool_tip_lang_button">You can now search and read in multiple Wikipedia languages in the app.\n\n\nTap on the icon to add more languages.</string>
     <string name="error_response_malformed">Response from the server was not formatted correctly.</string>
     <string name="error_unknown">An unknown error occurred.</string>

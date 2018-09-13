@@ -25,6 +25,7 @@ public class ObservableWebView extends WebView {
     private List<OnUpOrCancelMotionEventListener> onUpOrCancelMotionEventListeners;
     private List<OnContentHeightChangedListener> onContentHeightChangedListeners;
     private OnFastScrollListener onFastScrollListener;
+    private OnEdgeSwipeListener onEdgeSwipeListener;
 
     private int contentHeight = 0;
     private float touchStartX;
@@ -33,6 +34,8 @@ public class ObservableWebView extends WebView {
 
     private long lastScrollTime;
     private int totalAmountScrolled;
+    private boolean edgeSwipePending;
+
 
     /**
     * Threshold (in pixels) of continuous scrolling, to be considered "fast" scrolling.
@@ -44,6 +47,8 @@ public class ObservableWebView extends WebView {
     * Otherwise it's probably a programmatic scroll, which we won't count.
     */
     private static final int MAX_HUMAN_SCROLL = (int) (500 * DimenUtil.getDensityScalar());
+
+    private static final int EDGE_SWIPE_THRESHOLD = (int) (16 * DimenUtil.getDensityScalar());
 
     /**
      * Maximum amount of time that needs to elapse before the previous scroll amount
@@ -75,6 +80,10 @@ public class ObservableWebView extends WebView {
 
     public void setOnFastScrollListener(OnFastScrollListener onFastScrollListener) {
         this.onFastScrollListener = onFastScrollListener;
+    }
+
+    public void setOnEdgeSwipeListener(OnEdgeSwipeListener onEdgeSwipeListener) {
+        this.onEdgeSwipeListener = onEdgeSwipeListener;
     }
 
     public void clearAllListeners() {
@@ -110,6 +119,10 @@ public class ObservableWebView extends WebView {
 
     public interface OnFastScrollListener {
         void onFastScroll();
+    }
+
+    public interface OnEdgeSwipeListener {
+        void onEdgeSwipe(boolean direction);
     }
 
     public void copyToClipboard() {
@@ -176,6 +189,23 @@ public class ObservableWebView extends WebView {
                 }
                 touchStartX = event.getX();
                 touchStartY = event.getY();
+                edgeSwipePending = (touchStartX > (getWidth() - EDGE_SWIPE_THRESHOLD))
+                        || (touchStartX < EDGE_SWIPE_THRESHOLD);
+                break;
+            case MotionEvent.ACTION_MOVE:
+                if (edgeSwipePending) {
+                    if (event.getX() - touchStartX > EDGE_SWIPE_THRESHOLD) {
+                        edgeSwipePending = false;
+                        if (onEdgeSwipeListener != null) {
+                            onEdgeSwipeListener.onEdgeSwipe(true);
+                        }
+                    } else if (touchStartX - event.getX() > EDGE_SWIPE_THRESHOLD) {
+                        edgeSwipePending = false;
+                        if (onEdgeSwipeListener != null) {
+                            onEdgeSwipeListener.onEdgeSwipe(false);
+                        }
+                    }
+                }
                 break;
             case MotionEvent.ACTION_UP:
                 if (Math.abs(event.getX() - touchStartX) <= touchSlop
@@ -192,7 +222,6 @@ public class ObservableWebView extends WebView {
                 }
                 break;
             default:
-                // Do nothing for all the other things
                 break;
         }
         return super.onTouchEvent(event);
