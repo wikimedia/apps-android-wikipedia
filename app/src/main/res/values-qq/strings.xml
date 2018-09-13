@@ -725,4 +725,8 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Description of the dialog that prompts to the users about removing a Chinese variant from the app languages.</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Affirmative answer to open the Wikipedia languages page to manage the existing languages that have been set up.</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Negative answer to keep the existing app languages settings.</string>
+  <string name="main_drawer_open">Main navigation drawer label for the content description of the open drawable resource.</string>
+  <string name="main_drawer_close">Main navigation drawer label for the content description of the close drawable resource.</string>
+  <string name="main_drawer_help">Main navigation drawer menu label for accessing the app FAQ.</string>
+  <string name="main_drawer_login">Main navigation drawer menu label for logging in or creating an account.</string>
 </resources>

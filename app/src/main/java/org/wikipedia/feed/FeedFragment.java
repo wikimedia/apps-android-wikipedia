@@ -20,7 +20,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.BackPressedHandler;
-import org.wikipedia.BuildConfig;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -42,10 +41,7 @@ import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
-import org.wikipedia.notifications.NotificationActivity;
 import org.wikipedia.random.RandomActivity;
-import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
-import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
@@ -55,7 +51,6 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.UriUtil;
-import org.wikipedia.views.ExploreOverflowView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,11 +78,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     private FeedFunnel funnel;
     private final FeedAdapter.Callback feedCallback = new FeedCallback();
     private FeedScrollListener feedScrollListener = new FeedScrollListener();
-    private OverflowCallback overflowCallback = new OverflowCallback();
     private boolean searchIconVisible;
 
     public interface Callback {
-        void onFeedTabListRequested();
         void onFeedSearchRequested();
         void onFeedVoiceSearchRequested();
         void onFeedSelectPage(HistoryEntry entry);
@@ -100,7 +93,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         void onFeedDownloadImage(FeaturedImage image);
         void onFeaturedImageSelected(FeaturedImageCard card);
         void onLoginRequested();
-        @NonNull View getOverflowMenuAnchor();
         void updateToolbarElevation(boolean elevate);
     }
 
@@ -284,13 +276,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                 if (getCallback() != null) {
                     getCallback().onFeedSearchRequested();
                 }
-                return true;
-            case R.id.menu_overflow_button:
-                Callback callback = getCallback();
-                if (callback == null) {
-                    return false;
-                }
-                showOverflowMenu(callback.getOverflowMenuAnchor());
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -564,7 +549,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    private void showConfigureActivity(int invokeSource) {
+    public void showConfigureActivity(int invokeSource) {
         startActivityForResult(ConfigureActivity.newIntent(requireActivity(), invokeSource),
                 Constants.ACTIVITY_REQUEST_FEED_CONFIGURE);
     }
@@ -572,55 +557,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     private void showLanguagesActivity(@NonNull String invokeSource) {
         Intent intent = WikipediaLanguagesActivity.newIntent(requireActivity(), invokeSource);
         startActivityForResult(intent, ACTIVITY_REQUEST_ADD_A_LANGUAGE);
-    }
-
-    private void showOverflowMenu(@NonNull View anchor) {
-        ExploreOverflowView overflowView = new ExploreOverflowView(requireContext());
-        overflowView.show(anchor, overflowCallback);
-    }
-
-    private class OverflowCallback implements ExploreOverflowView.Callback {
-        @Override
-        public void loginClick() {
-            if (getCallback() != null) {
-                getCallback().onLoginRequested();
-            }
-        }
-
-        @Override
-        public void settingsClick() {
-            startActivityForResult(SettingsActivity.newIntent(requireActivity()), ACTIVITY_REQUEST_SETTINGS);
-        }
-
-        @Override
-        public void donateClick() {
-            UriUtil.visitInExternalBrowser(requireContext(),
-                    Uri.parse(String.format(getString(R.string.donate_url),
-                            BuildConfig.VERSION_NAME,
-                            WikipediaApp.getInstance().language().getSystemLanguageCode())));
-        }
-
-        @Override
-        public void configureCardsClick() {
-            showConfigureActivity(-1);
-        }
-
-        @Override
-        public void logoutClick() {
-            WikipediaApp.getInstance().logOut();
-            FeedbackUtil.showMessage(FeedFragment.this, R.string.toast_logout_complete);
-
-            if (Prefs.isReadingListSyncEnabled() && !ReadingListDbHelper.instance().isEmpty()) {
-                ReadingListSyncBehaviorDialogs.removeExistingListsOnLogoutDialog(requireActivity());
-            }
-            Prefs.setReadingListsLastSyncTime(null);
-            Prefs.setReadingListSyncEnabled(false);
-        }
-
-        @Override
-        public void notificationsClick() {
-            startActivity(NotificationActivity.newIntent(requireActivity()));
-        }
     }
 
     @Nullable
