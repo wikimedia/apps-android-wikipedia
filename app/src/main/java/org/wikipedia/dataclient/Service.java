@@ -390,17 +390,17 @@ public interface Service {
     // ------- User Options -------
 
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=options")
-    @NonNull Call<MwQueryResponse> getUserOptions();
+    @NonNull Observable<MwQueryResponse> getUserOptions();
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=options")
-    @NonNull Call<MwPostResponse> postUserOption(@Field("token") @NonNull String token,
+    @NonNull Observable<MwPostResponse> postUserOption(@Field("token") @NonNull String token,
                                                  @Query("optionname") @NonNull String key,
                                                  @Query("optionvalue") @Nullable String value);
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=options")
-    @NonNull Call<MwPostResponse> deleteUserOption(@Field("token") @NonNull String token,
+    @NonNull Observable<MwPostResponse> deleteUserOption(@Field("token") @NonNull String token,
                                                    @Query("change") @NonNull String key);
 
 

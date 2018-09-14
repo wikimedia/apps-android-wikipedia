@@ -1,5 +1,6 @@
 package org.wikipedia.useroption.dataclient;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
@@ -7,15 +8,13 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwPostResponse;
-import org.wikipedia.dataclient.mwapi.MwQueryResponse;
-import org.wikipedia.useroption.UserOption;
+import org.wikipedia.dataclient.mwapi.UserInfo;
 import org.wikipedia.util.log.L;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
+@SuppressLint("CheckResult")
 public class UserOptionDataClient {
     @NonNull private final WikiSite wiki;
 
@@ -35,80 +34,61 @@ public class UserOptionDataClient {
     public void get(@NonNull final UserInfoCallback callback) {
         // Get a CSRF token, even though we won't use it, to ensure that the user is properly
         // logged in. Otherwise, we might receive user-options for an anonymous IP "user".
-        new CsrfTokenClient(wiki, app().getWikiSite()).request(new CsrfTokenClient.DefaultCallback() {
+        new CsrfTokenClient(wiki, WikipediaApp.getInstance().getWikiSite()).request(new CsrfTokenClient.DefaultCallback() {
             @Override
             public void success(@NonNull String token) {
-                ServiceFactory.get(wiki).getUserOptions().enqueue(new Callback<MwQueryResponse>() {
-                    @Override
-                    public void onResponse(Call<MwQueryResponse> call, Response<MwQueryResponse> response) {
-                        if (response.body() != null && response.body().success()) {
-                            //noinspection ConstantConditions
-                            callback.success(response.body().query().userInfo());
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<MwQueryResponse> call, Throwable t) {
-                        L.e(t);
-                    }
-                });
+                ServiceFactory.get(wiki).getUserOptions()
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(response -> callback.success(response.query().userInfo()),
+                                L::e);
             }
         });
     }
 
-    public void post(@NonNull final UserOption option, @Nullable final UserOptionPostCallback callback) {
-        new CsrfTokenClient(wiki, app().getWikiSite()).request(new CsrfTokenClient.DefaultCallback() {
+    public void post(@NonNull String key, @NonNull String val, @Nullable final UserOptionPostCallback callback) {
+        new CsrfTokenClient(wiki, WikipediaApp.getInstance().getWikiSite()).request(new CsrfTokenClient.DefaultCallback() {
             @Override
             public void success(@NonNull String token) {
-                ServiceFactory.get(wiki).postUserOption(token, option.key(), option.val()).enqueue(new Callback<MwPostResponse>() {
-                    @Override
-                    public void onResponse(Call<MwPostResponse> call, Response<MwPostResponse> response) {
-                        if (response.body() != null && !response.body().success(response.body().getOptions())) {
-                            L.e("Bad response for wiki " + wiki.authority() + " = " + response.body().getOptions());
-                        } else if (callback != null) {
-                            callback.success();
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<MwPostResponse> call, Throwable caught) {
-                        L.e(caught);
-                        if (callback != null) {
-                            callback.failure(caught);
-                        }
-                    }
-                });
+                ServiceFactory.get(wiki).postUserOption(token, key, val)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(response -> {
+                            if (!response.success(response.getOptions())) {
+                                L.e("Bad response for wiki " + wiki.authority() + " = " + response.getOptions());
+                            } else if (callback != null) {
+                                callback.success();
+                            }
+                        }, caught -> {
+                            L.e(caught);
+                            if (callback != null) {
+                                callback.failure(caught);
+                            }
+                        });
             }
         });
     }
 
     public void delete(@NonNull final String key, @Nullable final UserOptionPostCallback callback) {
-        new CsrfTokenClient(wiki, app().getWikiSite()).request(new CsrfTokenClient.DefaultCallback() {
+        new CsrfTokenClient(wiki, WikipediaApp.getInstance().getWikiSite()).request(new CsrfTokenClient.DefaultCallback() {
             @Override
             public void success(@NonNull String token) {
-                ServiceFactory.get(wiki).deleteUserOption(token, key).enqueue(new Callback<MwPostResponse>() {
-                    @Override
-                    public void onResponse(Call<MwPostResponse> call, Response<MwPostResponse> response) {
-                        if (response.body() != null && !response.body().success(response.body().getOptions())) {
-                            L.e("Bad response for wiki " + wiki.authority() + " = " + response.body().getOptions());
-                        } else if (callback != null) {
-                            callback.success();
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<MwPostResponse> call, Throwable caught) {
-                        L.e(caught);
-                        if (callback != null) {
-                            callback.failure(caught);
-                        }
-                    }
-                });
+                ServiceFactory.get(wiki).deleteUserOption(token, key)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(response -> {
+                            if (!response.success(response.getOptions())) {
+                                L.e("Bad response for wiki " + wiki.authority() + " = " + response.getOptions());
+                            } else if (callback != null) {
+                                callback.success();
+                            }
+                        }, caught -> {
+                            L.e(caught);
+                            if (callback != null) {
+                                callback.failure(caught);
+                            }
+                        });
             }
         });
-    }
-
-    private static WikipediaApp app() {
-        return WikipediaApp.getInstance();
     }
 }
