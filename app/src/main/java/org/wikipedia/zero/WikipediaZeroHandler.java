@@ -152,6 +152,7 @@ public class WikipediaZeroHandler {
             ServiceFactory.get(new WikiSite(app.getWikiSite().mobileAuthority())).getZeroConfig(app.getUserAgent())
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
+                    .doFinally(() -> acquiringCarrierMessage = false)
                     .subscribe(config -> {
                         L.i("New Wikipedia Zero config: " + config);
 
@@ -170,8 +171,7 @@ public class WikipediaZeroHandler {
                             notifyEnterZeroNetwork(app, zeroConfig);
                         }
                         Prefs.zeroConfigHashCode(zeroConfig.hashCode());
-                    }, caught -> L.w("Wikipedia Zero eligibility check failed", caught),
-                            () -> acquiringCarrierMessage = false);
+                    }, caught -> L.w("Wikipedia Zero eligibility check failed", caught));
 
             acquiringCarrierMessage = true;
             return true;

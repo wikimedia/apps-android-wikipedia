@@ -75,13 +75,14 @@ public class CaptchaHandler {
             disposables.add(ServiceFactory.get(wiki).getNewCaptcha()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
+                    .doFinally(() -> captchaProgress.setVisibility(View.GONE))
                     .subscribe(response -> {
                         captchaResult = new CaptchaResult(response.captchaId());
                         handleCaptcha(true);
                     }, caught -> {
                         cancelCaptcha();
                         FeedbackUtil.showError(activity, caught);
-                    }, () -> captchaProgress.setVisibility(View.GONE)));
+                    }));
         });
     }
 

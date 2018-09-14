@@ -335,10 +335,10 @@ public class LanguagesListActivity extends BaseActivity {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(SiteMatrix::getSites)
-                .subscribe(sites -> siteInfoList = sites, L::e,
-                        () -> {
-                            progressBar.setVisibility(View.INVISIBLE);
-                            adapter.notifyDataSetChanged();
-                        }));
+                .doFinally(() -> {
+                    progressBar.setVisibility(View.INVISIBLE);
+                    adapter.notifyDataSetChanged();
+                })
+                .subscribe(sites -> siteInfoList = sites, L::e));
     }
 }

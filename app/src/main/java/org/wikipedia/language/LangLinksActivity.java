@@ -222,11 +222,11 @@ public class LangLinksActivity extends BaseActivity {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .map(SiteMatrix::getSites)
-                    .subscribe(sites -> siteInfoList = sites, L::e,
-                            () -> {
-                                langLinksProgress.setVisibility(View.INVISIBLE);
-                                adapter.notifyDataSetChanged();
-                            }));
+                    .doFinally(() -> {
+                        langLinksProgress.setVisibility(View.INVISIBLE);
+                        adapter.notifyDataSetChanged();
+                    })
+                    .subscribe(sites -> siteInfoList = sites, L::e));
 
             ViewAnimations.crossFade(langLinksProgress, langLinksList);
         }

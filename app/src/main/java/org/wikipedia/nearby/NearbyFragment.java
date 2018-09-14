@@ -399,6 +399,7 @@ public class NearbyFragment extends Fragment {
                             }
                             return Collections.emptyList();
                         })
+                        .doFinally(() -> onLoaded())
                         .subscribe(pages -> {
                             if (clearResultsOnNextCall) {
                                 currentResults.clear();
@@ -410,7 +411,7 @@ public class NearbyFragment extends Fragment {
                             ThrowableUtil.AppError error = ThrowableUtil.getAppError(requireActivity(), caught);
                             Toast.makeText(getActivity(), error.getError(), Toast.LENGTH_SHORT).show();
                             L.e(caught);
-                        }, () -> onLoaded()));
+                        }));
             }
         }
     };

@@ -233,6 +233,7 @@ public class SearchResultsFragment extends Fragment {
                     // Just return an empty SearchResults() in this case.
                     return new SearchResults();
                 })
+                .doFinally(() -> updateProgressBar(false))
                 .subscribe(results -> {
                     searchErrorView.setVisibility(View.GONE);
                     handleResults(results, searchTerm, startTime);
@@ -242,7 +243,7 @@ public class SearchResultsFragment extends Fragment {
                     searchErrorView.setError(caught);
                     searchResultsContainer.setVisibility(View.GONE);
                     logError(false, startTime);
-                }, () -> updateProgressBar(false)));
+                }));
     }
 
     private void handleResults(@NonNull SearchResults results, @NonNull String searchTerm, long startTime) {
@@ -326,6 +327,7 @@ public class SearchResultsFragment extends Fragment {
                     // Just return an empty SearchResults() in this case.
                     return new SearchResults();
                 })
+                .doFinally(() -> updateProgressBar(false))
                 .subscribe(results -> {
                     List<SearchResult> resultList = results.getResults();
                     cache(resultList, searchTerm);
@@ -341,7 +343,7 @@ public class SearchResultsFragment extends Fragment {
                 }, throwable -> {
                     // If there's an error, just log it and let the existing prefix search results be.
                     logError(true, startTime);
-                }, () -> updateProgressBar(false)));
+                }));
     }
 
     @Nullable

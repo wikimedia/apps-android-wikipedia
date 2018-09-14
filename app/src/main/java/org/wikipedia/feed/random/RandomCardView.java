@@ -70,6 +70,7 @@ public class RandomCardView extends StaticCardView<RandomCard> {
                             }
                     );
                 })
+                .doFinally(() -> setProgress(false))
                 .subscribe(pageTitle -> {
                     if (getCallback() != null && getCard() != null) {
                         getCallback().onSelectPage(getCard(),
@@ -79,6 +80,6 @@ public class RandomCardView extends StaticCardView<RandomCard> {
                     if (getCallback() != null && getCard() != null) {
                         getCallback().onGetRandomError(t, RandomCardView.this);
                     }
-                }, () -> setProgress(false));
+                });
     }
 }
