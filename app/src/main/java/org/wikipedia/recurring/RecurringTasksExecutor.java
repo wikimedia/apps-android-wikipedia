@@ -2,10 +2,12 @@ package org.wikipedia.recurring;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.alphaupdater.AlphaUpdateChecker;
-import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.page.shareafact.SharedImageCleanupTask;
 import org.wikipedia.settings.RemoteConfigRefreshTask;
 import org.wikipedia.util.ReleaseUtil;
+
+import io.reactivex.Completable;
+import io.reactivex.schedulers.Schedulers;
 
 public class RecurringTasksExecutor {
     private final WikipediaApp app;
@@ -15,24 +17,19 @@ public class RecurringTasksExecutor {
     }
 
     public void run() {
-        SaneAsyncTask<Void> task = new SaneAsyncTask<Void>() {
-            @Override
-            public Void performTask() throws Throwable {
-                RecurringTask[] allTasks = new RecurringTask[] {
-                        // Has list of all rotating tasks that need to be run
-                        new RemoteConfigRefreshTask(),
-                        new SharedImageCleanupTask(app),
-                        new DailyEventTask(app)
-                };
-                for (RecurringTask task: allTasks) {
-                    task.runIfNecessary();
-                }
-                if (ReleaseUtil.isAlphaRelease()) {
-                    new AlphaUpdateChecker(app).runIfNecessary();
-                }
-                return null;
+        Completable.fromAction(() -> {
+            RecurringTask[] allTasks = new RecurringTask[] {
+                    // Has list of all rotating tasks that need to be run
+                    new RemoteConfigRefreshTask(),
+                    new SharedImageCleanupTask(),
+                    new DailyEventTask(app)
+            };
+            for (RecurringTask task: allTasks) {
+                task.runIfNecessary();
             }
-        };
-        task.execute();
+            if (ReleaseUtil.isAlphaRelease()) {
+                new AlphaUpdateChecker(app).runIfNecessary();
+            }
+        }).subscribeOn(Schedulers.io()).subscribe();
     }
 }

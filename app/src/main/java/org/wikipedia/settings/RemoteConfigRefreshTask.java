@@ -2,7 +2,6 @@ package org.wikipedia.settings;
 
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.recurring.RecurringTask;
 import org.wikipedia.util.log.L;
@@ -26,28 +25,21 @@ public class RemoteConfigRefreshTask extends RecurringTask {
 
     @Override
     protected void run(Date lastRun) {
-        new SaneAsyncTask<Boolean>() {
-            @Override
-            public Boolean performTask() throws Throwable {
-                Request request = new Request.Builder().url(REMOTE_CONFIG_URL).build();
-                Response response = OkHttpConnectionFactory.getClient().newCall(request).execute();
-                try {
-                    JSONObject config = new JSONObject(response.body().string());
-                    WikipediaApp.getInstance().getRemoteConfig().updateConfig(config);
-                    RbSwitch.INSTANCE.update();
-                    L.d(config.toString());
-                    return true;
-                } finally {
-                    response.close();
-                }
+        Response response = null;
+        try {
+            Request request = new Request.Builder().url(REMOTE_CONFIG_URL).build();
+            response = OkHttpConnectionFactory.getClient().newCall(request).execute();
+            JSONObject config = new JSONObject(response.body().string());
+            WikipediaApp.getInstance().getRemoteConfig().updateConfig(config);
+            RbSwitch.INSTANCE.update();
+            L.d(config.toString());
+        } catch (Exception e) {
+            L.e(e);
+        } finally {
+            if (response != null) {
+                response.close();
             }
-
-            @Override
-            public void onCatch(Throwable caught) {
-                // Don't do anything, but do write out a log statement. We don't particularly care.
-                L.d("Caught " + caught.toString());
-            }
-        }.execute();
+        }
     }
 
     @Override

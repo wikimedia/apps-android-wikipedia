@@ -10,7 +10,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +25,6 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.SearchFunnel;
-import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.database.contract.SearchHistoryContract;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
@@ -36,6 +34,7 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.CabSearchView;
 import org.wikipedia.views.LanguageScrollView;
 import org.wikipedia.views.ViewUtil;
@@ -46,6 +45,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import io.reactivex.Completable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH;
@@ -79,6 +82,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     @BindView(R.id.lang_scroll) LanguageScrollView languageScrollView;
     @BindView(R.id.language_scroll_container) View languageScrollContainer;
     private Unbinder unbinder;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     private WikipediaApp app;
     @BindView(android.support.v7.appcompat.R.id.search_src_text) EditText searchEditText;
@@ -232,6 +236,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
 
     @Override
     public void onDestroyView() {
+        disposables.clear();
         searchView.setOnCloseListener(null);
         searchView.setOnQueryTextListener(null);
         unbinder.unbind();
@@ -492,32 +497,11 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
 
     private void addRecentSearch(String title) {
         if (isValidQuery(title)) {
-            new SaveRecentSearchTask(new RecentSearch(title)).execute();
-        }
-    }
-
-    private final class SaveRecentSearchTask extends SaneAsyncTask<Void> {
-        private final RecentSearch entry;
-
-        SaveRecentSearchTask(RecentSearch entry) {
-            this.entry = entry;
-        }
-
-        @Override
-        public Void performTask() throws Throwable {
-            app.getDatabaseClient(RecentSearch.class).upsert(entry, SearchHistoryContract.Query.SELECTION);
-            return null;
-        }
-
-        @Override
-        public void onFinish(Void result) {
-            super.onFinish(result);
-            recentSearchesFragment.updateList();
-        }
-
-        @Override
-        public void onCatch(Throwable caught) {
-            Log.w("SaveRecentSearchTask", "Caught " + caught.getMessage(), caught);
+            disposables.add(Completable.fromAction(() -> app.getDatabaseClient(RecentSearch.class).upsert(new RecentSearch(title), SearchHistoryContract.Query.SELECTION))
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(() -> recentSearchesFragment.updateList(),
+                            L::e));
         }
     }
 
