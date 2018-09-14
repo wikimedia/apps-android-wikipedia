@@ -368,36 +368,23 @@ public interface Service {
     // ------- Notifications -------
 
     @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&meta=notifications&notcrosswikisummary=1&notlimit=1")
-    @NonNull Call<MwQueryResponse> getForeignSummary();
-
-    @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=notifications&notformat=model&notlimit=max")
-    @NonNull Call<MwQueryResponse> getAllNotifications(@Query("notwikis") @Nullable String wikiList,
+    @NonNull Observable<MwQueryResponse> getAllNotifications(@Query("notwikis") @Nullable String wikiList,
                                               @Query("notfilter") @Nullable String filter,
                                               @Query("notcontinue") @Nullable String continueStr);
 
     @FormUrlEncoded
     @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=echomarkread")
-    @NonNull Call<MwQueryResponse> markRead(@Field("token") @NonNull String token, @Field("list") @Nullable String readList, @Field("unreadlist") @Nullable String unreadList);
-
-    @FormUrlEncoded
-    @Headers("Cache-Control: no-cache")
-    @POST(MW_API_PREFIX + "action=echomarkseen&type=all&timestampFormat=ISO_8601")
-    @NonNull Call<MwQueryResponse> markSeen(@Field("token") @NonNull String token);
-
-    @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&meta=notifications&notwikis=*&notfilter=!read&notprop=seenTime|count")
-    @NonNull Call<MwQueryResponse> getSeenTimeAndCount();
+    @NonNull Observable<MwQueryResponse> markRead(@Field("token") @NonNull String token, @Field("list") @Nullable String readList, @Field("unreadlist") @Nullable String unreadList);
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=notifications&notprop=list&notfilter=!read&notlimit=1")
-    @NonNull Call<MwQueryResponse> getLastUnreadNotification();
+    @NonNull Observable<MwQueryResponse> getLastUnreadNotification();
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=unreadnotificationpages&unplimit=max&unpwikis=*")
-    @NonNull Call<MwQueryResponse> getUnreadNotificationWikis();
+    @NonNull Observable<MwQueryResponse> getUnreadNotificationWikis();
 
 
     // ------- User Options -------
