@@ -50,16 +50,6 @@ public class PageHeaderImageView extends FrameLayout {
         }
     }
 
-    public void setAnimationPaused(boolean paused) {
-        if (image.getController() != null && image.getController().getAnimatable() != null) {
-            if (paused) {
-                image.getController().getAnimatable().stop();
-            } else {
-                image.getController().getAnimatable().start();
-            }
-        }
-    }
-
     public FaceAndColorDetectImageView getImage() {
         return image;
     }
@@ -69,9 +59,6 @@ public class PageHeaderImageView extends FrameLayout {
     }
 
     private void init() {
-
-        // Clip the Ken Burns zoom animation applied to the image.
-        setClipChildren(true);
 
         inflate(getContext(), R.layout.view_page_header_image, this);
         ButterKnife.bind(this);
