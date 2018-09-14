@@ -9,7 +9,6 @@ import com.google.gson.GsonBuilder;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.Namespace;
-import org.wikipedia.zero.ZeroConfig;
 
 public final class GsonUtil {
     private static final String DATE_FORMAT = "MMM dd, yyyy HH:mm:ss";
@@ -20,7 +19,6 @@ public final class GsonUtil {
             .registerTypeHierarchyAdapter(Namespace.class, new NamespaceTypeAdapter().nullSafe())
             .registerTypeAdapter(WikiSite.class, new WikiSiteTypeAdapter().nullSafe())
             .registerTypeAdapter(SharedPreferenceCookieManager.class, new CookieManagerTypeAdapter().nullSafe())
-            .registerTypeAdapter(ZeroConfig.class, new ZeroConfigTypeAdapter().nullSafe())
             .registerTypeAdapterFactory(new RequiredFieldsCheckOnReadTypeAdapterFactory())
             .registerTypeAdapterFactory(new PostProcessingTypeAdapter());
 

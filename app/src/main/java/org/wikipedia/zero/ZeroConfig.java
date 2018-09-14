@@ -1,23 +1,23 @@
 package org.wikipedia.zero;
 
-
 import android.graphics.Color;
-import android.net.Uri;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import org.wikipedia.model.BaseModel;
 
+@SuppressWarnings("unused")
 public class ZeroConfig extends BaseModel {
-    @SuppressWarnings("unused") @Nullable private String message;
-    @SuppressWarnings("unused") @ColorInt private int background = Color.WHITE;
-    @SuppressWarnings("unused") @ColorInt private int foreground = Color.BLACK;
-    @SuppressWarnings("unused") @Nullable private String exitTitle;
-    @SuppressWarnings("unused") @Nullable private String exitWarning;
-    @SuppressWarnings("unused") @Nullable private String partnerInfoText;
-    @SuppressWarnings("unused") @Nullable private Uri partnerInfoUrl;
-    @SuppressWarnings("unused") @Nullable private Uri bannerUrl;
+    @Nullable private String message;
+    @Nullable private String background;
+    @Nullable private String foreground;
+    @Nullable private String exitTitle;
+    @Nullable private String exitWarning;
+    @Nullable private String partnerInfoText;
+    @Nullable private String partnerInfoUrl;
+    @Nullable private String bannerUrl;
 
     public boolean isEligible() {
         return message != null;
@@ -32,58 +32,30 @@ public class ZeroConfig extends BaseModel {
     }
 
     @ColorInt public int getBackground() {
-        return background;
-    }
-
-    public void setBackground(@ColorInt int background) {
-        this.background = background;
+        return !TextUtils.isEmpty(background) ? Color.parseColor(background) : Color.WHITE;
     }
 
     @ColorInt public int getForeground() {
-        return foreground;
-    }
-
-    public void setForeground(@ColorInt int foreground) {
-        this.foreground = foreground;
+        return !TextUtils.isEmpty(foreground) ? Color.parseColor(foreground) : Color.BLACK;
     }
 
     @Nullable String getExitTitle() {
         return exitTitle;
     }
 
-    public void setExitTitle(@NonNull String exitTitle) {
-        this.exitTitle = exitTitle;
-    }
-
     @Nullable String getExitWarning() {
         return exitWarning;
-    }
-
-    public void setExitWarning(@NonNull String exitWarning) {
-        this.exitWarning = exitWarning;
     }
 
     @Nullable String getPartnerInfoText() {
         return partnerInfoText;
     }
 
-    public void setPartnerInfoText(@NonNull String partnerInfoText) {
-        this.partnerInfoText = partnerInfoText;
-    }
-
-    @Nullable Uri getPartnerInfoUrl() {
+    @Nullable String getPartnerInfoUrl() {
         return partnerInfoUrl;
     }
 
-    public void setPartnerInfoUrl(@NonNull Uri partnerInfoUrl) {
-        this.partnerInfoUrl = partnerInfoUrl;
-    }
-
-    @Nullable Uri getBannerUrl() {
+    @Nullable String getBannerUrl() {
         return bannerUrl;
-    }
-
-    public void setBannerUrl(@NonNull Uri bannerUrl) {
-        this.bannerUrl = bannerUrl;
     }
 }

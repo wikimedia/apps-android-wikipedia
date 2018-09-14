@@ -316,10 +316,10 @@ public interface Service {
     @NonNull Observable<SiteMatrix> getSiteMatrix();
 
     @GET(MW_API_PREFIX + "action=query&meta=siteinfo")
-    @NonNull Call<MwQueryResponse> getSiteInfo();
+    @NonNull Observable<MwQueryResponse> getSiteInfo();
 
     @GET(MW_API_PREFIX + "action=zeroconfig&type=message")
-    @NonNull Call<ZeroConfig> getZeroConfig(@NonNull @Query("agent") String userAgent);
+    @NonNull Observable<ZeroConfig> getZeroConfig(@NonNull @Query("agent") String userAgent);
 
 
     // ------- CSRF, Login, and Create Account -------

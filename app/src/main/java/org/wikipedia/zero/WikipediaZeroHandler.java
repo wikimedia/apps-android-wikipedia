@@ -21,14 +21,16 @@ import android.support.v7.app.AlertDialog;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.events.WikipediaZeroEnterEvent;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.Headers;
-import retrofit2.Call;
 
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
@@ -65,10 +67,6 @@ public class WikipediaZeroHandler {
         return zeroConfig;
     }
 
-    public String getXCarrier() {
-        return xCarrier;
-    }
-
     public static void showZeroExitInterstitialDialog(@NonNull final Context context,
                                                       @NonNull final Uri uri) {
         final WikipediaZeroHandler zeroHandler = WikipediaApp.getInstance()
@@ -83,7 +81,7 @@ public class WikipediaZeroHandler {
         final String customExitTitle = zeroConfig.getExitTitle();
         final String customExitWarning = zeroConfig.getExitWarning();
         final String customPartnerInfoText = zeroConfig.getPartnerInfoText();
-        final Uri customPartnerInfoUrl = zeroConfig.getPartnerInfoUrl();
+        final Uri customPartnerInfoUrl = Uri.parse(zeroConfig.getPartnerInfoUrl());
 
         AlertDialog.Builder alert = new AlertDialog.Builder(context);
         alert.setTitle(!StringUtils.isEmpty(customExitTitle) ? customExitTitle
@@ -150,36 +148,31 @@ public class WikipediaZeroHandler {
     private void identifyZeroCarrier(@NonNull final String xCarrierFromHeader,
                                      @NonNull final String xCarrierMetaFromHeader) {
         Handler wikipediaZeroHandler = new Handler((Message msg) -> {
-            new ZeroConfigClient().request(new WikiSite(app.getWikiSite().mobileAuthority()),
-                    app.getUserAgent(), new ZeroConfigClient.Callback() {
-                @Override
-                public void success(@NonNull Call<ZeroConfig> call, @NonNull ZeroConfig config) {
-                    L.i("New Wikipedia Zero config: " + config);
 
-                    if (!config.isEligible()) {
-                        acquiringCarrierMessage = false;
-                        return;
-                    }
+            ServiceFactory.get(new WikiSite(app.getWikiSite().mobileAuthority())).getZeroConfig(app.getUserAgent())
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(config -> {
+                        L.i("New Wikipedia Zero config: " + config);
 
-                    xCarrier = xCarrierFromHeader; // ex. "123-45"
-                    zeroCarrierString = xCarrierFromHeader;
-                    zeroCarrierMetaString = xCarrierMetaFromHeader; // ex. "wap"; default ""
-                    zeroConfig = config;
-                    zeroEnabled = true;
-                    app.getBus().post(new WikipediaZeroEnterEvent());
-                    if (zeroConfig.hashCode() != Prefs.zeroConfigHashCode()) {
-                        notifyEnterZeroNetwork(app, zeroConfig);
-                    }
-                    Prefs.zeroConfigHashCode(zeroConfig.hashCode());
-                    acquiringCarrierMessage = false;
-                }
+                        if (!config.isEligible()) {
+                            acquiringCarrierMessage = false;
+                            return;
+                        }
 
-                @Override
-                public void failure(@NonNull Call<ZeroConfig> call, @NonNull Throwable caught) {
-                    L.w("Wikipedia Zero eligibility check failed", caught);
-                    acquiringCarrierMessage = false;
-                }
-            });
+                        xCarrier = xCarrierFromHeader; // ex. "123-45"
+                        zeroCarrierString = xCarrierFromHeader;
+                        zeroCarrierMetaString = xCarrierMetaFromHeader; // ex. "wap"; default ""
+                        zeroConfig = config;
+                        zeroEnabled = true;
+                        app.getBus().post(new WikipediaZeroEnterEvent());
+                        if (zeroConfig.hashCode() != Prefs.zeroConfigHashCode()) {
+                            notifyEnterZeroNetwork(app, zeroConfig);
+                        }
+                        Prefs.zeroConfigHashCode(zeroConfig.hashCode());
+                    }, caught -> L.w("Wikipedia Zero eligibility check failed", caught),
+                            () -> acquiringCarrierMessage = false);
+
             acquiringCarrierMessage = true;
             return true;
         });
