@@ -326,22 +326,22 @@ public class SearchResultsFragment extends Fragment {
                     // Just return an empty SearchResults() in this case.
                     return new SearchResults();
                 })
-        .subscribe(results -> {
-            List<SearchResult> resultList = results.getResults();
-            cache(resultList, searchTerm);
-            log(resultList, startTime);
-            if (clearOnSuccess) {
-                clearResults(false);
-            }
-            searchErrorView.setVisibility(View.GONE);
+                .subscribe(results -> {
+                    List<SearchResult> resultList = results.getResults();
+                    cache(resultList, searchTerm);
+                    log(resultList, startTime);
+                    if (clearOnSuccess) {
+                        clearResults(false);
+                    }
+                    searchErrorView.setVisibility(View.GONE);
 
-            // full text special:
-            SearchResultsFragment.this.lastFullTextResults = results;
-            displayResults(resultList);
-        }, throwable -> {
-            // If there's an error, just log it and let the existing prefix search results be.
-            logError(true, startTime);
-        }, () -> updateProgressBar(false)));
+                    // full text special:
+                    SearchResultsFragment.this.lastFullTextResults = results;
+                    displayResults(resultList);
+                }, throwable -> {
+                    // If there's an error, just log it and let the existing prefix search results be.
+                    logError(true, startTime);
+                }, () -> updateProgressBar(false)));
     }
 
     @Nullable
