@@ -13,7 +13,6 @@ import android.support.v4.content.ContextCompat;
 import android.text.method.LinkMovementMethod;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +23,7 @@ import org.wikipedia.R;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.random.RandomActivity;
+import org.wikipedia.readinglist.ReadingListActivity;
 
 import java.util.concurrent.TimeUnit;
 
@@ -131,22 +131,6 @@ public final class FeedbackUtil {
             int tabLayoutHeight = ((PageActivity) activity).getTabLayout().getHeight();
             params.setMargins(params.leftMargin, params.topMargin, params.rightMargin, params.bottomMargin + tabLayoutHeight);
             snackbar.getView().setLayoutParams(params);
-        } else if (activity instanceof MainActivity) {
-            ViewGroup view = activity.findViewById(R.id.floating_queue_view);
-            if (((MainActivity) activity).isFloatingQueueEnabled()
-                    && view.getTranslationY() == 0) {
-                snackbar.addCallback(new Snackbar.Callback() {
-                    @Override
-                    public void onShown(Snackbar snackbar) {
-                        view.animate().translationY(-snackbar.getView().getHeight());
-                    }
-
-                    @Override
-                    public void onDismissed(Snackbar snackbar, int event) {
-                        view.animate().translationY(0);
-                    }
-                });
-            }
         }
     }
 
@@ -165,6 +149,8 @@ public final class FeedbackUtil {
             return activity.findViewById(R.id.fragment_page_coordinator);
         } else if (activity instanceof RandomActivity) {
             return activity.findViewById(R.id.random_coordinator_layout);
+        } else if (activity instanceof ReadingListActivity) {
+            return activity.findViewById(R.id.fragment_reading_list_coordinator);
         } else {
             return activity.findViewById(android.R.id.content);
         }
