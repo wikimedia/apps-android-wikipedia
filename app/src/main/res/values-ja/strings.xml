@@ -71,7 +71,7 @@
   <string name="other_languages_indication_text">別の言語で閲覧</string>
   <string name="language_count_link_text">他に%dの言語で利用可能</string>
   <string name="content_license_html">特記なき場合、コンテンツは&lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;で利用可能です</string>
-  <string name="edit_save_action_license_logged_in">保存すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。</string>
+  <string name="edit_save_action_license_logged_in">保存すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンスの下でコンテンツ再利用を許諾することになります。これは撤回できません。</string>
   <string name="edit_save_action_license_anon">保存すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。編集はあなたのデバイスのIPアドレスと関連付けて記録されます。さらにプライバシーを求める場合は&lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt;してください。</string>
   <string name="preference_title_language">ウィキペディアの言語</string>
   <string name="preference_languages_filter_hint">検索</string>
@@ -198,7 +198,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">//ja.wikipedia.org/wiki/Help:ログイン#アカウントの作成</string>
-  <string name="cc_by_sa_3_url">http://creativecommons.org/licenses/by-sa/3.0/deed.ja</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ja</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ja</string>
   <string name="about_libraries_heading">使用しているライブラリ</string>
   <string name="about_contributors_heading">貢献者</string>
@@ -587,7 +587,7 @@
   <string name="description_edit_help_wikidata_guide">記述を書くためのWikidataガイド</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/ja</string>
   <string name="description_edit_anon_limit">説明を編集していただきありがとうございます。追加編集を行うには、ウィキペディアアカウントにログインしてください。</string>
-  <string name="description_edit_license_notice">タイトルの説明を変更し、&lt;a href \"%1$s Terms of Use&lt;/a&gt;に変更し、&lt;a href \"%2$s\" Creative Commons CCOchacライセンスの下で私の貢献を取消不能にリリースします。</string>
+  <string name="description_edit_license_notice">この説明を変更すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;ライセンスのもとで公開することになります。これは取り消せません。</string>
   <string name="description_edit_success_saved">記述が公開されました！</string>
   <string name="description_edit_success_encouragement">あなたはWikipediaをみんなのために良くしました</string>
   <string name="description_edit_success_done">完了</string>

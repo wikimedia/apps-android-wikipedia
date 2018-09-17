@@ -289,6 +289,7 @@
   <string name="text_copied">Szöveg a vágólapra másolva.</string>
   <string name="button_continue_to_article">Cikk elolvasása</string>
   <string name="button_continue_to_disambiguation">Hasonló lapok megtekintése</string>
+  <string name="link_preview_disambiguation_description">Ez a cím több mint egy lapra utal:</string>
   <string name="button_add_to_reading_list">Hozzáadás az olvasólistához</string>
   <string name="page_offline_notice_cannot_load_while_offline">A szócikk nem tölthető be kapcsolat nélkül.</string>
   <string name="page_offline_notice_add_to_reading_list">Tipp: Add hozzá a szócikket egy olvasólistához, hogy letöltődjön, amikor kapcsolódsz az internethez.</string>
@@ -506,9 +507,11 @@
   <string name="notifications_poll_enable_negative">Ne most</string>
   <string name="notifications_view_archived_button_text">Archivált értesítések megtekintése</string>
   <string name="notification_preferences_title">Értesítések beállításai</string>
+  <string name="preference_summary_notification_poll">Adatforgalom engedélyezése az alkalmazás számára, új értesítések háttérben történő kereséséhez.</string>
   <string name="preference_title_notification_welcome">Üdvözlések</string>
   <string name="preference_summary_notification_welcome">Létre lett hozva egy fiók</string>
   <string name="preference_title_notification_milestone">Mérföldkövek</string>
+  <string name="preference_summary_notification_milestone">Bizonyos számú szerkesztésszám elérése</string>
   <string name="preference_title_notification_thanks">Köszönetek</string>
   <string name="preference_summary_notification_thanks">Valaki megköszönte egy szerkesztésedet</string>
   <string name="view_continue_reading_card_title">Olvasás folytatása</string>
