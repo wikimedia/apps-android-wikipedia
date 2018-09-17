@@ -70,6 +70,7 @@
         <item name="chart_shade5">@color/base30</item>
         <item name="chart_shade7">@color/base10</item>
         <item name="green_highlight_color">@color/green50</item>
+        <item name="shadow_background_drawable">@android:drawable/dialog_holo_dark_frame</item>
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base14</item>

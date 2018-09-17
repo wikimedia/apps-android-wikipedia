@@ -1,10 +1,13 @@
 package org.wikipedia.feed.onthisday;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -17,6 +20,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.ResourceUtil;
@@ -45,15 +49,17 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     @Nullable private ItemCallBack itemCallback;
 
     private WikiSite wiki;
+    private Activity activity;
     private RbPageSummary selectedPage;
     private final boolean isSingleCard;
 
-    OnThisDayPagesViewHolder(@NonNull CardView v, @NonNull WikiSite wiki, boolean isSingleCard) {
+    OnThisDayPagesViewHolder(@NonNull Activity activity, @NonNull CardView v, @NonNull WikiSite wiki, boolean isSingleCard) {
         super(v);
         ButterKnife.bind(this, v);
         v.setCardBackgroundColor(ResourceUtil.getThemedColor(v.getContext(), R.attr.paper_color));
         this.wiki = wiki;
         this.isSingleCard = isSingleCard;
+        this.activity = activity;
     }
 
     public void setFields(@NonNull RbPageSummary page) {
@@ -79,12 +85,20 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
         PageTitle pageTitle = new PageTitle(selectedPage.getTitle(), wiki);
         HistoryEntry entry = new HistoryEntry(pageTitle,
                 isSingleCard ? HistoryEntry.SOURCE_ON_THIS_DAY_CARD : HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
+
+        Bundle bundle = null;
+        if (activity instanceof MainActivity) {
+            bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, ((MainActivity) activity)
+                    .getFloatingQueueImageView(), activity.getString(R.string.transition_floating_queue)).toBundle();
+        }
+
         Intent intent = new Intent(ACTION_LOAD_IN_NEW_TAB)
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                .setClass(context, PageActivity.class)
+                .setClass(activity, PageActivity.class)
                 .putExtra(EXTRA_HISTORYENTRY, entry)
                 .putExtra(EXTRA_PAGETITLE, pageTitle);
-        context.startActivity(intent);
+
+        activity.startActivity(intent, bundle);
     }
 
     @OnLongClick(R.id.parent) boolean showOverflowMenu(View anchorView) {

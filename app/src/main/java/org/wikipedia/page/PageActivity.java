@@ -17,6 +17,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.preference.PreferenceManager;
@@ -59,6 +60,7 @@ import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchInvokeSource;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.util.ClipboardUtil;
@@ -117,6 +119,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Nullable private Bus bus;
     private EventBusMethods busMethods;
     private ActionMode currentActionMode;
+    private boolean hasSavedInstanceState;
 
     private PageToolbarHideHandler toolbarHideHandler;
 
@@ -184,6 +187,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             // Note: when system language is enabled, and the system language is changed outside of
             // the app, MRU languages are not updated. There's no harm in doing that here but since
             // the user didn't choose that language in app, it may be unexpected.
+
+            // theme changed will have saved instance state
+            hasSavedInstanceState = true;
         }
 
         if (languageChanged) {
@@ -277,14 +283,29 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+                pageFragment.saveLeadImageUrl();
                 if (shouldRecreateMainActivity()) {
+                    // TODO: this may affect the performance (smoothness)
+                    Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(PageActivity.this,
+                            pageFragment.getLeadImageView(), getString(R.string.transition_floating_queue)).toBundle();
                     startActivity(getSupportParentActivityIntent()
-                            .putExtra(Constants.INTENT_RETURN_TO_MAIN, true));
+                            .putExtra(Constants.INTENT_RETURN_TO_MAIN, true), bundle);
+                    finish();
+                } else {
+                    finishActivity();
                 }
-                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void finishActivity() {
+        if (!pageFragment.getTitle().isFilePage() && !pageFragment.getTitle().isMainPage() && !hasSavedInstanceState) {
+            supportFinishAfterTransition();
+        } else {
+            // FIXME: Theme changed will make the transition animation failed
+            finish();
         }
     }
 
@@ -516,7 +537,13 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         if (pageFragment.onBackPressed()) {
             return;
         }
-        finish();
+
+        Prefs.setFloatingQueueImage(null);
+        if (WikipediaApp.getInstance().getTabCount() == 1) {
+            finish();
+        } else {
+            finishActivity();
+        }
     }
 
     @Override
@@ -715,7 +742,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private boolean shouldRecreateMainActivity() {
         return getIntent().getAction() == null
-                || getIntent().getAction().equals(Intent.ACTION_VIEW);
+                || getIntent().getAction().equals(Intent.ACTION_VIEW)
+                || getIntent().getAction().equals(ACTION_RESUME_READING);
     }
 
     @Override

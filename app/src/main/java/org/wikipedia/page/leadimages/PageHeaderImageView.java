@@ -69,7 +69,6 @@ public class PageHeaderImageView extends FrameLayout {
     }
 
     private void init() {
-        setVisibility(GONE);
 
         // Clip the Ken Burns zoom animation applied to the image.
         setClipChildren(true);

@@ -98,4 +98,5 @@
     <string name="preference_key_locally_known_notifications">locallyKnownNotifications</string>
     <string name="preference_key_remote_notifications_seen_time">remoteNotificationsSeenTime</string>
     <string name="preference_key_save_count_reading_lists">saveCountReadingLists</string>
+    <string name="preference_key_floating_queue_image">floatingQueueImage</string>
 </resources>

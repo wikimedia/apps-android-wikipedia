@@ -13,6 +13,7 @@ import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
+import org.wikipedia.util.AnimationUtil;
 
 public class NewsActivity extends SingleFragmentActivity<NewsFragment> {
     protected static final String EXTRA_NEWS_ITEM = "item";
@@ -21,7 +22,7 @@ public class NewsActivity extends SingleFragmentActivity<NewsFragment> {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setSharedElementTransitions();
+        AnimationUtil.setSharedElementTransitions(this);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             getWindow().setStatusBarColor(Color.TRANSPARENT);

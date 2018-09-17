@@ -12,18 +12,35 @@
         android:orientation="vertical"
         android:layout_marginTop="?attr/actionBarSize">
 
-        <android.support.design.widget.CoordinatorLayout
-            android:id="@+id/fragment_main_coordinator"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
 
-            <org.wikipedia.readinglist.NoSwipeViewPager
-                android:id="@+id/fragment_main_view_pager"
+            <android.support.design.widget.CoordinatorLayout
+                android:id="@+id/fragment_main_coordinator"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent">
 
-        </android.support.design.widget.CoordinatorLayout>
+                <org.wikipedia.readinglist.NoSwipeViewPager
+                    android:id="@+id/fragment_main_view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </android.support.design.widget.CoordinatorLayout>
+
+            <org.wikipedia.main.floatingqueue.FloatingQueueView
+                android:id="@+id/floating_queue_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/floating_queue_container_height"
+                android:layout_alignParentBottom="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/shadow_background_drawable"
+                android:layout_marginStart="@dimen/margin"
+                android:layout_marginEnd="@dimen/margin"/>
+
+        </RelativeLayout>
 
         <org.wikipedia.navtab.NavTabLayout
             android:id="@+id/fragment_main_nav_tab_layout"

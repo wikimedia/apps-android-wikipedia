@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import org.wikipedia.R;
+import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.ListCardItemView;
 import org.wikipedia.feed.view.ListCardRecyclerAdapter;
 import org.wikipedia.feed.view.ListCardView;
@@ -18,6 +19,9 @@ import java.util.List;
 
 public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard>
         implements ItemTouchHelperSwipeAdapter.SwipeableView {
+    public interface Callback {
+        void onSelectPageFromExistingTab(@NonNull Card card, @NonNull HistoryEntry entry);
+    }
 
     public BecauseYouReadCardView(Context context) {
         super(context);
