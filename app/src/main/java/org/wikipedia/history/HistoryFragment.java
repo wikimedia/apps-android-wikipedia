@@ -52,6 +52,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import io.reactivex.Completable;
+import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.HISTORY_FRAGMENT_LOADER_ID;
 
@@ -202,7 +204,8 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                         .setMessage(R.string.dialog_message_clear_history)
                         .setPositiveButton(R.string.dialog_message_clear_history_yes, (dialog, which) -> {
                             // Clear history!
-                            new DeleteAllHistoryTask(app).execute();
+                            Completable.fromAction(() -> app.getDatabaseClient(HistoryEntry.class).deleteAll())
+                                    .subscribeOn(Schedulers.io()).subscribe();
                             onClearHistoryClick();
                         })
                         .setNegativeButton(R.string.dialog_message_clear_history_no, null).create().show();

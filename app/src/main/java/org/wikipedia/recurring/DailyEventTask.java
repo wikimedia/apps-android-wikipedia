@@ -14,11 +14,7 @@ public class DailyEventTask extends RecurringTask {
     @NonNull private final String name;
 
     public DailyEventTask(Context context) {
-        this(context.getString(R.string.preference_key_daily_event_time_task_name));
-    }
-
-    public DailyEventTask(@NonNull String name) {
-        this.name = name;
+        name = context.getString(R.string.preference_key_daily_event_time_task_name);
     }
 
     @Override

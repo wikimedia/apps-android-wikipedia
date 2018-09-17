@@ -26,6 +26,8 @@ import org.wikipedia.util.FeedbackUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.Completable;
+import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.RECENT_SEARCHES_FRAGMENT_LOADER_ID;
 
@@ -56,8 +58,10 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
         deleteButton.setOnClickListener((view) -> {
             new AlertDialog.Builder(getContext())
                     .setMessage(getString(R.string.clear_recent_searches_confirm))
-                    .setPositiveButton(
-                            getString(R.string.clear_recent_searches_confirm_yes), (dialog, id) -> new DeleteAllRecentSearchesTask(WikipediaApp.getInstance()).execute())
+                    .setPositiveButton(getString(R.string.clear_recent_searches_confirm_yes), (dialog, id) -> {
+                        Completable.fromAction(() -> WikipediaApp.getInstance().getDatabaseClient(RecentSearch.class).deleteAll())
+                                .subscribeOn(Schedulers.io()).subscribe();
+                    })
                     .setNegativeButton(getString(R.string.clear_recent_searches_confirm_no), null)
                     .create().show();
         });

@@ -1,5 +1,6 @@
 package org.wikipedia.util;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.LabeledIntent;
@@ -15,7 +16,6 @@ import android.widget.Toast;
 
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
-import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.log.L;
 
@@ -24,6 +24,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
@@ -62,31 +66,21 @@ public final class ShareUtil {
      * it's overwritten every time an image is shared from the app, so that it takes up a
      * constant amount of space.
      */
+    @SuppressLint("CheckResult")
     public static void shareImage(final Context context, final Bitmap bmp,
                                   final String imageFileName, final String subject,
                                   final String text) {
-        new SaneAsyncTask<Uri>() {
-            @Override
-            public Uri performTask() throws Throwable {
-                File processedBitmap = processBitmapForSharing(context, bmp, imageFileName);
-                return getUriFromFile(context, processedBitmap);
-            }
-
-            @Override
-            public void onFinish(Uri result) {
-                if (result == null) {
-                    displayShareErrorMessage(context);
-                    return;
-                }
-                Intent chooserIntent = buildImageShareChooserIntent(context, subject, text, result);
-                context.startActivity(chooserIntent);
-            }
-
-            @Override
-            public void onCatch(Throwable caught) {
-                displayOnCatchMessage(caught, context);
-            }
-        }.execute();
+        Observable.fromCallable(() -> getUriFromFile(context, processBitmapForSharing(context, bmp, imageFileName)))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(uri -> {
+                    if (uri == null) {
+                        displayShareErrorMessage(context);
+                        return;
+                    }
+                    Intent chooserIntent = buildImageShareChooserIntent(context, subject, text, uri);
+                    context.startActivity(chooserIntent);
+                }, caught -> displayOnCatchMessage(caught, context));
     }
 
     public static String getFeaturedImageShareSubject(@NonNull Context context, int age) {
@@ -100,7 +94,7 @@ public final class ShareUtil {
     }
 
 
-    public static Uri getUriFromFile(@NonNull Context context, @NonNull File file) {
+    private static Uri getUriFromFile(@NonNull Context context, @NonNull File file) {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
                 ? FileProvider.getUriForFile(context, FILE_PROVIDER_AUTHORITY, file)
                 : Uri.parse(FILE_PREFIX + file.getAbsolutePath());

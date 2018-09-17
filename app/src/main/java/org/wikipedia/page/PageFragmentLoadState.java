@@ -20,7 +20,6 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.dataclient.ServiceFactory;
@@ -37,7 +36,6 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
-import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.DimenUtil;
@@ -55,6 +53,9 @@ import java.util.List;
 import java.util.Locale;
 
 import io.reactivex.Completable;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.CacheControl;
 import okhttp3.Protocol;
@@ -110,6 +111,7 @@ public class PageFragmentLoadState {
     private WikipediaApp app = WikipediaApp.getInstance();
     private LeadImagesHandler leadImagesHandler;
     private EditHandler editHandler;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     @SuppressWarnings("checkstyle:parameternumber")
     public void setUp(@NonNull PageViewModel model,
@@ -152,7 +154,7 @@ public class PageFragmentLoadState {
         leadImagesHandler.hide();
 
         this.stagedScrollY = stagedScrollY;
-        pageLoadCheckReadingLists(sequenceNumber.get());
+        pageLoadCheckReadingLists();
     }
 
     public boolean isLoading() {
@@ -305,25 +307,14 @@ public class PageFragmentLoadState {
         });
     }
 
-    private void pageLoadCheckReadingLists(final int sequence) {
-        CallbackTask.execute(() -> ReadingListDbHelper.instance().findPageInAnyList(model.getTitle()), new CallbackTask.Callback<ReadingListPage>() {
-            @Override
-            public void success(ReadingListPage page) {
-                if (!sequenceNumber.inSync(sequence)) {
-                    return;
-                }
-                model.setReadingListPage(page);
-                pageLoadFromNetwork((final Throwable networkError) -> fragment.onPageLoadError(networkError));
-            }
-            @Override
-            public void failure(Throwable caught) {
-                if (!sequenceNumber.inSync(sequence)) {
-                    return;
-                }
-                L.w(caught);
-                pageLoadFromNetwork((final Throwable networkError) -> fragment.onPageLoadError(networkError));
-            }
-        });
+    private void pageLoadCheckReadingLists() {
+        disposables.clear();
+        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageInAnyList(model.getTitle()))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doFinally(() -> pageLoadFromNetwork((final Throwable networkError) -> fragment.onPageLoadError(networkError)))
+                .subscribe(page -> model.setReadingListPage(page),
+                        throwable -> model.setReadingListPage(null)));
     }
 
     private void pageLoadFromNetwork(final ErrorCallback errorCallback) {
