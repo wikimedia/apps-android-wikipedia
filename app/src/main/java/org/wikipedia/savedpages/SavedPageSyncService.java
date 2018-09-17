@@ -34,7 +34,6 @@ import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -294,11 +293,11 @@ public class SavedPageSyncService extends JobIntentService {
         return client.sections(ServiceFactory.get(pageTitle.getWikiSite()), cacheControl, saveOfflineHeader, title);
     }
 
-    private long reqSaveImages(@NonNull ReadingListPage page, @NonNull Iterable<String> urls) throws IOException, InterruptedException {
-        int numOfImages = ((Collection<?>) urls).size();
+    private long reqSaveImages(@NonNull ReadingListPage page, @NonNull Set<String> urls) throws IOException, InterruptedException {
+        int numOfImages = urls.size();
         long totalSize = 0;
         float percentage = SECTIONS_PROGRESS;
-        float updateRate = (float) SECTIONS_PROGRESS / numOfImages;
+        float updateRate = (MAX_PROGRESS - percentage) / numOfImages;
         for (String url : urls) {
             if (savedPageSyncNotification.isSyncPaused() || savedPageSyncNotification.isSyncCanceled()) {
                 throw new InterruptedException("Sync paused or cancelled.");
