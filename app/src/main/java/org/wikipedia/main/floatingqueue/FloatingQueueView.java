@@ -1,7 +1,9 @@
 package org.wikipedia.main.floatingqueue;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.FrameLayout;
@@ -13,6 +15,8 @@ import org.wikipedia.page.PageBackStackItem;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.views.FaceAndColorDetectImageView;
 
 import java.util.List;
 
@@ -27,7 +31,7 @@ public class FloatingQueueView extends FrameLayout {
         void onFloatingQueueClicked(@NonNull PageTitle title);
     }
 
-    @BindView(R.id.floating_queue_thumbnail) FloatingQueueImageView floatingQueueThumbnail;
+    @BindView(R.id.floating_queue_thumbnail) FaceAndColorDetectImageView floatingQueueThumbnail;
     @BindView(R.id.floating_queue_article) TextView floatingQueueArticle;
     @BindView(R.id.floating_queue_counts) TextView floatingQueueCounts;
 
@@ -52,7 +56,7 @@ public class FloatingQueueView extends FrameLayout {
         init();
     }
 
-    public FloatingQueueImageView getImageView() {
+    public FaceAndColorDetectImageView getImageView() {
         return floatingQueueThumbnail;
     }
 
@@ -74,14 +78,13 @@ public class FloatingQueueView extends FrameLayout {
 
                 floatingQueueArticle.setText(title.getDisplayText());
 
-                boolean shouldShowImage = shouldShowImage(title);
                 // This fix the invisible issue when returning back from the PageActivity
-                floatingQueueThumbnail.getImage().setLegacyVisibilityHandlingEnabled(true);
+                floatingQueueThumbnail.setLegacyVisibilityHandlingEnabled(true);
 
                 // Prevent blink
                 String imageUrl = Prefs.getFloatingQueueImage() == null ? title.getThumbUrl() : Prefs.getFloatingQueueImage();
                 if ((floatingQueueThumbnail.getTag() == null || !floatingQueueThumbnail.getTag().equals(imageUrl))) {
-                    floatingQueueThumbnail.load(shouldShowImage ? imageUrl : null);
+                    floatingQueueThumbnail.loadImage(!TextUtils.isEmpty(imageUrl) ? Uri.parse(imageUrl) : null);
                     floatingQueueThumbnail.setTag(imageUrl);
                 }
 
@@ -118,13 +121,11 @@ public class FloatingQueueView extends FrameLayout {
         }
     }
 
-    private boolean shouldShowImage(PageTitle pageTitle) {
-        return !pageTitle.isMainPage() && !pageTitle.isFilePage()
-                && pageTitle.getThumbUrl() != null && !pageTitle.getThumbUrl().isEmpty();
-    }
-
     private void init() {
         inflate(getContext(), R.layout.view_floating_queue, this);
         ButterKnife.bind(this);
+
+        // TODO: remove as soon as we drop support for API 19, and replace with CardView with elevation.
+        setBackgroundResource(ResourceUtil.getThemedAttributeId(getContext(), R.attr.shadow_background_drawable));
     }
 }

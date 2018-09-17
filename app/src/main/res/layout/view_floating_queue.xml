@@ -10,45 +10,47 @@
         android:background="?attr/paper_color"
         android:foreground="?attr/selectableItemBackground">
 
-        <org.wikipedia.main.floatingqueue.FloatingQueueImageView
+        <TextView
+            android:id="@+id/floating_queue_article"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-2dp"
+            app:layout_constraintTop_toBottomOf="@id/floating_queue_continue_caption"
+            app:layout_constraintStart_toStartOf="@id/floating_queue_continue_caption"
+            app:layout_constraintEnd_toEndOf="@id/floating_queue_continue_caption"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="14sp"
+            android:textColor="?attr/material_theme_primary_color"
+            android:maxLines="1"
+            android:ellipsize="end"
+            tools:text="Macau"/>
+
+        <org.wikipedia.views.FaceAndColorDetectImageView
             android:id="@+id/floating_queue_thumbnail"
             android:layout_width="72dp"
             android:layout_height="match_parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            android:contentDescription="@null"
+            android:transitionName="@string/transition_floating_queue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:actualImageScaleType="focusCrop"
+            app:placeholderImage="@drawable/ic_image_gray_opaque_24dp"
+            app:failureImage="@drawable/ic_image_gray_opaque_24dp"
+            app:fadeDuration="0" />
 
-        <LinearLayout
-            android:id="@+id/floating_queue_article_container"
+        <TextView
+            android:id="@+id/floating_queue_continue_caption"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center_vertical"
-            android:layout_marginStart="16dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            app:layout_constraintStart_toEndOf="@+id/floating_queue_thumbnail"
-            app:layout_constraintEnd_toStartOf="@+id/floating_queue_counts">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
-                android:lineSpacingExtra="4sp"
-                android:text="@string/view_continue_reading_card_title"
-                android:textSize="12sp"
-                android:textColor="?attr/material_theme_de_emphasised_color"
-                tools:text="Continue reading"/>
-
-            <TextView
-                android:id="@+id/floating_queue_article"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:textColor="?attr/material_theme_primary_color"
-                android:lineSpacingExtra="6sp"
-                android:letterSpacing="0.01"
-                android:maxLines="1"
-                android:ellipsize="end"
-                tools:text="Macau"/>
-        </LinearLayout>
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toTopOf="@id/floating_queue_article"
+            app:layout_constraintEnd_toStartOf="@id/floating_queue_counts"
+            app:layout_constraintStart_toEndOf="@id/floating_queue_thumbnail"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:text="@string/view_continue_reading_card_title"
+            android:textColor="?attr/material_theme_de_emphasised_color"
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/floating_queue_counts"

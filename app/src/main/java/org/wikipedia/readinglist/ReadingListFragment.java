@@ -1,6 +1,7 @@
 package org.wikipedia.readinglist;
 
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -65,6 +66,7 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
+import org.wikipedia.views.MarginItemDecoration;
 import org.wikipedia.views.MultiSelectActionModeCallback;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.SearchEmptyView;
@@ -120,7 +122,6 @@ public class ReadingListFragment extends Fragment implements
     private SearchCallback searchActionModeCallback = new SearchCallback();
     private MultiSelectActionModeCallback multiSelectActionModeCallback = new MultiSelectCallback();
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
-    private LinearLayoutManager linearLayoutManager;
     private boolean toolbarExpanded = true;
 
     @NonNull private List<ReadingListPage> displayedPages = new ArrayList<>();
@@ -154,11 +155,18 @@ public class ReadingListFragment extends Fragment implements
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(touchCallback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
 
-        linearLayoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
-        recyclerView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable));
         ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
+        recyclerView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, false));
+        recyclerView.addItemDecoration(new MarginItemDecoration(0, 0, 0, DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.floating_queue_container_height))) {
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                if (parent.getChildAdapterPosition(view) == adapter.getItemCount() - 1 && floatingQueueView.getVisibility() == View.VISIBLE) {
+                    super.getItemOffsets(outRect, view, parent, state);
+                }
+            }
+        });
 
         headerView = new ReadingListItemView(getContext());
         headerView.setCallback(headerCallback);
@@ -776,28 +784,15 @@ public class ReadingListFragment extends Fragment implements
     private final class ReadingListPageItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         private static final int TYPE_HEADER = 0;
         private static final int TYPE_ITEM = 1;
-        private static final int TYPE_FOOTER = 2;
-
-        private boolean isFooterEnabled() {
-            boolean isLastItemBeenCovered = false;
-            if (linearLayoutManager != null && adapter != null) {
-                isLastItemBeenCovered = linearLayoutManager.findLastCompletelyVisibleItemPosition() < (displayedPages.size() + 1);
-            }
-            return floatingQueueView.getVisibility() == View.VISIBLE && isLastItemBeenCovered;
-        }
 
         @Override
         public int getItemCount() {
-            return 1 + displayedPages.size() + (isFooterEnabled() ? 1 : 0);
+            return 1 + displayedPages.size();
         }
 
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int type) {
-            if (type == TYPE_FOOTER) {
-                LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-                View view = inflater.inflate(R.layout.view_empty_footer, parent, false);
-                return new FooterViewHolder(view);
-            } else if (type == TYPE_HEADER) {
+            if (type == TYPE_HEADER) {
                 return new ReadingListHeaderHolder(headerView);
             }
             return new ReadingListPageItemHolder(new PageItemView<>(requireContext()));
@@ -812,14 +807,7 @@ public class ReadingListFragment extends Fragment implements
 
         @Override
         public int getItemViewType(int position) {
-            if (position == 0) {
-                return TYPE_HEADER;
-            } else if (position == getItemCount() - 1
-                    && isFooterEnabled()) {
-                return TYPE_FOOTER;
-            } else {
-                return TYPE_ITEM;
-            }
+            return position == 0 ? TYPE_HEADER : TYPE_ITEM;
         }
 
         @Override public void onViewAttachedToWindow(@NonNull RecyclerView.ViewHolder holder) {
@@ -834,12 +822,6 @@ public class ReadingListFragment extends Fragment implements
                 ((ReadingListPageItemHolder) holder).getView().setCallback(null);
             }
             super.onViewDetachedFromWindow(holder);
-        }
-    }
-
-    private class FooterViewHolder extends RecyclerView.ViewHolder {
-        FooterViewHolder(View view) {
-            super(view);
         }
     }
 

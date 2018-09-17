@@ -85,13 +85,11 @@
             android:id="@+id/floating_queue_view"
             android:layout_width="match_parent"
             android:layout_height="@dimen/floating_queue_container_height"
-            android:layout_gravity="bottom|center_horizontal"
+            android:layout_gravity="bottom"
             android:clickable="true"
             android:focusable="true"
-            android:background="?attr/shadow_background_drawable"
-            android:layout_marginStart="@dimen/margin"
-            android:layout_marginEnd="@dimen/margin"
-            android:layout_marginBottom="@dimen/margin"
+            android:layout_marginStart="@dimen/floating_queue_container_margin"
+            android:layout_marginEnd="@dimen/floating_queue_container_margin"
             app:layout_behavior="org.wikipedia.random.BottomViewBehavior"/>
 
     </android.support.design.widget.CoordinatorLayout>

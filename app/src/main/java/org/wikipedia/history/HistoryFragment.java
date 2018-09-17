@@ -1,7 +1,7 @@
 package org.wikipedia.history;
 
-import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -35,8 +35,10 @@ import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.main.MainFragment;
 import org.wikipedia.util.DeviceUtil;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.DefaultViewHolder;
+import org.wikipedia.views.MarginItemDecoration;
 import org.wikipedia.views.MultiSelectActionModeCallback;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.SearchEmptyView;
@@ -104,6 +106,14 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
         historyList.setLayoutManager(new LinearLayoutManager(getContext()));
         historyList.setAdapter(adapter);
+        historyList.addItemDecoration(new MarginItemDecoration(0, 0, 0, DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.floating_queue_container_height))) {
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                if (parent.getChildAdapterPosition(view) == adapter.getItemCount() - 1 && ((MainActivity) requireActivity()).isFloatingQueueEnabled()) {
+                    super.getItemOffsets(outRect, view, parent, state);
+                }
+            }
+        });
 
         requireActivity().getSupportLoaderManager().initLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
         return view;
@@ -364,12 +374,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    private class FooterViewHolder extends DefaultViewHolder<View> {
-        FooterViewHolder(View view) {
-            super(view);
-        }
-    }
-
     private class HistoryEntryItemHolder extends DefaultViewHolder<PageItemView<IndexedHistoryEntry>>
             implements SwipeableItemTouchHelperCallback.Callback {
         private int index;
@@ -413,28 +417,12 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    private final class HistoryEntryItemAdapter extends RecyclerView.Adapter<DefaultViewHolder> {
-
-        private static final int VIEW_TYPE_ITEM = 0;
-        private static final int VIEW_TYPE_FOOTER = 1;
+    private final class HistoryEntryItemAdapter extends RecyclerView.Adapter<HistoryEntryItemHolder> {
         @Nullable private Cursor cursor;
-
-        private boolean isFooterEnabled() {
-            return ((MainActivity) requireActivity()).isFloatingQueueEnabled();
-        }
-
-        @Override
-        public int getItemViewType(int position) {
-            if (position == getItemCount() - 1 && isFooterEnabled()) {
-                return VIEW_TYPE_FOOTER;
-            } else {
-                return VIEW_TYPE_ITEM;
-            }
-        }
 
         @Override
         public int getItemCount() {
-            return cursor == null ? 0 : cursor.getCount() + (isFooterEnabled() ? 1 : 0);
+            return cursor == null ? 0 : cursor.getCount();
         }
 
         public boolean isEmpty() {
@@ -464,39 +452,26 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public DefaultViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int type) {
-            if (type == VIEW_TYPE_FOOTER) {
-                Context context = parent.getContext();
-                LayoutInflater inflater = LayoutInflater.from(context);
-                View view = inflater.inflate(R.layout.view_empty_footer, parent, false);
-                return new FooterViewHolder(view);
-            } else {
-                return new HistoryEntryItemHolder(new PageItemView<>(requireContext()));
-            }
+        public HistoryEntryItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int type) {
+            return new HistoryEntryItemHolder(new PageItemView<>(requireContext()));
         }
 
         @Override
-        public void onBindViewHolder(@NonNull DefaultViewHolder holder, int pos) {
-            if (holder instanceof HistoryEntryItemHolder) {
-                if (cursor == null) {
-                    return;
-                }
-                cursor.moveToPosition(pos);
-                ((HistoryEntryItemHolder) holder).bindItem(cursor);
+        public void onBindViewHolder(@NonNull HistoryEntryItemHolder holder, int pos) {
+            if (cursor == null) {
+                return;
             }
+            cursor.moveToPosition(pos);
+            holder.bindItem(cursor);
         }
 
-        @Override public void onViewAttachedToWindow(@NonNull DefaultViewHolder holder) {
+        @Override public void onViewAttachedToWindow(@NonNull HistoryEntryItemHolder holder) {
             super.onViewAttachedToWindow(holder);
-            if (holder instanceof HistoryEntryItemHolder) {
-                ((HistoryEntryItemHolder) holder).getView().setCallback(itemCallback);
-            }
+            holder.getView().setCallback(itemCallback);
         }
 
-        @Override public void onViewDetachedFromWindow(DefaultViewHolder holder) {
-            if (holder instanceof HistoryEntryItemHolder) {
-                ((HistoryEntryItemHolder) holder).getView().setCallback(null);
-            }
+        @Override public void onViewDetachedFromWindow(HistoryEntryItemHolder holder) {
+            holder.getView().setCallback(null);
             super.onViewDetachedFromWindow(holder);
         }
     }

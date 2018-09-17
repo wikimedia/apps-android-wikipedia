@@ -15,14 +15,19 @@ import org.wikipedia.util.ResourceUtil;
 // todo: replace with DividerItemDecoration once it supports headers and footers
 public class DrawableItemDecoration extends RecyclerView.ItemDecoration {
     @NonNull private final Drawable drawable;
+    private final boolean drawEnd;
 
     public DrawableItemDecoration(@NonNull Context context, @AttrRes int id) {
-        this.drawable = ContextCompat.getDrawable(context,
-                ResourceUtil.getThemedAttributeId(context, id));
+        this(context, id, true);
     }
 
-    @Override public void getItemOffsets(Rect outRect, View view, RecyclerView parent,
-                                         RecyclerView.State state) {
+    public DrawableItemDecoration(@NonNull Context context, @AttrRes int id, boolean drawEnd) {
+        this.drawable = ContextCompat.getDrawable(context,
+                ResourceUtil.getThemedAttributeId(context, id));
+        this.drawEnd = drawEnd;
+    }
+
+    @Override public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         super.getItemOffsets(outRect, view, parent, state);
         outRect.top = drawable.getIntrinsicHeight();
         if (parent.getChildAdapterPosition(view) == state.getItemCount() - 1) {
@@ -30,8 +35,7 @@ public class DrawableItemDecoration extends RecyclerView.ItemDecoration {
         }
     }
 
-    @Override public void onDraw(Canvas canvas, @NonNull RecyclerView parent,
-                                 RecyclerView.State state) {
+    @Override public void onDraw(Canvas canvas, @NonNull RecyclerView parent, RecyclerView.State state) {
         super.onDraw(canvas, parent, state);
         if (parent.getChildCount() == 0) {
             return;
@@ -42,7 +46,9 @@ public class DrawableItemDecoration extends RecyclerView.ItemDecoration {
             draw(canvas, bounds(parent, parent.getChildAt(i), true));
         }
         draw(canvas, bounds(parent, parent.getChildAt(end), true));
-        draw(canvas, bounds(parent, parent.getChildAt(end), false));
+        if (drawEnd) {
+            draw(canvas, bounds(parent, parent.getChildAt(end), false));
+        }
     }
 
     private Rect bounds(@NonNull RecyclerView parent, @NonNull View child, boolean top) {

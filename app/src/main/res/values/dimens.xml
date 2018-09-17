@@ -113,5 +113,6 @@
 
     <!-- Floating Queue -->
     <dimen name="floating_queue_container_height">64dp</dimen>
+    <dimen name="floating_queue_container_margin">8dp</dimen>
 
 </resources>

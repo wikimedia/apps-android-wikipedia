@@ -92,12 +92,14 @@ public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
         if (!controlNavTabInFragment) {
             getFragment().setBottomNavVisible(false);
         }
+        getFragment().getFloatingQueueView().setVisibility(View.GONE);
     }
 
     @Override
     public void onSupportActionModeFinished(@NonNull ActionMode mode) {
         super.onSupportActionModeFinished(mode);
         getFragment().setBottomNavVisible(true);
+        getFragment().getFloatingQueueView().setVisibility(View.VISIBLE);
     }
 
     @NonNull
