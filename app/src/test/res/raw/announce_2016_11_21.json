@@ -49,7 +49,7 @@
         "AndroidAppV2"
       ],
       "text": "Help Wikipedia by making a donation.",
-      "image" : "https://image.url",
+      "image_url" : "https://image.url",
       "action": {
         "title": "Donate",
         "url": "https://donate.url?campaign_id=12345&source=android"
@@ -120,7 +120,7 @@
         "AndroidAppV2"
       ],
       "text": "Help Wikipedia by making a donation.",
-      "image" : "https://image.url",
+      "image_url" : "https://image.url",
       "action": {
         "title": "Donate",
         "url": "https://donate.url?campaign_id=12345&source=android"
@@ -144,7 +144,7 @@
         "AndroidAppV2"
       ],
       "text": "Help Wikipedia by making a donation.",
-      "image" : "https://image.url",
+      "image_url" : "https://image.url",
       "action": {
         "title": "Donate",
         "url": "https://donate.url?campaign_id=12345&source=android"

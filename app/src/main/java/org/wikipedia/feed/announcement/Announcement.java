@@ -28,7 +28,7 @@ public class Announcement extends BaseModel {
     @SuppressWarnings("unused") @NonNull private List<String> platforms = Collections.emptyList();
     @SuppressWarnings("unused") @NonNull private List<String> countries = Collections.emptyList();
     @SuppressWarnings("unused") @SerializedName("caption_HTML") @Nullable private String footerCaption;
-    @SuppressWarnings("unused") @SerializedName("image") @Nullable private String imageUrl;
+    @SuppressWarnings("unused") @SerializedName("image_url") @Nullable private String imageUrl;
     @SuppressWarnings("unused") @SerializedName("image_height") @Nullable private String imageHeight;
     @SuppressWarnings("unused") @SerializedName("logged_in") @Nullable private Boolean loggedIn;
     @SuppressWarnings("unused") @SerializedName("reading_list_sync_enabled") @Nullable private Boolean readingListSyncEnabled;
