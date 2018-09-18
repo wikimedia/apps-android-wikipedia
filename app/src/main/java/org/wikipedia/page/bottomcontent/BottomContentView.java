@@ -56,6 +56,10 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 
 import static org.wikipedia.util.L10nUtil.formatDateRelative;
@@ -91,6 +95,7 @@ public class BottomContentView extends LinearLayoutOverWebView
     private ReadMoreAdapter readMoreAdapter = new ReadMoreAdapter();
     private List<RbPageSummary> readMoreItems;
     private CommunicationBridge bridge;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     public BottomContentView(Context context) {
         super(context);
@@ -144,6 +149,10 @@ public class BottomContentView extends LinearLayoutOverWebView
 
         // hide ourselves by default
         hide();
+    }
+
+    public void dispose() {
+        disposables.clear();
     }
 
     public void setPage(@NonNull Page page) {
@@ -285,18 +294,14 @@ public class BottomContentView extends LinearLayoutOverWebView
 
     private void preRequestReadMoreItems() {
         if (page.isMainPage()) {
-            new MainPageReadMoreTopicTask() {
-                @Override
-                public void onFinish(HistoryEntry entry) {
-                    requestReadMoreItems(entry);
-                }
-
-                @Override
-                public void onCatch(Throwable caught) {
-                    // Read More titles are expendable.
-                    L.w("Error while getting Read More topic for main page.", caught);
-                }
-            }.execute();
+            disposables.add(Observable.fromCallable(new MainPageReadMoreTopicTask())
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(this::requestReadMoreItems,
+                            throwable -> {
+                                L.w("Error while getting Read More topic for main page.", throwable);
+                                requestReadMoreItems(null);
+                            }));
         } else {
             requestReadMoreItems(new HistoryEntry(page.getTitle(), HistoryEntry.SOURCE_INTERNAL_LINK));
         }

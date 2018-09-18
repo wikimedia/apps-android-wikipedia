@@ -8,17 +8,18 @@ import android.os.RemoteException;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.util.ContentProviderClientCompat;
 
+import java.util.concurrent.Callable;
+
 /**
  * Get a Read More topic for the main page. This is looking at the history table.
  * We're looking at the last history entry that is not of source main page or random.
  */
-public class MainPageReadMoreTopicTask extends SaneAsyncTask<HistoryEntry> {
+public class MainPageReadMoreTopicTask implements Callable<HistoryEntry> {
     private int age;
 
     public MainPageReadMoreTopicTask() {
@@ -30,17 +31,14 @@ public class MainPageReadMoreTopicTask extends SaneAsyncTask<HistoryEntry> {
     }
 
     @Override
-    public HistoryEntry performTask() throws Throwable {
-        Cursor c = getInterestedHistoryEntry();
-        try {
+    public HistoryEntry call() throws Exception {
+        try (Cursor c = getInterestedHistoryEntry()) {
             if (c.moveToPosition(age)) {
                 HistoryEntry entry = HistoryEntry.DATABASE_TABLE.fromCursor(c);
                 entry.getTitle().setThumbUrl(PageImageHistoryContract.Col.IMAGE_NAME.val(c));
                 return entry.getTitle().isMainPage() ? null : entry;
             }
             return null;
-        } finally {
-            c.close();
         }
     }
 

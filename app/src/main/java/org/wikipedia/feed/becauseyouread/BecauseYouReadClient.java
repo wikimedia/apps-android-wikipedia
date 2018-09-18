@@ -13,42 +13,32 @@ import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.bottomcontent.MainPageReadMoreTopicTask;
 import org.wikipedia.search.RelatedPagesSearchClient;
-import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 
 public class BecauseYouReadClient implements FeedClient {
-    @Nullable private MainPageReadMoreTopicTask readMoreTopicTask;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     @Override public void request(@NonNull Context context, @NonNull final WikiSite wiki, int age,
                                   @NonNull final FeedClient.Callback cb) {
         cancel();
-        readMoreTopicTask = new MainPageReadMoreTopicTask(age) {
-            @Override public void onFinish(@Nullable HistoryEntry entry) {
-                if (entry == null) {
-                    cb.success(Collections.emptyList());
-                    return;
-                }
-                getCardForHistoryEntry(entry, cb);
-            }
-
-            @Override public void onCatch(Throwable caught) {
-                L.e("Error fetching 'because you read' suggestions", caught);
-                cb.error(caught);
-            }
-        };
-        readMoreTopicTask.execute();
+        disposables.add(Observable.fromCallable(new MainPageReadMoreTopicTask(age))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(entry -> getCardForHistoryEntry(entry, cb),
+                        throwable -> cb.success(Collections.emptyList())));
     }
 
     @Override public void cancel() {
-        if (readMoreTopicTask != null) {
-            readMoreTopicTask.cancel();
-            readMoreTopicTask = null;
-        }
+        disposables.clear();
     }
 
     private void getCardForHistoryEntry(@NonNull final HistoryEntry entry,

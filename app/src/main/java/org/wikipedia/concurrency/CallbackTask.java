@@ -18,10 +18,6 @@ public class CallbackTask<T> extends SaneAsyncTask<T> {
     @NonNull private final Task<T> task;
     @Nullable private Callback<T> callback;
 
-    public static <T> void execute(@NonNull Task<T> task) {
-        execute(task, null);
-    }
-
     public static <T> void execute(@NonNull Task<T> task, @Nullable Callback<T> callback) {
         new CallbackTask<>(task, callback).execute();
     }

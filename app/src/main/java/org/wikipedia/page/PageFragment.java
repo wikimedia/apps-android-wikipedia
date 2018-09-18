@@ -92,6 +92,9 @@ import org.wikipedia.views.WikiPageErrorView;
 import java.util.Date;
 import java.util.List;
 
+import io.reactivex.Completable;
+import io.reactivex.schedulers.Schedulers;
+
 import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.page.PageActivity.ACTION_RESUME_READING;
 import static org.wikipedia.page.PageCacher.loadIntoCache;
@@ -349,6 +352,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         //uninitialize the bridge, so that no further JS events can have any effect.
         bridge.cleanup();
         shareHandler.dispose();
+        bottomContentView.dispose();
         webView.clearAllListeners();
         ((ViewGroup) webView.getParent()).removeView(webView);
         webView = null;
@@ -1320,7 +1324,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 new Date(),
                 model.getCurEntry().getSource(),
                 timeSpentSec));
-        new UpdateHistoryTask(model.getCurEntry(), app).execute();
+        Completable.fromAction(new UpdateHistoryTask(model.getCurEntry()))
+                .subscribeOn(Schedulers.io())
+                .subscribe();
     }
 
     private LinearLayout.LayoutParams getContentTopOffsetParams(@NonNull Context context) {
