@@ -125,7 +125,7 @@ public class RbPageSummary implements PageSummary {
         }
     }
 
-    public void setDescription(@Nullable String description) {
-        this.description = description;
+    @Override public String toString() {
+        return getTitle();
     }
 }

@@ -11,12 +11,17 @@ import android.text.TextWatcher;
 import android.text.format.DateUtils;
 import android.widget.EditText;
 
-import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+import java.util.concurrent.Callable;
+
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class SyntaxHighlighter {
     @VisibleForTesting
@@ -29,6 +34,7 @@ public class SyntaxHighlighter {
     private List<SyntaxRule> syntaxRules;
 
     private Handler handler;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     @Nullable private OnSyntaxHighlightListener syntaxHighlightListener;
 
@@ -41,7 +47,30 @@ public class SyntaxHighlighter {
                     currentTask.cancel();
                 }
                 currentTask = new SyntaxHighlightTask(textBox.getText());
-                currentTask.execute();
+                disposables.clear();
+                disposables.add(Observable.fromCallable(currentTask)
+                        .subscribeOn(Schedulers.computation())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(result -> {
+                            if (syntaxHighlightListener != null) {
+                                syntaxHighlightListener.syntaxHighlightResults(result);
+                            }
+
+                            // TODO: probably possible to make this more efficient...
+                            // Right now, on longer articles, this is quite heavy on the UI thread.
+                            // remove any of our custom spans from the previous cycle...
+                            long time = System.currentTimeMillis();
+                            Object[] prevSpans = textBox.getText().getSpans(0, textBox.getText().length(), SpanExtents.class);
+                            for (Object sp : prevSpans) {
+                                textBox.getText().removeSpan(sp);
+                            }
+                            // and add our new spans
+                            for (SpanExtents spanEx : result) {
+                                textBox.getText().setSpan(spanEx, spanEx.getStart(), spanEx.getEnd(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                            }
+                            time = System.currentTimeMillis() - time;
+                            L.d("That took " + time + "ms");
+                        }, L::e));
             }
         }
     };
@@ -131,17 +160,23 @@ public class SyntaxHighlighter {
             textBox = null;
             context = null;
         }
+        disposables.clear();
     }
 
-    private class SyntaxHighlightTask extends SaneAsyncTask<List<SpanExtents>> {
+    private class SyntaxHighlightTask implements Callable<List<SpanExtents>> {
         SyntaxHighlightTask(Editable text) {
             this.text = text;
         }
 
         private Editable text;
+        private boolean cancelled;
+
+        public void cancel() {
+            cancelled = true;
+        }
 
         @Override
-        public List<SpanExtents> performTask() throws Throwable {
+        public List<SpanExtents> call() throws Exception {
             Stack<SpanExtents> spanStack = new Stack<>();
             List<SpanExtents> spansToSet = new ArrayList<>();
 
@@ -223,41 +258,16 @@ public class SyntaxHighlighter {
                     }
                 }
 
-                if (!incrementDone) {
-                    i++;
+                if (cancelled) {
+                    break;
                 }
 
-                if (isCancelled()) {
-                    break;
+                if (!incrementDone) {
+                    i++;
                 }
             }
 
             return spansToSet;
-        }
-
-        @Override
-        public void onFinish(List<SpanExtents> result) {
-            if (context == null) {
-                return;
-            }
-            if (syntaxHighlightListener != null) {
-                syntaxHighlightListener.syntaxHighlightResults(result);
-            }
-
-            // TODO: probably possible to make this more efficient...
-            // Right now, on longer articles, this is quite heavy on the UI thread.
-            // remove any of our custom spans from the previous cycle...
-            long time = System.currentTimeMillis();
-            Object[] prevSpans = textBox.getText().getSpans(0, text.length(), SpanExtents.class);
-            for (Object sp : prevSpans) {
-                textBox.getText().removeSpan(sp);
-            }
-            // and add our new spans
-            for (SpanExtents spanEx : result) {
-                textBox.getText().setSpan(spanEx, spanEx.getStart(), spanEx.getEnd(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-            }
-            time = System.currentTimeMillis() - time;
-            L.v("That took " + time + "ms");
         }
     }
 }

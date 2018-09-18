@@ -4,37 +4,29 @@ import android.database.Cursor;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.database.contract.PageHistoryContract;
-import org.wikipedia.util.log.L;
+
+import io.reactivex.functions.Action;
 
 /**
  * Save the history entry for the specified page.
  */
-public class UpdateHistoryTask extends SaneAsyncTask<Void> {
+public class UpdateHistoryTask implements Action {
     private final HistoryEntry entry;
-    private final WikipediaApp app;
 
-    public UpdateHistoryTask(HistoryEntry entry, WikipediaApp app) {
+    public UpdateHistoryTask(HistoryEntry entry) {
         this.entry = entry;
-        this.app = app;
     }
 
     @Override
-    public Void performTask() throws Throwable {
-        DatabaseClient<HistoryEntry> client = app.getDatabaseClient(HistoryEntry.class);
+    public void run() throws Exception {
+        DatabaseClient<HistoryEntry> client = WikipediaApp.getInstance().getDatabaseClient(HistoryEntry.class);
         client.upsert(new HistoryEntry(entry.getTitle(),
-                entry.getTimestamp(),
-                entry.getSource(),
-                entry.getTimeSpentSec() + getPreviousTimeSpent(client)),
+                        entry.getTimestamp(),
+                        entry.getSource(),
+                        entry.getTimeSpentSec() + getPreviousTimeSpent(client)),
                 PageHistoryContract.Page.SELECTION);
-        return null;
-    }
-
-    @Override
-    public void onCatch(Throwable caught) {
-        L.w(caught);
     }
 
     private int getPreviousTimeSpent(@NonNull DatabaseClient<HistoryEntry> client) {
@@ -53,4 +45,6 @@ public class UpdateHistoryTask extends SaneAsyncTask<Void> {
         cursor.close();
         return timeSpent;
     }
+
+
 }
