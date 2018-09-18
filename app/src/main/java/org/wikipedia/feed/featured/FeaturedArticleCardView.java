@@ -1,5 +1,6 @@
 package org.wikipedia.feed.featured;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -12,7 +13,6 @@ import com.squareup.otto.Subscribe;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.events.ArticleSavedOrDeletedEvent;
 import org.wikipedia.feed.view.ActionFooterView;
 import org.wikipedia.feed.view.CardHeaderView;
@@ -31,6 +31,9 @@ import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticleCard>
         implements ItemTouchHelperSwipeAdapter.SwipeableView {
@@ -115,33 +118,33 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
                 .setCallback(getCallback());
     }
 
+    @SuppressLint("CheckResult")
     private void footer(@NonNull FeaturedArticleCard card) {
         PageTitle title = new PageTitle(card.articleTitle(), card.wikiSite());
-        CallbackTask.execute(() -> ReadingListDbHelper.instance().findPageInAnyList(title), new CallbackTask.DefaultCallback<ReadingListPage>() {
-            @Override
-            public void success(ReadingListPage page) {
-                boolean pageInList = page != null;
-                int actionIcon = pageInList
-                        ? R.drawable.ic_bookmark_white_24dp
-                        : R.drawable.ic_bookmark_border_black_24dp;
+        Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageInAnyList(title) != null)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(pageInList -> {
+                    int actionIcon = pageInList
+                            ? R.drawable.ic_bookmark_white_24dp
+                            : R.drawable.ic_bookmark_border_black_24dp;
 
-                int actionText = pageInList
-                        ? R.string.view_featured_article_footer_saved_button_label
-                        : R.string.view_featured_article_footer_save_button_label;
+                    int actionText = pageInList
+                            ? R.string.view_featured_article_footer_saved_button_label
+                            : R.string.view_featured_article_footer_save_button_label;
 
-                footerView.actionIcon(actionIcon)
-                        .actionText(actionText)
-                        .onActionListener(pageInList
-                                ? new CardBookmarkMenuListener()
-                                : new CardAddToListListener())
-                        .onShareListener(new CardShareListener());
+                    footerView.actionIcon(actionIcon)
+                            .actionText(actionText)
+                            .onActionListener(pageInList
+                                    ? new CardBookmarkMenuListener()
+                                    : new CardAddToListListener())
+                            .onShareListener(new CardShareListener());
 
-                footerView.actionIconColor(ResourceUtil.getThemedAttributeId(getContext(),
-                        pageInList ? R.attr.colorAccent : R.attr.secondary_text_color));
-                footerView.actionTextColor(ResourceUtil.getThemedAttributeId(getContext(),
-                        pageInList ? R.attr.colorAccent : R.attr.secondary_text_color));
-            }
-        });
+                    footerView.actionIconColor(ResourceUtil.getThemedAttributeId(getContext(),
+                            pageInList ? R.attr.colorAccent : R.attr.secondary_text_color));
+                    footerView.actionTextColor(ResourceUtil.getThemedAttributeId(getContext(),
+                            pageInList ? R.attr.colorAccent : R.attr.secondary_text_color));
+                });
     }
 
     private void image(@Nullable Uri uri) {

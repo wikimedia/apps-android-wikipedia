@@ -26,7 +26,6 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SuggestedPagesFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.dataclient.restbase.RbRelatedPages;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.history.HistoryEntry;
@@ -427,14 +426,12 @@ public class BottomContentView extends LinearLayoutOverWebView
         }
 
         private void setPrimaryActionDrawable(ImageView primaryActionBtn, PageTitle pageTitle) {
-            CallbackTask.execute(() -> ReadingListDbHelper.instance().findPageInAnyList(pageTitle), new CallbackTask.DefaultCallback<ReadingListPage>() {
-                @Override
-                public void success(ReadingListPage page) {
-                    primaryActionBtn.setImageResource(page != null
+            disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageInAnyList(pageTitle) != null)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(exists -> primaryActionBtn.setImageResource(exists
                             ? R.drawable.ic_bookmark_white_24dp
-                            : R.drawable.ic_bookmark_border_black_24dp);
-                }
-            });
+                            : R.drawable.ic_bookmark_border_black_24dp)));
         }
 
         @Override public void onClick(@Nullable RbPageSummary item) {
@@ -449,35 +446,34 @@ public class BottomContentView extends LinearLayoutOverWebView
                 return;
             }
             PageTitle pageTitle = item.getPageTitle(page.getTitle().getWikiSite());
-            CallbackTask.execute(() -> ReadingListDbHelper.instance().findPageInAnyList(pageTitle), new CallbackTask.DefaultCallback<ReadingListPage>() {
-                @Override
-                public void success(ReadingListPage page) {
-                    boolean pageInList = page != null;
-                    if (!pageInList) {
-                        parentFragment.addToReadingList(pageTitle, AddToReadingListDialog.InvokeSource.READ_MORE_BOOKMARK_BUTTON);
-                    } else {
-                        new ReadingListBookmarkMenu(view, new ReadingListBookmarkMenu.Callback() {
-                            @Override
-                            public void onAddRequest(@Nullable ReadingListPage page) {
-                                parentFragment.addToReadingList(pageTitle, AddToReadingListDialog.InvokeSource.READ_MORE_BOOKMARK_BUTTON);
-                            }
+            disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageInAnyList(pageTitle) != null)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(pageInList -> {
+                        if (!pageInList) {
+                            parentFragment.addToReadingList(pageTitle, AddToReadingListDialog.InvokeSource.READ_MORE_BOOKMARK_BUTTON);
+                        } else {
+                            new ReadingListBookmarkMenu(view, new ReadingListBookmarkMenu.Callback() {
+                                @Override
+                                public void onAddRequest(@Nullable ReadingListPage page) {
+                                    parentFragment.addToReadingList(pageTitle, AddToReadingListDialog.InvokeSource.READ_MORE_BOOKMARK_BUTTON);
+                                }
 
-                            @Override
-                            public void onDeleted(@Nullable ReadingListPage page) {
-                                FeedbackUtil.showMessage((Activity) getContext(),
-                                        getContext().getString(R.string.reading_list_item_deleted, pageTitle.getDisplayText()));
-                                setPrimaryActionDrawable((ImageView) view, pageTitle);
+                                @Override
+                                public void onDeleted(@Nullable ReadingListPage page) {
+                                    FeedbackUtil.showMessage((Activity) getContext(),
+                                            getContext().getString(R.string.reading_list_item_deleted, pageTitle.getDisplayText()));
+                                    setPrimaryActionDrawable((ImageView) view, pageTitle);
 
-                            }
+                                }
 
-                            @Override
-                            public void onShare() {
-                                // ignore
-                            }
-                        }).show(pageTitle);
-                    }
-                }
-            });
+                                @Override
+                                public void onShare() {
+                                    // ignore
+                                }
+                            }).show(pageTitle);
+                        }
+                    }));
         }
 
         @Override public boolean onLongClick(@Nullable RbPageSummary item) {

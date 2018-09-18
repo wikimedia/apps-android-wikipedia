@@ -36,7 +36,6 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.auth.AccountUtil;
-import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.events.ArticleSavedOrDeletedEvent;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.history.SearchActionModeCallback;
@@ -66,6 +65,10 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_NAME_ASC;
 import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_NAME_DESC;
@@ -89,6 +92,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
 
     private ReadingListsFunnel funnel = new ReadingListsFunnel();
     private EventBusMethods eventBusMethods = new EventBusMethods();
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     private ReadingListAdapter adapter = new ReadingListAdapter();
     private ReadingListItemCallback listItemCallback = new ReadingListItemCallback();
@@ -153,6 +157,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
 
     @Override
     public void onDestroyView() {
+        disposables.clear();
         WikipediaApp.getInstance().getBus().unregister(eventBusMethods);
         readingListView.setAdapter(null);
         unbinder.unbind();
@@ -252,54 +257,54 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
 
     private void updateLists(@Nullable final String searchQuery) {
         maybeShowOnboarding();
-        CallbackTask.execute(() -> {
+        disposables.add(Observable.fromCallable(() -> {
             List<ReadingList> lists = ReadingListDbHelper.instance().getAllLists();
             lists = applySearchQuery(searchQuery, lists);
             ReadingList.sort(lists, Prefs.getReadingListSortMode(SORT_BY_NAME_ASC));
             return lists;
-        }, new CallbackTask.DefaultCallback<List<ReadingList>>() {
-            @Override
-            public void success(List<ReadingList> lists) {
-                if (getActivity() == null) {
-                    return;
-                }
-                DiffUtil.DiffResult result = DiffUtil.calculateDiff(new DiffUtil.Callback() {
-                    @Override public int getOldListSize() {
-                        return readingLists.size();
-                    }
-                    @Override public int getNewListSize() {
-                        return lists.size();
-                    }
-
-                    @Override public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-                        // If the number of lists has changed, just invalidate everything, as a
-                        // simple way to get the bottom item margin to apply to the correct item.
-                        if (readingLists.size() != lists.size()) {
-                            return false;
-                        } else if (readingLists.size() <= oldItemPosition || lists.size() <= newItemPosition) {
-                            return false;
+        }).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(lists -> {
+                    DiffUtil.DiffResult result = DiffUtil.calculateDiff(new DiffUtil.Callback() {
+                        @Override
+                        public int getOldListSize() {
+                            return readingLists.size();
                         }
-                        return readingLists.get(oldItemPosition).id() == lists.get(newItemPosition).id();
-                    }
-
-                    @Override public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
-                        if (readingLists.size() <= oldItemPosition || lists.size() <= newItemPosition) {
-                            return false;
+                        @Override
+                        public int getNewListSize() {
+                            return lists.size();
                         }
-                        return readingLists.get(oldItemPosition).id() == lists.get(newItemPosition).id()
-                                && readingLists.get(oldItemPosition).pages().size() == lists.get(newItemPosition).pages().size()
-                                && readingLists.get(oldItemPosition).numPagesOffline() == lists.get(newItemPosition).numPagesOffline();
-                    }
-                });
-                readingLists = lists;
-                result.dispatchUpdatesTo(adapter);
 
-                swipeRefreshLayout.setRefreshing(false);
-                maybeShowListLimitMessage();
-                updateEmptyState(searchQuery);
-                maybeDeleteListFromIntent();
-            }
-        });
+                        @Override
+                        public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
+                            // If the number of lists has changed, just invalidate everything, as a
+                            // simple way to get the bottom item margin to apply to the correct item.
+                            if (readingLists.size() != lists.size()) {
+                                return false;
+                            } else if (readingLists.size() <= oldItemPosition || lists.size() <= newItemPosition) {
+                                return false;
+                            }
+                            return readingLists.get(oldItemPosition).id() == lists.get(newItemPosition).id();
+                        }
+
+                        @Override
+                        public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
+                            if (readingLists.size() <= oldItemPosition || lists.size() <= newItemPosition) {
+                                return false;
+                            }
+                            return readingLists.get(oldItemPosition).id() == lists.get(newItemPosition).id()
+                                    && readingLists.get(oldItemPosition).pages().size() == lists.get(newItemPosition).pages().size()
+                                    && readingLists.get(oldItemPosition).numPagesOffline() == lists.get(newItemPosition).numPagesOffline();
+                        }
+                    });
+                    readingLists = lists;
+                    result.dispatchUpdatesTo(adapter);
+
+                    swipeRefreshLayout.setRefreshing(false);
+                    maybeShowListLimitMessage();
+                    updateEmptyState(searchQuery);
+                    maybeDeleteListFromIntent();
+                }));
     }
 
     @NonNull

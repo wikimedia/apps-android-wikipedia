@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.analytics.ReadingListsFunnel;
-import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
@@ -31,6 +30,11 @@ import org.wikipedia.util.FeedbackUtil;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     public enum InvokeSource implements EnumCode {
@@ -70,6 +74,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private View onboardingButton;
     private InvokeSource invokeSource;
     private CreateButtonClickListener createClickListener = new CreateButtonClickListener();
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     private List<ReadingList> readingLists = new ArrayList<>();
 
@@ -142,6 +147,12 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     @Override
+    public void onDestroyView() {
+        disposables.clear();
+        super.onDestroyView();
+    }
+
+    @Override
     public void dismiss() {
         super.dismiss();
         if (dismissListener != null) {
@@ -168,17 +179,14 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private void updateLists() {
-        CallbackTask.execute(() -> ReadingListDbHelper.instance().getAllLists(), new CallbackTask.DefaultCallback<List<ReadingList>>() {
-            @Override
-            public void success(List<ReadingList> lists) {
-                if (getActivity() == null) {
-                    return;
-                }
-                readingLists = lists;
-                ReadingList.sort(readingLists, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC));
-                adapter.notifyDataSetChanged();
-            }
-        });
+        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().getAllLists())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(lists -> {
+                    readingLists = lists;
+                    ReadingList.sort(readingLists, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC));
+                    adapter.notifyDataSetChanged();
+                }));
     }
 
     private class CreateButtonClickListener implements View.OnClickListener {
@@ -216,28 +224,25 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
             return;
         }
 
-        CallbackTask.execute(() -> ReadingListDbHelper.instance().pageExistsInList(readingList, title), new CallbackTask.DefaultCallback<Boolean>() {
-            @Override
-            public void success(Boolean exists) {
-                if (!isAdded()) {
-                    return;
-                }
-                String message;
-                if (exists) {
-                    message = getString(R.string.reading_list_already_exists);
-                    showViewListSnackBar(readingList, message);
+        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().pageExistsInList(readingList, title))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(exists -> {
+                    String message;
+                    if (exists) {
+                        message = getString(R.string.reading_list_already_exists);
+                        showViewListSnackBar(readingList, message);
 
-                } else {
-                    message = String.format(getString(R.string.reading_list_added_to_named), readingList.title());
-                    new ReadingListsFunnel(title.getWikiSite()).logAddToList(readingList, readingLists.size(), invokeSource);
+                    } else {
+                        message = String.format(getString(R.string.reading_list_added_to_named), readingList.title());
+                        new ReadingListsFunnel(title.getWikiSite()).logAddToList(readingList, readingLists.size(), invokeSource);
 
-                    ReadingListDbHelper.instance().addPageToList(readingList, title, true);
-                    showViewListSnackBar(readingList, message);
+                        ReadingListDbHelper.instance().addPageToList(readingList, title, true);
+                        showViewListSnackBar(readingList, message);
 
-                }
-                dismiss();
-            }
-        });
+                    }
+                    dismiss();
+                }));
     }
 
     private void addAndDismiss(final ReadingList readingList, final List<PageTitle> titles) {
@@ -254,24 +259,21 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
             return;
         }
 
-        CallbackTask.execute(() -> ReadingListDbHelper.instance().addPagesToListIfNotExist(readingList, titles), new CallbackTask.DefaultCallback<Integer>() {
-            @Override
-            public void success(Integer numAdded) {
-                if (!isAdded()) {
-                    return;
-                }
-                String message;
-                if (numAdded == 0) {
-                    message = getString(R.string.reading_list_already_contains_selection);
-                } else {
-                    message = String.format(getString(R.string.reading_list_added_articles_list_titled), numAdded,
-                            readingList.title());
-                    new ReadingListsFunnel().logAddToList(readingList, readingLists.size(), invokeSource);
-                }
-                showViewListSnackBar(readingList, message);
-                dismiss();
-            }
-        });
+        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().addPagesToListIfNotExist(readingList, titles))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(numAdded -> {
+                    String message;
+                    if (numAdded == 0) {
+                        message = getString(R.string.reading_list_already_contains_selection);
+                    } else {
+                        message = String.format(getString(R.string.reading_list_added_articles_list_titled), numAdded,
+                                readingList.title());
+                        new ReadingListsFunnel().logAddToList(readingList, readingLists.size(), invokeSource);
+                    }
+                    showViewListSnackBar(readingList, message);
+                    dismiss();
+                }));
     }
 
     private void showViewListSnackBar(@NonNull final ReadingList list, @NonNull String message) {

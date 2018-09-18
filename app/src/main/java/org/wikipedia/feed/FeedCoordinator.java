@@ -1,9 +1,9 @@
 package org.wikipedia.feed;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.feed.aggregated.AggregatedFeedContentClient;
 import org.wikipedia.feed.announcement.AnnouncementClient;
 import org.wikipedia.feed.dataclient.FeedClient;
@@ -17,6 +17,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+import io.reactivex.Completable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class FeedCoordinator extends FeedCoordinatorBase {
     @NonNull private AggregatedFeedContentClient aggregatedClient = new AggregatedFeedContentClient();
@@ -53,21 +57,13 @@ public class FeedCoordinator extends FeedCoordinatorBase {
 
     }
 
+    @SuppressLint("CheckResult")
     public static void postCardsToCallback(@NonNull FeedClient.Callback cb, @NonNull List<Card> cards) {
-        CallbackTask.execute(() -> {
+        Completable.fromAction(() -> {
             final int delayMillis = 150;
             Thread.sleep(delayMillis);
-            return null;
-        }, new CallbackTask.Callback<Void>() {
-            @Override
-            public void success(Void result) {
-                cb.success(cards);
-            }
-
-            @Override
-            public void failure(Throwable caught) {
-                cb.error(caught);
-            }
-        });
+        }).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(() -> cb.success(cards));
     }
 }

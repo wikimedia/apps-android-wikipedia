@@ -44,7 +44,6 @@ import org.wikipedia.analytics.PageScrollFunnel;
 import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
 import org.wikipedia.descriptions.DescriptionEditActivity;
@@ -69,7 +68,6 @@ import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.RemoveFromReadingListsDialog;
-import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.Prefs;
@@ -93,6 +91,9 @@ import java.util.Date;
 import java.util.List;
 
 import io.reactivex.Completable;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
 import static android.app.Activity.RESULT_OK;
@@ -167,6 +168,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private EditHandler editHandler;
     private ActionMode findInPageActionMode;
     private ShareHandler shareHandler;
+    private CompositeDisposable disposables = new CompositeDisposable();
     private ActiveTimer activeTimer = new ActiveTimer();
     @Nullable private AvPlayer avPlayer;
     @Nullable private AvCallback avCallback;
@@ -353,6 +355,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         bridge.cleanup();
         shareHandler.dispose();
         bottomContentView.dispose();
+        disposables.clear();
         webView.clearAllListeners();
         ((ViewGroup) webView.getParent()).removeView(webView);
         webView = null;
@@ -682,17 +685,14 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     public void updateBookmarkAndMenuOptionsFromDao() {
-        CallbackTask.execute(() -> ReadingListDbHelper.instance().findPageInAnyList(getTitle()), new CallbackTask.DefaultCallback<ReadingListPage>() {
-            @Override
-            public void success(ReadingListPage page) {
-                if (!isAdded()) {
-                    return;
-                }
-                model.setReadingListPage(page);
-                pageActionTabsCallback.updateBookmark(page != null);
-                requireActivity().invalidateOptionsMenu();
-            }
-        });
+        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageInAnyList(getTitle())).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doFinally(() -> {
+                    pageActionTabsCallback.updateBookmark(model.getReadingListPage() != null);
+                    requireActivity().invalidateOptionsMenu();
+                })
+                .subscribe(page -> model.setReadingListPage(page),
+                        throwable -> model.setReadingListPage(null)));
     }
 
     public void onActionModeShown(ActionMode mode) {
@@ -757,23 +757,17 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     private void showRemoveFromListsDialog() {
-        CallbackTask.execute(() -> {
+        disposables.add(Observable.fromCallable(() -> {
             List<ReadingListPage> pageOccurrences = ReadingListDbHelper.instance().getAllPageOccurrences(model.getTitle());
             return ReadingListDbHelper.instance().getListsFromPageOccurrences(pageOccurrences);
-        }, new CallbackTask.DefaultCallback<List<ReadingList>>() {
-            @Override
-            public void success(List<ReadingList> listsContainingPage) {
-                if (!isAdded()) {
-                    return;
-                }
-                new RemoveFromReadingListsDialog(listsContainingPage).deleteOrShowDialog(getContext(),
+        }).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(listsContainingPage -> new RemoveFromReadingListsDialog(listsContainingPage).deleteOrShowDialog(getContext(),
                         page -> {
                             if (callback() != null) {
                                 callback().onPageRemoveFromReadingLists(getTitle());
                             }
-                        });
-            }
-        });
+                        })));
     }
 
     public void sharePageLink() {
@@ -871,14 +865,14 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (model.getReadingListPage() != null) {
             final ReadingListPage page = model.getReadingListPage();
             final PageTitle title = model.getTitle();
-            CallbackTask.execute(() -> {
+            disposables.add(Completable.fromAction(() -> {
                 if (!TextUtils.equals(page.thumbUrl(), title.getThumbUrl())
                         || !TextUtils.equals(page.description(), title.getDescription())) {
                     page.thumbUrl(title.getThumbUrl());
                     page.description(title.getDescription());
                     ReadingListDbHelper.instance().updatePage(page);
                 }
-            });
+            }).subscribeOn(Schedulers.io()).subscribe());
         }
 
         checkAndShowSelectTextOnboarding();

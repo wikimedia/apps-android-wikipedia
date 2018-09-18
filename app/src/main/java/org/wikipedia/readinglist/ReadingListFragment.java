@@ -38,7 +38,6 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ReadingListsFunnel;
-import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClientFactory;
@@ -81,6 +80,11 @@ import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import io.reactivex.Completable;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.CacheControl;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -106,6 +110,7 @@ public class ReadingListFragment extends Fragment implements
     private Unbinder unbinder;
 
     @NonNull private final EventBusMethods eventBusMethods = new EventBusMethods();
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     @Nullable private ReadingList readingList;
     private long readingListId;
@@ -209,6 +214,7 @@ public class ReadingListFragment extends Fragment implements
     }
 
     @Override public void onDestroyView() {
+        disposables.clear();
         WikipediaApp.getInstance().getBus().unregister(eventBusMethods);
         recyclerView.setAdapter(null);
         appBarLayout.removeOnOffsetChangedListener(appBarListener);
@@ -309,21 +315,18 @@ public class ReadingListFragment extends Fragment implements
     }
 
     private void updateReadingListData() {
-        CallbackTask.execute(() -> ReadingListDbHelper.instance().getFullListById(readingListId), new CallbackTask.DefaultCallback<ReadingList>() {
-            @Override
-            public void success(ReadingList list) {
-                if (getActivity() == null) {
-                    return;
-                }
-                swipeRefreshLayout.setRefreshing(false);
-                readingList = list;
-                if (readingList != null) {
-                    searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results,
-                            readingList.title()));
-                }
-                update();
-            }
-        });
+        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().getFullListById(readingListId))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(list -> {
+                    swipeRefreshLayout.setRefreshing(false);
+                    readingList = list;
+                    if (readingList != null) {
+                        searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results,
+                                readingList.title()));
+                    }
+                    update();
+                }));
     }
 
     private void setSearchQuery(@Nullable String query) {
@@ -582,29 +585,24 @@ public class ReadingListFragment extends Fragment implements
             return;
         }
         if (page.offline()) {
-            // If the page belongs to more than one list, then warn the user.
-            CallbackTask.execute(() -> {
+            disposables.add(Observable.fromCallable(() -> {
                 List<ReadingListPage> occurrences = ReadingListDbHelper.instance().getAllPageOccurrences(ReadingListPage.toPageTitle(page));
                 return ReadingListDbHelper.instance().getListsFromPageOccurrences(occurrences);
-            }, new CallbackTask.DefaultCallback<List<ReadingList>>() {
-                @SuppressWarnings("checkstyle:magicnumber")
-                @Override public void success(List<ReadingList> lists) {
-                    if (!isAdded()) {
-                        return;
-                    }
-                    if (lists.size() > 1) {
-                        AlertDialog dialog = new AlertDialog.Builder(requireContext())
-                                .setTitle(R.string.reading_list_confirm_remove_article_from_offline_title)
-                                .setMessage(getConfirmToggleOfflineMessage(page, lists))
-                                .setPositiveButton(R.string.reading_list_confirm_remove_article_from_offline, (dialog1, which) -> toggleOffline(page))
-                                .setNegativeButton(android.R.string.cancel, null)
-                                .create();
-                        dialog.show();
-                    } else {
-                        toggleOffline(page);
-                    }
-                }
-            });
+            }).subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(lists -> {
+                        if (lists.size() > 1) {
+                            AlertDialog dialog = new AlertDialog.Builder(requireContext())
+                                    .setTitle(R.string.reading_list_confirm_remove_article_from_offline_title)
+                                    .setMessage(getConfirmToggleOfflineMessage(page, lists))
+                                    .setPositiveButton(R.string.reading_list_confirm_remove_article_from_offline, (dialog1, which) -> toggleOffline(page))
+                                    .setNegativeButton(android.R.string.cancel, null)
+                                    .create();
+                            dialog.show();
+                        } else {
+                            toggleOffline(page);
+                        }
+                    }));
         } else {
             toggleOffline(page);
         }
@@ -835,10 +833,10 @@ public class ReadingListFragment extends Fragment implements
                 HistoryEntry entry = new HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST);
 
                 page.touch();
-                CallbackTask.execute(() -> {
+                Completable.fromAction(() -> {
                     ReadingListDbHelper.instance().updateList(readingList, false);
                     ReadingListDbHelper.instance().updatePage(page);
-                });
+                }).subscribeOn(Schedulers.io()).subscribe();
 
                 startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
             }

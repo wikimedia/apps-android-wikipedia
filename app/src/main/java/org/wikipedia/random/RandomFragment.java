@@ -19,7 +19,6 @@ import android.widget.ImageView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.RandomizerFunnel;
-import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
@@ -35,6 +34,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class RandomFragment extends Fragment {
     @BindView(R.id.random_item_pager) ViewPager randomPager;
@@ -46,6 +49,7 @@ public class RandomFragment extends Fragment {
     private boolean saveButtonState;
     private ViewPagerListener viewPagerListener = new ViewPagerListener();
     @Nullable private RandomizerFunnel funnel;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     @NonNull
     public static RandomFragment newInstance() {
@@ -78,6 +82,7 @@ public class RandomFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
+        disposables.clear();
         randomPager.removeOnPageChangeListener(viewPagerListener);
         unbinder.unbind();
         unbinder = null;
@@ -157,14 +162,14 @@ public class RandomFragment extends Fragment {
     }
 
     private void updateSaveShareButton(@NonNull PageTitle title) {
-        CallbackTask.execute(() -> ReadingListDbHelper.instance().findPageInAnyList(title), new CallbackTask.DefaultCallback<ReadingListPage>() {
-            @Override
-            public void success(ReadingListPage page) {
-                saveButtonState = page != null;
-                saveButton.setImageResource(saveButtonState
-                        ? R.drawable.ic_bookmark_white_24dp : R.drawable.ic_bookmark_border_white_24dp);
-            }
-        });
+        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageInAnyList(title) != null)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(exists -> {
+                    saveButtonState = exists;
+                    saveButton.setImageResource(saveButtonState
+                            ? R.drawable.ic_bookmark_white_24dp : R.drawable.ic_bookmark_border_white_24dp);
+                }));
     }
 
     @SuppressWarnings("magicnumber")

@@ -1,5 +1,6 @@
 package org.wikipedia.readinglist;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.MenuRes;
 import android.support.annotation.NonNull;
@@ -11,13 +12,16 @@ import android.view.MenuItem;
 import android.view.View;
 
 import org.wikipedia.R;
-import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 
 import java.util.List;
+
+import io.reactivex.Completable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class ReadingListBookmarkMenu {
     public interface Callback {
@@ -43,20 +47,19 @@ public class ReadingListBookmarkMenu {
         this.menuRes = existsInAnyList ? R.menu.menu_feed_card_item : R.menu.menu_reading_list_page_toggle;
     }
 
+    @SuppressLint("CheckResult")
     public void show(@NonNull PageTitle title) {
-        CallbackTask.execute(() -> {
+        Completable.fromAction(() -> {
             List<ReadingListPage> pageOccurrences = ReadingListDbHelper.instance().getAllPageOccurrences(title);
             listsContainingPage = ReadingListDbHelper.instance().getListsFromPageOccurrences(pageOccurrences);
-            return null;
-        }, new CallbackTask.DefaultCallback<Void>() {
-            @Override
-            public void success(Void v) {
-                if (!ViewCompat.isAttachedToWindow(anchorView)) {
-                    return;
-                }
-                showMenu();
-            }
-        });
+        }).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(() -> {
+                    if (!ViewCompat.isAttachedToWindow(anchorView)) {
+                        return;
+                    }
+                    showMenu();
+                });
     }
 
     private void showMenu() {
