@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.Toolbar;
@@ -24,6 +25,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
 
@@ -231,6 +233,15 @@ public class TabActivity extends BaseActivity {
         super.onBackPressed();
     }
 
+    private void showUndoSnackbar(final Tab tab, final int index, final org.wikipedia.page.tabs.Tab appTab, final int appTabIndex) {
+        Snackbar snackbar = FeedbackUtil.makeSnackbar(this, getString(R.string.tab_item_closed, appTab.getTopMostTitle().getDisplayText()), FeedbackUtil.LENGTH_DEFAULT);
+        snackbar.setAction(R.string.reading_list_item_delete_undo, v -> {
+            tabSwitcher.addTab(tab, index);
+            app.getTabList().add(appTabIndex, appTab);
+        });
+        snackbar.show();
+    }
+
     private class TabListener implements TabSwitcherListener {
         @Override public void onSwitcherShown(@NonNull TabSwitcher tabSwitcher) { }
 
@@ -254,9 +265,9 @@ public class TabActivity extends BaseActivity {
 
         @Override
         public void onTabRemoved(@NonNull TabSwitcher tabSwitcher, int index, @NonNull Tab tab, @NonNull Animation animation) {
-            int tabIndex = app.getTabList().size() - index - 1;
+            int appTabIndex = app.getTabList().size() - index - 1;
+            org.wikipedia.page.tabs.Tab appTab = app.getTabList().remove(appTabIndex);
 
-            app.getTabList().remove(tabIndex);
             //tabFunnel.logClose(app.getTabList().size(), index);
             if (app.getTabList().size() == 0) {
                 //tabFunnel.logCancel(app.getTabList().size());
@@ -266,6 +277,7 @@ public class TabActivity extends BaseActivity {
 
             }
             setResult(RESULT_LOAD_FROM_BACKSTACK);
+            showUndoSnackbar(tab, index, appTab, appTabIndex);
         }
 
         @Override
