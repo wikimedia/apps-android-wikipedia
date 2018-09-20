@@ -236,7 +236,7 @@ public class PageFragmentLoadState {
 
     @VisibleForTesting
     protected void commonSectionFetchOnCatch(@NonNull Throwable caught, int startSequenceNum) {
-        if (!sequenceNumber.inSync(startSequenceNum)) {
+        if (!fragment.isAdded() || !sequenceNumber.inSync(startSequenceNum)) {
             return;
         }
         ErrorCallback callback = networkErrorCallback;
