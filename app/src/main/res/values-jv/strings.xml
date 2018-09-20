@@ -76,6 +76,7 @@
   <string name="search_reading_lists_no_results">Ora ana kasil ing pratélan wacan</string>
   <string name="search_history_no_results">Ora ana kasil ing sajarah</string>
   <string name="edit_section_captcha_message">Kanggo ngreksa saka spam otomatis, mangga isinen tembung-tembung sing katon ngisor iki</string>
+  <string name="edit_section_captcha_request_an_account_message">Ora bisa ndeleng gambaré? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Sinaoni candhaké&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Balènana tembung-tembung ing ndhuwur</string>
   <string name="title_captcha">Isinen CAPTCHA</string>
   <string name="edit_section_captcha_reload">Dudul CAPTCHA saperlu ngambali ngamot</string>
@@ -115,6 +116,7 @@
   <string name="create_account_password_error">Tembung wadi ora trep</string>
   <string name="create_account_generic_error">Ora bisa gawé akun</string>
   <string name="create_account_next">Sabanjuré</string>
+  <string name="email_recommendation_dialog_title">Gawé akun tanpa alamat layang-èl?</string>
   <string name="create_account_button">Gawé akun</string>
   <string name="create_account_name_unavailable">Jeneng panganggo \"%s\" ora ana. Jajal anggonen jeneng liyané.</string>
   <string name="create_account_ip_block_message">Nyuwun pangapura, alamat IP panjenengan saiki kapenggak saka nggawé akun anyar.</string>
@@ -469,6 +471,28 @@
     <item quantity="one">Kari %1$d pratélan</item>
     <item quantity="other">Kari %1$d pratélan</item>
   </plurals>
+  <string name="notification_echo_channel_description">Pambiwara Wikipédia</string>
+  <string name="notifications_activity_title">Pambiwara</string>
+  <string name="notifications_activity_title_archived">Pambiwara (arsip)</string>
+  <string name="notifications_search">Golèk pambiwara</string>
+  <string name="notifications_view_unread">Deleng kang durung kawaca</string>
+  <string name="notifications_view_archived">Deleng arsip</string>
+  <string name="notifications_prefs">Setèlan pambiwara</string>
+  <string name="notifications_archive">Tandhani wis kawaca lan arsipaké</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">Pambiwara kaarsip</item>
+    <item quantity="other">%d pambiwara kaarsip</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">Urubaké pambiwara</string>
+  <string name="notifications_poll_enable_positive">Urubaké</string>
+  <string name="notifications_poll_enable_negative">Ora saiki</string>
+  <string name="notifications_empty_message">Panjenengan wis maca kabèh pambiwarané!</string>
+  <string name="notifications_view_archived_button_text">Deleng pambiwara kang kaarsip</string>
+  <string name="notification_preferences_title">Setèlan pambiwara</string>
+  <string name="preference_title_notification_welcome">Sugeng rawuh</string>
+  <string name="preference_summary_notification_welcome">Akun wis kagawé</string>
+  <string name="preference_title_notification_thanks">Nuwun</string>
+  <string name="preference_summary_notification_thanks">Ana wong kang matur nuwun awit saka pambesuté panjenengan</string>
   <string name="view_continue_reading_card_title">Bacutaké maca</string>
   <string name="view_because_you_read_card_title">Amarga panjenengan maca</string>
   <string name="view_random_card_title">Artikel sembarang</string>

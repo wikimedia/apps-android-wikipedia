@@ -126,6 +126,7 @@
   <string name="create_account_next">Seguinte</string>
   <string name="email_recommendation_dialog_title">Crear unha conta sen enderezo de correo electrónico?</string>
   <string name="email_recommendation_dialog_create_without_email_action">Continuar sen correo electrónico</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Engadir un enderezo de correo electrónico</string>
   <string name="create_account_button">Crear unha conta</string>
   <string name="create_account_name_unavailable">O nome de usuario \"%s\" non está dispoñible. Por favor, escolla un nome diferente.</string>
   <string name="create_account_ip_block_message">Sentímolo, o seu enderezo IP está bloqueado actualmente para crear novas contas.</string>
@@ -190,7 +191,7 @@
   <string name="about_translators_translatewiki">Esta aplicación foi traducida polos tradutores voluntarios de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenza</string>
   <string name="about_app_license">Código fonte dispoñible en &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; baixo a &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licenza Apache 2.0&lt;/a&gt;. Agás que se especifique o contrario, o contido está dispoñible baixo a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licenza Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">Un produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundación Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf">Un produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundación Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Acerca de</string>
   <string name="edit_abandon_confirm">A páxina foi modificada. Quere saír sen gardar os cambios?</string>
   <string name="edit_abandon_confirm_yes">Si</string>
@@ -283,6 +284,7 @@
   <string name="address_copied">O enderezo copiouse no portapapeis.</string>
   <string name="text_copied">O texto copiouse no portapapeis.</string>
   <string name="button_continue_to_article">Ler artigo</string>
+  <string name="button_continue_to_disambiguation">Ver páxinas semellantes</string>
   <string name="button_add_to_reading_list">Engadir á lista de lectura</string>
   <string name="page_offline_notice_cannot_load_while_offline">O artigo non se pode cargar mentres non haxa conexión.</string>
   <string name="page_offline_notice_add_to_reading_list">Pistaː Engade o artigo a unha lista de lectura e descargarase cando se volva conectar.</string>
@@ -292,6 +294,7 @@
   <string name="error_no_maps_app">Imposible atopar unha aplicación que proporcione as direccións.</string>
   <string name="preference_title_show_link_previews">Amosar vistas previas de ligazóns</string>
   <string name="preference_summary_show_link_previews">Amosar unha vista previa rápida dos artigos ó premer nas ligazóns.</string>
+  <string name="preference_title_collapse_tables">Colapsar táboas</string>
   <string name="nav_item_donate">Apoia a Wikimedia</string>
   <string name="error_voice_search_not_available">O recoñecemento de voz non está dispoñible.</string>
   <string name="location_service_disabled">Os servizos de localización están desactivados.</string>
@@ -482,6 +485,26 @@
     <item quantity="one">Queda %1$d lista</item>
     <item quantity="other">Quedan %1$d listas</item>
   </plurals>
+  <string name="notification_echo_channel_description">Notificacións de Wikipedia</string>
+  <string name="notifications_activity_title">Notificacións</string>
+  <string name="notifications_activity_title_archived">Notificacións (arquivadas)</string>
+  <string name="notifications_search">Procurar notificacións</string>
+  <string name="notifications_view_unread">Ver non lidas</string>
+  <string name="notifications_view_archived">Ver arquivadas</string>
+  <string name="notifications_prefs">Preferencias de notificación</string>
+  <string name="notifications_archive">Marcar como lida e arquivar</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">Notificación arquivada</item>
+    <item quantity="other">%d notificacións arquivadas</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">Habilitar notificacións</string>
+  <string name="notifications_poll_enable_positive">Habilitar</string>
+  <string name="notifications_poll_enable_negative">Agora non</string>
+  <string name="notifications_view_archived_button_text">Ver notificacións arquivadas</string>
+  <string name="notification_preferences_title">Preferencias de notificación</string>
+  <string name="preference_title_notification_welcome">Benvido/a</string>
+  <string name="preference_summary_notification_welcome">Creouse unha conta</string>
+  <string name="preference_title_notification_thanks">Grazas</string>
   <string name="view_continue_reading_card_title">Continuar lendo</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatorio</string>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Aue Nai
 * Htawmonzel
 -->
 <resources>
@@ -115,6 +116,7 @@
   <string name="create_account_password_error">မလိက်ပၞုက် ဟွံလုပ်အဝေါင်</string>
   <string name="create_account_generic_error">ခၞံဗဒှ် အကံက် ဟွံဂွံ</string>
   <string name="create_account_next">ဂတ</string>
+  <string name="email_recommendation_dialog_title">ခၞံဗဒှ်အကံက်သီုမဟွံမွဲကဵုအီမေလ်ဟာ?</string>
   <string name="email_recommendation_dialog_message">ၜိုန်ရ ဌာန်ဒၟံင် အဳမေလ်ဂှ် ဗၟံက်ထ္ၜးလဝ်ကီုလေဝ် အဳမေလ် သွက်ဂွံ ကလေင်ဗၟံက်ထ္ၜး ကာလမၞး မဝိုတ်စ မလိက်ဓလုက်မၞးဂှ်  &lt;b&gt;အာတ်မိက်ဒှ် ဗွဲမဇၞော်ကဵုဒြဟတ်&lt;/b&gt; ရ၊၊</string>
   <string name="email_recommendation_message">တင်အာတ်မိက် အဳမေလ်ဂှ် နွံပၟိက်ဒၟံင် သွက်ဂွံကလေင် ဗၟံက်ထ္ၜး၊၊</string>
   <string name="email_recommendation_dialog_create_without_email_action">ဆက်ကၠောန် နကဵု သက္ကု အဳမေလ်</string>
@@ -276,6 +278,8 @@
   <string name="address_copied">address ဂှ် ကပ်ပဳစုတ် ပ္ဍဲ ကလေတ်ပါကာဒ်</string>
   <string name="text_copied">လိက် ကပ်ပဳစုတ် ပ္ဍဲကလေတ်ပါကာဒ်</string>
   <string name="button_continue_to_article">ဗှ် လိက်ပရေင်</string>
+  <string name="button_continue_to_disambiguation">ရံၚ်ကေတ်မုက်လိက်တုပ်သၟဟ်တအ်</string>
+  <string name="link_preview_disambiguation_description">က္ဍိုပ်လိက်ဏအ်ဆက်စပ်မံၚ်ကဵုမုက်လိက်လ္တူနူမွဲမုက်လိက်ဏီ:</string>
   <string name="button_add_to_reading_list">စုတ် ပ္ဍဲ စရင် လိက်ဗွဟ်</string>
   <string name="page_offline_notice_cannot_load_while_offline">လိက်ပရေင်ဂှ် လုပ်ဟွံဂွံ အခိင်မၞုံ မ္ၚးလာင်၊၊</string>
   <string name="page_offline_notice_add_to_reading_list">တင်သမ္တီ - စုတ် လိက်ပရေင်ဂှ် ပ္ဍဲ စရင် လိက်ဗွဟ် မ္ဂး ကာလမၞး ကလေင်လုပ် ပ္ဍဲလာင်မ္ဂး လိက်ဂှ် တံင်လုပ်လဝ်တုဲ ဗှ်ဂွံရ၊၊</string>
@@ -285,6 +289,8 @@
   <string name="error_no_maps_app">app မပံက် directions ဏအ်ဂွံ ဂၠာဲဟွံဆဵု၊၊</string>
   <string name="preference_title_show_link_previews">ထ္ၜး လေန် နမူနာ</string>
   <string name="preference_summary_show_link_previews">ထ္ၜး ဗဗဵုကၠာ လိက်ပရေင် ကာလ ကောန်လဴ မၞုံ လတူလေန်၊၊</string>
+  <string name="preference_title_collapse_tables">ပဒေါမ်ဖျေံသ္ၚိအၚ်တအ်</string>
+  <string name="preference_summary_collapse_tables">ပ္ဍဲလိက်ပရေၚ်ဂမၠိုၚ် ပဒေါမ်ဖျေံသ္ၚိအၚ်တအ်အလဵုလဵု, ညံၚ်ရဴ ကဠာတၚ်နၚ်ဂမၠိုၚ်, စၞောန်ဂမၠိုၚ်, ကေုာံ တၚ်စၟတ်ဂမၠိုၚ်.</string>
   <string name="nav_item_donate">ထံက်ပင် ဝဳကဳပဳဒဳယာ</string>
   <string name="error_voice_search_not_available">သၠးအခေါင်၊ ဝှာင်ရမ္သာင်ဂှ် ဟွံလုပ်အဝေါင်၊၊</string>
   <string name="location_service_disabled">Location services ဂှ် လုပ်ဟွံဂွံ၊၊</string>
