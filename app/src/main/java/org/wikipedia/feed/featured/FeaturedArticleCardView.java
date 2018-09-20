@@ -21,6 +21,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.GoneIfEmptyTextView;
@@ -208,8 +209,11 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
 
     private class EventBusConsumer implements Consumer<Object> {
         @Override
-        public void accept(Object event) throws Exception {
+        public void accept(Object event) {
             if (event instanceof ArticleSavedOrDeletedEvent) {
+                if (((ArticleSavedOrDeletedEvent) event).isAdded()) {
+                    Prefs.shouldShowBookmarkToolTip(false);
+                }
                 if (getCard() == null) {
                     return;
                 }

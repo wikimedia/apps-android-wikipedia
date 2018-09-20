@@ -792,5 +792,21 @@ public final class Prefs {
         setString(R.string.preference_key_floating_queue_image, url);
     }
 
+    public static boolean shouldShowBookmarkToolTip() {
+        return getBoolean(R.string.preference_key_show_bookmark_tooltip, true);
+    }
+
+    public static void shouldShowBookmarkToolTip(boolean showTooltip) {
+        setBoolean(R.string.preference_key_show_bookmark_tooltip, showTooltip);
+    }
+
+    public static int getOverflowReadingListsOptionClickCount() {
+        return getInt(R.string.preference_key_overflow_reading_lists_option_click_count, 0);
+    }
+
+    public static void setOverflowReadingListsOptionClickCount(int count) {
+        setInt(R.string.preference_key_overflow_reading_lists_option_click_count, count);
+    }
+
     private Prefs() { }
 }

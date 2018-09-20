@@ -286,6 +286,8 @@
     <string name="tab_item_closed">%s closed.</string>
     <string name="tool_tip_select_text_title">Long-press to select</string>
     <string name="tool_tip_select_text">Press and hold anywhere in the text to select it for copying and sharing.</string>
+    <string name="tool_tip_bookmark_icon_title">Add to reading list</string>
+    <string name="tool_tip_bookmark_icon_text">Tap on the bookmark icon to save the article to a reading list.</string>
     <string name="tool_tip_share">After highlighting an interesting fact, try sharing it on your favorite networks!</string>
     <string name="page_view_in_browser">View page in browser</string>
     <string name="tool_tip_toc_title">Table of contents quick access</string>

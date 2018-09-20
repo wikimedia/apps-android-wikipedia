@@ -731,4 +731,6 @@
   <string name="main_drawer_close">Main navigation drawer label for the content description of the close drawable resource.</string>
   <string name="main_drawer_help">Main navigation drawer menu label for accessing the app FAQ.</string>
   <string name="main_drawer_login">Main navigation drawer menu label for logging in or creating an account.</string>
+  <string name="tool_tip_bookmark_icon_title">Title for tool-tip that introduces the user to the bookmark icon for saving the article to reading lists.</string>
+  <string name="tool_tip_bookmark_icon_text">Very short advice on how the user can click the bookmark icon to save the article to reading lists.</string>
 </resources>

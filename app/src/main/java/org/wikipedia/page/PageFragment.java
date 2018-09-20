@@ -169,6 +169,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private PageActionTab.Callback pageActionTabsCallback = new PageActionTab.Callback() {
         @Override
         public void onAddToReadingListTabSelected() {
+            Prefs.shouldShowBookmarkToolTip(false);
             if (model.isInReadingList()) {
                 new ReadingListBookmarkMenu(tabLayout, new ReadingListBookmarkMenu.Callback() {
                     @Override
@@ -803,6 +804,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 }
             }).subscribeOn(Schedulers.io()).subscribe());
         }
+
+        checkAndShowBookmarkOnboarding();
     }
 
     public void onPageLoadError(@NonNull Throwable caught) {
@@ -1061,6 +1064,15 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     public void goForward() {
         pageFragmentLoadState.goForward();
+    }
+
+    private void checkAndShowBookmarkOnboarding() {
+        if (Prefs.shouldShowBookmarkToolTip() && Prefs.getOverflowReadingListsOptionClickCount() == 2) {
+            View targetView = tabLayout.getChildAt(PageActionTab.ADD_TO_READING_LIST.code());
+            FeedbackUtil.showTapTargetView(requireActivity(), targetView,
+                    R.string.tool_tip_bookmark_icon_title, R.string.tool_tip_bookmark_icon_text, null);
+            Prefs.shouldShowBookmarkToolTip(false);
+        }
     }
 
     private void sendDecorOffsetMessage() {
