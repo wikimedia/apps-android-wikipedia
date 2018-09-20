@@ -114,12 +114,12 @@ public class SearchResultsFragment extends Fragment {
         searchErrorView.setRetryClickListener(null);
         unbinder.unbind();
         unbinder = null;
+        disposables.clear();
         super.onDestroyView();
     }
 
     @Override
     public void onDestroy() {
-        disposables.clear();
         super.onDestroy();
     }
 
