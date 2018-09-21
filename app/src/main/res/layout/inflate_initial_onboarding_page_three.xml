@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    app:centeredImage="@drawable/illustration_onboarding_analytics"
+    app:centeredImage="@drawable/ic_illustration_onboarding_analytics_white"
     app:imageSize="160dp"
     app:primaryText="@string/onboarding_analytics_title"
     app:secondaryText="@string/onboarding_analytics_offline_text"

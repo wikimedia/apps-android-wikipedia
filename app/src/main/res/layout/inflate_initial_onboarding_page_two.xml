@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    app:centeredImage="@drawable/ic_illustration_reading_list_offline"
+    app:centeredImage="@drawable/ic_illustration_reading_list_offline_white"
     app:imageSize="160dp"
     app:primaryText="@string/onboarding_reading_list_sync_title"
     app:secondaryText="@string/onboarding_reading_list_sync_text_v2" />

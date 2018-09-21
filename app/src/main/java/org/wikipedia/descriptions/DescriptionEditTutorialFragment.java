@@ -22,8 +22,4 @@ public class DescriptionEditTutorialFragment extends OnboardingFragment {
         return R.string.description_edit_tutorial_button_label_start_editing;
     }
 
-    @Override
-    protected int getBackgroundResId() {
-        return R.drawable.onboarding_gradient_background_90;
-    }
 }
