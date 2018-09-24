@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground">
-        <ImageView
+        <android.support.v7.widget.AppCompatImageView
             android:id="@+id/notification_action_primary_icon"
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -40,7 +40,7 @@
             android:layout_marginRight="@dimen/list_item_horizontal_padding"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/ic_arrow_forward_black_24dp"
-            android:tint="?attr/secondary_text_color"
+            app:tint="?attr/secondary_text_color"
             android:contentDescription="@null"/>
         <TextView
             android:id="@+id/notification_action_primary_text"
@@ -60,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground">
-        <ImageView
+        <android.support.v7.widget.AppCompatImageView
             android:id="@+id/notification_action_secondary_icon"
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -68,7 +68,7 @@
             android:layout_marginRight="@dimen/list_item_horizontal_padding"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/ic_arrow_forward_black_24dp"
-            android:tint="?attr/secondary_text_color"
+            app:tint="?attr/secondary_text_color"
             android:contentDescription="@null"/>
         <TextView
             android:id="@+id/notification_action_secondary_text"
@@ -88,7 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground">
-        <ImageView
+        <android.support.v7.widget.AppCompatImageView
             android:id="@+id/notification_action_tertiary_icon"
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -96,7 +96,7 @@
             android:layout_marginRight="@dimen/list_item_horizontal_padding"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/ic_arrow_forward_black_24dp"
-            android:tint="?attr/secondary_text_color"
+            app:tint="?attr/secondary_text_color"
             android:contentDescription="@null"/>
         <TextView
             android:id="@+id/notification_action_tertiary_text"
@@ -123,16 +123,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground">
-        <ImageView
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/notification_item_archive_icon"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginLeft="@dimen/list_item_horizontal_padding"
             android:layout_marginRight="@dimen/list_item_horizontal_padding"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/ic_archive_white_24dp"
-            android:tint="?attr/secondary_text_color"
+            app:tint="?attr/secondary_text_color"
             android:contentDescription="@null"/>
         <TextView
+            android:id="@+id/notification_item_archive_text"
             android:layout_width="0dp"
             android:layout_height="54dp"
             android:layout_weight="1"

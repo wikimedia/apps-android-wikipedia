@@ -304,7 +304,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
                 notificationsPerWiki.put(wiki, new ArrayList<>());
             }
             notificationsPerWiki.get(wiki).add(item.notification);
-            if (markUnread) {
+            if (markUnread && !displayArchived) {
                 notificationList.add(item.notification);
             } else {
                 notificationList.remove(item.notification);
@@ -390,7 +390,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         bottomSheetPresenter.dismiss(getSupportFragmentManager());
         for (NotificationListItemContainer c : notificationContainerList) {
             if (c.notification != null && c.notification.key() == notification.key()) {
-                deleteItems(Collections.singletonList(c), false);
+                deleteItems(Collections.singletonList(c), displayArchived);
                 break;
             }
         }
@@ -542,9 +542,6 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         }
 
         @Override public boolean onLongClick(View v) {
-            if (displayArchived) {
-                return false;
-            }
             beginMultiSelect();
             toggleSelectItem(container);
             return true;
@@ -651,6 +648,8 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         @Override public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             super.onCreateActionMode(mode, menu);
             mode.getMenuInflater().inflate(R.menu.menu_action_mode_notifications, menu);
+            menu.findItem(R.id.menu_delete_selected).setVisible(!displayArchived);
+            menu.findItem(R.id.menu_unarchive_selected).setVisible(displayArchived);
             actionMode = mode;
             return true;
         }
@@ -658,6 +657,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         @Override public boolean onActionItemClicked(ActionMode mode, MenuItem menuItem) {
             switch (menuItem.getItemId()) {
                 case R.id.menu_delete_selected:
+                case R.id.menu_unarchive_selected:
                     onDeleteSelected();
                     finishActionMode();
                     return true;
@@ -667,7 +667,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         }
 
         @Override protected void onDeleteSelected() {
-            deleteItems(getSelectedItems(), false);
+            deleteItems(getSelectedItems(), displayArchived);
         }
 
         @Override public void onDestroyActionMode(ActionMode mode) {
