@@ -24,6 +24,7 @@ import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
+import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -48,6 +49,8 @@ public class TabActivity extends BaseActivity {
     @BindView(R.id.tab_toolbar) Toolbar tabToolbar;
     private WikipediaApp app;
     private TabListener tabListener = new TabListener();
+    private TabFunnel funnel = new TabFunnel();
+    private boolean cancelled = true;
 
     @Nullable private static Bitmap FIRST_TAB_BITMAP;
 
@@ -101,6 +104,7 @@ public class TabActivity extends BaseActivity {
         setContentView(R.layout.activity_tabs);
         ButterKnife.bind(this);
         app = WikipediaApp.getInstance();
+        funnel.logEnterList(app.getTabCount());
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setStatusBarColor(R.color.base20);
@@ -180,6 +184,9 @@ public class TabActivity extends BaseActivity {
 
     @Override
     public void onDestroy() {
+        if (cancelled) {
+            funnel.logCancel(app.getTabCount());
+        }
         tabSwitcher.removeListener(tabListener);
         clearFirstTabBitmap();
         super.onDestroy();
@@ -212,6 +219,7 @@ public class TabActivity extends BaseActivity {
                 alert.setMessage(R.string.close_all_tabs_confirm);
                 alert.setPositiveButton(R.string.close_all_tabs_confirm_yes, (dialog, which) -> {
                     app.getTabList().clear();
+                    cancelled = false;
                     setResult(RESULT_LOAD_FROM_BACKSTACK);
                     finish();
                 });
@@ -219,6 +227,8 @@ public class TabActivity extends BaseActivity {
                 alert.create().show();
                 return true;
             case R.id.menu_new_tab:
+                cancelled = false;
+                funnel.logCreateNew(app.getTabCount());
                 setResult(RESULT_NEW_TAB);
                 finish();
                 return true;
@@ -256,6 +266,8 @@ public class TabActivity extends BaseActivity {
                 org.wikipedia.page.tabs.Tab tab = app.getTabList().remove(tabIndex);
                 app.getTabList().add(tab);
             }
+            funnel.logSelect(app.getTabCount(), tabIndex);
+            cancelled = false;
             setResult(RESULT_LOAD_FROM_BACKSTACK);
             finish();
         }
@@ -265,8 +277,8 @@ public class TabActivity extends BaseActivity {
 
         @Override
         public void onTabRemoved(@NonNull TabSwitcher tabSwitcher, int index, @NonNull Tab tab, @NonNull Animation animation) {
-            int appTabIndex = app.getTabList().size() - index - 1;
-            org.wikipedia.page.tabs.Tab appTab = app.getTabList().remove(appTabIndex);
+            int tabIndex = app.getTabList().size() - index - 1;
+            org.wikipedia.page.tabs.Tab appTab = app.getTabList().remove(tabIndex);
 
             //tabFunnel.logClose(app.getTabList().size(), index);
             if (app.getTabList().size() == 0) {
@@ -276,8 +288,9 @@ public class TabActivity extends BaseActivity {
                 // if it's the topmost tab, then load the topmost page in the next tab.
 
             }
+            funnel.logClose(app.getTabCount(), tabIndex);
             setResult(RESULT_LOAD_FROM_BACKSTACK);
-            showUndoSnackbar(tab, index, appTab, appTabIndex);
+            showUndoSnackbar(tab, index, appTab, tabIndex);
         }
 
         @Override
