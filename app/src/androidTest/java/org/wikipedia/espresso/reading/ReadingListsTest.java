@@ -82,7 +82,6 @@ public final class ReadingListsTest {
         navigateToExploreTab();
 
         ReadingListDbHelper.instance().resetToDefaults();
-        PrefsIoUtil.setBoolean(R.string.preference_key_select_text_tutorial_enabled, false);
         PrefsIoUtil.setBoolean(R.string.preference_key_toc_tutorial_enabled, false);
         PrefsIoUtil.setBoolean(R.string.preference_key_description_edit_tutorial_enabled, false);
     }

@@ -364,14 +364,6 @@ public final class Prefs {
         setInt(R.string.preference_key_zero_config_hash, hashCode);
     }
 
-    public static boolean isSelectTextTutorialEnabled() {
-        return getBoolean(R.string.preference_key_select_text_tutorial_enabled, true);
-    }
-
-    public static void setSelectTextTutorialEnabled(boolean enabled) {
-        setBoolean(R.string.preference_key_select_text_tutorial_enabled, enabled);
-    }
-
     public static boolean isShareTutorialEnabled() {
         return getBoolean(R.string.preference_key_share_tutorial_enabled, true);
     }

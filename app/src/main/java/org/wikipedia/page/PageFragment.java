@@ -56,7 +56,6 @@ import org.wikipedia.login.LoginActivity;
 import org.wikipedia.media.AvPlayer;
 import org.wikipedia.media.DefaultAvPlayer;
 import org.wikipedia.media.MediaPlayerImplementation;
-import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
 import org.wikipedia.page.action.PageActionTab;
 import org.wikipedia.page.action.PageActionToolbarHideHandler;
 import org.wikipedia.page.bottomcontent.BottomContentView;
@@ -686,7 +685,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             loadPage(model.getTitleOriginal(), model.getCurEntry(), false);
         } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL
                 && resultCode == RESULT_OK) {
-            PrefsOnboardingStateMachine.getInstance().setDescriptionEditTutorial();
+            Prefs.setDescriptionEditTutorialEnabled(false);
             startDescriptionEditActivity();
         } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
                 && resultCode == RESULT_OK) {
@@ -847,8 +846,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 }
             }).subscribeOn(Schedulers.io()).subscribe());
         }
-
-        checkAndShowSelectTextOnboarding();
     }
 
     public void onPageLoadError(@NonNull Throwable caught) {
@@ -1123,20 +1120,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     public void goForward() {
         pageFragmentLoadState.goForward();
-    }
-
-    private void checkAndShowSelectTextOnboarding() {
-        if (model.getPage().isArticle()
-                &&  PrefsOnboardingStateMachine.getInstance().isSelectTextTutorialEnabled()) {
-            showSelectTextOnboarding();
-        }
-    }
-
-    private void showSelectTextOnboarding() {
-        final View targetView = getView().findViewById(R.id.fragment_page_tool_tip_select_text_target);
-        FeedbackUtil.showTapTargetView(getActivity(), targetView,
-                R.string.tool_tip_select_text_title, R.string.tool_tip_select_text, null);
-        PrefsOnboardingStateMachine.getInstance().setSelectTextTutorial();
     }
 
     private void sendDecorOffsetMessage() {

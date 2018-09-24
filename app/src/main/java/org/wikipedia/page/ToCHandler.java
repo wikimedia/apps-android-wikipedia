@@ -26,7 +26,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ToCInteractionFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.L10nUtil;
@@ -140,7 +140,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(), wiki,
                 page.getPageProperties().getPageId(), adapter.getCount());
 
-        if (onboardingEnabled() && !page.isMainPage() && !firstPage) {
+        if (Prefs.isTocTutorialEnabled() && !page.isMainPage() && !firstPage) {
             showTocOnboarding();
         }
     }
@@ -199,10 +199,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             scrollerView.setVisibility(View.GONE);
             hideScroller();
         }
-    }
-
-    private boolean onboardingEnabled() {
-        return PrefsOnboardingStateMachine.getInstance().isTocTutorialEnabled();
     }
 
     @Override
@@ -331,13 +327,10 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
                             show();
                         }
                     });
-            PrefsOnboardingStateMachine.getInstance().setTocTutorial();
         } catch (Exception e) {
-            // If this fails once it will likely always fail for the same reason, so let's prevent
-            // the onboarding from being attempted and failing on every page view forever.
-            PrefsOnboardingStateMachine.getInstance().setTocTutorial();
             L.w("ToC onboarding failed", e);
         }
+        Prefs.setTocTutorialEnabled(false);
     }
 
     private void setScrollerPosition() {
