@@ -369,7 +369,22 @@ public class ReadingListDbHelper {
     }
 
     public boolean isEmpty() {
-        return getRandomPage() == null;
+        SQLiteDatabase db = getReadableDatabase();
+
+        try (Cursor cursor = db.query(ReadingListPageContract.TABLE, null,
+                ReadingListPageContract.Col.STATUS.getName() + " != ?",
+                new String[]{Integer.toString(ReadingListPage.STATUS_QUEUE_FOR_DELETE)},
+                null, null, null)) {
+            if (cursor.moveToFirst()) {
+                return false;
+            }
+        }
+
+        try (Cursor cursor = db.query(ReadingListContract.TABLE, null,
+                ReadingListContract.Col.TITLE.getName() + " != ?", new String[]{""},
+                null, null, null)) {
+            return !cursor.moveToFirst();
+        }
     }
 
     @Nullable
