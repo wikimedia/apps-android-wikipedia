@@ -278,6 +278,7 @@
     <string name="close_all_tabs_confirm_yes">Yes</string>
     <string name="close_all_tabs_confirm_no">No</string>
     <string name="button_close_tab">Close tab</string>
+    <string name="tab_item_closed">%s closed.</string>
     <string name="tool_tip_select_text_title">Long-press to select</string>
     <string name="tool_tip_select_text">Press and hold anywhere in the text to select it for copying and sharing.</string>
     <string name="tool_tip_share">After highlighting an interesting fact, try sharing it on your favorite networks!</string>
