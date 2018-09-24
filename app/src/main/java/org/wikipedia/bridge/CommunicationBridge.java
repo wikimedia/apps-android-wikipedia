@@ -8,7 +8,6 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import android.webkit.ConsoleMessage;
 import android.webkit.JavascriptInterface;
-import android.webkit.JsPromptResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 
@@ -20,10 +19,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.wikipedia.util.UriUtil.decodeURL;
-
 /**
- * Two way communications bridge between JS in a WebView and Java.
+ * Two-way communications bridge between JS in a WebView and Java.
+ *
+ * Messages TO the WebView are sent by calling loadUrl() with the Javascript payload in it.
+ *
+ * Messages FROM the WebView are received by leveraging @JavascriptInterface methods.
+ *
  */
 public class CommunicationBridge {
     private final WebView webView;
@@ -109,31 +111,13 @@ public class CommunicationBridge {
 
     private class CommunicatingChrome extends WebChromeClient {
         @Override
-        public boolean onJsPrompt(WebView view, String url, String message, String defaultValue, JsPromptResult result) {
-            try {
-                // If incomingMessageHandler is null, it means that we've been cleaned up, but we're
-                // still receiving some final messages from the WebView, so we'll just ignore them.
-                // But we should still return true and "confirm" the JsPromptResult down below.
-                if (incomingMessageHandler != null) {
-                    JSONObject messagePack = new JSONObject(decodeURL(message));
-                    Message msg = Message.obtain(incomingMessageHandler, MESSAGE_HANDLE_MESSAGE_FROM_JS, messagePack);
-                    incomingMessageHandler.sendMessage(msg);
-                }
-            } catch (JSONException e) {
-                throw new RuntimeException(e);
-            }
-            result.confirm();
-            return true;
-        }
-
-        @Override
         public boolean onConsoleMessage(@NonNull ConsoleMessage consoleMessage) {
             Log.d("WikipediaWeb", consoleMessage.sourceId() + ":" + consoleMessage.lineNumber() + " - " + consoleMessage.message());
             return true;
         }
     }
 
-    private static class BridgeMarshaller {
+    private class BridgeMarshaller {
         private Map<String, String> queueItems = new HashMap<>();
         private int counter = 0;
 
@@ -145,19 +129,34 @@ public class CommunicationBridge {
          * @param pointer Key returned from #putPayload
          */
         @JavascriptInterface
-        public String getPayload(String pointer) {
-            synchronized (this) {
-                return queueItems.remove(pointer);
-            }
+        public synchronized String getPayload(String pointer) {
+            return queueItems.remove(pointer);
         }
 
-        public String putPayload(String payload) {
+        public synchronized String putPayload(String payload) {
             String key = "pointerKey_" + counter;
             counter++;
-            synchronized (this) {
-                queueItems.put(key, payload);
-            }
+            queueItems.put(key, payload);
             return key;
+        }
+
+        /**
+         * Called from Javascript to send a message packet to the Java layer. The message must be
+         * formatted in JSON, and URL-encoded.
+         *
+         * @param message JSON structured message received from the WebView.
+         */
+        @JavascriptInterface
+        public synchronized void onReceiveMessage(String message) {
+            try {
+                if (incomingMessageHandler != null) {
+                    JSONObject messagePack = new JSONObject(message);
+                    Message msg = Message.obtain(incomingMessageHandler, MESSAGE_HANDLE_MESSAGE_FROM_JS, messagePack);
+                    incomingMessageHandler.sendMessage(msg);
+                }
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }
