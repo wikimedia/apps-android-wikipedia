@@ -48,6 +48,7 @@ public class PageItemView<T> extends ConstraintLayout {
     @BindView(R.id.page_list_item_image) SimpleDraweeView imageView;
     @BindView(R.id.page_list_item_action_primary) ImageView primaryActionView;
     @BindView(R.id.page_list_item_action_secondary) ImageView secondaryActionView;
+    @BindView(R.id.page_list_item_secondary_container) View secondaryContainer;
     @BindView(R.id.page_list_item_selected_image) View imageSelectedView;
     @BindView(R.id.page_list_header_text) GoneIfEmptyTextView headerView;
     @BindView(R.id.page_list_item_circular_progress_bar) CircularProgressBar circularProgressBar;
@@ -95,10 +96,9 @@ public class PageItemView<T> extends ConstraintLayout {
     }
 
     public void setSecondaryActionIcon(@DrawableRes int id, boolean show) {
-        if (show) {
-            secondaryActionView.setImageResource(id);
-        }
+        secondaryActionView.setImageResource(id);
         secondaryActionView.setVisibility(show ? VISIBLE : GONE);
+        secondaryContainer.setVisibility(show ? VISIBLE : GONE);
     }
 
     public void setProgress(int progress) {
