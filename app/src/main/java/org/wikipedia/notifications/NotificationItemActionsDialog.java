@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.wikipedia.R;
@@ -38,7 +39,8 @@ public class NotificationItemActionsDialog extends ExtendedBottomSheetDialogFrag
     }
 
     @BindView(R.id.notification_item_text) TextView titleView;
-    @BindView(R.id.notification_item_archive) View archiveView;
+    @BindView(R.id.notification_item_archive_icon) ImageView archiveIconView;
+    @BindView(R.id.notification_item_archive_text) TextView archiveTextView;
     @BindView(R.id.notification_action_primary) View primaryView;
     @BindView(R.id.notification_action_primary_icon) AppCompatImageView primaryImageView;
     @BindView(R.id.notification_action_primary_text) TextView primaryTextView;
@@ -94,7 +96,8 @@ public class NotificationItemActionsDialog extends ExtendedBottomSheetDialogFrag
             tertiaryView.setVisibility(View.GONE);
         }
 
-        archiveView.setVisibility(callback().isShowingArchived() ? View.GONE : View.VISIBLE);
+        archiveIconView.setImageResource(callback().isShowingArchived() ? R.drawable.ic_unarchive_white_24dp : R.drawable.ic_archive_white_24dp);
+        archiveTextView.setText(callback().isShowingArchived() ? R.string.notifications_mark_unread : R.string.notifications_archive);
 
         return view;
     }
