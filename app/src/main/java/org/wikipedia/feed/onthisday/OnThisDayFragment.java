@@ -154,7 +154,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         eventsRecycler.setVisibility(View.GONE);
         errorView.setVisibility(View.GONE);
 
-        ServiceFactory.get(wiki).getOnThisDay(month + 1, date).enqueue(new Callback<OnThisDay>() {
+        ServiceFactory.getRest(wiki).getOnThisDay(month + 1, date).enqueue(new Callback<OnThisDay>() {
             @Override
             public void onResponse(@NonNull Call<OnThisDay> call, @NonNull Response<OnThisDay> response) {
                 if (!isAdded()) {

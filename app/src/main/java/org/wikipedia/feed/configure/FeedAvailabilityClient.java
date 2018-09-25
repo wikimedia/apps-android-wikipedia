@@ -5,7 +5,7 @@ import android.support.annotation.VisibleForTesting;
 
 import com.google.gson.annotations.SerializedName;
 
-import org.wikipedia.dataclient.Service;
+import org.wikipedia.dataclient.RestService;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 
@@ -24,10 +24,10 @@ public class FeedAvailabilityClient {
     private final WikiSite wiki = new WikiSite("wikimedia.org");
 
     public Call<FeedAvailability> request(@NonNull Callback cb) {
-        return request(ServiceFactory.get(wiki), cb);
+        return request(ServiceFactory.getRest(wiki), cb);
     }
 
-    @VisibleForTesting Call<FeedAvailability> request(@NonNull Service service, @NonNull final Callback cb) {
+    @VisibleForTesting Call<FeedAvailability> request(@NonNull RestService service, @NonNull final Callback cb) {
         Call<FeedAvailability> call = service.getFeedAvailability();
         call.enqueue(new retrofit2.Callback<FeedAvailability>() {
             @Override

@@ -16,7 +16,7 @@ public class RandomSummaryClientTest extends MockRetrofitTest {
     public void testRequestEligible() throws Throwable {
         enqueueFromFile("rb_page_summary_valid.json");
 
-        getApiService().getRandomSummary().subscribe(summary -> {
+        getRestService().getRandomSummary().subscribe(summary -> {
             assertThat(summary.getDisplayTitle(), is("Fermat's Last Theorem"));
             assertThat(summary.getDescription(), is("theorem in number theory"));
         }, throwable -> assertTrue(false));
@@ -25,14 +25,14 @@ public class RandomSummaryClientTest extends MockRetrofitTest {
     @Test public void testRequestMalformed() throws Throwable {
         enqueueFromFile("rb_page_summary_malformed.json");
 
-        getApiService().getMedia("foo").subscribe(gallery -> assertTrue(false),
+        getRestService().getMedia("foo").subscribe(gallery -> assertTrue(false),
                 throwable -> assertTrue(throwable instanceof MalformedJsonException));
     }
 
     @Test public void testRequestFailure() throws Throwable {
         enqueue404();
 
-        getApiService().getMedia("foo").subscribe(gallery -> assertTrue(false),
+        getRestService().getMedia("foo").subscribe(gallery -> assertTrue(false),
                 throwable -> assertTrue(throwable instanceof HttpStatusException));
     }
 }

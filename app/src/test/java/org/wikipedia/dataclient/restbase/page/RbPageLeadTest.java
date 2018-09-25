@@ -4,11 +4,10 @@ import android.support.annotation.NonNull;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.wikipedia.dataclient.Service;
+import org.wikipedia.dataclient.RestService;
 import org.wikipedia.dataclient.mwapi.page.MwMobileViewPageLead;
 import org.wikipedia.dataclient.page.BasePageLeadTest;
 import org.wikipedia.dataclient.page.PageClient;
-import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.testlib.TestLatch;
 
 import okhttp3.CacheControl;
@@ -51,10 +50,10 @@ public class RbPageLeadTest extends BasePageLeadTest {
     @Test @SuppressWarnings("checkstyle:magicnumber") public void testThumbUrls() throws Throwable {
         enqueueFromFile("page_lead_rb.json");
         final TestLatch latch = new TestLatch();
-        subject.lead(service(Service.class), CacheControl.FORCE_NETWORK, null, null, "foo", 640)
-                .enqueue(new Callback<PageLead>() {
+        service(RestService.class).getLeadSection(CacheControl.FORCE_NETWORK.toString(), null, null, "foo")
+                .enqueue(new Callback<RbPageLead>() {
                     @Override
-                    public void onResponse(@NonNull Call<PageLead> call, @NonNull Response<PageLead> response) {
+                    public void onResponse(@NonNull Call<RbPageLead> call, @NonNull Response<RbPageLead> response) {
                         RbPageLead lead = (RbPageLead) response.body();
                         assertThat(lead.getLeadImageUrl(640).contains("640px"), is(true));
                         assertThat(lead.getThumbUrl().contains(preferredThumbSizeString()), is(true));
@@ -64,7 +63,7 @@ public class RbPageLeadTest extends BasePageLeadTest {
                     }
 
                     @Override
-                    public void onFailure(@NonNull Call<PageLead> call, @NonNull Throwable t) {
+                    public void onFailure(@NonNull Call<RbPageLead> call, @NonNull Throwable t) {
                         fail();
                         latch.countDown();
                     }

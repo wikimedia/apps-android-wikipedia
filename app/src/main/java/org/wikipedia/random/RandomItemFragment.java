@@ -91,7 +91,7 @@ public class RandomItemFragment extends Fragment {
     }
 
     private void getRandomPage() {
-        disposables.add(ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getRandomSummary()
+        disposables.add(ServiceFactory.getRest(WikipediaApp.getInstance().getWikiSite()).getRandomSummary()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(pageSummary -> {

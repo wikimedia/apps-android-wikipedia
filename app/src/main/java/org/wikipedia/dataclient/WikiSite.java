@@ -61,7 +61,7 @@ public class WikiSite implements Parcelable {
     }
 
     public static void setDefaultBaseUrl(@NonNull String url) {
-        DEFAULT_BASE_URL = url;
+        DEFAULT_BASE_URL = TextUtils.isEmpty(url) ? Service.WIKIPEDIA_URL : url;
     }
 
     public static WikiSite forLanguageCode(@NonNull String languageCode) {

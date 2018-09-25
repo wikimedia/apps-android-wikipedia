@@ -1,7 +1,9 @@
 package org.wikipedia.test;
 
 import org.junit.Before;
+import org.wikipedia.dataclient.RestService;
 import org.wikipedia.dataclient.Service;
+import org.wikipedia.dataclient.WikiSite;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -9,6 +11,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public abstract class MockRetrofitTest extends MockWebServerTest {
     private Service apiService;
+    private RestService restService;
+    private WikiSite wikiSite = WikiSite.forLanguageCode("en");
+
+    protected WikiSite wikiSite() {
+        return wikiSite;
+    }
 
     @Override
     @Before
@@ -20,9 +28,14 @@ public abstract class MockRetrofitTest extends MockWebServerTest {
                 .baseUrl(server().getUrl())
                 .build();
         apiService = retrofit.create(Service.class);
+        restService = retrofit.create(RestService.class);
     }
 
     protected Service getApiService() {
         return apiService;
+    }
+
+    protected RestService getRestService() {
+        return restService;
     }
 }

@@ -20,7 +20,7 @@ public class GalleryClientTest extends MockRetrofitTest {
     public void testRequestAllSuccess() throws Throwable {
         enqueueFromFile(RAW_JSON_FILE);
 
-        getApiService().getMedia("foo").subscribe(gallery -> {
+        getRestService().getMedia("foo").subscribe(gallery -> {
             List<GalleryItem> result = gallery.getAllItems();
 
             assertThat(result != null, is(true));
@@ -35,7 +35,7 @@ public class GalleryClientTest extends MockRetrofitTest {
     public void testRequestImageSuccess() throws Throwable {
         enqueueFromFile(RAW_JSON_FILE);
 
-        getApiService().getMedia("foo").subscribe(gallery -> {
+        getRestService().getMedia("foo").subscribe(gallery -> {
             List<GalleryItem> result = gallery.getItems("image");
 
             assertThat(result.size(), is(2));
@@ -56,7 +56,7 @@ public class GalleryClientTest extends MockRetrofitTest {
     public void testRequestVideoSuccess() throws Throwable {
         enqueueFromFile(RAW_JSON_FILE);
 
-        getApiService().getMedia("foo").subscribe(gallery -> {
+        getRestService().getMedia("foo").subscribe(gallery -> {
             List<GalleryItem> result = gallery.getItems("video");
 
             assertThat(result.size(), is(1));
@@ -76,7 +76,7 @@ public class GalleryClientTest extends MockRetrofitTest {
     public void testRequestAudioSuccess() throws Throwable {
         enqueueFromFile(RAW_JSON_FILE);
 
-        getApiService().getMedia("foo").subscribe(gallery -> {
+        getRestService().getMedia("foo").subscribe(gallery -> {
             List<GalleryItem> result = gallery.getItems("audio");
 
             assertThat(result.size(), is(2));
@@ -91,14 +91,14 @@ public class GalleryClientTest extends MockRetrofitTest {
     @Test public void testRequestResponseFailure() throws Throwable {
         enqueue404();
 
-        getApiService().getMedia("foo").subscribe(gallery -> assertTrue(false),
+        getRestService().getMedia("foo").subscribe(gallery -> assertTrue(false),
                 throwable -> assertTrue(throwable instanceof HttpStatusException));
     }
 
     @Test public void testRequestResponseMalformed() throws Throwable {
         server().enqueue("'");
 
-        getApiService().getMedia("foo").subscribe(gallery -> assertTrue(false),
+        getRestService().getMedia("foo").subscribe(gallery -> assertTrue(false),
                 throwable -> assertTrue(throwable instanceof MalformedJsonException));
     }
 }

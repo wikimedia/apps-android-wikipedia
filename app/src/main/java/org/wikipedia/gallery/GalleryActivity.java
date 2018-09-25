@@ -445,7 +445,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
         updateProgressBar(true, true, 0);
 
-        disposables.add(ServiceFactory.get(pageTitle.getWikiSite()).getMedia(pageTitle.getConvertedText())
+        disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getMedia(pageTitle.getConvertedText())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(gallery -> {

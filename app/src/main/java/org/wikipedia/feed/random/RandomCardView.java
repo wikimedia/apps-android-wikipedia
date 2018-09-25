@@ -56,7 +56,7 @@ public class RandomCardView extends StaticCardView<RandomCard> {
     @SuppressLint("CheckResult")
     public void getRandomPage() {
         setProgress(true);
-        ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getRandomSummary()
+        ServiceFactory.getRest(WikipediaApp.getInstance().getWikiSite()).getRandomSummary()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(pageSummary -> new PageTitle(null, pageSummary.getTitle(), WikipediaApp.getInstance().getWikiSite()))

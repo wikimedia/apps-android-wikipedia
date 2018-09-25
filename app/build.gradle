@@ -199,7 +199,7 @@ dependencies {
     String espressoVersion = '3.0.1'
     String butterKnifeVersion = '8.8.1'
     String frescoVersion = '1.10.0' // When updating this version, resync file copies under app/src/main/java/com/facebook
-    String testingSupportVersion = '1.0.0'
+    String testingSupportVersion = '1.0.2'
     String mockitoCore = 'org.mockito:mockito-core:1.9.5'
     String leakCanaryVersion = '1.5.4'
 
@@ -253,7 +253,7 @@ dependencies {
 
     testImplementation 'junit:junit:4.12'
     testImplementation mockitoCore
-    testImplementation 'org.robolectric:robolectric:3.7.1'
+    testImplementation 'org.robolectric:robolectric:3.8'
     testImplementation "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
 
     androidTestImplementation mockitoCore

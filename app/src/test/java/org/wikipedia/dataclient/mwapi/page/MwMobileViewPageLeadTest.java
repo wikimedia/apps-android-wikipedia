@@ -4,11 +4,9 @@ import android.support.annotation.NonNull;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.page.BasePageLeadTest;
 import org.wikipedia.dataclient.page.PageClient;
-import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.testlib.TestLatch;
 
 import okhttp3.CacheControl;
@@ -26,7 +24,7 @@ public class MwMobileViewPageLeadTest extends BasePageLeadTest {
 
     @Before public void setUp() throws Throwable {
         super.setUp();
-        subject = new MwPageClient(WikipediaApp.getInstance().getWikiSite());
+        subject = new MwPageClient();
     }
 
     @Test public void testEnglishMainPage() throws Exception {
@@ -57,10 +55,10 @@ public class MwMobileViewPageLeadTest extends BasePageLeadTest {
     @Test @SuppressWarnings("checkstyle:magicnumber") public void testThumbUrls() throws Throwable {
         enqueueFromFile("page_lead_mw.json");
         final TestLatch latch = new TestLatch();
-        subject.lead(service(Service.class), CacheControl.FORCE_NETWORK, null, null, "foo", 640)
-                .enqueue(new Callback<PageLead>() {
+        service(Service.class).getLeadSection(CacheControl.FORCE_NETWORK.toString(), null, null, "foo", 640, "en")
+                .enqueue(new Callback<MwMobileViewPageLead>() {
                     @Override
-                    public void onResponse(@NonNull Call<PageLead> call, @NonNull Response<PageLead> response) {
+                    public void onResponse(@NonNull Call<MwMobileViewPageLead> call, @NonNull Response<MwMobileViewPageLead> response) {
                         assertThat(response.body().getLeadImageUrl(640).contains("640px"), is(true));
                         assertThat(response.body().getThumbUrl().contains(preferredThumbSizeString()), is(true));
                         assertThat(response.body().getDescription(), is("Mexican boxer"));
@@ -68,7 +66,7 @@ public class MwMobileViewPageLeadTest extends BasePageLeadTest {
                     }
 
                     @Override
-                    public void onFailure(@NonNull Call<PageLead> call, @NonNull Throwable t) {
+                    public void onFailure(@NonNull Call<MwMobileViewPageLead> call, @NonNull Throwable t) {
                         fail();
                         latch.countDown();
                     }
