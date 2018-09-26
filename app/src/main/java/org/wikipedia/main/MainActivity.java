@@ -175,7 +175,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
                     getDrawerLayout(), getToolbar(),
                     R.string.main_drawer_open, R.string.main_drawer_close);
             drawerToggle.syncState();
-            getToolbar().setNavigationIcon(R.drawable.ic_menu_black_24dp);
+            getToolbar().setNavigationIcon(R.drawable.ic_menu_themed_24dp);
         }
     }
 
