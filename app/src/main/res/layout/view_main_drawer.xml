@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="?attr/paper_color">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/main_drawer_account_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="4dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="?android:attr/windowBackground">
+
+        <FrameLayout
+            android:id="@+id/main_drawer_account_avatar_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/main_drawer_account_wiki_globe"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/wiki_globe_white_circle" />
+
+            <ImageView
+                android:id="@+id/main_drawer_account_avatar"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/user_avatar" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/main_drawer_account_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="sans-serif-medium"
+            app:layout_constraintStart_toEndOf="@+id/main_drawer_account_avatar_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/main_drawer_account_avatar_container"
+            app:layout_constraintBottom_toBottomOf="@+id/main_drawer_account_avatar_container"
+            android:textColor="?attr/material_theme_secondary_color"
+            android:textSize="14sp"
+            tools:text="Sample account name" />
+
+        <TextView
+            android:id="@+id/main_drawer_login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/main_drawer_account_avatar_container"
+            style="@style/TransparentButton"
+            android:text="@string/main_drawer_login" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/main_drawer_settings_container"
+        style="@style/SideDrawerMenuItem">
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/ic_settings_black_24dp"
+            app:tint="?attr/material_theme_secondary_color" />
+
+        <TextView
+            style="@android:style/TextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_weight="1"
+            android:text="@string/settings_item_preferences" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_drawer_configure_container"
+        style="@style/SideDrawerMenuItem">
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/ic_mode_edit_white_24dp"
+            app:tint="?attr/material_theme_secondary_color" />
+
+        <TextView
+            style="@android:style/TextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_weight="1"
+            android:text="@string/feed_configure_activity_title" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="?attr/material_theme_border_color" />
+
+    <LinearLayout
+        android:id="@+id/main_drawer_donate_container"
+        style="@style/SideDrawerMenuItem">
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/ic_wikipedia"
+            app:tint="?attr/material_theme_secondary_color" />
+
+        <TextView
+            style="@android:style/TextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_weight="1"
+            android:text="@string/nav_item_donate" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/ic_open_in_new_black_24px"
+            app:tint="?attr/material_theme_secondary_color" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_drawer_about_container"
+        style="@style/SideDrawerMenuItem">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/ic_info_outline_black_24dp"
+            app:tint="?attr/material_theme_secondary_color" />
+
+        <TextView
+            style="@android:style/TextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_weight="1"
+            android:text="@string/about_activity_title" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_drawer_help_container"
+        style="@style/SideDrawerMenuItem">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/ic_help_black_24dp"
+            app:tint="?attr/material_theme_secondary_color" />
+
+        <TextView
+            style="@android:style/TextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_weight="1"
+            android:text="@string/main_drawer_help" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/ic_open_in_new_black_24px"
+            app:tint="?attr/material_theme_secondary_color" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -771,4 +771,9 @@
     <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No thanks</string>
     <!-- /MultiLingual -->
 
+    <string name="main_drawer_open">Open</string>
+    <string name="main_drawer_close">Close</string>
+    <string name="main_drawer_help">Help</string>
+    <string name="main_drawer_login">Log in / join Wikipedia</string>
+
 </resources>

@@ -2,26 +2,14 @@ package org.wikipedia.descriptions;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 
-import org.wikipedia.R;
-import org.wikipedia.activity.SingleFragmentToolbarActivity;
+import org.wikipedia.activity.SingleFragmentActivity;
 
-public class DescriptionEditHelpActivity extends SingleFragmentToolbarActivity<DescriptionEditHelpFragment> {
+public class DescriptionEditHelpActivity extends SingleFragmentActivity<DescriptionEditHelpFragment> {
 
     public static Intent newIntent(@NonNull Context context) {
         return new Intent(context, DescriptionEditHelpActivity.class);
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setWordmarkVisible(false);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle(R.string.description_edit_help_title);
-        }
     }
 
     @Override

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.wikipedia.views.WikiDrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_drawer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    tools:context=".main.MainActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/single_fragment_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            style="@style/ToolbarStyle"
+            android:background="?attr/main_toolbar_color"
+            android:theme="@style/ToolbarTheme"
+            app:titleTextColor="?attr/main_toolbar_title_color"
+            android:elevation="4dp">
+
+            <ImageView
+                android:id="@+id/single_fragment_toolbar_wordmark"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/feed_header_wordmark"
+                app:tint="?attr/main_toolbar_title_color"
+                android:contentDescription="@null"/>
+
+        </android.support.v7.widget.Toolbar>
+    </FrameLayout>
+
+    <org.wikipedia.main.MainDrawerView
+        android:id="@+id/navigation_drawer_view"
+        android:layout_width="288dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="?attr/paper_color"/>
+</org.wikipedia.views.WikiDrawerLayout>

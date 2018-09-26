@@ -44,7 +44,7 @@ import static org.wikipedia.espresso.util.ViewTools.whileWithMaxSteps;
 @LargeTest
 @RunWith(AndroidJUnit4.class)
 @SuppressWarnings("checkstyle:magicnumber")
-public class CustomizefeedTest {
+public class CustomizeFeedTest {
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
     @Rule
@@ -65,15 +65,6 @@ public class CustomizefeedTest {
         whileWithMaxSteps(
                 () -> !viewIsDisplayed(R.id.fragment_feed_feed),
                 () -> waitFor(WAIT_FOR_2000));
-        ViewInteraction actionMenuItemView = onView(
-                allOf(withId(R.id.menu_overflow_button), withContentDescription("More options"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.single_fragment_toolbar),
-                                        1),
-                                0),
-                        isDisplayed()));
-        actionMenuItemView.perform(click());
         ViewInteraction appCompatTextView2 = onView(
                 allOf(withId(R.id.explore_overflow_configure_cards), withText("Customize the feed"),
                         childAtPosition(
@@ -141,11 +132,6 @@ public class CustomizefeedTest {
                                 1),
                         isDisplayed()));
         textView.check(matches(withText("On this day")));
-        waitFor(WAIT_FOR_2000);
-        whileWithMaxSteps(
-                () -> !viewIsDisplayed(R.id.menu_overflow_button),
-                () -> waitFor(WAIT_FOR_1000));
-        actionMenuItemView.perform(click());
         waitFor(WAIT_FOR_2000);
         appCompatTextView2.perform(click());
         waitFor(WAIT_FOR_2000);

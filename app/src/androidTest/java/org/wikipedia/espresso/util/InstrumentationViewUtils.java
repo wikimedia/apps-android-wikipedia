@@ -12,7 +12,6 @@ import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withClassName;
-import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.is;
@@ -28,6 +27,7 @@ import static org.wikipedia.espresso.util.ViewTools.whileWithMaxSteps;
 
 @SuppressWarnings("checkstyle:magicnumber")
 public final class InstrumentationViewUtils {
+    // TODO: re design the steps of tests
 
     //Make sure to call the switch from Explore tab
     public static void switchToDarkMode() {
@@ -35,30 +35,9 @@ public final class InstrumentationViewUtils {
                 () -> !viewIsDisplayed(R.id.fragment_feed_feed),
                 () -> waitFor(2000));
 
-        ViewInteraction actionMenuItemView = onView(
-                allOf(withId(R.id.menu_overflow_button), withContentDescription("More options"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.single_fragment_toolbar),
-                                        1),
-                                0),
-                        isDisplayed()));
-        actionMenuItemView.perform(click());
-
-        ViewInteraction appCompatTextView2 = onView(
-                allOf(withId(R.id.explore_overflow_settings), withText("Settings"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withClassName(is("android.widget.LinearLayout")),
-                                        1),
-                                2),
-                        isDisplayed()));
-        appCompatTextView2.perform(click());
-
         whileWithMaxSteps(
                 () -> !viewWithTextIsDisplayed("General"),
                 () -> waitFor(WAIT_FOR_2000));
-
 
         //Click App Theme
         ViewInteraction recyclerView = onView(
@@ -90,16 +69,6 @@ public final class InstrumentationViewUtils {
         whileWithMaxSteps(
                 () -> !viewIsDisplayed(R.id.fragment_feed_feed),
                 () -> waitFor(2000));
-
-        ViewInteraction actionMenuItemView = onView(
-                allOf(withId(R.id.menu_overflow_button), withContentDescription("More options"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.single_fragment_toolbar),
-                                        1),
-                                0),
-                        isDisplayed()));
-        actionMenuItemView.perform(click());
 
         ViewInteraction appCompatTextView2 = onView(
                 allOf(withId(R.id.explore_overflow_settings), withText("Settings"),
