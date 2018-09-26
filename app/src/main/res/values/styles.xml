@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="preferenceTheme">@style/AppPreferenceTheme</item>
         <item name="editTextAutoSummarizePreferenceStyle">@style/EditTextAutoSummarizePreference</item>
         <item name="longPreferenceStyle">@style/LongPreference</item>
@@ -10,10 +10,6 @@
         <item name="android:windowActivityTransitions" tools:targetApi="21" >true</item>
         <item name="android:windowContentTransitions" tools:targetApi="21" >true</item>
         <item name="android:windowBackground">@null</item>
-
-        <!-- System status bar color. May be overridden in onCreate. -->
-        <item name="android:statusBarColor" tools:targetApi="21">?attr/main_status_bar_color</item>
-
         <item name="windowActionModeOverlay">true</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
         <item name="actionBarTheme">@style/ToolbarTheme</item>
@@ -24,6 +20,10 @@
         <item name="autoCompleteTextViewStyle">@style/SearchViewEditTextStyle</item>
         <item name="android:listViewStyle">@style/ListView</item>
         <item name="android:textViewStyle">@style/RtlAwareTextView</item>
+    </style>
+
+    <style name="AppTheme" parent="BaseAppTheme">
+
     </style>
 
     <style name="AppTheme.Splash">

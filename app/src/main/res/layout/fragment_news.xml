@@ -18,8 +18,7 @@
             android:layout_height="match_parent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/main_toolbar_color"
-            app:statusBarScrim="?attr/main_status_bar_color">
+            app:contentScrim="?attr/main_toolbar_color">
 
             <FrameLayout
                 android:layout_width="match_parent"

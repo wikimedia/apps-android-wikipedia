@@ -2,6 +2,7 @@ package org.wikipedia.readinglist;
 
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -154,6 +155,9 @@ public class ReadingListFragment extends Fragment implements
         DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar, true);
         appBarLayout.addOnOffsetChangedListener(appBarListener);
         toolBarLayout.setCollapsedTitleTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_icon_color));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            toolBarLayout.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.main_status_bar_color));
+        }
 
         ItemTouchHelper.Callback touchCallback = new SwipeableItemTouchHelperCallback(requireContext());
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(touchCallback);
@@ -691,7 +695,6 @@ public class ReadingListFragment extends Fragment implements
                 toolbarExpanded = false;
             }
 
-            // FIXME: reset status bar theme will make the swipeRefreshLayout goes wrong on swiping
             recyclerView.post(() -> {
                 if (isAdded()) {
                     DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar, toolbarExpanded);

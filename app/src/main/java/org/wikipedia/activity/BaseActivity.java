@@ -135,7 +135,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected void setStatusBarColor(@ColorRes int color) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             getWindow().setStatusBarColor(ContextCompat.getColor(this, color));
         }
     }

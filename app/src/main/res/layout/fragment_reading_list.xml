@@ -25,8 +25,7 @@
                 android:layout_height="match_parent"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 android:fitsSystemWindows="true"
-                app:contentScrim="?attr/main_toolbar_color"
-                app:statusBarScrim="?attr/main_status_bar_color">
+                app:contentScrim="?attr/main_toolbar_color">
 
                 <org.wikipedia.readinglist.ReadingListHeaderView
                     android:id="@+id/reading_list_header"
