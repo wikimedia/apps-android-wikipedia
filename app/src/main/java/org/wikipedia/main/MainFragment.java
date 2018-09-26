@@ -260,7 +260,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)) {
             goToTab(NavTab.READING_LISTS);
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)) {
-            goToTab(NavTab.EXPLORE);
+            goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code())));
         } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN)) {
             startActivity(PageActivity.newIntent(requireContext()));
             requireActivity().finish();
