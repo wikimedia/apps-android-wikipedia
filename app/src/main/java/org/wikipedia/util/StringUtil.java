@@ -156,13 +156,14 @@ public final class StringUtil {
         if (source == null) {
             return new SpannedString("");
         }
-        if (!source.contains("<") && !source.contains("&#")) {
-            // If the string doesn't contain any hints of HTML tags, then skip the expensive
+        if (!source.contains("<") && !source.contains("&")) {
+            // If the string doesn't contain any hints of HTML entities, then skip the expensive
             // processing that fromHtml() performs.
             return new SpannedString(source);
         }
         source = source.replaceAll("&#8206;", "\u200E")
-                .replaceAll("&#8207;", "\u200F");
+                .replaceAll("&#8207;", "\u200F")
+                .replaceAll("&amp;", "&");
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             return Html.fromHtml(source, Html.FROM_HTML_MODE_LEGACY);
         } else {
