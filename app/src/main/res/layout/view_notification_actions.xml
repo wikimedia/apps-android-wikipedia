@@ -130,7 +130,7 @@
             android:layout_marginLeft="@dimen/list_item_horizontal_padding"
             android:layout_marginRight="@dimen/list_item_horizontal_padding"
             android:layout_gravity="center_vertical"
-            app:srcCompat="@drawable/ic_archive_white_24dp"
+            app:srcCompat="@drawable/ic_archive_themed_24dp"
             app:tint="?attr/secondary_text_color"
             android:contentDescription="@null"/>
         <TextView
