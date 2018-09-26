@@ -1,6 +1,5 @@
 package org.wikipedia.feed.news;
 
-import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -29,7 +28,6 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.GradientUtil;
-import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
@@ -87,9 +85,10 @@ public class NewsFragment extends Fragment {
             appBarLayout.setExpanded(false, false);
         }
 
-        resetStatusBarTheme(true);
+        DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar, true);
         appBarLayout.addOnOffsetChangedListener((layout, offset) ->
-                resetStatusBarTheme((layout.getTotalScrollRange() + offset) > layout.getTotalScrollRange() / 2)
+                DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar,
+                        (layout.getTotalScrollRange() + offset) > layout.getTotalScrollRange() / 2)
         );
 
         image.loadImage(imageUri);
@@ -113,19 +112,6 @@ public class NewsFragment extends Fragment {
         links.setLayoutManager(new LinearLayoutManager(requireContext()));
         links.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable));
         links.setNestedScrollingEnabled(false);
-    }
-
-    private void resetStatusBarTheme(boolean reset) {
-        if (toolbar != null) {
-            if (reset) {
-                DeviceUtil.resetSystemUiVisibility(requireActivity());
-            } else {
-                DeviceUtil.setLightSystemUiVisibility(requireActivity());
-            }
-
-            toolbar.getNavigationIcon().setColorFilter(reset ? getResources().getColor(android.R.color.white)
-                    : ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_icon_color), PorterDuff.Mode.SRC_IN);
-        }
     }
 
     private static class RecyclerAdapter extends DefaultRecyclerAdapter<NewsLinkCard, ListCardItemView> {

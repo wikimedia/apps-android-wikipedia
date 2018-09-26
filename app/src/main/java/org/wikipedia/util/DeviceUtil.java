@@ -4,16 +4,19 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
+import android.graphics.PorterDuff;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
+import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.log.L;
@@ -87,6 +90,17 @@ public final class DeviceUtil {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             activity.getWindow().getDecorView().setSystemUiVisibility(0);
         }
+    }
+
+    public static void updateStatusBarTheme(@NonNull Activity activity, @NonNull Toolbar toolbar, boolean reset) {
+        if (reset) {
+            resetSystemUiVisibility(activity);
+        } else {
+            setLightSystemUiVisibility(activity);
+        }
+
+        toolbar.getNavigationIcon().setColorFilter(reset ? activity.getResources().getColor(android.R.color.white)
+                : ResourceUtil.getThemedColor(activity, R.attr.main_toolbar_icon_color), PorterDuff.Mode.SRC_IN);
     }
 
     public static boolean isLocationServiceEnabled(@NonNull Context context) {

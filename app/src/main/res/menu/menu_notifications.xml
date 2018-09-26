@@ -3,7 +3,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menu_notifications_search"
-        android:icon="@drawable/ic_search_white_24dp"
+        android:icon="@drawable/ic_search_themed_24dp"
         android:title="@string/notifications_search"
         app:showAsAction="ifRoom" />
     <item android:id="@+id/menu_notifications_view_archived"

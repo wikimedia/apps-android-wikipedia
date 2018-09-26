@@ -151,7 +151,7 @@ public class ReadingListFragment extends Fragment implements
         getAppCompatActivity().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getAppCompatActivity().getSupportActionBar().setTitle("");
 
-        resetStatusBarTheme(true);
+        DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar, true);
         appBarLayout.addOnOffsetChangedListener(appBarListener);
         toolBarLayout.setCollapsedTitleTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_icon_color));
 
@@ -299,19 +299,6 @@ public class ReadingListFragment extends Fragment implements
 
     private AppCompatActivity getAppCompatActivity() {
         return (AppCompatActivity) getActivity();
-    }
-
-    private void resetStatusBarTheme(boolean reset) {
-        if (toolbar != null) {
-            if (reset) {
-                DeviceUtil.resetSystemUiVisibility(requireActivity());
-            } else {
-                DeviceUtil.setLightSystemUiVisibility(requireActivity());
-            }
-
-            toolbar.getNavigationIcon().setColorFilter(reset ? getResources().getColor(android.R.color.white)
-                    : ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_icon_color), PorterDuff.Mode.SRC_IN);
-        }
     }
 
     private void update() {
@@ -705,7 +692,11 @@ public class ReadingListFragment extends Fragment implements
             }
 
             // FIXME: reset status bar theme will make the swipeRefreshLayout goes wrong on swiping
-            resetStatusBarTheme(toolbarExpanded);
+            recyclerView.post(() -> {
+                if (isAdded()) {
+                    DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar, toolbarExpanded);
+                }
+            });
             // prevent swiping when collapsing the view
             swipeRefreshLayout.setEnabled(verticalOffset == 0);
         }

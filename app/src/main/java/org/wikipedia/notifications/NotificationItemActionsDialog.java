@@ -96,7 +96,7 @@ public class NotificationItemActionsDialog extends ExtendedBottomSheetDialogFrag
             tertiaryView.setVisibility(View.GONE);
         }
 
-        archiveIconView.setImageResource(callback().isShowingArchived() ? R.drawable.ic_unarchive_white_24dp : R.drawable.ic_archive_white_24dp);
+        archiveIconView.setImageResource(callback().isShowingArchived() ? R.drawable.ic_unarchive_themed_24dp : R.drawable.ic_archive_themed_24dp);
         archiveTextView.setText(callback().isShowingArchived() ? R.string.notifications_mark_unread : R.string.notifications_archive);
 
         return view;
