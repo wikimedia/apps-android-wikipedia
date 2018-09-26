@@ -281,7 +281,6 @@
   <string name="tool_tip_select_text">Tekan dan tahan di mana saja di teks untuk memilihnya untuk salin dan berbagi.</string>
   <string name="tool_tip_share">Setelah menyorot sebuah fakta yang menarik, coba membagikannya di jaringan kesukaan Anda!</string>
   <string name="page_view_in_browser">Lihat halaman di peramban</string>
-  <string name="tool_tip_toc_button">Lihat daftar isi kapan saja dengan menekan tombol ini, atau geser dari tepi kanan layar.</string>
   <string name="tool_tip_lang_button">Anda sekarang dapat mencari dan membaca dalam beberapa bahasa Wikipedia di aplikasi.\n\n\nKetuk ikon untuk menambahkan lebih banyak bahasa.</string>
   <string name="error_response_malformed">Respon dari peladen tidak diformat dengan benar.</string>
   <string name="error_unknown">Terjadi sebuah kesalahan yang tidak diketahui.</string>

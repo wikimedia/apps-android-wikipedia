@@ -195,7 +195,6 @@
   <string name="tool_tip_select_text" fuzzy="true">Da biste kopirali i podijelili tekst, pritisnite i držite bilo gdje u tekstu.</string>
   <string name="tool_tip_share">Nakon označavanja zanimljivog dijela, podijelite ga na omiljenim mrežama.</string>
   <string name="page_view_in_browser">Pogledaj stranicu u pregledniku</string>
-  <string name="tool_tip_toc_button">Pogledajte sadržaj bilo kada klikom na ovaj gumb ili povlačenjem prsta od desnog ruba zaslona.</string>
   <string name="error_response_malformed">Odgovor poslužitelja nije bio ispravno formatiran.</string>
   <string name="error_unknown">Dogodila se nepoznata pogrješka.</string>
   <string name="format_error_server_message">Poruka: \"%s\"</string>

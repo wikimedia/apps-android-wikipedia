@@ -280,7 +280,6 @@
   <string name="tool_tip_select_text">Натиснете и задръжте навсякъде в текста, за да го изберете за копиране или споделяне.</string>
   <string name="tool_tip_share">След като маркирате интересен факт, пробвайте да го споделите в любимите си мрежи!</string>
   <string name="page_view_in_browser">Преглед на страницата в браузър</string>
-  <string name="tool_tip_toc_button">Вижте съдържанието по всяко време като натиснете този бутон или като плъзнете десния край на екрана.</string>
   <string name="tool_tip_lang_button">Сега можете да търсите и четете Уикипедия на различни езици в приложението.</string>
   <string name="error_response_malformed">Отговорът от сървъра не е правилно форматиран.</string>
   <string name="error_unknown">Възникна неизвестна грешка.</string>

@@ -170,7 +170,6 @@
   <string name="menu_new_tab">Neuje Rigger</string>
   <string name="button_close_tab">Rigger zohmaache</string>
   <string name="page_view_in_browser">Donn di Sigg em Brauser belohre</string>
-  <string name="tool_tip_toc_button">Mer kridd et Verzeijschnes vum Enhalts ze sinn, wam_mer op dä Knopp klegg un wam_mer vum rääschte Belldscherremrand us övver dä Beldscherrem rötsch.</string>
   <string name="error_response_malformed">De Antwoot vum ẞööver woh nit en enem Fommaht, wat mer äwahde donn.</string>
   <string name="error_unknown">Ene Fähler es opjetrodde, dä mer nit kenne.</string>
   <string name="format_error_server_message">Nohreesch: „%s“</string>

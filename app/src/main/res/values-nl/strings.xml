@@ -282,7 +282,6 @@
   <string name="tool_tip_select_text">Druk en houd vast op een willekeurige plaats in de tekst om deze te selecteren om te kopiëren en te kunnen delen.</string>
   <string name="tool_tip_share">Na het selecteren van een interessant feit, kunt u het delen op uw favoriete netwerken!</string>
   <string name="page_view_in_browser">Pagina in de browser weergeven</string>
-  <string name="tool_tip_toc_button">U kunt op een willekeurig moment de inhoudsopgave bekijken door op deze knop de drukken of door op het scherm naar links te vegen.</string>
   <string name="error_response_malformed">Het antwoord van de server had geen correcte opmaak.</string>
   <string name="error_unknown">Er is een onbekende fout opgetreden.</string>
   <string name="format_error_server_message">Bericht: \"%s\"</string>
