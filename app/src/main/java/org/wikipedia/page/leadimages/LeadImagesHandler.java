@@ -82,10 +82,6 @@ public class LeadImagesHandler {
                 && !TextUtils.isEmpty(getLeadImageUrl());
     }
 
-    public void setAnimationPaused(boolean paused) {
-        pageHeaderView.setAnimationPaused(paused);
-    }
-
     /**
      * Triggers a chain of events that will lay out the lead image, page title, and other
      * elements, at the end of which the WebView contents may begin to be composed.
@@ -170,6 +166,7 @@ public class LeadImagesHandler {
         leadImageUrl = getLeadImageUrl();
         if (leadImageUrl == null) {
             loadLeadImage(null);
+            pageHeaderView.isImageLoaded(false);
         } else if (!leadImageUrl.equals(Prefs.getFloatingQueueImage()) || !pageHeaderView.isImageLoaded()) {
             loadLeadImage(leadImageUrl);
             saveLeadImageUrl();

@@ -83,15 +83,15 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
         image.load(url);
         int height = url == null ? 0 : leadImageHeightForDevice();
         setMinimumHeight(height);
-        isImageLoaded = true;
+        isImageLoaded(true);
+    }
+
+    public void isImageLoaded(boolean loaded) {
+        this.isImageLoaded = loaded;
     }
 
     public boolean isImageLoaded() {
         return isImageLoaded;
-    }
-
-    public void setAnimationPaused(boolean paused) {
-        image.setAnimationPaused(paused);
     }
 
     @NonNull
