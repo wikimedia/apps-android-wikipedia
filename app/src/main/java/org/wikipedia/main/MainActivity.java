@@ -162,8 +162,21 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         return findViewById(R.id.navigation_drawer_view);
     }
 
-    protected Toolbar getToolbar() {
+    public Toolbar getToolbar() {
         return (Toolbar) findViewById(R.id.single_fragment_toolbar);
+    }
+
+    public void shouldShowMainDrawer(boolean enabled) {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(enabled);
+        getDrawerLayout().setSlidingEnabled(enabled);
+
+        if (enabled) {
+            ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this,
+                    getDrawerLayout(), getToolbar(),
+                    R.string.main_drawer_open, R.string.main_drawer_close);
+            drawerToggle.syncState();
+            getToolbar().setNavigationIcon(R.drawable.ic_menu_black_24dp);
+        }
     }
 
     protected View getToolbarWordmark() {
@@ -180,19 +193,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     protected void clearToolbarElevation() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getToolbar().setElevation(0f);
-        }
-    }
-
-    public void shouldShowMainDrawer(boolean enabled) {
-        getSupportActionBar().setDisplayHomeAsUpEnabled(enabled);
-        getDrawerLayout().setSlidingEnabled(enabled);
-
-        if (enabled) {
-            ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this,
-                    getDrawerLayout(), getToolbar(),
-                    R.string.main_drawer_open, R.string.main_drawer_close);
-            drawerToggle.syncState();
-            getToolbar().setNavigationIcon(R.drawable.ic_menu_black_24dp);
         }
     }
 }

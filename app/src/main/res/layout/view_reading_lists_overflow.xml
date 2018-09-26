@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/reading_lists_overflow_card_container"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="-2dp"
+    android:layout_marginEnd="2dp"
+    app:cardElevation="8dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="?attr/material_theme_border_color"
+        android:showDividers="middle"
+        android:divider="?attr/list_separator_drawable"
+        android:minWidth="160dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="?attr/paper_color">
+            <TextView
+                android:id="@+id/reading_lists_overflow_sort_by"
+                style="@style/OverflowMenuItem"
+                android:text="@string/reading_list_sort_ellipsis"/>
+
+            <TextView
+                android:id="@+id/reading_lists_overflow_create_new_list"
+                style="@style/OverflowMenuItem"
+                android:text="@string/reading_lists_menu_create_list"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/reading_lists_overflow_refresh"
+            style="@style/OverflowMenuItem"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="?attr/paper_color"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                android:text="@string/reading_lists_refresh_sync_option"/>
+
+            <TextView
+                android:id="@+id/reading_lists_overflow_last_sync"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="?android:attr/textColorTertiary"
+                android:textSize="14sp"
+                android:text="@string/reading_list_menu_last_sync"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

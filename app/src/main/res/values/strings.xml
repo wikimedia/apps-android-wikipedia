@@ -474,6 +474,7 @@
         <item quantity="other">These articles will no longer be available offline.</item>
     </plurals>
     <string name="reading_list_toast_last_sync">Reading lists synced successfully</string>
+    <string name="reading_list_menu_last_sync">Last sync: %s</string>
     <!-- /Reading lists -->
 
     <!-- User options -->

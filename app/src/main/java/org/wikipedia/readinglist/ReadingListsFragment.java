@@ -54,6 +54,7 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.MarginItemDecoration;
+import org.wikipedia.views.ReadingListsOverflowView;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.ViewUtil;
 
@@ -97,8 +98,8 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
     private ReadingListsSearchCallback searchActionModeCallback = new ReadingListsSearchCallback();
     @Nullable private ActionMode actionMode;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
+    private OverflowCallback overflowCallback = new OverflowCallback();
     private static final int SAVE_COUNT_LIMIT = 3;
-
 
     @NonNull public static ReadingListsFragment newInstance() {
         return new ReadingListsFragment();
@@ -180,28 +181,40 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
                 ((AppCompatActivity) requireActivity())
                         .startSupportActionMode(searchActionModeCallback);
                 return true;
-            case R.id.menu_sort:
-                bottomSheetPresenter.show(getChildFragmentManager(),
-                        SortReadingListsDialog.newInstance(Prefs.getReadingListSortMode(SORT_BY_NAME_ASC)));
-                return true;
-            case R.id.create_list:
-                String title = getString(R.string.reading_list_name_sample);
-                List<String> existingTitles = new ArrayList<>();
-                for (ReadingList tempList : readingLists) {
-                    existingTitles.add(tempList.title());
-                }
-                ReadingListTitleDialog.readingListTitleDialog(requireContext(), title, "",
-                        existingTitles, (text, description) -> {
-                            ReadingListDbHelper.instance().createList(text, description);
-                            updateLists();
-                        }).show();
-                return true;
-            case R.id.refresh:
-                swipeRefreshLayout.setRefreshing(true);
-                refreshSync(this, swipeRefreshLayout);
+            case R.id.menu_overflow_button:
+                ReadingListsOverflowView overflowView = new ReadingListsOverflowView(requireContext());
+                overflowView.show(((MainActivity) requireActivity()).getToolbar().findViewById(R.id.menu_overflow_button), overflowCallback);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private class OverflowCallback implements ReadingListsOverflowView.Callback {
+        @Override
+        public void sortByClick() {
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    SortReadingListsDialog.newInstance(Prefs.getReadingListSortMode(SORT_BY_NAME_ASC)));
+        }
+
+        @Override
+        public void createNewListClick() {
+            String title = getString(R.string.reading_list_name_sample);
+            List<String> existingTitles = new ArrayList<>();
+            for (ReadingList tempList : readingLists) {
+                existingTitles.add(tempList.title());
+            }
+            ReadingListTitleDialog.readingListTitleDialog(requireContext(), title, "",
+                    existingTitles, (text, description) -> {
+                        ReadingListDbHelper.instance().createList(text, description);
+                        updateLists();
+                    }).show();
+        }
+
+        @Override
+        public void refreshClick() {
+            swipeRefreshLayout.setRefreshing(true);
+            refreshSync(ReadingListsFragment.this, swipeRefreshLayout);
         }
     }
 
