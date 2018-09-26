@@ -637,6 +637,19 @@ bridge.registerListener( "scrollToBottom", function ( payload ) {
     window.scrollTo(0, document.body.scrollHeight - payload.offset - transformer.getDecorOffset());
 });
 
+bridge.registerListener( "requestSectionData", function () {
+    var headings = document.getElementsByClassName( "pagelib_edit_section_header" );
+    var sections = [];
+    var docYOffset = document.documentElement.getBoundingClientRect().top;
+    for (var i = 0; i < headings.length; i++) {
+        sections[i] = {};
+        sections[i].heading = headings[i].textContent;
+        sections[i].id = headings[i].getAttribute( "data-id" );
+        sections[i].yOffset = headings[i].getBoundingClientRect().top - docYOffset;
+    }
+    bridge.sendMessage( "sectionDataResponse", { "sections": sections } );
+});
+
 /**
  * Returns the section id of the section that has the header closest to but above midpoint of screen,
  * or -1 if the page is scrolled all the way to the bottom (i.e. native bottom content should be shown).

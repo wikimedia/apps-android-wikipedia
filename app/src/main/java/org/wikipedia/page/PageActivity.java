@@ -580,11 +580,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public void onPagePopFragment() {
-        finish();
-    }
-
-    @Override
     public void onPageLoadError(@NonNull PageTitle title) {
         getSupportActionBar().setTitle(title.getDisplayText());
     }

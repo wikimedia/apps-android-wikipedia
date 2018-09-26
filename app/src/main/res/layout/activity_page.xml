@@ -84,4 +84,48 @@
 
     </LinearLayout>
 
+    <FrameLayout
+        android:id="@+id/toc_container"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:elevation="6dp"
+        android:background="?android:colorBackground"
+        tools:background="@color/base80">
+
+        <ListView
+            android:id="@+id/toc_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="64dp"
+            android:paddingBottom="64dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:scrollbars="none" />
+
+        <View
+            android:layout_width="37dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_marginTop="-4dp"
+            android:layout_marginBottom="-4dp"
+            android:layout_marginEnd="-2dp"
+            android:background="@drawable/toc_dotted_line"
+            android:layerType="software"/>
+    </FrameLayout>
+
+    <org.wikipedia.views.PageScrollerView
+        android:id="@+id/page_scroller_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="end"
+        android:elevation="8dp"
+        android:background="@drawable/shape_circle"
+        app:srcCompat="@drawable/ic_unfold_more_black_24dp"
+        app:tint="?attr/colorAccent"
+        android:scaleType="center"
+        android:clickable="true"/>
+
 </FrameLayout>

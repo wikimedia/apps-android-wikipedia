@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="288dp"
     android:layout_height="match_parent"
+    android:visibility="gone"
     android:layout_gravity="end">
 
     <ProgressBar
@@ -33,8 +34,7 @@
                 android:id="@+id/page_toc_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="gone"
-                android:choiceMode="singleChoice" />
+                android:visibility="gone" />
         </FrameLayout>
 
     </LinearLayout>

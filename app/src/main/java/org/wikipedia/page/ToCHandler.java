@@ -1,21 +1,24 @@
 package org.wikipedia.page;
 
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.graphics.Typeface;
+import android.support.annotation.NonNull;
+import android.util.SparseIntArray;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.getkeepsafe.taptargetview.TapTargetView;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.R;
@@ -24,128 +27,118 @@ import org.wikipedia.analytics.ToCInteractionFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
-import org.wikipedia.page.action.PageActionTab;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
-import org.wikipedia.views.WikiDrawerLayout;
+import org.wikipedia.views.ObservableWebView;
+import org.wikipedia.views.PageScrollerView;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 
-import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
-class ToCHandler {
+public class ToCHandler implements ObservableWebView.OnClickListener,
+        ObservableWebView.OnScrollChangeListener, ObservableWebView.OnContentHeightChangedListener,
+        ObservableWebView.OnEdgeSwipeListener{
+    private static final float SCROLLER_BUTTON_SIZE = 44f;
+    private static final float SCROLLER_BUTTON_PEEK_MARGIN = -18f;
+    private static final float SCROLLER_BUTTON_HIDE_MARGIN = 48f;
+    private static final float SCROLLER_BUTTON_REVEAL_MARGIN = -30f;
+    private static final int SCROLLER_BUTTON_HIDE_TIMEOUT_MILLIS = 2000;
+
+    private static final float TOC_LEAD_TEXT_SIZE = 24f;
+    private static final float TOC_SECTION_TEXT_SIZE = 16f;
+    private static final float TOC_SEMI_FADE_ALPHA = 0.9f;
+    private static final float TOC_SECTION_TOP_OFFSET_ADJUST = 70f;
+
     private static final int MAX_LEVELS = 3;
     private static final int INDENTATION_WIDTH_DP = 16;
     private static final int ABOUT_SECTION_ID = -1;
+
     private final ListView tocList;
-    private final ProgressBar tocProgress;
+    private final PageScrollerView scrollerView;
+    private final FrameLayout.LayoutParams scrollerViewParams;
+    private final ViewGroup tocContainer;
+    private final ObservableWebView webView;
     private final CommunicationBridge bridge;
-    private final WikiDrawerLayout slidingPane;
-    private final TextView headerView;
     private final PageFragment fragment;
+
+    private ToCAdapter adapter = new ToCAdapter();
     private ToCInteractionFunnel funnel;
 
-    /**
-     * Flag to track if the drawer is closing because a link was clicked.
-     * Used to make sure that we don't track closes that are caused by
-     * the user clicking on a section.
-     */
-    private boolean wasClicked = false;
+    private boolean rtl;
+    private boolean scrollerShown;
+    private boolean tocShown;
+    private int currentItemSelected;
 
-    ToCHandler(final PageFragment fragment, final WikiDrawerLayout slidingPane,
+    private Runnable hideScrollerRunnable = new Runnable() {
+        @Override
+        public void run() {
+            if (!tocShown) {
+                hideScroller();
+            }
+        }
+    };
+
+    public ToCHandler(final PageFragment fragment, ViewGroup tocContainer, PageScrollerView scrollerView,
                       final CommunicationBridge bridge) {
         this.fragment = fragment;
         this.bridge = bridge;
-        this.slidingPane = slidingPane;
+        this.tocContainer = tocContainer;
+        this.scrollerView = scrollerView;
+        scrollerViewParams = new FrameLayout.LayoutParams(DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE), DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE));
 
-        this.tocList = slidingPane.findViewById(R.id.page_toc_list);
-        ((FrameLayout.LayoutParams) tocList.getLayoutParams()).setMargins(0, getContentTopOffsetPx(fragment.getContext()), 0, 0);
-        this.tocProgress = slidingPane.findViewById(R.id.page_toc_in_progress);
-
-        bridge.addListener("currentSectionResponse", (String messageType, JSONObject messagePayload) -> {
-            int sectionID = messagePayload.optInt("sectionID");
-            L.d("current section is " + sectionID);
-            if (tocList.getAdapter() == null) {
-                return;
-            }
-            int itemToSelect = 0;
-            if (sectionID == ABOUT_SECTION_ID) {
-                itemToSelect = tocList.getAdapter().getCount() - 1;
-            } else {
-                // Find the list item that corresponds to the returned sectionID.
-                // Start with index 1 of the list adapter, since index 0 is the header view,
-                // and won't have a Section object associated with it.
-                // The lead section (id 0) will automatically fall through the loop.
-                for (int i = 1; i < tocList.getAdapter().getCount() - 1; i++) {
-                    if (((Section) tocList.getAdapter().getItem(i)).getId() <= sectionID) {
-                        itemToSelect = i;
-                    } else {
-                        break;
-                    }
-                }
-            }
-            tocList.setItemChecked(itemToSelect, true);
-            tocList.smoothScrollToPosition(itemToSelect);
-        });
-
-        headerView = (TextView) LayoutInflater.from(tocList.getContext()).inflate(R.layout.header_toc_list, null, false);
-        tocList.addHeaderView(headerView);
-
-        // create a dummy funnel, in case the drawer is pulled out before a page is loaded.
-        funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(),
-                WikipediaApp.getInstance().getWikiSite(), 0, 0);
-
-        slidingPane.addDrawerListener(new DrawerListener()); // todo: remove what was added
-    }
-
-    public void show() {
-        if (slidingPane.getSlidingEnabled(Gravity.END)) {
-            slidingPane.openDrawer(GravityCompat.END);
-        }
-    }
-
-    public void hide() {
-        slidingPane.closeDrawer(GravityCompat.END);
-    }
-
-    public boolean isVisible() {
-        return slidingPane.isDrawerOpen(GravityCompat.END);
-    }
-
-    public void setEnabled(boolean enabled) {
-        slidingPane.setSlidingEnabled(enabled);
-    }
-
-    void setupToC(final Page page, WikiSite wiki, boolean firstPage) {
-        tocProgress.setVisibility(View.GONE);
-        tocList.setVisibility(View.VISIBLE);
-
-        headerView.setText(StringUtil.fromHtml(page.getDisplayTitle()));
-        headerView.setOnClickListener((v) -> {
-            scrollToSection(page.getSections().get(0));
-            wasClicked = true;
-            funnel.logClick(0, headerView.getText().toString());
-            hide();
-        });
-
-        tocList.setAdapter(new ToCAdapter(page));
-        setConditionalLayoutDirection(tocList, wiki.languageCode());
-        tocList.setOnItemClickListener((AdapterView<?> parent, View view, int position, long id) -> {
-            Section section = (Section) parent.getAdapter().getItem(position);
+        tocList = tocContainer.findViewById(R.id.toc_list);
+        tocList.setAdapter(adapter);
+        tocList.setOnItemClickListener((parent, view, position, id) -> {
+            Section section = adapter.getItem(position);
             scrollToSection(section);
-            wasClicked = true;
             funnel.logClick(position, StringUtil.fromHtml(section.getHeading()).toString());
             hide();
         });
 
+        webView = fragment.getWebView();
+        webView.addOnClickListener(this);
+        webView.addOnScrollChangeListener(this);
+        webView.addOnContentHeightChangedListener(this);
+        webView.setOnEdgeSwipeListener(this);
+
+        bridge.addListener("sectionDataResponse", (messageType, messagePayload) -> {
+            try {
+                JSONArray sections = messagePayload.getJSONArray("sections");
+                for (int i = 0; i < sections.length(); i++) {
+                    adapter.setYOffset(sections.getJSONObject(i).getInt("id"),
+                            sections.getJSONObject(i).getInt("yOffset"));
+                }
+                // artificially add height for bottom About section
+                adapter.setYOffset(ABOUT_SECTION_ID, webView.getContentHeight() - (int)(fragment.getBottomContentView().getHeight() / DimenUtil.getDensityScalar()));
+            } catch (JSONException e) {
+                // ignore
+            }
+        });
+
+        scrollerView.setCallback(new ScrollerCallback());
+        setScrollerPosition();
+
+        // create a dummy funnel, in case the drawer is pulled out before a page is loaded.
+        funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(),
+                WikipediaApp.getInstance().getWikiSite(), 0, 0);
+    }
+
+    void setupToC(@NonNull Page page, @NonNull WikiSite wiki, boolean firstPage) {
+        adapter.setPage(page);
+        rtl = L10nUtil.isLangRTL(wiki.languageCode());
+        setConditionalLayoutDirection(tocContainer, wiki.languageCode());
+        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)tocContainer.getLayoutParams();
+        params.gravity = rtl ? Gravity.LEFT : Gravity.RIGHT;
+        tocContainer.setLayoutParams(params);
+
         funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(), wiki,
-                page.getPageProperties().getPageId(), tocList.getAdapter().getCount());
+                page.getPageProperties().getPageId(), adapter.getCount());
 
         if (onboardingEnabled() && !page.isMainPage() && !firstPage) {
             showTocOnboarding();
@@ -170,7 +163,7 @@ class ToCHandler {
                 try {
                     final int topPadding = 16;
                     payload.put("offset", topPadding
-                            + (int)(fragment.getBottomContentView().getHeight() / DimenUtil.getDensityScalar()));
+                            + (int) (fragment.getBottomContentView().getHeight() / DimenUtil.getDensityScalar()));
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
@@ -181,23 +174,97 @@ class ToCHandler {
         }
     }
 
+    public void show() {
+        fullFadeInToc();
+        bringOutScroller();
+    }
+
+    public void hide() {
+        fadeOutToc();
+        bringInScroller();
+    }
+
+    public boolean isVisible() {
+        return tocShown;
+    }
+
+    public void setEnabled(boolean enabled) {
+        if (enabled) {
+            scrollerView.setTranslationX(DimenUtil.roundedDpToPx(rtl ? -SCROLLER_BUTTON_HIDE_MARGIN : SCROLLER_BUTTON_HIDE_MARGIN));
+            scrollerView.setVisibility(View.VISIBLE);
+            setScrollerPosition();
+            showScrollerThenHide();
+        } else {
+            tocContainer.setVisibility(View.GONE);
+            scrollerView.setVisibility(View.GONE);
+            hideScroller();
+        }
+    }
+
     private boolean onboardingEnabled() {
         return PrefsOnboardingStateMachine.getInstance().isTocTutorialEnabled();
     }
 
-    private final class ToCAdapter extends BaseAdapter {
-        private final ArrayList<Section> sections;
+    @Override
+    public boolean onClick(float x, float y) {
+        if (isVisible()) {
+            hide();
+        } else {
+            showScrollerThenHide();
+        }
+        return false;
+    }
 
-        private ToCAdapter(Page page) {
-            sections = new ArrayList<>();
+    @Override
+    public void onScrollChanged(int oldScrollY, int scrollY, boolean isHumanScroll) {
+        setScrollerPosition();
+        showScrollerThenHide();
+    }
+
+    @Override
+    public void onContentHeightChanged(int contentHeight) {
+        bridge.sendMessage("requestSectionData", new JSONObject());
+    }
+
+    @Override
+    public void onEdgeSwipe(boolean direction) {
+        if (direction == rtl) {
+            show();
+        }
+    }
+
+    public final class ToCAdapter extends BaseAdapter {
+        private final ArrayList<Section> sections = new ArrayList<>();
+        private final SparseIntArray sectionYOffsets = new SparseIntArray();
+        private  String pageTitle;
+        private int highlightedSection;
+
+        void setPage(@NonNull Page page) {
+            sections.clear();
+            sectionYOffsets.clear();
+            pageTitle = page.getDisplayTitle();
             for (Section s : page.getSections()) {
-                if (s.getLevel() < MAX_LEVELS && !s.isLead()) {
+                if (s.getLevel() < MAX_LEVELS) {
                     sections.add(s);
                 }
             }
             // add a fake section at the end to represent the "about this article" contents at the bottom:
             sections.add(new Section(ABOUT_SECTION_ID, 0,
                     getStringForArticleLanguage(page.getTitle(), R.string.about_article_section), "", ""));
+            highlightedSection = 0;
+        }
+
+        public void setHighlightedSection(int id) {
+            highlightedSection = id;
+            notifyDataSetChanged();
+        }
+
+        public int getYOffset(int id) {
+            return sectionYOffsets.get(id, 0);
+        }
+
+        public void setYOffset(int id, int yOffset) {
+            sectionYOffsets.put(id, yOffset);
         }
 
         @Override
@@ -228,28 +295,36 @@ class ToCHandler {
             indentLayoutParameters.width = (section.getLevel() - 1) * (int) (INDENTATION_WIDTH_DP * DimenUtil.getDensityScalar());
             sectionFiller.setLayoutParams(indentLayoutParameters);
 
-            sectionHeading.setText(StringUtil.fromHtml(section.getHeading()));
-
-            if (section.getLevel() > 1) {
-                sectionHeading.setTextColor(
-                        getThemedColor(fragment.getContext(), R.attr.secondary_text_color));
+            sectionHeading.setText(StringUtil.fromHtml(section.isLead() ? pageTitle : section.getHeading()));
+            if (section.isLead()) {
+                sectionHeading.setTextSize(TypedValue.COMPLEX_UNIT_SP, TOC_LEAD_TEXT_SIZE);
+                sectionHeading.setTypeface(Typeface.SERIF);
             } else {
+                sectionHeading.setTextSize(TypedValue.COMPLEX_UNIT_SP, TOC_SECTION_TEXT_SIZE);
+                sectionHeading.setTypeface(Typeface.SANS_SERIF);
+            }
+
+            if (highlightedSection == position) {
+                sectionHeading.setTextColor(getThemedColor(fragment.requireContext(), R.attr.colorAccent));
+            } else {
+                // TODO: apply different style for subsections vs. top-level sections.
+                //if (section.getLevel() > 1) {
+                //    sectionHeading.setTextColor(
+                //            getThemedColor(fragment.requireContext(), R.attr.secondary_text_color));
+                //} else {
                 sectionHeading.setTextColor(
-                        getThemedColor(fragment.getContext(), R.attr.primary_text_color));
+                        getThemedColor(fragment.requireContext(), R.attr.primary_text_color));
+                //}
             }
             return convertView;
         }
     }
 
     private void showTocOnboarding() {
-        PageActionTabLayout pageActionTabLayout = fragment.getActivity().findViewById(R.id.page_actions_tab_layout);
-        View tocTab = pageActionTabLayout.getChildAt(PageActionTab.VIEW_TOC.code());
         try {
-            Field f = tocTab.getClass().getDeclaredField("mView");
-            f.setAccessible(true);
-            View tabView = (View) f.get(tocTab);
-            FeedbackUtil.showTapTargetView(fragment.getActivity(), tabView, R.string.menu_show_toc,
-                    R.string.tool_tip_toc_button, new TapTargetView.Listener() {
+            showScroller();
+            FeedbackUtil.showTapTargetView(fragment.requireActivity(), scrollerView, R.string.menu_show_toc,
+                    R.string.tool_tip_toc_button_new, new TapTargetView.Listener() {
                         @Override
                         public void onTargetClick(TapTargetView view) {
                             super.onTargetClick(view);
@@ -265,38 +340,167 @@ class ToCHandler {
         }
     }
 
-    private class DrawerListener extends DrawerLayout.SimpleDrawerListener {
-        private boolean sectionRequested = false;
+    private void setScrollerPosition() {
+        scrollerViewParams.gravity = rtl ? Gravity.LEFT : Gravity.RIGHT;
+        scrollerViewParams.leftMargin = rtl ? DimenUtil.roundedDpToPx(SCROLLER_BUTTON_PEEK_MARGIN) : 0;
+        scrollerViewParams.rightMargin = rtl ? 0 : DimenUtil.roundedDpToPx(SCROLLER_BUTTON_PEEK_MARGIN);
+        int toolbarHeight = DimenUtil.getToolbarHeightPx(fragment.requireContext());
+        scrollerViewParams.topMargin = (int) (toolbarHeight
+                + (webView.getHeight() - 2 * toolbarHeight) * ((float)webView.getScrollY() / (float)webView.getContentHeight() / DimenUtil.getDensityScalar()));
+        if (scrollerViewParams.topMargin < toolbarHeight) {
+            scrollerViewParams.topMargin = toolbarHeight;
+        }
+        scrollerView.setLayoutParams(scrollerViewParams);
+    }
 
+    private void semiFadeInToc() {
+        tocContainer.setAlpha(tocShown ? 1f : 0f);
+        tocContainer.setVisibility(View.VISIBLE);
+        tocContainer.animate().alpha(TOC_SEMI_FADE_ALPHA)
+                .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
+                .setListener(null);
+        currentItemSelected = -1;
+        onScrollerMoved(0f, false);
+    }
+
+    private void fullFadeInToc() {
+        tocContainer.setAlpha(tocShown ? 1f : 0f);
+        tocContainer.setVisibility(View.VISIBLE);
+        tocContainer.animate().alpha(1f)
+                .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
+                .setListener(null);
+        tocShown = true;
+        scrollerView.removeCallbacks(hideScrollerRunnable);
+        currentItemSelected = -1;
+        onScrollerMoved(0f, false);
+    }
+
+    private void fadeOutToc() {
+        tocContainer.animate().alpha(0f)
+                .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        tocContainer.setVisibility(View.GONE);
+                    }
+                });
+        tocShown = false;
+    }
+
+    private void bringOutScroller() {
+        if (scrollerView.getVisibility() != View.VISIBLE) {
+            return;
+        }
+        scrollerView.removeCallbacks(hideScrollerRunnable);
+        scrollerView.animate().translationX(DimenUtil.roundedDpToPx(rtl ? -SCROLLER_BUTTON_REVEAL_MARGIN : SCROLLER_BUTTON_REVEAL_MARGIN))
+                .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
+                .setListener(null);
+        scrollerShown = true;
+    }
+
+    private void bringInScroller() {
+        if (scrollerView.getVisibility() != View.VISIBLE) {
+            return;
+        }
+        scrollerView.animate().translationX(0)
+                .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
+                .setListener(null);
+        scrollerView.removeCallbacks(hideScrollerRunnable);
+        scrollerView.postDelayed(hideScrollerRunnable, SCROLLER_BUTTON_HIDE_TIMEOUT_MILLIS);
+    }
+
+    private void showScroller() {
+        if (scrollerView.getVisibility() != View.VISIBLE) {
+            return;
+        }
+        scrollerView.removeCallbacks(hideScrollerRunnable);
+        scrollerView.animate().translationX(0)
+                .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
+                .setListener(null);
+        scrollerShown = true;
+    }
+
+    private void hideScroller() {
+        scrollerShown = false;
+        if (scrollerView.getVisibility() != View.VISIBLE) {
+            return;
+        }
+        scrollerView.animate().translationX(DimenUtil.roundedDpToPx(rtl ? -SCROLLER_BUTTON_HIDE_MARGIN : SCROLLER_BUTTON_HIDE_MARGIN))
+                .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
+                .setListener(null);
+    }
+
+    private void showScrollerThenHide() {
+        if (!scrollerShown) {
+            showScroller();
+        }
+        scrollerView.removeCallbacks(hideScrollerRunnable);
+        scrollerView.postDelayed(hideScrollerRunnable, SCROLLER_BUTTON_HIDE_TIMEOUT_MILLIS);
+    }
+
+    private void scrollToListSectionByOffset(int yOffset) {
+        yOffset = DimenUtil.roundedPxToDp(yOffset);
+        int itemToSelect = 0;
+        for (int i = 1; i < adapter.getCount(); i++) {
+            Section section = adapter.getItem(i);
+            if (adapter.getYOffset(section.getId()) < yOffset) {
+                itemToSelect = i;
+            } else {
+                break;
+            }
+        }
+        if (itemToSelect != currentItemSelected) {
+            adapter.setHighlightedSection(itemToSelect);
+            currentItemSelected = itemToSelect;
+        }
+        tocList.smoothScrollToPositionFromTop(currentItemSelected,
+                scrollerViewParams.topMargin - DimenUtil.roundedDpToPx(TOC_SECTION_TOP_OFFSET_ADJUST), 0);
+    }
+
+    private void onScrollerMoved(float dy, boolean scrollWebView) {
+        int webViewScrollY = webView.getScrollY();
+        int webViewHeight = webView.getHeight();
+        float webViewContentHeight = webView.getContentHeight() * DimenUtil.getDensityScalar();
+        float scrollY = webViewScrollY;
+        scrollY += (dy * webViewContentHeight / (float)(webViewHeight - 2 * DimenUtil.getToolbarHeightPx(fragment.requireContext())));
+        if (scrollY < 0) {
+            scrollY = 0;
+        } else if (scrollY > (webViewContentHeight - webViewHeight)) {
+            scrollY = webViewContentHeight - webViewHeight;
+        }
+
+        if (scrollWebView) {
+            webView.scrollTo(0, (int) scrollY);
+        }
+        scrollToListSectionByOffset((int) scrollY + webViewHeight / 2);
+    }
+
+    private class ScrollerCallback implements PageScrollerView.Callback {
         @Override
-        public void onDrawerOpened(View drawerView) {
-            super.onDrawerOpened(drawerView);
-            fragment.getActivity().invalidateOptionsMenu();
-            funnel.logOpen();
-            wasClicked = false;
+        public void onClick() {
+            show();
         }
 
         @Override
-        public void onDrawerClosed(View drawerView) {
-            super.onDrawerClosed(drawerView);
-            fragment.getActivity().invalidateOptionsMenu();
-            if (!wasClicked) {
-                funnel.logClose();
-            }
-            sectionRequested = false;
+        public void onScrollStart() {
+            semiFadeInToc();
+            bringOutScroller();
         }
 
         @Override
-        public void onDrawerSlide(View drawerView, float slideOffset) {
-            super.onDrawerSlide(drawerView, slideOffset);
-            // make sure the ActionBar is showing
-            fragment.showToolbar();
-            fragment.setToolbarForceNoFace(slideOffset != 0);
-            // request the current section to highlight, if we haven't yet
-            if (!sectionRequested) {
-                bridge.sendMessage("requestCurrentSection", new JSONObject());
-                sectionRequested = true;
-            }
+        public void onScrollStop() {
+            fadeOutToc();
+            bringInScroller();
+        }
+
+        @Override
+        public void onVerticalScroll(float dy) {
+            onScrollerMoved(dy, true);
+        }
+
+        @Override
+        public void onSwipeOut() {
+            fullFadeInToc();
         }
     }
 }
