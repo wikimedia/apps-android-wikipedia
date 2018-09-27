@@ -4,7 +4,6 @@ import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.test.MockRetrofitTest;
@@ -23,15 +22,11 @@ public class ImageLicenseFetchClientTest extends MockRetrofitTest {
 
         getApiService().getImageExtMetadata(PAGE_TITLE_MARK_SELBY.getPrefixedText())
                 .map(response -> {
-                    if (response.success()) {
-                        // noinspection ConstantConditions
-                        MwQueryPage page = response.query().pages().get(0);
-                        return page.imageInfo() != null && page.imageInfo().getMetadata() != null
-                                ? new ImageLicense(page.imageInfo().getMetadata())
-                                : new ImageLicense();
-
-                    }
-                    throw new MwException(response.getError());
+                    // noinspection ConstantConditions
+                    MwQueryPage page = response.query().pages().get(0);
+                    return page.imageInfo() != null && page.imageInfo().getMetadata() != null
+                            ? new ImageLicense(page.imageInfo().getMetadata())
+                            : new ImageLicense();
                 })
                 .subscribe(observer);
 
@@ -46,12 +41,7 @@ public class ImageLicenseFetchClientTest extends MockRetrofitTest {
         TestObserver<ImageLicense> observer = new TestObserver<>();
 
         getApiService().getImageExtMetadata(PAGE_TITLE_MARK_SELBY.getPrefixedText())
-                .map(response -> {
-                    if (!response.success()) {
-                        throw new MwException(response.getError());
-                    }
-                    return new ImageLicense();
-                })
+                .map(response -> new ImageLicense())
                 .subscribe(observer);
 
         observer.assertError(Exception.class);

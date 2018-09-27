@@ -24,7 +24,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.SiteMatrix;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.SearchActionModeCallback;
@@ -238,10 +237,6 @@ public class LangLinksActivity extends BaseActivity {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(response -> {
-                        if (!response.success()) {
-                            throw response.getError() != null ? new MwException(response.getError()) : new RuntimeException();
-                        }
-
                         languageEntries = response.query().langLinks();
                         updateLanguageEntriesSupported(languageEntries);
                         sortLanguageEntriesByMru(languageEntries);

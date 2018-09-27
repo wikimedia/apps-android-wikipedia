@@ -7,15 +7,7 @@ public class MwPostResponse extends MwResponse {
     @SuppressWarnings("unused") private int success;
 
     public boolean success(@Nullable String result) {
-        return super.success() && "success".equals(result);
-    }
-
-    public boolean badLoginState() {
-        return "assertuserfailed".equals(code());
-    }
-
-    public boolean badToken() {
-        return "badtoken".equals(code());
+        return "success".equals(result);
     }
 
     @Nullable public String getOptions() {

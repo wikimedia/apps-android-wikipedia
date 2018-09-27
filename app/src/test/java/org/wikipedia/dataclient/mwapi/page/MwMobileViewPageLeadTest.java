@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import org.junit.Before;
 import org.junit.Test;
 import org.wikipedia.dataclient.Service;
+import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.page.BasePageLeadTest;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.testlib.TestLatch;
@@ -75,9 +76,11 @@ public class MwMobileViewPageLeadTest extends BasePageLeadTest {
     }
 
     @Test public void testError() throws Exception {
-        MwMobileViewPageLead pageLead = unmarshal(MwMobileViewPageLead.class, getErrorJson());
-        MwMobileViewPageLead.Mobileview props = pageLead.getMobileview();
-        verifyError(pageLead, props);
+        try {
+            MwMobileViewPageLead pageLead = unmarshal(MwMobileViewPageLead.class, getErrorJson());
+        } catch (MwException e) {
+            verifyError(e);
+        }
     }
 
     @NonNull @Override protected PageClient subject() {

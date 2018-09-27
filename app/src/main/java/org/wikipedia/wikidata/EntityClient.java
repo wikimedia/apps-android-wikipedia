@@ -34,7 +34,7 @@ public final class EntityClient {
         }
 
         @Override public void onResponse(@NonNull Call<Entities> call, @NonNull Response<Entities> response) {
-            if (response.body() != null && response.body().success()) {
+            if (response.body() != null) {
                 for (Entities.Entity item : response.body().entities().values()) {
                     if (item.id().equals(qNumber)) {
                         for (Entities.Label label : item.labels().values()) {

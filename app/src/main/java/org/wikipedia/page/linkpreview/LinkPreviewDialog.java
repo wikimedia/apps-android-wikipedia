@@ -25,7 +25,6 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.dataclient.ServiceFactory;
-import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.gallery.GalleryThumbnailScrollView;
@@ -203,22 +202,16 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(summary -> {
-                    if (summary != null && !summary.hasError()) {
-
-                        // TODO: Remove this logic once Parsoid starts supporting language variants.
-                        if (pageTitle.getWikiSite().languageCode().equals(pageTitle.getWikiSite().subdomain())) {
-                            titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
-                        } else {
-                            titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
-                        }
-
-                        // TODO: remove after the restbase endpoint supports ZH variants
-                        pageTitle.setConvertedText(summary.getConvertedTitle());
-                        showPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
-
+                    // TODO: Remove this logic once Parsoid starts supporting language variants.
+                    if (pageTitle.getWikiSite().languageCode().equals(pageTitle.getWikiSite().subdomain())) {
+                        titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
                     } else {
-                        throw summary != null ? new HttpStatusException(summary.getError()) : new RuntimeException();
+                        titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
                     }
+
+                    // TODO: remove after the restbase endpoint supports ZH variants
+                    pageTitle.setConvertedText(summary.getConvertedTitle());
+                    showPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
                 }, caught -> {
                     L.e(caught);
                     titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));

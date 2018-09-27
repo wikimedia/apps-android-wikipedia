@@ -86,12 +86,7 @@ public class NearbyClientTest extends MockRetrofitTest {
         TestObserver<List<NearbyPage>> observer = new TestObserver<>();
 
         getApiService().nearbySearch("0|0", 1)
-                .map(response -> {
-                    if (response != null && response.hasError()) {
-                        throw new MwException(response.getError());
-                    }
-                    return response.query().nearbyPages(WikiSite.forLanguageCode("en"));
-                })
+                .map(response -> response.query().nearbyPages(WikiSite.forLanguageCode("en")))
                 .subscribe(observer);
 
         observer.assertError(MwException.class);

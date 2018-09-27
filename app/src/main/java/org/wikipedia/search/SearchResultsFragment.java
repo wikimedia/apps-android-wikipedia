@@ -22,7 +22,6 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.SearchFunnel;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
@@ -212,14 +211,11 @@ public class SearchResultsFragment extends Fragment {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(response -> {
-                    if (response != null && response.success() && response.query().pages() != null) {
+                    if (response != null && response.query() != null && response.query().pages() != null) {
                         // noinspection ConstantConditions
                         return new SearchResults(response.query().pages(),
                                 WikiSite.forLanguageCode(getSearchLanguageCode()), response.continuation(),
                                 response.suggestion());
-                    } else if (response != null && response.hasError()) {
-                        // noinspection ConstantConditions
-                        throw new MwException(response.getError());
                     }
                     // A prefix search query with no results will return the following:
                     //
@@ -305,13 +301,10 @@ public class SearchResultsFragment extends Fragment {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(response -> {
-                    if (response.success()) {
+                    if (response.query() != null) {
                         // noinspection ConstantConditions
                         return new SearchResults(response.query().pages(), WikiSite.forLanguageCode(getSearchLanguageCode()),
                                 response.continuation(), null);
-                    } else if (response.hasError()) {
-                        // noinspection ConstantConditions
-                        throw new MwException(response.getError());
                     }
                     // A 'morelike' search query with no results will just return an API warning:
                     //

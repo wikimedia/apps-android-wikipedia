@@ -20,7 +20,6 @@ import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.analytics.ShareAFactFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.ServiceFactory;
-import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.gallery.ImageLicense;
 import org.wikipedia.page.Namespace;
@@ -142,15 +141,11 @@ public class ShareHandler {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(response -> {
-                    if (response.success()) {
-                        // noinspection ConstantConditions
-                        MwQueryPage page = response.query().pages().get(0);
-                        return page.imageInfo() != null && page.imageInfo().getMetadata() != null
-                                ? new ImageLicense(page.imageInfo().getMetadata())
-                                : new ImageLicense();
-
-                    }
-                    throw new MwException(response.getError());
+                    // noinspection ConstantConditions
+                    MwQueryPage page = response.query().pages().get(0);
+                    return page.imageInfo() != null && page.imageInfo().getMetadata() != null
+                            ? new ImageLicense(page.imageInfo().getMetadata())
+                            : new ImageLicense();
                 })
                 .subscribe(imageLicense -> {
                     final Bitmap snippetBitmap = SnippetImage.getSnippetImage(fragment.requireContext(),

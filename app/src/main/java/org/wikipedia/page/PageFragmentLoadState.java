@@ -21,9 +21,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.database.contract.PageImageHistoryContract;
-import org.wikipedia.dataclient.ServiceError;
-import org.wikipedia.dataclient.mwapi.MwException;
-import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClientFactory;
@@ -46,7 +43,6 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 
-import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -532,15 +528,6 @@ public class PageFragmentLoadState {
 
     private void pageLoadLeadSectionComplete(PageLead pageLead, int startSequenceNum) {
         if (!fragment.isAdded() || !sequenceNumber.inSync(startSequenceNum)) {
-            return;
-        }
-        if (pageLead.hasError()) {
-            ServiceError error = pageLead.getError();
-            if (error != null) {
-                commonSectionFetchOnCatch(new MwException((MwServiceError) error), startSequenceNum);
-            } else {
-                commonSectionFetchOnCatch(new IOException(getResources().getString(R.string.error_unknown)), startSequenceNum);
-            }
             return;
         }
 

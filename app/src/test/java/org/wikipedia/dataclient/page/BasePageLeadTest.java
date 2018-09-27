@@ -2,8 +2,8 @@ package org.wikipedia.dataclient.page;
 
 import android.support.annotation.NonNull;
 
+import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
-import org.wikipedia.dataclient.mwapi.page.MwMobileViewPageLead;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -93,11 +93,8 @@ public abstract class BasePageLeadTest extends BasePageClientTest {
                 + "}}";
     }
 
-    protected void verifyError(MwMobileViewPageLead pageLead, MwMobileViewPageLead.Mobileview mv) {
-        assertThat(mv, equalTo(null));
-        MwServiceError error = pageLead.getError();
-        assertThat(pageLead.hasError(), is(true));
-        assert error != null;
+    protected void verifyError(MwException e) {
+        MwServiceError error = e.getError();
         assertThat(error.getTitle(), is("nopage"));
         assertThat(error.getDetails(), is("The page parameter must be set"));
         assertThat(error.getDocRef(), is("See https://en.wikipedia.org/w/api.php for API usage"));

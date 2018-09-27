@@ -27,8 +27,8 @@ public class MwQueryResponse extends MwResponse {
         return query;
     }
 
-    @Override public boolean success() {
-        return super.success() && query != null;
+    public boolean success() {
+        return query != null;
     }
 
     @VisibleForTesting protected void setQuery(@Nullable MwQueryResult query) {

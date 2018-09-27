@@ -102,11 +102,8 @@ public class DescriptionEditClient {
                 final MwPostResponse body = response.body();
                 if (body.getSuccessVal() > 0) {
                     cb.success(call);
-                } else if (body.hasError()) {
-                    handleError(call, body, cb);
                 } else {
-                    cb.failure(call,
-                            RetrofitException.unexpectedError(new RuntimeException(
+                    cb.failure(call, RetrofitException.unexpectedError(new RuntimeException(
                                     "Received unrecognized description edit response")));
                 }
             }
@@ -116,28 +113,28 @@ public class DescriptionEditClient {
                 if (call.isCanceled()) {
                     return;
                 }
-                cb.failure(call, t);
+                if (t instanceof MwException) {
+                    handleError(call, (MwException) t, cb);
+                } else {
+                    cb.failure(call, t);
+                }
             }
         });
         return call;
     }
 
-    private void handleError(@NonNull Call<MwPostResponse> call, @NonNull MwPostResponse body,
-                             @NonNull Callback cb) {
-        MwServiceError error = body.getError();
-        String info = body.info();
-        RuntimeException exception = new RuntimeException(info != null
-                ? info : "An unknown error occurred");
+    private void handleError(@NonNull Call<MwPostResponse> call, @NonNull MwException e, @NonNull Callback cb) {
+        MwServiceError error = e.getError();
 
-        if (body.badLoginState() || body.badToken()) {
-            cb.invalidLogin(call, exception);
+        if (error.badLoginState() || error.badToken()) {
+            cb.invalidLogin(call, e);
         } else if (error != null && error.hasMessageName(ABUSEFILTER_DISALLOWED)) {
             cb.abusefilter(call, ABUSEFILTER_DISALLOWED, error.getMessageHtml(ABUSEFILTER_DISALLOWED));
         } else if (error != null && error.hasMessageName(ABUSEFILTER_WARNING)) {
             cb.abusefilter(call, ABUSEFILTER_WARNING, error.getMessageHtml(ABUSEFILTER_WARNING));
         } else {
             // noinspection ConstantConditions
-            cb.failure(call, new MwException(error));
+            cb.failure(call, e);
         }
     }
 }

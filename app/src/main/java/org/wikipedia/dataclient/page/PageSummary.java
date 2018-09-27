@@ -3,7 +3,6 @@ package org.wikipedia.dataclient.page;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.page.Namespace;
 
 /**
@@ -15,8 +14,6 @@ public interface PageSummary {
     String TYPE_MAIN_PAGE = "mainpage";
     String TYPE_NO_EXTRACT = "no-extract";
 
-    boolean hasError();
-    @Nullable ServiceError getError();
     @NonNull String getType();
     @Nullable String getTitle();
     @Nullable String getDisplayTitle();
