@@ -10,6 +10,7 @@
         android:padding="@dimen/bottom_toolbar_item_padding"
         android:tag="0"
         android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_bookmark_border_white_24dp" />
     <android.support.v7.widget.AppCompatImageView
         android:id="@+id/article_menu_share"
