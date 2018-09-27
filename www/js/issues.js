@@ -1,18 +1,14 @@
 var transformer = require('./transformer');
 
-transformer.register( 'displayIssuesLink', function( content ) {
-    var issues = content.querySelectorAll( "table.ambox:not([class*='ambox-multiple_issues']):not([class*='ambox-notice'])" );
-    if ( issues.length > 0 ) {
-        var el = issues[0];
-        var container = document.getElementById( "issues_container" );
-        var wrapper = document.createElement( 'div' );
-        el.parentNode.replaceChild( wrapper, el );
-        var i = 0,
-            len = issues.length;
-        for (; i < len; i++) {
-            wrapper.appendChild( issues[i] );
+transformer.register( 'showIssues', function( content ) {
+    var issues = content.querySelectorAll( ".ambox" );
+    var style;
+    for (var i = 0; i < issues.length; i++ ) {
+        style = issues[i].getAttribute('style');
+        if (!style) {
+            style = "";
         }
-        container.appendChild( wrapper );
+        issues[i].setAttribute('style', style + "display:block !important;");
     }
     return content;
 } );

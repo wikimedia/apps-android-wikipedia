@@ -175,19 +175,15 @@ actions.register( "pronunciation_click", function( el, event ) {
 },{"./actions":1,"./bridge":2}],5:[function(require,module,exports){
 var transformer = require('./transformer');
 
-transformer.register( 'displayIssuesLink', function( content ) {
-    var issues = content.querySelectorAll( "table.ambox:not([class*='ambox-multiple_issues']):not([class*='ambox-notice'])" );
-    if ( issues.length > 0 ) {
-        var el = issues[0];
-        var container = document.getElementById( "issues_container" );
-        var wrapper = document.createElement( 'div' );
-        el.parentNode.replaceChild( wrapper, el );
-        var i = 0,
-            len = issues.length;
-        for (; i < len; i++) {
-            wrapper.appendChild( issues[i] );
+transformer.register( 'showIssues', function( content ) {
+    var issues = content.querySelectorAll( ".ambox" );
+    var style;
+    for (var i = 0; i < issues.length; i++ ) {
+        style = issues[i].getAttribute('style');
+        if (!style) {
+            style = "";
         }
-        container.appendChild( wrapper );
+        issues[i].setAttribute('style', style + "display:block !important;");
     }
     return content;
 } );
@@ -415,14 +411,6 @@ function setTitleElement( parentNode ) {
     parentNode.appendChild(titleDiv);
 }
 
-function setIssuesElement( parentNode ) {
-    var issuesContainer = document.createElement( "div" );
-    issuesContainer.setAttribute( "dir", window.directionality );
-    issuesContainer.id = "issues_container";
-    parentNode.appendChild( issuesContainer );
-    return issuesContainer;
-}
-
 bridge.registerListener( "displayLeadSection", function( payload ) {
     var lazyDocument;
 
@@ -433,8 +421,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
 
     var contentElem = document.getElementById( "content" );
     setTitleElement(contentElem);
-
-    var issuesContainer = setIssuesElement(contentElem);
 
     lazyDocument = document.implementation.createHTMLDocument( );
     var content = lazyDocument.createElement( "div" );
@@ -448,10 +434,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
 
     applySectionTransforms(content, true);
 
-    //if there were no page issues, then hide the container
-    if (!issuesContainer.hasChildNodes()) {
-        document.getElementById( "content" ).removeChild(issuesContainer);
-    }
     transformer.transform( "hideTables", document );
     lazyLoadTransformer.loadPlaceholders();
 });
@@ -504,9 +486,6 @@ function applySectionTransforms( content, isLeadSection ) {
             lazyLoadTransformer.convertImagesToPlaceholders( content );
         }
     }
-    if (isLeadSection) {
-        transformer.transform("displayIssuesLink", content);
-    }
 }
 
 function displayRemainingSections(json, sequence, scrollY, fragment) {
@@ -514,8 +493,6 @@ function displayRemainingSections(json, sequence, scrollY, fragment) {
     var scrolled = false;
 
     var response = { "sequence": sequence };
-    response.issues = collectIssues();
-    response.disambiguations = collectDisambig();
 
     json.sections.forEach(function (section) {
         elementsForSection(section).forEach(function (element) {
@@ -538,6 +515,7 @@ function displayRemainingSections(json, sequence, scrollY, fragment) {
     }
     transformer.transform( "fixAudio", document );
     transformer.transform( "hideTables", document );
+    transformer.transform( "showIssues", document );
     lazyLoadTransformer.loadPlaceholders();
     bridge.sendMessage( "pageLoadComplete", response );
 }
@@ -594,32 +572,6 @@ bridge.registerListener( "queueRemainingSections", function ( payload ) {
 bridge.registerListener( "scrollToSection", function ( payload ) {
     scrollToSection( payload.anchor );
 });
-
-function collectDisambig() {
-    var res = [];
-    var links = document.querySelectorAll( 'div.hatnote a' );
-    var i = 0,
-        len = links.length;
-    for (; i < len; i++) {
-        // Pass the href; we'll decode it into a proper page title in Java
-        res.push( links[i].getAttribute( 'href' ) );
-    }
-    return res;
-}
-
-function collectIssues() {
-    var res = [];
-    var issues = document.querySelectorAll( 'table.ambox' );
-    var i = 0, len = issues.length, issue;
-    for (; i < len; i++) {
-        // .ambox- is used e.g. on eswiki
-        issue = issues[i].querySelector( '.mbox-text, .ambox-text' );
-        if (issue) {
-            res.push( issue.innerHTML );
-        }
-    }
-    return res;
-}
 
 function scrollToSection( anchor ) {
     if (anchor === "heading_0") {

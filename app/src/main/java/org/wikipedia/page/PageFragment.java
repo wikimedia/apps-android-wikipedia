@@ -65,7 +65,6 @@ import org.wikipedia.page.shareafact.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
-import org.wikipedia.readinglist.RemoveFromReadingListsDialog;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.Prefs;
@@ -138,7 +137,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     private PageFragmentLoadState pageFragmentLoadState;
     private PageViewModel model;
-    private PageInfo pageInfo;
 
     @NonNull private TabFunnel tabFunnel = new TabFunnel();
 
@@ -623,7 +621,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         model.setCurEntry(entry);
         model.setReadingListPage(null);
         model.setForceNetwork(isRefresh);
-        pageInfo = null;
 
         updateProgressBar(true, true, 0);
 
@@ -698,47 +695,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             case R.id.homeAsUp:
                 // TODO SEARCH: add up navigation, see also http://developer.android.com/training/implementing-navigation/ancestral.html
                 return true;
-            case R.id.menu_page_other_languages:
-                startLangLinksActivity();
-                return true;
-            case R.id.menu_page_share:
-                sharePageLink();
-                return true;
-            case R.id.menu_page_add_to_list:
-                addToReadingList(getTitle(), AddToReadingListDialog.InvokeSource.PAGE_OVERFLOW_MENU);
-                return true;
-            case R.id.menu_page_remove_from_list:
-                showRemoveFromListsDialog();
-                return true;
-            case R.id.menu_page_find_in_page:
-                showFindInPage();
-                return true;
-            case R.id.menu_page_content_issues:
-                showContentIssues();
-                return true;
-            case R.id.menu_page_similar_titles:
-                showSimilarTitles();
-                return true;
-            case R.id.menu_page_font_and_theme:
-                showThemeChooser();
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    private void showRemoveFromListsDialog() {
-        disposables.add(Observable.fromCallable(() -> {
-            List<ReadingListPage> pageOccurrences = ReadingListDbHelper.instance().getAllPageOccurrences(model.getTitle());
-            return ReadingListDbHelper.instance().getListsFromPageOccurrences(pageOccurrences);
-        }).subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(listsContainingPage -> new RemoveFromReadingListsDialog(listsContainingPage).deleteOrShowDialog(getContext(),
-                        page -> {
-                            if (callback() != null) {
-                                callback().onPageRemoveFromReadingLists(getTitle());
-                            }
-                        })));
     }
 
     public void sharePageLink() {
@@ -823,8 +782,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         tocHandler.scrollToSection(sectionAnchor);
     }
 
-    public void onPageLoadComplete(@Nullable PageInfo pageInfo) {
-        this.pageInfo = pageInfo;
+    public void onPageLoadComplete() {
         refreshView.setEnabled(true);
         requireActivity().invalidateOptionsMenu();
 
@@ -897,10 +855,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         loadPage(model.getTitle(), model.getCurEntry(), false, stagedScrollY, true);
     }
 
-    PageInfo getPageInfo() {
-        return pageInfo;
-    }
-
     public void saveLeadImageUrl() {
         leadImagesHandler.saveLeadImageUrl();
     }
@@ -924,18 +878,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             ((ImageView) bookmarkTab).setImageResource(pageSaved ? R.drawable.ic_bookmark_white_24dp
                     : R.drawable.ic_bookmark_border_white_24dp);
         }
-    }
-
-    private void showContentIssues() {
-        showPageInfoDialog(false);
-    }
-
-    private void showSimilarTitles() {
-        showPageInfoDialog(true);
-    }
-
-    private void showPageInfoDialog(boolean startAtDisambig) {
-        showBottomSheet(new PageInfoDialog(this, pageInfo, startAtDisambig));
     }
 
     protected void clearActivityActionBarTitle() {
