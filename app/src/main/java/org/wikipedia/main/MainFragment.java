@@ -161,6 +161,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         requireActivity().invalidateOptionsMenu();
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
+        // update main nav drawer after rotating screen
+        getMainActivity().getDrawerView().updateState();
         // update after returning from PageActivity
         floatingQueueView.update();
     }
