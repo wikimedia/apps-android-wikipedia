@@ -15,9 +15,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +29,6 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LoginFunnel;
-import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
@@ -57,13 +54,9 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
-import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
-import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchInvokeSource;
-import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
@@ -124,18 +117,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             return true;
         });
 
-        getMainActivity().getDrawerView().setCallback(new DrawerViewCallback());
-        getMainActivity().getDrawerLayout().setDragEdgeWidth(getResources().getDimensionPixelSize(R.dimen.drawer_drag_margin));
-        getMainActivity().getDrawerLayout().addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
-            @Override
-            public void onDrawerStateChanged(int newState) {
-                if (newState == DrawerLayout.STATE_DRAGGING || newState == DrawerLayout.STATE_SETTLING) {
-                    getMainActivity().getDrawerView().updateState();
-                }
-            }
-        });
-        getMainActivity().shouldShowMainDrawer(true);
-
         floatingQueueView.setCallback(this);
 
         if (savedInstanceState == null) {
@@ -161,8 +142,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         requireActivity().invalidateOptionsMenu();
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
-        // update main nav drawer after rotating screen
-        getMainActivity().getDrawerView().updateState();
         // update after returning from PageActivity
         floatingQueueView.update();
     }
@@ -233,10 +212,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     public MainActivity getMainActivity() {
         return (MainActivity) requireActivity();
-    }
-
-    public void closeMainDrawer() {
-        getMainActivity().getDrawerLayout().closeDrawer(GravityCompat.START);
     }
 
     public void handleIntent(Intent intent) {
@@ -577,7 +552,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
     }
 
-    private Fragment getCurrentFragment() {
+    public Fragment getCurrentFragment() {
         return ((NavTabFragmentPagerAdapter) viewPager.getAdapter()).getCurrentFragment();
     }
 
@@ -585,41 +560,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         @Override
         public void onSuccess() {
             FeedbackUtil.showMessage(requireActivity(), R.string.gallery_save_success);
-        }
-    }
-
-    private class DrawerViewCallback implements MainDrawerView.Callback {
-
-        @Override public void loginLogoutClick() {
-            if (AccountUtil.isLoggedIn()) {
-                WikipediaApp.getInstance().logOut();
-                FeedbackUtil.showMessage(MainFragment.this, R.string.toast_logout_complete);
-                if (Prefs.isReadingListSyncEnabled() && !ReadingListDbHelper.instance().isEmpty()) {
-                    ReadingListSyncBehaviorDialogs.removeExistingListsOnLogoutDialog(requireActivity());
-                }
-                Prefs.setReadingListsLastSyncTime(null);
-                Prefs.setReadingListSyncEnabled(false);
-            } else {
-                onLoginRequested();
-            }
-            closeMainDrawer();
-        }
-
-        @Override public void settingsClick() {
-            startActivityForResult(SettingsActivity.newIntent(requireActivity()), Constants.ACTIVITY_REQUEST_SETTINGS);
-            closeMainDrawer();
-        }
-
-        @Override public void configureFeedClick() {
-            if (getCurrentFragment() instanceof FeedFragment) {
-                ((FeedFragment) getCurrentFragment()).showConfigureActivity(-1);
-            }
-            closeMainDrawer();
-        }
-
-        @Override public void aboutClick() {
-            startActivity(new Intent(getActivity(), AboutActivity.class));
-            closeMainDrawer();
         }
     }
 
