@@ -23,7 +23,6 @@ import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.gallery.ImageLicense;
-import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.NoDimBottomSheetDialog;
 import org.wikipedia.page.Page;
@@ -180,9 +179,9 @@ public class ShareHandler {
     }
 
     private void handleSelection(Menu menu, MenuItem shareItem) {
-        if (PrefsOnboardingStateMachine.getInstance().isShareTutorialEnabled()) {
+        if (Prefs.isShareTutorialEnabled()) {
             postShowShareToolTip(shareItem);
-            PrefsOnboardingStateMachine.getInstance().setShareTutorial();
+            Prefs.setShareTutorialEnabled(false);
         }
 
         // Provide our own listeners for the copy, define, and share buttons.

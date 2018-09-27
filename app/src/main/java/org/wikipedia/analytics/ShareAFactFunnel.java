@@ -83,6 +83,6 @@ public class ShareAFactFunnel extends Funnel {
     }
 
     private int calculateTutorialsShown() {
-        return !Prefs.isShareTutorialEnabled() ? 2 : !Prefs.isSelectTextTutorialEnabled() ? 1 : 0;
+        return !Prefs.isShareTutorialEnabled() ? 1 : 0;
     }
 }

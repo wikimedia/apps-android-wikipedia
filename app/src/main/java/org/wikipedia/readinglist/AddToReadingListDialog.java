@@ -17,7 +17,6 @@ import org.wikipedia.R;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
-import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
@@ -165,11 +164,11 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private void checkAndShowOnboarding() {
-        boolean isOnboarding = PrefsOnboardingStateMachine.getInstance().isReadingListTutorialEnabled();
+        boolean isOnboarding = Prefs.isReadingListTutorialEnabled();
         onboardingButton.setOnClickListener((v) -> {
             onboardingContainer.setVisibility(View.GONE);
             listsContainer.setVisibility(View.VISIBLE);
-            PrefsOnboardingStateMachine.getInstance().setReadingListTutorial();
+            Prefs.setReadingListTutorialEnabled(false);
             if (readingLists.isEmpty()) {
                 showCreateListDialog();
             }
