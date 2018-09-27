@@ -48,12 +48,12 @@ import io.reactivex.functions.Consumer;
 
 public abstract class BaseActivity extends AppCompatActivity {
     private static ExclusiveBusConsumer EXCLUSIVE_BUS_METHODS;
+    private static Disposable EXCLUSIVE_DISPOSABLE;
 
     private ExclusiveBusConsumer exclusiveBusMethods;
     private NetworkStateReceiver networkStateReceiver = new NetworkStateReceiver();
     private boolean previousNetworkState = DeviceUtil.isOnline();
     private CompositeDisposable disposables = new CompositeDisposable();
-    private Disposable exclusiveDisposable;
 
     @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,7 +96,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         // allow this activity's exclusive bus methods to override any existing ones.
         unregisterExclusiveBusMethods();
         EXCLUSIVE_BUS_METHODS = exclusiveBusMethods;
-        exclusiveDisposable = WikipediaApp.getInstance().getBus().subscribe(EXCLUSIVE_BUS_METHODS);
+        EXCLUSIVE_DISPOSABLE = WikipediaApp.getInstance().getBus().subscribe(EXCLUSIVE_BUS_METHODS);
 
         // The UI is likely shown, giving the user the opportunity to exit and making a crash loop
         // less probable.
@@ -200,9 +200,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     private void unregisterExclusiveBusMethods() {
-        if (EXCLUSIVE_BUS_METHODS != null && exclusiveDisposable != null) {
-            exclusiveDisposable.dispose();
-            exclusiveDisposable = null;
+        if (EXCLUSIVE_BUS_METHODS != null && EXCLUSIVE_DISPOSABLE != null) {
+            EXCLUSIVE_DISPOSABLE.dispose();
+            EXCLUSIVE_DISPOSABLE = null;
             EXCLUSIVE_BUS_METHODS = null;
         }
     }
