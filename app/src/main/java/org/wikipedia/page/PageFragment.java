@@ -577,8 +577,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public void loadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean pushBackStack) {
         //is the new title the same as what's already being displayed?
         if (!getCurrentTab().getBackStack().isEmpty()
-                && getCurrentTab().getBackStack().get(getCurrentTab().getBackStack().size() - 1)
-                .getTitle().equals(title)) {
+                && getCurrentTab().getBackStack().get(getCurrentTab().getBackStackPosition()).getTitle().equals(title)) {
             if (model.getPage() == null) {
                 pageFragmentLoadState.loadFromBackStack();
             } else if (!TextUtils.isEmpty(title.getFragment())) {
