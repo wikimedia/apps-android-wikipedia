@@ -7,25 +7,44 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.appshortcuts.AppShortcuts;
+import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.onboarding.InitialOnboardingActivity;
+import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
+import org.wikipedia.readinglist.database.ReadingListDbHelper;
+import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.WikiDrawerLayout;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_INITIAL_ONBOARDING;
 
 public class MainActivity extends SingleFragmentActivity<MainFragment>
         implements MainFragment.Callback {
+
+    @BindView(R.id.navigation_drawer) WikiDrawerLayout drawerLayout;
+    @BindView(R.id.navigation_drawer_view) MainDrawerView drawerView;
+    @BindView(R.id.single_fragment_toolbar) Toolbar toolbar;
+    @BindView(R.id.single_fragment_toolbar_wordmark) View wordMark;
 
     private boolean controlNavTabInFragment;
 
@@ -36,6 +55,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ButterKnife.bind(this);
         AnimationUtil.setSharedElementTransitions(this);
         new AppShortcuts().init();
 
@@ -54,6 +74,25 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             getSupportActionBar().setTitle("");
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
+
+        drawerLayout.setDragEdgeWidth(getResources().getDimensionPixelSize(R.dimen.drawer_drag_margin));
+        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+            @Override
+            public void onDrawerStateChanged(int newState) {
+                if (newState == DrawerLayout.STATE_DRAGGING || newState == DrawerLayout.STATE_SETTLING) {
+                    drawerView.updateState();
+                }
+            }
+        });
+        drawerView.setCallback(new DrawerViewCallback());
+        shouldShowMainDrawer(true);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // update main nav drawer after rotating screen
+        drawerView.updateState();
     }
 
     @LayoutRes
@@ -154,25 +193,25 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         return getFragment().getFloatingQueueView().getImageView();
     }
 
-    public WikiDrawerLayout getDrawerLayout() {
-        return findViewById(R.id.navigation_drawer);
+    public void closeMainDrawer() {
+        drawerLayout.closeDrawer(GravityCompat.START);
     }
 
     public MainDrawerView getDrawerView() {
-        return findViewById(R.id.navigation_drawer_view);
+        return drawerView;
     }
 
     public Toolbar getToolbar() {
-        return (Toolbar) findViewById(R.id.single_fragment_toolbar);
+        return toolbar;
     }
 
     public void shouldShowMainDrawer(boolean enabled) {
         getSupportActionBar().setDisplayHomeAsUpEnabled(enabled);
-        getDrawerLayout().setSlidingEnabled(enabled);
+        drawerLayout.setSlidingEnabled(enabled);
 
         if (enabled) {
             ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this,
-                    getDrawerLayout(), getToolbar(),
+                    drawerLayout, toolbar,
                     R.string.main_drawer_open, R.string.main_drawer_close);
             drawerToggle.syncState();
             getToolbar().setNavigationIcon(R.drawable.ic_menu_themed_24dp);
@@ -180,7 +219,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     }
 
     protected View getToolbarWordmark() {
-        return findViewById(R.id.single_fragment_toolbar_wordmark);
+        return wordMark;
     }
 
     protected void setToolbarElevationDefault() {
@@ -193,6 +232,40 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     protected void clearToolbarElevation() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getToolbar().setElevation(0f);
+        }
+    }
+
+    private class DrawerViewCallback implements MainDrawerView.Callback {
+        @Override public void loginLogoutClick() {
+            if (AccountUtil.isLoggedIn()) {
+                WikipediaApp.getInstance().logOut();
+                FeedbackUtil.showMessage(MainActivity.this, R.string.toast_logout_complete);
+                if (Prefs.isReadingListSyncEnabled() && !ReadingListDbHelper.instance().isEmpty()) {
+                    ReadingListSyncBehaviorDialogs.removeExistingListsOnLogoutDialog(MainActivity.this);
+                }
+                Prefs.setReadingListsLastSyncTime(null);
+                Prefs.setReadingListSyncEnabled(false);
+            } else {
+                getFragment().onLoginRequested();
+            }
+            closeMainDrawer();
+        }
+
+        @Override public void settingsClick() {
+            startActivityForResult(SettingsActivity.newIntent(MainActivity.this), Constants.ACTIVITY_REQUEST_SETTINGS);
+            closeMainDrawer();
+        }
+
+        @Override public void configureFeedClick() {
+            if (getFragment().getCurrentFragment() instanceof FeedFragment) {
+                ((FeedFragment) getFragment().getCurrentFragment()).showConfigureActivity(-1);
+            }
+            closeMainDrawer();
+        }
+
+        @Override public void aboutClick() {
+            startActivity(new Intent(MainActivity.this, AboutActivity.class));
+            closeMainDrawer();
         }
     }
 }
