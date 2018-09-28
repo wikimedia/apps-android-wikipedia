@@ -332,6 +332,11 @@ public class ReadingListFragment extends Fragment implements
                                 readingList.title()));
                     }
                     update();
+                }, t -> {
+                    // If we failed to retrieve the requested list, it means that the list is no
+                    // longer in the database (likely removed due to sync).
+                    // In this case, there's nothing for us to do, so just bail from the activity.
+                    requireActivity().finish();
                 }));
     }
 
