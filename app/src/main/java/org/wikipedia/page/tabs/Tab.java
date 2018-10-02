@@ -20,8 +20,8 @@ public class Tab extends BaseModel {
     }
 
     @Nullable
-    public PageTitle getTopMostTitle() {
-        return backStack.isEmpty() ? null : backStack.get(backStack.size() - 1).getTitle();
+    public PageTitle getBackStackPositionTitle() {
+        return backStack.isEmpty() ? null : backStack.get(getBackStackPosition()).getTitle();
     }
 
     public int getBackStackPosition() {
