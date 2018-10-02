@@ -44,3 +44,7 @@ www/preview.css
 # diff-screenshots
 /app/screenshots
 /app/screenshots-diff
+
+# miscellaneous
+all-apks.sh
+device*.png
