@@ -287,11 +287,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
 
                         @Override
                         public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-                            // If the number of lists has changed, just invalidate everything, as a
-                            // simple way to get the bottom item margin to apply to the correct item.
-                            if (readingLists.size() != lists.size()) {
-                                return false;
-                            } else if (readingLists.size() <= oldItemPosition || lists.size() <= newItemPosition) {
+                            if (readingLists.size() <= oldItemPosition || lists.size() <= newItemPosition) {
                                 return false;
                             }
                             return readingLists.get(oldItemPosition).id() == lists.get(newItemPosition).id();
@@ -307,8 +303,15 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
                                     && readingLists.get(oldItemPosition).numPagesOffline() == lists.get(newItemPosition).numPagesOffline();
                         }
                     });
+                    // If the number of lists has changed, just invalidate everything, as a
+                    // simple way to get the bottom item margin to apply to the correct item.
+                    boolean invalidateAll = readingLists.size() != lists.size();
                     readingLists = lists;
-                    result.dispatchUpdatesTo(adapter);
+                    if (invalidateAll) {
+                        adapter.notifyDataSetChanged();
+                    } else {
+                        result.dispatchUpdatesTo(adapter);
+                    }
 
                     swipeRefreshLayout.setRefreshing(false);
                     maybeShowListLimitMessage();
