@@ -139,7 +139,7 @@ public class TabActivity extends BaseActivity {
                 TextView titleText = view.findViewById(R.id.tab_article_title);
                 TextView descriptionText = view.findViewById(R.id.tab_article_description);
 
-                PageTitle title = app.getTabList().get(tabIndex).getTopMostTitle();
+                PageTitle title = app.getTabList().get(tabIndex).getBackStackPositionTitle();
                 titleText.setText(title.getDisplayText());
                 if (TextUtils.isEmpty(title.getDescription())) {
                     descriptionText.setVisibility(View.GONE);
@@ -168,7 +168,7 @@ public class TabActivity extends BaseActivity {
             if (app.getTabList().get(tabIndex).getBackStack().isEmpty()) {
                 continue;
             }
-            Tab tab = new Tab(app.getTabList().get(tabIndex).getTopMostTitle().getDisplayText());
+            Tab tab = new Tab(app.getTabList().get(tabIndex).getBackStackPositionTitle().getDisplayText());
             tab.setIcon(R.drawable.ic_image_black_24dp);
             tab.setIconTint(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color));
             tab.setTitleTextColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color));
@@ -246,7 +246,7 @@ public class TabActivity extends BaseActivity {
     }
 
     private void showUndoSnackbar(final Tab tab, final int index, final org.wikipedia.page.tabs.Tab appTab, final int appTabIndex) {
-        Snackbar snackbar = FeedbackUtil.makeSnackbar(this, getString(R.string.tab_item_closed, appTab.getTopMostTitle().getDisplayText()), FeedbackUtil.LENGTH_DEFAULT);
+        Snackbar snackbar = FeedbackUtil.makeSnackbar(this, getString(R.string.tab_item_closed, appTab.getBackStackPositionTitle().getDisplayText()), FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.reading_list_item_delete_undo, v -> {
             tabSwitcher.addTab(tab, index);
             app.getTabList().add(appTabIndex, appTab);
