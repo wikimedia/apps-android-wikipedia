@@ -22,6 +22,7 @@ import org.wikipedia.appshortcuts.AppShortcuts;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.navtab.NavTab;
+import org.wikipedia.notifications.NotificationActivity;
 import org.wikipedia.onboarding.InitialOnboardingActivity;
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
@@ -249,6 +250,13 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
                 getFragment().onLoginRequested();
             }
             closeMainDrawer();
+        }
+
+        @Override public void notificationsClick() {
+            if (AccountUtil.isLoggedIn()) {
+                startActivity(NotificationActivity.newIntent(MainActivity.this));
+                closeMainDrawer();
+            }
         }
 
         @Override public void settingsClick() {
