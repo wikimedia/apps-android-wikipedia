@@ -55,7 +55,7 @@
   <string name="dialog_message_edit_failed">Greška u uređivanju.</string>
   <string name="dialog_message_edit_failed_retry">Pokušaj ponovo</string>
   <string name="dialog_message_edit_failed_cancel">Otkaži</string>
-  <string name="dialog_message_leaving_edit">Promjene nisu spremljene. Jeste li sigurni da želite napustiti ovu stranicu?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">Promjene nisu spremljene. Jeste li sigurni da želite napustiti ovu stranicu?</string>
   <string name="dialog_message_leaving_edit_leave">Napusti</string>
   <string name="dialog_message_leaving_edit_stay">Ostani</string>
   <string name="menu_show_toc">Sadržaj</string>

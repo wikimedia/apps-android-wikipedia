@@ -45,7 +45,7 @@
   <string name="edit_history_link_text" fuzzy="true">ਸੋਧਾਂ ਦਾ ਅਤੀਤ</string>
   <string name="map_view_link_text">ਨਕਸ਼ੇ ਤੇ ਵੇਖੋ</string>
   <string name="content_license_html" fuzzy="true">ਕੁਝ ਹੋਰ ਨਾ ਦੱਸੇ ਜਾਣ ਦੀ ਸੂਰਤ ਵਿੱਚ ਸਮੱਗਰੀ &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ਹੇਠ ਮੌਜੂਦ ਹੈ</string>
-  <string name="edit_save_action_license_logged_in">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"%1$s\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ।</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"%1$s\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ।</string>
   <string name="edit_save_action_license_anon" fuzzy="true">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"%1$s\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ। ਸੋਧਾਂ ਦਾ ਨਾਂ ਤੁਹਾਡੇ ਜੰਤਰ ਦੇ ਆਈ.ਪੀ ਪਤੇ \'ਤੇ ਲਾਇਆ ਜਾ ਜਾਵੇਗਾ। ਜੇਕਰ ਤੁਸੀਂ &lt;a href=\"https://#login\"&gt;ਦਾਖ਼ਲ ਹੁੰਦੇ&lt;/a&gt; ਹੋ ਤਾਂ ਤੁਹਾਡੇ ਕੋਲ਼ ਵਧੇਰੇ ਪਰਦੇਦਾਰੀ ਹੋਵੇਗੀ।</string>
   <string name="preference_title_language" fuzzy="true">ਵਿਕੀਪੀਡੀਆ ਭਾਸ਼ਾ</string>
   <string name="preference_languages_filter_hint">ਖੋਜ</string>
@@ -59,7 +59,7 @@
   <string name="dialog_message_edit_failed">ਸੋਧ ਅਸਫਲ ਹੋਈ!</string>
   <string name="dialog_message_edit_failed_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="dialog_message_edit_failed_cancel">ਰੱਦ ਕਰੋ</string>
-  <string name="dialog_message_leaving_edit">ਤੁਹਾਡੀਅਾਂ ਸੋਧਾਂ ਅਜੇ ਸਾਂਭੀਅਾਂ ਨਹੀਂ ਗੲੀਅਾਂ। ਕੀ ਤੁਸੀ ਸਫ਼ਾ ਛੱਡਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">ਤੁਹਾਡੀਅਾਂ ਸੋਧਾਂ ਅਜੇ ਸਾਂਭੀਅਾਂ ਨਹੀਂ ਗੲੀਅਾਂ। ਕੀ ਤੁਸੀ ਸਫ਼ਾ ਛੱਡਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="dialog_message_leaving_edit_leave">ਰਵਾਨਾ ਹੋਵੋ</string>
   <string name="dialog_message_leaving_edit_stay">ਰਹੋ</string>
   <string name="menu_show_toc">ਸਮੱਗਰੀ ਸਾਰਣੀ</string>

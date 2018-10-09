@@ -63,8 +63,8 @@
   <string name="other_languages_indication_text">Les på et annet språk</string>
   <string name="language_count_link_text">Finnes på %d andre språk</string>
   <string name="content_license_html">Innholdet er tilgjengelig under &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; om ikke annet er angitt</string>
-  <string name="edit_save_action_license_logged_in">Ved å lagre samtykker du til &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt;, og til å ugjenkallelig slippe bidragene dine under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-lisensen.</string>
-  <string name="edit_save_action_license_anon">Ved å lagre samtykker du til &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt;, og til å ugjenkallelig slippe bidragene dine under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-lisensen. Redigeringer vil bli tilskrevet IP-adressen for enheten din. Hvis du &lt;a href=\"https://#login\"&gt;logger inn&lt;/a&gt; vil du få bedre personvern.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Ved å lagre samtykker du til &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt;, og til å ugjenkallelig slippe bidragene dine under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-lisensen.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Ved å lagre samtykker du til &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt;, og til å ugjenkallelig slippe bidragene dine under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-lisensen. Redigeringer vil bli tilskrevet IP-adressen for enheten din. Hvis du &lt;a href=\"https://#login\"&gt;logger inn&lt;/a&gt; vil du få bedre personvern.</string>
   <string name="preference_title_language">Wikipedia-språk</string>
   <string name="preference_languages_filter_hint">Søk</string>
   <string name="langlinks_filter_hint">Søk</string>
@@ -78,7 +78,7 @@
   <string name="dialog_message_edit_failed">Redigering feilet!</string>
   <string name="dialog_message_edit_failed_retry">Prøv igjen</string>
   <string name="dialog_message_edit_failed_cancel">Avbryt</string>
-  <string name="dialog_message_leaving_edit">Endringene dine har ikke blitt lagret ennå. Er du sikker på at du vil forlate siden?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">Endringene dine har ikke blitt lagret ennå. Er du sikker på at du vil forlate siden?</string>
   <string name="dialog_message_leaving_edit_leave">Forlat siden</string>
   <string name="dialog_message_leaving_edit_stay">Bli på siden</string>
   <string name="menu_show_toc">Innholdsfortegnelse</string>

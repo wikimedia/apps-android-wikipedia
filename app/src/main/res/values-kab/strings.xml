@@ -53,8 +53,8 @@
   <string name="other_languages_indication_text">Γer deg tutlayt-nniḍen</string>
   <string name="language_count_link_text">Yella di %d n tutlayin nniḍen</string>
   <string name="content_license_html">Agbur yella daw n &lt;a href=\"%1$s\"&gt;turagt CC BY-SA 3.0&lt;/a&gt; alama yettwammel akken-nniḍen</string>
-  <string name="edit_save_action_license_logged_in">Su jerred, ad tqebleḍ &lt;a href=\"%1$s\"&gt;Tiwtilin n useqdec &lt;/a&gt;, udiɣ ad tserseḍ ilebda ittekkiyen-ik daw n turagt &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">S ujerred, ad tqebleḍ &lt;a href=\"%1$s\"&gt;tiwtilin n useqdec&lt;/a&gt;, udiɣ ad tserseḍ ilebda ittekkiyen-ikdaw n turagt &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Akk ayen tbeddleḍ ad ittunefk i tensa IP n yibenk-ik. Ma yella &lt;a href=\"https://#login\"&gt;teqqneḍ&lt;/a&gt;, ad yili ɣur-k ugar n tbaḍnit.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Su jerred, ad tqebleḍ &lt;a href=\"%1$s\"&gt;Tiwtilin n useqdec &lt;/a&gt;, udiɣ ad tserseḍ ilebda ittekkiyen-ik daw n turagt &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">S ujerred, ad tqebleḍ &lt;a href=\"%1$s\"&gt;tiwtilin n useqdec&lt;/a&gt;, udiɣ ad tserseḍ ilebda ittekkiyen-ikdaw n turagt &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Akk ayen tbeddleḍ ad ittunefk i tensa IP n yibenk-ik. Ma yella &lt;a href=\"https://#login\"&gt;teqqneḍ&lt;/a&gt;, ad yili ɣur-k ugar n tbaḍnit.</string>
   <string name="preference_title_language">Tutlayt n wikipedia</string>
   <string name="preference_languages_filter_hint">Nadi</string>
   <string name="langlinks_filter_hint">Nadi</string>
@@ -68,7 +68,7 @@
   <string name="dialog_message_edit_failed">Taẓrigt tecceḍ!</string>
   <string name="dialog_message_edit_failed_retry">Ɛreḍ tikelt-nniḍen</string>
   <string name="dialog_message_edit_failed_cancel">Sefsex</string>
-  <string name="dialog_message_leaving_edit">Asnifel-ik ur yettwasekles ara yakan. Tebɣiḍ ad teffɣeḍ seg usebter-agi?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">Asnifel-ik ur yettwasekles ara yakan. Tebɣiḍ ad teffɣeḍ seg usebter-agi?</string>
   <string name="dialog_message_leaving_edit_leave">Ffeɣ</string>
   <string name="dialog_message_leaving_edit_stay">Qim</string>
   <string name="menu_show_toc">Agbur</string>

@@ -10,6 +10,7 @@
 * Macofe
 * Mansil
 * Ngl2016
+* Ruila
 * SandroHc
 * Tooguether
 * Vitorvicentevalente
@@ -20,6 +21,8 @@
   <string name="app_name_beta">Wikipédia Beta</string>
   <string name="app_name_alpha">Wikipédia Alfa</string>
   <string name="wikimedia">Wikimedia</string>
+  <string name="nav_item_back">Voltar</string>
+  <string name="nav_item_forward">Seguinte</string>
   <string name="search_hint">Pesquisar na Wikipédia</string>
   <string name="search_hint_search_history">Histórico de pesquisa</string>
   <string name="search_hint_search_my_lists">Pesquisar nas minhas listas</string>
@@ -47,6 +50,9 @@
   <string name="menu_page_font_and_theme">Tipo de letra e tema</string>
   <string name="menu_page_add_to_list">Adicionar à lista de leitura</string>
   <string name="menu_page_share">Partilhar hiperligação</string>
+  <string name="menu_page_open_a_new_tab">Abrir um novo separador</string>
+  <string name="menu_page_reading_lists">Listas de leitura</string>
+  <string name="menu_page_recently_viewed">Vistos recentemente</string>
   <string name="menu_long_press_open_page">Abrir</string>
   <string name="menu_long_press_open_in_new_tab">Abrir num separador novo</string>
   <string name="menu_long_press_copy_page">Copiar endereço da hiperligação</string>
@@ -64,8 +70,8 @@
   <string name="other_languages_indication_text">Ler noutra língua</string>
   <string name="language_count_link_text">Disponível noutras %d línguas</string>
   <string name="content_license_html">O conteúdo é disponibilizado ao abrigo da &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; salvo indicação em contrário</string>
-  <string name="edit_save_action_license_logged_in">Ao gravar, concorda com as &lt;a href=\"%1$s\"&gt;Condições de utilização&lt;/a&gt; e em publicar irrevogavelmente a sua contribuição ao abrigo da licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Ao gravar, concorda com as &lt;a href=\"%1$s\"&gt;Condições de utilização&lt;/a&gt;, e em publicar irrevogavelmente a sua contribuição ao abrigo da licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. As edições serão atribuídas ao endereço IP do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;iniciar uma sessão&lt;/a&gt; terá mais privacidade.</string>
+  <string name="edit_save_action_license_logged_in">Ao publicar, concorda com as &lt;a href=\"%1$s\"&gt;Condições de Utilização&lt;/a&gt; e em publicar irrevogavelmente a sua contribuição ao abrigo da licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Ao publicar, concorda com as &lt;a href=\"%1$s\"&gt;Condições de Utilização&lt;/a&gt;, e em publicar irrevogavelmente a sua contribuição ao abrigo da licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. As edições serão atribuídas ao endereço IP do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;iniciar uma sessão&lt;/a&gt; terá mais privacidade.</string>
   <string name="preference_title_language">Línguas da Wikipédia</string>
   <string name="preference_languages_filter_hint">Pesquisar</string>
   <string name="langlinks_filter_hint">Pesquisar</string>
@@ -79,7 +85,7 @@
   <string name="dialog_message_edit_failed">A edição falhou!</string>
   <string name="dialog_message_edit_failed_retry">Tentar novamente</string>
   <string name="dialog_message_edit_failed_cancel">Cancelar</string>
-  <string name="dialog_message_leaving_edit">As suas alterações ainda não foram gravadas. Tem a certeza que pretende sair desta página?</string>
+  <string name="dialog_message_leaving_edit">As suas alterações ainda não foram publicadas. Tem a certeza que pretende sair desta página?</string>
   <string name="dialog_message_leaving_edit_leave">Sair</string>
   <string name="dialog_message_leaving_edit_stay">Ficar</string>
   <string name="menu_show_toc">Índice</string>
@@ -280,11 +286,13 @@
   <string name="close_all_tabs_confirm_yes">Sim</string>
   <string name="close_all_tabs_confirm_no">Não</string>
   <string name="button_close_tab">Fechar separador</string>
+  <string name="tab_item_closed">%s fechado.</string>
   <string name="tool_tip_select_text_title">Manter premido para selecionar</string>
   <string name="tool_tip_select_text">Prima e mantenha premido em qualquer lugar do texto para selecioná-lo e depois poder copiar e partilhar.</string>
   <string name="tool_tip_share">Após destacar um facto interessante, tente partilhá-lo nas suas redes favoritas!</string>
   <string name="page_view_in_browser">Abrir página no navegador</string>
   <string name="tool_tip_toc_button">Consulte o índice a qualquer altura tocando neste botão, ou deslizando o dedo a partir do canto superior direito do ecrã.</string>
+  <string name="tool_tip_toc_button_new">Descrição da função do botão deslizante que mostra o índice e permite que o utilizador percorra rapidamente as secções do artigo atual.</string>
   <string name="tool_tip_lang_button">Já pode procurar e ler em várias línguas da Wikipédia na aplicação.\n\n\nToque no ícone para acrescentar mais línguas.</string>
   <string name="error_response_malformed">A resposta do servidor não foi formatada corretamente.</string>
   <string name="error_unknown">Ocorreu um erro desconhecido.</string>
@@ -458,6 +466,7 @@
     <item quantity="other">Estes artigos deixarão de estar disponíveis sem acesso à Internet.</item>
   </plurals>
   <string name="reading_list_toast_last_sync">As listas de leitura foram sincronizadas</string>
+  <string name="reading_list_menu_last_sync">Última sincronização: %s</string>
   <string name="user_option_sync_label">Preferências</string>
   <string name="notification_button_view_user">Falar com o utilizador</string>
   <string name="notification_talk_title">Mensagem nova na Wikipédia</string>
@@ -513,6 +522,7 @@
   <string name="notifications_empty_message">Já leu todas as notificações!</string>
   <string name="notifications_view_archived_button_text">Ver notificações arquivadas</string>
   <string name="notification_preferences_title">Preferências de notificação</string>
+  <string name="notifications_mark_unread">Marcar como não lida</string>
   <string name="preference_title_notification_poll">Inquérito sobre notificações</string>
   <string name="preference_summary_notification_poll">Permitir que a aplicação use tráfego de dados para verificar em segundo plano se existem novas notificações</string>
   <string name="preference_category_notification_types">Tipos de notificações na aplicação</string>
@@ -712,4 +722,8 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Neste momento tem as variantes tradicional e simplificado do chinês definidas nas suas línguas da aplicação. Atualizar as definições das suas línguas da aplicação?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Editar línguas</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Não, obrigado</string>
+  <string name="main_drawer_open">Abrir</string>
+  <string name="main_drawer_close">Fechar</string>
+  <string name="main_drawer_help">Ajuda</string>
+  <string name="main_drawer_login">Entrar ou registar-se na Wikipédia</string>
 </resources>

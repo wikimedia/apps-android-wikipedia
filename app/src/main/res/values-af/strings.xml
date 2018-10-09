@@ -56,8 +56,8 @@
   <string name="other_languages_indication_text">Lees in ’n ander taal</string>
   <string name="language_count_link_text">Beskikbaar in nog %d tale</string>
   <string name="content_license_html">Inhoud is beskikbaar onder die &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-lisensie tensy anders vermeld</string>
-  <string name="edit_save_action_license_logged_in">Deur te stoor, stem u in tot die &lt;a href=\"%1$s\"&gt;Gebruiksvoorwaardes&lt;/a&gt;, en stel u die bydra onherroeplik vry onder die &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisensie.</string>
-  <string name="edit_save_action_license_anon">Deur te stoor, stem u in tot die &lt;a href=\"%1$s\"&gt;Gebruiksvoorwaardes&lt;/a&gt;, en stel u die bydra onherroeplik vry onder die &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisensie. Wysigings sal aan u toestel se IP-adres toegeskryf word. Indien u &lt;a href=\"https://#login\"&gt;aanmeld&lt;/a&gt;, sal u meer privaatheid geniet.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Deur te stoor, stem u in tot die &lt;a href=\"%1$s\"&gt;Gebruiksvoorwaardes&lt;/a&gt;, en stel u die bydra onherroeplik vry onder die &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisensie.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Deur te stoor, stem u in tot die &lt;a href=\"%1$s\"&gt;Gebruiksvoorwaardes&lt;/a&gt;, en stel u die bydra onherroeplik vry onder die &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisensie. Wysigings sal aan u toestel se IP-adres toegeskryf word. Indien u &lt;a href=\"https://#login\"&gt;aanmeld&lt;/a&gt;, sal u meer privaatheid geniet.</string>
   <string name="preference_title_language">Wikipedia-tale</string>
   <string name="preference_languages_filter_hint">Soek</string>
   <string name="langlinks_filter_hint">Soek</string>
@@ -71,7 +71,7 @@
   <string name="dialog_message_edit_failed">Wysiging het misluk!</string>
   <string name="dialog_message_edit_failed_retry">Probeer weer</string>
   <string name="dialog_message_edit_failed_cancel">Kanselleer</string>
-  <string name="dialog_message_leaving_edit">U wysigings is nie gestoor nie. Is u seker u wil weg van hierdie blad gaan?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">U wysigings is nie gestoor nie. Is u seker u wil weg van hierdie blad gaan?</string>
   <string name="dialog_message_leaving_edit_leave">Verlaat</string>
   <string name="dialog_message_leaving_edit_stay">Bly</string>
   <string name="menu_show_toc">Inhoudsopgawe</string>

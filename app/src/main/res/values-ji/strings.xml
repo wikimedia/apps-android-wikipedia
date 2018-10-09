@@ -64,7 +64,7 @@
   <string name="dialog_message_edit_failed">רעדאקטירונג אדורכגעפאלן!</string>
   <string name="dialog_message_edit_failed_retry">פרובירן ווידער</string>
   <string name="dialog_message_edit_failed_cancel">אַנולירן</string>
-  <string name="dialog_message_leaving_edit">אייערע ענדערונגען זענען נאך נישט געווארן אויפגעהיטן. צי זענט איר זיכער אז איר ווילט פארלאזן דעם בלאט?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">אייערע ענדערונגען זענען נאך נישט געווארן אויפגעהיטן. צי זענט איר זיכער אז איר ווילט פארלאזן דעם בלאט?</string>
   <string name="dialog_message_leaving_edit_leave">פֿארלאזן</string>
   <string name="dialog_message_leaving_edit_stay">בלייבן</string>
   <string name="menu_show_toc">אינהאַלט טאַבעלע</string>

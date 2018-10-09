@@ -42,7 +42,7 @@
   <string name="dialog_message_edit_failed">سمون مو نابرياله شو!</string>
   <string name="dialog_message_edit_failed_retry">بياآزمويل</string>
   <string name="dialog_message_edit_failed_cancel">ناگارل</string>
-  <string name="dialog_message_leaving_edit">ستاسې بدلونونه لا تر اوسه پورې نه دي خوندي شوي. ايا د دې مخ په پرېښودلو کې ډاډمن يې؟</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">ستاسې بدلونونه لا تر اوسه پورې نه دي خوندي شوي. ايا د دې مخ په پرېښودلو کې ډاډمن يې؟</string>
   <string name="dialog_message_leaving_edit_leave">وتل</string>
   <string name="dialog_message_leaving_edit_stay">پاتې کېدل</string>
   <string name="menu_show_toc">نيوليک</string>

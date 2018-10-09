@@ -26,14 +26,14 @@
   <string name="app_name_beta">Name of the beta version of the application.\n{{Identical|Wikipedia Beta}}</string>
   <string name="app_name_alpha">Name of the alpha version of the application.</string>
   <string name="wikimedia">Wikimedia\'s name.\n{{Identical|Wikimedia}}</string>
+  <string name="nav_item_back">Button label for navigating to the previous page.</string>
+  <string name="nav_item_forward">Button label for navigating to the next page.</string>
   <string name="search_hint">Hint text for the search box</string>
   <string name="search_hint_search_history">Hint text for the search box when searching browsing history</string>
   <string name="search_hint_search_my_lists">Hint text for the search box when searching the set of reading lists</string>
   <string name="search_hint_search_reading_list">Hint text for the search box when searching for pages in a single reading list</string>
   <string name="search_hint_search_languages">Hint text for the search box.</string>
   <string name="nav_item_history">Text in navigation sidebar that when tapped leads to the History screen.\n{{Identical|History}}</string>
-  <string name="nav_item_back">Button label for navigating to the previous page.</string>
-  <string name="nav_item_forward">Button label for navigating to the next page.</string>
   <string name="error_network_error">Error message shown when network cannot be reached when loading a page</string>
   <string name="page_error_retry">Text for button that retries page loading when tapped.\n{{Identical|Retry}}</string>
   <string name="page_error_back_to_main">Text for the back button that goes to the last page visited when tapped.\n{{Identical|Go back}}</string>
@@ -56,8 +56,8 @@
   <string name="menu_page_add_to_list">Menu item for adding the current page to a reading list.</string>
   <string name="menu_page_share">Menu item text for sharing the currently active page. Uses the build-in Android sharing functionality, so translate it the same way as the operating system does.\n{{Identical|Share}}</string>
   <string name="menu_page_open_a_new_tab">Menu item text for opening a new tab.</string>
-  <string name="menu_page_reading_lists">>Menu item text for opening the reading lists page.</string>
-  <string name="menu_page_recently_viewed">>Menu item text for opening the history page.</string>
+  <string name="menu_page_reading_lists">&gt;Menu item text for opening the reading lists page.</string>
+  <string name="menu_page_recently_viewed">&gt;Menu item text for opening the history page.</string>
   <string name="menu_long_press_open_page">Menu item for opening a link in the current tab.\n{{Identical|Open}}</string>
   <string name="menu_long_press_open_in_new_tab">Menu item for opening a link in a new tab.</string>
   <string name="menu_long_press_copy_page">Menu item for copying a link to the system clipboard for pasting later.</string>

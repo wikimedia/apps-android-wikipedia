@@ -56,8 +56,8 @@
   <string name="map_view_link_text">Diskwel war ur gartenn</string>
   <string name="language_count_link_text">A c\'haller kaout e %d yezh all</string>
   <string name="content_license_html">An endalc\'had a c\'haller kaout e &lt;a  href=\"%1$s\"&gt; aotre-implijout CC BY-SA 3.0&lt;/a&gt; nemet e vefe merket ar c\'hontrol</string>
-  <string name="edit_save_action_license_logged_in">Pa\'z enrollit e tegemerit an &lt;a href=\"%1$s\"&gt;Amplegadoù implijout&lt;/a&gt;,ha lakaat a rit ho tegasadennoù dindan an aotre-implijout &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; en ur doare didorradus.</string>
-  <string name="edit_save_action_license_anon">Pa\'z enrollit e tegemerit an &lt;a href=\"%1$s\"&gt;Amplegadoù implijout&lt;/a&gt;, ha lakaat a rit ho tegasadennoù dindan aotre-implijout &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; en un doare didorradus. Ar c\'hemmoù a vo deroet da chomlec\'h IP hoc\'h ardivink. M\'ho peus &lt;a href=\"https://#login\"&gt;kevreit&lt;/a&gt; ho po muioc\'h a zegasadennoù e kuzhut.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Pa\'z enrollit e tegemerit an &lt;a href=\"%1$s\"&gt;Amplegadoù implijout&lt;/a&gt;,ha lakaat a rit ho tegasadennoù dindan an aotre-implijout &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; en ur doare didorradus.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Pa\'z enrollit e tegemerit an &lt;a href=\"%1$s\"&gt;Amplegadoù implijout&lt;/a&gt;, ha lakaat a rit ho tegasadennoù dindan aotre-implijout &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; en un doare didorradus. Ar c\'hemmoù a vo deroet da chomlec\'h IP hoc\'h ardivink. M\'ho peus &lt;a href=\"https://#login\"&gt;kevreit&lt;/a&gt; ho po muioc\'h a zegasadennoù e kuzhut.</string>
   <string name="preference_title_language" fuzzy="true">Yezh Wikipedia</string>
   <string name="preference_languages_filter_hint">Klask</string>
   <string name="langlinks_filter_hint">Klask</string>
@@ -70,7 +70,7 @@
   <string name="dialog_message_edit_failed">C\'hwitet ar c\'hemm !</string>
   <string name="dialog_message_edit_failed_retry">Klask en-dro</string>
   <string name="dialog_message_edit_failed_cancel">Nullañ</string>
-  <string name="dialog_message_leaving_edit">\"N\'eo ket bet enrollet ho kemmoù c\'hoazh. Ha sur eo ho peus c\'hoant da guitaat ar bajenn-mañ ?\"</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">\"N\'eo ket bet enrollet ho kemmoù c\'hoazh. Ha sur eo ho peus c\'hoant da guitaat ar bajenn-mañ ?\"</string>
   <string name="dialog_message_leaving_edit_leave">Mont kuit</string>
   <string name="dialog_message_leaving_edit_stay">Chom</string>
   <string name="menu_show_toc">Taolenn</string>

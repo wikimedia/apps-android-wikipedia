@@ -55,8 +55,8 @@
   <string name="other_languages_indication_text">Legi en alia lingvo</string>
   <string name="language_count_link_text">Disponebla en %d aliaj lingvoj</string>
   <string name="content_license_html">La enhavo disponeblas laŭ la permesilo  &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; krom se alia permesilo estas indikita.</string>
-  <string name="edit_save_action_license_logged_in">Konservante, vi konsentas kun la  &lt;a href=\"%1$s\"&gt;Uzkondiĉoj&lt;/a&gt;,kaj ne-malfareble liberigas viajn kontribuojn sub la permesilo &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Konservante, vi konsentas kun la &lt;a href=\"%1$s\"&gt;Uzkondiĉoj&lt;/a&gt;,kaj ne-malfareble liberigas viajn kontribuojn sub la permesilo &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redaktoj estos atribuitaj al la IP-adreso de via aparato. Se vi &lt;a href=\"https://#login\"&gt;ensalutos&lt;/a&gt;, vi havos pli da privateco.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Konservante, vi konsentas kun la  &lt;a href=\"%1$s\"&gt;Uzkondiĉoj&lt;/a&gt;,kaj ne-malfareble liberigas viajn kontribuojn sub la permesilo &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Konservante, vi konsentas kun la &lt;a href=\"%1$s\"&gt;Uzkondiĉoj&lt;/a&gt;,kaj ne-malfareble liberigas viajn kontribuojn sub la permesilo &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redaktoj estos atribuitaj al la IP-adreso de via aparato. Se vi &lt;a href=\"https://#login\"&gt;ensalutos&lt;/a&gt;, vi havos pli da privateco.</string>
   <string name="preference_title_language">Lingvoj de Vikipedio</string>
   <string name="preference_languages_filter_hint">Serĉi</string>
   <string name="langlinks_filter_hint">Serĉi</string>
@@ -70,7 +70,7 @@
   <string name="dialog_message_edit_failed">Redakto malsukcesis:</string>
   <string name="dialog_message_edit_failed_retry">Reprovi</string>
   <string name="dialog_message_edit_failed_cancel">Nuligi</string>
-  <string name="dialog_message_leaving_edit">Viaj modifoj ankoraŭ ne estas konservitaj. Ĉu ci certas ke vi volas foriri el ĉi tiu paĝo?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">Viaj modifoj ankoraŭ ne estas konservitaj. Ĉu ci certas ke vi volas foriri el ĉi tiu paĝo?</string>
   <string name="dialog_message_leaving_edit_leave">Foriri</string>
   <string name="dialog_message_leaving_edit_stay">Resti</string>
   <string name="menu_show_toc">Enhavtabelo</string>

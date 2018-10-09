@@ -65,8 +65,8 @@
   <string name="other_languages_indication_text">Baca dalam bahasa lain</string>
   <string name="language_count_link_text">Tersedia dalam %d bahasa lain</string>
   <string name="content_license_html">Konten tersedia di bawah &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; kecuali dinyatakan lain</string>
-  <string name="edit_save_action_license_logged_in">Dengan menyimpan, Anda setuju terhadap &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt;, dan melepas kontribusi Anda di bawah lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Dengan menyimpan, Anda setuju terhadap &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt;, dan melepas kontribusi Anda di bawah lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Suntingan akan dihubungkan ke alamat IP perangkat. Jika Anda &lt;a href=\"https://#login\"&gt;masuk log&lt;/a&gt;, Anda akan memiliki lebih privasi.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Dengan menyimpan, Anda setuju terhadap &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt;, dan melepas kontribusi Anda di bawah lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Dengan menyimpan, Anda setuju terhadap &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt;, dan melepas kontribusi Anda di bawah lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Suntingan akan dihubungkan ke alamat IP perangkat. Jika Anda &lt;a href=\"https://#login\"&gt;masuk log&lt;/a&gt;, Anda akan memiliki lebih privasi.</string>
   <string name="preference_title_language">Bahasa Wikipedia</string>
   <string name="preference_languages_filter_hint">Cari</string>
   <string name="langlinks_filter_hint">Cari</string>
@@ -80,7 +80,7 @@
   <string name="dialog_message_edit_failed">Penyuntingan gagal!</string>
   <string name="dialog_message_edit_failed_retry">Coba lagi</string>
   <string name="dialog_message_edit_failed_cancel">Batal</string>
-  <string name="dialog_message_leaving_edit">Perubahan Anda belum disimpan. Anda yakin ingin meninggalkan halaman ini?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">Perubahan Anda belum disimpan. Anda yakin ingin meninggalkan halaman ini?</string>
   <string name="dialog_message_leaving_edit_leave">Tinggalkan</string>
   <string name="dialog_message_leaving_edit_stay">Tetap di sini</string>
   <string name="menu_show_toc">Daftar isi</string>

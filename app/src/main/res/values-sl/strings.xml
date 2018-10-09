@@ -59,7 +59,7 @@
   <string name="dialog_message_edit_failed">Urejanje neuspešno!</string>
   <string name="dialog_message_edit_failed_retry">Poskusi ponovno</string>
   <string name="dialog_message_edit_failed_cancel">Prekliči</string>
-  <string name="dialog_message_leaving_edit">Vaše spremembe še niso bile shranjene. Res želite zapustiti to stran?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">Vaše spremembe še niso bile shranjene. Res želite zapustiti to stran?</string>
   <string name="dialog_message_leaving_edit_leave">Zapusti</string>
   <string name="dialog_message_leaving_edit_stay">Ostani</string>
   <string name="menu_show_toc">Kazalo vsebine</string>

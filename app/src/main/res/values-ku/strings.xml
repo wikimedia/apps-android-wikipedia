@@ -55,8 +55,8 @@
   <string name="other_languages_indication_text">Bi zimanekî din bixwîne</string>
   <string name="language_count_link_text">Bi %d zimanên din jî berdest e</string>
   <string name="content_license_html">Naverok di bin lîsansa &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de berdest e heta ku eksa wê bê gotin</string>
-  <string name="edit_save_action_license_logged_in">Bi qeydkirinê, tu &lt;a href=\"%1$s\"&gt;Şertên Bikaranînê&lt;/a&gt; qebûl dikî, û bi awayekî paşveneger beşdariyên xwe di bin lîsansa &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de belav dikî.</string>
-  <string name="edit_save_action_license_anon">Bi qeydkirinê, tu &lt;a href=\"%1$s\"&gt;Şertên Bikaranînê&lt;/a&gt; qebûl dikî, û bi awayekî paşveneger beşdariyên xwe di bin lîsansa &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de belav dikî. Sererastkirin wê bi adrêsa te ya IPyê ya cîhaza te re bêne girêdan. Eger &lt;a href=\"https://#login\"&gt;têkevî&lt;/a&gt;, wê veşaritîya te zêdetir bê muhafezekirin.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Bi qeydkirinê, tu &lt;a href=\"%1$s\"&gt;Şertên Bikaranînê&lt;/a&gt; qebûl dikî, û bi awayekî paşveneger beşdariyên xwe di bin lîsansa &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de belav dikî.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Bi qeydkirinê, tu &lt;a href=\"%1$s\"&gt;Şertên Bikaranînê&lt;/a&gt; qebûl dikî, û bi awayekî paşveneger beşdariyên xwe di bin lîsansa &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de belav dikî. Sererastkirin wê bi adrêsa te ya IPyê ya cîhaza te re bêne girêdan. Eger &lt;a href=\"https://#login\"&gt;têkevî&lt;/a&gt;, wê veşaritîya te zêdetir bê muhafezekirin.</string>
   <string name="preference_title_language">Zimanên Wîkîpediyayê</string>
   <string name="preference_languages_filter_hint">Lêgerîn</string>
   <string name="langlinks_filter_hint">Lêgerîn</string>
@@ -70,7 +70,7 @@
   <string name="dialog_message_edit_failed">Guherandin biser neket!</string>
   <string name="dialog_message_edit_failed_retry">Dîsa hewl bide</string>
   <string name="dialog_message_edit_failed_cancel">Betal bike</string>
-  <string name="dialog_message_leaving_edit">Guhertinên te hê nihatine tomarkirin. Tu dixwazî ji vê rûpelê derkevî?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">Guhertinên te hê nihatine tomarkirin. Tu dixwazî ji vê rûpelê derkevî?</string>
   <string name="dialog_message_leaving_edit_leave">Jê derkeve</string>
   <string name="dialog_message_leaving_edit_stay">Bimîne</string>
   <string name="menu_show_toc">Tabloya naverokê</string>

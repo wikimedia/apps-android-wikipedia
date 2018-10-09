@@ -56,8 +56,8 @@
   <string name="other_languages_indication_text">अर्को भाषामा पढ्नुहोस्</string>
   <string name="language_count_link_text">अरू %d ओटा भाषाहरूमा उपलब्ध</string>
   <string name="content_license_html">अन्यथा उल्लेख नभएसम्म सामग्रीहरू &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; अन्तर्गत् उपलब्ध छ</string>
-  <string name="edit_save_action_license_logged_in">सङ्ग्रह गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत् प्रकाशन गर्नुहुन्छ।</string>
-  <string name="edit_save_action_license_anon">सङ्ग्रह गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत् प्रकाशन गर्नुहुन्छ। सम्पादनको श्रेय तपाईँको यन्त्रको IP ठेगानालाई दिइने छ। यदि तपाईँ &lt;a href=\"https://#login\"&gt;लग इन &lt;/a&gt;, गर्नु भयो भने तपाईँको बढी गोपनीयता रहने छ।</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">सङ्ग्रह गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत् प्रकाशन गर्नुहुन्छ।</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">सङ्ग्रह गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत् प्रकाशन गर्नुहुन्छ। सम्पादनको श्रेय तपाईँको यन्त्रको IP ठेगानालाई दिइने छ। यदि तपाईँ &lt;a href=\"https://#login\"&gt;लग इन &lt;/a&gt;, गर्नु भयो भने तपाईँको बढी गोपनीयता रहने छ।</string>
   <string name="preference_title_language">विकिपिडिया भाषाहरू</string>
   <string name="preference_languages_filter_hint">खोज्नुहोस्</string>
   <string name="langlinks_filter_hint">खोज्नुहोस्</string>
@@ -71,7 +71,7 @@
   <string name="dialog_message_edit_failed">सम्पादन असफल भयो!</string>
   <string name="dialog_message_edit_failed_retry">पुनः प्रयास गर्नुहोस्</string>
   <string name="dialog_message_edit_failed_cancel">रद्द गर्नुहोस्</string>
-  <string name="dialog_message_leaving_edit">तपाईंका परिवर्तनहरू अझै सुरक्षित गरिएका छैनन्। यो पृष्ठ छाड्ने कुरामा निश्चित हुनुहुन्छ?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">तपाईंका परिवर्तनहरू अझै सुरक्षित गरिएका छैनन्। यो पृष्ठ छाड्ने कुरामा निश्चित हुनुहुन्छ?</string>
   <string name="dialog_message_leaving_edit_leave">छोड्नुहोस्</string>
   <string name="dialog_message_leaving_edit_stay">रहनुहोस्</string>
   <string name="menu_show_toc">विषयसूची</string>
@@ -87,11 +87,13 @@
   <string name="login_username_hint">प्रयोगकर्ताको नाम</string>
   <string name="login_password_hint">पासवर्ड</string>
   <string name="login_2fa_hint">दुई चरण प्रामाणिकरण कोड</string>
+  <string name="login_2fa_other_workflow_error_msg">दुई चरण प्रामाणिकरण आवश्यक !  मुख्य एक्टिभिटीमा जानुहोस् र 2FA टोकन प्रयोग गरेर लग इन गर्नुहोस्, र पुन: प्रयास गर्नुहोस् ।</string>
   <string name="menu_login">लग इन</string>
   <string name="login_activity_title">विकिपिडियामा लग इन गर्नुहोस्</string>
-  <string name="login_in_progress_dialog_message">तपाईंलाई लगइन गर्दै…</string>
-  <string name="login_success_toast">सफलतापूर्वक लगइन भयो!</string>
+  <string name="login_in_progress_dialog_message">तपाईंलाई लग इन गर्दै…</string>
+  <string name="login_success_toast">सफलतापूर्वक लग इन भयो!</string>
   <string name="reset_password_title">तपाईँको पासवर्ड लेख्नुहोस्</string>
+  <string name="reset_password_description">तपाईँ अस्थायी पासवर्ड प्रयोग गरेर लग इन गर्नुभएको छ । लग इन पूरा गर्न, यहाँ तपाईँले नयाँ पासवर्ड सेट गर्नुहोस् ।</string>
   <string name="reset_password_hint">नयाँ पासवर्ड</string>
   <string name="reset_password_button">सङ्ग्रह गर्नुहोस् र लग इन गर्नुहोस्</string>
   <string name="preference_title_logout">लग आउट गर्नुहोस्</string>
@@ -117,8 +119,13 @@
   <string name="create_account_password_error">पासवर्ड मान्य छैन।</string>
   <string name="create_account_generic_error">खाता सिर्जना गर्न सकिएन</string>
   <string name="create_account_next">अर्को</string>
+  <string name="email_recommendation_dialog_title">इमेल ठेगाना विना नै खाता सिर्जना गर्ने हो?</string>
+  <string name="email_recommendation_message">सुझाव दिइएको किनभने किनभने खाता पुन: प्राप्तिको लागि इमेल आवश्यक हुन्छ ।</string>
+  <string name="email_recommendation_dialog_create_without_email_action">इमेल बिना नै निरन्तरता दिनुहोस्</string>
+  <string name="email_recommendation_dialog_create_with_email_action">इमेल ठेगाना थप्नुहोस्</string>
   <string name="create_account_button">खाता सिर्जना गर्नुहोस्</string>
-  <string name="create_account_ip_block_message">माफी, तपाईंको आईपी ठेगानाबाट नयाँ खाताहरू खोल्न निषेध गरिएको छ।</string>
+  <string name="create_account_name_unavailable">प्रयोगकर्ता नाम  \"%s\"  उपलब्ध छैन । कृपया फरक नाम छान्नुहोस् ।</string>
+  <string name="create_account_ip_block_message">माफ गर्नुहोस्, तपाईंको आईपी ठेगानाबाट नयाँ खाताहरू खोल्न निषेध गरिएको छ।</string>
   <string name="create_account_ip_block_details">विवरणहरू</string>
   <string name="preferences_general_heading">सामान्य</string>
   <string name="wikipedia_app_faq">विकिपिडिया अनुप्रयोगबारे प्रायः सोधिने प्रश्नहरू</string>
@@ -128,7 +135,7 @@
   <string name="zero_webpage_title">विकिपिडिया शून्यबारे प्रायः सोधिने प्रश्नहरू</string>
   <string name="zero_wikipedia_zero_heading">विकिपिडिया शून्य</string>
   <string name="zero_interstitial_title">विकिपिडिया शून्य छोड्दै</string>
-  <string name="zero_interstitial_leave_app">डेटा शुल्क लागु हुन्छ। बाहिरी साइटमा जाने हो?</string>
+  <string name="zero_interstitial_leave_app">डेटा शुल्क लाग्न सक्छ । बाह्य साइटमा जाने हो ?</string>
   <string name="zero_interstitial_continue">छाड्नुहोस्</string>
   <string name="zero_interstitial_cancel">यहाँ रहनुहोस्</string>
   <string name="zero_learn_more">तपाईंको वायरलेस प्रदायकले विकिपिडिया सामग्रीमा निःशुल्क पहुँच उपलब्ध गराएको छ!</string>
@@ -142,6 +149,8 @@
   <string name="preferences_heading_data_usage">डेटा उपयोग</string>
   <string name="preferences_heading_experimental">प्रयोगात्मक</string>
   <string name="preference_title_sync_reading_lists">अध्ययन सूची समक्रमण गर्दै</string>
+  <string name="preference_title_sync_reading_lists_from_account">अध्ययन सुची सिङ्क गर्दै</string>
+  <string name="preference_title_download_reading_list_articles">अध्ययन सूचिका लेखहरू डाउनलोड गर्दै</string>
   <string name="preferences_privacy_settings_heading">गोपनीयता</string>
   <string name="preference_title_eventlogging_opt_in">उपयोगसम्बन्धी प्रतिवेदनहरू पठाउनुहोस्</string>
   <string name="preference_summary_eventlogging_opt_in">अनुप्रयोगलाई अझ राम्रो बनाउन तपाईंले अनुप्रयोगको उपयोग कसरी गर्नुहुन्छ भन्नेबारे विकिपिडियालाई जानकारी सङ्कलन गर्ने अनुमति दिनुहोस्</string>
@@ -335,6 +344,8 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">प्रवेश (लग इन) गर्नुहोस्</string>
   <string name="reading_list_turned_sync_off_dialog_ok">हुन्छ</string>
   <string name="reading_list_turned_sync_off_dialog_settings">सेटिङ्हरू</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">समक्रमण सक्षम पार्नुहोस्</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">पर्दैन धन्यवाद</string>
   <string name="default_reading_list_name">सङ्ग्रह गरिएको</string>
   <string name="user_option_sync_label">प्राथमिकताहरू</string>
   <string name="notification_button_view_user">प्रयोगकर्तासँग कुरा गर्नुहोस्</string>
@@ -344,6 +355,14 @@
   <string name="notification_syncing_pause_button">रोक्नुहोस्</string>
   <string name="notification_syncing_resume_button">पुनः निरन्तरता दिनुहोस्</string>
   <string name="notification_syncing_cancel_button">रद्द गर्नुहोस्</string>
+  <string name="notifications_prefs">जानकारी अभिरुचीहरू</string>
+  <string name="notifications_poll_enable_title">जानकारी सक्षम पार्नुहोस्</string>
+  <string name="notifications_poll_enable_positive">सक्षम पार्नुहोस्</string>
+  <string name="notifications_poll_enable_negative">अहिले हैन</string>
+  <string name="notifications_empty_message">तपाईँका सबै जानकारीहरू पढेर सकियो!</string>
+  <string name="notifications_view_archived_button_text">अभिलेख गरिएका जानकारीहरू हेर्नुहोस्</string>
+  <string name="notification_preferences_title">जानकारी अभिरुचीहरू</string>
+  <string name="preference_title_notification_poll">पोल जानकारीहरू</string>
   <string name="view_continue_reading_card_title">पढ्ने कार्य जारी राख्नुहोस्</string>
   <string name="view_because_you_read_card_title">तपाईंले यो लेख पढ्नुभएको हुनाले</string>
   <string name="view_random_card_title">क्रमरहित ढङ्गले चुनिएको लेख</string>
@@ -405,9 +424,29 @@
   <string name="onboarding_explore_title">अन्वेषण गर्ने नयाँ तरिका</string>
   <string name="onboarding_explore_text" fuzzy="true">अन्वेषण नामक फिडमा विशेष लेख, प्रचलनमा रहेका शीर्षक र अध्ययनसम्बन्धी सुझावहरू फेला पार्नुहोस्।</string>
   <string name="onboarding_got_it">मैले बुझेँ</string>
+  <string name="app_shortcuts_random">कुनै पनि एक</string>
   <string name="app_shortcuts_continue_reading">पढ्ने कार्य जारी राख्नुहोस्</string>
   <string name="app_shortcuts_search">खोज्नुहोस्</string>
   <string name="on_this_day_card_title">आजको दिनमा</string>
+  <string name="more_events_text">आजको दिनमा थप</string>
+  <string name="events_count_text">%1$s कार्यक्रम देखि %2$s–%3$d</string>
   <string name="this_year">यस वर्ष</string>
   <string name="back_to_top">सुरुमा फर्कनुहोस्</string>
+  <plurals name="diff_years">
+    <item quantity="one">गत वर्ष</item>
+    <item quantity="other">%d वर्ष पहिले</item>
+  </plurals>
+  <string name="languages_list_activity_title">भाषा थप्नुहोस्</string>
+  <string name="languages_list_suggested_text">सुझावित</string>
+  <string name="languages_list_all_text">सबै भाषाहरू</string>
+  <string name="wikipedia_languages_title">विकिपिडिया भाषाहरू</string>
+  <string name="wikipedia_languages_your_languages_text">तपाईँको भाषाहरू</string>
+  <string name="wikipedia_languages_add_language_text">भाषा थप्नुहोस्</string>
+  <string name="wikipedia_languages_remove_text">भाषा हटाउनुहोस्</string>
+  <string name="wikipedia_languages_remove_action_mode_title">भाषा हटाउनुहोस्</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">सबै भाषा हटाउन सकिएन \</string>
+  <string name="more_language_options">थप</string>
+  <string name="add_wikipedia_languages_text">विकिपिडिया भाषाहरू थप्नुहोस्</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">भाषाहरू सम्पादन गर्नुहोस्</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">पर्दैन धन्यवाद</string>
 </resources>
