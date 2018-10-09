@@ -51,7 +51,9 @@
 
             <TextView
                 android:id="@+id/fragment_feed_customize_button"
-                style="@style/App.Button.White"
+                style="@style/App.Button"
+                app:backgroundTint="?attr/paper_color"
+                android:textColor="?attr/secondary_text_color"
                 android:text="@string/feed_configure_onboarding_action"/>
 
         </LinearLayout>
