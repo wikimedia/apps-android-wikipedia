@@ -22,10 +22,13 @@
   <string name="app_name_beta">விக்கிப்பீடியா பீட்டா</string>
   <string name="app_name_alpha">விக்கிப்பீடியா ஆல்பா</string>
   <string name="wikimedia">விக்கிமீடியா</string>
+  <string name="nav_item_back">பின்செல்</string>
+  <string name="nav_item_forward">முன்செல்</string>
   <string name="search_hint">விக்கிப்பீடியாவில் தேடவும்</string>
   <string name="search_hint_search_history">வரலாற்றைத் தேடு</string>
   <string name="search_hint_search_my_lists">என் பட்டியல்களைத் தேடு</string>
   <string name="search_hint_search_reading_list">வாசிப்புப் பட்டியலைத் தேடு</string>
+  <string name="search_hint_search_languages">ஓர் மொழியை தேடுக</string>
   <string name="nav_item_history">வரலாறு</string>
   <string name="error_network_error">இணைய தொடர்பு இல்லை :(</string>
   <string name="page_error_retry">மறு முயற்சி செய்</string>
@@ -34,6 +37,7 @@
   <string name="history_item_deleted">%s வரலாற்றில் இருந்து நீக்கப்பட்டது</string>
   <string name="history_items_deleted">%d கட்டுரைகள் வரலாற்றில் இருந்து நீக்கப்பட்டது</string>
   <string name="history_item_delete_undo">மீளமை</string>
+  <string name="app_settings">இச்செயலியின் அமைப்புகள்</string>
   <string name="dialog_title_clear_history">உலவல் வரலாற்றை நீக்கு</string>
   <string name="dialog_message_clear_history">இது உங்கள் உலவல் வரலாற்றை மொத்தமாக அழித்து விடும், மேலும் திரந்திருக்கும் எல்லா தத்தல்களையும் மூடிவிடும். நீங்கள் உறுதியாக இருக்கிறீர்க்ளா?</string>
   <string name="dialog_message_clear_history_yes">ஆம்</string>
@@ -47,6 +51,9 @@
   <string name="menu_page_font_and_theme">எழுத்துரு மற்றும் பிற</string>
   <string name="menu_page_add_to_list">படிக்கும் பட்டியலில் சேர்க</string>
   <string name="menu_page_share">இணைப்பை பகிர்</string>
+  <string name="menu_page_open_a_new_tab">புதிய தத்தலில் திற</string>
+  <string name="menu_page_reading_lists">வாசிப்பு பட்டியல்கள்</string>
+  <string name="menu_page_recently_viewed">அண்மையில் கண்டவை</string>
   <string name="menu_long_press_open_page">திற</string>
   <string name="menu_long_press_open_in_new_tab">புதிய தத்தலில் திற</string>
   <string name="menu_long_press_copy_page">இணைப்பு முகவரியை நகலெடு</string>
@@ -64,6 +71,8 @@
   <string name="other_languages_indication_text">இன்னொரு மொழியில் வாசிக்கவும்</string>
   <string name="language_count_link_text">%d மற்ற மொழிகளில் கிடைக்கத்தக்கது</string>
   <string name="content_license_html">உள்ளடக்கம் &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; வின் அடிப்படையில் கிடைக்கும், வேறு எவ்வகையிலும் குறிப்பிடாதபட்சத்தில்.</string>
+  <string name="edit_save_action_license_logged_in">பதிப்பிடுவதன் மூலம், நீங்கள் &lt;a href=\"%1$s\"&gt;பயன்பாட்டு விதிமுறைகளை&lt;/a&gt; ஒப்புகொள்கிறீர்கள். மேலும் உங்கள் பங்களிப்புகளை &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; உரிமத்தின் கீழ் திரும்ப பெர இயலாதபடி வெளியிட ஒப்புகொள்கிறீர்கள்.</string>
+  <string name="edit_save_action_license_anon">பதிப்பிடுவதன் மூலம், நீங்கள் &lt;a href=\"%1$s\"&gt;பயன்பாட்டு விதிமுறைகளை&lt;/a&gt; ஒப்புகொள்கிறீர்கள். மேலும் உங்கள் பங்களிப்புகளை &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; உரிமத்தின் கீழ் திரும்ப பெர இயலாதபடி வெளியிட ஒப்புகொள்கிறீர்கள். தொகுப்புகள் தங்களது கருவியின் IP முகவரிக்கு உடைமையாக்கபடும். நீங்கள் &lt;a href=\"https://#login\"&gt;புகுபதிகை செய்தால்&lt;/a&gt;, உங்களுக்கு மேலும் தனியுரிமை இருக்கும்.</string>
   <string name="preference_title_language">விக்கப்பீடியா மொழி</string>
   <string name="preference_languages_filter_hint">தேடுக</string>
   <string name="langlinks_filter_hint">தேடுக</string>
@@ -86,6 +95,7 @@
   <string name="search_reading_lists_no_results">வாசிப்பு பட்டியலில் முடிவுகள் எதுவும் கிடைக்கவில்லை</string>
   <string name="search_history_no_results">வரலாற்றில் வாசிப்பு முடிவுகள் எதுவும் கிடைக்கவில்லை</string>
   <string name="edit_section_captcha_message">தானியங்கு எரிதத்தை எதிர்த்து காக்க, கீழ்வரும் சொற்களை உள்ளிடவும்</string>
+  <string name="edit_section_captcha_request_an_account_message">படத்தை காண இயலவில்லையா? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;மேலும் அறிக&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">மேலுள்ள சொற்களை மீண்டும் உள்ளிடவும்</string>
   <string name="title_captcha">CAPTCHAவை உள்ளிடவும்</string>
   <string name="edit_section_captcha_reload">மறுஏற்றம் செய்ய கேப்ட்சாவை தட்டவும்</string>
@@ -98,7 +108,7 @@
   <string name="login_success_toast">புகுபதிகை வெற்றி</string>
   <string name="preference_title_logout">விடுபதிகை</string>
   <string name="toast_logout_complete">விடுபதிகை செய்துவிட்டீர்கள்.</string>
-  <string name="history_empty_title">அண்மைய பக்கங்கள் ஏதுமில்லை.</string>
+  <string name="history_empty_title">அண்மையில் கண்ட பக்கங்கள் ஏதுமில்லை</string>
   <string name="history_empty_message">நீங்கள் வாசிப்பனவற்றை இங்கே பின்தொடர்க.</string>
   <string name="search_empty_message">உங்களது மொழியில் இலவச கலைக் களஞ்சியத்தைத் தேடிப் படிக்கவும்</string>
   <string name="search_empty_message_multilingual_upgrade">விக்கிப்பீடியாவை மேலும் பல மொழிகளில் தேடவும்</string>

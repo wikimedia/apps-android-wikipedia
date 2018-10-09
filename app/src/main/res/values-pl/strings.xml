@@ -30,6 +30,8 @@
   <string name="app_name_beta">Wikipedia wersja beta</string>
   <string name="app_name_alpha">Wikipedia Alfa</string>
   <string name="wikimedia">Wikimedia</string>
+  <string name="nav_item_back">Wstecz</string>
+  <string name="nav_item_forward">Dalej</string>
   <string name="search_hint">Szukaj w Wikipedii</string>
   <string name="search_hint_search_history">Historia wyszukiwania</string>
   <string name="search_hint_search_my_lists">Przeszukaj moje listy</string>
@@ -57,6 +59,8 @@
   <string name="menu_page_font_and_theme">Zmień czcionkę i skórkę</string>
   <string name="menu_page_add_to_list">Dodaj do listy czytanych</string>
   <string name="menu_page_share">Podziel się linkiem</string>
+  <string name="menu_page_open_a_new_tab">Otwórz nową zakładkę</string>
+  <string name="menu_page_recently_viewed">Niedawno odwiedzone</string>
   <string name="menu_long_press_open_page">Otwórz</string>
   <string name="menu_long_press_open_in_new_tab">Otwórz w nowej karcie</string>
   <string name="menu_long_press_copy_page">Skopiuj adres linka</string>
@@ -74,8 +78,8 @@
   <string name="other_languages_indication_text">Przeczytaj w innym języku</string>
   <string name="language_count_link_text">Dostępne w %d innych językach</string>
   <string name="content_license_html">O ile nie zaznaczono inaczej, treść dostępna jest na licencji &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
-  <string name="edit_save_action_license_logged_in">Zapisując, akceptujesz &lt;a href=\"%1$s\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz zgodę na udostępnianie Twojego wkładu na licencjach &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Zapisując, akceptujesz &lt;a href=\"%1$s\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz nieodwołalną zgodę na udostępnianie Twojego wkładu na licencjach &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Zmiany zostaną przypisane do adresu IP Twojego urządzenia. Po &lt;a href=\"https://#login\"&gt;zalogowaniu się&lt;/a&gt;, będziesz mógł skorzystać z wyższego poziomu prywatności.</string>
+  <string name="edit_save_action_license_logged_in">Publikując, akceptujesz &lt;a href=\"%1$s\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz zgodę na udostępnianie Twojego wkładu na licencjach &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Publikując, akceptujesz &lt;a href=\"%1$s\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz nieodwołalną zgodę na udostępnianie Twojego wkładu na licencjach &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Zmiany zostaną przypisane do adresu IP Twojego urządzenia. Po &lt;a href=\"https://#login\"&gt;zalogowaniu&lt;/a&gt;, będziesz mógł skorzystać z wyższego poziomu prywatności.</string>
   <string name="preference_title_language">Języki Wikipedii</string>
   <string name="preference_languages_filter_hint">Szukaj</string>
   <string name="langlinks_filter_hint">Szukaj</string>
@@ -89,7 +93,7 @@
   <string name="dialog_message_edit_failed">Edycja nie powiodła się!</string>
   <string name="dialog_message_edit_failed_retry">Ponów próbę</string>
   <string name="dialog_message_edit_failed_cancel">Anuluj</string>
-  <string name="dialog_message_leaving_edit">Twoje zmiany nie zostały jeszcze zapisane. Czy na pewno chcesz opuścić tę stronę?</string>
+  <string name="dialog_message_leaving_edit">Twoje zmiany nie zostały jeszcze opublikowane. Czy na pewno chcesz opuścić tę stronę?</string>
   <string name="dialog_message_leaving_edit_leave">Wyjdź</string>
   <string name="dialog_message_leaving_edit_stay">Pozostań</string>
   <string name="menu_show_toc">Spis treści</string>
@@ -287,6 +291,8 @@
   <string name="address_copied">Adres skopiowany do schowka.</string>
   <string name="text_copied">Tekst skopiowany do schowka.</string>
   <string name="button_continue_to_article">Przeczytaj artykuł</string>
+  <string name="button_continue_to_disambiguation">Pokaż podobne strony</string>
+  <string name="link_preview_disambiguation_description">Ten tytuł odnosi się do więcej niż jednej strony:</string>
   <string name="button_add_to_reading_list">Dodaj do listy czytanych</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artykuł nie może zostać załadowany, gdy jesteś offline.</string>
   <string name="button_get_directions">Wyznacz trasę</string>
@@ -431,6 +437,8 @@
   <string name="notifications_view_archived">Zobacz zarchiwizowane</string>
   <string name="notifications_prefs">Preferencje powiadomień</string>
   <string name="notifications_archive">Oznacz jako przeczytane i zarchiwizuj</string>
+  <string name="notifications_poll_enable_title">Włącz powiadomienia</string>
+  <string name="notifications_poll_enable_positive">Włącz</string>
   <string name="notifications_poll_enable_negative">Nie teraz</string>
   <string name="notifications_view_archived_button_text">Zobacz powiadomienia zarchiwizowane</string>
   <string name="notification_preferences_title">Preferencje powiadomień</string>
@@ -465,12 +473,14 @@
   <string name="view_featured_article_card_title">Wyróżniony artykuł</string>
   <string name="view_featured_article_footer_save_button_label">Zapisz</string>
   <string name="view_featured_article_footer_saved_button_label">Zapisane</string>
+  <string name="feed_configure_activity_title">Dostosuj kanał</string>
   <string name="feed_configure_menu_reset">Przywróć domyślny widok</string>
   <string name="feed_configure_menu_select_all">Pokaż wszystko</string>
   <string name="feed_configure_menu_deselect_all">Ukryj wszystko</string>
   <string name="feed_item_type_news">Artykuły o bieżących wydarzeniach</string>
   <string name="feed_item_type_on_this_day">Wydarzenia w historii w tym dniu</string>
   <string name="feed_item_type_featured_article">Dzisiejszy wyróżniony artykuł na Wikipedii</string>
+  <string name="feed_item_type_trending">Najczęściej odwiedzane artykuły dzisiaj</string>
   <string name="feed_item_type_main_page">Strona główna Wikipedii zawierająca dzienną wyróżnioną treść</string>
   <string name="feed_item_type_randomizer">Wylosuj artykuł do przeczytania</string>
   <string name="feed_configure_onboarding_action">Dostosuj</string>
@@ -529,11 +539,17 @@
   <string name="onboarding_create_account_sync">Zzynchronizuj swoje listy czytania</string>
   <string name="onboarding_create_account_contributions">Śledź swój wkład</string>
   <string name="onboarding_create_account_preferences">Zapisz swoje preferencje</string>
+  <string name="onboarding_got_it">Wszystko jasne</string>
+  <string name="onboarding_multilingual_secondary_text">Znaleźliśmy następujące na twoim urządzeniu:</string>
   <string name="onboarding_multilingual_add_language_text">Dodaj lub edytuj języki</string>
   <string name="onboarding_welcome_title_v2">Wolna encyklopedia\n...w prawie 300 językach</string>
   <string name="app_shortcuts_random">Losowa strona</string>
   <string name="app_shortcuts_continue_reading">Czytaj dalej</string>
   <string name="app_shortcuts_search">Szukaj</string>
+  <string name="more_trending_text">Więcej podobnych</string>
+  <string name="top_on_this_day">Popularne w dniu %1$s</string>
+  <string name="on_this_day_card_title">Dzisiejszego dnia</string>
+  <string name="more_events_text">Więcej dzisiejszego dnia</string>
   <string name="this_year">W tym roku</string>
   <string name="back_to_top">Powrót do góry</string>
   <string name="languages_list_activity_title">Dodaj język</string>
@@ -553,4 +569,8 @@
   <string name="add_wikipedia_languages_text">Dodaj języki Wikipedii</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Edytuj języki</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nie, dziękuję</string>
+  <string name="main_drawer_open">Otwórz</string>
+  <string name="main_drawer_close">Zamknij</string>
+  <string name="main_drawer_help">Pomoc</string>
+  <string name="main_drawer_login">Zaloguj się / dołącz do Wikipedii</string>
 </resources>

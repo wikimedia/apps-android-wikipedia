@@ -3,6 +3,7 @@
 * Envlh
 * Festina90
 * Goefie
+* Jeroen N
 * KlaasZ4usV
 * Mainframe98
 * Mar(c)
@@ -68,8 +69,8 @@
   <string name="other_languages_indication_text">In een andere taal lezen</string>
   <string name="language_count_link_text">Beschikbaar in %d andere talen</string>
   <string name="content_license_html">Inhoud is beschikbaar onder de &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie tenzij anders aangegeven</string>
-  <string name="edit_save_action_license_logged_in">Door op te slaan gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie.</string>
-  <string name="edit_save_action_license_anon">Door op te slaan gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie. Bewerkingen worden toegeschreven aan het IP-adres van uw apparaat. Als u zich &lt;a href=\"https://#login\"&gt;aanmeldt&lt;/a&gt;, hebt u meer privacy.</string>
+  <string name="edit_save_action_license_logged_in">Door te publiceren gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie.</string>
+  <string name="edit_save_action_license_anon">Door te publiceren gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie. Bewerkingen worden toegeschreven aan het IP-adres van uw apparaat. Als u zich &lt;a href=\"https://#login\"&gt;aanmeldt&lt;/a&gt;, hebt u meer privacy.</string>
   <string name="preference_title_language">Wikipediatalen</string>
   <string name="preference_languages_filter_hint">Zoeken</string>
   <string name="langlinks_filter_hint">Zoeken</string>
@@ -83,7 +84,7 @@
   <string name="dialog_message_edit_failed">Bewerking mislukt!</string>
   <string name="dialog_message_edit_failed_retry">Opnieuw proberen</string>
   <string name="dialog_message_edit_failed_cancel">Annuleren</string>
-  <string name="dialog_message_leaving_edit">Uw wijzigingen zijn nog niet opgeslagen. Weet u zeker dat u deze pagina wilt verlaten?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">Uw wijzigingen zijn nog niet opgeslagen. Weet u zeker dat u deze pagina wilt verlaten?</string>
   <string name="dialog_message_leaving_edit_leave">Sluiten</string>
   <string name="dialog_message_leaving_edit_stay">Blijven</string>
   <string name="menu_show_toc">Inhoudsopgave</string>
@@ -288,6 +289,7 @@
   <string name="address_copied">Het adres is gekopieerd naar het klembord.</string>
   <string name="text_copied">De tekst is gekopieerd naar het klembord.</string>
   <string name="button_continue_to_article">Pagina lezen</string>
+  <string name="button_continue_to_disambiguation">Toon vergelijkbare pagina\'s</string>
   <string name="button_add_to_reading_list">Aan leeslijst toevoegen</string>
   <string name="page_offline_notice_cannot_load_while_offline">Pagina kan niet in offline worden geladen.</string>
   <string name="page_offline_notice_add_to_reading_list">Tip: voeg de pagina toe aan een leeslijst en deze zal gedownload worden wanneer u weer verbinding hebt.</string>
@@ -413,6 +415,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Synchronisatie inschakelen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nee, bedankt</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Ja, voeg deze toe aan mijn leeslijsten</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Nee, artikelen verwijderen</string>
   <string name="default_reading_list_name">Opgeslagen</string>
   <string name="default_reading_list_description">Standaardlijst voor uw opgeslagen pagina\'s</string>
   <string name="no_user_lists_title">Pagina\'s in lijsten organiseren</string>
@@ -453,7 +456,16 @@
     <item quantity="one">nog %1$d lijst</item>
     <item quantity="other">nog %1$d lijsten</item>
   </plurals>
+  <string name="notifications_activity_title">Meldingen</string>
+  <string name="notifications_activity_title_archived">Meldingen (gearchiveerd)</string>
+  <string name="notifications_view_unread">Toon ongelezen</string>
+  <string name="notifications_view_archived">Toon gearchiveerd</string>
+  <string name="notifications_poll_enable_title">Meldingen inschakelen</string>
+  <string name="notifications_poll_enable_positive">Inschakelen</string>
   <string name="notifications_poll_enable_negative">Nu niet</string>
+  <string name="notifications_mark_unread">Markeren als ongelezen</string>
+  <string name="preference_title_notification_welcome">Welkom</string>
+  <string name="preference_title_notification_thanks">Bedankjes</string>
   <string name="view_continue_reading_card_title">Verder lezen</string>
   <string name="view_because_you_read_card_title">Omdat u hebt gelezen</string>
   <string name="view_random_card_title">Randomizer</string>

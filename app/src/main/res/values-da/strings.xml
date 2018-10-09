@@ -18,6 +18,8 @@
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
+  <string name="nav_item_back">Tilbage</string>
+  <string name="nav_item_forward">Frem</string>
   <string name="search_hint">Søg i Wikipedia</string>
   <string name="search_hint_search_history">Søgehistorik</string>
   <string name="search_hint_search_my_lists">Søg i mine lister</string>
@@ -45,6 +47,8 @@
   <string name="menu_page_font_and_theme">Skrifttype og tema</string>
   <string name="menu_page_add_to_list">Tilføj til læseliste</string>
   <string name="menu_page_share">Del link</string>
+  <string name="menu_page_open_a_new_tab">Åbn en ny fane</string>
+  <string name="menu_page_reading_lists">Læselister</string>
   <string name="menu_long_press_open_page">Åbn</string>
   <string name="menu_long_press_open_in_new_tab">Åbn i ny fane</string>
   <string name="menu_long_press_copy_page">Kopier link-adresse</string>
@@ -62,8 +66,8 @@
   <string name="other_languages_indication_text">Læs på et andet sprog</string>
   <string name="language_count_link_text">Tilgængelig på %d andre sprog</string>
   <string name="content_license_html">Indholdet er udgivet under &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; medmindre andet er angivet</string>
-  <string name="edit_save_action_license_logged_in">Ved at gemme, accepterer du &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dit bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen.</string>
-  <string name="edit_save_action_license_anon">Ved at gemme, accepterer du &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dit bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen. Ændringer vil blive tilskrevet IP-adressen for din enhed. Hvis du &lt;a href=\"https://#login\"&gt;logger på&lt;/a&gt;, vil du have mere privatliv.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Ved at gemme, accepterer du &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dit bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Ved at gemme, accepterer du &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dit bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen. Ændringer vil blive tilskrevet IP-adressen for din enhed. Hvis du &lt;a href=\"https://#login\"&gt;logger på&lt;/a&gt;, vil du have mere privatliv.</string>
   <string name="preference_title_language">Wikipediasprog</string>
   <string name="preference_languages_filter_hint">Søg</string>
   <string name="langlinks_filter_hint">Søg</string>
@@ -77,7 +81,7 @@
   <string name="dialog_message_edit_failed">Redigering mislykkedes!</string>
   <string name="dialog_message_edit_failed_retry">Prøv igen</string>
   <string name="dialog_message_edit_failed_cancel">Annuller</string>
-  <string name="dialog_message_leaving_edit">Dine ændringer er ikke blevet gemt endnu. Er du sikker på at du vil forlade denne side?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">Dine ændringer er ikke blevet gemt endnu. Er du sikker på at du vil forlade denne side?</string>
   <string name="dialog_message_leaving_edit_leave">Forlad</string>
   <string name="dialog_message_leaving_edit_stay">Bliv</string>
   <string name="menu_show_toc">Indholdsfortegnelse</string>
@@ -189,7 +193,7 @@
   <string name="about_translators_translatewiki">Denne app blev oversat af de frivillige oversættere på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licens</string>
   <string name="about_app_license">Kildekode tilgængelig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; og &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0-licensen&lt;/a&gt;. Med mindre andet er angivet er indhold tilgængeligt under &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Kreditering-DelPåSammeVilkår-licensen&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">Et produkt fra &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
+  <string name="about_wmf">Et produkt fra &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
   <string name="edit_abandon_confirm">Den side er blevet ændret. Er du sikker på at du vil afslutte uden at gemme dine ændringer?</string>
   <string name="edit_abandon_confirm_yes">Ja</string>
@@ -277,6 +281,7 @@
   <string name="address_copied">Adressen er kopieret til udklipsholder.</string>
   <string name="text_copied">Tekst kopieret til udklipsholder.</string>
   <string name="button_continue_to_article">Læs artiklen</string>
+  <string name="button_continue_to_disambiguation">Vis lignende sider</string>
   <string name="button_add_to_reading_list">Tilføj til læseliste</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artiklen kan ikke indlæses offline.</string>
   <string name="page_offline_notice_add_to_reading_list">Fif: Tilføj artiklen til en læseliste, og den vil blive hentet når du er på nettet igen.</string>
@@ -460,8 +465,10 @@
     <item quantity="one">%1$d liste tilbage</item>
     <item quantity="other">%1$d lister tilbage</item>
   </plurals>
+  <string name="notifications_view_unread">Vis ulæste</string>
   <string name="notifications_poll_enable_positive">Aktiver</string>
   <string name="notifications_poll_enable_negative">Ikke nu</string>
+  <string name="notifications_mark_unread">Marker som ulæst</string>
   <string name="preference_title_notification_welcome">Velkommen</string>
   <string name="preference_summary_notification_welcome">En konto er oprettet</string>
   <string name="preference_title_notification_milestone">Milepæle</string>
@@ -649,4 +656,7 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Fjern en kinesisk variant fra dine app sprog?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Rediger sprog</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nej tak</string>
+  <string name="main_drawer_open">Åben</string>
+  <string name="main_drawer_close">Luk</string>
+  <string name="main_drawer_help">Hjælp</string>
 </resources>

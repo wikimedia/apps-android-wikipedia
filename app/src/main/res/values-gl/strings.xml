@@ -16,6 +16,8 @@
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alfa</string>
   <string name="wikimedia">Wikimedia</string>
+  <string name="nav_item_back">Volver</string>
+  <string name="nav_item_forward">Seguinte</string>
   <string name="search_hint">Procurar na Wikipedia</string>
   <string name="search_hint_search_history">Procurar no historial</string>
   <string name="search_hint_search_my_lists">Procurar nas miñas listas</string>
@@ -43,6 +45,9 @@
   <string name="menu_page_font_and_theme">Tipo de letra e tema</string>
   <string name="menu_page_add_to_list">Engadir á lista de lectura</string>
   <string name="menu_page_share">Compartir a ligazón</string>
+  <string name="menu_page_open_a_new_tab">Abrir unha pestana nova</string>
+  <string name="menu_page_reading_lists">Listas de lectura</string>
+  <string name="menu_page_recently_viewed">Visitados recentemente</string>
   <string name="menu_long_press_open_page">Abrir</string>
   <string name="menu_long_press_open_in_new_tab">Abrir a ligazón nunha nova lapela</string>
   <string name="menu_long_press_copy_page">Copiar o enderezo da ligazón</string>
@@ -60,8 +65,8 @@
   <string name="other_languages_indication_text">Ler noutra lingua</string>
   <string name="language_count_link_text">Dispoñible en %d linguas máis</string>
   <string name="content_license_html">Todo o contido está dispoñible baixo a licenza &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, agás que se indique o contrario</string>
-  <string name="edit_save_action_license_logged_in">Ao gardar, acepta os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e acepta liberar irrevogablemente as súas contribucións baixo a licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Ao gardar, acepta os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e acepta liberar irrevogablemente as súas contribucións baixo a licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. As edicións atribuiránselle ao enderezo IP do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;accede ao sistema&lt;/a&gt; terá un maior anonimato.</string>
+  <string name="edit_save_action_license_logged_in">Ao publicar, acepta os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e acepta liberar irrevogablemente as súas contribucións baixo a licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Ao publicar, acepta os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e acepta liberar irrevogablemente as súas contribucións baixo a licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. As edicións atribuiránselle ao enderezo IP do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;accede ao sistema&lt;/a&gt; terá un maior anonimato.</string>
   <string name="preference_title_language">Linguas de Wikipedia</string>
   <string name="preference_languages_filter_hint">Procurar</string>
   <string name="langlinks_filter_hint">Procurar</string>
@@ -75,7 +80,7 @@
   <string name="dialog_message_edit_failed">Fallou a edición!</string>
   <string name="dialog_message_edit_failed_retry">Reintentar</string>
   <string name="dialog_message_edit_failed_cancel">Cancelar</string>
-  <string name="dialog_message_leaving_edit">Os cambios aínda non se gardaron. Está seguro de querer saír desta páxina?</string>
+  <string name="dialog_message_leaving_edit">Os cambios aínda non se publicaron. Está seguro de querer saír desta páxina?</string>
   <string name="dialog_message_leaving_edit_leave">Saír</string>
   <string name="dialog_message_leaving_edit_stay">Permanecer</string>
   <string name="menu_show_toc">Táboa de contidos</string>
@@ -125,6 +130,8 @@
   <string name="create_account_generic_error">Non se puido crear a conta</string>
   <string name="create_account_next">Seguinte</string>
   <string name="email_recommendation_dialog_title">Crear unha conta sen enderezo de correo electrónico?</string>
+  <string name="email_recommendation_dialog_message">Aínda que o enderezo de correo electrónico é opcional, é &lt;b&gt;altamente recomendado&lt;/b&gt;, xa que é preciso ter un enderezo de correo para recuperar a conta se esquece o contrasinal.</string>
+  <string name="email_recommendation_message">Recomendado xa que o correo electrónico é necesario para a recuperación da conta.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Continuar sen correo electrónico</string>
   <string name="email_recommendation_dialog_create_with_email_action">Engadir un enderezo de correo electrónico</string>
   <string name="create_account_button">Crear unha conta</string>
@@ -223,9 +230,9 @@
   <string name="text_size_select">Tamaño da letra</string>
   <string name="page_similar_titles">Páxinas similares</string>
   <string name="search_did_you_mean">Quixo dicir \"%s\"?</string>
-  <string name="search_recent_header">Buscas recentes:</string>
-  <string name="button_clear_all_recent_searches">Limpar as buscas recentes</string>
-  <string name="clear_recent_searches_confirm">Está seguro de querer borrar o seu historial de buscas?</string>
+  <string name="search_recent_header">Procuras recentes:</string>
+  <string name="button_clear_all_recent_searches">Limpar as procuras recentes</string>
+  <string name="clear_recent_searches_confirm">Está seguro de querer borrar o seu historial de procuras?</string>
   <string name="clear_recent_searches_confirm_yes">Si</string>
   <string name="clear_recent_searches_confirm_no">Non</string>
   <string name="error_browser_not_found">Non se puido abrir a páxina web (non se atopou ningún navegador).</string>
@@ -272,6 +279,7 @@
   <string name="close_all_tabs_confirm_yes">Si</string>
   <string name="close_all_tabs_confirm_no">Non</string>
   <string name="button_close_tab">Pechar a lapela</string>
+  <string name="tab_item_closed">%s pechado.</string>
   <string name="tool_tip_select_text_title">Manter premido para seleccionar</string>
   <string name="tool_tip_select_text">Prema e manteña en calquera parte do texto para seleccionalo e así copialo e compartilo.</string>
   <string name="tool_tip_share">Despois de resaltar unha información interesante, probe a compartila nas súas redes favoritas!</string>
@@ -285,6 +293,7 @@
   <string name="text_copied">O texto copiouse no portapapeis.</string>
   <string name="button_continue_to_article">Ler artigo</string>
   <string name="button_continue_to_disambiguation">Ver páxinas semellantes</string>
+  <string name="link_preview_disambiguation_description">Este título está relacionado con máis dunha páxina:</string>
   <string name="button_add_to_reading_list">Engadir á lista de lectura</string>
   <string name="page_offline_notice_cannot_load_while_offline">O artigo non se pode cargar mentres non haxa conexión.</string>
   <string name="page_offline_notice_add_to_reading_list">Pistaː Engade o artigo a unha lista de lectura e descargarase cando se volva conectar.</string>
@@ -448,6 +457,7 @@
     <item quantity="other">Estes artigos xa non estarán dispoñibles sen conexión.</item>
   </plurals>
   <string name="reading_list_toast_last_sync">As listas de lectura foron sincronizadas correctamente</string>
+  <string name="reading_list_menu_last_sync">Última sincronización: %s</string>
   <string name="user_option_sync_label">Preferencias</string>
   <string name="notification_button_view_user">Conversar co usuario</string>
   <string name="notification_talk_title">Mensaxe nova na Wikipedia</string>
@@ -502,9 +512,15 @@
   <string name="notifications_poll_enable_negative">Agora non</string>
   <string name="notifications_view_archived_button_text">Ver notificacións arquivadas</string>
   <string name="notification_preferences_title">Preferencias de notificación</string>
+  <string name="notifications_mark_unread">Marcar como non lida</string>
+  <string name="preference_summary_notification_poll">Permitir que a aplicación use tráfico de datos para comprobar se hai novas notificacións en segundo plano.</string>
+  <string name="preference_category_notification_types">Tipos de notificacións internas da aplicación</string>
   <string name="preference_title_notification_welcome">Benvido/a</string>
   <string name="preference_summary_notification_welcome">Creouse unha conta</string>
+  <string name="preference_title_notification_milestone">Fito</string>
+  <string name="preference_summary_notification_milestone">Acada un certo número de edicións</string>
   <string name="preference_title_notification_thanks">Grazas</string>
+  <string name="preference_summary_notification_thanks">Algúen agradece unha das súas edicións</string>
   <string name="view_continue_reading_card_title">Continuar lendo</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatorio</string>
@@ -630,7 +646,7 @@
   <string name="offline_library_empty_description_sideload">Os “paquetes de artigos” na súa biblioteca sen conexión son conxuntos de artigos prefabricados para almacenar convenientemente no seu dispositivo electrónico, para que poida continuar a lelos cando está sen liña.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Descubra máis&lt;/a&gt;</string>
   <string name="offline_library_packs_hint">Os paquetes de artigos da súa biblioteca permanecen dispoñibles para a súa lectura cando non ten conexión. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Máis información&lt;/a&gt;</string>
   <string name="offline_library_data_usage_hint">Quere aforrar datos? Seleccione «Preferir contido sen conexión» na configuración para amosar en primeiro lugar os artigos dispoñibles sen conexión, incluso cando estea conectado. &lt;a href=\"#settings\"&gt;Abrir a configuración&lt;/a&gt;</string>
-  <string name="offline_library_empty_search">Buscar na biblioteca sen conexión</string>
+  <string name="offline_library_empty_search">Procurar na biblioteca sen conexión</string>
   <string name="offline_library_search_results_state">Resultados de procura da súa biblioteca sen conexión</string>
   <string name="offline_library_onboarding_button_done">Feito</string>
   <string name="offline_library_onboarding_build_library_title">Construír a súa biblioteca sen conexión</string>
@@ -695,4 +711,8 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Agora ten definidos tanto o chinés tradicional como o simplificado nas linguas da aplicación. Quere actualizar a configuración das linguas?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Editar linguas</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No, grazas</string>
+  <string name="main_drawer_open">Abrir</string>
+  <string name="main_drawer_close">Pechar</string>
+  <string name="main_drawer_help">Axuda</string>
+  <string name="main_drawer_login">Acceder / unirse á Wikipedia</string>
 </resources>

@@ -18,6 +18,8 @@
   <string name="app_name_beta">ویکیپیڈیا آزمائشی</string>
   <string name="app_name_alpha">ویکیپیڈیا الفا</string>
   <string name="wikimedia">ویکیمیڈیا</string>
+  <string name="nav_item_back">پیچھے</string>
+  <string name="nav_item_forward">آگے</string>
   <string name="search_hint">ویکیپیڈیا میں تلاش کریں</string>
   <string name="search_hint_search_history">تاریخچہ میں تلاش کریں</string>
   <string name="search_hint_search_my_lists">میری فہرستوں میں تلاش کریں</string>
@@ -45,6 +47,9 @@
   <string name="menu_page_font_and_theme">فانٹ اور پوشاک</string>
   <string name="menu_page_add_to_list">فہرست مطالعہ میں شامل کریں</string>
   <string name="menu_page_share">ربط بھیجیں</string>
+  <string name="menu_page_open_a_new_tab">نئی ٹیب میں کھولیں</string>
+  <string name="menu_page_reading_lists">مطالعہ شدہ صفحات</string>
+  <string name="menu_page_recently_viewed">حالیہ دیکھیے گئے صفحات</string>
   <string name="menu_long_press_open_page">کھولیں</string>
   <string name="menu_long_press_open_in_new_tab">نئے ٹیب میں کھولیں</string>
   <string name="menu_long_press_copy_page">ربط کا پتہ نقل کریں</string>
@@ -63,7 +68,7 @@
   <string name="language_count_link_text">%d دیگر زبانوں میں دستیاب ہے</string>
   <string name="content_license_html">تمام مواد &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; اجازت نامے کے تحت دستیاب ہے جب تک اس کی مخالفت مذکور نہ ہو</string>
   <string name="edit_save_action_license_logged_in">محفوظ کرنے پر آپ کو &lt;a href=\"%1$s\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق اور ترامیم کو&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; اجازت نامے کے تحت آزاد سمجھا جائے گا۔</string>
-  <string name="edit_save_action_license_anon">محفوظ کرنے پر آپ کو &lt;a href=\"%1$s\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق اور ترامیم کو&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; اجازت نامے کے تحت آزاد سمجھا جائے گا۔ واضح رہے کہ ان ترامیم کو آپ کے آئی پی پتے سے منسلک کیا جائے گا، تاہم اگر آپ &lt;a href=\"https://#login\"&gt;لاگ ان&lt;/a&gt; ہوجائیں تو آپکا آئی پی پتا ظاہر نہیں ہوگا۔</string>
+  <string name="edit_save_action_license_anon">شائع کرنے پر آپ کو &lt;a href=\"%1$s\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق اور ترامیم کو&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;  اجازت نامے کے تحت آزاد سمجھا جائے گا۔ واضح رہے کہ ان ترامیم کو آپ کے آئی پی پتے سے منسلک کیا جائے گا، تاہم اگر آپ &lt;a href=\"https://#login\"&gt;لاگ ان&lt;/a&gt; ہوجائیں تو آپکا آئی پی پتا ظاہر نہیں ہوگا۔</string>
   <string name="preference_title_language">ویکیپیڈیا کی زبانیں</string>
   <string name="preference_languages_filter_hint">تلاش</string>
   <string name="langlinks_filter_hint">تلاش</string>
@@ -77,7 +82,7 @@
   <string name="dialog_message_edit_failed">ترمیم محفوظ نہیں ہو سکی!</string>
   <string name="dialog_message_edit_failed_retry">دوبارہ کوشش کریں</string>
   <string name="dialog_message_edit_failed_cancel">منسوخ</string>
-  <string name="dialog_message_leaving_edit">آپ کی تبدیلیاں ابھی تک محفوظ نہیں ہوئیں۔ کیا آپ واقعی یہ صفحہ چھوڑنا چاہتے ہیں؟</string>
+  <string name="dialog_message_leaving_edit">آپ کی تبدیلیاں ابھی تک شائع نہیں ہوئیں۔ کیا آپ واقعی یہ صفحہ چھوڑنا چاہتے ہیں؟</string>
   <string name="dialog_message_leaving_edit_leave">چھوڑیں</string>
   <string name="dialog_message_leaving_edit_stay">ٹہریں</string>
   <string name="menu_show_toc">فہرست</string>
@@ -86,6 +91,7 @@
   <string name="search_reading_lists_no_results">مطالعہ کی فہرستوں میں کوئی نتیجہ نہیں ملا</string>
   <string name="search_history_no_results">تاریخچے میں کوئی نتیجہ نہیں ملا</string>
   <string name="edit_section_captcha_message">خودکار تخریب کاری سے بچاؤ کے لیے، براہ کرم اوپر ظاہر ہونے والے الفاظ درج کریں</string>
+  <string name="edit_section_captcha_request_an_account_message">تصویر نہیں دیکھ پا رہے؟ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;مزید دیکھیے&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">اوپر والے الفاظ دہرائیں</string>
   <string name="title_captcha">کیپچا درج کریں</string>
   <string name="edit_section_captcha_reload">نئے کیپچا کے لیے تھپتپائیں</string>
@@ -125,9 +131,15 @@
   <string name="create_account_password_error">پاس ورڈ درست نہیں</string>
   <string name="create_account_generic_error">کھاتا نہیں بن سکا۔</string>
   <string name="create_account_next">آگے جائیں</string>
+  <string name="email_recommendation_dialog_title">برقی پتے کے بغیر کے کھاتہ بنائیں؟</string>
+  <string name="email_recommendation_dialog_message">اگرچہ برقی خط کا پتہ اختیاری ہے، لیکن یہ &lt;b&gt;انتہائی اہمیت رکھتا ہے&lt;/b&gt;، کیوں کہ جب آپ کسی وقت اپنا خفیہ رمز (پاس ورڈ) بھول جاتے ہیں یا تبدیل کرنا چاہتے ہیں تو، اس وقت برقی خط کے پتے (ای میل ایڈریس) کی ضرورت ہوتی ہے۔</string>
+  <string name="email_recommendation_message">یادہانی! خفیہ رمز یعنی پاس ورڈ بھول جانے پر برقی خط کا پتہ درکار ہو گا۔</string>
+  <string name="email_recommendation_dialog_create_without_email_action">برقی خط کے پتے کے بغیر جاری رکھیں</string>
+  <string name="email_recommendation_dialog_create_with_email_action">ایک برقی خط پتہ شامل کریں</string>
   <string name="create_account_button">کھاتہ بنائیں</string>
   <string name="create_account_name_unavailable">\"%s\" کے نام کا صارف نہیں ملا۔ براہ مہربانی دوسرے نام کا انتخاب کریں۔</string>
   <string name="create_account_ip_block_message">معذرت، آپ نئے کھاتے نہیں بنا سکتے کیونکہ آپ کے آئی پی پتہ پر پابندی عائد کر دی گئی ہے۔</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">تفصیلات</string>
   <string name="preferences_general_heading">عمومی</string>
   <string name="wikipedia_app_faq">ویکیپیڈیا اطلاقیہ کے عمومی سوالات</string>

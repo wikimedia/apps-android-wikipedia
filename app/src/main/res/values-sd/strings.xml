@@ -54,8 +54,8 @@
   <string name="other_languages_indication_text">ٻي ٻوليءَ ۾ پڙھو</string>
   <string name="language_count_link_text">%d ٻولين ۾ موجود</string>
   <string name="content_license_html">مواد &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; جي تحت موجود آھي نہ تہ ٻي صورت ۾ نوٽ ٿيل آهي</string>
-  <string name="edit_save_action_license_logged_in">سانڍڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان، ۽ يقينن پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس جي تحت ڏيڻ تي راضي ٿيو ٿا.</string>
-  <string name="edit_save_action_license_anon">سانڍڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن &lt;/a&gt; ۽ irrevocably پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس تحت ڏيڻ تي راضي ٿيو ٿا. ترميمون توھان جي آءِپي پتي سان لاڳو ڪيون وينديون. جيڪڏهن توهان &lt;a href=\"https://#login\"&gt;داخل ٿيو&lt;/a&gt; ٿا، تہ توھان کي وڌيڪ ذاتيات هوندي.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">سانڍڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان، ۽ يقينن پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس جي تحت ڏيڻ تي راضي ٿيو ٿا.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">سانڍڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن &lt;/a&gt; ۽ irrevocably پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس تحت ڏيڻ تي راضي ٿيو ٿا. ترميمون توھان جي آءِپي پتي سان لاڳو ڪيون وينديون. جيڪڏهن توهان &lt;a href=\"https://#login\"&gt;داخل ٿيو&lt;/a&gt; ٿا، تہ توھان کي وڌيڪ ذاتيات هوندي.</string>
   <string name="preference_title_language">وڪيپيڊيا ٻوليون</string>
   <string name="preference_languages_filter_hint">ڳوليو</string>
   <string name="langlinks_filter_hint">ڳوليو</string>
@@ -69,7 +69,7 @@
   <string name="dialog_message_edit_failed">ترميم ناڪام وئي!</string>
   <string name="dialog_message_edit_failed_retry">ٻيهر ڪوشش ڪريو</string>
   <string name="dialog_message_edit_failed_cancel">رد</string>
-  <string name="dialog_message_leaving_edit">توهان جون ڪيل ترميمون اڃا نہ سانڍجون آهن. توهان کي پڪ آهي تہ توهان هيءُ صفحو ڇڏي وڃڻ گھرو ٿا؟</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">توهان جون ڪيل ترميمون اڃا نہ سانڍجون آهن. توهان کي پڪ آهي تہ توهان هيءُ صفحو ڇڏي وڃڻ گھرو ٿا؟</string>
   <string name="dialog_message_leaving_edit_leave">موڪلايو</string>
   <string name="dialog_message_leaving_edit_stay">ترسو</string>
   <string name="menu_show_toc">عنوانن جي فھرست</string>

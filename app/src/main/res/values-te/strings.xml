@@ -37,8 +37,8 @@
   <string name="last_updated_text">%s కి ఆఖరుగా తాజాపరచబడింది</string>
   <string name="talk_page_link_text" fuzzy="true">చర్చ</string>
   <string name="content_license_html" fuzzy="true">విడిగా చెప్పందే, పాఠ్యం &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ కు అనుగుణంగా లభ్యం</string>
-  <string name="edit_save_action_license_logged_in">భద్రపర్చడం ద్వారా &lt;a href=\"%1$s\"&gt;వాడుక షరతుల&lt;/a&gt;కు అనుగుణంగా ఉంటాననీ, నా రచనలన్నిటినీ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ కింద విడుదల చేస్తున్నాననీ అంగీకరిస్తున్నాను.</string>
-  <string name="edit_save_action_license_anon">భద్రపరచటంతో, మీరు  &lt;a href=\"%1$s\"&gt;వాడుకా నిభందనల&lt;/a&gt;ని అంగీకరిస్తున్నారు, మరియు ఖండీతంగా మీ రచనలని &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ ద్వారా వదులుతున్నారు. సవరణలు మీ ఐపి చిరునామాకి ఆపాదించబడతాయి. మీరు &lt;a href=\"https://#login\"&gt;లాగిన్&lt;/a&gt; అయితే, మీకు ఎక్కువ గోప్యత ఉంటుంది.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">భద్రపర్చడం ద్వారా &lt;a href=\"%1$s\"&gt;వాడుక షరతుల&lt;/a&gt;కు అనుగుణంగా ఉంటాననీ, నా రచనలన్నిటినీ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ కింద విడుదల చేస్తున్నాననీ అంగీకరిస్తున్నాను.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">భద్రపరచటంతో, మీరు  &lt;a href=\"%1$s\"&gt;వాడుకా నిభందనల&lt;/a&gt;ని అంగీకరిస్తున్నారు, మరియు ఖండీతంగా మీ రచనలని &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ ద్వారా వదులుతున్నారు. సవరణలు మీ ఐపి చిరునామాకి ఆపాదించబడతాయి. మీరు &lt;a href=\"https://#login\"&gt;లాగిన్&lt;/a&gt; అయితే, మీకు ఎక్కువ గోప్యత ఉంటుంది.</string>
   <string name="preference_title_language" fuzzy="true">వికీపీడియా భాష</string>
   <string name="preference_languages_filter_hint">వెతుకు</string>
   <string name="langlinks_filter_hint">వెతుకు</string>
@@ -51,7 +51,7 @@
   <string name="dialog_message_edit_failed">సవరణ విఫలమయ్యింది!</string>
   <string name="dialog_message_edit_failed_retry">మళ్ళీ ప్రయత్నించు</string>
   <string name="dialog_message_edit_failed_cancel">రద్దుచేయి</string>
-  <string name="dialog_message_leaving_edit">మీ మార్పులు ఇంకా భద్రపరచబడలేదు. మీరు ఈ పేజిని ఖచ్చితంగా వదిలేయాలని అనుకుంటున్నారా?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">మీ మార్పులు ఇంకా భద్రపరచబడలేదు. మీరు ఈ పేజిని ఖచ్చితంగా వదిలేయాలని అనుకుంటున్నారా?</string>
   <string name="dialog_message_leaving_edit_leave">వదిలివేయండి</string>
   <string name="dialog_message_leaving_edit_stay">ఉండండి</string>
   <string name="menu_show_toc">విషయ సూచిక</string>

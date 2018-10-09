@@ -45,8 +45,8 @@
   <string name="last_updated_text">%s पर अंतिम अपडेट भइल रहल</string>
   <string name="talk_page_link_text" fuzzy="true">बातचीत</string>
   <string name="content_license_html">सामग्री &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; के तहत उपलब्ध बा अगर कुछ अन्य जानकारी न बतावल गइल होखे</string>
-  <string name="edit_save_action_license_logged_in">सहेजे के मतलब बा आप &lt;a href=\"%1$s\"&gt;इस्तेमाल के शर्त&lt;/a&gt; से सनमत बानी,  &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के तहत आपन योगदान रिलीज करत बानी, ई रिलीज वापस ना लिहल जा सके ला।</string>
-  <string name="edit_save_action_license_anon">सहेजे के मतलब बा, आप &lt;a href=\"%1$s\"&gt;इस्तेमाल के शर्त&lt;/a&gt; से सनमत बानी, आ आपन योगदान &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के तहत रिलीज करत बानी, ई रिलीज वापस ना लिहल जा सकत बा। संपादन के श्रेय आपके डिवाइस के आइपी के दिहल जाई। अगर आप &lt;a href=\"https://#login\"&gt;खाता में प्रवेश&lt;/a&gt; करत बानी तब ढेर प्राइवेसी रही।</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">सहेजे के मतलब बा आप &lt;a href=\"%1$s\"&gt;इस्तेमाल के शर्त&lt;/a&gt; से सनमत बानी,  &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के तहत आपन योगदान रिलीज करत बानी, ई रिलीज वापस ना लिहल जा सके ला।</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">सहेजे के मतलब बा, आप &lt;a href=\"%1$s\"&gt;इस्तेमाल के शर्त&lt;/a&gt; से सनमत बानी, आ आपन योगदान &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के तहत रिलीज करत बानी, ई रिलीज वापस ना लिहल जा सकत बा। संपादन के श्रेय आपके डिवाइस के आइपी के दिहल जाई। अगर आप &lt;a href=\"https://#login\"&gt;खाता में प्रवेश&lt;/a&gt; करत बानी तब ढेर प्राइवेसी रही।</string>
   <string name="preference_title_language" fuzzy="true">विकिपीडिया भाषा</string>
   <string name="preference_languages_filter_hint">खोजीं</string>
   <string name="langlinks_filter_hint">खोजीं</string>
@@ -59,7 +59,7 @@
   <string name="dialog_message_edit_failed">संपादन फेल हो गइल!</string>
   <string name="dialog_message_edit_failed_retry">दुबारा कोसिस करीं</string>
   <string name="dialog_message_edit_failed_cancel">कैंसिल</string>
-  <string name="dialog_message_leaving_edit">बदलाव अभिन ले सहेजल नइखे गइल। का आप निश्चित बानी पन्ना छोड़ के हटे खातिर?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">बदलाव अभिन ले सहेजल नइखे गइल। का आप निश्चित बानी पन्ना छोड़ के हटे खातिर?</string>
   <string name="dialog_message_leaving_edit_leave">छोड़ीं</string>
   <string name="dialog_message_leaving_edit_stay">रुकीं</string>
   <string name="menu_show_toc">बिसयसूची</string>

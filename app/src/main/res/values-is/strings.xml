@@ -54,8 +54,8 @@
   <string name="other_languages_indication_text">Lesa á öðru tungumáli</string>
   <string name="language_count_link_text">Aðgengilegt á %d öðrum tungumálum</string>
   <string name="content_license_html">Efni má nota samkvæmt &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; nema annað komi fram</string>
-  <string name="edit_save_action_license_logged_in">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; leyfinu.</string>
-  <string name="edit_save_action_license_anon">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; notkunarleyfinu. Breytingar verða tengdar IP-vistfangi tækisins þíns. Ef þú &lt;a href=\"https://#login\"&gt;skráir þig inn&lt;/a&gt;, mun gagnaleynd þín aukast.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; leyfinu.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; notkunarleyfinu. Breytingar verða tengdar IP-vistfangi tækisins þíns. Ef þú &lt;a href=\"https://#login\"&gt;skráir þig inn&lt;/a&gt;, mun gagnaleynd þín aukast.</string>
   <string name="preference_title_language">Tungumál Wikipediu</string>
   <string name="preference_languages_filter_hint">Leita</string>
   <string name="langlinks_filter_hint">Leita</string>
@@ -69,7 +69,7 @@
   <string name="dialog_message_edit_failed">Breytingin mistókst!</string>
   <string name="dialog_message_edit_failed_retry">Reyna aftur</string>
   <string name="dialog_message_edit_failed_cancel">Hætta við</string>
-  <string name="dialog_message_leaving_edit">Breytingarnar þínar hafa ekki enn verið vistaðar. Ertu viss um að þú viljir fara af síðunni ?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">Breytingarnar þínar hafa ekki enn verið vistaðar. Ertu viss um að þú viljir fara af síðunni ?</string>
   <string name="dialog_message_leaving_edit_leave">Fara</string>
   <string name="dialog_message_leaving_edit_stay">Vera hér</string>
   <string name="menu_show_toc">Efnisyfirlit</string>

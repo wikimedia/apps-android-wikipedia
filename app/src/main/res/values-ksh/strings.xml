@@ -36,7 +36,7 @@
   <string name="last_updated_text">Läzte Änderong %s</string>
   <string name="talk_page_link_text" fuzzy="true">Klaaf</string>
   <string name="content_license_html" fuzzy="true">Dä Ennhald es ze hann onger dälezänz &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ußer woh jädd anders schteiht.</string>
-  <string name="edit_save_action_license_logged_in">Mem Affchpeijschere schtemms De ddä &lt;a href=\"%1$s\"&gt;Bedengonge för et Benöze&lt;/a&gt; zoh un deijhß ohne Müjjeleschkeijt för ene Widerohf Dine Beijdrahch onger der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; Lezänz öffentlesch maache.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Mem Affchpeijschere schtemms De ddä &lt;a href=\"%1$s\"&gt;Bedengonge för et Benöze&lt;/a&gt; zoh un deijhß ohne Müjjeleschkeijt för ene Widerohf Dine Beijdrahch onger der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; Lezänz öffentlesch maache.</string>
   <string name="preference_title_language" fuzzy="true">Dä Wikkipehdija ier Schprohch</string>
   <string name="preference_languages_filter_hint">Söhke</string>
   <string name="langlinks_filter_hint">Söhke</string>
@@ -49,7 +49,7 @@
   <string name="dialog_message_edit_failed">Dat Ändere is donevve jejange:</string>
   <string name="dialog_message_edit_failed_retry">Norr_ens versöhke</string>
   <string name="dialog_message_edit_failed_cancel">Ophühre</string>
-  <string name="dialog_message_leaving_edit">Ding Änderonge sin noch nit faßjehallde. Wells De verhaftersch vun dä Sigg heh fott jonn?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">Ding Änderonge sin noch nit faßjehallde. Wells De verhaftersch vun dä Sigg heh fott jonn?</string>
   <string name="dialog_message_leaving_edit_leave">Jangk fott</string>
   <string name="dialog_message_leaving_edit_stay">Blihv</string>
   <string name="menu_show_toc">Enhalldsverzeischnėß</string>

@@ -7,6 +7,8 @@
   <string name="app_name_beta">ویکیپیڈیا آزمائشی</string>
   <string name="app_name_alpha">ویکیپیڈیا الفا</string>
   <string name="wikimedia">ویکیمیڈیا</string>
+  <string name="nav_item_back">واپس</string>
+  <string name="nav_item_forward">اڳوں تے بھیڄو</string>
   <string name="search_hint">وکی ڈیٹا وچ ڳولو</string>
   <string name="search_hint_search_history">ڳولݨ دی تاریخ ہسٹری</string>
   <string name="search_hint_search_my_lists">میݙیاں لسٹاں ڳولو</string>
@@ -32,7 +34,8 @@
   <string name="menu_page_content_issues">مواد دے مسئلے</string>
   <string name="menu_page_font_and_theme">فانٹ  تے تھیم</string>
   <string name="menu_page_add_to_list">مطالعہ دی فہرست وچ شامل کرو</string>
-  <string name="menu_page_share">لنک بھیجو</string>
+  <string name="menu_page_share">لنک سانجھا کرو</string>
+  <string name="menu_page_open_a_new_tab">نویں ٹیب کھولو</string>
   <string name="menu_long_press_open_page">کھولو</string>
   <string name="menu_long_press_open_in_new_tab">نویں ٹیب وچ کھولو</string>
   <string name="menu_long_press_copy_page">لنک دا پتہ نقل کرو</string>
@@ -58,7 +61,7 @@
   <string name="dialog_message_edit_failed">تبدیلی کائنی تھئی</string>
   <string name="dialog_message_edit_failed_retry">ولدا کوشش کرو</string>
   <string name="dialog_message_edit_failed_cancel">مکاؤ</string>
-  <string name="dialog_message_leaving_edit">تہاݙیاں تبدیلیاں اڄݨ محفوظ کائنی تھیاں۔بھلا تساں ایہ ورقہ چھوڑݨ چاہندے ہو؟</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">تہاݙیاں تبدیلیاں اڄݨ محفوظ کائنی تھیاں۔بھلا تساں ایہ ورقہ چھوڑݨ چاہندے ہو؟</string>
   <string name="dialog_message_leaving_edit_leave">چھوڑو</string>
   <string name="dialog_message_leaving_edit_stay">رکو</string>
   <string name="menu_show_toc">فہرست</string>
@@ -126,7 +129,7 @@
   <string name="user_blocked_from_editing_title">بلاک تھی ڳیا</string>
   <string name="edit_next">اڳوں تے ونڄو</string>
   <string name="edit_done">چھاپو</string>
-  <string name="edit_preview">پہلے ݙیکھو</string>
+  <string name="edit_preview">پیشگی ݙکھالا</string>
   <string name="edit_summary_tag_typo">درستی املا</string>
   <string name="edit_summary_tag_grammar">درستی قواعد</string>
   <string name="edit_summary_tag_links">لنک شامل کیتا</string>
@@ -167,6 +170,7 @@
   <string name="close_all_tabs_confirm_yes">جیا</string>
   <string name="close_all_tabs_confirm_no">کو</string>
   <string name="button_close_tab">ٹیب بند کرو</string>
+  <string name="tab_item_closed">%s بند تھی ڳیا۔</string>
   <string name="format_error_server_message">سنیہا:%s</string>
   <string name="button_continue_to_article">مضمون پڑھو</string>
   <string name="button_continue_to_disambiguation">رلدے ملدے ورقے ݙیکھو</string>
@@ -179,8 +183,8 @@
   <string name="view_wiki_error_message_offline">انٹرنیٹ نال جوڑ نی تھی سڳدا</string>
   <string name="reference_title">حوالے%s</string>
   <string name="crash_report_dialog_dont_send_button">چھوڑو</string>
-  <string name="crash_report_dialog_always_send_button">ہمیشہ بھیجو</string>
-  <string name="crash_report_dialog_send_button">بھیجو</string>
+  <string name="crash_report_dialog_always_send_button">ہمیشہ بھیڄو</string>
+  <string name="crash_report_dialog_send_button">بھیڄو</string>
   <string name="crash_report_quit">نکلو</string>
   <string name="article_header_edit_hint">لکھو۔۔۔</string>
   <string name="color_theme_select">مرکزی خیال</string>
@@ -280,4 +284,7 @@
   <string name="wikipedia_languages_remove_text" fuzzy="true">ہٹاؤ</string>
   <string name="wikipedia_languages_remove_action_mode_title">زبان ہٹاؤ</string>
   <string name="more_language_options">ٻئے</string>
+  <string name="main_drawer_open">کھولو</string>
+  <string name="main_drawer_close">بند کرو</string>
+  <string name="main_drawer_help">مدد</string>
 </resources>

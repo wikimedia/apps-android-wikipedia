@@ -61,7 +61,7 @@
   <string name="dialog_message_edit_failed">Tsy nahomby ny fandraiketana!</string>
   <string name="dialog_message_edit_failed_retry">Andramana indray</string>
   <string name="dialog_message_edit_failed_cancel">Avela</string>
-  <string name="dialog_message_leaving_edit">Tsy mbola voatahiry ny fiovanao. Tianao ho avela ve ity pejy ity?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">Tsy mbola voatahiry ny fiovanao. Tianao ho avela ve ity pejy ity?</string>
   <string name="dialog_message_leaving_edit_leave">Hiala</string>
   <string name="dialog_message_leaving_edit_stay">Hijanona</string>
   <string name="menu_show_toc">Ambangovangony</string>

@@ -27,6 +27,8 @@
   <string name="app_name_beta">ウィキペディアβ</string>
   <string name="app_name_alpha">ウィキペディアα</string>
   <string name="wikimedia">ウィキメディア</string>
+  <string name="nav_item_back">戻る</string>
+  <string name="nav_item_forward">進む</string>
   <string name="search_hint">ウィキペディアを検索</string>
   <string name="search_hint_search_history">検索履歴</string>
   <string name="search_hint_search_my_lists">リストを検索</string>
@@ -54,6 +56,9 @@
   <string name="menu_page_font_and_theme">フォントとテーマ</string>
   <string name="menu_page_add_to_list">あとで読むリストに追加</string>
   <string name="menu_page_share">リンクを共有</string>
+  <string name="menu_page_open_a_new_tab">新しいタブを開く</string>
+  <string name="menu_page_reading_lists">あとで読むリスト</string>
+  <string name="menu_page_recently_viewed">最近見たページ</string>
   <string name="menu_long_press_open_page">開く</string>
   <string name="menu_long_press_open_in_new_tab">新しいタブで開く</string>
   <string name="menu_long_press_copy_page">リンクのアドレスをコピー</string>
@@ -71,8 +76,8 @@
   <string name="other_languages_indication_text">別の言語で閲覧</string>
   <string name="language_count_link_text">他に%dの言語で利用可能</string>
   <string name="content_license_html">特記なき場合、コンテンツは&lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;で利用可能です</string>
-  <string name="edit_save_action_license_logged_in">保存すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンスの下でコンテンツ再利用を許諾することになります。これは撤回できません。</string>
-  <string name="edit_save_action_license_anon">保存すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。編集はあなたのデバイスのIPアドレスと関連付けて記録されます。さらにプライバシーを求める場合は&lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt;してください。</string>
+  <string name="edit_save_action_license_logged_in">公開すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンスの下でコンテンツ再利用を許諾することになります。これは撤回できません。</string>
+  <string name="edit_save_action_license_anon">公開すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。編集はあなたのデバイスのIPアドレスと関連付けて記録されます。さらにプライバシーを求める場合は&lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt;してください。</string>
   <string name="preference_title_language">ウィキペディアの言語</string>
   <string name="preference_languages_filter_hint">検索</string>
   <string name="langlinks_filter_hint">検索</string>
@@ -86,7 +91,7 @@
   <string name="dialog_message_edit_failed">編集の保存に失敗しました!</string>
   <string name="dialog_message_edit_failed_retry">再試行</string>
   <string name="dialog_message_edit_failed_cancel">キャンセル</string>
-  <string name="dialog_message_leaving_edit">変更はまだ保存されていません。本当にこのページを離れてもいいですか？</string>
+  <string name="dialog_message_leaving_edit">変更はまだ公開されていません。本当にこのページを離れてもいいですか？</string>
   <string name="dialog_message_leaving_edit_leave">離れる</string>
   <string name="dialog_message_leaving_edit_stay">留まる</string>
   <string name="menu_show_toc">目次</string>
@@ -287,6 +292,7 @@
   <string name="close_all_tabs_confirm_yes">はい</string>
   <string name="close_all_tabs_confirm_no">いいえ</string>
   <string name="button_close_tab">タブを閉じる</string>
+  <string name="tab_item_closed">%sを閉じました。</string>
   <string name="tool_tip_select_text_title">長押しして選択</string>
   <string name="tool_tip_select_text">テキストのどこかを長押しすると、コピーしてシェアするテキストを選択できます。</string>
   <string name="tool_tip_share">面白いと思った部分を選択して、お好みのSNSで共有しましょう!</string>
@@ -465,6 +471,7 @@
     <item quantity="other">これらの記事はオフラインで利用できなくなります。</item>
   </plurals>
   <string name="reading_list_toast_last_sync">あとで読むリストの同期が完了しました</string>
+  <string name="reading_list_menu_last_sync">最後の同期: %s</string>
   <string name="user_option_sync_label">設定</string>
   <string name="notification_button_view_user">ユーザーと話す</string>
   <string name="notification_talk_title">ウィキペディアで新しいメッセージがあります</string>
@@ -520,6 +527,7 @@
   <string name="notifications_empty_message">通知をすべて読みました!</string>
   <string name="notifications_view_archived_button_text">アーカイブした通知を表示</string>
   <string name="notification_preferences_title">通知の設定</string>
+  <string name="notifications_mark_unread">未読にする</string>
   <string name="preference_title_notification_poll">通知に投票</string>
   <string name="preference_summary_notification_poll">バックグラウンドで新規通知をチェックするのにアプリがデータ通信するのを許可する</string>
   <string name="preference_category_notification_types">アプリ内通知の種類</string>
@@ -596,20 +604,20 @@
   <string name="description_edit_tutorial_title_descriptions">タイトルの説明</string>
   <string name="description_edit_tutorial_title_descriptions_summary">読者が一目でその主題を理解できるように記事を要約する必要があります</string>
   <string name="description_edit_tutorial_keep_it_short">短めに</string>
-  <string name="description_edit_tutorial_keep_it_short_instructions">要約は1行のみで、30文字程度で書いてください</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">説明は1行のみで、30文字程度で書いてください</string>
   <string name="description_edit_tutorial_button_label_start_editing">編集を開始</string>
   <string name="description_edit_tutorial_promise">開始することで、この機能を悪用しないことを約束します。</string>
   <string name="description_edit_help_about_title">情報</string>
   <string name="description_edit_help_description">タイトルの説明は、読者が一目でその主題を理解するのに役立つ記事を要約しています。</string>
   <string name="description_edit_help_tips">説明を作成するためのヒント</string>
-  <string name="description_edit_help_tips_description">説明は理想的には1行に収めなければならず、2〜12語の長さです。最初の単語が固有名詞でない限り、大文字ではありません。</string>
+  <string name="description_edit_help_tips_description">説明は理想的には1行に収まり、30文字程度の長さです。最初の単語が固有名詞でない限り、大文字ではありません。</string>
   <string name="description_edit_help_tips_examples">例えば、</string>
   <string name="description_edit_help_tips_example1">レオナルド・ダ・ヴィンチの絵画</string>
   <string name="description_edit_help_tips_example1_hint">モナリザについての記事のタイトルの説明</string>
   <string name="description_edit_help_tips_example2">地球上で最も高い山</string>
   <string name="description_edit_help_tips_example2_hint">エベレストについての記事のタイトルの説明</string>
   <string name="description_edit_help_more_info">詳しく</string>
-  <string name="description_edit_help_meta_info">説明はウィキメディア財団のプロジェクトであるWikidataに保存され、維持されています。ウィキメディア財団のプロジェクトでは、ウィキペディアやその他のプロジェクトをサポートする多言語の二次的なデータベースを無料で提供しています。</string>
+  <string name="description_edit_help_meta_info">説明はウィキメディア財団のプロジェクトであるウィキデータに保存され、メンテナンスされています。ウィキデータはウィキメディア財団のプロジェクトの一つです。自由、協同的、多言語、二次的なデータベースで、ウィキペディアやその他のプロジェクトを支えています。</string>
   <string name="description_edit_revert_subtitle">ウィキペディアを編集していただきありがとうございます！</string>
   <string name="description_edit_revert_intro">あなたがベストを尽くそうとしたのはよく分かりますが、レビュアーは懸念を持ったようです。あなたの編集が差し戻された理由としては、以下のような可能性があります。</string>
   <string name="description_edit_revert_reason1">あなたの投稿が&lt;a href=\"%1$s\"&gt;ガイドライン&lt;/a&gt;に沿っていなかった。</string>
@@ -718,4 +726,8 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">現在、繁体字と簡体字の両方の中国語版をアプリの言語として指定しています。アプリの言語設定を更新しますか？</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">言語の設定を編集</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">やめます</string>
+  <string name="main_drawer_open">開く</string>
+  <string name="main_drawer_close">閉じる</string>
+  <string name="main_drawer_help">ヘルプ</string>
+  <string name="main_drawer_login">ログイン / ウィキペディアに参加する</string>
 </resources>

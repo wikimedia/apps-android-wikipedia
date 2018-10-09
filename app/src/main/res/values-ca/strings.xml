@@ -22,6 +22,8 @@
   <string name="app_name_beta">Viquipèdia Beta</string>
   <string name="app_name_alpha">Viquipèdia Alfa</string>
   <string name="wikimedia">Wikimedia</string>
+  <string name="nav_item_back">Enrere</string>
+  <string name="nav_item_forward">Endavant</string>
   <string name="search_hint">Cerca a la Viquipèdia</string>
   <string name="search_hint_search_history">Historial de cerca</string>
   <string name="search_hint_search_my_lists">Cerca a les meves llistes</string>
@@ -49,6 +51,9 @@
   <string name="menu_page_font_and_theme">Tipus de lletra i tema</string>
   <string name="menu_page_add_to_list">Afegeix a la llista de lectura</string>
   <string name="menu_page_share">Comparteix l\'enllaç</string>
+  <string name="menu_page_open_a_new_tab">Obre una pestanya nova</string>
+  <string name="menu_page_reading_lists">Llistes de lectura</string>
+  <string name="menu_page_recently_viewed">Vist recentment</string>
   <string name="menu_long_press_open_page">Obre</string>
   <string name="menu_long_press_open_in_new_tab">Obre en una pestanya nova</string>
   <string name="menu_long_press_copy_page">Copia l\'adreça de l\'enllaç</string>
@@ -66,8 +71,8 @@
   <string name="other_languages_indication_text">Llegeix en una altra llengua</string>
   <string name="language_count_link_text">Disponible en %d altres llengües</string>
   <string name="content_license_html">El contingut està disponible sota llicència &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; si no s\'indica el contrari</string>
-  <string name="edit_save_action_license_logged_in">En desar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">En desar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Les edicions s\'atribuiran a l\'adreça IP del vostre dispositiu. Si &lt;a href=\"https://#login\"&gt;inicieu una sessió&lt;/a&gt; gaudireu de més privadesa.</string>
+  <string name="edit_save_action_license_logged_in">En publicar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">En publicar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Les edicions s\'atribuiran a l\'adreça IP del vostre dispositiu. Si &lt;a href=\"https://#login\"&gt;inicieu una sessió&lt;/a&gt; gaudireu de més privadesa.</string>
   <string name="preference_title_language">Llengües de la Viquipèdia</string>
   <string name="preference_languages_filter_hint">Cerca</string>
   <string name="langlinks_filter_hint">Cerca</string>
@@ -81,7 +86,7 @@
   <string name="dialog_message_edit_failed">La modificació no s\'ha desat!</string>
   <string name="dialog_message_edit_failed_retry">Torna-ho a provar</string>
   <string name="dialog_message_edit_failed_cancel">Cancel·la</string>
-  <string name="dialog_message_leaving_edit">Els canvis encara no s\'han desat. Segur que voleu sortir d\'aquesta pàgina?</string>
+  <string name="dialog_message_leaving_edit">Els canvis encara no s\'han publicat. Segur que voleu sortir d\'aquesta pàgina?</string>
   <string name="dialog_message_leaving_edit_leave">Surt</string>
   <string name="dialog_message_leaving_edit_stay">Roman</string>
   <string name="menu_show_toc">Taula de continguts</string>
@@ -281,11 +286,13 @@
   <string name="close_all_tabs_confirm_yes">Sí</string>
   <string name="close_all_tabs_confirm_no">No</string>
   <string name="button_close_tab">Tanca la pestanya</string>
+  <string name="tab_item_closed">S\'ha tancat %s.</string>
   <string name="tool_tip_select_text_title">Mantén premut per seleccionar</string>
   <string name="tool_tip_select_text">Mantén premut a qualsevol part del text per ressaltar-lo per copiar-lo i compartir-lo.</string>
   <string name="tool_tip_share">Després de destacar un fet interessant, proveu de compartir-lo a les vostres xarxes preferides!</string>
   <string name="page_view_in_browser">Visualitza la pàgina en el navegador</string>
   <string name="tool_tip_toc_button">Mireu la taula de continguts en qualsevol moment tocant aquest botó, o arrossegant des de la part dreta de la pantalla.</string>
+  <string name="tool_tip_toc_button_new">Descripció de la funció del botó de desplaçament que mostra la Taula de Continguts, i que permet a l\'usuari moure\'s ràpidament a través de les seccions de l\'article actual.</string>
   <string name="tool_tip_lang_button">Ara podeu cercar i llegir en diferents versions lingüístiques de la Viquipèdia des de l\'aplicació.\n\nFeu un toc a la icona per a afegir més llengües.</string>
   <string name="error_response_malformed">La resposta del servidor no s\'ha formatat correctament.</string>
   <string name="error_unknown">S\'ha produït un error desconegut.</string>
@@ -459,6 +466,7 @@
     <item quantity="other">Aquests articles no continuaran estant disponibles fora de línia.</item>
   </plurals>
   <string name="reading_list_toast_last_sync">Les llistes de lectura s’han sincronitzat correctament</string>
+  <string name="reading_list_menu_last_sync">Darrera sincronització: %s</string>
   <string name="user_option_sync_label">Preferències</string>
   <string name="notification_button_view_user">Parla amb l\'usuari</string>
   <string name="notification_talk_title">Missatge nou a la Viquipèdia</string>
@@ -514,6 +522,7 @@
   <string name="notifications_empty_message">Esteu al dia amb les notificacions!</string>
   <string name="notifications_view_archived_button_text">Mostra les notificacions arxivades</string>
   <string name="notification_preferences_title">Preferències de notificació</string>
+  <string name="notifications_mark_unread">Marca com a no llegit</string>
   <string name="preference_title_notification_poll">Activa les notificacions</string>
   <string name="preference_summary_notification_poll">Permet a l\'aplicació utilitzar dades per comprovar si hi ha noves notificacions en segon pla.</string>
   <string name="preference_category_notification_types">Tipus de notificació a l\'aplicació</string>
@@ -713,4 +722,8 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Ara teniu les variants tradicional i simplificada del xinès a les llengües de l\'aplicació? Voleu actualitzar la configuració de llengües de l\'aplicació?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Modifica les llengües</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No, gràcies</string>
+  <string name="main_drawer_open">Obre</string>
+  <string name="main_drawer_close">Tanca</string>
+  <string name="main_drawer_help">Ajuda</string>
+  <string name="main_drawer_login">Inicia una sessió / uniu-vos a la Viquipèdia</string>
 </resources>

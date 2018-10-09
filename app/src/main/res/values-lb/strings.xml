@@ -9,6 +9,8 @@
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
+  <string name="nav_item_back">Zréck</string>
+  <string name="nav_item_forward">Virun</string>
   <string name="search_hint">Op Wikipedia sichen</string>
   <string name="search_hint_search_history">Am Historique sichen</string>
   <string name="search_hint_search_my_lists">A menge Lëschte sichen</string>
@@ -35,6 +37,8 @@
   <string name="menu_page_font_and_theme">Schrëftaart a Faarwen</string>
   <string name="menu_page_add_to_list">Op d\'Lieslëscht derbäisetzen</string>
   <string name="menu_page_share">Link deelen</string>
+  <string name="menu_page_reading_lists">Lieslëschten</string>
+  <string name="menu_page_recently_viewed">Rezent gekuckt</string>
   <string name="menu_long_press_open_page">Opmaachen</string>
   <string name="menu_long_press_open_in_new_tab">An engem neien Tab opmaachen</string>
   <string name="menu_long_press_copy_page">Adress vum Link kopéieren</string>
@@ -51,7 +55,7 @@
   <string name="other_languages_indication_text">An enger anerer Sprooch liesen</string>
   <string name="language_count_link_text">Disponibel an %d anere Sproochen</string>
   <string name="content_license_html">Den Inhalt ass ënner &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; wann et net anescht uginn ass</string>
-  <string name="edit_save_action_license_logged_in">Mam Späichere sidd Dir mat den &lt;a href=\"%1$s\"&gt;Notzungsbedingungen&lt;/a&gt; d\'accord an iwwerloosst Är Kontributioun onwiderruflech ënner der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-Lizenz.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Mam Späichere sidd Dir mat den &lt;a href=\"%1$s\"&gt;Notzungsbedingungen&lt;/a&gt; d\'accord an iwwerloosst Är Kontributioun onwiderruflech ënner der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-Lizenz.</string>
   <string name="preference_title_language">Wikipedia-Sproochen</string>
   <string name="preference_languages_filter_hint">Sichen</string>
   <string name="langlinks_filter_hint">Sichen</string>
@@ -65,7 +69,7 @@
   <string name="dialog_message_edit_failed">Feeler beim Änneren!</string>
   <string name="dialog_message_edit_failed_retry">Nach eng Kéier probéieren</string>
   <string name="dialog_message_edit_failed_cancel">Ofbriechen</string>
-  <string name="dialog_message_leaving_edit">Är Ännerunge goufen nach net gespäichert. Sidd Dir sécher datt Dir vun dëser Säit erofgoe wëllt?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">Är Ännerunge goufen nach net gespäichert. Sidd Dir sécher datt Dir vun dëser Säit erofgoe wëllt?</string>
   <string name="dialog_message_leaving_edit_leave">Fortgoen</string>
   <string name="dialog_message_leaving_edit_stay">Bleiwen</string>
   <string name="menu_show_toc">Inhaltsverzeechnes</string>
@@ -570,4 +574,7 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Dir hutt elo esouwuel déi traditionell wéi déi vereinfacht chinesesch Variante an Ären App sproochen agestallt. Wëllt dir d\'Astellunge vun de Sprooche vun Ären Appen änneren?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sproochen änneren</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nee, merci</string>
+  <string name="main_drawer_open">Opmaachen</string>
+  <string name="main_drawer_close">Zoumaachen</string>
+  <string name="main_drawer_help">Hëllef</string>
 </resources>
