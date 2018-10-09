@@ -129,7 +129,9 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         readingListView.addItemDecoration(new MarginItemDecoration(0, 0, 0, DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.floating_queue_container_height))) {
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                if (parent.getChildAdapterPosition(view) == adapter.getItemCount() - 1 && ((MainActivity) requireActivity()).isFloatingQueueEnabled()) {
+                if (parent.getChildAdapterPosition(view) == adapter.getItemCount() - 1
+                        && ((MainActivity) requireActivity()).isFloatingQueueEnabled()
+                        && readingLists.size() > 1) {
                     super.getItemOffsets(outRect, view, parent, state);
                 }
             }
