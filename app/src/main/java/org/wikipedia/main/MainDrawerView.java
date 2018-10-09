@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ import butterknife.OnClick;
 public class MainDrawerView extends ScrollView {
     public interface Callback {
         void loginLogoutClick();
+        void notificationsClick();
         void settingsClick();
         void configureFeedClick();
         void aboutClick();
@@ -32,6 +34,7 @@ public class MainDrawerView extends ScrollView {
     @BindView(R.id.main_drawer_login_button) TextView loginLogoutButton;
     @BindView(R.id.main_drawer_account_avatar) ImageView accountAvatar;
     @BindView(R.id.main_drawer_account_wiki_globe) ImageView accountWikiGlobe;
+    @BindView(R.id.main_drawer_notifications_container) ViewGroup notificationsContainer;
     @Nullable Callback callback;
 
     public MainDrawerView(Context context) {
@@ -61,12 +64,14 @@ public class MainDrawerView extends ScrollView {
             loginLogoutButton.setTextColor(ResourceUtil.getThemedColor(getContext(), R.attr.textColorError));
             accountAvatar.setVisibility(View.VISIBLE);
             accountWikiGlobe.setVisibility(View.GONE);
+            notificationsContainer.setVisibility(View.VISIBLE);
         } else {
             accountNameView.setVisibility(GONE);
             loginLogoutButton.setText(getContext().getString(R.string.main_drawer_login));
             loginLogoutButton.setTextColor(ResourceUtil.getThemedColor(getContext(), R.attr.colorAccent));
             accountAvatar.setVisibility(View.GONE);
             accountWikiGlobe.setVisibility(View.VISIBLE);
+            notificationsContainer.setVisibility(View.GONE);
         }
     }
 
@@ -79,6 +84,12 @@ public class MainDrawerView extends ScrollView {
     @OnClick(R.id.main_drawer_configure_container) void onConfigureClick() {
         if (callback != null) {
             callback.configureFeedClick();
+        }
+    }
+
+    @OnClick(R.id.main_drawer_notifications_container) void onNotificationsClick() {
+        if (callback != null) {
+            callback.notificationsClick();
         }
     }
 
