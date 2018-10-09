@@ -12,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
 
 import org.wikipedia.Constants;
@@ -180,6 +181,10 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
 
     @Override
     public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(Gravity.START)) {
+            drawerLayout.closeDrawer(Gravity.START);
+            return;
+        }
         if (getFragment().onBackPressed()) {
             return;
         }
