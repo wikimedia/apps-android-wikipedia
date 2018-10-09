@@ -300,12 +300,9 @@ public class PageFragmentLoadState {
                     L.e(e);
                 }
 
-                PageInfo pageInfo = PageInfoUnmarshaller.unmarshal(model.getTitle(),
-                        model.getTitle().getWikiSite(), payload);
-
                 loading = false;
                 networkErrorCallback = null;
-                fragment.onPageLoadComplete(pageInfo);
+                fragment.onPageLoadComplete();
             }
         });
     }

@@ -888,17 +888,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
     }
 
-    // TODO: where should handle these information?
-    private void updateMenuPageInfo(@NonNull Menu menu) {
-        MenuItem contentIssues = menu.findItem(R.id.menu_page_content_issues);
-        MenuItem similarTitles = menu.findItem(R.id.menu_page_similar_titles);
-        PageInfo pageInfo = pageFragment.getPageInfo();
-        contentIssues.setVisible(pageInfo != null && pageInfo.hasContentIssues());
-        contentIssues.setEnabled(true);
-        similarTitles.setVisible(pageInfo != null && pageInfo.hasSimilarTitles());
-        similarTitles.setEnabled(true);
-    }
-
     @SuppressLint("CommitTransaction")
     private void closeSearchFragment(@NonNull SearchFragment fragment) {
         getSupportFragmentManager().beginTransaction().remove(fragment).commitNowAllowingStateLoss();
