@@ -112,7 +112,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
                         }
                     }
                     notifyDataSetChanged();
-                }));
+                }, L::e));
     }
 
     @Override @NonNull public View getView(int position, View convView, @NonNull ViewGroup parent) {

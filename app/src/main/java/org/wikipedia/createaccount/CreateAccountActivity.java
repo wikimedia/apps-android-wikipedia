@@ -392,7 +392,7 @@ public class CreateAccountActivity extends BaseActivity {
                         } else {
                             usernameInput.setError(getString(R.string.create_account_name_unavailable, userName));
                         }
-                    }));
+                    }, L::e));
         }
     }
 }
