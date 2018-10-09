@@ -35,25 +35,15 @@
             android:layout_marginTop="16dp"
             android:text="@string/search_empty_message" />
 
-
         <TextView
             android:id="@+id/add_languages_button"
             android:layout_width="wrap_content"
-            android:layout_height="36dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="@drawable/button_shape_add_reading_list"
-            android:backgroundTint="?attr/paper_color"
-            android:elevation="2dp"
-            android:fontFamily="sans-serif-medium"
-            android:foreground="?attr/selectableItemBackground"
-            android:gravity="center"
-            android:letterSpacing="0.04"
-            android:paddingEnd="8dp"
-            android:paddingStart="8dp"
+            style="@style/App.Button"
+            app:backgroundTint="?attr/paper_color"
             android:text="@string/add_wikipedia_languages_text"
-            android:textAllCaps="true"
             android:textColor="?attr/secondary_text_color"
-            android:textSize="14sp"
             tools:text="Add Wikipedia languages" />
     </LinearLayout>
 
