@@ -64,10 +64,6 @@
         <item name="actionModeCloseDrawable">@drawable/ic_arrow_back_themed_24dp</item>
     </style>
 
-    <style name="AppTheme.TranslucentStatus">
-        <item name="android:windowTranslucentStatus" tools:targetApi="19">true</item>
-    </style>
-
     <style name="AppTheme.FullScreen">
         <item name="android:windowFullscreen">true</item>
     </style>
