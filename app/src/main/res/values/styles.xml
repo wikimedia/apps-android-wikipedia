@@ -285,7 +285,7 @@
     </style>
 
     <style name="OnboardingSwitch">
-        <item name="colorControlActivated">@color/accent75</item>
+        <item name="colorControlActivated">?attr/colorAccent</item>
         <item name="colorSwitchThumbNormal">@color/base50</item>
         <item name="android:colorForeground">@color/base30</item>
     </style>

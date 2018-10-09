@@ -1,18 +1,14 @@
 package org.wikipedia.onboarding;
 
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import org.wikipedia.BackPressedHandler;
@@ -30,11 +26,8 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
     @BindView(R.id.fragment_onboarding_skip_button) View skipButton;
     @BindView(R.id.fragment_onboarding_forward_button) View forwardButton;
     @BindView(R.id.fragment_onboarding_done_button) TextView doneButton;
-    @BindView(R.id.fragment_onboarding_pager_container) FrameLayout layout;
     private Unbinder unbinder;
     private PagerAdapter adapter;
-
-    private GradientDrawable background;
 
     public interface Callback {
         void onComplete();
@@ -44,23 +37,15 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
 
     @StringRes protected abstract int getDoneButtonText();
 
-    @DrawableRes protected abstract int getBackgroundResId();
-
     protected ViewPager getViewPager() {
         return viewPager;
     }
 
-    protected GradientDrawable getBackground() {
-        return background;
-    }
 
     @Override public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_onboarding_pager, container, false);
         unbinder = ButterKnife.bind(this, view);
-        background = (GradientDrawable) ContextCompat.getDrawable(requireContext(), getBackgroundResId());
-        background.mutate();
-        layout.setBackground(background);
         adapter = getAdapter();
         viewPager.setAdapter(adapter);
         doneButton.setText(getDoneButtonText());
