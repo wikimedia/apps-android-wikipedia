@@ -1,10 +1,12 @@
 package org.wikipedia.feed.news;
 
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,6 +30,7 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.GradientUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
@@ -49,6 +52,7 @@ public class NewsFragment extends Fragment {
     @BindView(R.id.view_news_fullscreen_story_text) TextView text;
     @BindView(R.id.view_news_fullscreen_link_card_list) RecyclerView links;
     @BindView(R.id.view_news_fullscreen_toolbar) Toolbar toolbar;
+    @BindView(R.id.news_toolbar_container) CollapsingToolbarLayout toolBarLayout;
     @BindView(R.id.news_app_bar) AppBarLayout appBarLayout;
     @BindView(R.id.view_news_fullscreen_gradient) View gradientView;
 
@@ -90,6 +94,11 @@ public class NewsFragment extends Fragment {
                 DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar,
                         (layout.getTotalScrollRange() + offset) > layout.getTotalScrollRange() / 2)
         );
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            toolBarLayout.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.main_status_bar_color));
+        }
+
 
         image.loadImage(imageUri);
         text.setText(stripHtml(item.story()));

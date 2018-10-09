@@ -75,7 +75,7 @@ public class PageToolbarHideHandler extends ViewHideHandler {
         int opacity = calculateScrollOpacity(scrollY);
         toolbarBackground.setAlpha(opacity);
         updateChildIconTint(toolbar, opacity);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             pageFragment.requireActivity().getWindow()
                     .setStatusBarColor(calculateStatusBarTintForOpacity(opacity));
         }
