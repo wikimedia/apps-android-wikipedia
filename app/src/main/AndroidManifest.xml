@@ -216,8 +216,7 @@
             android:name=".readinglist.ReadingListActivity" />
 
         <activity
-            android:name=".onboarding.InitialOnboardingActivity"
-            android:theme="@style/AppTheme.TranslucentStatus"/>
+            android:name=".onboarding.InitialOnboardingActivity"/>
 
         <activity
             android:name=".feed.mostread.MostReadArticlesActivity"

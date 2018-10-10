@@ -19,7 +19,7 @@ public class DescriptionEditTutorialActivity
 
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStatusBarColor(R.color.green30);
+        setStatusBarColor(R.color.base100);
     }
 
     @Override public void onComplete() {
