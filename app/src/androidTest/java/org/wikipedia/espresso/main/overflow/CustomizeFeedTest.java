@@ -65,15 +65,9 @@ public class CustomizeFeedTest {
         whileWithMaxSteps(
                 () -> !viewIsDisplayed(R.id.fragment_feed_feed),
                 () -> waitFor(WAIT_FOR_2000));
-        ViewInteraction appCompatTextView2 = onView(
-                allOf(withId(R.id.explore_overflow_configure_cards), withText("Customize the feed"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withClassName(is("android.widget.LinearLayout")),
-                                        1),
-                                0),
-                        isDisplayed()));
-        appCompatTextView2.perform(click());
+
+        // TODO: redesign the way of entering Configure Feed page
+
         waitFor(WAIT_FOR_500);
         ScreenshotTools.snap("CustomizeFeed1Of2" + mode);
         waitFor(WAIT_FOR_500);
@@ -133,7 +127,9 @@ public class CustomizeFeedTest {
                         isDisplayed()));
         textView.check(matches(withText("On this day")));
         waitFor(WAIT_FOR_2000);
-        appCompatTextView2.perform(click());
+
+        // TODO: redesign the way of entering Configure Feed page
+
         waitFor(WAIT_FOR_2000);
         onView(withId(R.id.content_types_recycler)).perform(
                 RecyclerViewActions.actionOnItemAtPosition(0, ViewTools.clickChildViewWithId(R.id.feed_content_type_checkbox)));

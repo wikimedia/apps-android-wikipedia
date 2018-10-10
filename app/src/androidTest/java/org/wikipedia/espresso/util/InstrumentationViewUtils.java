@@ -70,15 +70,7 @@ public final class InstrumentationViewUtils {
                 () -> !viewIsDisplayed(R.id.fragment_feed_feed),
                 () -> waitFor(2000));
 
-        ViewInteraction appCompatTextView2 = onView(
-                allOf(withId(R.id.explore_overflow_settings), withText("Settings"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withClassName(is("android.widget.LinearLayout")),
-                                        1),
-                                2),
-                        isDisplayed()));
-        appCompatTextView2.perform(click());
+        // TODO: redesign the way of entering SettingsActivity
 
         whileWithMaxSteps(
                 () -> !viewWithTextIsDisplayed("General"),
