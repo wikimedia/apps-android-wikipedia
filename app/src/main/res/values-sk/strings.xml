@@ -275,7 +275,6 @@
   <string name="tool_tip_select_text">Stlačte a podržte kdekoľvek v texte, aby ste ho mohli kopírovať a zdieľať.</string>
   <string name="tool_tip_share">Po zvýraznení zaujímavej skutočnosti ju môžete zdieľať na vašich obľúbených sietiach!</string>
   <string name="page_view_in_browser">Zobraziť stránku v prehliadači</string>
-  <string name="tool_tip_toc_button">Obsah môžete zobraziť kedykoľvek ťuknutím na toto tlačidlo alebo posunutím obrazovky z pravého rohu vľavo.</string>
   <string name="tool_tip_lang_button">V rámci aplikácie môžete vyhľadávať a čítať Wikipédiu vo viacerých jazykoch.\n\n\nĎalšie jazyky pridáte kliknutím na ikonu.</string>
   <string name="error_response_malformed">Odpoveď zo servera nebola správne naformátovaná.</string>
   <string name="error_unknown">Vyskytla sa neznáma chyba.</string>

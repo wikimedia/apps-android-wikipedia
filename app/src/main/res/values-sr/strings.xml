@@ -286,8 +286,7 @@
   <string name="tool_tip_select_text_title">Задржите за избор</string>
   <string name="tool_tip_select_text">Притисните и држите било где у тексту да бисте га изабрали за копирање и дељење.</string>
   <string name="tool_tip_share">Након што означите занимљиву чињеницу, делите је на својим омиљеним мрежама.</string>
-  <string name="page_view_in_browser">Прикажи страницу у прегледачу</string>
-  <string name="tool_tip_toc_button">Погледајте садржај било када притиском на ово дугме или превлачењем с десног угла екрана.</string>
+  <string name="page_view_in_browser">Погледај страницу у прегледачу</string>
   <string name="tool_tip_lang_button">Сада можете да претражујете и читате Википедију на више језика у апликацији.\n\n\nДодирните икону да бисте додали још језика.</string>
   <string name="error_response_malformed">Одговор сервера није исправно форматиран.</string>
   <string name="error_unknown">Дошло је до непознате грешке.</string>

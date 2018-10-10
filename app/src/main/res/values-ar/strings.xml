@@ -297,8 +297,6 @@
   <string name="tool_tip_select_text">اضغط مع الاستمرار في أي مكان في النص لتحديده للنسخ والمشاركة.</string>
   <string name="tool_tip_share">بعد تحديد حقيقة مثيرة للاهتمام، حاول مشاركتها على شبكات التواصل المفضلة لديك!</string>
   <string name="page_view_in_browser">اعرض الصفحة في المتصفح</string>
-  <string name="tool_tip_toc_button">طالع جدول المحتويات في أي وقت عن طريق النقر على هذا الزر، أو السحب من الحافة اليسرى من الشاشة.</string>
-  <string name="tool_tip_toc_button_new">وصف وظيفة الزر المتدحرج الذي يعرض جدول المحتويات، ويسمح للمستخدم بالمرور بسرعة خلال أقسام المقالة الحالية.</string>
   <string name="tool_tip_lang_button">يمكنك الآن البحث وقراءة لغات ويكيبيديا المتعددة في التطبيق.\n\nاضغط على الأيقونة لإضافة المزيد من اللغات.</string>
   <string name="error_response_malformed">الاستجابة من الملقم لم تكن مهيأة بشكل صحيح.</string>
   <string name="error_unknown">حدث خطأ غير معروف.</string>

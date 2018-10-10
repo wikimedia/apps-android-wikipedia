@@ -282,7 +282,6 @@
   <string name="tool_tip_select_text">هر جایی از متن را برای انتخاب‌شدن و کپی و اشتراک می‌توانید با فشاردادن و نگه‌داشتن انتخاب کنید.</string>
   <string name="tool_tip_share">بعد از پررنگ کردن مطلب مورد نظرتان، می توانید آن را در شبکه مطلوبتان به اشتراک بگذارید.</string>
   <string name="page_view_in_browser">دیدن صفحه در مرورگر</string>
-  <string name="tool_tip_toc_button">با فشردن این دکمه جدول محتویات را هر زمانی که خواستید مشاهده کنید یا از سمت راست پنجره برگ بزنید.</string>
   <string name="error_response_malformed">پاسخ سرور به درستی تنظیم نشده‌است.</string>
   <string name="error_unknown">خطای ناشناخته رخ داده است.</string>
   <string name="format_error_server_message">پیام: \"%s\"</string>

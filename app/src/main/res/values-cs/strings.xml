@@ -292,8 +292,6 @@
   <string name="tool_tip_select_text">Stiskněte a podržte kdekoliv, čímž vyberete text ke kopírování a sdílení.</string>
   <string name="tool_tip_share">Po zvýraznění zajímavého faktu jej zkuste sdílet na své oblíbené síti!</string>
   <string name="page_view_in_browser">Zobrazit v prohlížeči</string>
-  <string name="tool_tip_toc_button">Obsah zobrazte kdykoliv klepnutím na toto tlačítko nebo přejetím přes pravý okraj obrazovky.</string>
-  <string name="tool_tip_toc_button_new">Popis funkce skrolovatelného tlačítka, které zobrazuje obsah a umožňuje uživateli rychle přejet přes části aktuálního článku.</string>
   <string name="tool_tip_lang_button">Nyní můžete vyhledávat a číst Wikipedii ve více jazycích.\n\n\nKlepnutím na ikonu přidáte další jazyky.</string>
   <string name="error_response_malformed">Odpověď serveru nebyla správně zformátována.</string>
   <string name="error_unknown">Došlo k neznámé chybě.</string>

@@ -280,7 +280,6 @@
   <string name="tool_tip_select_text">Sakatu eta mantendu edonon testuan, hautatzeko, kopiatzeko eta partekatzeko.</string>
   <string name="tool_tip_share">Gertaera interesgarri bat nabarmendu ondoren, saiatu zure sare gustokoenak partekatzea!</string>
   <string name="page_view_in_browser">Orria nabigatzailean ikusi</string>
-  <string name="tool_tip_toc_button">Ikusi edukien taula edozein unetan botoi hau sakatuz, edo pantailaren eskuineko ertzetik irristatuz.</string>
   <string name="tool_tip_lang_button">Orain hainbat Wikipedia hizkuntzatan bilatu eta irakurri ahalko duzu aplikazioan.\n\nSakatu ikonoa hizkuntza gehiago gehitzeko.</string>
   <string name="error_response_malformed">Zerbitzariaren erantzuna ez da formateatu behar bezala.</string>
   <string name="error_unknown">Ezezaguna den errorea gertatu da.</string>

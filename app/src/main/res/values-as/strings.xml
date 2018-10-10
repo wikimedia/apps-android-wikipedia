@@ -254,7 +254,6 @@
   <string name="tool_tip_select_text" fuzzy="true">প্ৰতিলিপি আৰু শ্বেয়াৰ কৰিবলৈ পাঠ্যৰ যিকোনো ঠাইত টিপি ধৰি থাকি উজ্জ্বল কৰক।</string>
   <string name="tool_tip_share">এটা আগ্ৰহজনক তথ্য নিৰ্বাচন কৰাৰ পাছত ইয়াক আপোনাৰ পছন্দৰ নে\'টৱৰ্কত শ্বেয়াৰ কৰিবলৈ চেষ্টা কৰক!</string>
   <string name="page_view_in_browser">পৃষ্ঠাটো ব্ৰাউজাৰত চাওক</string>
-  <string name="tool_tip_toc_button">এই বুটামটো টেপ্‌ কৰি নাইবা স্ক্ৰীনৰ সোঁকাষৰ পৰা স্লাইড কৰি বিষয়বস্তুৰ তালিকা যিকোনো সময়ত চাব পাৰিব।</string>
   <string name="error_unknown">এটা অজ্ঞাত ত্ৰুটি হৈছে।</string>
   <string name="format_error_server_message">বাৰ্তা: \"%s\"</string>
   <string name="address_copied">ঠিকনাটো ক্লিপ্‌ব\'ৰ্ডলৈ প্ৰতিলিপি কৰা হৈছে।</string>

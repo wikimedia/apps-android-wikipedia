@@ -319,8 +319,8 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private void showTocOnboarding() {
         try {
             showScroller();
-            FeedbackUtil.showTapTargetView(fragment.requireActivity(), scrollerView, R.string.menu_show_toc,
-                    R.string.tool_tip_toc_button_new, new TapTargetView.Listener() {
+            FeedbackUtil.showTapTargetView(fragment.requireActivity(), scrollerView, R.string.tool_tip_toc_title,
+                    R.string.tool_tip_toc_text, new TapTargetView.Listener() {
                         @Override
                         public void onTargetClick(TapTargetView view) {
                             super.onTargetClick(view);

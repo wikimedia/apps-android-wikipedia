@@ -302,8 +302,6 @@
   <string name="tool_tip_select_text">Pressione e segure em qualquer lugar no texto para selecioná-lo para copiar e compartilhar.</string>
   <string name="tool_tip_share">Após destacar um fato interessante, tente compartilhá-lo nas suas redes favoritas!</string>
   <string name="page_view_in_browser">Ver página no navegador</string>
-  <string name="tool_tip_toc_button">Consulte o índice a qualquer momento tocando neste botão ou deslizando com o dedo a partir do canto direito da tela.</string>
-  <string name="tool_tip_toc_button_new">Descrição da função do botão rolável que mostra o Índice e permite que o usuário passe rapidamente pelas seções do artigo atual.</string>
   <string name="tool_tip_lang_button">Agora você pode pesquisar e ler em vários idiomas da Wikipédia no aplicativo.\n\n\nToque no ícone para adicionar mais idiomas.</string>
   <string name="error_response_malformed">A resposta do servidor não foi formatada corretamente.</string>
   <string name="error_unknown">Ocorreu um erro desconhecido.</string>

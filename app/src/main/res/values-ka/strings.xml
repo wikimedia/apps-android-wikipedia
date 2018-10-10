@@ -220,7 +220,6 @@
   <string name="tool_tip_select_text">დააჭირეთ და გეკავოთ ტექსტის ნებისმიერ ადგილი რათა მოინიშნოს დასაკოპირებლად ან გასაზიარებლად.</string>
   <string name="tool_tip_share">საიტერესო ფაქტის აღმოჩენის შემდეგ, გააზიარეთ ის ფავორიტთა ქსელში!</string>
   <string name="page_view_in_browser">გვერდის ბრაუზერში ხილვა</string>
-  <string name="tool_tip_toc_button">იხილეთ შინაარსის ცხრილი ნებისმიერ დროს ამ ღილაკზე დაწოლით. ან ეკრანის მარჯვენა ბოლოდან გამოსმით.</string>
   <string name="error_response_malformed">სერვერისგან პასუხი არასწორად დაფორმატდა.</string>
   <string name="error_unknown">აღმოჩენილია უცნობი შეცდომა.</string>
   <string name="format_error_server_message">შეტყობინება: „%s“</string>

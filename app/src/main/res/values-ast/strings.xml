@@ -273,7 +273,6 @@
   <string name="tool_tip_select_text">Pulsia y aguanta pulsiáu en cualquier parte del testu pa escoyelu pa copiar y compartir.</string>
   <string name="tool_tip_share">Tres resaltar una información interesante, ¡intenta compartila nes tos redes favorites!</string>
   <string name="page_view_in_browser">Ver la páxina nel navegador</string>
-  <string name="tool_tip_toc_button">Consulta la tabla de conteníu en cualquier momentu tocando esti botón, o abasnando dende\'l berbesu drechu de la pantalla.</string>
   <string name="tool_tip_lang_button">Agora puedes buscar y lleer Wikipedia en distintos idiomes na app.\n\n\nToca l\'iconu p\'añadir más idiomes.</string>
   <string name="error_response_malformed">La respuesta del sirvidor nun tenía un formatu correutu.</string>
   <string name="error_unknown">Hebo un error desconocíu.</string>
