@@ -8,7 +8,6 @@ import org.wikipedia.captcha.CaptchaResult;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.page.PageTitle;
 
 import java.io.IOException;
@@ -43,11 +42,6 @@ class EditClient {
             public void onResponse(@NonNull Call<Edit> call, @NonNull Response<Edit> response) {
                 if (response.body().hasEditResult()) {
                     handleEditResult(response.body().edit(), call, cb);
-                } else if (response.body().hasError()) {
-                    RuntimeException e = response.body().badLoginState()
-                            ? new UserNotLoggedInException()
-                            : new MwException(response.body().getError());
-                    cb.failure(call, e);
                 } else {
                     cb.failure(call, new IOException("An unknown error occurred."));
                 }

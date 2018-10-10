@@ -13,7 +13,6 @@ import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.login.LoginClient;
 import org.wikipedia.login.LoginResult;
@@ -146,7 +145,7 @@ public class CsrfTokenClient {
                 }
 
                 Response<MwQueryResponse> response = service.getCsrfToken().execute();
-                if (response.body() == null || !response.body().success()
+                if (response.body() == null || response.body().query() == null
                         || TextUtils.isEmpty(response.body().query().csrfToken())) {
                     continue;
                 }
@@ -171,15 +170,10 @@ public class CsrfTokenClient {
         call.enqueue(new retrofit2.Callback<MwQueryResponse>() {
             @Override
             public void onResponse(@NonNull Call<MwQueryResponse> call, @NonNull Response<MwQueryResponse> response) {
-                if (response.body().success()) {
-                    // noinspection ConstantConditions
-                    cb.success(response.body().query().csrfToken());
-                } else if (response.body().hasError()) {
-                    // noinspection ConstantConditions
-                    cb.failure(new MwException(response.body().getError()));
-                } else {
-                    cb.failure(new IOException("An unknown error occurred."));
+                if (call.isCanceled()) {
+                    return;
                 }
+                cb.success(response.body().query().csrfToken());
             }
 
             @Override

@@ -80,7 +80,7 @@ public class EditClientTest extends MockWebServerTest {
         Call<Edit> call = request(cb, true);
 
         server().takeRequest();
-        assertCallbackFailure(call, cb, UserNotLoggedInException.class);
+        assertCallbackFailure(call, cb, MwException.class);
     }
 
     @Test public void testRequestResponseGenericApiError() throws Throwable {

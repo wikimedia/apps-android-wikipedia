@@ -35,6 +35,10 @@ public class MwServiceError extends BaseModel implements ServiceError {
         return "badtoken".equals(code);
     }
 
+    public boolean badLoginState() {
+        return "assertuserfailed".equals(code);
+    }
+
     public boolean hasMessageName(@NonNull String messageName) {
         for (Message msg : messages) {
             if (messageName.equals(msg.name)) {

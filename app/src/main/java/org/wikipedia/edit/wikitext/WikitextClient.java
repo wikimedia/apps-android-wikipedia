@@ -9,7 +9,6 @@ import com.google.gson.JsonParseException;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResult;
@@ -31,17 +30,13 @@ public class WikitextClient {
             @Override
             public void onResponse(@NonNull Call<MwQueryResponse> call, @NonNull Response<MwQueryResponse> response) {
                 // noinspection ConstantConditions
-                if (response.body() != null && response.body().success()
-                        && response.body().query() != null
+                if (response.body() != null && response.body().query() != null
                         && response.body().query().firstPage() != null
                         && getRevision(response.body().query()) != null) {
                     // noinspection ConstantConditions
                     MwQueryPage.Revision rev = getRevision(response.body().query());
                     cb.success(call, response.body().query().firstPage().title(),
                             rev.content(), rev.timeStamp());
-                } else if (response.body() != null && response.body().hasError()) {
-                    // noinspection ConstantConditions
-                    cb.failure(call, new MwException(response.body().getError()));
                 } else {
                     Throwable t = new JsonParseException("Error parsing wikitext from query response");
                     cb.failure(call, t);

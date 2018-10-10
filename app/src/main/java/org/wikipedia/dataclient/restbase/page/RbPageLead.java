@@ -8,7 +8,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.auth.AccountUtil;
-import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageLeadProperties;
 import org.wikipedia.dataclient.page.Protection;
@@ -48,22 +47,6 @@ public class RbPageLead implements PageLead, PageLeadProperties {
     @SuppressWarnings("unused") @Nullable private Image image;
     @SuppressWarnings("unused") @Nullable private Protection protection;
     @SuppressWarnings("unused") @Nullable private List<Section> sections;
-
-    @Override
-    public boolean hasError() {
-        // If we have a page lead object, RESTBase hasn't returned an error
-        return false;
-    }
-
-    @Override
-    public ServiceError getError() {
-        return null;
-    }
-
-    @Override
-    public void logError(String message) {
-
-    }
 
     /** Note: before using this check that #getMobileview != null */
     @Override

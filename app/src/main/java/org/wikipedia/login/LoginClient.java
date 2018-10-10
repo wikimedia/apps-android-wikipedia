@@ -15,7 +15,6 @@ import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.ListUserResponse;
-import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.util.log.L;
@@ -52,16 +51,7 @@ public class LoginClient {
         tokenCall.enqueue(new Callback<MwQueryResponse>() {
             @Override public void onResponse(@NonNull Call<MwQueryResponse> call,
                                              @NonNull Response<MwQueryResponse> response) {
-                if (response.body().success()) {
-                    // noinspection ConstantConditions
-                    login(wiki, userName, password, null, null, response.body().query().loginToken(), cb);
-                } else if (response.body().getError() != null) {
-                    // noinspection ConstantConditions
-                    cb.error(new MwException(response.body().getError()));
-                } else {
-                    cb.error(new IOException("Unexpected error trying to retrieve login token. "
-                            + response.body().toString()));
-                }
+                login(wiki, userName, password, null, null, response.body().query().loginToken(), cb);
             }
 
             @Override
@@ -120,8 +110,7 @@ public class LoginClient {
     public void loginBlocking(@NonNull final WikiSite wiki, @NonNull final String userName,
                               @NonNull final String password, @Nullable final String twoFactorCode) throws Throwable {
         Response<MwQueryResponse> tokenResponse = ServiceFactory.get(wiki).getLoginToken().execute();
-        if (tokenResponse.body() == null || !tokenResponse.body().success()
-                || TextUtils.isEmpty(tokenResponse.body().query().loginToken())) {
+        if (tokenResponse.body() == null || TextUtils.isEmpty(tokenResponse.body().query().loginToken())) {
             throw new IOException("Unexpected response when getting login token.");
         }
         String loginToken = tokenResponse.body().query().loginToken();

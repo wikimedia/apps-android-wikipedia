@@ -93,10 +93,6 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
                 .enqueue(new retrofit2.Callback<PageLead>() {
                     @Override public void onResponse(Call<PageLead> call, Response<PageLead> rsp) {
                         PageLead lead = rsp.body();
-                        if (lead.hasError()) {
-                            lead.logError("Error while updating widget");
-                            return;
-                        }
 
                         L.d("Downloaded page " + title.getDisplayText());
                         String titleText = findFeaturedArticleTitle(lead.getLeadSectionContent());

@@ -8,7 +8,6 @@ import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
-import org.wikipedia.dataclient.restbase.RbServiceError;
 import org.wikipedia.json.annotations.Required;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
@@ -33,17 +32,6 @@ public class RbPageSummary implements PageSummary {
     @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
     @SuppressWarnings("unused") @Nullable @SerializedName("originalimage") private Thumbnail originalImage;
     @SuppressWarnings("unused") @Nullable private String lang;
-
-    @Override
-    public boolean hasError() {
-        // If we have a page summary object, RESTBase hasn't returned an error
-        return false;
-    }
-
-    @Override @Nullable
-    public RbServiceError getError() {
-        return null;
-    }
 
     @Override @NonNull
     public String getTitle() {

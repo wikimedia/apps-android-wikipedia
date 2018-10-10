@@ -19,7 +19,7 @@ public class CreateAccountResponse extends MwResponse {
     }
 
     public boolean hasResult() {
-        return success() && createaccount != null;
+        return createaccount != null;
     }
 
     public static class Result {

@@ -52,7 +52,7 @@ public class EditUnitTest extends MockWebServerTest {
         Call<Edit> call = request(cb);
 
         server().takeRequest();
-        assertExpectedEditError(call, cb, "User not logged in.");
+        assertExpectedEditError(call, cb, "Assertion that the user is logged in failed");
     }
 
     @NonNull private Call<Edit> request(@NonNull Callback cb) {

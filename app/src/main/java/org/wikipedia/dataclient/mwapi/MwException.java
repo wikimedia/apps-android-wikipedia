@@ -10,6 +10,10 @@ public class MwException extends RuntimeException {
         this.error = error;
     }
 
+    @NonNull public MwServiceError getError() {
+        return error;
+    }
+
     @Nullable public String getTitle() {
         return error.getTitle();
     }

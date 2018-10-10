@@ -4,7 +4,6 @@ import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.test.MockRetrofitTest;
 
 import io.reactivex.Observable;
@@ -21,9 +20,6 @@ public class FullTextSearchClientTest extends MockRetrofitTest {
                         // noinspection ConstantConditions
                         return new SearchResults(response.query().pages(), TESTWIKI,
                                 response.continuation(), null);
-                    } else if (response.hasError()) {
-                        // noinspection ConstantConditions
-                        throw new MwException(response.getError());
                     }
                     return new SearchResults();
                 });

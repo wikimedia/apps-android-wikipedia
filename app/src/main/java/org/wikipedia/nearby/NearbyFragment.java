@@ -41,7 +41,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.NearbyPage;
 import org.wikipedia.history.HistoryEntry;
@@ -390,12 +389,9 @@ public class NearbyFragment extends Fragment {
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .map((Function<MwQueryResponse, List<NearbyPage>>) response -> {
-                            if (response != null && response.success() && response.query() != null) {
+                            if (response != null && response.query() != null) {
                                 // noinspection ConstantConditions
                                 return response.query().nearbyPages(WikiSite.forLanguageCode(langCode));
-                            } else if (response != null && response.hasError()) {
-                                // noinspection ConstantConditions
-                                throw new MwException(response.getError());
                             }
                             return Collections.emptyList();
                         })

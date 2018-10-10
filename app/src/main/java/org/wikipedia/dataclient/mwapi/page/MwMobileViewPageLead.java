@@ -18,7 +18,6 @@ import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.Section;
 import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.log.L;
 
 import java.util.Collections;
 import java.util.List;
@@ -31,14 +30,6 @@ import static org.wikipedia.util.ImageUrlUtil.getUrlForSize;
  */
 public class MwMobileViewPageLead extends MwResponse implements PageLead {
     @SuppressWarnings("unused") private Mobileview mobileview;
-
-    @Override
-    public void logError(String message) {
-        if (getError() != null) {
-            message += ": " + getError().toString();
-        }
-        L.e(message);
-    }
 
     /** Note: before using this check that #getMobileview != null */
     @Override
