@@ -23,8 +23,6 @@ import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.TypedValue;
 import android.view.MenuItem;
 
-import org.wikipedia.R;
-
 public final class ResourceUtil {
     // See Resources.getIdentifier().
     private static final int NO_ID = 0;
@@ -43,22 +41,6 @@ public final class ResourceUtil {
         }
         typedArray.recycle();
         return ids;
-    }
-
-    @DrawableRes @SuppressWarnings("checkstyle:magicnumber") public static int getTabListIcon(int numTabs) {
-        switch (Math.max(0, numTabs)) {
-            case 0: return R.drawable.ic_tab_list_white_24dp;
-            case 1: return R.drawable.ic_tab_list_1;
-            case 2: return R.drawable.ic_tab_list_2;
-            case 3: return R.drawable.ic_tab_list_3;
-            case 4: return R.drawable.ic_tab_list_4;
-            case 5: return R.drawable.ic_tab_list_5;
-            case 6: return R.drawable.ic_tab_list_6;
-            case 7: return R.drawable.ic_tab_list_7;
-            case 8: return R.drawable.ic_tab_list_8;
-            case 9: return R.drawable.ic_tab_list_9;
-            default: return R.drawable.ic_tab_list_9_plus;
-        }
     }
 
     @NonNull
