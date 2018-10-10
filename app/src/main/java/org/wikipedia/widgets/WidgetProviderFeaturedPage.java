@@ -16,7 +16,6 @@ import android.widget.RemoteViews;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
@@ -89,7 +88,7 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
                 app.getWikiSite());
 
         getApiService(title)
-                .lead(ServiceFactory.get(title.getWikiSite()), null, null, null, title.getPrefixedText(),
+                .lead(title.getWikiSite(), null, null, null, title.getPrefixedText(),
                         DimenUtil.calculateLeadImageWidth())
                 .enqueue(new retrofit2.Callback<PageLead>() {
                     @Override public void onResponse(Call<PageLead> call, Response<PageLead> rsp) {

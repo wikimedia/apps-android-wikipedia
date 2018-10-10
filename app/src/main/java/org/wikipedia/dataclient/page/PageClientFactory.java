@@ -20,7 +20,7 @@ public final class PageClientFactory {
         if (RbSwitch.INSTANCE.isRestBaseEnabled(wiki) && !namespace.file()) {
             return new RbPageClient();
         }
-        return new MwPageClient(wiki);
+        return new MwPageClient();
     }
 
     private PageClientFactory() { }

@@ -147,7 +147,7 @@ public class AggregatedFeedContentClient {
         numResponsesExpected = FeedContentType.getAggregatedLanguages().size();
         for (String lang : FeedContentType.getAggregatedLanguages()) {
             WikiSite wiki = WikiSite.forLanguageCode(lang);
-            Call<AggregatedFeedContent> call = ServiceFactory.get(wiki)
+            Call<AggregatedFeedContent> call = ServiceFactory.getRest(wiki)
                     .getAggregatedFeed(lang, date.year(), date.month(), date.date());
             call.enqueue(cb);
             calls.put(lang, call);

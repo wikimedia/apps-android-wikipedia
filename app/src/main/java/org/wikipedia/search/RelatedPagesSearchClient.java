@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
-import org.wikipedia.dataclient.Service;
+import org.wikipedia.dataclient.RestService;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.restbase.RbRelatedPages;
@@ -23,11 +23,11 @@ public class RelatedPagesSearchClient {
     }
 
     public Call<RbRelatedPages> request(@NonNull String title, @NonNull WikiSite wiki, int limit, @NonNull Callback cb) {
-        return request(ServiceFactory.get(wiki), title, limit, cb);
+        return request(ServiceFactory.getRest(wiki), title, limit, cb);
     }
 
     @VisibleForTesting
-    Call<RbRelatedPages> request(@NonNull Service service, @NonNull String title, int limit, @NonNull Callback cb) {
+    Call<RbRelatedPages> request(@NonNull RestService service, @NonNull String title, int limit, @NonNull Callback cb) {
         Call<RbRelatedPages> call = service.getRelatedPages(title);
 
         call.enqueue(new retrofit2.Callback<RbRelatedPages>() {

@@ -8,7 +8,7 @@ import android.text.TextUtils;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
-import org.wikipedia.dataclient.Service;
+import org.wikipedia.dataclient.RestService;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.FeedCoordinator;
@@ -35,7 +35,7 @@ public class AnnouncementClient implements FeedClient {
     @Override
     public void request(@NonNull Context context, @NonNull WikiSite wiki, int age, @NonNull Callback cb) {
         cancel();
-        call = request(ServiceFactory.get(wiki));
+        call = request(ServiceFactory.getRest(wiki));
         call.enqueue(new CallbackAdapter(cb, true));
     }
 
@@ -50,7 +50,7 @@ public class AnnouncementClient implements FeedClient {
 
     @VisibleForTesting
     @NonNull
-    Call<AnnouncementList> request(@NonNull Service service) {
+    Call<AnnouncementList> request(@NonNull RestService service) {
         return service.getAnnouncements();
     }
 

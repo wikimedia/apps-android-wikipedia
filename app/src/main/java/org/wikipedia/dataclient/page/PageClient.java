@@ -3,7 +3,7 @@ package org.wikipedia.dataclient.page;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.dataclient.Service;
+import org.wikipedia.dataclient.WikiSite;
 
 import io.reactivex.Observable;
 import okhttp3.CacheControl;
@@ -20,7 +20,7 @@ public interface PageClient {
      *
      * @param title the page title to be used including prefix
      */
-    @NonNull <T extends PageSummary> Observable<T> summary(@NonNull Service service,
+    @NonNull <T extends PageSummary> Observable<T> summary(@NonNull WikiSite wiki,
                                                            @NonNull String title,
                                                            @Nullable String referrerUrl);
 
@@ -30,7 +30,7 @@ public interface PageClient {
      * @param title the page title with prefix if necessary
      * @param leadThumbnailWidth one of the bucket widths for the lead image
      */
-    @NonNull <T extends PageLead> Call<T> lead(@NonNull Service service,
+    @NonNull <T extends PageLead> Call<T> lead(@NonNull WikiSite wiki,
                                                @Nullable CacheControl cacheControl,
                                                @Nullable String saveOfflineHeader,
                                                @Nullable String referrerUrl,
@@ -42,7 +42,7 @@ public interface PageClient {
      *
      * @param title the page title to be used including prefix
      */
-    @NonNull <T extends PageRemaining> Call<T> sections(@NonNull Service service,
+    @NonNull <T extends PageRemaining> Call<T> sections(@NonNull WikiSite wiki,
                                                         @Nullable CacheControl cacheControl,
                                                         @Nullable String saveOfflineHeader,
                                                         @NonNull String title);

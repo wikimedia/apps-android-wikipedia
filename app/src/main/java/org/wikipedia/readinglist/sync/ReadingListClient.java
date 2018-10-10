@@ -40,7 +40,7 @@ public class ReadingListClient {
      */
     public boolean setup(@NonNull String csrfToken) throws Throwable {
         try {
-            ServiceFactory.get(wiki).setupReadingLists(csrfToken).execute();
+            ServiceFactory.getRest(wiki).setupReadingLists(csrfToken).execute();
             return true;
         } catch (Throwable t) {
             if (isErrorType(t, "already-set-up")) {
@@ -52,7 +52,7 @@ public class ReadingListClient {
 
     public void tearDown(@NonNull String csrfToken) throws Throwable {
         try {
-            ServiceFactory.get(wiki).tearDownReadingLists(csrfToken).execute();
+            ServiceFactory.getRest(wiki).tearDownReadingLists(csrfToken).execute();
         } catch (Throwable t) {
             if (isErrorType(t, "not-set-up")) {
                 return;
@@ -67,7 +67,7 @@ public class ReadingListClient {
         int totalCycles = 0;
         String continueStr = null;
         do {
-            Response<SyncedReadingLists> response = ServiceFactory.get(wiki).getReadingLists(continueStr).execute();
+            Response<SyncedReadingLists> response = ServiceFactory.getRest(wiki).getReadingLists(continueStr).execute();
             SyncedReadingLists lists = response.body();
             if (lists == null || lists.getLists() == null) {
                 throw new IOException("Incorrect response format.");
@@ -86,7 +86,7 @@ public class ReadingListClient {
         int totalCycles = 0;
         String continueStr = null;
         do {
-            Response<SyncedReadingLists> response = ServiceFactory.get(wiki).getReadingListChangesSince(date, continueStr).execute();
+            Response<SyncedReadingLists> response = ServiceFactory.getRest(wiki).getReadingListChangesSince(date, continueStr).execute();
             SyncedReadingLists body = response.body();
             if (body == null) {
                 throw new IOException("Incorrect response format.");
@@ -109,7 +109,7 @@ public class ReadingListClient {
         int totalCycles = 0;
         String continueStr = null;
         do {
-            Response<SyncedReadingLists> response = ServiceFactory.get(wiki)
+            Response<SyncedReadingLists> response = ServiceFactory.getRest(wiki)
                     .getReadingListsContaining(entry.project(), entry.title(), continueStr).execute();
             SyncedReadingLists lists = response.body();
             if (lists == null || lists.getLists() == null) {
@@ -129,7 +129,7 @@ public class ReadingListClient {
         String continueStr = null;
         do {
             Response<SyncedReadingLists> response
-                    = ServiceFactory.get(wiki).getReadingListEntries(listId, continueStr).execute();
+                    = ServiceFactory.getRest(wiki).getReadingListEntries(listId, continueStr).execute();
             SyncedReadingLists body = response.body();
             if (body == null || body.getEntries() == null) {
                 throw new IOException("Incorrect response format.");
@@ -143,7 +143,7 @@ public class ReadingListClient {
 
     public long createList(@NonNull String csrfToken, @NonNull RemoteReadingList list) throws Throwable {
         Response<SyncedReadingLists.RemoteIdResponse> response
-                = ServiceFactory.get(wiki).createReadingList(csrfToken, list).execute();
+                = ServiceFactory.getRest(wiki).createReadingList(csrfToken, list).execute();
         SyncedReadingLists.RemoteIdResponse idResponse = response.body();
         if (idResponse == null) {
             throw new IOException("Incorrect response format.");
@@ -153,18 +153,18 @@ public class ReadingListClient {
     }
 
     public void updateList(@NonNull String csrfToken, long listId, @NonNull RemoteReadingList list) throws Throwable {
-        Response response = ServiceFactory.get(wiki).updateReadingList(listId, csrfToken, list).execute();
+        Response response = ServiceFactory.getRest(wiki).updateReadingList(listId, csrfToken, list).execute();
         saveLastDateHeader(response);
     }
 
     public void deleteList(@NonNull String csrfToken, long listId) throws Throwable {
-        Response response = ServiceFactory.get(wiki).deleteReadingList(listId, csrfToken).execute();
+        Response response = ServiceFactory.getRest(wiki).deleteReadingList(listId, csrfToken).execute();
         saveLastDateHeader(response);
     }
 
     public long addPageToList(@NonNull String csrfToken, long listId, @NonNull RemoteReadingListEntry entry) throws Throwable {
         Response<SyncedReadingLists.RemoteIdResponse> response
-                = ServiceFactory.get(wiki).addEntryToReadingList(listId, csrfToken, entry).execute();
+                = ServiceFactory.getRest(wiki).addEntryToReadingList(listId, csrfToken, entry).execute();
         SyncedReadingLists.RemoteIdResponse idResponse = response.body();
         if (idResponse == null) {
             throw new IOException("Incorrect response format.");
@@ -189,7 +189,7 @@ public class ReadingListClient {
 
             try {
                 Response<SyncedReadingLists.RemoteIdResponseBatch> response
-                        = ServiceFactory.get(wiki).addEntriesToReadingList(listId, csrfToken, new RemoteReadingListEntryBatch(currentBatch)).execute();
+                        = ServiceFactory.getRest(wiki).addEntriesToReadingList(listId, csrfToken, new RemoteReadingListEntryBatch(currentBatch)).execute();
                 SyncedReadingLists.RemoteIdResponseBatch idResponse = response.body();
                 if (idResponse == null) {
                     throw new IOException("Incorrect response format.");
@@ -211,7 +211,7 @@ public class ReadingListClient {
     }
 
     public void deletePageFromList(@NonNull String csrfToken, long listId, long entryId) throws Throwable {
-        Response response = ServiceFactory.get(wiki).deleteEntryFromReadingList(listId, entryId, csrfToken).execute();
+        Response response = ServiceFactory.getRest(wiki).deleteEntryFromReadingList(listId, entryId, csrfToken).execute();
         saveLastDateHeader(response);
     }
 
