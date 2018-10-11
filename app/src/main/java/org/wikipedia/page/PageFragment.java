@@ -529,6 +529,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             openInNewForegroundTabFromMenu(title, entry);
         } else {
             openInNewTabFromMenu(title, entry, getBackgroundTabPosition());
+            ((PageActivity) requireActivity()).animateTabsButton();
         }
     }
 

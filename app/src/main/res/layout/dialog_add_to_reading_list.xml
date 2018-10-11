@@ -56,7 +56,8 @@
                     android:padding="10dp"
                     android:layout_gravity="center_vertical"
                     android:background="@drawable/button_shape_add_reading_list"
-                    app:srcCompat="@drawable/ic_add_gray_24dp"
+                    app:srcCompat="@drawable/ic_add_gray_themed_24dp"
+                    app:tint="@color/base30"
                     android:contentDescription="@null"/>
 
                 <TextView
