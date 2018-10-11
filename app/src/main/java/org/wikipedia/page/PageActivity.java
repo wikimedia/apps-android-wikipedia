@@ -28,8 +28,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -219,12 +217,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @OnClick(R.id.page_toolbar_button_show_overflow_menu)
     public void onShowOverflowMenuButtonClicked() {
         showOverflowMenu(toolbar.findViewById(R.id.page_toolbar_button_show_overflow_menu));
-    }
-
-    public void animateTabsButton() {
-        Animation anim = AnimationUtils.loadAnimation(this, R.anim.tab_list_zoom_enter);
-        tabsButton.startAnimation(anim);
-        tabsButton.setTabSize(WikipediaApp.getInstance().getTabCount());
     }
 
     private void finishActionMode() {
