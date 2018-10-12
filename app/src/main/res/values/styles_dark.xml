@@ -24,7 +24,7 @@
         <item name="colorAccent">@color/accent75</item>
 
         <!-- Error text in TextInputLayout -->
-        <item name="textColorError">@color/red75</item>
+        <item name="colorError">@color/red75</item>
 
         <!-- Overrides of base Android styles with color sub-definitions -->
         <item name="popupMenuStyle">@style/PopupMenuDark</item>

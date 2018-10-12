@@ -71,7 +71,7 @@ import static org.wikipedia.util.ReleaseUtil.getChannel;
 
 public class WikipediaApp extends Application {
     private final RemoteConfig remoteConfig = new RemoteConfig();
-    private final Map<Class<?>, DatabaseClient<?>> databaseClients = Collections.synchronizedMap(new HashMap<Class<?>, DatabaseClient<?>>());
+    private final Map<Class<?>, DatabaseClient<?>> databaseClients = Collections.synchronizedMap(new HashMap<>());
     private Handler mainThreadHandler;
     private AppLanguageState appLanguageState;
     private FunnelManager funnelManager;
@@ -154,6 +154,7 @@ public class WikipediaApp extends Application {
         super.onCreate();
 
         WikiSite.setDefaultBaseUrl(Prefs.getMediaWikiBaseUrl());
+
         zeroHandler = new WikipediaZeroHandler(this);
 
         // HockeyApp exception handling interferes with the test runner, so enable it only for

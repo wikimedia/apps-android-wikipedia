@@ -6,7 +6,6 @@ import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.rule.GrantPermissionRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.test.suitebuilder.annotation.LargeTest;
 import android.view.View;
 
 import org.hamcrest.core.IsInstanceOf;
@@ -41,7 +40,6 @@ import static org.wikipedia.espresso.util.ViewTools.viewIsDisplayed;
 import static org.wikipedia.espresso.util.ViewTools.waitFor;
 import static org.wikipedia.espresso.util.ViewTools.whileWithMaxSteps;
 
-@LargeTest
 @RunWith(AndroidJUnit4.class)
 @SuppressWarnings("checkstyle:magicnumber")
 public class CustomizeFeedTest {

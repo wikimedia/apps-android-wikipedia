@@ -7,7 +7,6 @@ import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.rule.GrantPermissionRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.test.suitebuilder.annotation.LargeTest;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -34,7 +33,6 @@ import static org.wikipedia.espresso.util.ViewTools.viewWithTextIsDisplayed;
 import static org.wikipedia.espresso.util.ViewTools.waitFor;
 import static org.wikipedia.espresso.util.ViewTools.whileWithMaxSteps;
 
-@LargeTest
 @RunWith(AndroidJUnit4.class)
 @SuppressWarnings("checkstyle:magicnumber")
 public class SettingsScreenTest {
@@ -56,7 +54,7 @@ public class SettingsScreenTest {
 
         //Click App Theme
         ViewInteraction recyclerView = onView(
-                allOf(withId(R.id.list),
+                allOf(withId(android.R.id.list),
                         childAtPosition(
                                 withId(android.R.id.list_container),
                                 0)));
@@ -131,13 +129,13 @@ public class SettingsScreenTest {
 
     private void takeSettingsPageScreenshots(String mode) {
         ScreenshotTools.snap("SettingsScreen1of3" + mode);
-        onView(withId(R.id.list)).perform(RecyclerViewActions.scrollToPosition(10));
+        onView(withId(android.R.id.list)).perform(RecyclerViewActions.scrollToPosition(10));
         waitFor(WAIT_FOR_1000);
         ScreenshotTools.snap("SettingsScreen2of3" + mode);
-        onView(withId(R.id.list)).perform(RecyclerViewActions.scrollToPosition(18));
+        onView(withId(android.R.id.list)).perform(RecyclerViewActions.scrollToPosition(18));
         waitFor(WAIT_FOR_1000);
         ScreenshotTools.snap("SettingsScreen3of3" + mode);
-        onView(withId(R.id.list)).perform(RecyclerViewActions.scrollToPosition(0));
+        onView(withId(android.R.id.list)).perform(RecyclerViewActions.scrollToPosition(0));
     }
 
     private void runComparisons() throws Exception {

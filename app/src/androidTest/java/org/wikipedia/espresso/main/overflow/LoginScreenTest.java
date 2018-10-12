@@ -10,7 +10,6 @@ import android.support.test.espresso.ViewInteraction;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.rule.GrantPermissionRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.test.suitebuilder.annotation.LargeTest;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -36,7 +35,6 @@ import static org.wikipedia.espresso.util.ViewTools.rotateScreen;
 import static org.wikipedia.espresso.util.ViewTools.waitFor;
 import static org.wikipedia.login.LoginActivity.LOGIN_REQUEST_SOURCE;
 
-@LargeTest
 @RunWith(AndroidJUnit4.class)
 @SuppressWarnings("checkstyle:magicnumber")
 public class LoginScreenTest {
