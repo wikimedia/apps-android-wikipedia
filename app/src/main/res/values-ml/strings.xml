@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Jameela P.
+* Jinoytommanjaly
 * Praveenp
 * Ranjithsiji
 -->
@@ -9,14 +10,26 @@
   <string name="app_name_beta">വിക്കിപീഡിയ ബീറ്റ</string>
   <string name="app_name_alpha">വിക്കിപീഡിയ ആൽഫ</string>
   <string name="wikimedia">വിക്കിമീഡിയ</string>
+  <string name="nav_item_back">പിന്നോട്ട്</string>
+  <string name="nav_item_forward">മുന്നോട്ട്</string>
   <string name="search_hint">വിക്കിപീഡിയയിൽ തിരയുക</string>
+  <string name="search_hint_search_history">തിരച്ചിൽ ചരിത്രം</string>
+  <string name="search_hint_search_my_lists">എന്റെ ലിസ്റ്റുകൾ തിരയുക</string>
+  <string name="search_hint_search_reading_list">വായന പട്ടിക തിരയുക</string>
+  <string name="search_hint_search_languages">ഒരു ഭാഷക്കായി തിരയുക</string>
   <string name="nav_item_history">നാൾവഴി</string>
   <string name="error_network_error">ഇന്റർനെറ്റുമായി ബന്ധപ്പെടാൻ കഴിയുന്നില്ല.</string>
   <string name="page_error_retry">വീണ്ടും ശ്രമിക്കുക</string>
   <string name="page_error_back_to_main">പിന്നിലേയ്ക്ക് മടങ്ങുക</string>
   <string name="menu_clear_all_history">നാൾവഴി ശൂന്യമാക്കുക</string>
+  <string name="history_item_deleted">%s ചരിത്രത്തിൽ നിന്ന് നീക്കംചെയ്തു</string>
+  <string name="history_items_deleted">ചരിത്രത്തിൽ നിന്ന് നീക്കംചെയ്ത %d ലേഖനങ്ങൾ</string>
+  <string name="history_item_delete_undo">തിരസ്ക്കരിക്കുക</string>
+  <string name="app_settings">അപ്ലിക്കേഷൻ ക്രമീകരണങ്ങൾ</string>
   <string name="dialog_title_clear_history">ബ്രൗസിങ് ഹിസ്റ്ററി ശൂന്യമാക്കണോ?</string>
   <string name="dialog_message_clear_history">ഇത് താങ്കളുടെ എല്ലാ ബ്രൗസിങ്ങ് ചരിത്രവും ശൂന്യമാക്കും, അതിനുശേഷം നിലവിൽ തുറന്നിരിക്കുന്ന എല്ലാ ടാബുകളും അടയ്ക്കും. താങ്കൾക്ക് ഉറപ്പാണോ?</string>
+  <string name="dialog_message_clear_history_yes">അതെ</string>
+  <string name="dialog_message_clear_history_no">അല്ല</string>
   <string name="share_via">ഇതുവഴി പങ്ക് വെയ്ക്കുക</string>
   <string name="search_redirect_from">%s എന്നതിൽനിന്നും തിരിച്ചുവിടപ്പെട്ടപ്രകാരം</string>
   <string name="menu_page_show_tabs">ടാബുകൾ പ്രദർശിപ്പിക്കുക</string>
@@ -26,6 +39,9 @@
   <string name="menu_page_font_and_theme">ഫോണ്ടും ദൃശ്യരൂപവും</string>
   <string name="menu_page_add_to_list">വായന പട്ടികയിലേക്ക് ചേർക്കുക</string>
   <string name="menu_page_share">കണ്ണി പങ്ക് വെയ്ക്കുക</string>
+  <string name="menu_page_open_a_new_tab">പുതിയ ടാബിൽ തുറക്കുക</string>
+  <string name="menu_page_reading_lists">വായന പട്ടികകൾ</string>
+  <string name="menu_page_recently_viewed">അടുത്തിടെ കണ്ടത്</string>
   <string name="menu_long_press_open_page">തുറക്കുക</string>
   <string name="menu_long_press_open_in_new_tab">പുതിയ ടാബിൽ തുറക്കുക</string>
   <string name="menu_long_press_copy_page">കണ്ണിയുടെ വിലാസം പകർത്തുക</string>
@@ -35,18 +51,26 @@
   <string name="menu_text_select_edit_here">ഇവിടെ തിരുത്തുക</string>
   <string name="nav_item_nearby">സമീപസ്ഥം</string>
   <string name="nearby_zoom_to_location">ഭൂപടത്തിൽ കാണുന്ന സ്ഥലത്തേക്ക് വലുതാക്കുക.</string>
+  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; contributors</string>
   <string name="last_updated_text">അവസാനം പുതുക്കിയത്: %1$s</string>
-  <string name="talk_page_link_text" fuzzy="true">സംവാദം</string>
-  <string name="content_license_html" fuzzy="true">മറ്റുവിധത്തിൽ കുറിച്ചിട്ടില്ലെങ്കിൽ ഉള്ളടക്കം &lt;a href=\"%1$s\"&gt;സി.സി. ബൈ-എസ്.എ. 3.0&lt;/a&gt; പ്രകാരം ലഭ്യം</string>
-  <string name="preference_title_language" fuzzy="true">വിക്കിപീഡിയ ഭാഷ</string>
+  <string name="talk_page_link_text">സംവാദം താൾ കാണുക</string>
+  <string name="edit_history_link_text">തിരുത്തൽ ചരിത്രം കാണുക</string>
+  <string name="map_view_link_text">മാപ്പിൽ കാണുക</string>
+  <string name="other_languages_indication_text">മറ്റൊരു ഭാഷയിൽ വായിക്കുക</string>
+  <string name="language_count_link_text">%d മറ്റ് ഭാഷകളിൽ ലഭ്യമാണ്</string>
+  <string name="content_license_html">ശ്രദ്ധിക്കപ്പെടാത്ത പക്ഷം ഉള്ളടക്കം ഇവിടെ &lt;a href=\"%1$s\"&gt;സി.സി. ബൈ-എസ്.എ. 3.0&lt;/a&gt; ലഭ്യമാണ്</string>
+  <string name="edit_save_action_license_logged_in">പ്രസിദ്ധീകരിക്കുമ്പോൾ, നിങ്ങൾ അംഗീകരിക്കുന്നു\n&lt;a href=\"%1$s\"&gt;ഉപയോഗ നിബന്ധനകൾ&lt;/a&gt;, കൂടാതെ താങ്കൾ താങ്കളുടെ സംഭാവനകൾ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ലൈസൻസ് വിനിയോഗിക്കുക.</string>
+  <string name="edit_save_action_license_anon">By publishing, you agree to the &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; license. Edits will be attributed to the IP address of your device. If you &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt;, you will have more privacy.</string>
+  <string name="preference_title_language">വിക്കിപീഡിയ ഭാഷകൾ</string>
   <string name="preference_languages_filter_hint">തിരയുക</string>
   <string name="langlinks_filter_hint">തിരയുക</string>
   <string name="langlinks_empty">ഈ താൾ മറ്റ് ഭാഷകളിൽ ലഭ്യമല്ല</string>
-  <string name="langlinks_no_match" fuzzy="true">താങ്കളുടെ ആവശ്യവുമായി പൊരുത്തപ്പെടുന്ന ഭാഷകൾ ഒന്നും കണ്ടെത്താനായില്ല.</string>
+  <string name="langlinks_no_match">താങ്കളുടെ ആവശ്യവുമായി പൊരുത്തപ്പെടുന്ന ഭാഷകൾ ഒന്നും കണ്ടെത്താനായില്ല.</string>
   <string name="langlinks_activity_title">മറ്റു ഭാഷകൾ</string>
-  <string name="menu_save_changes" fuzzy="true">മാറ്റങ്ങൾ സേവ് ചെയ്യുക</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">സേവ് ചെയ്യുന്നു…</string>
-  <string name="edit_saved_successfully" fuzzy="true">തിരുത്ത് സേവ് ചെയ്തിരിക്കുന്നു!</string>
+  <string name="langlinks_your_wikipedia_languages">താങ്കളുടെ വിക്കിപീഡിയ ഭാഷകൾ</string>
+  <string name="menu_save_changes">മാറ്റങ്ങൾ പ്രസിദ്ധീകരിക്കുക</string>
+  <string name="dialog_saving_in_progress">പ്രസിദ്ധീകരിക്കുന്നു...</string>
+  <string name="edit_saved_successfully">തിരുത്ത് സേവ് ചെയ്തിരിക്കുന്നു!</string>
   <string name="dialog_message_edit_failed">തിരുത്ത് പരാജയപ്പെട്ടു!</string>
   <string name="dialog_message_edit_failed_retry">വീണ്ടും ശ്രമിക്കുക</string>
   <string name="dialog_message_edit_failed_cancel">റദ്ദാക്കുക</string>
@@ -55,6 +79,7 @@
   <string name="dialog_message_leaving_edit_stay">പിടിച്ചുവെക്കുക</string>
   <string name="menu_show_toc">ഉള്ളടക്കപ്പട്ടിക</string>
   <string name="search_no_results_found">ഫലങ്ങളൊന്നും കണ്ടെത്താനായില്ല</string>
+  <string name="search_reading_list_no_results">\"%s\" ൽ ഫലങ്ങളൊന്നും കണ്ടെത്തിയില്ല</string>
   <string name="edit_section_captcha_message">സ്വയം പ്രവർത്തിക്കുന്ന പാഴെഴുത്ത് സംവിധാനങ്ങളിൽ നിന്നുമുള്ള സംരക്ഷണത്തിനായി, താഴെ പ്രത്യക്ഷപ്പെടുന്ന വാക്കുകൾ എഴുതി നൽകുക</string>
   <string name="edit_section_captcha_hint">മുകളിലെ വാക്കുകൾ ആവർത്തിക്കുക</string>
   <string name="title_captcha">കാപ്ച നൽകുക</string>
@@ -66,11 +91,15 @@
   <string name="login_activity_title">വിക്കിപീഡിയയിൽ പ്രവേശിക്കുക</string>
   <string name="login_in_progress_dialog_message">താങ്കളെ പ്രവേശിപ്പിക്കുന്നു…</string>
   <string name="login_success_toast">പ്രവേശനം വിജയകരം!</string>
+  <string name="reset_password_hint">പുതിയ രഹസ്യവാക്ക്</string>
+  <string name="reset_password_button">സംരക്ഷിച്ച് ലോഗിൻ ചെയ്യുക</string>
   <string name="preference_title_logout">ലോഗൗട്ട്</string>
   <string name="toast_logout_complete">പുറത്തുകടന്നു</string>
-  <string name="history_empty_title" fuzzy="true">അടുത്തകാലത്തുള്ള ഒരു താളും ഇല്ല!</string>
+  <string name="history_empty_title">അടുത്തിടെ കണ്ട ലേഖനങ്ങൾ ഇല്ല</string>
   <string name="history_empty_message" fuzzy="true">താങ്കൾ എല്ലാം ശൂന്യമാക്കിയിട്ടുണ്ടാകും. അടുത്തതവണ താങ്കൾ ഒരു താൾ എടുത്താൽ പിന്നീടതിലേയ്ക്ക് ഇവിടെ നിന്നെത്താനാകും.</string>
   <string name="create_account_username_hint">ഉപയോക്തൃനാമം</string>
+  <string name="login_forgot_password">താങ്കൾ രഹസ്യവാക്ക് മറന്നോ?</string>
+  <string name="create_account_already_have">മുമ്പേ അംഗത്വമുണ്ടോ?</string>
   <string name="create_account_activity_title">ഒരംഗത്വമെടുക്കുക</string>
   <string name="dialog_create_account_checking_progress">ഉറപ്പാക്കുന്നു</string>
   <string name="create_account_email_hint">ഇമെയിൽ (നിർബന്ധമില്ല)</string>

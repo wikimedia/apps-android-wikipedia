@@ -24,6 +24,7 @@
 * Remux
 * Rodm23
 * Sporeunai
+* Tiberius1701
 * VegaDark
 * Wifidel
 * Yllelder
@@ -441,7 +442,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Activar sincronización</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No, gracias</string>
   <string name="reading_list_login_option_reminder_dialog_title">Se encontraron artículos en las listas de lectura</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Los artículos fueron guardados a la lista de lectura mientras estabas sin iniciar sesión. ¿Desearía añadirlos a la lista de lectura de su cuenta?</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Los artículos fueron guardados en la lista de lectura mientras estabas desconectado. ¿Desearías añadirlos a la lista de lectura de tu cuenta?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Sí, añadirlos a mis listas de lectura</string>
   <string name="reading_list_login_option_reminder_dialog_no">No, eliminar los artículos</string>
   <string name="reading_list_logout_option_reminder_dialog_title">¿Mantener los artículos guardados en la aplicación?</string>
@@ -591,7 +592,7 @@
   <string name="description_edit_success_did_you_know">¿Sabías?</string>
   <string name="description_edit_success_article_edit_hint">También puedes editar artículos dentro de esta aplicación. Intenta corregir errores y pequeñas frases haciendo clic en el icono ^1 la próxima vez</string>
   <string name="description_edit_tutorial_title_descriptions">Descripciones de títulos</string>
-  <string name="description_edit_tutorial_title_descriptions_summary">Resume un artículo para ayudar a los lectores a comprender el tema en un vistazo</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Resume un artículo para ayudar a los lectores a comprender el tema de un vistazo</string>
   <string name="description_edit_tutorial_keep_it_short">Que sea breve</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente una línea, entre dos y doce palabras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Empezar a editar</string>
@@ -623,7 +624,7 @@
   <string name="offline_compilations_found_count">En mi biblioteca sin conexión (%d)</string>
   <string name="offline_compilations_add">Añadir a mi biblioteca sin conexión</string>
   <string name="remote_compilations_title">Biblioteca sin conexión</string>
-  <string name="remote_compilations_description">La Biblioteca sin conexión te permite descargar paquetes de artículos para leerlos cuando no tengas conexión a Internet.</string>
+  <string name="remote_compilations_description">La biblioteca sin conexión te permite descargar paquetes de artículos para leerlos cuando no tengas conexión a Internet.</string>
   <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
@@ -658,7 +659,7 @@
   <string name="offline_library_onboarding_uninterrupted_reading_title">Lectura sin interrupciones</string>
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Continúa leyendo y buscando artículos dentro de tu biblioteca sin conexión cuando no tienes acceso a Internet.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Almacena más conocimiento</string>
-  <string name="offline_library_onboarding_store_knowledge_subtitle">Descarga tanto Wikipedia como tu dispositivo pueda. La biblioteca sin conexión también puede acceder a paquetes de artículos en dispositivos externos.</string>
+  <string name="offline_library_onboarding_store_knowledge_subtitle">Descarga tanta Wikipedia como tu dispositivo pueda manejar. La biblioteca sin conexión también puede acceder a paquetes de artículos en dispositivos externos.</string>
   <string name="offline_library_main_page_hint_html">Esta página principal proporciona un resumen de los contenidos de este paquete de artículos.&lt;br /&gt;&lt;br /&gt;También puedes explorar los contenidos de cualquier paquete de tu biblioteca sin conexión buscando los artículos disponibles mientras no tengas conexión.</string>
   <string name="onboarding_skip">Saltar</string>
   <string name="onboarding_continue">Continuar</string>

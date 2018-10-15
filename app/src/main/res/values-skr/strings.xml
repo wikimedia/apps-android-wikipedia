@@ -49,7 +49,7 @@
   <string name="edit_history_link_text"> تبدیلی دا تاریخچہ ݙیکھو</string>
   <string name="map_view_link_text">نقشے تے ݙیکھو</string>
   <string name="other_languages_indication_text">ٻئی زبان وچ پڑھو</string>
-  <string name="preference_title_language" fuzzy="true">وکی میڈیا دی زبان</string>
+  <string name="preference_title_language">وکی پیڈیا دی زباناں</string>
   <string name="preference_languages_filter_hint">ڳولو</string>
   <string name="langlinks_filter_hint">ڳولو</string>
   <string name="langlinks_empty">ایہ ورقہ ٻیاں زباناں وچ کائنی</string>
@@ -78,6 +78,7 @@
   <string name="login_in_progress_dialog_message">لاگ ان  تھیندے پئے ہو۔۔۔</string>
   <string name="login_success_toast">کامیابی نال لاگ ان تھی ڳئے</string>
   <string name="reset_password_hint">نواں پاس ورڈ</string>
+  <string name="reset_password_button">محفوظ کرو تے لا ان تھیوو</string>
   <string name="preference_title_logout">لاگ آؤٹ</string>
   <string name="toast_logout_complete">لاگ آؤٹ تھی ڳئے</string>
   <string name="delete_selected_items">چُݨے ہوئے آئٹم مٹاو</string>
@@ -159,6 +160,10 @@
   <string name="menu_gallery_visit_page">فائل ورقے تے ونڄو</string>
   <string name="license_title">%s کیتے لائیسنس</string>
   <string name="gallery_menu_share">شیئر</string>
+  <string name="gallery_save_progress">فائل ݙاؤن لوڈ کریندا پئے۔۔۔</string>
+  <string name="gallery_save_success">فائل کامیابی نال محفوظ تھی ڳئی۔</string>
+  <string name="gallery_error_video_failed">ویڈیو کوں کائنی چلایا ون٘ڄ سڳدا۔</string>
+  <string name="share_normal_button">عبارت دے طور تے سانجھی کرو</string>
   <string name="snippet_share_preview_image_desc">تصویر دی پہلے نمائش</string>
   <string name="cc_logo">کریئیٹیو کامنز اجازہ</string>
   <string name="captcha_image">کیپچا تصویر</string>
@@ -177,14 +182,18 @@
   <string name="button_add_to_reading_list">مطالعہ دی فہرست وچ شامل کرو</string>
   <string name="enable_location_service">فعال کرو</string>
   <string name="location_permissions_enable_action">بند کرو</string>
+  <string name="multi_select_items_selected">%d چُݨیج ڳیا</string>
   <string name="error_message_generic">رپھڑ پئے ڳیا</string>
   <string name="view_link_preview_error_button_dismiss">مکاؤ</string>
   <string name="error_page_does_not_exist">ایہ ورقہ کائنی</string>
   <string name="view_wiki_error_message_offline">انٹرنیٹ نال جوڑ نی تھی سڳدا</string>
   <string name="reference_title">حوالے%s</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">مدھم تصویر (تاریک پوشاک وچ)</string>
+  <string name="preference_title_prefer_offline_content">آف لائن مواد کوں ترجیح ݙیوو</string>
   <string name="crash_report_dialog_dont_send_button">چھوڑو</string>
   <string name="crash_report_dialog_always_send_button">ہمیشہ بھیڄو</string>
   <string name="crash_report_dialog_send_button">بھیڄو</string>
+  <string name="crash_report_relaunch">ول شروع کرو</string>
   <string name="crash_report_quit">نکلو</string>
   <string name="article_header_edit_hint">لکھو۔۔۔</string>
   <string name="color_theme_select">مرکزی خیال</string>
@@ -202,6 +211,7 @@
   <string name="reading_list_menu_delete">تندیر مٹاؤ</string>
   <string name="reading_list_menu_rename">ناں یا وضاحت وچ تبدیلی لکھو</string>
   <string name="reading_list_menu_edit_description">وضاحت وچ تبدیلی کرو</string>
+  <string name="reading_list_action_menu_save_for_offline">آف لائن کیتے محفوظ کرو</string>
   <string name="reading_list_name_hint">ایں فہرست دا ناں</string>
   <string name="reading_list_description_hint">تفصیلاں(اختیاری)</string>
   <string name="reading_list_item_delete_undo">واپس</string>
@@ -217,14 +227,19 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">لاگ ان تھیوو</string>
   <string name="reading_list_turned_sync_off_dialog_ok">ٹھیک ہے</string>
   <string name="reading_list_turned_sync_off_dialog_settings">ترتیباں</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">کو، شکریہ</string>
   <string name="reading_list_login_option_reminder_dialog_no">کو، مضمون مٹاؤ</string>
   <string name="default_reading_list_name">محفوظ تھی ڳیا</string>
   <string name="reading_lists_menu_create_list">نویں لسٹ بݨاؤ</string>
   <string name="reading_lists_menu_sort_by">ترتیب بمطابق</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">لاگ ان/ کھاتہ بݨاو</string>
   <string name="user_option_sync_label">ترجیحات</string>
+  <string name="notification_button_view_user">ورتݨ آلے نال ڳالھ مہاڑ کرو</string>
+  <string name="notification_talk_title">وکیپیڈیا تے نواں سنیہا</string>
   <string name="notification_syncing_pause_button">اجھکو</string>
+  <string name="notification_syncing_resume_button">ولدا شروع کرو</string>
   <string name="notification_syncing_cancel_button">منسوخ</string>
+  <string name="notifications_activity_title">اطلاع نامے</string>
   <string name="notifications_poll_enable_positive">فعال کرو</string>
   <string name="notifications_poll_enable_negative">ہُݨ نہ</string>
   <string name="preference_title_notification_welcome">ست بسم اللہ</string>
@@ -240,6 +255,7 @@
   <string name="view_featured_article_footer_saved_button_label">محفوظ</string>
   <string name="feed_configure_menu_select_all">سب ݙکھاؤ</string>
   <string name="feed_configure_menu_deselect_all">سارے لُکاؤ</string>
+  <string name="feed_configure_onboarding_action">مرضی مطابق بݨاؤ</string>
   <string name="description_edit_save">شائع کرو</string>
   <string name="description_edit_add_description">عنوان دی تفصیل لکھو</string>
   <string name="description_edit_edit_description">تفصیل لکھو</string>
@@ -271,6 +287,8 @@
   <string name="onboarding_skip">چھوڑو</string>
   <string name="onboarding_continue">جاری</string>
   <string name="onboarding_get_started">شروع کرو</string>
+  <string name="onboarding_got_it">گھن گھندا</string>
+  <string name="app_shortcuts_random">پُٹھے سِدھے</string>
   <string name="app_shortcuts_continue_reading">پڑھݨ جاری رکھو</string>
   <string name="app_shortcuts_search">ڳولو</string>
   <string name="on_this_day_card_title">ایں ݙینہ کوں</string>
@@ -281,9 +299,11 @@
   <string name="wikipedia_languages_title">وکی میڈیا دی زباناں</string>
   <string name="wikipedia_languages_your_languages_text">تہاݙیاں زباناں</string>
   <string name="wikipedia_languages_add_language_text">زبان شامل کرو</string>
-  <string name="wikipedia_languages_remove_text" fuzzy="true">ہٹاؤ</string>
+  <string name="wikipedia_languages_remove_text">زبان ہٹاؤ</string>
   <string name="wikipedia_languages_remove_action_mode_title">زبان ہٹاؤ</string>
   <string name="more_language_options">ٻئے</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">زباناں وچ تبدیلی کرو</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">کو، شکریہ</string>
   <string name="main_drawer_open">کھولو</string>
   <string name="main_drawer_close">بند کرو</string>
   <string name="main_drawer_help">مدد</string>

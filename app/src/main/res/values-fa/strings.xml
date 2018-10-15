@@ -3,6 +3,7 @@
 * AliNabipr
 * Alifakoor
 * Alirezaaa
+* Amirsara
 * Arash.pt
 * Dalba
 * Ebraminio
@@ -28,6 +29,8 @@
   <string name="app_name_beta">ویکی‌پدیا بتا</string>
   <string name="app_name_alpha">ویکی‌پدیا آلفا</string>
   <string name="wikimedia">ویکی‌مدیا</string>
+  <string name="nav_item_back">بازگشت</string>
+  <string name="nav_item_forward">جلو</string>
   <string name="search_hint">جستجوی ویکی‌پدیا</string>
   <string name="search_hint_search_history">تاریخچهٔ جستجو</string>
   <string name="search_hint_search_my_lists">جستجوی فهرست‌های من</string>
@@ -55,6 +58,8 @@
   <string name="menu_page_font_and_theme">تغییر فونت و پوسته</string>
   <string name="menu_page_add_to_list">افزودن به فهرست مطالعه</string>
   <string name="menu_page_share">به‌اشتراک‌گذاشتن پیوند</string>
+  <string name="menu_page_open_a_new_tab">بازکردن سربرگ تازه</string>
+  <string name="menu_page_reading_lists">فهرست‌های خواندن</string>
   <string name="menu_long_press_open_page">باز کردن</string>
   <string name="menu_long_press_open_in_new_tab">باز کردن در برگهٔ جدید</string>
   <string name="menu_long_press_copy_page">کپی نشانی پیوند</string>
@@ -135,6 +140,8 @@
   <string name="create_account_password_error">گذرواژه نامعتبر است</string>
   <string name="create_account_generic_error">امکان ساختن حساب کاربری وجود ندارد</string>
   <string name="create_account_next">بعدی</string>
+  <string name="email_recommendation_dialog_create_without_email_action">بدون ایمیل ادامه دهید</string>
+  <string name="email_recommendation_dialog_create_with_email_action">افزودن یک آدرس ایمیل</string>
   <string name="create_account_button">ایجاد حساب کاربری</string>
   <string name="create_account_name_unavailable">نام کاربری «%s» موجود نیست. لطفا نام دیگری را انتخاب کنید.</string>
   <string name="create_account_ip_block_message">متاسفانه نشانی آی‌پی شما از ساخت حساب جدید محروم شده است.</string>
@@ -199,7 +206,7 @@
   <string name="about_translators_translatewiki">این اپلیکیشن توسط مترجمان داوطلب در &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ترجمه شده‌است.</string>
   <string name="about_app_license_heading">مجوز</string>
   <string name="about_app_license">کد اصلی در &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت مجوز &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. برای موارد خاص تحت مجوز &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; یافت می‌شود.</string>
-  <string name="about_wmf" fuzzy="true">محصول &lt;a href=\"https://wikimediafoundation.org/\"&gt;بنیاد ویکی‌مدیا&lt;/a&gt;</string>
+  <string name="about_wmf">یک محصول از  &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">درباره</string>
   <string name="edit_abandon_confirm">صفحه ویرایش شده است. آیا مطمئنید که می‌خواهید بدون ذخیره تغییرات خارج شوید؟</string>
   <string name="edit_abandon_confirm_yes">بله</string>
@@ -278,6 +285,7 @@
   <string name="close_all_tabs_confirm_yes">بله</string>
   <string name="close_all_tabs_confirm_no">خیر</string>
   <string name="button_close_tab">بستن برگه</string>
+  <string name="tab_item_closed">%s بسته شده</string>
   <string name="tool_tip_select_text_title">به مدت زیاد نگهدارید تا انتخاب شود</string>
   <string name="tool_tip_select_text">هر جایی از متن را برای انتخاب‌شدن و کپی و اشتراک می‌توانید با فشاردادن و نگه‌داشتن انتخاب کنید.</string>
   <string name="tool_tip_share">بعد از پررنگ کردن مطلب مورد نظرتان، می توانید آن را در شبکه مطلوبتان به اشتراک بگذارید.</string>
@@ -470,8 +478,10 @@
   <string name="notifications_view_archived">نمایش بایگانی‌شده</string>
   <string name="notifications_poll_enable_title">فعال‌سازی اعلان‌ها</string>
   <string name="notifications_poll_enable_positive">فعال سازی</string>
+  <string name="notifications_poll_enable_negative">اکنون نه</string>
   <string name="preference_title_notification_welcome">خوش‌آمدید</string>
   <string name="preference_summary_notification_welcome">یک حساب کاربری ساخته‌شد.</string>
+  <string name="preference_title_notification_thanks">سپاس</string>
   <string name="preference_summary_notification_thanks">شخصی برای ویرایش از شما تشکر می‌کند.</string>
   <string name="view_continue_reading_card_title">ادامه دادن به خواندن</string>
   <string name="view_because_you_read_card_title">چون شما مطالعه می‌کنید</string>
@@ -637,4 +647,13 @@
     <item quantity="one">سال پیش</item>
     <item quantity="other">%d سال پیش</item>
   </plurals>
+  <string name="languages_list_activity_title">افزودن یک  زبان</string>
+  <string name="languages_list_suggested_text">پیشنهادشده</string>
+  <string name="languages_list_all_text">همه زبان‌ها</string>
+  <string name="wikipedia_languages_your_languages_text">زبان‌های شما</string>
+  <string name="wikipedia_languages_remove_action_mode_title">حذف زبان</string>
+  <string name="more_language_options">بیشتر</string>
+  <string name="main_drawer_open">باز کن</string>
+  <string name="main_drawer_help">راهنما</string>
+  <string name="main_drawer_login">ورود / پیوستن به ویکیپدیا</string>
 </resources>

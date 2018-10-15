@@ -292,6 +292,8 @@
   <string name="tool_tip_select_text">Stiskněte a podržte kdekoliv, čímž vyberete text ke kopírování a sdílení.</string>
   <string name="tool_tip_share">Po zvýraznění zajímavého faktu jej zkuste sdílet na své oblíbené síti!</string>
   <string name="page_view_in_browser">Zobrazit v prohlížeči</string>
+  <string name="tool_tip_toc_title">Obsah rychlého přístupu</string>
+  <string name="tool_tip_toc_text">Nyní můžete přejet prstem doleva a zobrazit obsah článku. Klepnutím a potáhnutím tímto tlačítkem můžete rychle přejít na různé části článku.</string>
   <string name="tool_tip_lang_button">Nyní můžete vyhledávat a číst Wikipedii ve více jazycích.\n\n\nKlepnutím na ikonu přidáte další jazyky.</string>
   <string name="error_response_malformed">Odpověď serveru nebyla správně zformátována.</string>
   <string name="error_unknown">Došlo k neznámé chybě.</string>
@@ -411,7 +413,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s již nebude k dispozici offline pro všechny seznamy k přečtení:</string>
   <string name="reading_lists_sync_reminder_title">Zapnout synchronizaci seznamů k přečtení?</string>
   <string name="reading_lists_sync_reminder_text">Články uložené v seznamech k přečtení mohou být nyní synchronizovány s vaším účtem na Wikipedii. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/cs#Synchronizace_seznamů_k_přečtení\"&gt;Více informací&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Seznam článků k přečtení může být synchronizován napříč zařízeními. Přihlaste se ke svému Wiki účtu a potvrďte své seznamy k uložení. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/cs#Synchronizace_seznamů_k_přečtení\"&gt;Learn more&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Seznam článků k přečtení může být synchronizován napříč zařízeními. Přihlaste se ke svému Wiki účtu a potvrďte své seznamy k uložení. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/cs#Synchronizace_seznamů_k_přečtení\"&gt;Více informací&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Povolit synchronizaci</string>
   <string name="reading_list_login_reminder_title">Synchronizovat seznamy k přečtení</string>
   <string name="reading_lists_login_reminder_text">Seznamy k přečtení mohou být nyní synchronizovány napříč zařízeními. Přihlaste se do svého účtu na Wikipedii a povolte ukládání vašich seznamů.</string>
@@ -563,7 +565,7 @@
   <string name="view_featured_article_card_title">Nejlepší článek</string>
   <string name="view_featured_article_footer_save_button_label">Uložit</string>
   <string name="view_featured_article_footer_saved_button_label">Uložit</string>
-  <string name="feed_configure_activity_title">Přizpůsobit zdroj</string>
+  <string name="feed_configure_activity_title">Přizpůsobit kanál objevování</string>
   <string name="feed_configure_menu_reset">Obnovit výchozí filtry</string>
   <string name="feed_configure_menu_select_all">Zobrazit vše</string>
   <string name="feed_configure_menu_deselect_all">Skrýt vše</string>
