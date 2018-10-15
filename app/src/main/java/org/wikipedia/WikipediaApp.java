@@ -193,9 +193,6 @@ public class WikipediaApp extends Application {
             // TODO: Remove when we're able to initialize Fresco in test builds.
         }
 
-        // TODO: Remove when user accounts have been migrated to AccountManager (June 2018)
-        AccountUtil.migrateAccountFromSharedPrefs();
-
         registerConnectivityReceiver();
 
         // Kick the notification receiver, in case it hasn't yet been started by the system.
