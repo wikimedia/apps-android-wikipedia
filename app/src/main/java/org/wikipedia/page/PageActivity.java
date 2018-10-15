@@ -718,6 +718,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
         @Override
         public void readingListsClick() {
+            if (Prefs.getOverflowReadingListsOptionClickCount() < 2) {
+                Prefs.setOverflowReadingListsOptionClickCount(Prefs.getOverflowReadingListsOptionClickCount() + 1);
+            }
             startActivity(MainActivity.newIntent(PageActivity.this)
                     .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.READING_LISTS.code()));
         }
@@ -904,12 +907,15 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private class EventBusConsumer implements Consumer<Object> {
         @Override
-        public void accept(Object event) throws Exception {
+        public void accept(Object event) {
             if (event instanceof ChangeTextSizeEvent) {
                 if (pageFragment != null && pageFragment.getWebView() != null) {
                     pageFragment.updateFontSize();
                 }
             } else if (event instanceof ArticleSavedOrDeletedEvent) {
+                if (((ArticleSavedOrDeletedEvent) event).isAdded()) {
+                    Prefs.shouldShowBookmarkToolTip(false);
+                }
                 if (pageFragment == null || !pageFragment.isAdded() || pageFragment.getTitleOriginal() == null) {
                     return;
                 }

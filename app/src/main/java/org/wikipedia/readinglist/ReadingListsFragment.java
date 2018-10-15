@@ -598,7 +598,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
 
     private class EventBusConsumer implements Consumer<Object> {
         @Override
-        public void accept(Object event) throws Exception {
+        public void accept(Object event) {
             if (event instanceof ReadingListSyncEvent) {
                 readingListView.post(() -> {
                     if (isAdded()) {
@@ -606,6 +606,9 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
                     }
                 });
             } else if (event instanceof ArticleSavedOrDeletedEvent) {
+                if (((ArticleSavedOrDeletedEvent) event).isAdded()) {
+                    Prefs.shouldShowBookmarkToolTip(false);
+                }
                 if (((ArticleSavedOrDeletedEvent) event).isAdded()) {
                     if (Prefs.getReadingListsPageSaveCount() < SAVE_COUNT_LIMIT) {
                         showReadingListsSyncDialog();
