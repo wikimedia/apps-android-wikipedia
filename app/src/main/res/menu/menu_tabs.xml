@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/menu_open_a_new_tab"
+          android:title="@string/menu_page_open_a_new_tab"
+          app:showAsAction="never" />
     <item android:id="@+id/menu_close_all_tabs"
-          android:icon="@drawable/ic_delete_themed_24dp"
-          android:title="@string/menu_close_all_tabs"
-          app:showAsAction="ifRoom" />
-    <item android:id="@+id/menu_new_tab"
-          android:icon="@drawable/ic_add_box_themed_24dp"
-          android:title="@string/menu_new_tab"
-          app:showAsAction="ifRoom" />
+        android:title="@string/menu_close_all_tabs"
+        app:showAsAction="never" />
+    <item android:id="@+id/menu_reading_lists"
+        android:title="@string/menu_page_reading_lists"
+        app:showAsAction="never" />
+    <item android:id="@+id/menu_recently_viewed"
+        android:title="@string/menu_page_recently_viewed"
+        app:showAsAction="never" />
 </menu>
