@@ -16,7 +16,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.login.LoginResult;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
 
 import java.util.Collections;
@@ -129,24 +128,6 @@ public final class AccountUtil {
             L.logRemoteErrorIfProd(e);
         }
         return null;
-    }
-
-    public static void migrateAccountFromSharedPrefs() {
-        if (Prefs.hasLoginUsername() || Prefs.hasLoginPassword()) {
-            if (!TextUtils.isEmpty(Prefs.getLoginUsername())
-                    && !TextUtils.isEmpty(Prefs.getLoginPassword())) {
-                createAccount(Prefs.getLoginUsername(), Prefs.getLoginPassword());
-            }
-            setUserIds(Prefs.getLoginUserIds());
-            if (Prefs.getLoginGroups() != null) {
-                setGroups(Prefs.getLoginGroups());
-            }
-
-            Prefs.removeLoginUsername();
-            Prefs.removeLoginPassword();
-            Prefs.removeLoginUserIds();
-            Prefs.removeLoginGroups();
-        }
     }
 
     @NonNull
