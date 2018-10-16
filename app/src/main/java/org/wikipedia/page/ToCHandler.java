@@ -177,11 +177,13 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     public void show() {
         fullFadeInToc();
         bringOutScroller();
+        funnel.logOpen();
     }
 
     public void hide() {
         fadeOutToc();
         bringInScroller();
+        funnel.logClose();
     }
 
     public boolean isVisible() {
@@ -478,12 +480,14 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         public void onScrollStart() {
             semiFadeInToc();
             bringOutScroller();
+            funnel.logScrollStart();
         }
 
         @Override
         public void onScrollStop() {
             fadeOutToc();
             bringInScroller();
+            funnel.logScrollStop();
         }
 
         @Override

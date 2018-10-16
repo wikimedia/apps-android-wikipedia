@@ -8,7 +8,7 @@ import org.wikipedia.dataclient.WikiSite;
 
 public class ToCInteractionFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppToCInteraction";
-    private static final int REV_ID = 18144589;
+    private static final int REV_ID = 18389174;
 
     private final int pageId;
     private final int numSections;
@@ -26,7 +26,9 @@ public class ToCInteractionFunnel extends TimedFunnel {
         return super.preprocessData(eventData);
     }
 
-    @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) { }
+    @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) {
+        preprocessData(eventData, "interaction_token", getSessionToken());
+    }
 
     public void logOpen() {
         resetDuration();
@@ -38,6 +40,18 @@ public class ToCInteractionFunnel extends TimedFunnel {
     public void logClose() {
         log(
                 "action", "close"
+        );
+    }
+
+    public void logScrollStart() {
+        log(
+                "action", "scroll_start"
+        );
+    }
+
+    public void logScrollStop() {
+        log(
+                "action", "scroll_stop"
         );
     }
 
