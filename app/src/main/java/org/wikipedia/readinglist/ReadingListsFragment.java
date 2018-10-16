@@ -607,9 +607,6 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
                 });
             } else if (event instanceof ArticleSavedOrDeletedEvent) {
                 if (((ArticleSavedOrDeletedEvent) event).isAdded()) {
-                    Prefs.shouldShowBookmarkToolTip(false);
-                }
-                if (((ArticleSavedOrDeletedEvent) event).isAdded()) {
                     if (Prefs.getReadingListsPageSaveCount() < SAVE_COUNT_LIMIT) {
                         showReadingListsSyncDialog();
                         Prefs.setReadingListsPageSaveCount(Prefs.getReadingListsPageSaveCount() + 1);
