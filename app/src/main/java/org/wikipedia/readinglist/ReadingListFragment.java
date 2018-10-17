@@ -12,6 +12,7 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -295,7 +296,7 @@ public class ReadingListFragment extends Fragment implements
     @Override
     public void onFloatingQueueClicked(@NonNull PageTitle title) {
         Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
-                floatingQueueView.getImageView(), getString(R.string.transition_floating_queue)).toBundle();
+                floatingQueueView.getImageView(), ViewCompat.getTransitionName(floatingQueueView.getImageView())).toBundle();
         startActivity(PageActivity.newIntentForExistingTab(requireContext(),
                 new HistoryEntry(title, HistoryEntry.SOURCE_FLOATING_QUEUE), title), bundle);
     }

@@ -188,7 +188,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         if (getFragment().onBackPressed()) {
             return;
         }
-        finish();
+        super.onBackPressed();
     }
 
     public boolean isFloatingQueueEnabled() {

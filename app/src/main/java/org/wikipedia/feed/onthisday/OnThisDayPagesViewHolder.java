@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -89,7 +90,8 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
         Bundle bundle = null;
         if (activity instanceof MainActivity) {
             bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, ((MainActivity) activity)
-                    .getFloatingQueueImageView(), activity.getString(R.string.transition_floating_queue)).toBundle();
+                    .getFloatingQueueImageView(), ViewCompat.getTransitionName(((MainActivity) activity)
+                    .getFloatingQueueImageView())).toBundle();
         }
 
         Intent intent = new Intent(ACTION_LOAD_IN_NEW_TAB)

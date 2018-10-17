@@ -18,6 +18,7 @@ import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
@@ -62,10 +63,12 @@ import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.theme.ThemeChooserDialog;
+import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.views.ObservableWebView;
@@ -119,7 +122,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private WikipediaApp app;
     private ActionMode currentActionMode;
-    private boolean hasSavedInstanceState;
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private PageToolbarHideHandler toolbarHideHandler;
@@ -141,6 +143,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         app = (WikipediaApp) getApplicationContext();
         MetricsManager.register(app);
         app.checkCrashes(this);
+        AnimationUtil.setSharedElementTransitions(this);
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
@@ -183,13 +186,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             }
             String language = savedInstanceState.getString(LANGUAGE_CODE_BUNDLE_KEY);
             languageChanged = !app.getAppOrSystemLanguageCode().equals(language);
-
-            // Note: when system language is enabled, and the system language is changed outside of
-            // the app, MRU languages are not updated. There's no harm in doing that here but since
-            // the user didn't choose that language in app, it may be unexpected.
-
-            // theme changed will have saved instance state
-            hasSavedInstanceState = true;
         }
 
         if (languageChanged) {
@@ -240,28 +236,20 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         switch (item.getItemId()) {
             case android.R.id.home:
                 pageFragment.saveLeadImageUrl();
-                if (shouldRecreateMainActivity()) {
-                    // TODO: this may affect the performance (smoothness)
-                    Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(PageActivity.this,
-                            pageFragment.getLeadImageView(), getString(R.string.transition_floating_queue)).toBundle();
-                    startActivity(getSupportParentActivityIntent()
-                            .putExtra(Constants.INTENT_RETURN_TO_MAIN, true), bundle);
-                    finish();
-                } else {
-                    finishActivity();
+                Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(PageActivity.this,
+                            pageFragment.getLeadImageView(), ViewCompat.getTransitionName(pageFragment.getLeadImageView())).toBundle();
+
+                startActivity(MainActivity.newIntent(this)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
+                        .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()), bundle);
+
+                if (getSupportParentActivityIntent() != null) {
+                    overridePendingTransition(0, L10nUtil.isDeviceRTL() ? R.anim.page_exit_transition_rtl : R.anim.page_exit_transition);
                 }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
-        }
-    }
-
-    private void finishActivity() {
-        if (!pageFragment.getTitle().isFilePage() && !pageFragment.getTitle().isMainPage() && !hasSavedInstanceState) {
-            supportFinishAfterTransition();
-        } else {
-            // FIXME: Theme changed will make the transition animation failed
-            finish();
         }
     }
 
@@ -495,10 +483,10 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
 
         Prefs.setFloatingQueueImage(null);
-        if (WikipediaApp.getInstance().getTabCount() == 1) {
+        if (WikipediaApp.getInstance().getTabCount() < 1) {
             finish();
         } else {
-            finishActivity();
+            super.onBackPressed();
         }
     }
 
@@ -689,12 +677,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private void showCopySuccessMessage() {
         FeedbackUtil.showMessage(this, R.string.address_copied);
-    }
-
-    private boolean shouldRecreateMainActivity() {
-        return getIntent().getAction() == null
-                || getIntent().getAction().equals(Intent.ACTION_VIEW)
-                || getIntent().getAction().equals(ACTION_RESUME_READING);
     }
 
     private void showOverflowMenu(@NonNull View anchor) {

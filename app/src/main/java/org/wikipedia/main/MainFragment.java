@@ -15,6 +15,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -328,7 +329,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Nullable
     public Bundle getTransitionAnimationBundle() {
         return ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
-                floatingQueueView.getImageView(), getString(R.string.transition_floating_queue)).toBundle();
+                floatingQueueView.getImageView(), ViewCompat.getTransitionName(floatingQueueView.getImageView())).toBundle();
     }
 
     @Override
