@@ -1,9 +1,7 @@
 package org.wikipedia.page.leadimages;
 
 import android.graphics.Bitmap;
-import android.graphics.PointF;
 import android.net.Uri;
-import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
@@ -22,7 +20,6 @@ import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
-import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ObservableWebView;
 
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
@@ -132,11 +129,7 @@ public class LeadImagesHandler {
             // explicitly set WebView padding, since onLayoutChange will not be called.
             setWebViewPaddingTop();
         } else {
-            if (!isLeadImageEnabled()) {
-                pageHeaderView.showText();
-            } else {
-                pageHeaderView.showTextImage();
-            }
+            pageHeaderView.show(isLeadImageEnabled());
         }
 
         // tell our listener that it's ok to start loading the rest of the WebView content
@@ -211,7 +204,6 @@ public class LeadImagesHandler {
     }
 
     private void initArticleHeaderView() {
-        pageHeaderView.setOnImageLoadListener(new ImageLoadListener());
         pageHeaderView.addOnLayoutChangeListener((View v, int left, int top, int right, int bottom,
                                        int oldLeft, int oldTop, int oldRight, int oldBottom) -> setWebViewPaddingTop());
         pageHeaderView.setCallback(() -> {
@@ -248,22 +240,5 @@ public class LeadImagesHandler {
 
     private FragmentActivity getActivity() {
         return parentFragment.getActivity();
-    }
-
-    private class ImageLoadListener implements FaceAndColorDetectImageView.OnImageLoadListener {
-        @Override
-        public void onImageLoaded(final int bmpHeight, @Nullable final PointF faceLocation, @ColorInt final int mainColor) {
-            pageHeaderView.post(() -> {
-                if (isFragmentAdded()) {
-                    if (faceLocation != null) {
-                        pageHeaderView.setImageFocus(faceLocation);
-                    }
-                }
-            });
-        }
-
-        @Override
-        public void onImageFailed() {
-        }
     }
 }

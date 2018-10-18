@@ -253,8 +253,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     private void goToMainTab(int navTabCode) {
         pageFragment.saveLeadImageUrl();
 
-        Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(PageActivity.this,
-                pageFragment.getLeadImageView(), ViewCompat.getTransitionName(pageFragment.getLeadImageView())).toBundle();
+        Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(this,
+                pageFragment.getHeaderView(), ViewCompat.getTransitionName(pageFragment.getHeaderView())).toBundle();
 
         startActivity(MainActivity.newIntent(this)
                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
