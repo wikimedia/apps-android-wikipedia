@@ -82,7 +82,7 @@
   <string name="search_reading_lists_no_results">စာဖတ်စာရင်းမှ ရလဒ်များ မရှိပါ</string>
   <string name="search_history_no_results">ရာဇဝင်ထဲတွင် ရလဒ် မတွေ့ပါ</string>
   <string name="edit_section_captcha_message">အလိုအလျောက်ပေးပို့နေသော မေးလ်များရန်မှ ကာကွယ်ရန် အောက်ပါ စာလုံးများကို လိုက်ရိုက်ကြည့်ပါ။</string>
-  <string name="edit_section_captcha_request_an_account_message">ရုပ်ပုံကို မတွေ့ရပါသလား? &lt;a href=\"https://my.wikipedia.org/wiki/Wikipedia:အကောင့်တစ်ခု_တောင်းဆိုရန်\"&gt;ပိုမိုလေ့လာရန်a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">ရုပ်ပုံကို မတွေ့ရပါသလား? &lt;a href=\"https://my.wikipedia.org/wiki/Wikipedia:အကောင့်တစ်ခု_တောင်းဆိုရန်\"&gt;ပိုမိုလေ့လာရန်a&gt;</string>
   <string name="edit_section_captcha_hint">အထက်မှ စာလုံးအား ထပ်ရိုက်ပါ</string>
   <string name="title_captcha">CAPTCHA ဖြည့်ပါ</string>
   <string name="edit_section_captcha_reload">CAPTCHA ကိုထိပြီးအသစ်ထပ်ယူပါ</string>

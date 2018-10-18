@@ -83,7 +83,7 @@
   <string name="search_reading_lists_no_results">Nula rezulti trovita en la lektebla listi</string>
   <string name="search_history_no_results">Nula rezulti trovita en la \'historio\' di retnavigado</string>
   <string name="edit_section_captcha_message">Por preventar l\'automatala \'spam\', kopiez la vorti quin vu vidas infre</string>
-  <string name="edit_section_captcha_request_an_account_message">Ne povas vidar l\'imajo? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Lektez pluse&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">Ne povas vidar l\'imajo? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Lektez pluse&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Kopiez la vorti lektebla adsupre</string>
   <string name="title_captcha">Skribez per CAPTCHA</string>
   <string name="edit_section_captcha_reload">Frapez CAPTCHA por richarjar</string>

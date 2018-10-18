@@ -81,7 +81,7 @@
   <string name="search_reading_lists_no_results">Ora ana kasil ing pratélan wacan</string>
   <string name="search_history_no_results">Ora ana kasil ing sajarah</string>
   <string name="edit_section_captcha_message">Kanggo ngreksa saka spam otomatis, mangga isinen tembung-tembung sing katon ngisor iki</string>
-  <string name="edit_section_captcha_request_an_account_message">Ora bisa ndeleng gambaré? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Sinaoni candhaké&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">Ora bisa ndeleng gambaré? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Sinaoni candhaké&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Balènana tembung-tembung ing ndhuwur</string>
   <string name="title_captcha">Isinen CAPTCHA</string>
   <string name="edit_section_captcha_reload">Dudul CAPTCHA saperlu ngambali ngamot</string>

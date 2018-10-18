@@ -95,7 +95,7 @@
   <string name="search_reading_lists_no_results">Lukulistasta ei löytynyt tuloksia</string>
   <string name="search_history_no_results">Hakuhistoriastasi ei löytynyt tuloksia tällä haulla</string>
   <string name="edit_section_captcha_message">Kirjoita alla olevat sanat roskapostin torjumiseksi</string>
-  <string name="edit_section_captcha_request_an_account_message">Etkö näe kuvaa? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Lue lisää&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">Etkö näe kuvaa? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Lue lisää&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Toista edeltävät sanat</string>
   <string name="title_captcha">Kirjoita roskapostisuojauksen kirjaimet</string>
   <string name="edit_section_captcha_reload">Lataa uusi napauttamalla</string>

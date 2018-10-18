@@ -91,7 +91,7 @@
   <string name="search_reading_lists_no_results">Нису пронађени резултати на листама за читање</string>
   <string name="search_history_no_results">Нису пронађени резултати у историји</string>
   <string name="edit_section_captcha_message">Да бисте помогли у заштити против аутоматизованог непожељног садржаја, унесите речи које су приказане испод</string>
-  <string name="edit_section_captcha_request_an_account_message">Не видите слику? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Сазнајте више&lt;/a&gt;.</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">Не видите слику? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Сазнајте више&lt;/a&gt;.</string>
   <string name="edit_section_captcha_hint">Поновите речи изнад</string>
   <string name="title_captcha">Унесите CAPTCHA текст</string>
   <string name="edit_section_captcha_reload">Додирните CAPTCHA слику да бисте је поново учитали</string>

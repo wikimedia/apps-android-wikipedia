@@ -86,7 +86,7 @@
   <string name="search_reading_lists_no_results">Ez dira emaitzarik aurkitu irakurketa zerrendetan</string>
   <string name="search_history_no_results">Historian ez da emaitzik aurkitu</string>
   <string name="edit_section_captcha_message">Spam automatikoaren aurka babesteko, mesedez idatzi jarraian ageri diren hitzak</string>
-  <string name="edit_section_captcha_request_an_account_message">Ezin duzu argazkia ikusi? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Gehiago ikasi&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">Ezin duzu argazkia ikusi? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Gehiago ikasi&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Goiko hitzak errepikatu</string>
   <string name="title_captcha">Sartu CAPTCHA</string>
   <string name="edit_section_captcha_reload">CAPTCHA sakatu eguneratu</string>

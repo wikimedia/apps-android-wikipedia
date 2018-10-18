@@ -106,7 +106,7 @@
   <string name="search_reading_lists_no_results">Aucun résultat trouvé dans les listes de lecture</string>
   <string name="search_history_no_results">Aucun résultat trouvé dans l’historique</string>
   <string name="edit_section_captcha_message">Pour aider à la protection contre le pourriel, veuillez saisir les mots qui apparaissent ci-dessous</string>
-  <string name="edit_section_captcha_request_an_account_message">Impossible de voir l’image ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;En savoir plus&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Impossible de voir l’image ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Demander un compte&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Répéter les mots ci-dessus</string>
   <string name="title_captcha">Entrer le captcha</string>
   <string name="edit_section_captcha_reload">Taper le captcha pour recharger</string>
@@ -301,6 +301,8 @@
   <string name="tab_item_closed">%s fermé.</string>
   <string name="tool_tip_select_text_title">Appuyer longuement pour sélectionner</string>
   <string name="tool_tip_select_text">Cliquez et maintenez appuyé n’importe où dans le texte pour le sélectionner afin de le copier et le partager.</string>
+  <string name="tool_tip_bookmark_icon_title">Ajouter à la liste de lecture</string>
+  <string name="tool_tip_bookmark_icon_text">Cliquez sur l\'icône du signet pour enregistrer l\'article dans une liste de lecture.</string>
   <string name="tool_tip_share">Après avoir surligné un fait intéressant, essayez de le partager sur vos réseaux favoris !</string>
   <string name="page_view_in_browser">Afficher la page dans le navigateur</string>
   <string name="tool_tip_toc_title">Tableau d’accès rapide aux contenus</string>

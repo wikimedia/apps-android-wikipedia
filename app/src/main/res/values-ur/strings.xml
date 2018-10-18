@@ -91,7 +91,7 @@
   <string name="search_reading_lists_no_results">مطالعہ کی فہرستوں میں کوئی نتیجہ نہیں ملا</string>
   <string name="search_history_no_results">تاریخچے میں کوئی نتیجہ نہیں ملا</string>
   <string name="edit_section_captcha_message">خودکار تخریب کاری سے بچاؤ کے لیے، براہ کرم اوپر ظاہر ہونے والے الفاظ درج کریں</string>
-  <string name="edit_section_captcha_request_an_account_message">تصویر نہیں دیکھ پا رہے؟ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;مزید دیکھیے&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">تصویر نہیں دیکھ پا رہے؟ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;مزید دیکھیے&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">اوپر والے الفاظ دہرائیں</string>
   <string name="title_captcha">کیپچا درج کریں</string>
   <string name="edit_section_captcha_reload">نئے کیپچا کے لیے تھپتپائیں</string>

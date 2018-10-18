@@ -79,7 +79,7 @@
   <string name="search_reading_lists_no_results">ಓದುನ ಪಟ್ಟಿಲೆಡ್ ದಾಲ ಫಲಿತಾಂಶೊ ತಿಕ್ಕಿಜಿ</string>
   <string name="search_history_no_results">ಇತಿಹಾಸೊಡು ದಾಲ ಫಲಿತಾಂಶೊ ತಿಕ್ಕಿಜಿ</string>
   <string name="edit_section_captcha_message">ಅಟೊಮೇಟೆಡ್ ಸ್ಪ್ಯಾಮ್ ಉಂಡಾಪಿನೆನ್ ಉಂತಾಯೆರೆ ಬೋಡಾದ್, ದಯಮಲ್ತ್‌ದ್ ತಿರ್ತ್ ತೋಜುನ ಪಠ್ಯೊನು ಬರೆಲೆ.</string>
-  <string name="edit_section_captcha_request_an_account_message">ಚಿತ್ರೊನ್ ತುಯಾರ ಅಪುಜ್ಜಿ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Learn more&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">ಚಿತ್ರೊನ್ ತುಯಾರ ಅಪುಜ್ಜಿ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Learn more&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">ಮಿತ್ತ ಪದೊನ್ ಮುಲ್ಪ ಬರೆಲೆ</string>
   <string name="title_captcha">CAPTCHAನ್ ಬರೆಲೆ</string>
   <string name="edit_section_captcha_reload">ಕುಡ ಲೋಡ್ ಮಲ್ಪೆರೆ CAPTCHA ನ್ ಒತ್ತುಲೆ</string>

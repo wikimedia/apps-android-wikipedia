@@ -82,7 +82,7 @@
   <string name="search_reading_lists_no_results">အရာမဂၠာဲဂှ် ဟွံဂွံဆဵု ပ္ဍဲစရင် လိက်ဗွဟ်</string>
   <string name="search_history_no_results">အရာမဂၠာဲဂှ် ဟွံဂွံဆဵု ပ္ဍဲလိက်မဗှ်လဝ်တုဲ</string>
   <string name="edit_section_captcha_message">တၞဟ်န မဂွံဆဵုဒၞာ အရာမပထုဲပလီုတုဲ၊ ပဂုန်တုဲ တက်စုတ် မလိက် မဗမံက်လဝ်ဏအ် ဗွဲသၟဝ်ဂှ်ညိ၊၊</string>
-  <string name="edit_section_captcha_request_an_account_message">ဗီုရုပ်ဂှ် ဟွံဂွံဆဵုကေတ်ဟာ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;မိက်ဂွံ ဆက်တီမ္ဂးLearn more&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">ဗီုရုပ်ဂှ် ဟွံဂွံဆဵုကေတ်ဟာ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;မိက်ဂွံ ဆက်တီမ္ဂးLearn more&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">ကလေင်တက်စုတ် အတိုင်မလိက် ဗွဲလတူဂှ်</string>
   <string name="title_captcha">ဍဵု CAPTCHA</string>
   <string name="edit_section_captcha_reload">ဍဵု CAPTCHA သွက်ဂွံ ကလေင်ပၠောပ်</string>

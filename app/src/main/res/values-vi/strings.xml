@@ -86,7 +86,7 @@
   <string name="search_reading_lists_no_results">Không tìm thấy kết quả trong danh sách đọc</string>
   <string name="search_history_no_results">Không tìm thấy kết quả trong lịch sử</string>
   <string name="edit_section_captcha_message">Để giúp tránh các sửa đổi spam tự động, xin vui lòng nhập các từ xuất hiện ở dưới</string>
-  <string name="edit_section_captcha_request_an_account_message">Không đọc được các chữ trong hình này? &lt;a href=\"https://vi.wikipedia.org/wiki/Wikipedia:Yêu_cầu_tạo_tài_khoản\"&gt;Tìm hiểu thêm&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">Không đọc được các chữ trong hình này? &lt;a href=\"https://vi.wikipedia.org/wiki/Wikipedia:Yêu_cầu_tạo_tài_khoản\"&gt;Tìm hiểu thêm&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Lặp lại các từ bên trên</string>
   <string name="title_captcha">Nhập CAPTCHA</string>
   <string name="edit_section_captcha_reload">Chạm vào CAPTCHA để tải lại</string>
