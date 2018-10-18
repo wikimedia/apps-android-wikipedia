@@ -70,7 +70,7 @@ public class PageToolbarHideHandler extends ViewHideHandler {
 
     @Override
     protected void onScrolled(int oldScrollY, int scrollY) {
-        tabsButton.setTabSize(WikipediaApp.getInstance().getTabCount());
+        tabsButton.setTabCount(WikipediaApp.getInstance().getTabCount());
 
         int opacity = calculateScrollOpacity(scrollY);
         toolbarBackground.setAlpha(opacity);

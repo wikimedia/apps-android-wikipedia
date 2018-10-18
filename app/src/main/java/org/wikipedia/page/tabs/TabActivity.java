@@ -109,7 +109,7 @@ public class TabActivity extends BaseActivity {
         ButterKnife.bind(this);
         app = WikipediaApp.getInstance();
         funnel.logEnterList(app.getTabCount());
-        tabCountsView.setTabSize(app.getTabCount());
+        tabCountsView.setTabCount(app.getTabCount());
 
         FeedbackUtil.setToolbarButtonLongPressToast(tabCountsView);
 
@@ -285,7 +285,7 @@ public class TabActivity extends BaseActivity {
                 app.getTabList().add(tab);
             }
             funnel.logSelect(app.getTabCount(), tabIndex);
-            tabCountsView.setTabSize(app.getTabCount());
+            tabCountsView.setTabCount(app.getTabCount());
             cancelled = false;
             setResult(RESULT_LOAD_FROM_BACKSTACK);
             finish();
@@ -293,7 +293,7 @@ public class TabActivity extends BaseActivity {
 
         @Override
         public void onTabAdded(@NonNull TabSwitcher tabSwitcher, int index, @NonNull Tab tab, @NonNull Animation animation) {
-            tabCountsView.setTabSize(app.getTabCount());
+            tabCountsView.setTabCount(app.getTabCount());
         }
 
         @Override
@@ -310,7 +310,7 @@ public class TabActivity extends BaseActivity {
 
             }
             funnel.logClose(app.getTabCount(), tabIndex);
-            tabCountsView.setTabSize(app.getTabCount());
+            tabCountsView.setTabCount(app.getTabCount());
             setResult(RESULT_LOAD_FROM_BACKSTACK);
             showUndoSnackbar(tab, index, appTab, tabIndex);
         }
