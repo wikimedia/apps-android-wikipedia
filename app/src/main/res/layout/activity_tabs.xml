@@ -27,20 +27,27 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="end|center_vertical">
-            <org.wikipedia.views.TabCountsView
-                android:id="@+id/tab_counts_view"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:textSize="12sp"
-                android:fontFamily="sans-serif-medium"
-                android:textColor="?attr/main_toolbar_icon_color"
-                android:gravity="center"
-                android:textAlignment="center"
-                android:background="?attr/page_tab_counts_shape_border"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
-                android:contentDescription="@string/nav_item_back"
-                tools:text="3"/>
+            <FrameLayout
+                android:id="@+id/tab_counts_view_container"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/nav_item_back">
+                <org.wikipedia.views.TabCountsView
+                    android:id="@+id/tab_counts_view"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="?attr/main_toolbar_icon_color"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:background="?attr/page_tab_counts_shape_border"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    tools:text="3"/>
+            </FrameLayout>
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
 
