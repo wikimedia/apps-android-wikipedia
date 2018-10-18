@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.page.PageBackStackItem;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.settings.Prefs;
@@ -68,10 +67,8 @@ public class FloatingQueueView extends FrameLayout {
         boolean shouldShowFloatingQueue = tabList.size() > 0;
 
         if (shouldShowFloatingQueue) {
-            List<PageBackStackItem> backStackItems = tabList.get(tabList.size() - 1).getBackStack();
-            if (backStackItems.size() > 0) {
-                PageTitle title = backStackItems.get(backStackItems.size() - 1).getTitle();
-
+            PageTitle title = tabList.get(tabList.size() - 1).getBackStackPositionTitle();
+            if (title != null) {
                 floatingQueueArticle.setText(title.getDisplayText());
 
                 // This fix the invisible issue when returning back from the PageActivity
