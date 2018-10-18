@@ -15,6 +15,7 @@ import android.widget.Space;
 import android.widget.TextView;
 
 import org.wikipedia.R;
+import org.wikipedia.dataclient.mwapi.MwException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -68,7 +69,11 @@ public class WikiErrorView extends LinearLayout {
         Resources resources = getContext().getResources();
         ErrorType errorType = getErrorType(caught);
         icon.setImageDrawable(ContextCompat.getDrawable(getContext(), errorType.icon()));
-        errorText.setText(resources.getString(errorType.text()));
+        if (caught instanceof MwException) {
+            errorText.setText(caught.getMessage());
+        } else {
+            errorText.setText(resources.getString(errorType.text()));
+        }
         button.setText(resources.getString(errorType.buttonText()));
         button.setOnClickListener(errorType.buttonClickListener(this));
         if (errorType.hasFooterText()) {
