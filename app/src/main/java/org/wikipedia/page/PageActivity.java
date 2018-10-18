@@ -594,11 +594,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public void onPageSetToolbarForceNoFace(boolean force) {
-        toolbarHideHandler.setForceNoFade(force);
-    }
-
-    @Override
     public void onPageSetToolbarElevationEnabled(boolean enabled) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             toolbarContainerView.setElevation(DimenUtil

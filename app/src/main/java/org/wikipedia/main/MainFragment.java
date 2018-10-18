@@ -209,10 +209,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
     }
 
-    public MainActivity getMainActivity() {
-        return (MainActivity) requireActivity();
-    }
-
     public void handleIntent(Intent intent) {
         IntentFunnel funnel = new IntentFunnel(WikipediaApp.getInstance());
         if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_SEARCH)) {

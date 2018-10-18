@@ -203,10 +203,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         drawerLayout.closeDrawer(GravityCompat.START);
     }
 
-    public MainDrawerView getDrawerView() {
-        return drawerView;
-    }
-
     public Toolbar getToolbar() {
         return toolbar;
     }
