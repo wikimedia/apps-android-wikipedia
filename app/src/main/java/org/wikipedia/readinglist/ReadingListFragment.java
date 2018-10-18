@@ -295,10 +295,13 @@ public class ReadingListFragment extends Fragment implements
 
     @Override
     public void onFloatingQueueClicked(@NonNull PageTitle title) {
-        Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
-                floatingQueueView.getImageView(), ViewCompat.getTransitionName(floatingQueueView.getImageView())).toBundle();
         startActivity(PageActivity.newIntentForExistingTab(requireContext(),
-                new HistoryEntry(title, HistoryEntry.SOURCE_FLOATING_QUEUE), title), bundle);
+                new HistoryEntry(title, HistoryEntry.SOURCE_FLOATING_QUEUE), title), getTransitionAnimationBundle());
+    }
+
+    private Bundle getTransitionAnimationBundle() {
+        return ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
+                floatingQueueView.getImageView(), ViewCompat.getTransitionName(floatingQueueView.getImageView())).toBundle();
     }
 
     private AppCompatActivity getAppCompatActivity() {
@@ -861,7 +864,7 @@ public class ReadingListFragment extends Fragment implements
                     ReadingListDbHelper.instance().updatePage(page);
                 }).subscribeOn(Schedulers.io()).subscribe();
 
-                startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
+                startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle());
             }
         }
 

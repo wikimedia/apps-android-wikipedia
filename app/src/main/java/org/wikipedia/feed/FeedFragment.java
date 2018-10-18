@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
@@ -480,7 +481,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                 view.getRandomPage();
             } else {
                 ActivityOptionsCompat options = ActivityOptionsCompat.
-                        makeSceneTransitionAnimation(requireActivity(), view, getString(R.string.transition_random_activity));
+                        makeSceneTransitionAnimation(requireActivity(), view, ViewCompat.getTransitionName(view));
                 startActivity(RandomActivity.newIntent(requireActivity(), RandomActivity.INVOKE_SOURCE_FEED), options.toBundle());
             }
         }

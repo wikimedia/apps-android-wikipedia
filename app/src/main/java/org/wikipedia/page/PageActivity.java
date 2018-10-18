@@ -235,18 +235,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                pageFragment.saveLeadImageUrl();
-                Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(PageActivity.this,
-                            pageFragment.getLeadImageView(), ViewCompat.getTransitionName(pageFragment.getLeadImageView())).toBundle();
-
-                startActivity(MainActivity.newIntent(this)
-                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                        .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
-                        .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()), bundle);
-
-                if (getSupportParentActivityIntent() != null) {
-                    overridePendingTransition(0, L10nUtil.isDeviceRTL() ? R.anim.page_exit_transition_rtl : R.anim.page_exit_transition);
-                }
+                goToMainTab(NavTab.EXPLORE.code());
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -258,6 +247,22 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         showToolbar();
         openSearchFragment(SearchInvokeSource.TOOLBAR, null);
         return true;
+    }
+
+    private void goToMainTab(int navTabCode) {
+        pageFragment.saveLeadImageUrl();
+
+        Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(PageActivity.this,
+                pageFragment.getLeadImageView(), ViewCompat.getTransitionName(pageFragment.getLeadImageView())).toBundle();
+
+        startActivity(MainActivity.newIntent(this)
+                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
+                .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, navTabCode), bundle);
+
+        if (getSupportParentActivityIntent() != null) {
+            overridePendingTransition(0, L10nUtil.isDeviceRTL() ? R.anim.page_exit_transition_rtl : R.anim.page_exit_transition);
+        }
     }
 
     public void showToolbar() {
@@ -703,13 +708,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             if (Prefs.getOverflowReadingListsOptionClickCount() < 2) {
                 Prefs.setOverflowReadingListsOptionClickCount(Prefs.getOverflowReadingListsOptionClickCount() + 1);
             }
-            startActivity(MainActivity.newIntent(PageActivity.this)
-                    .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.READING_LISTS.code()));
+            goToMainTab(NavTab.READING_LISTS.code());
         }
         @Override
         public void recentlyViewedClick() {
-            startActivity(MainActivity.newIntent(PageActivity.this)
-                    .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.HISTORY.code()));
+            goToMainTab(NavTab.HISTORY.code());
         }
     }
 
