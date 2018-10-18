@@ -25,14 +25,14 @@ public class TabCountsView extends AppCompatTextView {
         super(context, attrs, defStyleAttr);
     }
 
-    public void setTabSize(int counts) {
-        setText(String.valueOf(counts));
+    public void setTabCount(int count) {
+        setText(String.valueOf(count));
 
         float tabTextSize = TAB_COUNT_TEXT_SIZE_MEDIUM;
 
-        if (counts > TAB_COUNT_LARGE_NUMBER) {
+        if (count > TAB_COUNT_LARGE_NUMBER) {
             tabTextSize = TAB_COUNT_TEXT_SIZE_SMALL;
-        } else if (counts < TAB_COUNT_SMALL_NUMBER) {
+        } else if (count <= TAB_COUNT_SMALL_NUMBER) {
             tabTextSize = TAB_COUNT_TEXT_SIZE_LARGE;
         }
 

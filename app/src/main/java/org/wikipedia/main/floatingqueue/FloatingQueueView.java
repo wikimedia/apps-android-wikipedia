@@ -84,7 +84,7 @@ public class FloatingQueueView extends FrameLayout {
                     floatingQueueThumbnail.setTag(imageUrl);
                 }
 
-                floatingQueueCounts.setTabSize(tabList.size());
+                floatingQueueCounts.setTabCount(tabList.size());
 
                 setOnClickListener((v) -> {
                     openPageFromFloatingQueue = true;
