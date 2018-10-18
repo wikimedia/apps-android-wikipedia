@@ -696,8 +696,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
         @Override
         public void openNewTabClick() {
-            // TODO: add funnel?
             loadMainPageInForegroundTab();
+            animateTabsButton();
         }
         @Override
         public void readingListsClick() {
@@ -753,6 +753,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             }
             if (resultCode == TabActivity.RESULT_NEW_TAB) {
                 loadMainPageInForegroundTab();
+                animateTabsButton();
             } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
                 pageFragment.reloadFromBackstack();
             }
