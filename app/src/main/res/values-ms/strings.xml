@@ -81,7 +81,7 @@
   <string name="search_reading_lists_no_results">Tiada hasil ditemui dalam senarai bacaan</string>
   <string name="search_history_no_results">Tiada hasil ditemui dalam sejarah</string>
   <string name="edit_section_captcha_message">Sebagai perlindungan daripada spam automatik, sila taipkan kata-kata yang tertera di bawah</string>
-  <string name="edit_section_captcha_request_an_account_message">Tidak dapat melihat imej itu? &lt;a href=\"https://ms.wikipedia.org/wiki/Wikipedia:Permohonan_akaun\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">Tidak dapat melihat imej itu? &lt;a href=\"https://ms.wikipedia.org/wiki/Wikipedia:Permohonan_akaun\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ulangi kata-kata dari atas</string>
   <string name="title_captcha">Taipkan captcha</string>
   <string name="edit_section_captcha_reload">Ketik CAPTCHA untuk muat semula</string>

@@ -95,7 +95,7 @@
   <string name="search_reading_lists_no_results">No s\'ha trobat cap resultat a les llistes de lectura</string>
   <string name="search_history_no_results">No s\'ha trobat cap resultat a l\'historial</string>
   <string name="edit_section_captcha_message">Com a protecció contra l\'spam automàtic, introduïu les paraules que apareixen a sota</string>
-  <string name="edit_section_captcha_request_an_account_message">No podeu veure la imatge? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Més informació&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">No podeu veure la imatge? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Més informació&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Repetiu les paraules de dalt</string>
   <string name="title_captcha">Introduïu el CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toqueu el CAPTCHA per tornar a carregar</string>

@@ -294,6 +294,8 @@
   <string name="tab_item_closed">Message shown when a tab is closed. The %s symbol is replaced with the name of the article in the tab.</string>
   <string name="tool_tip_select_text_title">Title for tool-tip that introduces the user to highlighting text in the article.</string>
   <string name="tool_tip_select_text">Very short advice on how to highlight text for copying to the clipboard or sharing.</string>
+  <string name="tool_tip_bookmark_icon_title">Title for tool-tip that introduces the user to the bookmark icon for saving the article to reading lists.</string>
+  <string name="tool_tip_bookmark_icon_text">Very short advice on how the user can click the bookmark icon to save the article to reading lists.</string>
   <string name="tool_tip_share">Very short advice on sharing highlighted text on social networks.</string>
   <string name="page_view_in_browser">Text for a link that will open the current page in an external browser app on the device.</string>
   <string name="tool_tip_toc_title">Title for tool-tip that introduces the user to Table of Contents slider.</string>
@@ -731,6 +733,4 @@
   <string name="main_drawer_close">Main navigation drawer label for the content description of the close drawable resource.</string>
   <string name="main_drawer_help">Main navigation drawer menu label for accessing the app FAQ.</string>
   <string name="main_drawer_login">Main navigation drawer menu label for logging in or creating an account.</string>
-  <string name="tool_tip_bookmark_icon_title">Title for tool-tip that introduces the user to the bookmark icon for saving the article to reading lists.</string>
-  <string name="tool_tip_bookmark_icon_text">Very short advice on how the user can click the bookmark icon to save the article to reading lists.</string>
 </resources>

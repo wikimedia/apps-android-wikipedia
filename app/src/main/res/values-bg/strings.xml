@@ -85,7 +85,7 @@
   <string name="search_reading_lists_no_results">Не са открити резултати в списъка за четене</string>
   <string name="search_history_no_results">Не са открити резултати в историята</string>
   <string name="edit_section_captcha_message">За защита от автоматизиран спам, моля, напишете думите, които излизат по-долу.</string>
-  <string name="edit_section_captcha_request_an_account_message">Не можете да видите изображението? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Научете повече&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">Не можете да видите изображението? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Научете повече&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Напишете горепоказаните думи</string>
   <string name="title_captcha">Въведете знаците от картинката</string>
   <string name="edit_section_captcha_reload">Докоснете CAPTCHA за презареждане</string>
@@ -413,7 +413,7 @@
   <string name="reading_list_delete_confirm">Сигурни ли сте, че искате да изтриете %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Влезте, за да включите синхронизиране</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Влезте, за да позволите съхранението на списъци за четене в сметката си.</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Отмяна</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Отказ</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Влизане</string>
   <string name="reading_list_turned_sync_off_dialog_title">Синхронизацията на списъците за четене е изключена</string>
   <string name="reading_list_turned_sync_off_dialog_text">Синхронизирането на списъците за четене е изключено за сметката Ви и съхранените статии на устройствата Ви не се пазят вече. Включете синхронизиране на списъците за четене от Настройки.</string>
@@ -466,7 +466,7 @@
   <string name="notification_channel_description">Напредък на изтеглянето</string>
   <string name="notification_syncing_pause_button">Пауза</string>
   <string name="notification_syncing_resume_button">Продължаване</string>
-  <string name="notification_syncing_cancel_button">Отказване</string>
+  <string name="notification_syncing_cancel_button">Отказ</string>
   <plurals name="notification_syncing_reading_list_channel_name">
     <item quantity="one">Синхронизиране на Списъка за четене</item>
     <item quantity="other">Синхронизиране на Списъците за четене</item>

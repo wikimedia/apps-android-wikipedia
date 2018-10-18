@@ -94,7 +94,7 @@
   <string name="search_reading_lists_no_results">Nincs találat az olvasólistákban</string>
   <string name="search_history_no_results">Nincs találat az előzményekben</string>
   <string name="edit_section_captcha_message">Az automatikus spam elleni védekezés érdekében írd be az alább megjelenő szavakat</string>
-  <string name="edit_section_captcha_request_an_account_message">Nem látod a képet? &lt;a href=\"https://hu.wikipedia.org/wiki/Wikipédia:Felhasználói_fiók_kérése\"&gt;Tudj meg többet&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">Nem látod a képet? &lt;a href=\"https://hu.wikipedia.org/wiki/Wikipédia:Felhasználói_fiók_kérése\"&gt;Tudj meg többet&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ismételd meg a fenti szavakat</string>
   <string name="title_captcha">Add meg a CAPTCHA-t</string>
   <string name="edit_section_captcha_reload">Érintsd meg a CAPTCHA-t az újratöltéshez</string>

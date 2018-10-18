@@ -95,7 +95,7 @@
   <string name="search_reading_lists_no_results">வாசிப்பு பட்டியலில் முடிவுகள் எதுவும் கிடைக்கவில்லை</string>
   <string name="search_history_no_results">வரலாற்றில் வாசிப்பு முடிவுகள் எதுவும் கிடைக்கவில்லை</string>
   <string name="edit_section_captcha_message">தானியங்கு எரிதத்தை எதிர்த்து காக்க, கீழ்வரும் சொற்களை உள்ளிடவும்</string>
-  <string name="edit_section_captcha_request_an_account_message">படத்தை காண இயலவில்லையா? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;மேலும் அறிக&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">படத்தை காண இயலவில்லையா? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;மேலும் அறிக&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">மேலுள்ள சொற்களை மீண்டும் உள்ளிடவும்</string>
   <string name="title_captcha">CAPTCHAவை உள்ளிடவும்</string>
   <string name="edit_section_captcha_reload">மறுஏற்றம் செய்ய கேப்ட்சாவை தட்டவும்</string>

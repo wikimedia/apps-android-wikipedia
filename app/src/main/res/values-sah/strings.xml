@@ -12,6 +12,8 @@
   <string name="app_name_beta">Бикипиэдьийэ (бета)</string>
   <string name="app_name_alpha">Бикипиэдьийэ (альфа)</string>
   <string name="wikimedia">Бикимиэдьийэ</string>
+  <string name="nav_item_back">Төнүн</string>
+  <string name="nav_item_forward">Инники</string>
   <string name="search_hint">Бикипиэдьийэттэн булуу</string>
   <string name="search_hint_search_history">Көрдөөһүн сурунаала</string>
   <string name="search_hint_search_my_lists">Мин испииһэктэрбиттэн көрдөөһүн</string>
@@ -39,6 +41,7 @@
   <string name="menu_page_font_and_theme">Бичигэ уонна тас көстүүтэ</string>
   <string name="menu_page_add_to_list">Ааҕар тиһиликкэ киллэр</string>
   <string name="menu_page_share">Сигэни тарҕатыы</string>
+  <string name="menu_page_open_a_new_tab">Саҥа кыбытыгы арый</string>
   <string name="menu_long_press_open_page">Арый</string>
   <string name="menu_long_press_open_in_new_tab">Саҥа кыбытыкка арый</string>
   <string name="menu_long_press_copy_page">Сигэ аадырыһын хатылаа</string>
@@ -80,7 +83,7 @@
   <string name="search_reading_lists_no_results">Ааҕыы испииһэгэр туох да көстүбэтэ</string>
   <string name="search_history_no_results">Устуоруйатыгар туох да көстүбэтэ</string>
   <string name="edit_section_captcha_message">Аптамаатынан ыытыллар спаамтан көмүскэнэбит, бука диэн, аллара көстөр тыллары ук</string>
-  <string name="edit_section_captcha_request_an_account_message">Капча ойуута көстүбэт дуо? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Бу сигэни батаа&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">Капча ойуута көстүбэт дуо? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Бу сигэни батаа&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Үөһэ көстөр тыллары хатылаа</string>
   <string name="title_captcha">Капчаны киллэр</string>
   <string name="edit_section_captcha_reload">Капчаны таарыйан саҥардан биэриэххин сөп</string>

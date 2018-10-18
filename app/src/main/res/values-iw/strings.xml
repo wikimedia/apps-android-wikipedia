@@ -91,7 +91,7 @@
   <string name="search_reading_lists_no_results">לא נמצאו תוצאות ברשימות קריאה</string>
   <string name="search_history_no_results">לא נמצאו תוצאות בהיסטוריה</string>
   <string name="edit_section_captcha_message">כדי לסייע בהגנה מפני ספאם, הזינו את המילים המופיעות להלן</string>
-  <string name="edit_section_captcha_request_an_account_message">לא רואים את התמונה? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;מידע נוסף&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">לא רואים את התמונה? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;בקשו חשבון&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">נא לחזור על המילים לעיל</string>
   <string name="title_captcha">נא להזין קוד אימות אנוש</string>
   <string name="edit_section_captcha_reload">יש ללחוץ על תמונת האימות לשם רענון</string>
@@ -285,6 +285,8 @@
   <string name="tab_item_closed">הלשונית %s נסגרה.</string>
   <string name="tool_tip_select_text_title">נא ללחוץ לחיצה ארוכה כדי לבחור</string>
   <string name="tool_tip_select_text">יש ללחוץ ולהחזיק בכל מקום בטקסט כדי לבחור אותו להעתקה ושיתוף.</string>
+  <string name="tool_tip_bookmark_icon_title">הוספה לרשימת הקריאה</string>
+  <string name="tool_tip_bookmark_icon_text">נא ללחוץ על כפתור הסימנייה כדי לשמור את הערך  לרשימת הקריאה.</string>
   <string name="tool_tip_share">אחרי שהארת עובדה מעניינת זה הזמן לנסות לשתף אותה ברשתות האהובות עליך!</string>
   <string name="page_view_in_browser">להציג את הדף בדפדפן</string>
   <string name="tool_tip_toc_title">גישה מהירה לתוכן העניינים</string>

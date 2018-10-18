@@ -100,7 +100,7 @@
   <string name="search_reading_lists_no_results">あとで読むリストにはありませんでした</string>
   <string name="search_history_no_results">履歴には見つかりませんでした</string>
   <string name="edit_section_captcha_message">自動投稿スパム避けのため、以下に表示される言葉を入力してください</string>
-  <string name="edit_section_captcha_request_an_account_message">画像が表示されませんか？&lt;a href=//ja.wikipedia.org/wiki/Help:ログイン#アカウントの作成&gt;こちらも確認&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">画像が表示されませんか？&lt;a href=//ja.wikipedia.org/wiki/Help:ログイン#アカウントの作成&gt;こちらも確認&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">上記の言葉を繰り返してください</string>
   <string name="title_captcha">CAPTCHA を入力</string>
   <string name="edit_section_captcha_reload">タップすると CAPTCHA を再読み込みします</string>

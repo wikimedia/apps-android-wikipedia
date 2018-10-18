@@ -79,7 +79,7 @@
   <string name="search_reading_lists_no_results">Di lîsteyên xwendinê de tu encam nehat dîtin</string>
   <string name="search_history_no_results">Di raboriyê de tu encam nehat dîtin</string>
   <string name="edit_section_captcha_message">Ji bo ku ji spamên otomatîk xwe biparêzî, ji kerema xwe van peyvên ku li jêr têne xuyan binivîse</string>
-  <string name="edit_section_captcha_request_an_account_message">Qe nikarî rismê bibînî? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Zêdetir hîn bibe&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">Qe nikarî rismê bibînî? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Zêdetir hîn bibe&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Peyvên ji jor tekrar bike</string>
   <string name="title_captcha">CAPTCHAyê binivîse</string>
   <string name="edit_section_captcha_reload">Ji bo ku cardin bar bibe bitikîne ser CAPTCHA</string>

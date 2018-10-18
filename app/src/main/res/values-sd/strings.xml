@@ -78,7 +78,7 @@
   <string name="search_reading_lists_no_results">پڙھڻ جي فھرستن ۾ ڪي بہ نتيجا نہ لڌا</string>
   <string name="search_history_no_results">سوانح ۾ ڪي بہ نتيجا نہ لڌا</string>
   <string name="edit_section_captcha_message">آٽوميٽڊ اسپام کان بچڻ ۾ مدد لاءِ، براءِ مھرباني ھيٺ ظاھر ٿيندڙ لفظ داخل ڪريو</string>
-  <string name="edit_section_captcha_request_an_account_message">تصوير نظر نہ پئي اچي؟ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;وڌيڪ ڏسو&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">تصوير نظر نہ پئي اچي؟ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;وڌيڪ ڏسو&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">مٿي ڏنل لفظ ورجايو</string>
   <string name="title_captcha">ڪيپچا ڄاڻايو</string>
   <string name="edit_section_captcha_reload">ٻيھر اتارڻ لاءِ CAPTCHA تي ٽيپ ڪريو</string>

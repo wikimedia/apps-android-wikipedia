@@ -85,7 +85,7 @@
   <string name="search_reading_lists_no_results">V zoznamoch na prečítanie neboli nájdené žiadne výsledky</string>
   <string name="search_history_no_results">V histórii neboli nájdené žiadne výsledky</string>
   <string name="edit_section_captcha_message">Kvôli ochrane pred automatizovaným spamom, prosím zadajte slová ktoré sa objavujú nižšie.</string>
-  <string name="edit_section_captcha_request_an_account_message">Nevidíte obrázok? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Ďalšie informácie&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">Nevidíte obrázok? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Ďalšie informácie&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Zadajte text z obrázku vyššie</string>
   <string name="title_captcha">Zadajte text</string>
   <string name="edit_section_captcha_reload">Ťuknutím načítate captchu znovu</string>

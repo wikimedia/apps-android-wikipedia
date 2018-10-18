@@ -94,7 +94,7 @@
   <string name="search_reading_lists_no_results">Não foram encontrados resultados nas listas de leitura</string>
   <string name="search_history_no_results">Não foram encontrados resultados no histórico</string>
   <string name="edit_section_captcha_message">Para ajudar a proteger contra sistemas automatizados de inserção de \'\'spam\'\', introduza as palavras que aparecem abaixo, por favor</string>
-  <string name="edit_section_captcha_request_an_account_message">Não consegue ver a imagem? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Saiba mais&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">Não consegue ver a imagem? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Saiba mais&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Repita as palavras acima</string>
   <string name="title_captcha">Introduza o CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toque no CAPTCHA para recarregar</string>

@@ -77,7 +77,7 @@
   <string name="search_reading_lists_no_results">Nun s\'alcontraron resultaos nes llistes de llectura</string>
   <string name="search_history_no_results">Nun s\'alcontraron resultaos nel historial</string>
   <string name="edit_section_captcha_message">P\'ayudar a protexenos del spam automatizáu, por favor, escribe les pallabres qu\'apaecen abaxo</string>
-  <string name="edit_section_captcha_request_an_account_message">¿Nun puedes ver la imaxe? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Más información&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">¿Nun puedes ver la imaxe? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Más información&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Repite les pallabres d\'arriba</string>
   <string name="title_captcha">Escribe\'l CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toca nel CAPTCHA pa recargar</string>

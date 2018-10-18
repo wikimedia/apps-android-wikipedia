@@ -89,7 +89,7 @@
   <string name="search_reading_lists_no_results">Tidak ada hasil ditemukan dalam daftar bacaan</string>
   <string name="search_history_no_results">Tidak ada hasil ditemukan dalam riwayat</string>
   <string name="edit_section_captcha_message">Untuk membantu melindungi terhadap spam otomatis, masukkan kata-kata yang muncul di bawah ini</string>
-  <string name="edit_section_captcha_request_an_account_message">Tidak dapat melihat gambar? &lt;a href=\"https://id.wikipedia.org/wiki/Wikipedia:Mohon_buatkan_akun\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">Tidak dapat melihat gambar? &lt;a href=\"https://id.wikipedia.org/wiki/Wikipedia:Mohon_buatkan_akun\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ulangi kata-kata dari atas</string>
   <string name="title_captcha">Masukkan CAPTCHA</string>
   <string name="edit_section_captcha_reload">Ketuk CAPTCHA untuk memuat ulang</string>
