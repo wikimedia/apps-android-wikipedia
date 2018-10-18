@@ -50,6 +50,7 @@ public class TabActivity extends BaseActivity {
 
     @BindView(R.id.tab_switcher) TabSwitcher tabSwitcher;
     @BindView(R.id.tab_toolbar) Toolbar tabToolbar;
+    @BindView(R.id.tab_counts_view_container) View tabCountsViewContainer;
     @BindView(R.id.tab_counts_view) TabCountsView tabCountsView;
     private WikipediaApp app;
     private TabListener tabListener = new TabListener();
@@ -111,7 +112,7 @@ public class TabActivity extends BaseActivity {
         funnel.logEnterList(app.getTabCount());
         tabCountsView.setTabCount(app.getTabCount());
 
-        FeedbackUtil.setToolbarButtonLongPressToast(tabCountsView);
+        FeedbackUtil.setToolbarButtonLongPressToast(tabCountsViewContainer);
 
         setStatusBarColor(ResourceUtil.getThemedAttributeId(this, android.R.attr.windowBackground));
         setSupportActionBar(tabToolbar);
@@ -187,7 +188,7 @@ public class TabActivity extends BaseActivity {
         tabSwitcher.showSwitcher();
     }
 
-    @OnClick(R.id.tab_counts_view) void onItemClick(View view) {
+    @OnClick(R.id.tab_counts_view_container) void onItemClick(View view) {
         finish();
     }
 
