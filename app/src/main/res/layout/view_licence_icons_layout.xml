@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:parentTag="android.widget.LinearLayout">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/gallery_license_icon"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@null"
+        app:tint="@color/white70"
+        tools:src="@drawable/ic_license_cc" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/gallery_license_icon_by"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@null"
+        android:tint="@color/white70"
+        android:tintMode="src_in"
+        android:visibility="gone"
+        tools:src="@drawable/ic_license_by" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/gallery_license_icon_sa"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@null"
+        android:tint="@color/white70"
+        android:tintMode="src_in"
+        android:visibility="gone"
+        tools:src="@drawable/ic_license_sharealike" />
+</merge>

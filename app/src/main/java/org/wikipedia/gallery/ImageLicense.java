@@ -15,6 +15,7 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 public class ImageLicense implements Serializable {
     private static final String CREATIVE_COMMONS_PREFIX = "cc";
     private static final String PUBLIC_DOMAIN_PREFIX = "pd";
+    private static final String CC_BY_SA = "ccbysa";
 
     @NonNull @SerializedName("type") private final String license;
     @NonNull @SerializedName("code") private final String licenseShortName;
@@ -58,6 +59,10 @@ public class ImageLicense implements Serializable {
                 || defaultString(licenseShortName).toLowerCase(Locale.ENGLISH).startsWith(PUBLIC_DOMAIN_PREFIX);
     }
 
+    private boolean isLicenseCCBySa() {
+        return defaultString(license).toLowerCase(Locale.ENGLISH).replace("-", "").startsWith(CC_BY_SA)
+                || defaultString(licenseShortName).toLowerCase(Locale.ENGLISH).replace("-", "").startsWith(CC_BY_SA);
+    }
     /**
      * Return an icon (drawable resource id) that corresponds to the type of license
      * under which the specified Gallery item is provided.
@@ -66,6 +71,9 @@ public class ImageLicense implements Serializable {
     @DrawableRes public int getLicenseIcon() {
         if (isLicensePD()) {
             return R.drawable.ic_license_pd;
+        }
+        if (isLicenseCCBySa()) {
+            return R.drawable.ic_license_by;
         }
         if (isLicenseCC()) {
             return R.drawable.ic_license_cc;
