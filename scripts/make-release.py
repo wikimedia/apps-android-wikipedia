@@ -130,7 +130,7 @@ def get_version_code_from_build_file():
 
 
 def get_version_name_from_apk(apk_file):
-    aapt = '%s/build-tools/%s/aapt' % (get_android_home(), get_build_tools_version_from_build_file())
+    aapt = '%s/build-tools/%s/aapt' % (get_android_home(), next(os.walk('%s/build-tools/' % get_android_home()))[1][0])
     process = subprocess.check_output([aapt, 'dump', 'badging', apk_file])
     found = re.search(r'versionName=\'(\S+)\'', process)
     if found:
