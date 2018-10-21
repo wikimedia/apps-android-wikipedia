@@ -69,11 +69,53 @@
         app:buttonHint="Template"/>
 
     <org.wikipedia.views.WikitextKeyboardButtonView
+        android:id="@+id/wikitext_button_section"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:buttonText="=="
+        app:buttonHint="Section"/>
+
+    <org.wikipedia.views.WikitextKeyboardButtonView
+        android:id="@+id/wikitext_button_subsection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:buttonText="==="
+        app:buttonHint="Subsection"/>
+
+    <org.wikipedia.views.WikitextKeyboardButtonView
+        android:id="@+id/wikitext_button_subsubsection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:buttonText="===="
+        app:buttonHint="Sub-subsection"/>
+
+    <org.wikipedia.views.WikitextKeyboardButtonView
         android:id="@+id/wikitext_button_ref"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:buttonText="&lt;ref&gt;"
         app:buttonHint="Reference"/>
+
+    <org.wikipedia.views.WikitextKeyboardButtonView
+        android:id="@+id/wikitext_button_endash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:buttonText="–"
+        app:buttonHint="En dash"/>
+
+    <org.wikipedia.views.WikitextKeyboardButtonView
+        android:id="@+id/wikitext_button_emdash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:buttonText="—"
+        app:buttonHint="Em dash"/>
+
+    <org.wikipedia.views.WikitextKeyboardButtonView
+        android:id="@+id/wikitext_button_signature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:buttonText="~~~~"
+        app:buttonHint="Signature"/>
 
     <View
         android:layout_width="0.5dp"
@@ -109,5 +151,12 @@
             android:textSize="9sp"
             android:text="Preview link"/>
     </FrameLayout>
+
+    <org.wikipedia.views.WikitextKeyboardButtonView
+        android:id="@+id/wikitext_button_preview_template"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:buttonText="{{}}"
+        app:buttonHint="Template info"/>
 
 </LinearLayout>
