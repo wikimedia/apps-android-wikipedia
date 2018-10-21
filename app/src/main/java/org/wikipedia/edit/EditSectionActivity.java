@@ -205,8 +205,17 @@ public class EditSectionActivity extends BaseActivity {
 
         sectionText.addTextChangedListener(textWatcher);
         wikiTextKeyboardView.setEditText(sectionText);
-        wikiTextKeyboardView.setCallback(titleStr -> bottomSheetPresenter.show(getSupportFragmentManager(),
-                LinkPreviewDialog.newInstance(new HistoryEntry(new PageTitle(titleStr, title.getWikiSite()), HistoryEntry.SOURCE_INTERNAL_LINK), null)));
+        wikiTextKeyboardView.setCallback(new WikiTextKeyboardView.Callback() {
+            @Override
+            public void onPreviewLink(@NonNull String titleStr) {
+                bottomSheetPresenter.show(getSupportFragmentManager(),
+                        LinkPreviewDialog.newInstance(new HistoryEntry(new PageTitle(titleStr, title.getWikiSite()), HistoryEntry.SOURCE_INTERNAL_LINK), null));
+            }
+
+            @Override
+            public void onPreviewTemplate(@NonNull String title) {
+            }
+        });
         sectionText.setOnClickListener(v -> finishActionMode());
 
         updateTextSize();

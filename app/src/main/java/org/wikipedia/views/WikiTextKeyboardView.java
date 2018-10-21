@@ -17,6 +17,7 @@ import butterknife.OnClick;
 public class WikiTextKeyboardView extends FrameLayout {
     public interface Callback {
         void onPreviewLink(@NonNull String title);
+        void onPreviewTemplate(@NonNull String title);
     }
 
     @Nullable private Callback callback;
@@ -80,6 +81,42 @@ public class WikiTextKeyboardView extends FrameLayout {
         }
     }
 
+    @OnClick(R.id.wikitext_button_section) void onClickButtonSection(View v) {
+        if (editText.getInputConnection() != null) {
+            toggleSyntaxAroundCurrentSelection(editText.getInputConnection(), "==", "==");
+        }
+    }
+
+    @OnClick(R.id.wikitext_button_subsection) void onClickButtonSubsection(View v) {
+        if (editText.getInputConnection() != null) {
+            toggleSyntaxAroundCurrentSelection(editText.getInputConnection(), "===", "===");
+        }
+    }
+
+    @OnClick(R.id.wikitext_button_subsubsection) void onClickButtonSubsubsection(View v) {
+        if (editText.getInputConnection() != null) {
+            toggleSyntaxAroundCurrentSelection(editText.getInputConnection(), "====", "====");
+        }
+    }
+
+    @OnClick(R.id.wikitext_button_endash) void onClickButtonEnDash(View v) {
+        if (editText.getInputConnection() != null) {
+            editText.getInputConnection().commitText("–", 1);
+        }
+    }
+
+    @OnClick(R.id.wikitext_button_emdash) void onClickButtonEmDash(View v) {
+        if (editText.getInputConnection() != null) {
+            editText.getInputConnection().commitText("—", 1);
+        }
+    }
+
+    @OnClick(R.id.wikitext_button_signature) void onClickButtonSignature(View v) {
+        if (editText.getInputConnection() != null) {
+            editText.getInputConnection().commitText("~~~~", 1);
+        }
+    }
+
     @OnClick(R.id.wikitext_button_list_bulleted) void onClickButtonListBulleted(View v) {
         if (editText.getInputConnection() != null) {
             editText.getInputConnection().commitText("\n* ", 1);
@@ -122,6 +159,51 @@ public class WikiTextKeyboardView extends FrameLayout {
         }
         if (title != null && callback != null) {
             callback.onPreviewLink(title);
+        }
+    }
+
+    @OnClick(R.id.wikitext_button_preview_template) void onClickButtonPreviewTemplate(View v) {
+        if (editText.getInputConnection() == null) {
+            return;
+        }
+        String text = editText.getText().toString();
+        int cursorPos = editText.getSelectionStart();
+        boolean foundBrace = false;
+        int templateStartPos = -1;
+        int templateEndPos = -1;
+
+        for (int i = cursorPos; i >= 0; i--) {
+            if (text.charAt(i) == '{') {
+                if (foundBrace) {
+                    templateStartPos = i + 2;
+                    break;
+                }
+                foundBrace = true;
+            }
+        }
+        foundBrace = false;
+        for (int i = cursorPos; i < text.length(); i++) {
+            if (text.charAt(i) == '}') {
+                if (foundBrace) {
+                    templateEndPos = i - 1;
+                    break;
+                }
+                foundBrace = true;
+            }
+        }
+
+        String templateName = "";
+
+        if (templateStartPos >= 0 && templateEndPos > templateStartPos) {
+            int pipePos = text.indexOf("|", templateStartPos);
+            if (pipePos > templateStartPos && pipePos <= templateEndPos) {
+                templateName = text.substring(templateStartPos, pipePos).trim();
+            } else {
+                templateName = text.substring(templateStartPos, templateEndPos);
+            }
+        }
+        if (!TextUtils.isEmpty(templateName) && callback != null) {
+            callback.onPreviewTemplate(templateName);
         }
     }
 
