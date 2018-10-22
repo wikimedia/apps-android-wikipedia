@@ -431,7 +431,7 @@ public class BottomContentView extends LinearLayoutOverWebView
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(exists -> primaryActionBtn.setImageResource(exists
                             ? R.drawable.ic_bookmark_white_24dp
-                            : R.drawable.ic_bookmark_border_black_24dp)));
+                            : R.drawable.ic_bookmark_border_black_24dp), L::w));
         }
 
         @Override public void onClick(@Nullable RbPageSummary item) {
@@ -473,7 +473,7 @@ public class BottomContentView extends LinearLayoutOverWebView
                                 }
                             }).show(pageTitle);
                         }
-                    }));
+                    }, L::w));
         }
 
         @Override public boolean onLongClick(@Nullable RbPageSummary item) {

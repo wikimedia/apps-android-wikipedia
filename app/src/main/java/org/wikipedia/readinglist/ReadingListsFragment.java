@@ -319,7 +319,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
                     maybeShowListLimitMessage();
                     updateEmptyState(searchQuery);
                     maybeDeleteListFromIntent();
-                }));
+                }, L::w));
     }
 
     @NonNull

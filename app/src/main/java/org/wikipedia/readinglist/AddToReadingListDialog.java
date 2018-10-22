@@ -25,6 +25,7 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -185,7 +186,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                     readingLists = lists;
                     ReadingList.sort(readingLists, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC));
                     adapter.notifyDataSetChanged();
-                }));
+                }, L::w));
     }
 
     private class CreateButtonClickListener implements View.OnClickListener {
@@ -241,7 +242,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
 
                     }
                     dismiss();
-                }));
+                }, L::w));
     }
 
     private void addAndDismiss(final ReadingList readingList, final List<PageTitle> titles) {
@@ -272,7 +273,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                     }
                     showViewListSnackBar(readingList, message);
                     dismiss();
-                }));
+                }, L::w));
     }
 
     private void showViewListSnackBar(@NonNull final ReadingList list, @NonNull String message) {
