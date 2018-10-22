@@ -14,8 +14,8 @@
   <string name="nav_item_forward">മുന്നോട്ട്</string>
   <string name="search_hint">വിക്കിപീഡിയയിൽ തിരയുക</string>
   <string name="search_hint_search_history">തിരച്ചിൽ ചരിത്രം</string>
-  <string name="search_hint_search_my_lists">എന്റെ ലിസ്റ്റുകൾ തിരയുക</string>
-  <string name="search_hint_search_reading_list">വായന പട്ടിക തിരയുക</string>
+  <string name="search_hint_search_my_lists">എന്റെ പട്ടികകളിൽ തിരയുക</string>
+  <string name="search_hint_search_reading_list">വായന പട്ടികയിൽ തിരയുക</string>
   <string name="search_hint_search_languages">ഒരു ഭാഷക്കായി തിരയുക</string>
   <string name="nav_item_history">നാൾവഴി</string>
   <string name="error_network_error">ഇന്റർനെറ്റുമായി ബന്ധപ്പെടാൻ കഴിയുന്നില്ല.</string>
@@ -51,15 +51,15 @@
   <string name="menu_text_select_edit_here">ഇവിടെ തിരുത്തുക</string>
   <string name="nav_item_nearby">സമീപസ്ഥം</string>
   <string name="nearby_zoom_to_location">ഭൂപടത്തിൽ കാണുന്ന സ്ഥലത്തേക്ക് വലുതാക്കുക.</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; contributors</string>
+  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;ഓപ്പൺസ്ട്രീറ്റ്‌മാപ്പ്&lt;/a&gt; സംഭാവകർ</string>
   <string name="last_updated_text">അവസാനം പുതുക്കിയത്: %1$s</string>
-  <string name="talk_page_link_text">സംവാദം താൾ കാണുക</string>
-  <string name="edit_history_link_text">തിരുത്തൽ ചരിത്രം കാണുക</string>
-  <string name="map_view_link_text">മാപ്പിൽ കാണുക</string>
+  <string name="talk_page_link_text">സംവാദത്താൾ കാണുക</string>
+  <string name="edit_history_link_text">നാൾവഴി കാണുക</string>
+  <string name="map_view_link_text">ഭൂപടത്തിൽ കാണുക</string>
   <string name="other_languages_indication_text">മറ്റൊരു ഭാഷയിൽ വായിക്കുക</string>
   <string name="language_count_link_text">%d മറ്റ് ഭാഷകളിൽ ലഭ്യമാണ്</string>
-  <string name="content_license_html">ശ്രദ്ധിക്കപ്പെടാത്ത പക്ഷം ഉള്ളടക്കം ഇവിടെ &lt;a href=\"%1$s\"&gt;സി.സി. ബൈ-എസ്.എ. 3.0&lt;/a&gt; ലഭ്യമാണ്</string>
-  <string name="edit_save_action_license_logged_in">പ്രസിദ്ധീകരിക്കുമ്പോൾ, നിങ്ങൾ അംഗീകരിക്കുന്നു\n&lt;a href=\"%1$s\"&gt;ഉപയോഗ നിബന്ധനകൾ&lt;/a&gt;, കൂടാതെ താങ്കൾ താങ്കളുടെ സംഭാവനകൾ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ലൈസൻസ് വിനിയോഗിക്കുക.</string>
+  <string name="content_license_html">മറ്റ് വിധത്തിൽ അടയാളപ്പെടുത്താത്ത പക്ഷം ഉള്ളടക്കം, &lt;a href=\"%1$s\"&gt;സി.സി. ബൈ-എസ്.എ. 3.0&lt;/a&gt; പ്രകാരം ലഭ്യം.</string>
+  <string name="edit_save_action_license_logged_in">പ്രസിദ്ധീകരിക്കുമ്പോൾ, \n&lt;a href=\"%1$s\"&gt;ഉപയോഗ നിബന്ധനകൾ&lt;/a&gt; പാലിക്കുമെന്നും, താങ്കൾ താങ്കളുടെ സംഭാവനകൾ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; പ്രകാരമാണ് പ്രസിദ്ധീകരിക്കുന്നതെന്നും സമ്മതിക്കുന്നുണ്ട്.</string>
   <string name="edit_save_action_license_anon">By publishing, you agree to the &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; license. Edits will be attributed to the IP address of your device. If you &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt;, you will have more privacy.</string>
   <string name="preference_title_language">വിക്കിപീഡിയ ഭാഷകൾ</string>
   <string name="preference_languages_filter_hint">തിരയുക</string>
@@ -79,7 +79,7 @@
   <string name="dialog_message_leaving_edit_stay">പിടിച്ചുവെക്കുക</string>
   <string name="menu_show_toc">ഉള്ളടക്കപ്പട്ടിക</string>
   <string name="search_no_results_found">ഫലങ്ങളൊന്നും കണ്ടെത്താനായില്ല</string>
-  <string name="search_reading_list_no_results">\"%s\" ൽ ഫലങ്ങളൊന്നും കണ്ടെത്തിയില്ല</string>
+  <string name="search_reading_list_no_results">\"%s\" എന്നതിൽ ഫലങ്ങളൊന്നും കണ്ടെത്തിയില്ല</string>
   <string name="edit_section_captcha_message">സ്വയം പ്രവർത്തിക്കുന്ന പാഴെഴുത്ത് സംവിധാനങ്ങളിൽ നിന്നുമുള്ള സംരക്ഷണത്തിനായി, താഴെ പ്രത്യക്ഷപ്പെടുന്ന വാക്കുകൾ എഴുതി നൽകുക</string>
   <string name="edit_section_captcha_hint">മുകളിലെ വാക്കുകൾ ആവർത്തിക്കുക</string>
   <string name="title_captcha">കാപ്ച നൽകുക</string>
@@ -92,7 +92,7 @@
   <string name="login_in_progress_dialog_message">താങ്കളെ പ്രവേശിപ്പിക്കുന്നു…</string>
   <string name="login_success_toast">പ്രവേശനം വിജയകരം!</string>
   <string name="reset_password_hint">പുതിയ രഹസ്യവാക്ക്</string>
-  <string name="reset_password_button">സംരക്ഷിച്ച് ലോഗിൻ ചെയ്യുക</string>
+  <string name="reset_password_button">സേവ് ചെയ്യുക, ലോഗിൻ ചെയ്യുക</string>
   <string name="preference_title_logout">ലോഗൗട്ട്</string>
   <string name="toast_logout_complete">പുറത്തുകടന്നു</string>
   <string name="history_empty_title">അടുത്തിടെ കണ്ട ലേഖനങ്ങൾ ഇല്ല</string>

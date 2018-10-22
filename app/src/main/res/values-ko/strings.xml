@@ -292,6 +292,7 @@
   <string name="tool_tip_select_text_title">선택하려면 길게 누르세요</string>
   <string name="tool_tip_select_text">복사 및 공유할 텍스트를 선택하려면 텍스트의 아무 곳이나 누르고 계십시오.</string>
   <string name="tool_tip_bookmark_icon_title">읽기 목록에 추가</string>
+  <string name="tool_tip_bookmark_icon_text">읽기 목록에 글을 저장하려면 북마크 아이콘을 탭하십시오.</string>
   <string name="tool_tip_share">흥미로운 사실 하나를 강조한 다음, 즐겨쓰는 SNS에 공유해 보세요!</string>
   <string name="page_view_in_browser">브라우저에서 페이지 보기</string>
   <string name="tool_tip_toc_title">목차 빠른 접근</string>

@@ -316,6 +316,7 @@
   <string name="tool_tip_select_text_title">Длинное нажатие для выбора</string>
   <string name="tool_tip_select_text">Нажмите и удерживайте в любом месте тексте, чтобы выделить его для копирования и возможности поделиться.</string>
   <string name="tool_tip_bookmark_icon_title">Добавить в список для чтения</string>
+  <string name="tool_tip_bookmark_icon_text">Нажмите по иконке закладки, чтобы сохранить статью в список для чтения.</string>
   <string name="tool_tip_share">После выделения интересного факта, попробуйте поделиться им в ваших любимых соц.сетях!</string>
   <string name="page_view_in_browser">Просмотр страницы в браузере</string>
   <string name="tool_tip_toc_title">Быстрый доступ к просмотру содержания</string>

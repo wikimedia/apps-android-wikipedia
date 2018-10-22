@@ -87,7 +87,7 @@
   <string name="dialog_message_edit_failed_retry">Zkusit znovu</string>
   <string name="dialog_message_edit_failed_cancel">Storno</string>
   <string name="dialog_message_leaving_edit">Vaše změny nebyly dosud zveřejněny. Jste si jisti, že chcete opustit tuto stránku?</string>
-  <string name="dialog_message_leaving_edit_leave">Odejít</string>
+  <string name="dialog_message_leaving_edit_leave">Ukončit</string>
   <string name="dialog_message_leaving_edit_stay">Zůstat</string>
   <string name="menu_show_toc">Tabulka s obsahem</string>
   <string name="search_no_results_found">Nebyly nalezeny žádné výsledky</string>
@@ -122,7 +122,7 @@
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;E&lt;/big&gt;</string>
   <string name="create_account_username_hint">Uživatelské jméno</string>
   <string name="login_dont_have_account">Nemáte účet?</string>
-  <string name="login_join_wikipedia">Připojte se k Wikipedii</string>
+  <string name="login_join_wikipedia">Zaregistrovat se do Wikipedie</string>
   <string name="login_forgot_password">Zapomněli jste heslo?</string>
   <string name="create_account_already_have">Již máte účet?</string>
   <string name="create_account_activity_title">Vytvoření účtu</string>
@@ -137,7 +137,7 @@
   <string name="create_account_next">Další</string>
   <string name="email_recommendation_dialog_title">Chcete vytvořit účet bez e-mailové adresy?</string>
   <string name="email_recommendation_dialog_message">Přesto že je e-mail nepovinný, je &lt;b&gt;velmi důležitý&lt;/ b&gt; k obnovení Vašeho účtu.</string>
-  <string name="email_recommendation_message">E-mail je doporučený, protože pro obnovení účtu je potřebný.</string>
+  <string name="email_recommendation_message">E-mail je pro obnovení účtu potřebný.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Dokončit bez e-mailu</string>
   <string name="email_recommendation_dialog_create_with_email_action">Přidat e-mailovou adresu</string>
   <string name="create_account_button">Vytvořit účet</string>
@@ -168,7 +168,7 @@
   <string name="preferences_heading_experimental">Experimentální</string>
   <string name="preference_title_sync_reading_lists">Synchronizovat seznamy k přečtení</string>
   <string name="preference_title_sync_reading_lists_from_account">Synchronizace seznamů k přečtení</string>
-  <string name="preference_title_download_reading_list_articles">Stahovat články v seznamecb k přečtení</string>
+  <string name="preference_title_download_reading_list_articles">Stahovat články v seznamech k přečtení</string>
   <string name="preference_summary_sync_reading_lists">Synchronizovat seznamy k přečtení napříč různými zařízeními jejich uložením do vašeho účtu na Wikipedii.</string>
   <string name="preference_summary_sync_reading_lists_from_account">Synchronizovat seznamy k přečtení napříč různými zařízeními pomocí jejich uložení do vašeho účtu „%s“ na Wikipedii.</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Odstranit synchronizované seznamy k přečtení z „%s“?</string>
@@ -216,7 +216,7 @@
   <string name="user_anon_blocked_from_editing">Vaší IP adrese byla zablokována možnost editovat.</string>
   <string name="edit_how_page_improved">Jak jste stránku vylepšili?</string>
   <string name="edit_next">Další</string>
-  <string name="edit_done">Publikovat</string>
+  <string name="edit_done">Zveřejnit</string>
   <string name="edit_preview">Náhled</string>
   <string name="edit_summary_tag_typo">Opraven překlep</string>
   <string name="edit_summary_tag_grammar">Oprava pravopisu</string>
@@ -340,9 +340,9 @@
   <string name="crash_report_dialog_always_send_button">Vždy posílat</string>
   <string name="crash_report_dialog_send_button">Odeslat</string>
   <string name="crash_report_activity_title">Chyba aplikace</string>
-  <string name="crash_report_relaunch_or_quit">Omlouváme se, v aplikaci Wikipedie došlo k chybě a byla ukončena.\n\nChcete začít znovu, nebo skončit?</string>
-  <string name="crash_report_relaunch">Začít znovu</string>
-  <string name="crash_report_quit">Odejít</string>
+  <string name="crash_report_relaunch_or_quit">Omlouváme se, v aplikaci Wikipedie došlo k chybě a byla ukončena.\n\nChcete aplikaci otevřít znovu nebo ji ukončit?</string>
+  <string name="crash_report_relaunch">Otevřít znovu</string>
+  <string name="crash_report_quit">Ukončit</string>
   <string name="article_menu_bar_bookmark">Přidat tento článek do seznamu k přečtení</string>
   <string name="article_menu_bar_share">Sdílet odkaz na článek</string>
   <string name="article_header_edit_hint">Upravit...</string>
@@ -601,11 +601,11 @@
   <string name="description_edit_success_done">Hotovo</string>
   <string name="description_edit_success_did_you_know">Věděli jste, že?</string>
   <string name="description_edit_success_article_edit_hint">Články můžete v této aplikaci také editovat. Překlepy můžete příště opravit kliknutím na ikonu ^1</string>
-  <string name="description_edit_tutorial_title_descriptions">Popis člunku</string>
+  <string name="description_edit_tutorial_title_descriptions">Popis článku</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Shrnuje článek tak, aby čtenář ihned věděl, o čem pojednává</string>
   <string name="description_edit_tutorial_keep_it_short">Budťe struční</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">V ideálním případě jeden řádek o dvou až dvanácti slovech</string>
-  <string name="description_edit_tutorial_button_label_start_editing">Začít s úpravami</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Začít editovat</string>
   <string name="description_edit_tutorial_promise">Tímto slibuji, že této funkce nezneužiji.</string>
   <string name="description_edit_help_about_title">O aplikaci</string>
   <string name="description_edit_help_description">Popis shrnuje základní informace o tématu článku, aby čtenáři ihned pochopili, o čem článek pojednává.</string>
@@ -680,13 +680,13 @@
   <string name="onboarding_save_to_reading_lists_text">Vytvářejte seznamy článků k přečtení, které chcete později přečíst, i když jste offline.</string>
   <string name="onboarding_reading_list_sync_title">Seznam k přečtení se synchronizací</string>
   <string name="onboarding_reading_list_sync_text">Vytvářejte seznamy článků k přečtení, které chcete později přečíst, i když jste offline. &lt;a href=\"#login\"&gt;Přihlaste se nebo si vytvořte&lt;/a&gt; účet na Wikipedii, abyste si seznamy článků k přečtení zálohovali.</string>
-  <string name="onboarding_reading_list_sync_text_v2">Můžete si vytvářet seznamy k přečtení z článků, které si chcete přečíst, i když se odhlásíte od svého účtu.&lt;br/&gt;Přihlaste se do svého účtu na Wikipedii, abyste mohli své seznamy k přečtení synchronizovat.&lt;br/&gt;&lt;a href=\"#login\"&gt;Připojte se k Wikipedii&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_text_v2">Můžete si vytvářet seznamy k přečtení z článků, které si chcete přečíst, i když se odhlásíte od svého účtu.&lt;br/&gt;Přihlaste se do svého účtu na Wikipedii, abyste mohli své seznamy k přečtení synchronizovat.&lt;br/&gt;&lt;a href=\"#login\"&gt;Zaregistrovat se do Wikipedie&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Posílat anonymní data</string>
   <string name="onboarding_analytics_offline_text">Pomozte udělat aplikaci lepší uvědoměním nás, jak ji používáte. Data jsou anonymní.&lt;br/&gt;&lt;a href=\"#privacy\"&gt;Zjistit více&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Odesílat informace o používání</string>
-  <string name="onboarding_create_account_sync">Synchronizovat seznamy k přečtení</string>
-  <string name="onboarding_create_account_contributions">Mějte přehled o svých příspěvcích</string>
-  <string name="onboarding_create_account_preferences">Uložit nastavení</string>
+  <string name="onboarding_create_account_sync">Synchronizace seznamů k přečtení</string>
+  <string name="onboarding_create_account_contributions">Přehled o svých příspěvcích</string>
+  <string name="onboarding_create_account_preferences">Uložení nastavení v aplikaci</string>
   <string name="onboarding_got_it">Rozumím</string>
   <string name="onboarding_multilingual_secondary_text">Na vašem zařízení jsme našli následující jazyky</string>
   <string name="onboarding_multilingual_add_language_text">Přidat nebo editovat jazyky</string>

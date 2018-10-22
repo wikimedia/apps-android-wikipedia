@@ -323,6 +323,8 @@
   <string name="color_theme_select">مرکزی خیال</string>
   <string name="color_theme_light">ہلکا</string>
   <string name="color_theme_dark">گہرا</string>
+  <string name="color_theme_black">سیاہ</string>
+  <string name="color_theme_test_title">سادہ متن</string>
   <string name="preference_title_app_theme">ایپ تھیم</string>
   <string name="preference_summary_color_theme">اطلاقیے کو تاریک پوشاک پہنائیں</string>
   <string name="text_size_increase">متن کا حجم بڑھائیں</string>
@@ -388,6 +390,7 @@
   <string name="reading_list_already_contains_selection">منتخب فہرست میں تمام منتخب صفحات موجود ہیں۔</string>
   <string name="reading_list_added_articles_list_titled">%2$s میں %1$d مضامین شامل کیے گئے</string>
   <string name="reading_list_delete_confirm">کیا آپ یقینی طور پر اس کو مطالعہ کی فہرست سے %s حذف کرنا چاہتے ہیں؟</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">منسوخ</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">داخل ہوں</string>
   <string name="reading_list_turned_sync_off_dialog_ok">ٹھیک ہے</string>
   <string name="reading_list_turned_sync_off_dialog_settings">ترتیبات</string>
@@ -426,6 +429,27 @@
     <item quantity="one">%1$d مضمون رہ گیا ہے</item>
     <item quantity="other">%1$d مضامین رہ گئے ہیں</item>
   </plurals>
+  <string name="notifications_activity_title">اطلاعات</string>
+  <string name="notifications_activity_title_archived">اطلاعات (وثق)</string>
+  <string name="notifications_search">اطلاعات میں تلاش کریں</string>
+  <string name="notifications_view_unread">جو ابھی تک نہیں دیکھیں گئیں</string>
+  <string name="notifications_view_archived">سابقہ دیکھیے</string>
+  <string name="notifications_prefs">اطلاعات کی ترتیبات</string>
+  <string name="notifications_archive">بطور خواندہ نشان زد کریں اور وثق بنائیں</string>
+  <string name="notifications_poll_enable_title">اطلاعات کی ترتیبات</string>
+  <string name="notifications_poll_enable_positive">فعال</string>
+  <string name="notifications_empty_message">آپ کی تمام اطلاعات فعال ہیں!</string>
+  <string name="notifications_view_archived_button_text">قدیم اطلاعات دیکھیے</string>
+  <string name="notification_preferences_title">اطلاعات کی ترتیبات</string>
+  <string name="notifications_mark_unread">بطور ناخواندہ شدہ نشان زد کریں</string>
+  <string name="preference_title_notification_poll">نئی اطلاعات</string>
+  <string name="preference_category_notification_types">ایپ میں اطلاعات کی اقسام</string>
+  <string name="preference_title_notification_welcome">خوش آمدید</string>
+  <string name="preference_summary_notification_welcome">ایک کھاتہ تخلیق کیا گیا ہے</string>
+  <string name="preference_title_notification_milestone">سنگ میل</string>
+  <string name="preference_summary_notification_milestone">صارف کی ترامیم کی مخصوص تعداد عبور کرنے پر اطلاع</string>
+  <string name="preference_title_notification_thanks">شکر گزاری</string>
+  <string name="preference_summary_notification_thanks">دیگر صارفین کا آپ کی ترمیم پر شکریہ ادا کرنے کا پیغام</string>
   <string name="view_continue_reading_card_title">پڑھنا جاری یکھیں</string>
   <string name="view_because_you_read_card_title">کیونکہ آپ نے پڑھا</string>
   <string name="view_random_card_title">جستہ جستہ صفحات</string>
@@ -439,6 +463,7 @@
   <string name="view_featured_image_card_download">اتاریں</string>
   <string name="menu_feed_card_dismiss">اس کارڈ کو چھپائیں</string>
   <string name="menu_feed_card_dismissed">کارڈ پوشیدہ ہے۔</string>
+  <string name="menu_feed_card_edit_card_languages">کارڈ کی زبانیں تبدیل کریں</string>
   <string name="menu_feed_overflow_label">مزید اختیارات</string>
   <string name="feed_featured_image_share_subject">ویکیمیڈیا کامنز کی منتخب تصویر</string>
   <string name="feed">اکتشاف</string>
@@ -460,6 +485,17 @@
   <string name="feed_configure_menu_reset">طے شدہ نمائش بحال کریں</string>
   <string name="feed_configure_menu_select_all">سب دکھائيں</string>
   <string name="feed_configure_menu_deselect_all">سب چھپائیں</string>
+  <string name="feed_configure_language_warning">یادہانی! تمام ویکیوں کے تمام اقسام کے کارڈ  دستیاب نہیں ہیں۔ ترتیبات میں اپنی منتخب شدہ زبانوں میں ترمیم کریں۔</string>
+  <string name="feed_item_type_news">موجودہ واقعات کے بارے میں مضامین</string>
+  <string name="feed_item_type_on_this_day">تاریخ میں اس دن ہونے والے واقعات</string>
+  <string name="feed_item_type_continue_reading">آپ کے تمام ٹیب میں سے، ایک میں زیر مطالعہ مضمون کو پڑھنے کے لیے آسان ربط</string>
+  <string name="feed_item_type_because_you_read">تجویز کردہ یہ مضامین آپ کے حالیہ زیر مطالعہ مضمون کی بنیاد پر ہیں۔</string>
+  <string name="feed_item_type_featured_article">ویکیپیڈیا کا روز کا منتخب مضمون</string>
+  <string name="feed_item_type_trending">روز کے کثیر مشاہدہ مضامین</string>
+  <string name="feed_item_type_featured_image">روزانہ کی ویکی کومنز کی منتخب تصویر</string>
+  <string name="feed_item_type_main_page">ویکیپیڈیا کا صفحۂ اول مع منتخب مواد</string>
+  <string name="feed_item_type_randomizer">بے ترتیب مضامین پڑھیے</string>
+  <string name="feed_configure_onboarding_action">تخصیص کریں</string>
   <string name="description_edit_text_hint">عنوان کی وضاحت</string>
   <string name="description_edit_save">شائع کریں</string>
   <string name="description_edit_add_description">عنوان کی وضاحت درج کریں</string>
@@ -538,9 +574,16 @@
   <string name="app_shortcuts_random">جستہ جستہ</string>
   <string name="app_shortcuts_continue_reading">مطالعہ جاری رکھیں</string>
   <string name="app_shortcuts_search">تلاش</string>
+  <string name="more_trending_text">اس طرح مزید</string>
+  <string name="top_on_this_day">%1$s کو رجحان</string>
   <string name="on_this_day_card_title">آج کے دن</string>
   <string name="more_events_text">مزید اس دن</string>
   <string name="this_year">اس سال</string>
+  <string name="back_to_top">واپس اوپر</string>
+  <plurals name="diff_years">
+    <item quantity="one">پچھلے سال</item>
+    <item quantity="other">%d سال قبل</item>
+  </plurals>
   <string name="languages_list_activity_title">زبان کا اضافہ کریں</string>
   <string name="languages_list_suggested_text">تجویز کردہ</string>
   <string name="languages_list_all_text">تمام زبانیں</string>
@@ -560,4 +603,6 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">اپنی ایپ کی زبانوں سے Chinese variant کو ختم کرنا چاہتے ہیں؟</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">زبانوں میں ترمیم</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">نہیں شکریہ</string>
+  <string name="main_drawer_help">معاونت</string>
+  <string name="main_drawer_login">داخل ہوں / ویکیپیڈیا میں شامل ہوں</string>
 </resources>

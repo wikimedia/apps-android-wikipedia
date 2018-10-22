@@ -41,7 +41,7 @@
   <string name="last_updated_text">Апошняе абнаўленьне %s</string>
   <string name="content_license_html">Зьмест даступны згодна ўмоваў ліцэнзіі &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, калі не пазначанае іншае</string>
   <string name="edit_save_action_license_logged_in">Пры публікацыі зьменаў вы пагаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі карыстаньня&lt;/a&gt;, а таксама на безадзыўную публікацыю на ўмовах ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">Захоўваючы зьмены, Вы пагаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі карыстаньня&lt;/a&gt;, а таксама на безадзыўную публікацыю на ўмовах ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Рэдагаваньні будуць прывязаныя да IP-адрасу Вашай прылады. Калі Вы &lt;a href=\"https://#login\"&gt;аўтарызуецеся&lt;/a&gt;, то зможаце мець больш высокі ўзровень прыватнасьці.</string>
+  <string name="edit_save_action_license_anon">Пры публікацыі зьменаў вы пагаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі карыстаньня&lt;/a&gt;, а таксама на безадзыўную публікацыю на ўмовах ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Рэдагаваньні будуць прывязаныя да IP-адрасу вашай прылады. Калі вы &lt;a href=\"https://#login\"&gt;ўвойдзеце ў сыстэму&lt;/a&gt;, то зможаце мець больш высокі ўзровень прыватнасьці.</string>
   <string name="preference_title_language">Мовы Вікіпэдыі</string>
   <string name="preference_languages_filter_hint">Пошук</string>
   <string name="langlinks_filter_hint">Пошук</string>
@@ -54,7 +54,7 @@
   <string name="dialog_message_edit_failed">Памылка рэдагаваньня!</string>
   <string name="dialog_message_edit_failed_retry">Паўтарыць</string>
   <string name="dialog_message_edit_failed_cancel">Скасаваць</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">Вашыя зьмены яшчэ не былі захаваныя. Вы ўпэўнены, што жадаеце пакінуць гэтую старонку?</string>
+  <string name="dialog_message_leaving_edit">Вашыя зьмены яшчэ не былі апублікаваныя. Вы ўпэўненыя, што жадаеце пакінуць гэтую старонку?</string>
   <string name="dialog_message_leaving_edit_leave">Пакінуць</string>
   <string name="dialog_message_leaving_edit_stay">Застацца</string>
   <string name="menu_show_toc">Зьмест</string>
