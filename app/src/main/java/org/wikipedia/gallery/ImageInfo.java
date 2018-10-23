@@ -47,11 +47,11 @@ public class ImageInfo implements Serializable {
         return height;
     }
 
-    @Nullable public String getThumbUrl() {
-        return thumbUrl;
+    @NonNull public String getThumbUrl() {
+        return StringUtils.defaultString(thumbUrl);
     }
 
-    @Nullable public String getOriginalUrl() {
+    @NonNull public String getOriginalUrl() {
         return StringUtils.defaultString(originalUrl);
     }
 

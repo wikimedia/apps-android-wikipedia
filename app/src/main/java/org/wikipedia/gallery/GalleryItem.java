@@ -22,7 +22,7 @@ public class GalleryItem implements Serializable {
     @SuppressWarnings("unused") @Nullable private TextInfo caption;
     @SuppressWarnings("unused") private boolean showInGallery;
     @SuppressWarnings("unused") @NonNull private Titles titles;
-    @SuppressWarnings("unused") @NonNull private ImageInfo thumbnail;
+    @SuppressWarnings("unused") @Nullable private ImageInfo thumbnail;
     @SuppressWarnings("unused") @Nullable private ImageInfo original;
     @SuppressWarnings("unused") @Nullable private List<VideoInfo> sources;
     @SuppressWarnings("unused,NullableProblems") @Nullable @SerializedName("file_page") private String filePage;
@@ -68,12 +68,15 @@ public class GalleryItem implements Serializable {
 
     @NonNull
     public ImageInfo getThumbnail() {
+        if (thumbnail == null) {
+            thumbnail = new ImageInfo();
+        }
         return thumbnail;
     }
 
     @NonNull
     public String getThumbnailUrl() {
-        return StringUtils.defaultString(getThumbnail().getSource());
+        return getThumbnail().getSource();
     }
 
     @NonNull
@@ -81,8 +84,11 @@ public class GalleryItem implements Serializable {
         return ImageUrlUtil.getUrlForPreferredSize(getThumbnailUrl(), PREFERRED_GALLERY_IMAGE_SIZE);
     }
 
-    @Nullable
+    @NonNull
     public ImageInfo getOriginal() {
+        if (original == null) {
+            original = new ImageInfo();
+        }
         return original;
     }
 
@@ -119,8 +125,11 @@ public class GalleryItem implements Serializable {
         return license;
     }
 
-    @Nullable
+    @NonNull
     public TextInfo getDescription() {
+        if (description == null) {
+            description = new TextInfo();
+        }
         return description;
     }
 
