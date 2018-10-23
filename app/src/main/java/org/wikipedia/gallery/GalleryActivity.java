@@ -624,7 +624,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
         @Override
         public Fragment getItem(int position) {
-            if (list.size() <= position) {
+            if (list.size() <= position || position < 0) {
                 return null;
             }
             // instantiate a new fragment if it doesn't exist
