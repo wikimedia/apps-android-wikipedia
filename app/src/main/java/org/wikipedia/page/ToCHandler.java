@@ -250,6 +250,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             sections.add(new Section(ABOUT_SECTION_ID, 0,
                     getStringForArticleLanguage(page.getTitle(), R.string.about_article_section), "", ""));
             highlightedSection = 0;
+            notifyDataSetChanged();
         }
 
         public void setHighlightedSection(int id) {
