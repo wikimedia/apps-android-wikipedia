@@ -1,5 +1,6 @@
 package org.wikipedia.page;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -1182,6 +1183,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
     }
 
+    @SuppressLint("CheckResult")
     private void addTimeSpentReading(int timeSpentSec) {
         if (model.getCurEntry() == null) {
             return;
@@ -1192,7 +1194,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 timeSpentSec));
         Completable.fromAction(new UpdateHistoryTask(model.getCurEntry()))
                 .subscribeOn(Schedulers.io())
-                .subscribe();
+                .subscribe(() -> { }, L::e);
     }
 
     private LinearLayout.LayoutParams getContentTopOffsetParams(@NonNull Context context) {
