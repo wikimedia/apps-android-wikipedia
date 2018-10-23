@@ -90,21 +90,6 @@ public class Page {
         return !isMainPage() && getTitle().namespace() == Namespace.MAIN;
     }
 
-    /** For old PHP API */
-    public void addRemainingSections(List<Section> remainingSections) {
-        sections.addAll(remainingSections);
-    }
-
-    /** For new RESTBase API */
-    public void augmentRemainingSections(List<Section> remainingSections) {
-        // TODO: Use Parsoid to request the same revision ID, so that there's no race condition
-        // that can lead to a mismatched number of sections.
-        Section leadSection = sections.get(0);
-        sections.clear();
-        sections.add(leadSection);
-        sections.addAll(remainingSections);
-    }
-
     public boolean isProtected() {
         return !getPageProperties().canEdit();
     }
