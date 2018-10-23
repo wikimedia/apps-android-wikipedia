@@ -265,8 +265,8 @@ public class TabActivity extends BaseActivity {
     private void showUndoSnackbar(final Tab tab, final int index, final org.wikipedia.page.tabs.Tab appTab, final int appTabIndex) {
         Snackbar snackbar = FeedbackUtil.makeSnackbar(this, getString(R.string.tab_item_closed, appTab.getBackStackPositionTitle().getDisplayText()), FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.reading_list_item_delete_undo, v -> {
-            tabSwitcher.addTab(tab, index);
             app.getTabList().add(appTabIndex, appTab);
+            tabSwitcher.addTab(tab, index);
         });
         snackbar.show();
     }
