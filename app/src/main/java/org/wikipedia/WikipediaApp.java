@@ -236,13 +236,15 @@ public class WikipediaApp extends Application {
      * Default wiki for the app
      * You should use PageTitle.getWikiSite() to get the article wiki
      */
-    @NonNull public WikiSite getWikiSite() {
+    @NonNull public synchronized WikiSite getWikiSite() {
         // TODO: why don't we ensure that the app language hasn't changed here instead of the client?
         if (wiki == null) {
             String lang = Prefs.getMediaWikiBaseUriSupportsLangCode() ? getAppOrSystemLanguageCode() : "";
-            wiki = WikiSite.forLanguageCode(lang);
+            WikiSite newWiki = WikiSite.forLanguageCode(lang);
             // Kick off a task to retrieve the site info for the current wiki
-            new SiteInfoClient().updateFor(wiki);
+            new SiteInfoClient().updateFor(newWiki);
+            wiki = newWiki;
+            return newWiki;
         }
         return wiki;
     }
@@ -360,7 +362,7 @@ public class WikipediaApp extends Application {
                 * DimenUtil.getFloat(R.dimen.textSizeMultiplierFactor));
     }
 
-    public void resetWikiSite() {
+    public synchronized void resetWikiSite() {
         wiki = null;
     }
 
