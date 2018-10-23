@@ -7,7 +7,8 @@ import org.wikipedia.dataclient.WikiSite;
 
 import io.reactivex.Observable;
 import okhttp3.CacheControl;
-import retrofit2.Call;
+import okhttp3.Request;
+import retrofit2.Response;
 
 /**
  * Generic interface for Page content service.
@@ -30,20 +31,30 @@ public interface PageClient {
      * @param title the page title with prefix if necessary
      * @param leadThumbnailWidth one of the bucket widths for the lead image
      */
-    @NonNull <T extends PageLead> Call<T> lead(@NonNull WikiSite wiki,
-                                               @Nullable CacheControl cacheControl,
-                                               @Nullable String saveOfflineHeader,
-                                               @Nullable String referrerUrl,
-                                               @NonNull String title,
-                                               int leadThumbnailWidth);
+    @NonNull <T extends PageLead> Observable<Response<T>> lead(@NonNull WikiSite wiki,
+                                                               @Nullable CacheControl cacheControl,
+                                                               @Nullable String saveOfflineHeader,
+                                                               @Nullable String referrerUrl,
+                                                               @NonNull String title,
+                                                               int leadThumbnailWidth);
 
     /**
      * Gets the remaining sections of a given title.
      *
      * @param title the page title to be used including prefix
      */
-    @NonNull <T extends PageRemaining> Call<T> sections(@NonNull WikiSite wiki,
-                                                        @Nullable CacheControl cacheControl,
-                                                        @Nullable String saveOfflineHeader,
-                                                        @NonNull String title);
+    @NonNull <T extends PageRemaining> Observable<Response<T>> sections(@NonNull WikiSite wiki,
+                                                                        @Nullable CacheControl cacheControl,
+                                                                        @Nullable String saveOfflineHeader,
+                                                                        @NonNull String title);
+
+    /**
+     * Gets the remaining sections request url of a given title.
+     *
+     * @param title the page title to be used including prefix
+     */
+    @NonNull Request sectionsUrl(@NonNull WikiSite wiki,
+                               @Nullable CacheControl cacheControl,
+                               @Nullable String saveOfflineHeader,
+                               @NonNull String title);
 }

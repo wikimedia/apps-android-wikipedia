@@ -4,19 +4,13 @@ import android.support.annotation.NonNull;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.wikipedia.dataclient.RestService;
 import org.wikipedia.dataclient.page.BasePageLeadTest;
 import org.wikipedia.dataclient.page.PageClient;
-import org.wikipedia.testlib.TestLatch;
 
+import io.reactivex.observers.TestObserver;
 import okhttp3.CacheControl;
-import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.fail;
 import static org.wikipedia.json.GsonUnmarshaller.unmarshal;
 
 public class RbPageLeadTest extends BasePageLeadTest {
@@ -48,26 +42,13 @@ public class RbPageLeadTest extends BasePageLeadTest {
 
     @Test @SuppressWarnings("checkstyle:magicnumber") public void testThumbUrls() throws Throwable {
         enqueueFromFile("page_lead_rb.json");
-        final TestLatch latch = new TestLatch();
-        service(RestService.class).getLeadSection(CacheControl.FORCE_NETWORK.toString(), null, null, "foo")
-                .enqueue(new Callback<RbPageLead>() {
-                    @Override
-                    public void onResponse(@NonNull Call<RbPageLead> call, @NonNull Response<RbPageLead> response) {
-                        RbPageLead lead = (RbPageLead) response.body();
-                        assertThat(lead.getLeadImageUrl(640).contains("640px"), is(true));
-                        assertThat(lead.getThumbUrl().contains(preferredThumbSizeString()), is(true));
-                        assertThat(lead.getDescription(), is("Mexican boxer"));
-                        assertThat(lead.getDescriptionSource(), is("central"));
-                        latch.countDown();
-                    }
-
-                    @Override
-                    public void onFailure(@NonNull Call<RbPageLead> call, @NonNull Throwable t) {
-                        fail();
-                        latch.countDown();
-                    }
-                });
-        latch.await();
+        TestObserver<Response<RbPageLead>> observer = new TestObserver<>();
+        getRestService().getLeadSection(CacheControl.FORCE_NETWORK.toString(), null, null, "foo").subscribe(observer);
+        observer.assertComplete()
+                .assertValue(result -> result.body().getLeadImageUrl(640).contains("640px")
+                            && result.body().getThumbUrl().contains(preferredThumbSizeString())
+                            && result.body().getDescription().contains("Mexican boxer")
+                            && result.body().getDescriptionSource().contains("central"));
     }
 
     @NonNull @Override protected PageClient subject() {

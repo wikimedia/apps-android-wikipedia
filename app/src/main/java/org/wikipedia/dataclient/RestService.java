@@ -20,6 +20,7 @@ import java.util.Map;
 
 import io.reactivex.Observable;
 import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
@@ -37,6 +38,8 @@ public interface RestService {
     String ACCEPT_HEADER_SUMMARY = ACCEPT_HEADER_PREFIX + "Summary/1.2.0\"";
     String ACCEPT_HEADER_MOBILE_SECTIONS = ACCEPT_HEADER_PREFIX + "mobile-sections/0.12.4\"";
     String ACCEPT_HEADER_DEFINITION = ACCEPT_HEADER_PREFIX + "definition/0.7.2\"";
+
+    String REST_PAGE_SECTIONS_URL = "page/mobile-sections-remaining/{title}";
 
     /**
      * Gets a page summary for a given title -- for link previews
@@ -63,10 +66,10 @@ public interface RestService {
     })
     @GET("page/mobile-sections-lead/{title}")
     @NonNull
-    Call<RbPageLead> getLeadSection(@Nullable @Header("Cache-Control") String cacheControl,
-                                    @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
-                                    @Nullable @Header("Referer") String referrerUrl,
-                                    @NonNull @Path("title") String title);
+    Observable<Response<RbPageLead>> getLeadSection(@Nullable @Header("Cache-Control") String cacheControl,
+                                                    @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
+                                                    @Nullable @Header("Referer") String referrerUrl,
+                                                    @NonNull @Path("title") String title);
 
     /**
      * Gets the remaining sections of a given title.
@@ -74,10 +77,21 @@ public interface RestService {
      * @param title the page title to be used including prefix
      */
     @Headers(ACCEPT_HEADER_MOBILE_SECTIONS)
-    @GET("page/mobile-sections-remaining/{title}")
-    @NonNull Call<RbPageRemaining> getRemainingSections(@Nullable @Header("Cache-Control") String cacheControl,
-                                                        @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
-                                                        @NonNull @Path("title") String title);
+    @GET(REST_PAGE_SECTIONS_URL)
+    @NonNull Observable<Response<RbPageRemaining>> getRemainingSections(@Nullable @Header("Cache-Control") String cacheControl,
+                                                                        @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
+                                                                        @NonNull @Path("title") String title);
+    /**
+     * TODO: remove this if we find a way to get the request url before the observable object being executed
+     * Gets the remaining sections request url of a given title.
+     *
+     * @param title the page title to be used including prefix
+     */
+    @Headers(ACCEPT_HEADER_MOBILE_SECTIONS)
+    @GET(REST_PAGE_SECTIONS_URL)
+    @NonNull Call<RbPageRemaining> getRemainingSectionsUrl(@Nullable @Header("Cache-Control") String cacheControl,
+                                                           @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
+                                                           @NonNull @Path("title") String title);
 
     // todo: this Content Service-only endpoint is under page/ but that implementation detail should
     //       probably not be reflected here. Move to WordDefinitionClient

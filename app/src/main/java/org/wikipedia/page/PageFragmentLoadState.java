@@ -56,8 +56,6 @@ import io.reactivex.schedulers.Schedulers;
 import okhttp3.CacheControl;
 import okhttp3.Protocol;
 import okhttp3.Request;
-import retrofit2.Call;
-import retrofit2.Response;
 
 import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
 import static org.wikipedia.util.L10nUtil.getStringsForArticleLanguage;
@@ -339,26 +337,24 @@ public class PageFragmentLoadState {
     @VisibleForTesting
     protected void pageLoadLeadSection(final int startSequenceNum) {
         app.getSessionFunnel().leadSectionFetchStart();
-        PageClientFactory
-                .create(model.getTitle().getWikiSite(), model.getTitle().namespace())
+
+        disposables.add(PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
                 .lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
                         model.getCurEntry().getReferrer(), model.getTitle().getPrefixedText(), calculateLeadImageWidth())
-                .enqueue(new retrofit2.Callback<PageLead>() {
-                    @Override public void onResponse(@NonNull Call<PageLead> call, @NonNull Response<PageLead> rsp) {
-                        app.getSessionFunnel().leadSectionFetchEnd();
-                        PageLead lead = rsp.body();
-                        pageLoadLeadSectionComplete(lead, startSequenceNum);
-                        if ((rsp.raw().cacheResponse() != null && rsp.raw().networkResponse() == null)
-                                || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(rsp.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
-                            showPageOfflineMessage(rsp.raw().header("date", ""));
-                        }
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(rsp -> {
+                    app.getSessionFunnel().leadSectionFetchEnd();
+                    PageLead lead = rsp.body();
+                    pageLoadLeadSectionComplete(lead, startSequenceNum);
+                    if ((rsp.raw().cacheResponse() != null && rsp.raw().networkResponse() == null)
+                            || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(rsp.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
+                        showPageOfflineMessage(rsp.raw().header("date", ""));
                     }
-
-                    @Override public void onFailure(@NonNull Call<PageLead> call, @NonNull Throwable t) {
-                        L.e("PageLead error: ", t);
-                        commonSectionFetchOnCatch(t, startSequenceNum);
-                    }
-                });
+                }, t -> {
+                    L.e("PageLead error: ", t);
+                    commonSectionFetchOnCatch(t, startSequenceNum);
+                }));
     }
 
     private void updateThumbnail(String thumbUrl) {
@@ -568,12 +564,10 @@ public class PageFragmentLoadState {
         }
         app.getSessionFunnel().restSectionsFetchStart();
 
-        Request request = PageClientFactory
-                .create(model.getTitle().getWikiSite(), model.getTitle().namespace())
-                .sections(model.getTitle().getWikiSite(), model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK : null,
-                        model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                        model.getTitle().getPrefixedText())
-                .request();
+        Request request = PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
+                            .sectionsUrl(model.getTitle().getWikiSite(), model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK : null,
+                                    model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
+                                    model.getTitle().getPrefixedText());
 
         queueRemainingSections(request);
     }

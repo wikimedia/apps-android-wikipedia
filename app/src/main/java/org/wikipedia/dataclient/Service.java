@@ -21,6 +21,7 @@ import org.wikipedia.zero.ZeroConfig;
 
 import io.reactivex.Observable;
 import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -39,6 +40,10 @@ public interface Service {
     String META_URL = "https://meta.wikimedia.org/";
 
     String MW_API_PREFIX = "w/api.php?format=json&formatversion=2&";
+
+    String MW_PAGE_SECTIONS_URL = MW_API_PREFIX + "action=mobileview&prop="
+                                                + "text|sections&onlyrequestedsections=1&sections=1-"
+                                                + "&sectionprop=toclevel|line|anchor&noheadings=";
 
     int PREFERRED_THUMB_SIZE = 320;
 
@@ -83,26 +88,34 @@ public interface Service {
             + "|description|lastmodified|normalizedtitle|displaytitle|protection"
             + "|editable|pageprops&pageprops=wikibase_item"
             + "&sections=0&sectionprop=toclevel|line|anchor&noheadings=")
-    @NonNull Call<MwMobileViewPageLead> getLeadSection(@Nullable @Header("Cache-Control") String cacheControl,
-                                                       @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
-                                                       @Nullable @Header("Referer") String referrerUrl,
-                                                       @NonNull @Query("page") String title,
-                                                       @Query("thumbwidth") int leadImageWidth,
-                                                       @Nullable @Query("uselang") String useLang);
+    @NonNull Observable<Response<MwMobileViewPageLead>> getLeadSection(@Nullable @Header("Cache-Control") String cacheControl,
+                                                                       @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
+                                                                       @Nullable @Header("Referer") String referrerUrl,
+                                                                       @NonNull @Query("page") String title,
+                                                                       @Query("thumbwidth") int leadImageWidth,
+                                                                       @Nullable @Query("uselang") String useLang);
 
     /**
      * Gets the remaining sections of a given title.
      *
      * @param title the page title to be used including prefix
      */
-    @GET(MW_API_PREFIX + "action=mobileview&prop="
-            + "text|sections&onlyrequestedsections=1&sections=1-"
-            + "&sectionprop=toclevel|line|anchor&noheadings=")
-    @NonNull Call<MwMobileViewPageRemaining> getRemainingSections(@Nullable @Header("Cache-Control") String cacheControl,
-                                                                  @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
-                                                                  @NonNull @Query("page") String title,
-                                                                  @Nullable @Query("uselang") String useLang);
-
+    @GET(MW_PAGE_SECTIONS_URL)
+    @NonNull Observable<Response<MwMobileViewPageRemaining>> getRemainingSections(@Nullable @Header("Cache-Control") String cacheControl,
+                                                                                  @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
+                                                                                  @NonNull @Query("page") String title,
+                                                                                  @Nullable @Query("uselang") String useLang);
+    /**
+     * TODO: remove this if we find a way to get the request url before the observable object being executed
+     * Gets the remaining sections request url of a given title.
+     *
+     * @param title the page title to be used including prefix
+     */
+    @GET(MW_PAGE_SECTIONS_URL)
+    @NonNull Call<MwMobileViewPageRemaining> getRemainingSectionsUrl(@Nullable @Header("Cache-Control") String cacheControl,
+                                                                      @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
+                                                                      @NonNull @Query("page") String title,
+                                                                      @Nullable @Query("uselang") String useLang);
 
     // ------- Search -------
 

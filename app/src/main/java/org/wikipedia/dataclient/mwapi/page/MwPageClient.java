@@ -6,13 +6,12 @@ import android.support.annotation.Nullable;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageClient;
-import org.wikipedia.dataclient.page.PageLead;
-import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.dataclient.page.PageSummary;
 
 import io.reactivex.Observable;
 import okhttp3.CacheControl;
-import retrofit2.Call;
+import okhttp3.Request;
+import retrofit2.Response;
 
 /**
  * Retrofit web service client for MediaWiki PHP API.
@@ -25,22 +24,31 @@ public class MwPageClient implements PageClient {
     }
 
     @SuppressWarnings("unchecked")
-    @NonNull @Override public Call<? extends PageLead> lead(@NonNull WikiSite wiki,
-                                                            @Nullable CacheControl cacheControl,
-                                                            @Nullable String saveOfflineHeader,
-                                                            @Nullable String referrerUrl,
-                                                            @NonNull String title,
-                                                            int leadImageWidth) {
+    @NonNull @Override public Observable<Response<MwMobileViewPageLead>> lead(@NonNull WikiSite wiki,
+                                                                              @Nullable CacheControl cacheControl,
+                                                                              @Nullable String saveOfflineHeader,
+                                                                              @Nullable String referrerUrl,
+                                                                              @NonNull String title,
+                                                                              int leadImageWidth) {
         return ServiceFactory.get(wiki).getLeadSection(cacheControl == null ? null : cacheControl.toString(),
                 saveOfflineHeader, referrerUrl, title, leadImageWidth, wiki.languageCode());
     }
 
     @SuppressWarnings("unchecked")
-    @NonNull @Override public Call<? extends PageRemaining> sections(@NonNull WikiSite wiki,
-                                                                     @Nullable CacheControl cacheControl,
-                                                                     @Nullable String saveOfflineHeader,
-                                                                     @NonNull String title) {
+    @NonNull @Override public Observable<Response<MwMobileViewPageRemaining>> sections(@NonNull WikiSite wiki,
+                                                                                       @Nullable CacheControl cacheControl,
+                                                                                       @Nullable String saveOfflineHeader,
+                                                                                       @NonNull String title) {
         return ServiceFactory.get(wiki).getRemainingSections(cacheControl == null ? null : cacheControl.toString(),
                 saveOfflineHeader, title, wiki.languageCode());
+    }
+
+    @SuppressWarnings("unchecked")
+    @NonNull @Override public Request sectionsUrl(@NonNull WikiSite wiki,
+                                                  @Nullable CacheControl cacheControl,
+                                                  @Nullable String saveOfflineHeader,
+                                                  @NonNull String title) {
+        return ServiceFactory.get(wiki).getRemainingSectionsUrl(cacheControl == null ? null : cacheControl.toString(),
+                saveOfflineHeader, title, wiki.languageCode()).request();
     }
 }

@@ -1,5 +1,6 @@
 package org.wikipedia.page;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.WikipediaApp;
@@ -18,10 +19,11 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 
 import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
@@ -29,26 +31,50 @@ import static org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl;
 
 final class PageCacher {
 
+    @SuppressLint("CheckResult")
     static void loadIntoCache(@NonNull PageTitle title) {
         L.d("Loading page into cache: " + title.getPrefixedText());
         WikipediaApp app = WikipediaApp.getInstance();
         PageImageUrlParser parser = new PageImageUrlParser(new ImageTagParser(),
                 new PixelDensityDescriptorParser());
         PageClient client = PageClientFactory.create(title.getWikiSite(), title.namespace());
+
         app.getSessionFunnel().leadSectionFetchStart();
-        leadReq(client, title).enqueue(new LeadCallback(title.getWikiSite(), parser));
+
+        leadReq(client, title)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(rsp -> {
+                    WikipediaApp.getInstance().getSessionFunnel().restSectionsFetchEnd();
+                    if (rsp.body() != null) {
+                        // noinspection ConstantConditions
+                        Set<String> imageUrls = new HashSet<>(parser.parse(rsp.body()));
+                        fetchImages(title.getWikiSite(), imageUrls);
+                    }
+                }, L::e);
+
         app.getSessionFunnel().restSectionsFetchStart();
-        remainingReq(client, title).enqueue(new RemainingCallback(title.getWikiSite(), parser));
+        remainingReq(client, title)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(rsp -> {
+                    WikipediaApp.getInstance().getSessionFunnel().restSectionsFetchEnd();
+                    if (rsp.body() != null) {
+                        // noinspection ConstantConditions
+                        Set<String> imageUrls = new HashSet<>(parser.parse(rsp.body()));
+                        fetchImages(title.getWikiSite(), imageUrls);
+                    }
+                }, L::e);
     }
 
     @NonNull
-    private static Call<PageLead> leadReq(@NonNull PageClient client, @NonNull PageTitle title) {
+    private static Observable<Response<PageLead>> leadReq(@NonNull PageClient client, @NonNull PageTitle title) {
         return client.lead(title.getWikiSite(), null, null, null, title.getPrefixedText(),
                 calculateLeadImageWidth());
     }
 
     @NonNull
-    private static Call<PageRemaining> remainingReq(@NonNull PageClient client,
+    private static Observable<Response<PageRemaining>> remainingReq(@NonNull PageClient client,
                                                     @NonNull PageTitle title) {
         return client.sections(title.getWikiSite(), null, null, title.getPrefixedText());
     }
@@ -60,57 +86,6 @@ final class PageCacher {
             url = resolveProtocolRelativeUrl(wiki, url);
             Request request = new Request.Builder().url(url).build();
             client.newCall(request).enqueue(new ImageCallback());
-        }
-    }
-
-    private static final class LeadCallback implements Callback<PageLead> {
-        @NonNull private PageImageUrlParser parser;
-        @NonNull private WikiSite wiki;
-
-        private LeadCallback(@NonNull WikiSite wiki, @NonNull PageImageUrlParser parser) {
-            this.parser = parser;
-            this.wiki = wiki;
-        }
-
-        @Override
-        public void onResponse(@NonNull Call<PageLead> call, @NonNull Response<PageLead> response) {
-            WikipediaApp.getInstance().getSessionFunnel().leadSectionFetchEnd();
-            if (response.body() != null) {
-                // noinspection ConstantConditions
-                Set<String> imageUrls = new HashSet<>(parser.parse(response.body()));
-                fetchImages(wiki, imageUrls);
-            }
-        }
-
-        @Override
-        public void onFailure(@NonNull Call<PageLead> call, @NonNull Throwable t) {
-            L.e(t);
-        }
-    }
-
-    private static final class RemainingCallback implements Callback<PageRemaining> {
-        @NonNull private PageImageUrlParser parser;
-        @NonNull private WikiSite wiki;
-
-        private RemainingCallback(@NonNull WikiSite wiki, @NonNull PageImageUrlParser parser) {
-            this.parser = parser;
-            this.wiki = wiki;
-        }
-
-        @Override
-        public void onResponse(@NonNull Call<PageRemaining> call,
-                               @NonNull Response<PageRemaining> response) {
-            WikipediaApp.getInstance().getSessionFunnel().restSectionsFetchEnd();
-            if (response.body() != null) {
-                // noinspection ConstantConditions
-                Set<String> imageUrls = new HashSet<>(parser.parse(response.body()));
-                fetchImages(wiki, imageUrls);
-            }
-        }
-
-        @Override
-        public void onFailure(@NonNull Call<PageRemaining> call, @NonNull Throwable t) {
-            L.e(t);
         }
     }
 
