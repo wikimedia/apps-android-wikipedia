@@ -66,6 +66,7 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
         themePref.setSummary(WikipediaApp.getInstance().getCurrentTheme().getNameId());
         themePref.setOnPreferenceClickListener(preference -> {
             getActivity().startActivity(ThemeFittingRoomActivity.newIntent(getActivity()));
+            getActivity().finish();
             return true;
         });
 
