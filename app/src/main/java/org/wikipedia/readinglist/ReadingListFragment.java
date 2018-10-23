@@ -620,7 +620,7 @@ public class ReadingListFragment extends Fragment implements
                         } else {
                             toggleOffline(page);
                         }
-                    }));
+                    }, L::w));
         } else {
             toggleOffline(page);
         }

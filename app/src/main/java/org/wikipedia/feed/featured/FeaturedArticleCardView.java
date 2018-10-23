@@ -22,6 +22,7 @@ import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
@@ -144,7 +145,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
                             pageInList ? R.attr.colorAccent : R.attr.secondary_text_color));
                     footerView.actionTextColor(ResourceUtil.getThemedAttributeId(getContext(),
                             pageInList ? R.attr.colorAccent : R.attr.secondary_text_color));
-                });
+                }, L::w);
     }
 
     private void image(@Nullable Uri uri) {

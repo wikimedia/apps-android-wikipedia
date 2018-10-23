@@ -29,6 +29,7 @@ import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.log.L;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -169,7 +170,7 @@ public class RandomFragment extends Fragment {
                     saveButtonState = exists;
                     saveButton.setImageResource(saveButtonState
                             ? R.drawable.ic_bookmark_white_24dp : R.drawable.ic_bookmark_border_white_24dp);
-                }));
+                }, L::w));
     }
 
     @SuppressWarnings("magicnumber")
