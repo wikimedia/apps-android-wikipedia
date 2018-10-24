@@ -18,7 +18,7 @@ import java.util.Map;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-public class SiteInfoClient {
+public final class SiteInfoClient {
     private static Map<String, SiteInfo> SITE_INFO_MAP = new HashMap<>();
 
     @NonNull public static String getMainPageForLang(@NonNull String lang) {
@@ -47,7 +47,7 @@ public class SiteInfoClient {
     }
 
     @SuppressLint("CheckResult")
-    public void updateFor(@NonNull WikiSite wiki) {
+    public static void updateFor(@NonNull WikiSite wiki) {
         if (SITE_INFO_MAP.containsKey(wiki.languageCode())) {
             return;
         }
@@ -58,4 +58,6 @@ public class SiteInfoClient {
                 .subscribe(response -> SITE_INFO_MAP.put(wiki.languageCode(), response.query().siteInfo()),
                         L::e);
     }
+
+    private SiteInfoClient() { }
 }

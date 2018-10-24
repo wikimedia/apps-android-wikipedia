@@ -242,7 +242,7 @@ public class WikipediaApp extends Application {
             String lang = Prefs.getMediaWikiBaseUriSupportsLangCode() ? getAppOrSystemLanguageCode() : "";
             WikiSite newWiki = WikiSite.forLanguageCode(lang);
             // Kick off a task to retrieve the site info for the current wiki
-            new SiteInfoClient().updateFor(newWiki);
+            SiteInfoClient.updateFor(newWiki);
             wiki = newWiki;
             return newWiki;
         }
