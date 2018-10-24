@@ -333,6 +333,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 // This can be a Uri or a String, so let's extract it safely as an Object.
                 historyEntry.setReferrer(intent.getExtras().get(Intent.EXTRA_REFERRER).toString());
             }
+            if (title.isSpecial()) {
+                visitInExternalBrowser(this, intent.getData());
+                finish();
+                return;
+            }
             loadPageInForegroundTab(title, historyEntry);
         } else if (ACTION_LOAD_IN_NEW_TAB.equals(intent.getAction())
                 || ACTION_LOAD_IN_CURRENT_TAB.equals(intent.getAction())) {

@@ -78,14 +78,14 @@ import static org.mockito.Mockito.when;
     @Test public void testSpecial() throws Throwable {
         assertThat(new PageTitle("Special:Version", WikiSite.forLanguageCode("en")).isSpecial(), is(true));
         assertThat(new PageTitle("特別:Version", WikiSite.forLanguageCode("ja")).isSpecial(), is(true));
-        assertThat(new PageTitle("Special:Version", WikiSite.forLanguageCode("ja")).isSpecial(), is(false));
+        assertThat(new PageTitle("Special:Version", WikiSite.forLanguageCode("ja")).isSpecial(), is(true));
         assertThat(new PageTitle("特別:Version", WikiSite.forLanguageCode("en")).isSpecial(), is(false));
     }
 
     @Test public void testFile() throws Throwable {
         assertThat(new PageTitle("File:SomethingSomething", WikiSite.forLanguageCode("en")).isFilePage(), is(true));
         assertThat(new PageTitle("ファイル:Version", WikiSite.forLanguageCode("ja")).isFilePage(), is(true));
-        assertThat(new PageTitle("File:SomethingSomething", WikiSite.forLanguageCode("ja")).isFilePage(), is(false));
+        assertThat(new PageTitle("File:SomethingSomething", WikiSite.forLanguageCode("ja")).isFilePage(), is(true));
         assertThat(new PageTitle("ファイル:Version", WikiSite.forLanguageCode("en")).isFilePage(), is(false));
     }
 
