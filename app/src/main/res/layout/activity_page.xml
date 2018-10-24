@@ -16,11 +16,10 @@
         android:layout="@layout/fragment_page"
         tools:layout="@layout/fragment_page" />
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/page_toolbar_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:background="?attr/page_toolbar_color"
         android:elevation="4dp">
 
@@ -78,6 +77,7 @@
                     app:tint="?attr/page_toolbar_icon_color"/>
             </LinearLayout>
         </android.support.v7.widget.Toolbar>
+
         <ProgressBar
             android:id="@+id/page_progress_bar"
             android:layout_width="match_parent"
@@ -87,7 +87,7 @@
             android:max="10000"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal" />
 
-    </LinearLayout>
+    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/toc_container"
