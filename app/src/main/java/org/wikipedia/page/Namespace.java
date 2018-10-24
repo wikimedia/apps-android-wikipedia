@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.language.AppLanguageLookUpTable;
 import org.wikipedia.model.CodeEnum;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
@@ -166,13 +167,13 @@ public enum Namespace implements EnumCode {
     /** Warning: this method is localized only for File and Special pages. */
     @Deprecated @NonNull public static Namespace fromLegacyString(@NonNull WikiSite wiki,
                                                                   @Nullable String name) {
-        String filePageAlias = FileAliasData.valueFor(wiki.languageCode());
-        if (filePageAlias.equals(name)) {
+        if (FileAliasData.valueFor(wiki.languageCode()).equals(name)
+                || FileAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE).equals(name)) {
             return Namespace.FILE;
         }
 
-        String specialPageAlias = SpecialAliasData.valueFor(wiki.languageCode());
-        if (specialPageAlias.equals(name)) {
+        if (SpecialAliasData.valueFor(wiki.languageCode()).equals(name)
+                || SpecialAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE).equals(name)) {
             return Namespace.SPECIAL;
         }
 
