@@ -94,7 +94,7 @@
   <string name="search_reading_lists_no_results">Não foram encontrados resultados nas listas de leitura</string>
   <string name="search_history_no_results">Não foram encontrados resultados no histórico</string>
   <string name="edit_section_captcha_message">Para ajudar a proteger contra sistemas automatizados de inserção de \'\'spam\'\', introduza as palavras que aparecem abaixo, por favor</string>
-  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">Não consegue ver a imagem? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Saiba mais&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Não consegue ver a imagem? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Peça uma conta&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Repita as palavras acima</string>
   <string name="title_captcha">Introduza o CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toque no CAPTCHA para recarregar</string>
@@ -289,6 +289,8 @@
   <string name="tab_item_closed">%s fechado.</string>
   <string name="tool_tip_select_text_title">Manter premido para selecionar</string>
   <string name="tool_tip_select_text">Prima e mantenha premido em qualquer lugar do texto para selecioná-lo e depois poder copiar e partilhar.</string>
+  <string name="tool_tip_bookmark_icon_title">Adicionar à lista de leitura</string>
+  <string name="tool_tip_bookmark_icon_text">Prima o ícone do marcador para guardar o artigo numa lista de leitura.</string>
   <string name="tool_tip_share">Após destacar um facto interessante, tente partilhá-lo nas suas redes favoritas!</string>
   <string name="page_view_in_browser">Abrir página no navegador</string>
   <string name="tool_tip_toc_title">Acesso rápido ao índice</string>
@@ -392,9 +394,9 @@
   <string name="reading_list_items_deleted">%d artigos removidos da lista</string>
   <string name="reading_list_item_delete_undo">Desfazer</string>
   <string name="reading_list_deleted">%s eliminada</string>
-  <string name="saved_list_empty_title">Ainda não existem listas de leitura</string>
-  <string name="reading_lists_empty_message">Acrescente os artigos a uma lista que pretende ler mais tarde, mesmo quando estiver sem acesso à Internet.</string>
-  <string name="reading_lists_onboarding_intro">Acrescente os artigos a uma lista que pretende ler mais tarde, mesmo quando estiver sem acesso à Internet!</string>
+  <string name="saved_list_empty_title">Ainda não existem páginas guardadas</string>
+  <string name="reading_lists_empty_message">Acrescente artigos a uma lista para lê-los mais tarde, mesmo quando estiver sem acesso à Internet.</string>
+  <string name="reading_lists_onboarding_intro">Acrescente artigos a uma lista para lê-los mais tarde, mesmo quando estiver sem acesso à Internet!</string>
   <string name="reading_lists_onboarding_for_example">Por exemplo</string>
   <string name="reading_lists_onboarding_example1">Lugares a visitar</string>
   <string name="reading_lists_onboarding_example2">Animais preferidos</string>

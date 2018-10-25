@@ -248,7 +248,7 @@
   <string name="table_other">Více informací</string>
   <string name="table_close">Zavřít</string>
   <string name="widget_name_featured_page">Doporučený článek na Wikipedii</string>
-  <string name="widget_title_featured_page">Dnešní doporučený článek:</string>
+  <string name="widget_title_featured_page">Doporučený článek:</string>
   <string name="widget_name_search">Vyhledávání na Wikipedii</string>
   <string name="wiktionary_no_definitions_found">Žádná definice nenalezena.</string>
   <string name="alpha_update_notification_title">Je dostupná nová aktualizace alfaverze</string>
