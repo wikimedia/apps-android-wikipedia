@@ -127,21 +127,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     }
 
     @Override
-    public void onSearchOpen() {
-        getToolbar().setVisibility(View.GONE);
-        shouldShowMainDrawer(false);
-    }
-
-    @Override
-    public void onSearchClose(boolean shouldFinishActivity) {
-        getToolbar().setVisibility(View.VISIBLE);
-        shouldShowMainDrawer(true);
-        if (shouldFinishActivity) {
-            finish();
-        }
-    }
-
-    @Override
     public void onSupportActionModeStarted(@NonNull ActionMode mode) {
         super.onSupportActionModeStarted(mode);
         if (!controlNavTabInFragment) {

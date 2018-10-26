@@ -1,6 +1,5 @@
 package org.wikipedia.page;
 
-import android.annotation.SuppressLint;
 import android.app.SearchManager;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
@@ -17,7 +16,6 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.preference.PreferenceManager;
@@ -37,7 +35,6 @@ import android.widget.Toast;
 
 import net.hockeyapp.android.metrics.MetricsManager;
 
-import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -58,7 +55,7 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.database.ReadingListPage;
-import org.wikipedia.search.SearchFragment;
+import org.wikipedia.search.SearchActivity;
 import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
@@ -90,7 +87,7 @@ import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class PageActivity extends BaseActivity implements PageFragment.Callback,
-        LinkPreviewDialog.Callback, SearchFragment.Callback, ThemeChooserDialog.Callback,
+        LinkPreviewDialog.Callback, ThemeChooserDialog.Callback,
         WiktionaryDialog.Callback {
 
     public static final String ACTION_LOAD_IN_NEW_TAB = "org.wikipedia.load_in_new_tab";
@@ -99,7 +96,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public static final String ACTION_RESUME_READING = "org.wikipedia.resume_reading";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
-    public static final String ACTION_APP_SHORTCUT = "org.wikipedia.app_shortcut";
 
     private static final String LANGUAGE_CODE_BUNDLE_KEY = "language";
 
@@ -183,7 +179,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         boolean languageChanged = false;
         if (savedInstanceState != null) {
             if (savedInstanceState.getBoolean("isSearching")) {
-                openSearchFragment(SearchInvokeSource.TOOLBAR, null);
+                openSearchActivity(SearchInvokeSource.TOOLBAR, null);
             }
             String language = savedInstanceState.getString(LANGUAGE_CODE_BUNDLE_KEY);
             languageChanged = !app.getAppOrSystemLanguageCode().equals(language);
@@ -204,7 +200,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @OnClick(R.id.page_toolbar_button_search)
     public void onSearchButtonClicked() {
-        openSearchFragment(SearchInvokeSource.TOOLBAR, null);
+        openSearchActivity(SearchInvokeSource.TOOLBAR, null);
     }
 
     @OnClick(R.id.page_toolbar_button_tabs_container)
@@ -246,7 +242,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Override
     public boolean onSearchRequested() {
         showToolbar();
-        openSearchFragment(SearchInvokeSource.TOOLBAR, null);
+        openSearchActivity(SearchInvokeSource.TOOLBAR, null);
         return true;
     }
 
@@ -389,15 +385,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     /**
-     * Returns whether we're currently in a "searching" state (i.e. the search fragment is shown).
-     * @return True if currently searching, false otherwise.
-     */
-    public boolean isSearching() {
-        SearchFragment searchFragment = searchFragment();
-        return searchFragment != null && searchFragment.isSearchActive();
-    }
-
-    /**
      * Load a new page, and put it on top of the backstack, optionally allowing state loss of the
      * fragment manager. Useful for when this function is called from an AsyncTask result.
      * @param title Title of the page to load.
@@ -483,13 +470,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             return;
         }
 
-        SearchFragment searchFragment = searchFragment();
-        if (searchFragment != null && searchFragment.onBackPressed()) {
-            if (searchFragment.isLaunchedFromIntent()) {
-                finish();
-            }
-            return;
-        }
         app.getSessionFunnel().backPressed();
         if (pageFragment.onBackPressed()) {
             return;
@@ -590,12 +570,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public void onSearchSelectPage(@NonNull HistoryEntry entry, boolean inNewTab) {
-        loadPage(entry.getTitle(), entry, inNewTab ? TabPosition.NEW_TAB_BACKGROUND
-                : TabPosition.CURRENT_TAB);
-    }
-
-    @Override
     public void onPageHideAllContent() {
         toolbarHideHandler.setFadeEnabled(false);
     }
@@ -611,31 +585,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             toolbarContainerView.setElevation(DimenUtil
                     .dpToPx(enabled ? DimenUtil.getDimension(R.dimen.toolbar_default_elevation) : 0));
         }
-    }
-
-    @Override
-    public void onSearchOpen() {
-        toolbarContainerView.setVisibility(View.GONE);
-    }
-
-    @Override
-    public void onSearchClose(boolean launchedFromIntent) {
-        SearchFragment fragment = searchFragment();
-        if (fragment != null) {
-            closeSearchFragment(fragment);
-        }
-        toolbarContainerView.setVisibility(View.VISIBLE);
-        hideSoftKeyboard();
-    }
-
-    @Override
-    public void onSearchResultAddToList(@NonNull PageTitle title, @NonNull AddToReadingListDialog.InvokeSource source) {
-        showAddToListDialog(title, source);
-    }
-
-    @Override
-    public void onSearchResultShareLink(@NonNull PageTitle title) {
-        ShareUtil.shareText(this, title);
     }
 
     @Override
@@ -657,12 +606,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Override
     public void onLinkPreviewShareLink(@NonNull PageTitle title) {
         ShareUtil.shareText(this, title);
-    }
-
-    @Override
-    public void onSearchResultCopyLink(@NonNull PageTitle title) {
-        copyLink(title.getCanonicalUri());
-        showCopySuccessMessage();
     }
 
     @Override
@@ -737,12 +680,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        saveState(outState);
-    }
-
-    private void saveState(@NonNull Bundle outState) {
-        outState.putBoolean("isSearching", isSearching());
-        outState.putString(LANGUAGE_CODE_BUNDLE_KEY, app.getAppOrSystemLanguageCode());
     }
 
     @Override
@@ -790,7 +727,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Override
     public void onActionModeStarted(ActionMode mode) {
         super.onActionModeStarted(mode);
-        if (!isSearching() && !isCabOpen() && mode.getTag() == null) {
+        if (!isCabOpen() && mode.getTag() == null) {
             Menu menu = mode.getMenu();
             menu.clear();
             mode.getMenuInflater().inflate(R.menu.menu_text_select, menu);
@@ -867,26 +804,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 .show();
     }
 
-    @SuppressLint("CommitTransaction")
-    private void openSearchFragment(@NonNull SearchInvokeSource source, @Nullable String query) {
-        Fragment fragment = searchFragment();
-        if (fragment == null) {
-            fragment = SearchFragment.newInstance(source, StringUtils.trim(query));
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .add(R.id.activity_page_container, fragment)
-                    .commitNowAllowingStateLoss();
-        }
-    }
-
-    @SuppressLint("CommitTransaction")
-    private void closeSearchFragment(@NonNull SearchFragment fragment) {
-        getSupportFragmentManager().beginTransaction().remove(fragment).commitNowAllowingStateLoss();
-    }
-
-    @Nullable private SearchFragment searchFragment() {
-        return (SearchFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.activity_page_container);
+    private void openSearchActivity(@NonNull SearchInvokeSource source, @Nullable String query) {
+        Intent intent = SearchActivity.newIntent(this, source.code(), query);
+        startActivity(intent);
     }
 
     @NonNull public ViewGroup getTabLayout() {

@@ -200,6 +200,10 @@
             android:windowSoftInputMode="adjustResize" />
 
         <activity
+            android:name=".search.SearchActivity"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
             android:name=".descriptions.DescriptionEditSuccessActivity"
             android:theme="@style/AppTheme.FullScreen.TranslucentDark"
             android:windowSoftInputMode="stateAlwaysHidden" />
