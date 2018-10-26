@@ -3,12 +3,16 @@ package org.wikipedia.page.leadimages;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.PointF;
-import android.support.annotation.DimenRes;
+import android.net.Uri;
+import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.view.ViewCompat;
+import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.View;
-import android.widget.ImageView;
+import android.view.ViewGroup;
 
 import org.wikipedia.R;
 import org.wikipedia.util.DimenUtil;
@@ -22,9 +26,11 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
+import static org.wikipedia.util.GradientUtil.getPowerGradient;
 
 public class PageHeaderView extends LinearLayoutOverWebView implements ObservableWebView.OnScrollChangeListener {
-    @BindView(R.id.view_page_header_image) PageHeaderImageView image;
+    @BindView(R.id.view_page_header_image) FaceAndColorDetectImageView image;
+    @BindView(R.id.view_page_header_image_gradient) View gradientView;
     @Nullable private Callback callback;
     private boolean isImageLoaded;
 
@@ -51,28 +57,14 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
         setVisibility(View.GONE);
     }
 
-    public void showText() {
+    public void show(boolean imageEnabled) {
         setVisibility(View.VISIBLE);
-        setTopOffset();
+        DimenUtil.setViewHeight(this, imageEnabled ? leadImageHeightForDevice()
+                : getResources().getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp));
     }
 
-    public void showTextImage() {
-        setVisibility(View.VISIBLE);
-        unsetTopOffset();
-        DimenUtil.setViewHeight(image, leadImageHeightForDevice());
-    }
-
-    // TODO: remove.
-    @NonNull public ImageView getImage() {
-        return image.getImage();
-    }
-
-    public PageHeaderImageView getPageHeaderImageView() {
+    @NonNull public View getImageView() {
         return image;
-    }
-
-    public void setOnImageLoadListener(@Nullable FaceAndColorDetectImageView.OnImageLoadListener listener) {
-        image.setLoadListener(listener);
     }
 
     public void setCallback(@Nullable Callback callback) {
@@ -80,9 +72,12 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
     }
 
     public void loadImage(@Nullable String url) {
-        image.load(url);
-        int height = url == null ? 0 : leadImageHeightForDevice();
-        setMinimumHeight(height);
+        if (TextUtils.isEmpty(url)) {
+            image.setVisibility(GONE);
+        } else {
+            image.setVisibility(VISIBLE);
+            image.loadImage(Uri.parse(url));
+        }
         isImageLoaded(true);
     }
 
@@ -96,12 +91,7 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
 
     @NonNull
     public Bitmap copyBitmap() {
-        return ViewUtil.getBitmapFromView(image.getImage());
-    }
-
-    public void setImageFocus(PointF focusPoint) {
-        image.setFocusPoint(focusPoint);
-        updateScroll();
+        return ViewUtil.getBitmapFromView(image);
     }
 
     @Override
@@ -127,33 +117,31 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
 
     private void updateScroll(int scrollY) {
         int offset = Math.min(getHeight(), scrollY);
-        image.getImage().setTranslationY(offset / 2);
+        image.setTranslationY(offset / 2);
         setTranslationY(-offset);
     }
 
     private void init() {
         inflate(getContext(), R.layout.view_page_header, this);
-        setOrientation(VERTICAL);
         ButterKnife.bind(this);
+        ViewCompat.setTransitionName(this, getContext().getString(R.string.transition_floating_queue));
+        gradientView.setBackground(getPowerGradient(R.color.black38, Gravity.TOP));
+
+        image.setOnImageLoadListener(new ImageLoadListener());
+        setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, leadImageHeightForDevice()));
     }
 
-    private int getDimensionPixelSize(@DimenRes int id) {
-        return getResources().getDimensionPixelSize(id);
-    }
+    private class ImageLoadListener implements FaceAndColorDetectImageView.OnImageLoadListener {
+        @Override
+        public void onImageLoaded(final int bmpHeight, @Nullable final PointF faceLocation, @ColorInt final int mainColor) {
+            if (isAttachedToWindow() && faceLocation != null) {
+                image.getHierarchy().setActualImageFocusPoint(faceLocation);
+                updateScroll();
+            }
+        }
 
-    private void setTopOffset() {
-        setTopOffset(true);
-    }
-
-    private void unsetTopOffset() {
-        setTopOffset(false);
-    }
-
-    private void setTopOffset(boolean noImage) {
-        int offset = noImage ? getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) : 0;
-
-        // Offset is a resolved pixel dimension, not a resource id
-        //noinspection ResourceType
-        setPadding(0, offset, 0, 0);
+        @Override
+        public void onImageFailed() {
+        }
     }
 }

@@ -66,16 +66,14 @@ public class FaceAndColorDetectImageView extends SimpleDraweeView {
     private class DefaultListener implements OnImageLoadListener {
         @Override
         public void onImageLoaded(int bmpHeight, @Nullable final PointF faceLocation, @ColorInt int mainColor) {
-            post(() -> {
-                if (faceLocation != null) {
-                    getHierarchy().setActualImageFocusPoint(faceLocation);
-                }
-            });
+            if (isAttachedToWindow() && faceLocation != null) {
+                getHierarchy().setActualImageFocusPoint(faceLocation);
+            }
         }
 
         @Override
         public void onImageFailed() {
-            post(() -> setActualImageResource(R.drawable.lead_default));
+            setActualImageResource(R.drawable.lead_default);
         }
     }
 }

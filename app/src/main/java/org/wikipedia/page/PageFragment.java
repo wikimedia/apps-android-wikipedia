@@ -274,9 +274,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_page, container, false);
-
         pageHeaderView = rootView.findViewById(R.id.page_header_view);
-        DimenUtil.setViewHeight(pageHeaderView.getPageHeaderImageView(), leadImageHeightForDevice());
+        DimenUtil.setViewHeight(pageHeaderView, leadImageHeightForDevice());
 
         webView = rootView.findViewById(R.id.page_web_view);
         initWebViewListeners();
@@ -697,8 +696,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         return tabLayout;
     }
 
-    public ImageView getLeadImageView() {
-        return pageHeaderView.getImage();
+    public View getHeaderView() {
+        return pageHeaderView;
     }
 
     public void showFindInPage() {

@@ -7,9 +7,26 @@
     tools:layout_height="wrap_content"
     tools:orientation="vertical">
 
-    <org.wikipedia.page.leadimages.PageHeaderImageView
-        android:id="@+id/view_page_header_image"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent">
+
+        <org.wikipedia.views.FaceAndColorDetectImageView
+            android:id="@+id/view_page_header_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:placeholderImage="?lead_image_drawable"
+            app:placeholderImageScaleType="centerCrop"
+            app:failureImage="?lead_image_drawable"
+            app:failureImageScaleType="centerCrop"
+            app:actualImageScaleType="focusCrop"
+            android:contentDescription="@null" />
+
+        <View
+            android:id="@+id/view_page_header_image_gradient"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </FrameLayout>
 
 </merge>
