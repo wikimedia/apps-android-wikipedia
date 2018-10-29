@@ -100,7 +100,7 @@
   <string name="search_reading_lists_no_results">あとで読むリストにはありませんでした</string>
   <string name="search_history_no_results">履歴には見つかりませんでした</string>
   <string name="edit_section_captcha_message">自動投稿スパム避けのため、以下に表示される言葉を入力してください</string>
-  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">画像が表示されませんか？&lt;a href=//ja.wikipedia.org/wiki/Help:ログイン#アカウントの作成&gt;こちらも確認&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">画像が視認できませんか？ &lt;a href=//ja.wikipedia.org/wiki/Help:ログイン#アカウントの作成&gt;アカウント作成の申請&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">上記の言葉を繰り返してください</string>
   <string name="title_captcha">CAPTCHA を入力</string>
   <string name="edit_section_captcha_reload">タップすると CAPTCHA を再読み込みします</string>
@@ -295,8 +295,12 @@
   <string name="tab_item_closed">%sを閉じました。</string>
   <string name="tool_tip_select_text_title">長押しして選択</string>
   <string name="tool_tip_select_text">テキストのどこかを長押しすると、コピーしてシェアするテキストを選択できます。</string>
+  <string name="tool_tip_bookmark_icon_title">あとで読むリストに追加</string>
+  <string name="tool_tip_bookmark_icon_text">ブックマーク用アイコンをタップして記事をあとで読むリストに追加。</string>
   <string name="tool_tip_share">面白いと思った部分を選択して、お好みのSNSで共有しましょう!</string>
   <string name="page_view_in_browser">ブラウザーで閲覧</string>
+  <string name="tool_tip_toc_title">目次クイックアクセス</string>
+  <string name="tool_tip_toc_text">画面を左へスワイプすると目次を表示、また、このスクロールボタンをタップすると、記事の異なる節へ移動します。</string>
   <string name="tool_tip_lang_button">アプリ内で、複数の言語でウィキペディアを検索して読めるようになりました。\n\n\nアイコンをタップして言語を追加しましょう。</string>
   <string name="error_response_malformed">サーバーからの応答が正しいフォーマットではありませんでした。</string>
   <string name="error_unknown">不明なエラーが発生しました。</string>

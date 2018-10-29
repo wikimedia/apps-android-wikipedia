@@ -91,7 +91,7 @@
   <string name="search_reading_lists_no_results">مطالعہ کی فہرستوں میں کوئی نتیجہ نہیں ملا</string>
   <string name="search_history_no_results">تاریخچے میں کوئی نتیجہ نہیں ملا</string>
   <string name="edit_section_captcha_message">خودکار تخریب کاری سے بچاؤ کے لیے، براہ کرم اوپر ظاہر ہونے والے الفاظ درج کریں</string>
-  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">تصویر نہیں دیکھ پا رہے؟ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;مزید دیکھیے&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">تصویر نہیں دیکھ پا رہے؟ &lt;a href=\"https://ur.wikipedia.org/wiki/ویکیپیڈیا:کھاتے_کے_لیے_درخواست دیں\"&gt;کھاتے کے لیے درخواست دیں&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">اوپر والے الفاظ دہرائیں</string>
   <string name="title_captcha">کیپچا درج کریں</string>
   <string name="edit_section_captcha_reload">نئے کیپچا کے لیے تھپتپائیں</string>
@@ -256,7 +256,7 @@
   <string name="gallery_save_image_write_permission_rationale">اپنے آلے پر تصاویر کو محفوظ کرنے کے لیے اجازت کی ضرورت ہے۔</string>
   <string name="err_cannot_save_file">ملف کو محفوظ نہیں کرسکتے</string>
   <string name="snippet_share_intro">\"%1$s\" @Wikipedia: \"%2$s\" پر</string>
-  <string name="expand_refs">پھیلانے کے لیے طق کیجیے</string>
+  <string name="expand_refs">پھیلانے کے لیے کلک کیجیے</string>
   <string name="share_snippet_button">تصویر کے طور پر دوسروں کو بھیجیں</string>
   <string name="share_normal_button">متن کے طور پر دوسروں کو بھیجیں</string>
   <string name="snippet_share_preview_image_desc">تصویر کی نمائش</string>
