@@ -236,8 +236,7 @@ dependencies {
     implementation "com.jakewharton:butterknife:$butterKnifeVersion"
     implementation "com.mapbox.mapboxsdk:mapbox-android-sdk:6.6.0"
     implementation 'net.hockeyapp.android:HockeySDK:5.1.0'
-    implementation 'org.apache.commons:commons-lang3:3.5'
-    implementation "commons-io:commons-io:2.5"
+    implementation 'org.apache.commons:commons-lang3:3.8.1'
     implementation 'org.jsoup:jsoup:1.11.3'
 
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
@@ -256,6 +255,7 @@ dependencies {
     testImplementation mockitoCore
     testImplementation 'org.robolectric:robolectric:3.8'
     testImplementation "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
+    testImplementation "commons-io:commons-io:2.6"
 
     androidTestImplementation mockitoCore
     androidTestRuntimeOnly 'com.crittercism.dexmaker:dexmaker:1.4'
