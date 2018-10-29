@@ -6,17 +6,22 @@ import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 
+import java.util.UUID;
+
 public class ToCInteractionFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppToCInteraction";
     private static final int REV_ID = 18389174;
 
     private final int pageId;
     private final int numSections;
+    private String interactionToken;
+    private boolean opened;
 
     public ToCInteractionFunnel(WikipediaApp app, WikiSite wiki, int pageId, int numSections) {
         super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_100, wiki);
         this.pageId = pageId;
         this.numSections = numSections;
+        invalidate();
     }
 
     @Override
@@ -27,11 +32,17 @@ public class ToCInteractionFunnel extends TimedFunnel {
     }
 
     @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) {
-        preprocessData(eventData, "interaction_token", getSessionToken());
+        preprocessData(eventData, "interaction_token", interactionToken);
+    }
+
+    private void invalidate() {
+        interactionToken = UUID.randomUUID().toString();
+        opened = false;
     }
 
     public void logOpen() {
         resetDuration();
+        opened = true;
         log(
                 "action", "open"
         );
@@ -41,9 +52,13 @@ public class ToCInteractionFunnel extends TimedFunnel {
         log(
                 "action", "close"
         );
+        invalidate();
     }
 
     public void logScrollStart() {
+        if (!opened) {
+            logOpen();
+        }
         log(
                 "action", "scroll_start"
         );
