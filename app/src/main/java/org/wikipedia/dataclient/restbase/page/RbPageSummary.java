@@ -32,6 +32,7 @@ public class RbPageSummary implements PageSummary {
     @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
     @SuppressWarnings("unused") @Nullable @SerializedName("originalimage") private Thumbnail originalImage;
     @SuppressWarnings("unused") @Nullable private String lang;
+    @SuppressWarnings("unused") private int pageid;
 
     @Override @NonNull
     public String getTitle() {
@@ -91,6 +92,10 @@ public class RbPageSummary implements PageSummary {
     @NonNull
     public PageTitle getPageTitle(@NonNull WikiSite wiki) {
         return new PageTitle(getTitle(), wiki, getThumbnailUrl(), getDescription());
+    }
+
+    public int getPageId() {
+        return pageid;
     }
 
     /**

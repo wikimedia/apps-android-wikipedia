@@ -5,16 +5,16 @@ import android.support.annotation.NonNull;
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.util.ReleaseUtil;
 
 public class LinkPreviewFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppLinkPreview";
-    private static final int REV_ID = 18115548;
+    private static final int REV_ID = 18531254;
     private static final int PROD_LINK_PREVIEW_VERSION = 3;
     private final int source;
+    private int pageId;
 
     public LinkPreviewFunnel(WikipediaApp app, int source) {
-        super(app, SCHEMA_NAME, REV_ID, ReleaseUtil.isProdRelease() ? Funnel.SAMPLE_LOG_100 : Funnel.SAMPLE_LOG_ALL);
+        super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_ALL);
         this.source = source;
     }
 
@@ -22,7 +22,12 @@ public class LinkPreviewFunnel extends TimedFunnel {
     protected JSONObject preprocessData(@NonNull JSONObject eventData) {
         preprocessData(eventData, "version", PROD_LINK_PREVIEW_VERSION);
         preprocessData(eventData, "source", source);
+        preprocessData(eventData, "page_id", pageId);
         return super.preprocessData(eventData);
+    }
+
+    public void setPageId(int pageId) {
+        this.pageId = pageId;
     }
 
     public void logLinkClick() {
