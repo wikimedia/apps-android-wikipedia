@@ -202,6 +202,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(summary -> {
+                    funnel.setPageId(summary.getPageId());
                     // TODO: Remove this logic once Parsoid starts supporting language variants.
                     if (pageTitle.getWikiSite().languageCode().equals(pageTitle.getWikiSite().subdomain())) {
                         titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));

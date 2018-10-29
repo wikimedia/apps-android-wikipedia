@@ -65,6 +65,10 @@ public class MwQueryPage extends BaseModel {
         return coordinates;
     }
 
+    public int pageId() {
+        return pageid;
+    }
+
     @Nullable public PageProps pageProps() {
         return pageprops;
     }

@@ -72,4 +72,11 @@ public class MwQueryPageSummary extends MwQueryResponse implements PageSummary {
         }
         return TYPE_STANDARD;
     }
+
+    @Override public int getPageId() {
+        if (query() == null || query().firstPage() == null) {
+            return 0;
+        }
+        return query().firstPage().pageId();
+    }
 }
