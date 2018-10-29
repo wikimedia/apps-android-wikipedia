@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -46,6 +47,7 @@ import org.wikipedia.dataclient.mwapi.NearbyPage;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
+import org.wikipedia.main.MainActivity;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -87,6 +89,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback {
 
     @BindView(R.id.mapview) MapView mapView;
     @BindView(R.id.osm_license) TextView osmLicenseTextView;
+    @BindView(R.id.user_location_button) FloatingActionButton locationButton;
     private Unbinder unbinder;
     private CompositeDisposable disposables = new CompositeDisposable();
 
@@ -162,6 +165,10 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onResume() {
         mapView.onResume();
+
+        locationButton.animate().translationY(((MainActivity) requireActivity()).isFloatingQueueEnabled()
+                ? -((MainActivity) requireActivity()).getFloatingQueueImageView().getHeight() : 0).start();
+
         super.onResume();
     }
 
