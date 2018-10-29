@@ -175,15 +175,13 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     }
 
     public void show() {
-        fullFadeInToc();
+        fadeInToc(false);
         bringOutScroller();
-        funnel.logOpen();
     }
 
     public void hide() {
         fadeOutToc();
         bringInScroller();
-        funnel.logClose();
     }
 
     public boolean isVisible() {
@@ -349,26 +347,20 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         scrollerView.setLayoutParams(scrollerViewParams);
     }
 
-    private void semiFadeInToc() {
+    private void fadeInToc(boolean semiFade) {
         tocContainer.setAlpha(tocShown ? 1f : 0f);
         tocContainer.setVisibility(View.VISIBLE);
-        tocContainer.animate().alpha(TOC_SEMI_FADE_ALPHA)
+        tocContainer.animate().alpha(semiFade ? TOC_SEMI_FADE_ALPHA : 1f)
                 .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
                 .setListener(null);
         currentItemSelected = -1;
         onScrollerMoved(0f, false);
-    }
-
-    private void fullFadeInToc() {
-        tocContainer.setAlpha(tocShown ? 1f : 0f);
-        tocContainer.setVisibility(View.VISIBLE);
-        tocContainer.animate().alpha(1f)
-                .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
-                .setListener(null);
+        funnel.logScrollStart();
+        if (semiFade) {
+            return;
+        }
         tocShown = true;
         scrollerView.removeCallbacks(hideScrollerRunnable);
-        currentItemSelected = -1;
-        onScrollerMoved(0f, false);
     }
 
     private void fadeOutToc() {
@@ -381,6 +373,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
                     }
                 });
         tocShown = false;
+        funnel.logScrollStop();
     }
 
     private void bringOutScroller() {
@@ -414,6 +407,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
                 .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
                 .setListener(null);
         scrollerShown = true;
+        funnel.logOpen();
     }
 
     private void hideScroller() {
@@ -424,6 +418,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         scrollerView.animate().translationX(DimenUtil.roundedDpToPx(rtl ? -SCROLLER_BUTTON_HIDE_MARGIN : SCROLLER_BUTTON_HIDE_MARGIN))
                 .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
                 .setListener(null);
+        funnel.logClose();
     }
 
     private void showScrollerThenHide() {
@@ -479,16 +474,14 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
 
         @Override
         public void onScrollStart() {
-            semiFadeInToc();
+            fadeInToc(true);
             bringOutScroller();
-            funnel.logScrollStart();
         }
 
         @Override
         public void onScrollStop() {
             fadeOutToc();
             bringInScroller();
-            funnel.logScrollStop();
         }
 
         @Override
@@ -498,7 +491,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
 
         @Override
         public void onSwipeOut() {
-            fullFadeInToc();
+            fadeInToc(false);
         }
     }
 }
