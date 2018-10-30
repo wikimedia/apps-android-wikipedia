@@ -9,7 +9,9 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.events.ReadingListsEnableSyncStatusEvent;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
@@ -57,6 +59,7 @@ public final class ReadingListSyncBehaviorDialogs {
                 .setNegativeButton(R.string.reading_list_prompt_turned_sync_on_dialog_no_thanks, null)
                 .setOnDismissListener((dialog) -> {
                     Prefs.shouldShowReadingListSyncEnablePrompt(!checkbox.isChecked());
+                    WikipediaApp.getInstance().getBus().post(new ReadingListsEnableSyncStatusEvent());
                 })
                 .show();
     }

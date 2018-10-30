@@ -8,6 +8,7 @@ import android.view.MenuItem;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.events.ReadingListsEnableSyncStatusEvent;
 import org.wikipedia.events.ReadingListsEnabledStatusEvent;
 import org.wikipedia.events.ReadingListsMergeLocalDialogEvent;
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent;
@@ -107,6 +108,8 @@ public class SettingsFragment extends PreferenceLoaderFragment {
                 setReadingListSyncPref(true);
             } else if (event instanceof ReadingListsNoLongerSyncedEvent) {
                 setReadingListSyncPref(false);
+            } else if (event instanceof ReadingListsEnableSyncStatusEvent) {
+                setReadingListSyncPref(Prefs.isReadingListSyncEnabled());
             }
         }
     }
