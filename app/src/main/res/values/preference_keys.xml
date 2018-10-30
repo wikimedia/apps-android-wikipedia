@@ -72,7 +72,6 @@
     <string name="preference_key_notification_thanks_enable">enableThanksNotification</string>
     <string name="preference_key_notification_show_all">showAllNotifications</string>
     <string name="preference_key_prefer_offline_content">preferOfflineContent</string>
-    <string name="preference_key_enable_offline_library">enableOfflineLibrary</string>
     <string name="preference_key_feed_cards_order">feedCardsOrder</string>
     <string name="preference_key_feed_cards_enabled">feedCardsEnabled</string>
     <string name="preference_key_feed_cards_lang_supported">feedCardsLangSupported</string>

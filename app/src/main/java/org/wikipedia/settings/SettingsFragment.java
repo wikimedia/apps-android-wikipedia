@@ -78,11 +78,6 @@ public class SettingsFragment extends PreferenceLoaderFragment {
         }
     }
 
-    public void updateOfflineLibraryPref(boolean checked) {
-        ((SwitchPreferenceCompat) preferenceLoader.findPreference(R.string.preference_key_enable_offline_library))
-                .setChecked(checked);
-    }
-
     private void launchDeveloperSettingsActivity() {
         startActivity(DeveloperSettingsActivity.newIntent(getActivity()));
     }
