@@ -20,7 +20,7 @@ public final class EventLoggingService {
     private static final RequestBody EMPTY_REQ = RequestBody.create(null, new byte[0]);
     private static final String EVENTLOG_URL_PROD = "https://meta.wikimedia.org/beacon/event";
     private static final String EVENTLOG_URL_DEV = "https://deployment.wikimedia.beta.wmflabs.org/beacon/event";
-    private static final String EVENTLOG_URL = ReleaseUtil.isPreBetaRelease()
+    private static final String EVENTLOG_URL = ReleaseUtil.isDevRelease()
             ? EVENTLOG_URL_DEV : EVENTLOG_URL_PROD;
     // https://github.com/wikimedia/mediawiki-extensions-EventLogging/blob/8b3cb1b/modules/ext.eventLogging.core.js#L57
     private static final int MAX_URL_LEN = 2000;
