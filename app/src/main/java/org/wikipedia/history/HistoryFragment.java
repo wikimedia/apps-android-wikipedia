@@ -25,6 +25,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
@@ -34,6 +35,8 @@ import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.main.MainFragment;
+import org.wikipedia.page.PageAvailableOfflineHandler;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -278,6 +281,14 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         adapter.notifyDataSetChanged();
     }
 
+    public void refresh() {
+        adapter.notifyDataSetChanged();
+        if (app.isOnline() && Prefs.shouldShowHistoryOfflineArticlesToast()) {
+            Toast.makeText(requireContext(), R.string.history_offline_articles_toast, Toast.LENGTH_SHORT).show();
+            Prefs.shouldShowHistoryOfflineArticlesToast(false);
+        }
+    }
+
     private void unselectAllPages() {
         selectedIndices.clear();
         adapter.notifyDataSetChanged();
@@ -391,6 +402,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             getView().setDescription(indexedEntry.getEntry().getTitle().getDescription());
             getView().setImageUrl(PageHistoryContract.PageWithImage.IMAGE_NAME.val(cursor));
             getView().setSelected(selectedIndices.contains(indexedEntry.getIndex()));
+            PageAvailableOfflineHandler.INSTANCE.check(indexedEntry.getEntry().getTitle(), getView()::setViewsGreyedOut);
 
             // Check the previous item, see if the times differ enough
             // If they do, display the section header.

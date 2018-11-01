@@ -22,6 +22,7 @@ import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.appshortcuts.AppShortcuts;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.feed.FeedFragment;
+import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.notifications.NotificationActivity;
 import org.wikipedia.onboarding.InitialOnboardingActivity;
@@ -114,6 +115,9 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             getSupportActionBar().setTitle("");
             controlNavTabInFragment = false;
         } else {
+            if (tab.equals(NavTab.HISTORY)) {
+                ((HistoryFragment) getFragment().getCurrentFragment()).refresh();
+            }
             getToolbarWordmark().setVisibility(View.GONE);
             getSupportActionBar().setTitle(tab.text());
             controlNavTabInFragment = true;
