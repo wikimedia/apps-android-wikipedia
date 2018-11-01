@@ -12,6 +12,10 @@ function applyTheme( payload ) {
             theme = pagelib.ThemeTransform.THEME.BLACK;
             window.isDarkMode = true;
             break;
+        case 3:
+            theme = pagelib.ThemeTransform.THEME.SEPIA;
+            window.isDarkMode = false;
+            break;
         default:
             theme = pagelib.ThemeTransform.THEME.DEFAULT;
             window.isDarkMode = false;

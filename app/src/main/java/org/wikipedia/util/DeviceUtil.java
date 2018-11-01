@@ -18,7 +18,6 @@ import android.view.inputmethod.InputMethodManager;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.theme.Theme;
 import org.wikipedia.util.log.L;
 
 import java.util.List;
@@ -77,7 +76,7 @@ public final class DeviceUtil {
 
     public static void setLightSystemUiVisibility(@NonNull Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (WikipediaApp.getInstance().getCurrentTheme() == Theme.LIGHT) {
+            if (!WikipediaApp.getInstance().getCurrentTheme().isDark()) {
                 // this make the system recognizes the status bar is light and will make status bar icons become visible
                 activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
             } else {

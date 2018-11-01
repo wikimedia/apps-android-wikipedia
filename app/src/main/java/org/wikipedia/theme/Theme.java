@@ -11,7 +11,8 @@ import org.wikipedia.model.EnumCode;
 public enum Theme implements EnumCode {
     LIGHT(0, "light", R.style.ThemeLight, R.string.color_theme_light),
     DARK(1, "dark", R.style.ThemeDark, R.string.color_theme_dark),
-    BLACK(2, "black", R.style.ThemeBlack, R.string.color_theme_black);
+    BLACK(2, "black", R.style.ThemeBlack, R.string.color_theme_black),
+    SEPIA(3, "sepia", R.style.ThemeSepia, R.string.color_theme_sepia);
 
     private final int marshallingId;
     private final String funnelName;
