@@ -95,7 +95,7 @@
   <string name="search_reading_lists_no_results">在閱讀清單查無結果</string>
   <string name="search_history_no_results">在歷史查無結果</string>
   <string name="edit_section_captcha_message">為了防止自動化的垃圾訊息，請輸入下方顯示的文字</string>
-  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">看不到圖片嗎？&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:账号请求\"&gt;請按此來了解更多&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">看不到圖片嗎？您可以來&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:账号请求\"&gt;請求一個帳號&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">請重複輸入上面的文字</string>
   <string name="title_captcha">輸入驗證碼</string>
   <string name="edit_section_captcha_reload">輕觸驗證碼以重新載入</string>

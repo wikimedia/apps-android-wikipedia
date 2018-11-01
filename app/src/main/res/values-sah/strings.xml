@@ -42,6 +42,8 @@
   <string name="menu_page_add_to_list">Ааҕар тиһиликкэ киллэр</string>
   <string name="menu_page_share">Сигэни тарҕатыы</string>
   <string name="menu_page_open_a_new_tab">Саҥа кыбытыгы арый</string>
+  <string name="menu_page_reading_lists">Ааҕыы испииһэгэ</string>
+  <string name="menu_page_recently_viewed">Соторутааҕыта көрүллүбүт</string>
   <string name="menu_long_press_open_page">Арый</string>
   <string name="menu_long_press_open_in_new_tab">Саҥа кыбытыкка арый</string>
   <string name="menu_long_press_copy_page">Сигэ аадырыһын хатылаа</string>
@@ -273,10 +275,14 @@
   <string name="close_all_tabs_confirm_yes">Сөп</string>
   <string name="close_all_tabs_confirm_no">Суох</string>
   <string name="button_close_tab">Кыбытыгы сап</string>
+  <string name="tab_item_closed">%s сабылынна.</string>
   <string name="tool_tip_select_text_title">Таларга уһуннук баттаа</string>
   <string name="tool_tip_select_text">Дьоҥҥо ыытарга тиэкис хайа баҕарар сирин баттаа уонна тутан тур.</string>
+  <string name="tool_tip_bookmark_icon_title">Ааҕыы испииһэгэр киллэр</string>
+  <string name="tool_tip_bookmark_icon_text">Кыбытык-бэлиэ ойуутун баттаан ыстатыйаны ааҕыы испииһэгэр киллэр.</string>
   <string name="tool_tip_share">Сэргэҕи бэлиэтээн (хараардан) баран сөбүлүүр түмэт-ситимнэргэр тарҕатан көр!</string>
   <string name="page_view_in_browser">Сирэйи браузерга көрүү</string>
+  <string name="tool_tip_toc_title">Ис хоһоонун түргэнник көрүү</string>
   <string name="tool_tip_lang_button">Хас да тылынан ааҕар уонна көрдүүр сатанар буолла</string>
   <string name="error_response_malformed">Сиэрбэр хоруйа алҕастаахтык таҥастаммыт.</string>
   <string name="error_unknown">Биллибэт алҕас таҕыста.</string>
@@ -465,6 +471,12 @@
   <string name="notifications_empty_message">Саҥа иһитиннэрии суох!</string>
   <string name="notifications_view_archived_button_text">Архыыптаммыты көрдөр</string>
   <string name="notification_preferences_title">Биллэриилэри нарылааһын</string>
+  <string name="preference_title_notification_welcome">Киирбиккинэн</string>
+  <string name="preference_summary_notification_welcome">Бэлиэ-аат оҥоһулунна</string>
+  <string name="preference_title_notification_milestone">Хардыы</string>
+  <string name="preference_summary_notification_milestone">Төһө эрэ көннөрүү оҥоһуллубут</string>
+  <string name="preference_title_notification_thanks">Махтал</string>
+  <string name="preference_summary_notification_thanks">Ким эрэ эйиэхэ махтаммыт</string>
   <string name="view_continue_reading_card_title">Салгыы ааҕыы</string>
   <string name="view_because_you_read_card_title">Тоҕо диэтэххэ ыстатыйаны аахпыккын</string>
   <string name="view_random_card_title">Рандомизатор</string>
@@ -478,6 +490,7 @@
   <string name="view_featured_image_card_download">Хачайдаа</string>
   <string name="menu_feed_card_dismiss">Маны кистээ</string>
   <string name="menu_feed_card_dismissed">Кистэннэ.</string>
+  <string name="menu_feed_card_edit_card_languages">Карточка тылын уларыт</string>
   <string name="menu_feed_overflow_label">Эбии туруоруулар</string>
   <string name="feed_featured_image_share_subject">Биики ыскылаатын уһулуччу үчүгэй ойуулара</string>
   <string name="feed">Чинчий</string>
@@ -495,9 +508,10 @@
   <string name="view_featured_article_card_title">Бастыҥ ыстатыйа</string>
   <string name="view_featured_article_footer_save_button_label">Бигэргэт</string>
   <string name="view_featured_article_footer_saved_button_label">Бигэргэннэ</string>
+  <string name="feed_configure_activity_title">Лиэнтэни нарылаа</string>
   <string name="feed_configure_menu_reset">Анаан этиллибэтэҕинэ турар сиидэлэри сөргүтүү</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">Барытын тал</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">Барытын бэлиэтээмэ</string>
+  <string name="feed_configure_menu_select_all">Барытын көрдөр</string>
+  <string name="feed_configure_menu_deselect_all">Барытын кистээ</string>
   <string name="feed_item_type_news">Бүгүн буола турар туһунан</string>
   <string name="feed_item_type_on_this_day">Устуоруйаҕа бүгүн буолбут</string>
   <string name="description_edit_text_hint">Ойуулааһын</string>
@@ -608,4 +622,14 @@
   <string name="wikipedia_languages_remove_text" fuzzy="true">Сот</string>
   <string name="wikipedia_languages_remove_action_mode_title">Тылы сот</string>
   <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Талбыт тылларгын сотоҕун дуо?</string>
+  <string name="more_language_options">эбии</string>
+  <string name="add_wikipedia_languages_text">Бикипиэдьийэ тылларын эп</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Тыллар испииһэктэриттэн кытай тылын сотоҕун дуо?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Эйиэхэ үгэс курдук туттуллар да, судургу да кытай тыллара турбуттар. Биирин сото таарыйа, нарылааһыны саҥаттан оҥороҕун дуо?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Тыллары уларыт</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Суох, махтанабын</string>
+  <string name="main_drawer_open">Арый</string>
+  <string name="main_drawer_close">Сап</string>
+  <string name="main_drawer_help">Көмө</string>
+  <string name="main_drawer_login">Бикипиэдьийэҕэ киирии / бэлиэтэнии</string>
 </resources>

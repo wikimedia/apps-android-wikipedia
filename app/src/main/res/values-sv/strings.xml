@@ -309,7 +309,7 @@
   <string name="error_no_maps_app">Kunde inte hitta några appar som kan ge vägbeskrivningar.</string>
   <string name="preference_title_show_link_previews">Visa förhandsvisning för länkar</string>
   <string name="preference_summary_show_link_previews">Visar en kort förhandsvisning av artiklar när du trycker på länkar.</string>
-  <string name="preference_title_collapse_tables">Stäng tableller</string>
+  <string name="preference_title_collapse_tables">Stäng tabeller</string>
   <string name="preference_summary_collapse_tables">Stänger automatiskt tabeller i artiklar, som inforutor, referenser och anmärkningar.</string>
   <string name="nav_item_donate">Stöd Wikipedia</string>
   <string name="error_voice_search_not_available">Tyvärr, röststyrning är inte tillgänglig.</string>
