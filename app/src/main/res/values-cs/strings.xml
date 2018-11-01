@@ -359,7 +359,7 @@
   <string name="text_size_increase">Zvětšit velikost textu</string>
   <string name="text_size_decrease">Zmenšit velikost textu</string>
   <string name="text_size_percent_default">%s (Výchozí)</string>
-  <string name="nav_item_reading_lists">Moje seznamy k přečtení</string>
+  <string name="nav_item_reading_lists">Moje seznamy</string>
   <string name="reading_list_untitled">Bez názvu</string>
   <string name="reading_list_save_to">Uložit do seznamu k přečtení</string>
   <string name="reading_list_create_new">Vytvořit nový</string>
@@ -415,7 +415,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s již nebude k dispozici offline pro všechny seznamy k přečtení:</string>
   <string name="reading_lists_sync_reminder_title">Zapnout synchronizaci seznamů k přečtení?</string>
   <string name="reading_lists_sync_reminder_text">Články uložené v seznamech k přečtení mohou být nyní synchronizovány s vaším účtem na Wikipedii. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/cs#Synchronizace_seznamů_k_přečtení\"&gt;Více informací&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Seznam článků k přečtení může být synchronizován napříč zařízeními. Přihlaste se ke svému Wiki účtu a potvrďte své seznamy k uložení. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/cs#Synchronizace_seznamů_k_přečtení\"&gt;Více informací&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Seznamy článků k přečtení mohou být synchronizovány napříč zařízeními. Přihlaste se ke svému účtu Wikipedie a potvrďte své seznamy k uložení. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/cs#Synchronizace_seznamů_k_přečtení\"&gt;Více informací&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Povolit synchronizaci</string>
   <string name="reading_list_login_reminder_title">Synchronizovat seznamy k přečtení</string>
   <string name="reading_lists_login_reminder_text">Seznamy k přečtení mohou být nyní synchronizovány napříč zařízeními. Přihlaste se do svého účtu na Wikipedii a povolte ukládání vašich seznamů.</string>
