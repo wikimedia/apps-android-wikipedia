@@ -203,12 +203,11 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private void showCreateListDialog() {
-        String title = getString(R.string.reading_list_name_sample);
         List<String> existingTitles = new ArrayList<>();
         for (ReadingList tempList : readingLists) {
             existingTitles.add(tempList.title());
         }
-        ReadingListTitleDialog.readingListTitleDialog(requireContext(), title, "",
+        ReadingListTitleDialog.readingListTitleDialog(requireContext(), "", "",
                 existingTitles, (text, description) -> {
                     ReadingList list = ReadingListDbHelper.instance().createList(text, description);
                     addAndDismiss(list, titles);

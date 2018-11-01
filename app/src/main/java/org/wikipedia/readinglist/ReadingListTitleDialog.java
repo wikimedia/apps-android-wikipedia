@@ -29,14 +29,13 @@ public final class ReadingListTitleDialog {
                         dialog.setSecondaryHint(R.string.reading_list_description_hint);
                         dialog.setText(title);
                         dialog.setSecondaryText(StringUtils.defaultString(description));
-                        dialog.selectAll();
                     }
 
                     @Override
                     public void onTextChanged(@NonNull CharSequence text, @NonNull TextInputDialog dialog) {
                         String title = text.toString().trim();
                         if (StringUtils.isEmpty(title)) {
-                            dialog.setError(dialog.getContext().getString(R.string.reading_list_entry_empty));
+                            dialog.setError(null);
                             dialog.setPositiveButtonEnabled(false);
                         } else if (otherTitles.contains(title)) {
                             dialog.setError(dialog.getContext().getString(R.string.reading_list_title_exists, title));
