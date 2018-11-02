@@ -289,13 +289,10 @@ bridge.registerListener( "queueRemainingSections", function ( payload ) {
         remainingRequest.responseType = 'json';
     }
     remainingRequest.onreadystatechange = function() {
-        if (this.readyState !== XMLHttpRequest.DONE) {
+        if (this.readyState !== XMLHttpRequest.DONE || this.status === 0 || this.sequence !== window.sequence) {
             return;
         }
-        if (this.sequence !== window.sequence) {
-            return;
-        }
-        if (this.status !== 200) {
+        if (this.status < 200 || this.status > 299) {
             bridge.sendMessage( "loadRemainingError", { "status": this.status, "sequence": this.sequence });
             return;
         }
