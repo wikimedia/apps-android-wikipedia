@@ -11,13 +11,13 @@
         android:foreground="?attr/selectableItemBackground">
 
         <TextView
-            android:id="@+id/floating_queue_article"
+            android:id="@+id/floatingQueueArticle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="-2dp"
-            app:layout_constraintTop_toBottomOf="@id/floating_queue_continue_caption"
-            app:layout_constraintStart_toStartOf="@id/floating_queue_continue_caption"
-            app:layout_constraintEnd_toEndOf="@id/floating_queue_continue_caption"
+            app:layout_constraintTop_toBottomOf="@id/floatingQueueContinueCaption"
+            app:layout_constraintStart_toStartOf="@id/floatingQueueContinueCaption"
+            app:layout_constraintEnd_toEndOf="@id/floatingQueueContinueCaption"
             app:layout_constraintBottom_toBottomOf="parent"
             android:textSize="14sp"
             android:textColor="?attr/material_theme_primary_color"
@@ -26,7 +26,7 @@
             tools:text="Macau"/>
 
         <org.wikipedia.views.FaceAndColorDetectImageView
-            android:id="@+id/floating_queue_thumbnail"
+            android:id="@+id/floatingQueueThumbnail"
             android:layout_width="72dp"
             android:layout_height="match_parent"
             android:contentDescription="@null"
@@ -38,14 +38,14 @@
             app:fadeDuration="0" />
 
         <TextView
-            android:id="@+id/floating_queue_continue_caption"
+            android:id="@+id/floatingQueueContinueCaption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="16dp"
-            app:layout_constraintBottom_toTopOf="@id/floating_queue_article"
-            app:layout_constraintEnd_toStartOf="@id/floating_queue_counts"
-            app:layout_constraintStart_toEndOf="@id/floating_queue_thumbnail"
+            app:layout_constraintBottom_toTopOf="@id/floatingQueueArticle"
+            app:layout_constraintEnd_toStartOf="@id/floatingQueueCount"
+            app:layout_constraintStart_toEndOf="@id/floatingQueueThumbnail"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
             android:text="@string/view_continue_reading_card_title"
@@ -53,7 +53,7 @@
             android:textSize="12sp" />
 
         <org.wikipedia.views.TabCountsView
-            android:id="@+id/floating_queue_counts"
+            android:id="@+id/floatingQueueCount"
             android:layout_width="18dp"
             android:layout_height="18dp"
             android:textSize="12sp"
