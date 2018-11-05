@@ -25,6 +25,7 @@
   <string name="search_hint_search_history">Історія пошуку</string>
   <string name="search_hint_search_my_lists">Пошук у моїх списках</string>
   <string name="search_hint_search_reading_list">Пошук у списку для читання</string>
+  <string name="search_hint_search_languages">Пошук мови</string>
   <string name="nav_item_history">Історія</string>
   <string name="error_network_error">Не вдається підключитися до інтернету.</string>
   <string name="page_error_retry">Повторити</string>
@@ -64,6 +65,7 @@
   <string name="talk_page_link_text">Сторінка обговорення</string>
   <string name="edit_history_link_text">Див. історію редагувань</string>
   <string name="map_view_link_text">Переглянути на карті</string>
+  <string name="other_languages_indication_text">Читати іншою мовою</string>
   <string name="language_count_link_text">Доступно %d іншими мовами</string>
   <string name="content_license_html">Вміст доступний згідно з &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; якщо не вказано інше</string>
   <string name="edit_save_action_license_logged_in">Зберігаючи, Ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та безповоротно публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -74,6 +76,7 @@
   <string name="langlinks_empty">Ця сторінка не доступна іншими мовами.</string>
   <string name="langlinks_no_match">Мови не знайдені</string>
   <string name="langlinks_activity_title">Інші мови</string>
+  <string name="langlinks_your_wikipedia_languages">Мова вашої Вікіпедії</string>
   <string name="menu_save_changes">Опублікувати зміни</string>
   <string name="dialog_saving_in_progress">Публікація…</string>
   <string name="edit_saved_successfully">Редагування опубліковано!</string>
@@ -89,6 +92,7 @@
   <string name="search_reading_lists_no_results">Не знайдено результатів у списках для читання</string>
   <string name="search_history_no_results">Не знайдено результатів в історії</string>
   <string name="edit_section_captcha_message">Щоб якнайкраще захиститися від спаму, будь ласка, введіть слова, які з\'являються нижче</string>
+  <string name="edit_section_captcha_request_an_account_message">Не бачите зображення? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Зробіть запит на обліковий запис&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Повторіть слова зверху</string>
   <string name="title_captcha">Введіть символи із малюнку</string>
   <string name="edit_section_captcha_reload">Натисніть малюнок для оновлення</string>
@@ -101,11 +105,16 @@
   <string name="login_activity_title">Вхід у Вікіпедію</string>
   <string name="login_in_progress_dialog_message">Входимо до системи…</string>
   <string name="login_success_toast">Ви успішно ввійшли!</string>
+  <string name="reset_password_title">Встановіть пароль</string>
+  <string name="reset_password_description">Ви увійшли в систему за допомогою тимчасового паролю. Щоб завершити вхід, встановіть новий пароль тут.</string>
+  <string name="reset_password_hint">Новий пароль</string>
+  <string name="reset_password_button">Зберегти і увійти</string>
   <string name="preference_title_logout">Вийти із системи</string>
   <string name="toast_logout_complete">Ви вийшли із системи</string>
   <string name="history_empty_title">Немає недавно відвіданих сторінок</string>
   <string name="history_empty_message">Відстежувати те, що Ви вже читали тут.</string>
   <string name="search_empty_message">Шукайте і читайте вільну енциклопедію вашою мовою</string>
+  <string name="search_empty_message_multilingual_upgrade">Шукати у Вікіпедії на других мовах</string>
   <string name="delete_selected_items">Вилучити вибрані елементи</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ІКІПЕДІ&lt;big&gt;Я&lt;/big&gt;</string>
   <string name="create_account_username_hint">Ім\'я користувача</string>
@@ -123,8 +132,16 @@
   <string name="create_account_password_error">Невірний пароль</string>
   <string name="create_account_generic_error">Неможливо створити обліковий запис</string>
   <string name="create_account_next">Далі</string>
+  <string name="email_recommendation_dialog_title">Створити обліковий запис без електронної адреси?</string>
+  <string name="email_recommendation_dialog_message">Хоча вказівка E-mail адреси не є обов\'язковою, дуже  рекомендуємо її вказати, оскільки вона буде використана для відновлення паролю в разі його втрати.</string>
+  <string name="email_recommendation_message">Рекомендовано, оскільки електронна пошта обов\'язкова для відновлення облікового запису.</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Продовжити без E-mail</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Додати E-mail</string>
   <string name="create_account_button">Створити обліковий запис</string>
   <string name="create_account_name_unavailable">Ім\'я користувача \"%s\" недоступно. Будь-ласка вкажіть інше.</string>
+  <string name="create_account_ip_block_message">Вибачите, ваша IP-адреса наразі заблокована від створення нових облікових записів.</string>
+  <string name="create_account_ip_block_help_url">https://uk.wikipedia.org/wiki/Вікіпедія:Правила_блокувань</string>
+  <string name="create_account_ip_block_details">Деталі</string>
   <string name="preferences_general_heading">Загальні</string>
   <string name="wikipedia_app_faq">Часті питання по додатку</string>
   <string name="zero_charged_verbiage">Вільний доступ до Вікіпедії вже не діє.</string>
@@ -148,6 +165,7 @@
   <string name="preferences_heading_experimental">Експериментальні</string>
   <string name="preference_title_sync_reading_lists">Синхронізувати список читання</string>
   <string name="preference_title_sync_reading_lists_from_account">Синхронізація списків читання</string>
+  <string name="preference_title_download_reading_list_articles">Завантажити статті з списку для читання</string>
   <string name="preference_summary_sync_reading_lists">Синхронізує списки для читання на різних пристроях зберігаючи у вашому обліковому запису Вікіпедії</string>
   <string name="preference_summary_sync_reading_lists_from_account">Дозволити Вікімедіа синхронізовувати списки читання з обліковим записом Вікіпедії %s</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Видалити синхронізовані списки читання з вашого облікового запису %s?</string>
