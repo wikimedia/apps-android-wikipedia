@@ -56,6 +56,7 @@ public class TabActivity extends BaseActivity {
     private TabListener tabListener = new TabListener();
     private TabFunnel funnel = new TabFunnel();
     private boolean cancelled = true;
+    private long tabRemovedTimeMillis;
 
     @Nullable private static Bitmap FIRST_TAB_BITMAP;
 
@@ -285,11 +286,15 @@ public class TabActivity extends BaseActivity {
                 org.wikipedia.page.tabs.Tab tab = app.getTabList().remove(tabIndex);
                 app.getTabList().add(tab);
             }
-            funnel.logSelect(app.getTabCount(), tabIndex);
             tabCountsView.setTabCount(app.getTabCount());
             cancelled = false;
-            setResult(RESULT_LOAD_FROM_BACKSTACK);
-            finish();
+
+            final int tabRemoveDebounceMillis = 250;
+            if (System.currentTimeMillis() - tabRemovedTimeMillis > tabRemoveDebounceMillis) {
+                funnel.logSelect(app.getTabCount(), tabIndex);
+                setResult(RESULT_LOAD_FROM_BACKSTACK);
+                finish();
+            }
         }
 
         @Override
@@ -302,18 +307,11 @@ public class TabActivity extends BaseActivity {
             int tabIndex = app.getTabList().size() - index - 1;
             org.wikipedia.page.tabs.Tab appTab = app.getTabList().remove(tabIndex);
 
-            //tabFunnel.logClose(app.getTabList().size(), index);
-            if (app.getTabList().size() == 0) {
-                //tabFunnel.logCancel(app.getTabList().size());
-
-            } else if (index == app.getTabList().size()) {
-                // if it's the topmost tab, then load the topmost page in the next tab.
-
-            }
             funnel.logClose(app.getTabCount(), tabIndex);
             tabCountsView.setTabCount(app.getTabCount());
             setResult(RESULT_LOAD_FROM_BACKSTACK);
             showUndoSnackbar(tab, index, appTab, tabIndex);
+            tabRemovedTimeMillis = System.currentTimeMillis();
         }
 
         @Override
