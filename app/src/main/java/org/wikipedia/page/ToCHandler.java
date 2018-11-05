@@ -52,11 +52,11 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
 
     private static final float TOC_LEAD_TEXT_SIZE = 24f;
     private static final float TOC_SECTION_TEXT_SIZE = 16f;
+    private static final float TOC_SUBSECTION_TEXT_SIZE = 14f;
     private static final float TOC_SEMI_FADE_ALPHA = 0.9f;
     private static final float TOC_SECTION_TOP_OFFSET_ADJUST = 70f;
 
     private static final int MAX_LEVELS = 3;
-    private static final int INDENTATION_WIDTH_DP = 16;
     private static final int ABOUT_SECTION_ID = -1;
 
     private final ListView tocList;
@@ -286,20 +286,24 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             }
             Section section = getItem(position);
             TextView sectionHeading = convertView.findViewById(R.id.page_toc_item_text);
-            View sectionFiller = convertView.findViewById(R.id.page_toc_filler);
-
-            LinearLayout.LayoutParams indentLayoutParameters = new LinearLayout.LayoutParams(sectionFiller.getLayoutParams());
-            indentLayoutParameters.width = (section.getLevel() - 1) * (int) (INDENTATION_WIDTH_DP * DimenUtil.getDensityScalar());
-            sectionFiller.setLayoutParams(indentLayoutParameters);
+            View sectionBullet = convertView.findViewById(R.id.page_toc_item_bullet);
 
             sectionHeading.setText(StringUtil.fromHtml(section.isLead() ? pageTitle : section.getHeading()));
+            float textSize = TOC_SUBSECTION_TEXT_SIZE;
             if (section.isLead()) {
-                sectionHeading.setTextSize(TypedValue.COMPLEX_UNIT_SP, TOC_LEAD_TEXT_SIZE);
+                textSize = TOC_LEAD_TEXT_SIZE;
+                sectionHeading.setTypeface(Typeface.SERIF);
+            } else if (section.getLevel() == 1) {
+                textSize = TOC_SECTION_TEXT_SIZE;
                 sectionHeading.setTypeface(Typeface.SERIF);
             } else {
-                sectionHeading.setTextSize(TypedValue.COMPLEX_UNIT_SP, TOC_SECTION_TEXT_SIZE);
                 sectionHeading.setTypeface(Typeface.SANS_SERIF);
             }
+            sectionHeading.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
+
+            LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) sectionBullet.getLayoutParams();
+            params.topMargin = DimenUtil.roundedDpToPx(textSize / 2);
+            sectionBullet.setLayoutParams(params);
 
             if (highlightedSection == position) {
                 sectionHeading.setTextColor(getThemedColor(fragment.requireContext(), R.attr.colorAccent));
