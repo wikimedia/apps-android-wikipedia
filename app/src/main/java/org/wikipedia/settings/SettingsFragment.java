@@ -57,8 +57,13 @@ public class SettingsFragment extends PreferenceLoaderFragment {
     @Override
     public void onResume() {
         super.onResume();
-        preferenceLoader.updateSyncReadingListsPrefSummary();
-        preferenceLoader.updateLanguagePrefSummary();
+        requireActivity().getWindow().getDecorView().post(() -> {
+            if (!isAdded()) {
+                return;
+            }
+            preferenceLoader.updateSyncReadingListsPrefSummary();
+            preferenceLoader.updateLanguagePrefSummary();
+        });
         getActivity().invalidateOptionsMenu();
     }
 

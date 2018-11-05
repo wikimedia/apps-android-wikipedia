@@ -13,7 +13,12 @@ abstract class PreferenceLoaderFragment extends PreferenceFragmentCompat
         implements PreferenceLoader {
     @Override
     public void onCreatePreferences(Bundle bundle, String s) {
-        loadPreferences();
+        requireActivity().getWindow().getDecorView().post(() -> {
+            if (!isAdded()) {
+                return;
+            }
+            loadPreferences();
+        });
     }
 
     @Override

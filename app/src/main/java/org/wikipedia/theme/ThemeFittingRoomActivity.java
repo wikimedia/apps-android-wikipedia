@@ -5,10 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
-import org.wikipedia.Constants;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
-import org.wikipedia.settings.SettingsActivity;
 
 public class ThemeFittingRoomActivity extends SingleFragmentActivity<ThemeFittingRoomFragment>
         implements ThemeChooserDialog.Callback {
@@ -41,7 +39,6 @@ public class ThemeFittingRoomActivity extends SingleFragmentActivity<ThemeFittin
 
     @Override
     public void onCancel() {
-        startActivityForResult(SettingsActivity.newIntent(this), Constants.ACTIVITY_REQUEST_SETTINGS);
         finish();
     }
 }
