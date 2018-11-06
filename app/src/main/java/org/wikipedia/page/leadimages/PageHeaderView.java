@@ -55,6 +55,7 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
 
     public void hide() {
         setVisibility(View.GONE);
+        isImageLoaded = false;
     }
 
     public void show(boolean imageEnabled) {
@@ -75,16 +76,13 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
         if (TextUtils.isEmpty(url)) {
             image.setVisibility(GONE);
             gradientView.setVisibility(GONE);
+            isImageLoaded = false;
         } else {
             image.setVisibility(VISIBLE);
             gradientView.setVisibility(VISIBLE);
             image.loadImage(Uri.parse(url));
+            isImageLoaded = true;
         }
-        isImageLoaded(true);
-    }
-
-    public void isImageLoaded(boolean loaded) {
-        this.isImageLoaded = loaded;
     }
 
     public boolean isImageLoaded() {

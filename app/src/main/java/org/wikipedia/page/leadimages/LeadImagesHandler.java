@@ -159,8 +159,7 @@ public class LeadImagesHandler {
         leadImageUrl = getLeadImageUrl();
         if (leadImageUrl == null) {
             loadLeadImage(null);
-            pageHeaderView.isImageLoaded(false);
-        } else if (!leadImageUrl.equals(Prefs.getFloatingQueueImage()) || !pageHeaderView.isImageLoaded()) {
+        } else if (!pageHeaderView.isImageLoaded()) {
             loadLeadImage(leadImageUrl);
             saveLeadImageUrl();
         }
