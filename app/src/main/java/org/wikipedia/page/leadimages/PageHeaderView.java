@@ -74,8 +74,10 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
     public void loadImage(@Nullable String url) {
         if (TextUtils.isEmpty(url)) {
             image.setVisibility(GONE);
+            gradientView.setVisibility(GONE);
         } else {
             image.setVisibility(VISIBLE);
+            gradientView.setVisibility(VISIBLE);
             image.loadImage(Uri.parse(url));
         }
         isImageLoaded(true);
