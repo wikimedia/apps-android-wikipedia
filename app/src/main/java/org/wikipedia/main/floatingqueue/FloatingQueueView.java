@@ -3,6 +3,7 @@ package org.wikipedia.main.floatingqueue;
 import android.content.Context;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
@@ -14,6 +15,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.TabCountsView;
 
@@ -59,6 +61,10 @@ public class FloatingQueueView extends FrameLayout {
         this.callback = callback;
     }
 
+    private String getProtocolRelativeUrl(@Nullable String url) {
+        return url != null ? UriUtil.resolveProtocolRelativeUrl(url) : null;
+    }
+
     @SuppressWarnings("checkstyle:magicnumber")
     public void update() {
         openPageFromFloatingQueue = false;
@@ -75,10 +81,11 @@ public class FloatingQueueView extends FrameLayout {
                 floatingQueueThumbnail.setLegacyVisibilityHandlingEnabled(true);
 
                 // Prevent blink
-                String imageUrl = Prefs.getFloatingQueueImage() == null ? title.getThumbUrl() : Prefs.getFloatingQueueImage();
+                String imageUrl = getProtocolRelativeUrl(Prefs.getFloatingQueueImage() == null ? title.getThumbUrl() : Prefs.getFloatingQueueImage());
                 if ((floatingQueueThumbnail.getTag() == null || !floatingQueueThumbnail.getTag().equals(imageUrl))) {
                     floatingQueueThumbnail.loadImage(!TextUtils.isEmpty(imageUrl) ? Uri.parse(imageUrl) : null);
                     floatingQueueThumbnail.setTag(imageUrl);
+                    Prefs.setFloatingQueueImage(imageUrl);
                 }
 
                 floatingQueueCounts.setTabCount(tabList.size());
