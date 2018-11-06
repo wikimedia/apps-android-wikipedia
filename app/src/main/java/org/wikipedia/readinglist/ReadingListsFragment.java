@@ -25,7 +25,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.apache.commons.lang3.StringUtils;
@@ -82,7 +81,6 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
     @BindView(R.id.reading_list_list) RecyclerView readingListView;
     @BindView(R.id.empty_container) ViewGroup emptyContainer;
     @BindView(R.id.empty_title) TextView emptyTitle;
-    @BindView(R.id.empty_image) ImageView emptyImage;
     @BindView(R.id.empty_message) TextView emptyMessage;
     @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
     @BindView(R.id.reading_list_onboarding_container) ViewGroup onboardingContainer;
@@ -374,11 +372,9 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         if (!readingLists.get(0).pages().isEmpty()) {
             emptyTitle.setText(getString(R.string.no_user_lists_title));
             emptyMessage.setText(getString(R.string.no_user_lists_msg));
-            emptyImage.setImageDrawable(ContextCompat.getDrawable(emptyImage.getContext(), R.drawable.ic_no_user_lists));
         } else {
             emptyTitle.setText(getString(R.string.saved_list_empty_title));
             emptyMessage.setText(getString(R.string.reading_lists_empty_message));
-            emptyImage.setImageDrawable(ContextCompat.getDrawable(emptyImage.getContext(), R.drawable.no_lists));
         }
     }
 
