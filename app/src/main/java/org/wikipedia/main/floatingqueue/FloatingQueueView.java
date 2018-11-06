@@ -13,7 +13,6 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.tabs.Tab;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
@@ -65,7 +64,6 @@ public class FloatingQueueView extends FrameLayout {
         return url != null ? UriUtil.resolveProtocolRelativeUrl(url) : null;
     }
 
-    @SuppressWarnings("checkstyle:magicnumber")
     public void update() {
         openPageFromFloatingQueue = false;
 
@@ -77,15 +75,11 @@ public class FloatingQueueView extends FrameLayout {
             if (title != null) {
                 floatingQueueArticle.setText(title.getDisplayText());
 
-                // This fix the invisible issue when returning back from the PageActivity
-                floatingQueueThumbnail.setLegacyVisibilityHandlingEnabled(true);
-
                 // Prevent blink
-                String imageUrl = getProtocolRelativeUrl(Prefs.getFloatingQueueImage() == null ? title.getThumbUrl() : Prefs.getFloatingQueueImage());
+                String imageUrl = getProtocolRelativeUrl(title.getThumbUrl());
                 if ((floatingQueueThumbnail.getTag() == null || !floatingQueueThumbnail.getTag().equals(imageUrl))) {
                     floatingQueueThumbnail.loadImage(!TextUtils.isEmpty(imageUrl) ? Uri.parse(imageUrl) : null);
                     floatingQueueThumbnail.setTag(imageUrl);
-                    Prefs.setFloatingQueueImage(imageUrl);
                 }
 
                 floatingQueueCounts.setTabCount(tabList.size());
@@ -121,6 +115,8 @@ public class FloatingQueueView extends FrameLayout {
     private void init() {
         inflate(getContext(), R.layout.view_floating_queue, this);
         ButterKnife.bind(this);
+        // This fix the invisible issue when returning back from the PageActivity
+        floatingQueueThumbnail.setLegacyVisibilityHandlingEnabled(true);
 
         // TODO: remove as soon as we drop support for API 19, and replace with CardView with elevation.
         setBackgroundResource(ResourceUtil.getThemedAttributeId(getContext(), R.attr.shadow_background_drawable));

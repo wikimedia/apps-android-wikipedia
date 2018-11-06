@@ -784,13 +784,6 @@ public final class Prefs {
     public static void setRemoteNotificationsSeenTime(@Nullable String seenTime) {
         setString(R.string.preference_key_remote_notifications_seen_time, seenTime);
     }
-    public static String getFloatingQueueImage() {
-        return getString(R.string.preference_key_floating_queue_image, null);
-    }
-
-    public static void setFloatingQueueImage(@Nullable String url) {
-        setString(R.string.preference_key_floating_queue_image, url);
-    }
 
     public static boolean shouldShowBookmarkToolTip() {
         return getBoolean(R.string.preference_key_show_bookmark_tooltip, true);

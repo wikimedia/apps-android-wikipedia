@@ -18,7 +18,6 @@ import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.ObservableWebView;
 
@@ -41,7 +40,6 @@ public class LeadImagesHandler {
     @NonNull private final CommunicationBridge bridge;
 
     @NonNull private final PageHeaderView pageHeaderView;
-    private String leadImageUrl;
 
     private int displayHeightDp;
 
@@ -156,12 +154,11 @@ public class LeadImagesHandler {
     }
 
     private void loadLeadImage() {
-        leadImageUrl = getLeadImageUrl();
+        String leadImageUrl = getLeadImageUrl();
         if (leadImageUrl == null) {
             loadLeadImage(null);
         } else if (!pageHeaderView.isImageLoaded()) {
             loadLeadImage(leadImageUrl);
-            saveLeadImageUrl();
         }
     }
 
@@ -196,10 +193,6 @@ public class LeadImagesHandler {
                 .authority(authority)
                 .path(fullUri.getPath())
                 .toString();
-    }
-
-    public void saveLeadImageUrl() {
-        Prefs.setFloatingQueueImage(leadImageUrl);
     }
 
     private void initArticleHeaderView() {

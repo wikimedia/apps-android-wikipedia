@@ -251,8 +251,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     private void goToMainTab(int navTabCode) {
-        pageFragment.saveLeadImageUrl();
-
         Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(this,
                 pageFragment.getHeaderView(), ViewCompat.getTransitionName(pageFragment.getHeaderView())).toBundle();
 
@@ -493,7 +491,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             return;
         }
 
-        Prefs.setFloatingQueueImage(null);
         if (WikipediaApp.getInstance().getTabCount() < 1) {
             finish();
         } else {

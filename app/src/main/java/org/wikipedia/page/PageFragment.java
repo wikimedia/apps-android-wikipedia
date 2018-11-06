@@ -530,8 +530,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     public void openFromExistingTab(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
-        if (!title.isMainPage() && !title.isFilePage()) {
-            pageHeaderView.loadImage(Prefs.getFloatingQueueImage());
+        if (!title.isMainPage() && !title.isFilePage() && app.getTabCount() > 0) {
+            PageTitle t = app.getTabList().get(app.getTabList().size() - 1).getBackStackPositionTitle();
+            if (t != null) {
+                pageHeaderView.loadImage(t.getThumbUrl());
+            }
         }
 
         // find the tab in which this title appears...
@@ -840,10 +843,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         model.setCurEntry(new HistoryEntry(model.getTitle(), HistoryEntry.SOURCE_HISTORY));
         loadPage(model.getTitle(), model.getCurEntry(), false, stagedScrollY, true);
-    }
-
-    public void saveLeadImageUrl() {
-        leadImagesHandler.saveLeadImageUrl();
     }
 
     boolean isLoading() {
