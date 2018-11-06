@@ -531,8 +531,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     public void openFromExistingTab(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
         if (!title.isMainPage() && !title.isFilePage()) {
-            String imageUrl = Prefs.getFloatingQueueImage() == null ? title.getThumbUrl() : Prefs.getFloatingQueueImage();
-            pageHeaderView.loadImage(imageUrl);
+            pageHeaderView.loadImage(Prefs.getFloatingQueueImage());
         }
 
         // find the tab in which this title appears...
