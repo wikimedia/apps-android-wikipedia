@@ -1,5 +1,6 @@
 package org.wikipedia.widgets;
 
+import android.annotation.SuppressLint;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
@@ -26,8 +27,8 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
-import retrofit2.Call;
-import retrofit2.Response;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.util.UriUtil.decodeURL;
 
@@ -81,6 +82,7 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
         });
     }
 
+    @SuppressLint("CheckResult")
     private void getMainPageLead(final Callback cb) {
         WikipediaApp app = WikipediaApp.getInstance();
         final PageTitle title = new PageTitle(
@@ -90,20 +92,15 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
         getApiService(title)
                 .lead(title.getWikiSite(), null, null, null, title.getPrefixedText(),
                         DimenUtil.calculateLeadImageWidth())
-                .enqueue(new retrofit2.Callback<PageLead>() {
-                    @Override public void onResponse(Call<PageLead> call, Response<PageLead> rsp) {
-                        PageLead lead = rsp.body();
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(rsp -> {
+                    PageLead lead = rsp.body();
+                    L.d("Downloaded page " + title.getDisplayText());
+                    String titleText = findFeaturedArticleTitle(lead.getLeadSectionContent());
 
-                        L.d("Downloaded page " + title.getDisplayText());
-                        String titleText = findFeaturedArticleTitle(lead.getLeadSectionContent());
-
-                        cb.onFeaturedArticleReceived(titleText);
-                    }
-
-                    @Override public void onFailure(Call<PageLead> call, Throwable t) {
-                        L.e(t);
-                    }
-                });
+                    cb.onFeaturedArticleReceived(titleText);
+                }, L::e);
     }
 
     private String findFeaturedArticleTitle(String pageLeadContent) {

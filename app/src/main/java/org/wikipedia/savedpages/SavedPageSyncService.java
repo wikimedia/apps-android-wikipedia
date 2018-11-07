@@ -1,5 +1,6 @@
 package org.wikipedia.savedpages;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -37,10 +38,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import io.reactivex.Observable;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.CacheControl;
 import okhttp3.Request;
 import okhttp3.Response;
-import retrofit2.Call;
 
 import static org.wikipedia.views.CircularProgressBar.MAX_PROGRESS;
 
@@ -131,45 +133,41 @@ public class SavedPageSyncService extends JobIntentService {
         WikipediaApp.getInstance().getBus().post(new ReadingListSyncEvent());
     }
 
+    @SuppressLint("CheckResult")
     private void deletePageContents(@NonNull ReadingListPage page) {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
-        PageLead lead = null;
-        Call<PageLead> leadCall = reqPageLead(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle);
-        try {
-            lead = leadCall.execute().body();
-        } catch (IOException ignore) { }
 
-        if (lead != null) {
-            List<String> imageUrls = pageImageUrlParser.parse(lead);
-            if (!TextUtils.isEmpty(pageTitle.getThumbUrl())) {
-                imageUrls.add(pageTitle.getThumbUrl());
-            }
-            for (String url : imageUrls) {
-                try {
-                    Request request = makeImageRequest(pageTitle.getWikiSite(), url)
-                            .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_DELETE)
-                            .build();
-                    OkHttpConnectionFactory.getClient().newCall(request).execute();
-                } catch (IOException ignore) { }
-            }
-        }
+        reqPageLead(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle)
+                .subscribeOn(Schedulers.io())
+                .subscribe(leadRsp -> {
+                    PageLead lead = leadRsp.body();
+                    if (lead != null) {
+                        List<String> imageUrls = pageImageUrlParser.parse(lead);
+                        if (!TextUtils.isEmpty(pageTitle.getThumbUrl())) {
+                            imageUrls.add(pageTitle.getThumbUrl());
+                        }
+                        for (String url : imageUrls) {
+                            Request request = makeImageRequest(pageTitle.getWikiSite(), url)
+                                    .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_DELETE)
+                                    .build();
+                            OkHttpConnectionFactory.getClient().newCall(request).execute();
+                        }
+                    }
+                }, L::d);
 
-        Call<PageRemaining> sectionsCall = reqPageSections(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle);
-        PageRemaining sections = null;
-        try {
-            sections = sectionsCall.execute().body();
-        } catch (IOException ignore) { }
-
-        if (sections != null) {
-            for (String url : pageImageUrlParser.parse(sections)) {
-                try {
-                    Request request = makeImageRequest(pageTitle.getWikiSite(), url)
-                            .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_DELETE)
-                            .build();
-                    OkHttpConnectionFactory.getClient().newCall(request).execute();
-                } catch (IOException ignore) { }
-            }
-        }
+        reqPageSections(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle)
+                .subscribeOn(Schedulers.io())
+                .subscribe(sectionsRsp -> {
+                    PageRemaining sections = sectionsRsp.body();
+                    if (sections != null) {
+                        for (String url : pageImageUrlParser.parse(sections)) {
+                            Request request = makeImageRequest(pageTitle.getWikiSite(), url)
+                                    .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_DELETE)
+                                    .build();
+                            OkHttpConnectionFactory.getClient().newCall(request).execute();
+                        }
+                    }
+                }, L::d);
     }
 
     private int savePages(List<ReadingListPage> queue) {
@@ -238,53 +236,53 @@ public class SavedPageSyncService extends JobIntentService {
 
     private long savePageFor(@NonNull ReadingListPage page) throws IOException, InterruptedException {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
-        long totalSize = 0;
 
-        Call<PageLead> leadCall = reqPageLead(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
-        Call<PageRemaining> sectionsCall = reqPageSections(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
+        Observable<retrofit2.Response<PageLead>> leadCall = reqPageLead(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
+        Observable<retrofit2.Response<PageRemaining>> sectionsCall = reqPageSections(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
 
-        retrofit2.Response<PageLead> leadRsp = leadCall.execute();
-        page.downloadProgress(LEAD_SECTION_PROGRESS);
-        WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
+        return Observable
+                .zip(leadCall, sectionsCall, (leadRsp, sectionsRsp) -> {
+                    long totalSize = 0;
+                    totalSize += responseSize(leadRsp);
+                    page.downloadProgress(LEAD_SECTION_PROGRESS);
+                    WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
+                    page.downloadProgress(SECTIONS_PROGRESS);
+                    WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
+                    totalSize += responseSize(sectionsRsp);
+                    Set<String> imageUrls = new HashSet<>(pageImageUrlParser.parse(leadRsp.body()));
+                    imageUrls.addAll(pageImageUrlParser.parse(sectionsRsp.body()));
 
-        totalSize += responseSize(leadRsp);
-        retrofit2.Response<PageRemaining> sectionsRsp = sectionsCall.execute();
-        page.downloadProgress(SECTIONS_PROGRESS);
-        WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
+                    if (!TextUtils.isEmpty(leadRsp.body().getThumbUrl())) {
+                        page.thumbUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.getWikiSite(),
+                                leadRsp.body().getThumbUrl()));
+                        persistPageThumbnail(pageTitle, page.thumbUrl());
+                        imageUrls.add(page.thumbUrl());
+                    }
+                    page.description(leadRsp.body().getDescription());
 
-        totalSize += responseSize(sectionsRsp);
+                    if (Prefs.isImageDownloadEnabled()) {
+                        totalSize += reqSaveImages(page, imageUrls);
+                    }
 
-        Set<String> imageUrls = new HashSet<>(pageImageUrlParser.parse(leadRsp.body()));
-        imageUrls.addAll(pageImageUrlParser.parse(sectionsRsp.body()));
+                    String title = pageTitle.getPrefixedText();
+                    L.i("Saved page " + title + " (" + totalSize + ")");
 
-        if (!TextUtils.isEmpty(leadRsp.body().getThumbUrl())) {
-            page.thumbUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.getWikiSite(),
-                    leadRsp.body().getThumbUrl()));
-            persistPageThumbnail(pageTitle, page.thumbUrl());
-            imageUrls.add(page.thumbUrl());
-        }
-        page.description(leadRsp.body().getDescription());
-
-        if (Prefs.isImageDownloadEnabled()) {
-            totalSize += reqSaveImages(page, imageUrls);
-        }
-
-        String title = pageTitle.getPrefixedText();
-        L.i("Saved page " + title + " (" + totalSize + ")");
-
-        return totalSize;
+                    return totalSize;
+                })
+                .subscribeOn(Schedulers.io())
+                .blockingSingle();
     }
 
-    @NonNull private Call<PageLead> reqPageLead(@Nullable CacheControl cacheControl,
-                                                @Nullable String saveOfflineHeader,
-                                                @NonNull PageTitle pageTitle) {
+    @NonNull private Observable<retrofit2.Response<PageLead>> reqPageLead(@Nullable CacheControl cacheControl,
+                                                                          @Nullable String saveOfflineHeader,
+                                                                          @NonNull PageTitle pageTitle) {
         PageClient client = newPageClient(pageTitle);
         String title = pageTitle.getPrefixedText();
         int thumbnailWidth = DimenUtil.calculateLeadImageWidth();
         return client.lead(pageTitle.getWikiSite(), cacheControl, saveOfflineHeader, null, title, thumbnailWidth);
     }
 
-    @NonNull private Call<PageRemaining> reqPageSections(@Nullable CacheControl cacheControl,
+    @NonNull private Observable<retrofit2.Response<PageRemaining>> reqPageSections(@Nullable CacheControl cacheControl,
                                                          @Nullable String saveOfflineHeader,
                                                          @NonNull PageTitle pageTitle) {
         PageClient client = newPageClient(pageTitle);

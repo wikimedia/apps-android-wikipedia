@@ -40,7 +40,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClientFactory;
-import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.events.PageDownloadEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.SearchActionModeCallback;
@@ -87,8 +86,6 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.CacheControl;
-import retrofit2.Call;
-import retrofit2.Response;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -779,24 +776,15 @@ public class ReadingListFragment extends Fragment implements
         }
 
         // TODO: Should we check all the page if it is cached instead of only checking lead section?
-        try {
-            PageTitle pageTitle = ReadingListPage.toPageTitle(page);
-            PageClientFactory.create(pageTitle.getWikiSite(), pageTitle.namespace())
-                    .lead(pageTitle.getWikiSite(), CacheControl.FORCE_CACHE, null, null, pageTitle.getPrefixedText(), DimenUtil.calculateLeadImageWidth())
-                    .enqueue(new retrofit2.Callback<PageLead>() {
-                        @Override public void onResponse(@NonNull Call<PageLead> call, @NonNull Response<PageLead> rsp) {
-                            view.setTextGrayedOut((rsp.raw().cacheResponse() == null
-                                    || rsp.raw().networkResponse() != null)
-                                    && !OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(rsp.headers().get(OfflineCacheInterceptor.SAVE_HEADER)));
-                        }
-
-                        @Override public void onFailure(@NonNull Call<PageLead> call, @NonNull Throwable t) {
-                            view.setTextGrayedOut(!DeviceUtil.isOnline());
-                        }
-                    });
-        } catch (Exception e) {
-            view.setTextGrayedOut(!DeviceUtil.isOnline());
-        }
+        PageTitle pageTitle = ReadingListPage.toPageTitle(page);
+        disposables.add(PageClientFactory.create(pageTitle.getWikiSite(), pageTitle.namespace())
+                .lead(pageTitle.getWikiSite(), CacheControl.FORCE_CACHE, null, null, pageTitle.getPrefixedText(), DimenUtil.calculateLeadImageWidth())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(rsp -> view.setTextGrayedOut((rsp.raw().cacheResponse() == null
+                        || rsp.raw().networkResponse() != null)
+                        && !OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(rsp.headers().get(OfflineCacheInterceptor.SAVE_HEADER))),
+                        caught -> view.setTextGrayedOut(!DeviceUtil.isOnline())));
     }
 
     private class ReadingListHeaderHolder extends RecyclerView.ViewHolder {

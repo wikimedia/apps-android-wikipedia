@@ -6,13 +6,12 @@ import android.support.annotation.Nullable;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageClient;
-import org.wikipedia.dataclient.page.PageLead;
-import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.dataclient.page.PageSummary;
 
 import io.reactivex.Observable;
 import okhttp3.CacheControl;
-import retrofit2.Call;
+import okhttp3.Request;
+import retrofit2.Response;
 
 // todo: consolidate with MwPageClient or just use the Services directly!
 /**
@@ -31,22 +30,31 @@ public class RbPageClient implements PageClient {
     }
 
     @SuppressWarnings("unchecked")
-    @NonNull @Override public Call<? extends PageLead> lead(@NonNull WikiSite wiki,
-                                                            @Nullable CacheControl cacheControl,
-                                                            @Nullable String saveOfflineHeader,
-                                                            @Nullable String referrerUrl,
-                                                            @NonNull String title,
-                                                            int leadThumbnailWidth) {
+    @NonNull @Override public Observable<Response<RbPageLead>> lead(@NonNull WikiSite wiki,
+                                                                    @Nullable CacheControl cacheControl,
+                                                                    @Nullable String saveOfflineHeader,
+                                                                    @Nullable String referrerUrl,
+                                                                    @NonNull String title,
+                                                                    int leadThumbnailWidth) {
         return ServiceFactory.getRest(wiki).getLeadSection(cacheControl == null ? null : cacheControl.toString(),
                 saveOfflineHeader, referrerUrl, title);
     }
 
     @SuppressWarnings("unchecked")
-    @NonNull @Override public Call<? extends PageRemaining> sections(@NonNull WikiSite wiki,
-                                                                     @Nullable CacheControl cacheControl,
-                                                                     @Nullable String saveOfflineHeader,
-                                                                     @NonNull String title) {
+    @NonNull @Override public Observable<Response<RbPageRemaining>> sections(@NonNull WikiSite wiki,
+                                                                             @Nullable CacheControl cacheControl,
+                                                                             @Nullable String saveOfflineHeader,
+                                                                             @NonNull String title) {
         return ServiceFactory.getRest(wiki).getRemainingSections(cacheControl == null ? null : cacheControl.toString(),
                 saveOfflineHeader, title);
+    }
+
+    @SuppressWarnings("unchecked")
+    @NonNull @Override public Request sectionsUrl(@NonNull WikiSite wiki,
+                                                  @Nullable CacheControl cacheControl,
+                                                  @Nullable String saveOfflineHeader,
+                                                  @NonNull String title) {
+        return ServiceFactory.getRest(wiki).getRemainingSectionsUrl(cacheControl == null ? null : cacheControl.toString(),
+                saveOfflineHeader, title).request();
     }
 }

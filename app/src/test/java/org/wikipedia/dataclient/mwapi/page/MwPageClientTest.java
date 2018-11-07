@@ -6,11 +6,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.wikipedia.dataclient.page.BasePageClientTest;
 import org.wikipedia.dataclient.page.PageClient;
+import org.wikipedia.dataclient.page.PageLead;
 
-import retrofit2.Call;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
+import io.reactivex.observers.TestObserver;
+import retrofit2.Response;
 
 public class MwPageClientTest extends BasePageClientTest {
     private PageClient subject;
@@ -21,8 +20,12 @@ public class MwPageClientTest extends BasePageClientTest {
     }
 
     @Test public void testLeadThumbnailWidth() throws Throwable {
-        Call<?> call = subject.lead(wikiSite(), null, null, null, "", 10);
-        assertThat(call.request().url().toString(), containsString("10"));
+
+        TestObserver<Response<PageLead>> observer = new TestObserver<>();
+        subject.lead(wikiSite(), null, null, null, "test", 10).subscribe(observer);
+
+        observer.assertComplete().assertNoErrors()
+                .assertValue(result -> result.raw().request().url().toString().contains("10"));
     }
 
     @NonNull @Override protected PageClient subject() {
