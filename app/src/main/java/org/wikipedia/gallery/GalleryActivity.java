@@ -98,6 +98,8 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @BindView(R.id.gallery_progressbar) ProgressBar progressBar;
     @BindView(R.id.gallery_description_text) TextView descriptionText;
     @BindView(R.id.gallery_license_icon) ImageView licenseIcon;
+    @BindView(R.id.gallery_license_icon_by) ImageView byIcon;
+    @BindView(R.id.gallery_license_icon_sa) ImageView saIcon;
     @BindView(R.id.gallery_credit_text) TextView creditText;
     @BindView(R.id.gallery_item_pager) ViewPager galleryPager;
     @BindView(R.id.view_gallery_error) WikiErrorView errorView;
@@ -273,15 +275,15 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         setTheme(Theme.DARK.getResourceId());
     }
 
-    @OnClick(R.id.gallery_license_icon) void onClick(View v) {
-        if (v.getContentDescription() == null) {
+    @OnClick(R.id.license_container) void onClick(View v) {
+        if (licenseIcon.getContentDescription() == null) {
             return;
         }
-        FeedbackUtil.showMessageAsPlainText((Activity) v.getContext(), v.getContentDescription());
+        FeedbackUtil.showMessageAsPlainText((Activity) licenseIcon.getContext(), licenseIcon.getContentDescription());
     }
 
-    @OnLongClick(R.id.gallery_license_icon) boolean onLongClick(View v) {
-        String licenseUrl = (String) v.getTag();
+    @OnLongClick(R.id.license_container) boolean onLongClick(View v) {
+        String licenseUrl = (String) licenseIcon.getTag();
         if (!TextUtils.isEmpty(licenseUrl)) {
             handleExternalLink(GalleryActivity.this, Uri.parse(resolveProtocolRelativeUrl(licenseUrl)));
         }
@@ -544,7 +546,18 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
 
         // determine which icon to display...
-        licenseIcon.setImageResource(item.getLicense().getLicenseIcon());
+        if (getLicenseIcon(item) == R.drawable.ic_license_by) {
+            licenseIcon.setImageResource(R.drawable.ic_license_cc);
+            byIcon.setImageResource(R.drawable.ic_license_by);
+            byIcon.setVisibility(View.VISIBLE);
+            saIcon.setImageResource(R.drawable.ic_license_sharealike);
+            saIcon.setVisibility(View.VISIBLE);
+        } else {
+            licenseIcon.setImageResource(getLicenseIcon(item));
+            byIcon.setVisibility(View.GONE);
+            saIcon.setVisibility(View.GONE);
+        }
+
         // Set the icon's content description to the UsageTerms property.
         // (if UsageTerms is not present, then default to Fair Use)
         String usageTerms = item.getLicense().getLicenseName();
@@ -567,6 +580,16 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         creditText.setText(creditStr);
 
         infoContainer.setVisibility(View.VISIBLE);
+    }
+
+    /**
+     * Return an icon (drawable resource id) that corresponds to the type of license
+     * under which the specified Gallery item is provided.
+     * @param item Gallery item for which to give a license icon.
+     * @return Resource ID of the icon to display, or 0 if no license is available.
+     */
+    private static int getLicenseIcon(GalleryItem item) {
+        return item.getLicense().getLicenseIcon();
     }
 
     /**

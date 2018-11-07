@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/gallery_container"
     android:layout_width="match_parent"
@@ -76,34 +74,31 @@
             tools:text="Sample image description text"
             android:textColor="@color/base90"
             android:textColorLink="@color/base90"/>
+
         <LinearLayout
+            android:id="@+id/license_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
             android:background="@color/black38"
-            android:gravity="center_vertical">
-            <android.support.v7.widget.AppCompatImageView
-                android:id="@+id/gallery_license_icon"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                tools:src="@drawable/ic_license_cc"
-                app:tint="@color/white70"
-                android:contentDescription="@null"/>
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingTop="16dp"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingBottom="16dp">
+
+            <include layout="@layout/view_licence_icons_layout" />
+
             <org.wikipedia.views.AppTextView
                 android:id="@+id/gallery_credit_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
                 android:paddingStart="8dp"
-                android:textIsSelectable="true"
-                tools:text="Credits"
                 android:textColor="@color/white70"
                 android:textColorLink="@color/white70"
-                android:ellipsize="end"
-                android:maxLines="2"/>
+                android:textIsSelectable="true"
+                tools:text="Credits" />
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>
