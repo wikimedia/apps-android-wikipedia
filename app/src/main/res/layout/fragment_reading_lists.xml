@@ -47,8 +47,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:gravity="center"
                 android:layout_gravity="center_horizontal"
+                android:gravity="center"
                 android:animateLayoutChanges="true"
                 android:orientation="vertical">
 
@@ -57,9 +57,7 @@
                     style="@style/MaterialLargePrimaryTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="16dp"
-                    android:gravity="center"
                     android:text="@string/saved_list_empty_title" />
 
                 <TextView
@@ -68,8 +66,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center"
                     android:text="@string/reading_lists_empty_message" />
             </LinearLayout>
         </ScrollView>
