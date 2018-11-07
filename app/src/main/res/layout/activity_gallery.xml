@@ -86,7 +86,7 @@
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingBottom="16dp">
 
-            <include layout="@layout/view_licence_icons_layout" />
+            <include layout="@layout/view_license_icons_layout" />
 
             <org.wikipedia.views.AppTextView
                 android:id="@+id/gallery_credit_text"
