@@ -3,7 +3,6 @@ package org.wikipedia.page;
 import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.dataclient.page.PageClient;
@@ -20,7 +19,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -34,37 +32,19 @@ final class PageCacher {
     @SuppressLint("CheckResult")
     static void loadIntoCache(@NonNull PageTitle title) {
         L.d("Loading page into cache: " + title.getPrefixedText());
-        WikipediaApp app = WikipediaApp.getInstance();
-        PageImageUrlParser parser = new PageImageUrlParser(new ImageTagParser(),
-                new PixelDensityDescriptorParser());
+        PageImageUrlParser parser = new PageImageUrlParser(new ImageTagParser(), new PixelDensityDescriptorParser());
         PageClient client = PageClientFactory.create(title.getWikiSite(), title.namespace());
-
-        app.getSessionFunnel().leadSectionFetchStart();
-
-        leadReq(client, title)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(rsp -> {
-                    WikipediaApp.getInstance().getSessionFunnel().restSectionsFetchEnd();
-                    if (rsp.body() != null) {
-                        // noinspection ConstantConditions
-                        Set<String> imageUrls = new HashSet<>(parser.parse(rsp.body()));
-                        fetchImages(title.getWikiSite(), imageUrls);
-                    }
-                }, L::e);
-
-        app.getSessionFunnel().restSectionsFetchStart();
-        remainingReq(client, title)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(rsp -> {
-                    WikipediaApp.getInstance().getSessionFunnel().restSectionsFetchEnd();
-                    if (rsp.body() != null) {
-                        // noinspection ConstantConditions
-                        Set<String> imageUrls = new HashSet<>(parser.parse(rsp.body()));
-                        fetchImages(title.getWikiSite(), imageUrls);
-                    }
-                }, L::e);
+        Observable.zip(leadReq(client, title), remainingReq(client, title), (leadRsp, sectionsRsp) -> {
+            Set<String> imageUrls = new HashSet<>();
+            if (leadRsp.body() != null) {
+                imageUrls.addAll(parser.parse(leadRsp.body()));
+            }
+            if (sectionsRsp.body() != null) {
+                imageUrls.addAll(parser.parse(sectionsRsp.body()));
+            }
+            return imageUrls;
+        }).subscribeOn(Schedulers.io())
+                .subscribe(imageUrls -> fetchImages(title.getWikiSite(), imageUrls), L::e);
     }
 
     @NonNull

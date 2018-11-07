@@ -136,36 +136,27 @@ public class SavedPageSyncService extends JobIntentService {
     @SuppressLint("CheckResult")
     private void deletePageContents(@NonNull ReadingListPage page) {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
-
-        reqPageLead(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle)
-                .subscribeOn(Schedulers.io())
-                .subscribe(leadRsp -> {
-                    PageLead lead = leadRsp.body();
-                    if (lead != null) {
-                        List<String> imageUrls = pageImageUrlParser.parse(lead);
+        Observable.zip(reqPageLead(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle),
+                reqPageSections(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle), (leadRsp, sectionsRsp) -> {
+                    Set<String> imageUrls = new HashSet<>();
+                    if (leadRsp.body() != null) {
+                        imageUrls.addAll(pageImageUrlParser.parse(leadRsp.body()));
                         if (!TextUtils.isEmpty(pageTitle.getThumbUrl())) {
                             imageUrls.add(pageTitle.getThumbUrl());
                         }
-                        for (String url : imageUrls) {
-                            Request request = makeImageRequest(pageTitle.getWikiSite(), url)
-                                    .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_DELETE)
-                                    .build();
-                            OkHttpConnectionFactory.getClient().newCall(request).execute();
-                        }
                     }
-                }, L::d);
-
-        reqPageSections(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle)
+                    if (sectionsRsp.body() != null) {
+                        imageUrls.addAll(pageImageUrlParser.parse(sectionsRsp.body()));
+                    }
+                    return imageUrls;
+                })
                 .subscribeOn(Schedulers.io())
-                .subscribe(sectionsRsp -> {
-                    PageRemaining sections = sectionsRsp.body();
-                    if (sections != null) {
-                        for (String url : pageImageUrlParser.parse(sections)) {
-                            Request request = makeImageRequest(pageTitle.getWikiSite(), url)
-                                    .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_DELETE)
-                                    .build();
-                            OkHttpConnectionFactory.getClient().newCall(request).execute();
-                        }
+                .subscribe(imageUrls -> {
+                    for (String url : imageUrls) {
+                        Request request = makeImageRequest(pageTitle.getWikiSite(), url)
+                                .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_DELETE)
+                                .build();
+                        OkHttpConnectionFactory.getClient().newCall(request).execute();
                     }
                 }, L::d);
     }
