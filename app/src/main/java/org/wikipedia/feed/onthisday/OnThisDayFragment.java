@@ -202,11 +202,14 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         indicatorDate.setText(String.format(Locale.getDefault(), "%d", Calendar.getInstance().get(Calendar.DATE)));
         appBarLayout.addOnOffsetChangedListener((appBarLayout, verticalOffset) -> {
             if (verticalOffset > -appBarLayout.getTotalScrollRange()) {
-                toolbarDay.setText("");
                 toolbarDropDown.setVisibility(View.GONE);
             } else if (verticalOffset <= -appBarLayout.getTotalScrollRange()) {
-                toolbarDay.setText(DateUtil.getMonthOnlyDateString(date.getTime()));
                 toolbarDropDown.setVisibility(View.VISIBLE);
+            }
+            final String newText = verticalOffset <= -appBarLayout.getTotalScrollRange()
+                    ? DateUtil.getMonthOnlyDateString(date.getTime()) : "";
+            if (!newText.equals(toolbarDay.getText().toString())) {
+                appBarLayout.post(() -> toolbarDay.setText(newText));
             }
         });
     }
