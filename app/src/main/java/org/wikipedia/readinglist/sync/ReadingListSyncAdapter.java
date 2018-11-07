@@ -28,7 +28,6 @@ import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
@@ -113,7 +112,7 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
     }
 
     private static void manualSync(@NonNull Bundle extras) {
-        if (AccountUtil.account() == null || !DeviceUtil.isOnline()) {
+        if (AccountUtil.account() == null || !WikipediaApp.getInstance().isOnline()) {
             if (extras.containsKey(SYNC_EXTRAS_REFRESHING)) {
                 SavedPageSyncService.sendSyncEvent();
             }

@@ -158,6 +158,10 @@ public class WikipediaApp extends Application {
 
         WikiSite.setDefaultBaseUrl(Prefs.getMediaWikiBaseUrl());
 
+        // Register here rather than in AndroidManifest.xml so that we can target Android N.
+        // https://developer.android.com/topic/performance/background-optimization.html#connectivity-action
+        registerReceiver(connectivityReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+
         zeroHandler = new WikipediaZeroHandler(this);
 
         // HockeyApp exception handling interferes with the test runner, so enable it only for
@@ -201,7 +205,6 @@ public class WikipediaApp extends Application {
             // TODO: Remove when we're able to initialize Fresco in test builds.
         }
 
-        registerConnectivityReceiver();
         registerActivityLifecycleCallbacks(activityLifecycleHandler);
 
         // Kick the notification receiver, in case it hasn't yet been started by the system.
@@ -359,6 +362,10 @@ public class WikipediaApp extends Application {
                 : tabList.isEmpty() ? 0 : tabList.get(0).getBackStack().isEmpty() ? 0 : tabList.size();
     }
 
+    public boolean isOnline() {
+        return connectivityReceiver.isOnline();
+    }
+
     /**
      * Gets the current size of the app's font. This is given as a device-specific size (not "sp"),
      * and can be passed directly to setTextSize() functions.
@@ -406,12 +413,6 @@ public class WikipediaApp extends Application {
             result = Theme.getFallback();
         }
         return result;
-    }
-
-    // Register here rather than in AndroidManifest.xml so that we can target Android N.
-    // https://developer.android.com/topic/performance/background-optimization.html#connectivity-action
-    private void registerConnectivityReceiver() {
-        registerReceiver(connectivityReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
     }
 
     @SuppressLint("CheckResult")

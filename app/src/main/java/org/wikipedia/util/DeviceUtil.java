@@ -118,11 +118,6 @@ public final class DeviceUtil {
         return (ConnectivityManager) WikipediaApp.getInstance().getSystemService(Context.CONNECTIVITY_SERVICE);
     }
 
-    public static boolean isOnline() {
-        NetworkInfo info = getConnectivityManager().getActiveNetworkInfo();
-        return info != null && info.isConnected();
-    }
-
     public static boolean isOnWiFi() {
         NetworkInfo info = getConnectivityManager().getNetworkInfo(ConnectivityManager.TYPE_WIFI);
         return info != null && info.isConnected();
