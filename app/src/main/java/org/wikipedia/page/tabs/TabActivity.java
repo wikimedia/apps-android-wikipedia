@@ -228,6 +228,7 @@ public class TabActivity extends BaseActivity {
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
                 alert.setMessage(R.string.close_all_tabs_confirm);
                 alert.setPositiveButton(R.string.close_all_tabs_confirm_yes, (dialog, which) -> {
+                    tabSwitcher.clear();
                     app.getTabList().clear();
                     cancelled = false;
                     setResult(RESULT_LOAD_FROM_BACKSTACK);
