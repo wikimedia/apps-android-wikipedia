@@ -255,12 +255,16 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 pageFragment.getHeaderView(), ViewCompat.getTransitionName(pageFragment.getHeaderView())).toBundle();
 
         startActivity(MainActivity.newIntent(this)
-                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
-                .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, navTabCode), bundle);
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
+                        .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, navTabCode),
+                app.haveMainActivity() ? null : bundle);
 
-        if (getSupportParentActivityIntent() != null) {
+        if (app.haveMainActivity()) {
             overridePendingTransition(0, L10nUtil.isDeviceRTL() ? R.anim.page_exit_transition_rtl : R.anim.page_exit_transition);
+            finish();
+        } else {
+            supportFinishAfterTransition();
         }
     }
 

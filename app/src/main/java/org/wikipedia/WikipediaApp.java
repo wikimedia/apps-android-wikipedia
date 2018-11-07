@@ -79,6 +79,7 @@ public class WikipediaApp extends Application {
     private FunnelManager funnelManager;
     private SessionFunnel sessionFunnel;
     private NetworkConnectivityReceiver connectivityReceiver = new NetworkConnectivityReceiver();
+    private ActivityLifecycleHandler activityLifecycleHandler = new ActivityLifecycleHandler();
     private Database database;
     private String userAgent;
     private WikiSite wiki;
@@ -201,6 +202,7 @@ public class WikipediaApp extends Application {
         }
 
         registerConnectivityReceiver();
+        registerActivityLifecycleCallbacks(activityLifecycleHandler);
 
         // Kick the notification receiver, in case it hasn't yet been started by the system.
         NotificationPollBroadcastReceiver.startPollTask(this);
@@ -439,5 +441,9 @@ public class WikipediaApp extends Application {
         if (tabList.isEmpty()) {
             tabList.add(new Tab());
         }
+    }
+
+    public boolean haveMainActivity() {
+        return activityLifecycleHandler.haveMainActivity();
     }
 }
