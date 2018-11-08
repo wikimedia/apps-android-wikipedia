@@ -2,8 +2,8 @@ package org.wikipedia.dataclient.okhttp;
 
 import android.support.annotation.NonNull;
 
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.util.DeviceUtil;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -28,7 +28,7 @@ class DefaultMaxStaleRequestInterceptor implements Interceptor {
             // And if we don't prefer offline content, then max-stale can be zero. (OkHttp will still
             // perform a conditional GET based on ETag or If-Modified-Since)
 
-            int maxStaleSeconds = Prefs.preferOfflineContent() || !DeviceUtil.isOnline() ? Integer.MAX_VALUE : 0;
+            int maxStaleSeconds = Prefs.preferOfflineContent() || !WikipediaApp.getInstance().isOnline() ? Integer.MAX_VALUE : 0;
             req = req.newBuilder()
                     .cacheControl(new CacheControl.Builder()
                             .maxStale(maxStaleSeconds, TimeUnit.SECONDS).build())

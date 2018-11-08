@@ -52,7 +52,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     private ExclusiveBusConsumer exclusiveBusMethods;
     private NetworkStateReceiver networkStateReceiver = new NetworkStateReceiver();
-    private boolean previousNetworkState = DeviceUtil.isOnline();
+    private boolean previousNetworkState = WikipediaApp.getInstance().isOnline();
     private CompositeDisposable disposables = new CompositeDisposable();
 
     @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -180,7 +180,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private class NetworkStateReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            boolean isDeviceOnline = DeviceUtil.isOnline();
+            boolean isDeviceOnline = WikipediaApp.getInstance().isOnline();
 
             if (isDeviceOnline) {
                 if (!previousNetworkState) {

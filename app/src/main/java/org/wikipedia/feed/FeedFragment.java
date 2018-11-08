@@ -47,7 +47,6 @@ import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
-import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ThrowableUtil;
@@ -477,7 +476,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void onRandomClick(@NonNull RandomCardView view) {
-            if (!DeviceUtil.isOnline()) {
+            if (!app.isOnline()) {
                 view.getRandomPage();
             } else {
                 ActivityOptionsCompat options = ActivityOptionsCompat.

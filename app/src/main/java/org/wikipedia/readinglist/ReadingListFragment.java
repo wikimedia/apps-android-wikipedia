@@ -770,7 +770,7 @@ public class ReadingListFragment extends Fragment implements
 
     private void showViewInGreyIfNotCached(ReadingListPage page, PageItemView view) {
 
-        if ((page.offline() && !page.saving()) || DeviceUtil.isOnline()) {
+        if ((page.offline() && !page.saving()) || WikipediaApp.getInstance().isOnline()) {
             view.setTextGrayedOut(false);
             return;
         }
@@ -784,7 +784,7 @@ public class ReadingListFragment extends Fragment implements
                 .subscribe(rsp -> view.setTextGrayedOut((rsp.raw().cacheResponse() == null
                         || rsp.raw().networkResponse() != null)
                         && !OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(rsp.headers().get(OfflineCacheInterceptor.SAVE_HEADER))),
-                        caught -> view.setTextGrayedOut(!DeviceUtil.isOnline())));
+                        caught -> view.setTextGrayedOut(!WikipediaApp.getInstance().isOnline())));
     }
 
     private class ReadingListHeaderHolder extends RecyclerView.ViewHolder {
