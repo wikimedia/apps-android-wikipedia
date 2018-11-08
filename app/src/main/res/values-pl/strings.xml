@@ -21,6 +21,7 @@
 * The Polish
 * Vesihiisi
 * WTM
+* Warchlak
 * Wojtas
 * Woytecr
 * XnIcRaM
@@ -38,7 +39,7 @@
   <string name="search_hint_search_reading_list">Wyszukaj listę czytania</string>
   <string name="search_hint_search_languages">Szukaj języka</string>
   <string name="nav_item_history">Historia</string>
-  <string name="error_network_error">Nie można nawiązać połączenia z Internetem.</string>
+  <string name="error_network_error">Nie można połączyć z internetem.</string>
   <string name="page_error_retry">Ponów próbę</string>
   <string name="page_error_back_to_main">Wróć</string>
   <string name="menu_clear_all_history">Wyczyść historię</string>
@@ -58,12 +59,13 @@
   <string name="menu_page_content_issues">Problemy z treścią</string>
   <string name="menu_page_font_and_theme">Zmień czcionkę i skórkę</string>
   <string name="menu_page_add_to_list">Dodaj do listy czytanych</string>
-  <string name="menu_page_share">Podziel się linkiem</string>
-  <string name="menu_page_open_a_new_tab">Otwórz nową zakładkę</string>
+  <string name="menu_page_share">Udostępnij łącze</string>
+  <string name="menu_page_open_a_new_tab">Otwórz nową kartę</string>
+  <string name="menu_page_reading_lists">Lity czytanych</string>
   <string name="menu_page_recently_viewed">Niedawno odwiedzone</string>
   <string name="menu_long_press_open_page">Otwórz</string>
   <string name="menu_long_press_open_in_new_tab">Otwórz w nowej karcie</string>
-  <string name="menu_long_press_copy_page">Skopiuj adres linka</string>
+  <string name="menu_long_press_copy_page">Kopiuj adres łącza</string>
   <string name="menu_text_select_copy">Kopiuj</string>
   <string name="menu_text_select_define">Definicja</string>
   <string name="menu_text_select_share">Udostępnij</string>
@@ -98,10 +100,11 @@
   <string name="dialog_message_leaving_edit_stay">Pozostań</string>
   <string name="menu_show_toc">Spis treści</string>
   <string name="search_no_results_found">Nie znaleziono</string>
-  <string name="search_reading_list_no_results">Nie znaleziono wyników w „%s”</string>
+  <string name="search_reading_list_no_results">Nie znaleziono wyników w \"%s\"</string>
   <string name="search_reading_lists_no_results">Brak wyników na listach czytelniczych</string>
   <string name="search_history_no_results">W historii nie znaleziono wyników</string>
   <string name="edit_section_captcha_message">Aby pomóc nam bronić się przed spamem, przepisz słowa podane poniżej</string>
+  <string name="edit_section_captcha_request_an_account_message">Nie widzisz obrazu? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Poproś o konto&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Powtórz powyższe słowa</string>
   <string name="title_captcha">Wpisz CAPTCHA</string>
   <string name="edit_section_captcha_reload">Dotknij, aby przeładować CAPTCHA</string>
@@ -111,7 +114,7 @@
   <string name="login_2fa_hint">Kod uwierzytelniania dwuskładnikowego</string>
   <string name="login_2fa_other_workflow_error_msg">Wymagane uwierzytelnianie dwuskładnikowe! Wróć do głównej aktywności i zaloguj się za pomocą tokena 2FA, a następnie spróbuj ponownie.</string>
   <string name="menu_login">Zaloguj się</string>
-  <string name="login_activity_title">Logowanie do Wikipedii</string>
+  <string name="login_activity_title">Zaloguj się do Wikipedii</string>
   <string name="login_in_progress_dialog_message">Logowanie…</string>
   <string name="login_success_toast">Zalogowano pomyślnie!</string>
   <string name="reset_password_title">Wpisz swoje hasło</string>
@@ -119,7 +122,7 @@
   <string name="reset_password_hint">Nowe hasło</string>
   <string name="reset_password_button">Zapisz i zaloguj się</string>
   <string name="preference_title_logout">Wyloguj</string>
-  <string name="toast_logout_complete">Wylogowany(-a)</string>
+  <string name="toast_logout_complete">Wylogowano</string>
   <string name="history_empty_title">Brak ostatnio oglądanych artykułów</string>
   <string name="history_empty_message">Śledź to, co tutaj czytałeś.</string>
   <string name="search_empty_message">Przeszukuj i czytaj darmową encyklopedię w swoim języku</string>
@@ -130,7 +133,7 @@
   <string name="login_dont_have_account">Nie masz konta?</string>
   <string name="login_join_wikipedia">Dołącz do Wikipedii</string>
   <string name="login_forgot_password">Nie pamiętasz hasła?</string>
-  <string name="create_account_already_have">Posiadasz już konto? $1</string>
+  <string name="create_account_already_have">Posiadasz już konto?</string>
   <string name="create_account_activity_title">Utwórz konto</string>
   <string name="dialog_create_account_checking_progress">Weryfikacja</string>
   <string name="create_account_email_hint">E-mail (opcjonalnie)</string>
@@ -142,10 +145,13 @@
   <string name="create_account_generic_error">Nie można utworzyć konta</string>
   <string name="create_account_next">Dalej</string>
   <string name="email_recommendation_dialog_title">Założyć konto bez adresu e-mail?</string>
+  <string name="email_recommendation_dialog_message">Chociaż adres e-mail jest opcjonalny, jest &lt;b&gt;wysoce zalecany&lt;/b&gt;, ponieważ jest on niezbędny do odzyskania konta, w przypadku utraty hasła.</string>
+  <string name="email_recommendation_message">Zalecane, ponieważ e-mail jest potrzebny do odzyskiwania konta.</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Kontynuuj bez adresu email</string>
   <string name="email_recommendation_dialog_create_with_email_action">Dodaj adres e‐mail</string>
   <string name="create_account_button">Utwórz konto</string>
-  <string name="create_account_name_unavailable">Nazwa użytkownika „%s” nie jest dostępna. Proszę wybrać inną nazwę.</string>
-  <string name="create_account_ip_block_message">Niestety, twój adres IP jest obecnie zablokowany podczas tworzenia nowych kont.</string>
+  <string name="create_account_name_unavailable">Nazwa użytkownika \"%s\" nie jest dostępna. Proszę wybrać inną nazwę.</string>
+  <string name="create_account_ip_block_message">Niestety, Twój adres IP jest obecnie zablokowany dla tworzenia nowych kont.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Szczegóły</string>
   <string name="preferences_general_heading">Ogólne</string>
@@ -170,6 +176,12 @@
   <string name="preferences_heading_data_usage">Użycie danych</string>
   <string name="preferences_heading_experimental">Eksperymentalne</string>
   <string name="preference_title_sync_reading_lists">Zsynchronizuj swoje listy czytania</string>
+  <string name="preference_title_sync_reading_lists_from_account">Synchronizacja listy czytanych</string>
+  <string name="preference_title_download_reading_list_articles">Pobierz artykuły listy czytanych</string>
+  <string name="preference_summary_sync_reading_lists">Synchronizuj listy czytanych na różnych urządzeniach, zapisując je na swoim koncie w Wikipedii</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Synchronizuj listy czytanych na różnych urządzeniach, zapisując je na swoim koncie \"%s\" w Wikipedii</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Usunąć zsynchronizowane listy czytanych z \"%s\"?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Spowoduje to całkowite usunięcie wszystkich uprzednio zsynchronizowanych list czytanych ze zdalnego magazynu. Usunąć wszystkie zsynchronizowane listy z Twojego konta \"%s\"?</string>
   <string name="preferences_privacy_settings_heading">Prywatność</string>
   <string name="preference_title_eventlogging_opt_in">Wysyłaj informacje o użytkowaniu</string>
   <string name="preference_summary_eventlogging_opt_in">Pozwala Wikimedii zbierać informacje o tym, w jaki sposób korzystasz z tej aplikacji, aby ją ulepszać</string>
@@ -224,6 +236,8 @@
   <string name="edit_conflict_message">Strona już została zmodyfikowana przez innego użytkownika i koliduje to z twoją edycją. Skopiuj swoje edycje, wróć i odśwież stronę, następnie spróbuj zaedytować ją ponownie.</string>
   <string name="find_next">Znajdź następny</string>
   <string name="find_previous">Znajdź poprzedni</string>
+  <string name="find_first_occurence">Jest to pierwsze wystąpienie</string>
+  <string name="find_last_occurence">Jest to ostatnie wystąpienie</string>
   <string name="abusefilter_title_warn">To chyba nie jest konstruktywna edycja. Czy na pewno chcesz ją opublikować?</string>
   <string name="abusefilter_title_disallow">Nie możesz opublikować tej edycji. Wróć do niej i popraw ją.</string>
   <string name="abusefilter_text_warn">Automatyczny filtr uważa tę edycję za potencjalnie niekonstruktywną. Może zawierać jeden lub więcej z następujących błedów:&lt;br /&gt;&lt;br /&gt;· Tekst wyłącznie dużymi literami&lt;br /&gt;· Kasowanie zawartości artykułu lub spam&lt;br /&gt;· Niezwiązane z artykułem linki zewnetrzne lub zdjęcia&lt;br /&gt;· Powtarzające się znaki</string>
@@ -252,6 +266,8 @@
   <string name="preference_title_show_images">Pokaż obrazki</string>
   <string name="preference_summary_show_images">Włącz lub wyłącz pobieranie obrazków na stronach. Odznacz to pole wyboru, jeśli masz wolne połączenie internetowe lub  ograniczony limit transferu danych.</string>
   <string name="preference_title_download_only_over_wifi">Pobieraj tylko przez Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi">Potwierdź pobieranie za pomocą komórkowej transmisji danych?</string>
+  <string name="dialog_text_download_only_over_wifi">Masz włączoną opcję \"Pobieraj tylko przez Wi-Fi\" w Ustawieniach. Czy chcesz zezwolić na użycie komórkowej transmisji danych tylko do tego pobierania?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Zezwól</string>
   <string name="read_more_section">Czytaj więcej</string>
   <string name="about_article_section">O tym artykule</string>
@@ -280,8 +296,11 @@
   <string name="close_all_tabs_confirm_yes">Tak</string>
   <string name="close_all_tabs_confirm_no">Nie</string>
   <string name="button_close_tab">Zamknij kartę</string>
+  <string name="tab_item_closed">Zamknięto %s.</string>
   <string name="tool_tip_select_text_title">Aby wybrać, przytrzymaj dłużej</string>
   <string name="tool_tip_select_text">Naciśnij i przytrzymaj w dowolnym miejscu w tekście, aby zaznaczyć go do kopiowania i udostępnienia.</string>
+  <string name="tool_tip_bookmark_icon_title">Dodaj do listy czytanych</string>
+  <string name="tool_tip_bookmark_icon_text">Stuknij ikonę zakładki, aby zapisać artykuł na liście czytanych.</string>
   <string name="tool_tip_share">Po zaznaczeniu interesującego faktu, spróbuj podzielić się nim w swoich ulubionych sieciach społecznościowych!</string>
   <string name="page_view_in_browser">Otwórz stronę w przeglądarce</string>
   <string name="error_response_malformed">Odpowiedzi z serwera nie została prawidłowo sformatowana.</string>
@@ -312,6 +331,8 @@
   <string name="error_page_does_not_exist">Ta strona nie istnieje</string>
   <string name="view_wiki_error_message_offline">Nie można nawiązać połączenia z Internetem</string>
   <string name="reference_title">Przypis %s</string>
+  <string name="preference_title_prefer_offline_content">Preferuj zawartość offline</string>
+  <string name="preference_title_enable_offline_library">Włącz bibliotekę offline</string>
   <string name="crash_report_dialog_title">Niestety, wystąpił problem techniczny z aplikacją</string>
   <string name="crash_report_dialog_dont_send_button">Pomiń</string>
   <string name="crash_report_dialog_always_send_button">Zawsze wysyłaj</string>
@@ -380,6 +401,7 @@
   <string name="reading_list_article_make_offline">Artykuł będzie dostępny offline</string>
   <string name="reading_list_remove_from_list">Usuń z %s</string>
   <string name="reading_list_confirm_remove_article_from_offline">Usuń z zapisanych na później</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Artykuł pojawia się na wielu listach</string>
   <string name="reading_lists_sync_reminder_action">Włącz synchronizację</string>
   <string name="reading_list_login_reminder_title">Zsynchronizuj swoje listy czytania</string>
   <string name="reading_lists_confirm_remote_delete_yes">Tak</string>
@@ -402,6 +424,7 @@
   <string name="reading_list_saved_list_rename">%1$s (utworzono konto użytkownika)</string>
   <string name="reading_lists_menu_create_list">Utwórz nową listę</string>
   <string name="reading_lists_menu_sort_by">Sortuj według</string>
+  <string name="reading_lists_refresh_sync_option">Odśwież synchronizację</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Zaloguj się / zarejestruj</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ten artykuł będzie teraz dostępny w trybie offline.</item>
@@ -411,6 +434,8 @@
     <item quantity="one">Ten artykuł nie będzie już dostępny w trybie offline.</item>
     <item quantity="other">Te artykuły nie będą już dostępne w trybie offline.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync">Listy czytanych pomyślnie zsynchronizowane</string>
+  <string name="reading_list_menu_last_sync">Ostatnia synchronizacja: %s</string>
   <string name="user_option_sync_label">Preferencje</string>
   <string name="notification_button_view_user">Napisz do użytkownika</string>
   <string name="notification_talk_title">Nowa wiadomość na Wikipedii</string>
@@ -508,7 +533,7 @@
   <string name="description_edit_revert_history">Jeśli jesteś zainteresowany, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">Brak połączenia z Internetem. Upewnij się, że jesteś znów online i spróbuj ponownie.</string>
   <string name="offline_my_compilations">Zarządzaj moją biblioteką offline</string>
-  <string name="offline_compilations_found_count" fuzzy="true">W mojej bibliotece (%d)</string>
+  <string name="offline_compilations_found_count">W mojej bibliotece offline (%d)</string>
   <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>

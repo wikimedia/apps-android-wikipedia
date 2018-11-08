@@ -5,6 +5,7 @@
 * NayiMuu
 * Ninjastrikers
 * Parabaik
+* Rul1902
 * Talnet
 * ZawMin
 * ديفيد
@@ -14,6 +15,8 @@
   <string name="app_name_beta">ဝီကီပီးဒီးယား ဘီတာ</string>
   <string name="app_name_alpha">ဝီကီပီးဒီးယားအယ်လဖာ</string>
   <string name="wikimedia">ဝီကီမီဒီယာ</string>
+  <string name="nav_item_back">နောက်သို့</string>
+  <string name="nav_item_forward">ရှေ့ပြန်သွားရန်</string>
   <string name="search_hint">ဝီကီပီးဒီးယားထဲတွင် ရှာဖွေပါ</string>
   <string name="search_hint_search_history">ရှာဖွေမှု သမိုင်း</string>
   <string name="search_hint_search_my_lists">မိမိ၏ စောင့်ကြည့်စာရင်းအား ရှာဖွေပါ</string>
@@ -41,6 +44,8 @@
   <string name="menu_page_font_and_theme">ဖောင့်နှင့် အသွင်အပြင်</string>
   <string name="menu_page_add_to_list">စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
   <string name="menu_page_share">လင့်ခ်ကို မျှဝေရန်</string>
+  <string name="menu_page_open_a_new_tab">tab အသစ်တွင် ဖွင့်ရန်</string>
+  <string name="menu_page_reading_lists">စာရင်းများကို ဖတ်နေသည်</string>
   <string name="menu_long_press_open_page">ဖွင့်ပါ</string>
   <string name="menu_long_press_open_in_new_tab">tab အသစ်တွင် ဖွင့်ရန်</string>
   <string name="menu_long_press_copy_page">ဝက်ဘ်လိပ်စာကို ကူးယူရန်</string>
@@ -58,8 +63,8 @@
   <string name="other_languages_indication_text">အခြား ဘာသာစကားဖြင့်ဖတ်ပါ။</string>
   <string name="language_count_link_text">အခြားဘာသာစကား %d ခုဖြင့် ရရှိနိုင်သည်</string>
   <string name="content_license_html">အခြားမှတ်ချက်များ မရှိပါက အချက်အလက်များအား &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; အနေဖြင့် ရယူသုံးစွဲနိုင်သည်။</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">သိမ်းဆည်းလိုက် ခြင်းအားဖြင့် သင်သည် &lt;a href=\"%1$s\"&gt;သုံးစွဲမှု သဘောတူညီချက်&lt;/a&gt;အား သဘောတူပြီးဖြစ်ပြီး သင်၏ မျှဝေမှုအား &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; လိုင်စင်ဖြင့် ဖြန့်ချိမည်ဖြစ်ကြောင်း သိရှိပြီးဖြစ်ရမည်။</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">သိမ်းဆည်းလိုက် ခြင်းအားဖြင့် သင်သည် &lt;a href=\"%1$s\"&gt;သုံးစွဲမှု သဘောတူညီချက်&lt;/a&gt;အား သဘောတူပြီးဖြစ်ပြီး သင်၏ မျှဝေမှုအား &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; လိုင်စင်ဖြင့် ဖြန့်ချီမည်ဖြစ်ကြောင်း သိရှိပြီးဖြစ်ရမည်။ တည်းဖြတ်မှုများအား သင်၏ အိုင်ပီလိပ်စာဖြင့်သိမ်းထားမည်ဖြစ်သည်။ သင် ဆိုဒ်သို့&lt;a href=\"https://#login\"&gt;ဝင်ရောက်ထားပါက&lt;/a&gt; လုံခြုံမှုပိုရှိမည်ဖြစ်သည်။</string>
+  <string name="edit_save_action_license_logged_in">သိမ်းဆည်းလိုက် ခြင်းအားဖြင့် သင်သည် &lt;a href=\"%1$s\"&gt;သုံးစွဲမှု သဘောတူညီချက်&lt;/a&gt;အား သဘောတူပြီးဖြစ်ပြီး သင်၏ မျှဝေမှုအား &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; လိုင်စင်ဖြင့် ဖြန့်ချိမည်ဖြစ်ကြောင်း သိရှိပြီးဖြစ်ရမည်။</string>
+  <string name="edit_save_action_license_anon">သိမ်းဆည်းလိုက် ခြင်းအားဖြင့် သင်သည် &lt;a href=\"%1$s\"&gt;သုံးစွဲမှု သဘောတူညီချက်&lt;/a&gt;အား သဘောတူပြီးဖြစ်ပြီး သင်၏ မျှဝေမှုအား &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; လိုင်စင်ဖြင့် ဖြန့်ချီမည်ဖြစ်ကြောင်း သိရှိပြီးဖြစ်ရမည်။ တည်းဖြတ်မှုများအား သင်၏ အိုင်ပီလိပ်စာဖြင့်သိမ်းထားမည်ဖြစ်သည်။ သင် ဆိုဒ်သို့&lt;a href=\"https://#login\"&gt;ဝင်ရောက်ထားပါက&lt;/a&gt; လုံခြုံမှုပိုရှိမည်ဖြစ်သည်။</string>
   <string name="preference_title_language">ဝီကီပီးဒီးယား ဘာသာစကားများ</string>
   <string name="preference_languages_filter_hint">ရှာဖွေရန်</string>
   <string name="langlinks_filter_hint">ရှာဖွေရန်</string>
@@ -73,7 +78,7 @@
   <string name="dialog_message_edit_failed">တည်းဖြတ်မှု မအောင်မြင်!</string>
   <string name="dialog_message_edit_failed_retry">ပြန်လုပ်</string>
   <string name="dialog_message_edit_failed_cancel">မလုပ်တော့ပါ</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">သင့်ပြောင်းလဲမှုများအား မသိမ်းရသေးပါ။ ဤစာမျက်နှာမှ ထွက်ခွာမည်ဆိုတာ သေချာပါသလား?</string>
+  <string name="dialog_message_leaving_edit">သင့်ပြောင်းလဲမှုများအား မသိမ်းရသေးပါ။ ဤစာမျက်နှာမှ ထွက်ခွာမည်ဆိုတာ သေချာပါသလား?</string>
   <string name="dialog_message_leaving_edit_leave">ထွက်ခွာရန်</string>
   <string name="dialog_message_leaving_edit_stay">နေရန်</string>
   <string name="menu_show_toc">မာတိကာ</string>
@@ -82,7 +87,7 @@
   <string name="search_reading_lists_no_results">စာဖတ်စာရင်းမှ ရလဒ်များ မရှိပါ</string>
   <string name="search_history_no_results">ရာဇဝင်ထဲတွင် ရလဒ် မတွေ့ပါ</string>
   <string name="edit_section_captcha_message">အလိုအလျောက်ပေးပို့နေသော မေးလ်များရန်မှ ကာကွယ်ရန် အောက်ပါ စာလုံးများကို လိုက်ရိုက်ကြည့်ပါ။</string>
-  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">ရုပ်ပုံကို မတွေ့ရပါသလား? &lt;a href=\"https://my.wikipedia.org/wiki/Wikipedia:အကောင့်တစ်ခု_တောင်းဆိုရန်\"&gt;ပိုမိုလေ့လာရန်a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">ရုပ်ပုံကို မတွေ့ရပါသလား? &lt;a href=\"https://my.wikipedia.org/wiki/Wikipedia:အကောင့်တစ်ခု_တောင်းဆိုရန်\"&gt;ပိုမိုလေ့လာရန်a&gt;</string>
   <string name="edit_section_captcha_hint">အထက်မှ စာလုံးအား ထပ်ရိုက်ပါ</string>
   <string name="title_captcha">CAPTCHA ဖြည့်ပါ</string>
   <string name="edit_section_captcha_reload">CAPTCHA ကိုထိပြီးအသစ်ထပ်ယူပါ</string>
