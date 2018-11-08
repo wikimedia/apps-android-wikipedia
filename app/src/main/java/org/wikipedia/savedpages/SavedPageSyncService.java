@@ -156,7 +156,11 @@ public class SavedPageSyncService extends JobIntentService {
                         Request request = makeImageRequest(pageTitle.getWikiSite(), url)
                                 .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_DELETE)
                                 .build();
-                        OkHttpConnectionFactory.getClient().newCall(request).execute();
+                        try {
+                            OkHttpConnectionFactory.getClient().newCall(request).execute();
+                        } catch (Exception e) {
+                            // ignore exceptions while deleting cached items.
+                        }
                     }
                 }, L::d);
     }

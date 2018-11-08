@@ -20,13 +20,19 @@ class StripMustRevalidateResponseInterceptor implements Interceptor {
     @Override public Response intercept(@NonNull Interceptor.Chain chain) throws IOException {
         Response rsp = chain.proceed(chain.request());
         HttpUrl url = rsp.request().url();
+        Response.Builder builder = rsp.newBuilder();
 
         if (HttpUrlUtil.isRestBase(url) || HttpUrlUtil.isMobileView(url)) {
             String cacheControl = removeDirective(rsp.cacheControl().toString(), "must-revalidate");
-            rsp = rsp.newBuilder().header("Cache-Control", cacheControl).build();
+            builder.header("Cache-Control", cacheControl);
         }
 
-        return rsp;
+        // If we're saving the current response to the offline cache, then strip away the Vary header.
+        if (OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(chain.request().header(OfflineCacheInterceptor.SAVE_HEADER))) {
+            builder.removeHeader("Vary");
+        }
+
+        return builder.build();
     }
 
     @NonNull private static String removeDirective(@NonNull String cacheControl, @NonNull String directive) {

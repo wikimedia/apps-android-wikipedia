@@ -48,14 +48,6 @@ public class OfflineCacheInterceptor implements Interceptor {
         if ((isCacheable(request) || SAVE_HEADER_DELETE.equals(request.header(SAVE_HEADER)))
                 && cacheDelegate.isCached(request.url().toString())) {
             cacheCandidate = cacheDelegate.internalCache().get(request);
-            if (cacheCandidate == null) {
-                // Getting the cached response failed, so try one more time with additional
-                // varyHeaders set:
-                Request cacheRequest = request.newBuilder()
-                        .header("Accept-Encoding", "gzip")
-                        .build();
-                cacheCandidate = cacheDelegate.internalCache().get(cacheRequest);
-            }
         }
 
         if (cacheCandidate != null) {
