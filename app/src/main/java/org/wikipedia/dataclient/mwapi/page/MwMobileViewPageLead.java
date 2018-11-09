@@ -18,6 +18,7 @@ import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.Section;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.UriUtil;
 
 import java.util.Collections;
 import java.util.List;
@@ -203,7 +204,7 @@ public class MwMobileViewPageLead extends MwResponse implements PageLead {
         @Override
         @Nullable
         public String getThumbUrl() {
-            return leadImage != null ? getUrlForSize(leadImage.getUrl(), PREFERRED_THUMB_SIZE) : null;
+            return leadImage != null ? UriUtil.resolveProtocolRelativeUrl(getUrlForSize(leadImage.getUrl(), PREFERRED_THUMB_SIZE)) : null;
         }
 
         @Override
