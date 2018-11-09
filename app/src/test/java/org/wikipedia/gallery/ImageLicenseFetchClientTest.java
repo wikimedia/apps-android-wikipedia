@@ -20,7 +20,7 @@ public class ImageLicenseFetchClientTest extends MockRetrofitTest {
         enqueueFromFile("image_license.json");
         TestObserver<ImageLicense> observer = new TestObserver<>();
 
-        getApiService().getImageExtMetadata(PAGE_TITLE_MARK_SELBY.getPrefixedText())
+        getApiService().getImageExtMetadata(PAGE_TITLE_MARK_SELBY.getRequestUrlText())
                 .map(response -> {
                     // noinspection ConstantConditions
                     MwQueryPage page = response.query().pages().get(0);
@@ -40,7 +40,7 @@ public class ImageLicenseFetchClientTest extends MockRetrofitTest {
         enqueueFromFile("api_error.json");
         TestObserver<ImageLicense> observer = new TestObserver<>();
 
-        getApiService().getImageExtMetadata(PAGE_TITLE_MARK_SELBY.getPrefixedText())
+        getApiService().getImageExtMetadata(PAGE_TITLE_MARK_SELBY.getRequestUrlText())
                 .map(response -> new ImageLicense())
                 .subscribe(observer);
 
@@ -51,7 +51,7 @@ public class ImageLicenseFetchClientTest extends MockRetrofitTest {
         enqueue404();
         TestObserver<ImageLicense> observer = new TestObserver<>();
 
-        getApiService().getImageExtMetadata(PAGE_TITLE_MARK_SELBY.getPrefixedText())
+        getApiService().getImageExtMetadata(PAGE_TITLE_MARK_SELBY.getRequestUrlText())
                 .map(response -> new ImageLicense())
                 .subscribe(observer);
 
@@ -62,7 +62,7 @@ public class ImageLicenseFetchClientTest extends MockRetrofitTest {
         server().enqueue("'");
         TestObserver<ImageLicense> observer = new TestObserver<>();
 
-        getApiService().getImageExtMetadata(PAGE_TITLE_MARK_SELBY.getPrefixedText())
+        getApiService().getImageExtMetadata(PAGE_TITLE_MARK_SELBY.getRequestUrlText())
                 .map(response -> new ImageLicense())
                 .subscribe(observer);
 

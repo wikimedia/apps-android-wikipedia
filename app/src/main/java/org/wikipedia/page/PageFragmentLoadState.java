@@ -33,6 +33,7 @@ import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
+import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.DimenUtil;
@@ -304,8 +305,7 @@ public class PageFragmentLoadState {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doFinally(() -> pageLoadFromNetwork((final Throwable networkError) -> fragment.onPageLoadError(networkError)))
-                .subscribe(page -> model.setReadingListPage(page),
-                        throwable -> model.setReadingListPage(null)));
+                .subscribe(page -> model.setReadingListPage(page), throwable -> model.setReadingListPage(null)));
     }
 
     private void pageLoadFromNetwork(final ErrorCallback errorCallback) {
@@ -338,7 +338,7 @@ public class PageFragmentLoadState {
 
         disposables.add(PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
                 .lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                        model.getCurEntry().getReferrer(), model.getTitle().getPrefixedText(), calculateLeadImageWidth())
+                        model.getCurEntry().getReferrer(), model.getTitle().getRequestUrlText(), calculateLeadImageWidth())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(rsp -> {
@@ -358,6 +358,17 @@ public class PageFragmentLoadState {
     private void updateThumbnail(String thumbUrl) {
         model.getTitle().setThumbUrl(thumbUrl);
         model.getTitleOriginal().setThumbUrl(thumbUrl);
+    }
+
+    private void updateReadingListPageTitle() {
+        ReadingListPage page = model.getReadingListPage();
+        // TODO: remove when the restbase supports chinese variants
+        if (page != null && !page.title().equals(model.getTitle().getDisplayText()) && page.lang().equals(model.getTitle().getWikiSite().languageCode())) {
+            L.d("pageLoadCheckReadingLists should update");
+            page.title(model.getTitle().getDisplayText());
+            page.requestUrlTitle(model.getTitle().getRequestUrlText());
+            ReadingListDbHelper.instance().updatePage(page);
+        }
     }
 
     private void layoutLeadImage(@Nullable Runnable runnable) {
@@ -549,11 +560,15 @@ public class PageFragmentLoadState {
                 new HistoryEntry(model.getTitle(), curEntry.getTimestamp(), curEntry.getSource()));
         model.getCurEntry().setReferrer(curEntry.getReferrer());
 
+        // Update our tab list to prevent ZH variants issue.
+        app.getTabList().get(app.getTabCount() - 1).setBackStackPositionTitle(model.getTitle());
+
         // Save the thumbnail URL to the DB
-        PageImage pageImage = new PageImage(model.getTitle(), pageLead.getThumbUrl());
+        PageImage pageImage = new PageImage(model.getTitle(), pageLead.getThumbUrl(), model.getTitle().getRequestUrlText());
         Completable.fromAction(() -> app.getDatabaseClient(PageImage.class).upsert(pageImage, PageImageHistoryContract.Image.SELECTION)).subscribeOn(Schedulers.io()).subscribe();
 
         updateThumbnail(pageImage.getImageName());
+        updateReadingListPageTitle();
     }
 
     private void pageLoadRemainingSections(final int startSequenceNum) {
@@ -565,7 +580,7 @@ public class PageFragmentLoadState {
         Request request = PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
                             .sectionsUrl(model.getTitle().getWikiSite(), model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK : null,
                                     model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                                    model.getTitle().getPrefixedText());
+                                    model.getTitle().getRequestUrlText());
 
         queueRemainingSections(request);
     }

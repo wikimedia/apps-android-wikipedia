@@ -19,6 +19,7 @@ public final class PageHistoryContract {
         StrColumn SITE = new StrColumn(TABLE, "site", "string");
         StrColumn LANG = new StrColumn(TABLE, "lang", "text");
         StrColumn TITLE = new StrColumn(TABLE, "title", "string");
+        StrColumn REQUEST_URL_TITLE = new StrColumn(TABLE, "requestUrlTitle", "string"); // the "original" title, especially for the Chinese variants
         StrColumn NAMESPACE = new StrColumn(TABLE, "namespace", "string");
         DateColumn TIMESTAMP = new DateColumn(TABLE, "timestamp", "integer");
         IntColumn SOURCE = new IntColumn(TABLE, "source", "integer");
@@ -50,7 +51,7 @@ public final class PageHistoryContract {
 
         StrColumn IMAGE_NAME = PageImageHistoryContract.Col.IMAGE_NAME;
 
-        String[] PROJECTION = DbUtil.qualifiedNames(ID, SITE, LANG, TITLE, NAMESPACE, TIMESTAMP,
+        String[] PROJECTION = DbUtil.qualifiedNames(ID, SITE, LANG, TITLE, REQUEST_URL_TITLE, NAMESPACE, TIMESTAMP,
                 SOURCE, TIME_SPENT, IMAGE_NAME);
     }
 

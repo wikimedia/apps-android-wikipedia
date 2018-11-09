@@ -21,7 +21,9 @@ public class ReadingListPage {
     private long listId;
     @NonNull private final WikiSite wiki;
     @NonNull private final Namespace namespace;
-    @NonNull private final String title;
+    @NonNull private String title;
+    @NonNull private String lang;
+    @Nullable private String requestUrlTitle;
     @Nullable private String description;
     @Nullable private String thumbUrl;
 
@@ -53,6 +55,7 @@ public class ReadingListPage {
         this.title = title.getDisplayText();
         this.thumbUrl = title.getThumbUrl();
         this.description = title.getDescription();
+        this.requestUrlTitle = title.getRequestUrlText();
         listId = -1;
         offline = Prefs.isDownloadingReadingListArticlesEnabled();
         status = STATUS_QUEUE_FOR_SAVE;
@@ -62,7 +65,9 @@ public class ReadingListPage {
     }
 
     public static PageTitle toPageTitle(@NonNull ReadingListPage page) {
-        return new PageTitle(page.title(), page.wiki(), page.thumbUrl(), page.description());
+        PageTitle title = new PageTitle(page.title(), page.wiki(), page.thumbUrl(), page.description());
+        title.setRequestUrlText(page.requestUrlTitle());
+        return title;
     }
 
     public long id() {
@@ -89,6 +94,17 @@ public class ReadingListPage {
         return title;
     }
 
+    public void title(@NonNull String title) {
+        this.title = title;
+    }
+
+    @Nullable public String requestUrlTitle() {
+        return requestUrlTitle;
+    }
+    public void requestUrlTitle(@NonNull String requestUrlTitle) {
+        this.requestUrlTitle = requestUrlTitle;
+    }
+
     @NonNull public String accentAndCaseInvariantTitle() {
         if (accentAndCaseInvariantTitle == null) {
             accentAndCaseInvariantTitle = StringUtils.stripAccents(title).toLowerCase();
@@ -101,6 +117,13 @@ public class ReadingListPage {
     }
     public void description(@Nullable String description) {
         this.description = description;
+    }
+
+    @NonNull public String lang() {
+        return lang;
+    }
+    public void lang(String lang) {
+        this.lang = lang;
     }
 
     @Nullable public String thumbUrl() {

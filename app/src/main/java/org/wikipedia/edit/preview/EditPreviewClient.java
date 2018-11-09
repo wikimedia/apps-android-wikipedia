@@ -22,7 +22,7 @@ class EditPreviewClient {
     @VisibleForTesting Call<EditPreview> request(@NonNull Service service, @NonNull PageTitle title,
                                                  @NonNull String wikitext,
                                                  @NonNull final Callback cb) {
-        Call<EditPreview> call = service.postEditPreview(title.getPrefixedText(), wikitext);
+        Call<EditPreview> call = service.postEditPreview(title.getRequestUrlText(), wikitext);
         call.enqueue(new retrofit2.Callback<EditPreview>() {
             @Override
             public void onResponse(Call<EditPreview> call, Response<EditPreview> response) {

@@ -19,7 +19,7 @@ final class PageCacher {
 
     @SuppressLint("CheckResult")
     static void loadIntoCache(@NonNull PageTitle title) {
-        L.d("Loading page into cache: " + title.getPrefixedText());
+        L.d("Loading page into cache: " + title.getRequestUrlText());
         PageClient client = PageClientFactory.create(title.getWikiSite(), title.namespace());
         Observable.zip(leadReq(client, title), remainingReq(client, title), (leadRsp, sectionsRsp) -> true)
                 .subscribeOn(Schedulers.io())
@@ -28,14 +28,14 @@ final class PageCacher {
 
     @NonNull
     private static Observable<Response<PageLead>> leadReq(@NonNull PageClient client, @NonNull PageTitle title) {
-        return client.lead(title.getWikiSite(), null, null, null, title.getPrefixedText(),
+        return client.lead(title.getWikiSite(), null, null, null, title.getRequestUrlText(),
                 calculateLeadImageWidth());
     }
 
     @NonNull
     private static Observable<Response<PageRemaining>> remainingReq(@NonNull PageClient client,
                                                     @NonNull PageTitle title) {
-        return client.sections(title.getWikiSite(), null, null, title.getPrefixedText());
+        return client.sections(title.getWikiSite(), null, null, title.getRequestUrlText());
     }
 
     private PageCacher() { }

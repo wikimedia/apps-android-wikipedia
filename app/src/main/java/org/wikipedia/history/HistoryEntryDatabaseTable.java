@@ -17,6 +17,7 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
     private static final int DB_VER_NAMESPACE_ADDED = 6;
     private static final int DB_VER_LANG_ADDED = 10;
     private static final int DB_VER_TIME_SPENT_ADDED = 15;
+    private static final int DB_VER_REQUEST_URL_TITLE_ADDED = 19;
 
     public HistoryEntryDatabaseTable() {
         super(PageHistoryContract.TABLE, PageHistoryContract.Page.URI);
@@ -28,7 +29,9 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
         PageTitle title = new PageTitle(Col.NAMESPACE.val(cursor), Col.TITLE.val(cursor), wiki);
         Date timestamp = Col.TIMESTAMP.val(cursor);
         int source = Col.SOURCE.val(cursor);
-        return new HistoryEntry(title, timestamp, source);
+        int timespent = Col.TIME_SPENT.val(cursor);
+        String requestUrlText = Col.REQUEST_URL_TITLE.val(cursor);
+        return new HistoryEntry(title, requestUrlText, timestamp, source, timespent);
     }
 
     @Override
@@ -41,6 +44,7 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
         contentValues.put(Col.TIMESTAMP.getName(), obj.getTimestamp().getTime());
         contentValues.put(Col.SOURCE.getName(), obj.getSource());
         contentValues.put(Col.TIME_SPENT.getName(), obj.getTimeSpentSec());
+        contentValues.put(Col.REQUEST_URL_TITLE.getName(), obj.getRequestUrlTitle());
         return contentValues;
     }
 
@@ -56,6 +60,8 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
                 return new Column<?>[] {Col.LANG};
             case DB_VER_TIME_SPENT_ADDED:
                 return new Column<?>[] {Col.TIME_SPENT};
+            case DB_VER_REQUEST_URL_TITLE_ADDED:
+                return new Column<?>[] {Col.REQUEST_URL_TITLE};
             default:
                 return super.getColumnsAdded(version);
         }

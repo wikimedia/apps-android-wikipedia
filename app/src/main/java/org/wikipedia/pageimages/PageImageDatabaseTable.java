@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
+import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.database.contract.PageImageHistoryContract.Col;
 import org.wikipedia.dataclient.WikiSite;
@@ -16,6 +17,7 @@ import org.wikipedia.page.PageTitle;
 public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
     private static final int DB_VER_NAMESPACE_ADDED = 7;
     private static final int DB_VER_LANG_ADDED = 10;
+    private static final int DB_VER_REQUEST_URL_TITLE_ADDED = 19;
 
     public PageImageDatabaseTable() {
         super(PageImageHistoryContract.TABLE, PageImageHistoryContract.Image.URI);
@@ -26,7 +28,8 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
         WikiSite wiki = new WikiSite(Col.SITE.val(cursor), Col.LANG.val(cursor));
         PageTitle title = new PageTitle(Col.NAMESPACE.val(cursor), Col.TITLE.val(cursor), wiki);
         String imageName = Col.IMAGE_NAME.val(cursor);
-        return new PageImage(title, imageName);
+        String requestUrlText = PageHistoryContract.Col.REQUEST_URL_TITLE.val(cursor);
+        return new PageImage(title, imageName, requestUrlText);
     }
 
     @Override
@@ -37,6 +40,7 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
         contentValues.put(Col.NAMESPACE.getName(), obj.getTitle().getNamespace());
         contentValues.put(Col.TITLE.getName(), obj.getTitle().getPrefixedText());
         contentValues.put(Col.IMAGE_NAME.getName(), obj.getImageName());
+        contentValues.put(Col.REQUEST_URL_TITLE.getName(), obj.getRequestUrlTitle());
         return contentValues;
     }
 
@@ -50,6 +54,8 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
                 return new Column<?>[] {Col.NAMESPACE};
             case DB_VER_LANG_ADDED:
                 return new Column<?>[] {Col.LANG};
+            case DB_VER_REQUEST_URL_TITLE_ADDED:
+                return new Column<?>[] {Col.REQUEST_URL_TITLE};
             default:
                 return super.getColumnsAdded(version);
         }

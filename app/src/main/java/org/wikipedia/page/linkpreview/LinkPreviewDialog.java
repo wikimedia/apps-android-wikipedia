@@ -198,7 +198,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private void loadContent() {
         disposables.add(PageClientFactory.create(pageTitle.getWikiSite(), pageTitle.namespace())
-                .summary(pageTitle.getWikiSite(), pageTitle.getPrefixedText(), historyEntry.getReferrer())
+                .summary(pageTitle.getWikiSite(), pageTitle.getRequestUrlText(), historyEntry.getReferrer())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(summary -> {
@@ -212,7 +212,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                     }
 
                     // TODO: remove after the restbase endpoint supports ZH variants
-                    pageTitle.setConvertedText(summary.getConvertedTitle());
+                    pageTitle.setRequestUrlText(summary.getRequestUrlTitle());
                     showPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
                 }, caught -> {
                     L.e(caught);
@@ -223,7 +223,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private void loadGallery() {
         if (isImageDownloadEnabled()) {
-            disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getMedia(pageTitle.getConvertedText())
+            disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getMedia(pageTitle.getRequestUrlText())
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(gallery -> {

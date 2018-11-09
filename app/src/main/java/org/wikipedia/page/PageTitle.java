@@ -69,7 +69,7 @@ public class PageTitle implements Parcelable {
     @Nullable private String description;
     @Nullable private final PageProperties properties;
     // TODO: remove after the restbase endpoint supports ZH variants.
-    @Nullable private String convertedText;
+    @Nullable private String requestUrlText;
 
     /**
      * Creates a new PageTitle object.
@@ -202,12 +202,12 @@ public class PageTitle implements Parcelable {
     }
 
     @NonNull
-    public String getConvertedText() {
-        return convertedText == null ? getPrefixedText() : convertedText;
+    public String getRequestUrlText() {
+        return requestUrlText == null ? getPrefixedText() : requestUrlText;
     }
 
-    public void setConvertedText(@Nullable String convertedText) {
-        this.convertedText = convertedText;
+    public void setRequestUrlText(@Nullable String requestUrlText) {
+        this.requestUrlText = requestUrlText;
     }
 
     @NonNull public String getDisplayText() {
@@ -297,7 +297,7 @@ public class PageTitle implements Parcelable {
         parcel.writeParcelable(properties, flags);
         parcel.writeString(thumbUrl);
         parcel.writeString(description);
-        parcel.writeString(convertedText);
+        parcel.writeString(requestUrlText);
     }
 
     @Override public boolean equals(Object o) {
@@ -346,6 +346,6 @@ public class PageTitle implements Parcelable {
         properties = in.readParcelable(PageProperties.class.getClassLoader());
         thumbUrl = in.readString();
         description = in.readString();
-        convertedText = in.readString();
+        requestUrlText = in.readString();
     }
 }

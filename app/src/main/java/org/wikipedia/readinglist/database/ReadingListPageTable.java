@@ -25,6 +25,7 @@ import java.util.Set;
 
 public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
     private static final int DB_VER_INTRODUCED = 18;
+    private static final int DB_VER_REQUEST_URL_TITLE_ADDED = 19;
 
     public ReadingListPageTable() {
         super(ReadingListPageContract.TABLE, ReadingListPageContract.URI);
@@ -47,6 +48,8 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
         page.status(ReadingListPageContract.Col.STATUS.val(cursor));
         page.sizeBytes(ReadingListPageContract.Col.SIZEBYTES.val(cursor));
         page.remoteId(ReadingListPageContract.Col.REMOTEID.val(cursor));
+        page.lang(ReadingListPageContract.Col.LANG.val(cursor));
+        page.requestUrlTitle(ReadingListPageContract.Col.REQUEST_URL_TITLE.val(cursor));
         return page;
     }
 
@@ -70,6 +73,8 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
                 cols.add(ReadingListPageContract.Col.SIZEBYTES);
                 cols.add(ReadingListPageContract.Col.REMOTEID);
                 return cols.toArray(new Column<?>[cols.size()]);
+            case DB_VER_REQUEST_URL_TITLE_ADDED:
+                return new Column<?>[] {ReadingListPageContract.Col.REQUEST_URL_TITLE};
             default:
                 return super.getColumnsAdded(version);
         }
@@ -77,7 +82,7 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
 
     @Override
     public void onUpgradeSchema(@NonNull SQLiteDatabase db, int fromVersion, int toVersion) {
-        if (toVersion == DB_VER_INTRODUCED) {
+        if (toVersion == DB_VER_REQUEST_URL_TITLE_ADDED) {
             List<ReadingList> currentLists = new ArrayList<>();
             createDefaultList(db, currentLists);
             if (fromVersion > 0) {
@@ -104,6 +109,7 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
         contentValues.put(ReadingListPageContract.Col.STATUS.getName(), row.status());
         contentValues.put(ReadingListPageContract.Col.SIZEBYTES.getName(), row.sizeBytes());
         contentValues.put(ReadingListPageContract.Col.REMOTEID.getName(), row.remoteId());
+        contentValues.put(ReadingListPageContract.Col.REQUEST_URL_TITLE.getName(), row.requestUrlTitle());
         return contentValues;
     }
 

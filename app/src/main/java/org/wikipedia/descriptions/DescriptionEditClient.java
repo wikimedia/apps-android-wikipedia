@@ -94,7 +94,7 @@ public class DescriptionEditClient {
 
         Call<MwPostResponse> call = service.postDescriptionEdit(pageTitle.getWikiSite().languageCode(),
                 pageTitle.getWikiSite().languageCode(), pageTitle.getWikiSite().dbName(),
-                pageTitle.getPrefixedText(), description, editToken,
+                pageTitle.getRequestUrlText(), description, editToken,
                 loggedIn ? "user" : null);
         call.enqueue(new retrofit2.Callback<MwPostResponse>() {
             @Override

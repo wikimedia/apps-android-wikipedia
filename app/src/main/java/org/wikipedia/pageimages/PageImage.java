@@ -3,6 +3,7 @@ package org.wikipedia.pageimages;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.util.ArrayMap;
 import android.text.TextUtils;
 
@@ -18,10 +19,17 @@ public class PageImage implements Parcelable {
 
     private final PageTitle title;
     private final String imageName;
+    @Nullable private String requestUrlTitle;
 
-    public PageImage(PageTitle title, String imageName) {
+    public PageImage(PageTitle title, String imageName, @Nullable String requestUrlTitle) {
         this.title = title;
         this.imageName = imageName;
+        this.requestUrlTitle = requestUrlTitle;
+        title.setRequestUrlText(requestUrlTitle);
+    }
+
+    public PageImage(PageTitle title, String imageName) {
+        this(title, imageName, null);
     }
 
     public PageTitle getTitle() {
@@ -30,6 +38,10 @@ public class PageImage implements Parcelable {
 
     public String getImageName() {
         return imageName;
+    }
+
+    @Nullable public String getRequestUrlTitle() {
+        return requestUrlTitle;
     }
 
     @Override
@@ -112,7 +124,7 @@ public class PageImage implements Parcelable {
         for (String key : titlesMap.keySet()) {
             if (thumbnailSourcesMap.containsKey(key)) {
                 PageTitle title = titlesMap.get(key);
-                title.setConvertedText(convertedTitleMap.get(key));
+                title.setRequestUrlText(convertedTitleMap.get(key));
                 pageImagesMap.put(title, new PageImage(title, thumbnailSourcesMap.get(key)));
             }
         }

@@ -43,18 +43,26 @@ public class HistoryEntry implements Parcelable {
 
     @NonNull private final PageTitle title;
     @NonNull private final Date timestamp;
+    @Nullable private String requestUrlTitle;
     private final int source;
     private final int timeSpentSec;
 
     // Transient variable, not stored in the db, to be set when navigating back and forth between articles.
     @Nullable private String referrer;
 
-    public HistoryEntry(@NonNull PageTitle title, @NonNull Date timestamp, int source,
+    public HistoryEntry(@NonNull PageTitle title, @Nullable String requestUrlTitle, @NonNull Date timestamp, int source,
                         int timeSpentSec) {
         this.title = title;
         this.timestamp = timestamp;
         this.source = source;
         this.timeSpentSec = timeSpentSec;
+        this.requestUrlTitle = requestUrlTitle;
+        title.setRequestUrlText(requestUrlTitle);
+    }
+
+    public HistoryEntry(@NonNull PageTitle title, @NonNull Date timestamp, int source,
+                        int timeSpentSec) {
+        this(title, title.getRequestUrlText(), timestamp, source, timeSpentSec);
     }
 
     public HistoryEntry(@NonNull PageTitle title, @NonNull Date timestamp, int source) {
@@ -83,6 +91,10 @@ public class HistoryEntry implements Parcelable {
 
     public void setReferrer(@Nullable String referrer) {
         this.referrer = referrer;
+    }
+
+    @Nullable public String getRequestUrlTitle() {
+        return requestUrlTitle;
     }
 
     @Nullable public String getReferrer() {

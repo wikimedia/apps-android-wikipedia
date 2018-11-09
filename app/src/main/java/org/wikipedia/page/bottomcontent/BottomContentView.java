@@ -311,13 +311,13 @@ public class BottomContentView extends LinearLayoutOverWebView
     }
 
     private void requestReadMoreItems(final HistoryEntry entry) {
-        if (entry == null || TextUtils.isEmpty(entry.getTitle().getPrefixedText())) {
+        if (entry == null || TextUtils.isEmpty(entry.getTitle().getRequestUrlText())) {
             hideReadMore();
             return;
         }
         final long timeMillis = System.currentTimeMillis();
 
-        disposables.add(ServiceFactory.getRest(entry.getTitle().getWikiSite()).getRelatedPages(entry.getTitle().getConvertedText())
+        disposables.add(ServiceFactory.getRest(entry.getTitle().getWikiSite()).getRelatedPages(entry.getTitle().getRequestUrlText())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(response -> response.getPages(Constants.MAX_SUGGESTION_RESULTS * 2))

@@ -45,7 +45,7 @@ public class RbPageSummary implements PageSummary {
     }
 
     @Override @NonNull
-    public String getConvertedTitle() {
+    public String getRequestUrlTitle() {
         return title;
     }
 

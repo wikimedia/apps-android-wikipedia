@@ -90,7 +90,7 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
                 app.getWikiSite());
 
         getApiService(title)
-                .lead(title.getWikiSite(), null, null, null, title.getPrefixedText(),
+                .lead(title.getWikiSite(), null, null, null, title.getRequestUrlText(),
                         DimenUtil.calculateLeadImageWidth())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

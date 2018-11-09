@@ -35,12 +35,12 @@ public class MwMobileViewPageLead extends MwResponse implements PageLead {
     /** Note: before using this check that #getMobileview != null */
     @Override
     public Page toPage(@NonNull PageTitle title) {
-        return new Page(adjustPageTitle(title, title.getPrefixedText()),
+        return new Page(adjustPageTitle(title, title.getRequestUrlText()),
                 mobileview.getSections(),
                 mobileview.toPageProperties());
     }
 
-    private PageTitle adjustPageTitle(@NonNull PageTitle title, @NonNull String originalPrefixedText) {
+    private PageTitle adjustPageTitle(@NonNull PageTitle title, @NonNull String requestUrlText) {
         if (mobileview.getRedirected() != null) {
             // Handle redirects properly.
             title = new PageTitle(mobileview.getRedirected(), title.getWikiSite(),
@@ -58,14 +58,15 @@ public class MwMobileViewPageLead extends MwResponse implements PageLead {
         }
 
         if (mobileview.getDisplayTitle() != null
-                && !mobileview.getDisplayTitle().equals(originalPrefixedText)
+                && !mobileview.getDisplayTitle().equals(requestUrlText)
                 && mobileview.getNormalizedTitle() == null) {
             // Sometimes the MW api will not give us the "converted" or "redirected" title if switching between Chinese variants
             // Ticket: https://phabricator.wikimedia.org/T206891#4672777
             // We can the original prefixed title text (the one we used for calling API) to build the PageTitle
-            title = new PageTitle(originalPrefixedText, title.getWikiSite(), title.getThumbUrl());
+            title = new PageTitle(StringUtil.removeHTMLTags(mobileview.getDisplayTitle()), title.getWikiSite(), title.getThumbUrl());
         }
 
+        title.setRequestUrlText(requestUrlText);
         title.setDescription(mobileview.getDescription());
         return title;
     }

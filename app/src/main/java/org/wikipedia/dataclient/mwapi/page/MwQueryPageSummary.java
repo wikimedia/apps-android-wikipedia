@@ -27,7 +27,7 @@ public class MwQueryPageSummary extends MwQueryResponse implements PageSummary {
                 ? query().firstPage().pageProps().getDisplayTitle() : query().firstPage().title();
     }
 
-    @Override @Nullable public String getConvertedTitle() {
+    @Override @Nullable public String getRequestUrlTitle() {
         if (query() == null || query().firstPage() == null) {
             return null;
         }

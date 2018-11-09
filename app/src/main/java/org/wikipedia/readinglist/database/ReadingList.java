@@ -71,6 +71,7 @@ public class ReadingList {
     public void title(@NonNull String title) {
         this.title = title;
     }
+
     public String dbTitle() {
         return title;
     }

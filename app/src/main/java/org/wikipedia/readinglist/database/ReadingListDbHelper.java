@@ -409,10 +409,11 @@ public class ReadingListDbHelper {
                 ReadingListPageContract.Col.SITE.getName() + " = ? AND "
                         + ReadingListPageContract.Col.LANG.getName() + " = ? AND "
                         + ReadingListPageContract.Col.NAMESPACE.getName() + " = ? AND "
-                        + ReadingListPageContract.Col.TITLE.getName() + " = ? AND "
+                        + "( " + ReadingListPageContract.Col.TITLE.getName() + " = ? OR "
+                        + ReadingListPageContract.Col.REQUEST_URL_TITLE.getName() + " = ? ) AND "
                         + ReadingListPageContract.Col.STATUS.getName() + " != ?",
                 new String[]{title.getWikiSite().authority(), title.getWikiSite().languageCode(),
-                        Integer.toString(title.namespace().code()), title.getDisplayText(),
+                        Integer.toString(title.namespace().code()), title.getDisplayText(), title.getRequestUrlText(),
                         Integer.toString(ReadingListPage.STATUS_QUEUE_FOR_DELETE)},
                 null, null, null)) {
             if (cursor.moveToFirst()) {

@@ -35,7 +35,7 @@ class EditClient {
                        @NonNull String text, @NonNull String token, @NonNull String summary,
                        @Nullable String baseTimeStamp, boolean loggedIn, @Nullable String captchaId,
                        @Nullable String captchaWord, @NonNull final Callback cb) {
-        Call<Edit> call = service.postEditSubmit(title.getPrefixedText(), section, summary, loggedIn ? "user" : null,
+        Call<Edit> call = service.postEditSubmit(title.getRequestUrlText(), section, summary, loggedIn ? "user" : null,
                 text, baseTimeStamp, token, captchaId, captchaWord);
         call.enqueue(new retrofit2.Callback<Edit>() {
             @Override

@@ -24,6 +24,12 @@ public class Tab extends BaseModel {
         return backStack.isEmpty() ? null : backStack.get(getBackStackPosition()).getTitle();
     }
 
+    public void setBackStackPositionTitle(@NonNull PageTitle title) {
+        if (getBackStackPositionTitle() != null) {
+            backStack.get(getBackStackPosition()).setTitle(title);
+        }
+    }
+
     public int getBackStackPosition() {
         if (backStackPosition < 0) {
             backStackPosition = backStack.size() - 1;
