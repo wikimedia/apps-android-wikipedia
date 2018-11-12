@@ -520,6 +520,7 @@
   <string name="notification_preferences_title">Értesítések beállításai</string>
   <string name="notifications_mark_unread">Olvasatlannak jelölés</string>
   <string name="preference_summary_notification_poll">Adatforgalom engedélyezése az alkalmazás számára, új értesítések háttérben történő kereséséhez.</string>
+  <string name="preference_category_notification_types">Alkalmazáson belüli értesítéstípusok</string>
   <string name="preference_title_notification_welcome">Üdvözlések</string>
   <string name="preference_summary_notification_welcome">Létre lett hozva egy fiók</string>
   <string name="preference_title_notification_milestone">Mérföldkövek</string>

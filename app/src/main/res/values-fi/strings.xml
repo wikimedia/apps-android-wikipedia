@@ -97,7 +97,7 @@
   <string name="search_reading_lists_no_results">Lukulistasta ei löytynyt tuloksia</string>
   <string name="search_history_no_results">Hakuhistoriastasi ei löytynyt tuloksia tällä haulla</string>
   <string name="edit_section_captcha_message">Kirjoita alla olevat sanat roskapostin torjumiseksi</string>
-  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">Etkö näe kuvaa? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Lue lisää&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Etkö näe kuvaa? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Pyydä tiliä&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Toista edeltävät sanat</string>
   <string name="title_captcha">Kirjoita roskapostisuojauksen kirjaimet</string>
   <string name="edit_section_captcha_reload">Lataa uusi napauttamalla</string>
@@ -293,9 +293,10 @@
   <string name="tool_tip_select_text_title">Paina pitkään valitaksesi</string>
   <string name="tool_tip_select_text">Paina ja pidä painettuna mitä tahansa tekstin osaa valitaksesi sen kopioimista ja jakamista varten.</string>
   <string name="tool_tip_bookmark_icon_title">Lisää lukulistaan</string>
+  <string name="tool_tip_bookmark_icon_text">Napauta kirjanmerkkikuvaketta tallentaaksesi artikkelin lukulistaan.</string>
   <string name="tool_tip_share">Korostettuasi mielenkiintoisen faktan, kokeile jakaa se suosikkiverkostoissasi!</string>
   <string name="page_view_in_browser">Näytä sivu selaimessa</string>
-  <string name="tool_tip_lang_button">Voit nyt lukea monenkielisiä Wikipedioita tällä sovelluksella.\n\n\nNäpäytä kuvaketta nähdäksesi lisää kieliä.</string>
+  <string name="tool_tip_lang_button">Voit nyt lukea monenkielisiä Wikipedioita tällä sovelluksella.\n\n\nNapauta kuvaketta nähdäksesi lisää kieliä.</string>
   <string name="error_response_malformed">Palvelimen vastaus ei ollut oikein muotoiltu.</string>
   <string name="error_unknown">Tapahtui tuntematon virhe.</string>
   <string name="format_error_server_message">Viesti: ”%s”</string>
@@ -506,6 +507,7 @@
   <string name="notification_echo_channel_description">Wikipedia-ilmoitukset</string>
   <string name="notifications_activity_title">Ilmoitukset</string>
   <string name="notifications_activity_title_archived">Ilmoitukset (arkistoidut)</string>
+  <string name="notifications_search">Hae ilmoituksia</string>
   <string name="notifications_view_unread">Tarkastele lukemattomia</string>
   <string name="notifications_view_archived">Tarkastele arkistoituja</string>
   <string name="notifications_prefs">Ilmoitusasetukset</string>
@@ -719,5 +721,6 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ei kiitos</string>
   <string name="main_drawer_open">Avaa</string>
   <string name="main_drawer_close">Sulje</string>
+  <string name="main_drawer_help">Ohje</string>
   <string name="main_drawer_login">Kirjaudu sisään / liity Wikipediaan</string>
 </resources>

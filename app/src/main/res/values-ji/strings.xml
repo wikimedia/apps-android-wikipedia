@@ -9,10 +9,13 @@
   <string name="app_name_beta">וויקיפעדיע בעטא</string>
   <string name="app_name_alpha">וויקיפעדיע אלפא</string>
   <string name="wikimedia">וויקימעדיע</string>
+  <string name="nav_item_back">צוריק</string>
+  <string name="nav_item_forward">ווײַטער</string>
   <string name="search_hint">זוכן וויקיפעדיע</string>
   <string name="search_hint_search_history">זוך־היסטאריע</string>
   <string name="search_hint_search_my_lists">זוכן מיינע ליסטעס</string>
   <string name="search_hint_search_reading_list">זוכן ליין־ליסטע</string>
+  <string name="search_hint_search_languages">זוכן א שפראך</string>
   <string name="nav_item_history">היסטאריע</string>
   <string name="error_network_error">מין קען נישט פארבינדן מיט דער אינטערנעץ.א.</string>
   <string name="page_error_retry">פרובירן ווידער</string>
@@ -34,6 +37,8 @@
   <string name="menu_page_font_and_theme">פאנט און טעמע</string>
   <string name="menu_page_add_to_list">צולייגן צו ליינליסטע</string>
   <string name="menu_page_share">טיילן לינק</string>
+  <string name="menu_page_open_a_new_tab">עפֿענען אין נײַעם טאב</string>
+  <string name="menu_page_reading_lists">ליין־ליסטעס</string>
   <string name="menu_long_press_open_page">עפענען</string>
   <string name="menu_long_press_open_in_new_tab">עפֿענען אין נײַעם טאב</string>
   <string name="menu_long_press_copy_page">קאפירן לינק אדרעס</string>
@@ -64,7 +69,7 @@
   <string name="dialog_message_edit_failed">רעדאקטירונג אדורכגעפאלן!</string>
   <string name="dialog_message_edit_failed_retry">פרובירן ווידער</string>
   <string name="dialog_message_edit_failed_cancel">אַנולירן</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">אייערע ענדערונגען זענען נאך נישט געווארן אויפגעהיטן. צי זענט איר זיכער אז איר ווילט פארלאזן דעם בלאט?</string>
+  <string name="dialog_message_leaving_edit">אייערע ענדערונגען זענען נאך נישט געווארן פֿארעפֿנטלעכט. צי זענט איר זיכער אז איר ווילט פארלאזן דעם בלאט?</string>
   <string name="dialog_message_leaving_edit_leave">פֿארלאזן</string>
   <string name="dialog_message_leaving_edit_stay">בלייבן</string>
   <string name="menu_show_toc">אינהאַלט טאַבעלע</string>
@@ -140,7 +145,7 @@
   <string name="about_translators_heading">איבערזעצער</string>
   <string name="about_translators_translatewiki">דער אפ איז געווארן איבערגעזעצט דורך די וואלונטיר איבערזעצער בײַ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">לייסענס</string>
-  <string name="about_wmf" fuzzy="true">א פראדוקט פון דער &lt;a href=\"https://wikimediafoundation.org/\"&gt;וויקימעדיע פֿונדאציע&lt;/a&gt;</string>
+  <string name="about_wmf">א פראדוקט פון דער &lt;a href=\"https://wikimediafoundation.org/\"&gt;וויקימעדיע פֿונדאציע&lt;/a&gt;</string>
   <string name="about_activity_title">וועגן</string>
   <string name="edit_abandon_confirm_yes">יא</string>
   <string name="edit_abandon_confirm_no">ניין</string>
@@ -198,6 +203,7 @@
   <string name="menu_new_tab">נייער טאב</string>
   <string name="close_all_tabs_confirm_yes">יא</string>
   <string name="close_all_tabs_confirm_no">ניין</string>
+  <string name="button_close_tab">פֿארמאכן טאב</string>
   <string name="page_view_in_browser">באקוקן בלאט אין בלעטערער</string>
   <string name="format_error_server_message">מעלדונג: \"%s\"</string>
   <string name="button_continue_to_article">לייענען דעם ארטיקל</string>

@@ -17,6 +17,8 @@
   <string name="app_name_beta">Wikipédia Beta</string>
   <string name="app_name_alpha">Wikipédia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
+  <string name="nav_item_back">Späť</string>
+  <string name="nav_item_forward">Dopredu</string>
   <string name="search_hint">Hľadať</string>
   <string name="search_hint_search_history">Hľadať</string>
   <string name="search_hint_search_my_lists">Hľadať</string>
@@ -44,6 +46,8 @@
   <string name="menu_page_font_and_theme">Písmo a vzhľad</string>
   <string name="menu_page_add_to_list">Pridať do zoznamu na prečítanie</string>
   <string name="menu_page_share">Zdieľať</string>
+  <string name="menu_page_open_a_new_tab">Otvoriť novú kartu</string>
+  <string name="menu_page_reading_lists">Zoznamy na prečítanie</string>
   <string name="menu_long_press_open_page">Otvoriť</string>
   <string name="menu_long_press_open_in_new_tab">Otvoriť na novej karte</string>
   <string name="menu_long_press_copy_page">Skopírovať adresu odkazu</string>
@@ -273,6 +277,7 @@
   <string name="button_close_tab">Zavrieť kartu</string>
   <string name="tool_tip_select_text_title">Podržaním zvolíte</string>
   <string name="tool_tip_select_text">Stlačte a podržte kdekoľvek v texte, aby ste ho mohli kopírovať a zdieľať.</string>
+  <string name="tool_tip_bookmark_icon_title">Pridať do zoznamu na prečítanie</string>
   <string name="tool_tip_share">Po zvýraznení zaujímavej skutočnosti ju môžete zdieľať na vašich obľúbených sietiach!</string>
   <string name="page_view_in_browser">Zobraziť stránku v prehliadači</string>
   <string name="tool_tip_lang_button">V rámci aplikácie môžete vyhľadávať a čítať Wikipédiu vo viacerých jazykoch.\n\n\nĎalšie jazyky pridáte kliknutím na ikonu.</string>
@@ -282,6 +287,8 @@
   <string name="address_copied">Adresa bola skopírovaná do schránky.</string>
   <string name="text_copied">Text bol skopírovaný do schránky.</string>
   <string name="button_continue_to_article">Prečítať si článok</string>
+  <string name="button_continue_to_disambiguation">Zobraziť podobné stránky</string>
+  <string name="link_preview_disambiguation_description">Názov sa vzťahuje na viac než jednu stránku:</string>
   <string name="button_add_to_reading_list">Pridať do zoznamu na prečítanie</string>
   <string name="page_offline_notice_cannot_load_while_offline">Článok nemôže byť načítaný pokiaľ nie ste pripojený k internetu.</string>
   <string name="page_offline_notice_add_to_reading_list">Tip: Pridajte článok do zoznamu na prečítanie a hneď, ako budete opäť pripojený, sa stiahne.</string>
@@ -433,6 +440,7 @@
     <item quantity="other">Tieto články už nebudú dostupné bez pripojenia.</item>
   </plurals>
   <string name="reading_list_toast_last_sync">Zoznamy na prečítanie boli úspešne synchronizované</string>
+  <string name="reading_list_menu_last_sync">Posledná synchronizácia: %s</string>
   <string name="user_option_sync_label">Nastavenia</string>
   <string name="notification_button_view_user">Kontaktovať používateľa</string>
   <string name="notification_talk_title">Máte novú správu na Wikipédii</string>
@@ -466,6 +474,7 @@
   <string name="notifications_empty_message">Nemáte žiadne nové upozornenia!</string>
   <string name="notifications_view_archived_button_text">Zobraziť archivované upozornenia</string>
   <string name="notification_preferences_title">Nastavenia upozornení</string>
+  <string name="notifications_mark_unread">Označiť ako neprečítané</string>
   <string name="preference_title_notification_welcome">Vitajte</string>
   <string name="preference_title_notification_thanks">Ďakujeme</string>
   <string name="preference_summary_notification_thanks">Niekto vám poďakoval za úpravu</string>
@@ -593,7 +602,7 @@
   <string name="onboarding_explore_title">Nové možnosti pre objavovanie</string>
   <string name="onboarding_explore_text" fuzzy="true">Objavte odporúčané články, často vyhľadávané témy a odporúčania k čítaniu článkov.</string>
   <string name="onboarding_save_to_reading_lists_title">Uložiť do zoznamov na prečítanie</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">Zoznamy na prečítanie so synchronizovaním</string>
+  <string name="onboarding_reading_list_sync_title">Zoznamy na prečítanie so synchronizáciou</string>
   <string name="onboarding_reading_list_sync_text" fuzzy="true">Vytvorte si zoznamy článkov, ktoré si chcete neskôr prečítať, aj keď ste offline. &lt;a href=\"#login\"&gt;Prihláste sa alebo si vytvorte&lt;/a&gt; svoj účet na Wikipédii, aby boli Vaše zoznamy zálohované.</string>
   <string name="onboarding_analytics_title">Odosielať anonymné údaje</string>
   <string name="onboarding_analytics_offline_text">Pomôžte nám spraviť aplikáciu lepšou tak, že nám dáte vedieť ako ju používate. Tieto informácie sa zbierajú anonymne. &lt;a href=\"#privacy\"&gt;Zistite viac&lt;/a&gt;</string>
@@ -638,4 +647,7 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Vo vašich jazykoch máte tradičnú a zjednodušené čínštinu. Chcete aktualizovať svoje nastavenia jazyka?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Upraviť jazyky</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nie, vďaka</string>
+  <string name="main_drawer_open">Otvoriť</string>
+  <string name="main_drawer_close">Zavrieť</string>
+  <string name="main_drawer_help">Pomoc</string>
 </resources>
