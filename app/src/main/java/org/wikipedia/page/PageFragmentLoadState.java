@@ -140,7 +140,9 @@ public class PageFragmentLoadState {
         // the transitions of our native components to the new page content.
         // The callback event from the WebView will then call the loadOnWebViewReady()
         // function, which will continue the loading process.
-        leadImagesHandler.hide();
+        if (model.getTitle().getThumbUrl() == null) {
+            leadImagesHandler.hide();
+        }
 
         this.stagedScrollY = stagedScrollY;
         pageLoadCheckReadingLists();

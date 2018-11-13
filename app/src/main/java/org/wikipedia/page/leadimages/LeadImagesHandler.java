@@ -157,7 +157,7 @@ public class LeadImagesHandler {
         String leadImageUrl = getLeadImageUrl();
         if (leadImageUrl == null) {
             loadLeadImage(null);
-        } else if (!pageHeaderView.isImageLoaded()) {
+        } else {
             loadLeadImage(leadImageUrl);
         }
     }

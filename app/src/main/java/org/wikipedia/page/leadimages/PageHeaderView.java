@@ -32,7 +32,6 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
     @BindView(R.id.view_page_header_image) FaceAndColorDetectImageView image;
     @BindView(R.id.view_page_header_image_gradient) View gradientView;
     @Nullable private Callback callback;
-    private boolean isImageLoaded;
 
     public interface Callback {
         void onImageClicked();
@@ -55,7 +54,6 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
 
     public void hide() {
         setVisibility(View.GONE);
-        isImageLoaded = false;
     }
 
     public void show(boolean imageEnabled) {
@@ -76,17 +74,11 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
         if (TextUtils.isEmpty(url)) {
             image.setVisibility(GONE);
             gradientView.setVisibility(GONE);
-            isImageLoaded = false;
         } else {
             image.setVisibility(VISIBLE);
             gradientView.setVisibility(VISIBLE);
             image.loadImage(Uri.parse(url));
-            isImageLoaded = true;
         }
-    }
-
-    public boolean isImageLoaded() {
-        return isImageLoaded;
     }
 
     @NonNull
