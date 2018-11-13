@@ -255,11 +255,11 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onFeedSelectPage(HistoryEntry entry) {
-        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle());
+        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
     }
 
     @Override public void onFeedSelectPageFromExistingTab(HistoryEntry entry) {
-        startActivity(PageActivity.newIntentForExistingTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle());
+        startActivity(PageActivity.newIntentForExistingTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
     }
 
     @Override public void onFeedAddPageToList(HistoryEntry entry) {
@@ -325,9 +325,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Nullable
-    public Bundle getTransitionAnimationBundle() {
-        return ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
-                floatingQueueView.getImageView(), ViewCompat.getTransitionName(floatingQueueView.getImageView())).toBundle();
+    public Bundle getTransitionAnimationBundle(@NonNull PageTitle pageTitle) {
+        return pageTitle.getThumbUrl() != null ? ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
+                floatingQueueView.getImageView(), ViewCompat.getTransitionName(floatingQueueView.getImageView())).toBundle() : null;
     }
 
     @Override
@@ -355,7 +355,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onLoadPage(@NonNull HistoryEntry entry) {
-        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle());
+        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
     }
 
     @Override public void onClearHistory() {
@@ -381,7 +381,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Override
     public void onSearchSelectPage(@NonNull HistoryEntry entry, boolean inNewTab) {
-        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle());
+        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
     }
 
     @Override
@@ -410,7 +410,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Override
     public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {
-        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle());
+        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
     }
 
     @Override
@@ -433,7 +433,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Override
     public void onFloatingQueueClicked(@NonNull PageTitle title) {
         startActivity(PageActivity.newIntentForExistingTab(requireContext(),
-                new HistoryEntry(title, HistoryEntry.SOURCE_FLOATING_QUEUE), title), getTransitionAnimationBundle());
+                new HistoryEntry(title, HistoryEntry.SOURCE_FLOATING_QUEUE), title), getTransitionAnimationBundle(title));
     }
 
     @Override

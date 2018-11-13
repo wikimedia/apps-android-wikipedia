@@ -293,12 +293,12 @@ public class ReadingListFragment extends Fragment implements
     @Override
     public void onFloatingQueueClicked(@NonNull PageTitle title) {
         startActivity(PageActivity.newIntentForExistingTab(requireContext(),
-                new HistoryEntry(title, HistoryEntry.SOURCE_FLOATING_QUEUE), title), getTransitionAnimationBundle());
+                new HistoryEntry(title, HistoryEntry.SOURCE_FLOATING_QUEUE), title), getTransitionAnimationBundle(title));
     }
 
-    private Bundle getTransitionAnimationBundle() {
-        return ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
-                floatingQueueView.getImageView(), ViewCompat.getTransitionName(floatingQueueView.getImageView())).toBundle();
+    private Bundle getTransitionAnimationBundle(@NonNull PageTitle pageTitle) {
+        return pageTitle.getThumbUrl() != null ? ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
+                floatingQueueView.getImageView(), ViewCompat.getTransitionName(floatingQueueView.getImageView())).toBundle() : null;
     }
 
     private AppCompatActivity getAppCompatActivity() {
@@ -852,7 +852,7 @@ public class ReadingListFragment extends Fragment implements
                     ReadingListDbHelper.instance().updatePage(page);
                 }).subscribeOn(Schedulers.io()).subscribe();
 
-                startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle());
+                startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
             }
         }
 
