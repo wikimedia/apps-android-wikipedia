@@ -313,7 +313,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
                             getThemedColor(fragment.requireContext(), R.attr.primary_text_color));
                 } else {
                     sectionHeading.setTextColor(
-                            getThemedColor(fragment.requireContext(), R.attr.toc_h1_h2));
+                            getThemedColor(fragment.requireContext(), R.attr.toc_h1_h2_color));
                 }
             }
             return convertView;
