@@ -40,9 +40,11 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
 
     public static void download(@NonNull Context context, @NonNull GalleryItem galleryItem) {
         String saveFilename = FileUtil.sanitizeFileName(trimFileNamespace(galleryItem.getTitles().getCanonical()));
+        String fileUrl = galleryItem.getOriginal().getSource();
         String targetDirectoryType;
         if (FileUtil.isVideo(galleryItem.getType())) {
             targetDirectoryType = Environment.DIRECTORY_MOVIES;
+            fileUrl = galleryItem.getOriginalVideoSource().getOriginalUrl();
         } else if (FileUtil.isAudio(galleryItem.getType())) {
             targetDirectoryType = Environment.DIRECTORY_MUSIC;
         } else if (FileUtil.isImage(galleryItem.getType())) {
@@ -50,8 +52,7 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
         } else {
             targetDirectoryType = Environment.DIRECTORY_DOWNLOADS;
         }
-        performDownloadRequest(context, Uri.parse(galleryItem.getOriginal().getSource()), targetDirectoryType,
-                saveFilename, galleryItem.getType());
+        performDownloadRequest(context, Uri.parse(fileUrl), targetDirectoryType, saveFilename, galleryItem.getType());
     }
 
     private static void performDownloadRequest(@NonNull Context context, @NonNull Uri uri,
