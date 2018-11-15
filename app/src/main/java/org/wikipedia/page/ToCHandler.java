@@ -51,7 +51,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private static final int SCROLLER_BUTTON_HIDE_TIMEOUT_MILLIS = 2000;
 
     private static final float TOC_LEAD_TEXT_SIZE = 24f;
-    private static final float TOC_SECTION_TEXT_SIZE = 16f;
+    private static final float TOC_SECTION_TEXT_SIZE = 18f;
     private static final float TOC_SUBSECTION_TEXT_SIZE = 14f;
     private static final float TOC_SEMI_FADE_ALPHA = 0.9f;
     private static final float TOC_SECTION_TOP_OFFSET_ADJUST = 70f;
@@ -308,14 +308,13 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             if (highlightedSection == position) {
                 sectionHeading.setTextColor(getThemedColor(fragment.requireContext(), R.attr.colorAccent));
             } else {
-                // TODO: apply different style for subsections vs. top-level sections.
-                //if (section.getLevel() > 1) {
-                //    sectionHeading.setTextColor(
-                //            getThemedColor(fragment.requireContext(), R.attr.secondary_text_color));
-                //} else {
-                sectionHeading.setTextColor(
-                        getThemedColor(fragment.requireContext(), R.attr.primary_text_color));
-                //}
+                if (section.getLevel() > 1) {
+                    sectionHeading.setTextColor(
+                            getThemedColor(fragment.requireContext(), R.attr.primary_text_color));
+                } else {
+                    sectionHeading.setTextColor(
+                            getThemedColor(fragment.requireContext(), R.attr.toc_h1_h2));
+                }
             }
             return convertView;
         }
