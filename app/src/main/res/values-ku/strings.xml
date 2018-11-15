@@ -11,6 +11,8 @@
   <string name="app_name_beta">Wîkîpediya Beta</string>
   <string name="app_name_alpha">Wîkîpediya Alfa</string>
   <string name="wikimedia">Wîkîmediya</string>
+  <string name="nav_item_back">Vegere</string>
+  <string name="nav_item_forward">Pêşve</string>
   <string name="search_hint">Li Wîkîpediyayê bigere</string>
   <string name="search_hint_search_history">Dîroka lêgerînê</string>
   <string name="search_hint_search_my_lists">Di lîsteyên min de bigere</string>
@@ -38,6 +40,8 @@
   <string name="menu_page_font_and_theme">Font û tema</string>
   <string name="menu_page_add_to_list">Îlaweyî lîsta xwendinê bike</string>
   <string name="menu_page_share">Girêdanê parve bike</string>
+  <string name="menu_page_open_a_new_tab">Hilpêkîneke nû veke</string>
+  <string name="menu_page_reading_lists">Lîsteyên xwendinê</string>
   <string name="menu_long_press_open_page">Veke</string>
   <string name="menu_long_press_open_in_new_tab">Di hilpêkînek nû de veke</string>
   <string name="menu_long_press_copy_page">Navnîşana girêdanê kopî bike</string>
@@ -55,8 +59,8 @@
   <string name="other_languages_indication_text">Bi zimanekî din bixwîne</string>
   <string name="language_count_link_text">Bi %d zimanên din jî berdest e</string>
   <string name="content_license_html">Naverok di bin lîsansa &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de berdest e heta ku eksa wê bê gotin</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Bi qeydkirinê, tu &lt;a href=\"%1$s\"&gt;Şertên Bikaranînê&lt;/a&gt; qebûl dikî, û bi awayekî paşveneger beşdariyên xwe di bin lîsansa &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de belav dikî.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">Bi qeydkirinê, tu &lt;a href=\"%1$s\"&gt;Şertên Bikaranînê&lt;/a&gt; qebûl dikî, û bi awayekî paşveneger beşdariyên xwe di bin lîsansa &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de belav dikî. Sererastkirin wê bi adrêsa te ya IPyê ya cîhaza te re bêne girêdan. Eger &lt;a href=\"https://#login\"&gt;têkevî&lt;/a&gt;, wê veşaritîya te zêdetir bê muhafezekirin.</string>
+  <string name="edit_save_action_license_logged_in">Bi weşandinê, tu &lt;a href=\"%1$s\"&gt;Şertên Bikaranînê&lt;/a&gt; qebûl dikî, û bi awayekî paşveneger beşdariyên xwe di bin lîsansa &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de belav dikî.</string>
+  <string name="edit_save_action_license_anon">Bi weşandinê, tu &lt;a href=\"%1$s\"&gt;Şertên Bikaranînê&lt;/a&gt; qebûl dikî, û bi awayekî paşveneger beşdariyên xwe di bin lîsansa &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de belav dikî. Sererastkirin wê bi adrêsa te ya IPyê ya cîhaza te re bêne girêdan. Eger &lt;a href=\"https://#login\"&gt;têkevî&lt;/a&gt;, wê veşaritîya te zêdetir bê muhafezekirin.</string>
   <string name="preference_title_language">Zimanên Wîkîpediyayê</string>
   <string name="preference_languages_filter_hint">Lêgerîn</string>
   <string name="langlinks_filter_hint">Lêgerîn</string>
@@ -70,7 +74,7 @@
   <string name="dialog_message_edit_failed">Guherandin biser neket!</string>
   <string name="dialog_message_edit_failed_retry">Dîsa hewl bide</string>
   <string name="dialog_message_edit_failed_cancel">Betal bike</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">Guhertinên te hê nihatine tomarkirin. Tu dixwazî ji vê rûpelê derkevî?</string>
+  <string name="dialog_message_leaving_edit">Guhertinên te hê nihatine weşandin. Tu dixwazî ji vê rûpelê derkevî?</string>
   <string name="dialog_message_leaving_edit_leave">Jê derkeve</string>
   <string name="dialog_message_leaving_edit_stay">Bimîne</string>
   <string name="menu_show_toc">Tabloya naverokê</string>
@@ -79,7 +83,7 @@
   <string name="search_reading_lists_no_results">Di lîsteyên xwendinê de tu encam nehat dîtin</string>
   <string name="search_history_no_results">Di raboriyê de tu encam nehat dîtin</string>
   <string name="edit_section_captcha_message">Ji bo ku ji spamên otomatîk xwe biparêzî, ji kerema xwe van peyvên ku li jêr têne xuyan binivîse</string>
-  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">Qe nikarî rismê bibînî? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Zêdetir hîn bibe&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Qe nikarî rismê bibînî? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Daxwaza hesabekî bike&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Peyvên ji jor tekrar bike</string>
   <string name="title_captcha">CAPTCHAyê binivîse</string>
   <string name="edit_section_captcha_reload">Ji bo ku cardin bar bibe bitikîne ser CAPTCHA</string>
@@ -119,6 +123,11 @@
   <string name="create_account_password_error">Şîfre nederbasdar e</string>
   <string name="create_account_generic_error">Hesab nikarîbû were çêkirin</string>
   <string name="create_account_next">Pêşve</string>
+  <string name="email_recommendation_dialog_title">Bêyî adrêsa emaîlê dixwazî hesabekî çêbikî?</string>
+  <string name="email_recommendation_dialog_message">Adrêsa emaîlê girêdayî daxwazê bibe jî, ew &lt;b&gt;pir tê pêşniyarkirin&lt;/b&gt;, eger tu şîfreya winda bikî wê ji bo ku hesaba xwe xilas bikî ji te re emaîlekê lazim bibe.</string>
+  <string name="email_recommendation_message">Ji bo xilaskirina hesabê emaîl hewce ye.</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Bêyî emaîl dewam bike</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Adrêseke emaîlê lê zêde bike</string>
   <string name="create_account_button">Hesabekî çêke</string>
   <string name="create_account_name_unavailable">Navê bikarhêneriyê ya \"%s\" ne berdest e. Xêra xwe navekî din bibijêre.</string>
   <string name="create_account_ip_block_message">Bibore, adrêsa te ya IPyê aniha ji bo çêkirina hesabên bû blokkirî ye.</string>

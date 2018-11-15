@@ -396,7 +396,7 @@
   <string name="view_static_card_icon_content_description">Kartowy symbol</string>
   <string name="view_card_news_title">W powěsćach</string>
   <string name="view_continue_reading_card_subtitle_today">dźensa</string>
-  <string name="view_continue_reading_card_subtitle_read_date">Čitał(a) %s</string>
+  <string name="view_continue_reading_card_subtitle_read_date" fuzzy="true">Čitał(a) %s</string>
   <string name="view_announcement_card_negative_action">Ně, dźakuju</string>
   <string name="view_featured_article_footer_save_button_label">Składować</string>
   <string name="view_featured_article_footer_saved_button_label">Składowane</string>

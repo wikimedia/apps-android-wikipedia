@@ -36,7 +36,7 @@
   <string name="search_hint">Szukaj w Wikipedii</string>
   <string name="search_hint_search_history">Historia wyszukiwania</string>
   <string name="search_hint_search_my_lists">Przeszukaj moje listy</string>
-  <string name="search_hint_search_reading_list">Przeszukaj listę czytania</string>
+  <string name="search_hint_search_reading_list">Przeszukaj listę do przeczytania</string>
   <string name="search_hint_search_languages">Szukaj języka</string>
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Nie można połączyć z internetem.</string>
@@ -61,7 +61,7 @@
   <string name="menu_page_add_to_list">Dodaj do listy czytanych</string>
   <string name="menu_page_share">Udostępnij łącze</string>
   <string name="menu_page_open_a_new_tab">Otwórz nową kartę</string>
-  <string name="menu_page_reading_lists">Lity czytanych</string>
+  <string name="menu_page_reading_lists">Lity do przeczytania</string>
   <string name="menu_page_recently_viewed">Niedawno odwiedzone</string>
   <string name="menu_long_press_open_page">Otwórz</string>
   <string name="menu_long_press_open_in_new_tab">Otwórz w nowej karcie</string>
@@ -101,7 +101,7 @@
   <string name="menu_show_toc">Spis treści</string>
   <string name="search_no_results_found">Nie znaleziono</string>
   <string name="search_reading_list_no_results">Nie znaleziono wyników w \"%s\"</string>
-  <string name="search_reading_lists_no_results">Brak wyników na listach czytelniczych</string>
+  <string name="search_reading_lists_no_results">Brak wyników na listach do przeczytania</string>
   <string name="search_history_no_results">W historii nie znaleziono wyników</string>
   <string name="edit_section_captcha_message">Aby pomóc nam bronić się przed spamem, przepisz słowa podane poniżej</string>
   <string name="edit_section_captcha_request_an_account_message">Nie widzisz obrazu? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Poproś o konto&lt;/a&gt;</string>
@@ -118,13 +118,13 @@
   <string name="login_in_progress_dialog_message">Logowanie…</string>
   <string name="login_success_toast">Zalogowano pomyślnie!</string>
   <string name="reset_password_title">Wpisz swoje hasło</string>
-  <string name="reset_password_description">Zalogowałeś się z użyciem hasła tymczasowego. Aby dokończyć logowanie ustal nowe hasło</string>
+  <string name="reset_password_description">Zalogowano się z użyciem hasła tymczasowego. Aby dokończyć logowanie, ustaw nowe hasło.</string>
   <string name="reset_password_hint">Nowe hasło</string>
   <string name="reset_password_button">Zapisz i zaloguj się</string>
   <string name="preference_title_logout">Wyloguj</string>
   <string name="toast_logout_complete">Wylogowano</string>
   <string name="history_empty_title">Brak ostatnio oglądanych artykułów</string>
-  <string name="history_empty_message">Śledź to, co tutaj czytałeś.</string>
+  <string name="history_empty_message">Śledź tutaj, co było czytane.</string>
   <string name="search_empty_message">Przeszukuj i czytaj darmową encyklopedię w swoim języku</string>
   <string name="search_empty_message_multilingual_upgrade">Przeszukuj Wikipedię w większej ilości języków</string>
   <string name="delete_selected_items">Usuń wybrane elementy</string>
@@ -223,7 +223,7 @@
   <string name="user_blocked_from_editing_title">Zablokowany/-a</string>
   <string name="user_logged_in_blocked_from_editing">Edytowanie wiki z tego konta użytkownika zostało zablokowane.</string>
   <string name="user_anon_blocked_from_editing">Edycja z tego adresu IP została zablokowana</string>
-  <string name="edit_how_page_improved">Jak poprawiłeś/-aś stronę?</string>
+  <string name="edit_how_page_improved">Jak poprawiłeś/aś stronę?</string>
   <string name="edit_next">Następne</string>
   <string name="edit_done">Opublikuj</string>
   <string name="edit_preview">Podgląd</string>
@@ -316,7 +316,9 @@
   <string name="link_preview_disambiguation_description">Ten tytuł odnosi się do więcej niż jednej strony:</string>
   <string name="button_add_to_reading_list">Dodaj do listy czytanych</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artykuł nie może zostać załadowany, gdy jesteś offline.</string>
+  <string name="page_offline_notice_add_to_reading_list">Wskazówka: Dodaj artykuł do listy czytanych, a zostanie pobrany po powrocie do trybu online.</string>
   <string name="page_offline_notice_last_date">Czytasz wersję offline tego artykułu zapisaną %s.</string>
+  <string name="page_offline_notice_compilation_download_date">Czytasz wersję tego artykułu z %1$s • %2$s.</string>
   <string name="button_get_directions">Wyznacz trasę</string>
   <string name="error_no_maps_app">Nie udało się znaleźć aplikacji do nawigacji.</string>
   <string name="preference_title_show_link_previews">Pokaż podgląd linków</string>
@@ -336,7 +338,9 @@
   <string name="error_page_does_not_exist">Ta strona nie istnieje</string>
   <string name="view_wiki_error_message_offline">Nie można nawiązać połączenia z Internetem</string>
   <string name="reference_title">Przypis %s</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Przyciemnianie obrazu (w ciemnym motywie)</string>
   <string name="preference_title_prefer_offline_content">Preferuj zawartość offline</string>
+  <string name="preference_summary_prefer_offline_content">Zaoszczędź wykorzystanie danych, ładując artykuły dostępne offline, zamiast zawsze ładować najnowszą wersję artykułu</string>
   <string name="preference_title_enable_offline_library">Włącz bibliotekę offline</string>
   <string name="crash_report_dialog_title">Niestety, wystąpił problem techniczny z aplikacją</string>
   <string name="crash_report_dialog_dont_send_button">Pomiń</string>
@@ -357,6 +361,7 @@
   <string name="color_theme_black">Czarny</string>
   <string name="color_theme_test_title">Przykładowy tekst</string>
   <string name="preference_title_app_theme">Motyw aplikacji</string>
+  <string name="preference_summary_color_theme">Przejdź do korzystania z motywu ciemnego aplikacji</string>
   <string name="text_size_increase">Zwiększ rozmiar tekstu</string>
   <string name="text_size_decrease">Zmniejsz rozmiar tekstu</string>
   <string name="text_size_percent_default">%s (domyślnie)</string>
@@ -370,20 +375,22 @@
   <string name="reading_list_added_view_button">Zobacz listę</string>
   <string name="format_reading_list_statistical_summary_singular">1 artykuł, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artykułów, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d z 1 artykułów dostępnych offline, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d z %2$d artykułów dostępnych offline, %3$.2f MB</string>
   <string name="reading_list_sort">Sortuj</string>
   <string name="reading_list_sort_ellipsis">Sortuj według:</string>
   <string name="reading_list_sort_by_name">Sortuj według nazwy</string>
   <string name="reading_list_sort_by_name_desc">Sortuj według nazwy (odwrotnie)</string>
-  <string name="reading_list_sort_by_recent">Sortuj według daty dodania (od najnowszych)</string>
-  <string name="reading_list_sort_by_recent_desc">Sortuj według daty dodania (od najstarszych)</string>
-  <string name="reading_list_sort_by_created">Sortuj według daty utworzenia (od najnowszych)</string>
-  <string name="reading_list_sort_by_created_desc">Sortuj według daty utworzenia (od najstarszych)</string>
+  <string name="reading_list_sort_by_recent">Sortuj wg daty dodania (od najnowszych)</string>
+  <string name="reading_list_sort_by_recent_desc">Sortuj wg daty dodania (od najstarszych)</string>
+  <string name="reading_list_sort_by_created">Sortuj wg daty utworzenia (od najnowszych)</string>
+  <string name="reading_list_sort_by_created_desc">Sortuj wg daty utworzenia (od najstarszych)</string>
   <string name="reading_list_menu_delete">Usuń listę</string>
   <string name="reading_list_menu_rename">Edytuj nazwę/opis</string>
   <string name="reading_list_menu_edit_description">Edytuj opis</string>
   <string name="reading_list_action_menu_remove_from_offline">Usuń z zapisanych na później</string>
   <string name="reading_list_action_menu_save_for_offline">Zapisz na później</string>
-  <string name="reading_list_action_menu_remove_all_from_offline">Usuń wszystkie pozycje z zapisanych na później</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Usuń wszystko z zapisanych na później</string>
   <string name="reading_list_action_menu_save_all_for_offline">Zapisz wszystkie pozycje na później</string>
   <string name="reading_list_action_menu_add_to_another_list">Dodaj do innej listy</string>
   <string name="reading_list_name_sample">Moja lista</string>
@@ -394,6 +401,7 @@
   <string name="reading_list_item_delete_undo">Cofnij</string>
   <string name="reading_list_deleted">%s został usunięty</string>
   <string name="saved_list_empty_title">Nie zapisano jeszcze żadnych stron</string>
+  <string name="reading_lists_empty_message">Dodawaj artykuły do listy do czytania później, nawet gdy jesteś offline.</string>
   <string name="reading_lists_onboarding_intro">Dodaj artykuły do listy stron, które chcesz przeczytać później, nawet gdy jesteś offline!</string>
   <string name="reading_lists_onboarding_for_example">Na przykład</string>
   <string name="reading_lists_onboarding_example1">Miejsca do odwiedzenia</string>
@@ -402,7 +410,7 @@
   <string name="reading_lists_onboarding_got_it">Wszystko jasne</string>
   <string name="reading_list_no_description">Brak opisu...</string>
   <string name="reading_list_empty">Na tej liście nie ma dodanych artykułów.</string>
-  <string name="reading_list_article_offline">Dostępne online</string>
+  <string name="reading_list_article_offline">Dostępne offline</string>
   <string name="reading_list_article_make_offline">Artykuł będzie dostępny offline</string>
   <string name="reading_list_add_to_other_list">Dodaj do innej listy czytanych</string>
   <string name="reading_list_remove_from_list">Usuń z %s</string>
@@ -429,6 +437,7 @@
   <string name="reading_list_logout_option_reminder_dialog_yes">Tak, zachowaj artykuły na listach</string>
   <string name="reading_list_logout_option_reminder_dialog_no">Nie, usuń artykuły z list</string>
   <string name="default_reading_list_name">Zapisane</string>
+  <string name="default_reading_list_description">Domyślna lista dla zapisanych artykułów</string>
   <string name="no_user_lists_title">Uporządkuj artykuły w listy</string>
   <string name="reading_list_saved_list_rename">%1$s (utworzono konto użytkownika)</string>
   <string name="reading_lists_menu_create_list">Utwórz nową listę</string>
@@ -463,6 +472,18 @@
     <item quantity="one">Pobieranie %1$d artykułu...</item>
     <item quantity="other">Pobieranie %1$d artykułów...</item>
   </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">pozostał %1$d artykuł</item>
+    <item quantity="other">pozostało %1$d artykułów</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Synchronizuję %1$d listę…</item>
+    <item quantity="other">Synchronizuję listy (%1$d)…</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">pozostała %1$d lista</item>
+    <item quantity="other">pozostało %1$d list</item>
+  </plurals>
   <string name="notification_echo_channel_description">Powiadomienia z Wikipedii</string>
   <string name="notifications_activity_title">Powiadomienia</string>
   <string name="notifications_activity_title_archived">Powiadomienia (zarchiwizowane)</string>
@@ -471,12 +492,17 @@
   <string name="notifications_view_archived">Zobacz zarchiwizowane</string>
   <string name="notifications_prefs">Preferencje powiadomień</string>
   <string name="notifications_archive">Oznacz jako przeczytane i zarchiwizuj</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">Powiadomienie zarchiwizowane</item>
+    <item quantity="other">Powiadomienia zarchiwizowane (%d)</item>
+  </plurals>
   <string name="notifications_poll_enable_title">Włącz powiadomienia</string>
   <string name="notifications_poll_enable_positive">Włącz</string>
   <string name="notifications_poll_enable_negative">Nie teraz</string>
   <string name="notifications_view_archived_button_text">Zobacz powiadomienia zarchiwizowane</string>
   <string name="notification_preferences_title">Preferencje powiadomień</string>
   <string name="notifications_mark_unread">Oznacz jako nieprzeczytane</string>
+  <string name="preference_category_notification_types">Typy powiadomień w aplikacji</string>
   <string name="preference_title_notification_welcome">Powitanie</string>
   <string name="preference_summary_notification_welcome">Konto jest tworzone</string>
   <string name="preference_title_notification_milestone">Kamień milowy</string>
@@ -514,7 +540,7 @@
   <string name="view_featured_article_card_title">Wyróżniony artykuł</string>
   <string name="view_featured_article_footer_save_button_label">Zapisz</string>
   <string name="view_featured_article_footer_saved_button_label">Zapisane</string>
-  <string name="feed_configure_activity_title">Dostosuj źródła</string>
+  <string name="feed_configure_activity_title">Dostosuj kanały</string>
   <string name="feed_configure_menu_reset">Przywróć domyślny widok</string>
   <string name="feed_configure_menu_select_all">Pokaż wszystko</string>
   <string name="feed_configure_menu_deselect_all">Ukryj wszystko</string>
@@ -538,6 +564,7 @@
   <string name="description_edit_success_saved">Opis opublikowany!</string>
   <string name="description_edit_success_done">Gotowe</string>
   <string name="description_edit_success_did_you_know">Czy wiesz, że?</string>
+  <string name="description_edit_tutorial_title_descriptions">Opis tytułu</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Najlepiej jedna linia, od dwóch do dwunastu wyrazów.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Rozpocznij edycję</string>
   <string name="description_edit_tutorial_promise">Rozpoczynając, obiecuję nie nadużywać tej funkcji.</string>
@@ -545,12 +572,17 @@
   <string name="description_edit_help_tips">Jak tworzyć opisy</string>
   <string name="description_edit_help_tips_examples">Na przykład:</string>
   <string name="description_edit_help_tips_example1">obraz Leonarda da Vinci</string>
+  <string name="description_edit_help_tips_example1_hint">opis tytułu dla artykułu o Mona Lisie</string>
   <string name="description_edit_help_tips_example2">najwyższy szczyt Ziemi</string>
+  <string name="description_edit_help_tips_example2_hint">opis tytułu dla artykułu o Mount Everest</string>
   <string name="description_edit_help_more_info">Więcej informacji</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_reason2">twój wpis wyglądał na eksperyment lub wandalizm.</string>
-  <string name="description_edit_revert_history">Jeśli jesteś zainteresowany, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>
+  <string name="description_edit_revert_history">Jeśli Cię to interesuje, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">Brak połączenia z Internetem. Upewnij się, że jesteś znów online i spróbuj ponownie.</string>
+  <string name="offline_read_permission_rationale">Pozwolenie na dostęp do pamięci masowej na urządzeniu jest wymagane do przeglądania w trybie offline.</string>
+  <string name="offline_read_final_rationale">Zezwolenie na dostęp do pamięci masowej na urządzeniu jest wymagane do korzystania z Biblioteki offline.</string>
+  <string name="offline_read_permission_error">Nie udzielono zezwolenia na odczyt z pamięci urządzenia.</string>
   <string name="offline_my_compilations">Zarządzaj moją biblioteką offline</string>
   <string name="offline_compilations_title">Biblioteka offline</string>
   <string name="offline_compilations_found_count">W mojej bibliotece offline (%d)</string>
@@ -563,27 +595,28 @@
   <string name="offline_compilation_detail_button_remove">Usuń</string>
   <string name="remote_compilation_download">Pobierz</string>
   <string name="storage_size_free_v2">%s wolnych</string>
+  <string name="storage_used_by_compilations">używane przez Bibliotekę offline</string>
   <string name="storage_other_apps">Inne aplikacje</string>
   <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
   <string name="compilation_download_widget_button_cancel_hint">Anuluj pobieranie</string>
-  <string name="compilation_download_cancel_confirm">Czy na pewno chcesz anulować pobieranie tego pakietu artykułów?</string>
+  <string name="compilation_download_cancel_confirm">Czy na pewno chcesz przerwać pobieranie tego pakietu artykułów?</string>
   <string name="compilation_download_cancel_confirm_yes">Tak</string>
   <string name="compilation_download_cancel_confirm_no">Nie</string>
   <string name="compilation_share">Udostępnij</string>
   <string name="compilation_remove">Usuń</string>
   <string name="offline_library_title">Biblioteka offline</string>
-  <string name="offline_library_search_results_state">Wyniki wyszukiwania w Lokalnej Bibliotece</string>
+  <string name="offline_library_search_results_state">Wyniki wyszukiwania w Bibliotece offline</string>
   <string name="offline_library_onboarding_button_done">Gotowe</string>
   <string name="onboarding_skip">Pomiń</string>
   <string name="onboarding_continue">Kontynuuj</string>
   <string name="onboarding_get_started">Rozpocznij edycję</string>
   <string name="onboarding_explore_title">Nowe metody eksploracji</string>
-  <string name="onboarding_explore_text">Zanurkuj w króliczej norze Wikipedii, ze stale aktualizowanym kanałem Eksploruj.&lt;br/&gt;&lt;b&gt;Dostosuj&lt;/b&gt; źródła do swoich zainteresowań - niezależnie od tego, czy chodzi o wydarzenia historyczne &lt;b&gt;Tego dnia&lt;/b&gt;, czy rzut kostką za pomocą &lt;b&gt;Losowy artykuł&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Zanurkuj w króliczej norze Wikipedii, ze stale aktualizowanym kanałem Eksploruj.&lt;br/&gt;&lt;b&gt;Dostosuj&lt;/b&gt; źródła do swoich zainteresowań - niezależnie od tego, czy chodzi o wydarzenia historyczne &lt;b&gt;Tego dnia&lt;/b&gt;, czy rzut kostką za pomocą &lt;b&gt;Losowego artykułu&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Synchronizacja list do przeczytania</string>
-  <string name="onboarding_reading_list_sync_text" fuzzy="true">Stwórz listę artykułów, które chcesz przeczytać później. Możesz to zrobić nawet jeśli nie masz połączenia z Internetem.&lt;a href=\"#login\"&gt; Zaloguj się lub stwórz konto by utrzymać swoje listy.</string>
+  <string name="onboarding_reading_list_sync_text">Stwórz listy artykułów, które chcesz przeczytać później, nawet jeśli nie masz połączenia z Internetem. &lt;a href=\"#login\"&gt;Zaloguj się lub stwórz konto&lt;/a&gt; na Wikipedii, aby zachować kopie zapasowe swoich list.</string>
   <string name="onboarding_analytics_title">Wyślij anonimowo dane</string>
   <string name="onboarding_analytics_switch_title">Wyślij używane dane</string>
-  <string name="onboarding_create_account_sync">Zzynchronizuj swoje listy czytania</string>
+  <string name="onboarding_create_account_sync">Zsynchronizuj swoje listy czytania</string>
   <string name="onboarding_create_account_contributions">Śledź swój wkład</string>
   <string name="onboarding_create_account_preferences">Zapisz swoje preferencje</string>
   <string name="onboarding_got_it">Wszystko jasne</string>
