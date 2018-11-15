@@ -752,7 +752,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         } else if (newArticleLanguageSelected(requestCode, resultCode) || galleryPageSelected(requestCode, resultCode)) {
             handleLangLinkOrPageResult(data);
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
-            if (app.getTabCount() == 0) {
+            if (app.getTabCount() == 0 && resultCode != TabActivity.RESULT_NEW_TAB) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.
                 finish();
                 return;
