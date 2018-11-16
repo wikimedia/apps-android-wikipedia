@@ -26,7 +26,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SuggestedPagesFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.dataclient.restbase.RbRelatedPages;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.Namespace;
@@ -38,7 +38,6 @@ import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
-import org.wikipedia.search.RelatedPagesSearchClient;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GeoUtil;
@@ -59,7 +58,6 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.Call;
 
 import static org.wikipedia.util.L10nUtil.formatDateRelative;
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
@@ -313,27 +311,21 @@ public class BottomContentView extends LinearLayoutOverWebView
         }
         final long timeMillis = System.currentTimeMillis();
 
-        new RelatedPagesSearchClient().request(entry.getTitle().getConvertedText(), entry.getTitle().getWikiSite(),
-                Constants.MAX_SUGGESTION_RESULTS * 2, new RelatedPagesSearchClient.Callback() {
-            @Override
-            public void success(@NonNull Call<RbRelatedPages> call, @Nullable List<RbPageSummary> results) {
-                funnel.setLatency(System.currentTimeMillis() - timeMillis);
-                readMoreItems = results;
-                if (readMoreItems != null && readMoreItems.size() > 0) {
-                    readMoreAdapter.setResults(results);
-                    showReadMore();
-                } else {
-                    // If there's no results, just hide the section
-                    hideReadMore();
-                }
-            }
-
-            @Override
-            public void failure(@NonNull Call<RbRelatedPages> call, @NonNull Throwable caught) {
-                // Read More titles are expendable.
-                L.w("Error while fetching Read More titles.", caught);
-            }
-        });
+        disposables.add(ServiceFactory.getRest(entry.getTitle().getWikiSite()).getRelatedPages(entry.getTitle().getConvertedText())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(response -> response.getPages(Constants.MAX_SUGGESTION_RESULTS * 2))
+                .subscribe(results -> {
+                    funnel.setLatency(System.currentTimeMillis() - timeMillis);
+                    readMoreItems = results;
+                    if (readMoreItems != null && readMoreItems.size() > 0) {
+                        readMoreAdapter.setResults(results);
+                        showReadMore();
+                    } else {
+                        // If there's no results, just hide the section
+                        hideReadMore();
+                    }
+                }, caught -> L.w("Error while fetching Read More titles.", caught)));
     }
 
     private void hideReadMore() {
