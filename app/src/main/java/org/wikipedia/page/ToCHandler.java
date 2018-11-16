@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.getkeepsafe.taptargetview.TapTargetView;
@@ -34,6 +33,7 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.PageScrollerView;
+import org.wikipedia.views.SwipeableListView;
 
 import java.util.ArrayList;
 
@@ -59,7 +59,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private static final int MAX_LEVELS = 3;
     private static final int ABOUT_SECTION_ID = -1;
 
-    private final ListView tocList;
+    private final SwipeableListView tocList;
     private final PageScrollerView scrollerView;
     private final FrameLayout.LayoutParams scrollerViewParams;
     private final ViewGroup tocContainer;
@@ -100,6 +100,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             funnel.logClick(position, StringUtil.fromHtml(section.getHeading()).toString());
             hide();
         });
+        tocList.setOnSwipeOutListener(this::hide);
 
         webView = fragment.getWebView();
         webView.addOnClickListener(this);
@@ -132,6 +133,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     void setupToC(@NonNull Page page, @NonNull WikiSite wiki, boolean firstPage) {
         adapter.setPage(page);
         rtl = L10nUtil.isLangRTL(wiki.languageCode());
+        tocList.setRtl(rtl);
         setConditionalLayoutDirection(tocContainer, wiki.languageCode());
         FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)tocContainer.getLayoutParams();
         params.gravity = rtl ? Gravity.LEFT : Gravity.RIGHT;
@@ -356,6 +358,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         tocContainer.animate().alpha(semiFade ? TOC_SEMI_FADE_ALPHA : 1f)
                 .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
                 .setListener(null);
+        tocList.setEnabled(true);
         currentItemSelected = -1;
         onScrollerMoved(0f, false);
         funnel.logScrollStart();
@@ -375,6 +378,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
                         tocContainer.setVisibility(View.GONE);
                     }
                 });
+        tocList.setEnabled(false);
         tocShown = false;
         funnel.logScrollStop();
     }

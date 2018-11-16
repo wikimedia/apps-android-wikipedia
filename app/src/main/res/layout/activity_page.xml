@@ -100,7 +100,7 @@
         android:background="?android:colorBackground"
         tools:background="@color/base80">
 
-        <ListView
+        <org.wikipedia.views.SwipeableListView
             android:id="@+id/toc_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -108,7 +108,8 @@
             android:paddingBottom="64dp"
             android:clipChildren="false"
             android:clipToPadding="false"
-            android:scrollbars="none" />
+            android:scrollbars="none"
+            android:listSelector="?android:attr/selectableItemBackground" />
 
         <View
             android:layout_width="37dp"
