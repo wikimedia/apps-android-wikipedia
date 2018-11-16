@@ -19,6 +19,7 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.ObservableWebView;
 
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
@@ -201,11 +202,12 @@ public class LeadImagesHandler {
         pageHeaderView.setCallback(() -> {
             if (getPage() != null && isLeadImageEnabled()) {
                 String imageName = getPage().getPageProperties().getLeadImageName();
-                if (imageName != null) {
+                String imageUrl = getPage().getPageProperties().getLeadImageUrl();
+                if (imageName != null && imageUrl != null) {
                     String filename = "File:" + imageName;
                     WikiSite wiki = getTitle().getWikiSite();
                     getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
-                            parentFragment.getTitleOriginal(), filename, wiki,
+                            parentFragment.getTitleOriginal(), filename, UriUtil.resolveProtocolRelativeUrl(imageUrl), wiki,
                             GalleryFunnel.SOURCE_LEAD_IMAGE),
                             Constants.ACTIVITY_REQUEST_GALLERY);
                 }
