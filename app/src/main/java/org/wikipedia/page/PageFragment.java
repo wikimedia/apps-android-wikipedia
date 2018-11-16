@@ -102,6 +102,7 @@ import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
+import static org.wikipedia.util.StringUtil.addUnderscores;
 import static org.wikipedia.util.ThrowableUtil.isOffline;
 import static org.wikipedia.util.UriUtil.decodeURL;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
@@ -949,9 +950,20 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 String href = decodeURL(messagePayload.getString("href"));
                 if (href.startsWith("/wiki/")) {
                     String filename = UriUtil.removeInternalLinkPrefix(href);
+                    String fileUrl = null;
+
+                    // Set the lead image url manually if the filename equals to the lead image file name.
+                    if (getPage() != null) {
+                        String leadImageName = addUnderscores(getPage().getPageProperties().getLeadImageName());
+                        String leadImageUrl = getPage().getPageProperties().getLeadImageUrl();
+                        if (filename.contains(leadImageName) && leadImageUrl != null) {
+                            fileUrl = UriUtil.resolveProtocolRelativeUrl(leadImageUrl);
+                        }
+                    }
+
                     WikiSite wiki = model.getTitle().getWikiSite();
                     requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
-                            model.getTitleOriginal(), filename, wiki,
+                            model.getTitleOriginal(), filename, fileUrl, wiki,
                             GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
                             Constants.ACTIVITY_REQUEST_GALLERY);
                 } else {
