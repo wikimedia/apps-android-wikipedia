@@ -26,17 +26,13 @@ class FloatingQueueView @JvmOverloads constructor(
         setBackgroundResource(ResourceUtil.getThemedAttributeId(context, R.attr.shadow_background_drawable))
     }
 
-    private var callback: Callback? = null
+    var callback: Callback? = null
     private var openPageFromFloatingQueue: Boolean = false
     var imageView: FaceAndColorDetectImageView = floatingQueueThumbnail
         internal set
 
     interface Callback {
         fun onFloatingQueueClicked(title: PageTitle)
-    }
-
-    fun setCallback(callback: Callback) {
-        this.callback = callback
     }
 
     fun update() {
