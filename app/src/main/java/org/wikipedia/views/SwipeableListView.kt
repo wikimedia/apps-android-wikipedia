@@ -9,8 +9,8 @@ import android.widget.ListView
 class SwipeableListView @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) : ListView(context, attrs, defStyle) {
 
-    private var listener: OnSwipeOutListener? = null
-    private var rtl: Boolean = false
+    var listener: OnSwipeOutListener? = null
+    var rtl: Boolean = false
 
     init {
         // use GestureDetector to take over the onTouchEvent
@@ -20,14 +20,6 @@ class SwipeableListView @JvmOverloads constructor(
 
     interface OnSwipeOutListener {
         fun onSwipeOut()
-    }
-
-    fun setRtl(rtl: Boolean) {
-        this.rtl = rtl
-    }
-
-    fun setOnSwipeOutListener(listener: OnSwipeOutListener) {
-        this.listener = listener
     }
 
     private fun swipeDetected(event1: MotionEvent, event2: MotionEvent): Boolean {

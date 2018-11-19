@@ -100,7 +100,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             funnel.logClick(position, StringUtil.fromHtml(section.getHeading()).toString());
             hide();
         });
-        tocList.setOnSwipeOutListener(this::hide);
+        tocList.setListener(this::hide);
 
         webView = fragment.getWebView();
         webView.addOnClickListener(this);
