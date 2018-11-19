@@ -58,20 +58,21 @@
   <string name="language_count_link_text">ၸႂ့်လႆႈ ၽႃႇသႃႇတၢင်ႇၸိူဝ်း တႃႇ %d မဵဝ်း</string>
   <string name="content_license_html">လွင်ႈတၢင်းမၼ်း တူၺ်းလႆႈ ၵႃႈတီႈ &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ပေႃးဝႃႈ ဢမ်ႇလႆႈမၢႆဝႆႉ။</string>
   <string name="edit_save_action_license_logged_in">ပေႃးဝႃႈပိုၼ်ႇဢွၵ်ႇၼႆ ပွင်ႇဝႃႈၸဝ်ႈၵဝ်ႇၽွမ်ႉၸႂ်တင်း &lt;a href=\"%1$s\"&gt;ၶေႃႈၽွမ်ႉၸႂ် လွင်ႈၸႂ်ႉတိုဝ်း&lt;/a&gt;, တႃႇတေပိုၼ်ဢွၵ်ႇ လွင်ႈႁူမ်ႈသၢင်ႈၸဝ်ႈၵဝ်ႇ ဢမ်ႇလႅၵ်ႈဢမ်ႇလၢႆႈ ၸွမ်းၼင်ႇ ဝႂ်ၶႂၢင်း &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">ၸွမ်းၼင်ႇ လွင်ႈသိမ်းဝႆႉေသ ၸဝ်ႈၵဝ်ႇလႆႈၽွမ်ႉၸႂ်ဝႆႉၸွမ်း &lt;a href=\"%1$s\"&gt;ၶေႃႈၽွမ်ႉၸႂ် လွင်ႈၸႂ်ႉတိုဝ်း&lt;/a&gt;, သေ ၵမ်းလိုၼ်းမႃး တေပိုၼ်ၽႄ လွင်ႈၶဝ်ႈႁူမ်ႈသၢင်ႈ ၸဝ်ႈၵဝ်ႇ ၸွမ်းၼင်ႇ ဝႂ်လူတ်းပွႆႇ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ၼႆႉယူႇ။ လွင်ႈမႄးထတ်းၸိူဝ်းၼႆႉ မၼ်းတေမၢႆတွင်းဝႆႉ ႁဵင်းလိၵ်ႈ ဢၢႆႇၽီႇ ၶွင်ၶိူင်ႈၸၢၵ်ႈၸဝ်ႈၵဝ်ႇဢေႃႈ။ သင်ၸိူဝ်ႉဝႃႈ ၸဝ်ႈၵဝ်ႇ &lt;a href=\"https://#login\"&gt;လွၵ်ႉဢိၼ်ႇ&lt;/a&gt;ၼႆတႄႉ ၸဝ်ႈၵဝ်ႇ တေတိူဝ်းမီး လွင်ႈႁူမ်ႇလူမ်ႈလီဢေႃႈ။</string>
-  <string name="preference_title_language" fuzzy="true">ၽႃႇသႃႇၵႂၢမ်း ဝီႇၶီႇၽီးတီးယႃး</string>
+  <string name="edit_save_action_license_anon">ၸွမ်းၼင်ႇ လွင်ႈပိုၼ်ဢွၵ်ႇသေ၊ ၸဝ်ႈၵဝ်ႇလႆႈၽွမ်ႉၸႂ်ဝႆႉၸွမ်း &lt;a href=\"%1$s\"&gt;ၶေႃႈၽွမ်ႉၸႂ် လွင်ႈၸႂ်ႉတိုဝ်း&lt;/a&gt;, လႄႈ ၵမ်းလိုၼ်းမႃး တေပိုၼ်ၽႄ လွင်ႈၶဝ်ႈႁူမ်ႈသၢင်ႈ ၸဝ်ႈၵဝ်ႇ ၸွမ်းၼင်ႇ ဝႂ်လူတ်းပွႆႇ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ၼႆႉယူႇ။ လွင်ႈမႄးထတ်းၸိူဝ်းၼႆႉ မၼ်းတေမၢႆတွင်းဝႆႉ ႁဵင်းလိၵ်ႈ ဢၢႆႇၽီႇ ၶွင်ၶိူင်ႈၸၢၵ်ႈၸဝ်ႈၵဝ်ႇဢေႃႈ။ သင်ၸိူဝ်ႉဝႃႈ ၸဝ်ႈၵဝ်ႇ ၶဝ်ႈ &lt;a href=\"https://#login\"&gt;လွၵ်ႉဢိၼ်ႇ&lt;/a&gt;ဝႆႉၼႆတႄႉ ၸဝ်ႈၵဝ်ႇ တေတိူဝ်းမီး လွင်ႈႁူမ်ႇလူမ်ႈလီဢေႃႈ။</string>
+  <string name="preference_title_language">ၽႃႇသႃႇၵႂၢမ်း ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="preference_languages_filter_hint">ၶူၼ်ႉႁႃ</string>
   <string name="langlinks_filter_hint">ၶူၼ်ႉႁႃ</string>
   <string name="langlinks_empty">ၼႃႈလိၵ်ႈဢၼ်ၼႆႉ မၼ်းဢမ်ႇၸၢင်ႈၸႂ်ႉၸွမ်း ၽႃႇသႃႇၶေႃႈၵႂၢမ်းတၢင်ႇဢၼ်။</string>
-  <string name="langlinks_no_match" fuzzy="true">ၽႃႇသႃႇၶေႃႈၵႂၢမ်း ဢၼ်မႅၼ်ႈၺႃး ၸွမ်းၼင်ႇ ၸဝ်ႈၵဝ်ႇၸွပ်ႇႁႃၼၼ်ႉ မၼ်းဢမ်ႇမီးဝႆႉ။</string>
+  <string name="langlinks_no_match">ဢမ်ႇႁၼ်ၺႃး ၽႃႇသႃႇၶေႃႈၵႂၢမ်းၼၼ်ႉ။</string>
   <string name="langlinks_activity_title">ၽႃႇသႃႇၵႂၢမ်း တၢင်ႇၸိူဝ်း</string>
+  <string name="langlinks_your_wikipedia_languages">ၽႃႇသႃႇၵႂၢမ်း ဝီႇၶီႇၽီးတီးယႃး သူၸဝ်ႈ</string>
   <string name="menu_save_changes">ပိုၼ်ဢွၵ်ႇ လွင်ႈလႅၵ်ႈလၢႆႈ</string>
   <string name="dialog_saving_in_progress">တိုၵ်ႉပိုၼ်ဢွၵ်ႇယူႇ...</string>
   <string name="edit_saved_successfully">လွင်ႈမႄးထတ်း ပိုၼ်ဢွၵ်ႇယဝ်ႉယဝ်ႈ!</string>
   <string name="dialog_message_edit_failed">လွင်ႈမႄးထတ်း ဢမ်ႇၶႅမ်ႉလႅပ်ႈ!</string>
   <string name="dialog_message_edit_failed_retry">ၶိုၼ်းၶတ်းၸႂ်တူၺ်း</string>
   <string name="dialog_message_edit_failed_cancel">ဢမ်ႇႁဵတ်း</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">လွင်ႈလႅၵ်ႈလၢႆႈၸဝ်ႈၵဝ်ႇၼၼ်ႉ ဢမ်ႇပႆႇလႆႈသိမ်းဝႆႉၵွၼ်ႇ။ လွင်ႈဝႃႈၸဝ်ႈၵဝ်ႇတေ ဢွၵ်ႇၵႂႃႇတီႈ ၼႃႈလိၵ်ႈၼႆႉ လပ်ႉလွင်းယဝ်ႉႁႃႉ?</string>
+  <string name="dialog_message_leaving_edit">လွင်ႈလႅၵ်ႈလၢႆႈၸဝ်ႈၵဝ်ႇၼၼ်ႉ ဢမ်ႇပႆႇလႆႈပိုၼ်ႇဢွၵ်ႇၵွၼ်ႇ။ လွင်ႈဝႃႈၸဝ်ႈၵဝ်ႇတေ ဢွၵ်ႇၵႂႃႇတီႈ ၼႃႈလိၵ်ႈၼႆႉ လပ်ႉလွင်းယဝ်ႉႁႃႉ?</string>
   <string name="dialog_message_leaving_edit_leave">ဢွၵ်ႇၵႂႃႇ</string>
   <string name="dialog_message_leaving_edit_stay">ယူႇဝႆႉ</string>
   <string name="menu_show_toc">လမ်းၼႂ်း</string>
@@ -80,6 +81,7 @@
   <string name="search_reading_lists_no_results">ဢမ်ႇႁၼ်ၽွၼ်းလႆႈ တီႈၼႂ်း သဵၼ်ႈမၢႆလူ</string>
   <string name="search_history_no_results">ဢမ်ႇႁၼ် ၽွၼ်းလႆႈ တီႈၼႂ်း ပိုၼ်းလင်</string>
   <string name="edit_section_captcha_message">တွၼ်ႈတႃႇ ၸွႆႈၵႅတ်ႇၶႄ မူင်ႈမႅင်းၸိူဝ်းၸၢင်ႈၶဝ်ႈၵဝ်းၼၼ်ႉ ၶႅၼ်းတေႃႈ ပေႃႉသႂ်ႇပၼ် ၶေႃႈၵႂၢမ်း ဢၼ်ဢွၵ်ႇၼႄဝႆႉ ၽၢႆႇတႂ်ႈၼႆႉၶႃႈ</string>
+  <string name="edit_section_captcha_request_an_account_message">ဢမ်ႇလႆႈႁၼ် ၶႅပ်းႁၢင်ႈႁႃႉ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;တၢင်ႇလဝ်ႈ ဢၶွင်ႉဢၼ်ၼိုင်ႈ&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">ၶိုၼ်းသႂ်ႇ ၶေႃႈၵႂၢမ်း ၼင်ႇၽၢႆႇၼိူဝ်ၼၼ်ႉ</string>
   <string name="title_captcha">ပေႃႉသႂ်ႇ တူဝ်လိၵ်ႈၼႄႉၼွၼ်း</string>
   <string name="edit_section_captcha_reload">ၼဵၵ်း တူဝ်လိၵ်ႈၼႄႉၼွၼ်း တႃႇ ပိုတ်ႇၶိုၼ်းၑ</string>
@@ -92,14 +94,23 @@
   <string name="login_activity_title">ၶဝ်ႈလွၵ်ႉဢိၼ်ႇၸူး ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="login_in_progress_dialog_message">ၸဝ်ႈၵဝ်ႇ တိုၵ်ႉၶဝ်ႈလွၵ်ႉဢိၼ်ႇယူႇ...</string>
   <string name="login_success_toast">ၽွမ်ႉၶဝ်ႈယဝ်ႉ လီငၢမ်း</string>
+  <string name="reset_password_title">မၵ်းသႂ်ႇၶေႃႈလပ်ႉၸဝ်ႈၵဝ်ႇ</string>
+  <string name="reset_password_description">ၶဝ်ႈၵဝ်ႇၶဝ်ႈလွၵ်ႉဢိၼ်ႇဝႆႉတင်း ၶေႃႈလပ်ႉၸူဝ်ႈၵႅပ်ႉ။ တွၼ်ႈတႃႇႁႂ်ႈယဝ်ႉတူဝ်ႈ ၵၢၼ်လွၵ်ႉဢိၼ်ႇၼၼ်ႉ ၶႅၼ်းတေႃႈ မၵ်းသႂ်ႇပၼ် ၶေႃႈလပ်ႉဢၼ်မႂ်ႇ ၵႃႈတီႈၼႆႈလႄႈ။</string>
+  <string name="reset_password_hint">ၶေႃႈလပ်ႉဢၼ်မႂ်ႇ</string>
+  <string name="reset_password_button">သိမ်းသေ ၶဝ်ႈလွၵ်ႉဢိၼ်ႇ</string>
   <string name="preference_title_logout">လွၵ်ႉဢွၵ်ႉ</string>
   <string name="toast_logout_complete">လွၵ်ႉဢွၵ်ႉယဝ်ႉယဝ်ႈ</string>
   <string name="history_empty_title">ဢမ်ႇမီး ပွင်ႈလိၵ်ႈဢၼ်တိုၵ်ႉႁႃ တူၺ်းၵႂႃႇၼၼ်ႉ</string>
   <string name="history_empty_message">ၸွပ်ႇတူၺ်းဝႃႈ ၸဝ်ႈၵဝ်ႇလူသင်ၵႂႃႇ ၵႃႈတီႈၼႆႈ</string>
   <string name="search_empty_message">ၶူၼ်ႈႁႃ လႄႈ လူ ပပ်ႉသႅၼ်သမ်ႇလွတ်ႈလႅင်း ၼင်ႇ ၽႃႇသႃႇၵႂၢမ်းၸဝ်ႈၵဝ်ႇ</string>
+  <string name="search_empty_message_multilingual_upgrade">သွၵ်ႈႁႃဝီႇၶီႇၽီးတီးယႃး ၼင်ႇၽႃႇသႃႇၵႂၢမ်းတၢင်ႇဢၼ်</string>
   <string name="delete_selected_items">မွတ်ႇပႅတ်ႈ ၸိူဝ်းလိူၵ်ႈဝႆႉၼၼ်ႉ</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">ၸိုဝ်ႈၽူႈၸႂ်ႉတိုဝ်း</string>
+  <string name="login_dont_have_account">ပႆႇပႃႈမီးဢၶွင်ႉႁႃႉ?</string>
+  <string name="login_join_wikipedia">ၶဝ်ႈပႃးတီႈ ဝီႇၶီႇၽီးတီးယႃး</string>
+  <string name="login_forgot_password">လိုမ်းၵႂႃႇ ၶေႃႈလပ်ႉၸဝ်ႈၵဝ်ႇႁႃႉ?</string>
+  <string name="create_account_already_have">မီးဢၶွင်ႉဝႆႉယဝ်ႉႁႃႉ?</string>
   <string name="create_account_activity_title">ၵေႃႇသၢင်ႈဢၶွင်ႉ</string>
   <string name="dialog_create_account_checking_progress">တိုၵ်ႉၼႄႉၼွၼ်းယူႇ</string>
   <string name="create_account_email_hint">ဢီးမေးလ် (မီးသုၼ်ႇလိူၵ်ႈ)</string>
@@ -107,8 +118,11 @@
   <string name="create_account_passwords_mismatch_error">ၶေႃႈလပ်ႉ ဢမ်ႇမႅၼ်ႈၵၼ်</string>
   <string name="create_account_email_error">ႁဵင်းလိၵ်ႈဢီးမေးလ် ၼႆႉၸႂ်ႉဢမ်ႇလႆႈ</string>
   <string name="create_account_username_error">တူဝ်လိၵ်ႈတႃႇ ၸိုဝ်ႈၽူႈၸႂ်ႉတိုဝ်းၼႆႉ ၸႂ်ႉဢမ်ႇလႆႈ</string>
+  <string name="create_account_password_error">ၶေႃႈလပ်ႉ ၸႂ်ႉဢမ်ႇလႆႈ</string>
   <string name="create_account_generic_error">ဢမ်ႇၸၢင်ႈၵေႃႇသၢင်ႈ ဢၶွင်ႉ</string>
   <string name="create_account_next">ထႅင်ႈ</string>
+  <string name="email_recommendation_dialog_title">ဢမ်ႇမီးႁဵင်းလိၵ်ႈဢီးမေးလ်သေ တေၵေႃႇသၢင်ႈဢၶွင်ႉၼႄႇ?</string>
+  <string name="email_recommendation_dialog_message">ႁူမ်ႈဝႃႈ ႁဵင်းလိၵ်ႈဢီးမေးလ်ၼႆႉ ပဵၼ်ၵၢၼ်တၢင်းလိူၵ်ႈဢၼ်ၼိုင်ႈၼႆသေတႃႉ ၶႂ်ႈပၼ်&lt;b&gt;တၢင်းၶႆႈၸႂ်ယမ်ႇၼမ်&lt;/b&gt; သင်ၸိူဝ်ႉဝႃႈ ၸဝ်ႈၵဝ်ႇ လိုမ်းမၢႆလပ်ႉၸဝ်ႈၵဝ်ႇၵႂႃႇၼႆ ႁဵင်းလိၵ်ႈဢီးမေးလ်တႄႉ တေလူဝ်ႇမႃးယူႇယဝ်ႉ။</string>
   <string name="create_account_button">ၵေႃႇသၢင်ႈဢၶွင်ႉ</string>
   <string name="preferences_general_heading">ၵူႈလွင်ႈလွင်ႈ</string>
   <string name="wikipedia_app_faq">ၶေႃႈၵႆႉထၢမ်တွပ်ႇ တႃႇဢႅပ်ႉ ဝီႇၶီႇၽီးတီးယႃး</string>
@@ -205,7 +219,7 @@
   <string name="gallery_save_progress">တိုၵ်ႉလူတ်ႇလူင်း ၾၢႆႇ...</string>
   <string name="gallery_save_success">သိမ်းဝႆႉၾၢႆႇ ၶႅမ်ႉလႅပ်ႈလီယဝ်ႉ။</string>
   <string name="gallery_error_video_failed">ဢမ်ႇၸၢင်ႈ ၽုၺ်ႇငဝ်းတူင်ႉ။</string>
-  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">တွၼ်ႈတႃႇ သိမ်းၶႅပ်းႁၢင်ႈၼႆႉ တေလူဝ်ႇၶေႃႈၶႂၢင်းပၼ် တွၼ်ႈတႃႇတေတႅမ်မၢႆသႂ်ႇ တီႈၼႂ်း ၶိူင်ႈၸႂ်ႉၸဝ်ႈၵဝ်ႇဢေႃႈ။ ၶႅၼ်းတေႃႈ ႁဵတ်းတူၺ်းထႅင်ႈသေ ပၼ်ၶေႃႈၶႂၢင်း ဢၼ်တုၵ်းယွၼ်းဝႆႉၼၼ်ႉၶႃႈလႄႈ။</string>
+  <string name="gallery_save_image_write_permission_rationale">တွၼ်ႈတႃႇ သိမ်းၶႅပ်းႁၢင်ႈၼႆႉ တေလူဝ်ႇၶေႃႈၶႂၢင်းပၼ် တွၼ်ႈတႃႇတေတႅမ်ႈမၢႆသႂ်ႇ တီႈၼႂ်း ၶိူင်ႈၶူဝ်းၸဝ်ႈၵဝ်ႇဢေႃႈ။</string>
   <string name="err_cannot_save_file">ဢမ်ႇၸၢင်ႈ သိမ်းၾၢႆႇ</string>
   <string name="snippet_share_intro">\"%1$s\" တီႈၼိူဝ် @ဝီႇၶီႇၽီးတီးယႃး: %2$s</string>
   <string name="expand_refs">ၼဵၵ်းတႃႇ ၵႄႈတူၺ်း</string>
@@ -220,7 +234,7 @@
   <string name="menu_close_all_tabs">ႁပ်းထႅပ်ႉတင်းသဵင်ႈ</string>
   <string name="close_all_tabs_confirm">ၸဝ်ႈၵဝ်ႇၶႂ်ႈ ႁပ်ႉထႅမ်ႉတင်းသဵင်ႈၼႆႉ လပ်ႉလွင်းယဝ်ႉႁႃႉ?</string>
   <string name="button_close_tab">ႁပ်ႉထႅပ်ႉ</string>
-  <string name="tool_tip_select_text" fuzzy="true">တႃႇၵူးဢဝ်လႄႈ တႃႇပိုၼ်ၽႄၸိုင် တီႈၼိူဝ်လိၵ်ႈၼၼ်ႉ ၼဵၵ်းဝႆႉႁိုင် ဢမ်ႇၼၼ် လိူၵ်ႈလမ်တ</string>
+  <string name="tool_tip_select_text">ၼဵၵ်းဝႆ့ တီႈၼိူဝ်တူဝ်လိၵ်ႈသေပႂ်ႉဝႆႉ တွၼ်ႈတႃႇလိူၵ်ႈဢဝ် တႃႇထုတ်ႇဢဝ်လႄႈ တႃႇပိုၼ်ၽႄ</string>
   <string name="tool_tip_share">ပေႃးဝႃႈ လိူၵ်ႈဢဝ်ၶေႃႈၶၢဝ်ႇ ဢၼ်လႆႈၸႂ်ယဝ်ႉၼႆ ၶတ်းၸႂ်ၽႄႈတိုၼ်းတီႈၼိူဝ် ၵွင်ႉသၢၼ်ၼႅင်ႈ ဢၼ်ၸဝ်ႈၵဝ်ႇ လႆႈၸႂ်ၼၼ်ႉလႄႈ။</string>
   <string name="page_view_in_browser">ၼႄပၼ် ၼႃႈလိၵ်ႈ တီႈၼႂ်း တူဝ်ပိုတ်ႇႁႃ</string>
   <string name="error_response_malformed">ၶေႃႈတွပ်ႇၶိုၼ်းပၼ် ၵႃႈတီႈ သႃႇပိူဝ်ႇၼၼ်ႉ ဢမ်ႇမႅၼ်ႈလၢႆႈမၼ်းလီ။</string>

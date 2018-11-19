@@ -685,7 +685,7 @@
   <string name="onboarding_got_it">Разумем</string>
   <string name="onboarding_multilingual_secondary_text">Пронашли смо следеће на вашем уређају:</string>
   <string name="onboarding_multilingual_add_language_text">Додај или уреди језике</string>
-  <string name="onboarding_welcome_title_v2">Слободна енциклопедија\nна готово 300 језика</string>
+  <string name="onboarding_welcome_title_v2">Слободна енциклопедија\n…на готово 300 језика</string>
   <string name="app_shortcuts_random">Случајни</string>
   <string name="app_shortcuts_continue_reading">Настави читање</string>
   <string name="app_shortcuts_search">Претражи</string>
@@ -700,7 +700,7 @@
     <item quantity="one">Прошле године</item>
     <item quantity="other">Пре %d године</item>
   </plurals>
-  <string name="languages_list_activity_title">Додај језик</string>
+  <string name="languages_list_activity_title">Додавање језика</string>
   <string name="languages_list_suggested_text">Предложени</string>
   <string name="languages_list_all_text">Сви језици</string>
   <string name="wikipedia_languages_title">Језици Википедије</string>
