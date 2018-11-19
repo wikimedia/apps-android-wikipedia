@@ -10,17 +10,17 @@ import org.wikipedia.readinglist.database.ReadingListPage
 
 object PageAvailableOfflineHandler {
     interface Callback {
-        fun onFinish(shouldGreyOut: Boolean)
+        fun onFinish(available: Boolean)
     }
 
     fun check(page: ReadingListPage, callback: Callback) {
-        callback.onFinish((!WikipediaApp.getInstance().isOnline && (!page.offline() || page.saving())))
+        callback.onFinish(WikipediaApp.getInstance().isOnline || (page.offline() && !page.saving()))
     }
 
     @SuppressLint("CheckResult")
     fun check(pageTitle: PageTitle, callback: Callback) {
         if (WikipediaApp.getInstance().isOnline) {
-            callback.onFinish(false)
+            callback.onFinish(true)
             return
         }
 
@@ -28,9 +28,9 @@ object PageAvailableOfflineHandler {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    callback.onFinish(!it!!.offline() || it.saving())
+                    callback.onFinish(it!!.offline() && !it.saving())
                 }, {
-                    callback.onFinish(true)
+                    callback.onFinish(false)
                 })
     }
 }

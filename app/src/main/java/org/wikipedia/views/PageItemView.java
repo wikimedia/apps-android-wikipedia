@@ -180,16 +180,13 @@ public class PageItemView<T> extends ConstraintLayout {
 
     @SuppressWarnings("checkstyle:magicnumber")
     public void setViewsGreyedOut(boolean greyedOut) {
-
         // Cannot use isAttachedToWindow() because the first two item will be reset when the setHistoryEntry() getting called even they are not visible.
         if (titleView == null || descriptionView == null || imageView == null) {
             return;
         }
-
-        titleView.setTextColor(greyedOut
-                ? ContextCompat.getColor(getContext(), R.color.base30) : ResourceUtil.getThemedColor(getContext(), R.attr.primary_text_color));
-        descriptionView.setTextColor(greyedOut
-                ? ContextCompat.getColor(getContext(), R.color.base50) : ResourceUtil.getThemedColor(getContext(), R.attr.secondary_text_color));
-        imageView.setAlpha(greyedOut ? 0.5f : 1.0f);
+        final float alpha = greyedOut ? 0.5f : 1.0f;
+        titleView.setAlpha(alpha);
+        descriptionView.setAlpha(alpha);
+        imageView.setAlpha(alpha);
     }
 }

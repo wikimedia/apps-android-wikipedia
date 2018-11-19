@@ -402,7 +402,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             getView().setDescription(indexedEntry.getEntry().getTitle().getDescription());
             getView().setImageUrl(PageHistoryContract.PageWithImage.IMAGE_NAME.val(cursor));
             getView().setSelected(selectedIndices.contains(indexedEntry.getIndex()));
-            PageAvailableOfflineHandler.INSTANCE.check(indexedEntry.getEntry().getTitle(), getView()::setViewsGreyedOut);
+            PageAvailableOfflineHandler.INSTANCE.check(indexedEntry.getEntry().getTitle(), available -> getView().setViewsGreyedOut(!available));
 
             // Check the previous item, see if the times differ enough
             // If they do, display the section header.

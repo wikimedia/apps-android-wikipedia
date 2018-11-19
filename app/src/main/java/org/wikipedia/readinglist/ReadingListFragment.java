@@ -757,7 +757,7 @@ public class ReadingListFragment extends Fragment implements
             getView().setCircularProgressVisibility(page.downloadProgress() > 0 && page.downloadProgress() < MAX_PROGRESS);
             getView().setProgress(page.downloadProgress() == MAX_PROGRESS ? 0 : page.downloadProgress());
             getView().setSecondaryActionHint(R.string.reading_list_article_make_offline);
-            PageAvailableOfflineHandler.INSTANCE.check(page, getView()::setViewsGreyedOut);
+            PageAvailableOfflineHandler.INSTANCE.check(page, available -> getView().setViewsGreyedOut(!available));
         }
 
         @Override

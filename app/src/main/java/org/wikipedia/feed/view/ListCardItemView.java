@@ -74,7 +74,7 @@ public class ListCardItemView extends ConstraintLayout {
         setTitle(entry.getTitle().getDisplayText());
         setSubtitle(entry.getTitle().getDescription());
         setImage(entry.getTitle().getThumbUrl());
-        PageAvailableOfflineHandler.INSTANCE.check(entry.getTitle(), this::setViewsGreyedOut);
+        PageAvailableOfflineHandler.INSTANCE.check(entry.getTitle(), available -> setViewsGreyedOut(!available));
         return this;
     }
 
@@ -131,16 +131,13 @@ public class ListCardItemView extends ConstraintLayout {
 
     @SuppressWarnings("checkstyle:magicnumber")
     private void setViewsGreyedOut(boolean greyedOut) {
-
         // Cannot use isAttachedToWindow() because the first two item will be reset when the setHistoryEntry() getting called even they are not visible.
         if (titleView == null || subtitleView == null || imageView == null) {
             return;
         }
-
-        titleView.setTextColor(greyedOut
-                ? ContextCompat.getColor(getContext(), R.color.base30) : ResourceUtil.getThemedColor(getContext(), R.attr.primary_text_color));
-        subtitleView.setTextColor(greyedOut
-                ? ContextCompat.getColor(getContext(), R.color.base50) : ResourceUtil.getThemedColor(getContext(), R.attr.secondary_text_color));
-        imageView.setAlpha(greyedOut ? 0.5f : 1.0f);
+        final float alpha = greyedOut ? 0.5f : 1.0f;
+        titleView.setAlpha(alpha);
+        subtitleView.setAlpha(alpha);
+        imageView.setAlpha(alpha);
     }
 }
