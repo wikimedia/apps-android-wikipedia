@@ -801,5 +801,13 @@ public final class Prefs {
         setInt(R.string.preference_key_overflow_reading_lists_option_click_count, count);
     }
 
+    public static boolean shouldShowHistoryOfflineArticlesToast() {
+        return getBoolean(R.string.preference_key_history_offline_articles_toast, true);
+    }
+
+    public static void shouldShowHistoryOfflineArticlesToast(boolean showToast) {
+        setBoolean(R.string.preference_key_history_offline_articles_toast, showToast);
+    }
+
     private Prefs() { }
 }

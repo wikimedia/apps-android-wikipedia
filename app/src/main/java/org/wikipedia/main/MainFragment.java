@@ -459,6 +459,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         Fragment fragment = getCurrentFragment();
         if (fragment instanceof FeedFragment) {
             ((FeedFragment) fragment).onGoOffline();
+        } else if (fragment instanceof HistoryFragment) {
+            ((HistoryFragment) fragment).refresh();
         }
     }
 
@@ -466,6 +468,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         Fragment fragment = getCurrentFragment();
         if (fragment instanceof FeedFragment) {
             ((FeedFragment) fragment).onGoOnline();
+        } else if (fragment instanceof HistoryFragment) {
+            ((HistoryFragment) fragment).refresh();
         }
     }
 

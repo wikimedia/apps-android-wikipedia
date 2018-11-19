@@ -98,4 +98,5 @@
     <string name="preference_key_save_count_reading_lists">saveCountReadingLists</string>
     <string name="preference_key_show_bookmark_tooltip">showBookmarkTooltip</string>
     <string name="preference_key_overflow_reading_lists_option_click_count">overflowReadingListsClickCount</string>
+    <string name="preference_key_history_offline_articles_toast">historyOfflineArticlesToast</string>
 </resources>
