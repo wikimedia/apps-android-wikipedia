@@ -71,6 +71,7 @@ public class BottomContentView extends LinearLayoutOverWebView
     private PageFragment parentFragment;
     private WebView webView;
     private boolean firstTimeShown = false;
+    private boolean webViewPadded = false;
     private int prevLayoutHeight;
     private Page page;
 
@@ -136,6 +137,9 @@ public class BottomContentView extends LinearLayoutOverWebView
         addOnLayoutChangeListener((View v, int left, int top, int right, int bottom,
                                        int oldLeft, int oldTop, int oldRight, int oldBottom) -> {
             if (prevLayoutHeight == getHeight()) {
+                if (!webViewPadded) {
+                    padWebView();
+                }
                 return;
             }
             prevLayoutHeight = getHeight();
@@ -156,6 +160,7 @@ public class BottomContentView extends LinearLayoutOverWebView
         this.page = page;
         funnel = new SuggestedPagesFunnel(WikipediaApp.getInstance());
         firstTimeShown = false;
+        webViewPadded = false;
 
         setConditionalLayoutDirection(readMoreList, page.getTitle().getWikiSite().languageCode());
 
@@ -250,6 +255,7 @@ public class BottomContentView extends LinearLayoutOverWebView
             throw new RuntimeException(e);
         }
         bridge.sendMessage("setPaddingBottom", payload);
+        webViewPadded = true;
         // ^ sending the padding event will guarantee a ContentHeightChanged event to be triggered,
         // which will update our margin based on the scroll offset, so we don't need to do it here.
         // And while we wait, let's make ourselves invisible, until we're made explicitly visible
