@@ -115,7 +115,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             getSupportActionBar().setTitle("");
             controlNavTabInFragment = false;
         } else {
-            if (tab.equals(NavTab.HISTORY)) {
+            if (tab.equals(NavTab.HISTORY) && getFragment().getCurrentFragment() != null) {
                 ((HistoryFragment) getFragment().getCurrentFragment()).refresh();
             }
             getToolbarWordmark().setVisibility(View.GONE);
