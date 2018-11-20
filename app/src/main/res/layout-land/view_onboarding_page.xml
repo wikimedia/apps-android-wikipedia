@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:background="@drawable/onboarding_gradient_background_135">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="6dp"
                     android:fontFamily="sans-serif-medium"
-                    android:textColor="@android:color/white"
+                    android:textColor="?attr/material_theme_primary_color"
                     android:textSize="24sp"
                     style="@style/TextViewCentered"
                     tools:text="Lorem ipsum" />
@@ -63,8 +62,8 @@
                     android:gravity="center"
                     android:lineSpacingMultiplier="1.22"
                     android:textAlignment="center"
-                    android:textColor="@android:color/white"
-                    android:textColorLink="@android:color/white"
+                    android:textColor="?attr/material_theme_secondary_color"
+                    android:textColorLink="?attr/colorAccent"
                     android:textSize="16sp"
                     tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
 
@@ -86,7 +85,7 @@
                     <View
                         android:layout_width="wrap_content"
                         android:layout_height="0.5dp"
-                        android:background="@color/white20" />
+                        android:background="?attr/chart_shade5" />
 
                     <android.support.v7.widget.SwitchCompat
                         android:id="@+id/view_onboarding_page_switch"
@@ -96,14 +95,14 @@
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
                         android:layout_marginTop="8dp"
-                        android:textColor="@android:color/white"
+                        android:textColor="?attr/material_theme_primary_color"
                         app:theme="@style/OnboardingSwitch"
                         tools:text="Lorem ipsum" />
 
                     <View
                         android:layout_width="wrap_content"
                         android:layout_height="0.5dp"
-                        android:background="@color/white20" />
+                        android:background="?attr/chart_shade5" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -115,7 +114,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/description_edit_tutorial_promise"
                 android:textAlignment="center"
-                android:textColor="@android:color/white"
+                android:textColor="?attr/material_theme_secondary_color"
                 android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
