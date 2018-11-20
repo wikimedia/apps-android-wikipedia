@@ -110,7 +110,7 @@ public interface RestService {
 
     @Headers(ACCEPT_HEADER_SUMMARY)
     @GET("page/related/{title}")
-    @NonNull Call<RbRelatedPages> getRelatedPages(@Path("title") String title);
+    @NonNull Observable<RbRelatedPages> getRelatedPages(@Path("title") String title);
 
     @GET("page/media/{title}")
     @NonNull Observable<Gallery> getMedia(@Path("title") String title);
