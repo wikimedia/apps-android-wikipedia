@@ -15,6 +15,7 @@ import org.wikipedia.util.DateUtil;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class OnThisDayCard extends WikiSiteCard {
     private int nextYear;
@@ -81,5 +82,9 @@ public class OnThisDayCard extends WikiSiteCard {
 
     int getAge() {
         return age;
+    }
+
+    @Override protected int dismissHashCode() {
+        return (int) TimeUnit.MILLISECONDS.toDays(date.getTime().getTime()) + wikiSite().hashCode();
     }
 }
