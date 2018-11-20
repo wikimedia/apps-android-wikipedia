@@ -71,7 +71,7 @@ public class CommunicationBridge {
             e.printStackTrace();
         }
         isDOMReady = false;
-        webView.loadDataWithBaseURL("", html, "text/html", "utf-8", "");
+        webView.loadDataWithBaseURL(wikiUrl, html, "text/html", "utf-8", "");
     }
 
     public void cleanup() {
