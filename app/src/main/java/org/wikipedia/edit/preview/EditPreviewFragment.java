@@ -60,6 +60,7 @@ public class EditPreviewFragment extends Fragment {
 
     private ProgressDialog progressDialog;
     private EditFunnel funnel;
+    private String baseUrl = "file:///android_asset/preview.html";
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -67,8 +68,7 @@ public class EditPreviewFragment extends Fragment {
         webview = parent.findViewById(R.id.edit_preview_webview);
         previewContainer = parent.findViewById(R.id.edit_preview_container);
         editSummaryTagsContainer = parent.findViewById(R.id.edit_summary_tags_container);
-
-        bridge = new CommunicationBridge(webview, "file:///android_asset/preview.html");
+        bridge = new CommunicationBridge(webview, baseUrl);
 
         return parent;
     }
@@ -79,6 +79,7 @@ public class EditPreviewFragment extends Fragment {
 
         parentActivity = (EditSectionActivity)getActivity();
         PageTitle pageTitle = parentActivity.getPageTitle();
+        bridge.loadPageForWiki(baseUrl, "preview.html", pageTitle.getWikiSite().url());
         funnel = WikipediaApp.getInstance().getFunnelManager().getEditFunnel(pageTitle);
 
         /*
