@@ -346,7 +346,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         // creating a seizure-inducing effect, or at the very least, a migraine with aura).
         webView.setBackgroundColor(getThemedColor(requireActivity(), R.attr.paper_color));
 
-        bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
+        bridge = new CommunicationBridge(webView);
         setupMessageHandlers();
         sendDecorOffsetMessage();
 
