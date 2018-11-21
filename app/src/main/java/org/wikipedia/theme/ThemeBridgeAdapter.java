@@ -24,10 +24,6 @@ public final class ThemeBridgeAdapter {
         bridge.sendMessage("setTheme", getPayload());
     }
 
-    public static void toggleDimImages(@NonNull CommunicationBridge bridge) {
-        bridge.sendMessage("toggleDimImages", getPayload());
-    }
-
     private ThemeBridgeAdapter() {
     }
 }

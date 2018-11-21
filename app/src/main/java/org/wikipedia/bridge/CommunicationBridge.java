@@ -1,6 +1,7 @@
 package org.wikipedia.bridge;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -13,8 +14,11 @@ import android.webkit.WebView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.theme.ThemeBridgeAdapter;
 import org.wikipedia.util.FileUtil;
+import org.wikipedia.util.ResourceUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -62,16 +66,23 @@ public class CommunicationBridge {
         });
     }
 
-    public void resetHtml(@NonNull String assetFileName, @NonNull String wikiUrl) {
+    public void resetHtml(@NonNull Context context, @NonNull String assetFileName, @NonNull String wikiUrl) {
         String html = "";
         try {
+            final int rgbMask = 0xFFFFFF;
             html = FileUtil.readFile(WikipediaApp.getInstance().getAssets().open(assetFileName))
-                    .replace("####", wikiUrl);
+                    .replace("$wikiurl", wikiUrl)
+                    .replace("$bodybackground", String.format("#%06X",
+                            ResourceUtil.getThemedColor(context, R.attr.paper_color) & rgbMask));
         } catch (IOException e) {
             e.printStackTrace();
         }
         isDOMReady = false;
         webView.loadDataWithBaseURL(wikiUrl, html, "text/html", "utf-8", "");
+
+        if (!WikipediaApp.getInstance().getCurrentTheme().isDefault()) {
+            ThemeBridgeAdapter.setTheme(this);
+        }
     }
 
     public void cleanup() {

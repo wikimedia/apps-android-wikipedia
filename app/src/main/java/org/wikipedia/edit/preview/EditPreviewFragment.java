@@ -78,7 +78,7 @@ public class EditPreviewFragment extends Fragment {
 
         parentActivity = (EditSectionActivity)getActivity();
         PageTitle pageTitle = parentActivity.getPageTitle();
-        bridge.resetHtml("preview.html", pageTitle.getWikiSite().url());
+        bridge.resetHtml(requireActivity(), "preview.html", pageTitle.getWikiSite().url());
         funnel = WikipediaApp.getInstance().getFunnelManager().getEditFunnel(pageTitle);
 
         /*

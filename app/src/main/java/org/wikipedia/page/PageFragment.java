@@ -69,7 +69,6 @@ import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.theme.ThemeBridgeAdapter;
 import org.wikipedia.util.ActiveTimer;
 import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
@@ -349,10 +348,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         bridge = new CommunicationBridge(webView);
         setupMessageHandlers();
         sendDecorOffsetMessage();
-
-        if (!app.getCurrentTheme().isDefault()) {
-            ThemeBridgeAdapter.setTheme(bridge);
-        }
 
         errorView.setRetryClickListener((v) -> refreshPage());
         errorView.setBackClickListener((v) -> {
