@@ -32,7 +32,7 @@ public class PageProperties implements Parcelable {
     private final boolean isDisambiguationPage;
     /** Nullable URL with no scheme. For example, foo.bar.com/ instead of http://foo.bar.com/. */
     @Nullable private final String leadImageUrl;
-    private final String leadImageName;
+    @Nullable private final String leadImageName;
     @Nullable private final String titlePronunciationUrl;
     @Nullable private final Location geo;
     @Nullable private final String wikiBaseItem;
@@ -163,6 +163,7 @@ public class PageProperties implements Parcelable {
         return leadImageUrl;
     }
 
+    @Nullable
     public String getLeadImageName() {
         return leadImageName;
     }
