@@ -59,7 +59,7 @@ public final class EventLoggingService {
             }
 
             Request request = new Request.Builder().url(dataURL).post(EMPTY_REQ).build();
-            OkHttpConnectionFactory.getClient().newCall(request).execute().close();
+            OkHttpConnectionFactory.INSTANCE.getClient().newCall(request).execute().close();
         }).subscribeOn(Schedulers.io())
                 .subscribe(() -> { },
                         throwable -> L.d("Lost EL data: " + event.toString()));

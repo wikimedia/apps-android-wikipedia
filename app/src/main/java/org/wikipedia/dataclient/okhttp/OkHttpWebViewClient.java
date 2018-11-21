@@ -166,7 +166,7 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
         Request.Builder builder = new Request.Builder()
                 .url(url)
                 .cacheControl(getModel().getCacheControl());
-        return OkHttpConnectionFactory.getClient().newCall(addHeaders(builder).build()).execute();
+        return OkHttpConnectionFactory.INSTANCE.getClient().newCall(addHeaders(builder).build()).execute();
     }
 
     @TargetApi(21)
@@ -177,7 +177,7 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
         for (String header : request.getRequestHeaders().keySet()) {
             builder.header(header, request.getRequestHeaders().get(header));
         }
-        return OkHttpConnectionFactory.getClient().newCall(addHeaders(builder).build()).execute();
+        return OkHttpConnectionFactory.INSTANCE.getClient().newCall(addHeaders(builder).build()).execute();
     }
 
     private Request.Builder addHeaders(@NonNull Request.Builder builder) {
