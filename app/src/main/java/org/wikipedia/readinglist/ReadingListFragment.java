@@ -1,5 +1,6 @@
 package org.wikipedia.readinglist;
 
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.os.Build;
@@ -30,6 +31,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -122,6 +124,7 @@ public class ReadingListFragment extends Fragment implements
     private MultiSelectActionModeCallback multiSelectActionModeCallback = new MultiSelectCallback();
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private boolean toolbarExpanded = true;
+    private boolean transparentStatusBarEnabled = true;
 
     @NonNull private List<ReadingListPage> displayedPages = new ArrayList<>();
     private String currentSearchQuery;
@@ -700,7 +703,12 @@ public class ReadingListFragment extends Fragment implements
 
             recyclerView.post(() -> {
                 if (isAdded()) {
-                    DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar, toolbarExpanded);
+                    DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar, toolbarExpanded && transparentStatusBarEnabled);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        requireActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                        requireActivity().getWindow().setStatusBarColor(transparentStatusBarEnabled
+                                ? Color.TRANSPARENT : ResourceUtil.getThemedColor(requireActivity(), R.attr.main_status_bar_color));
+                    }
                 }
             });
             // prevent swiping when collapsing the view
@@ -880,6 +888,7 @@ public class ReadingListFragment extends Fragment implements
             recyclerView.stopScroll();
             appBarLayout.setExpanded(false, false);
             floatingQueueView.hide();
+            transparentStatusBarEnabled = false;
             ViewUtil.finishActionModeWhenTappingOnView(getView(), actionMode);
             return super.onCreateActionMode(mode, menu);
         }
@@ -894,6 +903,7 @@ public class ReadingListFragment extends Fragment implements
             super.onDestroyActionMode(mode);
             actionMode = null;
             floatingQueueView.show();
+            transparentStatusBarEnabled = true;
             setSearchQuery(null);
         }
 
@@ -913,6 +923,7 @@ public class ReadingListFragment extends Fragment implements
             super.onCreateActionMode(mode, menu);
             mode.getMenuInflater().inflate(R.menu.menu_action_mode_reading_list, menu);
             actionMode = mode;
+            transparentStatusBarEnabled = false;
             return true;
         }
 
@@ -946,6 +957,7 @@ public class ReadingListFragment extends Fragment implements
         @Override public void onDestroyActionMode(ActionMode mode) {
             unselectAllPages();
             actionMode = null;
+            transparentStatusBarEnabled = true;
             super.onDestroyActionMode(mode);
         }
     }
