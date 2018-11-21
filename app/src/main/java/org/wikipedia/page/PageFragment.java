@@ -953,7 +953,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     String fileUrl = null;
 
                     // Set the lead image url manually if the filename equals to the lead image file name.
-                    if (getPage() != null) {
+                    if (getPage() != null && !TextUtils.isEmpty(getPage().getPageProperties().getLeadImageName())) {
                         String leadImageName = addUnderscores(getPage().getPageProperties().getLeadImageName());
                         String leadImageUrl = getPage().getPageProperties().getLeadImageUrl();
                         if (filename.contains(leadImageName) && leadImageUrl != null) {
