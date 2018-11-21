@@ -27,9 +27,10 @@ class FloatingQueueView @JvmOverloads constructor(
     }
 
     var callback: Callback? = null
-    private var openPageFromFloatingQueue: Boolean = false
     var imageView: FaceAndColorDetectImageView = floatingQueueThumbnail
         internal set
+    private var openPageFromFloatingQueue: Boolean = false
+    private var shouldShowFloatingQueue: Boolean = false
 
     interface Callback {
         fun onFloatingQueueClicked(title: PageTitle)
@@ -39,7 +40,7 @@ class FloatingQueueView @JvmOverloads constructor(
         openPageFromFloatingQueue = false
 
         val tabList = WikipediaApp.getInstance().tabList
-        var shouldShowFloatingQueue = tabList.size > 0
+        shouldShowFloatingQueue = tabList.size > 0
 
         if (shouldShowFloatingQueue) {
             val title = tabList[tabList.size - 1].backStackPositionTitle
@@ -65,7 +66,15 @@ class FloatingQueueView @JvmOverloads constructor(
             }
         }
 
+        show()
+    }
+
+    fun show() {
         visibility = if (shouldShowFloatingQueue) VISIBLE else INVISIBLE
+    }
+
+    fun hide() {
+        visibility = INVISIBLE
     }
 
     fun animation(isOnPause: Boolean) {

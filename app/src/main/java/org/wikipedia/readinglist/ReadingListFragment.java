@@ -879,7 +879,7 @@ public class ReadingListFragment extends Fragment implements
             actionMode = mode;
             recyclerView.stopScroll();
             appBarLayout.setExpanded(false, false);
-            floatingQueueView.setVisibility(View.GONE);
+            floatingQueueView.hide();
             ViewUtil.finishActionModeWhenTappingOnView(getView(), actionMode);
             return super.onCreateActionMode(mode, menu);
         }
@@ -893,7 +893,7 @@ public class ReadingListFragment extends Fragment implements
         public void onDestroyActionMode(ActionMode mode) {
             super.onDestroyActionMode(mode);
             actionMode = null;
-            floatingQueueView.setVisibility(View.VISIBLE);
+            floatingQueueView.show();
             setSearchQuery(null);
         }
 
