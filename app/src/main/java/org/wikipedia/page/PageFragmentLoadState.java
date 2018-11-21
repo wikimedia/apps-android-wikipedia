@@ -436,7 +436,9 @@ public class PageFragmentLoadState {
                 .put("fromRestBase", page.isFromRestBase())
                 .put("apiLevel", Build.VERSION.SDK_INT)
                 .put("showImages", Prefs.isImageDownloadEnabled())
-                .put("collapseTables", Prefs.isCollapseTablesEnabled());
+                .put("collapseTables", Prefs.isCollapseTablesEnabled())
+                .put("theme", app.getCurrentTheme().getMarshallingId())
+                .put("dimImages", Prefs.shouldDimDarkModeImages());
     }
 
     private JSONObject leadSectionPayload(@NonNull Page page) {

@@ -16,7 +16,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.theme.ThemeBridgeAdapter;
 import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.ResourceUtil;
 
@@ -79,10 +78,6 @@ public class CommunicationBridge {
         }
         isDOMReady = false;
         webView.loadDataWithBaseURL(wikiUrl, html, "text/html", "utf-8", "");
-
-        if (!WikipediaApp.getInstance().getCurrentTheme().isDefault()) {
-            ThemeBridgeAdapter.setTheme(this);
-        }
     }
 
     public void cleanup() {

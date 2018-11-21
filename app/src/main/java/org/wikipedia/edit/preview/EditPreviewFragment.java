@@ -28,7 +28,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.LinkHandler;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.theme.ThemeBridgeAdapter;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ConfigurationCompat;
 import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.log.L;
@@ -177,9 +177,6 @@ public class EditPreviewFragment extends Fragment {
         if (!isWebViewSetup) {
             isWebViewSetup = true;
             L10nUtil.setupDirectionality(parentActivity.getPageTitle().getWikiSite().languageCode(), Locale.getDefault(), bridge);
-            if (!WikipediaApp.getInstance().getCurrentTheme().isDefault()) {
-                ThemeBridgeAdapter.setTheme(bridge);
-            }
 
             bridge.addListener("linkClicked", new LinkHandler(requireActivity()) {
                 @Override
@@ -240,6 +237,8 @@ public class EditPreviewFragment extends Fragment {
         try {
             payload.put("html", html);
             payload.put("siteBaseUrl", parentActivity.getPageTitle().getWikiSite().url());
+            payload.put("theme", WikipediaApp.getInstance().getCurrentTheme().getMarshallingId());
+            payload.put("dimImages", Prefs.shouldDimDarkModeImages());
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
