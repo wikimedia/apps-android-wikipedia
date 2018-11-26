@@ -112,6 +112,7 @@
   <string name="toast_logout_complete">יצאת מהחשבון</string>
   <string name="history_empty_title">אין ערכים שהוצגו לאחרונה</string>
   <string name="history_empty_message">כאן עוקבים אחרי מה שקראת.</string>
+  <string name="history_offline_articles_toast">ייתכן שחלק מהערכים בהיסטוריה אינם זמינים להצגה ללא חיבור לרשת.</string>
   <string name="search_empty_message">חיפוש וקריאה באנציקלופדיה החופשית בשפה שלך</string>
   <string name="search_empty_message_multilingual_upgrade">חיפוש בוויקיפדיה בשפות נוספות</string>
   <string name="delete_selected_items">מחיקת הפריטים שנבחרו</string>

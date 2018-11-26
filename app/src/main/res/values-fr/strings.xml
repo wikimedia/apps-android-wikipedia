@@ -127,6 +127,7 @@
   <string name="toast_logout_complete">Déconnecté</string>
   <string name="history_empty_title">Aucun article consulté récemment</string>
   <string name="history_empty_message">Tracer ce que vous avez lu ici.</string>
+  <string name="history_offline_articles_toast">Certains articles de l\'historique peuvent ne pas être consultables en mode déconnecté.</string>
   <string name="search_empty_message">Cherchez et lisez l’encyclopédie libre dans votre langue</string>
   <string name="search_empty_message_multilingual_upgrade">Chercher sur Wikipédia dans davantage de langues</string>
   <string name="delete_selected_items">Supprimer les éléments sélectionnés</string>

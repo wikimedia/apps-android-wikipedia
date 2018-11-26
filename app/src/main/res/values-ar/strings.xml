@@ -122,6 +122,7 @@
   <string name="toast_logout_complete">تم تسجيل الخروج</string>
   <string name="history_empty_title">لا مقالات معروضة مؤخرًا!</string>
   <string name="history_empty_message">يمكنك متابعة ما كنت تقرأه هنا.</string>
+  <string name="history_offline_articles_toast">قد لا تكون بعض المقالات في السجل قابلة للعرض دون اتصال.</string>
   <string name="search_empty_message">ابحث واقرأ الموسوعة الحرّة بلغتك</string>
   <string name="search_empty_message_multilingual_upgrade">بحث ويكيبيديا بعدة لغات</string>
   <string name="delete_selected_items">إزالة العناصر المختارة</string>

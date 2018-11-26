@@ -119,6 +119,7 @@
   <string name="toast_logout_complete">로그아웃됨</string>
   <string name="history_empty_title">최근에 본 글이 없습니다</string>
   <string name="history_empty_message">당신이 읽고 계신 문서를 여기에서 추적하세요.</string>
+  <string name="history_offline_articles_toast">오프라인 상태에서는 역사에서 일부 문서를 보지 못할 수 있습니다.</string>
   <string name="search_empty_message">여러분의 언어로 우리 모두의 백과사전을 검색하고 읽습니다</string>
   <string name="search_empty_message_multilingual_upgrade">더 많은 언어에서 위키백과 검색</string>
   <string name="delete_selected_items">선택된 개체 삭제</string>

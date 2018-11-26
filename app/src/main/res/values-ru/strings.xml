@@ -141,6 +141,7 @@
   <string name="toast_logout_complete">Сеанс был завершён</string>
   <string name="history_empty_title">Нет недавно просмотренных статей</string>
   <string name="history_empty_message">Отслеживайте здесь прочитанные вами статьи.</string>
+  <string name="history_offline_articles_toast">Некоторые страницы в истории могут быть недоступны оффлайн.</string>
   <string name="search_empty_message">Ищите и читайте свободную энциклопедию на своём языке</string>
   <string name="search_empty_message_multilingual_upgrade">Искать в Википедии на других языках</string>
   <string name="delete_selected_items">Удалить выбранные элементы</string>

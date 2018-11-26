@@ -7,6 +7,7 @@
 * Giorgos456
 * Glavkos
 * KATRINE1992
+* KATRINE1993
 * Nikosgranturismogt
 * Protnet
 * Tgkarounos
@@ -109,6 +110,7 @@
   <string name="toast_logout_complete">Αποσύνδεση</string>
   <string name="history_empty_title">Δεν υπάρχουν πρόσφατες σελίδες εδώ.</string>
   <string name="history_empty_message">Ιχνηλατήστε τι έχετε διαβάσει εδώ.</string>
+  <string name="history_offline_articles_toast">Μερικά άρθρα στο ιστορικό μπορεί να μην είναι προσβάσιμα όταν είστε offline.</string>
   <string name="search_empty_message">Αναζητήστε και διαβάστε την ελεύθερη εγκυκλοπαίδεια στη δική σας γλώσσα</string>
   <string name="search_empty_message_multilingual_upgrade">Αναζητήστε την Wikipedia σε περισσότερες γλώσσες</string>
   <string name="delete_selected_items">Διαγραφή επιλεγμένων αντικειμένων</string>

@@ -126,6 +126,7 @@
   <string name="toast_logout_complete">Saiu</string>
   <string name="history_empty_title">Nenhum artigo visto recentemente</string>
   <string name="history_empty_message">Acompanhe o que você está lendo aqui.</string>
+  <string name="history_offline_articles_toast">Alguns artigos no histórico podem não ser visualizados enquanto estiver off-line.</string>
   <string name="search_empty_message">Procure e leia a enciclopédia livre em seu idioma</string>
   <string name="search_empty_message_multilingual_upgrade">Pesquisa Wikipedia em mais idiomas</string>
   <string name="delete_selected_items">Excluir itens selecionados</string>

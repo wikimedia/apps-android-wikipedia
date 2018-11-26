@@ -112,6 +112,7 @@
   <string name="toast_logout_complete">Одјављени сте</string>
   <string name="history_empty_title">Нема недавно прегледаних чланака</string>
   <string name="history_empty_message">Овде пратите шта сте читали.</string>
+  <string name="history_offline_articles_toast">Неки чланци у историји можда неће бити видљиви док сте офлајн.</string>
   <string name="search_empty_message">Претражујте и читајте слободну енциклопедију на свом језику</string>
   <string name="search_empty_message_multilingual_upgrade">Претражујте Википедију на више језика</string>
   <string name="delete_selected_items">Избриши изабране ставке</string>

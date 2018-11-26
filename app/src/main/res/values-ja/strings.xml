@@ -16,6 +16,7 @@
 * Suyama
 * Takot
 * Thibaut120094
+* Wat
 * Wicklo
 * WwLMvmT
 * Yusuke1109
@@ -121,6 +122,7 @@
   <string name="toast_logout_complete">ログアウトしました</string>
   <string name="history_empty_title">履歴はまだありません！</string>
   <string name="history_empty_message">これまで読んだページを追跡できます。</string>
+  <string name="history_offline_articles_toast">インターネット未接続のときには、履歴にある記事は表示できない場合があります。</string>
   <string name="search_empty_message">あなたの言語で自由な百科事典を検索して読んでみてください</string>
   <string name="search_empty_message_multilingual_upgrade">いろんな言語でウィキペディアを検索</string>
   <string name="delete_selected_items">選択した項目を削除</string>
