@@ -1,6 +1,5 @@
 package org.wikipedia.settings;
 
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.graphics.drawable.VectorDrawableCompat;
@@ -10,6 +9,7 @@ import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceFragmentCompat;
 
 import org.wikipedia.R;
+import org.wikipedia.util.ResourceUtil;
 
 class NotificationSettingsPreferenceLoader extends BasePreferenceLoader {
 
@@ -26,12 +26,12 @@ class NotificationSettingsPreferenceLoader extends BasePreferenceLoader {
 
         pref = findPreference(R.string.preference_key_notification_welcome_enable);
         Drawable drawable = VectorDrawableCompat.create(getActivity().getResources(), R.drawable.ic_wikipedia_w, null);
-        DrawableCompat.setTint(drawable, Color.BLACK);
+        DrawableCompat.setTint(drawable, ResourceUtil.getThemedColor(getActivity(), R.attr.primary_text_color));
         pref.setIcon(drawable);
 
         pref = findPreference(R.string.preference_key_notification_milestone_enable);
         drawable = VectorDrawableCompat.create(getActivity().getResources(), R.drawable.ic_mode_edit_white_24dp, null);
-        DrawableCompat.setTint(drawable, ContextCompat.getColor(getActivity(), R.color.accent50));
+        DrawableCompat.setTint(drawable, ResourceUtil.getThemedColor(getActivity(), R.attr.colorAccent));
         pref.setIcon(drawable);
 
         pref = findPreference(R.string.preference_key_notification_thanks_enable);
