@@ -229,43 +229,48 @@ public class SavedPageSyncService extends JobIntentService {
         return itemsSaved;
     }
 
-    private long savePageFor(@NonNull ReadingListPage page) throws IOException, InterruptedException {
+    private long savePageFor(@NonNull ReadingListPage page) throws Exception {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
 
         Observable<retrofit2.Response<PageLead>> leadCall = reqPageLead(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         Observable<retrofit2.Response<PageRemaining>> sectionsCall = reqPageSections(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
+        final Long[] pageSize = new Long[1];
+        final Exception[] exception = new Exception[1];
 
-        return Observable
-                .zip(leadCall, sectionsCall, (leadRsp, sectionsRsp) -> {
-                    long totalSize = 0;
-                    totalSize += responseSize(leadRsp);
-                    page.downloadProgress(LEAD_SECTION_PROGRESS);
-                    WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
-                    page.downloadProgress(SECTIONS_PROGRESS);
-                    WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
-                    totalSize += responseSize(sectionsRsp);
-                    Set<String> imageUrls = new HashSet<>(pageImageUrlParser.parse(leadRsp.body()));
-                    imageUrls.addAll(pageImageUrlParser.parse(sectionsRsp.body()));
+        Observable.zip(leadCall, sectionsCall, (leadRsp, sectionsRsp) -> {
+            long totalSize = 0;
+            totalSize += responseSize(leadRsp);
+            page.downloadProgress(LEAD_SECTION_PROGRESS);
+            WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
+            page.downloadProgress(SECTIONS_PROGRESS);
+            WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
+            totalSize += responseSize(sectionsRsp);
+            Set<String> imageUrls = new HashSet<>(pageImageUrlParser.parse(leadRsp.body()));
+            imageUrls.addAll(pageImageUrlParser.parse(sectionsRsp.body()));
 
-                    if (!TextUtils.isEmpty(leadRsp.body().getThumbUrl())) {
-                        page.thumbUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.getWikiSite(),
-                                leadRsp.body().getThumbUrl()));
-                        persistPageThumbnail(pageTitle, page.thumbUrl());
-                        imageUrls.add(page.thumbUrl());
-                    }
-                    page.description(leadRsp.body().getDescription());
+            if (!TextUtils.isEmpty(leadRsp.body().getThumbUrl())) {
+                page.thumbUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.getWikiSite(),
+                        leadRsp.body().getThumbUrl()));
+                persistPageThumbnail(pageTitle, page.thumbUrl());
+                imageUrls.add(page.thumbUrl());
+            }
+            page.description(leadRsp.body().getDescription());
 
-                    if (Prefs.isImageDownloadEnabled()) {
-                        totalSize += reqSaveImages(page, imageUrls);
-                    }
+            if (Prefs.isImageDownloadEnabled()) {
+                totalSize += reqSaveImages(page, imageUrls);
+            }
 
-                    String title = pageTitle.getPrefixedText();
-                    L.i("Saved page " + title + " (" + totalSize + ")");
+            String title = pageTitle.getPrefixedText();
+            L.i("Saved page " + title + " (" + totalSize + ")");
 
-                    return totalSize;
-                })
-                .subscribeOn(Schedulers.io())
-                .blockingSingle();
+            return totalSize;
+        }).subscribeOn(Schedulers.io())
+                .blockingSubscribe(size -> pageSize[0] = size,
+                        t -> exception[0] = (Exception) t);
+        if (exception[0] != null) {
+            throw exception[0];
+        }
+        return pageSize[0];
     }
 
     @NonNull private Observable<retrofit2.Response<PageLead>> reqPageLead(@Nullable CacheControl cacheControl,
