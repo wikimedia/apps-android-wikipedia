@@ -32,9 +32,6 @@
     <dimen name="readingListItemSize">56dp</dimen>
     <dimen name="readingListLeadHeight">240dp</dimen>
 
-    <!-- Default height of tab item images, which governs the size of tabs themselves -->
-    <dimen name="tabImageSize">48dp</dimen>
-
     <!-- Default width of the lead image to be downloaded -->
     <dimen name="leadImageWidth">640dp</dimen>
     <item type="dimen" format="float" name="articleHeaderViewScreenHeightRatio">0.4</item>
@@ -57,14 +54,6 @@
     <!-- Share-a-fact image preview -->
     <dimen name="share_image_width">320dp</dimen>
     <dimen name="share_image_height">180dp</dimen>
-
-    <!-- Floating action button -->
-    <dimen name="floating_action_button_margin_left">0dp</dimen>
-    <dimen name="floating_action_button_margin_top">0dp</dimen>
-    <dimen name="floating_action_button_margin_right">8dp</dimen>
-    <dimen name="floating_action_button_margin_bottom">0dp</dimen>
-
-    <dimen name="shadow_thickness">3dp</dimen>
 
     <dimen name="lead_no_image_top_offset_dp">56dp</dimen>
 
@@ -98,7 +87,6 @@
 
     <!-- Notifications -->
     <integer name="notification_poll_interval_minutes">10</integer>
-    <integer name="notification_poll_timeout_days">1</integer>
 
     <!-- Reading lists -->
     <integer name="reading_list_item_size_bytes_per_unit">1000000</integer> <!-- 1 MB -->

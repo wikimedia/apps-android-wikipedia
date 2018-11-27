@@ -4,7 +4,6 @@
 
     <array name="page_localized_string_ids">
         <item>@string/page_similar_titles</item>
-        <item>@string/button_page_issues</item>
         <item>@string/table_infobox</item>
         <item>@string/table_other</item>
         <item>@string/table_close</item>

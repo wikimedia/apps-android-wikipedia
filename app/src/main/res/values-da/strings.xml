@@ -43,8 +43,7 @@
   <string name="menu_page_show_tabs">Vis faner</string>
   <string name="menu_page_other_languages">Skift sprog</string>
   <string name="menu_page_find_in_page">Find på siden</string>
-  <string name="menu_page_content_issues">Indholdsproblemer</string>
-  <string name="menu_page_font_and_theme">Skrifttype og tema</string>
+    <string name="menu_page_font_and_theme">Skrifttype og tema</string>
   <string name="menu_page_add_to_list">Tilføj til læseliste</string>
   <string name="menu_page_share">Del link</string>
   <string name="menu_page_open_a_new_tab">Åbn en ny fane</string>
@@ -70,8 +69,7 @@
   <string name="edit_save_action_license_logged_in">Ved at udgive, accepterer du &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dine bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen.</string>
   <string name="edit_save_action_license_anon">Ved at udgive, accepterer du &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dine bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen. Ændringer vil blive tilskrevet IP-adressen for din enhed. Hvis du &lt;a href=\"https://#login\"&gt;logger på&lt;/a&gt;, vil du have mere privatliv.</string>
   <string name="preference_title_language">Wikipediasprog</string>
-  <string name="preference_languages_filter_hint">Søg</string>
-  <string name="langlinks_filter_hint">Søg</string>
+    <string name="langlinks_filter_hint">Søg</string>
   <string name="langlinks_empty">Denne side er ikke tilgængelig på andre sprog</string>
   <string name="langlinks_no_match">Intet sprog blev fundet</string>
   <string name="langlinks_activity_title">Andre sprog</string>
@@ -155,12 +153,10 @@
   <string name="edit_preview_fetching_dialog_message">Henter forhåndsvisning …</string>
   <string name="send_feedback">Send feedback</string>
   <string name="create_account_account_created_toast">Konto oprettet!</string>
-  <string name="preferences_heading_storage_and_syncing">Lagring og synkronisering</string>
-  <string name="preferences_heading_syncing">Synkroniserer</string>
+    <string name="preferences_heading_syncing">Synkroniserer</string>
   <string name="preferences_heading_data_usage">Dataforbrug</string>
   <string name="preferences_heading_experimental">Eksperimentel</string>
-  <string name="preference_title_sync_reading_lists">Synkroniser læselister</string>
-  <string name="preference_title_sync_reading_lists_from_account">Synkronisering af læselister</string>
+    <string name="preference_title_sync_reading_lists_from_account">Synkronisering af læselister</string>
   <string name="preference_title_download_reading_list_articles">Hent artikler på din læseliste</string>
   <string name="preference_summary_sync_reading_lists">Synkroniser læselister på tværs af forskellige enheder ved at gemme dem på din Wikipediakonto</string>
   <string name="preference_summary_sync_reading_lists_from_account">Synkroniser læselister på tværs af forskellige enheder ved at gemme dem på din Wikipediakonto »%s«</string>
@@ -224,9 +220,7 @@
   <string name="abusefilter_title_disallow">Du kan ikke offentliggøre denne redigering. Gå venligst tilbage og ændr den.</string>
   <string name="abusefilter_text_warn">Et automatisk filter har identificeret denne redigering som potentielt er ukonstruktiv. Den kan indeholde en eller flere af følgende:&lt;br /&gt;&lt;br /&gt;· Skrive udelukkende med store bogstaver&lt;br /&gt;· Slette alt i artikler eller spamming&lt;br /&gt;· Irrelevante eksterne links eller billeder&lt;br /&gt;· Gentagelser af tegn</string>
   <string name="abusefilter_text_disallow">Et automatisk filter har identificeret denne redigering som potentielt ukonstruktiv, eller potentielt hærværk.&lt;br /&gt;&lt;br /&gt;Wikipedia er en encyklopædi, og kun neutralt og relevant indhold hører til her.</string>
-  <string name="dialog_page_issues">Problemer med siden</string>
-  <string name="button_page_issues">Problemer med siden</string>
-  <string name="text_size_select">Skriftstørrelse</string>
+    <string name="text_size_select">Skriftstørrelse</string>
   <string name="page_similar_titles">Lignende sider</string>
   <string name="search_did_you_mean">Mente du »%s«?</string>
   <string name="search_recent_header">Seneste søgninger:</string>
@@ -276,9 +270,7 @@
   <string name="close_all_tabs_confirm_yes">Ja</string>
   <string name="close_all_tabs_confirm_no">Nej</string>
   <string name="button_close_tab">Luk fane</string>
-  <string name="tool_tip_select_text_title">Hold inde for at vælge</string>
-  <string name="tool_tip_select_text">Tryk og hold nede hvor som helst i teksten for at vælge den til kopiering og deling.</string>
-  <string name="tool_tip_bookmark_icon_title">Tilføj til læseliste</string>
+    <string name="tool_tip_bookmark_icon_title">Tilføj til læseliste</string>
   <string name="tool_tip_share">Efter du har markeret et interessant faktum, prøv at dele det på dine foretrukne netværk.</string>
   <string name="page_view_in_browser">Få vist siden i browseren</string>
   <string name="tool_tip_toc_title">Hurtig adgang til indholdsfortegnelse</string>
@@ -294,8 +286,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Artiklen kan ikke indlæses offline.</string>
   <string name="page_offline_notice_add_to_reading_list">Fif: Tilføj artiklen til en læseliste, og den vil blive hentet når du er på nettet igen.</string>
   <string name="page_offline_notice_last_date">Du læser en offlineudgave af denne artikel gemt den %s.</string>
-  <string name="page_offline_notice_compilation_download_date">Du læser versionen af denne artikel fra %1$s • %2$s.</string>
-  <string name="button_get_directions">Få rutevejledninger</string>
+    <string name="button_get_directions">Få rutevejledninger</string>
   <string name="error_no_maps_app">Kunne ikke finde nogen apps, der giver rutevejledninger.</string>
   <string name="preference_title_show_link_previews">Vis forhåndsvisning af links</string>
   <string name="preference_summary_show_link_previews">Viser en kort forhåndsvisning af artikler når du trykker på links.</string>
@@ -315,9 +306,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Billedmørklægning (i mørkt tema)</string>
   <string name="preference_title_prefer_offline_content">Fortræk lokalt indhold</string>
   <string name="preference_summary_prefer_offline_content">Spar på dataforbruget ved at indlæse artikler, som er tilgængeligt lokalt frem for altid at indlæse den seneste version af en artikel</string>
-  <string name="preference_title_enable_offline_library">Aktiver lokalt bibliotek</string>
-  <string name="preference_summary_enable_offline_library">Tilgå Wikipediaartikelpakker (vist som .ZIM-file) som er blevet hentet til din enhed for lokal læsning. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Lær mere&lt;/a&gt;</string>
-  <string name="crash_report_dialog_title">Beklager, appen brød ned sidste gang</string>
+    <string name="crash_report_dialog_title">Beklager, appen brød ned sidste gang</string>
   <string name="crash_report_dialog_text">Ønsker du at sende en nedbrudsrapport til HockeyApp / en tredjepart tjenesteudbyder, så Wikimedia kan gennemgå nedbruddet og rette den fejl, der forårsagede det?</string>
   <string name="crash_report_dialog_dont_send_button">Spring over</string>
   <string name="crash_report_dialog_always_send_button">Send altid</string>
@@ -343,12 +332,10 @@
   <string name="text_size_decrease">Sænk tekststørrelse</string>
   <string name="text_size_percent_default">%s (standard)</string>
   <string name="nav_item_reading_lists">Mine lister</string>
-  <string name="reading_list_untitled">Unavngivet</string>
-  <string name="reading_list_save_to">Gem til læseliste</string>
+    <string name="reading_list_save_to">Gem til læseliste</string>
   <string name="reading_list_create_new">Opret ny</string>
   <string name="reading_list_title_exists">Læselisten »%s« findes allerede.</string>
-  <string name="reading_list_entry_empty">Skriv venligst en titel.</string>
-  <string name="reading_list_added_to_named">Tilføjet til %s.</string>
+    <string name="reading_list_added_to_named">Tilføjet til %s.</string>
   <string name="reading_list_already_exists">Denne artikel er allerede på den liste.</string>
   <string name="reading_list_added_view_button">Vis liste</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MB</string>
@@ -365,8 +352,7 @@
   <string name="reading_list_sort_by_created_desc">Sorter efter dato oprettet (ældste)</string>
   <string name="reading_list_menu_delete">Slet liste</string>
   <string name="reading_list_menu_rename">Rediger navn/beskrivelse</string>
-  <string name="reading_list_menu_edit_description">Rediger beskrivelse</string>
-  <string name="reading_list_action_menu_remove_from_offline">Fjern lokal version</string>
+    <string name="reading_list_action_menu_remove_from_offline">Fjern lokal version</string>
   <string name="reading_list_action_menu_save_for_offline">Gem lokalt</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Fjern alle fra lokal version</string>
   <string name="reading_list_action_menu_save_all_for_offline">Gem alle lokalt</string>
@@ -386,8 +372,7 @@
   <string name="reading_lists_onboarding_example2">Ynglingsdyr</string>
   <string name="reading_lists_onboarding_example3">Udforskning af rummet</string>
   <string name="reading_lists_onboarding_got_it">Forstået</string>
-  <string name="reading_list_no_description">Ingen beskrivelse...</string>
-  <string name="reading_list_empty">Du har ingen artikler, der er tilføjet til denne liste.</string>
+    <string name="reading_list_empty">Du har ingen artikler, der er tilføjet til denne liste.</string>
   <string name="reading_list_article_offline">Tilgængelig offline</string>
   <string name="reading_list_article_make_offline">Gør denne artikel tilgængelig offline</string>
   <string name="reading_list_add_to_other_list">Tilføj til en anden læseliste</string>
@@ -402,8 +387,7 @@
   <string name="reading_lists_sync_reminder_action">Aktiver synkronisering</string>
   <string name="reading_list_login_reminder_title">Synkr. læselister</string>
   <string name="reading_lists_login_reminder_text">Læselister kan nu synkroniseres på tværs af enheder. Log ind på din Wikipediakonto og tillad at dine lister gemmes.</string>
-  <string name="reading_lists_confirm_remote_delete">Dette vil slette tidligere synkroniserede læselister fra det eksterne lager. Fortsæt?</string>
-  <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
+    <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nej</string>
   <string name="reading_list_article_save_in_progress">Artiklen hentes og vil være tilgængelig lokalt når færdig.</string>
   <string name="reading_list_already_contains_selection">Den valgte liste indeholder allerede alle de valgte sider.</string>
@@ -453,14 +437,8 @@
   </plurals>
   <string name="reading_list_menu_last_sync">Sidste synkronosering: %s</string>
   <string name="user_option_sync_label">Indstillinger</string>
-  <string name="notification_button_view_user">Tal med bruger</string>
-  <string name="notification_talk_title">Ny besked på Wikipedia</string>
-  <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; efterlod en besked på din diskussionsside &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_reverted_title">Omgjorde redigering</string>
-  <string name="notification_reverted">Din redigering til artiklen &lt;strong&gt;%2$s&lt;/strong&gt; blev omgjort af &lt;em&gt;%1$s&lt;/em&gt;.</string>
-  <string name="notification_thanks_title">Du er blevet takket!</string>
-  <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; takkede dig for din redigering på siden &lt;strong&gt;%2$s/strong&gt;</string>
-  <string name="notification_channel_description">Status på overførsel</string>
+    <string name="notification_reverted_title">Omgjorde redigering</string>
+    <string name="notification_channel_description">Status på overførsel</string>
   <string name="notification_syncing_pause_button">Pause</string>
   <string name="notification_syncing_resume_button">Genoptag</string>
   <string name="notification_syncing_cancel_button">Afbryd</string>
@@ -534,8 +512,7 @@
   <string name="feed_configure_menu_deselect_all">Skjul alt</string>
   <string name="feed_item_type_news">Artikler om aktuelle hændelser</string>
   <string name="feed_item_type_on_this_day">Historiske hændelser på denne dag</string>
-  <string name="feed_item_type_continue_reading">Hurtig henvisning tilbage til en åben artikel i et af dine faneblade</string>
-  <string name="feed_item_type_because_you_read">Forslag baseret på en læst artikel fra din historik</string>
+    <string name="feed_item_type_because_you_read">Forslag baseret på en læst artikel fra din historik</string>
   <string name="feed_item_type_featured_article">Dagens anbefalet artikel på Wikipedia</string>
   <string name="feed_item_type_trending">Dagens mest sete artikler</string>
   <string name="feed_item_type_featured_image">Dagens anbefalet billede fra Wikimedia Commons</string>
@@ -583,64 +560,21 @@
   <string name="description_edit_revert_reason1">dit bidrag fulgte ikke en af &lt;a href=\"%1$s\"&gt;retningslinjerne&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">dit bidrag så ud som et eksperiment eller vandalisme.</string>
   <string name="description_edit_revert_history">Er du interesseret, så se &lt;a href=\"%1$s\"&gt;redigeringshistorikken&lt;/a&gt;.</string>
-  <string name="offline_compilation_download_device_offline">Ingen internetforbindelse. Sikr dig at du har forbindelse og prøv så igen.</string>
-  <string name="offline_read_permission_rationale">Tilladelse til at tilgå lageret på din enhed er krævet for at læse artikler lokalt.</string>
+    <string name="offline_read_permission_rationale">Tilladelse til at tilgå lageret på din enhed er krævet for at læse artikler lokalt.</string>
   <string name="offline_read_final_rationale">Tilladelse til at tilgå lageret på din enhed er krævet for at bruge lokalt bibliotek.</string>
-  <string name="offline_read_permission_error">Der er ikke givet tilladelse til at læse fra enhedslageret.</string>
-  <string name="offline_card_sideloading_text">Du læser nu Wikipedia lokalt fra artikelpakker i dit lokale bibliotek.</string>
-  <string name="offline_my_compilations">Håndter mit lokale bibliotek</string>
-  <string name="offline_compilations_title">Lokalt bibliotek</string>
-  <string name="offline_compilations_search_by_name">Søg i artikelpakker efter navn</string>
-  <string name="offline_compilations_found_count">I mit lokale bibliotek (%d)</string>
-  <string name="offline_compilations_add">Tilføj til mit lokale bibliotek</string>
-  <string name="remote_compilations_title">Lokalt bibliotek</string>
-  <string name="remote_compilations_description">Med det lokale bibliotek kan du nu hente artikelpakker, så du kan læse uden en tilgængelig internetforbindelse.</string>
-  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
-  <string name="size_gb">%.2f GB</string>
+    <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <string name="offline_compilation_detail_button_download_v2">Hent • %s</string>
-  <string name="offline_compilation_detail_button_remove">Fjern</string>
-  <string name="remote_compilation_download">Hent</string>
-  <string name="storage_size_free_v2">%s ledig</string>
-  <string name="storage_used_by_compilations">brugt af det lokale bibiotek</string>
-  <string name="storage_other_apps">Andre programmer</string>
-  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
-  <plurals name="offline_compilation_download_time_remaining">
+    <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">1 minut tilbage</item>
     <item quantity="other">%d minutter tilbage</item>
   </plurals>
-  <string name="compilation_download_widget_button_cancel_hint">Afbryd overførsel</string>
-  <string name="compilation_download_cancel_confirm">Er du sikker på, at du ønsker at afbryde overførsel af denne artikelpakke?</string>
-  <string name="compilation_download_cancel_confirm_yes">Ja</string>
-  <string name="compilation_download_cancel_confirm_no">Nej</string>
-  <string name="compilation_share">Del</string>
-  <string name="compilation_remove">Fjern</string>
-  <string name="compilation_remove_confirm">Er du sikker på, at du ønsker at fjerne denne fra dit lokale bibliotek?</string>
-  <string name="offline_library_title">Lokalt bibliotek</string>
-  <string name="offline_library_empty_title">Intet i dit lokale bibliotek</string>
-  <string name="offline_library_empty_description_sideload">»Artikelpakker« i dit lokale bibliotek er forhåndspakkede artikelsæt for nem lagring på din enhed, så du kan læse uden internetadgang.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Lær mere&lt;/a&gt;</string>
-  <string name="offline_library_packs_hint">Artikelpakker i dit bibliotek er stadig tilgængelige uden internetadgang. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Lær mere&lt;/a&gt;</string>
-  <string name="offline_library_data_usage_hint">Ønsker du at spare på dataforbrug? Vælg »Foretræk lokalt indhold« i indstillinger for at vise tilgængelig lokale artikler først, selv når du har forbindelse. &lt;a href=\"#settings\"&gt;Go to Settings&lt;/a&gt;</string>
-  <string name="offline_library_empty_search">Søg i lokalt bibliotek</string>
-  <string name="offline_library_search_results_state">Søgeresultater fra dit lokale bibliotek</string>
-  <string name="offline_library_onboarding_button_done">Udført</string>
-  <string name="offline_library_onboarding_build_library_title">Byg dit lokale bibliotek</string>
-  <string name="offline_library_onboarding_build_library_subtitle">Hent Wikipediaartikelpakker nu for datafri adgang senere.</string>
-  <string name="offline_library_onboarding_uninterrupted_reading_title">Læsning uden afbrydelser</string>
-  <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Bliv ved med at læse og søge efter artikler i dit lokale bibliotek, når du ikke har internetadgang.</string>
-  <string name="offline_library_onboarding_store_knowledge_title">Lagr mere viden</string>
-  <string name="offline_library_onboarding_store_knowledge_subtitle">Hent så meget Wikipedia som din enhed kan håndtere. Et lokalt bibliotek kan også tilgå artikelpakker på eksterne lagerenheder.</string>
-  <string name="offline_library_main_page_hint_html">Denne hovedside giver en oversigt over indholdet i denne artikelpakke.&lt;br /&gt;&lt;br /&gt;Du kan også udforske indholdet i artikelpakker i dit lokale bibliotek ved at søge efter tilgængelige artikler, mens du er uden internetforbindelse.</string>
-  <string name="onboarding_skip">Udelad</string>
+    <string name="onboarding_skip">Udelad</string>
   <string name="onboarding_continue">Fortsæt</string>
   <string name="onboarding_get_started">Kom i gang</string>
   <string name="onboarding_explore_title">Nye måder at udforske</string>
   <string name="onboarding_explore_text">Dyk ned i Wikipedias harehul med en konstant opdateret udforskningskilde. &lt;br/&gt; &lt;b&gt;Tilpas&lt;/b&gt; nyhedskilden til dine interesser – om det er historiske hændelser &lt;b&gt;På denne dag&lt;/b&gt;, eller et kast med terningen med &lt;b&gt;Vilkårlig&lt;/b&gt;.</string>
-  <string name="onboarding_save_to_reading_lists_title">Gem til læselister</string>
-  <string name="onboarding_save_to_reading_lists_text">Opret læselister fra artikler du ønsker at læse senere, selv når du ikke er på nettet.</string>
-  <string name="onboarding_reading_list_sync_title">Læselister med synkronisering</string>
-  <string name="onboarding_reading_list_sync_text">Opret læselister med artikler du ønsker at læse senere, selv uden adgang til internettet. &lt;a href=\"#login\"&gt;Log ind eller opret&lt;/a&gt; din Wikipediakonto for at sikre sikkerhedskopiering af dine læselister.</string>
-  <string name="onboarding_reading_list_sync_text_v2">Du kan lave læselister med artikler, du ønsker at læse senere, selv når du er uden internetadgang. &lt;br/&gt;Log ind på din Wikipediakonto for at synkronisere dine læselister.&lt;a href=\"#login\"&gt;Opret konto på Wikipedia&lt;/a&gt;</string>
+    <string name="onboarding_reading_list_sync_title">Læselister med synkronisering</string>
+    <string name="onboarding_reading_list_sync_text_v2">Du kan lave læselister med artikler, du ønsker at læse senere, selv når du er uden internetadgang. &lt;br/&gt;Log ind på din Wikipediakonto for at synkronisere dine læselister.&lt;a href=\"#login\"&gt;Opret konto på Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Send anonyme data</string>
   <string name="onboarding_analytics_offline_text">Hjælp med at gøre programmet bedre ved at fortælle os hvordan du bruger den. Data indsamles anonymt. &lt;a href=\"#privacy\"&gt;Lær mere&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Send brugsdata</string>

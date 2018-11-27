@@ -273,13 +273,6 @@
         <item name="android:textColor">@color/base30</item>
     </style>
 
-    <style name="App.Button.TransparentBlue">
-        <item name="android:background">@drawable/button_shape_bordered_transparent</item>
-        <item name="backgroundTint">@color/color_state_blue</item>
-        <item name="android:textColor">@color/color_state_blue</item>
-        <item name="android:minHeight">36dp</item>
-    </style>
-
     <style name="TransparentButton" parent="@style/Widget.AppCompat.Button.Borderless">
         <item name="android:textAlignment">center</item>
     </style>

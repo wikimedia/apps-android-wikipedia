@@ -20,8 +20,7 @@
   <string name="edit_save_action_license_logged_in">Dre witha, yth esowgh owth akordya dhe\'n &lt;a href=\"%1$s\"&gt;Termynyow Devnydh&lt;/a&gt;, ha dhe dhyllo agas kevrohow rag nevra yn-dann an leshyans &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Dre witha, yth esowgh owth akordya dhe\'n &lt;a href=\"%1$s\"&gt;Termynyow Devnydh&lt;/a&gt;, ha dhe dhyllo agas kevrohow rag nevra yn-dann an leshyans &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Agas trigva IP a vydh rekordyes avel awtour agas chanjyow. Mar &lt;a href=\"https://#login\"&gt;omgelmewgh&lt;/a&gt;, hwi a gyv moy privetter.</string>
   <string name="preference_title_language">Yeth Wikipedya</string>
-  <string name="preference_languages_filter_hint">Hwilas</string>
-  <string name="langlinks_filter_hint">Hwilas</string>
+    <string name="langlinks_filter_hint">Hwilas</string>
   <string name="langlinks_empty">Nyns yw kavadow an folen ma yn yethow erel.</string>
   <string name="langlinks_no_match">Ny veu kevys yeth vyth.</string>
   <string name="langlinks_activity_title">Yethow erel</string>

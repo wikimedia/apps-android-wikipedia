@@ -25,8 +25,7 @@
   <string name="search_redirect_from">გინოწურაფილი რე %s-შე</string>
   <string name="menu_page_other_languages">ნინაშ თირუა</string>
   <string name="menu_page_find_in_page">ხასჷლას გორუა</string>
-  <string name="menu_page_content_issues">დინოხუშობური ოკითხირეეფი</string>
-  <string name="menu_page_font_and_theme">ფონტი დო უკახალენი ფონი</string>
+    <string name="menu_page_font_and_theme">ფონტი დო უკახალენი ფონი</string>
   <string name="menu_page_add_to_list">ოკითხირე ერკებულშა გეძინა</string>
   <string name="menu_page_share">რცხიშ გობჟინაფა</string>
   <string name="menu_long_press_open_page">გონწყუმა</string>
@@ -43,8 +42,7 @@
   <string name="edit_save_action_license_logged_in">ხასჷლაშ ჩულათ, თქვა დჷთმოჸუნთჷ&lt;a href=\"%1$s\"&gt;გჷმორინაფაშ პიჯალეფს&lt;/a&gt; დო თქვანიშით ჭარილი ტექსტიშ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიათ გოტებას.</string>
   <string name="edit_save_action_license_anon">ხასჷლაშ ჩუალათ, თქვა დთმოჸუნთ &lt;a href=\"%1$s\"&gt;გჷმორინაფაშ პიჯალეფს&lt;/a&gt; დო თქვანიშით ჭარილი ტექსტიშ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიათ გოტებას. რედაქტირაფაშ ავტორო დეფიქსირებუ თქვანი მონწყილობაშ IP-მიოწურაფუ. რეკომენდებული რე &lt;a href=\"https://#login\"&gt;ავტორიზაციაშ&lt;/a&gt; მუკულა უმოსი თხილუანობაშო.</string>
   <string name="preference_title_language">ვიკიპედიაშ ნინეფი</string>
-  <string name="preference_languages_filter_hint">გორუა</string>
-  <string name="langlinks_filter_hint">გორუა</string>
+    <string name="langlinks_filter_hint">გორუა</string>
   <string name="langlinks_empty">თე ხასჷლა შხვა ნინაშა ვარე მიოჭირინაფუს.</string>
   <string name="langlinks_no_match" fuzzy="true">თქვან მოთხირით აკა ნინაქ ვეგორინჷ.</string>
   <string name="langlinks_activity_title">შხვა ნინეფი</string>

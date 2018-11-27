@@ -15,8 +15,7 @@
   <string name="edit_save_action_license_logged_in">Сақтасаңыз &lt;a href=\"%1$s\"&gt;Қолдану шарттарымен&lt;/a&gt; келсіскеніңіз болып табылады және &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензиясы аясында үлесіңізді қайтарымсыз жариялайсыз.</string>
   <string name="edit_save_action_license_anon">Сақтасаңыз &lt;a href=\"%1$s\"&gt;Қолдану шарттарымен&lt;/a&gt; келсіскеніңіз болып табылады және &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензиясы аясында үлесіңізді қайтарымсыз жариялайсыз. Өңдемелеріңіз сіздің құрылғыңыздың IP мекенжайымен анықталады. Егер сіз&lt;a href=\"https://#login\"&gt;кірсеңіз&lt;/a&gt; сізде көбірек құпиялық   болады.</string>
   <string name="preference_title_language">Уикипедия тілі</string>
-  <string name="preference_languages_filter_hint">Іздеу</string>
-  <string name="langlinks_filter_hint">Іздеу</string>
+    <string name="langlinks_filter_hint">Іздеу</string>
   <string name="langlinks_empty">Бұл бет басқа тілдерде қолдетімді емес.</string>
   <string name="langlinks_no_match">Сіздің сұранысыңызға сәйкес тілдер табылмады.</string>
   <string name="langlinks_activity_title">Басқа тілдер</string>
@@ -104,6 +103,4 @@
   <string name="abusefilter_title_disallow">Бұл өңдемені сақтай алмайсыз. Артқа қайтыңыз және оны өзгертіңіз.</string>
   <string name="abusefilter_text_warn">Автоматтандырылған сүзгіш бұл өңдемеден әлеуетті жүйесіздікті анықтады. Оның мәтінінде келесілердің бірін не бірнешеуін қамтыған болуы мүмкін:&lt;br /&gt;&lt;br /&gt;· Үлкен әріптермен жазу&lt;br /&gt;· Мақалаларды тазарту не спамдау&lt;br /&gt;· Орынсыз сыртқы сілтемелер немесе суреттер&lt;br /&gt;· Таңбаларды көп қайталау</string>
   <string name="abusefilter_text_disallow">Автоматтандырылған сүзгіш бұл өңдемеден әлеуетті жүйесіздікті немесе әлеуетті бұзақылықты анықтады.&lt;br /&gt;&lt;br /&gt; Уикипедия — бұл энцикопедия және мұнда тек бейтарап, елеулі контент болуы керек.</string>
-  <string name="dialog_page_issues">Бет бойынша сұрақтар</string>
-  <string name="button_page_issues">Бет бойынша сұрақтар</string>
 </resources>

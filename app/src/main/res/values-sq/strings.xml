@@ -16,8 +16,7 @@
   <string name="menu_page_show_tabs">Trego skedat</string>
   <string name="menu_page_other_languages">Ndrysho gjuhën</string>
   <string name="menu_page_find_in_page">Gjej në faqe</string>
-  <string name="menu_page_content_issues">Çështjet e përmbajtjes</string>
-  <string name="menu_page_font_and_theme">Shkrimi dhe tema</string>
+    <string name="menu_page_font_and_theme">Shkrimi dhe tema</string>
   <string name="menu_page_add_to_list">Shtoni në listën e leximit</string>
   <string name="menu_page_share">Shpërndaj lidhjen</string>
   <string name="menu_long_press_open_page">Hap</string>
@@ -34,8 +33,7 @@
   <string name="edit_save_action_license_logged_in">Duke e ruajtur, ju pajtoheni me &lt;a href=\"%1$s\"&gt;Kushtet e Përdorimit&lt;/a&gt;, dhe e lëshoni kontributin tuaj në mënyrë të pakthyeshme nën licencën &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Duke e ruajtur, ju pajtoheni me &lt;a href=\"%1$s\"&gt;Kushtet e Përdorimit&lt;/a&gt;, dhe e lëshoni kontributin tuaj në mënyrë të pakthyeshme nën licencën &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redaktimet do t\'i atribuohen IP adresës të pajisjes tuaj. Nëse ju &lt;a href=\"https://#login\"&gt;kyçeni&lt;/a&gt;, do të keni më shumë privatësi.</string>
   <string name="preference_title_language">Gjuha e Wikipedias</string>
-  <string name="preference_languages_filter_hint">Kërko</string>
-  <string name="langlinks_filter_hint">Kërko</string>
+    <string name="langlinks_filter_hint">Kërko</string>
   <string name="langlinks_empty">Kjo faqe nuk është në dispozicion në gjuhë të tjera.</string>
   <string name="langlinks_no_match">Nuk u gjet asnjë gjuhë që përputhet me kërkimin tuaj.</string>
   <string name="langlinks_activity_title">Gjuhët e tjera</string>

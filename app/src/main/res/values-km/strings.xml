@@ -30,8 +30,7 @@
   <string name="menu_page_show_tabs">បង្ហាញថេប</string>
   <string name="menu_page_other_languages">ប្ដូរភាសា</string>
   <string name="menu_page_find_in_page">ស្វែងរកក្នុងទំព័រ</string>
-  <string name="menu_page_content_issues">បញ្ហាខ្លឹមសារអត្ថបទ</string>
-  <string name="menu_page_font_and_theme">ប្រភេទអក្សរនិងរចនាបថ</string>
+    <string name="menu_page_font_and_theme">ប្រភេទអក្សរនិងរចនាបថ</string>
   <string name="menu_page_add_to_list">បន្ថែមទៅក្នុងបញ្ជីអំណាន</string>
   <string name="menu_page_share">ចែក​ចាយតំណភ្ជាប់</string>
   <string name="menu_long_press_open_page">បើក</string>
@@ -53,8 +52,7 @@
   <string name="edit_save_action_license_logged_in" fuzzy="true">តាមរយៈការរក្សាទុក អ្នកយល់ព្រមជាមួួយ &lt;a href=\"%1$s\"&gt;លក្ខខណ្ឌប្រើប្រាស់&lt;/a&gt;, និងផ្សព្វផ្សាយការរួមចំណែករបស់អ្នកដោយឥតផ្លាស់ប្ដូរវិញបានក្រោយអាជ្ញាប័ណ្ណ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ។</string>
   <string name="edit_save_action_license_anon" fuzzy="true">តាមរយៈការរក្សាទុក អ្នកយល់ព្រមជាមួួយ &lt;a href=\"%1$s\"&gt;លក្ខខណ្ឌប្រើប្រាស់&lt;/a&gt;, និងផ្សព្វផ្សាយការរួមចំណែករបស់អ្នកដោយឥតផ្លាស់ប្ដូរវិញបានក្រោយអាជ្ញាប័ណ្ណ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ។ ការកែប្រែនឹងត្រូវភ្ជាប់នឹងអាសយដ្ឋានIPរបស់ឧបករណ៍របស់អ្នក។ ប្រសិនបើអ្នក&lt;a href=\"https://#login\"&gt;កត់ឈ្មោះចូល&lt;/a&gt; នោះអ្នកនឹងរក្សាឯកជនភាពបានប្រសើរជាង។</string>
   <string name="preference_title_language" fuzzy="true">ភាសាវិគីភីឌា</string>
-  <string name="preference_languages_filter_hint">ស្វែងរក</string>
-  <string name="langlinks_filter_hint">ស្វែងរក</string>
+    <string name="langlinks_filter_hint">ស្វែងរក</string>
   <string name="langlinks_empty">ទំព័រ​នេះ​មិនអាចអានជា​ភាសាដទៃ​ទៀត​ទេ។</string>
   <string name="langlinks_no_match" fuzzy="true">រកមិនឃើញភាសាត្រូវគ្នាជាមួយពាក្យស្វែងរករបស់អ្នកទេ។</string>
   <string name="langlinks_activity_title">ភាសា​ដទៃ​ទៀត</string>
@@ -164,9 +162,7 @@
   <string name="find_previous">ស្វែងរក​មុន</string>
   <string name="abusefilter_title_warn">នេះប្រហែលជាការកែប្រែដែលគ្មានលក្ខណៈស្ថាបនាទេ។ តើអ្នកពិតជាចង់បោះផ្សាយវាមែនទេ?</string>
   <string name="abusefilter_title_disallow">អ្នកមិនអាចបោះផ្សាយកំណែប្រែនេះទេ។ សូមត្រឡប់ក្រោយហើយកែប្រែវាម្ដងទៀត។</string>
-  <string name="dialog_page_issues">បញ្ហារបស់ទំព័រ</string>
-  <string name="button_page_issues">បញ្ហារបស់ទំព័រ</string>
-  <string name="text_size_select">ទំហំអក្សរ</string>
+    <string name="text_size_select">ទំហំអក្សរ</string>
   <string name="page_similar_titles">ទំព័រស្រដៀង</string>
   <string name="search_did_you_mean">អ្នកប្រហែលជាចង់រក \"%s\" មែនទេ?</string>
   <string name="search_recent_header">ការស្វែងរកថ្មីៗនេះ៖</string>
@@ -205,9 +201,7 @@
   <string name="close_all_tabs_confirm_yes">បាទ/ចាស៎</string>
   <string name="close_all_tabs_confirm_no">ទេ</string>
   <string name="button_close_tab">បិទថេប</string>
-  <string name="tool_tip_select_text_title">សង្កត់ជាប់យូរដើម្បីជ្រើសយក</string>
-  <string name="tool_tip_select_text">សង្កត់អោយជាប់នៅកន្លែងណាមួយក្នុងអត្ថបទដើម្បីជ្រើសយកវាសម្រាប់ចម្លងឬចែកចាយ។</string>
-  <string name="button_continue_to_article">អានអត្ថបទ</string>
+    <string name="button_continue_to_article">អានអត្ថបទ</string>
   <string name="button_add_to_reading_list">បន្ថែមទៅក្នុងបញ្ជីអំណាន</string>
   <string name="enable_location_service">បើកប្រើ</string>
   <string name="location_permissions_enable_action">បើកប្រើ</string>
@@ -240,12 +234,10 @@
   <string name="text_size_decrease">បង្រួមទំហំអក្សរ</string>
   <string name="text_size_percent_default">%s (លំនាំដើម)</string>
   <string name="nav_item_reading_lists">បញ្ជីរបស់ខ្ញុំ</string>
-  <string name="reading_list_untitled">គ្មាន​ចំណង​ជើង</string>
-  <string name="reading_list_save_to">រក្សាទុកក្នុងបញ្ជីអំណាន</string>
+    <string name="reading_list_save_to">រក្សាទុកក្នុងបញ្ជីអំណាន</string>
   <string name="reading_list_create_new">បង្កើតថ្មី</string>
   <string name="reading_list_title_exists">បញ្ជីអំណាន \"%s\" មានរួចហើយ។</string>
-  <string name="reading_list_entry_empty">សូមវាយបញ្ចូលចំណងជើង។</string>
-  <string name="reading_list_added_to_named">បន្ថែមទៅ %s។</string>
+    <string name="reading_list_added_to_named">បន្ថែមទៅ %s។</string>
   <string name="reading_list_already_exists">អត្ថបទនេះមាននៅក្នុងបញ្ជីនោះហើយ។</string>
   <string name="reading_list_added_view_button">មើលបញ្ជី</string>
   <string name="reading_list_sort">តម្រៀប</string>
@@ -257,8 +249,7 @@
   <string name="reading_list_sort_by_created_desc">តម្រៀបតាមកាលបរិច្ឆេទបង្កើត (ចាស់ជាងគេ)</string>
   <string name="reading_list_menu_delete">លុបបញ្ជីចោល</string>
   <string name="reading_list_menu_rename" fuzzy="true">ប្ដូរ​ឈ្មោះ</string>
-  <string name="reading_list_menu_edit_description">កែប្រែពណ៌នា</string>
-  <string name="reading_list_action_menu_add_to_another_list">បន្ថែមទៅបញ្ជីមួយទៀត</string>
+    <string name="reading_list_action_menu_add_to_another_list">បន្ថែមទៅបញ្ជីមួយទៀត</string>
   <string name="reading_list_name_sample">បញ្ជីអំណានរបស់ខ្ញុំ</string>
   <string name="reading_list_name_hint">ឈ្មោះរបស់បញ្ជីនេះ</string>
   <string name="reading_list_description_hint">ពណ៌នា(សរសេរក៏បានមិនសរសេរក៏បាន)</string>
@@ -272,8 +263,7 @@
   <string name="reading_lists_onboarding_example2">សត្វចូលចិត្ត</string>
   <string name="reading_lists_onboarding_example3">ការរុករកក្នុងអវកាស</string>
   <string name="reading_lists_onboarding_got_it">យល់ហើយ</string>
-  <string name="reading_list_no_description">គ្មានពណ៌នា…</string>
-  <string name="reading_list_empty">អ្នកមិនទាន់មានអត្ថបទបន្ថែមទៅក្នុងបញ្ជីនេះនៅឡើយទេ។</string>
+    <string name="reading_list_empty">អ្នកមិនទាន់មានអត្ថបទបន្ថែមទៅក្នុងបញ្ជីនេះនៅឡើយទេ។</string>
   <string name="reading_list_article_offline">អាចអានបានពេលនៅក្រៅបណ្ដាញ</string>
   <string name="reading_list_article_make_offline">ធ្វើអោយអត្ថបទនេះអានបាននៅក្រៅបណ្ដាញ</string>
   <string name="reading_list_add_to_other_list">បន្ថែមទៅក្នុងបញ្ជីអំណានមួយទៀត</string>
@@ -289,10 +279,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">ទេ, អរគុណហើយ</string>
   <string name="default_reading_list_name">​រក្សាទុករួច</string>
   <string name="user_option_sync_label">ចំណង់ចំណូលចិត្ត</string>
-  <string name="notification_button_view_user">ពិភាក្សាជាមួយអ្នកប្រើប្រាស់</string>
-  <string name="notification_talk_title">សារថ្មីនៅលើវិគីភីឌា</string>
-  <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; បានសរសេរសារនៅលើទំព័រពិភាក្សារបស់អ្នក &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_description">ស្ថានភាពការទាញយក</string>
+    <string name="notification_channel_description">ស្ថានភាពការទាញយក</string>
   <string name="notification_syncing_pause_button">សម្រាក</string>
   <string name="notification_syncing_resume_button">បន្តវិញ</string>
   <string name="notification_syncing_cancel_button">បោះបង់</string>
@@ -334,15 +321,7 @@
   <string name="description_edit_help_tips_example2">ភ្នំខ្ពស់ជាងគេនៅលើផែនដី</string>
   <string name="description_edit_help_tips_example2_hint">ចំណងជើងពណ៌នាសម្រាប់អត្ថបទសរសេរអំពីភ្នំអេវើរេស</string>
   <string name="description_edit_help_more_info">ព័ត៌មានបន្ថែម</string>
-  <string name="offline_compilation_detail_button_remove">ដកចេញ</string>
-  <string name="remote_compilation_download">ទាញ​យក</string>
-  <string name="compilation_download_widget_button_cancel_hint">បោះបង់ការទាញយក</string>
-  <string name="compilation_download_cancel_confirm_yes">បាទ/ចាស៎</string>
-  <string name="compilation_download_cancel_confirm_no">ទេ</string>
-  <string name="compilation_share">ចែកចាយ</string>
-  <string name="compilation_remove">ដកចេញ</string>
-  <string name="offline_library_onboarding_button_done">រួចរាល់</string>
-  <string name="onboarding_skip">រំលង</string>
+    <string name="onboarding_skip">រំលង</string>
   <string name="onboarding_continue">បន្ត</string>
   <string name="onboarding_get_started">ចាប់ផ្ដើមប្រើ</string>
   <string name="onboarding_create_account_preferences">រក្សាទុកចំណង់ចំណូលចិត្តរបស់អ្នក</string>

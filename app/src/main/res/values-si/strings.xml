@@ -23,8 +23,7 @@
   <string name="nav_item_nearby">අවට</string>
   <string name="last_updated_text">අවසන් යාවත්කාලීන කිරීම %s</string>
   <string name="preference_title_language">විකිපීඩියා භාෂාව</string>
-  <string name="preference_languages_filter_hint">සොයන්න</string>
-  <string name="langlinks_filter_hint">සොයන්න</string>
+    <string name="langlinks_filter_hint">සොයන්න</string>
   <string name="langlinks_empty">මෙම පිටුව වෙනත් භාෂාවලින් ලබාගත නොහැක</string>
   <string name="langlinks_no_match">ඔබේ සෙවීමට සමාන භාෂා සොයාගැනීමට නොහැක</string>
   <string name="langlinks_activity_title">වෙනත් භාෂාවන්</string>
@@ -81,5 +80,4 @@
   <string name="edit_next">මීළඟ</string>
   <string name="edit_done">සුරකින්න</string>
   <string name="edit_preview">පෙරදසුන</string>
-  <string name="button_page_issues">පිටුවේ මතභේදාත්මක දෑ</string>
 </resources>

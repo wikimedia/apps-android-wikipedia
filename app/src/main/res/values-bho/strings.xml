@@ -28,8 +28,7 @@
   <string name="menu_page_show_tabs">टैब देखावल जाय</string>
   <string name="menu_page_other_languages">भासा बदलीं</string>
   <string name="menu_page_find_in_page">पन्ना पर खोजीं</string>
-  <string name="menu_page_content_issues">सामग्री समस्या</string>
-  <string name="menu_page_font_and_theme">फॉन्ट आ थीम</string>
+    <string name="menu_page_font_and_theme">फॉन्ट आ थीम</string>
   <string name="menu_page_add_to_list">पढ़ाई सूची में जोड़ीं</string>
   <string name="menu_page_share">साझा करे के कड़ी</string>
   <string name="menu_long_press_open_page">खोलीं</string>
@@ -48,8 +47,7 @@
   <string name="edit_save_action_license_logged_in" fuzzy="true">सहेजे के मतलब बा आप &lt;a href=\"%1$s\"&gt;इस्तेमाल के शर्त&lt;/a&gt; से सनमत बानी,  &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के तहत आपन योगदान रिलीज करत बानी, ई रिलीज वापस ना लिहल जा सके ला।</string>
   <string name="edit_save_action_license_anon" fuzzy="true">सहेजे के मतलब बा, आप &lt;a href=\"%1$s\"&gt;इस्तेमाल के शर्त&lt;/a&gt; से सनमत बानी, आ आपन योगदान &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के तहत रिलीज करत बानी, ई रिलीज वापस ना लिहल जा सकत बा। संपादन के श्रेय आपके डिवाइस के आइपी के दिहल जाई। अगर आप &lt;a href=\"https://#login\"&gt;खाता में प्रवेश&lt;/a&gt; करत बानी तब ढेर प्राइवेसी रही।</string>
   <string name="preference_title_language" fuzzy="true">विकिपीडिया भाषा</string>
-  <string name="preference_languages_filter_hint">खोजीं</string>
-  <string name="langlinks_filter_hint">खोजीं</string>
+    <string name="langlinks_filter_hint">खोजीं</string>
   <string name="langlinks_empty">इ पन्ना अन्य भाषा में मौजूद नइखे</string>
   <string name="langlinks_no_match" fuzzy="true">आपके पुछार से मिलत कौनों भाषा ना मिलल।</string>
   <string name="langlinks_activity_title">दुसरी भाषा में</string>
@@ -120,9 +118,7 @@
   <string name="edit_preview_fetching_dialog_message">झलक हासिल कइल जाता...</string>
   <string name="send_feedback">एप फीडबैक भेजीं</string>
   <string name="create_account_account_created_toast">खाता बनावल गइल!</string>
-  <string name="preferences_heading_storage_and_syncing">भंडार आ सिंकिंग</string>
-  <string name="preference_title_sync_reading_lists">जुड़ल लिस्ट सिंक करीं</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">विकिमीडिया के एलाऊ करीं की जब आप खाता में प्रवेश करीं तब आपके रीडिंग लिस्ट के सिंक करे</string>
+    <string name="preference_summary_sync_reading_lists" fuzzy="true">विकिमीडिया के एलाऊ करीं की जब आप खाता में प्रवेश करीं तब आपके रीडिंग लिस्ट के सिंक करे</string>
   <string name="preferences_privacy_settings_heading">प्राइवेसी</string>
   <string name="preference_title_eventlogging_opt_in">इस्तेमाल के रपट भेजीं</string>
   <string name="preference_summary_eventlogging_opt_in">आप एह एप के कइसे इस्तेमाल करीं ले एकरे बारे में जानकारी एकट्ठा करे खातिर विकिमीडिया के अनुमती देईं जवना से एप के अउरी बेहतर बनावल जा सके</string>
@@ -169,9 +165,7 @@
   <string name="find_previous">पछिला खोजीं</string>
   <string name="abusefilter_title_warn">ई बिघटनकारी संपादन हो सके ला। आप सही में एकरा के प्रकाशित कइल चाहत बानी?</string>
   <string name="abusefilter_title_disallow">आप ई संपादन प्रकाशित नइखीं क सकत। वापिस लवट के एकरा के बदलीं।</string>
-  <string name="dialog_page_issues">पन्ना पर समस्या</string>
-  <string name="button_page_issues">पन्ना पर समस्या</string>
-  <string name="text_size_select">फोंट साइज</string>
+    <string name="text_size_select">फोंट साइज</string>
   <string name="page_similar_titles">अइसने पन्ना</string>
   <string name="search_did_you_mean">राउर मतलब बा %s?</string>
   <string name="search_recent_header">हाल के खोज</string>
@@ -200,11 +194,6 @@
   <string name="err_cannot_save_file">फाइल ना सहेजा पाई</string>
   <string name="snippet_share_intro">\"%1$s\" on @Wikipedia: %2$s</string>
   <string name="gallery_uploader_unknown">अनजान अपलोडर</string>
-  <string name="remote_compilations_description" fuzzy="true">ऑफलाइन कंपाइलेशन, लेख सभ के अइसन बंडल हवे जे एगो सिंगल फाइल के रूप में राउर मोबाइलयंत्र में डाउनलोड कइल जा सके ला, जवना से कि आप ऑफलाइन रहले पर भी ब्राउजिंग क सकीं।</string>
-  <string name="offline_compilation_detail_button_remove">हटाईं</string>
-  <string name="remote_compilation_download">डाउनलोड</string>
-  <string name="storage_used_by_compilations" fuzzy="true">विकिपीडिया द्वारा इस्तेमाल में</string>
-  <string name="storage_other_apps">अन्य एप्लीकेशन</string>
-  <string name="onboarding_create_account_contributions">आपन योगदान के निगरानी रखीं</string>
+    <string name="onboarding_create_account_contributions">आपन योगदान के निगरानी रखीं</string>
   <string name="onboarding_create_account_preferences">आपन पसंदसेटिंग सहेजीं</string>
 </resources>

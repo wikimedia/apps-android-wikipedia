@@ -14,8 +14,7 @@
   <string name="menu_long_press_open_page">отъврьстиѥ</string>
   <string name="nav_item_nearby">блиꙁъ</string>
   <string name="preference_title_language">Википєдїѩ ѩꙁꙑкъ</string>
-  <string name="preference_languages_filter_hint">исканиѥ</string>
-  <string name="langlinks_filter_hint">исканиѥ</string>
+    <string name="langlinks_filter_hint">исканиѥ</string>
   <string name="langlinks_empty">си страницѧ дроугꙑ ѩꙁꙑкꙑ нѣстъ</string>
   <string name="langlinks_activity_title">дроуꙃи ѩꙁꙑци</string>
   <string name="menu_save_changes">мѣнъ съхранѥниѥ</string>

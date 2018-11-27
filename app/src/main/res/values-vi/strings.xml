@@ -41,8 +41,7 @@
   <string name="menu_page_show_tabs">Hiển thị tab</string>
   <string name="menu_page_other_languages">Thay đổi ngôn ngữ</string>
   <string name="menu_page_find_in_page">Tìm trong trang</string>
-  <string name="menu_page_content_issues">Vấn đề nội dung</string>
-  <string name="menu_page_font_and_theme">Phông chữ và thiết kế</string>
+    <string name="menu_page_font_and_theme">Phông chữ và thiết kế</string>
   <string name="menu_page_add_to_list">Thêm vào danh sách đọc</string>
   <string name="menu_page_share">Chia sẻ liên kết</string>
   <string name="menu_long_press_open_page">Mở</string>
@@ -65,8 +64,7 @@
   <string name="edit_save_action_license_logged_in" fuzzy="true">Bằng việc lưu trang, bạn chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Bằng việc lưu trang, bạn chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Các sửa đổi của bạn sẽ ghi rõ địa chỉ IP của thiết bị của bạn. Bạn có thể &lt;a href=\"https://#login\"&gt;đăng nhập&lt;/a&gt; để bảo vệ quyền riêng tư của bạn một chút hơn.</string>
   <string name="preference_title_language">Ngôn ngữ của Wikipedia</string>
-  <string name="preference_languages_filter_hint">Tìm kiếm</string>
-  <string name="langlinks_filter_hint">Tìm kiếm</string>
+    <string name="langlinks_filter_hint">Tìm kiếm</string>
   <string name="langlinks_empty">Trang này không có sẵn trong ngôn ngữ khác.</string>
   <string name="langlinks_no_match">Không tìm thấy ngôn ngữ</string>
   <string name="langlinks_activity_title">Ngôn ngữ khác</string>
@@ -153,12 +151,10 @@
   <string name="edit_preview_fetching_dialog_message">Đang lấy bản xem thử…</string>
   <string name="send_feedback">Gửi phản hồi về ứng dụng</string>
   <string name="create_account_account_created_toast">Đã mở tài khoản thành công!</string>
-  <string name="preferences_heading_storage_and_syncing">Lưu trữ và đồng bộ</string>
-  <string name="preferences_heading_syncing">Đang đồng bộ hóa</string>
+    <string name="preferences_heading_syncing">Đang đồng bộ hóa</string>
   <string name="preferences_heading_data_usage">Sử dụng dữ liệu mạng</string>
   <string name="preferences_heading_experimental">Thử nghiệm</string>
-  <string name="preference_title_sync_reading_lists">Đồng bộ hóa các danh sách đọc</string>
-  <string name="preference_title_sync_reading_lists_from_account">Đồng bộ hóa danh sách đọc</string>
+    <string name="preference_title_sync_reading_lists_from_account">Đồng bộ hóa danh sách đọc</string>
   <string name="preference_title_download_reading_list_articles">Tải về bài trong danh sách đọc</string>
   <string name="preference_summary_sync_reading_lists">Đồng bộ hóa danh sách đọc giữa các thiết bị khác nhau bằng cách lưu chúng vào tài khoản Wikipedia</string>
   <string name="preference_summary_sync_reading_lists_from_account">Đồng bộ hóa danh sách đọc giữa các thiết bị khác nhau bằng cách lưu chúng vào tài khoản Wikipedia “%s”</string>
@@ -224,9 +220,7 @@
   <string name="abusefilter_title_disallow">Bạn không thể đăng sửa đổi này. Vui lòng quay lại và chỉnh sửa nó.</string>
   <string name="abusefilter_text_warn">Một bộ lọc đã tự động nhận ra sửa đổi này có thể không mang tính xây dựng. Nó có thể có một trong những vấn đề sau:&lt;br /&gt;&lt;br /&gt;· Viết tất cả bằng chữ hoa&lt;br /&gt;· Xóa trống hoặc đưa spam vào bài&lt;br /&gt;· Liên kết ngoài hoặc hình ảnh không có liên quan đến đề tài&lt;br /&gt;· Ký tự lặp lại</string>
   <string name="abusefilter_text_disallow">Một bộ lọc đã tự động nhận ra sửa đổi này có thể không mang tính xây dựng hoặc là sự phá hoại.&lt;br /&gt;&lt;br /&gt;Là một bách khoa toàn thư, Wikipedia chỉ chấp nhận các nội dung trung lập và nổi bật.</string>
-  <string name="dialog_page_issues">Vấn đề trang</string>
-  <string name="button_page_issues">Vấn đề trang</string>
-  <string name="text_size_select">Kích thước chữ</string>
+    <string name="text_size_select">Kích thước chữ</string>
   <string name="page_similar_titles">Trang tương tự</string>
   <string name="search_did_you_mean">Có phải bạn muốn tìm “%s”?</string>
   <string name="search_recent_header">Tìm kiếm gần đây:</string>
@@ -278,9 +272,7 @@
   <string name="close_all_tabs_confirm_yes">Có</string>
   <string name="close_all_tabs_confirm_no">Không</string>
   <string name="button_close_tab">Đóng tab</string>
-  <string name="tool_tip_select_text_title">Chạm lâu để chọn</string>
-  <string name="tool_tip_select_text">Nhấn và giữ tại bất kỳ đâu trong nội dung văn bản để chọn nó để sao chép và chia sẻ.</string>
-  <string name="tool_tip_share">Sau khi đã tô sáng một đoạn thú vị, hãy thử chia sẻ nó trên mạng xã hội ưa thích của bạn!</string>
+    <string name="tool_tip_share">Sau khi đã tô sáng một đoạn thú vị, hãy thử chia sẻ nó trên mạng xã hội ưa thích của bạn!</string>
   <string name="page_view_in_browser">Xem trang trong trình duyệt</string>
   <string name="tool_tip_lang_button">Từ bây giờ, bạn đã có thể tìm và đọc Wikipedia bằng nhiều ngôn ngữ trong ứng dụng.\n\n\nChạm vào biểu tượng để thêm ngôn ngữ.</string>
   <string name="error_response_malformed">Phản hồi từ máy chủ không được định dạng đúng.</string>
@@ -293,8 +285,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Không thể tải bài viết khi ngoại tuyến</string>
   <string name="page_offline_notice_add_to_reading_list">Gợi ý: Thêm bài viết vào danh sách độc và nó sẽ được tải xuống khi bạn trưc tuyến.</string>
   <string name="page_offline_notice_last_date">Bạn đang đọc phiên bản ngoại tuyến của bài này được lưu vào %s.</string>
-  <string name="page_offline_notice_compilation_download_date">Bạn đang đọc phiên bản bài này từ %1$s • %2$s.</string>
-  <string name="button_get_directions">Chỉ đường</string>
+    <string name="button_get_directions">Chỉ đường</string>
   <string name="error_no_maps_app">Không tìm thấy ứng dụng nào có khả năng chỉ đường.</string>
   <string name="preference_title_show_link_previews">Hiện bản xem trước</string>
   <string name="preference_summary_show_link_previews">Hiện một bản xem nhanh của bài viết khi chạm vào liên kết.</string>
@@ -316,9 +307,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Hình ảnh mờ (trong giao diện Tối)</string>
   <string name="preference_title_prefer_offline_content">Tải nội dung ngoại tuyến nếu có thể</string>
   <string name="preference_summary_prefer_offline_content">Tiết kiệm dữ liệu bằng cách tải các bài viết có sẵn ngoại tuyến thay vì luôn tải phiên bản mới nhất của bài viết</string>
-  <string name="preference_title_enable_offline_library">Bật Thư viện Ngoại tuyến</string>
-  <string name="preference_summary_enable_offline_library">Truy cập các gói bài viết của Wikipedia (định dạng .ZIM) đã được tải về thiết bị của bạn để đọc khi bạn ngoại tuyến. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Tìm hiểu thêm tại đây&lt;/a&gt;</string>
-  <string name="crash_report_dialog_title">Rất tiếc, ứng dụng gặp sự cố lần trước</string>
+    <string name="crash_report_dialog_title">Rất tiếc, ứng dụng gặp sự cố lần trước</string>
   <string name="crash_report_dialog_text">Bạn có muốn gửi một báo cáo đến HockeyApp / một nhà cung cấp dịch vụ bên thứ ba, để Wikimedia có thể xem xét và sửa lỗi gây ra sự cố này không?</string>
   <string name="crash_report_dialog_dont_send_button">Bỏ qua</string>
   <string name="crash_report_dialog_always_send_button">Luôn gửi</string>
@@ -344,12 +333,10 @@
   <string name="text_size_decrease">Giảm kích thước văn bản</string>
   <string name="text_size_percent_default">%s (Mặc định)</string>
   <string name="nav_item_reading_lists">Danh sách của tôi</string>
-  <string name="reading_list_untitled">Không tên</string>
-  <string name="reading_list_save_to">Lưu vào danh sách đọc</string>
+    <string name="reading_list_save_to">Lưu vào danh sách đọc</string>
   <string name="reading_list_create_new">Tạo mới</string>
   <string name="reading_list_title_exists">Danh sách đọc “%s” đã tồn tại.</string>
-  <string name="reading_list_entry_empty">Vui lòng nhập đầu đề.</string>
-  <string name="reading_list_added_to_named">Đã thêm vào %s.</string>
+    <string name="reading_list_added_to_named">Đã thêm vào %s.</string>
   <string name="reading_list_already_exists">Bài này đã có trong danh sách đó.</string>
   <string name="reading_list_added_view_button">Xem danh sách</string>
   <string name="format_reading_list_statistical_summary_singular">1 bài, %1$.2f MB</string>
@@ -366,8 +353,7 @@
   <string name="reading_list_sort_by_created_desc">Sắp xếp theo ngày được tạo (cũ nhất)</string>
   <string name="reading_list_menu_delete">Xóa danh sách</string>
   <string name="reading_list_menu_rename">Chỉnh sửa tên/mô tả</string>
-  <string name="reading_list_menu_edit_description">Chỉnh sửa miêu tả</string>
-  <string name="reading_list_action_menu_remove_from_offline">Xóa khỏi bộ nhớ ngoại tuyến</string>
+    <string name="reading_list_action_menu_remove_from_offline">Xóa khỏi bộ nhớ ngoại tuyến</string>
   <string name="reading_list_action_menu_save_for_offline">Lưu để đọc ngoại tuyến</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Xóa hết khỏi bộ nhớ ngoại tuyến</string>
   <string name="reading_list_action_menu_save_all_for_offline">Lưu hết để đọc ngoại tuyến</string>
@@ -387,8 +373,7 @@
   <string name="reading_lists_onboarding_example2">Loài vật ưa thích</string>
   <string name="reading_lists_onboarding_example3">Thám hiểm vũ trụ</string>
   <string name="reading_lists_onboarding_got_it">Được rồi</string>
-  <string name="reading_list_no_description">Không có miêu tả</string>
-  <string name="reading_list_empty">Bạn chưa có bài viết nào được thêm vào danh sách này.</string>
+    <string name="reading_list_empty">Bạn chưa có bài viết nào được thêm vào danh sách này.</string>
   <string name="reading_list_article_offline">Khả dụng ngoại tuyến</string>
   <string name="reading_list_article_make_offline">Làm bài viết này khả dụng ngoại tuyến</string>
   <string name="reading_list_add_to_other_list">Thêm vào danh sách đọc khác</string>
@@ -403,8 +388,7 @@
   <string name="reading_lists_sync_reminder_action">Bật đồng bộ hóa</string>
   <string name="reading_list_login_reminder_title">Đồng bộ hóa các danh sách đọc</string>
   <string name="reading_lists_login_reminder_text">Danh sách đọc bây giờ đã có thể được đồng bộ hóa xuyên suốt các thiết bị. Hãy đăng nhập vào tài khoản Wikipedia của bạn để cho phép các danh sách của bạn được lưu.</string>
-  <string name="reading_lists_confirm_remote_delete">Điều này sẽ xóa tất cả những danh sách đọc được đồng bộ hóa trước đây khỏi lưu trữ từ xa. Bạn có muốn tiếp tục?</string>
-  <string name="reading_lists_confirm_remote_delete_yes">Có</string>
+    <string name="reading_lists_confirm_remote_delete_yes">Có</string>
   <string name="reading_lists_confirm_remote_delete_no">Không</string>
   <string name="reading_list_article_save_in_progress">Bài này đang được tải về. Nó sẽ có sẵn ngoại tuyến khi tải về xong.</string>
   <string name="reading_list_already_contains_selection">Danh sách được chọn đã bao gồm tất cả các trang được chọn.</string>
@@ -454,14 +438,8 @@
   </plurals>
   <string name="reading_list_toast_last_sync">Đã đồng bộ hóa các danh sách đọc thành công</string>
   <string name="user_option_sync_label">Tùy chọn</string>
-  <string name="notification_button_view_user">Thảo luận với người dùng</string>
-  <string name="notification_talk_title">Tin nhắn mới tại Wikipedia</string>
-  <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; nhắn tin cho bạn tại trang thảo luận &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_reverted_title">Sửa đổi bị lùi lại</string>
-  <string name="notification_reverted">Sửa đổi của bạn tại bài &lt;strong&gt;%2$s&lt;/strong&gt; bị &lt;em&gt;%1$s&lt;/em&gt; lùi lại.</string>
-  <string name="notification_thanks_title">Cảm ơn!</string>
-  <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; cảm ơn bạn vì sửa đổi của bạn tại trang &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_channel_description">Tiến trình tải về</string>
+    <string name="notification_reverted_title">Sửa đổi bị lùi lại</string>
+    <string name="notification_channel_description">Tiến trình tải về</string>
   <string name="notification_syncing_pause_button">Tạm ngừng</string>
   <string name="notification_syncing_resume_button">Tiếp tục</string>
   <string name="notification_syncing_cancel_button">Hủy bỏ</string>
@@ -555,8 +533,7 @@
   <string name="feed_configure_language_warning">Một số loại phiếu không có sẵn trong một số ngôn ngữ Wikipedia. Sửa đổi các ngôn ngữ của bạn trong Tùy chọn.</string>
   <string name="feed_item_type_news">Bài về thời sự</string>
   <string name="feed_item_type_on_this_day">Sự kiện xảy ra ngày này năm xưa</string>
-  <string name="feed_item_type_continue_reading">Liên kết để nhanh chóng quay lại bài đang mở trong một trong các thẻ của bạn</string>
-  <string name="feed_item_type_because_you_read">Gợi ý đọc bài tùy theo bài đã đọc gần đây</string>
+    <string name="feed_item_type_because_you_read">Gợi ý đọc bài tùy theo bài đã đọc gần đây</string>
   <string name="feed_item_type_featured_article">Bài viết chọn lọc trong ngày tại Wikipedia</string>
   <string name="feed_item_type_trending">Các bài viết được xem nhiều nhất trong ngày</string>
   <string name="feed_item_type_featured_image">Hình ảnh chọn lọc trong ngày từ Wikimedia Commons</string>
@@ -604,61 +581,17 @@
   <string name="description_edit_revert_reason1">đóng góp của bạn vi phạm một &lt;a href=\"%1$s\"&gt;quy định&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">đóng góp của bạn nhìn giống thử nghiệm hoặc phá hoại.</string>
   <string name="description_edit_revert_history">Bạn có thể xem &lt;a href=\"%1$s\"&gt;lịch sử sửa đổi&lt;/a&gt;.</string>
-  <string name="offline_compilation_download_device_offline">Không thể kết nối với Internet. Hãy chắc chắn kết nối lại và thử lại.</string>
-  <string name="offline_read_permission_rationale">Cần có quyền truy cập lưu trữ trên thiết bị của bạn để duyệt ngoại tuyến.</string>
+    <string name="offline_read_permission_rationale">Cần có quyền truy cập lưu trữ trên thiết bị của bạn để duyệt ngoại tuyến.</string>
   <string name="offline_read_final_rationale">Cần có quyền truy cập lưu trữ trên thiết bị của bạn để sử dụng Thư viện Ngoài tuyến.</string>
-  <string name="offline_read_permission_error">Chưa cấp quyền đọc thiết bị lưu trữ.</string>
-  <string name="offline_card_sideloading_text">Bạn hiện đang duyệt Wikipedia ngoại tuyến với các gói bài trong Thư viện Ngoại tuyến của bạn.</string>
-  <string name="offline_my_compilations">Quản lý thư viện ngoại tuyến</string>
-  <string name="offline_compilations_title">Thư viện Ngoại tuyến</string>
-  <string name="offline_compilations_search_by_name">Tìm gói bài theo tên</string>
-  <string name="offline_compilations_found_count">Trong Thư viện Ngoại tuyến của tôi (%d)</string>
-  <string name="offline_compilations_add">Thêm vào Thư viện Ngoại tuyến</string>
-  <string name="remote_compilations_title">Thư viện Ngoại tuyến</string>
-  <string name="remote_compilations_description">Với Thư viện Ngoại tuyến, bạn có thể tải về các gói bài để đọc khi nào mất kết nối Internet.</string>
-  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
-  <string name="size_gb">%.2f GB</string>
+    <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <string name="offline_compilation_detail_button_download_v2">Tải về • %s</string>
-  <string name="offline_compilation_detail_button_remove">Xóa</string>
-  <string name="remote_compilation_download">Tải về</string>
-  <string name="storage_size_free_v2">Còn trống %s</string>
-  <string name="storage_used_by_compilations">được sử dụng bởi Thư viện Ngoại tuyến</string>
-  <string name="storage_other_apps">Ứng dụng khác</string>
-  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
-  <string name="offline_compilation_download_time_remaining">còn %d phút</string>
-  <string name="compilation_download_widget_button_cancel_hint">Hủy bỏ tải về</string>
-  <string name="compilation_download_cancel_confirm">Bạn có chắc chắn muốn hủy bỏ tải về gói bài này?</string>
-  <string name="compilation_download_cancel_confirm_yes">Có</string>
-  <string name="compilation_download_cancel_confirm_no">Không</string>
-  <string name="compilation_share">Chia sẻ</string>
-  <string name="compilation_remove">Xóa</string>
-  <string name="compilation_remove_confirm">Bạn có chắc chắn muốn xóa gói bài này khỏi Thư viện Ngoại tuyến của bạn?</string>
-  <string name="offline_library_title">Thư viện Ngoại tuyến</string>
-  <string name="offline_library_empty_title">Không có gì trong Thư viện Ngoại tuyến</string>
-  <string name="offline_library_empty_description_sideload">“Gói bài” trong Thư viện Ngoại tuyến là tập hợp bài viết được tạo ra để lưu trên thiết bị một cách tiện lợi để cho bạn tiếp tục đọc ngay cả khi ngoại tuyến.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support?uselang=vi\"&gt;Tìm hiểu thêm&lt;/a&gt;</string>
-  <string name="offline_library_packs_hint">Các gói bài trong thư viện của bạn tiếp tục có sẵn để đọc ngay cả khi bạn ngoại tuyến. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support?uselang=vi\"&gt;Tìm hiểu thêm&lt;/a&gt;</string>
-  <string name="offline_library_data_usage_hint">Muốn tiết kiệm mức sử dụng dữ liệu di động? Bật tùy chọn “Tải nội dung ngoại tuyến nếu có thể” trong Tùy chọn để hiển thị các bài ngoại tuyến trước tên, ngay cả khi bạn đang trực tuyến. &lt;a href=\"#settings\"&gt;Đi đến Tùy chọn&lt;/a&gt;</string>
-  <string name="offline_library_empty_search">Tìm kiếm trong Thư viện Ngoại tuyến</string>
-  <string name="offline_library_search_results_state">Kết quả tìm kiếm từ Thư viện Ngoại tuyến</string>
-  <string name="offline_library_onboarding_button_done">Xong</string>
-  <string name="offline_library_onboarding_build_library_title">Xây dựng Thư viện Ngoại tuyến của bạn</string>
-  <string name="offline_library_onboarding_build_library_subtitle">Tải về các gói bài Wikipedia bây giờ để truy cập miễn phí sau.</string>
-  <string name="offline_library_onboarding_uninterrupted_reading_title">Không bị đứt quãng khi đọc</string>
-  <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Tiếp tục đọc và tìm bài trong Thư viện Ngoại tuyến của bạn khi bạn mất kết nối Internet.</string>
-  <string name="offline_library_onboarding_store_knowledge_title">Lưu trữ thêm kiến thức</string>
-  <string name="offline_library_onboarding_store_knowledge_subtitle">Tải về nhiều nội dung Wikipedia bằng sức chứa của thiết bị này. Thư viện Ngoại tuyến cũng có thể truy cập gói bài từ thiết bị lưu trữ bên ngoài.</string>
-  <string name="offline_library_main_page_hint_html">Trang Chính này tóm tắt nội dung của gói bài này.&lt;br /&gt;&lt;br /&gt;Bạn cũng có thể duyệt nội dung gói bài trong Thư viện Ngoại tuyến bằng cách tìm bài khi ngoại tuyến.</string>
-  <string name="onboarding_skip">Bỏ qua</string>
+    <string name="onboarding_skip">Bỏ qua</string>
   <string name="onboarding_continue">Tiếp tục</string>
   <string name="onboarding_get_started">Bắt đầu</string>
   <string name="onboarding_explore_title">Cách thám hiểm mới</string>
   <string name="onboarding_explore_text" fuzzy="true">Khám phá các bài viết chọn lọc, đề tài thịnh hành, và gợi ý đọc bài trong nguồn cấp Thám hiểm.</string>
-  <string name="onboarding_save_to_reading_lists_title">Lưu vào danh sách đọc</string>
-  <string name="onboarding_save_to_reading_lists_text">Tạo danh sách đọc có các bài bạn muốn đọc sau, ngay cả khi ngoại tuyến.</string>
-  <string name="onboarding_reading_list_sync_title">Danh sách đọc có thể đồng bộ hóa</string>
-  <string name="onboarding_reading_list_sync_text">Tạo các danh sách đọc có những bài bạn muốn đọc sau, ngay cả khi ngoại tuyến. &lt;a href=\"#login\"&gt;Đăng nhập vào hoặc mở&lt;/a&gt; tài khoản Wikipedia để sao lưu các danh sách đọc của bạn.</string>
-  <string name="onboarding_reading_list_sync_text_v2">Bạn có thể tạo danh sách đọc có các bài bạn muốn đọc sau, ngay cả khi bạn đang ngoại tuyến. &lt;br/&gt;Đăng nhập vào tài khoản Wikipedia của bạn để đồng bộ hóa các danh sách đọc của bạn. &lt;a href=\"#login\"&gt;Tham gia Wikipedia&lt;/a&gt;</string>
+    <string name="onboarding_reading_list_sync_title">Danh sách đọc có thể đồng bộ hóa</string>
+    <string name="onboarding_reading_list_sync_text_v2">Bạn có thể tạo danh sách đọc có các bài bạn muốn đọc sau, ngay cả khi bạn đang ngoại tuyến. &lt;br/&gt;Đăng nhập vào tài khoản Wikipedia của bạn để đồng bộ hóa các danh sách đọc của bạn. &lt;a href=\"#login\"&gt;Tham gia Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Gửi dữ liệu vô danh</string>
   <string name="onboarding_analytics_offline_text">Giúp cải thiện ứng dụng bằng cách cho chúng tôi biết bạn sử dụng nó như thế nào. Tất cả các dữ liệu được thu tập được vô danh hóa. &lt;a href=\"#privacy\"&gt;Tìm hiểu thêm&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Gửi dữ liệu về cách dùng</string>
