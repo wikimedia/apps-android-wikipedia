@@ -33,8 +33,7 @@
   <string name="menu_page_show_tabs">Rajtarki pokazać</string>
   <string name="menu_page_other_languages">Rěč změnić</string>
   <string name="menu_page_find_in_page">Na stronje pytać</string>
-  <string name="menu_page_content_issues">Wobsahowe problemy</string>
-  <string name="menu_page_font_and_theme">Družinu pisma a barby</string>
+    <string name="menu_page_font_and_theme">Družinu pisma a barby</string>
   <string name="menu_page_add_to_list">K čitanskej lisćinje přidać</string>
   <string name="menu_page_share">Wotkaz dźělić</string>
   <string name="menu_page_open_a_new_tab">Nowy rajtark wočinić</string>
@@ -57,8 +56,7 @@
   <string name="other_languages_indication_text">W druhej rěči čitać</string>
   <string name="language_count_link_text">Přistupne w %d druhich rěčach</string>
   <string name="preference_title_language">Rěčne wersije</string>
-  <string name="preference_languages_filter_hint">Pytać</string>
-  <string name="langlinks_filter_hint">Pytać</string>
+    <string name="langlinks_filter_hint">Pytać</string>
   <string name="langlinks_empty">Tutón zapisk njeje w druhich rěčach přistupny.</string>
   <string name="langlinks_no_match">Žane rěče namakane</string>
   <string name="langlinks_activity_title">Druhe rěče</string>
@@ -141,12 +139,10 @@
   <string name="edit_preview_fetching_dialog_message">Wobstaram přehlad...</string>
   <string name="send_feedback">Feedback wo app wotpósłać</string>
   <string name="create_account_account_created_toast">Konto załožene!</string>
-  <string name="preferences_heading_storage_and_syncing">Skład a synchronizowanje</string>
-  <string name="preferences_heading_syncing">Synchronizowanje</string>
+    <string name="preferences_heading_syncing">Synchronizowanje</string>
   <string name="preferences_heading_data_usage">Wužiwanje datow</string>
   <string name="preferences_heading_experimental">Eksperimentelne</string>
-  <string name="preference_title_sync_reading_lists">Čitanske lisćiny synchronizować</string>
-  <string name="preference_title_sync_reading_lists_from_account">Synchronizuju čitanske lisćiny</string>
+    <string name="preference_title_sync_reading_lists_from_account">Synchronizuju čitanske lisćiny</string>
   <string name="preference_title_download_reading_list_articles">Zapiski čitanskich lisćin sćahnyć</string>
   <string name="preference_summary_sync_reading_lists">Synchronizuj čitanske lisćiny na wšelakich aparatach přez składowanje lisćinow w twojim wužiwarskim konće</string>
   <string name="preference_summary_sync_reading_lists_from_account">Synchronizuj čitanske lisćiny na wšelakich aparatach přez składowanje lisćinow w twojim wužiwarskim konće \"%s\"</string>
@@ -201,9 +197,7 @@
   <string name="find_previous">Předchadne pytać</string>
   <string name="abusefilter_title_warn">Tuta změna je snano njekonstruktiwna. Chceš ju woprawdźe wozjewić?</string>
   <string name="abusefilter_title_disallow">Njemóžeš wozjewić tutu změnu. Prošu dźi wróćo a přeměń ju.</string>
-  <string name="dialog_page_issues">Problemy ze stronu</string>
-  <string name="button_page_issues">Problemy ze stronu</string>
-  <string name="text_size_select">Wulkosć pisma</string>
+    <string name="text_size_select">Wulkosć pisma</string>
   <string name="page_similar_titles">Podobne strony</string>
   <string name="search_did_you_mean">Sy měnił(a) \"%s\"?</string>
   <string name="search_recent_header">Njedawne pytanja:</string>
@@ -256,9 +250,7 @@
   <string name="close_all_tabs_confirm_no">Ně</string>
   <string name="button_close_tab">Rajtark začinić</string>
   <string name="tab_item_closed">%s začinjene.</string>
-  <string name="tool_tip_select_text_title">Tłóč dołho za wubranje</string>
-  <string name="tool_tip_select_text">Tłóč a dźerž něhdźe w teksće zo by wubrał(a) za kopěrowanje a dźělenje.</string>
-  <string name="tool_tip_bookmark_icon_title">K čitanskej lisćinje přidać</string>
+    <string name="tool_tip_bookmark_icon_title">K čitanskej lisćinje přidać</string>
   <string name="tool_tip_bookmark_icon_text">Tłóč na čitanske znamješko, zo by so zapisk składował w čitanskej lisćinje.</string>
   <string name="page_view_in_browser">Stronu we wobhladowaku pokazać</string>
   <string name="tool_tip_toc_title">Spěšny přistup na wobsahowy zapis</string>
@@ -273,8 +265,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Zapisk njeda so pokazać, hdyž sy offline.</string>
   <string name="page_offline_notice_add_to_reading_list">Pokiw: Přidaj zapisk k čitanskej lisćinje, potom so sćehnje ručež sy zaso online.</string>
   <string name="page_offline_notice_last_date">Čitaš offline-wersiju tutoho zapiska, składowanu dnja %s.</string>
-  <string name="page_offline_notice_compilation_download_date">Čitaš wersiju tutoho zapiska wot %1$s • %2$s.</string>
-  <string name="button_get_directions">Nawigaciju dóstać</string>
+    <string name="button_get_directions">Nawigaciju dóstać</string>
   <string name="error_no_maps_app">Njenamakach žanu app, kotraž poskića nawigaciju.</string>
   <string name="preference_title_show_link_previews">Přehlady wotkazow pokazać</string>
   <string name="preference_summary_show_link_previews">Pokazuje krótki přehlad zapiskow při tłóčenju na wotkazy.</string>
@@ -295,8 +286,7 @@
   <string name="reference_title">Referenca %s</string>
   <string name="preference_title_prefer_offline_content">Radšo offline-wobsah wzać</string>
   <string name="preference_summary_prefer_offline_content">Lutuj wužiwanje datow přez pokazowanje offline přistupnych zapiskow město stajneho sćehnjenja najnowšeje wersije.</string>
-  <string name="preference_title_enable_offline_library">Offline-biblioteku zmóžnić</string>
-  <string name="crash_report_dialog_title">Bohužel je app zašły raz spadnyła</string>
+    <string name="crash_report_dialog_title">Bohužel je app zašły raz spadnyła</string>
   <string name="crash_report_dialog_text">Chceš rozprawu wo spadnjenju pósłać na HockeyApp/třećeho posłužbarja, zo móhła je Wikimedija přepruwować a zmylk reparować?</string>
   <string name="crash_report_dialog_dont_send_button">Přeskočić</string>
   <string name="crash_report_dialog_always_send_button">Přeco pósłać</string>
@@ -315,8 +305,7 @@
   <string name="reading_list_sort_by_created_desc">Sortěrować po dnju wutworjenja (najstarše)</string>
   <string name="reading_list_menu_delete">Lisćinu zhašeć</string>
   <string name="reading_list_menu_rename">Mjena/wopisanje wobdźěłać</string>
-  <string name="reading_list_menu_edit_description">Wopisanje wobdźěłać</string>
-  <string name="reading_list_action_menu_remove_from_offline">Z offline-lisćiny wotstronić</string>
+    <string name="reading_list_action_menu_remove_from_offline">Z offline-lisćiny wotstronić</string>
   <string name="reading_list_action_menu_save_for_offline">Za offline-wužiwanje składować</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Wšě z offline-lisćiny wotstronić</string>
   <string name="reading_list_action_menu_save_all_for_offline">Wšě za offline-wužiwanje składować</string>
@@ -333,8 +322,7 @@
   <string name="reading_lists_onboarding_example2">Najlubše zwěrjata</string>
   <string name="reading_lists_onboarding_example3">Swětnišćowe slědźenje</string>
   <string name="reading_lists_onboarding_got_it">Zrozumjene</string>
-  <string name="reading_list_no_description">Bjez wopisanja...</string>
-  <string name="reading_list_empty">Njejsy žane zapiski k tutej lisćinje přidał(a).</string>
+    <string name="reading_list_empty">Njejsy žane zapiski k tutej lisćinje přidał(a).</string>
   <string name="reading_list_article_offline">Offline přistupny</string>
   <string name="reading_list_article_make_offline">Tutón zapisk offline spřistupnić</string>
   <string name="reading_list_add_to_other_list">K druhej čitanskej lisćinje přidać</string>
@@ -431,9 +419,6 @@
   <string name="description_edit_help_meta_info">Wopisanja so składuja a zarjaduja na Wikidatach, projekće załožby Wikimedija, kotryž poskići swobodnu, zhromadnu, wjacerěčnu datowu banku, podpěrujo Wikipediju a druhe projekty.</string>
   <string name="description_edit_revert_subtitle">Měj dźak za wobdźěłanje Wikipedije!</string>
   <string name="description_edit_revert_reason2">twój přinošk wupadaše kaž eksperiment abo wandalizm.</string>
-  <string name="offline_compilations_title">Offline-biblioteka</string>
-  <string name="remote_compilations_title">Offline-biblioteka</string>
-  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
-  <string name="size_gb">%.2f GB</string>
+    <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
 </resources>

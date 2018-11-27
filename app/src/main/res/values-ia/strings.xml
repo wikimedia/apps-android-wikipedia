@@ -16,8 +16,7 @@
   <string name="menu_page_show_tabs">Monstrar schedas</string>
   <string name="menu_page_other_languages">Cambiar de lingua</string>
   <string name="menu_page_find_in_page">Cercar in pagina</string>
-  <string name="menu_page_content_issues">Problemas de contento</string>
-  <string name="menu_page_font_and_theme">Typo de litteras e thema</string>
+    <string name="menu_page_font_and_theme">Typo de litteras e thema</string>
   <string name="menu_page_add_to_list">Adder al lista de lectura</string>
   <string name="menu_page_share">Divider ligamine</string>
   <string name="menu_long_press_open_page">Aperir</string>
@@ -34,8 +33,7 @@
   <string name="edit_save_action_license_logged_in">By saving, you agree to the &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">By saving, you agree to the &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license. Edits will be attributed to the IP address of your device. If you &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt;, you will have more privacy.</string>
   <string name="preference_title_language">Lingua de Wikipedia</string>
-  <string name="preference_languages_filter_hint">Cercar</string>
-  <string name="langlinks_filter_hint">Cercar</string>
+    <string name="langlinks_filter_hint">Cercar</string>
   <string name="langlinks_empty">Iste pagina non es disponibile in altere linguas</string>
   <string name="langlinks_no_match">Nulle lingua trovate que corresponde a tu recerca.</string>
   <string name="langlinks_activity_title">Altere linguas</string>
@@ -110,9 +108,7 @@
   <string name="find_previous">Cargar precedente</string>
   <string name="abusefilter_title_warn" fuzzy="true">Iste pote esser un modification non constructive. Es tu secur de voler salveguardar lo?</string>
   <string name="abusefilter_title_disallow" fuzzy="true">Tu non pote salveguardar iste modification. Per favor retorna e cambia lo.</string>
-  <string name="dialog_page_issues">Problemas con le pagina</string>
-  <string name="button_page_issues">Problemas con le pagina</string>
-  <string name="text_size_select">Dimension del litteras</string>
+    <string name="text_size_select">Dimension del litteras</string>
   <string name="page_similar_titles">Paginas simile</string>
   <string name="search_did_you_mean">Forsan cercava tu: \"%s\"?</string>
   <string name="search_recent_header">Recercas recente:</string>

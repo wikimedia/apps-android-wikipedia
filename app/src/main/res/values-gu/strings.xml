@@ -17,8 +17,7 @@
   <string name="last_updated_text">%s એ છેલ્લું અદ્યતન કરાયું</string>
   <string name="content_license_html">અન્ય કશું સૂચવાયું ન હોય ત્યાં સુધી વિગતો &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; હેઠળ ઉપલબ્ધ છે</string>
   <string name="preference_title_language">વિકિપીડિયા ભાષા</string>
-  <string name="preference_languages_filter_hint">શોધ</string>
-  <string name="langlinks_filter_hint">શોધ</string>
+    <string name="langlinks_filter_hint">શોધ</string>
   <string name="langlinks_empty">આ પાનું અન્ય ભાષાઓમાં ઉપલબ્ધ નથી.</string>
   <string name="langlinks_no_match">તમારી પૃચ્છાને અનુકૂળ કોઈ ભાષા મળી નથી.</string>
   <string name="langlinks_activity_title">અન્ય ભાષાઓ</string>
@@ -80,9 +79,7 @@
   <string name="edit_summary_tag_links">કડીઓ ઉમેરી</string>
   <string name="edit_summary_tag_other">અન્ય</string>
   <string name="find_next">આગળ શોધો</string>
-  <string name="dialog_page_issues">પૃષ્ઠમાં ખરાબી</string>
-  <string name="button_page_issues">પૃષ્ઠમાં ખરાબી</string>
-  <string name="text_size_select">ફોન્ટનો આકાર</string>
+    <string name="text_size_select">ફોન્ટનો આકાર</string>
   <string name="color_theme_select">થીમ</string>
   <string name="color_theme_light">આછુ</string>
   <string name="color_theme_dark">કાળું</string>

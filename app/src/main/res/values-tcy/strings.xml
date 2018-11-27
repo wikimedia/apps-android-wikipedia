@@ -34,8 +34,7 @@
   <string name="menu_page_show_tabs">ಟ್ಯಾಬ್ ನು ತೊಜಾಲೆ</string>
   <string name="menu_page_other_languages">ಬಾಸೆನ್ ಬದಲ್ ಮಾನ್ಪಿ</string>
   <string name="menu_page_find_in_page">ಪುಟೊಟು ನಾಡ್ಲೆ</string>
-  <string name="menu_page_content_issues">ವಿಸಯಯೊದ ಬಗೆಟ್ಟ್</string>
-  <string name="menu_page_font_and_theme">ಅಕ್ಷರದ ನಮೂನೆ ಬುಕ್ಕಾ ಬಣ್ಣೊ</string>
+    <string name="menu_page_font_and_theme">ಅಕ್ಷರದ ನಮೂನೆ ಬುಕ್ಕಾ ಬಣ್ಣೊ</string>
   <string name="menu_page_add_to_list">ಓದುನ ಪಟ್ಟಿಗ್ ಸೇರ್ಪಾಲೆ</string>
   <string name="menu_page_share">ಕೊಂಡಿನ್ ಪಟ್ಟ್‌ಲೆ</string>
   <string name="menu_long_press_open_page">ತೋಜಾಲೇ</string>
@@ -58,7 +57,6 @@
   <string name="edit_save_action_license_logged_in" fuzzy="true">ಬದಲಾವಣೆಲೆನ್ ಒರಿಪಾವುನ ಮೂಲಕ, ಈರ್ &lt;a href=\"%1$s\"&gt;ಗಲಸುನ ನಿಬಂದನೆಲೆನ್&lt;/a&gt; ಒತ್ತೊನುವರ್, ಬೊಕ್ಕ ಇರೆನ ಕಾನಿಕೆಲೆನ್  &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ಲೈಸೆನ್ಸ್‌ದಡಿಟ್ ಬುಡುಗಡೆ ಮಲ್ಪೆರೆ ಈರ್ ಬದಲ್ ಮಲ್ಪೆರಾವಂದಿಲೆಕ ಒತ್ತೊನುವರ್.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">ಬದಲಾವಣೆಲೆನ್ ಒರಿಪಾವುನ ಮೂಲಕ, ಈರ್ &lt;a href=\"%1$s\"&gt;ಗಲಸುನ ನಿಬಂದನೆಲೆನ್&lt;/a&gt; ಒತ್ತೊನುವರ್, ಬೊಕ್ಕ ಇರೆನ ಕಾನಿಕೆಲೆನ್  &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ಲೈಸೆನ್ಸ್‌ದಡಿಟ್ ಬುಡುಗಡೆ ಮಲ್ಪೆರೆ ಈರ್ ಬದಲ್ ಮಲ್ಪೆರಾವಂದಿಲೆಕ ಒತ್ತೊನುವರ್. ಬದಲಾವಣೆದ ಶ್ರೇಯೊ (ಕ್ರೆಡಿಟ್ಸ್), ಇರೆನ ಸಾಧನೊದ ಐ.ಪಿ. ವಿಲಾಸೊಗು ತಿಕ್ಕುಂಡು. ಈರ್ &lt;a href=\"https://#login\"&gt;ಲಾಗ್ ಇನ್&lt;/a&gt; ಆಂಡ, ಇರೆಗ್ ದಿಂಜ ಗೌಪ್ಯತೆ ಉಪ್ಪುಂಡು.</string>
   <string name="preference_title_language">ವಿಕಿಪೀಡಿಯಾ ಬಾಸೆ</string>
-  <string name="preference_languages_filter_hint">ನಾಡ್‍ಲೆ</string>
   <string name="langlinks_filter_hint">ನಾಡ್‍ಲೆ</string>
   <string name="langlinks_empty">ಈ ಪುಟ ಬೇತೆ ಬಾಸೆಲೆಡ್ ತಿಕೊಂತಿಜ್ಜಿ.</string>
   <string name="langlinks_no_match">ಒವ್ವೆ ಬಾಸೆ ತಿಕ್ಕ್ ಇಜ್ಜಿ</string>
@@ -146,11 +144,9 @@
   <string name="edit_preview_fetching_dialog_message">ದುಂಬುತ್ತಾ ವಿಸಯಾ ಬತ್ತೊಂತುಂಡು...</string>
   <string name="send_feedback">ಅಪ್ ತಾ ಬಗೆತಾ ಅಭಿಪ್ರಾಯೊ ಕಡಪುಡ್ಲೆ</string>
   <string name="create_account_account_created_toast">ಖಾತೆ ಸೃಷ್ಟಿಯಾಂಡ್.</string>
-  <string name="preferences_heading_storage_and_syncing">ಶೇಖರಣೆ ಬುಕ್ಕೊ  ಸಿಂಕ್</string>
-  <string name="preferences_heading_syncing">ಸಿಂಕಿಂಗ್</string>
+    <string name="preferences_heading_syncing">ಸಿಂಕಿಂಗ್</string>
   <string name="preferences_heading_data_usage">ಡಾಟಾ ಬಲಕೆ</string>
   <string name="preferences_heading_experimental">ಪರೀಕ್ಷಾರ್ತೊ</string>
-  <string name="preference_title_sync_reading_lists">ಎನ್ನ ಓದುನಾ ಲಿಸ್ಟ್</string>
   <string name="preference_title_sync_reading_lists_from_account">ಓದುನ ಲಿಸ್ಟ್</string>
   <string name="preference_title_download_reading_list_articles">ಪಟ್ಟಿತ  ಲೇಖನೊನ್ ಓದಿರ ಡೌನ್ಲೋಡ್ ಮಾಲ್ಪುಲೆ.</string>
   <string name="preferences_privacy_settings_heading">ಸೊಂತೊ</string>
@@ -191,9 +187,7 @@
   <string name="edit_conflict_title">ಸಂಘರ್ಷ ಸಂಪಾದನೆ</string>
   <string name="find_next"> ನಾನತೆನ್ ತೂಲೆ</string>
   <string name="find_previous">ದುಂಬುತೇನ್ ತೂಲೆ</string>
-  <string name="dialog_page_issues">ಪುಟೊತ್ತಾ ಸಮಸ್ಯೆ</string>
-  <string name="button_page_issues">ಪುಟೊತ್ತಾ ಸಮಸ್ಯೆ</string>
-  <string name="text_size_select">ಅಕ್ಷರೊದ ಗಾತ್ರೊ</string>
+    <string name="text_size_select">ಅಕ್ಷರೊದ ಗಾತ್ರೊ</string>
   <string name="page_similar_titles">ಇಂಚಿನವೇ ಪುಟಕುಲು</string>
   <string name="search_recent_header">ಇನ್ಚಿಪ ನಾಡ್ನವು:</string>
   <string name="button_clear_all_recent_searches">ಇನ್ಚಿಪ ನಾಡ್ನೆನ್ ಮಾಜಾಲೇ</string>
@@ -252,8 +246,7 @@
   <string name="color_theme_dark">ಕಡ್ಪೋ ಬಣ್ಣೊ</string>
   <string name="color_theme_black">ಕಪ್ಪು</string>
   <string name="nav_item_reading_lists">ಎನ್ನ ಓದುನ  ಲಿಸ್ಟ್</string>
-  <string name="reading_list_untitled">ಪುದರಿಜ್ಜಿ</string>
-  <string name="reading_list_save_to">ಓದಿನ ಲಿಸ್ಟ್ನ್ ಒರಿಪಾಲೇ</string>
+    <string name="reading_list_save_to">ಓದಿನ ಲಿಸ್ಟ್ನ್ ಒರಿಪಾಲೇ</string>
   <string name="reading_list_create_new">ಪೊಸತ್ ಮಾನ್ಪುಲೇ</string>
   <string name="reading_list_added_to_named">ನೆಕ್ ಸೇರ್ಸತುಂಡು %s</string>
   <string name="reading_list_already_exists">ಲೇಕನೋ ಈ ಲಿಸ್ಟ್ ಡ್ ದುಂಬೆ ಉಂಡು</string>
@@ -268,8 +261,7 @@
   <string name="reading_list_sort_by_recent">ತಾರೀಕ್‌ಗ್ ಎಲ್ಯ ಮಾಲ್ಪುಲೆ.(ಇಂಚಿಪೊದ)</string>
   <string name="reading_list_menu_delete"> ಮಾಜಾಯಿನ ಪಟ್ಟಿ.</string>
   <string name="reading_list_menu_rename">ಪೊಸ ಪುದಾರ್/ ವಿವರಣೆ</string>
-  <string name="reading_list_menu_edit_description">ವಿವರಣೆನ್ ಸೇರಾಲೆ</string>
-  <string name="reading_list_action_menu_save_for_offline">offlin ಡ್ ಒರಿಪಾಲೆ</string>
+    <string name="reading_list_action_menu_save_for_offline">offlin ಡ್ ಒರಿಪಾಲೆ</string>
   <string name="reading_list_name_sample">ಎನ್ನ ಓದುನಾ ಲಿಸ್ಟ್</string>
   <string name="reading_list_name_hint">ಈ ಲಿಸ್ಟ್ ದ ಪುದರ್</string>
   <string name="reading_list_item_deleted">%s ಪಟ್ಟಿದ್ ದೆತುಂಡು</string>
@@ -281,7 +273,6 @@
   <string name="reading_lists_onboarding_example2">ಇಸ್ಟೊದಾ ಮೃಗೋಕುಲು</string>
   <string name="reading_lists_onboarding_example3">ಒಂತೆ ಜಾಗೆ ಕೊರ್ಲೆ.</string>
   <string name="reading_lists_onboarding_got_it">ಗೊತ್ತಂಡು</string>
-  <string name="reading_list_no_description">ವಿವರಣೆ ಇಜ್ಜಿ.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">This article will now be available offline.</item>
     <item quantity="other">These articles will now be available offline.</item>
@@ -291,11 +282,8 @@
     <item quantity="other">These articles will no longer be available offline.</item>
   </plurals>
   <string name="user_option_sync_label">ಪ್ರಾಶಸ್ತ್ಯೊಲು</string>
-  <string name="notification_button_view_user">ಗಲಸುನರೇಡಾ ಪಾತೆರ್ಲೆ</string>
-  <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; left a message on your Talk page &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_reverted_title">ಸೇರ್ಸಾಯಿನೆನ್ ಪಿರದಿಂಜಾನ್ಡ್</string>
-  <string name="notification_reverted">Your edit to the article &lt;strong&gt;%2$s&lt;/strong&gt; was reverted by &lt;em&gt;%1$s&lt;/em&gt;.</string>
-  <string name="notification_echo_channel_description">ವಿಕಿಪೀಡಿಯ ಸೂಚನೆಲು.</string>
+    <string name="notification_reverted_title">ಸೇರ್ಸಾಯಿನೆನ್ ಪಿರದಿಂಜಾನ್ಡ್</string>
+    <string name="notification_echo_channel_description">ವಿಕಿಪೀಡಿಯ ಸೂಚನೆಲು.</string>
   <string name="notifications_activity_title">ಸೂಚನೆಲು</string>
   <string name="notifications_poll_enable_positive">ಶಕ್ತಗೊಳಿಸಾಯಿನ</string>
   <string name="notifications_poll_enable_negative">ಉಂದು ಅತ್ತ್.</string>
@@ -325,20 +313,9 @@
   <string name="description_edit_success_did_you_know">ಈರೆಗ್ ತೆರಿದ್‍ಂಡಾ?</string>
   <string name="description_edit_help_about_title">ಎಂಕ್ಲೆನ ಬಗ್ಗೆ</string>
   <string name="description_edit_help_tips_examples">ಉದಾಹರಣೆಗ್</string>
-  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
-  <string name="size_gb">%.2f GB</string>
+    <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <string name="offline_compilation_detail_button_download_v2">ಡೌನ್‍ಲೋಡ್ %sಅಂಡ್</string>
-  <string name="offline_compilation_detail_button_remove">ದೆಪ್ಪುಲೆ</string>
-  <string name="remote_compilation_download">ಡೌನ್‍ಲೋಡ್</string>
-  <string name="storage_size_free_v2">%s free</string>
-  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
-  <string name="compilation_download_cancel_confirm_yes">ಅಂದ್</string>
-  <string name="compilation_download_cancel_confirm_no">ಅತ್ತ್</string>
-  <string name="compilation_share">ಪಟ್ಟುಲೆ</string>
-  <string name="compilation_remove">ದೆಪ್ಪುಲೆ</string>
-  <string name="offline_library_onboarding_button_done">ಆಂಡ್</string>
-  <string name="onboarding_skip">ಬುಡ್ಲೆ</string>
+    <string name="onboarding_skip">ಬುಡ್ಲೆ</string>
   <string name="onboarding_continue">ಮುಂದುವರೆಸಾಲೆ</string>
   <string name="app_shortcuts_search">ನಾಡ್‍ಲೆ</string>
   <string name="languages_list_activity_title">ಬಾಸೆನ್ ಸೇರ್ಪಾಲೆ</string>

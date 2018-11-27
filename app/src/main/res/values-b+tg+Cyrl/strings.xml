@@ -14,8 +14,7 @@
   <string name="menu_page_show_tabs">Намоиши баргаҳо</string>
   <string name="menu_page_other_languages">Тағйири забон</string>
   <string name="menu_page_find_in_page">Ёфтан дар саҳифа</string>
-  <string name="menu_page_content_issues">Масоили мӯҳтаво</string>
-  <string name="menu_page_font_and_theme">Ҳарф ва мавзӯъ</string>
+    <string name="menu_page_font_and_theme">Ҳарф ва мавзӯъ</string>
   <string name="menu_page_share">Паҳнкунии пайванд</string>
   <string name="menu_long_press_open_page">Кушодан</string>
   <string name="menu_long_press_open_in_new_tab">Кушодан дар баргаи нав</string>
@@ -29,8 +28,7 @@
   <string name="edit_save_action_license_logged_in">Бо захира намудан, Шумо ба &lt;a href=\"%1$s\"&gt;Шартҳои Истифода&lt;/a&gt;, ва паҳнкунии саҳми худ таҳти &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; иҷозатнома розӣ ҳастед.</string>
   <string name="edit_save_action_license_anon">Бо захиракуни, шумо ба &lt;a href=\"%1$s\"&gt;Шартҳои Истифода&lt;/a&gt;, ва паҳнкунии саҳми худ таҳти иҷозатномаи &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; розӣ ҳастед. Вироишот ба нишонаи IP ин дастгоҳ сабт мешавад. Агар шумо &lt;a href=\"https://#login\"&gt;вуруд шавад&lt;/a&gt;, шумо бештар ҳарми шахсиятро пайдо мекунед.</string>
   <string name="preference_title_language">Забони Википедиа</string>
-  <string name="preference_languages_filter_hint">Ҷустуҷӯ</string>
-  <string name="langlinks_filter_hint">Ҷустуҷӯ</string>
+    <string name="langlinks_filter_hint">Ҷустуҷӯ</string>
   <string name="langlinks_empty">Ин саҳифа бо дигар забонҳо дастнорас аст.</string>
   <string name="langlinks_no_match">Бо пурсиши шумо ягон саҳифа пайдо нашуд.</string>
   <string name="langlinks_activity_title">Дигар забонҳо</string>

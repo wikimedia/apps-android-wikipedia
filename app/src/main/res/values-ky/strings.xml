@@ -19,8 +19,7 @@
   <string name="content_license_html">Камтылма (башка нерсе көрсөтүлгөн эмес болсо) &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; негизинде жеткиликтүү</string>
   <string name="edit_save_action_license_logged_in">Өзгөртүүлөрдү сактоо менен бирге, сиз &lt;a href=\"%1$s\"&gt;колдонуу шарттары&lt;/a&gt; менен, ошондой эле &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; лицензиясы боюнча irrevocably release шарттарына макул экендигиңизди билдиресиз.</string>
   <string name="preference_title_language">Уикипедия тили</string>
-  <string name="preference_languages_filter_hint">Издөө</string>
-  <string name="langlinks_filter_hint">Издөө</string>
+    <string name="langlinks_filter_hint">Издөө</string>
   <string name="langlinks_empty">Бул барак башка тилдерде жеткиликтүү эмес.</string>
   <string name="langlinks_no_match">Сиздин сурооңузга төп тил табылбады.</string>
   <string name="langlinks_activity_title">Башка тилдер</string>
@@ -112,9 +111,7 @@
   <string name="find_previous">Мурункуну табуу</string>
   <string name="abusefilter_title_warn">Бул оңдоо бузуку болушу мүмкүн. Сиз аны сактооңузга ишенесизби?</string>
   <string name="abusefilter_title_disallow">Сиз бул оңдоону сактай албайсыз. Сураныч, артка кайтыңыз жана аны өзгөртүңүз.</string>
-  <string name="dialog_page_issues">Барак боюнча суроолор</string>
-  <string name="button_page_issues">Барак боюнча суроолор</string>
-  <string name="text_size_select">Жазуу түрүнүн өлчөмү</string>
+    <string name="text_size_select">Жазуу түрүнүн өлчөмү</string>
   <string name="color_theme_select">Жасалга</string>
   <string name="color_theme_light">Ачык</string>
   <string name="color_theme_dark">Караңгы</string>

@@ -41,8 +41,7 @@
   <string name="menu_page_show_tabs">Fitxak erakutsi</string>
   <string name="menu_page_other_languages">Hizkuntza aldatu</string>
   <string name="menu_page_find_in_page">Aurkitu orrialdean</string>
-  <string name="menu_page_content_issues">Edukiarekin arazoak</string>
-  <string name="menu_page_font_and_theme">Letra eta gaia</string>
+    <string name="menu_page_font_and_theme">Letra eta gaia</string>
   <string name="menu_page_add_to_list">Gehitu irakurketa zerrendara</string>
   <string name="menu_page_share">Partekatu lotura</string>
   <string name="menu_long_press_open_page">Ireki</string>
@@ -65,8 +64,7 @@
   <string name="edit_save_action_license_logged_in" fuzzy="true">Gordetzen baduzu &lt;a href=\"%1$s\"&gt;Erabilera Baldintzak&lt;/a&gt; onartzen dituzu, eta zure ekarpen guztiak atzera bueltarik gabe &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean jartzen dituzu.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Aurreztuz, &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; onartuko duzu, eta ezinbestez zure ekarpenak askatu beharko dituzu &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziaren babespean. Aldaketak zure gailuaren IP helbideari egotziko zaizkio. Zu &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt; ba zara, pribautasun gehiago edukiko duzu.</string>
   <string name="preference_title_language">Wikipediako hizkuntzak</string>
-  <string name="preference_languages_filter_hint">Bilatu</string>
-  <string name="langlinks_filter_hint">Bilatu</string>
+    <string name="langlinks_filter_hint">Bilatu</string>
   <string name="langlinks_empty">Orrialde hau ez dago eskuragarri beste hizkuntzetan.</string>
   <string name="langlinks_no_match">Hizkuntzarik ez da aurkitu</string>
   <string name="langlinks_activity_title">Beste hizkuntzak</string>
@@ -153,12 +151,10 @@
   <string name="edit_preview_fetching_dialog_message">Aurreikuspena eskuratzen…</string>
   <string name="send_feedback">Aplikazioari buruzko feedbacka eman</string>
   <string name="create_account_account_created_toast">Kontua sortua!</string>
-  <string name="preferences_heading_storage_and_syncing">Biltegiratzea eta sinkronizazioa</string>
-  <string name="preferences_heading_syncing">Sinkronizatzen</string>
+    <string name="preferences_heading_syncing">Sinkronizatzen</string>
   <string name="preferences_heading_data_usage">Data erabilera</string>
   <string name="preferences_heading_experimental">Esperimentala</string>
-  <string name="preference_title_sync_reading_lists">Zure irakurketa zerrendak sinkronizatu</string>
-  <string name="preference_title_sync_reading_lists_from_account">Irakurketa zerrendaren sinkronizazioa</string>
+    <string name="preference_title_sync_reading_lists_from_account">Irakurketa zerrendaren sinkronizazioa</string>
   <string name="preference_title_download_reading_list_articles">Jaitsi irakurketa zerrendako artikuluak</string>
   <string name="preference_summary_sync_reading_lists">Utzi zure irakurketa zerrendak gailuen zehar sinkronizatzen, zure Wikipedia kontuan gordez</string>
   <string name="preference_summary_sync_reading_lists_from_account">Utzi Wikipediak sinkroniza ditzala irakurketa zerrendak zure \"%s\" Wikipedia kontura gordez</string>
@@ -222,9 +218,7 @@
   <string name="abusefilter_title_disallow">Ezin duzu aldaketa hau argitaratu. Mesedez itzul zaitez eta alda ezazu.</string>
   <string name="abusefilter_text_warn">Iragazki automatizatu batek aldaketa hau ezezagun potentzial gisa identifikatu du. Hurrengotariko baten bat izan daiteke:&lt;br /&gt;&lt;br /&gt;· Typing in all caps&lt;br /&gt;· Blanking articles or spamming&lt;br /&gt;· Irrelevant external links or images&lt;br /&gt;· Errepikaturiko karaktereak</string>
   <string name="abusefilter_text_disallow">Iragazki automatizatu batek aldaketa hau potentzialki ezezaguna edo bandalismo gisa identifikatu du.&lt;br /&gt;&lt;br /&gt;Wikipedia entziklopedia bat da, eta hemen bakarrik egon daitezke eduki neutralak eta onargarriak.</string>
-  <string name="dialog_page_issues">Orriaren arazoak</string>
-  <string name="button_page_issues">Orriaren arazoak</string>
-  <string name="text_size_select">Letra-tamaina</string>
+    <string name="text_size_select">Letra-tamaina</string>
   <string name="page_similar_titles">Antzeko orrialdeak</string>
   <string name="search_did_you_mean">\"%s\" esan nahi zenuen?</string>
   <string name="search_recent_header">Azken bilaketak:</string>
@@ -276,9 +270,7 @@
   <string name="close_all_tabs_confirm_yes">Bai</string>
   <string name="close_all_tabs_confirm_no">Ez</string>
   <string name="button_close_tab">Itxi fitxa</string>
-  <string name="tool_tip_select_text_title">Luze sakatu hautatzeko</string>
-  <string name="tool_tip_select_text">Sakatu eta mantendu edonon testuan, hautatzeko, kopiatzeko eta partekatzeko.</string>
-  <string name="tool_tip_share">Gertaera interesgarri bat nabarmendu ondoren, saiatu zure sare gustokoenak partekatzea!</string>
+    <string name="tool_tip_share">Gertaera interesgarri bat nabarmendu ondoren, saiatu zure sare gustokoenak partekatzea!</string>
   <string name="page_view_in_browser">Orria nabigatzailean ikusi</string>
   <string name="tool_tip_lang_button">Orain hainbat Wikipedia hizkuntzatan bilatu eta irakurri ahalko duzu aplikazioan.\n\nSakatu ikonoa hizkuntza gehiago gehitzeko.</string>
   <string name="error_response_malformed">Zerbitzariaren erantzuna ez da formateatu behar bezala.</string>
@@ -291,8 +283,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Artikulua ezin da kargatu konexiorik gabe.</string>
   <string name="page_offline_notice_add_to_reading_list">Pista: artikulua irakurteka zerrendara gehitu eta konexioa duzunean jaitsiko da.</string>
   <string name="page_offline_notice_last_date">Konexiorik gabeko artikuluaren bertsioa irakurtzen ari zara %s (e)n gordeta.</string>
-  <string name="page_offline_notice_compilation_download_date">%1$s • %2$s-etik jaitsitako artikuluaren bertsioa irakurtzen ari zara.</string>
-  <string name="button_get_directions">Helbidea lortu</string>
+    <string name="button_get_directions">Helbidea lortu</string>
   <string name="error_no_maps_app">Ez da aurkitu helbiderik eskaintzen duen aplikaziorik.</string>
   <string name="preference_title_show_link_previews">Lotura aurreikuspenak erakutsi</string>
   <string name="preference_summary_show_link_previews">Erakutsi artikuluen aurrebista bizkorra esteketan sakatzen denean.</string>
@@ -312,9 +303,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Irudia lausotu (gai ilunetan)</string>
   <string name="preference_title_prefer_offline_content">Konexiorik gabeko edukia hobestu</string>
   <string name="preference_summary_prefer_offline_content">Aurreztu itzazu datuak, lineaz kanpo erabilgarri dauden artikuluak kargatuz, artikulu baten azken bertsioa kargatzearen ordez</string>
-  <string name="preference_title_enable_offline_library">Konexiorik gabeko Liburutegia Gaitu</string>
-  <string name="preference_summary_enable_offline_library">Wikipedia artikuluen sortara sartu (.ZIM artxibo gisa irudikatuta) konexiorik gabe zeunden bitartean deskargatu direnak. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Find out more&lt;/a&gt;</string>
-  <string name="crash_report_dialog_title">Barkatu, aplikazioa eten egin da</string>
+    <string name="crash_report_dialog_title">Barkatu, aplikazioa eten egin da</string>
   <string name="crash_report_dialog_text">Kraskadurari buruzko txostena HockeyApp / hirugarrenen zerbitzu-hornitzaileari bidali nahi diozu Wikimedia-ek zure kraskadura berrikusi eta konpondu duen akatsa zuzentzeko?</string>
   <string name="crash_report_dialog_dont_send_button">Utzi</string>
   <string name="crash_report_dialog_always_send_button">Beti bidali</string>
@@ -340,12 +329,10 @@
   <string name="text_size_decrease">Testuaren tamaina txikitu</string>
   <string name="text_size_percent_default">%s (Lehenetsia)</string>
   <string name="nav_item_reading_lists">Nire zerrendak</string>
-  <string name="reading_list_untitled">Izenbururik gabe</string>
-  <string name="reading_list_save_to">Gordu irakurketa zerrendan</string>
+    <string name="reading_list_save_to">Gordu irakurketa zerrendan</string>
   <string name="reading_list_create_new">Sortu berria</string>
   <string name="reading_list_title_exists">\"%s\" dagoeneko irakurketa zerrendan dago.</string>
-  <string name="reading_list_entry_empty">Sartu izenburu bat, mesedez.</string>
-  <string name="reading_list_added_to_named">%s(e)ra gehitu da.</string>
+    <string name="reading_list_added_to_named">%s(e)ra gehitu da.</string>
   <string name="reading_list_already_exists">Artikulu hau jadanik zerrendan dago.</string>
   <string name="reading_list_added_view_button">Ikusi zerrenda</string>
   <string name="format_reading_list_statistical_summary_singular">Artikulu 1, %1$.2f MB</string>
@@ -362,8 +349,7 @@
   <string name="reading_list_sort_by_created_desc">Sortutako dataren arabera antolatua (zaharrena)</string>
   <string name="reading_list_menu_delete">Ezabatu zerrenda</string>
   <string name="reading_list_menu_rename">Izena/deskribapena aldatu</string>
-  <string name="reading_list_menu_edit_description">Aldatu deskribapena</string>
-  <string name="reading_list_action_menu_remove_from_offline">Kendu lineaz kanpotik</string>
+    <string name="reading_list_action_menu_remove_from_offline">Kendu lineaz kanpotik</string>
   <string name="reading_list_action_menu_save_for_offline">Lineaz kanporako gorde</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Konexiorik gabeko guztia ezabatu</string>
   <string name="reading_list_action_menu_save_all_for_offline">Konexiorik gabeko guztia gorde</string>
@@ -383,8 +369,7 @@
   <string name="reading_lists_onboarding_example2">Animaliarik gogokoenak</string>
   <string name="reading_lists_onboarding_example3">Espazioaren esplorazioa</string>
   <string name="reading_lists_onboarding_got_it">Ulertu dut</string>
-  <string name="reading_list_no_description">Deskribapenik ez...</string>
-  <string name="reading_list_empty">Zerrenda honetan ez duzu artikulurik gehitu.</string>
+    <string name="reading_list_empty">Zerrenda honetan ez duzu artikulurik gehitu.</string>
   <string name="reading_list_article_offline">Erabilgarri lineaz kanpo</string>
   <string name="reading_list_article_make_offline">Egin ezazu artikulu hau erabilgarri, konexiorik gabe ere</string>
   <string name="reading_list_add_to_other_list">Gehitu beste irakurketa-zerrenda batera</string>
@@ -399,8 +384,7 @@
   <string name="reading_lists_sync_reminder_action">Sinkronizazioa ahalbidetu</string>
   <string name="reading_list_login_reminder_title">Zure irakurketa zerrendak sinkronizatu</string>
   <string name="reading_lists_login_reminder_text">Irakurketa-zerrendak gailu guztietan sinkronizatu daitezke. Hasi saioa zure Wikipedia kontuan, zure zerrendak gorde ahal izateko.</string>
-  <string name="reading_lists_confirm_remote_delete">Honek aurreko sinkronizatutako irakurketen zerrendak ezabatuko ditu urruneko biltegitik. Jarraitu?</string>
-  <string name="reading_lists_confirm_remote_delete_yes">Bai</string>
+    <string name="reading_lists_confirm_remote_delete_yes">Bai</string>
   <string name="reading_lists_confirm_remote_delete_no">Ez</string>
   <string name="reading_list_article_save_in_progress">Artikulua jaisten ari da, bukatzean konexiorik gabe erabiltzeko prest egongo da.</string>
   <string name="reading_list_already_contains_selection">Hautatutako zerrendak aukeratutako orrialde guztiak ditu barne jadanik.</string>
@@ -450,14 +434,8 @@
   </plurals>
   <string name="reading_list_toast_last_sync">Irakurketa zerrenda arrakastaz sinkronizatua</string>
   <string name="user_option_sync_label">Hobespenak</string>
-  <string name="notification_button_view_user">Hitz egin erabiltzeari</string>
-  <string name="notification_talk_title">Mezu berria Wikipedian</string>
-  <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt;(e) mezu bat utzi dizu zure Talk orrialdean &lt;strong&gt;%2$s&lt;/strong&gt;</string>
-  <string name="notification_reverted_title">Lehengoratutako aldaketa</string>
-  <string name="notification_reverted">&lt;strong&gt;%2$s&lt;/strong&gt; artikuluari egin diozun aldaketa &lt;em&gt;%1$s&lt;/em&gt;(e)k lehengoratu du.</string>
-  <string name="notification_thanks_title">Eskerrak eman dizkizute!</string>
-  <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt;(e)k &lt;strong&gt;%2$s&lt;/strong&gt; orrialdean egindako aldaketa eskertu dizu</string>
-  <string name="notification_channel_description">Deskargatu aurrerapena</string>
+    <string name="notification_reverted_title">Lehengoratutako aldaketa</string>
+    <string name="notification_channel_description">Deskargatu aurrerapena</string>
   <string name="notification_syncing_pause_button">Gelditu</string>
   <string name="notification_syncing_resume_button">Jarraitu</string>
   <string name="notification_syncing_cancel_button">Bertan behera utzi</string>
@@ -542,8 +520,7 @@
   <string name="feed_configure_language_warning">Jakin ezazu txartel guztiak ez daudela erabilgarri Wikipedia hizkuntza guztietan. Aldatu aukeratutako hizkuntza Ezarpenetan.</string>
   <string name="feed_item_type_news">Eguneko ekitaldiei buruzko artikuluak</string>
   <string name="feed_item_type_on_this_day">Gaurko eguneko historian zehar gertaturiko ekitaldiak</string>
-  <string name="feed_item_type_continue_reading">Lotura azkarra zure betile batean irekita zegoen artikulu batera itzultzeko</string>
-  <string name="feed_item_type_because_you_read">Orain dela gutxi irakurritako zure historiako artikulu batean oinarritutako iradokizunak</string>
+    <string name="feed_item_type_because_you_read">Orain dela gutxi irakurritako zure historiako artikulu batean oinarritutako iradokizunak</string>
   <string name="feed_item_type_featured_article">Eguneko Wikipediako artikulu aipagarria</string>
   <string name="feed_item_type_trending">Egunean gehien ikusten diren artikuluak</string>
   <string name="feed_item_type_featured_image">Wikimedia Commonsetik hartutako eguneko irudi aipagarria</string>
@@ -590,64 +567,21 @@
   <string name="description_edit_revert_reason1">zure ekarpenak ez du &lt;a href=\"%1$s\"&gt;guidelines&lt;/a&gt;(e)tatik bat jarraitu.</string>
   <string name="description_edit_revert_reason2">Zure ekarpenak esperimentua edo hantura ematen zuen.</string>
   <string name="description_edit_revert_history">Interesaturik bazaude, ikus &lt;a href=\"%1$s\"&gt;edit history&lt;/a&gt;.</string>
-  <string name="offline_compilation_download_device_offline">Ez dago interneterako konexiorik. Behin ziurtatuta konexioa daukazula, saiatu zaitez berriro.</string>
-  <string name="offline_read_permission_rationale">Zeure gailuko memorian konexiorik gabe sartzeko baimena.</string>
+    <string name="offline_read_permission_rationale">Zeure gailuko memorian konexiorik gabe sartzeko baimena.</string>
   <string name="offline_read_final_rationale">Offline liburutegia erabiltzeko zeure gailuko memorian konexiorik gabe sartzeko baimena eman behar duzu.</string>
-  <string name="offline_read_permission_error">Ez daukazu baimenik gailuaren memoriatik irakurtzeko.</string>
-  <string name="offline_card_sideloading_text">Oraintxe ari zara deskonektatu gabeko artikuluetatik kanpoko Liburutegiko artikulu-paketeetatik Wikipedia erabiltzen.</string>
-  <string name="offline_my_compilations">Nire offline bildumak kudeatu</string>
-  <string name="offline_compilations_title">Konexiorik gabeko bilduma</string>
-  <string name="offline_compilations_search_by_name">Bildumak bilatu izenaren bidez</string>
-  <string name="offline_compilations_found_count">Nire offline bildumak (%d)</string>
-  <string name="offline_compilations_add">Konexiorik gabeko bildumara gehitu</string>
-  <string name="remote_compilations_title">Offline bilduma</string>
-  <string name="remote_compilations_description">Lineaz kanpoko liburutegiarekin, orain deskargatu ahal izango dituzu artikulu-paketeak irakurtzeko interneterako konexioa eskuragarri ez duzunean.</string>
-  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
-  <string name="size_gb">%.2f GB</string>
+    <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <string name="offline_compilation_detail_button_download_v2">Deskargatu • %s</string>
-  <string name="offline_compilation_detail_button_remove">Kendu</string>
-  <string name="remote_compilation_download">Jaitsi</string>
-  <string name="storage_size_free_v2">%s dohainik</string>
-  <string name="storage_used_by_compilations">Konexiorik gabeko bildumak erabilia</string>
-  <string name="storage_other_apps">Beste aplikazioak</string>
-  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
-  <plurals name="offline_compilation_download_time_remaining">
+    <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">1 min left</item>
     <item quantity="other">%d mins left</item>
   </plurals>
-  <string name="compilation_download_widget_button_cancel_hint">Deskarga deuseztatu</string>
-  <string name="compilation_download_cancel_confirm">Ziur al zaude artikulu sorta honen deskarga ezeztatu nahi duzula?</string>
-  <string name="compilation_download_cancel_confirm_yes">Bai</string>
-  <string name="compilation_download_cancel_confirm_no">Ez</string>
-  <string name="compilation_share">Partekatu</string>
-  <string name="compilation_remove">Kendu</string>
-  <string name="compilation_remove_confirm">Zure Offline bildumatik ezabatu nahi duzu?</string>
-  <string name="offline_library_title">Offline bilduma</string>
-  <string name="offline_library_empty_title">Ezer ez zure Offline Bilduman</string>
-  <string name="offline_library_empty_description_sideload">\"Lineako paketeak\" zure konexio gabeko liburutegian zure ordenagailuko biltegiratze egokirako artikulu multzoak aurretik antolatzen dira, lineaz kanpo irakurtzen jarrai dezazun.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Find out more&lt;/a&gt;</string>
-  <string name="offline_library_packs_hint">Zure bildumako artikulu sortak irakurtzeko eskuragarri edukiko dituzu konexiorik gabe zaudenean.&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Gehiago jakiteko&lt;/a&gt;</string>
-  <string name="offline_library_data_usage_hint">Datuen erabilera murriztu nahi duzu? Hautatu \"Konexiorik gabeko edukia hobetsi\" Ezarpenetan, lehendabizi konexiorik gabe eskuragarri dauden artikuluak azaltzeko, nahiz eta konexioa eduki.&lt;a href=\"#settings\"&gt;Go to Settings&lt;/a&gt;</string>
-  <string name="offline_library_empty_search">Konexiorik gabeko Bilduman bilatu</string>
-  <string name="offline_library_search_results_state">Konexio gabeko bildumatik emaitzak bilatu</string>
-  <string name="offline_library_onboarding_button_done">Eginda</string>
-  <string name="offline_library_onboarding_build_library_title">Zure Offline Bilduma sortu</string>
-  <string name="offline_library_onboarding_build_library_subtitle">Deskargatu Wikipedia artikulu sortak orain, gerorako datu gabeko sarbiderako.</string>
-  <string name="offline_library_onboarding_uninterrupted_reading_title">Etenik gabeko irakurketa</string>
-  <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Jarraitu irakurtzen eta bilatzen zure Offline Bilduman artikuluak internetik ez duzunerako.</string>
-  <string name="offline_library_onboarding_store_knowledge_title">Eduki gehiago pilatu</string>
-  <string name="offline_library_onboarding_store_knowledge_subtitle">Deskarga ezazu zure gailuak gorde dezakeen guztia. Offline Bilduma kanpoko biltegiratzeko artikulu sortetara ere sar daiteke.</string>
-  <string name="offline_library_main_page_hint_html">Orri nagusiak artikulu sorta honen edukien ikuspegi orokorra eskaintzen du. &lt;br /&gt; &lt;br /&gt; Artikulu-paketeen edukia ere baztertu dezakezu Liburutegiko konexiorik gabeko bilduman, eskuragarri dauden artikuluak konexiorik gabe zaudenean.</string>
-  <string name="onboarding_skip">Utzi</string>
+    <string name="onboarding_skip">Utzi</string>
   <string name="onboarding_continue">Jarraitu</string>
   <string name="onboarding_get_started">Has zaitez!</string>
   <string name="onboarding_explore_title">Exploratzeko era berriak</string>
   <string name="onboarding_explore_text">Murgildu zaitez Wikipedian etengabe Arakatzaile ezarpena eguneratuz.&lt;br/&gt; &lt;b&gt;Pertsonalizatu&lt;/b&gt; zure interesetako jarioa – bai gertakari historikoen inguruan ikasteko &lt;b&gt;Egun honetan&lt;/b&gt;, zein dadoa botaz &lt;b&gt;Ausazkoa&lt;/b&gt;.</string>
-  <string name="onboarding_save_to_reading_lists_title">Gordu irakurketa zerrendan</string>
-  <string name="onboarding_save_to_reading_lists_text">Irakurketa zerrendak sortu gero irakurri nahi dituzun artikuluekin, konexiorik gabe egonda ere.</string>
-  <string name="onboarding_reading_list_sync_title">Sinkronizatutako irakurketa zerrendak</string>
-  <string name="onboarding_reading_list_sync_text">Geroago irakurri nahi dituzun artikuluen irakurketa zerrenda sortu, baita konexiorik gabe zaudenean ere. &lt;a href=\"#login\"&gt;Log in or create&lt;/a&gt; zure Wikipedia kontuan irakurketa zerrendak gordetzeko.</string>
-  <string name="onboarding_reading_list_sync_text_v2">Gero irakurri nahi dituzun artikuluen irakurketa-zerrendak egin ditzakezu, nahiz eta offline egon. &lt;br/&gt;Hasi saioa zure Wikipedian kontuan zure irakurketa-zerrendak sinkronizatzeko. &lt;a href=\"#login\"&gt;Wikipediara batu&lt;/a&gt;</string>
+    <string name="onboarding_reading_list_sync_title">Sinkronizatutako irakurketa zerrendak</string>
+    <string name="onboarding_reading_list_sync_text_v2">Gero irakurri nahi dituzun artikuluen irakurketa-zerrendak egin ditzakezu, nahiz eta offline egon. &lt;br/&gt;Hasi saioa zure Wikipedian kontuan zure irakurketa-zerrendak sinkronizatzeko. &lt;a href=\"#login\"&gt;Wikipediara batu&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Datuak anonimoki bidali</string>
   <string name="onboarding_analytics_offline_text">Lagundu iezaguzu aplikazioa hobetzen zure erabilera azalduz. Bildutako datuak anonimoak izango dira.&lt;a href=\"#offline\"&gt;Gehiago ikasi&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Erabilitako data bidali</string>

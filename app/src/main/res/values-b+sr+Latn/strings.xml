@@ -29,8 +29,7 @@
   <string name="menu_page_show_tabs">Prikaži kartice</string>
   <string name="menu_page_other_languages">Promeni jezik</string>
   <string name="menu_page_find_in_page">Pronađi na stranici</string>
-  <string name="menu_page_content_issues">Problemi sa sadržajem</string>
-  <string name="menu_page_font_and_theme">Font i tema</string>
+    <string name="menu_page_font_and_theme">Font i tema</string>
   <string name="menu_page_add_to_list">Dodaj na listu za čitanje</string>
   <string name="menu_page_share">Deli link</string>
   <string name="menu_page_open_a_new_tab">Otvori novu karticu</string>
@@ -56,8 +55,7 @@
   <string name="edit_save_action_license_logged_in">Objavljivanjem izmena, prihvatate &lt;a href=\"%1$s\"&gt;uslove korišćenja&lt;/a&gt; i neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Objavljivanjem izmena, prihvatate &lt;a href=\"%1$s\"&gt;uslove korišćenja&lt;/a&gt; i neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Izmene će biti pripisane IP adresi vašeg uređaja. Ako se &lt;a href=\"https://#login\"&gt;prijavite&lt;/a&gt;, imaćete veću privatnost.</string>
   <string name="preference_title_language">Jezici Vikipedije</string>
-  <string name="preference_languages_filter_hint">Pretražite</string>
-  <string name="langlinks_filter_hint">Pretražite</string>
+    <string name="langlinks_filter_hint">Pretražite</string>
   <string name="langlinks_empty">Ova stranica nije dostupna na drugim jezicima.</string>
   <string name="langlinks_no_match">Jezici nisu pronađeni</string>
   <string name="langlinks_activity_title">Drugi jezici</string>
@@ -144,12 +142,10 @@
   <string name="edit_preview_fetching_dialog_message">Dobavljanje pregleda…</string>
   <string name="send_feedback">Pošalji povratne informacije</string>
   <string name="create_account_account_created_toast">Nalog je otvoren.</string>
-  <string name="preferences_heading_storage_and_syncing">Skladište i sinhronizacija</string>
-  <string name="preferences_heading_syncing">Sinhronizacija</string>
+    <string name="preferences_heading_syncing">Sinhronizacija</string>
   <string name="preferences_heading_data_usage">Upotreba podataka</string>
   <string name="preferences_heading_experimental">Eksperimentalno</string>
-  <string name="preference_title_sync_reading_lists">Sinhronizuj liste za čitanje</string>
-  <string name="preference_title_sync_reading_lists_from_account">Sinhronizacija liste za čitanje</string>
+    <string name="preference_title_sync_reading_lists_from_account">Sinhronizacija liste za čitanje</string>
   <string name="preference_title_download_reading_list_articles">Preuzimaj članke sa liste za čitanje</string>
   <string name="preference_summary_sync_reading_lists">Sinhronizujte liste za čitanje na različitim uređajima tako što ćete ih sačuvati na svoj nalog na Vikipediji</string>
   <string name="preference_summary_sync_reading_lists_from_account">Sinhronizujte liste za čitanje na različitim uređajima tako što ćete ih sačuvati na svoj nalog „%s” na Vikipediji</string>
@@ -215,9 +211,7 @@
   <string name="abusefilter_title_disallow">Ne možete da objavite ovu izmenu. Vratite se nazad i promenite je.</string>
   <string name="abusefilter_text_warn">Automatizovani filter je prepoznao ovu izmenu kao potencijalno nekonstruktivnu. Možda sadrži nešto od sledećeg:&lt;br /&gt;&lt;br /&gt;· Pisanje velikim slovima&lt;br /&gt;· Pražnjenje članka ili spamovanje&lt;br /&gt;· Irelevantne spoljašnje linkove ili slike&lt;br /&gt;· Ponavljanje znakova</string>
   <string name="abusefilter_text_disallow">Automatizovani filter je prepoznao ovu izmenu kao potencijalno nekonstruktivnu ili mogući vandalizam.&lt;br /&gt;&lt;br /&gt;Vikipedija je enciklopedija — ovde pripada samo neutralan i značajan sadržaj.</string>
-  <string name="dialog_page_issues">Problemi sa stranicom</string>
-  <string name="button_page_issues">Problemi sa stranicom</string>
-  <string name="text_size_select">Veličina fonta</string>
+    <string name="text_size_select">Veličina fonta</string>
   <string name="page_similar_titles">Slične stranice</string>
   <string name="search_did_you_mean">Da li ste mislili na „%s”?</string>
   <string name="search_recent_header">Nedavne pretrage:</string>
@@ -270,9 +264,7 @@
   <string name="close_all_tabs_confirm_no">Ne</string>
   <string name="button_close_tab">Zatvori karticu</string>
   <string name="tab_item_closed">Zatvoreno: %s.</string>
-  <string name="tool_tip_select_text_title">Zadržite za izbor</string>
-  <string name="tool_tip_select_text">Pritisnite i držite bilo gde u tekstu da biste ga izabrali za kopiranje i deljenje.</string>
-  <string name="tool_tip_bookmark_icon_title">Dodaj na listu za čitanje</string>
+    <string name="tool_tip_bookmark_icon_title">Dodaj na listu za čitanje</string>
   <string name="tool_tip_bookmark_icon_text">Tapnite na ikonu markera da biste sačuvali članak u listu za čitanje.</string>
   <string name="tool_tip_share">Nakon što označite zanimljivu činjenicu, delite je na svojim omiljenim mrežama.</string>
   <string name="page_view_in_browser">Prikaži stranicu u pregledaču</string>
@@ -291,8 +283,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Članak ne može da se učita oflajn.</string>
   <string name="page_offline_notice_add_to_reading_list">Savet: dodajte članak na listu za čitanje i on će biti preuzet čim budete onlajn.</string>
   <string name="page_offline_notice_last_date">Čitate oflajn-verziju članka, koji je sačuvan %s.</string>
-  <string name="page_offline_notice_compilation_download_date">Čitate verziju članka iz kompilacije %1$s • %2$s.</string>
-  <string name="button_get_directions">Preuzmi putanju</string>
+    <string name="button_get_directions">Preuzmi putanju</string>
   <string name="error_no_maps_app">Nije moguće pronaći nijednu aplikaciju koja pruža putanju.</string>
   <string name="preference_title_show_link_previews">Pregledi linkova</string>
   <string name="preference_summary_show_link_previews">Prikazuje kratki pregled članaka pritiskom na linkove.</string>
@@ -314,9 +305,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Zatamnjenje slika (u tamnoj temi)</string>
   <string name="preference_title_prefer_offline_content">Prioritet ima oflajn-sadržaj</string>
   <string name="preference_summary_prefer_offline_content">Uštedite na saobraćaju prikazivanjem oflajn-verzije članka umesto stalnog preuzimanja najnovije verzije.</string>
-  <string name="preference_title_enable_offline_library">Omogući oflajn-biblioteku</string>
-  <string name="preference_summary_enable_offline_library">Pristup paketima sa člancima Vikipedije (u ZIM formatu) koji su preuzeti na vaš uređaj za čitanje kada ste oflajn. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Saznajte više&lt;/a&gt;.</string>
-  <string name="crash_report_dialog_title">Aplikacija je otkazala prošli put</string>
+    <string name="crash_report_dialog_title">Aplikacija je otkazala prošli put</string>
   <string name="crash_report_dialog_text">Želite li da pošaljete izveštaj o otkazivanju nezavisnoj usluzi HockeyApp kako bi Vikimedija ispitala vaš slučaj i ispravila grešku?</string>
   <string name="crash_report_dialog_dont_send_button">Preskoči</string>
   <string name="crash_report_dialog_always_send_button">Uvek šalji</string>
@@ -342,12 +331,10 @@
   <string name="text_size_decrease">Smanji veličinu teksta</string>
   <string name="text_size_percent_default">%s (podrazumevano)</string>
   <string name="nav_item_reading_lists">Moje liste</string>
-  <string name="reading_list_untitled">Nenaslovljeno</string>
-  <string name="reading_list_save_to">Sačuvaj na listu za čitanje</string>
+    <string name="reading_list_save_to">Sačuvaj na listu za čitanje</string>
   <string name="reading_list_create_new">Napravi novi</string>
   <string name="reading_list_title_exists">Lista za čitanje „%s” već postoji.</string>
-  <string name="reading_list_entry_empty">Unesite naslov.</string>
-  <string name="reading_list_added_to_named">Dodato na listu „%s”.</string>
+    <string name="reading_list_added_to_named">Dodato na listu „%s”.</string>
   <string name="reading_list_already_exists">Ovaj članak se već nalazi na toj listi.</string>
   <string name="reading_list_added_view_button">Prikaži listu</string>
   <string name="format_reading_list_statistical_summary_singular">1 članak, %1$.2f MB</string>
@@ -364,7 +351,6 @@
   <string name="reading_list_sort_by_created_desc">Sortiraj po datumu pravljenja (najstariji)</string>
   <string name="reading_list_menu_delete">Izbriši listu</string>
   <string name="reading_list_menu_rename">Uredi ime/opis</string>
-  <string name="reading_list_menu_edit_description">Uredi opis</string>
   <string name="reading_list_action_menu_remove_from_offline">Ukloni iz oflajn-memorije</string>
   <string name="reading_list_action_menu_save_for_offline">Sačuvaj u oflajn-memoriju</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Ukloni sve iz oflajn-memorije</string>
@@ -385,8 +371,7 @@
   <string name="reading_lists_onboarding_example2">Omiljene životinje</string>
   <string name="reading_lists_onboarding_example3">Istraživanje svemira</string>
   <string name="reading_lists_onboarding_got_it">Razumem</string>
-  <string name="reading_list_no_description">Nema opisa…</string>
-  <string name="reading_list_empty">Na ovoj listi nema dodatih članaka.</string>
+    <string name="reading_list_empty">Na ovoj listi nema dodatih članaka.</string>
   <string name="reading_list_article_offline">Dostupno oflajn</string>
   <string name="reading_list_article_make_offline">Učini ovaj članak dostupnim oflajn</string>
   <string name="reading_list_add_to_other_list">Dodaj na drugu listu za čitanje</string>
@@ -401,8 +386,7 @@
   <string name="reading_lists_sync_reminder_action">Omogući sinhronizaciju</string>
   <string name="reading_list_login_reminder_title">Sinhronizacija lista za čitanje</string>
   <string name="reading_lists_login_reminder_text">Liste za čitanje se sada mogu sinhronizovati među uređajima. Prijavite se na vaš nalog na Vikipediji i dozvolite čuvanje lista.</string>
-  <string name="reading_lists_confirm_remote_delete">Ovim ćete izbrisati sve ranije sinhronizovane liste za čitanje sa udaljenog skladišta. Nastaviti?</string>
-  <string name="reading_lists_confirm_remote_delete_yes">Da</string>
+    <string name="reading_lists_confirm_remote_delete_yes">Da</string>
   <string name="reading_lists_confirm_remote_delete_no">Ne</string>
   <string name="reading_list_article_save_in_progress">Članak se preuzima. Po završetku preuzimanja će biti dostupan oflajn.</string>
   <string name="reading_list_already_contains_selection">Odabrana lista već sadrži sve izabrane stranice.</string>
@@ -453,13 +437,7 @@
   <string name="reading_list_toast_last_sync">Liste za čitanje su uspešno sinhronizovane</string>
   <string name="reading_list_menu_last_sync">Poslednja sinhronizacija: %s</string>
   <string name="user_option_sync_label">Podešavanja</string>
-  <string name="notification_button_view_user">Razgovaraj sa korisnikom</string>
-  <string name="notification_talk_title">Nova poruka na Vikipediji</string>
-  <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; je ostavio poruku na vašoj stranici za razgovor &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">Vraćena izmena</string>
-  <string name="notification_reverted">Vašu izmenu na članku &lt;strong&gt;%2$s&lt;/strong&gt; poništio je &lt;em&gt;%1$s&lt;/em&gt;.</string>
-  <string name="notification_thanks_title">Neko vam se zahvalio.</string>
-  <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; vam se zahvalio na vašoj izmeni na stranici &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_channel_description">Napredak preuzimanja</string>
   <string name="notification_syncing_pause_button">Pauziraj</string>
   <string name="notification_syncing_resume_button">Nastavi</string>
@@ -555,7 +533,6 @@
   <string name="feed_configure_language_warning">Imajte na umu da nisu svi tipovi kartica dostupni na svakom jeziku Vikipedije. Uredite izabrane jezike u podešavanjima.</string>
   <string name="feed_item_type_news">Članci o trenutnim događajima</string>
   <string name="feed_item_type_on_this_day">Istorijski događaji na današnji dan</string>
-  <string name="feed_item_type_continue_reading">Brzi link za vraćanje na članak otvoren u kartici</string>
   <string name="feed_item_type_because_you_read">Predlozi na osnovu nedavno pročitanog članka iz istorije</string>
   <string name="feed_item_type_featured_article">Izabrani članak dana na Vikipediji</string>
   <string name="feed_item_type_trending">Najčitaniji članci za danas</string>
@@ -604,64 +581,21 @@
   <string name="description_edit_revert_reason1">vaša izmena nije bila u skladu sa nekom od &lt;a href=\"%1$s\"&gt;smernica&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">vaš doprinos je izgledao kao eksperiment ili vandalizam.</string>
   <string name="description_edit_revert_history">Ako ste zainteresovani, pogledajte &lt;a href=\"%1$s\"&gt;istoriju izmena&lt;/a&gt;.</string>
-  <string name="offline_compilation_download_device_offline">Nema veze sa internetom. Uverite se da ste onlajn pa pokušajte ponovo.</string>
-  <string name="offline_read_permission_rationale">Potrebna je dozvola za pristup memorijskom prostoru uređaja radi pregledanja oflajn.</string>
+    <string name="offline_read_permission_rationale">Potrebna je dozvola za pristup memorijskom prostoru uređaja radi pregledanja oflajn.</string>
   <string name="offline_read_final_rationale">Potrebna je dozvola za pristup memorijskom prostoru uređaja radi korišćenja oflajn-biblioteke.</string>
-  <string name="offline_read_permission_error">Nije dodeljena dozvola za čitanje memorijskog prostora uređaja.</string>
-  <string name="offline_card_sideloading_text">Sada pregledate Vikipediju oflajn pomoću paketa članaka u oflajn-biblioteci.</string>
-  <string name="offline_my_compilations">Upravljaj mojom oflajn-bibliotekom</string>
-  <string name="offline_compilations_title">Oflajn-biblioteka</string>
-  <string name="offline_compilations_search_by_name">Pretražuj pakete članaka po imenu</string>
-  <string name="offline_compilations_found_count">U mojoj oflajn-biblioteci (%d)</string>
-  <string name="offline_compilations_add">Dodaj u oflajn-biblioteku</string>
-  <string name="remote_compilations_title">Oflajn-biblioteka</string>
-  <string name="remote_compilations_description">Pomoću oflajn-biblioteke možete da preuzimate pakete članaka za čitanje kada niste povezani sa internetom.</string>
-  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
-  <string name="size_gb">%.2f GB</string>
+    <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <string name="offline_compilation_detail_button_download_v2">Preuzmi • %s</string>
-  <string name="offline_compilation_detail_button_remove">Ukloni</string>
-  <string name="remote_compilation_download">Preuzmi</string>
-  <string name="storage_size_free_v2">%s slobodno</string>
-  <string name="storage_used_by_compilations">koristi oflajn-biblioteka</string>
-  <string name="storage_other_apps">Druge aplikacije</string>
-  <string name="offline_compilation_download_progress_text_v2">%1$s/%2$s</string>
-  <plurals name="offline_compilation_download_time_remaining">
+    <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">Preostao je 1 minut</item>
     <item quantity="other">Preostala su %d minuta</item>
   </plurals>
-  <string name="compilation_download_widget_button_cancel_hint">Otkaži preuzimanje</string>
-  <string name="compilation_download_cancel_confirm">Želite li zaista da otkažete preuzimanje ovog paketa članaka?</string>
-  <string name="compilation_download_cancel_confirm_yes">Da</string>
-  <string name="compilation_download_cancel_confirm_no">Ne</string>
-  <string name="compilation_share">Deli</string>
-  <string name="compilation_remove">Ukloni</string>
-  <string name="compilation_remove_confirm">Želite li da uklonite ovo iz svoje oflajn-biblioteke?</string>
-  <string name="offline_library_title">Oflajn-biblioteka</string>
-  <string name="offline_library_empty_title">U vašoj oflajn-biblioteci nema ništa</string>
-  <string name="offline_library_empty_description_sideload">„Paketi članaka” u vašoj oflajn-biblioteci predstavljaju unapred upakovane skupove članaka za zgodno skladištenje na uređaju, tako da možete nastaviti sa čitanjem kada ste oflajn.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Saznajte više&lt;/a&gt;.</string>
-  <string name="offline_library_packs_hint">Paketi članaka u vašoj biblioteci ostaju dostupni za čitanje i kada ste oflajn. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Saznajte više&lt;/a&gt;.</string>
-  <string name="offline_library_data_usage_hint">Želite da uštedite mobilne podatke? Izaberite „Prioritet ima oflajn-sadržaj” u podešavanjima da biste prvo prikazali oflajn-verziju članaka, čak i kada ste povezani sa internetom. &lt;a href=\"#settings\"&gt;Idite u podešavanja&lt;/a&gt;.</string>
-  <string name="offline_library_empty_search">Pretražite oflajn-biblioteku</string>
-  <string name="offline_library_search_results_state">Rezultati pretrage iz vaše oflajn-biblioteke</string>
-  <string name="offline_library_onboarding_button_done">Gotovo</string>
-  <string name="offline_library_onboarding_build_library_title">Izgradite svoju oflajn-biblioteku</string>
-  <string name="offline_library_onboarding_build_library_subtitle">Preuzmite pakete članaka Vikipedije sada da kasnije ne biste trošili mobilne podatke.</string>
-  <string name="offline_library_onboarding_uninterrupted_reading_title">Neometano čitanje</string>
-  <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Nastavite da čitate i pretražujete članke u oflajn-biblioteci kada nemate pristup internetu.</string>
-  <string name="offline_library_onboarding_store_knowledge_title">Skladištite više znanja</string>
-  <string name="offline_library_onboarding_store_knowledge_subtitle">Preuzmite koliko god članaka sa Vikipedije vaš uređaj može da uskladišti. Oflajn-biblioteka može da pristupi paketima članaka i na eksternoj memoriji.</string>
-  <string name="offline_library_main_page_hint_html">Glavna strana sadrži pregled sadržaja ovog paketa članaka.&lt;br /&gt;&lt;br /&gt;Dok ste oflajn, možete i da istražujete sadržaj bilo kog paketa u oflajn-biblioteci pretragom dostupnih članaka.</string>
-  <string name="onboarding_skip">Preskoči</string>
+    <string name="onboarding_skip">Preskoči</string>
   <string name="onboarding_continue">Nastavi</string>
   <string name="onboarding_get_started">Započnite</string>
   <string name="onboarding_explore_title">Novi načini za istraživanje</string>
   <string name="onboarding_explore_text">Zavirite u nepoznati svet Vikipedije pomoću fida „Istraži“ koji se neprekidno ažurira.&lt;br/&gt; &lt;b&gt;Prilagodite&lt;/b&gt; fid svojim interesima – upoznajte istorijske događaje koji su se odigrali &lt;b&gt;na današnji dan&lt;/b&gt; ili iskušajte sreću sa &lt;b&gt;slučajnim člankom&lt;/b&gt;.</string>
-  <string name="onboarding_save_to_reading_lists_title">Sačuvajte na listu za čitanje</string>
-  <string name="onboarding_save_to_reading_lists_text">Pravite liste za čitanje od članaka koje želite da čitate kasnije, čak i kada ste oflajn.</string>
-  <string name="onboarding_reading_list_sync_title">Liste za čitanje sa sinhronizacijom</string>
-  <string name="onboarding_reading_list_sync_text">Pravite liste za čitanje od članaka koje želite da čitate kasnije, čak i kada ste oflajn. &lt;a href=\"#login\"&gt;Prijavite se ili otvorite&lt;/a&gt; nalog na Vikipediji da biste sačuvali liste za čitanje.</string>
-  <string name="onboarding_reading_list_sync_text_v2">Možete da pravite liste za čitanje od članaka koje želite da čitate kasnije, čak i kada ste oflajn. &lt;br/&gt;Prijavite se na svoj nalog na Vikipediji da biste sinhronizovali liste za čitanje. &lt;a href=\"#login\"&gt;Pridružite se Vikipediji&lt;/a&gt;.</string>
+    <string name="onboarding_reading_list_sync_title">Liste za čitanje sa sinhronizacijom</string>
+    <string name="onboarding_reading_list_sync_text_v2">Možete da pravite liste za čitanje od članaka koje želite da čitate kasnije, čak i kada ste oflajn. &lt;br/&gt;Prijavite se na svoj nalog na Vikipediji da biste sinhronizovali liste za čitanje. &lt;a href=\"#login\"&gt;Pridružite se Vikipediji&lt;/a&gt;.</string>
   <string name="onboarding_analytics_title">Slanje anonimnih podataka</string>
   <string name="onboarding_analytics_offline_text">Pomozite nam da poboljšamo aplikaciju slanjem informacija o upotrebi. Prikupljeni podaci su anonimni. &lt;a href=\"#privacy\"&gt;Saznajte više&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Šalji podatke o upotrebi</string>

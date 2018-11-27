@@ -17,8 +17,7 @@
   <string name="nav_item_nearby">Yaqin atrofda</string>
   <string name="last_updated_text">%sda oxirgi bor yangilangan</string>
   <string name="preference_title_language">Vikipedia tili</string>
-  <string name="preference_languages_filter_hint">Izlash</string>
-  <string name="langlinks_filter_hint">Izlash</string>
+    <string name="langlinks_filter_hint">Izlash</string>
   <string name="langlinks_empty">Bu sahifa boshqa tillarda mavjud emas.</string>
   <string name="langlinks_no_match">So\'rovingizga mos til topilmadi.</string>
   <string name="langlinks_activity_title">Boshqa tillarda</string>
@@ -101,9 +100,7 @@ Oldindan yoqimli …</string>
   <string name="edit_summary_tag_other">Boshqa</string>
   <string name="find_next">Keyingisini topish</string>
   <string name="find_previous">Oldingisini topish</string>
-  <string name="dialog_page_issues">Sahifa muammolari</string>
-  <string name="button_page_issues">Sahifa muammolari</string>
-  <string name="text_size_select">Shrift o‘lchami</string>
+    <string name="text_size_select">Shrift o‘lchami</string>
   <string name="color_theme_select">Mavzu</string>
   <string name="color_theme_light">Och rang</string>
   <string name="color_theme_dark">To\'q</string>

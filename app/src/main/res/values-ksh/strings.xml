@@ -38,8 +38,7 @@
   <string name="content_license_html" fuzzy="true">Dä Ennhald es ze hann onger dälezänz &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ußer woh jädd anders schteiht.</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Mem Affchpeijschere schtemms De ddä &lt;a href=\"%1$s\"&gt;Bedengonge för et Benöze&lt;/a&gt; zoh un deijhß ohne Müjjeleschkeijt för ene Widerohf Dine Beijdrahch onger der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; Lezänz öffentlesch maache.</string>
   <string name="preference_title_language" fuzzy="true">Dä Wikkipehdija ier Schprohch</string>
-  <string name="preference_languages_filter_hint">Söhke</string>
-  <string name="langlinks_filter_hint">Söhke</string>
+    <string name="langlinks_filter_hint">Söhke</string>
   <string name="langlinks_empty">Di Sigg es nit in ander Schprohche ze han.</string>
   <string name="langlinks_no_match" fuzzy="true">Kein Schprohche paße op Ding Aanfrohch.</string>
   <string name="langlinks_activity_title">Ander Schprohche</string>
@@ -139,8 +138,7 @@
   <string name="find_previous">Der vörreje fenge</string>
   <string name="abusefilter_title_warn" fuzzy="true">Dat süht nit wi en johde Ännderong us. Wells De dat verhaftesch esu faßjehallde han?</string>
   <string name="abusefilter_title_disallow" fuzzy="true">Do kanns heh di Änderong nit faßhallde lohße. Jangk retuhr un änder se.</string>
-  <string name="dialog_page_issues">Sigge issues</string>
-  <string name="text_size_select">Schreffjrahd</string>
+    <string name="text_size_select">Schreffjrahd</string>
   <string name="page_similar_titles">Ähnlejje Sigge</string>
   <string name="search_did_you_mean">Häß de \"%s\" jemeind?</string>
   <string name="search_recent_header">Köözlesch jesöhk:</string>
@@ -191,8 +189,7 @@
   <string name="color_theme_light">Häll</string>
   <string name="color_theme_dark">Donkel</string>
   <string name="nav_item_reading_lists" fuzzy="true">Leßte zom lässe</string>
-  <string name="reading_list_untitled">Der ohne Övverschreff</string>
-  <string name="reading_list_save_to">Donn op ming Leß zom Lässe</string>
+    <string name="reading_list_save_to">Donn op ming Leß zom Lässe</string>
   <string name="reading_list_create_new">Maach en neue Leß op</string>
   <string name="reading_list_added_to_named">Op di Leß %s jedonn.</string>
   <string name="reading_list_already_exists">Dat heh es ald en dä Leß.</string>

@@ -50,8 +50,7 @@
   <string name="menu_page_show_tabs">탭 보기</string>
   <string name="menu_page_other_languages">언어 변경</string>
   <string name="menu_page_find_in_page">문서에서 찾기</string>
-  <string name="menu_page_content_issues">콘텐츠 문제</string>
-  <string name="menu_page_font_and_theme">글자와 테마</string>
+    <string name="menu_page_font_and_theme">글자와 테마</string>
   <string name="menu_page_add_to_list">읽기 목록에 추가</string>
   <string name="menu_page_share">링크 공유</string>
   <string name="menu_page_open_a_new_tab">새 탭 열기</string>
@@ -77,8 +76,7 @@
   <string name="edit_save_action_license_logged_in">게시를 하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 영구히 배포하는 데 동의한다는 것을 의미합니다.</string>
   <string name="edit_save_action_license_anon">게시를 하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 영구히 배포하는 데 동의한다는 것을 의미합니다. 편집에 당신이 쓴 기기의 IP 주소가 남습니다. &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하면, 개인 정보를 더 보호할 수 있습니다.</string>
   <string name="preference_title_language">위키백과 언어</string>
-  <string name="preference_languages_filter_hint">검색</string>
-  <string name="langlinks_filter_hint">검색</string>
+    <string name="langlinks_filter_hint">검색</string>
   <string name="langlinks_empty">이 문서는 다른 언어로 읽을 수 없습니다.</string>
   <string name="langlinks_no_match">언어를 찾을 수 없습니다</string>
   <string name="langlinks_activity_title">다른 언어</string>
@@ -166,12 +164,10 @@
   <string name="edit_preview_fetching_dialog_message">미리 보기를 가져오는 중…</string>
   <string name="send_feedback">앱 피드백 보내기</string>
   <string name="create_account_account_created_toast">계정을 만들었습니다!</string>
-  <string name="preferences_heading_storage_and_syncing">보관 및 동기화</string>
-  <string name="preferences_heading_syncing">동기화</string>
+    <string name="preferences_heading_syncing">동기화</string>
   <string name="preferences_heading_data_usage">데이터 사용률</string>
   <string name="preferences_heading_experimental">실험 기능</string>
-  <string name="preference_title_sync_reading_lists">읽기 목록 동기화</string>
-  <string name="preference_title_sync_reading_lists_from_account">읽기 목록 동기화</string>
+    <string name="preference_title_sync_reading_lists_from_account">읽기 목록 동기화</string>
   <string name="preference_title_download_reading_list_articles">읽기 목록 문서 다운로드</string>
   <string name="preference_summary_sync_reading_lists">위키백과 계정에 읽기 목록을 저장하여 각기 다른 장치 간에 읽기 목록을 동기화합니다</string>
   <string name="preference_summary_sync_reading_lists_from_account">읽기 목록을 위키백과 계정 \"%s\"에 저장하여 각기 다른 장치 간에 읽기 목록을 동기화합니다</string>
@@ -235,9 +231,7 @@
   <string name="abusefilter_title_disallow">이 편집을 게시할 수 없습니다. 뒤로 돌아가서 바꿔주세요.</string>
   <string name="abusefilter_text_warn">자동화된 필터가 이 편집을 잠재적으로 비생산적인 것으로 식별합니다. 다음 중 하나 이상을 포함할 수 있습니다:&lt;br /&gt;&lt;br /&gt;· 모두 대문자로 입력&lt;br /&gt;· 문서가 비어 있거나 스팸을 넣음&lt;br /&gt;· 관련 없는 외부 링크나 그림&lt;br /&gt;· 글자 반복</string>
   <string name="abusefilter_text_disallow">자동화된 필터가 이 편집을 잠재적으로 비생산적이나, 잠재적으로 훼손한 것으로 식별합니다.&lt;br /&gt;&lt;br /&gt;위키백과는 백과사전이자 중립적이며, 주목할만한 내용만이 여기에 들어갑니다.</string>
-  <string name="dialog_page_issues">문서 이슈</string>
-  <string name="button_page_issues">문서 이슈</string>
-  <string name="text_size_select">글자 크기</string>
+    <string name="text_size_select">글자 크기</string>
   <string name="page_similar_titles">비슷한 문서</string>
   <string name="search_did_you_mean">\"%s\"을(를) 찾으셨나요?</string>
   <string name="search_recent_header">최근 검색:</string>
@@ -290,9 +284,7 @@
   <string name="close_all_tabs_confirm_no">아니오</string>
   <string name="button_close_tab">탭 닫기</string>
   <string name="tab_item_closed">%s 닫힘.</string>
-  <string name="tool_tip_select_text_title">선택하려면 길게 누르세요</string>
-  <string name="tool_tip_select_text">복사 및 공유할 텍스트를 선택하려면 텍스트의 아무 곳이나 누르고 계십시오.</string>
-  <string name="tool_tip_bookmark_icon_title">읽기 목록에 추가</string>
+    <string name="tool_tip_bookmark_icon_title">읽기 목록에 추가</string>
   <string name="tool_tip_bookmark_icon_text">읽기 목록에 글을 저장하려면 북마크 아이콘을 탭하십시오.</string>
   <string name="tool_tip_share">흥미로운 사실 하나를 강조한 다음, 즐겨쓰는 SNS에 공유해 보세요!</string>
   <string name="page_view_in_browser">브라우저에서 페이지 보기</string>
@@ -311,8 +303,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">오프라인 상태에서는 글을 불러올 수 없습니다.</string>
   <string name="page_offline_notice_add_to_reading_list">참고: 문서를 읽기 목록에 추가하면 온라인에 있을 때 다운로드됩니다.</string>
   <string name="page_offline_notice_last_date">%s에 저장한 이 문서의 오프라인 버전을 읽고 있습니다.</string>
-  <string name="page_offline_notice_compilation_download_date">이 문서의 %1$s • %2$s 판을 읽고 있습니다.</string>
-  <string name="button_get_directions">경로 얻기</string>
+    <string name="button_get_directions">경로 얻기</string>
   <string name="error_no_maps_app">주어진 경로의 앱을 찾지 못하였습니다.</string>
   <string name="preference_title_show_link_previews">링크 미리보기 보이기</string>
   <string name="preference_summary_show_link_previews">문서의 링크를 터치할 때 빠른 미리보기를 보이기</string>
@@ -334,9 +325,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">영상 어둡게 하기(어두운 테마에서)</string>
   <string name="preference_title_prefer_offline_content">오프라인 콘텐츠 선호</string>
   <string name="preference_summary_prefer_offline_content">항상 최신판 문서를 불러오지 말고 가능한 문서는 오프라인을 불러와 데이터 사용 절약</string>
-  <string name="preference_title_enable_offline_library">오프라인 라이브러리 사용</string>
-  <string name="preference_summary_enable_offline_library">오프라인 상태일 때 읽을 수 있도록 장치에 다운로드한 위키백과 문서 묶음(.ZIM 파일로 표시)에 접근합니다. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;더 알아보기&lt;/a&gt;</string>
-  <string name="crash_report_dialog_title">죄송합니다, 지난 번에 앱이 충돌했습니다</string>
+    <string name="crash_report_dialog_title">죄송합니다, 지난 번에 앱이 충돌했습니다</string>
   <string name="crash_report_dialog_text">위키 백과가 충돌을 보고 그 오류를 수정하기 위해 하키앱/타 서비스 제공자에 충돌 보고를 전송 하시겠습니까?</string>
   <string name="crash_report_dialog_dont_send_button">넘어가기</string>
   <string name="crash_report_dialog_always_send_button">항상 보내기</string>
@@ -362,12 +351,10 @@
   <string name="text_size_decrease">텍스트 크기 줄이기</string>
   <string name="text_size_percent_default">%s (기본값)</string>
   <string name="nav_item_reading_lists">내 목록</string>
-  <string name="reading_list_untitled">제목 없음</string>
-  <string name="reading_list_save_to">읽기 목록에 저장</string>
+    <string name="reading_list_save_to">읽기 목록에 저장</string>
   <string name="reading_list_create_new">새로 만들기</string>
   <string name="reading_list_title_exists">\"%s\" 읽기 목록이 이미 존재합니다.</string>
-  <string name="reading_list_entry_empty">제목을 입력하세요.</string>
-  <string name="reading_list_added_to_named">%s에 추가했습니다.</string>
+    <string name="reading_list_added_to_named">%s에 추가했습니다.</string>
   <string name="reading_list_already_exists">이 문서는 목록에 이미 있습니다.</string>
   <string name="reading_list_added_view_button">목록 보기</string>
   <string name="format_reading_list_statistical_summary_singular">1개의 문서, %1$.2f MB</string>
@@ -384,8 +371,7 @@
   <string name="reading_list_sort_by_created_desc">만든 날짜 순으로 정렬 (가장 오래된 순서)</string>
   <string name="reading_list_menu_delete">목록 삭제</string>
   <string name="reading_list_menu_rename">이름/설명 편집</string>
-  <string name="reading_list_menu_edit_description">설명 편집</string>
-  <string name="reading_list_action_menu_remove_from_offline">오프라인에서 제거</string>
+    <string name="reading_list_action_menu_remove_from_offline">오프라인에서 제거</string>
   <string name="reading_list_action_menu_save_for_offline">오프라인을 위해 저장</string>
   <string name="reading_list_action_menu_remove_all_from_offline">오프라인에서 모두 제거</string>
   <string name="reading_list_action_menu_save_all_for_offline">오프라인을 위해 모두 저장</string>
@@ -405,8 +391,7 @@
   <string name="reading_lists_onboarding_example2">좋아하는 동물</string>
   <string name="reading_lists_onboarding_example3">우주 탐험</string>
   <string name="reading_lists_onboarding_got_it">알겠습니다</string>
-  <string name="reading_list_no_description">설명 없음...</string>
-  <string name="reading_list_empty">이 목록에 추가한 글이 없습니다.</string>
+    <string name="reading_list_empty">이 목록에 추가한 글이 없습니다.</string>
   <string name="reading_list_article_offline">오프라인에서 읽을 수 있음</string>
   <string name="reading_list_article_make_offline">이 글을 오프라인에서 읽을 수 있게 하기</string>
   <string name="reading_list_add_to_other_list">다른 읽기 목록에 추가하기</string>
@@ -421,8 +406,7 @@
   <string name="reading_lists_sync_reminder_action">동기화 사용</string>
   <string name="reading_list_login_reminder_title">읽기 목록 동기화</string>
   <string name="reading_lists_login_reminder_text">지금 읽기 목록을 여러 장치 간에 동기화할 수 있습니다. 위키백과 계정으로 로그인하면 목록을 저장할 수 있습니다.</string>
-  <string name="reading_lists_confirm_remote_delete">과거에 동기화된 읽기 목록을 원격 기억 장치에서 삭제합니다. 진행하시겠습니까?</string>
-  <string name="reading_lists_confirm_remote_delete_yes">예</string>
+    <string name="reading_lists_confirm_remote_delete_yes">예</string>
   <string name="reading_lists_confirm_remote_delete_no">아니오</string>
   <string name="reading_list_article_save_in_progress">이 문서는 다운로드 중이며, 완료되면 오프라인 상태에서 읽을 수 있습니다.</string>
   <string name="reading_list_already_contains_selection">선택된 목록은 선택된 모든 문서를 이미 포함하고 있습니다.</string>
@@ -473,14 +457,8 @@
   <string name="reading_list_toast_last_sync">읽기 목록 동기화 성공</string>
   <string name="reading_list_menu_last_sync">마지막 동기시간: %s</string>
   <string name="user_option_sync_label">환경 설정</string>
-  <string name="notification_button_view_user">사용자와 대화하기</string>
-  <string name="notification_talk_title">위키백과에서의 새 메시지</string>
-  <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; 사용자가 내 토론 문서의 &lt;strong%2$s&lt;/strong&gt; 문단에 글을 남겼습니다.</string>
-  <string name="notification_reverted_title">되돌려진 편집</string>
-  <string name="notification_reverted">&lt;strong&gt;%2$s&lt;/strong&gt; 문서의 내 편집을 &lt;em&gt;%1$s&lt;/em&gt; 사용자가 되돌렸습니다.</string>
-  <string name="notification_thanks_title">당신은 감사를 받았습니다!</string>
-  <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt;사용자가 &lt;strong&gt;%2$s&lt;/strong&gt; 문서의 내 편집에 감사를 표했습니다.</string>
-  <string name="notification_channel_description">다운로드 진척도</string>
+    <string name="notification_reverted_title">되돌려진 편집</string>
+    <string name="notification_channel_description">다운로드 진척도</string>
   <string name="notification_syncing_pause_button">일시 정지</string>
   <string name="notification_syncing_resume_button">재개</string>
   <string name="notification_syncing_cancel_button">취소</string>
@@ -569,8 +547,7 @@
   <string name="feed_configure_language_warning">모든 카드 유형이 모든 위키백과 언어에서 사용할 수 있는 것은 아닙니다. 설정에서 선택된 언어를 수정하십시오.</string>
   <string name="feed_item_type_news">요즘 화제에 관한 글</string>
   <string name="feed_item_type_on_this_day">오늘의 역사의 사건</string>
-  <string name="feed_item_type_continue_reading">탭에 열려 있는 문서를 다시 읽는 빠른 링크</string>
-  <string name="feed_item_type_because_you_read">검색기록에 있는 최근 읽은 글 관련 추천</string>
+    <string name="feed_item_type_because_you_read">검색기록에 있는 최근 읽은 글 관련 추천</string>
   <string name="feed_item_type_featured_article">위키백과의 일일 알찬글</string>
   <string name="feed_item_type_trending">하루 중 가장 많이 본 글</string>
   <string name="feed_item_type_featured_image">위키미디어 공용의 일일 알찬글</string>
@@ -618,64 +595,21 @@
   <string name="description_edit_revert_reason1">당신의 기여는 &lt;a href=\"%1$s\"&gt;지침들&lt;/a&gt; 가운데 하나를 준수하지 않았습니다.</string>
   <string name="description_edit_revert_reason2">당신의 기여는 실험적이거나 문서 훼손처럼 보입니다.</string>
   <string name="description_edit_revert_history">만약 관심이 있으시다면, &lt;a href=\"%1$s\"&gt; 문서 역사&lt;/a&gt;를 보십시오.</string>
-  <string name="offline_compilation_download_device_offline">인터넷이 연결되지 않았습니다. 온라인 상태로 복귀한 다음 다시 시도하십시오.</string>
-  <string name="offline_read_permission_rationale">장치에서 저장소의 접근 권한은 오프라인 탐색에 필요합니다.</string>
+    <string name="offline_read_permission_rationale">장치에서 저장소의 접근 권한은 오프라인 탐색에 필요합니다.</string>
   <string name="offline_read_final_rationale">오프라인 라이브러리를 사용하려면 장치에서 저장소의 접근 권한이 필요합니다.</string>
-  <string name="offline_read_permission_error">기억 장치로부터 읽을 권한이 부여되지 않았습니다.</string>
-  <string name="offline_card_sideloading_text">지금 오프라인 라이브러리의 문서 묶음을 오프라인 상태에서 둘러보고 있습니다.</string>
-  <string name="offline_my_compilations">내 오프라인 라이브러리 관리</string>
-  <string name="offline_compilations_title">오프라인 라이브러리</string>
-  <string name="offline_compilations_search_by_name">이름으로 문서 꾸러미 찾기</string>
-  <string name="offline_compilations_found_count">내 오프라인 라이브러리(%d)에서</string>
-  <string name="offline_compilations_add">내 오프라인 라이브러리에 추가</string>
-  <string name="remote_compilations_title">오프라인 라이브러리</string>
-  <string name="remote_compilations_description">인터넷 접속이 불가능할 때 문서를 읽을 수 있도록 오프라인 라이브러리를 사용하여 지금 문서 꾸러미들을 다운로드할 수 있습니다.</string>
-  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
-  <string name="size_gb">%.2f GB</string>
+    <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <string name="offline_compilation_detail_button_download_v2">다운로드 • %s</string>
-  <string name="offline_compilation_detail_button_remove">제거</string>
-  <string name="remote_compilation_download">다운로드</string>
-  <string name="storage_size_free_v2">%s 남음</string>
-  <string name="storage_used_by_compilations">(오프라인 라이브러리가 사용 중)</string>
-  <string name="storage_other_apps">다른 애플리케이션</string>
-  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
-  <plurals name="offline_compilation_download_time_remaining">
+    <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">1분 남음</item>
     <item quantity="other">%d분 남음</item>
   </plurals>
-  <string name="compilation_download_widget_button_cancel_hint">다운로드 취소</string>
-  <string name="compilation_download_cancel_confirm">이 문서 꾸러미의 다운로드를 취소하시겠습니까?</string>
-  <string name="compilation_download_cancel_confirm_yes">예</string>
-  <string name="compilation_download_cancel_confirm_no">아니오</string>
-  <string name="compilation_share">공유</string>
-  <string name="compilation_remove">제거</string>
-  <string name="compilation_remove_confirm">오프라인 라이브러리에서 이 항목을 제거하시겠습니까?</string>
-  <string name="offline_library_title">오프라인 라이브러리</string>
-  <string name="offline_library_empty_title">오프라인 라이브러리에 아무 것도 없습니다</string>
-  <string name="offline_library_empty_description_sideload">오프라인 라이브러리의 \"문서 묶음\"은 장치 상의 편리한 저장소를 위해 미리 패키지된 문서 묶음이므로 오프라인 상태에서 읽기를 계속할 수 있습니다.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;더 알아보기&lt;/a&gt;</string>
-  <string name="offline_library_packs_hint">라이브러리의 문서 묶음은 오프라인 상태일 때 읽을 수 있습니다. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;더 알아보기&lt;/a&gt;</string>
-  <string name="offline_library_data_usage_hint">데이터 사용을 절약하고 싶으신가요? 설정에서 \"오프라인 콘텐츠\n선호\"를 선택하면 인터넷에 연결되어 있더라도 가능하면 오프라인 문서를 우선 보여줍니다. &lt;a href=\"#settings\"&gt;설정으로 이동&lt;/a&gt;</string>
-  <string name="offline_library_empty_search">오프라인 라이브러리 검색</string>
-  <string name="offline_library_search_results_state">오프라인 라이브러리의 검색 결과</string>
-  <string name="offline_library_onboarding_button_done">완료</string>
-  <string name="offline_library_onboarding_build_library_title">오프라인 라이브러리 만들기</string>
-  <string name="offline_library_onboarding_build_library_subtitle">추후 데이터 무제한 접근을 위해 지금 위키백과 문서를 다운로드합니다.</string>
-  <string name="offline_library_onboarding_uninterrupted_reading_title">중단 없이 읽기</string>
-  <string name="offline_library_onboarding_uninterrupted_reading_subtitle">인터넷에 접속되어 있지 않을 때 오프라인 라이브러리의 문서를 계속 읽고 검색합니다.</string>
-  <string name="offline_library_onboarding_store_knowledge_title">더 많은 지식 저장하기</string>
-  <string name="offline_library_onboarding_store_knowledge_subtitle">장치가 허용하는 한도 내에 위키백과를 최대한 많이 다운로드합니다. 오프라인 라이브러리 또한 외부 기억 장치의 문서 꾸러미들에 접근할 수 있습니다.</string>
-  <string name="offline_library_main_page_hint_html">이 대문은 이 문서 모음의 내용의 개요를 제공합니다.&lt;br /&gt;&lt;br /&gt;오프라인 상태에서 읽을 수 있는 문서를 검색함으로써 오프라인 라이브러리의 문서 모음 내용을 탐색할 수도 있습니다.</string>
-  <string name="onboarding_skip">건너뛰기</string>
+    <string name="onboarding_skip">건너뛰기</string>
   <string name="onboarding_continue">계속</string>
   <string name="onboarding_get_started">시작하기</string>
   <string name="onboarding_explore_title">탐구를 위한 새로운 방법</string>
   <string name="onboarding_explore_text">늘 업데이트되는 둘러보기 피드로 위키백과를 탐험하세요.&lt;br/&gt;피드를 당신의 관심사에 &lt;b&gt;맞춤 관리하세요&lt;/b&gt; – 그것이 &lt;b&gt;오늘의 역사&lt;/b&gt;에 대한 역사적 사건을 배우는 것이든, 주사위를 굴려 &lt;b&gt;임의 문서로&lt;/b&gt; 가는 것이든요.</string>
-  <string name="onboarding_save_to_reading_lists_title">읽기 목록에 저장</string>
-  <string name="onboarding_save_to_reading_lists_text">나중에 읽고 싶은 글들을 읽기 목록으로 만듭니다. 오프라인에서도 이용이 가능합니다.</string>
-  <string name="onboarding_reading_list_sync_title">읽기 목록 동기화</string>
-  <string name="onboarding_reading_list_sync_text">나중에 오프라인 상태에서도 읽을 수 있도록 문서의 읽기 목록을 만듭니다. 읽기 목록을 보관하려면 위키백과 계정을 &lt;a href=\"#login\"&gt;만들거나 로그인&lt;/a&gt;하십시오.</string>
-  <string name="onboarding_reading_list_sync_text_v2">읽기 목록을 만들면 글을 나중에 읽거나 심지어는 오프라인 상태에서도 읽을 수 있습니다.&lt;br/&gt;읽기 목록을 동기화하려면 위키백과 계정에 로그인하십시오. &lt;a href=\"#login\"&gt;위키백과 가입&lt;/a&gt;</string>
+    <string name="onboarding_reading_list_sync_title">읽기 목록 동기화</string>
+    <string name="onboarding_reading_list_sync_text_v2">읽기 목록을 만들면 글을 나중에 읽거나 심지어는 오프라인 상태에서도 읽을 수 있습니다.&lt;br/&gt;읽기 목록을 동기화하려면 위키백과 계정에 로그인하십시오. &lt;a href=\"#login\"&gt;위키백과 가입&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">익명 데이터 보내기</string>
   <string name="onboarding_analytics_offline_text">앱 개선 지원을 위해 앱을 어떻게 사용하는지 알려주세요. 수집된 데이터는 익명으로 처리됩니다. &lt;a href=\"#privacy\"&gt;더 알아보기&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">사용 데이터 보내기</string>

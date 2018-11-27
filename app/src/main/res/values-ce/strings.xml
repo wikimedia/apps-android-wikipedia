@@ -19,8 +19,7 @@
   <string name="last_updated_text">ТӀаьххьарлера карлаяккхар: %1$s</string>
   <string name="content_license_html">Чулацам тӀекхочуш бу &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; (кхиниг билгалйина яцахь)</string>
   <string name="preference_title_language" fuzzy="true">Мотт</string>
-  <string name="preference_languages_filter_hint">Лахар</string>
-  <string name="langlinks_filter_hint">Лахар</string>
+    <string name="langlinks_filter_hint">Лахар</string>
   <string name="langlinks_no_match">Хьан дехарца меттанаш цакарий</string>
   <string name="langlinks_activity_title">Кхин меттанаш</string>
   <string name="dialog_saving_in_progress">Ӏалашъеш ю…</string>
@@ -72,9 +71,7 @@
   <string name="edit_done">Ӏалашдан</string>
   <string name="edit_preview">Хьалха хьажар</string>
   <string name="edit_summary_tag_other">Кхин</string>
-  <string name="dialog_page_issues">АгӀонгахь хаатарш</string>
-  <string name="button_page_issues">АгӀонгахь хаатарш</string>
-  <string name="text_size_select">Шрифтан барам</string>
+    <string name="text_size_select">Шрифтан барам</string>
   <string name="color_theme_select">Кечяр</string>
   <string name="color_theme_light">Сирла</string>
   <string name="color_theme_dark">Бодане</string>

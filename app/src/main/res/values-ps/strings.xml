@@ -32,8 +32,7 @@
   <string name="last_updated_text">وروستئ هممهالېدنه %s</string>
   <string name="talk_page_link_text" fuzzy="true">خبرې اترې</string>
   <string name="preference_title_language" fuzzy="true">د ويکيپېډيا ژبه</string>
-  <string name="preference_languages_filter_hint">پلټل</string>
-  <string name="langlinks_filter_hint">پلټل</string>
+    <string name="langlinks_filter_hint">پلټل</string>
   <string name="langlinks_empty">دا مخ په نورو ژبو کې نشته.</string>
   <string name="langlinks_activity_title">نورې ژبې</string>
   <string name="menu_save_changes" fuzzy="true">بدلونونه خوندي کول</string>
@@ -111,8 +110,6 @@
   <string name="edit_summary_tag_other">بل</string>
   <string name="find_next">بل موندل</string>
   <string name="find_previous">پخوانی موندل</string>
-  <string name="dialog_page_issues">د مخ ستونزې</string>
-  <string name="button_page_issues">د مخ ستونزې</string>
   <string name="text_size_select">د ليکبڼې کچه</string>
   <string name="page_similar_titles">ورته مخونه</string>
   <string name="search_did_you_mean">آيا  \"%s\" مو مقصد و؟</string>
@@ -157,8 +154,7 @@
   <string name="color_theme_light">رڼا</string>
   <string name="color_theme_dark">تياره</string>
   <string name="nav_item_reading_lists" fuzzy="true">لوست لړليک</string>
-  <string name="reading_list_untitled">بې سرليکه</string>
-  <string name="reading_list_save_to">لوستلړ کې خوندي کول</string>
+    <string name="reading_list_save_to">لوستلړ کې خوندي کول</string>
   <string name="reading_list_create_new">نوی جوړول</string>
   <string name="reading_list_added_to_named">%s کې ورگډ شو.</string>
   <string name="reading_list_added_view_button">لړليک کتل</string>

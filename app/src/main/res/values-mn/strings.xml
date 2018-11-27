@@ -11,8 +11,7 @@
   <string name="dialog_title_clear_history">Хөтчид хадгалагдсан түүхийг устгах</string>
     <string name="menu_page_share">Хуваалцах</string>
   <string name="share_via">Хуваалцахдаа</string>
-  <string name="preference_languages_filter_hint">Хайлт</string>
-  <string name="langlinks_filter_hint">Хайлт</string>
+    <string name="langlinks_filter_hint">Хайлт</string>
   <string name="menu_page_other_languages">Бусад хэл дээр унших</string>
   <string name="langlinks_activity_title">Бусад хэл</string>
   <string name="menu_save_changes">Өөрчлөлтөө хадгалах</string>
@@ -53,6 +52,5 @@
   <string name="zero_learn_more" fuzzy="true">Википедия зерогийн талаар сурмаар байна уу?</string>
   <string name="zero_learn_more_learn_more">Дэлгэрэнгүйг унших</string>
   <string name="zero_learn_more_dismiss">Болих</string>
-  <string name="button_page_issues">Хуудсан дахь хэлэлцүүлэгүүд</string>
-  <string name="page_similar_titles" fuzzy="true">Бусад утга</string>
+    <string name="page_similar_titles" fuzzy="true">Бусад утга</string>
 </resources>

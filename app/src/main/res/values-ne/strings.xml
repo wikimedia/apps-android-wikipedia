@@ -35,8 +35,7 @@
   <string name="menu_page_show_tabs">ट्याबहरू देखाउनुहोस्</string>
   <string name="menu_page_other_languages">भाषा परिवर्तन गर्नुहोस्</string>
   <string name="menu_page_find_in_page">पृष्ठमा खोज्नुहोस्</string>
-  <string name="menu_page_content_issues">सामग्रीका समस्याहरू</string>
-  <string name="menu_page_font_and_theme">फन्ट र थिम</string>
+    <string name="menu_page_font_and_theme">फन्ट र थिम</string>
   <string name="menu_page_add_to_list">अध्ययन सूचीमा थप गर्नुहोस्</string>
   <string name="menu_page_share">लिङ्क आदान-प्रदान गर्नुहोस्</string>
   <string name="menu_long_press_open_page">खोल्नुहोस्</string>
@@ -59,8 +58,7 @@
   <string name="edit_save_action_license_logged_in" fuzzy="true">सङ्ग्रह गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत् प्रकाशन गर्नुहुन्छ।</string>
   <string name="edit_save_action_license_anon" fuzzy="true">सङ्ग्रह गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत् प्रकाशन गर्नुहुन्छ। सम्पादनको श्रेय तपाईँको यन्त्रको IP ठेगानालाई दिइने छ। यदि तपाईँ &lt;a href=\"https://#login\"&gt;लग इन &lt;/a&gt;, गर्नु भयो भने तपाईँको बढी गोपनीयता रहने छ।</string>
   <string name="preference_title_language">विकिपिडिया भाषाहरू</string>
-  <string name="preference_languages_filter_hint">खोज्नुहोस्</string>
-  <string name="langlinks_filter_hint">खोज्नुहोस्</string>
+    <string name="langlinks_filter_hint">खोज्नुहोस्</string>
   <string name="langlinks_empty">यो पृष्ठ अन्य भाषाहरूमा उपलब्ध छैन।</string>
   <string name="langlinks_no_match">कुनै पनि भाषा फेला परेन</string>
   <string name="langlinks_activity_title">अन्य भाषाहरू</string>
@@ -144,12 +142,10 @@
   <string name="edit_preview_fetching_dialog_message">पूर्वावलोकन तयार गरिँदै…</string>
   <string name="send_feedback">अनुप्रयोगबारे प्रतिक्रिया पठाउनुहोस्</string>
   <string name="create_account_account_created_toast">खाता सिर्जना गरियो!</string>
-  <string name="preferences_heading_storage_and_syncing">भण्डारण र समक्रमण</string>
-  <string name="preferences_heading_syncing">सिङ्कगर्दै</string>
+    <string name="preferences_heading_syncing">सिङ्कगर्दै</string>
   <string name="preferences_heading_data_usage">डेटा उपयोग</string>
   <string name="preferences_heading_experimental">प्रयोगात्मक</string>
-  <string name="preference_title_sync_reading_lists">अध्ययन सूची समक्रमण गर्दै</string>
-  <string name="preference_title_sync_reading_lists_from_account">अध्ययन सुची सिङ्क गर्दै</string>
+    <string name="preference_title_sync_reading_lists_from_account">अध्ययन सुची सिङ्क गर्दै</string>
   <string name="preference_title_download_reading_list_articles">अध्ययन सूचिका लेखहरू डाउनलोड गर्दै</string>
   <string name="preferences_privacy_settings_heading">गोपनीयता</string>
   <string name="preference_title_eventlogging_opt_in">उपयोगसम्बन्धी प्रतिवेदनहरू पठाउनुहोस्</string>
@@ -203,9 +199,7 @@
   <string name="find_last_occurence">यो अन्तिम घटना हो</string>
   <string name="abusefilter_title_warn">यो रचनात्मक सम्पादन नहुन सक्छ। तपाईँ प्रकाशन गर्न निश्चित हुनुहुन्छ?</string>
   <string name="abusefilter_title_disallow">यस सम्पादनलाई प्रकाशन गर्न सक्नुहुन्न। कृपया पछाडि जानुहोस् र यसलाई परिवर्तन गर्नुहोस्।</string>
-  <string name="dialog_page_issues">पृष्ठका समस्याहरू</string>
-  <string name="button_page_issues">पृष्ठका समस्याहरू</string>
-  <string name="text_size_select">अक्षरको आकार</string>
+    <string name="text_size_select">अक्षरको आकार</string>
   <string name="page_similar_titles">मिल्दोजुल्दो पृष्ठहरू</string>
   <string name="search_did_you_mean">के तपाईंले \"%s\" भन्न खोज्नुभएको हो?</string>
   <string name="search_recent_header">भर्खरैका खोजहरू:</string>
@@ -294,11 +288,9 @@
   <string name="text_size_decrease">पाठ आकार घटाउनुहोस्</string>
   <string name="text_size_percent_default">%s (पूर्वनिर्धारित)</string>
   <string name="nav_item_reading_lists">मेरा सूचीहरू</string>
-  <string name="reading_list_untitled">शीर्षकविहीन</string>
-  <string name="reading_list_save_to">अध्ययन सूचीमा सुरक्षित गर्नुहोस्</string>
+    <string name="reading_list_save_to">अध्ययन सूचीमा सुरक्षित गर्नुहोस्</string>
   <string name="reading_list_create_new">नयाँ सिर्जना गर्नुहोस्</string>
-  <string name="reading_list_entry_empty">कृपया कुनै शीर्षक प्रविष्ट गर्नुहोस्।</string>
-  <string name="reading_list_added_to_named">%s मा थप गरियो।</string>
+    <string name="reading_list_added_to_named">%s मा थप गरियो।</string>
   <string name="reading_list_already_exists">यो लेख पहिलेदेखि नै त्यो सूचीमा छ।</string>
   <string name="reading_list_added_view_button">सूची हेर्नुहोस्</string>
   <string name="format_reading_list_statistical_summary_singular">१ लेख, %1$.2f एमबी</string>
@@ -311,8 +303,7 @@
   <string name="reading_list_sort_by_recent_desc">जोडिएको मितिको आधारमा क्रमबद्ध गर्नुहोस् (सबैभन्दा पुरानो)</string>
   <string name="reading_list_sort_by_created_desc">मिति अनुसार बनाइएको क्रमबद्ध (पुरानो)</string>
   <string name="reading_list_menu_delete">सूची मेट्नुहोस्</string>
-  <string name="reading_list_menu_edit_description">विवरण सम्पादन गर्नुहोस्</string>
-  <string name="reading_list_action_menu_remove_from_offline">अफलाइनबाट हटाउनुहोस्</string>
+    <string name="reading_list_action_menu_remove_from_offline">अफलाइनबाट हटाउनुहोस्</string>
   <string name="reading_list_action_menu_save_for_offline">अफलाइनको लागि सङ्ग्रह गर्नुहोस्।</string>
   <string name="reading_list_action_menu_remove_all_from_offline">सबै अफलाइनबाट हटाउनुहोस्।</string>
   <string name="reading_list_action_menu_save_all_for_offline">सबै अफलाइनको लागि सङ्ग्रह गर्नुहोस्।</string>
@@ -330,8 +321,7 @@
   <string name="reading_lists_onboarding_example2">मनपर्ने जनावरहरू</string>
   <string name="reading_lists_onboarding_example3">अन्तरिक्षको अन्वेषण</string>
   <string name="reading_lists_onboarding_got_it">मैले बुझेँ</string>
-  <string name="reading_list_no_description">कुनै वर्णन छैन…</string>
-  <string name="reading_list_add_to_other_list">अर्को अध्ययन सूचीमा थप गर्नुहोस्</string>
+    <string name="reading_list_add_to_other_list">अर्को अध्ययन सूचीमा थप गर्नुहोस्</string>
   <string name="reading_list_remove_from_list">%s बाट हटाउनुहोस्</string>
   <string name="reading_list_remove_from_lists">अध्ययन सूचीहरूबाट हटाउनुहोस्</string>
   <string name="reading_list_confirm_remove_article_from_offline">अफलाइनबाट हटाउनुहोस्</string>
@@ -348,11 +338,8 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">पर्दैन धन्यवाद</string>
   <string name="default_reading_list_name">सङ्ग्रह गरिएको</string>
   <string name="user_option_sync_label">प्राथमिकताहरू</string>
-  <string name="notification_button_view_user">प्रयोगकर्तासँग कुरा गर्नुहोस्</string>
-  <string name="notification_talk_title">विकिपिडियामा नयाँ सन्देश आएको छ</string>
-  <string name="notification_reverted_title">उल्ट्याइएको सम्पादन</string>
-  <string name="notification_thanks_title">तपाईंले धन्यवाद पाउनुभएको छ!</string>
-  <string name="notification_syncing_pause_button">रोक्नुहोस्</string>
+    <string name="notification_reverted_title">उल्ट्याइएको सम्पादन</string>
+    <string name="notification_syncing_pause_button">रोक्नुहोस्</string>
   <string name="notification_syncing_resume_button">पुनः निरन्तरता दिनुहोस्</string>
   <string name="notification_syncing_cancel_button">रद्द गर्नुहोस्</string>
   <string name="notifications_prefs">जानकारी अभिरुचीहरू</string>
@@ -408,17 +395,7 @@
   <string name="description_edit_help_tips_example2">पृथ्वीको सबैभन्दा अग्लो हिमाल</string>
   <string name="description_edit_help_more_info">थप जानकारी</string>
   <string name="description_edit_revert_subtitle">विकिपिडिया सम्पादन गर्नुभएकोमा धन्यवाद!</string>
-  <string name="offline_compilations_title">अफलाइन पुस्तकालय</string>
-  <string name="remote_compilations_title">अफलाइन पुस्तकालय</string>
-  <string name="offline_compilation_detail_button_remove">हटाउनुहोस्</string>
-  <string name="remote_compilation_download">डाउनलोड गर्नुहोस्</string>
-  <string name="compilation_download_cancel_confirm_yes">हो</string>
-  <string name="compilation_download_cancel_confirm_no">होइन</string>
-  <string name="compilation_share">आदान-प्रदान गर्नुहोस्</string>
-  <string name="compilation_remove">हटाउनुहोस्</string>
-  <string name="offline_library_title">अफलाइन पुस्तकालय</string>
-  <string name="offline_library_onboarding_button_done">भयो</string>
-  <string name="onboarding_skip">छोड्नुहोस्</string>
+    <string name="onboarding_skip">छोड्नुहोस्</string>
   <string name="onboarding_continue">निरन्तरता दिनुहोस्</string>
   <string name="onboarding_get_started">सुरु गर्नुहोस्</string>
   <string name="onboarding_explore_title">अन्वेषण गर्ने नयाँ तरिका</string>
