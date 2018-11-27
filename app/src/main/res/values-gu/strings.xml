@@ -56,13 +56,7 @@
   <string name="create_account_next">આગળ</string>
   <string name="create_account_button">ખાતું બનાવો</string>
   <string name="preferences_general_heading">સામાન્ય</string>
-  <string name="zero_wikipedia_zero_heading">વિકિપીડિયા ઝીરો</string>
-  <string name="zero_interstitial_title">વિકિપીડિયા ઝીરોમાંથી બહાર નીકળી રહ્યા છો</string>
-  <string name="zero_interstitial_continue">પ્રસ્થાન</string>
-  <string name="zero_interstitial_cancel">અહીં રહો</string>
-  <string name="zero_learn_more_learn_more">વધુ વાંચો</string>
-  <string name="zero_learn_more_dismiss">વિસર્જન</string>
-  <string name="create_account_account_created_toast">ખાતું ખોલવામાં આવ્યું!</string>
+    <string name="create_account_account_created_toast">ખાતું ખોલવામાં આવ્યું!</string>
   <string name="history_search_list_hint">ઇતિહાસ શોધો</string>
   <string name="settings_activity_title" fuzzy="true">ગોઠવણીઓ</string>
   <string name="privacy_policy_description">ગોપનિયતા નીતિ</string>

@@ -121,15 +121,6 @@
   <string name="create_account_button">สร้างบัญชี</string>
   <string name="preferences_general_heading">ทั่วไป</string>
   <string name="wikipedia_app_faq">คำถามที่พบบ่อยเกี่ยวกับแอปวิกิพีเดีย</string>
-  <string name="zero_charged_verbiage">ไม่สามารถใช้บริการวิกิพีเดียฟรีได้อีกต่อไป</string>
-  <string name="zero_warn_when_leaving">เตือนถ้ากำลังจะออกจาก Wikipedia Zero</string>
-  <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
-  <string name="zero_interstitial_title">ออกจาก Wikipedia Zero</string>
-  <string name="zero_interstitial_leave_app">อาจมีการคิดค่าบริการเพิ่ม ต้องจากออกไปยังภายนอกไซต์หรือไม่?</string>
-  <string name="zero_interstitial_continue">ออก</string>
-  <string name="zero_interstitial_cancel">อยู่ต่อ</string>
-  <string name="zero_learn_more_learn_more">เรียนรู้เพิ่มเติม</string>
-  <string name="zero_learn_more_dismiss">รับทราบ</string>
   <string name="send_feedback">ส่งคำติชมแอป</string>
   <string name="create_account_account_created_toast">สร้างบัญชีแล้ว!</string>
     <string name="preference_summary_sync_reading_lists" fuzzy="true">อนุญาตให้วิกิมีเดียทำการซิงค์รายการอ่านของคุณเมื่อคุณล็อกอิน</string>

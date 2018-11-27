@@ -103,11 +103,6 @@
   <string name="create_account_ip_block_details">Antsipirihany</string>
   <string name="preferences_general_heading">Ankapobe</string>
   <string name="wikipedia_app_faq">FAQn\'i Wikipedia App</string>
-  <string name="zero_interstitial_continue">Hiala</string>
-  <string name="zero_interstitial_cancel">Hijanona eto</string>
-  <string name="zero_learn_more">Nanome fahafaha-mitsidika maimaimpoana ny votoatiny Wikipedia ny mpanome tolotra anao</string>
-  <string name="zero_learn_more_learn_more">Fampahalalana fanampiny</string>
-  <string name="zero_learn_more_dismiss">Esorina</string>
   <string name="send_feedback">Hamoa-kevitra momba ny fampiharana</string>
   <string name="create_account_account_created_toast">Voaforona ny kaonty!</string>
     <string name="preferences_heading_syncing">Fisinkiana</string>

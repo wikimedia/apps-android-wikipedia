@@ -55,16 +55,7 @@
   <string name="create_account_next">Келесі</string>
   <string name="create_account_button">Тіркелу</string>
   <string name="preferences_general_heading">Негізгі</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero сөндірілген</string>
-  <string name="zero_warn_when_leaving">Wikipedia Zero-ны қалдырып кеткенде ескерту</string>
-  <string name="zero_webpage_title">Wikipedia Zero ЖҚС</string>
-  <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
-  <string name="zero_interstitial_title">Wikipedia Zero-ны қалдырып кету</string>
-  <string name="zero_interstitial_continue">Кету</string>
-  <string name="zero_interstitial_cancel">Мұнда қалу</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Көбірек оқу</string>
-  <string name="zero_learn_more_dismiss">Жабу</string>
-  <string name="edit_preview_fetching_dialog_message">Алдын-ала қарауды алу...</string>
+    <string name="edit_preview_fetching_dialog_message">Алдын-ала қарауды алу...</string>
   <string name="send_feedback">Қосымша туралы пікір жіберу</string>
   <string name="create_account_account_created_toast">Тіркелгі жасалды!</string>
   <string name="preference_title_eventlogging_opt_in">Қолдану есептерін жіберу</string>

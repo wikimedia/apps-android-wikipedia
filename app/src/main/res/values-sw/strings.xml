@@ -51,15 +51,7 @@
   <string name="create_account_next">Inayofuata</string>
   <string name="create_account_button">Unda akaunti</string>
   <string name="preferences_general_heading">Kijumla</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero imezimwa</string>
-  <string name="zero_warn_when_leaving">Toa ilana kama natoka Wikipedia Zero</string>
-  <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
-  <string name="zero_interstitial_title">Unatoka Wikipedia Zero</string>
-  <string name="zero_interstitial_continue">Toka</string>
-  <string name="zero_interstitial_cancel">Kaa Hapa</string>
-  <string name="zero_learn_more_learn_more">Soma zaidi</string>
-  <string name="zero_learn_more_dismiss">Futilia mbali</string>
-  <string name="edit_preview_fetching_dialog_message">Inapakia mtazamo…</string>
+    <string name="edit_preview_fetching_dialog_message">Inapakia mtazamo…</string>
   <string name="send_feedback">Toa maoni ya programu timizi</string>
   <string name="create_account_account_created_toast">Akaunti imeundwa!</string>
   <string name="preference_title_eventlogging_opt_in">Tuma ripoti za matumizi</string>

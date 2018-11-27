@@ -52,16 +52,7 @@
   <string name="create_account_next">Li jmiss</string>
   <string name="create_account_button">Oħloq kont</string>
   <string name="preferences_general_heading">Ġenerali</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero huwa mitfi</string>
-  <string name="zero_warn_when_leaving">Avżani jekk ħiereġ minn Wikipedia Zero</string>
-  <string name="zero_webpage_title">Mistoqsijiet fuq Wikipedia Zero</string>
-  <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
-  <string name="zero_interstitial_title">Ħiereġ mill-Wikipedia Zero</string>
-  <string name="zero_interstitial_continue">Oħroġ</string>
-  <string name="zero_interstitial_cancel">Ibqa\' hawnhekk</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Aqra aktar</string>
-  <string name="zero_learn_more_dismiss">Aħbi</string>
-  <string name="send_feedback">Ibgħat kumment fuq l-app</string>
+    <string name="send_feedback">Ibgħat kumment fuq l-app</string>
   <string name="create_account_account_created_toast">Il-kont ġie maħluq!</string>
   <string name="preference_title_eventlogging_opt_in">Ibgħat rapporti fuq l-użu</string>
   <string name="preference_summary_eventlogging_opt_in">Ħalli \'l-Wikipedija li tiġbor informazzjoni dwar kif tuża l-app sabiex ittejjeb l-app</string>

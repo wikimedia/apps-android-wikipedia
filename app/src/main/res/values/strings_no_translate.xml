@@ -6,7 +6,6 @@
     <string name="mapbox_public_token">pk.eyJ1IjoiZG1pdHJ5YnJhbnQiLCJhIjoiY2lnd3FzdTI1MHNicHZrbTVhMno4anF4dCJ9.HG3mJUj8xbqOvk_ieFDCfA</string>
 
     <!-- URLs -->
-    <string name="zero_webpage_url">https://foundation.m.wikimedia.org/wiki/Wikipedia_Zero_App_FAQ</string>
     <string name="donate_url">https://donate.wikimedia.org/?utm_medium=WikipediaApp&amp;utm_campaign=Android&amp;utm_source=%1$s&amp;uselang=%2$s</string>
 
     <!-- Accounts -->

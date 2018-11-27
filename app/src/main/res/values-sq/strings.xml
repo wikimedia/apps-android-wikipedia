@@ -74,17 +74,7 @@
   <string name="create_account_button">Krijo llogari</string>
   <string name="preferences_general_heading">Të përgjithshme</string>
   <string name="wikipedia_app_faq">Pyetje dhe përgjigje</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero është e çaktivizuar</string>
-  <string name="zero_warn_when_leaving">Paralajmëroni në qoftë se largohet nga Wikipedia Zero</string>
-  <string name="zero_webpage_title">Pyetje dhe përgjigje për Wikipedia Zero</string>
-  <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
-  <string name="zero_interstitial_title">Lëre Wikipedia Zero</string>
-  <string name="zero_interstitial_continue">Largohu</string>
-  <string name="zero_interstitial_cancel">Qëndro këtu</string>
-  <string name="zero_learn_more" fuzzy="true">Dëshironi të mësoni në lidhje me Wikipedia Zero?</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Lexo më shumë</string>
-  <string name="zero_learn_more_dismiss">Largoje</string>
-  <string name="create_account_account_created_toast">Llogaria u krijua!</string>
+    <string name="create_account_account_created_toast">Llogaria u krijua!</string>
   <string name="preferences_privacy_settings_heading">Privatësia</string>
   <string name="edit_summary_tag_typo">Korrigjim gabim shtypi</string>
   <string name="edit_summary_tag_other">Tjetër</string>

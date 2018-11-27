@@ -30,7 +30,6 @@ import org.wikipedia.events.ReadingListsMergeLocalDialogEvent;
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent;
 import org.wikipedia.events.SplitLargeListsEvent;
 import org.wikipedia.events.ThemeChangeEvent;
-import org.wikipedia.events.WikipediaZeroEnterEvent;
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.recurring.RecurringTasksExecutor;
@@ -225,13 +224,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private class ExclusiveBusConsumer implements Consumer<Object> {
         @Override
         public void accept(Object event) throws Exception {
-            if (event instanceof WikipediaZeroEnterEvent) {
-                if (Prefs.isZeroTutorialEnabled()) {
-                    Prefs.setZeroTutorialEnabled(false);
-                    WikipediaApp.getInstance().getWikipediaZeroHandler()
-                            .showZeroTutorialDialog(BaseActivity.this);
-                }
-            } else if (event instanceof NetworkConnectEvent) {
+            if (event instanceof NetworkConnectEvent) {
                 SavedPageSyncService.enqueue();
             } else if (event instanceof SplitLargeListsEvent) {
                 new AlertDialog.Builder(BaseActivity.this)

@@ -103,19 +103,7 @@
   <string name="create_account_button">खाता खोली</string>
   <string name="preferences_general_heading">जनरल</string>
   <string name="wikipedia_app_faq">विकिपीडिया एप अक्सर पूछल जाए वाला सवाल</string>
-  <string name="zero_charged_verbiage">विकिपीडिया ले फ्री में पहुँच अब सक्रिय नइखे</string>
-  <string name="zero_warn_when_leaving">विकिपीडिया जीरो के छोड़त समय चेतावनी दिहल जाव</string>
-  <string name="zero_warn_when_leaving_summary">अगर आप के मोबाइल नेटवर्क विकिपीडिया जीरो के पार्टनरशिप में बा आ एकरे तहत विकिपीडिया एप खातिर डेटा बिना कौनो चार्ज के दे रहल बा, एह सेटिंग के टिक रखे पर आपके ई मालुम होखे में सुबिधा रही की आप कब विकिपीडिया एप से बाहर निकल रहल बानी आ आपके चार्ज (कीमत) देवे के पड़ी।</string>
-  <string name="zero_webpage_title">विकिपीडिया जीरो सवाल</string>
-  <string name="zero_wikipedia_zero_heading">विकिपीडिया जीरो</string>
-  <string name="zero_interstitial_title">विकिपीडिया जीरो से बाहर जात बानी</string>
-  <string name="zero_interstitial_leave_app">डेटा चार्ज लागू हो सकेला। बाहरी साइट पर जाइल जाय?</string>
-  <string name="zero_interstitial_continue">छोड़ीं</string>
-  <string name="zero_interstitial_cancel">इहँवे रहीं</string>
-  <string name="zero_learn_more">राउर वायरलेस कैरियर विकिपीडिया के सामग्री तक फ्री में पहुँच उपलब्ध करवले बा!</string>
-  <string name="zero_learn_more_learn_more">अउरी बूझीं</string>
-  <string name="zero_learn_more_dismiss">रद्द करीं</string>
-  <string name="edit_preview_fetching_dialog_message">झलक हासिल कइल जाता...</string>
+    <string name="edit_preview_fetching_dialog_message">झलक हासिल कइल जाता...</string>
   <string name="send_feedback">एप फीडबैक भेजीं</string>
   <string name="create_account_account_created_toast">खाता बनावल गइल!</string>
     <string name="preference_summary_sync_reading_lists" fuzzy="true">विकिमीडिया के एलाऊ करीं की जब आप खाता में प्रवेश करीं तब आपके रीडिंग लिस्ट के सिंक करे</string>
