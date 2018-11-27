@@ -17,7 +17,6 @@ import org.wikipedia.edit.preview.EditPreview;
 import org.wikipedia.login.LoginClient;
 import org.wikipedia.search.PrefixSearchResponse;
 import org.wikipedia.wikidata.Entities;
-import org.wikipedia.zero.ZeroConfig;
 
 import io.reactivex.Observable;
 import retrofit2.Call;
@@ -167,9 +166,6 @@ public interface Service {
 
     @GET(MW_API_PREFIX + "action=query&meta=siteinfo")
     @NonNull Observable<MwQueryResponse> getSiteInfo();
-
-    @GET(MW_API_PREFIX + "action=zeroconfig&type=message")
-    @NonNull Observable<ZeroConfig> getZeroConfig(@NonNull @Query("agent") String userAgent);
 
 
     // ------- CSRF, Login, and Create Account -------

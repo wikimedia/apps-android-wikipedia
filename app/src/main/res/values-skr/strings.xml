@@ -101,14 +101,7 @@
   <string name="create_account_ip_block_details">تفصیلاں</string>
   <string name="preferences_general_heading">عمومی</string>
   <string name="wikipedia_app_faq">ویکیپیڈیا ایپ عمومی سوالات</string>
-  <string name="zero_webpage_title">وکی پیڈیا زیرو بار سوال جواب</string>
-  <string name="zero_wikipedia_zero_heading">وکیپیڈیا زیرو</string>
-  <string name="zero_interstitial_title">وکیپیڈیا زیرو کوں چھوڑیندے پئے ہو۔۔۔</string>
-  <string name="zero_interstitial_continue">چھوڑو</string>
-  <string name="zero_interstitial_cancel">اتھاہیں رہوو</string>
-  <string name="zero_learn_more_learn_more">ٻیا سِکھو</string>
-  <string name="zero_learn_more_dismiss">مکاؤ</string>
-  <string name="edit_preview_fetching_dialog_message">پریویو چھیکیندا پئے</string>
+    <string name="edit_preview_fetching_dialog_message">پریویو چھیکیندا پئے</string>
   <string name="create_account_account_created_toast">کھاتہ کھل ڳیا!</string>
   <string name="preferences_privacy_settings_heading">پرائیویسی</string>
   <string name="history_search_list_hint">تاریخ ڳولو</string>

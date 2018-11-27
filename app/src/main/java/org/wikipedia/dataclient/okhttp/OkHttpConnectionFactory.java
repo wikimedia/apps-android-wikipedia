@@ -41,7 +41,6 @@ public final class OkHttpConnectionFactory {
                 .addInterceptor(new CommonHeaderRequestInterceptor())
                 .addInterceptor(new DefaultMaxStaleRequestInterceptor())
                 .addInterceptor(new OfflineCacheInterceptor(SAVE_CACHE))
-                .addInterceptor(new WikipediaZeroResponseInterceptor(WikipediaApp.getInstance().getWikipediaZeroHandler()))
                 .addInterceptor(new TestStubInterceptor())
                 .build();
     }

@@ -55,12 +55,6 @@
   <string name="create_account_next">ಮುಂದಿನ</string>
   <string name="create_account_button">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಿ</string>
   <string name="preferences_general_heading">ಸಾಮಾನ್ಯ</string>
-  <string name="zero_webpage_title">ವಿಕಿಪೀಡಿಯಾ ಜಿರೋ FAQ</string>
-  <string name="zero_wikipedia_zero_heading">ವಿಕಿಪೀಡಿಯಾ ಜಿರೋ</string>
-  <string name="zero_interstitial_continue">ಬಿಡು</string>
-  <string name="zero_interstitial_cancel">ಇಲ್ಲಿ ಉಳಿಯಿರಿ</string>
-  <string name="zero_learn_more_learn_more">ಇನ್ನೂ ಓದಿ</string>
-  <string name="zero_learn_more_dismiss">ತೆಗೆದುಹಾಕು</string>
   <string name="create_account_account_created_toast">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಲಾಯಿತು!</string>
   <string name="preference_title_eventlogging_opt_in">ಉಪಯೋಗ ವರದಿಗಳನ್ನು ಕಳುಹಿಸಿ</string>
   <string name="history_search_list_hint">ಇತಿಹಾಸ  ಹುಡುಕಿ</string>

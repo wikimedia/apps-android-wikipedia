@@ -52,7 +52,6 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewAnimations;
-import org.wikipedia.zero.WikipediaZeroHandler;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -89,8 +88,6 @@ public class WikipediaApp extends Application {
     private Theme currentTheme = Theme.getFallback();
     private List<Tab> tabList = new ArrayList<>();
 
-    private WikipediaZeroHandler zeroHandler;
-
     private static WikipediaApp INSTANCE;
 
     public WikipediaApp() {
@@ -119,10 +116,6 @@ public class WikipediaApp extends Application {
 
     public FunnelManager getFunnelManager() {
         return funnelManager;
-    }
-
-    public WikipediaZeroHandler getWikipediaZeroHandler() {
-        return zeroHandler;
     }
 
     public RemoteConfig getRemoteConfig() {
@@ -161,8 +154,6 @@ public class WikipediaApp extends Application {
         // Register here rather than in AndroidManifest.xml so that we can target Android N.
         // https://developer.android.com/topic/performance/background-optimization.html#connectivity-action
         registerReceiver(connectivityReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
-
-        zeroHandler = new WikipediaZeroHandler(this);
 
         // HockeyApp exception handling interferes with the test runner, so enable it only for
         // beta and stable releases

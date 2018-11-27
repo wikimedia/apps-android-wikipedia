@@ -133,14 +133,7 @@
   <string name="create_account_ip_block_details">Dêtay</string>
   <string name="preferences_general_heading">Giştî</string>
   <string name="wikipedia_app_faq">Sepana Wîkîpediyayê PPP</string>
-  <string name="zero_charged_verbiage">Gihîna belaş ya ji bo Wîkîpediyayê êdî ne aktîv e.</string>
-  <string name="zero_warn_when_leaving">Eger ji Wikipedia Zero bê derketin hişyarî bide</string>
-  <string name="zero_wikipedia_zero_heading">Wîkîpediya Zero</string>
-  <string name="zero_interstitial_continue">Jê derkeve</string>
-  <string name="zero_interstitial_cancel">Li vir bimîne</string>
-  <string name="zero_learn_more_learn_more">Zêdetir hîn bibe</string>
-  <string name="zero_learn_more_dismiss">Veşêre</string>
-  <string name="create_account_account_created_toast">Hesab hate çêkirin!</string>
+    <string name="create_account_account_created_toast">Hesab hate çêkirin!</string>
   <string name="preferences_heading_data_usage">Bikaranîna daneyê</string>
   <string name="history_search_list_hint">Dîroka lêgerînê</string>
   <string name="error_can_not_process_link">Nikare vê lînkê nîşan bide</string>

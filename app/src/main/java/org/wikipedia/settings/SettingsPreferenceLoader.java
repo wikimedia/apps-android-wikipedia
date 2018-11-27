@@ -36,10 +36,6 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
             findPreference(R.string.preference_key_sync_reading_lists).setVisible(false);
         }
 
-        if (!Prefs.isZeroTutorialEnabled()) {
-            loadPreferences(R.xml.preferences_zero);
-        }
-
         findPreference(R.string.preference_key_sync_reading_lists)
                 .setOnPreferenceChangeListener(new SyncReadingListsListener());
 

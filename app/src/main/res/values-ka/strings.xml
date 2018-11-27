@@ -109,16 +109,7 @@
   <string name="create_account_button">ანგარიშის შექმნა</string>
   <string name="preferences_general_heading">მთავარი</string>
   <string name="wikipedia_app_faq">ვიკიპედიის აპლიკაციის ხდშ</string>
-  <string name="zero_charged_verbiage">ვიკიპედია ზერო გამორთულია</string>
-  <string name="zero_warn_when_leaving">გამაფრთხილე ვიკიპედია ზეროს დატოვებისას</string>
-  <string name="zero_webpage_title">ვიკიპედია ზერო ხდშ</string>
-  <string name="zero_wikipedia_zero_heading">ვიკიპედია ზერო</string>
-  <string name="zero_interstitial_title">ვიკიპედია ზეროდან გამოსვლა</string>
-  <string name="zero_interstitial_continue">დატოვება</string>
-  <string name="zero_interstitial_cancel">დარჩი აქ</string>
-  <string name="zero_learn_more_learn_more">წაიკითხეთ მეტი</string>
-  <string name="zero_learn_more_dismiss">უარყოფა</string>
-  <string name="edit_preview_fetching_dialog_message">წინასწარი გადახედვის რეჟიმი…</string>
+    <string name="edit_preview_fetching_dialog_message">წინასწარი გადახედვის რეჟიმი…</string>
   <string name="send_feedback">შეაფასეთ აპლიკაცია</string>
   <string name="create_account_account_created_toast">ანგარიში შექმნილია!</string>
   <string name="preferences_privacy_settings_heading">უსაფრთხოება</string>

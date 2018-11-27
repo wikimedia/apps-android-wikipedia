@@ -41,10 +41,6 @@
   <string name="create_account_generic_error">Eenyummeessa uumuu hindandeenye</string>
   <string name="create_account_next">Itti fufi</string>
   <string name="create_account_button">Eenyummeessa uumi</string>
-  <string name="zero_interstitial_continue">Deemi</string>
-  <string name="zero_interstitial_cancel">Asuma Turi</string>
-  <string name="zero_learn_more_learn_more">Dabalata dubbisi</string>
-  <string name="zero_learn_more_dismiss">Didi</string>
   <string name="edit_preview_fetching_dialog_message">Durargii fidaa jira…</string>
   <string name="create_account_account_created_toast">Eenyummeessi uummame!</string>
   <string name="preference_title_eventlogging_opt_in">Gabaasa fayyadamaa ergi</string>

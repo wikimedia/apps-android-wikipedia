@@ -351,18 +351,6 @@ public final class Prefs {
         setLong(R.string.preference_key_page_last_shown, time);
     }
 
-    public static boolean isShowZeroInterstitialEnabled() {
-        return getBoolean(R.string.preference_key_zero_interstitial, true);
-    }
-
-    public static int zeroConfigHashCode() {
-        return getInt(R.string.preference_key_zero_config_hash, 0);
-    }
-
-    public static void zeroConfigHashCode(int hashCode) {
-        setInt(R.string.preference_key_zero_config_hash, hashCode);
-    }
-
     public static boolean isShareTutorialEnabled() {
         return getBoolean(R.string.preference_key_share_tutorial_enabled, true);
     }
@@ -385,14 +373,6 @@ public final class Prefs {
 
     public static void setTocTutorialEnabled(boolean enabled) {
         setBoolean(R.string.preference_key_toc_tutorial_enabled, enabled);
-    }
-
-    public static boolean isZeroTutorialEnabled() {
-        return getBoolean(R.string.preference_key_zero_tutorial_enabled, true);
-    }
-
-    public static void setZeroTutorialEnabled(boolean enabled) {
-        setBoolean(R.string.preference_key_zero_tutorial_enabled, enabled);
     }
 
     public static boolean isImageDownloadEnabled() {

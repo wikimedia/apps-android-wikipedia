@@ -12,15 +12,11 @@ import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
-import org.wikipedia.zero.WikipediaZeroHandler;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-
-import static org.wikipedia.zero.WikipediaZeroHandler.showZeroExitInterstitialDialog;
 
 public final class UriUtil {
     public static final String LOCAL_URL_SETTINGS = "#settings";
@@ -117,20 +113,7 @@ public final class UriUtil {
     }
 
     public static void handleExternalLink(final Context context, final Uri uri) {
-        final WikipediaZeroHandler zeroHandler = WikipediaApp.getInstance()
-                .getWikipediaZeroHandler();
-
-        if (!zeroHandler.isZeroEnabled()) {
-            visitInExternalBrowser(context, uri);
-            return;
-        }
-
-        if (!Prefs.isShowZeroInterstitialEnabled()) {
-            visitInExternalBrowser(context, uri);
-            return;
-        }
-
-        showZeroExitInterstitialDialog(context, uri);
+        visitInExternalBrowser(context, uri);
     }
 
     public static String getUrlWithProvenance(Context context, PageTitle title,

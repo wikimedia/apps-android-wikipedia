@@ -50,14 +50,6 @@
   <string name="create_account_generic_error">Декъашхочун дӀаяздар кхолла йиш яц</string>
   <string name="create_account_next">Кхин дӀа</string>
   <string name="preferences_general_heading">Юкъара</string>
-  <string name="zero_warn_when_leaving">Wikipedia Zero чура ара долуш хаам бе</string>
-  <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
-  <string name="zero_interstitial_title">Wikipedia Zero чура арадолу</string>
-  <string name="zero_interstitial_continue">Кхин дӀа</string>
-  <string name="zero_interstitial_cancel">Цаоьшу</string>
-  <string name="zero_learn_more">Лаьий хьуна Wikipedia Zero лаьцна хаа?</string>
-  <string name="zero_learn_more_learn_more">Цул совнаха хаа</string>
-  <string name="zero_learn_more_dismiss">ДӀачӀагӀа</string>
   <string name="edit_preview_fetching_dialog_message">Хьалха хьажар гучудолуш ду…</string>
   <string name="history_search_list_hint" fuzzy="true">Лахар</string>
   <string name="settings_activity_title" fuzzy="true">Параметраш</string>

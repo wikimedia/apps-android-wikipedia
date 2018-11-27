@@ -28,7 +28,7 @@
         android:name="android.permission.MANAGE_ACCOUNTS"
         android:maxSdkVersion="22" />
 
-    <!-- For notifications, e.g. User account notices, Wikipedia Zero, etc. -->
+    <!-- For notifications, e.g. User account notices, etc. -->
     <uses-permission android:name="android.permission.VIBRATE"/>
 
     <!-- For being able to receive notifications upon boot -->

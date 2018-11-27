@@ -66,9 +66,7 @@
   <string name="create_account_next">Հաջորդ</string>
   <string name="create_account_button">Ստեղծել մասնակցային հաշիվ</string>
   <string name="preferences_general_heading">Ընդհանուր</string>
-  <string name="zero_charged_verbiage">Վիքիպեդիա Զրոն անջատված է</string>
-  <string name="zero_wikipedia_zero_heading">Վիքիպեդիա Զրո</string>
-  <string name="create_account_account_created_toast">Հաշիվը ստեղծված է</string>
+    <string name="create_account_account_created_toast">Հաշիվը ստեղծված է</string>
   <string name="about_contributors_heading" fuzzy="true">հեղինակներ</string>
   <string name="about_translators_heading" fuzzy="true">թարգմանիչներ</string>
   <string name="about_translators_translatewiki">Այս ծրագիրը թարգմանվել է կամավոր թարգմանիչների կողմից՝ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; կայքում։</string>

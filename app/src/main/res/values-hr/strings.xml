@@ -86,18 +86,7 @@
   <string name="create_account_button">Otvori suradnički račun</string>
   <string name="preferences_general_heading">Općenito</string>
   <string name="wikipedia_app_faq">ČPP o aplikaciji Wikipedija</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedija Zero je isključen</string>
-  <string name="zero_warn_when_leaving">Upozori prilikom napuštanja Wikipedija Zero</string>
-  <string name="zero_warn_when_leaving_summary">Ako vaš davatelj usluga ne naplaćuje pristup Wikipediji kroz partnerstvo Wikipedia Zero, uključivanjem ove opcije dobit ćete obavijest ukoliko napuštate besplatne stranice, te se prijenos podataka može dodatno naplatiti.</string>
-  <string name="zero_webpage_title">Wikipedija Zero ČPP</string>
-  <string name="zero_wikipedia_zero_heading">Wikipedija Zero</string>
-  <string name="zero_interstitial_title">Napuštanje Wikipedija Zero</string>
-  <string name="zero_interstitial_leave_app">Mogući su dodatni troškovi. Nastaviti na vanjskoj stranici?</string>
-  <string name="zero_interstitial_continue">Napusti</string>
-  <string name="zero_interstitial_cancel">Ostani ovdje</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Pročitajte više</string>
-  <string name="zero_learn_more_dismiss">Zatvori</string>
-  <string name="edit_preview_fetching_dialog_message">Dohvaćanje pretpregleda…</string>
+    <string name="edit_preview_fetching_dialog_message">Dohvaćanje pretpregleda…</string>
   <string name="send_feedback">Pošalji povratnu informaciju o aplikaciji</string>
   <string name="create_account_account_created_toast">Suradnički račun otvoren.</string>
   <string name="preferences_privacy_settings_heading">Privatnost</string>

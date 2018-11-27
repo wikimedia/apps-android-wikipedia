@@ -90,9 +90,7 @@
   <string name="create_account_button">Ustvarite račun</string>
   <string name="preferences_general_heading">Splošno</string>
   <string name="wikipedia_app_faq">Pogosta vprašanja o Aplikaciji Wikipedija</string>
-  <string name="zero_interstitial_continue">Zapusti</string>
-  <string name="zero_interstitial_cancel">Ostani tukaj</string>
-  <string name="create_account_account_created_toast">Račun ustvarjen!</string>
+    <string name="create_account_account_created_toast">Račun ustvarjen!</string>
   <string name="preferences_privacy_settings_heading">Zasebnost</string>
   <string name="history_search_list_hint">Zgodovina iskanja</string>
   <string name="page_protected_can_not_edit_title">Stran je zaščitena</string>

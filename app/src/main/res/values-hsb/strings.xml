@@ -127,16 +127,7 @@
   <string name="create_account_ip_block_details">Podrobnosće</string>
   <string name="preferences_general_heading">Powšitkowny</string>
   <string name="wikipedia_app_faq">Huste prašenja wo app</string>
-  <string name="zero_charged_verbiage">Bjezpłatny zwisk do Wikipedije njeje hižo aktiwny.</string>
-  <string name="zero_webpage_title">Wikipedija Zero - Huste prašenja</string>
-  <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
-  <string name="zero_interstitial_title">Wopušću Wikipediju Zero</string>
-  <string name="zero_interstitial_leave_app">Móžno, zo nastanu popłatki za přenošowanje datow. Doprědka na eksternu webstronu?</string>
-  <string name="zero_interstitial_continue">Wopušćić</string>
-  <string name="zero_interstitial_cancel">Tule wostać</string>
-  <string name="zero_learn_more">Twój poskićer mobiloweho funka zmóžnja bjezpłatny přistup k wobsaham Wikipedije!</string>
-  <string name="zero_learn_more_learn_more">Wjace zhonić</string>
-  <string name="edit_preview_fetching_dialog_message">Wobstaram přehlad...</string>
+    <string name="edit_preview_fetching_dialog_message">Wobstaram přehlad...</string>
   <string name="send_feedback">Feedback wo app wotpósłać</string>
   <string name="create_account_account_created_toast">Konto załožene!</string>
     <string name="preferences_heading_syncing">Synchronizowanje</string>

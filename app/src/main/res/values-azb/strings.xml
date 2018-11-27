@@ -67,13 +67,7 @@
   <string name="create_account_next">سوْنراکی</string>
   <string name="create_account_button">حساب یارات</string>
   <string name="preferences_general_heading">عمومی</string>
-  <string name="zero_wikipedia_zero_heading">ویکی‌پدیا صیفر</string>
-  <string name="zero_interstitial_title">ویکی‌پدیا صیفردن چیخیش</string>
-  <string name="zero_interstitial_continue">چیخ</string>
-  <string name="zero_interstitial_cancel">بوردا قال</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">داها چوْخ اوْخویون</string>
-  <string name="zero_learn_more_dismiss">رد ائت</string>
-  <string name="create_account_account_created_toast">حساب یارادیلدی!</string>
+    <string name="create_account_account_created_toast">حساب یارادیلدی!</string>
   <string name="preferences_privacy_settings_heading">شخصی حریم</string>
   <string name="preference_title_eventlogging_opt_in">ایشلتمه راپورتلارینی گؤندر</string>
   <string name="preference_title_auto_upload_crash_reports">خطا راپورتو گؤندر</string>
