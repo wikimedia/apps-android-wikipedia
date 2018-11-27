@@ -9,6 +9,8 @@ import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceFragmentCompat;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.util.ResourceUtil;
 
 class NotificationSettingsPreferenceLoader extends BasePreferenceLoader {
@@ -42,6 +44,11 @@ class NotificationSettingsPreferenceLoader extends BasePreferenceLoader {
 
     private final class PollPreferenceListener implements Preference.OnPreferenceChangeListener {
         @Override public boolean onPreferenceChange(final Preference preference, Object newValue) {
+            if ((Boolean) newValue) {
+                NotificationPollBroadcastReceiver.startPollTask(WikipediaApp.getInstance());
+            } else {
+                NotificationPollBroadcastReceiver.stopPollTask(WikipediaApp.getInstance());
+            }
             return true;
         }
     }

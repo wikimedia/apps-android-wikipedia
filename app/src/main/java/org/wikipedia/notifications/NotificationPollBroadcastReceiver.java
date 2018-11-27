@@ -39,9 +39,17 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (TextUtils.equals(intent.getAction(), Intent.ACTION_BOOT_COMPLETED)) {
-            startPollTask(context);
+            if (Prefs.notificationPollEnabled()) {
+                startPollTask(context);
+            } else {
+                stopPollTask(context);
+            }
         } else if (TextUtils.equals(intent.getAction(), ACTION_POLL)) {
-            if (!AccountUtil.isLoggedIn() || !Prefs.notificationPollEnabled()) {
+            if (!Prefs.notificationPollEnabled()) {
+                stopPollTask(context);
+                return;
+            }
+            if (!AccountUtil.isLoggedIn()) {
                 return;
             }
 
