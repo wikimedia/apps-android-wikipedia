@@ -67,7 +67,11 @@ public class FaceAndColorDetectImageView extends SimpleDraweeView {
         @Override
         public void onImageLoaded(int bmpHeight, @Nullable final PointF faceLocation, @ColorInt int mainColor) {
             if (isAttachedToWindow() && faceLocation != null) {
-                getHierarchy().setActualImageFocusPoint(faceLocation);
+                post(() -> {
+                    if (isAttachedToWindow()) {
+                        getHierarchy().setActualImageFocusPoint(faceLocation);
+                    }
+                });
             }
         }
 
