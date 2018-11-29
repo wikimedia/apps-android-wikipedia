@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Carlosedepaula
+* Julian Mendez
+* Karmwiki
+* Macofe
+* McDutchie
+-->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
+  <string name="nav_item_back">Retro</string>
+  <string name="nav_item_forward">Avante</string>
   <string name="search_hint">Cercar in Wikipedia</string>
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Il non es possibile connecter se a Internet.</string>
@@ -16,9 +25,12 @@
   <string name="menu_page_show_tabs">Monstrar schedas</string>
   <string name="menu_page_other_languages">Cambiar de lingua</string>
   <string name="menu_page_find_in_page">Cercar in pagina</string>
-    <string name="menu_page_font_and_theme">Typo de litteras e thema</string>
+  <string name="menu_page_font_and_theme">Typo de litteras e thema</string>
   <string name="menu_page_add_to_list">Adder al lista de lectura</string>
   <string name="menu_page_share">Divider ligamine</string>
+  <string name="menu_page_open_a_new_tab">Aperir un nove scheda</string>
+  <string name="menu_page_reading_lists">Listas de lectura</string>
+  <string name="menu_page_recently_viewed">Recentemente visitate</string>
   <string name="menu_long_press_open_page">Aperir</string>
   <string name="menu_long_press_open_in_new_tab">Aperir in un nove scheda</string>
   <string name="menu_long_press_copy_page">Copiar le adresse del ligamine</string>
@@ -30,12 +42,12 @@
   <string name="nearby_zoom_to_location">Facer zoom a un loco sur le carta</string>
   <string name="last_updated_text">Ultime actualisation %s</string>
   <string name="content_license_html">Content is available under &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; unless otherwise noted</string>
-  <string name="edit_save_action_license_logged_in">By saving, you agree to the &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">By saving, you agree to the &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">By saving, you agree to the &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license. Edits will be attributed to the IP address of your device. If you &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt;, you will have more privacy.</string>
-  <string name="preference_title_language">Lingua de Wikipedia</string>
-    <string name="langlinks_filter_hint">Cercar</string>
+  <string name="preference_title_language" fuzzy="true">Lingua de Wikipedia</string>
+  <string name="langlinks_filter_hint">Cercar</string>
   <string name="langlinks_empty">Iste pagina non es disponibile in altere linguas</string>
-  <string name="langlinks_no_match">Nulle lingua trovate que corresponde a tu recerca.</string>
+  <string name="langlinks_no_match" fuzzy="true">Nulle lingua trovate que corresponde a tu recerca.</string>
   <string name="langlinks_activity_title">Altere linguas</string>
   <string name="menu_save_changes" fuzzy="true">Salveguardar modificationes</string>
   <string name="dialog_saving_in_progress" fuzzy="true">Salveguarda…</string>
@@ -43,7 +55,7 @@
   <string name="dialog_message_edit_failed">Modification fallite!</string>
   <string name="dialog_message_edit_failed_retry">Reprobar</string>
   <string name="dialog_message_edit_failed_cancel">Cancellar</string>
-  <string name="dialog_message_leaving_edit">Tu modificationes non ha ancora essite salveguardate. Es tu secur de voler quitar iste pagina?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">Tu modificationes non ha ancora essite salveguardate. Es tu secur de voler quitar iste pagina?</string>
   <string name="dialog_message_leaving_edit_leave">Quitar</string>
   <string name="dialog_message_leaving_edit_stay">Restar</string>
   <string name="menu_show_toc">Tabula de contento</string>
@@ -75,7 +87,7 @@
   <string name="create_account_button">Crear conto</string>
   <string name="preferences_general_heading">General</string>
   <string name="wikipedia_app_faq">FAQ re app Wikipedia</string>
-    <string name="send_feedback">Inviar commentario re le application</string>
+  <string name="send_feedback">Inviar commentario re le application</string>
   <string name="create_account_account_created_toast">Conto create!</string>
   <string name="history_search_list_hint">Cercar in le historia</string>
   <string name="page_protected_can_not_edit_title">Iste pagina es protegite</string>
@@ -100,7 +112,7 @@
   <string name="find_previous">Cargar precedente</string>
   <string name="abusefilter_title_warn" fuzzy="true">Iste pote esser un modification non constructive. Es tu secur de voler salveguardar lo?</string>
   <string name="abusefilter_title_disallow" fuzzy="true">Tu non pote salveguardar iste modification. Per favor retorna e cambia lo.</string>
-    <string name="text_size_select">Dimension del litteras</string>
+  <string name="text_size_select">Dimension del litteras</string>
   <string name="page_similar_titles">Paginas simile</string>
   <string name="search_did_you_mean">Forsan cercava tu: \"%s\"?</string>
   <string name="search_recent_header">Recercas recente:</string>
@@ -133,6 +145,34 @@
   <string name="color_theme_light">Clar</string>
   <string name="color_theme_dark">Obscur</string>
   <string name="saved_list_empty_title">Nulle pagina salveguardate ancora</string>
+  <string name="reading_list_menu_last_sync">Ultime sync: %s</string>
+  <string name="notification_echo_channel_description">Notificationes de Wikipedia</string>
+  <string name="notifications_activity_title">Notificationes</string>
+  <string name="notifications_activity_title_archived">Notificationes (archivate)</string>
+  <string name="notifications_search">Cercar in notificationes</string>
+  <string name="notifications_view_unread">Vider non legites</string>
+  <string name="notifications_view_archived">Vider archivates</string>
+  <string name="notifications_prefs">Preferentias de notification</string>
+  <string name="notifications_archive">Marcar como legite e archivar</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">Notification archivate</item>
+    <item quantity="other">%d notificationes archivate</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">Activar notificationes</string>
+  <string name="notifications_poll_enable_positive">Activar</string>
+  <string name="notifications_poll_enable_negative">Non ora</string>
+  <string name="notifications_empty_message">Il non ha nove notificationes.</string>
+  <string name="notifications_view_archived_button_text">Vider notificationes archivate</string>
+  <string name="notification_preferences_title">Preferentias de notification</string>
+  <string name="preference_title_notification_poll">Sondar notificationes</string>
+  <string name="preference_summary_notification_poll">Permitter al app de transferer datos in secunde plano pro verificar si il ha nove notificationes.</string>
+  <string name="preference_category_notification_types">Typos de notification in app</string>
+  <string name="preference_title_notification_welcome">Benvenite</string>
+  <string name="preference_summary_notification_welcome">Un conto es create</string>
+  <string name="preference_title_notification_milestone">Petra milliari</string>
+  <string name="preference_summary_notification_milestone">Un certe numero de modificationes es attingite</string>
+  <string name="preference_title_notification_thanks">Gratias</string>
+  <string name="preference_summary_notification_thanks">Un persona te regratia pro un modification</string>
   <string name="more_events_text">Plus sur iste die</string>
   <string name="events_count_text">%1$s eventos inter %2$s e %3$d</string>
   <string name="back_to_top">Retro al initio</string>

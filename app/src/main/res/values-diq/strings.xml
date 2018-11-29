@@ -26,9 +26,9 @@
   <string name="share_via">Vıla da</string>
   <string name="search_redirect_from">%s ra kırışı yê</string>
   <string name="menu_page_show_tabs">Taban basne</string>
-  <string name="menu_page_other_languages">Zıwani bıvurn</string>
+  <string name="menu_page_other_languages">Zıwani bıvurne</string>
   <string name="menu_page_find_in_page">Per tede bıvin</string>
-    <string name="menu_page_font_and_theme">Nuşıs u thema</string>
+  <string name="menu_page_font_and_theme">Nuşıs u thema</string>
   <string name="menu_page_add_to_list">Lista wendışi ra cı ke</string>
   <string name="menu_page_share">Gıre pay ke</string>
   <string name="menu_long_press_open_page">Ake</string>
@@ -44,7 +44,7 @@
   <string name="talk_page_link_text" fuzzy="true">Vatış</string>
   <string name="content_license_html">Eger dimlaşt nêvaciyeno, zerrek bınê &lt;a class=\"external\" rel=\"nofollow\" href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de ravêreno.</string>
   <string name="preference_title_language" fuzzy="true">Wikipedia Zıwan</string>
-    <string name="langlinks_filter_hint">Cı geyre</string>
+  <string name="langlinks_filter_hint">Cı geyre</string>
   <string name="langlinks_empty">Na wesiqa zıwanan de binan de çıniya</string>
   <string name="langlinks_activity_title">Zıwanê bini</string>
   <string name="menu_save_changes">Vırnayışan qeyd ke</string>
@@ -82,7 +82,7 @@
   <string name="create_account_button">Hesab vıraze</string>
   <string name="preferences_general_heading">Bıngeh</string>
   <string name="wikipedia_app_faq">Wikipedia App PZP</string>
-    <string name="edit_preview_fetching_dialog_message">Verqayti ano...</string>
+  <string name="edit_preview_fetching_dialog_message">Verqayti ano...</string>
   <string name="send_feedback">Dezgek peyd rışten bırış</string>
   <string name="create_account_account_created_toast">Hesab vıraziya!</string>
   <string name="preferences_privacy_settings_heading">Nımıtış</string>
@@ -108,7 +108,7 @@
   <string name="edit_summary_tag_other">Zewbi</string>
   <string name="find_next">Peyêni bıvin</string>
   <string name="find_previous">Verêni bıvin</string>
-    <string name="text_size_select">çapa fonti</string>
+  <string name="text_size_select">çapa fonti</string>
   <string name="page_similar_titles">Zey cı peri</string>
   <string name="search_did_you_mean">To ker kı vacê %s?</string>
   <string name="search_recent_header">Cıgeyrışo peyên:</string>

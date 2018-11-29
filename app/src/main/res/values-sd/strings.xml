@@ -33,7 +33,7 @@
   <string name="menu_page_show_tabs">ٽيبس ڏيکاريو</string>
   <string name="menu_page_other_languages">ٻولي مَٽايو</string>
   <string name="menu_page_find_in_page">صفحي ۾ ڳوليو</string>
-    <string name="menu_page_font_and_theme">اکر ۽ نظارو</string>
+  <string name="menu_page_font_and_theme">اکر ۽ نظارو</string>
   <string name="menu_page_add_to_list">پڙھڻ جي فھرست ۾ وجھو</string>
   <string name="menu_page_share">ڳنڍڻو ونڊيو</string>
   <string name="menu_long_press_open_page">کوليو</string>
@@ -56,7 +56,7 @@
   <string name="edit_save_action_license_logged_in" fuzzy="true">سانڍڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان، ۽ يقينن پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس جي تحت ڏيڻ تي راضي ٿيو ٿا.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">سانڍڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن &lt;/a&gt; ۽ irrevocably پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس تحت ڏيڻ تي راضي ٿيو ٿا. ترميمون توھان جي آءِپي پتي سان لاڳو ڪيون وينديون. جيڪڏهن توهان &lt;a href=\"https://#login\"&gt;داخل ٿيو&lt;/a&gt; ٿا، تہ توھان کي وڌيڪ ذاتيات هوندي.</string>
   <string name="preference_title_language">وڪيپيڊيا ٻوليون</string>
-    <string name="langlinks_filter_hint">ڳوليو</string>
+  <string name="langlinks_filter_hint">ڳوليو</string>
   <string name="langlinks_empty">هيءُ صفحو ٻين ٻولين ۾ دستياب نہ آهي.</string>
   <string name="langlinks_no_match">ڪي بہ ٻوليون نہ لڌيون</string>
   <string name="langlinks_activity_title">ٻيون ٻوليون</string>
@@ -125,7 +125,7 @@
   <string name="create_account_ip_block_details">تفصيل</string>
   <string name="preferences_general_heading">عام</string>
   <string name="wikipedia_app_faq">وڪيپيڊيا ايپ ڪپس</string>
-    <string name="edit_preview_fetching_dialog_message">پيش نگاھ ٺاهيندي…</string>
+  <string name="edit_preview_fetching_dialog_message">پيش نگاھ ٺاهيندي…</string>
   <string name="send_feedback">ايپ جي پذيرائي موڪليو</string>
   <string name="create_account_account_created_toast">کاتو کلي چڪو!</string>
   <string name="preferences_heading_data_usage">ڊيٽا کپت</string>
@@ -186,7 +186,7 @@
   <string name="abusefilter_title_disallow">توهان هي ترميم ڇاپي نٿا سگھو. براءِ مھرباني واپس وڃو ۽ انکي تبديل ڪريو.</string>
   <string name="abusefilter_text_warn">ھڪ خودڪاربڻايل ڇاڻيءَ ھن ترميم کي ممڪنہ طور تي غيرتعميري طور سڃاتو آھي. ان ۾ ھيٺين مان ھڪ شامل ٿي سگھن ٿا:&lt;br /&gt;&lt;br /&gt;· سڀني قسمن جي اکرن ۾ ٽائيپ ڪندي&lt;br /&gt;· مضمونن کي خالي ڪندي يا بگاڙيندي&lt;br /&gt;· اڻلاڳپيل خارجي ڳنڍڻا يا عڪس&lt;br /&gt;· نشانيون ورجائيندي</string>
   <string name="abusefilter_text_disallow">ھڪ خودڪاربڻايل ڇاڻيءَ ھن ترميم کي ممڪنہ طور تي غيرتعميري طور سڃاتو آھي، يا ڳجھي وحشيت.&lt;br /&gt;&lt;br /&gt;وڪيپيڊيا ھڪ انسائيڪلوپيڊيا آھي ۽ صرف اڻڌريو، مشھور مواد ھتان کان تعلق رکي ٿو.</string>
-    <string name="text_size_select">فونٽ جي ماپ</string>
+  <string name="text_size_select">فونٽ جي ماپ</string>
   <string name="page_similar_titles">ھڪجھڙا صفحا</string>
   <string name="search_did_you_mean">ڇا توهان جي مراد %s ھئي؟</string>
   <string name="search_recent_header">تازيون ڳولائون:</string>
@@ -238,7 +238,7 @@
   <string name="close_all_tabs_confirm_yes">ھا</string>
   <string name="close_all_tabs_confirm_no">نہ</string>
   <string name="button_close_tab">ٽيب بنديو</string>
-    <string name="tool_tip_share">ڪا دلچسپ ڳالھ نمايان ڪرڻ کانپوءِ، ان کي پنھنجي پسنديده نيٽورڪس تي ونڊي ڏسو!</string>
+  <string name="tool_tip_share">ڪا دلچسپ ڳالھ نمايان ڪرڻ کانپوءِ، ان کي پنھنجي پسنديده نيٽورڪس تي ونڊي ڏسو!</string>
   <string name="page_view_in_browser">صفحي کي جھانگُوءَ ۾ ڏسو</string>
   <string name="error_response_malformed">سرور جي جواب کي درست نموني منھن نہ ڏنو ويو.</string>
   <string name="error_unknown">اڻجاتل چُڪَ واقع ٿي.</string>
@@ -252,7 +252,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">آفلائين ھجڻ وقت صفحو لاھي نٿو سگھجي.</string>
   <string name="page_offline_notice_add_to_reading_list">اشارو:ڪو بہ مضمون پنھنجي پڙھڻ جي فھرست ۾ شامل ڪريو ان کي لاٿو ويندو جڏھن توھان ٻيھر آنلائين ٿيندئو.</string>
   <string name="page_offline_notice_last_date">توھان %s تي سانڍيل ھن مضمون جو ھڪ آفلائين ورزن پڙھي رھيا آھيو.</string>
-    <string name="button_get_directions">ھدايتون حاصل ڪريو</string>
+  <string name="button_get_directions">ھدايتون حاصل ڪريو</string>
   <string name="error_no_maps_app">ھدايتون مھيا ڪندڙ ڪي بہ ايپس لڀجي نہ سگھيون.</string>
   <string name="preference_title_show_link_previews">ڳنڍڻن جي پيش نگاھ ڏيکاريو</string>
   <string name="preference_summary_show_link_previews">ڳنڍڻن تي رکڻ وقت صفحن تي تڪڙي پيش نگاھ ڏيکاريو.</string>
@@ -272,7 +272,7 @@
   <string name="reference_title">حوالو %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">(گھري نظاري ۾) عڪسن کي ڊم ڪندي</string>
   <string name="preference_title_prefer_offline_content">آفلائين مواد کي ترجيح ڏيو</string>
-    <string name="crash_report_dialog_title">معاف ڪجو، پوئين ڀيري ايپ خراب ٿي وئي</string>
+  <string name="crash_report_dialog_title">معاف ڪجو، پوئين ڀيري ايپ خراب ٿي وئي</string>
   <string name="crash_report_dialog_dont_send_button">ڇڏيو</string>
   <string name="crash_report_dialog_always_send_button">ھميشہ اماڻيو</string>
   <string name="crash_report_dialog_send_button">اماڻيو</string>
@@ -296,10 +296,10 @@
   <string name="text_size_decrease">متن جي ماپ گھٽايو</string>
   <string name="text_size_percent_default">%s (ڏنل)</string>
   <string name="nav_item_reading_lists">منھنجون فھرستون</string>
-    <string name="reading_list_save_to">پڙھڻ جي فھرست ۾ سانڍيو</string>
+  <string name="reading_list_save_to">پڙھڻ جي فھرست ۾ سانڍيو</string>
   <string name="reading_list_create_new">نئين تخليق ڪريو</string>
   <string name="reading_list_title_exists">پڙھڻ جي فھرست \"%s\" اڳ ئي وجود رکي ٿي.</string>
-    <string name="reading_list_added_to_named">%s ۾ شامل ڪئي.</string>
+  <string name="reading_list_added_to_named">%s ۾ شامل ڪئي.</string>
   <string name="reading_list_already_exists">ھي مضمون اڳ ئي ان فھرست ۾ آھي.</string>
   <string name="reading_list_added_view_button">فهرست ڏسو</string>
   <string name="format_reading_list_statistical_summary_singular">1 مضمون، %1$.2f MB</string>
@@ -316,7 +316,7 @@
   <string name="reading_list_sort_by_created_desc">جنھن تاريخ (پراڻي ترين) تي تخليق ڪيو ويو سان نرتب ڪريو</string>
   <string name="reading_list_menu_delete">فھرست ڊاھيو</string>
   <string name="reading_list_menu_rename">نالا/تشريح  سنواريو</string>
-    <string name="reading_list_action_menu_remove_from_offline">آفلائين تان ھٽايو</string>
+  <string name="reading_list_action_menu_remove_from_offline">آفلائين تان ھٽايو</string>
   <string name="reading_list_action_menu_save_for_offline">آفلائين لاءِ سانڍيو</string>
   <string name="reading_list_action_menu_remove_all_from_offline">آفلائين مان سڀ ھٽايو</string>
   <string name="reading_list_action_menu_save_all_for_offline">آفلائين لاءِ سڀ سانڍيو</string>
@@ -336,7 +336,7 @@
   <string name="reading_lists_onboarding_example2">پسنديده جانور</string>
   <string name="reading_lists_onboarding_example3">پولار کوجنا</string>
   <string name="reading_lists_onboarding_got_it">سمجھي ويئو</string>
-    <string name="reading_list_empty">ھن فھرست ۾ ڪي بہ مضمون وڌل ناھن.</string>
+  <string name="reading_list_empty">ھن فھرست ۾ ڪي بہ مضمون وڌل ناھن.</string>
   <string name="reading_list_article_offline">آفلائين موجود</string>
   <string name="reading_list_article_make_offline">ھن مضمون کي آفلائين موجود ڪرايو</string>
   <string name="reading_list_add_to_other_list">ھڪ ٻي پڙھڻ جي فھرست ۾ شامو ڪريو</string>
@@ -380,8 +380,8 @@
     <item quantity="other">ھي مضمونَ ھاڻي وڌيڪ آفلائين موجود نہ ھوندا.</item>
   </plurals>
   <string name="user_option_sync_label">ترجيحون</string>
-    <string name="notification_reverted_title">ورايل ترميم</string>
-    <string name="notification_channel_description">لھڻ جي پيشرفت</string>
+  <string name="notification_reverted_title">ورايل ترميم</string>
+  <string name="notification_channel_description">لھڻ جي پيشرفت</string>
   <string name="notification_syncing_pause_button">بيھو</string>
   <string name="notification_syncing_resume_button">ٻيھر ھلو</string>
   <string name="notification_syncing_cancel_button">رد</string>
@@ -501,18 +501,18 @@
   <string name="description_edit_revert_reason1">توھان جي ڀاڱيداريءَ &lt;a href=\"%1$s\"&gt;ھدايتن&lt;/a&gt; مان ڪنھن ھڪ جي پيروي نہ ڪئي.</string>
   <string name="description_edit_revert_reason2">توھان جي ڀاڱيداري ڪو تجربو يا تخريبڪاري وانگر لڳي</string>
   <string name="description_edit_revert_history">جيڪڏھن توھان دلچسپي رکو ٿا، تہ پوءِ &lt;a href=\"%1$s\"&gt;ترميمن جي سوانح&lt;/a&gt; ڏسو.</string>
-    <string name="offline_read_permission_rationale">آفلائين برائوزنگ لاءِ توھان جي ڊوائيس جي سنڀار تائين پھچ لاءِ اجازت گھربل آھي.</string>
-    <string name="size_gb">%.2f جيبي</string>
+  <string name="offline_read_permission_rationale">آفلائين برائوزنگ لاءِ توھان جي ڊوائيس جي سنڀار تائين پھچ لاءِ اجازت گھربل آھي.</string>
+  <string name="size_gb">%.2f جيبي</string>
   <string name="size_mb">%.2f ايمبي</string>
-    <plurals name="offline_compilation_download_time_remaining">
+  <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">1 منٽ باقي</item>
     <item quantity="other">%d منٽَ باقي</item>
   </plurals>
-    <string name="onboarding_skip">ڇڏيو</string>
+  <string name="onboarding_skip">ڇڏيو</string>
   <string name="onboarding_continue">جاري رکو</string>
   <string name="onboarding_get_started">شروع ڪريو</string>
   <string name="onboarding_explore_title">کوجڻ جا نوان گس</string>
-    <string name="onboarding_analytics_title">نامعلوم ڊيٽا موڪليو</string>
+  <string name="onboarding_analytics_title">نامعلوم ڊيٽا موڪليو</string>
   <string name="onboarding_analytics_switch_title">استعمال جي ڊيٽا موڪليو</string>
   <string name="onboarding_create_account_contributions">پنھنجين ڀاڱيدارين جو پتو رکو</string>
   <string name="onboarding_create_account_preferences">پنھنجون ترجيحون سانڍيو</string>

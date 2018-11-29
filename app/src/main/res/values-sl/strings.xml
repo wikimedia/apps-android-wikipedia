@@ -30,7 +30,7 @@
   <string name="menu_page_show_tabs">Pokaži zavihke</string>
   <string name="menu_page_other_languages">Spremeni jezik</string>
   <string name="menu_page_find_in_page">Najdi na strani</string>
-    <string name="menu_page_font_and_theme">Pisava in tema</string>
+  <string name="menu_page_font_and_theme">Pisava in tema</string>
   <string name="menu_page_add_to_list">Dodaj na bralni seznam</string>
   <string name="menu_page_share">Deli povezavo</string>
   <string name="menu_long_press_open_page">Odpri</string>
@@ -47,7 +47,7 @@
   <string name="edit_history_link_text" fuzzy="true">Zgodovina urejanja</string>
   <string name="language_count_link_text">Na voljo v %d jezikih</string>
   <string name="preference_title_language" fuzzy="true">Jezik Wikipedije</string>
-    <string name="langlinks_filter_hint">Iskanje</string>
+  <string name="langlinks_filter_hint">Iskanje</string>
   <string name="langlinks_empty">Ta stran ni na voljo v drugih jezikih.</string>
   <string name="langlinks_no_match" fuzzy="true">Noben jezik ni bil najden.</string>
   <string name="langlinks_activity_title">Drugi jeziki</string>
@@ -90,7 +90,7 @@
   <string name="create_account_button">Ustvarite račun</string>
   <string name="preferences_general_heading">Splošno</string>
   <string name="wikipedia_app_faq">Pogosta vprašanja o Aplikaciji Wikipedija</string>
-    <string name="create_account_account_created_toast">Račun ustvarjen!</string>
+  <string name="create_account_account_created_toast">Račun ustvarjen!</string>
   <string name="preferences_privacy_settings_heading">Zasebnost</string>
   <string name="history_search_list_hint">Zgodovina iskanja</string>
   <string name="page_protected_can_not_edit_title">Stran je zaščitena</string>
@@ -147,7 +147,7 @@
   <string name="color_theme_black">Črno</string>
   <string name="reading_list_create_new">Ustvari novo</string>
   <string name="reading_list_menu_rename" fuzzy="true">Preimenuj</string>
-    <string name="reading_list_name_sample">Moj bralni seznam</string>
+  <string name="reading_list_name_sample">Moj bralni seznam</string>
   <string name="reading_list_name_hint">Ime seznama</string>
   <string name="reading_list_description_hint">Opis (neobvezno)</string>
   <string name="reading_list_item_deleted">Članek %s je bil izbrisan iz seznama</string>
@@ -161,7 +161,7 @@
   <string name="reading_lists_onboarding_example2">Najljubše živali</string>
   <string name="reading_lists_onboarding_example3">Raziskovanje vesolja</string>
   <string name="reading_lists_onboarding_got_it">Razumem</string>
-    <string name="reading_list_article_offline">Na voljo brez povezave</string>
+  <string name="reading_list_article_offline">Na voljo brez povezave</string>
   <string name="reading_list_add_to_other_list">Dodaj na drug bralni seznam</string>
   <string name="reading_list_remove_from_list">Odstrani s seznama %s</string>
   <string name="reading_list_remove_from_lists">Odstrani z bralnih seznamov</string>
@@ -174,7 +174,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ne, hvala</string>
   <string name="default_reading_list_name">Shranjeno</string>
   <string name="user_option_sync_label">Nastavitve</string>
-    <string name="notification_syncing_cancel_button">Prekliči</string>
+  <string name="notification_syncing_cancel_button">Prekliči</string>
   <string name="view_continue_reading_card_title">Nadaljuj z branjem</string>
   <string name="view_because_you_read_card_title">Ker ste prebrali</string>
   <string name="view_random_card_action">Vrzi kocko</string>
@@ -193,7 +193,7 @@
   <string name="description_edit_help_tips_examples">Na primer:</string>
   <string name="description_edit_help_tips_example2">najvišja gora na Zemlji</string>
   <string name="description_edit_help_more_info">Več informacij</string>
-    <string name="onboarding_skip">Preskoči</string>
+  <string name="onboarding_skip">Preskoči</string>
   <string name="onboarding_continue">Nadaljuj</string>
   <string name="onboarding_get_started">Prični</string>
   <string name="onboarding_analytics_title">Pošiljaj anonimne podatke</string>

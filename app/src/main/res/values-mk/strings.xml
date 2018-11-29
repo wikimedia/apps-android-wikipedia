@@ -33,7 +33,7 @@
   <string name="menu_page_show_tabs">Прикажи јазичиња</string>
   <string name="menu_page_other_languages">Смени јазик</string>
   <string name="menu_page_find_in_page">Најди на страницата</string>
-    <string name="menu_page_font_and_theme">Смени фонт и изглед</string>
+  <string name="menu_page_font_and_theme">Смени фонт и изглед</string>
   <string name="menu_page_add_to_list">Додај во список за читање</string>
   <string name="menu_page_share">Сподели врска</string>
   <string name="menu_page_open_a_new_tab">Отвори ново јазиче</string>
@@ -59,7 +59,7 @@
   <string name="edit_save_action_license_logged_in">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_anon">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt;, и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Уредувањата ќе ѝ бидат припишани на IP-адресата на вашиот уред. Ако се &lt;a href=\"https://#login\"&gt;најавите&lt;/a&gt; ќе имате поголема приватност.</string>
   <string name="preference_title_language">Јазици на Википедија</string>
-    <string name="langlinks_filter_hint">Пребарај</string>
+  <string name="langlinks_filter_hint">Пребарај</string>
   <string name="langlinks_empty">Страницава не е достапна на други јазици</string>
   <string name="langlinks_no_match">Не пронајдов ниеден јазик</string>
   <string name="langlinks_activity_title">Други јазици</string>
@@ -131,13 +131,13 @@
   <string name="create_account_ip_block_details">Подробно</string>
   <string name="preferences_general_heading">Општи</string>
   <string name="wikipedia_app_faq">ЧПП за прилогот „Википедија“</string>
-    <string name="edit_preview_fetching_dialog_message">Испишувам преглед…</string>
+  <string name="edit_preview_fetching_dialog_message">Испишувам преглед…</string>
   <string name="send_feedback">Испрати мислење за прилогот</string>
   <string name="create_account_account_created_toast">Сметката е создадена!</string>
-    <string name="preferences_heading_syncing">Усогласување</string>
+  <string name="preferences_heading_syncing">Усогласување</string>
   <string name="preferences_heading_data_usage">Употреба на податоците</string>
   <string name="preferences_heading_experimental">Пробни</string>
-    <string name="preference_title_sync_reading_lists_from_account">Усогласување на списоци за читање</string>
+  <string name="preference_title_sync_reading_lists_from_account">Усогласување на списоци за читање</string>
   <string name="preference_title_download_reading_list_articles">Преземи списоци на статии за читање</string>
   <string name="preference_summary_sync_reading_lists">Усогласувајте списоци за читање низ разни уреди зачувувајќи ги во вашата сметка на Википедија</string>
   <string name="preference_summary_sync_reading_lists_from_account">Усогласувајте списоци за читање низ разни уреди зачувувајќи ги во вашата сметка „%s“ на Википедија</string>
@@ -203,7 +203,7 @@
   <string name="abusefilter_title_disallow">Не можете да го објавите уредувањево. Вратете се и изменето го.</string>
   <string name="abusefilter_text_warn">Автоматскиот филтер утврди дека уредувањево е потенцијално неконструктивно. Може да содржи едно од следниве:&lt;br /&gt;&lt;br /&gt;· Текст напишан со големи букви&lt;br /&gt;· Празнење на статии или спамирање&lt;br /&gt;· Нерелевантни надворешни врски или слики&lt;br /&gt;· Повторување на знаци</string>
   <string name="abusefilter_text_disallow">Автоматскиот филтер утврди дека уредувањево е потенцијално неконструктивно или потенцијално вандалистичко. &lt;br /&gt;&lt;br /&gt;Википедија е енциклопедија —  тука припаѓа само неутрална и значајна содржина.</string>
-    <string name="text_size_select">Големина на фонтот</string>
+  <string name="text_size_select">Големина на фонтот</string>
   <string name="page_similar_titles">Слични страници</string>
   <string name="search_did_you_mean">Дали мислевте на „%s“?</string>
   <string name="search_recent_header">Скорешни пребарувања:</string>
@@ -256,7 +256,7 @@
   <string name="close_all_tabs_confirm_no">Не</string>
   <string name="button_close_tab">Затвори јазиче</string>
   <string name="tab_item_closed">%s е затворено.</string>
-    <string name="tool_tip_bookmark_icon_title">Додај во список за читање</string>
+  <string name="tool_tip_bookmark_icon_title">Додај во список за читање</string>
   <string name="tool_tip_bookmark_icon_text">Стиснете на бележникот за да ја зачувате статијата во список за читање.</string>
   <string name="tool_tip_share">Откако ќе го подвлечете интересниот факт, споделете го на вашите омилени мрежи!</string>
   <string name="page_view_in_browser">Погледај во прелистувач</string>
@@ -275,7 +275,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Статијата не може да се вчита додека не сте на линија.</string>
   <string name="page_offline_notice_add_to_reading_list">Совет: Додајте ја статијата во список за читање, па истата ќе биде преземена кога ќе добиете линија.</string>
   <string name="page_offline_notice_last_date">Читате вонмрежна верзија на статијава, зачувана на %s.</string>
-    <string name="button_get_directions">Дај насоки</string>
+  <string name="button_get_directions">Дај насоки</string>
   <string name="error_no_maps_app">Не можев да најдам прилози што даваат насоки.</string>
   <string name="preference_title_show_link_previews">Прегледи на врски</string>
   <string name="preference_summary_show_link_previews">Дава брз преглед на статијата кога ќе се допре на нејзината врска</string>
@@ -297,7 +297,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Пригушување на слики (во Темен изглед)</string>
   <string name="preference_title_prefer_offline_content">Претпочитај вонмрежни</string>
   <string name="preference_summary_prefer_offline_content">Заштедете вчитувајќи статии достапни вонмрежно место секогаш да се вчитува најновата верзија на статијата</string>
-    <string name="crash_report_dialog_title">За жал, прилогот се урна минатиот пат</string>
+  <string name="crash_report_dialog_title">За жал, прилогот се урна минатиот пат</string>
   <string name="crash_report_dialog_text">Дали би сакале да се испрати извештај за уривање на HockeyApp / надворешен услужник за Викимедија да може полесно и побрзо да го разгледа и поправи уривањето .</string>
   <string name="crash_report_dialog_dont_send_button">Прескокни</string>
   <string name="crash_report_dialog_always_send_button">Секогаш испраќај</string>
@@ -323,10 +323,10 @@
   <string name="text_size_decrease">Намали текст</string>
   <string name="text_size_percent_default">%s (по основно)</string>
   <string name="nav_item_reading_lists">Мои списоци</string>
-    <string name="reading_list_save_to">Зачувај во списокот за читање</string>
+  <string name="reading_list_save_to">Зачувај во списокот за читање</string>
   <string name="reading_list_create_new">Создај нов</string>
   <string name="reading_list_title_exists">Списокот за читање „%s“ веќе постои.</string>
-    <string name="reading_list_added_to_named">Додадено во %s.</string>
+  <string name="reading_list_added_to_named">Додадено во %s.</string>
   <string name="reading_list_already_exists">Статијава веќе стои на тој список.</string>
   <string name="reading_list_added_view_button">Погл. списокот</string>
   <string name="format_reading_list_statistical_summary_singular">1 статија, %1$.2f МБ</string>
@@ -343,7 +343,7 @@
   <string name="reading_list_sort_by_created_desc">Подреди по дамнешност на создавање</string>
   <string name="reading_list_menu_delete">Избриши список</string>
   <string name="reading_list_menu_rename">Измени име/опис</string>
-    <string name="reading_list_action_menu_remove_from_offline">Отстрани од вонмрежни</string>
+  <string name="reading_list_action_menu_remove_from_offline">Отстрани од вонмрежни</string>
   <string name="reading_list_action_menu_save_for_offline">Зачувај за вонмрежно</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Отстрани ги сите од вонмрежни</string>
   <string name="reading_list_action_menu_save_all_for_offline">Зачувај ги сите за вонмрежно</string>
@@ -363,7 +363,7 @@
   <string name="reading_lists_onboarding_example2">Омилени животни</string>
   <string name="reading_lists_onboarding_example3">Истражување на вселената</string>
   <string name="reading_lists_onboarding_got_it">Јасно</string>
-    <string name="reading_list_empty">Немате ставено статии во списоков.</string>
+  <string name="reading_list_empty">Немате ставено статии во списоков.</string>
   <string name="reading_list_article_offline">Достапно вонмрежно</string>
   <string name="reading_list_article_make_offline">Направи ја статијава достапна вонмрежно</string>
   <string name="reading_list_add_to_other_list">Стави во список за читање</string>
@@ -378,7 +378,7 @@
   <string name="reading_lists_sync_reminder_action">Овозможи усогласување</string>
   <string name="reading_list_login_reminder_title">Усогласи списоци за читање</string>
   <string name="reading_lists_login_reminder_text">Сега списоците за читање можат да се усогласат низ разни уреди. Најавете се на сметката на Википедија и дозволете да ви се зачуваат списоците.</string>
-    <string name="reading_lists_confirm_remote_delete_yes">Да</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Да</string>
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
   <string name="reading_list_article_save_in_progress">Преземањето на статијата е во тек. Ќе биде достапна вонмрежно кога ќе заврши.</string>
   <string name="reading_list_already_contains_selection">Избраниот список веќе ги содржи сите одбрани страници.</string>
@@ -429,15 +429,11 @@
   <string name="reading_list_toast_last_sync">Списоците за читање се успешно усогласени</string>
   <string name="reading_list_menu_last_sync">Последно усогласување: %s</string>
   <string name="user_option_sync_label">Поставки</string>
-    <string name="notification_reverted_title">Отповикано уредување</string>
-    <string name="notification_channel_description">Напредок на подигањето</string>
+  <string name="notification_reverted_title">Отповикано уредување</string>
+  <string name="notification_channel_description">Напредок на подигањето</string>
   <string name="notification_syncing_pause_button">Паузирај</string>
   <string name="notification_syncing_resume_button">Продолжи</string>
   <string name="notification_syncing_cancel_button">Откажи</string>
-  <plurals name="notification_syncing_reading_list_channel_name">
-    <item quantity="one">Усогласување на списокот за читање</item>
-    <item quantity="other">Усогласување на списоците за читање</item>
-  </plurals>
   <string name="notification_syncing_reading_list_channel_description">Напредок на усогласувањето на списоци за читање</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Преземање на статијата</item>
@@ -450,6 +446,10 @@
   <plurals name="notification_syncing_description">
     <item quantity="one">Преостанува %1$d статија</item>
     <item quantity="other">Преостануваат %1$d статии</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Усогласување на списокот за читање</item>
+    <item quantity="other">Усогласување на списоците за читање</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_title">
     <item quantity="one">Усогласувам %1$d список…</item>
@@ -525,7 +525,7 @@
   <string name="feed_configure_language_warning">Имајте на ум дека не сите видови картички се достапни за сите википедии. Изменете ги избраните јазици во нагодувањата.</string>
   <string name="feed_item_type_news">Статии за тековни настани</string>
   <string name="feed_item_type_on_this_day">Настани од историјата на овој ден</string>
-    <string name="feed_item_type_because_you_read">Предлози според неодамна прочитана статија од вашата историја</string>
+  <string name="feed_item_type_because_you_read">Предлози според неодамна прочитана статија од вашата историја</string>
   <string name="feed_item_type_featured_article">Статија на денот на Википедија</string>
   <string name="feed_item_type_trending">Најпосетени статии за денес</string>
   <string name="feed_item_type_featured_image">Слика на денот од Ризницата</string>
@@ -573,21 +573,21 @@
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">вашиот придонес делуваше како опитен или вандалски.</string>
   <string name="description_edit_revert_history">Ако сте заинтересирани, погледајте ја &lt;a href=\"%1$s\"&gt;историјата на уредување&lt;/a&gt;.</string>
-    <string name="offline_read_permission_rationale">Се бара дозвола за зачувување на вашиот уред за да можете да прелистувате вонмрежно.</string>
+  <string name="offline_read_permission_rationale">Се бара дозвола за зачувување на вашиот уред за да можете да прелистувате вонмрежно.</string>
   <string name="offline_read_final_rationale">Се бара дозвола за зачувување на вашиот уред за да можете да ја користите Вонмрежната библиотека.</string>
-    <string name="size_gb">%.2f ГБ</string>
+  <string name="size_gb">%.2f ГБ</string>
   <string name="size_mb">%.2f МБ</string>
-    <plurals name="offline_compilation_download_time_remaining">
+  <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">Преостанува една минута</item>
     <item quantity="other">Преостануваат %d минути</item>
   </plurals>
-    <string name="onboarding_skip">Прескокни</string>
+  <string name="onboarding_skip">Прескокни</string>
   <string name="onboarding_continue">Продолжи</string>
   <string name="onboarding_get_started">Започнете</string>
   <string name="onboarding_explore_title">Нови начини на истражување</string>
   <string name="onboarding_explore_text">Нурнете се длабоко во Википедија со постојано подновениот тековник „Истражи“.&lt;br/&gt; &lt;b&gt;Прилагодете&lt;/b&gt; го тековниот според вашите интереси — дознајте за историските настани кои се случиле &lt;b&gt;На денешен ден&lt;/b&gt; или пробајте си ја среќата со &lt;b&gt;Случајна&lt;/b&gt;.</string>
-    <string name="onboarding_reading_list_sync_title">Списоци за читање со усогласување</string>
-    <string name="onboarding_reading_list_sync_text_v2">Можете да правите списоци за читање од статиите што сакате да ги читате подоцна, дури и кога немате линија. &lt;br/&gt;Најавете се на Википедија за да ги усогласите списоците. &lt;a href=\"#login\"&gt;Приклучете се на Википедија&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title">Списоци за читање со усогласување</string>
+  <string name="onboarding_reading_list_sync_text_v2">Можете да правите списоци за читање од статиите што сакате да ги читате подоцна, дури и кога немате линија. &lt;br/&gt;Најавете се на Википедија за да ги усогласите списоците. &lt;a href=\"#login\"&gt;Приклучете се на Википедија&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Испраќај анонимни податоци</string>
   <string name="onboarding_analytics_offline_text">Помогнете ни да го подобриме прилогот со тоа што ќе добиваме информации како го користите. Насобраните податоци ќе бидат анонимни. &lt;a href=\"#privacy\"&gt;Дознајте повеќе&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Испраќај податоци за употреба</string>

@@ -73,7 +73,7 @@
   <string name="edit_save_action_license_logged_in">பதிப்பிடுவதன் மூலம், நீங்கள் &lt;a href=\"%1$s\"&gt;பயன்பாட்டு விதிமுறைகளை&lt;/a&gt; ஒப்புகொள்கிறீர்கள். மேலும் உங்கள் பங்களிப்புகளை &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; உரிமத்தின் கீழ் திரும்ப பெர இயலாதபடி வெளியிட ஒப்புகொள்கிறீர்கள்.</string>
   <string name="edit_save_action_license_anon">பதிப்பிடுவதன் மூலம், நீங்கள் &lt;a href=\"%1$s\"&gt;பயன்பாட்டு விதிமுறைகளை&lt;/a&gt; ஒப்புகொள்கிறீர்கள். மேலும் உங்கள் பங்களிப்புகளை &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; உரிமத்தின் கீழ் திரும்ப பெர இயலாதபடி வெளியிட ஒப்புகொள்கிறீர்கள். தொகுப்புகள் தங்களது கருவியின் IP முகவரிக்கு உடைமையாக்கபடும். நீங்கள் &lt;a href=\"https://#login\"&gt;புகுபதிகை செய்தால்&lt;/a&gt;, உங்களுக்கு மேலும் தனியுரிமை இருக்கும்.</string>
   <string name="preference_title_language">விக்கப்பீடியா மொழி</string>
-    <string name="langlinks_filter_hint">தேடுக</string>
+  <string name="langlinks_filter_hint">தேடுக</string>
   <string name="langlinks_empty">பிற மொழிகளில் இந்த கட்டுரை இல்லை</string>
   <string name="langlinks_no_match">எந்த மொழிகளும் காணப்படவில்லை</string>
   <string name="langlinks_activity_title">மற்ற மொழிகளில்</string>
@@ -130,12 +130,12 @@
   <string name="create_account_button">கணக்கை உருவாக்குக</string>
   <string name="preferences_general_heading">பொதுவான</string>
   <string name="wikipedia_app_faq">விக்கிப்பீடியா செயலி அடிக்கடிக் கேட்கப்படும் கேள்விகள்</string>
-    <string name="edit_preview_fetching_dialog_message">முன்தோற்றத்தை இறக்குகிறது…</string>
+  <string name="edit_preview_fetching_dialog_message">முன்தோற்றத்தை இறக்குகிறது…</string>
   <string name="send_feedback">நிரல் பின்னூட்டம் அனுப்பு</string>
   <string name="create_account_account_created_toast">கணக்கு உருவாக்கப்பட்டது.</string>
   <string name="preferences_heading_syncing">ஒருங்குநிகழ்வு</string>
   <string name="preferences_heading_data_usage">தரவு பயன்பாடு</string>
-    <string name="preference_title_sync_reading_lists_from_account">படிப்பு பட்டியல் ஒருங்குநிகழ்வு</string>
+  <string name="preference_title_sync_reading_lists_from_account">படிப்பு பட்டியல் ஒருங்குநிகழ்வு</string>
   <string name="preference_summary_sync_reading_lists">உங்கள் விக்கிப்பீடியா கணக்கிற்கு படிப்பு பட்டியல்களை சேமித்து சாதனங்களுக்கு இடையே ஒருங்குநிகழ் செய்க</string>
   <string name="preference_summary_sync_reading_lists_from_account">உங்கள் விக்கிப்பீடியா கணக்கு \"%s\" க்கு படிப்பு பட்டியல்களை சேமித்து சாதனங்களுக்கு இடையே ஒருங்குநிகழ் செய்க</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">ஒருங்குநிகழ் செய்யப்பட்ட படிப்பு பட்டியல்களை \"%s\" இலிருந்து நீக்கவும்</string>
@@ -186,7 +186,7 @@
   <string name="find_last_occurence">இது கடைசி நிகழ்வு</string>
   <string name="abusefilter_title_warn">இது ஆக்கபூர்வமற்ற தொகுப்பாக இருக்கலாம், நீங்கள் நிச்சயம் பதிப்பிட வேண்டுமா ?</string>
   <string name="abusefilter_title_disallow">\nநீங்கள் இந்த தொகுப்பை பதிப்பிட முடியாது. தயவுசெய்து பின் சென்று அதை மாற்றவும்</string>
-    <string name="text_size_select">எழுத்துரு அளவு</string>
+  <string name="text_size_select">எழுத்துரு அளவு</string>
   <string name="page_similar_titles">ஒத்த பக்கங்கள்</string>
   <string name="search_did_you_mean">தாங்கள் குறிப்பது \"%s\"?</string>
   <string name="search_recent_header">அண்மைய தேடல்கள்</string>
@@ -278,10 +278,10 @@
   <string name="text_size_decrease">உரை அளவை குறைக்கவும்</string>
   <string name="text_size_percent_default">%s (இயல்பிருப்பு)</string>
   <string name="nav_item_reading_lists">என் பட்டியல்</string>
-    <string name="reading_list_save_to">படிக்கும் பட்டியலில் சேர்க</string>
+  <string name="reading_list_save_to">படிக்கும் பட்டியலில் சேர்க</string>
   <string name="reading_list_create_new">புதிதாக உருவாக்கவும்</string>
   <string name="reading_list_title_exists">%s படிக்கும் பட்டியலில் ஏற்கனவே உள்ளது.</string>
-    <string name="reading_list_added_to_named">%sக்கு சேர்க்கப்பட்டது.</string>
+  <string name="reading_list_added_to_named">%sக்கு சேர்க்கப்பட்டது.</string>
   <string name="reading_list_already_exists">அந்தப் பட்டியலில் ஏற்கனவே இந்த கட்டுரை உள்ளது.</string>
   <string name="reading_list_added_view_button">பட்டியலை பார்வையிடுக</string>
   <string name="reading_list_sort">வரிசைபடுத்துக</string>
@@ -291,7 +291,7 @@
   <string name="reading_list_sort_by_recent_desc">சேர்க்கப்பட்ட தேதியின்படி வரிசைப்படுத்துக (பழையது)</string>
   <string name="reading_list_menu_delete">பட்டியலை நீக்குக</string>
   <string name="reading_list_menu_rename">பெயர்/விளக்கத்தை தொகு</string>
-    <string name="reading_list_action_menu_remove_from_offline">அணைநிலையிருந்து நீக்குக</string>
+  <string name="reading_list_action_menu_remove_from_offline">அணைநிலையிருந்து நீக்குக</string>
   <string name="reading_list_action_menu_save_for_offline">அணைநிலைக்கு சேர்க</string>
   <string name="reading_list_action_menu_remove_all_from_offline">எல்லா அணைநிலையிலிருந்தும் நீக்குக</string>
   <string name="reading_list_action_menu_save_all_for_offline">அனைத்து அணை நிலைக்கும் சேமிக்கவும்</string>
@@ -311,7 +311,7 @@
   <string name="reading_lists_onboarding_example2">அபிமான விலங்குகள்</string>
   <string name="reading_lists_onboarding_example3">விண்வெளி புத்தாய்வு</string>
   <string name="reading_lists_onboarding_got_it">புரிந்துகொண்டேன்</string>
-    <string name="reading_list_article_offline">அணைநிலையில் கிடைக்கும்</string>
+  <string name="reading_list_article_offline">அணைநிலையில் கிடைக்கும்</string>
   <string name="reading_list_add_to_other_list">மற்றொரு படிக்கும் பட்டியலில் சேர்க</string>
   <string name="reading_list_remove_from_list">%sயில் இருந்து நீக்கவும்</string>
   <string name="reading_list_remove_from_lists">படிப்பு பட்டியல்களில் இருந்து நீக்குக</string>
@@ -327,8 +327,8 @@
   <string name="default_reading_list_description">உங்கள் சேமிப்பு கட்டுரைகளுக்கான இயல்பு பட்டியல்</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;படிப்பு பட்டியல்களை ஒருங்குநிகழ் செய்க&lt;strong&gt;&lt;br /&gt;&lt;br /&gt;இப்பொழுது படிப்பு பட்டியல்களை சாதனங்களுக்கு இடையே ஒருங்குநிகழ் செய்யலாம். உங்கள் வீக்கிபீடியா கணக்கிற்குள் புகுபதிகை செய்ததும் உங்கள் பட்டியல்களை சேமிக்க அனுமதியுங்கள்.</string>
   <string name="user_option_sync_label">முன்னுரிமைகள்</string>
-    <string name="notification_reverted_title">மீளமைக்கப்பட்ட தொகுப்புகள்</string>
-    <string name="notification_channel_description">தரவிறக்கம் நடைபெறுகிறது</string>
+  <string name="notification_reverted_title">மீளமைக்கப்பட்ட தொகுப்புகள்</string>
+  <string name="notification_channel_description">தரவிறக்கம் நடைபெறுகிறது</string>
   <string name="notification_syncing_pause_button">இடைநிறுத்துக</string>
   <string name="notification_syncing_resume_button">தொடர்க</string>
   <string name="notification_syncing_cancel_button">ரத்து செய்க</string>

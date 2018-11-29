@@ -46,7 +46,7 @@
   <string name="menu_page_show_tabs">Fülek megjelenítése</string>
   <string name="menu_page_other_languages">Nyelvváltás</string>
   <string name="menu_page_find_in_page">Keresés a lapon</string>
-    <string name="menu_page_font_and_theme">Betűtípus és téma</string>
+  <string name="menu_page_font_and_theme">Betűtípus és téma</string>
   <string name="menu_page_add_to_list">Hozzáadás az olvasólistához</string>
   <string name="menu_page_share">Link megosztása</string>
   <string name="menu_page_open_a_new_tab">Új lap megnyitása</string>
@@ -72,7 +72,7 @@
   <string name="edit_save_action_license_logged_in">A közzététellel elfogadod a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt;, és visszavonhatatlan engedélyt adsz annak felhasználására a &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt.</string>
   <string name="edit_save_action_license_anon">A közzététellel elfogadod a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt;, és a közreműködéseidet visszavonhatatlanul közzéteszed a &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt. A szerkesztések az eszközöd IP-címéhez lesznek rendelve. Ha &lt;a href=\"https://#login\"&gt;bejelentkezel&lt;/a&gt;, nagyobb adatvédelmet szerzel.</string>
   <string name="preference_title_language">Wikipédia-nyelvek</string>
-    <string name="langlinks_filter_hint">Keresés</string>
+  <string name="langlinks_filter_hint">Keresés</string>
   <string name="langlinks_empty">Ez a lap nem érhető el más nyelveken</string>
   <string name="langlinks_no_match">Nem található ilyen nyelv.</string>
   <string name="langlinks_activity_title">További nyelvek</string>
@@ -144,13 +144,13 @@
   <string name="create_account_ip_block_details">Részletek</string>
   <string name="preferences_general_heading">Általános</string>
   <string name="wikipedia_app_faq">Wikipédia alkalmazás GYIK</string>
-    <string name="edit_preview_fetching_dialog_message">Előnézet készítése…</string>
+  <string name="edit_preview_fetching_dialog_message">Előnézet készítése…</string>
   <string name="send_feedback">Visszajelzés küldése az alkalmazásról</string>
   <string name="create_account_account_created_toast">Fiók létrehozva!</string>
-    <string name="preferences_heading_syncing">Szinkronizálás</string>
+  <string name="preferences_heading_syncing">Szinkronizálás</string>
   <string name="preferences_heading_data_usage">Adathasználat</string>
   <string name="preferences_heading_experimental">Kísérleti</string>
-    <string name="preference_title_sync_reading_lists_from_account">Olvasólisták szinkronizálása</string>
+  <string name="preference_title_sync_reading_lists_from_account">Olvasólisták szinkronizálása</string>
   <string name="preference_title_download_reading_list_articles">Olvasólista szócikkeinek letöltése</string>
   <string name="preference_summary_sync_reading_lists">Olvasólistáid szinkronizálása különböző eszközeid között, a Wikipédia-fiókodba mentve őket</string>
   <string name="preference_summary_sync_reading_lists_from_account">Olvasólistáid szinkronizálása különböző eszközeid között, a(z) „%s” Wikipédia-fiókodba mentve őket</string>
@@ -214,7 +214,7 @@
   <string name="abusefilter_title_disallow">Nem teheted közzé ezt a szerkesztést. Lépj vissza és változtass rajta.</string>
   <string name="abusefilter_text_warn">Egy automatikus szűrő potenciálisan nem konstruktívnak találta a szerkesztésedet. Az alábbiak közül egyet vagy többet tartalmazhat:&lt;br /&gt;&lt;br /&gt;· Csupa nagybetűs szöveg&lt;br /&gt;· A szócikk teljes tartalmának eltávolítása vagy spam&lt;br /&gt;· Irreleváns külső linkek vagy képek&lt;br /&gt;· Karakterismétlés</string>
   <string name="abusefilter_text_disallow">Egy automatikus szűrő potenciálisan nem konstruktívnak vagy vandálnak találta a szerkesztésedet.&lt;br /&gt;&lt;br /&gt;A Wikipédia egy enciklopédia és csak semleges, nevezetes tartalom való ide.</string>
-    <string name="text_size_select">Betűméret</string>
+  <string name="text_size_select">Betűméret</string>
   <string name="page_similar_titles">Hasonló lapok</string>
   <string name="search_did_you_mean">Így értetted: „%s”?</string>
   <string name="search_recent_header">Legutóbbi keresések:</string>
@@ -266,7 +266,7 @@
   <string name="close_all_tabs_confirm_no">Nem</string>
   <string name="button_close_tab">Fül bezárása</string>
   <string name="tab_item_closed">%s bezárva.</string>
-    <string name="tool_tip_bookmark_icon_title">Hozzáadás az olvasólistához</string>
+  <string name="tool_tip_bookmark_icon_title">Hozzáadás az olvasólistához</string>
   <string name="tool_tip_bookmark_icon_text">Bökj a könyvjelző ikonra, hogy a cikket egy olvasólistádra mentsd.</string>
   <string name="tool_tip_share">Egy érdekes adat kijelölése után próbáld meg megosztani a kedvenc hálózataidban!</string>
   <string name="page_view_in_browser">Lap megtekintése böngészőben</string>
@@ -284,7 +284,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">A szócikk nem tölthető be kapcsolat nélkül.</string>
   <string name="page_offline_notice_add_to_reading_list">Tipp: Add hozzá a szócikket egy olvasólistához, hogy letöltődjön, amikor kapcsolódsz az internethez.</string>
   <string name="page_offline_notice_last_date">A szócikk offline verzióját olvasod. mentve: %s</string>
-    <string name="button_get_directions">Útvonalterv</string>
+  <string name="button_get_directions">Útvonalterv</string>
   <string name="error_no_maps_app">Nem található útvonaltervező alkalmazás.</string>
   <string name="preference_title_show_link_previews">Linkek előnézetének megjelenítése</string>
   <string name="preference_summary_show_link_previews">A szócikk rövid előnézetének megjelenítése linkek megérintésekor.</string>
@@ -306,7 +306,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Képsötétítés (Sötét téma esetén)</string>
   <string name="preference_title_prefer_offline_content">Kapcsolat nélkül elérhető tartalom előnyben részesítése</string>
   <string name="preference_summary_prefer_offline_content">Adathasználat csökkentése a kapcsolat nélkül is elérhető tartalmak betöltésével, a cikk legfrissebb verziója helyett.</string>
-    <string name="crash_report_dialog_title">Sajnáljuk, az alkalmazás összeomlott legutóbb</string>
+  <string name="crash_report_dialog_title">Sajnáljuk, az alkalmazás összeomlott legutóbb</string>
   <string name="crash_report_dialog_text">Szeretnél küldeni egy összeomlási jelentést a HockeyAppnek / egy harmadik fél szolgáltatónak, hogy a Wikimédia átnézhesse az összeomlást és kijavíthassa az ezt okozó hibát?</string>
   <string name="crash_report_dialog_dont_send_button">Kihagyás</string>
   <string name="crash_report_dialog_always_send_button">Küldés mindig</string>
@@ -332,10 +332,10 @@
   <string name="text_size_decrease">Betűméret csökkentése</string>
   <string name="text_size_percent_default">%s (alapértelmezett)</string>
   <string name="nav_item_reading_lists">Listáim</string>
-    <string name="reading_list_save_to">Mentés olvasólistára</string>
+  <string name="reading_list_save_to">Mentés olvasólistára</string>
   <string name="reading_list_create_new">Új létrehozása</string>
   <string name="reading_list_title_exists">A(z) „%s” olvasólista már létezik.</string>
-    <string name="reading_list_added_to_named">Hozzáadva a(z) %s olvasólistához.</string>
+  <string name="reading_list_added_to_named">Hozzáadva a(z) %s olvasólistához.</string>
   <string name="reading_list_already_exists">Ez a szócikk már szerepel ebben a listában.</string>
   <string name="reading_list_added_view_button">Lista megtekintése</string>
   <string name="format_reading_list_statistical_summary_singular">1 cikk, %1$.2f megabyte</string>
@@ -352,7 +352,7 @@
   <string name="reading_list_sort_by_created_desc">Rendezés a létrehozás dátuma szerint (legrégebbi)</string>
   <string name="reading_list_menu_delete">Lista törlése</string>
   <string name="reading_list_menu_rename">Név és leírás szerkesztése</string>
-    <string name="reading_list_action_menu_remove_from_offline">Eltávolítás a kapcsolat nélküliből</string>
+  <string name="reading_list_action_menu_remove_from_offline">Eltávolítás a kapcsolat nélküliből</string>
   <string name="reading_list_action_menu_save_for_offline">Mentés offline olvasáshoz</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Az összes eltávolítása a kapcsolat nélküliből</string>
   <string name="reading_list_action_menu_save_all_for_offline">Az összes mentése kapcsolat nélküli olvasáshoz</string>
@@ -372,7 +372,7 @@
   <string name="reading_lists_onboarding_example2">Kedvenc állatok</string>
   <string name="reading_lists_onboarding_example3">Űrkutatás</string>
   <string name="reading_lists_onboarding_got_it">Értem</string>
-    <string name="reading_list_empty">Nem adtál szócikket ehhez a listához.</string>
+  <string name="reading_list_empty">Nem adtál szócikket ehhez a listához.</string>
   <string name="reading_list_article_offline">Elérhető kapcsolat nélkül</string>
   <string name="reading_list_article_make_offline">A szócikk elérhetővé tétele kapcsolat nélkül</string>
   <string name="reading_list_add_to_other_list">Hozzáadás egy másik olvasólistához</string>
@@ -387,7 +387,7 @@
   <string name="reading_lists_sync_reminder_action">Szinkronizálás engedélyezése</string>
   <string name="reading_list_login_reminder_title">Olvasólisták szinkronizálása</string>
   <string name="reading_lists_login_reminder_text">Az olvasólisták mostantól szinkronizálhatók a különböző eszközeid között. Jelentkezz be a Wikipédia-fiókodba és engedélyezd a listáid mentését.</string>
-    <string name="reading_lists_confirm_remote_delete_yes">Igen</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Igen</string>
   <string name="reading_lists_confirm_remote_delete_no">Nem</string>
   <string name="reading_list_article_save_in_progress">A cikk letöltése folyamatban, a letöltés befejeztével offline is elérhető lesz.</string>
   <string name="reading_list_already_contains_selection">A megadott lista már tartalmazza a kiválasztott oldalak mindegyikét.</string>
@@ -438,15 +438,11 @@
   <string name="reading_list_toast_last_sync">Az olvasólisták sikeresen szinkronizálva</string>
   <string name="reading_list_menu_last_sync">Utolsó szinkronizálás: %s</string>
   <string name="user_option_sync_label">Beállítások</string>
-    <string name="notification_reverted_title">Szerkesztés visszavonva</string>
-    <string name="notification_channel_description">Letöltés állapota</string>
+  <string name="notification_reverted_title">Szerkesztés visszavonva</string>
+  <string name="notification_channel_description">Letöltés állapota</string>
   <string name="notification_syncing_pause_button">Szünet</string>
   <string name="notification_syncing_resume_button">Folytatás</string>
   <string name="notification_syncing_cancel_button">Mégsem</string>
-  <plurals name="notification_syncing_reading_list_channel_name">
-    <item quantity="one">Olvasólista frissítése</item>
-    <item quantity="other">Olvasólisták frissítése</item>
-  </plurals>
   <string name="notification_syncing_reading_list_channel_description">Olvasólisták frissítése folyamatban</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Szócikk letöltése</item>
@@ -459,6 +455,10 @@
   <plurals name="notification_syncing_description">
     <item quantity="one">%1$d szócikk maradt</item>
     <item quantity="other">%1$d szócikk maradt</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Olvasólista frissítése</item>
+    <item quantity="other">Olvasólisták frissítése</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_title">
     <item quantity="one">Egy lista szinkronizálása…</item>
@@ -579,21 +579,21 @@
   <string name="description_edit_revert_reason1">nem követted az &lt;a href=\"%1$s\"&gt;irányelveket&lt;/a&gt;</string>
   <string name="description_edit_revert_reason2">tesztelésnek vagy vandalizmusnak tűnt</string>
   <string name="description_edit_revert_history">Többet megtudhatsz a visszavonás okáról a &lt;a href=\"%1$s\"&gt;laptörténetben&lt;/a&gt;.</string>
-    <string name="offline_read_permission_rationale">A kapcsolat nélküli böngészéshez szükséges a hozzáférés az eszköz háttértárához.</string>
+  <string name="offline_read_permission_rationale">A kapcsolat nélküli böngészéshez szükséges a hozzáférés az eszköz háttértárához.</string>
   <string name="offline_read_final_rationale">Az offline könyvtár használatához szükséges a hozzáférés az eszköz háttértárához.</string>
-    <string name="size_gb">%.2f GB</string>
+  <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-    <plurals name="offline_compilation_download_time_remaining">
+  <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">még 1 perc</item>
     <item quantity="other">még %d perc</item>
   </plurals>
-    <string name="onboarding_skip">Kihagy</string>
+  <string name="onboarding_skip">Kihagy</string>
   <string name="onboarding_continue">Tovább</string>
   <string name="onboarding_get_started">Kezdés</string>
   <string name="onboarding_explore_title">Új módok a felfedezésre</string>
   <string name="onboarding_explore_text">Merülj alá a Wikipédiában a folyamatosan frissülő Felfedezés hírfolyammal!&lt;br /&gt; &lt;b&gt;Szabd testre&lt;/b&gt; a hírfolyamot az érdeklődésnek megfelelően – izgassanak bár az &lt;b&gt;Ezen a napon&lt;/b&gt; történt események, vagy ami épp &lt;b&gt;Találomra&lt;/b&gt; jön.</string>
-    <string name="onboarding_reading_list_sync_title">Olvasólisták szinkronizálással</string>
-    <string name="onboarding_reading_list_sync_text_v2">Olvasólistákat készíthetsz olyan szócikkekről, amelyeket később szeretnél elolvasni, akár offline is.&lt;br/&gt;Jelentkezz be a Wikipédia-fiókodba, hogy szinkronizálhasd az olvasólistáidat.&lt;a href=\"#login\"&gt;Csatlakozz a Wikipédiához&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title">Olvasólisták szinkronizálással</string>
+  <string name="onboarding_reading_list_sync_text_v2">Olvasólistákat készíthetsz olyan szócikkekről, amelyeket később szeretnél elolvasni, akár offline is.&lt;br/&gt;Jelentkezz be a Wikipédia-fiókodba, hogy szinkronizálhasd az olvasólistáidat.&lt;a href=\"#login\"&gt;Csatlakozz a Wikipédiához&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Névtelen adatok küldése</string>
   <string name="onboarding_analytics_offline_text">Segíts jobbá tenni az alkalmazást a használati adatok megosztásával. A begyűjtött adatok anonimak. &lt;a href=\"#privacy\"&gt;Tudj meg többet&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Felhasználási adatok küldése</string>

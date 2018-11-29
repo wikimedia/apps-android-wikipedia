@@ -40,7 +40,7 @@
   <string name="edit_save_action_license_logged_in" fuzzy="true">భద్రపర్చడం ద్వారా &lt;a href=\"%1$s\"&gt;వాడుక షరతుల&lt;/a&gt;కు అనుగుణంగా ఉంటాననీ, నా రచనలన్నిటినీ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ కింద విడుదల చేస్తున్నాననీ అంగీకరిస్తున్నాను.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">భద్రపరచటంతో, మీరు  &lt;a href=\"%1$s\"&gt;వాడుకా నిభందనల&lt;/a&gt;ని అంగీకరిస్తున్నారు, మరియు ఖండీతంగా మీ రచనలని &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ ద్వారా వదులుతున్నారు. సవరణలు మీ ఐపి చిరునామాకి ఆపాదించబడతాయి. మీరు &lt;a href=\"https://#login\"&gt;లాగిన్&lt;/a&gt; అయితే, మీకు ఎక్కువ గోప్యత ఉంటుంది.</string>
   <string name="preference_title_language" fuzzy="true">వికీపీడియా భాష</string>
-    <string name="langlinks_filter_hint">వెతుకు</string>
+  <string name="langlinks_filter_hint">వెతుకు</string>
   <string name="langlinks_empty">ఈ పేజీ వేరే భాషలలో అందుబాటులో లేదు.</string>
   <string name="langlinks_no_match" fuzzy="true">ఏ భాషలోనూ మీ ప్రశ్నకు సరిపోలిక దొరకలేదు.\n\n.</string>
   <string name="langlinks_activity_title">ఇతర భాషలు</string>
@@ -83,7 +83,7 @@
   <string name="create_account_button">ఖాతా సృష్టించండి</string>
   <string name="preferences_general_heading">సాధారణం</string>
   <string name="wikipedia_app_faq">వికీపీడియా సున్నా ఎఫ్ఎక్యూ</string>
-    <string name="edit_preview_fetching_dialog_message">ప్రివ్యూ వస్తుంది…</string>
+  <string name="edit_preview_fetching_dialog_message">ప్రివ్యూ వస్తుంది…</string>
   <string name="send_feedback">అనువర్తనం గురించి ఫిర్యాదులు/సలహాలు పంపించండి</string>
   <string name="create_account_account_created_toast">ఖాతా సృష్టించబడింది!</string>
   <string name="preferences_privacy_settings_heading">అంతరంగికత</string>
@@ -130,7 +130,7 @@
   <string name="abusefilter_title_disallow" fuzzy="true">ఈ సవరణని మీరు భద్రపరచలేరు. దయచేసి వెనెక్కి వెళ్లి మార్చండి.</string>
   <string name="abusefilter_text_warn">ఒక స్వయంచాలకమైన ఫిల్టర్ మీ సవరణను అనిర్మాణాత్మకంగా ఉన్నట్టు గుర్తించింది. సవరణలో వీటిలో ఒకటి లేదా ఎక్కువ ఉండి ఉండవచ్చు: &lt;br /&gt;&lt;br /&gt;· అన్ని పెద్ద అక్షరాలలో టైపు చేయటం &lt;br /&gt;· వ్యాసాని ఖాళీ లేదా స్పామ్ చేయటం &lt;br /&gt;· అసందర్భోచిత బయటి లింకులు లేదా చిత్రాలు &lt;br /&gt;· పునరావృతమవుతున్న అక్షరాలు</string>
   <string name="abusefilter_text_disallow">ఒక స్వయంచాలకమైన ఫిల్టర్ మీ సవరణను బహుశా అనిర్మాణాత్మకంగా లేదా విధ్వంసకారంగా ఉన్నట్టు గుర్తించింది.&lt;br /&gt;&lt;br /&gt;వికీపీడియా ఒక ఎన్సైక్లోపీడియా, అందులో నిష్పక్షపాతకమైన, ముఖ్యమైన విషయాలు మాత్రమే ఉండాలి.</string>
-    <string name="text_size_select">ఖతి పరిమాణం</string>
+  <string name="text_size_select">ఖతి పరిమాణం</string>
   <string name="page_similar_titles">పోలిన పేజీలు</string>
   <string name="search_did_you_mean">ఇదేనా మీరంటున్నది \"%s\"?</string>
   <string name="search_recent_header">ఇటీవల వెతికినవి:</string>
@@ -169,7 +169,7 @@
   <string name="menu_new_tab">కొత్త ట్యాబు</string>
   <string name="menu_close_all_tabs">అన్ని ట్యాబులను మూసివేయి</string>
   <string name="button_close_tab">ట్యాబును మూసివేయి</string>
-    <string name="tool_tip_share">ఆసక్తికరమైన విషయాన్నీ హైలైట్ చేసిన తర్వాత మీకు ఇష్టమైన నెట్వర్క్లలకి పంచుకోండి.</string>
+  <string name="tool_tip_share">ఆసక్తికరమైన విషయాన్నీ హైలైట్ చేసిన తర్వాత మీకు ఇష్టమైన నెట్వర్క్లలకి పంచుకోండి.</string>
   <string name="page_view_in_browser">విహారిణిలో తెరువు</string>
   <string name="error_response_malformed">సర్వర్ నుండి వచ్చిన స్పందన సరైన రీతిలో లేదు.</string>
   <string name="error_unknown">ఏదో తెలియని లోపం సంభవించింది.</string>
@@ -187,7 +187,7 @@
   <string name="reading_lists_onboarding_example2">అభిమాన జంతువులు</string>
   <string name="reading_lists_onboarding_example3" fuzzy="true">అంతరిక్షం!</string>
   <string name="reading_lists_onboarding_got_it">అర్థమైంది</string>
-    <string name="user_option_sync_label">అభిరుచులు</string>
+  <string name="user_option_sync_label">అభిరుచులు</string>
   <string name="menu_feed_overflow_label">మరిన్ని ఎంపికలు</string>
   <string name="view_card_news_title">వార్తల్లో</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">

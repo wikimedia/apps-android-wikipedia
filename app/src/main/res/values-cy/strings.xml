@@ -43,7 +43,7 @@
   <string name="edit_save_action_license_logged_in" fuzzy="true">Drwy arbed, rydych yn cytuno i &lt;a href=\"%1$s\"&gt;Dermau\'r Defnydd&lt;/a&gt;, ac i ryddhau eich cyfraniad mewn modd di-droi\'n-ôl ar drwydded &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Drwy arbed, rydych yn cytuno i &lt;a href=\"%1$s\"&gt;Dermau Defnyddio&lt;/a&gt;, ac yn rhyddhau, yn ddi-droi\'n ol, eich cyfraniadau dan drwydded &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Bydd y golygiadau\'n cael eu tadogi i gyfeiriad IP eich dyfais. Ond os ydych yn &lt;a href=\"https://#login\"&gt;mewngofnodi&lt;/a&gt;, bydd eich golygiadau\'n breifat.</string>
   <string name="preference_title_language" fuzzy="true">Wicipedia pa iaith?</string>
-    <string name="langlinks_filter_hint">Chwilier</string>
+  <string name="langlinks_filter_hint">Chwilier</string>
   <string name="langlinks_empty">Nid yw\'r erthygl hon ar gael mewn ieithoedd eraill.</string>
   <string name="langlinks_no_match" fuzzy="true">Nid yw\'r iaith a gesiwch ar gael.</string>
   <string name="langlinks_activity_title">Ieithoedd eraill</string>
@@ -93,7 +93,7 @@
   <string name="create_account_button">Creu cyfrif</string>
   <string name="preferences_general_heading">Cyffredinol</string>
   <string name="wikipedia_app_faq">Ap FAQ Wicipedia</string>
-    <string name="edit_preview_fetching_dialog_message">Yn nôl y rhagolwg…</string>
+  <string name="edit_preview_fetching_dialog_message">Yn nôl y rhagolwg…</string>
   <string name="send_feedback">Anfon adborth am yr ap</string>
   <string name="create_account_account_created_toast">Wedi creu cyfrif!</string>
   <string name="preferences_privacy_settings_heading">Preifatrwydd</string>
@@ -140,7 +140,7 @@
   <string name="abusefilter_title_warn" fuzzy="true">Efallai fod y golygiad hwn yn un amheus. Ydych chi\'n hollol sicr ei fod o werth?</string>
   <string name="abusefilter_title_disallow" fuzzy="true">Ni allwch gadw\'r golygiad yma. Ewch yn ôl a newidiwch e!</string>
   <string name="abusefilter_text_warn">Mae un o\'n hidlau yn dweud y gall eich golygiad fod yn un amheus. Efallai ei fod yn cynnwys un neu ragor o\'r canlynol:&lt;br /&gt;&lt;br /&gt;· Teipio mewn prif lythrennau&lt;br /&gt;· Gwagio dalennau\'n llwyr neu sbamio&lt;br /&gt;· Dolennau amheus i wefannau neu ddelweddau sydd wedi eu gwahardd.&lt;br /&gt;· Ailadrodd yr un lythyren</string>
-    <string name="text_size_select">Main y ffont</string>
+  <string name="text_size_select">Main y ffont</string>
   <string name="page_similar_titles">Dalennau tebyg</string>
   <string name="search_did_you_mean">Oeddech chi\'n golygu \"%s\"?</string>
   <string name="search_recent_header">Chwiliadau diweddar</string>
@@ -180,7 +180,7 @@
   <string name="menu_close_all_tabs">Ceuwch y tabiau</string>
   <string name="close_all_tabs_confirm">Ydych chi\'n siwr eich bod am gau\'r holl dabiau?</string>
   <string name="button_close_tab">Cau\'r tab</string>
-    <string name="tool_tip_share">Wedi i chi ei amlygu (\'\'highlight\'\'), beth am ei rannu?</string>
+  <string name="tool_tip_share">Wedi i chi ei amlygu (\'\'highlight\'\'), beth am ei rannu?</string>
   <string name="page_view_in_browser">Gweld y ddalen mewn porwr</string>
   <string name="error_response_malformed">Ymateb annilys gan y gweinydd.</string>
   <string name="error_unknown">Cafwyd gwall am ryw reswm.</string>
@@ -213,10 +213,10 @@
   <string name="color_theme_light">Golau</string>
   <string name="color_theme_dark">Tywyll</string>
   <string name="nav_item_reading_lists">Fy rhestrau</string>
-    <string name="reading_list_save_to">Arbed i\'ch rhestr ddarllen</string>
+  <string name="reading_list_save_to">Arbed i\'ch rhestr ddarllen</string>
   <string name="reading_list_create_new">Creu o\'r newydd</string>
   <string name="reading_list_title_exists">Mae \"%s\" yn bodoli\'n barod</string>
-    <string name="reading_list_added_to_named">Ychwanegwyd at %s.</string>
+  <string name="reading_list_added_to_named">Ychwanegwyd at %s.</string>
   <string name="reading_list_already_exists">Mae\'r erthygl hon ar y rhestr yn barod.</string>
   <string name="reading_list_added_view_button">Gweld y rhestr</string>
   <string name="reading_list_sort">Didioli (sortio)</string>
@@ -226,7 +226,7 @@
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">Sortio yn ôl amser (hen rai yn gyntaf)</string>
   <string name="saved_list_empty_title">Dim rhestrau darllen eto</string>
   <string name="reading_lists_onboarding_got_it">Rwy\'n deall</string>
-    <string name="user_option_sync_label">Dewisiadau</string>
+  <string name="user_option_sync_label">Dewisiadau</string>
   <string name="view_main_page_card_title">Heddiw ar Wicipedia</string>
   <string name="view_main_page_card_subtitle">Prif ddalen ar %s</string>
   <string name="view_featured_image_card_title">Llun y dydd</string>

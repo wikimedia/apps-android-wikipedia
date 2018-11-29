@@ -41,7 +41,7 @@
   <string name="menu_page_show_tabs">Amosar as lapelas</string>
   <string name="menu_page_other_languages">Cambiar a lingua</string>
   <string name="menu_page_find_in_page">Atopar na páxina</string>
-    <string name="menu_page_font_and_theme">Tipo de letra e tema</string>
+  <string name="menu_page_font_and_theme">Tipo de letra e tema</string>
   <string name="menu_page_add_to_list">Engadir á lista de lectura</string>
   <string name="menu_page_share">Compartir a ligazón</string>
   <string name="menu_page_open_a_new_tab">Abrir unha pestana nova</string>
@@ -67,7 +67,7 @@
   <string name="edit_save_action_license_logged_in">Ao publicar, acepta os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e acepta liberar irrevogablemente as súas contribucións baixo a licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Ao publicar, acepta os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e acepta liberar irrevogablemente as súas contribucións baixo a licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. As edicións atribuiránselle ao enderezo IP do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;accede ao sistema&lt;/a&gt; terá un maior anonimato.</string>
   <string name="preference_title_language">Linguas de Wikipedia</string>
-    <string name="langlinks_filter_hint">Procurar</string>
+  <string name="langlinks_filter_hint">Procurar</string>
   <string name="langlinks_empty">Esta páxina non está dispoñible noutras linguas</string>
   <string name="langlinks_no_match">Non se atopou ningunha lingua</string>
   <string name="langlinks_activity_title">Outras linguas</string>
@@ -139,13 +139,13 @@
   <string name="create_account_ip_block_details">Detalles</string>
   <string name="preferences_general_heading">Xeral</string>
   <string name="wikipedia_app_faq">Preguntas frecuentes sobre a aplicación da Wikipedia</string>
-    <string name="edit_preview_fetching_dialog_message">Procesando a vista previa…</string>
+  <string name="edit_preview_fetching_dialog_message">Procesando a vista previa…</string>
   <string name="send_feedback">Enviar comentarios sobre a aplicación</string>
   <string name="create_account_account_created_toast">Conta creada!</string>
-    <string name="preferences_heading_syncing">Sincronización</string>
+  <string name="preferences_heading_syncing">Sincronización</string>
   <string name="preferences_heading_data_usage">Uso de datos</string>
   <string name="preferences_heading_experimental">Experimental</string>
-    <string name="preference_title_sync_reading_lists_from_account">Sincronización das listas de lectura</string>
+  <string name="preference_title_sync_reading_lists_from_account">Sincronización das listas de lectura</string>
   <string name="preference_title_download_reading_list_articles">Descargar artigos da lista de lectura</string>
   <string name="preference_summary_sync_reading_lists">Sincronice as listas de lectura en dispositivos diferentes gardándoas na súa conta de Wikipedia</string>
   <string name="preference_summary_sync_reading_lists_from_account">Sincronice as listas de lectura en dispositivos diferentes gardándoas na súa conta de Wikikepdia \"%s\"</string>
@@ -211,7 +211,7 @@
   <string name="abusefilter_title_disallow">Non pode publicar esta edición. Por favor, vaia á páxina anterior e modifíquea.</string>
   <string name="abusefilter_text_warn">Un filtro automático identificou esta edición como potencialmente non construtiva. Pode conter un ou varios dos seguintes problemas:&lt;br /&gt;&lt;br /&gt;· Está escrito todo en maiúsculas&lt;br /&gt;· É un artigo en branco ou que contén spam&lt;br /&gt;· Contén ligazóns externas ou imaxes irrelevantes&lt;br /&gt;· Contén caracteres repetidos</string>
   <string name="abusefilter_text_disallow">Un filtro automático identificou esta edición como potencialmente non construtiva ou posible vandalismo.&lt;br /&gt;&lt;br /&gt;A Wikipedia é unha enciclopedía e nela unicamente son pertinentes os contidos neutrais e relevantes.</string>
-    <string name="text_size_select">Tamaño da letra</string>
+  <string name="text_size_select">Tamaño da letra</string>
   <string name="page_similar_titles">Páxinas similares</string>
   <string name="search_did_you_mean">Quixo dicir \"%s\"?</string>
   <string name="search_recent_header">Procuras recentes:</string>
@@ -264,7 +264,7 @@
   <string name="close_all_tabs_confirm_no">Non</string>
   <string name="button_close_tab">Pechar a lapela</string>
   <string name="tab_item_closed">%s pechado.</string>
-    <string name="tool_tip_bookmark_icon_title">Engadir á lista de lectura</string>
+  <string name="tool_tip_bookmark_icon_title">Engadir á lista de lectura</string>
   <string name="tool_tip_bookmark_icon_text">Prema na icona de marcadores para gardar o artigo nunha lista de lectura.</string>
   <string name="tool_tip_share">Despois de resaltar unha información interesante, probe a compartila nas súas redes favoritas!</string>
   <string name="page_view_in_browser">Ver a páxina no navegador</string>
@@ -283,7 +283,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">O artigo non se pode cargar mentres non haxa conexión.</string>
   <string name="page_offline_notice_add_to_reading_list">Pistaː Engade o artigo a unha lista de lectura e descargarase cando se volva conectar.</string>
   <string name="page_offline_notice_last_date">Está lendo unha versión sen conexión deste artigo gardado o %s.</string>
-    <string name="button_get_directions">Obter as direccións</string>
+  <string name="button_get_directions">Obter as direccións</string>
   <string name="error_no_maps_app">Imposible atopar unha aplicación que proporcione as direccións.</string>
   <string name="preference_title_show_link_previews">Amosar vistas previas de ligazóns</string>
   <string name="preference_summary_show_link_previews">Amosar unha vista previa rápida dos artigos ó premer nas ligazóns.</string>
@@ -305,7 +305,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Atenuación de imaxe (no tema obscuro)</string>
   <string name="preference_title_prefer_offline_content">Preferir contido sen conexión</string>
   <string name="preference_summary_prefer_offline_content">Aforrar o uso de datos mediante a carga de artigos que estean dispoñibles sen conexión, en lugar de cargar sempre a última versión do artigo.</string>
-    <string name="crash_report_dialog_title">Sentímolo, a aplicación tivo un erro a última vez</string>
+  <string name="crash_report_dialog_title">Sentímolo, a aplicación tivo un erro a última vez</string>
   <string name="crash_report_dialog_text">Gustaríalle enviar un informe de fallo a HockeyApp / un provedor de servizos de terceiros para que Wikimedia poida revisar o seu fallo e corrixir o erro que o causou?</string>
   <string name="crash_report_dialog_dont_send_button">Omitir</string>
   <string name="crash_report_dialog_always_send_button">Enviar sempre</string>
@@ -331,10 +331,10 @@
   <string name="text_size_decrease">Reducir o texto</string>
   <string name="text_size_percent_default">%s (por defecto)</string>
   <string name="nav_item_reading_lists">As miñas listas</string>
-    <string name="reading_list_save_to">Gardar en lista de lectura</string>
+  <string name="reading_list_save_to">Gardar en lista de lectura</string>
   <string name="reading_list_create_new">Crear nova</string>
   <string name="reading_list_title_exists">A lista de lectura \"%s\" xa existe.</string>
-    <string name="reading_list_added_to_named">Engadido a %s.</string>
+  <string name="reading_list_added_to_named">Engadido a %s.</string>
   <string name="reading_list_already_exists">Este artigo xa está nesa lista.</string>
   <string name="reading_list_added_view_button">Ver lista</string>
   <string name="format_reading_list_statistical_summary_singular">1 artigo, %1$.2f MB</string>
@@ -351,7 +351,7 @@
   <string name="reading_list_sort_by_created_desc">Ordenar por data de creación (máis antigas)</string>
   <string name="reading_list_menu_delete">Eliminar a lista</string>
   <string name="reading_list_menu_rename">Editar nome/descrición</string>
-    <string name="reading_list_action_menu_remove_from_offline">Quitar de sen conexión</string>
+  <string name="reading_list_action_menu_remove_from_offline">Quitar de sen conexión</string>
   <string name="reading_list_action_menu_save_for_offline">Gardar para sen conexión</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Quitar todo do almacén sen conexión</string>
   <string name="reading_list_action_menu_save_all_for_offline">Gardar todo para ler sen conexión</string>
@@ -371,7 +371,7 @@
   <string name="reading_lists_onboarding_example2">Animais favoritos</string>
   <string name="reading_lists_onboarding_example3">Exploración espacial</string>
   <string name="reading_lists_onboarding_got_it">Entendido</string>
-    <string name="reading_list_empty">Non ten artigos engadidos nesta lista.</string>
+  <string name="reading_list_empty">Non ten artigos engadidos nesta lista.</string>
   <string name="reading_list_article_offline">Dispoñible sen conexión</string>
   <string name="reading_list_article_make_offline">Facer que este artigo estea dispoñible sen conexión</string>
   <string name="reading_list_add_to_other_list">Engadir a outra lista de lectura</string>
@@ -386,7 +386,7 @@
   <string name="reading_lists_sync_reminder_action">Activar sincronización</string>
   <string name="reading_list_login_reminder_title">Sincronizar as listas de lectura</string>
   <string name="reading_lists_login_reminder_text">Agora é posible sincronizar as listas de lectura entre varios dispositivos. Acceda á súa conta de Wikipedia e permita que se garden as súas listas.</string>
-    <string name="reading_lists_confirm_remote_delete_yes">Si</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Si</string>
   <string name="reading_lists_confirm_remote_delete_no">Non</string>
   <string name="reading_list_article_save_in_progress">O artigo está sendo descargado, e estará dispoñible sen conexión cando se remate.</string>
   <string name="reading_list_already_contains_selection">A lista escollida xa contén tódalas páxinas seleccionadas.</string>
@@ -437,15 +437,11 @@
   <string name="reading_list_toast_last_sync">As listas de lectura foron sincronizadas correctamente</string>
   <string name="reading_list_menu_last_sync">Última sincronización: %s</string>
   <string name="user_option_sync_label">Preferencias</string>
-    <string name="notification_reverted_title">Edición revertida</string>
-    <string name="notification_channel_description">Avance da descarga</string>
+  <string name="notification_reverted_title">Edición revertida</string>
+  <string name="notification_channel_description">Avance da descarga</string>
   <string name="notification_syncing_pause_button">Pausa</string>
   <string name="notification_syncing_resume_button">Continuar</string>
   <string name="notification_syncing_cancel_button">Cancelar</string>
-  <plurals name="notification_syncing_reading_list_channel_name">
-    <item quantity="one">Sincronizando a lista de lectura</item>
-    <item quantity="other">Sincronizando as listas de lectura</item>
-  </plurals>
   <string name="notification_syncing_reading_list_channel_description">Progreso de sincronización de listas de lectura</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Descargando o artigo</item>
@@ -458,6 +454,10 @@
   <plurals name="notification_syncing_description">
     <item quantity="one">%1$d artigo restante</item>
     <item quantity="other">%1$d artigos restantes</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Sincronizando a lista de lectura</item>
+    <item quantity="other">Sincronizando as listas de lectura</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_title">
     <item quantity="one">Sincronizando %1$d lista…</item>
@@ -533,7 +533,7 @@
   <string name="feed_configure_language_warning">Decátese de que non tódolos tipos de tarxetas están dispoñibles en tódalas edicións de Wikipedia. Modifique as súas eleccións de linguas na Configuración.</string>
   <string name="feed_item_type_news">Artigos sobre eventos actuais</string>
   <string name="feed_item_type_on_this_day">Acontecementos históricos de hoxe</string>
-    <string name="feed_item_type_because_you_read">Suxestións baseadas nun artigo recentemente lido do seu historial</string>
+  <string name="feed_item_type_because_you_read">Suxestións baseadas nun artigo recentemente lido do seu historial</string>
   <string name="feed_item_type_featured_article">Artigo destacado do día na Wikipedia</string>
   <string name="feed_item_type_trending">Artigos máis vistos do día</string>
   <string name="feed_item_type_featured_image">Imaxe destacada do día en Wikimedia Commons</string>
@@ -581,21 +581,21 @@
   <string name="description_edit_revert_reason1">a súa contribución non segue unha das &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">a súa contribución semella unha proba ou vandalismo.</string>
   <string name="description_edit_revert_history">Se está interesado, consulte o &lt;a href=\"%1$s\"&gt;historial de edición&lt;/a&gt;.</string>
-    <string name="offline_read_permission_rationale">É necesario ter permiso para acceder ó almacenamento no seu dispositivo para a navegación sen liña.</string>
+  <string name="offline_read_permission_rationale">É necesario ter permiso para acceder ó almacenamento no seu dispositivo para a navegación sen liña.</string>
   <string name="offline_read_final_rationale">É preciso ter permiso de acceso ao almacenamento do seu dispositivo para usar a Biblioteca sen conexión.</string>
-    <string name="size_gb">%.2f GB</string>
+  <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-    <plurals name="offline_compilation_download_time_remaining">
+  <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">falta 1 minuto</item>
     <item quantity="other">faltan %d minutos</item>
   </plurals>
-    <string name="onboarding_skip">Omitir</string>
+  <string name="onboarding_skip">Omitir</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Comezar</string>
   <string name="onboarding_explore_title">Novas formas de explorar</string>
   <string name="onboarding_explore_text">Mergúllese no pozo sen fondo da Wikipedia cunha canle Explorar en constante actualización. &lt;br/&gt; &lt;b&gt;Personalice&lt;/b&gt; a canle coas súas preferencias – se quere aprender sobre acontecementos históricos &lt;b&gt;Neste dia&lt;/b&gt;, ou lanzar os dados con &lt;b&gt;Aleatorio&lt;/b&gt;.</string>
-    <string name="onboarding_reading_list_sync_title">Listas de lectura con sincronización</string>
-    <string name="onboarding_reading_list_sync_text_v2">Pode crear listas de lectura dos artigos que quere ler máis tarde, incluso cando estea sen acceso a Internet. &lt;br/&gt;Conéctese á súa conta de Wikipedia para sincronizar as súas listas de lectura. &lt;a href=\"#login\"&gt;Acceder a Wikipedia&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title">Listas de lectura con sincronización</string>
+  <string name="onboarding_reading_list_sync_text_v2">Pode crear listas de lectura dos artigos que quere ler máis tarde, incluso cando estea sen acceso a Internet. &lt;br/&gt;Conéctese á súa conta de Wikipedia para sincronizar as súas listas de lectura. &lt;a href=\"#login\"&gt;Acceder a Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Enviar os datos de maneira anónima</string>
   <string name="onboarding_analytics_offline_text">Permita que saibamos como utiliza a aplicación para axudar a mellorala. Os datos recompilados son anónimos. &lt;a href=\"#privacy\"&gt;Máis información&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Envíar datos de uso</string>

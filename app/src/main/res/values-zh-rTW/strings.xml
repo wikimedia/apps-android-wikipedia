@@ -47,7 +47,7 @@
   <string name="menu_page_show_tabs">顯示分頁</string>
   <string name="menu_page_other_languages">替換其它語言版本</string>
   <string name="menu_page_find_in_page">於頁面尋找</string>
-    <string name="menu_page_font_and_theme">字型與主題</string>
+  <string name="menu_page_font_and_theme">字型與主題</string>
   <string name="menu_page_add_to_list">新增至閱讀清單</string>
   <string name="menu_page_share">分享連結</string>
   <string name="menu_page_open_a_new_tab">開啟新分頁</string>
@@ -73,7 +73,7 @@
   <string name="edit_save_action_license_logged_in">發佈後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;。同時您同意依據&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。</string>
   <string name="edit_save_action_license_anon">發佈後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，同時您同意依據&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
   <string name="preference_title_language">維基百科語言</string>
-    <string name="langlinks_filter_hint">搜尋</string>
+  <string name="langlinks_filter_hint">搜尋</string>
   <string name="langlinks_empty">此頁面沒有其他語言版本。</string>
   <string name="langlinks_no_match">未找到語言</string>
   <string name="langlinks_activity_title">其他語言</string>
@@ -145,13 +145,13 @@
   <string name="create_account_ip_block_details">詳細資料</string>
   <string name="preferences_general_heading">一般</string>
   <string name="wikipedia_app_faq">維基百科應用程式常見問題</string>
-    <string name="edit_preview_fetching_dialog_message">取得預覽中…</string>
+  <string name="edit_preview_fetching_dialog_message">取得預覽中…</string>
   <string name="send_feedback">傳送應用程式意見回饋</string>
   <string name="create_account_account_created_toast">已建立帳號！</string>
-    <string name="preferences_heading_syncing">同步</string>
+  <string name="preferences_heading_syncing">同步</string>
   <string name="preferences_heading_data_usage">資料使用</string>
   <string name="preferences_heading_experimental">試驗</string>
-    <string name="preference_title_sync_reading_lists_from_account">同步閱讀清單</string>
+  <string name="preference_title_sync_reading_lists_from_account">同步閱讀清單</string>
   <string name="preference_title_download_reading_list_articles">下載閱讀清單條目</string>
   <string name="preference_summary_sync_reading_lists">透過儲存至您的維基百科帳號上，來橫跨不同裝置同步閱讀清單</string>
   <string name="preference_summary_sync_reading_lists_from_account">透過儲存至您的維基百科帳號「%s」上，來橫跨不同裝置同步閱讀清單</string>
@@ -217,7 +217,7 @@
   <string name="abusefilter_title_disallow">不能發佈此編輯。請返回並修正。</string>
   <string name="abusefilter_text_warn">自動過濾器認為您的編輯缺乏建設性。 可能由於編輯中包含以下之一：&lt;br /&gt;&lt;br /&gt;· 全部使用大寫字母&lt;br /&gt;· 空白的文章內容或含有垃圾訊息&lt;br /&gt;· 含有無關的外部連結或圖片&lt;br /&gt;· 重複的文字</string>
   <string name="abusefilter_text_disallow">自動過濾器已識別此編輯為潛在非建設性或潛在性破壞。&lt;br/&gt;&lt;br/&gt;維基百科是一本僅擁有中立與值得注意內容的百科全書。</string>
-    <string name="text_size_select">字型大小</string>
+  <string name="text_size_select">字型大小</string>
   <string name="page_similar_titles">相似的頁面</string>
   <string name="search_did_you_mean">您指的是不是「%s」？</string>
   <string name="search_recent_header">近期搜尋：</string>
@@ -270,7 +270,7 @@
   <string name="close_all_tabs_confirm_no">否</string>
   <string name="button_close_tab">關閉分頁</string>
   <string name="tab_item_closed">已關閉%s。</string>
-    <string name="tool_tip_bookmark_icon_title">新增至閱讀清單</string>
+  <string name="tool_tip_bookmark_icon_title">新增至閱讀清單</string>
   <string name="tool_tip_bookmark_icon_text">輕觸書籤圖標來儲存條目至閱讀清單裡。</string>
   <string name="tool_tip_share">在反白一部分有趣的事實之後，嘗試在您最愛的網路中分享！</string>
   <string name="page_view_in_browser">以瀏覽器檢視頁面</string>
@@ -289,7 +289,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">條目不能在離線時載入。</string>
   <string name="page_offline_notice_add_to_reading_list">提示：將條目新增至閱讀清單，令您可在返回線上時下載。</string>
   <string name="page_offline_notice_last_date">您正閱讀此條目儲存於 %s 的離線版本。</string>
-    <string name="button_get_directions">取得路線</string>
+  <string name="button_get_directions">取得路線</string>
   <string name="error_no_maps_app">無法找到任何提供路線的應用程式。</string>
   <string name="preference_title_show_link_previews">顯示連結預覽</string>
   <string name="preference_summary_show_link_previews">在點選連結時，顯示條目的快速預覽。</string>
@@ -311,7 +311,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">調暗圖片（在陰暗主題）</string>
   <string name="preference_title_prefer_offline_content">首選離線內容</string>
   <string name="preference_summary_prefer_offline_content">透過載入離線狀況下可用條目的儲存資料使用，而不必每次載入條目的最新版本</string>
-    <string name="crash_report_dialog_title">很抱歉，應用程式上次發生了錯誤</string>
+  <string name="crash_report_dialog_title">很抱歉，應用程式上次發生了錯誤</string>
   <string name="crash_report_dialog_text">您是否想要傳送錯誤報告至 HockeyApp / 第三方服務提供者，以讓維基媒體能夠檢視您的錯誤，並修正造成問題的程式臭蟲？</string>
   <string name="crash_report_dialog_dont_send_button">略過</string>
   <string name="crash_report_dialog_always_send_button">必定傳送</string>
@@ -337,10 +337,10 @@
   <string name="text_size_decrease">增少文字大小</string>
   <string name="text_size_percent_default">%s（預設）</string>
   <string name="nav_item_reading_lists">我的清單</string>
-    <string name="reading_list_save_to">儲存至閱讀清單</string>
+  <string name="reading_list_save_to">儲存至閱讀清單</string>
   <string name="reading_list_create_new">建立新的</string>
   <string name="reading_list_title_exists">已有名為「%s」的閱讀清單。</string>
-    <string name="reading_list_added_to_named">已新增至 %s。</string>
+  <string name="reading_list_added_to_named">已新增至 %s。</string>
   <string name="reading_list_already_exists">這個條目已經在清單之中。</string>
   <string name="reading_list_added_view_button">檢視清單</string>
   <string name="format_reading_list_statistical_summary_singular">1 個條目，%1$.2f MB</string>
@@ -357,7 +357,7 @@
   <string name="reading_list_sort_by_created_desc">依所建立日期排序（最早）</string>
   <string name="reading_list_menu_delete">刪除清單</string>
   <string name="reading_list_menu_rename">編輯名稱/描述</string>
-    <string name="reading_list_action_menu_remove_from_offline">從離線移除</string>
+  <string name="reading_list_action_menu_remove_from_offline">從離線移除</string>
   <string name="reading_list_action_menu_save_for_offline">儲存用於離線使用</string>
   <string name="reading_list_action_menu_remove_all_from_offline">全部從離線移除</string>
   <string name="reading_list_action_menu_save_all_for_offline">全部儲存用於離線使用</string>
@@ -377,7 +377,7 @@
   <string name="reading_lists_onboarding_example2">喜愛動物</string>
   <string name="reading_lists_onboarding_example3">太空探索！</string>
   <string name="reading_lists_onboarding_got_it">知道了</string>
-    <string name="reading_list_empty">未有添加至此清單的條目。</string>
+  <string name="reading_list_empty">未有添加至此清單的條目。</string>
   <string name="reading_list_article_offline">可於離線時閱讀</string>
   <string name="reading_list_article_make_offline">讓此條目可於離線閱讀</string>
   <string name="reading_list_add_to_other_list">新增至另一個閱讀清單</string>
@@ -392,7 +392,7 @@
   <string name="reading_lists_sync_reminder_action">啟用同步</string>
   <string name="reading_list_login_reminder_title">同步閱讀清單</string>
   <string name="reading_lists_login_reminder_text">閱讀清單現已具有跨裝置同步的功能。登入您的維基百科帳號，來允許儲存您的清單。</string>
-    <string name="reading_lists_confirm_remote_delete_yes">是</string>
+  <string name="reading_lists_confirm_remote_delete_yes">是</string>
   <string name="reading_lists_confirm_remote_delete_no">否</string>
   <string name="reading_list_article_save_in_progress">條目下載進行中，完成之後可用於離線狀態下。</string>
   <string name="reading_list_already_contains_selection">挑選清單已包含所有已選頁面。</string>
@@ -443,15 +443,11 @@
   <string name="reading_list_toast_last_sync">成功同步閱讀清單</string>
   <string name="reading_list_menu_last_sync">上一次同步：%s</string>
   <string name="user_option_sync_label">偏好設定</string>
-    <string name="notification_reverted_title">回退的編輯</string>
-    <string name="notification_channel_description">下載進度</string>
+  <string name="notification_reverted_title">回退的編輯</string>
+  <string name="notification_channel_description">下載進度</string>
   <string name="notification_syncing_pause_button">暫停</string>
   <string name="notification_syncing_resume_button">繼續</string>
   <string name="notification_syncing_cancel_button">取消</string>
-  <plurals name="notification_syncing_reading_list_channel_name">
-    <item quantity="one">同步閱讀清單中</item>
-    <item quantity="other">同步閱讀清單中</item>
-  </plurals>
   <string name="notification_syncing_reading_list_channel_description">同步閱讀清單進度</string>
   <plurals name="notification_channel_name">
     <item quantity="one">下載條目中</item>
@@ -464,6 +460,10 @@
   <plurals name="notification_syncing_description">
     <item quantity="one">剩下 %1$d 個條目</item>
     <item quantity="other">剩下 %1$d 個條目</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">同步閱讀清單中</item>
+    <item quantity="other">同步閱讀清單中</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_title">
     <item quantity="one">正在同步 %1$d 個清單…</item>
@@ -539,7 +539,7 @@
   <string name="feed_configure_language_warning">請注意在所有維基百科語言上並非全部卡片類型皆可用。請在設定裡編輯您所選的語言。</string>
   <string name="feed_item_type_news">有關目前最新事件的條目</string>
   <string name="feed_item_type_on_this_day">在歷史上的今天之事件</string>
-    <string name="feed_item_type_because_you_read">基於在您的瀏覽歷史裡近期曾閱讀過的條目，所提出的建議</string>
+  <string name="feed_item_type_because_you_read">基於在您的瀏覽歷史裡近期曾閱讀過的條目，所提出的建議</string>
   <string name="feed_item_type_featured_article">在維基百科上的每日典範條目</string>
   <string name="feed_item_type_trending">每日最多瀏覽的條目</string>
   <string name="feed_item_type_featured_image">來自維基共享資源的每日特色圖片</string>
@@ -587,21 +587,21 @@
   <string name="description_edit_revert_reason1">您的貢獻並未遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>
   <string name="description_edit_revert_reason2">您的貢獻內容看起來像是試驗性質的，或是有心破壞。</string>
   <string name="description_edit_revert_history">若您有興趣，請查看&lt;a href=\"%1$s\"&gt;編輯歷史&lt;/a&gt;。</string>
-    <string name="offline_read_permission_rationale">需要可存取在您裝置上儲存庫的權限才能離線瀏覽。</string>
+  <string name="offline_read_permission_rationale">需要可存取在您裝置上儲存庫的權限才能離線瀏覽。</string>
   <string name="offline_read_final_rationale">需要可存取在您裝置上儲存庫的權限才能使用離線圖書館。</string>
-    <string name="size_gb">%.2f GB</string>
+  <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-    <plurals name="offline_compilation_download_time_remaining">
+  <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">剩下 1 分鐘</item>
     <item quantity="other">剩下 %d 分鐘</item>
   </plurals>
-    <string name="onboarding_skip">略過</string>
+  <string name="onboarding_skip">略過</string>
   <string name="onboarding_continue">繼續</string>
   <string name="onboarding_get_started">入門</string>
   <string name="onboarding_explore_title">探索的新方法</string>
   <string name="onboarding_explore_text">踏上時常更新探索摘要的維基百科之旅中。&lt;br/&gt; &lt;b&gt;自訂&lt;/b&gt;您感興趣的事物的摘要 – 無論是在&lt;b&gt;歷史上的今天&lt;/b&gt;瞭解歷史事件，或是擲骰產生的&lt;b&gt;隨機&lt;/b&gt;內容。</string>
-    <string name="onboarding_reading_list_sync_title">帶同步的閱讀清單</string>
-    <string name="onboarding_reading_list_sync_text_v2">您可從您想要事後閱讀的條目來建立閱讀清單，讓您即使在離線時也可使用。&lt;br/&gt;登入您的維基百科帳號來同步您的閱讀清單。&lt;a href=\"#login\"&gt;加入維基百科&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title">帶同步的閱讀清單</string>
+  <string name="onboarding_reading_list_sync_text_v2">您可從您想要事後閱讀的條目來建立閱讀清單，讓您即使在離線時也可使用。&lt;br/&gt;登入您的維基百科帳號來同步您的閱讀清單。&lt;a href=\"#login\"&gt;加入維基百科&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">寄送匿名資料</string>
   <string name="onboarding_analytics_offline_text">請讓我們了解您是如何使用它，以讓應用程式能變得更好，另外資料收集都是採用匿名方式的。&lt;a href=\"#privacy\"&gt;了解更多&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">傳送使用情況資料</string>

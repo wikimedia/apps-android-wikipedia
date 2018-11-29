@@ -60,7 +60,7 @@
   <string name="edit_save_action_license_logged_in" fuzzy="true">हा मजकूर जतन करण्याच्या कृतीने,&lt;a href=\"%1$s\"&gt;विकिमिडिया फाउंडेशनच्या \'वापरण्याच्या अटी\' आपण मान्य करीत आहात&lt;/a&gt;, व आपले योगदान आपण \'न परताव्याच्या अटींच्या\' अधिन राहून &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; या परवान्यांतर्गत मुक्त करीत आहात.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">हा मजकूर जतन करण्याच्या कृतीने,&lt;a href=\"%1$s\"&gt;विकिमिडिया फाउंडेशनच्या \'वापरण्याच्या अटी\' आपण मान्य करीत आहात&lt;/a&gt;, व आपले योगदान आपण \'न परताव्याच्या अटींच्या\' अधिन राहून &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; या परवान्यांतर्गत मुक्त करीत आहात.आपली संपादने ही आपल्या उपकरणाच्या अंकपत्त्याच्या अंगिभूत राहतील.जर आपण &lt;a href=\"https://#login\"&gt;सनोंद प्रवेश घेतला तर&lt;/a&gt;,आपणास अधिक गुप्तता मिळू शकेल.</string>
   <string name="preference_title_language" fuzzy="true">विकिपीडिया भाषा</string>
-    <string name="langlinks_filter_hint">शोधा</string>
+  <string name="langlinks_filter_hint">शोधा</string>
   <string name="langlinks_empty">हे पान इतर भाषांमध्ये उपलब्ध नाही आहे</string>
   <string name="langlinks_no_match" fuzzy="true">आपल्या शोधत असलेली भाषा सापडली नाही.</string>
   <string name="langlinks_activity_title">इतर भाषा</string>
@@ -116,13 +116,13 @@
   <string name="create_account_button">खाते बनवा</string>
   <string name="preferences_general_heading">सर्वसामान्य</string>
   <string name="wikipedia_app_faq">विकिपीडिया अॅप नेविप्र(एफ.ए.क्यू.)</string>
-    <string name="edit_preview_fetching_dialog_message">झलक दाखवत आहे…</string>
+  <string name="edit_preview_fetching_dialog_message">झलक दाखवत आहे…</string>
   <string name="send_feedback">अॅपबद्दलची प्रतिक्रिया पाठवा</string>
   <string name="create_account_account_created_toast">खाते उघडले!</string>
-    <string name="preferences_heading_syncing">देवाण-घेवाण</string>
+  <string name="preferences_heading_syncing">देवाण-घेवाण</string>
   <string name="preferences_heading_data_usage">डाटा वापर</string>
   <string name="preferences_heading_experimental">प्रायोगिक</string>
-    <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">ह्या खात्यासाठीच्या वाचानयादीची देवाण-घेवाण होत आहे.</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">ह्या खात्यासाठीच्या वाचानयादीची देवाण-घेवाण होत आहे.</string>
   <string name="preference_summary_sync_reading_lists">तुमच्या वेगवेगळ्या डिव्हाईसवर नोंद-प्रवेश केल्यावर तुमच्या वाचनयादीची देवाण-घेवाण आपसूकच करण्यासाठी परवानगी द्या</string>
   <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">%s ह्या विकीमिडीया खात्याच्या वाचन यादीची देवाण-घेवाण करण्यासाठी विकीमिडीयाला परवानगी द्या</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">%s ह्या तुमच्या खात्याच्या वाचन यादीची देवाण-घेवाण बंद केली जात आहे?</string>
@@ -181,7 +181,7 @@
   <string name="abusefilter_title_disallow">आपण हे संपादन जतन करु शकत नाही.कृपया परत जाउन ते बदला.</string>
   <string name="abusefilter_text_warn">हे संपादन स्वयंचलित गाळणीने  \'उच्चपातळीचे अरचनात्मक\' असे नोंदविलेले आहे.यात खालीलपैकी एक वा एकाधिक असू शकते &lt;br /&gt;&lt;br /&gt;· सर्व अक्षरे ठळक&lt;br /&gt;लेख कोरा करणे किंवा उत्पात&lt;br /&gt;·असंबंधित दुवे किंवा चित्रे&lt;br /&gt;·त्याच वर्णांची वारंवारिता</string>
   <string name="abusefilter_text_disallow">हे संपादन स्वयंचलित गाळणीने  \'उच्चपातळीचे अरचनात्मक\' किंवा \'उच्चपातळीचा उत्पात\' असे नोंदविलेले आहे.&lt;br /&gt;&lt;br /&gt;विकिपीडिया हा विश्वकोश आहे व त्यात फक्त तटस्थ व लिखाणायोग्य आशय असतो.</string>
-    <string name="text_size_select">टंकाचा आकार</string>
+  <string name="text_size_select">टंकाचा आकार</string>
   <string name="page_similar_titles">सारखी पाने</string>
   <string name="search_did_you_mean">तुम्हाला \"%s\" म्हणायचे आहे काय?</string>
   <string name="search_recent_header">अलीकडील शोध:</string>
@@ -283,7 +283,7 @@
   <string name="text_size_increase">टंकाचा आकार वाढवा</string>
   <string name="text_size_decrease">टंकाचा आकार कमी करा</string>
   <string name="nav_item_reading_lists">माझ्या याद्या</string>
-    <string name="reading_list_save_to">वाचन यादीत जतन करा</string>
+  <string name="reading_list_save_to">वाचन यादीत जतन करा</string>
   <string name="reading_list_create_new">नवीन तयार करा</string>
   <string name="reading_list_added_to_named">%s ला जोडले.</string>
   <string name="reading_list_already_exists">हा लेख यादीत पूर्वीच आहे.</string>

@@ -47,7 +47,7 @@
   <string name="edit_save_action_license_logged_in" fuzzy="true">Sa pagtatala (saving), sumasang-ayon ka sa &lt;a href=\"%1$s\"&gt;Tuntunin sa Paggamit&lt;/a&gt;, at walang alinlangan inililimbag ang iyong mga ambag sa ilalim ng &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; na lisensya.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Sa pagtatala (saving), sumasang-ayon ka sa &lt;a href=\"%1$s\"&gt;Tuntunin sa Paggamit&lt;/a&gt;, at walang alinlangan inililimbag ang iyong mga ambag sa ilalim ng &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; na lisensya. Ang mga binago ay mapapasa-lagay sa direksyong IP ng iyong aparato. Kapag ikaw ay  &lt;a href=\"https://#login\"&gt;naglagda (login)&lt;/a&gt;, magkakarron ka ng higit na sarilinan (privacy).</string>
   <string name="preference_title_language">Mga wika ng Wikipedia</string>
-    <string name="langlinks_filter_hint">Hanapin</string>
+  <string name="langlinks_filter_hint">Hanapin</string>
   <string name="langlinks_empty">Ang pahinang ito ay hindi mababasa sa iba pang wika</string>
   <string name="langlinks_no_match">Walang wikang nahanap</string>
   <string name="langlinks_activity_title">Iba pang mga wika</string>
@@ -95,7 +95,7 @@
   <string name="create_account_button">Lumikha ng akawnt</string>
   <string name="preferences_general_heading">Pangkalahatan</string>
   <string name="wikipedia_app_faq">Mga madalas itanong (FAQ) ng Wikipedia App</string>
-    <string name="edit_preview_fetching_dialog_message">Kinukuha ang paunang tingin</string>
+  <string name="edit_preview_fetching_dialog_message">Kinukuha ang paunang tingin</string>
   <string name="send_feedback">Magpadala ng tugon sa app</string>
   <string name="create_account_account_created_toast">Nalikha ang akawnt!</string>
   <string name="preferences_heading_data_usage">Paggamit ng datos</string>
@@ -146,7 +146,7 @@
   <string name="abusefilter_title_disallow">Hindi mo maaaring mailathala ang pagbabagong ito. Mangyaring bumalik muli at baguhin iyon.</string>
   <string name="abusefilter_text_warn">Natukoy ng isang automated filter ang edit na ito na potensyal na di-makakatulong. Maaaring naglalaman ito ng isa o humigit pa sa mga sumusunod:&lt;br /&gt;&lt;br /&gt;· Pagta-type ng naka-all caps&lt;br /&gt;· Pagba-blangko ng mga artikulo o pag-ispam&lt;br /&gt;· Walang kaugnay na mga kawing panlabas (external links) o mga larawan&lt;br /&gt;· Pag-uulit ng mga karakter</string>
   <string name="abusefilter_text_disallow">Natukoy ng isang automated filter ang edit na ito na potensyal na di-makakatulong, o potensyal na pambababoy (bandalismo).&lt;br /&gt;&lt;br /&gt;Ang Wikipedia ay isang ensiklopedya at tanging niyutral na nakapansin-pansing nilalaman ang nabibilang dito.</string>
-    <string name="text_size_select">Sukat ng estilo ng titik (font)</string>
+  <string name="text_size_select">Sukat ng estilo ng titik (font)</string>
   <string name="page_similar_titles">Kaparehong mga pahina</string>
   <string name="search_did_you_mean">Ibig mong sabihin ay \"%s\"?</string>
   <string name="search_recent_header">Mga kamakailang paghahanap:</string>
@@ -191,10 +191,10 @@
   <string name="close_all_tabs_confirm_yes">Oo</string>
   <string name="close_all_tabs_confirm_no">Hindi</string>
   <string name="button_close_tab">Isara ang talahanayan (tab)</string>
-    <string name="page_view_in_browser">Tingnan ang pahina sa pambasa-basa</string>
+  <string name="page_view_in_browser">Tingnan ang pahina sa pambasa-basa</string>
   <string name="format_error_server_message">Mensahe: \"%s\"</string>
   <string name="button_continue_to_article">Basahin ang artikulo</string>
-    <string name="location_permissions_enable_action">Paganahin</string>
+  <string name="location_permissions_enable_action">Paganahin</string>
   <string name="error_webview_updating">Kasalukuyang isinasapanahon ang Android System WebView. Mangyaring subukan ito muli makatapos nang ilang sandali.</string>
   <string name="error_page_does_not_exist">Hindi umiiral ang pahinang ito</string>
   <string name="view_wiki_error_message_offline">Hindi makakonekta sa Internet</string>
@@ -214,10 +214,10 @@
   <string name="reading_lists_confirm_remote_delete_no">Hindi</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Lumagda</string>
   <string name="reading_lists_menu_create_list">Lumikha ng bagong talaan</string>
-    <string name="view_main_page_card_title">Ngayon sa Wikipedia</string>
+  <string name="view_main_page_card_title">Ngayon sa Wikipedia</string>
   <string name="view_main_page_card_subtitle">Unang pahina sa %s</string>
   <string name="view_main_page_card_action">Tingnan ang unang pahina</string>
   <string name="view_featured_image_card_title">Larawan sa araw na ito</string>
   <string name="feed_featured_image_share_subject">Napiling larawan mula sa Wikimedia Commons</string>
-    <string name="more_language_options">Mga karagdagan</string>
+  <string name="more_language_options">Mga karagdagan</string>
 </resources>

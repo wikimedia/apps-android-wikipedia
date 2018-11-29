@@ -53,7 +53,7 @@
   <string name="menu_page_show_tabs">أظهر الألسنة</string>
   <string name="menu_page_other_languages">اقرأ بلغات أخرى</string>
   <string name="menu_page_find_in_page">البحث في الصفحة</string>
-    <string name="menu_page_font_and_theme">الخط والمظهر</string>
+  <string name="menu_page_font_and_theme">الخط والمظهر</string>
   <string name="menu_page_add_to_list">أضف إلى قائمة القراءة</string>
   <string name="menu_page_share">شارك الوصلة</string>
   <string name="menu_page_open_a_new_tab">فتح لسان جديد</string>
@@ -79,7 +79,7 @@
   <string name="edit_save_action_license_logged_in">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;وعلى نشر مساهماتك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. التعديلات سوف تنسب إلى عنوان بروتوكول الإنترنت الخاص بجهازك. في حال كنت &lt;a href=\"https://#login\"&gt;مسجلا للدخول&lt;/a&gt;، فإنك ستحظى بالمزيد من الخصوصية.</string>
   <string name="preference_title_language">لغات ويكيبيديا</string>
-    <string name="langlinks_filter_hint">بحث</string>
+  <string name="langlinks_filter_hint">بحث</string>
   <string name="langlinks_empty">هذه الصفحة غير متوفرة بلغات أخرى</string>
   <string name="langlinks_no_match">لم يتم العثور على لغات</string>
   <string name="langlinks_activity_title">لغات أخرى</string>
@@ -152,13 +152,13 @@
   <string name="create_account_ip_block_details">التفاصيل</string>
   <string name="preferences_general_heading">عام</string>
   <string name="wikipedia_app_faq">الأسئلة المتكررة عن تطبيق ويكيبيديا</string>
-    <string name="edit_preview_fetching_dialog_message">جارٍ جلب المعاينة…</string>
+  <string name="edit_preview_fetching_dialog_message">جارٍ جلب المعاينة…</string>
   <string name="send_feedback">إرسال الملاحظات على التطبيق</string>
   <string name="create_account_account_created_toast">تم إنشاء الحساب!</string>
-    <string name="preferences_heading_syncing">مزامنة</string>
+  <string name="preferences_heading_syncing">مزامنة</string>
   <string name="preferences_heading_data_usage">استخدام البيانات</string>
   <string name="preferences_heading_experimental">تجريبيّ</string>
-    <string name="preference_title_sync_reading_lists_from_account">مزامنة قائمة القراءة</string>
+  <string name="preference_title_sync_reading_lists_from_account">مزامنة قائمة القراءة</string>
   <string name="preference_title_download_reading_list_articles">تنزيل مقالات قائمة القراءة</string>
   <string name="preference_summary_sync_reading_lists">مزامنة قائمة قراءتك عبر الأجهزة المختلفة من خلال حفظها إلى حساب ويكيبيديا الخاص بك</string>
   <string name="preference_summary_sync_reading_lists_from_account">مزامنة قائمة قراءتك عبر الأجهزة المختلفة من خلال حفظها إلى حساب ويكيبيديا الخاص بك %s</string>
@@ -223,7 +223,7 @@
   <string name="abusefilter_title_disallow">لا يمكنك نشر هذا التعديل. فضلًا عُد وغيّره.</string>
   <string name="abusefilter_text_warn">قام مرشحٌ تلقائيٌ بالتعرف على هذا التعديل على أنه قد يكون غير بناءٍ. قد يحتوي التعديل على حالة أو أكثر مما يلي:&lt;br /&gt;&lt;br /&gt;· كتابة الكل بأحرف كبيرة&lt;br /&gt;· إفراغ المقالات أو إضافة وصلات السبام&lt;br /&gt;· إضافة وصلات خارجية أو صور ليست لها صلة بالموضوع&lt;br /&gt;· تكرار أحرف</string>
   <string name="abusefilter_text_disallow">قام مرشحٌ تلقائيٌ بالتعرف على هذا التعديل على أنه قد يكون غير بناءٍ، أو تخريب محتمل.&lt;br /&gt;&lt;br /&gt;ويكيبيديا موسوعة ومحايدة فقط، ولا تقبل سوى بالمحتوى الذي يُحقق الملحوظية.</string>
-    <string name="text_size_select">حجم الخط</string>
+  <string name="text_size_select">حجم الخط</string>
   <string name="page_similar_titles">صفحات مشابهة</string>
   <string name="search_did_you_mean">هل تقصد \"%s\"؟</string>
   <string name="search_recent_header">أحدث عمليات البحث:</string>
@@ -276,7 +276,7 @@
   <string name="close_all_tabs_confirm_no">لا</string>
   <string name="button_close_tab">أغلق اللسان</string>
   <string name="tab_item_closed">%s تم إغلاقه.</string>
-    <string name="tool_tip_bookmark_icon_title">الإضافة إلى قائمة القراءة</string>
+  <string name="tool_tip_bookmark_icon_title">الإضافة إلى قائمة القراءة</string>
   <string name="tool_tip_bookmark_icon_text">اضغط على أيقونة الإشارة المرجعية لحفظ المقالة في قائمة قراءة.</string>
   <string name="tool_tip_share">بعد تحديد حقيقة مثيرة للاهتمام، حاول مشاركتها على شبكات التواصل المفضلة لديك!</string>
   <string name="page_view_in_browser">اعرض الصفحة في المتصفح</string>
@@ -295,7 +295,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">لا يمكن تحميل المقالة في حالة عدم الاتصال.</string>
   <string name="page_offline_notice_add_to_reading_list">ملحوظة: أضف المقالة إلى قائمة قراءة وسيتم تنزيلها حينما تعاود الاتصال بالشبكة.</string>
   <string name="page_offline_notice_last_date">أنت تقرأ نسخةً من هذه المقالة بوضع عدم الاتصال تم حفظها في %s.</string>
-    <string name="button_get_directions">احصل على الاتجاهات</string>
+  <string name="button_get_directions">احصل على الاتجاهات</string>
   <string name="error_no_maps_app">تعذّر إيجاد أي تطبيقٍ يوفر الاتجاهات</string>
   <string name="preference_title_show_link_previews">إظهار معايناتٍ للوصلة</string>
   <string name="preference_summary_show_link_previews">إظهار معاينة سريعة للمقالات حين النقر على الوصلات.</string>
@@ -317,7 +317,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">تخفيت الصور (في المظهر الداكن)</string>
   <string name="preference_title_prefer_offline_content">تفضيل المحتوى دون اتصال</string>
   <string name="preference_summary_prefer_offline_content">حفظ استخدام البيانات بتحميل المقالات المتاحة في وضع عدم الاتصال بدلا من تحميل أحدث إصدار من مقالة دائما</string>
-    <string name="crash_report_dialog_title">عذرا، تعطل التطبيق في آخر مرة</string>
+  <string name="crash_report_dialog_title">عذرا، تعطل التطبيق في آخر مرة</string>
   <string name="crash_report_dialog_text">هل ترغب في إرسال تقرير العطل إلى HockeyApp / مزود خدمة من طرف ثالث، بحيث يمكن لويكيميديا من مراجعة العطل الخاص بك وإصلاح الخلل الذي تسبب في ذلك؟</string>
   <string name="crash_report_dialog_dont_send_button">تجاوز</string>
   <string name="crash_report_dialog_always_send_button">أرسل دائما</string>
@@ -343,10 +343,10 @@
   <string name="text_size_decrease">تقليل حجم الخط</string>
   <string name="text_size_percent_default">%s (افتراضي)</string>
   <string name="nav_item_reading_lists">قوائمي</string>
-    <string name="reading_list_save_to">احفظ في قائمة القراءة</string>
+  <string name="reading_list_save_to">احفظ في قائمة القراءة</string>
   <string name="reading_list_create_new">أنشئ قائمة قراءة جديدة</string>
   <string name="reading_list_title_exists">قائمة القراءة \"%s\" موجودة فعلًا.</string>
-    <string name="reading_list_added_to_named">أضيفت إلى %s.</string>
+  <string name="reading_list_added_to_named">أضيفت إلى %s.</string>
   <string name="reading_list_already_exists">هذه المقالة موجودة بالفعل في هذه القائمة</string>
   <string name="reading_list_added_view_button">عرض القائمة</string>
   <string name="format_reading_list_statistical_summary_singular">مقالة واحدة، %1$.2f ميجا بايت</string>
@@ -363,7 +363,7 @@
   <string name="reading_list_sort_by_created_desc"> فرز حسب تاريخ الإنشاء (الأقدم)</string>
   <string name="reading_list_menu_delete">احذف القائمة</string>
   <string name="reading_list_menu_rename">تحرير الاسم/الوصف</string>
-    <string name="reading_list_action_menu_remove_from_offline">أزل من وضع عدم الاتصال</string>
+  <string name="reading_list_action_menu_remove_from_offline">أزل من وضع عدم الاتصال</string>
   <string name="reading_list_action_menu_save_for_offline">حفظ في وضع عدم الاتصال</string>
   <string name="reading_list_action_menu_remove_all_from_offline">إزالة الكل من عدم الاتصال</string>
   <string name="reading_list_action_menu_save_all_for_offline">حفظ الكل لعدم الاتصال</string>
@@ -383,7 +383,7 @@
   <string name="reading_lists_onboarding_example2">الحيوانات المفضلة</string>
   <string name="reading_lists_onboarding_example3">استكشاف الفضاء</string>
   <string name="reading_lists_onboarding_got_it">حسنًا</string>
-    <string name="reading_list_empty">ليس لديك مقالات مضافة في هذه القائمة.</string>
+  <string name="reading_list_empty">ليس لديك مقالات مضافة في هذه القائمة.</string>
   <string name="reading_list_article_offline">متاح في وضع عدم الاتصال</string>
   <string name="reading_list_article_make_offline">إتاحة هذه المقالة دون اتصال</string>
   <string name="reading_list_add_to_other_list">أضف لقائمة قراءة أخرى</string>
@@ -398,7 +398,7 @@
   <string name="reading_lists_sync_reminder_action">تمكين المزامنة</string>
   <string name="reading_list_login_reminder_title">مزامنة قوائم القراءة</string>
   <string name="reading_lists_login_reminder_text">يمكن الآن مزامنة قوائم القراءة عبر الأجهزة، قم بتسجيل الدخول إلى حساب ويكيبيديا الخاص بك والسماح بحفظ قوائمك.</string>
-    <string name="reading_lists_confirm_remote_delete_yes">نعم</string>
+  <string name="reading_lists_confirm_remote_delete_yes">نعم</string>
   <string name="reading_lists_confirm_remote_delete_no">لا</string>
   <string name="reading_list_article_save_in_progress">جارٍ تنزيل المقالة، وستكون متاحةً في وضع عدم الاتصال عن الاكتمال.</string>
   <string name="reading_list_already_contains_selection">القائمة المختارة تحتوي بالفعل على كل الصفحات المحددة</string>
@@ -449,15 +449,11 @@
   <string name="reading_list_toast_last_sync">تمت مزامنة قوائم القراءة بنجاح</string>
   <string name="reading_list_menu_last_sync">آخر مزامنة: %s</string>
   <string name="user_option_sync_label">تفضيلات</string>
-    <string name="notification_reverted_title">تعديل ملغى</string>
-    <string name="notification_channel_description">تقدم التنزيل</string>
+  <string name="notification_reverted_title">تعديل ملغى</string>
+  <string name="notification_channel_description">تقدم التنزيل</string>
   <string name="notification_syncing_pause_button">وقف</string>
   <string name="notification_syncing_resume_button">استئناف</string>
   <string name="notification_syncing_cancel_button">ألغ</string>
-  <plurals name="notification_syncing_reading_list_channel_name">
-    <item quantity="one">مزامنة قائمة القراءة</item>
-    <item quantity="other">مزامنة قوائم القراءة</item>
-  </plurals>
   <string name="notification_syncing_reading_list_channel_description">جارٍ تقدم مزامنة قوائم القراءة</string>
   <plurals name="notification_channel_name">
     <item quantity="one">جارٍ تنزيل المقالة</item>
@@ -470,6 +466,10 @@
   <plurals name="notification_syncing_description">
     <item quantity="one">%1$d مقالة متبقية</item>
     <item quantity="other">%1$d مقالات متبقية</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">مزامنة قائمة القراءة</item>
+    <item quantity="other">مزامنة قوائم القراءة</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_title">
     <item quantity="one">تجري مزامنة %1$d قائمة…</item>
@@ -545,7 +545,7 @@
   <string name="feed_configure_language_warning">لاحظ أنه لا تتوفر جميع أنواع البطاقات بجميع لغات ويكيبيديا، عدِّل اللغات المحددة في الإعدادات.</string>
   <string name="feed_item_type_news">مقالات عن الأحداث الجارية</string>
   <string name="feed_item_type_on_this_day">أحداث تاريخية في هذا اليوم</string>
-    <string name="feed_item_type_because_you_read">اقتراحات تستند إلى مقالة تمت قراءتها مؤخرا من سجلك</string>
+  <string name="feed_item_type_because_you_read">اقتراحات تستند إلى مقالة تمت قراءتها مؤخرا من سجلك</string>
   <string name="feed_item_type_featured_article">المقالة المختارة يوميًّا على ويكيبيديا</string>
   <string name="feed_item_type_trending">المقالات الأكثر قراءة يوميا</string>
   <string name="feed_item_type_featured_image">صورة يومية مختارة من ويكيميديا ​​كومنز</string>
@@ -593,21 +593,21 @@
   <string name="description_edit_revert_reason1">مساهمتك لا تتبع أحد &lt;a href=\"%1$s\"&gt;الإرشادات&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">مساهمتك ظهرت كتجربة أو تخريب.</string>
   <string name="description_edit_revert_history">إن كنت مهتما، طالع &lt;a href=\"%1$s\"&gt;تاريخ التعديل&lt;/a&gt;.</string>
-    <string name="offline_read_permission_rationale">مطلوب إذن للوصول إلى التخزين على جهازك للتصفح دون اتصال.</string>
+  <string name="offline_read_permission_rationale">مطلوب إذن للوصول إلى التخزين على جهازك للتصفح دون اتصال.</string>
   <string name="offline_read_final_rationale">مطلوب إذن للوصول إلى التخزين على جهازك لاستخدام المكتبة دون اتصال.</string>
-    <string name="size_gb">%.2f جيجابايت</string>
+  <string name="size_gb">%.2f جيجابايت</string>
   <string name="size_mb">%.2f ميجابايت</string>
-    <plurals name="offline_compilation_download_time_remaining">
+  <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">1 دقيقة متبقية</item>
     <item quantity="other">%d دقائق متبقية</item>
   </plurals>
-    <string name="onboarding_skip">تجاوز</string>
+  <string name="onboarding_skip">تجاوز</string>
   <string name="onboarding_continue">استمر</string>
   <string name="onboarding_get_started">ابدأ</string>
   <string name="onboarding_explore_title">طريقة جديدة للاستكشاف</string>
   <string name="onboarding_explore_text">يمكنك الغوص في حفرة الأرنب في ويكيبيديا من خلال تحديث الموجز باستمرار. &lt;br/&gt; &lt;b&gt;خصِّص&lt;/b&gt;  الخلاصة لمصالحك - سواء أكانت تعلم أحداثا تاريخية &lt;b&gt;في هذا اليوم&lt;/b&gt;، أو تدحرج النرد &lt;b&gt;بعشوائية&lt;/b&gt;.</string>
-    <string name="onboarding_reading_list_sync_title">قوائم القراءة مع المزامنة</string>
-    <string name="onboarding_reading_list_sync_text_v2">أنشئ قوائم قراءة من المقالات التي تريد قراءتها لاحقا، حتى في وضع عدم الاتصال. &lt;br/&gt;قم بتسجيل الدخول لحسابك في ويكيبيديا لمزامنة قوائم قراءتك، &lt;a href=\"#login\"&gt;انضم إلى ويكيبيديا&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title">قوائم القراءة مع المزامنة</string>
+  <string name="onboarding_reading_list_sync_text_v2">أنشئ قوائم قراءة من المقالات التي تريد قراءتها لاحقا، حتى في وضع عدم الاتصال. &lt;br/&gt;قم بتسجيل الدخول لحسابك في ويكيبيديا لمزامنة قوائم قراءتك، &lt;a href=\"#login\"&gt;انضم إلى ويكيبيديا&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">إرسال بيانات مجهولة المصدر</string>
   <string name="onboarding_analytics_offline_text">ساعد في تحسين التطبيق بالسماح لنا بمعرفة كيفية استخدامه، البيانات التي تم جمعها مجهولة، &lt;a href=\"#privacy\"&gt;معرفة المزيد&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">إرسال بيانات الاستخدام</string>

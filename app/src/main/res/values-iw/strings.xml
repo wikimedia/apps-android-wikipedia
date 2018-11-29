@@ -43,7 +43,7 @@
   <string name="menu_page_show_tabs">הצגת לשוניות</string>
   <string name="menu_page_other_languages">שינוי שפה</string>
   <string name="menu_page_find_in_page">חיפוש בדף</string>
-    <string name="menu_page_font_and_theme">גופן וערכת נושא</string>
+  <string name="menu_page_font_and_theme">גופן וערכת נושא</string>
   <string name="menu_page_add_to_list">הוספה לרשימת הקריאה</string>
   <string name="menu_page_share">שיתוף קישור</string>
   <string name="menu_page_open_a_new_tab">פתיחת לשונית חדשה</string>
@@ -69,7 +69,7 @@
   <string name="edit_save_action_license_logged_in">פרסום השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">פרסום השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. העריכות תיוחסנה לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך יותר פרטיות.</string>
   <string name="preference_title_language">שפות ויקיפדיה</string>
-    <string name="langlinks_filter_hint">חיפוש</string>
+  <string name="langlinks_filter_hint">חיפוש</string>
   <string name="langlinks_empty">הדף הזה אינו זמין בשפות אחרות</string>
   <string name="langlinks_no_match">לא נמצאו שפות</string>
   <string name="langlinks_activity_title">שפות אחרות</string>
@@ -142,13 +142,13 @@
   <string name="create_account_ip_block_details">פרטים</string>
   <string name="preferences_general_heading">כללי</string>
   <string name="wikipedia_app_faq">שו\"ת אפליקציית ויקיפדיה</string>
-    <string name="edit_preview_fetching_dialog_message">אחזור תצוגה מקדימה…</string>
+  <string name="edit_preview_fetching_dialog_message">אחזור תצוגה מקדימה…</string>
   <string name="send_feedback">לשלוח משוב על האפליקציה</string>
   <string name="create_account_account_created_toast">החשבון נוצר!</string>
-    <string name="preferences_heading_syncing">סנכרון</string>
+  <string name="preferences_heading_syncing">סנכרון</string>
   <string name="preferences_heading_data_usage">שימוש בנתונים</string>
   <string name="preferences_heading_experimental">ניסיוני</string>
-    <string name="preference_title_sync_reading_lists_from_account">סנכרון רשימות קריאה</string>
+  <string name="preference_title_sync_reading_lists_from_account">סנכרון רשימות קריאה</string>
   <string name="preference_title_download_reading_list_articles">להוריד למכשיר ערכים מרשימת הקריאה</string>
   <string name="preference_summary_sync_reading_lists">סנכרון רשימות קריאה במכשירים שונים באמצעות שמירתם לחשבון הוויקיפדיה שלך</string>
   <string name="preference_summary_sync_reading_lists_from_account">סנכרון רשימות קריאה במכשירים שונים באמצעות שמירתם לחשבון הוויקיפדיה שלך \"%s\"</string>
@@ -213,7 +213,7 @@
   <string name="abusefilter_title_disallow">לא ניתן לפרסם את העריכה הזאת. נא לחזור ולשנות אותה.</string>
   <string name="abusefilter_text_warn">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה. ייתכן שהיא מכילה אחד מהבאים:&lt;br /&gt;&lt;br /&gt;· הקלדה באותיות גדולות&lt;br /&gt;· מחיקת כל הטקסט או זיבול&lt;br /&gt;· תמונות או קישורים חיצוניים שאינם שייכים&lt;br /&gt;· אותיות שחוזרות על עצמן</string>
   <string name="abusefilter_text_disallow">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה או משחיתה.&lt;br /&gt;&lt;br /&gt;ויקיפדיה היא אנציקלופדיה ורק תוכן מאוזן ובעל חשיבות שייך מתאים לכאן.</string>
-    <string name="text_size_select">גודל גופן</string>
+  <string name="text_size_select">גודל גופן</string>
   <string name="page_similar_titles">דפים דומים</string>
   <string name="search_did_you_mean">האם התכוונת לחפש \"%s\"?</string>
   <string name="search_recent_header">חיפוש אחרונים:</string>
@@ -266,7 +266,7 @@
   <string name="close_all_tabs_confirm_no">לא</string>
   <string name="button_close_tab">סגירת לשונית</string>
   <string name="tab_item_closed">הלשונית %s נסגרה.</string>
-    <string name="tool_tip_bookmark_icon_title">הוספה לרשימת הקריאה</string>
+  <string name="tool_tip_bookmark_icon_title">הוספה לרשימת הקריאה</string>
   <string name="tool_tip_bookmark_icon_text">נא ללחוץ על כפתור הסימנייה כדי לשמור את הערך  לרשימת הקריאה.</string>
   <string name="tool_tip_share">אחרי שהארת עובדה מעניינת זה הזמן לנסות לשתף אותה ברשתות האהובות עליך!</string>
   <string name="page_view_in_browser">להציג את הדף בדפדפן</string>
@@ -285,7 +285,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">אי־אפשר לטעון ערך ללא חיבור לרשת.</string>
   <string name="page_offline_notice_add_to_reading_list">רמז: הוסף את הערך לרשימת הקריאה, והוא יוּרד כששוב יהיה חיבור לרשת.</string>
   <string name="page_offline_notice_last_date">זאת גרסה לקריאה ללא חיבור לרשת של הערך הזה, שנשמרה ב־%s.</string>
-    <string name="button_get_directions">לקבל כיוונים</string>
+  <string name="button_get_directions">לקבל כיוונים</string>
   <string name="error_no_maps_app">לא מצאתי שום אפליקציה שנותנת כיוונים.</string>
   <string name="preference_title_show_link_previews">תצוגה מקדימה של קישורים</string>
   <string name="preference_summary_show_link_previews">הצגת תקציר מהיר של ערכים בעת הקשה על קישורים.</string>
@@ -307,7 +307,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">עמעום תמונות (בערכת נושא חשוכה)</string>
   <string name="preference_title_prefer_offline_content">להעדיף תוכן לא מקוון</string>
   <string name="preference_summary_prefer_offline_content">לחסוך בשימוש בנתונים על־ידי טעינת ערכים שזמינים לקריאה במצב לא מקוון במקום טעינת הגרסה האחרונה של הערך</string>
-    <string name="crash_report_dialog_title">סליחה, האפליקציה קרסה בפעם הקודמת</string>
+  <string name="crash_report_dialog_title">סליחה, האפליקציה קרסה בפעם הקודמת</string>
   <string name="crash_report_dialog_text">הטם לשלוח דיווח קריסה ל־HockeyApp / ספק שירות צד־שלישי באופן אוטומטי כדי שוויקימדיה תוכל לסקור את הקריסה שלך ולתקן את הבאג שגרם לה?</string>
   <string name="crash_report_dialog_dont_send_button">לדלג</string>
   <string name="crash_report_dialog_always_send_button">לשלוח תמיד</string>
@@ -333,10 +333,10 @@
   <string name="text_size_decrease">הקטנת הטקסט</string>
   <string name="text_size_percent_default">%s (ברירת מחדל)</string>
   <string name="nav_item_reading_lists">רשימות</string>
-    <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
+  <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
   <string name="reading_list_create_new">ליצור חדשה</string>
   <string name="reading_list_title_exists">רשימת הקריאה \"%s\" כבר קיימת.</string>
-    <string name="reading_list_added_to_named">נוסף לרשימה %s.</string>
+  <string name="reading_list_added_to_named">נוסף לרשימה %s.</string>
   <string name="reading_list_already_exists">הערך הזה כבר ברשימה.</string>
   <string name="reading_list_added_view_button">הצגת הרשימה</string>
   <string name="format_reading_list_statistical_summary_singular">ערך אחד %1$.2f מ\"ב</string>
@@ -353,7 +353,7 @@
   <string name="reading_list_sort_by_created_desc">מיון לפי מועד היצירה (הישן ביותר)</string>
   <string name="reading_list_menu_delete">מחיקת רשימה</string>
   <string name="reading_list_menu_rename">שינוי שם/תיאור</string>
-    <string name="reading_list_action_menu_remove_from_offline">הסרה מקריאה ללא חיבור לרשת</string>
+  <string name="reading_list_action_menu_remove_from_offline">הסרה מקריאה ללא חיבור לרשת</string>
   <string name="reading_list_action_menu_save_for_offline">שמירה לקריאה ללא חיבור לרשת</string>
   <string name="reading_list_action_menu_remove_all_from_offline">להסיר הכול מקריאה לא מקוונת</string>
   <string name="reading_list_action_menu_save_all_for_offline">לשמור הכול לקריאה לא מקוונת</string>
@@ -373,7 +373,7 @@
   <string name="reading_lists_onboarding_example2">חיות אהובות</string>
   <string name="reading_lists_onboarding_example3">חקר החלל</string>
   <string name="reading_lists_onboarding_got_it">הבנתי</string>
-    <string name="reading_list_empty">אין לך ערכים להוסיף לרשימה הזאת.</string>
+  <string name="reading_list_empty">אין לך ערכים להוסיף לרשימה הזאת.</string>
   <string name="reading_list_article_offline">זמין ללא חיבור לרשת</string>
   <string name="reading_list_article_make_offline">לגרום לערך הזה להיות זמין ללא חיבור לרשת</string>
   <string name="reading_list_add_to_other_list">הוספה לרשימת קריאה אחרת</string>
@@ -388,7 +388,7 @@
   <string name="reading_lists_sync_reminder_action">הפעלת סנכרון</string>
   <string name="reading_list_login_reminder_title">סנכרן רשימות קריאה</string>
   <string name="reading_lists_login_reminder_text">עכשיו אפשר לסנכרן רשימות קריאה במכשירים שונים. נא להיכנס לחשבון הוויקיפדיה שלך ולאפשר את שמירת רשימות הקריאה שלך.</string>
-    <string name="reading_lists_confirm_remote_delete_yes">כן</string>
+  <string name="reading_lists_confirm_remote_delete_yes">כן</string>
   <string name="reading_lists_confirm_remote_delete_no">לא</string>
   <string name="reading_list_article_save_in_progress">הורדת הערך מתבצעת, והוא יהיה זמין ללא חיבור לרשת כשהיא תושלם.</string>
   <string name="reading_list_already_contains_selection">הרשימה שנבחרה כבר מכילה את כל הדפים שנבחרו.</string>
@@ -439,15 +439,11 @@
   <string name="reading_list_toast_last_sync">רשימות הקריאה סונכרנו בהצלחה</string>
   <string name="reading_list_menu_last_sync">סנכרון אחרון: %s</string>
   <string name="user_option_sync_label">העדפות</string>
-    <string name="notification_reverted_title">עריכה משוחזרת</string>
-    <string name="notification_channel_description">התקדמות הורדה</string>
+  <string name="notification_reverted_title">עריכה משוחזרת</string>
+  <string name="notification_channel_description">התקדמות הורדה</string>
   <string name="notification_syncing_pause_button">השהיה</string>
   <string name="notification_syncing_resume_button">המשך</string>
   <string name="notification_syncing_cancel_button">ביטול</string>
-  <plurals name="notification_syncing_reading_list_channel_name">
-    <item quantity="one">סנכרון רשימת קריאה</item>
-    <item quantity="other">סנכרון רשימות קריאה</item>
-  </plurals>
   <string name="notification_syncing_reading_list_channel_description">התקדמות סנכרון רשימות קריאה</string>
   <plurals name="notification_channel_name">
     <item quantity="one">מתבצעת הורדה של ערך</item>
@@ -460,6 +456,10 @@
   <plurals name="notification_syncing_description">
     <item quantity="one">נשאר ערך אחד</item>
     <item quantity="other">נשארו %1$d ערכים</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">סנכרון רשימת קריאה</item>
+    <item quantity="other">סנכרון רשימות קריאה</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_title">
     <item quantity="one">מתבצע סנכרון של רשימה אחת…</item>
@@ -535,7 +535,7 @@
   <string name="feed_configure_language_warning">לתשומת לבך: לא כל סוגי הכרטיסים זמינים בכל השפות של ויקיפדיה. באפשרותך לערוך את השפות שבחרת בהגדרות.</string>
   <string name="feed_item_type_news">ערכים על אירועים אקטואליים</string>
   <string name="feed_item_type_on_this_day">אירועים בהיסטוריה ביום הזה</string>
-    <string name="feed_item_type_because_you_read">הצעות על סמך ערכים שקראת לאחרונה מההיסטוריה שלך</string>
+  <string name="feed_item_type_because_you_read">הצעות על סמך ערכים שקראת לאחרונה מההיסטוריה שלך</string>
   <string name="feed_item_type_featured_article">ערך מומלץ יומי בוויקיפדיה</string>
   <string name="feed_item_type_trending">הערכים המוצגים ביותר ביום</string>
   <string name="feed_item_type_featured_image">תמונה יומית מומלצת מוויקישיתוף</string>
@@ -583,21 +583,21 @@
   <string name="description_edit_revert_reason1">התרומה שלך הייתה מנוגדת ל&lt;a href=\"%1$s\"&gt;הוראות&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">העריכה שלך נראתה כמו ניסוי או השחתה.</string>
   <string name="description_edit_revert_history">אם זה מעניין אותך, ר\' את &lt;a href=\"%1$s\"&gt;היסטוריית העריכות&lt;/a&gt;.</string>
-    <string name="offline_read_permission_rationale">ההרשאה לגשת לאחסון במכשיר שלך נחוצה בשביל דפדוף ללא חיבור לרשת.</string>
+  <string name="offline_read_permission_rationale">ההרשאה לגשת לאחסון במכשיר שלך נחוצה בשביל דפדוף ללא חיבור לרשת.</string>
   <string name="offline_read_final_rationale">השראה לגשת לאחסון במכשיר שלך נדרשת לשימוש בספרייה הלא־מקוונת שלך.</string>
-    <string name="size_gb">%.2f ג\"ב</string>
+  <string name="size_gb">%.2f ג\"ב</string>
   <string name="size_mb">%.2f מ\"ב</string>
-    <plurals name="offline_compilation_download_time_remaining">
+  <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">נשארה דקה</item>
     <item quantity="other">נשארו %d דקות</item>
   </plurals>
-    <string name="onboarding_skip">לדלג</string>
+  <string name="onboarding_skip">לדלג</string>
   <string name="onboarding_continue">להמשיך</string>
   <string name="onboarding_get_started">להתחיל</string>
   <string name="onboarding_explore_title">דרכים חדשות לחקור</string>
   <string name="onboarding_explore_text">תצללו לוויקיפדיה עם ההזנה המתעדכנת שלנו: \"לחקור\". &lt;br/&gt; תתאימו את ההזנה למה שמעניין אתכם – תלמדו על מה שקרה &lt;b&gt;היום בהיסטוריה&lt;/b&gt;, או תפתחו משהו &lt;b&gt;אקראי&lt;/b&gt;.</string>
-    <string name="onboarding_reading_list_sync_title">רשימת קריאה עם סנכרון</string>
-    <string name="onboarding_reading_list_sync_text_v2">אפשר ליצור רשימות קריאה מערכים שברצונך לקרוא מאוחר יותר, גם ללא חיבור לרשת. &lt;br/&gt;יש להיכנס לחשבון הוויקיפדיה שלך כדי לסנכרן את רשימות הקריאה שלך &lt;a href=\"#login\"&gt;הצטרפות לוויקיפדיה&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title">רשימת קריאה עם סנכרון</string>
+  <string name="onboarding_reading_list_sync_text_v2">אפשר ליצור רשימות קריאה מערכים שברצונך לקרוא מאוחר יותר, גם ללא חיבור לרשת. &lt;br/&gt;יש להיכנס לחשבון הוויקיפדיה שלך כדי לסנכרן את רשימות הקריאה שלך &lt;a href=\"#login\"&gt;הצטרפות לוויקיפדיה&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">שליחת נתונים אלמוניים</string>
   <string name="onboarding_analytics_offline_text">עזרו לנו לשפר את האפליקציה על־ידי זה שתאפשרו לנו ללמוד איך אתם משתמשים בה. איסוף הנתונים נעשה באלמוניות. &lt;a href=\"#privacy\"&gt;מידע נוסף&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">שליחת נתוני שימוש</string>

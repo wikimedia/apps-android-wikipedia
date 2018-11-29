@@ -51,7 +51,7 @@
   <string name="content_license_html">Turinys prieinamas pagal &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, jei nenurodyta kitaip</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Išsaugodami jūs sutinkate su &lt;a href=\"%1$s\"&gt;naudojimosi sąlygomis&lt;/a&gt; ir neatšaukiamu savo indėlio paskelbimu pagal&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenciją.</string>
   <string name="preference_title_language">Vikipedijos kalbos</string>
-    <string name="langlinks_filter_hint">Ieškoti</string>
+  <string name="langlinks_filter_hint">Ieškoti</string>
   <string name="langlinks_empty">Šis puslapis nėra išverstas į kitas kalbas.</string>
   <string name="langlinks_no_match">Nerasta kalbų</string>
   <string name="langlinks_activity_title">Kitos kalbos</string>
@@ -102,7 +102,7 @@
   <string name="create_account_button">Kurti paskyrą</string>
   <string name="preferences_general_heading">Bendras</string>
   <string name="wikipedia_app_faq">Vikipedijos programėlės DUK</string>
-    <string name="edit_preview_fetching_dialog_message">Ruošiama peržiūra…</string>
+  <string name="edit_preview_fetching_dialog_message">Ruošiama peržiūra…</string>
   <string name="send_feedback">Siųsti atsiliepimą apie programėlę</string>
   <string name="create_account_account_created_toast">Paskyra sukurta!</string>
   <string name="preferences_privacy_settings_heading">Privatumas</string>
@@ -150,7 +150,7 @@
   <string name="find_previous">Rasti ankstesnį</string>
   <string name="abusefilter_title_warn">Panašu, kad šie pakeitimai nekonstruktyvūs. Ar tikrai norite juos paskelbti?</string>
   <string name="abusefilter_title_disallow">Jūs negalite išsaugoti šio keitimo. Prašome grįžti atgal ir pakeisti jį.</string>
-    <string name="text_size_select">Šrifto dydis</string>
+  <string name="text_size_select">Šrifto dydis</string>
   <string name="page_similar_titles">Panašūs puslapiai</string>
   <string name="search_did_you_mean">Ar turėjote omenyje „%s“?</string>
   <string name="search_recent_header">Naujausios paieškos:</string>
@@ -241,7 +241,7 @@
   <string name="text_size_decrease">Sumažinti teksto dydį</string>
   <string name="text_size_percent_default">%s (Numatytasis)</string>
   <string name="nav_item_reading_lists">Mano sąrašai</string>
-    <string name="reading_list_save_to">Įtraukti į skaitymo sąrašą</string>
+  <string name="reading_list_save_to">Įtraukti į skaitymo sąrašą</string>
   <string name="reading_list_create_new">Sukurti naują</string>
   <string name="reading_list_added_to_named">Pridėta prie %s.</string>
   <string name="reading_list_already_exists">Šis straipsnis jau yra šiame sąraše.</string>
@@ -253,7 +253,7 @@
   <string name="reading_list_sort_by_recent_desc">Rūšiuoti pagal pridėjimo datą (seniausius)</string>
   <string name="reading_list_menu_delete">Ištrinti sąrašą</string>
   <string name="reading_list_menu_rename">Keisti pavadinimą/aprašymą</string>
-    <string name="reading_list_name_sample">Mano skaitymo sąrašas</string>
+  <string name="reading_list_name_sample">Mano skaitymo sąrašas</string>
   <string name="reading_list_name_hint">Sąrašo pavadinimas</string>
   <string name="reading_list_description_hint">Aprašymas (neprivalomas)</string>
   <string name="reading_list_item_deleted">%s pašalintas iš sąrašo</string>
@@ -266,7 +266,7 @@
   <string name="reading_lists_onboarding_example2">Mėgstami gyvūnai</string>
   <string name="reading_lists_onboarding_example3">Kosmoso tyrinėjimas</string>
   <string name="reading_lists_onboarding_got_it">Supratau</string>
-    <string name="reading_list_empty">Neturite pridėtų į sąrašą straipsnių.</string>
+  <string name="reading_list_empty">Neturite pridėtų į sąrašą straipsnių.</string>
   <string name="reading_list_article_make_offline">Versti šį straipsnį būti prieinamam neprisijungus</string>
   <string name="reading_list_remove_from_list">Pašalinti iš %s</string>
   <string name="reading_lists_confirm_remote_delete_yes">Taip</string>
@@ -286,7 +286,7 @@
     <item quantity="other">Šie straipsniai nebebus prieinami neprisijungus.</item>
   </plurals>
   <string name="user_option_sync_label">Nustatymai</string>
-    <string name="notification_syncing_pause_button">Sustabdyti</string>
+  <string name="notification_syncing_pause_button">Sustabdyti</string>
   <string name="notification_syncing_resume_button">Tęsti</string>
   <string name="notification_syncing_cancel_button">Atšaukti</string>
   <string name="view_continue_reading_card_title">Skaityti toliau</string>
