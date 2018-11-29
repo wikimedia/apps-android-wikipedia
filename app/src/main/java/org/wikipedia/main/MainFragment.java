@@ -1,6 +1,5 @@
 package org.wikipedia.main;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.ActivityNotFoundException;
@@ -21,7 +20,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -55,6 +53,7 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.search.SearchActivity;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.settings.Prefs;
@@ -72,8 +71,10 @@ import butterknife.ButterKnife;
 import butterknife.OnPageChange;
 import butterknife.Unbinder;
 
+import static org.wikipedia.Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY;
+
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
-        NearbyFragment.Callback, HistoryFragment.Callback, SearchFragment.Callback, FloatingQueueView.Callback,
+        NearbyFragment.Callback, HistoryFragment.Callback, FloatingQueueView.Callback,
         LinkPreviewDialog.Callback {
     @BindView(R.id.fragment_main_view_pager) ViewPager viewPager;
     @BindView(R.id.fragment_main_nav_tab_layout) NavTabLayout tabLayout;
@@ -90,8 +91,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     public interface Callback {
         void onTabChanged(@NonNull NavTab tab);
-        void onSearchOpen();
-        void onSearchClose(boolean shouldFinishActivity);
         void updateToolbarElevation(boolean elevate);
     }
 
@@ -157,7 +156,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 && resultCode == Activity.RESULT_OK && data != null
                 && data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) != null) {
             String searchQuery = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0);
-            openSearchFragment(SearchInvokeSource.VOICE, searchQuery);
+            openSearchActivity(SearchInvokeSource.VOICE, searchQuery);
         } else if (requestCode == Constants.ACTIVITY_REQUEST_GALLERY
                 && resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED) {
             startActivity(data);
@@ -176,6 +175,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
                 startActivity(PageActivity.newIntent(requireContext()));
             }
+        } else if (requestCode == Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY
+                && resultCode == SearchFragment.RESULT_LANG_CHANGED) {
+            refreshExploreFeed();
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
@@ -211,24 +213,19 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     public void handleIntent(Intent intent) {
         IntentFunnel funnel = new IntentFunnel(WikipediaApp.getInstance());
-        if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_SEARCH)) {
-            openSearchFragment(SearchInvokeSource.APP_SHORTCUTS, null);
-        } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_RANDOM)) {
+        if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_RANDOM)) {
             startActivity(RandomActivity.newIntent(requireActivity(), RandomActivity.INVOKE_SOURCE_SHORTCUT));
         } else if (Intent.ACTION_SEND.equals(intent.getAction())
                 && Constants.PLAIN_TEXT_MIME_TYPE.equals(intent.getType())) {
             funnel.logShareIntent();
-            openSearchFragment(SearchInvokeSource.INTENT_SHARE,
+            openSearchActivity(SearchInvokeSource.INTENT_SHARE,
                     intent.getStringExtra(Intent.EXTRA_TEXT));
         } else if (Intent.ACTION_PROCESS_TEXT.equals(intent.getAction())
                 && Constants.PLAIN_TEXT_MIME_TYPE.equals(intent.getType())
                 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             funnel.logProcessTextIntent();
-            openSearchFragment(SearchInvokeSource.INTENT_PROCESS_TEXT,
+            openSearchActivity(SearchInvokeSource.INTENT_PROCESS_TEXT,
                     intent.getStringExtra(Intent.EXTRA_PROCESS_TEXT));
-        } else if (intent.hasExtra(Constants.INTENT_SEARCH_FROM_WIDGET)) {
-            funnel.logSearchWidgetTap();
-            openSearchFragment(SearchInvokeSource.WIDGET, null);
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)) {
             goToTab(NavTab.READING_LISTS);
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)
@@ -242,7 +239,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onFeedSearchRequested() {
-        openSearchFragment(SearchInvokeSource.FEED_BAR, null);
+        openSearchActivity(SearchInvokeSource.FEED_BAR, null);
     }
 
     @Override public void onFeedVoiceSearchRequested() {
@@ -362,53 +359,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         // todo: [overhaul] clear history.
     }
 
-    @Override
-    public void onSearchResultCopyLink(@NonNull PageTitle title) {
-        copyLink(title.getCanonicalUri());
-    }
-
-    @Override
-    public void onSearchResultAddToList(@NonNull PageTitle title,
-                                        @NonNull AddToReadingListDialog.InvokeSource source) {
-        bottomSheetPresenter.show(getChildFragmentManager(),
-                AddToReadingListDialog.newInstance(title, source));
-    }
-
-    @Override
-    public void onSearchResultShareLink(@NonNull PageTitle title) {
-        ShareUtil.shareText(requireContext(), title);
-    }
-
-    @Override
-    public void onSearchSelectPage(@NonNull HistoryEntry entry, boolean inNewTab) {
-        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
-    }
-
-    @Override
-    public void onSearchOpen() {
-        Callback callback = callback();
-        if (callback != null) {
-            callback.onSearchOpen();
-        }
-    }
-
-    @Override
-    public void onSearchClose(boolean launchedFromIntent) {
-        SearchFragment fragment = searchFragment();
-        if (fragment != null) {
-            closeSearchFragment(fragment);
-            if (fragment.isLanguageChanged()) {
-                refreshExploreFeed();
-            }
-        }
-
-        Callback callback = callback();
-        if (callback != null) {
-            callback.onSearchClose(launchedFromIntent);
-        }
-    }
-
-    @Override
     public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {
         startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
     }
@@ -438,17 +388,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Override
     public boolean onBackPressed() {
-        SearchFragment searchFragment = searchFragment();
-        if (searchFragment != null && searchFragment.onBackPressed()) {
-            return true;
-        }
-
         Fragment fragment = getCurrentFragment();
-        if (fragment instanceof BackPressedHandler && ((BackPressedHandler) fragment).onBackPressed()) {
-            return true;
-        }
-
-        return false;
+        return fragment instanceof BackPressedHandler && ((BackPressedHandler) fragment).onBackPressed();
     }
 
     public void setBottomNavVisible(boolean visible) {
@@ -513,37 +454,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION);
     }
 
-    @SuppressLint("CommitTransaction")
-    private void openSearchFragment(@NonNull SearchInvokeSource source, @Nullable String query) {
-        Fragment fragment = searchFragment();
-        if (fragment == null) {
-            fragment = SearchFragment.newInstance(source, StringUtils.trim(query));
-            getChildFragmentManager()
-                    .beginTransaction()
-                    .add(R.id.fragment_main_container, fragment)
-                    .commitNowAllowingStateLoss();
-        }
-    }
-
-    @SuppressLint("CommitTransaction")
-    private void closeSearchFragment(@NonNull SearchFragment fragment) {
-        getChildFragmentManager().beginTransaction().remove(fragment).commitNowAllowingStateLoss();
-    }
-
-    @Nullable private SearchFragment searchFragment() {
-        return (SearchFragment) getChildFragmentManager().findFragmentById(R.id.fragment_main_container);
-    }
-
-    private void cancelSearch() {
-        SearchFragment fragment = searchFragment();
-        if (fragment != null) {
-            fragment.closeSearch();
-        }
+    private void openSearchActivity(@NonNull SearchInvokeSource source, @Nullable String query) {
+        Intent intent = SearchActivity.newIntent(requireActivity(), source.code(), query);
+        startActivityForResult(intent, ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY);
     }
 
     private void goToTab(@NonNull NavTab tab) {
         tabLayout.setSelectedItemId(tab.code());
-        cancelSearch();
     }
 
     private void refreshExploreFeed() {

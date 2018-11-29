@@ -25,12 +25,11 @@ public final class Constants {
     public static final int ACTIVITY_REQUEST_ADD_A_LANGUAGE = 59;
     public static final int ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH = 60;
     public static final int ACTIVITY_REQUEST_BROWSE_TABS = 61;
+    public static final int ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY = 62;
 
     public static final String INTENT_RETURN_TO_MAIN = "returnToMain";
-    public static final String INTENT_SEARCH_FROM_WIDGET = "searchFromWidget";
     public static final String INTENT_FEATURED_ARTICLE_FROM_WIDGET = "featuredArticleFromWidget";
 
-    public static final String INTENT_APP_SHORTCUT_SEARCH = "appShortcutSearch";
     public static final String INTENT_APP_SHORTCUT_CONTINUE_READING = "appShortcutContinueReading";
     public static final String INTENT_APP_SHORTCUT_RANDOM = "appShortcutRandom";
 
