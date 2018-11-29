@@ -12,12 +12,11 @@ import org.wikipedia.analytics.IntentFunnel;
 public class SearchActivity extends SingleFragmentActivity<SearchFragment> {
     static final String INVOKE_SOURCE_EXTRA = "invokeSource";
     static final String QUERY_EXTRA = "query";
-    static final IntentFunnel FUNNEL = new IntentFunnel(WikipediaApp.getInstance());
 
     public static Intent newIntent(@NonNull Context context, int source, @Nullable String query) {
 
         if (source == SearchInvokeSource.WIDGET.code()) {
-            FUNNEL.logSearchWidgetTap();
+            new IntentFunnel(WikipediaApp.getInstance()).logSearchWidgetTap();
         }
 
         return new Intent(context, SearchActivity.class)
@@ -27,7 +26,7 @@ public class SearchActivity extends SingleFragmentActivity<SearchFragment> {
 
     @Override
     public SearchFragment createFragment() {
-        return SearchFragment.newInstance(getIntent().getIntExtra(INVOKE_SOURCE_EXTRA, -1),
+        return SearchFragment.newInstance(getIntent().getIntExtra(INVOKE_SOURCE_EXTRA, SearchInvokeSource.TOOLBAR.code()),
                 getIntent().getStringExtra(QUERY_EXTRA));
     }
 }

@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.location.Location;
-import android.os.Build;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
@@ -26,7 +25,6 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
-import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
@@ -212,20 +210,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     public void handleIntent(Intent intent) {
-        IntentFunnel funnel = new IntentFunnel(WikipediaApp.getInstance());
         if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_RANDOM)) {
             startActivity(RandomActivity.newIntent(requireActivity(), RandomActivity.INVOKE_SOURCE_SHORTCUT));
-        } else if (Intent.ACTION_SEND.equals(intent.getAction())
-                && Constants.PLAIN_TEXT_MIME_TYPE.equals(intent.getType())) {
-            funnel.logShareIntent();
-            openSearchActivity(SearchInvokeSource.INTENT_SHARE,
-                    intent.getStringExtra(Intent.EXTRA_TEXT));
-        } else if (Intent.ACTION_PROCESS_TEXT.equals(intent.getAction())
-                && Constants.PLAIN_TEXT_MIME_TYPE.equals(intent.getType())
-                && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            funnel.logProcessTextIntent();
-            openSearchActivity(SearchInvokeSource.INTENT_PROCESS_TEXT,
-                    intent.getStringExtra(Intent.EXTRA_PROCESS_TEXT));
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)) {
             goToTab(NavTab.READING_LISTS);
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)

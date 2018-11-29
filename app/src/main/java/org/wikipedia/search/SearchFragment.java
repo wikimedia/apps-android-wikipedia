@@ -2,6 +2,7 @@ package org.wikipedia.search;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -20,8 +21,10 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.SearchFunnel;
 import org.wikipedia.database.contract.SearchHistoryContract;
 import org.wikipedia.history.HistoryEntry;
@@ -148,9 +151,12 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
 
-        invokeSource = SearchInvokeSource.of(getArguments().getInt(ARG_INVOKE_SOURCE));
-        query = getArguments().getString(ARG_QUERY);
+        if (savedInstanceState == null) {
+            handleIntent(requireActivity().getIntent());
+        }
 
+        invokeSource = SearchInvokeSource.of(getArguments().getInt(ARG_INVOKE_SOURCE, SearchInvokeSource.TOOLBAR.code()));
+        query = getArguments().getString(ARG_QUERY);
         funnel = new SearchFunnel(app, invokeSource);
     }
 
@@ -200,6 +206,22 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
             }
             setUpLanguageScroll(position);
             startSearch(query, true);
+        }
+    }
+
+    public void handleIntent(Intent intent) {
+        IntentFunnel intentFunnel = new IntentFunnel(WikipediaApp.getInstance());
+        if (Intent.ACTION_SEND.equals(intent.getAction())
+                && Constants.PLAIN_TEXT_MIME_TYPE.equals(intent.getType())) {
+            intentFunnel.logShareIntent();
+            getArguments().putString(ARG_QUERY, intent.getStringExtra(Intent.EXTRA_TEXT));
+            getArguments().putInt(ARG_INVOKE_SOURCE, SearchInvokeSource.INTENT_SHARE.code());
+        } else if (Intent.ACTION_PROCESS_TEXT.equals(intent.getAction())
+                && Constants.PLAIN_TEXT_MIME_TYPE.equals(intent.getType())
+                && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            intentFunnel.logProcessTextIntent();
+            getArguments().putString(ARG_QUERY, intent.getStringExtra(Intent.EXTRA_PROCESS_TEXT));
+            getArguments().putInt(ARG_INVOKE_SOURCE, SearchInvokeSource.INTENT_PROCESS_TEXT.code());
         }
     }
 
