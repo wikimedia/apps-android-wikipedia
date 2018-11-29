@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<!--
+    //TODO: Remove the override of the private attributes in values/sw360dp/v13/preference.xml
+     when a better solution is found in androidx for removing the iconReserved space.
+-->
 <android.support.v7.preference.PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/preferences_general_heading">
