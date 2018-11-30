@@ -680,6 +680,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+        outState.putString(LANGUAGE_CODE_BUNDLE_KEY, app.getAppOrSystemLanguageCode());
     }
 
     @Override
