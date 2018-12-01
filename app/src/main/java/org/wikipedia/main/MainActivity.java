@@ -60,7 +60,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
         AnimationUtil.setSharedElementTransitions(this);
-        new AppShortcuts().init();
+        new AppShortcuts();
 
         if (Prefs.isInitialOnboardingEnabled() && savedInstanceState == null) {
             // Updating preference so the search multilingual tooltip
