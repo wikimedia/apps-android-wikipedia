@@ -19,7 +19,7 @@
   <string name="nav_item_history">Stair</string>
   <string name="error_network_error">Ní féidir nasc leis an Idirlíon.</string>
   <string name="page_error_retry">Atriail</string>
-  <string name="page_error_back_to_main">Téigh siar</string>
+  <string name="page_error_back_to_main">Gabh siar</string>
   <string name="menu_clear_all_history">Glan stair</string>
   <string name="history_item_deleted">Baineadh %s ón stair</string>
   <string name="history_items_deleted">Baineadh %d alt amach ón stair</string>
@@ -99,8 +99,9 @@
   <string name="reset_password_button">Sábháil agus logáil isteach</string>
   <string name="preference_title_logout">Logáil amach</string>
   <string name="toast_logout_complete">Logáilte amach</string>
-  <string name="history_empty_title">Níl ailt a féachadh orthu le déanaí ann</string>
+  <string name="history_empty_title">Níor féachadh ar aon alt le déanaí</string>
   <string name="history_empty_message">Coinnigh súil anseo ar na hailt atá léite agat.</string>
+  <string name="history_offline_articles_toast">Is féidir nach mbeidh tú in ann amharc ar roinnt alt sa stair le linn duit a bheith as líne.</string>
   <string name="search_empty_message">Cuardaigh agus léigh an chiclipéid shaor i do theanga féin</string>
   <string name="search_empty_message_multilingual_upgrade">Cuardaigh Vicipéid i níos mó teangacha</string>
   <string name="delete_selected_items">Scrios míreanna roghnaithe</string>
@@ -143,6 +144,7 @@
   <string name="preference_summary_sync_reading_lists">Sioncronaigh liostaí léitheoireachta thar gléasanna difriúla trí hiad a shábháil ar do chuntas Vicipéide</string>
   <string name="preference_summary_sync_reading_lists_from_account">Sioncronaigh liostaí léitheoireachta thar ghléasanna difriúla trína sábháil ar do chuntas Vicipéide \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Bain liostaí léitheoireachta sioncronaithe de \"%s\"?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Scriosfar go hiomlán ón cianstóras ná liostaí léitheoireachta go léir a shioncrónaíodh roimhe seo. Bain na liostaí sioncronaithe go léir amach as do chuntas \"%s\"?</string>
   <string name="preferences_privacy_settings_heading">Príobháideachas</string>
   <string name="preference_title_eventlogging_opt_in">Seol tuairiscí úsáide</string>
   <string name="preference_summary_eventlogging_opt_in">Ceadaigh do Wikimedia eolas a bhailiú ar conas mar a úsáideann tú an aip chun an aip a fheabhsú</string>
@@ -152,6 +154,7 @@
   <string name="error_can_not_process_link">Níorbh fhéidir an nasc seo a thaispeáint</string>
   <string name="page_protected_autoconfirmed">Tá an leathanach seo leath-chosanta.</string>
   <string name="page_protected_sysop">Tá an leathanach seo cosanta go hiomlán.</string>
+  <string name="page_protected_can_not_edit">Tá brón orainn, níl a sháith pribhléidí ag do chuntas le haghaidh an leathanach seo ar chur in eagar faoi láthair.</string>
   <string name="page_protected_can_not_edit_anon">Tá brón orainn, ní féidir an leathanach seo a chur in eagar gan ainm faoi láthair.</string>
   <string name="page_protected_can_not_edit_title">Tá an leathanach seo cosanta</string>
   <string name="settings_item_preferences">Socruithe</string>
@@ -188,7 +191,8 @@
   <string name="edit_summary_tag_links">Cuireadh naisc leis</string>
   <string name="edit_summary_tag_other">Eile</string>
   <string name="edit_summary_tag_other_hint">Modhanna eile mar a fheabhsaigh tú an leathanach</string>
-  <string name="edit_conflict_message">Mhionathraigh úsáideoir eile an leathanach cheana féin, agus tá sé ag teacht salach ar d\'athrú. Cóipeáil do chuid athruithe, gabh siar agus athnuaigh an leathanach, agus ansin triail arís.</string>
+  <string name="edit_conflict_title">Athruithe ag teacht salach ar a chéile</string>
+  <string name="edit_conflict_message">Tá úsáideoir eile tar éis an leathanach a mhionathrú cheana féin, agus tá sé ag teacht salach ar an leagan a d\'athraigh tusa. Cóipeáil do chuid athruithe, gabh siar agus athnuaigh an leathanach, agus ansin triail arís.</string>
   <string name="find_next">An chéad ceann eile</string>
   <string name="find_previous">An ceann roimhe</string>
   <string name="find_first_occurence">Is é seo an chéad tarlú</string>
@@ -255,6 +259,7 @@
   <string name="tool_tip_toc_title">Mear-rochtain ar clár ábhair</string>
   <string name="tool_tip_toc_text">Anois is féidir svaipeáil ar chlé le clár ábhair a oscailt, agus is féidir an cnaipe scrollsaighde seo a thapáil agus a tharraingt le léim go tapa chuig na rannáin éagsúla san alt.</string>
   <string name="tool_tip_lang_button">Anois is féidir cuardach agus léamh in iliomad teangacha Vicipéide san aip.\n\n\nTapáil ar an deilbhín chun tuilleadh teangacha a chur leis.</string>
+  <string name="error_response_malformed">Níor formáidíodh i gceart an fhreagairt on bhfreastalaí.</string>
   <string name="error_unknown">Tharla earráid anaithnid.</string>
   <string name="format_error_server_message">Teachtaireacht: \"%s\"</string>
   <string name="address_copied">Cóipeáladh seoladh go gearrthaisce.</string>
@@ -367,7 +372,10 @@
   <string name="reading_lists_sync_reminder_action">Cumasaigh sioncronú</string>
   <string name="reading_list_login_reminder_title">Sioncronaigh liostaí léitheoireachta</string>
   <string name="reading_lists_login_reminder_text">Anois is féidir liostaí léitheoireachta a shioncrónú thar gléasanna. Logáil isteach chuig do chuntas Vicipéide agus ceadaigh é go sábhálfar do chuid liostaí.</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Bain</string>
+  <string name="reading_lists_confirm_remote_delete_no">Ná bain</string>
   <string name="reading_list_article_save_in_progress">Tá an t-alt á íoslódáil, agus beidh sé ar fáil as líne nuair a bheidh sé críochnaithe.</string>
+  <string name="reading_list_already_contains_selection">Tá na leathanaigh roghnaithe go léir le fáil sa liosta roghnaithe cheana féin.</string>
   <string name="reading_list_added_articles_list_titled">Cuireadh %1$d alt le %2$s</string>
   <string name="reading_list_delete_confirm">An bhfuil tú cinnte gur mhaith leat %s a scriosadh?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Logáil isteach le sioncronú a chumasú</string>
@@ -396,6 +404,8 @@
   <string name="no_user_lists_title">Eagraigh ailt ar liostaí</string>
   <string name="no_user_lists_msg">Cruthaigh liostaí d\'áiteanna ar mhaith leat taisteal chucu, de na hábhair is fearr leat, agus d\'iliomad rudaí eile</string>
   <string name="reading_list_saved_list_rename">%1$s (cruthaíodh úsáideoir)</string>
+  <string name="reading_list_article_limit_message">Ní féidir alt eile a chur ar an liosta seo. Tá an uasteorainn sroichte agat, .i. %2$d alt in aghaidh an liosta do \"%1$s\".</string>
+  <string name="reading_lists_limit_message">Ní féidir liosta eile a chruthú. Tá an uasteorainn sroichte agat, .i. 100 liosta léitheoireachta in aghaidh an chuntais.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sioncronaigh liostaí léitheoireachta&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Anois is féidir liostaí léitheoireachta a shioncrónú thar gléasanna. Logáil isteach chuig do chuntas Vicipéide agus ceadaigh é go sábhálfar do chuid liostaí.</string>
   <string name="reading_lists_menu_create_list">Cruthaigh liosta nua</string>
   <string name="reading_lists_menu_sort_by">Sórtáil de réir</string>
@@ -412,6 +422,7 @@
   <string name="reading_list_toast_last_sync">D\'éirigh le liostaí léitheoireachta a shioncrónú</string>
   <string name="reading_list_menu_last_sync">Sioncronú is deireanaí: %s</string>
   <string name="user_option_sync_label">Sainroghanna</string>
+  <string name="notification_reverted_title">Filleadh athrú</string>
   <string name="notification_channel_description">Dul chun cinn íoslódála</string>
   <string name="notification_syncing_pause_button">Cuir ar sos</string>
   <string name="notification_syncing_resume_button">Atosaigh</string>
@@ -514,7 +525,7 @@
   <string name="feed_item_type_randomizer">Gin ailt randamacha le léamh</string>
   <string name="feed_empty_message">Níl aon rud ar d\'fhotha Taiscéal</string>
   <string name="feed_configure_onboarding_action">Cuir in oiriúint</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Cuir do fhotha Taiscéal in oiriúint&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Anois is féidir roghnú cad a thaispeántar ar do fhotha, agus is féidir tús áite a thabhairt don cineál ábhair is fearr leat, leis.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Cuir d\'fhotha Taiscéal in oiriúint&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Anois is féidir roghnú cad a thaispeántar ar d\'fhotha, agus is féidir tús áite a thabhairt don cineál ábhair is fearr leat, leis.</string>
   <string name="description_edit_text_hint">Sainchuntas teidil</string>
   <string name="description_edit_save">Foilsigh</string>
   <string name="description_edit_add_description">Cuir sainchuntas teidil leis</string>
@@ -534,7 +545,7 @@
   <string name="description_edit_tutorial_title_descriptions_summary">Coimrítear alt chun cabhrú le léitheoirí an t-ábhar a thuiscint ar an bpointe</string>
   <string name="description_edit_tutorial_keep_it_short">Coinnigh gairid é</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Líne amháin dá bhféadfaí é, idir aon fhocal amháin agus dhá fhocal déag</string>
-  <string name="description_edit_tutorial_button_label_start_editing">Cuir tús le heagarthóireacht</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Cuir in eagar</string>
   <string name="description_edit_tutorial_promise">Agus mé ag tosú, geallaim nach mbainfidh mé mí-úsáid as an ngné seo.</string>
   <string name="description_edit_help_about_title">Maidir leis</string>
   <string name="description_edit_help_description">Le sainchuntais theideal a úsáid, coimrítear ailt chun cabhrú le léitheoirí an t-ábhar a thuiscint ar an bpointe.</string>
@@ -548,6 +559,12 @@
   <string name="description_edit_help_more_info">Tuilleadh eolais</string>
   <string name="description_edit_help_meta_info">Stóráltar agus cothabháltar sainchuntais ar Wikidata, tionscadal de chuid na Fondúireachta Wikimedia a chuireann bunachar sonraí saor in aisce comhoibríoch ilteangach tánaisteach ar fáil mar thacaíocht do Vicipéid agus do thionscadail eile.</string>
   <string name="description_edit_revert_subtitle">Go raibh maith agat as Vicipéid a chur in eagar!</string>
+  <string name="description_edit_revert_intro">Tá súil againn go rinne tó do dhícheall, ach bhí imní ar cheann de na léirmheastóirí. Is féidir gurb iad seo a leanas i measc na bhfáthanna a filleadh d\'athrú ar an mbunleagan:</string>
+  <string name="description_edit_revert_reason1">níor chloígh do chuid ábhair le ceann de na &lt;a href=\"%1$s\"&gt;treoirlínte&lt;/a&gt;.</string>
+  <string name="description_edit_revert_reason2">bhí an chuma air gur triail nó loitiméireacht ab ea do chuid ábhair.</string>
+  <string name="description_edit_revert_history">Má tá suim agat ina thaobh, féach ar an &lt;a href=\"%1$s\"&gt;stair eagarthóireachta&lt;/a&gt;.</string>
+  <string name="offline_read_permission_rationale">Tá cead rochtana de dhíth ar stóras ar do ghléas faoi choinne ábhar a bhrabhsáil as líne.</string>
+  <string name="offline_read_final_rationale">Tá cead rochtana de dhíth ar stóras ar do ghléas faoi choinne an Leabharlann As Líne as úsáid.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
   <plurals name="offline_compilation_download_time_remaining">
@@ -597,10 +614,15 @@
     <item quantity="one">Bain teanga roghnaithe?</item>
     <item quantity="other">Bain teangacha roghnaithe?</item>
   </plurals>
+  <string name="wikipedia_languages_remove_dialog_content">Ní bhfeicfidh tú ábhar ar an bhfotha Taiscéal nó ar na scagairí luaschuardaigh ach amháin do na teangacha Vicipéide atá fágtha.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Ní féidir na teangacha uile a bhaint</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Coinnigh teanga Vicipéide amháin ar a laghad a bhféadfar é a úsáid chun ábhar a chuardach agus a léamh.</string>
   <string name="more_language_options">tuilleadh</string>
   <string name="add_wikipedia_languages_text">Cuir teangacha Vicipéide leis</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Bain leagan den tSínis amach ó do chuid teangacha san aip?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Faoi láthair tá an dá cheann den tSínis Traidisiúnta agus an tSínis Shimplithe socraithe agat i do chuid teangacha san aip. Nuashonraigh do chuid socruithe teangacha san aip?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Cuir teangacha in eagar</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ní dhéanfaidh mé é</string>
   <string name="main_drawer_open">Oscail</string>
   <string name="main_drawer_close">Dún</string>
   <string name="main_drawer_help">Cabhair</string>

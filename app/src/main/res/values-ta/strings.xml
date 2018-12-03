@@ -93,7 +93,7 @@
   <string name="search_reading_lists_no_results">வாசிப்பு பட்டியலில் முடிவுகள் எதுவும் கிடைக்கவில்லை</string>
   <string name="search_history_no_results">வரலாற்றில் வாசிப்பு முடிவுகள் எதுவும் கிடைக்கவில்லை</string>
   <string name="edit_section_captcha_message">தானியங்கு எரிதத்தை எதிர்த்து காக்க, கீழ்வரும் சொற்களை உள்ளிடவும்</string>
-  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">படத்தை காண இயலவில்லையா? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;மேலும் அறிக&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">படத்தை காண இயலவில்லையா? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;கணக்கை கோருக&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">மேலுள்ள சொற்களை மீண்டும் உள்ளிடவும்</string>
   <string name="title_captcha">CAPTCHAவை உள்ளிடவும்</string>
   <string name="edit_section_captcha_reload">மறுஏற்றம் செய்ய கேப்ட்சாவை தட்டவும்</string>
@@ -317,6 +317,7 @@
   <string name="reading_list_remove_from_lists">படிப்பு பட்டியல்களில் இருந்து நீக்குக</string>
   <string name="reading_list_confirm_remove_article_from_offline">அணைநிலையிருந்து நீக்குக</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">கட்டுரை பல பட்டியலில் காணப்படுகிறது</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s இனி எந்த வாசிப்பு பட்டியலிலும் அணை நிலையில் இருக்காது:</string>
   <string name="reading_lists_sync_reminder_action">ஒருங்குநிகழ்வை இயலச்செய்</string>
   <string name="reading_list_login_reminder_title">படிப்பு பட்டியல்களை ஒருங்குநிகழ் செய்க</string>
   <string name="reading_lists_login_reminder_text">இப்பொழுது படிப்பு பட்டியல்களை சாதனங்களுக்கு இடையே  ஒருங்குநிகழ் செய்யலாம். உங்கள் வீக்கிபீடியா கணக்கிற்குள் புகுபதிகை செய்து உங்கள் பட்டியல்களை சேமிக்க அனுமதியுங்கள்.</string>
@@ -326,6 +327,10 @@
   <string name="default_reading_list_name">சேமிக்கப்பட்டவை</string>
   <string name="default_reading_list_description">உங்கள் சேமிப்பு கட்டுரைகளுக்கான இயல்பு பட்டியல்</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;படிப்பு பட்டியல்களை ஒருங்குநிகழ் செய்க&lt;strong&gt;&lt;br /&gt;&lt;br /&gt;இப்பொழுது படிப்பு பட்டியல்களை சாதனங்களுக்கு இடையே ஒருங்குநிகழ் செய்யலாம். உங்கள் வீக்கிபீடியா கணக்கிற்குள் புகுபதிகை செய்ததும் உங்கள் பட்டியல்களை சேமிக்க அனுமதியுங்கள்.</string>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">இந்த கட்டுரை இனி அணை நிலையில் இருக்காது.</item>
+    <item quantity="other">இந்த கட்டுரைகள் இனி அணை நிலையில் இருக்காது</item>
+  </plurals>
   <string name="user_option_sync_label">முன்னுரிமைகள்</string>
   <string name="notification_reverted_title">மீளமைக்கப்பட்ட தொகுப்புகள்</string>
   <string name="notification_channel_description">தரவிறக்கம் நடைபெறுகிறது</string>
