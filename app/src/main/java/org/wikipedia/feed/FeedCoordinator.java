@@ -50,7 +50,7 @@ public class FeedCoordinator extends FeedCoordinatorBase {
                 -> a.getOrder().compareTo(b.getOrder()));
 
         for (FeedContentType contentType : orderedContentTypes) {
-            addPendingClient(contentType.newClient(aggregatedClient, age, online));
+            addPendingClient(contentType.newClient(aggregatedClient, age));
         }
 
         conditionallyAddPendingClient(new OfflineCardClient(), age == 0 && !online);
