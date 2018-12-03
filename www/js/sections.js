@@ -380,7 +380,7 @@ function getCurrentSection() {
         }
     }
 
-    return curClosest.getAttribute( "data-id" );
+    return curClosest ? curClosest.getAttribute( "data-id" ) : 0;
 }
 
 bridge.registerListener( "requestCurrentSection", function() {
