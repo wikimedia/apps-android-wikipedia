@@ -37,7 +37,7 @@ public final class OkHttpConnectionFactory {
                 .addInterceptor(new HttpLoggingInterceptor().setLevel(Prefs.getRetrofitLogLevel()))
                 .addInterceptor(new UnsuccessfulResponseInterceptor())
                 .addInterceptor(new StatusResponseInterceptor(RbSwitch.INSTANCE))
-                .addNetworkInterceptor(new StripMustRevalidateResponseInterceptor())
+                .addNetworkInterceptor(new CacheControlInterceptor())
                 .addInterceptor(new CommonHeaderRequestInterceptor())
                 .addInterceptor(new DefaultMaxStaleRequestInterceptor())
                 .addInterceptor(new OfflineCacheInterceptor(SAVE_CACHE))
