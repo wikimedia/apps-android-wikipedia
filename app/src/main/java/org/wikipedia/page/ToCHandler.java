@@ -221,7 +221,9 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
 
     @Override
     public void onContentHeightChanged(int contentHeight) {
-        bridge.sendMessage("requestSectionData", new JSONObject());
+        if (!fragment.isLoading()) {
+            bridge.sendMessage("requestSectionData", new JSONObject());
+        }
     }
 
     @Override
