@@ -604,10 +604,6 @@ function getCurrentSection() {
     return curClosest ? curClosest.getAttribute( "data-id" ) : 0;
 }
 
-bridge.registerListener( "requestCurrentSection", function() {
-    bridge.sendMessage( "currentSectionResponse", { sectionID: getCurrentSection() } );
-} );
-
 },{"./bridge":2,"./theme":9,"./transformer":10,"wikimedia-page-library":19}],9:[function(require,module,exports){
 var bridge = require("./bridge");
 var pagelib = require("wikimedia-page-library");
