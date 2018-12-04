@@ -23,6 +23,7 @@ import org.wikipedia.R;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 
 import butterknife.BindView;
@@ -183,6 +184,13 @@ public class DescriptionEditView extends LinearLayout {
 
     @VisibleForTesting void setDescription(@Nullable String text) {
         pageDescriptionText.setText(text);
+    }
+
+    public void setHighlightText(@Nullable String text) {
+        if (text != null && originalDescription != null) {
+            final int scrollDelayMs = 500;
+            postDelayed(() -> StringUtil.highlightEditText(pageDescriptionText, originalDescription, text), scrollDelayMs);
+        }
     }
 
     private void init() {

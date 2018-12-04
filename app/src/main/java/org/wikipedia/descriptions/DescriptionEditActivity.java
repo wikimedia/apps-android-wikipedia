@@ -3,6 +3,7 @@ package org.wikipedia.descriptions;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivity;
@@ -24,11 +25,13 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
         implements DescriptionEditFragment.Callback, LinkPreviewDialog.Callback {
     private static final String EXTRA_TITLE = "title";
     private static final String EXTRA_REVIEW_ENABLE = "review";
+    private static final String EXTRA_HIGHLIGHT_TEXT = "highlightText";
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
-    public static Intent newIntent(@NonNull Context context, @NonNull PageTitle title, boolean reviewEnabled) {
+    public static Intent newIntent(@NonNull Context context, @NonNull PageTitle title, @Nullable String highlightText, boolean reviewEnabled) {
         return new Intent(context, DescriptionEditActivity.class)
                 .putExtra(EXTRA_TITLE, GsonMarshaller.marshal(title))
+                .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
                 .putExtra(EXTRA_REVIEW_ENABLE, reviewEnabled);
     }
 
@@ -73,7 +76,8 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     @Override
     public DescriptionEditFragment createFragment() {
         return DescriptionEditFragment.newInstance(GsonUnmarshaller.unmarshal(PageTitle.class,
-                getIntent().getStringExtra(EXTRA_TITLE)), getIntent().getBooleanExtra(EXTRA_REVIEW_ENABLE, false));
+                getIntent().getStringExtra(EXTRA_TITLE)), getIntent().getStringExtra(EXTRA_HIGHLIGHT_TEXT),
+                getIntent().getBooleanExtra(EXTRA_REVIEW_ENABLE, false));
     }
 
     @Override

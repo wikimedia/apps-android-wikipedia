@@ -84,7 +84,7 @@ public class ShareHandler {
                     onDefinePayload(text);
                     break;
                 case PAYLOAD_PURPOSE_EDIT_HERE:
-                    onEditHerePayload(messagePayload.optInt("sectionID", 0), text);
+                    onEditHerePayload(messagePayload.optInt("sectionID", 0), text, messagePayload.optBoolean("editDescription", false));
                     break;
                 default:
                     L.d("Unknown purpose=" + purpose);
@@ -120,9 +120,13 @@ public class ShareHandler {
         showWiktionaryDefinition(text.toLowerCase(Locale.getDefault()));
     }
 
-    private void onEditHerePayload(int sectionID, String text) {
-        if (sectionID >= 0) {
-            fragment.getEditHandler().startEditingSection(sectionID, text);
+    private void onEditHerePayload(int sectionID, String text, boolean isEditingDescription) {
+        if (sectionID == 0 && isEditingDescription) {
+            fragment.verifyBeforeEditingDescription(text);
+        } else {
+            if (sectionID >= 0) {
+                fragment.getEditHandler().startEditingSection(sectionID, text);
+            }
         }
     }
 

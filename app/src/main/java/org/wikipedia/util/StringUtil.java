@@ -12,6 +12,7 @@ import android.text.SpannedString;
 import android.text.TextUtils;
 import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
+import android.widget.EditText;
 
 import com.google.gson.Gson;
 
@@ -185,6 +186,25 @@ public final class StringUtil {
             }
         }
         return sb;
+    }
+
+    public static void highlightEditText(@NonNull EditText editText, @NonNull String parentText, @NonNull String highlightText) {
+        String[] words = highlightText.split("\\s+");
+        int pos = 0;
+        for (String word : words) {
+            pos = parentText.indexOf(word, pos);
+            if (pos == -1) {
+                break;
+            }
+        }
+        if (pos == -1) {
+            pos = parentText.indexOf(words[words.length - 1]);
+        }
+        if (pos >= 0) {
+            // TODO: Programmatic selection doesn't seem to work with RTL content...
+            editText.setSelection(pos, pos + words[words.length - 1].length());
+            editText.performLongClick();
+        }
     }
 
     @NonNull

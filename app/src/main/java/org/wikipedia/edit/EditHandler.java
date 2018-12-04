@@ -59,7 +59,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
         fragment.startActivityForResult(intent, Constants.ACTIVITY_REQUEST_EDIT_SECTION);
     }
 
-    private void showUneditableDialog() {
+    public void showUneditableDialog() {
         new AlertDialog.Builder(fragment.requireActivity())
                 .setCancelable(false)
                 .setTitle(R.string.page_protected_can_not_edit_title)
@@ -88,18 +88,10 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
                 menu.setOnDismissListener(menu1 -> ((ViewGroup) fragment.getView()).removeView(tempView));
                 menu.show();
             } else if (messagePayload.has("editDescriptionClicked") && DescriptionEditClient.isEditAllowed(currentPage)) {
-                verifyDescriptionEditable();
+                fragment.verifyBeforeEditingDescription(null);
             } else {
                 startEditingSection(messagePayload.optInt("sectionID"), null);
             }
-        }
-    }
-
-    private void verifyDescriptionEditable() {
-        if (currentPage != null && currentPage.getPageProperties().canEdit()) {
-            fragment.verifyLoggedInThenEditDescription();
-        } else {
-            showUneditableDialog();
         }
     }
 
@@ -108,7 +100,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
         public boolean onMenuItemClick(MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.menu_page_header_edit_description:
-                    verifyDescriptionEditable();
+                    fragment.verifyBeforeEditingDescription(null);
                     return true;
                 case R.id.menu_page_header_edit_lead_section:
                     startEditingSection(0, null);

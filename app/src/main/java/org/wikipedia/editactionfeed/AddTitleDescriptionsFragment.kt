@@ -87,7 +87,7 @@ class AddTitleDescriptionsFragment : Fragment() {
 
         addDescriptionButton.setOnClickListener {
             if (topTitle != null) {
-                startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, true),
+                startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, true),
                         Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT)
             }
         }
