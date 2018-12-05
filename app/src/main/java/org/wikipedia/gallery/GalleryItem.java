@@ -115,14 +115,26 @@ public class GalleryItem implements Serializable {
         return filePage == null ? Service.COMMONS_URL : StringUtils.defaultString(filePage);
     }
 
+    public void setFilePage(@NonNull String filePage) {
+        this.filePage = filePage;
+    }
+
     @Nullable
     public ArtistInfo getArtist() {
         return artist;
     }
 
+    public void setArtist(@Nullable ArtistInfo artist) {
+        this.artist = artist;
+    }
+
     @NonNull
     public ImageLicense getLicense() {
         return license;
+    }
+
+    public void setLicense(@NonNull ImageLicense license) {
+        this.license = license;
     }
 
     @NonNull

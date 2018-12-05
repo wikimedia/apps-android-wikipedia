@@ -14,6 +14,9 @@ public class FeaturedImageGalleryItem extends GalleryItem {
         this.getOriginal().setSource(featuredImage.image().source().toString());
         this.getThumbnail().setSource(featuredImage.thumbnail().source().toString());
         this.getDescription().setHtml(featuredImage.description());
+        this.setLicense(featuredImage.license());
+        this.setArtist(featuredImage.artist());
+        this.setFilePage(featuredImage.filePage());
 
         // TODO: we can fetch image license by using the ImageLicenseFetchClient
     }
