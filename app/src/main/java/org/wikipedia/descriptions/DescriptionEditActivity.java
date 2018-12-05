@@ -14,7 +14,6 @@ import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionEditFragment>
         implements DescriptionEditFragment.Callback {
     private static final String EXTRA_TITLE = "title";
-    private static final String EXTRA_USER_ID = "userId";
 
     public static Intent newIntent(@NonNull Context context, @NonNull PageTitle title) {
         return new Intent(context, DescriptionEditActivity.class)
@@ -29,10 +28,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
 
     @Override
     public DescriptionEditFragment createFragment() {
-        return DescriptionEditFragment.newInstance(
-                GsonUnmarshaller.unmarshal(PageTitle.class, getIntent().getStringExtra(EXTRA_TITLE)),
-                getIntent().getIntExtra(EXTRA_USER_ID, 0)
-        );
+        return DescriptionEditFragment.newInstance(GsonUnmarshaller.unmarshal(PageTitle.class, getIntent().getStringExtra(EXTRA_TITLE)));
     }
 
     @Override

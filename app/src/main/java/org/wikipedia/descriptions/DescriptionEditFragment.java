@@ -46,7 +46,6 @@ public class DescriptionEditFragment extends Fragment {
     }
 
     private static final String ARG_TITLE = "title";
-    private static final String ARG_USER_ID = "userId";
 
     @BindView(R.id.fragment_description_edit_view) DescriptionEditView editView;
     private Unbinder unbinder;
@@ -72,11 +71,10 @@ public class DescriptionEditFragment extends Fragment {
     };
 
     @NonNull
-    public static DescriptionEditFragment newInstance(@NonNull PageTitle title, int userId) {
+    public static DescriptionEditFragment newInstance(@NonNull PageTitle title) {
         DescriptionEditFragment instance = new DescriptionEditFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TITLE, GsonMarshaller.marshal(title));
-        args.putInt(ARG_USER_ID, userId);
         instance.setArguments(args);
         return instance;
     }
