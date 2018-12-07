@@ -56,6 +56,7 @@ public class CircularProgressBar extends View {
             progressColor = a.getColor(R.styleable.CircularProgressBar_progressColor, progressColor);
             progressBackgroundColor = a.getColor(R.styleable.CircularProgressBar_progressBackgroundColor, progressBackgroundColor);
             progressStrokeWidth = a.getDimensionPixelSize(R.styleable.CircularProgressBar_progressStrokeWidth, progressStrokeWidth);
+            maxProgressValue = a.getInt(R.styleable.CircularProgressBar_maxProgress, MAX_PROGRESS);
 
             a.recycle();
         }

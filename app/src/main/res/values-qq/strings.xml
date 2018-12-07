@@ -658,4 +658,19 @@
   <string name="main_drawer_close">Main navigation drawer label for the content description of the close drawable resource.</string>
   <string name="main_drawer_help">Main navigation drawer menu label for accessing the app FAQ.</string>
   <string name="main_drawer_login">Main navigation drawer menu label for logging in or creating an account.</string>
+  <string name="edit_tasks_onboarding_tertiary_text">Onboarding pledge shown to users before they start picking up editing tasks.</string>
+  <string name="title_description_task_title">Title description task heading.</string>
+  <string name="title_description_task_description">Title description task explanation given to user.</string>
+  <string name="image_caption_task_title">Image caption tasks heading.</string>
+  <string name="image_caption_task_description">Image caption tasks explanation given to user.</string>
+  <string name="multilingual_task_title">Multilingual tasks heading.</string>
+  <string name="multilingual_task_description">Multilingual tasks explantion given to user.</string>
+  <string name="image_caption_edit_disable_text">Hint message to users about why the caption tasks are locked and how they can be unlocked by making valid edits. %d is the number of edits.</string>
+  <string name="task_negative_string">Negative action button text for editing tasks.</string>
+  <string name="task_positive_string">Positive action button text for editing tasks.</string>
+  <string name="editing_level_text">Text indicating the level of app editing reached. %d indicates the level number</string>
+  <plurals name="contributions">
+    <item quantity="one">Text suggesting that one in-app contribution was made.</item>
+    <item quantity="other">Text suggesting that two or more in-app contributions were made.</item>
+  </plurals>
 </resources>
