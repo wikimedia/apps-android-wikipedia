@@ -182,8 +182,8 @@ public class MwQueryPage extends BaseModel {
             return displaytitle;
         }
 
-        @Nullable public String getWikiBaseItem() {
-            return wikiBaseItem;
+        @NonNull public String getWikiBaseItem() {
+            return StringUtils.defaultString(wikiBaseItem);
         }
 
         public boolean isDisambiguation() {

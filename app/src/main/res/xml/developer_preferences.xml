@@ -143,6 +143,16 @@
             android:key="@string/preference_key_total_anon_descriptions_edited"
             android:title="@string/preference_key_total_anon_descriptions_edited" />
 
+        <Preference
+            android:key="@string/preference_key_missing_description_test"
+            android:title="@string/preference_key_missing_description_test"
+            android:summary="Fetch a random article that has no description in the current app language." />
+
+        <Preference
+            android:key="@string/preference_key_missing_description_test2"
+            android:title="@string/preference_key_missing_description_test2"
+            android:summary="Fetch a random article that has a description in the current app language, but does *not* have a description in the *second* app language." />
+
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
             android:key="@string/preference_key_locally_known_notifications"
