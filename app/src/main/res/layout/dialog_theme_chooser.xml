@@ -149,6 +149,33 @@
                 android:layout_weight="1">
 
                 <TextView
+                    android:id="@+id/button_theme_sepia"
+                    style="@style/App.Button.White"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="0dp"
+                    app:backgroundTint="@color/papyrus"
+                    android:text="@string/color_theme_sepia" />
+
+                <View
+                    android:id="@+id/button_theme_sepia_highlight"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:elevation="4dp"
+                    android:background="?attr/button_highlight_border_shape"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1">
+
+                <TextView
                     android:id="@+id/button_theme_dark"
                     style="@style/App.Button.Gray"
                     android:layout_width="match_parent"

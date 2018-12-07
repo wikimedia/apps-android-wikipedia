@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ThemeSepia" parent="ThemeLight">
+
+        <!-- Default background for all activities -->
+        <item name="android:windowBackground">@color/kraft</item>
+        <item name="android:colorBackground">@color/amate</item>
+
+        <item name="colorError">@color/red30</item>
+
+        <item name="android:textColorSecondary">@color/masi</item>
+        <item name="android:textColorTertiary">@color/base30</item>
+
+        <item name="main_toolbar_color">@color/papyrus</item>
+        <item name="main_status_bar_color">@color/papyrus</item>
+        <item name="page_status_bar_color">@color/papyrus</item>
+        <item name="page_expanded_status_bar_color">@color/papyrus</item>
+        <item name="page_toolbar_color">@color/papyrus</item>
+
+        <item name="secondary_text_color">@color/masi</item>
+        <item name="searchItemBackground">@color/yellow90</item>
+        <item name="nav_tab_background_color">@color/amate</item>
+
+        <!-- Background for cards, lists, and controls -->
+        <item name="paper_color">@color/yellow90</item>
+
+    </style>
+
+</resources>
