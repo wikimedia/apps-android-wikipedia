@@ -20,6 +20,7 @@ import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
+import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.login.LoginClient.LoginFailedException;
@@ -35,6 +36,9 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
@@ -43,16 +47,21 @@ public class DescriptionEditFragment extends Fragment {
 
     public interface Callback {
         void onDescriptionEditSuccess();
+        void onPageSummaryContainerClicked(@NonNull PageTitle pageTitle);
     }
 
     private static final String ARG_TITLE = "title";
+    private static final String ARG_REVIEW_ENABLED = "reviewEnabled";
+    private static final String ARG_REVIEWING = "inReviewing";
 
     @BindView(R.id.fragment_description_edit_view) DescriptionEditView editView;
     private Unbinder unbinder;
     private PageTitle pageTitle;
+    private boolean reviewEnabled;
     @Nullable private CsrfTokenClient csrfClient;
     @Nullable private Call<MwPostResponse> descriptionEditCall;
     @Nullable private DescriptionEditFunnel funnel;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     private Runnable successRunnable = new Runnable() {
         @Override public void run() {
@@ -73,10 +82,11 @@ public class DescriptionEditFragment extends Fragment {
     };
 
     @NonNull
-    public static DescriptionEditFragment newInstance(@NonNull PageTitle title) {
+    public static DescriptionEditFragment newInstance(@NonNull PageTitle title, boolean reviewEnabled) {
         DescriptionEditFragment instance = new DescriptionEditFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TITLE, GsonMarshaller.marshal(title));
+        args.putBoolean(ARG_REVIEW_ENABLED, reviewEnabled);
         instance.setArguments(args);
         return instance;
     }
@@ -84,6 +94,7 @@ public class DescriptionEditFragment extends Fragment {
     @Override public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         pageTitle = GsonUnmarshaller.unmarshal(PageTitle.class, getArguments().getString(ARG_TITLE));
+        reviewEnabled = getArguments().getBoolean(ARG_REVIEW_ENABLED);
         DescriptionEditFunnel.Type type = pageTitle.getDescription() == null
                 ? DescriptionEditFunnel.Type.NEW
                 : DescriptionEditFunnel.Type.EXISTING;
@@ -100,6 +111,11 @@ public class DescriptionEditFragment extends Fragment {
 
         editView.setPageTitle(pageTitle);
         editView.setCallback(new EditViewCallback());
+
+        if (reviewEnabled) {
+            loadPageSummary(savedInstanceState);
+        }
+
         if (funnel != null) {
             funnel.logReady();
         }
@@ -119,6 +135,11 @@ public class DescriptionEditFragment extends Fragment {
         super.onDestroy();
     }
 
+    @Override public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(ARG_REVIEWING, reviewEnabled && editView.showingReviewContent());
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
         if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS
@@ -127,6 +148,24 @@ public class DescriptionEditFragment extends Fragment {
                 callback().onDescriptionEditSuccess();
             }
         }
+    }
+
+    private void loadPageSummary(@Nullable Bundle savedInstanceState) {
+        disposables.add(PageClientFactory.create(pageTitle.getWikiSite(), pageTitle.namespace())
+                .summary(pageTitle.getWikiSite(), pageTitle.getPrefixedText(), null)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(summary -> {
+                    editView.setPageSummary(summary);
+                    editView.getPageSummaryContainer().setOnClickListener(view -> {
+                        if (callback() != null) {
+                            callback().onPageSummaryContainerClicked(pageTitle);
+                        }
+                    });
+                    if (savedInstanceState != null) {
+                        editView.loadReviewContent(savedInstanceState.getBoolean(ARG_REVIEWING));
+                    }
+                }, L::e));
     }
 
     private void cancelCalls() {
@@ -155,17 +194,21 @@ public class DescriptionEditFragment extends Fragment {
 
         @Override
         public void onSaveClick() {
-            editView.setError(null);
-            editView.setSaveState(true);
+            if (reviewEnabled && !editView.showingReviewContent()) {
+                editView.loadReviewContent(true);
+            } else {
+                editView.setError(null);
+                editView.setSaveState(true);
 
-            cancelCalls();
+                cancelCalls();
 
-            csrfClient = new CsrfTokenClient(new WikiSite(Service.WIKIDATA_URL, ""),
-                    pageTitle.getWikiSite());
-            getEditTokenThenSave(false);
+                csrfClient = new CsrfTokenClient(new WikiSite(Service.WIKIDATA_URL, ""),
+                        pageTitle.getWikiSite());
+                getEditTokenThenSave(false);
 
-            if (funnel != null) {
-                funnel.logSaveAttempt();
+                if (funnel != null) {
+                    funnel.logSaveAttempt();
+                }
             }
         }
 
@@ -251,7 +294,11 @@ public class DescriptionEditFragment extends Fragment {
 
         @Override
         public void onCancelClick() {
-            finish();
+            if (reviewEnabled && editView.showingReviewContent()) {
+                editView.loadReviewContent(false);
+            } else {
+                finish();
+            }
         }
     }
 }

@@ -1,27 +1,29 @@
 package org.wikipedia.descriptions;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Build;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.TextInputLayout;
+import android.text.Html;
 import android.text.TextUtils;
-import android.text.method.LinkMovementMethod;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.StringUtil;
+import org.wikipedia.views.FaceAndColorDetectImageView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,19 +31,26 @@ import butterknife.OnClick;
 import butterknife.OnEditorAction;
 import butterknife.OnTextChanged;
 
+import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+
 public class DescriptionEditView extends LinearLayout {
     @BindView(R.id.view_description_edit_header) TextView headerText;
     @BindView(R.id.view_description_edit_page_title) TextView pageTitleText;
-    @BindView(R.id.view_description_edit_license_text) TextView licenseText;
     @BindView(R.id.view_description_edit_save_button) View saveButton;
-    @BindView(R.id.view_description_edit_cancel_button) View cancelButton;
+    @BindView(R.id.view_description_edit_cancel_button) ImageView cancelButton;
     @BindView(R.id.view_description_edit_help_button) View helpButton;
     @BindView(R.id.view_description_edit_text) EditText pageDescriptionText;
     @BindView(R.id.view_description_edit_text_layout) TextInputLayout pageDescriptionLayout;
     @BindView(R.id.view_description_edit_progress_bar) ProgressBar progressBar;
+    @BindView(R.id.view_description_edit_page_summary_container) ViewGroup pageSummaryContainer;
+    @BindView(R.id.view_description_edit_page_image) FaceAndColorDetectImageView pageImage;
+    @BindView(R.id.view_description_edit_page_summary) TextView pageSummaryText;
+    @BindView(R.id.view_description_edit_container) ViewGroup descriptionEditContainer;
+    @BindView(R.id.view_description_edit_review_container) DescriptionEditReviewView pageReviewContainer;
 
     @Nullable private String originalDescription;
     @Nullable private Callback callback;
+    private PageSummary pageSummary;
 
     public interface Callback {
         void onSaveClick();
@@ -64,12 +73,6 @@ public class DescriptionEditView extends LinearLayout {
         init();
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public DescriptionEditView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        init();
-    }
-
     public void setCallback(@Nullable Callback callback) {
         this.callback = callback;
     }
@@ -78,10 +81,23 @@ public class DescriptionEditView extends LinearLayout {
         setTitle(pageTitle.getDisplayText());
         originalDescription = pageTitle.getDescription();
         setDescription(originalDescription);
+        setReviewHeaderText(false);
+    }
 
-        headerText.setText(getContext().getString(TextUtils.isEmpty(originalDescription)
+    private void setReviewHeaderText(boolean inReview) {
+        int headerTextRes = inReview ? R.string.editactionfeed_review_title_description
+                : TextUtils.isEmpty(originalDescription)
                 ? R.string.description_edit_add_description
-                : R.string.description_edit_edit_description));
+                : R.string.description_edit_edit_description;
+        headerText.setText(getContext().getString(headerTextRes));
+    }
+
+    public void setPageSummary(@NonNull PageSummary pageSummary) {
+        pageSummaryContainer.setVisibility(View.VISIBLE);
+        pageImage.loadImage(TextUtils.isEmpty(pageSummary.getThumbnailUrl()) ? null
+                : Uri.parse(pageSummary.getThumbnailUrl()));
+        pageSummaryText.setText(Html.fromHtml(pageSummary.getExtractHtml()));
+        this.pageSummary = pageSummary;
     }
 
     public void setSaveState(boolean saving) {
@@ -91,6 +107,30 @@ public class DescriptionEditView extends LinearLayout {
         } else {
             updateSaveButtonEnabled();
         }
+    }
+
+    public void loadReviewContent(boolean enabled) {
+        if (enabled) {
+            setReviewHeaderText(true);
+            pageReviewContainer.setPageSummary(pageSummary, getDescription());
+            pageReviewContainer.show();
+            cancelButton.setImageResource(R.drawable.ic_arrow_back_themed_24dp);
+            descriptionEditContainer.setVisibility(GONE);
+            hideSoftKeyboard(pageReviewContainer);
+        } else {
+            setReviewHeaderText(false);
+            pageReviewContainer.hide();
+            cancelButton.setImageResource(R.drawable.ic_close_main_themed_24dp);
+            descriptionEditContainer.setVisibility(VISIBLE);
+        }
+    }
+
+    public boolean showingReviewContent() {
+        return pageReviewContainer.isShowing();
+    }
+
+    public ViewGroup getPageSummaryContainer() {
+        return pageSummaryContainer;
     }
 
     @NonNull public String getDescription() {
@@ -148,12 +188,6 @@ public class DescriptionEditView extends LinearLayout {
     private void init() {
         inflate(getContext(), R.layout.view_description_edit, this);
         ButterKnife.bind(this);
-
-        licenseText.setText(StringUtil.fromHtml(String
-                .format(getContext().getString(R.string.description_edit_license_notice),
-                        getContext().getString(R.string.terms_of_use_url),
-                        getContext().getString(R.string.cc_0_url))));
-        licenseText.setMovementMethod(new LinkMovementMethod());
         FeedbackUtil.setToolbarButtonLongPressToast(saveButton, cancelButton, helpButton);
         setOrientation(VERTICAL);
     }

@@ -199,6 +199,11 @@ public final class StringUtil {
     }
 
     @NonNull
+    public static String getFirstLetterCapitalized(@NonNull String text) {
+        return text.substring(0, 1).toUpperCase() + text.substring(1);
+    }
+
+    @NonNull
     public static String listToJsonArrayString(@NonNull List<String> list) {
         return new JSONArray(list).toString();
     }

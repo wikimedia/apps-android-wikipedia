@@ -673,4 +673,9 @@
     <item quantity="one">Text suggesting that one in-app contribution was made.</item>
     <item quantity="other">Text suggesting that two or more in-app contributions were made.</item>
   </plurals>
+  <string name="editactionfeed_add_title_descriptions">Title of the add title descriptions page.</string>
+  <string name="editactionfeed_review_title_description">Title of the review title description page.</string>
+  <string name="editactionfeed_add_description_button">A button text for adding description.</string>
+  <string name="editactionfeed_my_contributions">A overflow menu text that leads to my contributions page</string>
+  <string name="editactionfeed_from_language">A label shows that the current selected Wikipedia language for fetching articles.</string>
 </resources>

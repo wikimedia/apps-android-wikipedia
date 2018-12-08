@@ -27,7 +27,7 @@ import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
-import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
 
@@ -67,7 +67,7 @@ public class RandomFragment extends Fragment {
 
         randomPager.setOffscreenPageLimit(2);
         randomPager.setAdapter(new RandomItemAdapter((AppCompatActivity) requireActivity()));
-        randomPager.setPageTransformer(true, new RandomPagerTransformer());
+        randomPager.setPageTransformer(true, new AnimationUtil.PagerTransformer());
         randomPager.addOnPageChangeListener(viewPagerListener);
 
         updateSaveShareButton();
@@ -217,35 +217,6 @@ public class RandomFragment extends Fragment {
             RandomItemFragment f = RandomItemFragment.newInstance();
             f.setPagerPosition(position);
             return f;
-        }
-    }
-
-    private class RandomPagerTransformer implements ViewPager.PageTransformer {
-        @SuppressWarnings("magicnumber")
-        @Override
-        public void transformPage(@NonNull View view, float position) {
-            if (position < -1) { // [-Infinity,-1)
-                // This page is way off-screen to the left.
-                view.setRotation(0f);
-                view.setTranslationX(0);
-            } else if (position <= 0) { // [-1,0]
-                float factor = position * 45f;
-                view.setRotation(factor);
-                view.setTranslationX((view.getWidth() * position / 2));
-                view.setAlpha(1f);
-            } else if (position <= 1) { // (0,1]
-                // keep it in place (undo the default translation)
-                view.setTranslationX(-(view.getWidth() * position));
-                // but move it slightly down
-                view.setTranslationY(DimenUtil.roundedDpToPx(12f) * position);
-                // and make it translucent
-                view.setAlpha(1f - position * 0.5f);
-                view.setRotation(0f);
-            } else { // (1,+Infinity]
-                // This page is way off-screen to the right.
-                view.setRotation(0f);
-                view.setTranslationX(0);
-            }
         }
     }
 

@@ -144,6 +144,9 @@
             android:label="@string/languages_list_activity_title"
             android:theme="@style/AppTheme.ActionBar.LanguagesList"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
+        <activity android:name=".editactionfeed.AddTitleDescriptionsActivity"
+            android:label="@string/editactionfeed_add_title_descriptions"
+            android:theme="@style/AppTheme.ActionBar"/>
         <activity
             android:name=".edit.EditSectionActivity"
             android:theme="@style/AppTheme.ActionBar.Page"

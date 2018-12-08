@@ -113,7 +113,20 @@ public class EditTasksFragment extends Fragment {
         titleDescriptionEditTask.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_short_text_white_24dp));
         titleDescriptionEditTask.setNoActionLayout(true);
         tasks.add(titleDescriptionEditTask);
-        callbacks.add(null);
+        callbacks.add(new EditTaskView.Callback() {
+            @Override
+            public void onPositiveActionClick() {
+            }
+
+            @Override
+            public void onNegativeActionClick() {
+            }
+
+            @Override
+            public void onViewClick() {
+                startActivity(AddTitleDescriptionsActivity.Companion.newIntent(requireActivity()));
+            }
+        });
 
         EditTask imageCaptionEditTask = new EditTask();
         imageCaptionEditTask.setTitle(getString(R.string.image_caption_task_title));
