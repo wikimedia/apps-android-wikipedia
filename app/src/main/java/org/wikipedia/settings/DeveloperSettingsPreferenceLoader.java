@@ -1,8 +1,8 @@
 package org.wikipedia.settings;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.TwoStatePreference;
@@ -21,6 +21,7 @@ import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.views.DialogTitleWithImage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -206,6 +207,17 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                                             .setMessage(throwable.getMessage())
                                             .setPositiveButton(android.R.string.ok, null)
                                             .show());
+                    return true;
+                });
+
+        findPreference(context.getString(R.string.preference_key_dialog_with_image_test))
+                .setOnPreferenceClickListener(preference -> {
+                    new AlertDialog.Builder(getActivity())
+                            .setCustomTitle(new DialogTitleWithImage(getActivity(), R.string.about_activity_title, R.drawable.lead_default))
+                            .setMessage(R.string.description_edit_help_tips_description)
+                            .setPositiveButton(android.R.string.ok, null)
+                            .setNegativeButton(android.R.string.cancel, null)
+                            .show();
                     return true;
                 });
     }
