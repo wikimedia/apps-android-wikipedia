@@ -171,13 +171,18 @@
   <string name="about_description">Pri la Vikipedia aplikaĵo</string>
   <string name="privacy_policy_description">Politiko pri privateco</string>
   <string name="terms_of_use_description">Uzkondiĉoj</string>
+  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.eo</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.eo</string>
   <string name="about_libraries_heading">Bibliotekoj uzataj</string>
   <string name="about_contributors_heading">Kontribuantoj</string>
   <string name="about_translators_heading">Tradukantoj</string>
   <string name="about_translators_translatewiki">Ĉi tiu aplikaĵo estis tradukita de volontulaj tradukantoj ĉe &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Permesilo</string>
+  <string name="about_app_license">Fontkodo havebla je &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; kaj &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; laŭ la &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;permesilo Apache 2.0&lt;/a&gt;. Krom se alie specifita, enhavo estas havebla laŭ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;la permesilo Creative Commons Atribuite-Samkondiĉe&lt;/a&gt;.</string>
   <string name="about_wmf">Produkto de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondaĵo Vikimedio&lt;/a&gt;</string>
   <string name="about_activity_title">Pri</string>
   <string name="edit_abandon_confirm">Ĉi tiu paĝo estis modifita. Ĉu vi certas ke vi volas eliri sen konservi viajn modifojn?</string>
@@ -203,6 +208,8 @@
   <string name="find_last_occurence">Tio ĉi estas la lasta okazo</string>
   <string name="abusefilter_title_warn">Tio ĉi eble estas malhelpa redakto. Ĉu vi certas, ke vi volas publikigi ĝin?</string>
   <string name="abusefilter_title_disallow">Vi ne povas publikigi ĉi tiun redakton. Bonvolu reveni kaj ŝanĝi ĝin.</string>
+  <string name="abusefilter_text_warn">Aŭtomatigita filtrilo identigis ĉi tiun redakton kiel eble malhelpan. Ĝi eble enhavas unu aŭ pli da de la jeno:&lt;br /&gt;&lt;br /&gt;· Tajpado nur en majuskoj&lt;br /&gt;· Malplenigo de artikoloj aŭ spamado&lt;br /&gt;· Senrilataj eksteraj ligoj aŭ bildoj· Ripetantaj signoj</string>
+  <string name="abusefilter_text_disallow">Aŭtomatigita filtrilo identigis ĉi tiun redakton kiel eble malhelpan, aŭ vandalismon.&lt;br /&gt;&lt;br /&gt;Vikipedio estas enciklopedio kaj nur neŭtrala, menciinda enhavo aperu ĉi tie.</string>
   <string name="text_size_select">Tipara grando</string>
   <string name="page_similar_titles">Similaj paĝoj</string>
   <string name="search_did_you_mean">Ĉu vi celis \"%s\"?</string>
@@ -267,10 +274,15 @@
   <string name="button_add_to_reading_list">Aldoni al legolisto</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artikolo ne povas esti ŝargita dum vi estas eksterrete.</string>
   <string name="button_get_directions">Vojpriskribo</string>
+  <string name="preference_title_show_link_previews">Antaŭmontri ligitajn paĝojn.</string>
+  <string name="preference_summary_show_link_previews">Rapide antaŭmontri artikolojn tuŝetante ligilojn.</string>
   <string name="preference_title_collapse_tables">Maletendi tabelojn</string>
+  <string name="preference_summary_collapse_tables">Aŭtomate maletendi tabelojn en artikoloj, kiel informujoj, referencoj kaj notoj.</string>
   <string name="nav_item_donate">Subtenu Vikipedion</string>
   <string name="error_voice_search_not_available">Pardonon, voĉa rekono ne estas disponebla.</string>
+  <string name="location_service_disabled">Pozicio-servoj estas malŝaltitaj.</string>
   <string name="enable_location_service">Ŝalti</string>
+  <string name="location_permissions_enable_prompt">Ŝaltu pozicio-servojn por vidi lokojn proksime de vi.</string>
   <string name="location_permissions_enable_action">Ŝalti</string>
   <string name="error_webview_updating">La Android Sistemo WebView estas nuntempe ĝisdatigata. Bonvolu provi denove post momento.</string>
   <string name="multi_select_items_selected">%d elektita</string>
@@ -279,7 +291,9 @@
   <string name="error_page_does_not_exist">Ĉi tiu paĝo ne ekzistas</string>
   <string name="view_wiki_error_message_offline">Ne eblas konektiĝi al interreto.</string>
   <string name="reference_title">Referenco %s</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Malheligo de bildoj (en Malhela etoso)</string>
   <string name="preference_title_prefer_offline_content">Preferi eksterretan enhavon</string>
+  <string name="crash_report_dialog_title">Pardonon, la aplikaĵo kraŝis pasintfoje</string>
   <string name="crash_report_dialog_dont_send_button">Preterpasi</string>
   <string name="crash_report_dialog_always_send_button">Ĉiam sendi</string>
   <string name="crash_report_dialog_send_button">Sendi</string>
@@ -294,6 +308,7 @@
   <string name="color_theme_light">Hela</string>
   <string name="color_theme_dark">Malhela</string>
   <string name="color_theme_black">Nigra</string>
+  <string name="color_theme_sepia">Sepia</string>
   <string name="color_theme_test_title">Ekzempla teksto</string>
   <string name="preference_title_app_theme">Aplikaĵa etoso</string>
   <string name="text_size_increase">Pliigi la tekstograndon</string>
@@ -431,11 +446,13 @@
   <string name="feed_configure_menu_deselect_all">Kaŝi ĉiujn</string>
   <string name="feed_item_type_news">Artikoloj pri nunaj eventoj</string>
   <string name="feed_item_type_on_this_day">Historiaj eventoj en tiu ĉi tago</string>
+  <string name="feed_configure_onboarding_action">Tajlori</string>
   <string name="description_edit_text_hint">Titola priskribo</string>
   <string name="description_edit_save">Publikigi</string>
   <string name="description_edit_add_description">Aldoni titolan priskribon</string>
   <string name="description_edit_edit_description">Redakti priskribon</string>
   <string name="description_edit_cancel_hint">Nuligi</string>
+  <string name="description_edit_help_title">Helpo: titolaj priskriboj</string>
   <string name="description_edit_help_about_wikidata">Pri Vikidatumoj</string>
   <string name="description_edit_success_saved">Priskribo publikigita!</string>
   <string name="description_edit_success_encouragement">Vi ĵus plibonigis Vikipedion por ĉiu</string>

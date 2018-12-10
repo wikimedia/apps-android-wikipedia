@@ -355,6 +355,7 @@
   <string name="color_theme_light">Светлое</string>
   <string name="color_theme_dark">Тёмное</string>
   <string name="color_theme_black">Чёрное</string>
+  <string name="color_theme_sepia">Сепия</string>
   <string name="color_theme_test_title">Пример текста</string>
   <string name="color_theme_test_text">Двигайте слайдер для изменения размера текста, который используется при чтении статей. Для установки размера текста во всём приложении, измените размер текста для системы в целом.</string>
   <string name="preference_title_app_theme">Оформление приложения</string>

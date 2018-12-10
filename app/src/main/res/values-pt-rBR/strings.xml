@@ -340,6 +340,7 @@
   <string name="color_theme_light">Claro</string>
   <string name="color_theme_dark">Escuro</string>
   <string name="color_theme_black">Preto</string>
+  <string name="color_theme_sepia">Sépia</string>
   <string name="color_theme_test_title">Texto de amostra</string>
   <string name="color_theme_test_text">Arraste a barra deslizante para alterar o tamanho do texto que é usado para ler artigos. Para definir o tamanho do texto na restante aplicação, altere o tamanho de texto do sistema.</string>
   <string name="preference_title_app_theme">Tema do aplicativo</string>

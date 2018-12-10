@@ -326,6 +326,7 @@
   <string name="color_theme_light">Светла</string>
   <string name="color_theme_dark">Тамна</string>
   <string name="color_theme_black">Црна</string>
+  <string name="color_theme_sepia">Сепија</string>
   <string name="color_theme_test_title">Пример текста</string>
   <string name="color_theme_test_text">Промените величину текста клизачем док читате чланке. Да бисте променили величину фонта у целој апликацији, промените је у подешавањима система.</string>
   <string name="preference_title_app_theme">Тема апликације</string>

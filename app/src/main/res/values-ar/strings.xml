@@ -335,6 +335,7 @@
   <string name="color_theme_light">فاتح</string>
   <string name="color_theme_dark">غامق</string>
   <string name="color_theme_black">أسود</string>
+  <string name="color_theme_sepia">بني داكن</string>
   <string name="color_theme_test_title">مثال للنص</string>
   <string name="color_theme_test_text">اسحب المنزلق لتغيير حجم النص المستخدم عند قراءة المقالات، لتعيين حجم النص في بقية أجزاء التطبيق; قم بتغيير حجم نص نظامك.</string>
   <string name="preference_title_app_theme"> شكل التطبيق</string>

@@ -325,6 +325,7 @@
   <string name="color_theme_light">בהיר</string>
   <string name="color_theme_dark">כהה</string>
   <string name="color_theme_black">שחור</string>
+  <string name="color_theme_sepia">ספיה</string>
   <string name="color_theme_test_title">טקסט לדוגמה</string>
   <string name="color_theme_test_text">יש לגרור את המחלק כדי לשנות את גודל הטקסט שמוצג בעת קריאת הערכים. כדי להגדיר את גודל הטקסט בשאר האפליקציה, יש לשנות את גודל הטקסט בהגדרות המערכת של המכשיר.</string>
   <string name="preference_title_app_theme">ערכת הנושא של האפליקציה</string>

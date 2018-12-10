@@ -109,6 +109,7 @@
   <string name="toast_logout_complete">Logget af</string>
   <string name="history_empty_title">Ingen nyligt læste artikler.</string>
   <string name="history_empty_message">Hold styr på hvad du har læst her.</string>
+  <string name="history_offline_articles_toast">Nogle artikler i historikken kan måske ikke vises når offline.</string>
   <string name="search_empty_message">Søg og læs den frie encyklopædi på dit sprog</string>
   <string name="search_empty_message_multilingual_upgrade">Søg på Wikipedia i flere sprog</string>
   <string name="delete_selected_items">Slet valgte elementer</string>
@@ -278,6 +279,7 @@
   <string name="error_no_maps_app">Kunne ikke finde nogen apps, der giver rutevejledninger.</string>
   <string name="preference_title_show_link_previews">Vis forhåndsvisning af links</string>
   <string name="preference_summary_show_link_previews">Viser en kort forhåndsvisning af artikler når du trykker på links.</string>
+  <string name="preference_title_collapse_tables">Fold tabeller sammen</string>
   <string name="nav_item_donate">Støt Wikipedia</string>
   <string name="error_voice_search_not_available">Beklager, stemmegenkendelse er ikke tilgængelig.</string>
   <string name="location_service_disabled">Placeringstjenester er slået fra.</string>
@@ -312,6 +314,7 @@
   <string name="color_theme_light">Lys</string>
   <string name="color_theme_dark">Mørk</string>
   <string name="color_theme_black">Sort</string>
+  <string name="color_theme_sepia">Sepia</string>
   <string name="color_theme_test_title">Eksempeltekst</string>
   <string name="color_theme_test_text">Træk skyderen for at ændre tekststørrelsen under læsning af artikler. For at angive tekststørrelsen i resten af programmet, skal du ændre systemets tekststørrelse.</string>
   <string name="preference_title_app_theme">Programtema</string>

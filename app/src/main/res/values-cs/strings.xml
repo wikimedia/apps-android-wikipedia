@@ -136,7 +136,7 @@
   <string name="create_account_next">Další</string>
   <string name="email_recommendation_dialog_title">Chcete vytvořit účet bez e-mailové adresy?</string>
   <string name="email_recommendation_dialog_message">Přesto že je e-mail nepovinný, je &lt;b&gt;velmi důležitý&lt;/ b&gt; k obnovení Vašeho účtu.</string>
-  <string name="email_recommendation_message">E-mail je pro obnovení účtu potřebný.</string>
+  <string name="email_recommendation_message">E-mail je povinný pro obnovení účtu.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Dokončit bez e-mailu</string>
   <string name="email_recommendation_dialog_create_with_email_action">Přidat e-mailovou adresu</string>
   <string name="create_account_button">Vytvořit účet</string>
@@ -169,8 +169,8 @@
   <string name="page_protected_autoconfirmed">Tato stránka je polozamčena.</string>
   <string name="page_protected_sysop">Tato stránka je zamčena.</string>
   <string name="page_protected_other">Tato stránka je zamčena do následujících úrovní: %s</string>
-  <string name="page_protected_can_not_edit">Omlouváme se, váš účet nyní nemá dostatečná oprávnění editovat tuto stránku.</string>
-  <string name="page_protected_can_not_edit_anon">Omlouváme se, tu stránku nyní nelze editovat anonymně.</string>
+  <string name="page_protected_can_not_edit">Omlouváme se, Váš účet nyní nemá dostatečná oprávnění editovat tuto stránku.</string>
+  <string name="page_protected_can_not_edit_anon">Omlouváme se, tuto stránku nyní nelze editovat anonymně.</string>
   <string name="page_protected_can_not_edit_title">Tato stránka je zamčena</string>
   <string name="settings_item_preferences">Nastavení</string>
   <string name="settings_activity_title">Nastavení</string>
@@ -330,6 +330,7 @@
   <string name="color_theme_light">Světlý</string>
   <string name="color_theme_dark">Tmavý</string>
   <string name="color_theme_black">Černý</string>
+  <string name="color_theme_sepia">Sépie</string>
   <string name="color_theme_test_title">Vzorový text</string>
   <string name="color_theme_test_text">Přetáhněte posuvník a změňte velikost textu, který se používá při čtení článků. Chcete-li nastavit velikost textu v celé zbývající části aplikace, změňte velikost systémového textu.</string>
   <string name="preference_title_app_theme">Vzhled aplikace</string>

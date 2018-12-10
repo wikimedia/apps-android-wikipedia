@@ -320,6 +320,7 @@
   <string name="color_theme_light">Hell</string>
   <string name="color_theme_dark">Dunkel</string>
   <string name="color_theme_black">Schwarz</string>
+  <string name="color_theme_sepia">Sepia</string>
   <string name="color_theme_test_title">Beispieltext</string>
   <string name="color_theme_test_text">Ziehe den Schieber, um die Größe des Textes zu ändern, der für das Lesen von Artikeln verwendet wird. Um die Textgröße auch für den Rest der App festzulegen, ändere die Systemtextgröße.</string>
   <string name="preference_title_app_theme">Farbschema der App</string>

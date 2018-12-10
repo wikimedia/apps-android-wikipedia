@@ -285,6 +285,7 @@
   <string name="text_copied">Teksti kopioitu leikepöydälle.</string>
   <string name="button_continue_to_article">Lue artikkeli</string>
   <string name="button_continue_to_disambiguation">Katso samankaltaisia sivuja</string>
+  <string name="link_preview_disambiguation_description">Tämä otsikko koskee useampaa kuin yhtä sivua:</string>
   <string name="button_add_to_reading_list">Lisää lukuluetteloon</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artikkelia ei voida ladata offline-tilassa.</string>
   <string name="page_offline_notice_add_to_reading_list">Vihje: Lisää artikkeli lukuluetteloon ja se ladataan laitteeseesi, kun muodostat seuraavan kerran yhteyden verkkoon.</string>
@@ -294,6 +295,7 @@
   <string name="preference_title_show_link_previews">Näytä linkkien esikatselut</string>
   <string name="preference_summary_show_link_previews">Näytä pikainen artikkelien esikatselu linkkejä napautettaessa.</string>
   <string name="preference_title_collapse_tables">Supista taulukot</string>
+  <string name="preference_summary_collapse_tables">Supista taulukot automaattisesti artikkeleissa, kuten tietolaatikot, viitteet ja huomautukset.</string>
   <string name="nav_item_donate">Tue Wikipediaa</string>
   <string name="error_voice_search_not_available">Pahoittelut, puheentunnistus ei ole käytettävissä.</string>
   <string name="location_service_disabled">Sijaintipalvelut eivät ole käytössä.</string>
@@ -328,6 +330,7 @@
   <string name="color_theme_light">Vaalea</string>
   <string name="color_theme_dark">Tumma</string>
   <string name="color_theme_black">Musta</string>
+  <string name="color_theme_sepia">Seepia</string>
   <string name="color_theme_test_title">Näyteteksti</string>
   <string name="color_theme_test_text">Vedä liukusäädintä muuttaaksesi tekstin kokoa jota käytetään artikkeleiden lukemisessa. Asettaaksesi tekstin koon kokonaan muuhun sovellukseen, muuta järjestelmäsi tekstin kokoa.</string>
   <string name="preference_title_app_theme">Sovelluksen teema</string>
@@ -490,6 +493,7 @@
   <string name="notifications_view_archived_button_text">Tarkastele arkistoituja ilmoituksia</string>
   <string name="notification_preferences_title">Ilmoitusasetukset</string>
   <string name="notifications_mark_unread">Merkitse lukemattomaksi</string>
+  <string name="preference_summary_notification_poll">Salli sovelluksen käyttää dataa uusien ilmoituksien tarkistamiseen taustalla.</string>
   <string name="preference_category_notification_types">Sovelluksensisäisten ilmoitusten tyypit</string>
   <string name="preference_title_notification_welcome">Tervetuloa</string>
   <string name="preference_summary_notification_welcome">Käyttäjätunnus luodaan</string>

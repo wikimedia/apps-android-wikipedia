@@ -341,6 +341,7 @@
   <string name="color_theme_light">Clair</string>
   <string name="color_theme_dark">Sombre</string>
   <string name="color_theme_black">Noir</string>
+  <string name="color_theme_sepia">Sépia</string>
   <string name="color_theme_test_title">Texte d\'exemple</string>
   <string name="color_theme_test_text">Charger le diaporeme pour faire changer le volume du texte qui est utilise pour lire des articles. Afin de determiner le volume du texte, a l\'aide du reste d\'application, changer le volume du texte dans le systeme.</string>
   <string name="preference_title_app_theme">Thème de l\'application</string>

@@ -74,7 +74,7 @@
   <string name="dialog_message_leaving_edit">Níl do chuid athruithe foilsithe fós. An bhfuil tú cinnte gur mhaith leat imeacht ón leathanach seo?</string>
   <string name="dialog_message_leaving_edit_leave">Imigh</string>
   <string name="dialog_message_leaving_edit_stay">Fan</string>
-  <string name="menu_show_toc">Clár an Ábhair</string>
+  <string name="menu_show_toc">Clár Ábhair</string>
   <string name="search_no_results_found">Níor aimsíodh torthaí</string>
   <string name="search_reading_list_no_results">Níor aimsíodh torthaí in \"%s\"</string>
   <string name="search_reading_lists_no_results">Níor aimsíodh torthaí i liostaí léitheoireachta</string>
@@ -311,6 +311,7 @@
   <string name="color_theme_light">Geal</string>
   <string name="color_theme_dark">Dorcha</string>
   <string name="color_theme_black">Dubh</string>
+  <string name="color_theme_sepia">Séipia</string>
   <string name="color_theme_test_title">Téacs samplach</string>
   <string name="color_theme_test_text">Tarraing an barra sleamhnáin le athrú a chur ar an gclómhéid a úsáidtear nuair a léann tú ailt. Athraigh do clómhéid córais más mian leat an clómhéid a shocrú sa chuid eile den aip ar fad.</string>
   <string name="preference_title_app_theme">Téama na haipe</string>
@@ -548,7 +549,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Cuir in eagar</string>
   <string name="description_edit_tutorial_promise">Agus mé ag tosú, geallaim nach mbainfidh mé mí-úsáid as an ngné seo.</string>
   <string name="description_edit_help_about_title">Maidir leis</string>
-  <string name="description_edit_help_description">Le sainchuntais theideal a úsáid, coimrítear ailt chun cabhrú le léitheoirí an t-ábhar a thuiscint ar an bpointe.</string>
+  <string name="description_edit_help_description">Úsáidtear sainchuntais theideal a úsáid faoi choinne ailt a choimriú, chun cabhrú le léitheoirí an t-ábhar a thuiscint ar an bpointe.</string>
   <string name="description_edit_help_tips">Leideanna ar shainchuntais a chruthú</string>
   <string name="description_edit_help_tips_description">Ba chóir do shainchuntais a oiriúnú ar líne amháin dá bhféadfaí é, idir aon fhocal amháin agus dhá fhocal déag. Ní chuirtear ceannlitreacha orthu, ach amháin ar an gcéad fhocal má tá ainmfhocal dílis i gceist.</string>
   <string name="description_edit_help_tips_examples">Mar shampla:</string>

@@ -337,6 +337,7 @@
   <string name="color_theme_light">Jasna</string>
   <string name="color_theme_dark">Ciemna</string>
   <string name="color_theme_black">Czarny</string>
+  <string name="color_theme_sepia">Sepia</string>
   <string name="color_theme_test_title">Przykładowy tekst</string>
   <string name="preference_title_app_theme">Motyw aplikacji</string>
   <string name="preference_summary_color_theme">Przejdź do korzystania z motywu ciemnego aplikacji</string>

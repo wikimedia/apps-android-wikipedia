@@ -299,6 +299,7 @@
   <string name="color_theme_light">Φωτεινό</string>
   <string name="color_theme_dark">Σκούρο</string>
   <string name="color_theme_black">Μαύρο</string>
+  <string name="color_theme_sepia">Σέπια</string>
   <string name="color_theme_test_title">Δείγμα κειμένου</string>
   <string name="preference_title_app_theme">Θέμα εφαρμογής</string>
   <string name="text_size_increase">Αύξηση του μεγέθους κειμένου</string>

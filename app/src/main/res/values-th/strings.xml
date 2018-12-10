@@ -5,6 +5,7 @@
 * Bluegram
 * CodeNameBOSS
 * Horus
+* Nkrctp
 * Octahedron80
 * Pon44695
 -->
@@ -141,6 +142,7 @@
   <string name="terms_of_use_description">ข้อตกลงในการใช้</string>
   <string name="about_translators_heading">ผู้แปล</string>
   <string name="about_app_license_heading">สัญญาอนุญาต</string>
+  <string name="about_wmf">ผลิตภัณฑ์ของ&lt;a href=\"https://wikimediafoundation.org/\"&gt;มูลนิธิวิกิมีเดีย&lt;/a&gt;</string>
   <string name="about_activity_title">เกี่ยวกับ</string>
   <string name="user_blocked_from_editing_title">ถูกบล็อก</string>
   <string name="edit_next">ถัดไป</string>
@@ -225,6 +227,9 @@
   <string name="reading_list_login_reminder_title">ซิงค์รายการอ่าน</string>
   <string name="reading_list_delete_confirm">คุณแน่ใจว่าต้องการลบ %s หรือไม่</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">ลงชื่อเข้า</string>
+  <string name="preference_title_notification_welcome">ยินดีต้อนรับ</string>
+  <string name="preference_summary_notification_welcome">สร้างบัญชีผู้ใช้แล้ว</string>
+  <string name="preference_title_notification_thanks">ขอบคุณ</string>
   <string name="view_continue_reading_card_title">อ่านต่อ</string>
   <string name="view_main_page_card_title">วันนี้บนวิกิพีเดีย</string>
   <string name="view_featured_image_card_title">รูปภาพประจำวัน</string>
@@ -234,7 +239,7 @@
     <item quantity="one">เมื่อวานนี้</item>
     <item quantity="other">%d วันที่ผ่านมา</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">วันนี้</string>
+  <string name="view_continue_reading_card_subtitle_today">วันนี้</string>
   <string name="onboarding_skip">ข้าม</string>
   <string name="onboarding_explore_title">วิธีใหม่ในการสำรวจ</string>
   <string name="onboarding_analytics_title">ส่งข้อมูลแบบไม่ระบุตัวตน</string>
