@@ -23,7 +23,7 @@
         android:id="@+id/view_list_card_item_title"
         style="@style/MaterialListTitle"
         android:layout_width="0dp"
-        android:layout_height="25dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         app:layout_constraintBottom_toTopOf="@+id/view_list_card_item_subtitle"
