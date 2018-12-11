@@ -22,12 +22,14 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
 import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.edit.summaries.EditSummaryTag;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.LinkHandler;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.page.PageViewModel;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ConfigurationCompat;
 import org.wikipedia.util.L10nUtil;
@@ -53,6 +55,7 @@ public class EditPreviewFragment extends Fragment {
 
     private String previewHTML;
 
+    private PageViewModel model = new PageViewModel();
     private CommunicationBridge bridge;
 
     private List<EditSummaryTag> summaryTags;
@@ -68,6 +71,11 @@ public class EditPreviewFragment extends Fragment {
         previewContainer = parent.findViewById(R.id.edit_preview_container);
         editSummaryTagsContainer = parent.findViewById(R.id.edit_summary_tags_container);
         bridge = new CommunicationBridge(webview);
+        webview.setWebViewClient(new OkHttpWebViewClient() {
+            @NonNull @Override public PageViewModel getModel() {
+                return model;
+            }
+        });
 
         return parent;
     }
@@ -78,6 +86,9 @@ public class EditPreviewFragment extends Fragment {
 
         parentActivity = (EditSectionActivity)getActivity();
         PageTitle pageTitle = parentActivity.getPageTitle();
+        model.setTitle(pageTitle);
+        model.setTitleOriginal(pageTitle);
+        model.setCurEntry(new HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK));
         bridge.resetHtml(requireActivity(), "preview.html", pageTitle.getWikiSite().url());
         funnel = WikipediaApp.getInstance().getFunnelManager().getEditFunnel(pageTitle);
 

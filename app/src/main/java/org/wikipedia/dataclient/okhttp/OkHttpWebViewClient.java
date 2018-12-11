@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.view.KeyEvent;
+import android.webkit.MimeTypeMap;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
@@ -40,6 +41,7 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
     private static final List<String> SUPPORTED_SCHEMES = Arrays.asList("http", "https");
     private static final String HEADER_CONTENT_TYPE = "content-type";
     private static final String CONTENT_TYPE_OGG = "application/ogg";
+    private static final String ASSETS_URL_PATH = "/android_asset/";
     private static final String PCS_CSS_BASE = "/data/css/mobile/base";
     private static final String PCS_CSS_SITE = "/data/css/mobile/site";
 
@@ -52,6 +54,12 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
         }
 
         try {
+            if (url.contains(ASSETS_URL_PATH)) {
+                String[] urlArr = url.split(ASSETS_URL_PATH);
+                return new WebResourceResponse(MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(url)),
+                        "utf-8", WikipediaApp.getInstance().getAssets().open(urlArr[urlArr.length - 1]));
+            }
+
             Response rsp = request(url);
             if (CONTENT_TYPE_OGG.equals(rsp.header(HEADER_CONTENT_TYPE))) {
                 rsp.close();
@@ -88,6 +96,14 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
         }
 
         try {
+            if (request.getUrl().toString().contains(ASSETS_URL_PATH)) {
+                final int statusCode = 200;
+                String[] urlArr = request.getUrl().toString().split(ASSETS_URL_PATH);
+                return new WebResourceResponse(MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(request.getUrl().toString())),
+                        "utf-8", statusCode, "OK",
+                        Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open(urlArr[urlArr.length - 1]));
+            }
+
             Response rsp = request(request);
             if (CONTENT_TYPE_OGG.equals(rsp.header(HEADER_CONTENT_TYPE))) {
                 rsp.close();
