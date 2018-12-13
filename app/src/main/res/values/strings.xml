@@ -551,6 +551,7 @@
     <string name="view_featured_article_card_title">Featured article</string>
     <string name="view_featured_article_footer_save_button_label">Save</string>
     <string name="view_featured_article_footer_saved_button_label">Saved</string>
+    <string name="edit_tasks_activity_title">App edit tasks</string>
     <string name="feed_configure_activity_title">Customize the feed</string>
     <string name="feed_configure_menu_reset">Restore default view</string>
     <string name="feed_configure_menu_select_all">Show all</string>

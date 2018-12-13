@@ -116,6 +116,21 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_developer_settings, enabled);
     }
 
+    public static boolean showEditMenuOptionIndicator() {
+        return getBoolean(R.string.preference_key_show_edit_menu_option_indicator, true);
+    }
+
+    public static void setShowEditMenuOptionIndicator(boolean enabled) {
+        setBoolean(R.string.preference_key_show_edit_menu_option_indicator, enabled);
+    }
+    public static boolean showActionFeedIndicator() {
+        return getBoolean(R.string.preference_key_show_action_feed_indicator, true);
+    }
+
+    public static void setShowActionFeedIndicator(boolean enabled) {
+        setBoolean(R.string.preference_key_show_action_feed_indicator, enabled);
+    }
+
     public static void removeLoginUsername() {
         remove(R.string.preference_key_login_username);
     }
