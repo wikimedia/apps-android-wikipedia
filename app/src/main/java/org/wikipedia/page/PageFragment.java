@@ -150,6 +150,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private WikiPageErrorView errorView;
     private PageActionTabLayout tabLayout;
     private ToCHandler tocHandler;
+    private WebViewScrollTriggerListener scrollTriggerListener = new WebViewScrollTriggerListener();
 
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
@@ -418,6 +419,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 pageScrollFunnel.onPageScrolled(oldScrollY, scrollY, isHumanScroll);
             }
         });
+        webView.addOnContentHeightChangedListener(scrollTriggerListener);
         webView.setWebViewClient(new OkHttpWebViewClient() {
             @NonNull @Override public PageViewModel getModel() {
                 return model;
@@ -611,7 +613,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         this.pageRefreshed = isRefresh;
 
         closePageScrollFunnel();
-        pageFragmentLoadState.load(pushBackStack, stagedScrollY);
+        pageFragmentLoadState.load(pushBackStack);
+        scrollTriggerListener.setStagedScrollY(stagedScrollY);
         bottomContentView.hide();
         updateBookmarkAndMenuOptions();
     }
@@ -1231,6 +1234,22 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             if (avPlayer != null) {
                 avPlayer.stop();
                 updateProgressBar(false, true, 0);
+            }
+        }
+    }
+
+    private class WebViewScrollTriggerListener implements ObservableWebView.OnContentHeightChangedListener {
+        private int stagedScrollY;
+
+        void setStagedScrollY(int stagedScrollY) {
+            this.stagedScrollY = stagedScrollY;
+        }
+
+        @Override
+        public void onContentHeightChanged(int contentHeight) {
+            if (stagedScrollY > 0 && (contentHeight * DimenUtil.getDensityScalar() - webView.getHeight()) > stagedScrollY) {
+                webView.setScrollY(stagedScrollY);
+                stagedScrollY = 0;
             }
         }
     }

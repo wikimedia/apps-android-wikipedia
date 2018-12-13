@@ -81,11 +81,6 @@ public class PageFragmentLoadState {
 
     @NonNull private final SequenceNumber sequenceNumber = new SequenceNumber();
 
-    /**
-     * The y-offset position to which the page will be scrolled once it's fully loaded
-     * (or loaded to the point where it can be scrolled to the correct position).
-     */
-    private int stagedScrollY;
     private int sectionTargetFromIntent;
     private String sectionTargetFromTitle;
 
@@ -122,7 +117,7 @@ public class PageFragmentLoadState {
         this.currentTab = tab;
     }
 
-    public void load(boolean pushBackStack, int stagedScrollY) {
+    public void load(boolean pushBackStack) {
         if (pushBackStack) {
             // update the topmost entry in the backstack, before we start overwriting things.
             updateCurrentBackStackItem();
@@ -148,7 +143,6 @@ public class PageFragmentLoadState {
         // CSS to be loaded automatically.
         bridge.resetHtml(fragment.requireActivity(), "index.html", model.getTitle().getWikiSite().url());
 
-        this.stagedScrollY = stagedScrollY;
         pageLoadCheckReadingLists();
     }
 
@@ -217,8 +211,6 @@ public class PageFragmentLoadState {
     public void backFromEditing(Intent data) {
         //Retrieve section ID from intent, and find correct section, so where know where to scroll to
         sectionTargetFromIntent = data.getIntExtra(EditSectionActivity.EXTRA_SECTION_ID, 0);
-        //reset our scroll offset, since we have a section scroll target
-        stagedScrollY = 0;
     }
 
     public void layoutLeadImage() {
@@ -522,8 +514,6 @@ public class PageFragmentLoadState {
                 wrapper.put("fragment", model.getTitle().getFragment());
             }
 
-            //give it our expected scroll position, in case we need the page to be pre-scrolled upon loading.
-            wrapper.put("scrollY", (int) (stagedScrollY / DimenUtil.getDensityScalar()));
             bridge.sendMessage("queueRemainingSections", wrapper);
         } catch (JSONException e) {
             L.logRemoteErrorIfProd(e);
