@@ -331,6 +331,7 @@
   <string name="color_theme_light">밝음</string>
   <string name="color_theme_dark">어두움</string>
   <string name="color_theme_black">검정</string>
+  <string name="color_theme_sepia">세피아</string>
   <string name="color_theme_test_title">샘플 텍스트</string>
   <string name="color_theme_test_text">글을 읽을 때 사용되는 텍스트의 크기를 변경하려면 슬라이더를 드래그하십시오. 앱의 나머지 부분의 텍스트 크기를 설정하려면 시스템 텍스트 크기를 변경하십시오.</string>
   <string name="preference_title_app_theme">앱 테마</string>

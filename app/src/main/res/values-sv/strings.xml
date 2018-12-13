@@ -325,6 +325,7 @@
   <string name="color_theme_light">Ljus</string>
   <string name="color_theme_dark">Mörk</string>
   <string name="color_theme_black">Svart</string>
+  <string name="color_theme_sepia">Sepia</string>
   <string name="color_theme_test_title">Exempeltext</string>
   <string name="color_theme_test_text">Dra i reglaget för att ändra textstorleken som används när du läser artiklar. För att ändra textstorleken i resten av appen måste du ändra textstorleken för ditt system.</string>
   <string name="preference_title_app_theme">Apptema</string>

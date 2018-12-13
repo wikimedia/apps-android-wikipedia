@@ -329,6 +329,7 @@
   <string name="color_theme_light">Clar</string>
   <string name="color_theme_dark">Fosc</string>
   <string name="color_theme_black">Negre</string>
+  <string name="color_theme_sepia">Sèpia</string>
   <string name="color_theme_test_title">Text de mostra</string>
   <string name="color_theme_test_text">Desplaça la barra per canviar la mida del text que s\'usa per llegir articles. Per canviar la mida a tota l\'aplicació reviseu la configuració del vostre dispositiu</string>
   <string name="preference_title_app_theme">Tema de l\'aplicació</string>

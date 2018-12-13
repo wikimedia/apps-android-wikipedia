@@ -327,6 +327,7 @@
   <string name="color_theme_light">Világos</string>
   <string name="color_theme_dark">Sötét</string>
   <string name="color_theme_black">Fekete</string>
+  <string name="color_theme_sepia">Szépia</string>
   <string name="color_theme_test_title">Mintaszöveg</string>
   <string name="color_theme_test_text">Mozgasd a csúszkát az olvasott szöveg méretének megváltoztatásához. Az alkalmazás többi részében található szöveget méretének változtatása a rendszer szöveg méretének módosításával lehetséges.</string>
   <string name="preference_title_app_theme">Alkalmazástéma</string>
