@@ -14,8 +14,6 @@ import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -56,10 +54,9 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     @BindView(R.id.navigation_drawer) WikiDrawerLayout drawerLayout;
     @BindView(R.id.navigation_drawer_view) MainDrawerView drawerView;
     @BindView(R.id.single_fragment_toolbar) Toolbar toolbar;
-    @BindView(R.id.drawer_icon_layout) FrameLayout drawerIconLayout;
-    @BindView(R.id.drawer_icon_dot) ImageView drawerIconDot;
-    @BindView(R.id.single_fragment_toolbar_wordmark) View wordMark;
-    @BindView(R.id.icon_wordmark_layout) View iconWordmarkLayout;
+    @BindView(R.id.drawer_icon_layout) View drawerIconLayout;
+    @BindView(R.id.drawer_icon_dot) View drawerIconDot;
+    @BindView(R.id.hamburger_and_wordmark_layout) View hamburgerAndWordmarkLayout;
 
     private boolean controlNavTabInFragment;
 
@@ -130,14 +127,14 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     @Override
     public void onTabChanged(@NonNull NavTab tab) {
         if (tab.equals(NavTab.EXPLORE)) {
-            iconWordmarkLayout.setVisibility(VISIBLE);
+            hamburgerAndWordmarkLayout.setVisibility(VISIBLE);
             getSupportActionBar().setTitle("");
             controlNavTabInFragment = false;
         } else {
             if (tab.equals(NavTab.HISTORY) && getFragment().getCurrentFragment() != null) {
                 ((HistoryFragment) getFragment().getCurrentFragment()).refresh();
             }
-            iconWordmarkLayout.setVisibility(GONE);
+            hamburgerAndWordmarkLayout.setVisibility(GONE);
             getSupportActionBar().setTitle(tab.text());
             controlNavTabInFragment = true;
         }
@@ -233,10 +230,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             drawerToggle.syncState();
             getToolbar().setNavigationIcon(null);
         }
-    }
-
-    protected View getToolbarWordmark() {
-        return wordMark;
     }
 
     protected void setToolbarElevationDefault() {

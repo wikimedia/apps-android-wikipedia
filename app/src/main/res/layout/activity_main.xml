@@ -29,23 +29,24 @@
             app:titleTextColor="?attr/main_toolbar_title_color">
 
             <LinearLayout
-                android:id="@+id/icon_wordmark_layout"
+                android:id="@+id/hamburger_and_wordmark_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <FrameLayout
                     android:id="@+id/drawer_icon_layout"
-                    android:layout_width="24dp"
-                    android:layout_height="wrap_content"
-                    android:background="?android:attr/selectableItemBackgroundBorderless"
-                    tools:targetApi="21">
+                    android:layout_width="48dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="-12dp"
+                    android:background="?attr/selectableItemBackgroundBorderless">
 
                     <ImageView
                         android:id="@+id/drawer_icon_menu"
                         android:layout_width="24dp"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:contentDescription="@null"
                         app:srcCompat="@drawable/ic_menu_themed_24dp" />
 
@@ -53,7 +54,9 @@
                         android:id="@+id/drawer_icon_dot"
                         android:layout_width="8dp"
                         android:layout_height="8dp"
-                        android:layout_gravity="end"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginStart="8dp"
                         android:contentDescription="@null"
                         android:tint="?attr/colorAccent"
                         app:srcCompat="@drawable/shape_circle" />
@@ -63,7 +66,7 @@
                     android:id="@+id/single_fragment_toolbar_wordmark"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
+                    android:layout_marginStart="20dp"
                     android:contentDescription="@null"
                     app:srcCompat="@drawable/feed_header_wordmark"
                     app:tint="?attr/main_toolbar_title_color" />
