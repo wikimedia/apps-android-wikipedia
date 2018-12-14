@@ -283,7 +283,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
     public void refresh() {
         adapter.notifyDataSetChanged();
-        if (app.isOnline() && Prefs.shouldShowHistoryOfflineArticlesToast()) {
+        if (!app.isOnline() && Prefs.shouldShowHistoryOfflineArticlesToast()) {
             Toast.makeText(requireContext(), R.string.history_offline_articles_toast, Toast.LENGTH_SHORT).show();
             Prefs.shouldShowHistoryOfflineArticlesToast(false);
         }
