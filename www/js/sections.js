@@ -243,20 +243,13 @@ function applySectionTransforms( content, isLeadSection ) {
     }
 }
 
-function displayRemainingSections(json, sequence, scrollY, fragment) {
+function displayRemainingSections(json, sequence, fragment) {
     var contentWrapper = document.getElementById( "content" );
-    var scrolled = false;
-
     var response = { "sequence": sequence };
 
     json.sections.forEach(function (section) {
         elementsForSection(section).forEach(function (element) {
             contentWrapper.appendChild(element);
-            // do we have a y-offset to scroll to?
-            if (scrollY > 0 && scrollY < element.offsetTop && !scrolled) {
-                window.scrollTo( 0, scrollY );
-                scrolled = true;
-            }
         });
         // do we have a section to scroll to?
         if ( typeof fragment === "string" && fragment.length > 0 && section.anchor === fragment) {
@@ -264,10 +257,6 @@ function displayRemainingSections(json, sequence, scrollY, fragment) {
         }
     });
 
-    // if we still haven't scrolled to our target offset (if we have one), then do it now.
-    if (scrollY > 0 && !scrolled) {
-        window.scrollTo( 0, scrollY );
-    }
     transformer.transform( "fixAudio", document );
     transformer.transform( "hideTables", document );
     transformer.transform( "showIssues", document );
@@ -284,7 +273,6 @@ bridge.registerListener( "queueRemainingSections", function ( payload ) {
     remainingRequest = new XMLHttpRequest();
     remainingRequest.open('GET', payload.url);
     remainingRequest.sequence = payload.sequence;
-    remainingRequest.scrollY = payload.scrollY;
     remainingRequest.fragment = payload.fragment;
     if (window.apiLevel > 19 && window.responseType !== 'json') {
         remainingRequest.responseType = 'json';
@@ -305,7 +293,7 @@ bridge.registerListener( "queueRemainingSections", function ( payload ) {
                 // If it's a mobileview response, the "sections" object will be one level deeper.
                 sectionsObj = sectionsObj.mobileview;
             }
-            displayRemainingSections(sectionsObj, this.sequence, this.scrollY, this.fragment);
+            displayRemainingSections(sectionsObj, this.sequence, this.fragment);
         } catch (e) {
             // Catch any errors that might have come from deserializing or rendering the
             // remaining sections.
