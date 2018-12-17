@@ -844,5 +844,13 @@ public final class Prefs {
         setBoolean(R.string.preference_key_history_offline_articles_toast, showToast);
     }
 
+    public static boolean showEditActionAddTitleDescriptionsOnboarding() {
+        return getBoolean(R.string.preference_key_show_edit_action_add_title_descriptions_onboarding, true);
+    }
+
+    public static void setShowEditActionAddTitleDescriptionsOnboarding(boolean enabled) {
+        setBoolean(R.string.preference_key_show_edit_action_add_title_descriptions_onboarding, enabled);
+    }
+
     private Prefs() { }
 }

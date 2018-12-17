@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.ViewPager
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -26,11 +27,14 @@ import org.wikipedia.analytics.RandomizerFunnel
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
+import org.wikipedia.descriptions.DescriptionEditHelpActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.AnimationUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.DialogTitleWithImage
 
 class AddTitleDescriptionsFragment : Fragment() {
     private val viewPagerListener = ViewPagerListener()
@@ -87,6 +91,8 @@ class AddTitleDescriptionsFragment : Fragment() {
                         Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT)
             }
         }
+
+        showOnboarding()
     }
 
     override fun onDestroyView() {
@@ -119,6 +125,21 @@ class AddTitleDescriptionsFragment : Fragment() {
     fun onSelectPage(title: PageTitle) {
         startActivity(PageActivity.newIntentForNewTab(requireActivity(),
                 HistoryEntry(title, HistoryEntry.SOURCE_RANDOM), title))
+    }
+
+    private fun showOnboarding() {
+        if (Prefs.showEditActionAddTitleDescriptionsOnboarding()) {
+            // TODO: update the title and description (T209539)
+            AlertDialog.Builder(requireActivity())
+                    .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.temp_add_title_descriptions_dialog_title, R.drawable.lead_default, false))
+                    .setMessage(R.string.temp_add_title_descriptions_dialog_message)
+                    .setPositiveButton(R.string.onboarding_got_it, null)
+                    .setNegativeButton(R.string.editactionfeed_add_title_dialog_learn_more) {
+                        _, _ -> startActivity(DescriptionEditHelpActivity.newIntent(requireContext()))
+                    }
+                    .show()
+            Prefs.setShowEditActionAddTitleDescriptionsOnboarding(false)
+        }
     }
 
     private fun requestLanguagesAndBuildSpinner(savedInstanceState: Bundle?, callback: Callback) {

@@ -106,4 +106,5 @@
     <string name="preference_key_show_action_feed_indicator">showActionFeedIndicator</string>
     <string name="preference_key_show_edit_tasks_onboarding">showEditTasksOnboarding</string>
     <string name="preference_key_show_multilingual_task">showMultilingualTask</string>
+    <string name="preference_key_show_edit_action_add_title_descriptions_onboarding">showEditActionAddTitleDescriptionsOnboarding</string>
 </resources>

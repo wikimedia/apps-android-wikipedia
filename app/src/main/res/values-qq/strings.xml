@@ -680,4 +680,5 @@
   <string name="editactionfeed_add_description_button">A button text for adding description.</string>
   <string name="editactionfeed_my_contributions">A overflow menu text that leads to my contributions page</string>
   <string name="editactionfeed_from_language">A label shows that the current selected Wikipedia language for fetching articles.</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">A button text for leading users to the help page of editing title descriptions.</string>
 </resources>

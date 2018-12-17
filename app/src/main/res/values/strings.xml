@@ -624,6 +624,7 @@
     <string name="editactionfeed_add_description_button">Add description</string>
     <string name="editactionfeed_my_contributions">My contributions</string>
     <string name="editactionfeed_from_language">From: </string>
+    <string name="editactionfeed_add_title_dialog_learn_more">Learn more</string>
     <!-- /Edit action feed -->
 
     <!-- Description editing revert help -->

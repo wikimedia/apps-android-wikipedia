@@ -33,7 +33,7 @@ public class DialogTitleWithImage extends LinearLayout {
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
-        if (image.getDrawable() != null) {
+        if (image.getDrawable() != null && preserveImageAspect) {
             LinearLayout.LayoutParams params = (LinearLayout.LayoutParams)image.getLayoutParams();
             params.height = (int) (((double)image.getDrawable().getIntrinsicHeight() / image.getDrawable().getIntrinsicWidth()) * image.getWidth());
             image.setLayoutParams(params);
