@@ -544,6 +544,7 @@
   <string name="view_featured_article_card_title">Article vedette</string>
   <string name="view_featured_article_footer_save_button_label">Enregistrer</string>
   <string name="view_featured_article_footer_saved_button_label">Enregistré</string>
+  <string name="edit_tasks_activity_title">Tâches d\'édition App</string>
   <string name="feed_configure_activity_title">Configurer le fil</string>
   <string name="feed_configure_menu_reset">Rétablir la vue par défaut</string>
   <string name="feed_configure_menu_select_all">Afficher tout</string>

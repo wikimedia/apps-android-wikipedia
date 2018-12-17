@@ -524,6 +524,7 @@
   <string name="view_featured_article_card_title">Vorgestellter Artikel</string>
   <string name="view_featured_article_footer_save_button_label">Speichern</string>
   <string name="view_featured_article_footer_saved_button_label">Gespeichert</string>
+  <string name="edit_tasks_activity_title">App-Bearbeitungs-Aufgaben</string>
   <string name="feed_configure_activity_title">Den Feed anpassen</string>
   <string name="feed_configure_menu_reset">Standardansicht wiederherstellen</string>
   <string name="feed_configure_menu_select_all">Alle anzeigen</string>

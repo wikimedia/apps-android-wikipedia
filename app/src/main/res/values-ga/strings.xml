@@ -57,8 +57,8 @@
   <string name="other_languages_indication_text">Léigh i dteanga eile</string>
   <string name="language_count_link_text">Ar fáil i %d teanga eile</string>
   <string name="content_license_html">Tá an t-inneachar ar fáil faoi &lt;a href=\"%1$s\"&gt;CC-BY-SA 3.0&lt;/A&gt; mura luaitear a mhalairt</string>
-  <string name="edit_save_action_license_logged_in">Agus an t-ábhar á fhoilsiú agat, glacann tú leis na &lt;a href=\"%1$s\"&gt;Coinníollacha Úsáide&lt;/a&gt; agus le do chuid dréachtaí a scaoileadh go neamh-inchúlghairthe faoin gceadúnas &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Agus an t-ábhar á fhoilsiú agat, glacann tú leis na &lt;a href=\"%1$s\"&gt;Coinníollacha Úsáide&lt;/a&gt; agus le do chuid dréachtaí a scaoileadh go neamh-inchúlghairthe faoin gceadúnas &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Luafar do chuid athruithe le seoladh IP do ghléas. Beidh tuilleadh príobháideachais agat má &lt;a href=\"https://#login\"&gt;logálann tú isteach&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_logged_in">Ach an t-ábhar a fhoilsiú, glacann tú leis na &lt;a href=\"%1$s\"&gt;Coinníollacha Úsáide&lt;/a&gt; agus le do chuid dréachtaí a scaoileadh go neamh-inchúlghairthe faoin gceadúnas &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Ach an t-ábhar a fhoilsiú, glacann tú leis na &lt;a href=\"%1$s\"&gt;Coinníollacha Úsáide&lt;/a&gt; agus le do chuid dréachtaí a scaoileadh go neamh-inchúlghairthe faoin gceadúnas &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Luafar do chuid athruithe le seoladh IP do ghléas. Beidh tuilleadh príobháideachais agat má &lt;a href=\"https://#login\"&gt;logálann tú isteach&lt;/a&gt;.</string>
   <string name="preference_title_language">Teangacha Vicipéide</string>
   <string name="langlinks_filter_hint">Cuardaigh</string>
   <string name="langlinks_empty">Níl an leathanach seo ar fáil i dteangacha eile.</string>
@@ -536,7 +536,7 @@
   <string name="description_edit_help_about_wikidata">Maidir le Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Treoirleabhar ó Wikidata ar conas sainchuntais a scríobh</string>
   <string name="description_edit_anon_limit">Go raibh maith agat as do spéis leanúnach i sainchuntais a chur in eagar! Logáil isteach chuig do chuntas Vicipéide le tuilleadh athruithe a dhéanamh.</string>
-  <string name="description_edit_license_notice">Agus an sainchuntas teidil á athrú agam, glacaim leis na &lt;a href=\"%1$s\"&gt;Coinníollacha Úsáide&lt;/a&gt; agus le mo chuid dréachtaí a scaoileadh go neamh-inchúlghairthe faoin gceadúnas &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_license_notice">Ach an sainchuntas teidil a athrú, glacaim leis na &lt;a href=\"%1$s\"&gt;Coinníollacha Úsáide&lt;/a&gt; agus le mo chuid dréachtaí a scaoileadh go neamh-inchúlghairthe faoin gceadúnas &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Foilsíodh an sainchuntas!</string>
   <string name="description_edit_success_encouragement">Tá tú díreach tar éis Vicipéid a fheabhsú do gach duine</string>
   <string name="description_edit_success_done">Déanta</string>

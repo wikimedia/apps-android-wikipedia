@@ -315,6 +315,7 @@
   <string name="color_theme_light">Светъл</string>
   <string name="color_theme_dark">Тъмен</string>
   <string name="color_theme_black">Черно</string>
+  <string name="color_theme_sepia">Сепия</string>
   <string name="color_theme_test_title">Примерен текст</string>
   <string name="color_theme_test_text">Преместете плъзгача, за да промените размера на текста, който се използва за четене на статии. За да настроите размера на текста в другите части на приложението, променете системния размер на текста.</string>
   <string name="preference_title_app_theme">Тема на приложението</string>

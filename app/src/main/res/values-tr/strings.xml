@@ -340,6 +340,7 @@
   <string name="color_theme_light">Açık</string>
   <string name="color_theme_dark">Koyu</string>
   <string name="color_theme_black">Siyah</string>
+  <string name="color_theme_sepia">Sepya</string>
   <string name="color_theme_test_title">Örnek metin</string>
   <string name="color_theme_test_text">Maddeleri okurken kullanılan metnin boyutunu değiştirmek için kaydırıcıyı sürükleyin. Metin boyutunu uygulamanın geri kalanında ayarlamak için sistem metin boyutunu değiştirin.</string>
   <string name="preference_title_app_theme">Uygulama teması</string>

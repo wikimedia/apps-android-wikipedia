@@ -535,6 +535,7 @@
   <string name="view_featured_article_card_title">Nejlepší článek</string>
   <string name="view_featured_article_footer_save_button_label">Uložit</string>
   <string name="view_featured_article_footer_saved_button_label">Uložit</string>
+  <string name="edit_tasks_activity_title">Tipy pro editace z aplikace</string>
   <string name="feed_configure_activity_title">Přizpůsobit kartu Prozkoumat</string>
   <string name="feed_configure_menu_reset">Obnovit výchozí filtry</string>
   <string name="feed_configure_menu_select_all">Zobrazit vše</string>

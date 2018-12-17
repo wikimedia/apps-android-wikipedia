@@ -104,6 +104,7 @@
   <string name="toast_logout_complete">Тахсыбыккын</string>
   <string name="history_empty_title">Соторутааҕыта көрүллүбүт сирэй суох эбит</string>
   <string name="history_empty_message">Урут аахпыккын манна кэтээ.</string>
+  <string name="history_offline_articles_toast">Ситимҥэ холбоммотох буоллаххына, устуоруйа сорох сирэйдэрэ кыайан арыллыа суохтарын сөп.</string>
   <string name="search_empty_message">Босхо энциклопедияны тереебут тылга аа5ыы уонна бу</string>
   <string name="search_empty_message_multilingual_upgrade">Бикипиэдьийэҕэ атын тылынан суруллубуту көрдөө</string>
   <string name="delete_selected_items">Талыллыбыты сот</string>
@@ -263,6 +264,7 @@
   <string name="tool_tip_share">Сэргэҕи бэлиэтээн (хараардан) баран сөбүлүүр түмэт-ситимнэргэр тарҕатан көр!</string>
   <string name="page_view_in_browser">Сирэйи браузерга көрүү</string>
   <string name="tool_tip_toc_title">Ис хоһоонун түргэнник көрүү</string>
+  <string name="tool_tip_toc_text">Хаҥас диэки тарыйдаххына, иһинээҕитэ көстүө, эбэтэр эргитэр тэрили туттан, ыстатыйа салааларыгар түргэнник тиийиэххин сөп.</string>
   <string name="tool_tip_lang_button">Хас да тылынан ааҕар уонна көрдүүр сатанар буолла</string>
   <string name="error_response_malformed">Сиэрбэр хоруйа алҕастаахтык таҥастаммыт.</string>
   <string name="error_unknown">Биллибэт алҕас таҕыста.</string>
@@ -316,6 +318,7 @@
   <string name="color_theme_light">Сырдык</string>
   <string name="color_theme_dark">Хараҥа</string>
   <string name="color_theme_black">Хара</string>
+  <string name="color_theme_sepia">Сепия</string>
   <string name="color_theme_test_title">Холобур тиэкис</string>
   <string name="preference_title_app_theme">Тас көстүүтэ</string>
   <string name="preference_summary_color_theme">Хараҥа тиэмэни туһанарга холбоо</string>
@@ -382,6 +385,8 @@
   <string name="reading_list_already_contains_selection">Талбыт ыстатыйаҥ испииһэккэ хайыы-үйэ баар эбит.</string>
   <string name="reading_list_added_articles_list_titled">%1$d ыстатыйаны манна киллэр: %2$s</string>
   <string name="reading_list_delete_confirm" fuzzy="true">Бу тиһилиги чахчы сотоору гынаҕын дуо %s?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Тэҥниири холбуурга бэлиэ-ааккынан киир</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Киирдэххинэ ааҕыыҥ испииһэгэ ааккын кытта ситимнэһиэ.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Салҕаама</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Киир</string>
   <string name="reading_list_turned_sync_off_dialog_title">Ааҕыы испииһэгин мэнэйдэһиитэ араҕыста</string>
@@ -400,6 +405,7 @@
   <string name="default_reading_list_name">Бигэргэннэ</string>
   <string name="default_reading_list_description">Талбыт ыстатыйаларыҥ испииһэгэ</string>
   <string name="no_user_lists_title">Испииһэккэ ыстатыйалары наардаа</string>
+  <string name="reading_list_saved_list_rename">%1$s (кыттааччы айбыт)</string>
   <string name="reading_lists_menu_create_list">Саҥа испииһэги оҥоруу</string>
   <string name="reading_lists_menu_sort_by">Маннык наардаа...</string>
   <string name="reading_lists_refresh_sync_option">Хос ыыт</string>
@@ -439,6 +445,7 @@
   <string name="notifications_empty_message">Саҥа иһитиннэрии суох!</string>
   <string name="notifications_view_archived_button_text">Архыыптаммыты көрдөр</string>
   <string name="notification_preferences_title">Биллэриилэри нарылааһын</string>
+  <string name="notifications_mark_unread">Ааҕыллыбатах курдук бэлиэтээ</string>
   <string name="preference_title_notification_welcome">Киирбиккинэн</string>
   <string name="preference_summary_notification_welcome">Бэлиэ-аат оҥоһулунна</string>
   <string name="preference_title_notification_milestone">Хардыы</string>
@@ -482,6 +489,7 @@
   <string name="feed_configure_menu_deselect_all">Барытын кистээ</string>
   <string name="feed_item_type_news">Бүгүн буола турар туһунан</string>
   <string name="feed_item_type_on_this_day">Устуоруйаҕа бүгүн буолбут</string>
+  <string name="feed_configure_onboarding_action">Нарылааһын</string>
   <string name="description_edit_text_hint">Ойуулааһын</string>
   <string name="description_edit_save">Бигэргэт</string>
   <string name="description_edit_add_description">Кылгас быһаарыы эбии</string>
@@ -540,6 +548,8 @@
   <string name="onboarding_create_account_contributions">Суруйбуккун кэтээн көрүү</string>
   <string name="onboarding_create_account_preferences">Бэйэ туруорууларын бигэргэтии</string>
   <string name="onboarding_got_it">Бу өйдөнөр</string>
+  <string name="onboarding_multilingual_add_language_text">Тылы эп биитэр сот</string>
+  <string name="onboarding_welcome_title_v2">Аһаҕас энциклопедия\n... 300-чэ тылынан</string>
   <string name="app_shortcuts_random">Түбэспиччэ</string>
   <string name="app_shortcuts_continue_reading">Салгыы ааҕыы</string>
   <string name="app_shortcuts_search">Бул</string>
@@ -559,9 +569,13 @@
   <string name="wikipedia_languages_title">Бикипиэдьийэ омугун тыла</string>
   <string name="wikipedia_languages_your_languages_text">Эн тылларыҥ</string>
   <string name="wikipedia_languages_add_language_text">Тылы эбии</string>
-  <string name="wikipedia_languages_remove_text" fuzzy="true">Сот</string>
+  <string name="wikipedia_languages_remove_text">Тылы сот</string>
   <string name="wikipedia_languages_remove_action_mode_title">Тылы сот</string>
-  <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Талбыт тылларгын сотоҕун дуо?</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">Талбыт тылгын сотоҕун дуо?</item>
+    <item quantity="other">Талбыт тылларгын сотоҕун дуо?</item>
+  </plurals>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Тылы түөрэтин сотор кыах суох</string>
   <string name="more_language_options">эбии</string>
   <string name="add_wikipedia_languages_text">Бикипиэдьийэ тылларын эп</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Тыллар испииһэктэриттэн кытай тылын сотоҕун дуо?</string>

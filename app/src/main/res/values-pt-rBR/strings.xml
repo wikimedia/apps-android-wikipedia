@@ -544,6 +544,7 @@
   <string name="view_featured_article_card_title">Artigo destacado</string>
   <string name="view_featured_article_footer_save_button_label">Salvar</string>
   <string name="view_featured_article_footer_saved_button_label">Salvo</string>
+  <string name="edit_tasks_activity_title">Tarefas de edição do aplicativos</string>
   <string name="feed_configure_activity_title">Personalize o feed</string>
   <string name="feed_configure_menu_reset">Restaurar visualização padrão</string>
   <string name="feed_configure_menu_select_all">Mostrar todos</string>
