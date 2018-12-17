@@ -482,6 +482,14 @@ public final class Prefs {
         setInt(R.string.preference_key_total_user_descriptions_edited, getTotalUserDescriptionsEdited() + 1);
     }
 
+    public static int getTotalUserDescriptionsReverted() {
+        return getInt(R.string.preference_key_total_user_descriptions_edited, 0);
+    }
+
+    public static void incrementTotalUserDescriptionsReverted() {
+        setInt(R.string.preference_key_total_user_descriptions_edited, getTotalUserDescriptionsReverted() + 1);
+    }
+
     public static boolean isReadingListSyncEnabled() {
         return getBoolean(R.string.preference_key_sync_reading_lists, false);
     }
@@ -818,6 +826,14 @@ public final class Prefs {
 
     public static void setShowMultilingualTask(boolean showTask) {
         setBoolean(R.string.preference_key_show_multilingual_task, showTask);
+    }
+
+    public static boolean isActionEditDescriptionsUnlocked() {
+        return getBoolean(R.string.preference_key_action_edit_descriptions_unlocked, false);
+    }
+
+    public static void setActionEditDescriptionsUnlocked(boolean unlocked) {
+        setBoolean(R.string.preference_key_action_edit_descriptions_unlocked, unlocked);
     }
 
     public static boolean shouldShowHistoryOfflineArticlesToast() {

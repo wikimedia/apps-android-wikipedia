@@ -213,10 +213,10 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
         findPreference(context.getString(R.string.preference_key_dialog_with_image_test))
                 .setOnPreferenceClickListener(preference -> {
                     new AlertDialog.Builder(getActivity())
-                            .setCustomTitle(new DialogTitleWithImage(getActivity(), R.string.about_activity_title, R.drawable.lead_default))
-                            .setMessage(R.string.description_edit_help_tips_description)
-                            .setPositiveButton(android.R.string.ok, null)
-                            .setNegativeButton(android.R.string.cancel, null)
+                            .setCustomTitle(new DialogTitleWithImage(getActivity(), R.string.description_edit_task_unlock_title, R.drawable.ic_illustration_description_edit_trophy, true))
+                            .setMessage(R.string.description_edit_task_unlock_body)
+                            .setPositiveButton(R.string.onboarding_get_started, null)
+                            .setNegativeButton(R.string.onboarding_maybe_later, null)
                             .show();
                     return true;
                 });

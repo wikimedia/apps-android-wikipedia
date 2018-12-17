@@ -158,6 +158,10 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
                 NotificationPresenter.showNotification(context, n, dbNameWikiNameMap.containsKey(n.wiki()) ? dbNameWikiNameMap.get(n.wiki()) : n.wiki());
 
             }
+
+            if (n.type().equals(Notification.TYPE_REVERTED) && n.isFromWikidata()) {
+                Prefs.incrementTotalUserDescriptionsReverted();
+            }
         }
 
         if (locallyKnownModified) {

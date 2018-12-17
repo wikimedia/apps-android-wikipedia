@@ -51,5 +51,7 @@ public final class Constants {
     public static final int MAX_READING_LIST_ARTICLE_LIMIT = 5000;
     public static final int MAX_READING_LISTS_LIMIT = 100;
 
+    public static final int ACTION_DESCRIPTION_EDIT_UNLOCK_THRESHOLD = 1; // TODO: increase to 50 when ready for prime-time.
+
     private Constants() { }
 }

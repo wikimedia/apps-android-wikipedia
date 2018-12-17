@@ -21,6 +21,7 @@
         android:layout_marginTop="16dp"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
+        android:singleLine="false"
         style="?android:attr/windowTitleStyle"
         tools:text="Lorem ipsum"/>
 
