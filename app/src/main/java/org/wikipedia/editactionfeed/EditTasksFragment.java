@@ -24,6 +24,7 @@ import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
 import org.wikipedia.views.CircularProgressBar;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
+import org.wikipedia.views.HeaderMarginItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +67,8 @@ public class EditTasksFragment extends Fragment {
 
     private void setUpRecyclerView() {
         tasksRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        final int topDecorationDp = 16;
+        tasksRecyclerView.addItemDecoration(new HeaderMarginItemDecoration(topDecorationDp, 0));
         setUpTasks();
         RecyclerAdapter adapter = new RecyclerAdapter(tasks);
         tasksRecyclerView.setAdapter(adapter);
@@ -94,13 +97,12 @@ public class EditTasksFragment extends Fragment {
         levelText.setText(String.format(getString(R.string.editing_level_text), 1)); //Todo: derive the level number dynamically by making use of future gaming logic
         username.setText(AccountUtil.getUserName());
         editCount.setText(String.valueOf(Prefs.getTotalUserDescriptionsEdited()));
-        contributionsText.setText(getResources().getQuantityString(R.plurals.contributions, Prefs.getTotalUserDescriptionsEdited()));
+        contributionsText.setText(getResources().getQuantityString(R.plurals.edit_action_contribution_count, Prefs.getTotalUserDescriptionsEdited()));
     }
 
     private void showOneTimeOnboarding() {
         if (Prefs.showEditTaskOnboarding()) {
             editOnboardingView.setVisibility(View.VISIBLE);
-            Prefs.setShowEditTasksOnboarding(false);
         }
     }
 
@@ -144,8 +146,8 @@ public class EditTasksFragment extends Fragment {
             multilingualTask.setDescription(getString(R.string.multilingual_task_description));
             multilingualTask.setImagePlaceHolderShown(false);
             multilingualTask.setNoActionLayout(false);
-            multilingualTask.setEnabledPositiveActionString(getString(R.string.task_positive_string));
-            multilingualTask.setEnabledNegativeActionString(getString(R.string.task_negative_string));
+            multilingualTask.setEnabledPositiveActionString(getString(R.string.multilingual_task_positive));
+            multilingualTask.setEnabledNegativeActionString(getString(R.string.multilingual_task_negative));
             tasks.add(multilingualTask);
             callbacks.add(new EditTaskView.Callback() {
                 @Override
@@ -195,6 +197,7 @@ public class EditTasksFragment extends Fragment {
 
     @OnClick(R.id.get_started_button)
     void onGetStartedClicked() {
+        Prefs.setShowEditTasksOnboarding(false);
         editOnboardingView.setVisibility(View.GONE);
     }
 
