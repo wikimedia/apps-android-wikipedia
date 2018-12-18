@@ -843,7 +843,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         errorState = false;
 
         model.setCurEntry(new HistoryEntry(model.getTitle(), HistoryEntry.SOURCE_HISTORY));
-        loadPage(model.getTitle(), model.getCurEntry(), false, stagedScrollY, true);
+        loadPage(model.getTitle(), model.getCurEntry(), false, stagedScrollY, app.isOnline());
     }
 
     boolean isLoading() {
