@@ -1,6 +1,7 @@
 package org.wikipedia.language;
 
 public enum LanguageSettingsInvokeSource {
+    DESCRIPTION_EDITING("description_editing"),
     SEARCH("search"),
     SETTINGS("settings"),
     ONBOARDING("onboarding"),

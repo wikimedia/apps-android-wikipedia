@@ -92,5 +92,6 @@
         <attr name="progressColor" format="color" />
         <attr name="progressBackgroundColor" format="color" />
         <attr name="progressStrokeWidth" format="dimension" />
+        <attr name="maxProgress" format="integer" />
     </declare-styleable>
 </resources>

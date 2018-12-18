@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/disabled_action_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?android:attr/colorBackground"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:tint="?attr/material_theme_secondary_color"
+            app:srcCompat="@drawable/ic_lock_white_24dp" />
+
+        <TextView
+            android:id="@+id/disabled_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:layout_marginStart="12dp"
+            android:lineSpacingExtra="4sp"
+            android:textColor="?attr/material_theme_secondary_color"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            tools:text="Locked until you’ve made 50 verified in-app edits" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/enabled_action_layout"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="end"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/negative_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TransparentButton"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.04"
+            android:textColor="?attr/secondary_text_color"
+            tools:text="Not for me" />
+
+        <TextView
+            android:id="@+id/positive_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            style="@style/TransparentButton"
+            android:letterSpacing="0.04"
+            android:textColor="?attr/colorAccent"
+            tools:text="Add languages" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -54,6 +54,7 @@
     <string name="preference_key_missing_description_test">findArticleWithMissingDescription</string>
     <string name="preference_key_missing_description_test2">findArticleWithMissingSecondLangDescription</string>
     <string name="preference_key_dialog_with_image_test">showDialogWithTitleAndImage</string>
+    <string name="preference_key_total_user_descriptions_edited">totalUserDescriptionsEdited</string>
     <string name="preference_category_sync">syncSettings</string>
     <string name="preference_category_experimental">experimentalSettings</string>
     <string name="preference_key_sync_reading_lists">syncReadingLists</string>
@@ -101,4 +102,6 @@
     <string name="preference_key_history_offline_articles_toast">historyOfflineArticlesToast</string>
     <string name="preference_key_show_edit_menu_option_indicator">showEditMenuOptionIndicator</string>
     <string name="preference_key_show_action_feed_indicator">showActionFeedIndicator</string>
+    <string name="preference_key_show_edit_tasks_onboarding">showEditTasksOnboarding</string>
+    <string name="preference_key_show_multilingual_task">showMultilingualTask</string>
 </resources>

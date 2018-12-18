@@ -21,6 +21,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.appshortcuts.AppShortcuts;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.editactionfeed.EditTasksActivity;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.navtab.NavTab;
@@ -284,7 +285,8 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         public void editingTasksClick() {
             Prefs.setShowEditMenuOptionIndicator(false);
             drawerView.maybeShowIndicatorDots();
-            //Todo: Create activity for editing - part of T209539
+            startActivity(EditTasksActivity.newIntent(MainActivity.this));
+            closeMainDrawer();
         }
 
         @Override public void aboutClick() {
