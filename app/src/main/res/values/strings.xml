@@ -703,7 +703,6 @@
     <string name="main_drawer_close">Close</string>
     <string name="main_drawer_help">Help</string>
     <string name="main_drawer_login">Log in / join Wikipedia</string>
-    <string name="edit_tasks_onboarding_tertiary_text">By starting, I promise not to misuse this feature.</string>
     <string name="title_description_task_title">Add title descriptions</string>
     <string name="title_description_task_description">Contribute to articles without title descriptions</string>
     <string name="image_caption_task_title">Caption images</string>
@@ -711,10 +710,10 @@
     <string name="multilingual_task_title">More tasks for multilingual editors</string>
     <string name="multilingual_task_description">Translation tasks are available if you read and write in more than one Wikipedia language.</string>
     <string name="image_caption_edit_disable_text">Locked until you’ve made %d verified in-app edits</string>
-    <string name="task_negative_string">Not for me</string>
-    <string name="task_positive_string">Add languages</string>
+    <string name="multilingual_task_negative">Not for me</string>
+    <string name="multilingual_task_positive">Add languages</string>
     <string name="editing_level_text">LEVEL %d app editor</string>
-    <plurals name="contributions">
+    <plurals name="edit_action_contribution_count">
         <item quantity="one">in-app contribution</item>
         <item quantity="other">in-app contributions</item>
     </plurals>
