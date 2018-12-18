@@ -118,11 +118,11 @@
                     android:id="@+id/view_description_edit_page_summary_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/list_item_vertical_padding"
-                    android:layout_marginEnd="@dimen/list_item_horizontal_padding"
-                    android:layout_marginBottom="@dimen/list_item_vertical_padding"
-                    android:layout_marginStart="@dimen/list_item_horizontal_padding"
-                    android:background="?attr/paper_color"
+                    android:paddingTop="@dimen/list_item_vertical_padding"
+                    android:paddingEnd="@dimen/list_item_horizontal_padding"
+                    android:paddingBottom="@dimen/list_item_vertical_padding"
+                    android:paddingStart="@dimen/list_item_horizontal_padding"
+                    android:background="?attr/selectableItemBackground"
                     android:visibility="gone">
 
                     <org.wikipedia.views.FaceAndColorDetectImageView
