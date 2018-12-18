@@ -2,11 +2,11 @@ package org.wikipedia.descriptions
 
 import android.content.Context
 import android.net.Uri
-import android.text.Html
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.view_description_edit_review.view.*
+import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.util.StringUtil
@@ -33,8 +33,8 @@ class DescriptionEditReviewView @JvmOverloads constructor(
 
     fun setPageSummary(pageSummary: PageSummary, description: String) {
         articleTitle!!.text = StringUtil.fromHtml(pageSummary.displayTitle)
-        articleSubtitle!!.text = StringUtil.getFirstLetterCapitalized(description)
-        articleExtract!!.text = Html.fromHtml(pageSummary.extractHtml)
+        articleSubtitle!!.text = StringUtils.capitalize(description)
+        articleExtract!!.text = StringUtil.fromHtml(pageSummary.extractHtml)
         articleImage!!.loadImage(if (TextUtils.isEmpty(pageSummary.thumbnailUrl)) null else Uri.parse(pageSummary.thumbnailUrl))
     }
 
