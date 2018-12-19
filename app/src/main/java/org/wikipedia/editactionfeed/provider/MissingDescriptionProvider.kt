@@ -38,6 +38,8 @@ object MissingDescriptionProvider {
     }
 
     fun getNextArticleWithMissingDescription(sourceWiki: WikiSite, targetLang: String, sourceLangMustExist: Boolean): Observable<RbPageSummary> {
+        val targetWiki = WikiSite.forLanguageCode(targetLang)
+
         return ServiceFactory.get(sourceWiki).randomWithPageProps
                 .flatMap { response: MwQueryResponse ->
                     val qNumbers = ArrayList<String>()
@@ -54,7 +56,6 @@ object MissingDescriptionProvider {
                     val titles = ArrayList<PageTitle>()
                     for (q in response.entities()!!.keys) {
                         val entity = response.entities()!![q]
-                        var targetWiki = WikiSite.forLanguageCode(targetLang)
                         if (entity == null || !entity.labels().containsKey(sourceWiki.languageCode())
                                 || entity.descriptions().containsKey(targetLang)
                                 || sourceLangMustExist && !entity.descriptions().containsKey(sourceWiki.languageCode())
@@ -62,14 +63,14 @@ object MissingDescriptionProvider {
                                 || !entity.sitelinks().containsKey(targetWiki.dbName())) {
                             continue
                         }
-                        titles.add(PageTitle(entity.sitelinks()[sourceWiki.dbName()]!!.title, sourceWiki))
+                        titles.add(PageTitle(entity.sitelinks()[targetWiki.dbName()]!!.title, targetWiki))
                     }
                     if (titles.isEmpty()) {
                         throw ListEmptyException()
                     }
                     titles
                 }
-                .flatMap { titles: List<PageTitle> -> ServiceFactory.getRest(sourceWiki).getSummary(null, titles[0].prefixedText) }
+                .flatMap { titles: List<PageTitle> -> ServiceFactory.getRest(targetWiki).getSummary(null, titles[0].prefixedText) }
                 .retry { t: Throwable -> t is ListEmptyException }
     }
 
