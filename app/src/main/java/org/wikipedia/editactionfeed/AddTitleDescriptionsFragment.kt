@@ -28,6 +28,9 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditHelpActivity
+import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.INIT_SOURCE
+import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.MULTILINGUAL_DESC
+import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.TITLE_DESC
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -42,7 +45,14 @@ class AddTitleDescriptionsFragment : Fragment() {
     private val disposables = CompositeDisposable()
     private val app = WikipediaApp.getInstance()
     private var languageList: MutableList<String?> = mutableListOf()
-    var langCode: String = app.language().appLanguageCode
+    private var languageToList: MutableList<String?> = mutableListOf()
+    private var languageCodesToList: MutableList<String?> = arrayListOf()
+    var langFromCode: String = app.language().appLanguageCode
+    var langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
+    var source: Int = TITLE_DESC
+    var savedToLanguageSpinnerPosition: Int = -1
+    var sourceDescription: String? = ""
+    var orientationChanged: Boolean = false
 
     private val topTitle: PageTitle?
         get() {
@@ -69,7 +79,7 @@ class AddTitleDescriptionsFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
 
         // TODO: add funnel?
-
+        source= arguments?.getInt(INIT_SOURCE, TITLE_DESC)!!
         return inflater.inflate(R.layout.fragment_add_title_descriptions, container, false)
     }
 
@@ -87,7 +97,7 @@ class AddTitleDescriptionsFragment : Fragment() {
 
         addDescriptionButton.setOnClickListener {
             if (topTitle != null) {
-                startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, true),
+                startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, true, source == MULTILINGUAL_DESC, sourceDescription),
                         Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT)
             }
         }
@@ -107,7 +117,8 @@ class AddTitleDescriptionsFragment : Fragment() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putInt(LANG_CODE_POSITION, wikiLanguageSpinner.selectedItemPosition)
+        outState.putInt(FROM_LANG_CODE_POSITION, wikiFromLanguageSpinner.selectedItemPosition)
+        outState.putInt(TO_LANG_CODE_POSITION, wikiToLanguageSpinner.selectedItemPosition)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -184,35 +195,81 @@ class AddTitleDescriptionsFragment : Fragment() {
             if (languageList.size > 1) {
                 val adapter = ArrayAdapter<String>(requireContext(), R.layout.item_language_spinner, languageList)
                 adapter.setDropDownViewResource(R.layout.item_language_spinner)
-                wikiLanguageSpinner.adapter = adapter
-                wikiLanguageSpinner.onItemSelectedListener = OnSpinnerItemSelectedListener()
-
+                wikiFromLanguageSpinner.adapter = adapter
+                wikiFromLanguageSpinner.onItemSelectedListener = OnSpinnerItemSelectedListener()
                 if (savedInstanceState != null) {
-                    langCode = app.language().appLanguageCodes[savedInstanceState.getInt(LANG_CODE_POSITION)]
-                    wikiLanguageSpinner.setSelection(savedInstanceState.getInt(LANG_CODE_POSITION))
+                    orientationChanged = true
+                    langFromCode = app.language().appLanguageCodes[savedInstanceState.getInt(FROM_LANG_CODE_POSITION)]
+                    wikiFromLanguageSpinner.setSelection(savedInstanceState.getInt(FROM_LANG_CODE_POSITION))
+                    wikiToLanguageSpinner.setSelection(savedInstanceState.getInt(TO_LANG_CODE_POSITION))
+                    savedToLanguageSpinnerPosition = savedInstanceState.getInt(TO_LANG_CODE_POSITION)
                 }
-
-                wikiLanguageSpinner.visibility = VISIBLE
-                wikiLanguageText.visibility = GONE
+                wikiFromLanguageSpinner.visibility = VISIBLE
+                wikiFromLanguageText.visibility = GONE
             } else {
-                wikiLanguageText.text = languageList[0]
-                wikiLanguageSpinner.visibility = GONE
-                wikiLanguageText.visibility = VISIBLE
+                wikiFromLanguageText.text = languageList[0]
+                wikiFromLanguageSpinner.visibility = GONE
+                wikiFromLanguageText.visibility = VISIBLE
             }
+        }
+    }
+
+    private fun updateMultilingualViews(fromLanguageSpinnerPosition: Int) {
+        if (source == MULTILINGUAL_DESC) {
+            arrowsContainer.visibility = VISIBLE
+            languageToList.clear()
+            languageCodesToList.clear()
+            languageCodesToList.addAll(app.language().appLanguageCodes)
+            languageCodesToList.removeAt(fromLanguageSpinnerPosition)
+            addCanonicalNamesToLanguageToList()
+            langToCode = languageCodesToList.get(if (orientationChanged) savedToLanguageSpinnerPosition else 0)!!
+
+            if (languageToList.size > 1) {
+                val toAdapter = ArrayAdapter<String>(requireContext(), R.layout.item_language_spinner, languageToList)
+                wikiToLanguageSpinner.adapter = toAdapter
+                wikiToLanguageSpinner.onItemSelectedListener = OnToSpinnerItemSelectedListener()
+                wikiToLanguageText.visibility = GONE
+                wikiToLanguageSpinner.visibility = VISIBLE
+                if (orientationChanged) {
+                    wikiToLanguageSpinner.setSelection(savedToLanguageSpinnerPosition)
+                    orientationChanged = false
+                }
+            } else {
+                wikiToLanguageText.text = languageToList[0]
+                wikiToLanguageText.visibility = VISIBLE
+                wikiToLanguageSpinner.visibility = GONE
+            }
+        } else {
+            fromLabel.visibility = VISIBLE
+        }
+    }
+
+    private fun addCanonicalNamesToLanguageToList() {
+        for (language in languageCodesToList) {
+            languageToList.add(app.language().getAppLanguageCanonicalName(language))
         }
     }
 
     private inner class OnSpinnerItemSelectedListener : AdapterView.OnItemSelectedListener {
         override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-            if (langCode != app.language().appLanguageCodes[position]) {
-                langCode = app.language().appLanguageCodes[position]
-                L.d("Selected language code $langCode")
+            if (langFromCode != app.language().appLanguageCodes[position]) {
+                langFromCode = app.language().appLanguageCodes[position]
+                L.d("Selected language code $langFromCode")
                 resetTitleDescriptionItemAdapter()
             }
+            updateMultilingualViews(position)
         }
 
         override fun onNothingSelected(parent: AdapterView<*>) {
+        }
+    }
 
+    private inner class OnToSpinnerItemSelectedListener : AdapterView.OnItemSelectedListener {
+        override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+            langToCode = languageCodesToList.get(position)!!
+            resetTitleDescriptionItemAdapter()
+        }
+        override fun onNothingSelected(parent: AdapterView<*>) {
         }
     }
 
@@ -255,10 +312,14 @@ class AddTitleDescriptionsFragment : Fragment() {
     }
 
     companion object {
-        const val LANG_CODE_POSITION = "langCodePosition"
-
-        fun newInstance(): AddTitleDescriptionsFragment {
-            return AddTitleDescriptionsFragment()
+        const val FROM_LANG_CODE_POSITION = "fromLangCodePosition"
+        const val TO_LANG_CODE_POSITION = "toLangCodePosition"
+        fun newInstance(source: Int): AddTitleDescriptionsFragment {
+            val addTitleDescriptionsFragment = AddTitleDescriptionsFragment()
+            val args = Bundle()
+            args.putInt(INIT_SOURCE, source)
+            addTitleDescriptionsFragment.setArguments(args)
+            return addTitleDescriptionsFragment
         }
     }
 }

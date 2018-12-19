@@ -26,13 +26,18 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     private static final String EXTRA_TITLE = "title";
     private static final String EXTRA_REVIEW_ENABLE = "review";
     private static final String EXTRA_HIGHLIGHT_TEXT = "highlightText";
+    private static final String EXTRA_IS_TRANSLATION = "is_translation";
+    private static final String EXTRA_SOURCE_LANG_DESC = "source_desc";
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
-    public static Intent newIntent(@NonNull Context context, @NonNull PageTitle title, @Nullable String highlightText, boolean reviewEnabled) {
+    public static Intent newIntent(@NonNull Context context, @NonNull PageTitle title, @Nullable String highlightText,
+                                   boolean reviewEnabled, boolean isTranslation, String sourceDesc) {
         return new Intent(context, DescriptionEditActivity.class)
                 .putExtra(EXTRA_TITLE, GsonMarshaller.marshal(title))
                 .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
-                .putExtra(EXTRA_REVIEW_ENABLE, reviewEnabled);
+                .putExtra(EXTRA_REVIEW_ENABLE, reviewEnabled)
+                .putExtra(EXTRA_IS_TRANSLATION, isTranslation)
+                .putExtra(EXTRA_SOURCE_LANG_DESC, sourceDesc);
     }
 
     @Override
@@ -77,7 +82,8 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     public DescriptionEditFragment createFragment() {
         return DescriptionEditFragment.newInstance(GsonUnmarshaller.unmarshal(PageTitle.class,
                 getIntent().getStringExtra(EXTRA_TITLE)), getIntent().getStringExtra(EXTRA_HIGHLIGHT_TEXT),
-                getIntent().getBooleanExtra(EXTRA_REVIEW_ENABLE, false));
+                getIntent().getBooleanExtra(EXTRA_REVIEW_ENABLE, false), getIntent().getBooleanExtra(EXTRA_IS_TRANSLATION,
+                        false), getIntent().getStringExtra(EXTRA_SOURCE_LANG_DESC));
     }
 
     @Override

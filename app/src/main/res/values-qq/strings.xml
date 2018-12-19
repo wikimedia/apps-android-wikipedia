@@ -558,6 +558,7 @@
   <string name="description_edit_text_hint">Hint text that is shown when the description field is empty.</string>
   <string name="description_edit_save">Hint for the button that is pressed for saving the new description.\n{{Identical|Publish}}</string>
   <string name="description_edit_add_description">Label that prompts the user to add a description to an article that does not yet have one.</string>
+  <string name="description_edit_translate_description">Label that prompts the user to translate a description of an article from one language to another.</string>
   <string name="description_edit_edit_description">Label that prompts the user to edit the description of an article that already has one.</string>
   <string name="description_edit_cancel_hint">Hint for button that cancels editing of the current description.\n{{Identical|Cancel}}</string>
   <string name="description_edit_help_title">Title at the top of the screen that shows additional help and information about editing descriptions.</string>
@@ -681,4 +682,6 @@
     <item quantity="one">Text suggesting that one in-app contribution was made.</item>
     <item quantity="other">Text suggesting that two or more in-app contributions were made.</item>
   </plurals>
+  <string name="editactionfeed_to_language">label text indicating that the selected languauge is the one into which the description will be traslated to.</string>
+  <string name="translation_source_description">Label text that indicated that the description text shown is of the source language %1$s is the langugae and %2$s is the description</string>
 </resources>
