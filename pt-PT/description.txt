@@ -4,7 +4,7 @@ Caraterísticas:
    - Velocidade: A nossa nova aplicação permite-lhe navegar e editar na Wikipédia de uma forma mais rápida do que nunca.
    - Edição: Pode editar na Wikipédia! Com sessão iniciada ou não, nós agradecemos-lhe todas as suas contribuições.
    - Páginas recentes: Fornecemos-lhe o seu histórico de leitura, para que possa acompanhar as ligações que quiser sem se perder.
-   - Páginas guardadas: Pode guardar páginas selecionadas para leitura e navegação ''offline'' mesmo sem ligação de dados.
+   - Páginas guardadas: Pode guardar páginas selecionadas para leitura e navegação <i>offline</i> mesmo sem ligação de dados.
    - Partilha: Use as suas aplicações sociais para partilhar a soma de todo o conhecimento humano.
    - Suporte de idioma: A aplicação permite que, de forma fácil, consiga ler a Wikipédia escrita em qualquer idioma.
    - Wikipédia Zero: Taxa de dados dispensada para operadores móveis participantes.
