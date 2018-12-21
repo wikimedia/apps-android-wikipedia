@@ -65,7 +65,7 @@ public class NotificationWithProgressBar {
                     .createNotificationChannel(mChannel);
         }
 
-        builderIcon = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? getNotificationIcon() : R.mipmap.launcher;
+        builderIcon = getNotificationIcon();
         builderTitle = String.format(context.getResources().getQuantityString(getNotificationTitle(), total), total);
         builderInfo = (int) MathUtil.percentage(progress, total) + "%";
         builderDescription = String.format(context.getResources().getQuantityString(getNotificationDescription(), total - progress), total - progress);
@@ -124,8 +124,7 @@ public class NotificationWithProgressBar {
                                                              @DrawableRes int buttonDrawable,
                                                              @StringRes int buttonText,
                                                              int requestCode) {
-        return new NotificationCompat.Action.Builder(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? buttonDrawable : android.R.color.transparent,
-                context.getString(buttonText),
+        return new NotificationCompat.Action.Builder(buttonDrawable, context.getString(buttonText),
                 pendingIntentBuilder(context, targetClass, intentExtra, requestCode)).build();
     }
 

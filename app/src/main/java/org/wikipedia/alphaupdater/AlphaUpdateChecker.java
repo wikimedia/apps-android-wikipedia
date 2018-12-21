@@ -82,11 +82,7 @@ public class AlphaUpdateChecker extends RecurringTask {
                 .setContentIntent(pintent)
                 .setAutoCancel(true);
 
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            notificationBuilder.setSmallIcon(R.drawable.ic_w_transparent);
-        } else {
-            notificationBuilder.setSmallIcon(R.mipmap.launcher);
-        }
+        notificationBuilder.setSmallIcon(R.drawable.ic_w_transparent);
 
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(1, notificationBuilder.build());

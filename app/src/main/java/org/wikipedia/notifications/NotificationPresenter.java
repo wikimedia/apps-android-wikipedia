@@ -10,7 +10,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.net.Uri;
-import android.os.Build;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
@@ -98,7 +97,7 @@ public final class NotificationPresenter {
 
         builder.setContentIntent(PendingIntent.getActivity(context, REQUEST_CODE_ACTIVITY, activityIntent, PendingIntent.FLAG_UPDATE_CURRENT))
                 .setLargeIcon(drawNotificationBitmap(context, color, icon))
-                .setSmallIcon(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? R.drawable.ic_wikipedia_w : R.mipmap.launcher)
+                .setSmallIcon(R.drawable.ic_wikipedia_w)
                 .setColor(ContextCompat.getColor(context, color))
                 .setContentTitle(wikiSiteName)
                 .setContentText(title)
