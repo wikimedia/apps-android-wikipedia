@@ -612,6 +612,8 @@
   <string name="description_edit_help_tips_example2_hint">краткое описание статьи о горе Эверест</string>
   <string name="description_edit_help_more_info">Подробная информация</string>
   <string name="description_edit_help_meta_info">Описания хранятся в Викиданных (Wikidata) — проекте Фонда Викимедиа, представляющем собой свободную совместно наполняемую  многоязычную основанную на внешних источниках вторичную базу данных для поддержки Википедии и других проектов.</string>
+  <string name="editactionfeed_add_description_button">Добавить описание</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">Узнать больше</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
   <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то неправильное. Возможные причины, почему ваша правка была отменена:</string>
   <string name="description_edit_revert_reason1">ваш вклад не отвечал одному из &lt;a href=\"%1$s\"&gt;руководящих принципов&lt;/a&gt;.</string>
@@ -628,6 +630,7 @@
   <string name="onboarding_skip">Пропустить</string>
   <string name="onboarding_continue">Продолжить</string>
   <string name="onboarding_get_started">Начать</string>
+  <string name="onboarding_maybe_later">Может быть, позже</string>
   <string name="onboarding_explore_title">Новые способы исследований</string>
   <string name="onboarding_explore_text">Путешествуйте по лабиринтам Википедии с помощью постоянно обновляемой ленты. &lt;br/&gt;&lt;b&gt;Настройте&lt;/b&gt; ленту так, чтобы она отвечала вашим интересам — будь то изучение исторических событий, случившихся &lt;b&gt;в этот день&lt;/b&gt;, или положитесь &lt;b&gt;на удачу&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Списки для чтения с синхронизацией</string>
@@ -681,4 +684,6 @@
   <string name="main_drawer_close">Закрыть</string>
   <string name="main_drawer_help">Справка</string>
   <string name="main_drawer_login">Войти в Википедию</string>
+  <string name="multilingual_task_negative">Не для меня</string>
+  <string name="multilingual_task_positive">Добавить языки</string>
 </resources>

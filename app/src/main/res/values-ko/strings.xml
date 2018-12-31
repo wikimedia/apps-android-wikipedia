@@ -579,6 +579,11 @@
   <string name="description_edit_help_tips_example2_hint">에베레스트 산에 관한 문서의 제목 설명</string>
   <string name="description_edit_help_more_info">자세한 정보</string>
   <string name="description_edit_help_meta_info">설명은 위키백과와 다른 프로젝트를 지원하는 자유, 협업, 다언어, 2차 데이터베이스를 제공하는 위키미디어 재단의 프로젝트의 하나인 위키데이터에 저장되어 관리됩니다.</string>
+  <string name="editactionfeed_add_title_descriptions">제목 설명 추가</string>
+  <string name="editactionfeed_review_title_description">이 설명 검토</string>
+  <string name="editactionfeed_add_description_button">설명 추가</string>
+  <string name="editactionfeed_my_contributions">내 기여</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">더 알아보기</string>
   <string name="description_edit_revert_subtitle">위키백과를 편집해 주셔서 감사합니다!</string>
   <string name="description_edit_revert_intro">저희는 당신이 최선의 노력을 다해주신 것을 알고 있습니다만, 검토자들 중 한 명이 걱정하는 부분이 있습니다. 당신의 편집이 되돌려진 잠재적 이유는 다음과 같습니다:</string>
   <string name="description_edit_revert_reason1">당신의 기여는 &lt;a href=\"%1$s\"&gt;지침들&lt;/a&gt; 가운데 하나를 준수하지 않았습니다.</string>
@@ -595,6 +600,7 @@
   <string name="onboarding_skip">건너뛰기</string>
   <string name="onboarding_continue">계속</string>
   <string name="onboarding_get_started">시작하기</string>
+  <string name="onboarding_maybe_later">나중에</string>
   <string name="onboarding_explore_title">탐구를 위한 새로운 방법</string>
   <string name="onboarding_explore_text">늘 업데이트되는 둘러보기 피드로 위키백과를 탐험하세요.&lt;br/&gt;피드를 당신의 관심사에 &lt;b&gt;맞춤 관리하세요&lt;/b&gt; – 그것이 &lt;b&gt;오늘의 역사&lt;/b&gt;에 대한 역사적 사건을 배우는 것이든, 주사위를 굴려 &lt;b&gt;임의 문서로&lt;/b&gt; 가는 것이든요.</string>
   <string name="onboarding_reading_list_sync_title">읽기 목록 동기화</string>
@@ -647,4 +653,13 @@
   <string name="main_drawer_close">닫기</string>
   <string name="main_drawer_help">도움말</string>
   <string name="main_drawer_login">위키백과에 로그인 / 가입</string>
+  <string name="title_description_task_title">제목 설명 추가</string>
+  <string name="title_description_task_description">제목 설명 없이 문서에 기여</string>
+  <string name="image_caption_task_description">이미지에 캡션 추가</string>
+  <string name="multilingual_task_description">둘 이상의 위키백과 언어로 읽고 쓰는 경우에 번역 작업이 가능합니다.</string>
+  <string name="multilingual_task_positive">언어 추가</string>
+  <plurals name="edit_action_contribution_count">
+    <item quantity="one">인앱 기여</item>
+    <item quantity="other">인앱 기여</item>
+  </plurals>
 </resources>

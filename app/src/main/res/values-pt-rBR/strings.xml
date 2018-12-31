@@ -544,7 +544,7 @@
   <string name="view_featured_article_card_title">Artigo destacado</string>
   <string name="view_featured_article_footer_save_button_label">Salvar</string>
   <string name="view_featured_article_footer_saved_button_label">Salvo</string>
-  <string name="edit_tasks_activity_title">Tarefas de edição do aplicativos</string>
+  <string name="edit_tasks_activity_title">Tarefas do editor de aplicativos</string>
   <string name="feed_configure_activity_title">Personalize o feed</string>
   <string name="feed_configure_menu_reset">Restaurar visualização padrão</string>
   <string name="feed_configure_menu_select_all">Mostrar todos</string>
@@ -573,6 +573,8 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Obrigado pelo seu interesse contínuo em editar descrições! Para efetuar edições adicionais, faça login na sua conta da Wikipedia</string>
   <string name="description_edit_license_notice">Ao alterar a descrição do título, concordo com as &lt;a href=\"%1$s\"&gt;Condições de Uso&lt;/a&gt; e em publicar irrevogavelmente as minhas contribuições ao abrigo da licença &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_task_unlock_title">A lista de tarefas de edição de descrições de títulos foi desbloqueada!</string>
+  <string name="description_edit_task_unlock_body">Notamos que você gosta de editar as descrições dos títulos, por isso compilamos uma lista de \"Tarefas do editor de aplicativos\" com mais artigos sem descrições de títulos para ajudar você a continuar contribuindo!</string>
   <string name="description_edit_success_saved">Descrição publicada!</string>
   <string name="description_edit_success_encouragement">Você acabou de tornar a Wikipedia melhor para todos</string>
   <string name="description_edit_success_done">Concluído</string>
@@ -595,6 +597,12 @@
   <string name="description_edit_help_tips_example2_hint">descrição para um artigo sobre o Monte Everest</string>
   <string name="description_edit_help_more_info">Mais informações</string>
   <string name="description_edit_help_meta_info">As descrições são armazenadas e mantidas no Wikidata, um projeto da Fundação Wikimedia que fornece um banco de dados secundário gratuito, colaborativo, multilíngüe que suporta a Wikipedia e outros projetos.</string>
+  <string name="editactionfeed_add_title_descriptions">Adicionar descrições de título</string>
+  <string name="editactionfeed_review_title_description">Revisar a descrição do título</string>
+  <string name="editactionfeed_add_description_button">Adicionar descrição</string>
+  <string name="editactionfeed_my_contributions">Minhas contribuições</string>
+  <string name="editactionfeed_from_language">De:</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">Saiba mais</string>
   <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
   <string name="description_edit_revert_intro">Sabemos que você tentou o seu melhor, mas um dos revisores tinha uma preocupação. Possíveis razões pelas quais a edição foi revertida inclui</string>
   <string name="description_edit_revert_reason1">Sua contribuição não seguiu uma das &lt;a href=\"%1$s\"&gt;diretrizes&lt;/a&gt;.</string>
@@ -611,6 +619,7 @@
   <string name="onboarding_skip">Pular</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Começar</string>
+  <string name="onboarding_maybe_later">Talvez mais tarde</string>
   <string name="onboarding_explore_title">Novas maneiras de explorar</string>
   <string name="onboarding_explore_text">Mergulhe o buraco de coelho da Wikipédia com uma atualização constante Explore feed. &lt;br/&gt; &lt;b&gt;Customizar&lt;/b&gt; A alimentação de seus interesses - seja aprendendo sobre eventos históricos &lt;b&gt;Neste dia&lt;/b&gt;, ou rolando os dados com &lt;b&gt;Aleatória&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Listas de leitura com sincronização</string>
@@ -664,4 +673,18 @@
   <string name="main_drawer_close">Fechar</string>
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Entrar / Juntar na Wikipédia</string>
+  <string name="title_description_task_title">Adicionar descrições de título</string>
+  <string name="title_description_task_description">Contribuir para artigos sem descrições de títulos</string>
+  <string name="image_caption_task_title">Legendas de imagens</string>
+  <string name="image_caption_task_description">Adicionar legendas às imagens</string>
+  <string name="multilingual_task_title">Mais tarefas para editores multilíngues</string>
+  <string name="multilingual_task_description">As tarefas de tradução estão disponíveis se você ler e escrever em mais de um idioma da Wikipedia.</string>
+  <string name="image_caption_edit_disable_text">Bloqueado até que você tenha feito %d edições no aplicativo verificadas</string>
+  <string name="multilingual_task_negative">Não para mim</string>
+  <string name="multilingual_task_positive">Adicionar idiomas</string>
+  <string name="editing_level_text">NÍVEL %d editor de aplicativos</string>
+  <plurals name="edit_action_contribution_count">
+    <item quantity="one">contribuição no aplicativo</item>
+    <item quantity="other">contribuições no aplicativo</item>
+  </plurals>
 </resources>

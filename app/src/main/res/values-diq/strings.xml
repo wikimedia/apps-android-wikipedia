@@ -150,7 +150,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Eya</string>
   <string name="reading_lists_confirm_remote_delete_no">Nê</string>
   <string name="notification_syncing_cancel_button">Bıtexelne</string>
-  <string name="view_featured_image_card_download">Ron</string>
+  <string name="view_featured_image_card_download">Biya war</string>
   <string name="menu_feed_card_dismiss">Na qert bınımn</string>
   <string name="menu_feed_card_dismissed">Qert nımneyê</string>
   <string name="feed_featured_image_share_subject">Wikimedia Commons ra bestıyayeyê resim</string>
@@ -170,4 +170,11 @@
   <string name="description_edit_cancel_hint">Bıtexelne</string>
   <string name="description_edit_success_done">Temam</string>
   <string name="description_edit_success_did_you_know">Tı zanê?</string>
+  <string name="editactionfeed_add_description_button">Arezekerdış cı ke</string>
+  <string name="editactionfeed_my_contributions">İştirakê mı</string>
+  <string name="editactionfeed_from_language">Rıştoğ:</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">Zêde bımuse</string>
+  <string name="onboarding_continue">Dewam ke</string>
+  <string name="onboarding_maybe_later">Belkiya badêna</string>
+  <string name="multilingual_task_positive">Zıwanan cı ke</string>
 </resources>

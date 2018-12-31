@@ -3,6 +3,7 @@
 * Drjpoudel
 * Nirajan pant
 * Nirjal stha
+* Parbat subedi
 * Suniltheblue
 * राम प्रसाद जोशी
 * सरोज कुमार ढकाल
@@ -12,6 +13,8 @@
   <string name="app_name_beta">विकिपिडिया बिटा</string>
   <string name="app_name_alpha">विकिपिडिया अल्फा</string>
   <string name="wikimedia">विकिमिडिया</string>
+  <string name="nav_item_back">अघिल्लो</string>
+  <string name="nav_item_forward">अगाडि</string>
   <string name="search_hint">विकिपिडियामा खोज्नुहोस्</string>
   <string name="search_hint_search_history">इतिहास खोज्नुहोस्</string>
   <string name="search_hint_search_my_lists">मेरा सूचीहरू खोज्नुहोस्</string>
@@ -38,6 +41,7 @@
   <string name="menu_page_font_and_theme">फन्ट र थिम</string>
   <string name="menu_page_add_to_list">अध्ययन सूचीमा थप गर्नुहोस्</string>
   <string name="menu_page_share">लिङ्क आदान-प्रदान गर्नुहोस्</string>
+  <string name="menu_page_open_a_new_tab">नयाँ ट्याबमा खोल्नुहोस्</string>
   <string name="menu_long_press_open_page">खोल्नुहोस्</string>
   <string name="menu_long_press_open_in_new_tab">नयाँ ट्याबमा खोल्नुहोस्</string>
   <string name="menu_long_press_copy_page">लिङ्कको ठेगाना प्रतिलिपि गर्नुहोस्</string>
@@ -55,8 +59,8 @@
   <string name="other_languages_indication_text">अर्को भाषामा पढ्नुहोस्</string>
   <string name="language_count_link_text">अरू %d ओटा भाषाहरूमा उपलब्ध</string>
   <string name="content_license_html">अन्यथा उल्लेख नभएसम्म सामग्रीहरू &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; अन्तर्गत् उपलब्ध छ</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">सङ्ग्रह गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत् प्रकाशन गर्नुहुन्छ।</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">सङ्ग्रह गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत् प्रकाशन गर्नुहुन्छ। सम्पादनको श्रेय तपाईँको यन्त्रको IP ठेगानालाई दिइने छ। यदि तपाईँ &lt;a href=\"https://#login\"&gt;लग इन &lt;/a&gt;, गर्नु भयो भने तपाईँको बढी गोपनीयता रहने छ।</string>
+  <string name="edit_save_action_license_logged_in">सङ्ग्रह गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत प्रकाशन गर्नुहुन्छ।</string>
+  <string name="edit_save_action_license_anon">सङ्ग्रह गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत प्रकाशन गर्नुहुन्छ। सम्पादनको श्रेय तपाईँको यन्त्रको आइपी ठेगानालाई दिइने छ। यदि तपाईँ &lt;a href=\"https://#login\"&gt;लग इन &lt;/a&gt;, गर्नु भयो भने तपाईँको बढी गोपनीयता रहने छ।</string>
   <string name="preference_title_language">विकिपिडिया भाषाहरू</string>
   <string name="langlinks_filter_hint">खोज्नुहोस्</string>
   <string name="langlinks_empty">यो पृष्ठ अन्य भाषाहरूमा उपलब्ध छैन।</string>
@@ -69,7 +73,7 @@
   <string name="dialog_message_edit_failed">सम्पादन असफल भयो!</string>
   <string name="dialog_message_edit_failed_retry">पुनः प्रयास गर्नुहोस्</string>
   <string name="dialog_message_edit_failed_cancel">रद्द गर्नुहोस्</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">तपाईंका परिवर्तनहरू अझै सुरक्षित गरिएका छैनन्। यो पृष्ठ छाड्ने कुरामा निश्चित हुनुहुन्छ?</string>
+  <string name="dialog_message_leaving_edit">तपाईंका परिवर्तनहरू अझै सुरक्षित भएका छैनन्। यो पृष्ठ छाड्ने कुरामा निश्चित हुनुहुन्छ?</string>
   <string name="dialog_message_leaving_edit_leave">छोड्नुहोस्</string>
   <string name="dialog_message_leaving_edit_stay">रहनुहोस्</string>
   <string name="menu_show_toc">विषयसूची</string>
@@ -163,7 +167,7 @@
   <string name="about_translators_translatewiki">यो अनुप्रयोग &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; का अनुवाद स्वयंसेवकहरूद्वारा अनुवाद गरिएको हो।</string>
   <string name="about_app_license_heading">इजाजतपत्र</string>
   <string name="about_app_license">स्रोत कोड &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; तथा &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; मा &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; अन्तर्गत् उपलब्ध छ। अन्यथा निर्दिष्ट नभएसम्म, सामग्री &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; अन्तर्गत् उपलब्ध छ।</string>
-  <string name="about_wmf" fuzzy="true">&lt;a href=\"https://wikimediafoundation.org/\"&gt;विकिमिडिया फाउन्डेसन&lt;/a&gt;को एक उत्पादन</string>
+  <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;विकिमिडिया फाउन्डेसनको&lt;/a&gt;एक उत्पादन</string>
   <string name="about_activity_title">बारेमा</string>
   <string name="edit_abandon_confirm">यो पृष्ठ परिवर्तन भइसक्यो। आफ्ना परिवर्तनहरू सङ्ग्रह नगरी बाहिर निक्लन चाहनुहुन्छ?</string>
   <string name="edit_abandon_confirm_yes">हो</string>
@@ -207,6 +211,7 @@
   <string name="alpha_update_notification_text">डाउनलोड गर्न ट्याप गर्नुहोस्</string>
   <string name="dialog_close_description">बन्द गर्नुहोस्</string>
   <string name="preference_title_show_images">चित्रहरू देखाउनुहोस्</string>
+  <string name="dialog_title_download_only_over_wifi_allow">अनुमति दिनुहोस्</string>
   <string name="read_more_section">थप पढ्नुहोस्</string>
   <string name="about_article_section">यस लेखको बारेमा।</string>
   <string name="menu_gallery_visit_page">फाइल पृष्ठमा जानुहोस्</string>
@@ -245,6 +250,7 @@
   <string name="error_no_maps_app">दिशानिर्देशन प्रदान गर्ने कुनै पनि अनुप्रयोग फेला पार्न सकिएन।</string>
   <string name="preference_title_show_link_previews">लिङ्कका पूर्वावलोकनहरू देखाउनुहोस्</string>
   <string name="preference_summary_show_link_previews">लिङ्कहरूमा ट्याप गर्दा लेखहरूका द्रुत पूर्वावलोकन प्रदर्शन गर्नुहोस्।</string>
+  <string name="preference_title_collapse_tables">तालिका लुकाउनुहोस्</string>
   <string name="nav_item_donate">विकिपिडियालाई समर्थन गर्नुहोस्</string>
   <string name="error_voice_search_not_available">माफ गर्नुहोस्, आवाज पहिचान उपलब्ध छैन।</string>
   <string name="location_service_disabled">स्थान सेवाहरू असक्षम पारिएको छ।</string>
@@ -309,6 +315,7 @@
   <string name="reading_lists_onboarding_example2">मनपर्ने जनावरहरू</string>
   <string name="reading_lists_onboarding_example3">अन्तरिक्षको अन्वेषण</string>
   <string name="reading_lists_onboarding_got_it">मैले बुझेँ</string>
+  <string name="reading_list_article_offline">अफलाइनमा पनि उपलब्ध</string>
   <string name="reading_list_add_to_other_list">अर्को अध्ययन सूचीमा थप गर्नुहोस्</string>
   <string name="reading_list_remove_from_list">%s बाट हटाउनुहोस्</string>
   <string name="reading_list_remove_from_lists">अध्ययन सूचीहरूबाट हटाउनुहोस्</string>
@@ -317,7 +324,7 @@
   <string name="reading_list_login_reminder_title">पाठ्य सूचीहरू समक्रमण गर्नुहोस्</string>
   <string name="reading_lists_confirm_remote_delete_yes">हो</string>
   <string name="reading_lists_confirm_remote_delete_no">होइन</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">के तपाईं साँच्चिकै यो अध्ययन सूचीलाई मेट्न चाहनुहुन्छ %s?</string>
+  <string name="reading_list_delete_confirm">के तपाईं साँच्चिकै यो अध्ययन सूचीलाई मेटाउन चाहनुहुन्छ %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">रद्द गर्नुहोस्</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">प्रवेश (लग इन) गर्नुहोस्</string>
   <string name="reading_list_turned_sync_off_dialog_ok">हुन्छ</string>
@@ -325,11 +332,14 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">समक्रमण सक्षम पार्नुहोस्</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">पर्दैन धन्यवाद</string>
   <string name="default_reading_list_name">सङ्ग्रह गरिएको</string>
+  <string name="reading_lists_menu_create_list">नयाँ सुची बनाउनुहोस्</string>
   <string name="user_option_sync_label">प्राथमिकताहरू</string>
   <string name="notification_reverted_title">उल्ट्याइएको सम्पादन</string>
   <string name="notification_syncing_pause_button">रोक्नुहोस्</string>
   <string name="notification_syncing_resume_button">पुनः निरन्तरता दिनुहोस्</string>
   <string name="notification_syncing_cancel_button">रद्द गर्नुहोस्</string>
+  <string name="notification_echo_channel_description">विकिपिडियाका जानकारीहरू</string>
+  <string name="notifications_activity_title">जानकारीहरू</string>
   <string name="notifications_prefs">जानकारी अभिरुचीहरू</string>
   <string name="notifications_poll_enable_title">जानकारी सक्षम पार्नुहोस्</string>
   <string name="notifications_poll_enable_positive">सक्षम पार्नुहोस्</string>
@@ -338,10 +348,13 @@
   <string name="notifications_view_archived_button_text">अभिलेख गरिएका जानकारीहरू हेर्नुहोस्</string>
   <string name="notification_preferences_title">जानकारी अभिरुचीहरू</string>
   <string name="preference_title_notification_poll">पोल जानकारीहरू</string>
+  <string name="preference_title_notification_welcome">स्वागतम्</string>
+  <string name="preference_title_notification_thanks">धन्यवाद</string>
+  <string name="preference_summary_notification_thanks">कसैले तपाईलाई सम्पादन गरेकोमा धन्यवाद दिएका छन्</string>
   <string name="view_continue_reading_card_title">पढ्ने कार्य जारी राख्नुहोस्</string>
   <string name="view_because_you_read_card_title">तपाईंले यो लेख पढ्नुभएको हुनाले</string>
   <string name="view_random_card_title">क्रमरहित ढङ्गले चुनिएको लेख</string>
-  <string name="view_random_card_subtitle" fuzzy="true">विकिपिडियाबाट क्रमरहित ढङ्गले चुनिएको कुनै लेख पढ्नुहोस्</string>
+  <string name="view_random_card_subtitle">विकिपिडियाबाट क्रमरहित ढङ्गले चुनिएका कुनै लेखहरू पढ्नुहोस्</string>
   <string name="view_main_page_card_title">विकिपिडियामा आज</string>
   <string name="view_main_page_card_subtitle">%s को मुख्य पृष्ठ</string>
   <string name="view_main_page_card_action">मुख्य पृष्ठ हेर्नुहोस्</string>
@@ -355,9 +368,9 @@
   <string name="most_read_list_card_title">प्रचलनमा रहेका</string>
   <string name="view_static_card_icon_content_description">कार्ड आइकन</string>
   <string name="view_card_news_title">समाचारमा</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">हिजो</item>
-    <item quantity="other">%d दिन अघि</item>
+    <item quantity="other">%d केही दिन अघि</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">आज</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s पढ्नुहोस्</string>
@@ -365,8 +378,8 @@
   <string name="view_featured_article_card_title">विशेष लेख</string>
   <string name="view_featured_article_footer_save_button_label">संग्रह गर्नुहोस्</string>
   <string name="view_featured_article_footer_saved_button_label">सुरक्षित गरिएको</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">सबै चयन गर्नुहोस्</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">कुनै पनि नछान्ने</string>
+  <string name="feed_configure_menu_select_all">सबै देखाउने</string>
+  <string name="feed_configure_menu_deselect_all">सबै लुकाउने</string>
   <string name="description_edit_text_hint">शीर्षकको विवरण</string>
   <string name="description_edit_save">प्रकाशन गर्नुहोस्</string>
   <string name="description_edit_add_description">शीर्षकको विवरण थप्नुहोस्</string>
@@ -382,13 +395,17 @@
   <string name="description_edit_help_tips_examples">उदाहरणका लागि:</string>
   <string name="description_edit_help_tips_example2">पृथ्वीको सबैभन्दा अग्लो हिमाल</string>
   <string name="description_edit_help_more_info">थप जानकारी</string>
+  <string name="editactionfeed_add_title_descriptions">शिर्षकमा विवरण थप्नुहोस्</string>
+  <string name="editactionfeed_add_description_button">विवरण थप्नुहोस्</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">अझै बढी पढ्नुहोस्</string>
   <string name="description_edit_revert_subtitle">विकिपिडिया सम्पादन गर्नुभएकोमा धन्यवाद!</string>
   <string name="onboarding_skip">छोड्नुहोस्</string>
   <string name="onboarding_continue">निरन्तरता दिनुहोस्</string>
   <string name="onboarding_get_started">सुरु गर्नुहोस्</string>
   <string name="onboarding_explore_title">अन्वेषण गर्ने नयाँ तरिका</string>
-  <string name="onboarding_explore_text" fuzzy="true">अन्वेषण नामक फिडमा विशेष लेख, प्रचलनमा रहेका शीर्षक र अध्ययनसम्बन्धी सुझावहरू फेला पार्नुहोस्।</string>
+  <string name="onboarding_explore_text">अन्वेषण नामक फिडमा विशेष लेख, प्रचलनमा रहेका शीर्षक र अध्ययनसम्बन्धी सुझावहरू फेला पार्नुहोस्।</string>
   <string name="onboarding_got_it">मैले बुझेँ</string>
+  <string name="onboarding_multilingual_add_language_text">भाषा थप वा सम्पादन गर्नुहोस्</string>
   <string name="app_shortcuts_random">कुनै पनि एक</string>
   <string name="app_shortcuts_continue_reading">पढ्ने कार्य जारी राख्नुहोस्</string>
   <string name="app_shortcuts_search">खोज्नुहोस्</string>
@@ -414,4 +431,8 @@
   <string name="add_wikipedia_languages_text">विकिपिडिया भाषाहरू थप्नुहोस्</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">भाषाहरू सम्पादन गर्नुहोस्</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">पर्दैन धन्यवाद</string>
+  <string name="main_drawer_open">खुल्ला</string>
+  <string name="main_drawer_close">बन्द</string>
+  <string name="main_drawer_help">सहायता</string>
+  <string name="multilingual_task_positive">भाषाहरू थप गर्नुहोस्</string>
 </resources>

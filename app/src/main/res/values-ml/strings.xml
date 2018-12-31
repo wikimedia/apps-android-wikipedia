@@ -2,6 +2,7 @@
 <!-- Authors:
 * Jameela P.
 * Jinoytommanjaly
+* Path slopu
 * Praveenp
 * Ranjithsiji
 -->
@@ -297,4 +298,12 @@
   <string name="description_edit_success_done">ചെയ്തു</string>
   <string name="description_edit_success_did_you_know">താങ്കൾക്കറിയാമോ?</string>
   <string name="description_edit_tutorial_button_label_start_editing">തിരുത്തി തുടങ്ങുക</string>
+  <string name="editactionfeed_add_title_descriptions">തലക്കെട്ട് വിവരണം ചേർക്കുക</string>
+  <string name="editactionfeed_review_title_description">തലക്കെട്ട് വിവരണം അവലോകനം ചെയ്യുക</string>
+  <string name="editactionfeed_my_contributions">എന്റെ സംഭാവനകൾ</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">കൂടുതൽ അറിയുക</string>
+  <string name="title_description_task_description">തലക്കെട്ട് വിവരണങ്ങൾ ഇല്ലാതെ ലേഖനങ്ങളിലേക്ക് സംഭാവന ചെയ്യുക</string>
+  <string name="image_caption_task_description">ചിത്രങ്ങളിലേക്ക് അടിക്കുറിപ്പുകൾ ചേർക്കുക</string>
+  <string name="multilingual_task_title">ബഹുഭാഷ എഡിറ്റർമാർക്കുള്ള കൂടുതൽ ജോലികൾ</string>
+  <string name="multilingual_task_negative">എനിക്കു വേണ്ടിയല്ല</string>
 </resources>

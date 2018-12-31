@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Patriccck
+-->
 <resources>
   <string name="app_name_prod">Vikipedija</string>
   <string name="app_name_beta">Vikipedija beta</string>
-  <string name="app_name_alpha">Vikipedija alfa</string>
+  <string name="app_name_alpha">Vikipedija Alfa</string>
   <string name="wikimedia">Vikimedija</string>
   <string name="nav_item_back">Nazad</string>
   <string name="nav_item_forward">Prosledi</string>

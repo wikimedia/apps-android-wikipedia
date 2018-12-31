@@ -251,6 +251,8 @@
   <string name="description_edit_help_about_title">تعارف</string>
   <string name="description_edit_help_tips_examples">مثال دے طور تے</string>
   <string name="description_edit_help_more_info">ٻیاں معلومات</string>
+  <string name="editactionfeed_from_language">توں:</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">ٻیا سِکھو</string>
   <string name="size_gb">%.2f جی بی</string>
   <string name="size_mb">%.2f ایم بی</string>
   <string name="onboarding_skip">چھوڑو</string>

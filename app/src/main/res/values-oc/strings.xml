@@ -4,12 +4,13 @@
 * Envlh
 * Guilhelma
 * Nicolas Eynaud
+* Patriccck
 * Unuaiga
 -->
 <resources>
   <string name="app_name_prod">Wikipèdia</string>
   <string name="app_name_beta">Wikipèdia Bèta</string>
-  <string name="app_name_alpha">Wikipèdia alfa</string>
+  <string name="app_name_alpha">Wikipèdia Alfa</string>
   <string name="wikimedia">Wikimèdia</string>
   <string name="search_hint">Recercar dins Wikipèdia</string>
   <string name="search_hint_search_history">Recercar dins l\'istoric</string>

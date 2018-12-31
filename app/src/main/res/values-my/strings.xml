@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Dr Lotus Black
+* Khunnaingko
 * Lionslayer
 * NayiMuu
 * Ninjastrikers
@@ -45,6 +46,7 @@
   <string name="menu_page_share">လင့်ခ်ကို မျှဝေရန်</string>
   <string name="menu_page_open_a_new_tab">tab အသစ်တွင် ဖွင့်ရန်</string>
   <string name="menu_page_reading_lists">စာရင်းများကို ဖတ်နေသည်</string>
+  <string name="menu_page_recently_viewed">မကြာသေခင်က ကြည့်ခဲ့သော</string>
   <string name="menu_long_press_open_page">ဖွင့်ပါ</string>
   <string name="menu_long_press_open_in_new_tab">tab အသစ်တွင် ဖွင့်ရန်</string>
   <string name="menu_long_press_copy_page">ဝက်ဘ်လိပ်စာကို ကူးယူရန်</string>
@@ -258,6 +260,8 @@
   <string name="close_all_tabs_confirm_yes">လုပ်မည်</string>
   <string name="close_all_tabs_confirm_no">မလုပ်ပါ</string>
   <string name="button_close_tab">tab ပိတ်ရန်</string>
+  <string name="tab_item_closed">%s ပိတ်သိမ်းပြီး။</string>
+  <string name="tool_tip_bookmark_icon_title">စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
   <string name="tool_tip_share">စိတ်ဝင်စားသည့် အချက်အား ဟိုက်လိုက်လုပ်ပြီးပါက သင်နှစ်သက်ရာ ကွန်ယက်တွင် မျှဝေလိုက်ပါ!</string>
   <string name="page_view_in_browser">စာမျက်နှာအား ဘရောက်ဇာတွင် ကြည့်ရန်</string>
   <string name="tool_tip_lang_button">အခုဆိုလျင် သင်သည် ဤဆော့ဝဲလ်ရှိ များစွာသော ဝီကီပီးဒီးယား ဘာသာစကားများထဲတွင် ရှာဖွေ၊ ဖတ်ရှုနိုင်ပါသည်။</string>
@@ -562,6 +566,12 @@
   <string name="description_edit_help_tips_example2_hint">ဧဝရတ်တောင် ဆောင်းပါးအကြောင်း ခေါင်းစဉ်ဖော်ပြချက်</string>
   <string name="description_edit_help_more_info">သတင်းအချက်အလက် ပို၍</string>
   <string name="description_edit_help_meta_info">ဖော်ပြချက်များကို ဝီကီဒေတာတွင် သိမ်းဆည်းထိန်းသိမ်းထားသည်။ ယင်းသည် ဝီကီမီဒီယာ ဖောင်ဒေးရှင်း၏ ပရောဂျက်တစ်ခုဖြစ်ပြီး ဝီကီပီးဒီးယားနှင့် အခြားပရောဂျက်များကို ထောက်ပံ့ပေးသည့် လွတ်လပ်၊ ပူးပေါင်းပေးသော ဒေတာဘေ့စ်စနစ်တစ်ခုဖြစ်ပါသည်။</string>
+  <string name="editactionfeed_add_title_descriptions">ခေါင်းစဉ်ဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
+  <string name="editactionfeed_review_title_description">ခေါင်းစဉ်ဖော်ပြချက် ပြန်လည်ဆန်းစစ်ရန်</string>
+  <string name="editactionfeed_add_description_button">ဖော်ပြချက်ထည့်သွင်းပါ</string>
+  <string name="editactionfeed_my_contributions">ပံ့ပိုးထားမှုများ</string>
+  <string name="editactionfeed_from_language">မှ -</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">ပိုမို လေ့လာရန်</string>
   <string name="description_edit_revert_subtitle">ဝီကီပီဒီးယား တည်းဖြတ်မှုအတွက် ကျေးဇူးတင်ပါသည်</string>
   <string name="description_edit_revert_intro">သင် အကောင်းဆုံးကြိုးစားခဲ့မှန်း ကျွန်ုပ်တို့ သိရှိပါသည်၊ သို့သော် ပြန်လည်စစ်ဆေးသူများထဲက တစ်ယောက်တွင် စိုးရိမ်မှုတစ်ခု ရှိခဲ့သည်။ သင်၏တည်းဖြတ်မှုကို နောက်ပြန်ပြင်လိုက်သည့် ဖြစ်နိုင်ခြေရှိသော အကြောင်းပြချက်တွင်:</string>
   <string name="description_edit_revert_reason1">သင်၏ပံပိုးမှုသည် &lt;a href=\"%1$s\"&gt;လမ်းညွှန်များ&lt;/a&gt;များထဲကတစ်ခုနှင့် မကိုက်ညီပါ။</string>
@@ -575,6 +585,7 @@
   <string name="onboarding_skip">ကျော်ရန်</string>
   <string name="onboarding_continue">ဆက်လက်</string>
   <string name="onboarding_get_started">စတင်ပါ</string>
+  <string name="onboarding_maybe_later">နောက်ကြုံမှ</string>
   <string name="onboarding_explore_title">စူးစမ်းရန် နည်းလမ်းသစ်များ</string>
   <string name="onboarding_explore_text">စဉ်ဆက်မပြတ် မွမ်းမံလျက်ရှိသော စူးစမ်းရေးအခင်းအကျင်းနှင့် ဝီကီပီးဒီးယား ယုန်တွင်းပေါက်သို့ ခုန်ဆင်းလိုက်ပါ။ &lt;br/&gt;သင် စိတ်ဝင်စားသော အခင်းအကျင်းကို &lt;b&gt;မွမ်းမံပြင်ဆင်ပါ&lt;/b&gt; - သမိုင်းဝင်ဖြစ်ရပ်များကို &lt;b&gt;ယနေ့ဖြစ်ရပ်များ&lt;/b&gt;၊ သို့မဟုတ် &lt;b&gt;ကျပန်း&lt;/b&gt;ဖြင့် အန်စာတုံးကို လှည့်ကာ လေ့လာနိုင်ပါသည်။</string>
   <string name="onboarding_reading_list_sync_title">Sync နှင့် စာဖတ်စာရင်းများ</string>
@@ -622,4 +633,12 @@
   <string name="add_wikipedia_languages_text">ဝီကီပီဒီးယား ဘာသာစကားများ ပေါင်းထည့်ရန်</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ဘာသာစကားများ တည်းဖြတ်ရန်</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">မလိုပါ၊ ကျေးဇူးတင်ပါသည်။</string>
+  <string name="main_drawer_open">ဖွင့်ပါ</string>
+  <string name="main_drawer_close">ပိတ်ရန်</string>
+  <string name="main_drawer_help">အကူအညီ</string>
+  <string name="main_drawer_login">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် / ပါဝင်ရန်</string>
+  <string name="title_description_task_title">ခေါင်းစဉ်ဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
+  <string name="title_description_task_description">ခေါင်းစဉ်ဖော်ပြချက်မပါဘဲ ဆောင်းပါးများတွင် ပံ့ပိုးမည်</string>
+  <string name="multilingual_task_negative">မိမိအတွက် မဟုတ်ပါ</string>
+  <string name="multilingual_task_positive">ဘာသာစကားများ ထည့်သွင်းရန်</string>
 </resources>

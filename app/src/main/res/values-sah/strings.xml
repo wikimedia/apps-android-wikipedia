@@ -4,13 +4,14 @@
 * Envlh
 * HalanTul
 * Krivoshapkina
+* Patriccck
 * Алгыс
 * Марианна
 -->
 <resources>
   <string name="app_name_prod">Бикипиэдьийэ</string>
-  <string name="app_name_beta">Бикипиэдьийэ (бета)</string>
-  <string name="app_name_alpha">Бикипиэдьийэ (альфа)</string>
+  <string name="app_name_beta">Бикипиэдьийэ бета</string>
+  <string name="app_name_alpha">Бикипиэдьийэ альфа</string>
   <string name="wikimedia">Бикимиэдьийэ</string>
   <string name="nav_item_back">Төнүн</string>
   <string name="nav_item_forward">Инники</string>
@@ -424,9 +425,21 @@
   <string name="notification_syncing_pause_button">Быстах тохтобул</string>
   <string name="notification_syncing_resume_button">Салгыы</string>
   <string name="notification_syncing_cancel_button">Салҕаама</string>
-  <string name="notification_channel_name" fuzzy="true">Синхронизация</string>
-  <string name="notification_syncing_title" fuzzy="true">%1$d ыстатыйа хачайданна…</string>
-  <string name="notification_syncing_description" fuzzy="true">%1$d ыстатыйа хаалла</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">Ыстатыйаны киллэрии</item>
+    <item quantity="other">Ыстатыйалары киллэрии</item>
+  </plurals>
+  <string name="notification_syncing_title">%1$d ыстатыйа хачайданна…</string>
+  <string name="notification_syncing_description">%1$d ыстатыйа хаалла</string>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Ааҕыы испииһэгин тэҥнээһинэ</item>
+    <item quantity="other">Ааҕыы испииһэктэрин тэҥнээһинэ</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">%1$d Испииһэги тэҥнээһин…</item>
+    <item quantity="other">%1$d Испииһэктэри тэҥнээһин…</item>
+  </plurals>
+  <string name="notification_syncing_reading_list_description">%1$d испииһэк хаалла</string>
   <string name="notification_echo_channel_description">Бикипиэдьийэ биллэриилэрэ</string>
   <string name="notifications_activity_title">Биллэриилэр</string>
   <string name="notifications_activity_title_archived">Биллэриилэр (архыып)</string>
@@ -524,6 +537,10 @@
   <string name="description_edit_help_tips_example2_hint">Эверест чыпчаалын туһунан ыстатыйа ис хоһооно</string>
   <string name="description_edit_help_more_info">Сиһилии</string>
   <string name="description_edit_help_meta_info">Ойуулааһыннар Биики-Билии диэн сиргэ бааллар. Биики-Билии (Wikidata) Бикимиэдьийэ Пуондатын бырайыага: аһаҕас, көҥүл туттуллар билии олоҕо, онно Бикипиэдьийэни, Биики Хааһаҕы, Бикимиэдьийэ атын да бырайыактарын уонна да атыттары өйүүргэ аналлаах билии сааһыланан түмүллэр.</string>
+  <string name="editactionfeed_add_title_descriptions">Кылгас быһаарыы эбии</string>
+  <string name="editactionfeed_add_description_button">Быһааран суруй</string>
+  <string name="editactionfeed_my_contributions">Бэйэм суруйуум</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">Бу туһунан сиһилии</string>
   <string name="description_edit_revert_subtitle">Бикипиэдьийэни тупсарбыккар махтал!</string>
   <string name="description_edit_revert_intro">Туһалааҕы оҥоро сатаабыккын эрээри, тугу эрэ сыыспыккын. Көннөрүүгүн төннөрбүт төрүөт маннык буолуон сөп:</string>
   <string name="description_edit_revert_reason1">көннөрүүҥ &lt;a href=\"%1$s\"&gt;тутаах тулаанныртан&lt;/a&gt; биирдэстэригэр сөп түбэспэтэх.</string>
@@ -586,4 +603,6 @@
   <string name="main_drawer_close">Сап</string>
   <string name="main_drawer_help">Көмө</string>
   <string name="main_drawer_login">Бикипиэдьийэҕэ киирии / бэлиэтэнии</string>
+  <string name="title_description_task_title">Кылгас быһаарыы эбии</string>
+  <string name="multilingual_task_positive">Тылы эбии</string>
 </resources>

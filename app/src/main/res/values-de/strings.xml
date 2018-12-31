@@ -524,7 +524,7 @@
   <string name="view_featured_article_card_title">Vorgestellter Artikel</string>
   <string name="view_featured_article_footer_save_button_label">Speichern</string>
   <string name="view_featured_article_footer_saved_button_label">Gespeichert</string>
-  <string name="edit_tasks_activity_title">App-Bearbeitungs-Aufgaben</string>
+  <string name="edit_tasks_activity_title">App-Autoren-Aufgaben</string>
   <string name="feed_configure_activity_title">Den Feed anpassen</string>
   <string name="feed_configure_menu_reset">Standardansicht wiederherstellen</string>
   <string name="feed_configure_menu_select_all">Alle anzeigen</string>
@@ -553,6 +553,8 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/de#Richtlinien</string>
   <string name="description_edit_anon_limit">Vielen Dank für dein fortwährendes Interesse an der Bearbeitung von Beschreibungen! Um zusätzliche Bearbeitungen durchzuführen, melde dich bitte bei deinem Wikipedia-Benutzerkonto an.</string>
   <string name="description_edit_license_notice">Durch das Ändern der Titelbeschreibungen stimme ich den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und der unwiderruflichen Veröffentlichung meiner Beiträge unter der &lt;a href=\"%2$s\"&gt;Creative-Commons-Lizenz CC0&lt;/a&gt; zu.</string>
+  <string name="description_edit_task_unlock_title">Die Liste der Titelbeschreibungs-Bearbeitungsaufgaben wurde freigegeben!</string>
+  <string name="description_edit_task_unlock_body">Wir haben mitbekommen, dass du gerne Titelbeschreibungen bearbeitest. Deshalb haben wir die Liste „App-Autoren-Aufgaben“ mit weiteren Artikeln, denen Titelbeschreibungen fehlen, zusammengestellt, damit du mit dem Beitragen fortfahren kannst!</string>
   <string name="description_edit_success_saved">Beschreibung veröffentlicht!</string>
   <string name="description_edit_success_encouragement">Du hast soeben Wikipedia für jeden besser gemacht</string>
   <string name="description_edit_success_done">Fertig</string>
@@ -575,6 +577,12 @@
   <string name="description_edit_help_tips_example2_hint">Titelbeschreibung für einen Artikel über den Mount Everest</string>
   <string name="description_edit_help_more_info">Weitere Informationen</string>
   <string name="description_edit_help_meta_info">Beschreibungen werden in Wikidata gespeichert und verwaltet, ein Projekt der Wikimedia Foundation, das eine freie, kollaborative, mehrsprachige sekundäre Datenbank bietet, die von Wikipedia und anderen Projekten unterstützt wird.</string>
+  <string name="editactionfeed_add_title_descriptions">Titelbeschreibungen hinzufügen</string>
+  <string name="editactionfeed_review_title_description">Titelbeschreibung überprüfen</string>
+  <string name="editactionfeed_add_description_button">Beschreibung hinzufügen</string>
+  <string name="editactionfeed_my_contributions">Meine Beiträge</string>
+  <string name="editactionfeed_from_language">Von:</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">Mehr erfahren</string>
   <string name="description_edit_revert_subtitle">Vielen Dank für das Bearbeiten von Wikipedia!</string>
   <string name="description_edit_revert_intro">Wir wissen, dass du dein Bestes gegeben hast, aber einer unserer Prüfer hat Bedenken. Mögliche Gründe, warum deine Bearbeitung rückgängig gemacht wurde:</string>
   <string name="description_edit_revert_reason1">Dein Beitrag folgt keiner der &lt;a href=\"%1$s\"&gt;Richtlinien&lt;/a&gt;.</string>
@@ -591,6 +599,7 @@
   <string name="onboarding_skip">Überspringen</string>
   <string name="onboarding_continue">Fortfahren</string>
   <string name="onboarding_get_started">Anfangen</string>
+  <string name="onboarding_maybe_later">Vielleicht später</string>
   <string name="onboarding_explore_title">Neue Wege zum Entdecken</string>
   <string name="onboarding_explore_text">Tauche in das Wikipedia-Kaninchenloch ein mit einem ständig aktuellen Entdecken-Feed.&lt;br/&gt; &lt;b&gt;Passe&lt;/b&gt; den Feed deinen Interessen an – ob er dir historische Ereignisse &lt;b&gt;An diesem Tag&lt;/b&gt; nahebringt oder wirf den Würfel mit &lt;b&gt;Zufällig&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Leselisten mit Synchronisierung</string>
@@ -644,4 +653,18 @@
   <string name="main_drawer_close">Schließen</string>
   <string name="main_drawer_help">Hilfe</string>
   <string name="main_drawer_login">Anmelden / Wikipedia beitreten</string>
+  <string name="title_description_task_title">Titelbeschreibungen hinzufügen</string>
+  <string name="title_description_task_description">Zu Artikeln ohne Titelbeschreibungen beitragen</string>
+  <string name="image_caption_task_title">Beschreibungsbilder</string>
+  <string name="image_caption_task_description">Den Bildern Beschreibungen hinzufügen</string>
+  <string name="multilingual_task_title">Weitere Aufgaben für mehrsprachige Autoren</string>
+  <string name="multilingual_task_description">Übersetzungsaufgaben sind verfügbar, wenn du in mehr als einer Wikipedia-Sprache liest und schreibst.</string>
+  <string name="image_caption_edit_disable_text">Gesperrt, bis du %d verifizierte In-App-Bearbeitungen durchgeführt hast.</string>
+  <string name="multilingual_task_negative">Nicht für mich</string>
+  <string name="multilingual_task_positive">Sprachen hinzufügen</string>
+  <string name="editing_level_text">App-Autor des NIVEAUS %d</string>
+  <plurals name="edit_action_contribution_count">
+    <item quantity="one">In-App-Beitrag</item>
+    <item quantity="other">In-App-Beiträge</item>
+  </plurals>
 </resources>

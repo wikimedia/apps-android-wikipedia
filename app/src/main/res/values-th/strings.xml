@@ -4,6 +4,7 @@
 * Ans
 * Bluegram
 * CodeNameBOSS
+* Geonuch
 * Horus
 * Nkrctp
 * Octahedron80
@@ -179,7 +180,7 @@
   <string name="page_view_in_browser">ดูหน้าในเบราว์เซอร์</string>
   <string name="tool_tip_lang_button">คุณสามารถค้นหาและอ่านในวิกิพีเดียหลายภาษาในแอปได้แล้ว\n\n\nแตะบนไอคอนเพื่อเพิ่มภาษาเพิ่มเติม</string>
   <string name="error_unknown">เกิดข้อผิดพลาดไม่ทราบสาเหตุ</string>
-  <string name="format_error_server_message">ข้อความ: \"%s\"</string>
+  <string name="format_error_server_message">สาร: \"%s\"</string>
   <string name="address_copied">คัดลอกที่อยู่ไปยังคลิปบอร์ด</string>
   <string name="text_copied">คัดลอกข้อความไปยังคลิปบอร์ด</string>
   <string name="button_continue_to_article">อ่านบทความ</string>

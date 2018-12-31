@@ -494,6 +494,10 @@
   <string name="description_edit_help_tips_example2">La montagna più alta della Terra</string>
   <string name="description_edit_help_tips_example2_hint">descrizione del titolo per un articolo sul Monte Everest</string>
   <string name="description_edit_help_more_info">Ulteriori informazioni</string>
+  <string name="editactionfeed_add_description_button">Aggiungi descrizione</string>
+  <string name="editactionfeed_my_contributions">I miei contributi</string>
+  <string name="editactionfeed_from_language">Da:</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">Ulteriori informazioni</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
   <string name="description_edit_revert_reason2">il tuo contributo sembra essere un esperimento o un vandalismo.</string>
   <string name="description_edit_revert_history">Se sei interessato, vedi la &lt;a href=\"%1$s\"&gt;cronologia delle modifiche&lt;/a&gt;.</string>
@@ -507,6 +511,7 @@
   <string name="onboarding_skip">Salta</string>
   <string name="onboarding_continue">Continua</string>
   <string name="onboarding_get_started">Inizia</string>
+  <string name="onboarding_maybe_later">Forse più tardi</string>
   <string name="onboarding_explore_title">Nuovi modi per esplorare</string>
   <string name="onboarding_analytics_title">Invia dati anonimi</string>
   <string name="onboarding_analytics_switch_title">Invia dati di utilizzo</string>
@@ -548,4 +553,6 @@
   <string name="main_drawer_close">Chiudi</string>
   <string name="main_drawer_help">Aiuto</string>
   <string name="main_drawer_login">Entra / unisciti a Wikipedia</string>
+  <string name="title_description_task_title">Aggiungi descrizioni del titolo</string>
+  <string name="multilingual_task_positive">Aggiungi lingue</string>
 </resources>
