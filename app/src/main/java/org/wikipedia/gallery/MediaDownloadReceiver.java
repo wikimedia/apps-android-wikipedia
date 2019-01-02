@@ -35,7 +35,7 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
     public static void download(@NonNull Context context, @NonNull FeaturedImage featuredImage) {
         String filename = FileUtil.sanitizeFileName(featuredImage.title());
         String targetDirectory = Environment.DIRECTORY_PICTURES;
-        performDownloadRequest(context, featuredImage.image().source(), targetDirectory, filename, null);
+        performDownloadRequest(context, Uri.parse(featuredImage.getOriginal().getSource()), targetDirectory, filename, null);
     }
 
     public static void download(@NonNull Context context, @NonNull GalleryItem galleryItem) {

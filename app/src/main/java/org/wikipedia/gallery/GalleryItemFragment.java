@@ -32,6 +32,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
@@ -86,9 +87,9 @@ public class GalleryItemFragment extends Fragment {
         args.putParcelable(ARG_PAGETITLE, pageTitle);
         args.putSerializable(ARG_GALLERY_ITEM, galleryItem);
 
-        if (galleryItem instanceof FeaturedImageGalleryItem) {
+        if (galleryItem instanceof FeaturedImage) {
             args.putBoolean(ARG_FEED_FEATURED_IMAGE, true);
-            args.putInt(ARG_AGE, ((FeaturedImageGalleryItem) galleryItem).getAge());
+            args.putInt(ARG_AGE, ((FeaturedImage) galleryItem).getAge());
         }
 
         f.setArguments(args);
@@ -297,7 +298,7 @@ public class GalleryItemFragment extends Fragment {
             // show the video thumbnail while the video loads...
             videoThumbnail.setVisibility(View.VISIBLE);
             videoThumbnail.setController(Fresco.newDraweeControllerBuilder()
-                    .setUri(galleryItem.getThumbnail().getSource())
+                    .setUri(galleryItem.getThumbnailUrl())
                     .setAutoPlayAnimations(true)
                     .setControllerListener(new BaseControllerListener<ImageInfo>() {
                         @Override
