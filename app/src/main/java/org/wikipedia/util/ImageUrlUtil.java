@@ -18,7 +18,7 @@ public final class ImageUrlUtil {
     public static String getUrlForSize(@NonNull String original, int size) {
         Matcher matcher = WIDTH_IN_IMAGE_URL_REGEX.matcher(original);
         if (matcher.find() && Integer.parseInt(matcher.group(1)) > size) {
-            return original.replace(matcher.group(1), Integer.toString(size));
+            return matcher.replaceAll("/" + size + "px-");
         }
         return original;
     }
@@ -27,7 +27,7 @@ public final class ImageUrlUtil {
     public static String getUrlForPreferredSize(@NonNull String original, int size) {
         Matcher matcher = WIDTH_IN_IMAGE_URL_REGEX.matcher(original);
         if (matcher.find() && Integer.parseInt(matcher.group(1)) != size) {
-            return original.replace(matcher.group(1), Integer.toString(size));
+            return matcher.replaceAll("/" + size + "px-");
         }
         return original;
     }
