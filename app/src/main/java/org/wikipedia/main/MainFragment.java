@@ -269,8 +269,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onFeedShareImage(final FeaturedImageCard card) {
-        final String thumbUrl = card.baseImage().thumbnail().source().toString();
-        final String fullSizeUrl = card.baseImage().image().source().toString();
+        final String thumbUrl = card.baseImage().getThumbnailUrl();
+        final String fullSizeUrl = card.baseImage().getOriginal().getSource();
         new ImagePipelineBitmapGetter(thumbUrl) {
             @Override
             public void onSuccess(@Nullable Bitmap bitmap) {

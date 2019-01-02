@@ -8,9 +8,9 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.Serializable;
 
 public class TextInfo implements Serializable {
-
     @SuppressWarnings("unused,NullableProblems") @Nullable private String html;
     @SuppressWarnings("unused,NullableProblems") @Nullable private String text;
+    @SuppressWarnings("unused,NullableProblems") @Nullable private String lang;
 
     @NonNull
     public String getHtml() {
@@ -22,11 +22,8 @@ public class TextInfo implements Serializable {
         return StringUtils.defaultString(text);
     }
 
-    public void setHtml(@Nullable String html) {
-        this.html = html;
-    }
-
-    public void setText(@Nullable String text) {
-        this.text = text;
+    @NonNull
+    public String getLang() {
+        return StringUtils.defaultString(lang);
     }
 }

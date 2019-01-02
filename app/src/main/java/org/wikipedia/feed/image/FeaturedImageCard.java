@@ -56,7 +56,7 @@ public class FeaturedImageCard extends Card {
     @Override
     @NonNull
     public Uri image() {
-        return featuredImage.thumbnail().source();
+        return Uri.parse(featuredImage.getThumbnailUrl());
     }
 
     @NonNull @Override public CardType type() {
@@ -65,7 +65,7 @@ public class FeaturedImageCard extends Card {
 
     @Nullable
     public String description() {
-        return featuredImage.description();
+        return featuredImage.getDescription().getText();
     }
 
     @Override

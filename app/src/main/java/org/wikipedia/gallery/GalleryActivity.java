@@ -58,6 +58,7 @@ import org.wikipedia.views.WikiErrorView;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
@@ -233,13 +234,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
 
         super.onDestroy();
-    }
-
-    private void loadGalleryItemFor(@NonNull FeaturedImage image, int age) {
-        List<GalleryItem> list = new ArrayList<>();
-        list.add(new FeaturedImageGalleryItem(image, age));
-        updateProgressBar(false, true, 0);
-        applyGalleryList(list);
     }
 
     @Override
@@ -477,8 +471,9 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         if (getIntent().hasExtra(EXTRA_FEATURED_IMAGE)) {
             FeaturedImage featuredImage = GsonUnmarshaller.unmarshal(FeaturedImage.class,
                     getIntent().getStringExtra(EXTRA_FEATURED_IMAGE));
-            int age = getIntent().getIntExtra(EXTRA_FEATURED_IMAGE_AGE, 0);
-            loadGalleryItemFor(featuredImage, age);
+            featuredImage.setAge(getIntent().getIntExtra(EXTRA_FEATURED_IMAGE_AGE, 0));
+            updateProgressBar(false, true, 0);
+            applyGalleryList(Collections.singletonList(featuredImage));
         } else {
             fetchGalleryItems();
         }

@@ -33,6 +33,9 @@ public class GalleryItem implements Serializable {
     // FIXME: The type of credit will return either string or another type of object
     // @SuppressWarnings("unused") @Nullable private String credit;
 
+    public GalleryItem() {
+    }
+
     public GalleryItem(@NonNull String title) {
         this.type = "*/*";
         this.titles = new Titles(title, StringUtil.addUnderscores(title), title);
@@ -64,6 +67,10 @@ public class GalleryItem implements Serializable {
     @NonNull
     public Titles getTitles() {
         return titles;
+    }
+
+    protected void setTitle(@NonNull String title) {
+        titles = new Titles(title, StringUtil.addUnderscores(title), title);
     }
 
     @NonNull
