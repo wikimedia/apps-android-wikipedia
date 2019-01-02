@@ -3,7 +3,6 @@ package org.wikipedia.editactionfeed
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.text.Html
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +17,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.editactionfeed.provider.MissingDescriptionProvider
 import org.wikipedia.page.PageTitle
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 
@@ -95,7 +95,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
         }
         viewArticleTitle.text = summary!!.normalizedTitle
         viewArticleSubtitle.text = null //summary.getDescription());
-        viewArticleExtract.text = Html.fromHtml(summary!!.extractHtml)
+        viewArticleExtract.text = StringUtil.fromHtml(summary!!.extractHtml)
         val observer = viewArticleExtract.viewTreeObserver
         observer.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {

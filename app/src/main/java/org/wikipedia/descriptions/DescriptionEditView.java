@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.TextInputLayout;
-import android.text.Html;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
@@ -23,6 +22,7 @@ import org.wikipedia.R;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 
 import butterknife.BindView;
@@ -96,7 +96,7 @@ public class DescriptionEditView extends LinearLayout {
         pageSummaryContainer.setVisibility(View.VISIBLE);
         pageImage.loadImage(TextUtils.isEmpty(pageSummary.getThumbnailUrl()) ? null
                 : Uri.parse(pageSummary.getThumbnailUrl()));
-        pageSummaryText.setText(Html.fromHtml(pageSummary.getExtractHtml()));
+        pageSummaryText.setText(StringUtil.fromHtml(pageSummary.getExtractHtml()));
         this.pageSummary = pageSummary;
     }
 

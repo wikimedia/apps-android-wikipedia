@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.text.Html;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +17,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.GoneIfEmptyTextView;
@@ -124,7 +124,7 @@ public class RandomItemFragment extends Fragment {
         }
         articleTitleView.setText(summary.getNormalizedTitle());
         articleSubtitleView.setText(null); //summary.getDescription());
-        extractView.setText(Html.fromHtml(summary.getExtractHtml()));
+        extractView.setText(StringUtil.fromHtml(summary.getExtractHtml()));
         ViewTreeObserver observer = extractView.getViewTreeObserver();
         observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
