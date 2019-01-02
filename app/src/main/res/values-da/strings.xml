@@ -201,6 +201,7 @@
   <string name="edit_summary_tag_links">Tilføjet links</string>
   <string name="edit_summary_tag_other">Andet</string>
   <string name="edit_summary_tag_other_hint">Andre måder du forbedrede siden</string>
+  <string name="edit_conflict_title">Redigeringskonflikt</string>
   <string name="find_next">Find næste</string>
   <string name="find_previous">Find forrige</string>
   <string name="find_first_occurence">Dette er den første forekomst</string>
@@ -439,12 +440,18 @@
     <item quantity="other">Downloader artikler</item>
   </plurals>
   <string name="notification_syncing_title" fuzzy="true">Henter %1$d artikler …</string>
-  <string name="notification_syncing_description" fuzzy="true">%1$d artikler tilbage</string>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">%1$d artikel tilbage</item>
+    <item quantity="other">%1$d artikler tilbage</item>
+  </plurals>
   <plurals name="notification_syncing_reading_list_channel_name">
     <item quantity="one">Synkroniserer læseliste</item>
     <item quantity="other">Synkroniserer læselister</item>
   </plurals>
-  <string name="notification_syncing_reading_list_title" fuzzy="true">Synkroniserer %1$d lister …</string>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Synkroniserer %1$d liste…</item>
+    <item quantity="other">Synkroniserer %1$d lister…</item>
+  </plurals>
   <plurals name="notification_syncing_reading_list_description">
     <item quantity="one">%1$d liste tilbage</item>
     <item quantity="other">%1$d lister tilbage</item>
@@ -546,6 +553,11 @@
   <string name="description_edit_help_tips_example2_hint">titelbeskrivelse for en artikel om Mount Everest</string>
   <string name="description_edit_help_more_info">Flere oplysninger</string>
   <string name="description_edit_help_meta_info">Beskrivelser lagres og vedligeholdes på Wikidata, et projekt under Wikimedia Foundation, som stiller en gratis, kollaborativ, flersproget, sekundær database til rådighed til understøttelse af Wikipedia og andre projekter.</string>
+  <string name="editactionfeed_add_title_descriptions">Tilføj titelbeskrivelser</string>
+  <string name="editactionfeed_add_description_button">Tilføj beskrivelse</string>
+  <string name="editactionfeed_my_contributions">Mine bidrag</string>
+  <string name="editactionfeed_from_language">Fra:</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">Lær mere</string>
   <string name="description_edit_revert_subtitle">Tak for din redigering af Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi ved at du har gjort dit bedste, men en af korrekturlæserne havde en indvending. Blandt mulige årsager til at din redigering blev omgjort kan nævnes:</string>
   <string name="description_edit_revert_reason1">dit bidrag fulgte ikke en af &lt;a href=\"%1$s\"&gt;retningslinjerne&lt;/a&gt;.</string>
@@ -562,6 +574,7 @@
   <string name="onboarding_skip">Udelad</string>
   <string name="onboarding_continue">Fortsæt</string>
   <string name="onboarding_get_started">Kom i gang</string>
+  <string name="onboarding_maybe_later">Måske senere</string>
   <string name="onboarding_explore_title">Nye måder at udforske</string>
   <string name="onboarding_explore_text">Dyk ned i Wikipedias harehul med en konstant opdateret udforskningskilde. &lt;br/&gt; &lt;b&gt;Tilpas&lt;/b&gt; nyhedskilden til dine interesser – om det er historiske hændelser &lt;b&gt;På denne dag&lt;/b&gt;, eller et kast med terningen med &lt;b&gt;Vilkårlig&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Læselister med synkronisering</string>
@@ -609,4 +622,6 @@
   <string name="main_drawer_close">Luk</string>
   <string name="main_drawer_help">Hjælp</string>
   <string name="main_drawer_login">Log på / registrer dig på Wikipedia</string>
+  <string name="title_description_task_title">Tilføj titelbeskrivelser</string>
+  <string name="multilingual_task_positive">Tilføj sprog</string>
 </resources>

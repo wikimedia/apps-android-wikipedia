@@ -534,7 +534,7 @@
   <string name="view_featured_article_card_title">典範條目</string>
   <string name="view_featured_article_footer_save_button_label">儲存</string>
   <string name="view_featured_article_footer_saved_button_label">已儲存</string>
-  <string name="edit_tasks_activity_title">套用編輯任務</string>
+  <string name="edit_tasks_activity_title" fuzzy="true">套用編輯任務</string>
   <string name="feed_configure_activity_title">自訂摘要</string>
   <string name="feed_configure_menu_reset">重新設定預設檢視</string>
   <string name="feed_configure_menu_select_all">顯示全部</string>

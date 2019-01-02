@@ -3,6 +3,7 @@
 * Alan ffm
 * Alchemik
 * Chrumps
+* CiaPan
 * Darellur
 * DeRudySoulStorm
 * Debeet
@@ -123,6 +124,7 @@
   <string name="toast_logout_complete">Wylogowano</string>
   <string name="history_empty_title">Brak ostatnio oglądanych artykułów</string>
   <string name="history_empty_message">Śledź tutaj, co było czytane.</string>
+  <string name="history_offline_articles_toast">Bez dostępu do sieci (offline) niektóre artykuły w historii mogą być niewidoczne.</string>
   <string name="search_empty_message">Przeszukuj i czytaj darmową encyklopedię w swoim języku</string>
   <string name="search_empty_message_multilingual_upgrade">Przeszukuj Wikipedię w większej ilości języków</string>
   <string name="delete_selected_items">Usuń wybrane elementy</string>
@@ -547,6 +549,10 @@
   <string name="description_edit_help_tips_example2">najwyższy szczyt Ziemi</string>
   <string name="description_edit_help_tips_example2_hint">opis tytułu dla artykułu o Mount Everest</string>
   <string name="description_edit_help_more_info">Więcej informacji</string>
+  <string name="editactionfeed_add_title_descriptions">Dodaj opisy tytułów</string>
+  <string name="editactionfeed_add_description_button">Dodaj opis</string>
+  <string name="editactionfeed_my_contributions">Mój wkład</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">Dowiedz się więcej</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_reason2">twój wpis wyglądał na eksperyment lub wandalizm.</string>
   <string name="description_edit_revert_history">Jeśli Cię to interesuje, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>
@@ -557,6 +563,7 @@
   <string name="onboarding_skip">Pomiń</string>
   <string name="onboarding_continue">Kontynuuj</string>
   <string name="onboarding_get_started">Rozpocznij edycję</string>
+  <string name="onboarding_maybe_later">Może później</string>
   <string name="onboarding_explore_title">Nowe metody eksploracji</string>
   <string name="onboarding_explore_text">Zanurkuj w króliczej norze Wikipedii, ze stale aktualizowanym kanałem Eksploruj.&lt;br/&gt;&lt;b&gt;Dostosuj&lt;/b&gt; źródła do swoich zainteresowań - niezależnie od tego, czy chodzi o wydarzenia historyczne &lt;b&gt;Tego dnia&lt;/b&gt;, czy rzut kostką za pomocą &lt;b&gt;Losowego artykułu&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Synchronizacja list do przeczytania</string>
@@ -599,4 +606,6 @@
   <string name="main_drawer_close">Zamknij</string>
   <string name="main_drawer_help">Pomoc</string>
   <string name="main_drawer_login">Zaloguj się / dołącz do Wikipedii</string>
+  <string name="title_description_task_title">Dodaj opisy tytułów</string>
+  <string name="multilingual_task_positive">Dodaj języki</string>
 </resources>

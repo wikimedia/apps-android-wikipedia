@@ -9,6 +9,7 @@
 * Inkbug
 * Matanya
 * Or
+* Strayblues
 * YaronSh
 * בנימין
 * המקיסט
@@ -529,6 +530,7 @@
   <string name="view_featured_article_card_title">ערך מומלץ</string>
   <string name="view_featured_article_footer_save_button_label">שמירה</string>
   <string name="view_featured_article_footer_saved_button_label">נשמר</string>
+  <string name="edit_tasks_activity_title">משימות לעורכים באפליקציה</string>
   <string name="feed_configure_activity_title">התאמה אישית של ההזנה</string>
   <string name="feed_configure_menu_reset">שחזור התצוגה ההתחלתית</string>
   <string name="feed_configure_menu_select_all">להציג הכול</string>
@@ -573,12 +575,18 @@
   <string name="description_edit_help_tips">עצות ליצירת תיאורים</string>
   <string name="description_edit_help_tips_description">תיאורים אמורים להיכנס לשורה אחת, ולכלול בין שתיים לשתים־עשרה מילים.</string>
   <string name="description_edit_help_tips_examples">למשל:</string>
-  <string name="description_edit_help_tips_example1">ציון של לאונרדט דה וינצ\'י</string>
+  <string name="description_edit_help_tips_example1">ציון של לאונרדו דה וינצ\'י</string>
   <string name="description_edit_help_tips_example1_hint">תיאור כותרת של ערך על המונה ליזה</string>
   <string name="description_edit_help_tips_example2">ההר הגבוה בכדור הארץ</string>
   <string name="description_edit_help_tips_example2_hint">תיאור הכותרת של ערך על הר אוורסט</string>
   <string name="description_edit_help_more_info">מידע נוסף</string>
   <string name="description_edit_help_meta_info">התיאורים נשמרים ומתוחזקים בוויקינתונים (Wikidata), מיזם של קרן ויקימדיה שמספק מסד נתונים משני חופשי שיתופי רב־לשוני שתומך בוויקיפדיה ובמיזמים אחרים.</string>
+  <string name="editactionfeed_add_title_descriptions">הוספת תיאורי כותרת</string>
+  <string name="editactionfeed_review_title_description">בדיקת תיאור כותרת</string>
+  <string name="editactionfeed_add_description_button">הוספת תיאור</string>
+  <string name="editactionfeed_my_contributions">התרומות שלי</string>
+  <string name="editactionfeed_from_language">מאת:</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">מידע נוסף</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
   <string name="description_edit_revert_intro">אנחנו יודעים שניסית היטב, אבל לאחד מהסוקרים הייתה חשד. סיבות אפשריות לכך שהעריכה שלך שוחזרה:</string>
   <string name="description_edit_revert_reason1">התרומה שלך הייתה מנוגדת ל&lt;a href=\"%1$s\"&gt;הוראות&lt;/a&gt;.</string>
@@ -595,6 +603,7 @@
   <string name="onboarding_skip">לדלג</string>
   <string name="onboarding_continue">להמשיך</string>
   <string name="onboarding_get_started">להתחיל</string>
+  <string name="onboarding_maybe_later">אולי מאוחר יותר</string>
   <string name="onboarding_explore_title">דרכים חדשות לחקור</string>
   <string name="onboarding_explore_text">תצללו לוויקיפדיה עם ההזנה המתעדכנת שלנו: \"לחקור\". &lt;br/&gt; תתאימו את ההזנה למה שמעניין אתכם – תלמדו על מה שקרה &lt;b&gt;היום בהיסטוריה&lt;/b&gt;, או תפתחו משהו &lt;b&gt;אקראי&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">רשימת קריאה עם סנכרון</string>
@@ -648,4 +657,9 @@
   <string name="main_drawer_close">סגירה</string>
   <string name="main_drawer_help">עזרה</string>
   <string name="main_drawer_login">כניסה / הצטרפות לוויקיפדיה</string>
+  <string name="title_description_task_title">הוספת תיאורי כותרת</string>
+  <string name="title_description_task_description">תרומה למאמרים חסרי תיאורי כותרת</string>
+  <string name="image_caption_task_description">הוספת תיאורים לתמונות</string>
+  <string name="multilingual_task_negative">לא בשבילי</string>
+  <string name="multilingual_task_positive">הוספת שפות</string>
 </resources>

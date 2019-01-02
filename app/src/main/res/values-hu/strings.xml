@@ -9,6 +9,7 @@
 * MeskoBalazs
 * Misibacsi
 * Notramo
+* Patriccck
 * R-Joe
 * Rodrigo
 * Tacsipacsi
@@ -19,7 +20,7 @@
 <resources>
   <string name="app_name_prod">Wikipédia</string>
   <string name="app_name_beta">Wikipédia béta</string>
-  <string name="app_name_alpha">Wikipédia alfa</string>
+  <string name="app_name_alpha">Wikipédia Alfa</string>
   <string name="wikimedia">Wikimédia</string>
   <string name="nav_item_back">Vissza</string>
   <string name="nav_item_forward">Előre</string>
@@ -581,6 +582,8 @@
   <string name="description_edit_help_tips_example2_hint">címleírás a Csomolungmáról szóló cikkhez</string>
   <string name="description_edit_help_more_info">További információk</string>
   <string name="description_edit_help_meta_info">A leírások a Wikidatán tárolódnak, ami Wikimédia Alapítvány egyik projektje, egy szabad, kollaboratív, többnyelvű, másodlagos adatbázis, ami a Wikipédiát és egyéb projekteket támogat.</string>
+  <string name="editactionfeed_my_contributions">Közreműködéseim</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">Tudj meg többet</string>
   <string name="description_edit_revert_subtitle">Köszönjük, hogy szerkesztetted a Wikipédiát!</string>
   <string name="description_edit_revert_intro">Tudjuk, hogy megtetted a tőled telhetőt, egy egy másik szerkesztőnek aggályai voltak a szerkesztéseddel kapcsolatban. Többek között az alábbiak miatt vonhatták vissza a szerkesztésedet:</string>
   <string name="description_edit_revert_reason1">nem követted az &lt;a href=\"%1$s\"&gt;irányelveket&lt;/a&gt;</string>
@@ -597,6 +600,7 @@
   <string name="onboarding_skip">Kihagy</string>
   <string name="onboarding_continue">Tovább</string>
   <string name="onboarding_get_started">Kezdés</string>
+  <string name="onboarding_maybe_later">Talán később</string>
   <string name="onboarding_explore_title">Új módok a felfedezésre</string>
   <string name="onboarding_explore_text">Merülj alá a Wikipédiában a folyamatosan frissülő Felfedezés hírfolyammal!&lt;br /&gt; &lt;b&gt;Szabd testre&lt;/b&gt; a hírfolyamot az érdeklődésnek megfelelően – izgassanak bár az &lt;b&gt;Ezen a napon&lt;/b&gt; történt események, vagy ami épp &lt;b&gt;Találomra&lt;/b&gt; jön.</string>
   <string name="onboarding_reading_list_sync_title">Olvasólisták szinkronizálással</string>
@@ -649,4 +653,5 @@
   <string name="main_drawer_close">Bezárás</string>
   <string name="main_drawer_help">Segítség</string>
   <string name="main_drawer_login">Bejelentkezés/regisztrálás a Wikipédiába</string>
+  <string name="multilingual_task_positive">Nyelvek hozzáadása</string>
 </resources>

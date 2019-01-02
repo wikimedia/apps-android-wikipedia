@@ -95,7 +95,7 @@
   <string name="search_reading_lists_no_results">Lukulistasta ei löytynyt tuloksia</string>
   <string name="search_history_no_results">Hakuhistoriastasi ei löytynyt tuloksia tällä haulla</string>
   <string name="edit_section_captcha_message">Kirjoita alla olevat sanat roskapostin torjumiseksi</string>
-  <string name="edit_section_captcha_request_an_account_message">Etkö näe kuvaa? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Pyydä tiliä&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Etkö näe kuvaa? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Pyydä käyttäjätunnusta&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Toista edeltävät sanat</string>
   <string name="title_captcha">Kirjoita roskapostisuojauksen kirjaimet</string>
   <string name="edit_section_captcha_reload">Lataa uusi napauttamalla</string>
@@ -122,7 +122,7 @@
   <string name="delete_selected_items">Poista valitut kohteet</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Käyttäjänimi</string>
-  <string name="login_dont_have_account">Eikö sinulla ole tiliä?</string>
+  <string name="login_dont_have_account">Eikö sinulla vielä ole käyttäjätunnusta?</string>
   <string name="login_join_wikipedia">Luo tunnus Wikipediaan</string>
   <string name="login_forgot_password">Unohditko salasanasi?</string>
   <string name="create_account_already_have">Onko sinulla jo tunnus?</string>
@@ -156,10 +156,10 @@
   <string name="preferences_heading_experimental">Kokeellinen</string>
   <string name="preference_title_sync_reading_lists_from_account">Lukulistojen synkronointi</string>
   <string name="preference_title_download_reading_list_articles">Lataa lukulista-artikkelit</string>
-  <string name="preference_summary_sync_reading_lists">Synkronoi lukulistat eri laitteiden välillä tallentamalla ne Wikipedia-tilillesi</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Synkronoi lukulistat eri laitteiden välillä tallentamalla ne Wikipedia-tilillesi \"%s\"</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Poista synkronoidut lukulistat tililtä \"%s\"?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Tämä tulee täysin poistamaan kaikki aiemmin synkronoimasi lukulistat etämuistiltasi. Poista kaikki synkronoinut listat tililtäsi \"%s\"?</string>
+  <string name="preference_summary_sync_reading_lists">Synkronoi lukulistat eri laitteiden välillä tallentamalla ne Wikipedia-käytäjätunnuksellesi</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Synkronoi lukulistat eri laitteiden välillä tallentamalla ne Wikipedia-käyttäjätunnuksellesi \"%s\"</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Poista synkronoidut lukulistat käytäjätunnukseltasi \"%s\"?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Tämä tulee täysin poistamaan kaikki aiemmin synkronoimasi lukulistat etämuistiltasi. Poista kaikki synkronoinut listat käyttäjätunnukseltasi \"%s\"?</string>
   <string name="preferences_privacy_settings_heading">Yksityisyys</string>
   <string name="preference_title_eventlogging_opt_in">Lähetä käyttöraportteja</string>
   <string name="preference_summary_eventlogging_opt_in">Salli Wikimedian kerätä tietoja sovelluksen käyttötottumuksista käyttäjäkokemuksen parantamiseksi.</string>
@@ -286,9 +286,9 @@
   <string name="button_continue_to_article">Lue artikkeli</string>
   <string name="button_continue_to_disambiguation">Katso samankaltaisia sivuja</string>
   <string name="link_preview_disambiguation_description">Tämä otsikko koskee useampaa kuin yhtä sivua:</string>
-  <string name="button_add_to_reading_list">Lisää lukuluetteloon</string>
+  <string name="button_add_to_reading_list">Lisää lukulistaan</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artikkelia ei voida ladata offline-tilassa.</string>
-  <string name="page_offline_notice_add_to_reading_list">Vihje: Lisää artikkeli lukuluetteloon ja se ladataan laitteeseesi, kun muodostat seuraavan kerran yhteyden verkkoon.</string>
+  <string name="page_offline_notice_add_to_reading_list">Vihje: Lisää artikkeli lukulistaan ja se ladataan laitteeseesi, kun muodostat seuraavan kerran yhteyden verkkoon.</string>
   <string name="page_offline_notice_last_date">Luet tämän artikkelin yhteydettömän tilan versiota, joka tallennettiin %s.</string>
   <string name="button_get_directions">Hae reittiohjeet</string>
   <string name="error_no_maps_app">Yhtäkään reittiohjeita tarjoavaa sovellusta ei löytynyt</string>
@@ -338,12 +338,12 @@
   <string name="text_size_increase">Pienennä tekstin kokoa</string>
   <string name="text_size_decrease">Kasvata tekstin kokoa</string>
   <string name="text_size_percent_default">%s (oletus)</string>
-  <string name="nav_item_reading_lists">Omat lukuluettelot</string>
-  <string name="reading_list_save_to">Tallenna lukuluetteloon</string>
+  <string name="nav_item_reading_lists">Omat listat</string>
+  <string name="reading_list_save_to">Tallenna lukulistaan</string>
   <string name="reading_list_create_new">Luo uusi</string>
   <string name="reading_list_title_exists">Lukulukuluettelo ”%s” on jo olemassa.</string>
   <string name="reading_list_added_to_named">Lisätty listaan %s.</string>
-  <string name="reading_list_already_exists">Tämä artikkeli on valitussa lukuluettelossa.</string>
+  <string name="reading_list_already_exists">Tämä artikkeli on valitussa lukulistassa.</string>
   <string name="reading_list_added_view_button">Näytä lista</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikkeli, %1$.2f Mt</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artikkelia, %2$.2f Mt</string>
@@ -363,58 +363,58 @@
   <string name="reading_list_action_menu_save_for_offline">Tallenna offline-tilassa</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Poista kaikki offlinesta</string>
   <string name="reading_list_action_menu_save_all_for_offline">Tallenna kaikki offlineen</string>
-  <string name="reading_list_action_menu_add_to_another_list">Lisää toiseen luetteloon</string>
-  <string name="reading_list_name_sample">Oma lukuluettelo</string>
+  <string name="reading_list_action_menu_add_to_another_list">Lisää toiseen listaan</string>
+  <string name="reading_list_name_sample">Minun lukulista</string>
   <string name="reading_list_name_hint">Listan nimi</string>
   <string name="reading_list_description_hint">Kuvaus (ei pakollinen)</string>
   <string name="reading_list_item_deleted">%s poistettu listasta</string>
   <string name="reading_list_items_deleted">%d artikkelia poistettu listasta</string>
   <string name="reading_list_item_delete_undo">Kumoa</string>
   <string name="reading_list_deleted">%s poistettu</string>
-  <string name="saved_list_empty_title">Lukuluetteloita ei vielä ole</string>
-  <string name="reading_lists_empty_message">Lisää artikkelit luetteloon, jotta voit tarkastella niitä myöhemmin. Voit lukea lukuluettelossa olevia artikkeleja myös ilman verkkoyhteyttä.</string>
+  <string name="saved_list_empty_title">Tallennettuja sivuja ei vielä ole</string>
+  <string name="reading_lists_empty_message">Lisää artikkelit listaan, jotta voit tarkastella niitä myöhemmin. Voit lukea lukulistassa olevia artikkeleja myös ilman verkkoyhteyttä.</string>
   <string name="reading_lists_onboarding_intro">Lisää artikkeleita listaan, joita haluat lukea myöhemmin. Voit lukea niitä jopa ilman verkkoyhteyttä!</string>
   <string name="reading_lists_onboarding_for_example">Esimerkiksi</string>
   <string name="reading_lists_onboarding_example1">Vierailemisen arvoiset paikat</string>
   <string name="reading_lists_onboarding_example2">Suosikkieläimet</string>
   <string name="reading_lists_onboarding_example3">Avaruustutkimus</string>
   <string name="reading_lists_onboarding_got_it">Selvä</string>
-  <string name="reading_list_empty">Tässä lukuluettelossa ei ole artikkeleita.</string>
+  <string name="reading_list_empty">Tässä lukulistassa ei ole artikkeleita.</string>
   <string name="reading_list_article_offline">Saatavilla ilman verkkoyhteyttä</string>
   <string name="reading_list_article_make_offline">Tee tämä artikkeli käytettäväksi offline-tilassa</string>
-  <string name="reading_list_add_to_other_list">Lisää toiseen lukuluetteloon</string>
-  <string name="reading_list_remove_from_list">Poista lukuluettelosta %s</string>
-  <string name="reading_list_remove_from_lists">Poista lukuluetteloista</string>
+  <string name="reading_list_add_to_other_list">Lisää toiseen lukulistaan</string>
+  <string name="reading_list_remove_from_list">Poista lukulistasta %s</string>
+  <string name="reading_list_remove_from_lists">Poista lukulistoista</string>
   <string name="reading_list_confirm_remove_article_from_offline">Poista offlinesta</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">Artikkeli löytyy useammasta luettelosta</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Artikkeli löytyy useammasta listasta</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ei enää ole käytettävissä offline-tilassa kaikille lukulistoille:</string>
   <string name="reading_lists_sync_reminder_title">Ota lukulistan synkronointi käyttöön?</string>
-  <string name="reading_lists_sync_reminder_text">Lukulistoihisi tallennetut artikkelit voidaan nyt synkronoida Wikipedia-tiliisi. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lue lisää&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Lukemisluetteloita voi nyt synkronoida laitteiden välillä. Kirjaudu sisään Wikipedia-tunnuksellesi ja salli luetteloidesi tallentaminen. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lue lisää&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Lukulistoihisi tallennetut artikkelit voidaan nyt synkronoida Wikipedia-tunnuksellesi. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lue lisää&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Lukulistoja voi nyt synkronoida laitteiden välillä. Kirjaudu sisään Wikipedia-tunnuksellesi ja salli listojesi tallentaminen. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lue lisää&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Ota synkronointi käyttöön</string>
   <string name="reading_list_login_reminder_title">Synkronoi lukulistat</string>
-  <string name="reading_lists_login_reminder_text">Lukulistoja voidaan nyt synkronoida eri laitteiden poikki. Kirjaudu Wikipedia-tilillesi ja \nsalli luetteloiden tallentaminen.</string>
+  <string name="reading_lists_login_reminder_text">Lukulistoja voidaan nyt synkronoida eri laitteiden poikki. Kirjaudu Wikipedia-tunnuksellesi ja \nsalli listojesi tallentaminen.</string>
   <string name="reading_lists_confirm_remote_delete_yes">Kyllä</string>
   <string name="reading_lists_confirm_remote_delete_no">Ei</string>
   <string name="reading_list_article_save_in_progress">Artikkelia ladataan ja se tulee käytettäväksi offline-tilassa kun lataus on valmis.</string>
-  <string name="reading_list_already_contains_selection">Valittu luettelo sisältää jo kaikki valitut sivut.</string>
-  <string name="reading_list_added_articles_list_titled">Lisättiin %1$d artikkelia luetteloon %2$s</string>
+  <string name="reading_list_already_contains_selection">Valittu lista sisältää jo kaikki valitut sivut.</string>
+  <string name="reading_list_added_articles_list_titled">Lisättiin %1$d artikkelia listaan %2$s</string>
   <string name="reading_list_delete_confirm">Haluatko varmasti poistaa %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Kirjaudu sisään ottaaksesi synkronoinnin käyttöön</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Kirjaudu sisään salliaksesi lukulistojesi tallentamisen tiliisi.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Kirjaudu sisään salliaksesi lukulistojesi tallentamisen tunnuksellesi.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Peruuta</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Kirjaudu sisään</string>
   <string name="reading_list_turned_sync_off_dialog_title">Lukulistojen synkronointi pois käytöstä</string>
-  <string name="reading_list_turned_sync_off_dialog_text">Lukulistojen synkronointi on pois päältä tilillesi, ja tallennettuja artikkeleita sisäänkirjautuneissa laitteissasi ei enää varmuuskopioida. Kytke lukulistojen synkronointi päälle asetuksista.</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Lukulistojen synkronointi on pois päältä tunnuksellesi, ja tallennettuja artikkeleita sisäänkirjautuneissa laitteissasi ei enää varmuuskopioida. Kytke lukulistojen synkronointi päälle asetuksista.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Asetukset</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Ota lukulistan synkronointi käyttöön?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">Artikkelit, jotka on tallennettu lukulistoihin, voidaan nyt synkronoida Wikipedia-tiliisi. &lt;a href=\"#faq\"&gt;Lisätietoja&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Artikkelit, jotka on tallennettu lukulistoihin, voidaan nyt synkronoida Wikipedia-tunnuksellesi. &lt;a href=\"#faq\"&gt;Lisätietoja&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Älä näytä tätä uudelleen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Ota synkronointi käyttöön</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ei kiitos</string>
   <string name="reading_list_login_option_reminder_dialog_title">lukulista-artikkelia löytyi</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Artikkelit tallennettiin lukulistoihin, kun olit kirjautunut ulos. Haluatko lisätä ne tilisi lukulistoihin?</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Artikkelit tallennettiin lukulistoihin, kun olit kirjautunut ulos. Haluatko lisätä ne tunnuksesi lukulistoihin?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Kyllä, lisää ne lukulistoihini</string>
   <string name="reading_list_login_option_reminder_dialog_no">Ei, poista artikkelit</string>
   <string name="reading_list_logout_option_reminder_dialog_title">Säilytä tallennetut artikkelit sovelluksessa?</string>
@@ -423,14 +423,14 @@
   <string name="reading_list_logout_option_reminder_dialog_no">Ei, poista artikkelit listasta</string>
   <string name="default_reading_list_name">Tallennettu</string>
   <string name="default_reading_list_description">Oletuslista tallennetuille artikkeleillesi</string>
-  <string name="no_user_lists_title">Järjestä artikkelit luetteloihin</string>
-  <string name="no_user_lists_msg">Luo luetteloita matkakohteista, suosikkiaiheista ja paljon muuta</string>
+  <string name="no_user_lists_title">Järjestä artikkelit listoihin</string>
+  <string name="no_user_lists_msg">Luo listoja matkakohteista, suosikkiaiheista ja paljon muuta</string>
   <string name="reading_list_saved_list_rename">%1$s (käyttäjän luoma)</string>
   <string name="split_reading_list_message">On olemassa %d artikkelin raja lukulistaa kohden. Nykyiset tämän rajan ylittävät listat on jaettu moniin listoihin.</string>
   <string name="reading_list_article_limit_message">Ei voida lisätä tähän listaan. Olet saavuttanut %2$d artikkelin rajan per lista listalle \"%1$s\".</string>
-  <string name="reading_lists_limit_message">Ei voida luoda toista listaa. Olet saavuttanut 100 lukulistan rajan per tili.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synkronoi lukulistat&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Lukulistoja voi nyt synkronoida laitteiden poikki. Kirjaudu Wikipedia-tilillesi ja salli listojesi tallentua.</string>
-  <string name="reading_lists_menu_create_list">Luo uusi luettelo</string>
+  <string name="reading_lists_limit_message">Ei voida luoda toista listaa. Olet saavuttanut 100 lukulistan rajan per tunnus.</string>
+  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synkronoi lukulistat&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Lukulistoja voi nyt synkronoida laitteiden poikki. Kirjaudu Wikipedia-tunnuksellesi ja salli listojesi tallentua.</string>
+  <string name="reading_lists_menu_create_list">Luo uusi lista</string>
   <string name="reading_lists_menu_sort_by">Lajitteluperuste</string>
   <string name="reading_lists_refresh_sync_option">Päivitä synkronointi</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Kirjaudu sisään /rekisteröidy</string>
@@ -558,7 +558,7 @@
   <string name="description_edit_help_wikidata_guide">Opas Wikidata-kuvauksien kirjoittamiseen</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/fi</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Kiitos jatkuvasta mielenkiinnostasi kuvausten muokkaamiseen! Tehdäksesi lisämuokkauksia, kirjaudu sisään Wikipedia-tilillesi.</string>
+  <string name="description_edit_anon_limit">Kiitos jatkuvasta mielenkiinnostasi kuvausten muokkaamiseen! Tehdäksesi lisämuokkauksia, kirjaudu sisään Wikipedia-tunnuksellesi.</string>
   <string name="description_edit_license_notice">Muuttamalla otsikkokuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssin ehtojen mukaisesti.</string>
   <string name="description_edit_success_saved">Kuvaus julkaistu!</string>
   <string name="description_edit_success_encouragement">Teit juuri Wikipediasta kaikille paremman</string>
@@ -582,6 +582,10 @@
   <string name="description_edit_help_tips_example2_hint">Mount Everestiä käsittelevän artikkelin otsikon kuvaus</string>
   <string name="description_edit_help_more_info">Lisätietoja</string>
   <string name="description_edit_help_meta_info">Kuvaukset tallennetaan Wikidataan. Se on Wikimedia Foundationin ylläpitämä vapaasti muokattava monikielinen tietokanta, joka toimii Wikipedian ja muiden wikiprojektien tukena.</string>
+  <string name="editactionfeed_add_title_descriptions">Lisää otsikkokuvaukset</string>
+  <string name="editactionfeed_add_description_button">Lisää kuvaus</string>
+  <string name="editactionfeed_my_contributions">Omat muokkaukset</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">Lisätietoja</string>
   <string name="description_edit_revert_subtitle">Kiitos Wikipedian muokkaamisesta!</string>
   <string name="description_edit_revert_intro">Tiedämme sinun yrittäneen parhaasi, mutta eräällä arvioijalla oli huolenaihe. Mahdolliset syyt muokkauksesi palauttamiselle ovat:</string>
   <string name="description_edit_revert_reason1">muokkauksesi ei noudattanut &lt;a href=\"%1$s\"&gt;käytäntöjä&lt;/a&gt;.</string>
@@ -598,18 +602,19 @@
   <string name="onboarding_skip">Ohita</string>
   <string name="onboarding_continue">Jatka</string>
   <string name="onboarding_get_started">Aloitetaan</string>
+  <string name="onboarding_maybe_later">Ehkä myöhemmin</string>
   <string name="onboarding_explore_title">Uusia tapoja tutkia</string>
   <string name="onboarding_explore_text">Sukella Wikipedian jäniksenkoloon jatkuvasti päivittyvällä Tutustu-syötteellä. &lt;br/&gt; &lt;b&gt;Mukauta&lt;/b&gt; syöte kiinnostuksen kohteillesi – onko se historiallisten tapahtumien oppimista &lt;b&gt;Tänä päivänä&lt;/b&gt;, tai heitä noppaa &lt;b&gt;satunnaisesti&lt;/b&gt;.</string>
-  <string name="onboarding_reading_list_sync_title">Synkronoidut lukuluettelot</string>
-  <string name="onboarding_reading_list_sync_text_v2">Voit tehdä lukulistoja artikkeleista, joita haluat lukea myöhemmin, jopa silloin kun olet offline-tilassa. &lt;br/&gt;Kirjaudu Wikipedia-tilillesi synkronoidaksesi lukulistojasi. &lt;a href=\"#login\"&gt;Liity Wikipediaan&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title">Synkronoidut lukulistat</string>
+  <string name="onboarding_reading_list_sync_text_v2">Voit tehdä lukulistoja artikkeleista, joita haluat lukea myöhemmin, jopa silloin kun olet offline-tilassa. &lt;br/&gt;Kirjaudu Wikipedia-tunnuksellesi synkronoidaksesi lukulistojasi. &lt;a href=\"#login\"&gt;Liity Wikipediaan&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Lähetä dataa nimettömästi</string>
   <string name="onboarding_analytics_offline_text">Auta tekemään sovelluksesta parempi antamalla meidän tietää kuinka käytät sitä. Kerätyt tiedot ovat nimettömiä. &lt;a href=\"#privacy\"&gt;Opi lisää&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Lähetä dataa tavasta, jolla käytät sovellusta</string>
-  <string name="onboarding_create_account_sync">Synkronoi lukuluettelosi</string>
+  <string name="onboarding_create_account_sync">Synkronoi lukulistasi</string>
   <string name="onboarding_create_account_contributions">Seuraa tekemiäsi muokkauksia</string>
   <string name="onboarding_create_account_preferences">Tallenna asetuksesi</string>
   <string name="onboarding_got_it">Selvä</string>
-  <string name="onboarding_multilingual_secondary_text">Löysimme seuraavat laitteestasi:</string>
+  <string name="onboarding_multilingual_secondary_text">Olemme löytäneet seuraavat laitteestasi:</string>
   <string name="onboarding_multilingual_add_language_text">Lisää tai muokkaa kieliä</string>
   <string name="onboarding_welcome_title_v2">Vapaa tietosanakirja\n…lähes 300 kielellä</string>
   <string name="app_shortcuts_random">Satunnainen</string>
@@ -651,4 +656,7 @@
   <string name="main_drawer_close">Sulje</string>
   <string name="main_drawer_help">Ohje</string>
   <string name="main_drawer_login">Kirjaudu sisään / liity Wikipediaan</string>
+  <string name="title_description_task_title">Lisää otsikkokuvaukset</string>
+  <string name="multilingual_task_negative">Ei minulle</string>
+  <string name="multilingual_task_positive">Lisää kieliä</string>
 </resources>

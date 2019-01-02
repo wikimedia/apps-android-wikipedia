@@ -7,10 +7,12 @@
 * KlaasZ4usV
 * Mainframe98
 * Mar(c)
+* Marcelhospers
 * Mathonius
 * McDutchie
 * MedShot
 * Mirolith
+* Optilete
 * Patio
 * Robin van der Vliet
 * Romaine
@@ -331,6 +333,7 @@
   <string name="color_theme_light">Licht</string>
   <string name="color_theme_dark">Donker</string>
   <string name="color_theme_black">Zwart</string>
+  <string name="color_theme_sepia">Sepia</string>
   <string name="color_theme_test_title">Voorbeeldtekst</string>
   <string name="color_theme_test_text">Versleep de schuifregelaar om de tekstgrootte te wijzigen die wordt gebruikt bij het lezen van artikelen. Als u de tekstgrootte in de rest van de app wilt instellen, moet u de systeemgrootte van het systeem wijzigen.</string>
   <string name="preference_title_app_theme">Appthema</string>
@@ -493,6 +496,7 @@
   <string name="notifications_view_archived_button_text">Bekijk gearchiveerde meldingen</string>
   <string name="notification_preferences_title">Meldingsvoorkeuren</string>
   <string name="notifications_mark_unread">Markeren als ongelezen</string>
+  <string name="preference_title_notification_poll">Ververs meldingen</string>
   <string name="preference_summary_notification_poll">Sta de app toe data te gebruiken om op de achtergrond te checken op nieuwe meldingen.</string>
   <string name="preference_category_notification_types">Meldingtypes in de app</string>
   <string name="preference_title_notification_welcome">Welkom</string>
@@ -532,6 +536,7 @@
   <string name="view_featured_article_card_title">Uitgelichte pagina</string>
   <string name="view_featured_article_footer_save_button_label">Opslaan</string>
   <string name="view_featured_article_footer_saved_button_label">Opgeslagen</string>
+  <string name="edit_tasks_activity_title">App-bewerkertaken</string>
   <string name="feed_configure_activity_title">Overzicht bewerken</string>
   <string name="feed_configure_menu_reset">Standaardoverzicht terugzetten</string>
   <string name="feed_configure_menu_select_all">Alles weergeven</string>
@@ -582,6 +587,10 @@
   <string name="description_edit_help_tips_example2_hint">titelbeschrijving voor een pagina over de Mount Everest</string>
   <string name="description_edit_help_more_info">Meer informatie</string>
   <string name="description_edit_help_meta_info">Beschrijvingen worden bewaard en onderhouden op Wikidata, een project van de Wikimedia Foundation deze een gratis, samenwerkende, meertalig, tweede database is als ondersteuning voor Wikipedia en andere projecten.</string>
+  <string name="editactionfeed_add_description_button">Beschrijving toevoegen</string>
+  <string name="editactionfeed_my_contributions">Mijn bijdragen</string>
+  <string name="editactionfeed_from_language">Van:</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">meer lezen</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
   <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan hebt, maar een van de beoordelaars zag een punt van zorg. Mogelijke redenen waarom uw bewerking is teruggedraaid, zijn:</string>
   <string name="description_edit_revert_reason1">uw bijdrage valt niet onder één van de &lt;a href=\"%1$s\"&gt;richtlijnen&lt;/a&gt;.</string>
@@ -598,6 +607,7 @@
   <string name="onboarding_skip">Overslaan</string>
   <string name="onboarding_continue">Doorgaan</string>
   <string name="onboarding_get_started">Aan de slag</string>
+  <string name="onboarding_maybe_later">Nu niet</string>
   <string name="onboarding_explore_title">Nieuwe manieren om te ontdekken</string>
   <string name="onboarding_explore_text">Stap in de wereld van Wikipedia met een steeds bijgewerkt overzicht op Verkennen. &lt;br/&gt; &lt;b&gt;Pas&lt;/b&gt; het overzicht aan uw interesses aan – of u nou geïnteresseerd bent in historische gebeurtenissen &lt;b&gt;op deze dag&lt;/b&gt;of het gooien met de dobbelsteen voor een &lt;b&gt;willekeurige pagina&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Leeslijsten met synchronisatie</string>
@@ -651,4 +661,10 @@
   <string name="main_drawer_close">Sluiten</string>
   <string name="main_drawer_help">Hulp</string>
   <string name="main_drawer_login">Log in / aanmelden bij Wikipedia</string>
+  <string name="title_description_task_title">Titelbeschrijving toevoegen</string>
+  <string name="image_caption_task_description">Voeg titels toe aan plaatjes</string>
+  <string name="multilingual_task_title">Meer taken voor meertalige bewerkers</string>
+  <string name="multilingual_task_description">Vertalingstaken zijn beschikbaar wanneer u kunt lezen en schrijven in meer dan een Wikipedia taal.</string>
+  <string name="multilingual_task_negative">Niet voor mij</string>
+  <string name="multilingual_task_positive">Talen toevoegen</string>
 </resources>

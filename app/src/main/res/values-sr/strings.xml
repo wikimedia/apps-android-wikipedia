@@ -580,6 +580,12 @@
   <string name="description_edit_help_tips_example2_hint">опис наслова за чланак о Монт Евересту</string>
   <string name="description_edit_help_more_info">Више информација</string>
   <string name="description_edit_help_meta_info">Описи се смештају и одржавају на Википодацима, пројекту Задужбине Викимедија, који пружа слободну, колаборативну, вишејезичку, секундарну базу података, која помаже Википедији и другим пројектима.</string>
+  <string name="editactionfeed_add_title_descriptions">Додавање описа наслова</string>
+  <string name="editactionfeed_review_title_description">Преглед описа наслова</string>
+  <string name="editactionfeed_add_description_button">Додај опис</string>
+  <string name="editactionfeed_my_contributions">Моји доприноси</string>
+  <string name="editactionfeed_from_language">Од:</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">Сазнајте више</string>
   <string name="description_edit_revert_subtitle">Хвала вам што уређујете Википедију.</string>
   <string name="description_edit_revert_intro">Знамо да сте дали све од себе, али један од патролера има примедбу. Могући разлози због чега је ваша измена поништена:</string>
   <string name="description_edit_revert_reason1">ваша измена није била у складу са неком од &lt;a href=\"%1$s\"&gt;смерница&lt;/a&gt;.</string>
@@ -596,6 +602,7 @@
   <string name="onboarding_skip">Прескочи</string>
   <string name="onboarding_continue">Настави</string>
   <string name="onboarding_get_started">Започните</string>
+  <string name="onboarding_maybe_later">Можда касније</string>
   <string name="onboarding_explore_title">Нови начини за истраживање</string>
   <string name="onboarding_explore_text">Завирите у непознати свет Википедије помоћу фида „Истражи“ који се непрекидно ажурира.&lt;br/&gt; &lt;b&gt;Прилагодите&lt;/b&gt; фид својим интересима – упознајте историјске догађаје који су се одиграли &lt;b&gt;на данашњи дан&lt;/b&gt; или искушајте срећу са &lt;b&gt;случајним чланком&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Листе за читање са синхронизацијом</string>
@@ -649,4 +656,6 @@
   <string name="main_drawer_close">Затвори</string>
   <string name="main_drawer_help">Помоћ</string>
   <string name="main_drawer_login">Пријави ме / придружи ме Википедији</string>
+  <string name="title_description_task_title">Додавање описа наслова</string>
+  <string name="multilingual_task_positive">Додај језике</string>
 </resources>
