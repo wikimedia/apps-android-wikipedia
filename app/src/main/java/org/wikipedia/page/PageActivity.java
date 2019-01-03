@@ -75,6 +75,9 @@ import org.wikipedia.views.ViewUtil;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 import org.wikipedia.wiktionary.WiktionaryDialog;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -118,7 +121,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     private PageFragment pageFragment;
 
     private WikipediaApp app;
-    private ActionMode currentActionMode;
+    private Set<ActionMode> currentActionModes = new HashSet<>();
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private PageToolbarHideHandler toolbarHideHandler;
@@ -221,7 +224,10 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     private void finishActionMode() {
-        currentActionMode.finish();
+        for (ActionMode mode : currentActionModes) {
+            mode.finish();
+        }
+        currentActionModes.clear();
     }
 
     public void hideSoftKeyboard() {
@@ -270,7 +276,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     /** @return True if the contextual action bar is open. */
     public boolean isCabOpen() {
-        return currentActionMode != null;
+        return !currentActionModes.isEmpty();
     }
 
     @NonNull
@@ -735,12 +741,13 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             ViewUtil.setCloseButtonInActionMode(pageFragment.requireContext(), mode);
             pageFragment.onActionModeShown(mode);
         }
+        currentActionModes.add(mode);
     }
 
     @Override
-    public void onActionModeFinished(android.view.ActionMode mode) {
+    public void onActionModeFinished(ActionMode mode) {
         super.onActionModeFinished(mode);
-        currentActionMode = null;
+        currentActionModes.remove(mode);
         toolbarHideHandler.onScrolled(pageFragment.getWebView().getScrollY(),
                 pageFragment.getWebView().getScrollY());
     }

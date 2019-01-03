@@ -47,10 +47,6 @@
     <attr name="track_off_color" format="color" />
     <attr name="toc_h1_h2_color" format="color" />
 
-    <declare-styleable name="CabSearchView">
-        <attr name="cabEnabled" format="boolean" />
-    </declare-styleable>
-
     <declare-styleable name="AutoFitRecyclerView">
         <attr name="minColumnWidth" format="dimension" />
     </declare-styleable>
