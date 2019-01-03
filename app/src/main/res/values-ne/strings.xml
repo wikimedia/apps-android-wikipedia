@@ -175,7 +175,7 @@
   <string name="user_blocked_from_editing_title">रोक लगाइएको</string>
   <string name="user_logged_in_blocked_from_editing">तपाईंको प्रयोगकर्ता खातालाई यो विकिमा सम्पादन गर्न रोक लगाइएको छ।</string>
   <string name="user_anon_blocked_from_editing">तपाईंको IP ठेगानालाई सम्पादन गर्न रोक लगाइएको छ।</string>
-  <string name="edit_how_page_improved">तपाईंले कसरी पृष्ठमा सुधार ल्याउनुभयो?</string>
+  <string name="edit_how_page_improved">तपाईंले यस पृष्ठमा कसरी सुधार ल्याउनुभयो?</string>
   <string name="edit_next">अर्को</string>
   <string name="edit_done">प्रकाशन गर्नुहोस्</string>
   <string name="edit_preview">पूर्वावलोकन</string>

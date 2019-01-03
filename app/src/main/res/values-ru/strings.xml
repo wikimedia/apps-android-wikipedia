@@ -14,6 +14,7 @@
 * Helpau
 * Iluvatar
 * Infovarius
+* Iniquity
 * Irus
 * JackLantern
 * Kaganer
@@ -121,8 +122,8 @@
   <string name="edit_section_captcha_message">Для того, что бы помочь нам защититься от автоматизированного спама, пожалуйста, введите слова, которые показаны ниже</string>
   <string name="edit_section_captcha_request_an_account_message">Не видите изображений капчи? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Запросите учётную запись&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Повторите слова, показанные выше</string>
-  <string name="title_captcha">Введите капчу</string>
-  <string name="edit_section_captcha_reload">Коснитесь капчи для её обновления</string>
+  <string name="title_captcha">Введите CAPTCHA</string>
+  <string name="edit_section_captcha_reload">Коснитесь CAPTCHA для её обновления</string>
   <string name="nav_item_login">Войти в Википедию</string>
   <string name="login_username_hint">Имя пользователя</string>
   <string name="login_password_hint">Пароль</string>
@@ -161,7 +162,7 @@
   <string name="create_account_generic_error">Невозможно создать учётную запись</string>
   <string name="create_account_next">Далее</string>
   <string name="email_recommendation_dialog_title">Создать учётную запись без электронного адреса?</string>
-  <string name="email_recommendation_dialog_message">Хотя указание е-мейла опционально, &lt;b&gt;очень  рекомендуется&lt;/b&gt; его указать, поскольку е-мейл используется при восстановлении учётной записи, если вы забудете пароль.</string>
+  <string name="email_recommendation_dialog_message">Хотя указание электронной почты необязательно, но &lt;b&gt;очень  рекомендуется&lt;/b&gt;, поскольку электронная почта используется при восстановлении учётной записи, если вы забудете пароль.</string>
   <string name="email_recommendation_message">Рекомендуется, поскольку электронная почта требуется для восстановления аккаунта.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Продолжить без эл. почты</string>
   <string name="email_recommendation_dialog_create_with_email_action">Добавить адрес эл. почты</string>

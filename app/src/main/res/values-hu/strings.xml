@@ -20,7 +20,7 @@
 <resources>
   <string name="app_name_prod">Wikipédia</string>
   <string name="app_name_beta">Wikipédia béta</string>
-  <string name="app_name_alpha">Wikipédia Alfa</string>
+  <string name="app_name_alpha">Wikipédia alfa</string>
   <string name="wikimedia">Wikimédia</string>
   <string name="nav_item_back">Vissza</string>
   <string name="nav_item_forward">Előre</string>
@@ -36,7 +36,7 @@
   <string name="menu_clear_all_history">Előzmények törlése</string>
   <string name="history_item_deleted">%s eltávolítva az előzményekből</string>
   <string name="history_items_deleted">%d szócikk eltávolítva az előzményekből</string>
-  <string name="history_item_delete_undo">Visszavonáns</string>
+  <string name="history_item_delete_undo">Visszavonás</string>
   <string name="app_settings">Alkalmazásbeállítások</string>
   <string name="dialog_title_clear_history">Böngészési előzmények törlése</string>
   <string name="dialog_message_clear_history">Ez a művelet töröl minden böngészési előzményt és bezár minden nyitott fület. Biztosan ezt szeretnéd?</string>
@@ -49,7 +49,7 @@
   <string name="menu_page_find_in_page">Keresés a lapon</string>
   <string name="menu_page_font_and_theme">Betűtípus és téma</string>
   <string name="menu_page_add_to_list">Hozzáadás az olvasólistához</string>
-  <string name="menu_page_share">Link megosztása</string>
+  <string name="menu_page_share">Hivatkozás megosztása</string>
   <string name="menu_page_open_a_new_tab">Új lap megnyitása</string>
   <string name="menu_page_reading_lists">Olvasólisták</string>
   <string name="menu_page_recently_viewed">Mostanában olvasott</string>
@@ -137,10 +137,10 @@
   <string name="email_recommendation_dialog_title">Biztos létrehozod a fiókot e-mail-cím nélkül?</string>
   <string name="email_recommendation_dialog_message">Noha az e-mail-cím opcionális, megadása &lt;b&gt;erősen javallott&lt;/b&gt;, hogy elfelejtett jelszó esetén helyreállíthasd fiókodat.</string>
   <string name="email_recommendation_message">Ajánlott a fiók egy esetleges helyreállítsa végett.</string>
-  <string name="email_recommendation_dialog_create_without_email_action">Folytatás e-mail-cím nélkül</string>
-  <string name="email_recommendation_dialog_create_with_email_action">E-mail-cím megadása</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Folytatás e-mail cím nélkül</string>
+  <string name="email_recommendation_dialog_create_with_email_action">E-mail cím megadása</string>
   <string name="create_account_button">Regisztráció</string>
-  <string name="create_account_name_unavailable">A(z) „%s” felhasználói név nem elérhető. Kérlek, válassz másikat.</string>
+  <string name="create_account_name_unavailable">A(z) „%s” felhasználói név nem érhető el. Válassz másikat.</string>
   <string name="create_account_ip_block_message">Sajnáljuk, de az IP-címedről jelenleg nem lehet regisztrálni.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Részletek</string>
@@ -158,7 +158,7 @@
   <string name="preference_summary_sync_reading_lists_from_account">Olvasólistáid szinkronizálása különböző eszközeid között, a(z) „%s” Wikipédia-fiókodba mentve őket</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Szinkronizált olvasólisták eltávolítása a(z) „%s” fiókból?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Ez teljesen eltávolítja az összes korábbi szinkronizált olvasólistát. Az összes szinkronizált olvasólista eltávolítása a(z) „%s” fiókból?</string>
-  <string name="preferences_privacy_settings_heading">Adatküldés</string>
+  <string name="preferences_privacy_settings_heading">Adatvédelem</string>
   <string name="preference_title_eventlogging_opt_in">Használati jelentés küldése</string>
   <string name="preference_summary_eventlogging_opt_in">A Wikimédia adatokat gyűjthet arról, hogy hogyan használod az appot, hogy még jobbá tehessük.</string>
   <string name="preference_title_auto_upload_crash_reports">Hibajelentés küldése</string>
@@ -174,7 +174,7 @@
   <string name="page_protected_can_not_edit_title">Ez a lap védett</string>
   <string name="settings_item_preferences">Beállítások</string>
   <string name="settings_activity_title">Beállítások</string>
-  <string name="about_description">A Wikipédia alkalmazásról</string>
+  <string name="about_description">A Wikipédia alkalmazás névjegye</string>
   <string name="privacy_policy_description">Adatvédelmi irányelvek</string>
   <string name="terms_of_use_description">Felhasználási feltételek</string>
   <string name="about_wikipedia_url">https://hu.m.wikipedia.org/wiki/Wikipédia:Rólunk</string>
@@ -203,11 +203,11 @@
   <string name="edit_preview">Előnézet</string>
   <string name="edit_summary_tag_typo">Elírás javítása</string>
   <string name="edit_summary_tag_grammar">Nyelvtani javítás</string>
-  <string name="edit_summary_tag_links">Hivatkozások hozzáadása</string>
+  <string name="edit_summary_tag_links">Hivatkozások hozzáadva</string>
   <string name="edit_summary_tag_other">Egyéb</string>
   <string name="edit_summary_tag_other_hint">Más módok, ahogy javítottad a lapot</string>
   <string name="edit_conflict_title">Szerkesztési ütközés</string>
-  <string name="edit_conflict_message">Ezt a lapot egy másik felhasználó már módosított, és ez ütközik a szerkesztéseddel. Légyszíves másold ki a szerkesztéseidet, menjél vissza az előző oldalra és frissítsed az oldalt, majd próbálkozz újra a szerkesztéssel.</string>
+  <string name="edit_conflict_message">Ezt a lapot egy másik felhasználó már módosította, és ez ütközik a szerkesztéseddel. Másold ki a szerkesztéseidet, menj vissza az előző oldalra és frissítsd az oldalt, majd próbálkozz újra a szerkesztéssel.</string>
   <string name="find_next">Következő keresése</string>
   <string name="find_previous">Előző keresése</string>
   <string name="find_first_occurence">Ez az első találat</string>
@@ -532,6 +532,7 @@
   <string name="view_featured_article_card_title">Kiemelt szócikk</string>
   <string name="view_featured_article_footer_save_button_label">Mentés</string>
   <string name="view_featured_article_footer_saved_button_label">Elmentve</string>
+  <string name="edit_tasks_activity_title">Alkalmazás szerkesztői feladatok</string>
   <string name="feed_configure_activity_title">A hírcsatorna testreszabása</string>
   <string name="feed_configure_menu_reset">Alapértelmezett nézet visszaállítása</string>
   <string name="feed_configure_menu_select_all">Összes megjelenítése</string>
@@ -560,6 +561,8 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Köszönjük a folyamatos érdeklődésedet a leírások szerkesztése iránt! További szerkesztéshez kérjük jelentkezz be a Wikipédia-fiókoddal.</string>
   <string name="description_edit_license_notice">A címleírás szerkesztésével elfogadom a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlanul a &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; licenc alá helyezem a szerkesztésemet.</string>
+  <string name="description_edit_task_unlock_title">A címleírás-szerkesztői feladatlista feloldásra került!</string>
+  <string name="description_edit_task_unlock_body">Észrevettük, hogy szeretsz címleírásokat szerkeszteni, így hogy könnyebben működhess közre, összeállítottuk az „Alkalmazás szerkesztői feladatok” listáját, olyan cikkekkel, melyeknél hiányzik a címleírás.</string>
   <string name="description_edit_success_saved">Leírás közzétéve!</string>
   <string name="description_edit_success_encouragement">Éppen mindenkinek jobbá tetted a Wikipédiát</string>
   <string name="description_edit_success_done">Kész</string>
@@ -582,7 +585,11 @@
   <string name="description_edit_help_tips_example2_hint">címleírás a Csomolungmáról szóló cikkhez</string>
   <string name="description_edit_help_more_info">További információk</string>
   <string name="description_edit_help_meta_info">A leírások a Wikidatán tárolódnak, ami Wikimédia Alapítvány egyik projektje, egy szabad, kollaboratív, többnyelvű, másodlagos adatbázis, ami a Wikipédiát és egyéb projekteket támogat.</string>
+  <string name="editactionfeed_add_title_descriptions">Címleírások hozzáadása</string>
+  <string name="editactionfeed_review_title_description">Címleírás ellenőrzése</string>
+  <string name="editactionfeed_add_description_button">Leírás hozzáadása</string>
   <string name="editactionfeed_my_contributions">Közreműködéseim</string>
+  <string name="editactionfeed_from_language">Innen:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Tudj meg többet</string>
   <string name="description_edit_revert_subtitle">Köszönjük, hogy szerkesztetted a Wikipédiát!</string>
   <string name="description_edit_revert_intro">Tudjuk, hogy megtetted a tőled telhetőt, egy egy másik szerkesztőnek aggályai voltak a szerkesztéseddel kapcsolatban. Többek között az alábbiak miatt vonhatták vissza a szerkesztésedet:</string>
@@ -641,6 +648,7 @@
     <item quantity="one">Eltávolítod a kijelölt nyelvet?</item>
     <item quantity="other">Eltávolítod a kijelölt nyelveket?</item>
   </plurals>
+  <string name="wikipedia_languages_remove_dialog_content">Csak a megmaradó Wikipédia nyelveken fogsz tartalmakat látni a Felfedezés listában és a gyorskereső szűrőkben.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Nem törölhető az összes nyelv</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Tarts meg legalább egy Wikipédia nyelvet amin keresni és olvasni szeretnél.</string>
   <string name="more_language_options">több</string>
@@ -653,5 +661,18 @@
   <string name="main_drawer_close">Bezárás</string>
   <string name="main_drawer_help">Segítség</string>
   <string name="main_drawer_login">Bejelentkezés/regisztrálás a Wikipédiába</string>
+  <string name="title_description_task_title">Címleírások hozzáadása</string>
+  <string name="title_description_task_description">Működj közre a címleírások nélküli cikkeknél</string>
+  <string name="image_caption_task_title">Képek feliratozása</string>
+  <string name="image_caption_task_description">Adj feliratokat a képekhez</string>
+  <string name="multilingual_task_title">További feladatok többnyelvű szerkesztőknek</string>
+  <string name="multilingual_task_description">A fordítási feladatok akkor érhetőek el, ha több mint egy Wikipédia nyelven olvasol és írsz.</string>
+  <string name="image_caption_edit_disable_text">Zárolva, míg el nem végzel %d ellenőrzött alkalmazások belüli szerkesztést</string>
+  <string name="multilingual_task_negative">Nem nekem való</string>
   <string name="multilingual_task_positive">Nyelvek hozzáadása</string>
+  <string name="editing_level_text">%d. SZINTŰ alkalmazásszerkesztő</string>
+  <plurals name="edit_action_contribution_count">
+    <item quantity="one">alkalmazáson belüli közreműködés</item>
+    <item quantity="other">alkalmazáson belüli közreműködés</item>
+  </plurals>
 </resources>

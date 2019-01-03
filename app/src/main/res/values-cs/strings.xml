@@ -136,10 +136,10 @@
   <string name="create_account_generic_error">Nepodařilo se vytvořit uživatelský účet</string>
   <string name="create_account_next">Další</string>
   <string name="email_recommendation_dialog_title">Chcete vytvořit účet bez e-mailové adresy?</string>
-  <string name="email_recommendation_dialog_message">Přestože je e-mail nepovinný, je &lt;b&gt;velmi důležitý&lt;/b&gt; k obnovení přístupu do vašeho účtu, pokud zapomenete heslo.</string>
+  <string name="email_recommendation_dialog_message">Bez e-mailu &lt;b&gt;nelze obnovit heslo&lt;/b&gt; k vašemu účtu. Chcete založit účet bez e-mailu?</string>
   <string name="email_recommendation_message">Doporučeno, protože e-mail je vyžadován pro obnovení účtu.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Dokončit bez e-mailu</string>
-  <string name="email_recommendation_dialog_create_with_email_action">Přidat e-mailovou adresu</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Přidat e-mail</string>
   <string name="create_account_button">Vytvořit účet</string>
   <string name="create_account_name_unavailable">Uživatelské jméno „%s“ není k dispozici. Zvolte si prosím jiné.</string>
   <string name="create_account_ip_block_message">Je nám líto, pro vaši IP adresu je v současné době zablokováno vytváření nových účtů.</string>
@@ -189,7 +189,7 @@
   <string name="about_libraries_heading">Použité knihovny</string>
   <string name="about_contributors_heading">Přispěvatelé</string>
   <string name="about_translators_heading">Překladatelé</string>
-  <string name="about_translators_translatewiki">Tuto aplikaci přeložili dobrovolní překladatelé na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_translators_translatewiki">Tuto aplikaci přeložili dobrovolní překladatelé na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.\nSeznam překladatelů do češtiny (test):\nAktron, \nBsitzmann, \nCvanca, \nDvorapa, \nEvica, \nIlimanaq29, \nJuandev, \nKuboF, \nKusavica, \nMarek Pavlica, \nMatěj Suchánek, \nMimichal007, \nMormegil, \nPatriccck, \nVojtěch Dostál, \nWalter Klosse.</string>
   <string name="about_app_license_heading">Licence</string>
   <string name="about_app_license">Zdrojový kód je dostupný na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; za podmínek &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Pokud není uvedeno jinak, obsah je dostupný za podmínek &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie:Text_licence_Creative_Commons_Attribution-ShareAlike_3.0_Unported\"&gt;licence Creative Commons Uveďte autora – Zachovejte licenci&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"https://wikimediafoundation.org/\"&gt;nadace Wikimedia&lt;/a&gt;</string>

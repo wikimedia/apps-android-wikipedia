@@ -548,24 +548,24 @@
   <string name="feed_empty_message">Tutki-syötteessäsi ei ole mitään</string>
   <string name="feed_configure_onboarding_action">Mukauta</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Mukauta Tutki-syötettä&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Voit nyt valita mitä haluat näyttää syötteessäsi, ja myös priorisoida suosikki sisältötyyppisi.</string>
-  <string name="description_edit_text_hint">Otsikkokuvaus</string>
+  <string name="description_edit_text_hint">Otsikon kuvaus</string>
   <string name="description_edit_save">Julkaise</string>
-  <string name="description_edit_add_description">Lisää otsikkokuvaus</string>
+  <string name="description_edit_add_description">Lisää otsikon kuvaus</string>
   <string name="description_edit_edit_description">Muokkaa kuvausta</string>
   <string name="description_edit_cancel_hint">Peruuta</string>
-  <string name="description_edit_help_title">Ohje: otsikkokuvaukset</string>
+  <string name="description_edit_help_title">Ohje: otsikon kuvaukset</string>
   <string name="description_edit_help_about_wikidata">Tietoa Wikidatasta</string>
   <string name="description_edit_help_wikidata_guide">Opas Wikidata-kuvauksien kirjoittamiseen</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/fi</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Kiitos jatkuvasta mielenkiinnostasi kuvausten muokkaamiseen! Tehdäksesi lisämuokkauksia, kirjaudu sisään Wikipedia-tunnuksellesi.</string>
-  <string name="description_edit_license_notice">Muuttamalla otsikkokuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssin ehtojen mukaisesti.</string>
+  <string name="description_edit_license_notice">Muuttamalla otsikon kuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssin ehtojen mukaisesti.</string>
   <string name="description_edit_success_saved">Kuvaus julkaistu!</string>
   <string name="description_edit_success_encouragement">Teit juuri Wikipediasta kaikille paremman</string>
   <string name="description_edit_success_done">Valmis</string>
   <string name="description_edit_success_did_you_know">Tiesitkö?</string>
   <string name="description_edit_success_article_edit_hint">Voit myös muokata artikkeleja tästä sovelluksesta käsin. Kokeile kirjoitusvirheiden ja lyhyiden lauseiden korjaamista ensi kerralla napauttamalla ^1-kuvaketta.</string>
-  <string name="description_edit_tutorial_title_descriptions">Otsikkokuvaukset</string>
+  <string name="description_edit_tutorial_title_descriptions">Otsikon kuvaukset</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Artikkelin lyhyet kuvaukset auttavat lukijoita ymmärtämään aiheen nopeasti</string>
   <string name="description_edit_tutorial_keep_it_short">Pidä se lyhyenä</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Ihanteellisesti yksi rivi, kahdesta kahteentoista sanaa</string>
@@ -583,6 +583,7 @@
   <string name="description_edit_help_more_info">Lisätietoja</string>
   <string name="description_edit_help_meta_info">Kuvaukset tallennetaan Wikidataan. Se on Wikimedia Foundationin ylläpitämä vapaasti muokattava monikielinen tietokanta, joka toimii Wikipedian ja muiden wikiprojektien tukena.</string>
   <string name="editactionfeed_add_title_descriptions">Lisää otsikkokuvaukset</string>
+  <string name="editactionfeed_review_title_description">Esikatsele otsikon kuvausta</string>
   <string name="editactionfeed_add_description_button">Lisää kuvaus</string>
   <string name="editactionfeed_my_contributions">Omat muokkaukset</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Lisätietoja</string>
