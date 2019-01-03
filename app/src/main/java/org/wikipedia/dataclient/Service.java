@@ -176,6 +176,10 @@ public interface Service {
             + "&prop=description|imageinfo&iiprop=timestamp|user|url&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     @NonNull Observable<MwQueryResponse> getRandomWithImageInfo();
 
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&prop=description|pageimages")
+    @NonNull Observable<MwQueryResponse> getImagesAndThumbnails(@NonNull @Query("titles") String titles);
+
     @GET(MW_API_PREFIX + "action=query&prop=categories&clprop=hidden&cllimit=500")
     @NonNull Observable<MwQueryResponse> getCategories(@NonNull @Query("titles") String titles);
 

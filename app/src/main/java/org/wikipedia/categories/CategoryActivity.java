@@ -8,12 +8,14 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.dataclient.ServiceFactory;
@@ -47,10 +49,13 @@ public class CategoryActivity extends BaseActivity {
     @BindView(R.id.category_tab_layout) TabLayout tabLayout;
 
     private PageTitle categoryTitle;
+    private List<PageTitle> unsortedTitleList = new ArrayList<>();
     private List<PageTitle> titleList = new ArrayList<>();
     private ItemCallback itemCallback = new ItemCallback();
     private boolean showSubcategories;
+    private List<PageTitle> pendingItemsForHydration = new ArrayList<>();
     private CompositeDisposable disposables = new CompositeDisposable();
+    private Runnable hydrationRunnable = this::hydrateTitles;
 
     public static Intent newIntent(@NonNull Context context, @NonNull PageTitle categoryTitle) {
         return new Intent(context, CategoryActivity.class)
@@ -76,7 +81,7 @@ public class CategoryActivity extends BaseActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 showSubcategories = tab.getPosition() == 1;
-                loadCategory();
+                layOutTitles();
             }
 
             @Override
@@ -130,6 +135,7 @@ public class CategoryActivity extends BaseActivity {
     }
 
     private void loadCategory() {
+        disposables.clear();
         errorView.setVisibility(View.GONE);
         categoryRecycler.setVisibility(View.GONE);
         progressBar.setVisibility(View.VISIBLE);
@@ -138,15 +144,11 @@ public class CategoryActivity extends BaseActivity {
                 .observeOn(AndroidSchedulers.mainThread())
                 .doFinally(() -> progressBar.setVisibility(View.GONE))
                 .subscribe(response -> {
-                    titleList.clear();
+                    unsortedTitleList.clear();
                     for (MwQueryPage page : response.query().categoryMembers()) {
                         PageTitle title = new PageTitle(page.title(), categoryTitle.getWikiSite(), null, null,
                                 new PageProperties(page.title(), page.namespace(), false));
-                        if ((showSubcategories && title.namespace() != Namespace.CATEGORY)
-                                || (!showSubcategories && title.namespace() == Namespace.CATEGORY)) {
-                            continue;
-                        }
-                        titleList.add(title);
+                        unsortedTitleList.add(title);
                     }
                     layOutTitles();
                 }, throwable -> {
@@ -157,12 +159,54 @@ public class CategoryActivity extends BaseActivity {
     }
 
     private void layOutTitles() {
+        titleList.clear();
+        for (PageTitle title : unsortedTitleList) {
+            if ((showSubcategories && title.namespace() != Namespace.CATEGORY)
+                    || (!showSubcategories && title.namespace() == Namespace.CATEGORY)) {
+                continue;
+            }
+            titleList.add(title);
+        }
+
         if (titleList.isEmpty()) {
             categoryRecycler.setVisibility(View.GONE);
         }
         categoryRecycler.setVisibility(View.VISIBLE);
         errorView.setVisibility(View.GONE);
         categoryRecycler.getAdapter().notifyDataSetChanged();
+    }
+
+    private void queueForHydration(PageTitle title) {
+        if (title.getDescription() != null) {
+            return;
+        }
+        pendingItemsForHydration.add(title);
+        categoryRecycler.removeCallbacks(hydrationRunnable);
+        if (pendingItemsForHydration.size() >= 50) {
+            hydrateTitles();
+        } else {
+            categoryRecycler.postDelayed(hydrationRunnable, 500);
+        }
+    }
+
+    private void hydrateTitles() {
+        List<PageTitle> titles = new ArrayList<>(pendingItemsForHydration);
+        pendingItemsForHydration.clear();
+        disposables.add(ServiceFactory.get(categoryTitle.getWikiSite()).getImagesAndThumbnails(StringUtils.join(titles, '|'))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> {
+                    for (MwQueryPage page : response.query().pages()) {
+                        for (PageTitle title : titles) {
+                            if (title.getDisplayText().equals(page.title())) {
+                                title.setThumbUrl(page.thumbUrl());
+                                title.setDescription(TextUtils.isEmpty(page.description()) ? "" : page.description());
+                                break;
+                            }
+                        }
+                    }
+                    categoryRecycler.getAdapter().notifyDataSetChanged();
+                }, L::e));
     }
 
     private class CategoryItemHolder extends RecyclerView.ViewHolder {
@@ -177,6 +221,8 @@ public class CategoryActivity extends BaseActivity {
             itemView.setItem(title);
             itemView.setTitle(StringUtil.fromHtml(title.namespace() != Namespace.CATEGORY
                     ? title.getDisplayText() : title.getText().replace("_", " ")));
+            itemView.setImageUrl(title.getThumbUrl());
+            itemView.setDescription(title.getDescription());
         }
 
         public PageItemView getView() {
@@ -199,6 +245,7 @@ public class CategoryActivity extends BaseActivity {
         @Override
         public void onBindViewHolder(@NonNull CategoryItemHolder holder, int pos) {
             holder.bindItem(titleList.get(pos));
+            queueForHydration(titleList.get(pos));
         }
 
         @Override public void onViewAttachedToWindow(@NonNull CategoryItemHolder holder) {
