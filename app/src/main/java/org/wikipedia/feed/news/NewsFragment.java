@@ -29,6 +29,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.DeviceUtil;
+import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
@@ -160,7 +161,8 @@ public class NewsFragment extends Fragment {
 
         @Override
         public void onRemovePageFromList(@NonNull HistoryEntry entry) {
-            // TODO
+            FeedbackUtil.showMessage(requireActivity(),
+                    getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
         }
 
         @Override
