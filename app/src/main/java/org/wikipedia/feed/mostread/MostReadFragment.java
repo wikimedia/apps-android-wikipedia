@@ -20,6 +20,7 @@ import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
@@ -120,7 +121,8 @@ public class MostReadFragment extends Fragment {
 
         @Override
         public void onRemovePageFromList(@NonNull HistoryEntry entry) {
-            // TODO
+            FeedbackUtil.showMessage(requireActivity(),
+                    getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
         }
 
         @Override
