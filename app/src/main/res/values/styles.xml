@@ -174,7 +174,7 @@
     </style>
 
     <style name="SearchViewEditTextStyle" parent="@style/Widget.AppCompat.AutoCompleteTextView">
-        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:textCursorDrawable">@drawable/custom_cursor</item>
         <item name="android:textColor">?attr/main_toolbar_icon_color</item>
     </style>
 
@@ -184,14 +184,12 @@
         <item name="searchHintIcon">@drawable/ic_search_themed_24dp</item>
     </style>
 
-    <style name="PageSearchViewEditTextStyle" parent="@style/Widget.AppCompat.AutoCompleteTextView">
-        <item name="android:textCursorDrawable">@drawable/custom_cursor</item>
+    <style name="PageSearchViewEditTextStyle" parent="SearchViewEditTextStyle">
         <item name="android:textColor">?attr/page_toolbar_icon_color</item>
         <item name="android:textColorHint">?attr/page_toolbar_icon_color</item>
     </style>
 
-    <style name="LanguagesListSearchViewEditTextStyle" parent="@style/Widget.AppCompat.AutoCompleteTextView">
-        <item name="android:textCursorDrawable">@drawable/custom_cursor</item>
+    <style name="LanguagesListSearchViewEditTextStyle" parent="SearchViewEditTextStyle">
         <item name="android:textColor">?attr/primary_text_color</item>
         <item name="android:textColorHint">?attr/page_toolbar_icon_color</item>
     </style>
