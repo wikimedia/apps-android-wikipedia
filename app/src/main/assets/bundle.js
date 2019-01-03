@@ -260,6 +260,8 @@ function getLeadParagraph() {
 // If fewer than two characters are highlighted, returns the text of the first paragraph.
 bridge.registerListener( "getTextSelection", function( payload ) {
     var text = window.getSelection().toString().trim();
+    var sectionID = getCurrentSection();
+    var editDescription = false;
     if (text.length < 2 && payload.purpose === "share") {
         text = getLeadParagraph();
     }
@@ -272,7 +274,11 @@ bridge.registerListener( "getTextSelection", function( payload ) {
         range.setStart(range.startContainer, newRangeStart);
         text = range.toString();
     }
-    bridge.sendMessage( "onGetTextSelection", { "purpose" : payload.purpose, "text" : text, "sectionID" : getCurrentSection() } );
+    if (sectionID === "0" && window.allowDescriptionEdit) {
+        var getSelectionContainerId = window.getSelection().getRangeAt(0).commonAncestorContainer.parentNode.getAttribute('id');
+        editDescription = getSelectionContainerId && getSelectionContainerId === "pagelib_edit_section_title_description";
+    }
+    bridge.sendMessage( "onGetTextSelection", { "purpose" : payload.purpose, "text" : text, "sectionID" : sectionID, "editDescription" : editDescription } );
 });
 
 function setWindowAttributes( payload ) {
@@ -296,9 +302,6 @@ function setWindowAttributes( payload ) {
     window.collapseTables = payload.collapseTables;
 }
 
-/*
-TODO: migrate this upstream to page-library, or to MCS.
-*/
 function setTitleElement( parentNode, section ) {
 
     var container = pagelib.EditTransform.newEditLeadSectionHeader(document, window.pageTitle,

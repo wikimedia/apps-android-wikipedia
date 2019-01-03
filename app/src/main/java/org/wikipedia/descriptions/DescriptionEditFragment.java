@@ -53,11 +53,13 @@ public class DescriptionEditFragment extends Fragment {
     private static final String ARG_TITLE = "title";
     private static final String ARG_REVIEW_ENABLED = "reviewEnabled";
     private static final String ARG_REVIEWING = "inReviewing";
+    private static final String ARG_HIGHLIGHT_TEXT = "highlightText";
 
     @BindView(R.id.fragment_description_edit_view) DescriptionEditView editView;
     private Unbinder unbinder;
     private PageTitle pageTitle;
     private boolean reviewEnabled;
+    @Nullable private String highlightText;
     @Nullable private CsrfTokenClient csrfClient;
     @Nullable private Call<MwPostResponse> descriptionEditCall;
     @Nullable private DescriptionEditFunnel funnel;
@@ -82,10 +84,11 @@ public class DescriptionEditFragment extends Fragment {
     };
 
     @NonNull
-    public static DescriptionEditFragment newInstance(@NonNull PageTitle title, boolean reviewEnabled) {
+    public static DescriptionEditFragment newInstance(@NonNull PageTitle title, @Nullable String highlightText, boolean reviewEnabled) {
         DescriptionEditFragment instance = new DescriptionEditFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TITLE, GsonMarshaller.marshal(title));
+        args.putString(ARG_HIGHLIGHT_TEXT, highlightText);
         args.putBoolean(ARG_REVIEW_ENABLED, reviewEnabled);
         instance.setArguments(args);
         return instance;
@@ -98,6 +101,7 @@ public class DescriptionEditFragment extends Fragment {
         DescriptionEditFunnel.Type type = pageTitle.getDescription() == null
                 ? DescriptionEditFunnel.Type.NEW
                 : DescriptionEditFunnel.Type.EXISTING;
+        highlightText = getArguments().getString(ARG_HIGHLIGHT_TEXT);
         funnel = new DescriptionEditFunnel(WikipediaApp.getInstance(), pageTitle, type);
         funnel.logStart();
     }
@@ -110,6 +114,7 @@ public class DescriptionEditFragment extends Fragment {
         unbinder = ButterKnife.bind(this, view);
 
         editView.setPageTitle(pageTitle);
+        editView.setHighlightText(highlightText);
         editView.setCallback(new EditViewCallback());
 
         if (reviewEnabled) {

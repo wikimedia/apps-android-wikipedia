@@ -185,6 +185,13 @@ public class DescriptionEditView extends LinearLayout {
         pageDescriptionText.setText(text);
     }
 
+    public void setHighlightText(@Nullable String text) {
+        if (text != null && originalDescription != null) {
+            final int scrollDelayMs = 500;
+            postDelayed(() -> StringUtil.highlightEditText(pageDescriptionText, originalDescription, text), scrollDelayMs);
+        }
+    }
+
     private void init() {
         inflate(getContext(), R.layout.view_description_edit, this);
         ButterKnife.bind(this);

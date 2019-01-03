@@ -579,27 +579,8 @@ public class EditSectionActivity extends BaseActivity {
         sectionText.post(() -> {
             sectionContainer.fullScroll(View.FOCUS_DOWN);
             final int scrollDelayMs = 500;
-            sectionText.postDelayed(() -> setHighlight(highlightText), scrollDelayMs);
+            sectionText.postDelayed(() -> StringUtil.highlightEditText(sectionText, sectionWikitext, highlightText), scrollDelayMs);
         });
-    }
-
-    private void setHighlight(@NonNull String highlightText) {
-        String[] words = highlightText.split("\\s+");
-        int pos = 0;
-        for (String word : words) {
-            pos = sectionWikitext.indexOf(word, pos);
-            if (pos == -1) {
-                break;
-            }
-        }
-        if (pos == -1) {
-            pos = sectionWikitext.indexOf(words[words.length - 1]);
-        }
-        if (pos > 0) {
-            // TODO: Programmatic selection doesn't seem to work with RTL content...
-            sectionText.setSelection(pos, pos + words[words.length - 1].length());
-            sectionText.performLongClick();
-        }
     }
 
     /**
