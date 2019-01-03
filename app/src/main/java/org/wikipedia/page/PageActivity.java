@@ -39,6 +39,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
+import org.wikipedia.categories.CategoryDialog;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView;
 import org.wikipedia.events.ArticleSavedOrDeletedEvent;
@@ -663,6 +664,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         @Override
         public void recentlyViewedClick() {
             goToMainTab(NavTab.HISTORY.code());
+        }
+
+        @Override
+        public void categoriesClick() {
+            bottomSheetPresenter.show(getSupportFragmentManager(), CategoryDialog.newInstance(pageFragment.getTitle()));
         }
     }
 

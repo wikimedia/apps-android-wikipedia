@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.pageimages.PageImage;
@@ -24,7 +25,7 @@ import org.wikipedia.pageimages.PageImage;
     @Test public void testPageProperties() throws Throwable {
         WikiSite wiki = WikiSite.forLanguageCode("en");
         PageTitle title = new PageTitle("Talk", "India", wiki);
-        PageProperties props = new PageProperties(title, false);
+        PageProperties props = new PageProperties(title.getDisplayText(), Namespace.TALK, false);
         TestParcelUtil.test(props);
     }
 

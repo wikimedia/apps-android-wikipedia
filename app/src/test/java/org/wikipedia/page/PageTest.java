@@ -18,7 +18,7 @@ public class PageTest {
     @Test
     public void testMediaWikiMarshalling() throws Throwable {
         PageTitle title = new PageTitle("Main page", WIKI, "//foo/thumb.jpg");
-        PageProperties props = new PageProperties(title, true);
+        PageProperties props = new PageProperties(title.getDisplayText(), Namespace.MAIN, true);
 
         Page page = new Page(title, new ArrayList<>(), props, Page.MEDIAWIKI_ORIGIN);
         assertThat(page.isFromRestBase(), is(false));
@@ -27,7 +27,7 @@ public class PageTest {
     @Test
     public void testRestBaseMarshalling() throws Throwable {
         PageTitle title = new PageTitle("Main page", WIKI, "//foo/thumb.jpg");
-        PageProperties props = new PageProperties(title, true);
+        PageProperties props = new PageProperties(title.getDisplayText(), Namespace.MAIN, true);
 
         Page page = new Page(title, new ArrayList<>(), props, Page.RESTBASE_ORIGIN);
         assertThat(page.isFromRestBase(), is(true));

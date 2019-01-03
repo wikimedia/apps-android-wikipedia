@@ -85,11 +85,11 @@ public class PageProperties implements Parcelable {
      * namespace fields, and explicitly disables editing. All other fields initialized to defaults.
      * @param title Title to which these properties apply.
      */
-    public PageProperties(@NonNull PageTitle title, boolean isMainPage) {
+    public PageProperties(@NonNull String title, @NonNull Namespace namespace, boolean isMainPage) {
         pageId = 0;
-        namespace = title.namespace();
+        this.namespace = namespace;
         revisionId = 0;
-        displayTitleText = title.getDisplayText();
+        displayTitleText = title;
         titlePronunciationUrl = null;
         geo = null;
         editProtectionStatus = "";

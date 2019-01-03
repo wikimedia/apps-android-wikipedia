@@ -22,6 +22,7 @@ import java.util.Map;
 
 public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapter.PostProcessable {
     @SuppressWarnings("unused") @Nullable private List<MwQueryPage> pages;
+    @SuppressWarnings("unused") @Nullable private List<MwQueryPage> categorymembers;
     @SuppressWarnings("unused") @Nullable private List<Redirect> redirects;
     @SuppressWarnings("unused") @Nullable private List<ConvertedTitle> converted;
     @SuppressWarnings("unused") @SerializedName("userinfo") private UserInfo userInfo;
@@ -45,6 +46,10 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
             return pages.get(0);
         }
         return null;
+    }
+
+    @Nullable public List<MwQueryPage> categoryMembers() {
+        return categorymembers;
     }
 
     @Nullable public UserInfo userInfo() {
