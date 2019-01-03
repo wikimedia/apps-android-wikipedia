@@ -18,7 +18,6 @@
         android:layout_gravity="center_vertical"
         android:imeOptions="actionSearch|flagNoExtractUi"
         android:theme="@style/FindInPageSearchViewStyle"
-        app:cabEnabled="false"
         app:iconifiedByDefault="false"
         app:searchIcon="@null"
         app:closeIcon="@null"

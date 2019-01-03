@@ -194,8 +194,7 @@
 
         <activity
             android:name=".search.SearchActivity"
-            android:windowSoftInputMode="adjustResize"
-            android:theme="@style/AppTheme">
+            android:windowSoftInputMode="adjustResize">
             <intent-filter android:label="@string/intent_share_search_label">
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />

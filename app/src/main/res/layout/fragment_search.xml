@@ -37,8 +37,7 @@
                     android:inputType="text"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="-8dp"
-                    android:imeOptions="actionGo|flagNoExtractUi"
-                    app:cabEnabled="false" />
+                    android:imeOptions="actionGo|flagNoExtractUi"/>
 
                 <FrameLayout
                     android:layout_width="wrap_content"
