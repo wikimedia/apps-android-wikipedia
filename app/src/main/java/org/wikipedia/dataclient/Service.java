@@ -291,7 +291,7 @@ public interface Service {
     @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=wbsetdescription")
     @FormUrlEncoded
-    Call<MwPostResponse> postDescriptionEdit(@NonNull @Field("language") String language,
+    Observable<MwPostResponse> postDescriptionEdit(@NonNull @Field("language") String language,
                                              @NonNull @Field("uselang") String useLang,
                                              @NonNull @Field("site") String site,
                                              @NonNull @Field("title") String title,

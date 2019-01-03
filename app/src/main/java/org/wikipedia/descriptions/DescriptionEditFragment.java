@@ -18,9 +18,12 @@ import org.wikipedia.analytics.DescriptionEditFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.Service;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwPostResponse;
+import org.wikipedia.dataclient.mwapi.MwException;
+import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.dataclient.page.PageClientFactory;
+import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.login.LoginClient.LoginFailedException;
@@ -39,8 +42,9 @@ import butterknife.Unbinder;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.Call;
 
+import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_DISALLOWED;
+import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_WARNING;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class DescriptionEditFragment extends Fragment {
@@ -63,7 +67,6 @@ public class DescriptionEditFragment extends Fragment {
     private boolean reviewEnabled;
     @Nullable private String highlightText;
     @Nullable private CsrfTokenClient csrfClient;
-    @Nullable private Call<MwPostResponse> descriptionEditCall;
     @Nullable private DescriptionEditFunnel funnel;
     private CompositeDisposable disposables = new CompositeDisposable();
 
@@ -179,15 +182,11 @@ public class DescriptionEditFragment extends Fragment {
     }
 
     private void cancelCalls() {
-        // in reverse chronological order
-        if (descriptionEditCall != null) {
-            descriptionEditCall.cancel();
-            descriptionEditCall = null;
-        }
         if (csrfClient != null) {
             csrfClient.cancel();
             csrfClient = null;
         }
+        disposables.clear();
     }
 
     private void finish() {
@@ -234,66 +233,69 @@ public class DescriptionEditFragment extends Fragment {
 
                 @Override
                 public void failure(@NonNull Throwable caught) {
-                    editFailed(caught);
+                    editFailed(caught, false);
                 }
 
                 @Override
                 public void twoFactorPrompt() {
                     editFailed(new LoginFailedException(getResources()
-                            .getString(R.string.login_2fa_other_workflow_error_msg)));
+                            .getString(R.string.login_2fa_other_workflow_error_msg)), false);
                 }
             });
         }
 
         /* send updated description to Wikidata */
+        @SuppressWarnings("checkstyle:magicnumber")
         private void postDescription(@NonNull String editToken) {
-            descriptionEditCall = new DescriptionEditClient().request(wikiData, pageTitle,
-                    editView.getDescription(), editToken,
-                    new DescriptionEditClient.Callback() {
-                        @Override @SuppressWarnings("checkstyle:magicnumber")
-                        public void success(@NonNull Call<MwPostResponse> call) {
-                            // TODO: remove this artificial delay if someday we get a reliable way
-                            // to determine whether the change has propagated to the relevant
-                            // RESTBase endpoints.
+
+            disposables.add(ServiceFactory.get(wikiData).postDescriptionEdit(pageTitle.getWikiSite().languageCode(),
+                    pageTitle.getWikiSite().languageCode(), pageTitle.getWikiSite().dbName(),
+                    pageTitle.getPrefixedText(), editView.getDescription(), editToken,
+                    AccountUtil.isLoggedIn() ? "user" : null)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(response -> {
+                        if (response.getSuccessVal() > 0) {
                             new Handler().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4));
                             if (funnel != null) {
                                 funnel.logSaved();
                             }
+                        } else {
+                            editFailed(RetrofitException.unexpectedError(new RuntimeException(
+                                    "Received unrecognized description edit response")), true);
                         }
-
-                        @Override public void abusefilter(@NonNull Call<MwPostResponse> call,
-                                                          @Nullable String code,
-                                                          @Nullable String info) {
-                            editView.setSaveState(false);
-                            if (info != null) {
-                                editView.setError(StringUtil.fromHtml(info));
+                    }, caught -> {
+                        if (caught instanceof MwException) {
+                            MwServiceError error = ((MwException) caught).getError();
+                            if (error.badLoginState() || error.badToken()) {
+                                getEditTokenThenSave(true);
+                            } else if (error.hasMessageName(ABUSEFILTER_DISALLOWED) || error.hasMessageName(ABUSEFILTER_WARNING)) {
+                                String code = error.hasMessageName(ABUSEFILTER_DISALLOWED) ? ABUSEFILTER_DISALLOWED : ABUSEFILTER_WARNING;
+                                String info = error.getMessageHtml(code);
+                                editView.setSaveState(false);
+                                if (info != null) {
+                                    editView.setError(StringUtil.fromHtml(info));
+                                }
+                                if (funnel != null) {
+                                    funnel.logAbuseFilterWarning(code);
+                                }
+                            } else {
+                                editFailed(caught, true);
                             }
-                            if (funnel != null) {
-                                funnel.logAbuseFilterWarning(code);
-                            }
+                        } else {
+                            editFailed(caught, true);
                         }
-
-                        @Override
-                        public void invalidLogin(@NonNull Call<MwPostResponse> call,
-                                                 @NonNull Throwable caught) {
-                            getEditTokenThenSave(true);
-                        }
-
-                        @Override public void failure(@NonNull Call<MwPostResponse> call,
-                                                      @NonNull Throwable caught) {
-                            editFailed(caught);
-                            if (funnel != null) {
-                                funnel.logError(caught.getMessage());
-                            }
-                        }
-                    });
+                    }));
         }
 
-        private void editFailed(@NonNull Throwable caught) {
+        private void editFailed(@NonNull Throwable caught, boolean logError) {
             if (editView != null) {
                 editView.setSaveState(false);
                 FeedbackUtil.showError(getActivity(), caught);
                 L.e(caught);
+            }
+            if (funnel != null && logError) {
+                funnel.logError(caught.getMessage());
             }
         }
 

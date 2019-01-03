@@ -15,7 +15,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ProtectedEditAttemptFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.descriptions.DescriptionEditClient;
+import org.wikipedia.descriptions.DescriptionEditUtil;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.Section;
@@ -77,7 +77,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
             return;
         }
         if (messageType.equals("editSectionClicked")) {
-            if (messagePayload.has("mainPencilClicked") && DescriptionEditClient.isEditAllowed(currentPage)) {
+            if (messagePayload.has("mainPencilClicked") && DescriptionEditUtil.isEditAllowed(currentPage)) {
                 View tempView = new View(fragment.requireContext());
                 tempView.setX(DimenUtil.dpToPx(messagePayload.optInt("x")));
                 tempView.setY(DimenUtil.dpToPx(messagePayload.optInt("y")) - fragment.getWebView().getScrollY());
@@ -87,7 +87,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
                 menu.setOnMenuItemClickListener(new EditMenuClickListener());
                 menu.setOnDismissListener(menu1 -> ((ViewGroup) fragment.getView()).removeView(tempView));
                 menu.show();
-            } else if (messagePayload.has("editDescriptionClicked") && DescriptionEditClient.isEditAllowed(currentPage)) {
+            } else if (messagePayload.has("editDescriptionClicked") && DescriptionEditUtil.isEditAllowed(currentPage)) {
                 fragment.verifyBeforeEditingDescription(null);
             } else {
                 startEditingSection(messagePayload.optInt("sectionID"), null);

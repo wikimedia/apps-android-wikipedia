@@ -25,7 +25,7 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
-import org.wikipedia.descriptions.DescriptionEditClient;
+import org.wikipedia.descriptions.DescriptionEditUtil;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
@@ -413,7 +413,7 @@ public class PageFragmentLoadState {
         return obj.put("sequence", sequenceNumber.get())
                 .put("title", page.getDisplayTitle())
                 .put("description", StringUtils.capitalize(model.getTitle().getDescription()))
-                .put("allowDescriptionEdit", DescriptionEditClient.isEditAllowed(page))
+                .put("allowDescriptionEdit", DescriptionEditUtil.isEditAllowed(page))
                 .put("hasPronunciation", !TextUtils.isEmpty(page.getTitlePronunciationUrl()))
                 .put("string_table_infobox", localizedStrings.get(R.string.table_infobox))
                 .put("string_table_other", localizedStrings.get(R.string.table_other))
