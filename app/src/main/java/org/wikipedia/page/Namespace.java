@@ -177,6 +177,10 @@ public enum Namespace implements EnumCode {
             return Namespace.SPECIAL;
         }
 
+        if ("Category".equals(name)) {
+            return Namespace.CATEGORY;
+        }
+
         // This works for the links provided by the app itself since they always have the English
         // version of the namespace.
         // TODO: It would be nice to add a mapping table, as is done for File and Special,

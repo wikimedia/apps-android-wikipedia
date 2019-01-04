@@ -177,15 +177,17 @@ public class CategoryActivity extends BaseActivity {
     }
 
     private void queueForHydration(PageTitle title) {
+        final int maxQueueSize = 50;
+        final int runnableDelay = 500;
         if (title.getDescription() != null || title.namespace() != Namespace.MAIN) {
             return;
         }
         pendingItemsForHydration.add(title);
         categoryRecycler.removeCallbacks(hydrationRunnable);
-        if (pendingItemsForHydration.size() >= 50) {
+        if (pendingItemsForHydration.size() >= maxQueueSize) {
             hydrateTitles();
         } else {
-            categoryRecycler.postDelayed(hydrationRunnable, 500);
+            categoryRecycler.postDelayed(hydrationRunnable, runnableDelay);
         }
     }
 

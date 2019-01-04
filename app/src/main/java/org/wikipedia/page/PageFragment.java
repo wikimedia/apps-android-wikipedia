@@ -44,6 +44,7 @@ import org.wikipedia.analytics.PageScrollFunnel;
 import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.categories.CategoryActivity;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
 import org.wikipedia.descriptions.DescriptionEditActivity;
@@ -442,6 +443,12 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             visitInExternalBrowser(requireActivity(), Uri.parse(title.getMobileUri()));
             return;
         }
+
+        if (title.isCategory()) {
+            startActivity(CategoryActivity.newIntent(requireActivity(), title));
+            return;
+        }
+
         dismissBottomSheet();
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
         if (model.getTitle() != null) {

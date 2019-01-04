@@ -289,6 +289,10 @@ public class PageTitle implements Parcelable {
         return namespace().talk();
     }
 
+    public boolean isCategory() {
+        return namespace() == Namespace.CATEGORY;
+    }
+
     @Override public void writeToParcel(Parcel parcel, int flags) {
         parcel.writeString(namespace);
         parcel.writeString(text);

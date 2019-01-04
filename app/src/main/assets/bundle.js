@@ -444,6 +444,9 @@ bridge.registerListener( "queueRemainingSections", function ( payload ) {
                 sectionsObj = sectionsObj.mobileview;
             }
             displayRemainingSections(sectionsObj, this.sequence, this.fragment);
+
+            fetchCategories();
+
         } catch (e) {
             // Catch any errors that might have come from deserializing or rendering the
             // remaining sections.
@@ -458,6 +461,76 @@ bridge.registerListener( "queueRemainingSections", function ( payload ) {
     };
     remainingRequest.send();
 });
+
+
+
+var categoriesRequest;
+
+function fetchCategories() {
+    if (categoriesRequest) {
+        categoriesRequest.abort();
+    }
+    categoriesRequest = new XMLHttpRequest();
+    categoriesRequest.open('GET', "/w/api.php?format=json&formatversion=2&action=query&prop=categories&clprop=hidden&cllimit=500&titles=" + window.pageTitle);
+    categoriesRequest.sequence = window.sequence;
+    if (window.apiLevel > 19 && window.responseType !== 'json') {
+        categoriesRequest.responseType = 'json';
+    }
+    categoriesRequest.onreadystatechange = function() {
+        if (this.readyState !== XMLHttpRequest.DONE || this.status === 0 || this.sequence !== window.sequence) {
+            return;
+        }
+        if (this.status < 200 || this.status > 299) {
+            return;
+        }
+        try {
+            // On API <20, the XMLHttpRequest does not support responseType = json,
+            // so we have to call JSON.parse() ourselves.
+            var json = window.apiLevel > 19 ? this.response : JSON.parse(this.response);
+
+            for (var pageId in json.query.pages) {
+                if( json.query.pages.hasOwnProperty(pageId) ) {
+                    layoutCategories(json.query.pages[pageId].categories);
+                }
+            }
+        } catch (e) {
+            console.log(e);
+        }
+    };
+    categoriesRequest.send();
+}
+
+function layoutCategories( categories ) {
+    var contentWrapper = document.getElementById( "content" );
+    var section = {};
+    section.id = 10000;
+    section.toclevel = 1;
+    section.line = "Categories";
+    section.anchor = section.line;
+    section.noedit = true;
+
+    var catList = document.createElement("ul");
+
+    categories.forEach(function (category) {
+        if (category.hidden) {
+            return;
+        }
+        var catItem = document.createElement("li");
+        var catLink = document.createElement("a");
+        var catName = category.title.substring(category.title.indexOf(':') + 1);
+        catLink.setAttribute("title", category.title);
+        catLink.setAttribute("href", "/wiki/" + category.title);
+        catLink.innerHTML = catName;
+        catItem.appendChild(catLink);
+        catList.appendChild(catItem);
+    });
+
+    section.text = catList.outerHTML;
+    elementsForSection(section).forEach(function (element) {
+        contentWrapper.appendChild(element);
+    });
+}
+
 
 bridge.registerListener( "scrollToSection", function ( payload ) {
     scrollToSection( payload.anchor );
