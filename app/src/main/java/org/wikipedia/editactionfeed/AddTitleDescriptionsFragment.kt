@@ -51,7 +51,7 @@ class AddTitleDescriptionsFragment : Fragment() {
     var langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
     var source: Int = TITLE_DESC
     var savedToLanguageSpinnerPosition: Int = -1
-    var sourceDescription: String? = ""
+    var sourceDescription: CharSequence = ""
     var orientationChanged: Boolean = false
 
     private val topTitle: PageTitle?
@@ -216,7 +216,7 @@ class AddTitleDescriptionsFragment : Fragment() {
 
     private fun updateMultilingualViews(fromLanguageSpinnerPosition: Int) {
         if (source == MULTILINGUAL_DESC) {
-            arrowsContainer.visibility = VISIBLE
+            arrows.visibility = VISIBLE
             languageToList.clear()
             languageCodesToList.clear()
             languageCodesToList.addAll(app.language().appLanguageCodes)
@@ -246,7 +246,7 @@ class AddTitleDescriptionsFragment : Fragment() {
 
     private fun addCanonicalNamesToLanguageToList() {
         for (language in languageCodesToList) {
-            languageToList.add(app.language().getAppLanguageCanonicalName(language))
+            languageToList.add(app.language().getAppLanguageLocalizedName(language))
         }
     }
 

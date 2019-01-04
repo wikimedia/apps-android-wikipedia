@@ -7,6 +7,7 @@ import android.text.Spannable
 import android.text.SpannableString
 import android.text.TextUtils
 import android.text.style.BackgroundColorSpan
+import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +16,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_add_title_descriptions_item.*
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
@@ -94,7 +94,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
                     .subscribe({ pair ->
                         sourceDescription = pair.first.description
                         if (pagerPosition == 0) {
-                            parent().sourceDescription = StringUtils.join(String.format(getString(R.string.translation_source_description), app.language().getAppLanguageCanonicalName(parent().langFromCode)), sourceDescription)
+                            updateSourceDescriptionWithHighlight()
                         }
                         summary = pair.second
                         updateContents()
@@ -105,7 +105,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
         if (isAdded && isVisibleToUser) {
-            parent().sourceDescription = StringUtils.join(String.format(getString(R.string.translation_source_description), app.language().getAppLanguageCanonicalName(parent().langFromCode)), sourceDescription)
+            updateSourceDescriptionWithHighlight()
         }
     }
 
@@ -131,7 +131,6 @@ class AddTitleDescriptionsItemFragment : Fragment() {
             spannableDescription.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.text_highlight_color)), 0, sourceDescription!!.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
             viewArticleSubtitle.text = TextUtils.concat(String.format(getString(R.string.translation_source_description), app.language().getAppLanguageCanonicalName(parent().langFromCode)), spannableDescription)
         }
-
         viewArticleExtract.text = StringUtil.fromHtml(summary!!.extractHtml)
         val observer = viewArticleExtract.viewTreeObserver
         observer.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
@@ -146,6 +145,14 @@ class AddTitleDescriptionsItemFragment : Fragment() {
             }
         })
         viewArticleImage.loadImage(if (TextUtils.isEmpty(summary!!.thumbnailUrl)) null else Uri.parse(summary!!.thumbnailUrl))
+    }
+
+    private fun updateSourceDescriptionWithHighlight() {
+        if (parent().source == MULTILINGUAL_DESC) {
+            val spannableDescription = SpannableString(sourceDescription)
+            spannableDescription.setSpan(ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_text_color)), 0, sourceDescription!!.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            parent().sourceDescription = TextUtils.concat(String.format(getString(R.string.translation_source_description), app.language().getAppLanguageCanonicalName(parent().langFromCode)), spannableDescription)
+        }
     }
 
     private fun parent(): AddTitleDescriptionsFragment {

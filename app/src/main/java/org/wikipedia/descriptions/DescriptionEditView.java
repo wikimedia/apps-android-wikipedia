@@ -52,7 +52,7 @@ public class DescriptionEditView extends LinearLayout {
     @Nullable private Callback callback;
     private PageSummary pageSummary;
     private boolean isTranslationEdit;
-    private String translationSourceLanguageDescription;
+    private CharSequence translationSourceLanguageDescription;
 
     public interface Callback {
         void onSaveClick();
@@ -224,7 +224,7 @@ public class DescriptionEditView extends LinearLayout {
         isTranslationEdit = translationEdit;
     }
 
-    public void setTranslationSourceLanguageDescription(String translationSourceLanguageDescription) {
+    public void setTranslationSourceLanguageDescription(CharSequence translationSourceLanguageDescription) {
         this.translationSourceLanguageDescription = translationSourceLanguageDescription;
     }
 }

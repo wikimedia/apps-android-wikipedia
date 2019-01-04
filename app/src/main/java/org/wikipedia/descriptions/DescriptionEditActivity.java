@@ -30,8 +30,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     private static final String EXTRA_SOURCE_LANG_DESC = "source_desc";
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
-    public static Intent newIntent(@NonNull Context context, @NonNull PageTitle title, @Nullable String highlightText,
-                                   boolean reviewEnabled, boolean isTranslation, String sourceDesc) {
+    public static Intent newIntent(@NonNull Context context, @NonNull PageTitle title, @Nullable String highlightText, boolean reviewEnabled, boolean isTranslation, CharSequence sourceDesc) {
         return new Intent(context, DescriptionEditActivity.class)
                 .putExtra(EXTRA_TITLE, GsonMarshaller.marshal(title))
                 .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
@@ -81,9 +80,11 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     @Override
     public DescriptionEditFragment createFragment() {
         return DescriptionEditFragment.newInstance(GsonUnmarshaller.unmarshal(PageTitle.class,
-                getIntent().getStringExtra(EXTRA_TITLE)), getIntent().getStringExtra(EXTRA_HIGHLIGHT_TEXT),
-                getIntent().getBooleanExtra(EXTRA_REVIEW_ENABLE, false), getIntent().getBooleanExtra(EXTRA_IS_TRANSLATION,
-                        false), getIntent().getStringExtra(EXTRA_SOURCE_LANG_DESC));
+                getIntent().getStringExtra(EXTRA_TITLE)),
+                getIntent().getStringExtra(EXTRA_HIGHLIGHT_TEXT),
+                getIntent().getBooleanExtra(EXTRA_REVIEW_ENABLE, false),
+                getIntent().getBooleanExtra(EXTRA_IS_TRANSLATION, false),
+                getIntent().getCharSequenceExtra(EXTRA_SOURCE_LANG_DESC));
     }
 
     @Override
