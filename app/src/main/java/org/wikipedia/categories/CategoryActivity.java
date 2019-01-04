@@ -177,7 +177,7 @@ public class CategoryActivity extends BaseActivity {
     }
 
     private void queueForHydration(PageTitle title) {
-        if (title.getDescription() != null) {
+        if (title.getDescription() != null || title.namespace() != Namespace.MAIN) {
             return;
         }
         pendingItemsForHydration.add(title);

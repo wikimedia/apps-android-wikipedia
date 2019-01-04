@@ -80,7 +80,7 @@ public class CategoryDialog extends ExtendedBottomSheetDialogFragment {
         categoriesRecycler.setLayoutManager(new LinearLayoutManager(requireActivity()));
         categoriesRecycler.setAdapter(new CategoryAdapter());
 
-        titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
+        //titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
         setConditionalLayoutDirection(rootView, pageTitle.getWikiSite().languageCode());
 
         loadCategories();

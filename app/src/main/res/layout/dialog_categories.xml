@@ -44,6 +44,7 @@
                     android:textSize="20sp"
                     android:maxLines="1"
                     android:ellipsize="end"
+                    android:text="Categories"
                     tools:text="Lorem ipsum" />
 
             </LinearLayout>
