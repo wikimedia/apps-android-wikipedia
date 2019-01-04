@@ -282,7 +282,7 @@ function fetchCategories() {
 function layoutCategories( categories ) {
     var contentWrapper = document.getElementById( "content" );
     var section = {};
-    section.id = 10000;
+    section.id = -100;
     section.toclevel = 1;
     section.line = "Categories";
     section.anchor = section.line;
