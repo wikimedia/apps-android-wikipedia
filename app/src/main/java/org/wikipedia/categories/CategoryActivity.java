@@ -21,10 +21,12 @@ import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
@@ -56,6 +58,8 @@ public class CategoryActivity extends BaseActivity {
     private List<PageTitle> pendingItemsForHydration = new ArrayList<>();
     private CompositeDisposable disposables = new CompositeDisposable();
     private Runnable hydrationRunnable = this::hydrateTitles;
+
+    private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
     public static Intent newIntent(@NonNull Context context, @NonNull PageTitle categoryTitle) {
         return new Intent(context, CategoryActivity.class)
@@ -130,7 +134,8 @@ public class CategoryActivity extends BaseActivity {
             startActivity(newIntent(this, title));
         } else {
             HistoryEntry entry = new HistoryEntry(title, HistoryEntry.SOURCE_CATEGORY);
-            startActivity(PageActivity.newIntentForCurrentTab(this, entry, entry.getTitle()));
+            bottomSheetPresenter.show(getSupportFragmentManager(), LinkPreviewDialog.newInstance(entry, null));
+            //startActivity(PageActivity.newIntentForCurrentTab(this, entry, entry.getTitle()));
         }
     }
 
