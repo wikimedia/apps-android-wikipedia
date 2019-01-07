@@ -80,6 +80,7 @@
         <item name="thumb_off_color">@color/base90</item>
         <item name="track_off_color">@color/base0</item>
         <item name="toc_h1_h2_color">@color/base0</item>
+        <item name="text_highlight_color">@color/yellow50</item>
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base100</item>

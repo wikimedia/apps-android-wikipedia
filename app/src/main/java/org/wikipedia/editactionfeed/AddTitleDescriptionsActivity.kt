@@ -22,7 +22,7 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
     }
 
     override fun createFragment(): AddTitleDescriptionsFragment {
-        return AddTitleDescriptionsFragment.newInstance()
+        return AddTitleDescriptionsFragment.newInstance(intent.getIntExtra(INIT_SOURCE, TITLE_DESC))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -45,8 +45,14 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
     }
 
     companion object {
-        fun newIntent(context: Context): Intent {
-            return Intent(context, AddTitleDescriptionsActivity::class.java)
+        const val INIT_SOURCE = "init_source"
+        const val TITLE_DESC = 0
+        const val MULTILINGUAL_DESC = 1
+
+        fun newIntent(context: Context, source: Int): Intent {
+            val intent = Intent(context, AddTitleDescriptionsActivity::class.java)
+            intent.putExtra(INIT_SOURCE, source)
+            return intent
         }
 
         fun maybeShowEditUnlockDialog(context: Context) {
@@ -61,7 +67,7 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
             AlertDialog.Builder(context)
                     .setCustomTitle(DialogTitleWithImage(context, R.string.description_edit_task_unlock_title, R.drawable.ic_illustration_description_edit_trophy, true))
                     .setMessage(R.string.description_edit_task_unlock_body)
-                    .setPositiveButton(R.string.onboarding_get_started) { _, _ -> context.startActivity(AddTitleDescriptionsActivity.newIntent(context)) }
+                    .setPositiveButton(R.string.onboarding_get_started) { _, _ -> context.startActivity(AddTitleDescriptionsActivity.newIntent(context, TITLE_DESC)) }
                     .setNegativeButton(R.string.onboarding_maybe_later, null)
                     .show()
         }

@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.descriptions.DescriptionEditHelpActivity;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
@@ -35,6 +36,8 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
+import static org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.MULTILINGUAL_DESC;
+import static org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.TITLE_DESC;
 
 public class EditTasksFragment extends Fragment {
     private Unbinder unbinder;
@@ -126,7 +129,7 @@ public class EditTasksFragment extends Fragment {
 
             @Override
             public void onViewClick() {
-                startActivity(AddTitleDescriptionsActivity.Companion.newIntent(requireActivity()));
+                startActivity(AddTitleDescriptionsActivity.Companion.newIntent(requireActivity(), TITLE_DESC));
             }
         });
 
@@ -167,7 +170,9 @@ public class EditTasksFragment extends Fragment {
 
                 @Override
                 public void onViewClick() {
-                    //Todo: Multilingual editing activity
+                    if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() > 1) {
+                        startActivity(AddTitleDescriptionsActivity.Companion.newIntent(requireActivity(), MULTILINGUAL_DESC));
+                    }
                 }
             });
         }

@@ -51,6 +51,8 @@ public class DescriptionEditView extends LinearLayout {
     @Nullable private String originalDescription;
     @Nullable private Callback callback;
     private PageSummary pageSummary;
+    private boolean isTranslationEdit;
+    private String translationSourceLanguageDescription;
 
     public interface Callback {
         void onSaveClick();
@@ -87,7 +89,7 @@ public class DescriptionEditView extends LinearLayout {
     private void setReviewHeaderText(boolean inReview) {
         int headerTextRes = inReview ? R.string.editactionfeed_review_title_description
                 : TextUtils.isEmpty(originalDescription)
-                ? R.string.description_edit_add_description
+                ? (isTranslationEdit ? R.string.description_edit_translate_description : R.string.description_edit_add_description)
                 : R.string.description_edit_edit_description;
         headerText.setText(getContext().getString(headerTextRes));
     }
@@ -96,7 +98,7 @@ public class DescriptionEditView extends LinearLayout {
         pageSummaryContainer.setVisibility(View.VISIBLE);
         pageImage.loadImage(TextUtils.isEmpty(pageSummary.getThumbnailUrl()) ? null
                 : Uri.parse(pageSummary.getThumbnailUrl()));
-        pageSummaryText.setText(StringUtil.fromHtml(pageSummary.getExtractHtml()));
+        pageSummaryText.setText(isTranslationEdit ? translationSourceLanguageDescription : StringUtil.fromHtml(pageSummary.getExtractHtml()));
         this.pageSummary = pageSummary;
     }
 
@@ -216,5 +218,13 @@ public class DescriptionEditView extends LinearLayout {
 
     private void showProgressBar(boolean show) {
         progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
+    }
+
+    public void setTranslationEdit(boolean translationEdit) {
+        isTranslationEdit = translationEdit;
+    }
+
+    public void setTranslationSourceLanguageDescription(String translationSourceLanguageDescription) {
+        this.translationSourceLanguageDescription = translationSourceLanguageDescription;
     }
 }

@@ -194,11 +194,11 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                             WikipediaApp.getInstance().language().getAppLanguageCodes().get(1), true)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
-                            .subscribe(summary -> new AlertDialog.Builder(getActivity())
-                                            .setTitle(StringUtil.fromHtml(summary.getDisplayTitle()))
-                                            .setMessage(StringUtil.fromHtml(summary.getDescription()))
+                            .subscribe(pair -> new AlertDialog.Builder(getActivity())
+                                            .setTitle(StringUtil.fromHtml(pair.getFirst().getDisplayTitle()))
+                                            .setMessage(StringUtil.fromHtml(pair.getFirst().getDescription()))
                                             .setPositiveButton("Go", (dialog, which) -> {
-                                                PageTitle title = new PageTitle(summary.getNormalizedTitle(), WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getAppLanguageCodes().get(1)));
+                                                PageTitle title = new PageTitle(pair.getSecond().getNormalizedTitle(), WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getAppLanguageCodes().get(1)));
                                                 getActivity().startActivity(PageActivity.newIntentForNewTab(getActivity(), new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title));
                                             })
                                             .setNegativeButton(android.R.string.cancel, null)

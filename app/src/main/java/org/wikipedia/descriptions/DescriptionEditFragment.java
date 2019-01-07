@@ -52,8 +52,10 @@ public class DescriptionEditFragment extends Fragment {
 
     private static final String ARG_TITLE = "title";
     private static final String ARG_REVIEW_ENABLED = "reviewEnabled";
+    private static final String ARG_IS_TRANSLATION = "isTranslation";
     private static final String ARG_REVIEWING = "inReviewing";
     private static final String ARG_HIGHLIGHT_TEXT = "highlightText";
+    private static final String ARG_TRANSLATION_SOURCE_LANG_DESC = "source_lang_desc";
 
     @BindView(R.id.fragment_description_edit_view) DescriptionEditView editView;
     private Unbinder unbinder;
@@ -84,12 +86,14 @@ public class DescriptionEditFragment extends Fragment {
     };
 
     @NonNull
-    public static DescriptionEditFragment newInstance(@NonNull PageTitle title, @Nullable String highlightText, boolean reviewEnabled) {
+    public static DescriptionEditFragment newInstance(@NonNull PageTitle title, @Nullable String highlightText, boolean reviewEnabled, boolean isTranslation, String sourceDescription) {
         DescriptionEditFragment instance = new DescriptionEditFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TITLE, GsonMarshaller.marshal(title));
         args.putString(ARG_HIGHLIGHT_TEXT, highlightText);
         args.putBoolean(ARG_REVIEW_ENABLED, reviewEnabled);
+        args.putBoolean(ARG_IS_TRANSLATION, isTranslation);
+        args.putString(ARG_TRANSLATION_SOURCE_LANG_DESC, sourceDescription);
         instance.setArguments(args);
         return instance;
     }
@@ -112,7 +116,8 @@ public class DescriptionEditFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_description_edit, container, false);
         unbinder = ButterKnife.bind(this, view);
-
+        editView.setTranslationEdit(getArguments().getBoolean(ARG_IS_TRANSLATION));
+        editView.setTranslationSourceLanguageDescription(getArguments().getString(ARG_TRANSLATION_SOURCE_LANG_DESC));
         editView.setPageTitle(pageTitle);
         editView.setHighlightText(highlightText);
         editView.setCallback(new EditViewCallback());
