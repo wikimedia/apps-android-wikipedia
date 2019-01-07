@@ -137,8 +137,8 @@
   <string name="email_recommendation_dialog_title">Biztos létrehozod a fiókot e-mail-cím nélkül?</string>
   <string name="email_recommendation_dialog_message">Noha az e-mail-cím opcionális, megadása &lt;b&gt;erősen javallott&lt;/b&gt;, hogy elfelejtett jelszó esetén helyreállíthasd fiókodat.</string>
   <string name="email_recommendation_message">Ajánlott a fiók egy esetleges helyreállítsa végett.</string>
-  <string name="email_recommendation_dialog_create_without_email_action">Folytatás e-mail cím nélkül</string>
-  <string name="email_recommendation_dialog_create_with_email_action">E-mail cím megadása</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Folytatás e-mail-cím nélkül</string>
+  <string name="email_recommendation_dialog_create_with_email_action">E-mail-cím megadása</string>
   <string name="create_account_button">Regisztráció</string>
   <string name="create_account_name_unavailable">A(z) „%s” felhasználói név nem érhető el. Válassz másikat.</string>
   <string name="create_account_ip_block_message">Sajnáljuk, de az IP-címedről jelenleg nem lehet regisztrálni.</string>
@@ -203,7 +203,7 @@
   <string name="edit_preview">Előnézet</string>
   <string name="edit_summary_tag_typo">Elírás javítása</string>
   <string name="edit_summary_tag_grammar">Nyelvtani javítás</string>
-  <string name="edit_summary_tag_links">Hivatkozások hozzáadva</string>
+  <string name="edit_summary_tag_links">Hivatkozások hozzáadása</string>
   <string name="edit_summary_tag_other">Egyéb</string>
   <string name="edit_summary_tag_other_hint">Más módok, ahogy javítottad a lapot</string>
   <string name="edit_conflict_title">Szerkesztési ütközés</string>

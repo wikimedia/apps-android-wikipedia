@@ -486,6 +486,7 @@
   <string name="description_edit_help_tips_example2_hint">Titelbeschreiwung fir en Artikel iwwer de Mount Everest</string>
   <string name="description_edit_help_more_info">Méi Informatiounen</string>
   <string name="editactionfeed_add_title_descriptions">Beschreiwunge vun den Titelen derbäisetzen</string>
+  <string name="editactionfeed_add_description_button">Beschreiwung derbäisetzen</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Fir méi ze wëssen</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>

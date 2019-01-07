@@ -2,6 +2,7 @@
 <!-- Authors:
 * Dibya Dutta
 * Gitartha.bordoloi
+* Onubadok
 * Sagsag
 -->
 <resources>
@@ -35,6 +36,9 @@
   <string name="menu_page_font_and_theme">ফ\'ণ্ট আৰু থীম</string>
   <string name="menu_page_add_to_list">পঢ়া তালিকাত যোগ দিয়ক</string>
   <string name="menu_page_share">লিংক শ্বেয়াৰ কৰক</string>
+  <string name="menu_page_open_a_new_tab">নতুন টেব খোলক</string>
+  <string name="menu_page_reading_lists">পঢ়াৰ তালিকা</string>
+  <string name="menu_page_recently_viewed">শেহতীয়াকৈ দৰ্শিত</string>
   <string name="menu_long_press_open_page">খোলক</string>
   <string name="menu_long_press_open_in_new_tab">নতুন টেবত খোলক</string>
   <string name="menu_long_press_copy_page">লিংক ঠিকনা প্ৰতিলিপি কৰক</string>
@@ -114,6 +118,7 @@
   <string name="create_account_password_error">গুপ্তশব্দটো ভুল</string>
   <string name="create_account_generic_error">একাউণ্ট সৃষ্টি কৰিব পৰা নগ\'ল</string>
   <string name="create_account_next">পৰৱৰ্তী</string>
+  <string name="email_recommendation_dialog_create_with_email_action">এটা ইমেইল ঠিকনা যোগ কৰক</string>
   <string name="create_account_button">একাউণ্ট সৃষ্টি কৰক</string>
   <string name="create_account_name_unavailable">\"%s\" সদস্যনাম উপলব্ধ নহয়। অনুগ্ৰহ কৰি আন এটা নাম বাছনি কৰক।</string>
   <string name="create_account_ip_block_message">দুঃখিত, আপোনাৰ আই পি ঠিকনাৰ পৰা নতুন একাউণ্ট সৃষ্টি কৰাটো সম্ভৱ নহয়।</string>
@@ -149,6 +154,7 @@
   <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="android_app_request_an_account_url">https://as.wikipedia.org/wiki/ৱিকিপিডিয়া:এটা একাউণ্ট অনুৰোধ কৰক</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">ব্যৱহৃত পুথিভঁৰাল</string>
@@ -157,7 +163,7 @@
   <string name="about_translators_translatewiki">এই এপ্‌টো স্বেচ্ছাসেৱক অনুবাদকে &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;ত অনুবাদ কৰিছে।</string>
   <string name="about_app_license_heading">অনুজ্ঞাপত্ৰ</string>
   <string name="about_app_license">উৎস ক\'ড &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 অনুজ্ঞাপত্ৰৰ&lt;/a&gt; অধীনত &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;জেৰিট&lt;/a&gt; আৰু &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;গিটহাবত&lt;/a&gt; উপলব্ধ। অন্যভাৱে উল্লেখ নাথাকিলে সমল &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ক্ৰিয়েটিভ কমন্স এট্ৰিবিউচন-শ্বেয়াৰ এলাইক অনুজ্ঞাপত্ৰ&lt;/a&gt; অধীনত উপলব্ধ।</string>
-  <string name="about_wmf" fuzzy="true">&lt;a href=\"https://wikimediafoundation.org/\"&gt;ৱিকিমিডিয়া ফাউণ্ডেছনৰ&lt;/a&gt; এটা সামগ্ৰী</string>
+  <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;ৱিকিমিডিয়া ফাউণ্ডেছনৰ&lt;/a&gt; এটা সামগ্ৰী</string>
   <string name="about_activity_title">বিষয়ে</string>
   <string name="edit_abandon_confirm">এই পৃষ্ঠাটো সলোৱা হৈছে। আপোনাৰ সালসলনি সাঁচি নোথোৱাকৈ গুচি যাব বুলি নিশ্চিতনে?</string>
   <string name="edit_abandon_confirm_yes">হয়</string>
@@ -276,6 +282,10 @@
   <string name="color_theme_select">থীম</string>
   <string name="color_theme_light">পাতল</string>
   <string name="color_theme_dark">ডাঠ</string>
+  <string name="color_theme_black">কলা</string>
+  <string name="preference_title_app_theme">এপ থীম</string>
+  <string name="text_size_increase">আখৰৰ আকাৰ বৃদ্ধি কৰক</string>
+  <string name="text_size_decrease">আখৰৰ আকাৰ হ্ৰাস কৰক</string>
   <string name="nav_item_reading_lists">মোৰ তালিকাসমূহ</string>
   <string name="reading_list_save_to">পঢ়া তালিকাত সাঁচি থওক</string>
   <string name="reading_list_create_new">নতুন সৃষ্টি কৰক</string>
@@ -303,13 +313,13 @@
   <string name="reading_lists_onboarding_for_example">যেনে</string>
   <string name="reading_lists_onboarding_example1">চাবলগীয়া ঠাই</string>
   <string name="reading_lists_onboarding_example2">পছন্দৰ জীৱ-জন্তু</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">মহাকাশ!</string>
+  <string name="reading_lists_onboarding_example3">মহাকাশ অনুসন্ধান</string>
   <string name="reading_lists_onboarding_got_it">বুজিছোঁ</string>
   <string name="reading_list_empty">এই তালিকাত আপুনি কোনো প্ৰবন্ধ যোগ কৰা নাই।</string>
   <string name="reading_list_article_offline">অফলাইন উপলব্ধ</string>
   <string name="reading_list_article_make_offline">এই প্ৰবন্ধটো অফলাইন উপলব্ধ কৰাওক</string>
   <string name="reading_list_add_to_other_list">আন এখন পঢ়া তালিকাত যোগ দিয়ক</string>
-  <string name="reading_list_remove_from_list" fuzzy="true">%s পৰা আঁতৰাওক</string>
+  <string name="reading_list_remove_from_list">%s পৰা আঁতৰাওক</string>
   <string name="reading_list_remove_from_lists">পঢ়া তালিকাৰ পৰা আঁতৰাওক</string>
   <string name="reading_lists_confirm_remote_delete_yes">হয়</string>
   <string name="reading_lists_confirm_remote_delete_no">নহয়</string>
@@ -319,6 +329,13 @@
   <string name="reading_list_article_offline_message" fuzzy="true">এই প্ৰবন্ধটো এতিয়া অফলাইন উপলব্ধ হ\'ব।</string>
   <string name="reading_list_article_not_offline_message" fuzzy="true">এই প্ৰবন্ধটো এতিয়া অফলাইন উপলব্ধ নহ\'ব।</string>
   <string name="user_option_sync_label">পছন্দসমূহ</string>
+  <string name="notifications_activity_title">জাননীসমূহ</string>
+  <string name="notifications_activity_title_archived">জাননীসমূহ (সংৰক্ষিত)</string>
+  <string name="notifications_search">জাননীসমূহ সন্ধান কৰক</string>
+  <string name="notifications_poll_enable_negative">এতিয়া নহয়</string>
+  <string name="preference_title_notification_welcome">স্বাগতম</string>
+  <string name="preference_summary_notification_welcome">এটা একাউণ্ট সৃষ্টি কৰা হ\'ল</string>
+  <string name="preference_title_notification_thanks">ধন্যবাদ</string>
   <string name="view_continue_reading_card_title">পঢ়া অব্যাহত ৰাখক</string>
   <string name="view_because_you_read_card_title">কাৰণ আপুনি পঢ়িছে</string>
   <string name="view_random_card_title">যাদৃচ্ছিক</string>
@@ -334,8 +351,10 @@
   <string name="feed">অন্বেষণ</string>
   <string name="most_read_list_card_title">ট্ৰেণ্ডিং</string>
   <string name="view_card_news_title">খবৰৰ শীৰ্ষত</string>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">আজি</string>
+  <string name="view_continue_reading_card_subtitle_today">আজি</string>
   <string name="view_announcement_card_negative_action">নালাগে। ধন্যবাদ</string>
+  <string name="feed_configure_menu_select_all">সকলোবোৰ দেখুৱাওক</string>
+  <string name="feed_configure_menu_deselect_all">সকলোবোৰ লুকুৱাওক</string>
   <string name="description_edit_text_hint">শিৰোনামৰ বিৱৰণ</string>
   <string name="description_edit_save">প্ৰকাশ কৰক</string>
   <string name="description_edit_add_description">শিৰোনামৰ বিৱৰণ যোগ দিয়ক</string>
@@ -358,12 +377,22 @@
   <string name="description_edit_help_tips_examples">উদাহৰণস্বৰূপে:</string>
   <string name="description_edit_help_tips_example1">লিঅ\'নাৰ্ড\' ডা ভিঞ্চিয়ে অঁকা চিত্ৰ</string>
   <string name="description_edit_help_more_info">অধিক তথ্য</string>
+  <string name="editactionfeed_my_contributions">মোৰ বৰঙণিসমূহ</string>
+  <string name="editactionfeed_from_language">পৰা:</string>
   <string name="description_edit_revert_subtitle">ৱিকিপিডিয়া সম্পাদনা কৰাৰ বাবে ধন্যবাদ!</string>
   <string name="onboarding_skip">এৰি যাওক</string>
   <string name="onboarding_continue">অব্যাহত ৰাখক</string>
   <string name="onboarding_get_started">আৰম্ভ কৰক</string>
   <string name="onboarding_create_account_contributions">আপোনাৰ বৰঙণিৰ হিচাপ ৰাখক</string>
   <string name="onboarding_create_account_preferences">আপোনাৰ পছন্দসমূহ সাঁচি থওক</string>
+  <string name="app_shortcuts_search">সন্ধান কৰক</string>
+  <string name="on_this_day_card_title">আজিৰ দিনটোত</string>
+  <string name="this_year">এই বছৰ</string>
+  <string name="wikipedia_languages_your_languages_text">আপোনাৰ ভাষাসমূহ</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ভাষাৰ সালসলনি কৰক</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">নালাগে দিয়ক</string>
+  <string name="main_drawer_open">খোলক</string>
+  <string name="main_drawer_help">সহায়</string>
+  <string name="multilingual_task_negative">মোৰ বাবে নহয়</string>
+  <string name="multilingual_task_positive">ভাষা সংযোগ কৰক</string>
 </resources>

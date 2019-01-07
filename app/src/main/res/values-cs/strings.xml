@@ -189,7 +189,7 @@
   <string name="about_libraries_heading">Použité knihovny</string>
   <string name="about_contributors_heading">Přispěvatelé</string>
   <string name="about_translators_heading">Překladatelé</string>
-  <string name="about_translators_translatewiki">Tuto aplikaci přeložili dobrovolní překladatelé na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.\nSeznam překladatelů do češtiny (test):\nAktron, \nBsitzmann, \nCvanca, \nDvorapa, \nEvica, \nIlimanaq29, \nJuandev, \nKuboF, \nKusavica, \nMarek Pavlica, \nMatěj Suchánek, \nMimichal007, \nMormegil, \nPatriccck, \nVojtěch Dostál, \nWalter Klosse.</string>
+  <string name="about_translators_translatewiki">Tuto aplikaci přeložili dobrovolní překladatelé na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
   <string name="about_app_license">Zdrojový kód je dostupný na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; za podmínek &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Pokud není uvedeno jinak, obsah je dostupný za podmínek &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie:Text_licence_Creative_Commons_Attribution-ShareAlike_3.0_Unported\"&gt;licence Creative Commons Uveďte autora – Zachovejte licenci&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"https://wikimediafoundation.org/\"&gt;nadace Wikimedia&lt;/a&gt;</string>
@@ -477,11 +477,11 @@
     <item quantity="other">zbývá %1$d seznamů</item>
   </plurals>
   <string name="notification_echo_channel_description">Upozornění z Wikipedie</string>
-  <string name="notifications_activity_title">Notifikace</string>
+  <string name="notifications_activity_title">Upozornění</string>
   <string name="notifications_activity_title_archived">Upozornění (přečtená)</string>
-  <string name="notifications_search">Hledat v notifikacích</string>
+  <string name="notifications_search">Hledat v upozorněních</string>
   <string name="notifications_view_unread">Zobrazit nepřečtené</string>
-  <string name="notifications_view_archived">Archivované notifikace</string>
+  <string name="notifications_view_archived">Zobrazit přečtené</string>
   <string name="notifications_prefs">Nastavení upozornění</string>
   <string name="notifications_archive">Označit jako přečtené</string>
   <plurals name="notification_archive_message">
@@ -489,16 +489,16 @@
     <item quantity="two">2 upozornění byla archivována</item>
     <item quantity="other">three=3 upozornění byla archivována</item>
   </plurals>
-  <string name="notifications_poll_enable_title">Aktivovat notifikace</string>
+  <string name="notifications_poll_enable_title">Aktivovat upozornění</string>
   <string name="notifications_poll_enable_positive">Zapnout</string>
   <string name="notifications_poll_enable_negative">Teď ne</string>
   <string name="notifications_empty_message">Přečetli jste si všechna upozornění!</string>
-  <string name="notifications_view_archived_button_text">Zobrazit archivované notifikace</string>
+  <string name="notifications_view_archived_button_text">Zobrazit archivované upozornění</string>
   <string name="notification_preferences_title">Nastavení upozornění</string>
   <string name="notifications_mark_unread">Označit jako nepřečtené</string>
   <string name="preference_title_notification_poll">Kontrola nových upozornění</string>
   <string name="preference_summary_notification_poll">Povolit aplikaci používaní dat ke kontrole nových upozornění na pozadí.</string>
-  <string name="preference_category_notification_types">Typy notifikací v aplikaci</string>
+  <string name="preference_category_notification_types">Typy upozornění v aplikaci</string>
   <string name="preference_title_notification_welcome">Vítejte</string>
   <string name="preference_summary_notification_welcome">Účet byl vytvořen</string>
   <string name="preference_title_notification_milestone">Milník</string>
@@ -533,7 +533,7 @@
   <string name="view_continue_reading_card_subtitle_read_date">Přečteno %s</string>
   <string name="view_announcement_card_negative_action">Ne, děkuji</string>
   <string name="view_offline_card_text">Obsah nemůže být načten offline.</string>
-  <string name="view_featured_article_card_title">Článek týdne</string>
+  <string name="view_featured_article_card_title">Vybraný článek</string>
   <string name="view_featured_article_footer_save_button_label">Uložit</string>
   <string name="view_featured_article_footer_saved_button_label">Uložit</string>
   <string name="edit_tasks_activity_title">Úkoly pro editaci z aplikace</string>
@@ -545,7 +545,7 @@
   <string name="feed_item_type_news">Články o aktuálních událostech</string>
   <string name="feed_item_type_on_this_day">Historické události v tento den</string>
   <string name="feed_item_type_because_you_read">Návrhy založené na nedávno přečteném článku z historie</string>
-  <string name="feed_item_type_featured_article">Týdenní doporučený článek na Wikipedii</string>
+  <string name="feed_item_type_featured_article">Vybraný doporučený článek na Wikipedii</string>
   <string name="feed_item_type_trending">Nejčastěji prohlížené články za tento den</string>
   <string name="feed_item_type_featured_image">Denní doporučný obrázek z Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Hlavní strana Wikipedie s každodenním obsahem</string>
@@ -677,6 +677,6 @@
   <string name="editing_level_text">ÚROVEŇ %d editora z aplikace</string>
   <plurals name="edit_action_contribution_count">
     <item quantity="one">příspěvek v aplikaci</item>
-    <item quantity="other">příspěvky v aplikaci</item>
+    <item quantity="other">příspěvků v aplikaci</item>
   </plurals>
 </resources>

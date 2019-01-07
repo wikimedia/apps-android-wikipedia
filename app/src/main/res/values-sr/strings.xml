@@ -616,7 +616,7 @@
   <string name="onboarding_got_it">Разумем</string>
   <string name="onboarding_multilingual_secondary_text">Пронашли смо следеће на вашем уређају:</string>
   <string name="onboarding_multilingual_add_language_text">Додај или уреди језике</string>
-  <string name="onboarding_welcome_title_v2">Слободна енциклопедија\n…на готово 300 језика</string>
+  <string name="onboarding_welcome_title_v2">Слободна енциклопедија\nна готово 300 језика</string>
   <string name="app_shortcuts_random">Случајни</string>
   <string name="app_shortcuts_continue_reading">Настави читање</string>
   <string name="app_shortcuts_search">Претражи</string>
@@ -657,5 +657,6 @@
   <string name="main_drawer_help">Помоћ</string>
   <string name="main_drawer_login">Пријави ме / придружи ме Википедији</string>
   <string name="title_description_task_title">Додавање описа наслова</string>
+  <string name="multilingual_task_negative">Није за мене</string>
   <string name="multilingual_task_positive">Додај језике</string>
 </resources>

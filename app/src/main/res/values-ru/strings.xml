@@ -43,6 +43,7 @@
 * Wirbel78
 * Yuryleb
 * Александр Сигачёв
+* Евгения
 -->
 <resources>
   <string name="app_name_prod">Википедия</string>
@@ -563,6 +564,7 @@
   <string name="view_featured_article_card_title">Избранная статья</string>
   <string name="view_featured_article_footer_save_button_label">Сохранить</string>
   <string name="view_featured_article_footer_saved_button_label">Сохранено</string>
+  <string name="edit_tasks_activity_title">Задачи редактора приложения</string>
   <string name="feed_configure_activity_title">Настроить ленту</string>
   <string name="feed_configure_menu_reset">Восстановить фильтры по умолчанию</string>
   <string name="feed_configure_menu_select_all">Показать все</string>
@@ -614,6 +616,8 @@
   <string name="description_edit_help_more_info">Подробная информация</string>
   <string name="description_edit_help_meta_info">Описания хранятся в Викиданных (Wikidata) — проекте Фонда Викимедиа, представляющем собой свободную совместно наполняемую  многоязычную основанную на внешних источниках вторичную базу данных для поддержки Википедии и других проектов.</string>
   <string name="editactionfeed_add_description_button">Добавить описание</string>
+  <string name="editactionfeed_my_contributions">Мой вклад</string>
+  <string name="editactionfeed_from_language">От:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Узнать больше</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
   <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то неправильное. Возможные причины, почему ваша правка была отменена:</string>
@@ -685,6 +689,8 @@
   <string name="main_drawer_close">Закрыть</string>
   <string name="main_drawer_help">Справка</string>
   <string name="main_drawer_login">Войти в Википедию</string>
+  <string name="multilingual_task_title">Больше задач для редакторов, знающих несколько языков</string>
+  <string name="multilingual_task_description">Задания для перевода доступны, если Вы читаете и пишете на более чем одном языке Wikipedia</string>
   <string name="multilingual_task_negative">Не для меня</string>
   <string name="multilingual_task_positive">Добавить языки</string>
 </resources>

@@ -419,6 +419,7 @@
     <item quantity="one">Бу ыстатыйа ситимэ суох ааҕыллыбат буолла.</item>
     <item quantity="other">Бу ыстатыйалар ситимэ суох ааҕыллыбат буоллулар.</item>
   </plurals>
+  <string name="reading_list_menu_last_sync">Тиһэх тэҥнээһин: %s</string>
   <string name="user_option_sync_label">Туруоруулар</string>
   <string name="notification_reverted_title">Төннөрүллүбүт уларытыы</string>
   <string name="notification_channel_description">Хачайдана турар</string>
@@ -540,6 +541,7 @@
   <string name="editactionfeed_add_title_descriptions">Кылгас быһаарыы эбии</string>
   <string name="editactionfeed_add_description_button">Быһааран суруй</string>
   <string name="editactionfeed_my_contributions">Бэйэм суруйуум</string>
+  <string name="editactionfeed_from_language">Кимтэн:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Бу туһунан сиһилии</string>
   <string name="description_edit_revert_subtitle">Бикипиэдьийэни тупсарбыккар махтал!</string>
   <string name="description_edit_revert_intro">Туһалааҕы оҥоро сатаабыккын эрээри, тугу эрэ сыыспыккын. Көннөрүүгүн төннөрбүт төрүөт маннык буолуон сөп:</string>
@@ -556,6 +558,7 @@
   <string name="onboarding_skip">Аһар</string>
   <string name="onboarding_continue">Салгыы</string>
   <string name="onboarding_get_started">Саҕалыырга</string>
+  <string name="onboarding_maybe_later">Баҕар кэлин</string>
   <string name="onboarding_explore_title">Көрөргө саҥа ньымалар</string>
   <string name="onboarding_explore_text" fuzzy="true">Explore лиэнтэҕэ талба ыстатыйалары, араас тиэмэлэри уонна биллэриилэри көрө олор.</string>
   <string name="onboarding_reading_list_sync_title" fuzzy="true">Синхроннаах ааҕыы испииһэгэ</string>
@@ -604,5 +607,6 @@
   <string name="main_drawer_help">Көмө</string>
   <string name="main_drawer_login">Бикипиэдьийэҕэ киирии / бэлиэтэнии</string>
   <string name="title_description_task_title">Кылгас быһаарыы эбии</string>
+  <string name="multilingual_task_negative">Миэхэ буолбатах</string>
   <string name="multilingual_task_positive">Тылы эбии</string>
 </resources>
