@@ -36,8 +36,8 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
-import static org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.MULTILINGUAL_DESC;
-import static org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.TITLE_DESC;
+import static org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.SOURCE_ADD_DESCRIPTIONS;
+import static org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.SOURCE_TRANSLATE_DESCRIPTIONS;
 
 public class EditTasksFragment extends Fragment {
     private Unbinder unbinder;
@@ -129,7 +129,7 @@ public class EditTasksFragment extends Fragment {
 
             @Override
             public void onViewClick() {
-                startActivity(AddTitleDescriptionsActivity.Companion.newIntent(requireActivity(), TITLE_DESC));
+                startActivity(AddTitleDescriptionsActivity.Companion.newIntent(requireActivity(), SOURCE_ADD_DESCRIPTIONS));
             }
         });
 
@@ -171,7 +171,7 @@ public class EditTasksFragment extends Fragment {
                 @Override
                 public void onViewClick() {
                     if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() > 1) {
-                        startActivity(AddTitleDescriptionsActivity.Companion.newIntent(requireActivity(), MULTILINGUAL_DESC));
+                        startActivity(AddTitleDescriptionsActivity.Companion.newIntent(requireActivity(), SOURCE_TRANSLATE_DESCRIPTIONS));
                     }
                 }
             });

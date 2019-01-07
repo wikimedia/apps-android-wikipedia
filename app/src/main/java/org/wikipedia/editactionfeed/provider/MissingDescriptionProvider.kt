@@ -50,8 +50,8 @@ object MissingDescriptionProvider {
                     ServiceFactory.get(WikiSite(Service.WIKIDATA_URL))
                             .getWikidataLabelsAndDescriptions(StringUtils.join(qNumbers, '|'))
                 }
-                .map<List<PageTitle>> { response ->
-                    val sourceAndTargetPageTitles = ArrayList<PageTitle>()
+                .map<Pair<PageTitle, PageTitle>> { response ->
+                    var sourceAndTargetPageTitles: Pair<PageTitle, PageTitle>? = null
 
                     for (q in response.entities()!!.keys) {
                         val entity = response.entities()!![q]
@@ -62,25 +62,24 @@ object MissingDescriptionProvider {
                                 || !entity.sitelinks().containsKey(targetWiki.dbName())) {
                             continue
                         }
-                        sourceAndTargetPageTitles.add(PageTitle(entity.sitelinks()[sourceWiki.dbName()]!!.title, sourceWiki))
-                        sourceAndTargetPageTitles.add(PageTitle(entity.sitelinks()[targetWiki.dbName()]!!.title, targetWiki))
-
+                        sourceAndTargetPageTitles = Pair(PageTitle(entity.sitelinks()[sourceWiki.dbName()]!!.title, sourceWiki),
+                                PageTitle(entity.sitelinks()[targetWiki.dbName()]!!.title, targetWiki))
+                        break
                     }
-                    if (sourceAndTargetPageTitles.isEmpty()) {
+                    if (sourceAndTargetPageTitles == null) {
                         throw ListEmptyException()
                     }
                     sourceAndTargetPageTitles
                 }
-                .flatMap { sourceAndTargetPageTitles: List<PageTitle> -> getSummary(sourceAndTargetPageTitles[0], sourceAndTargetPageTitles[1]) }
+                .flatMap { sourceAndTargetPageTitles: Pair<PageTitle, PageTitle> -> getSummary(sourceAndTargetPageTitles) }
                 .retry { t: Throwable -> t is ListEmptyException }
     }
 
-    private fun getSummary(sourceTitle: PageTitle, targetTitle: PageTitle): Observable<Pair<RbPageSummary, RbPageSummary>> {
-        val sourceCall = ServiceFactory.getRest(sourceTitle.wikiSite).getSummary(null, sourceTitle.prefixedText)
-        val targetCall = ServiceFactory.getRest(targetTitle.wikiSite).getSummary(null, targetTitle.prefixedText)
-        return Observable.zip(sourceCall, targetCall, BiFunction<RbPageSummary, RbPageSummary, Pair<RbPageSummary, RbPageSummary>> { source, target -> Pair(source, target) })
+    private fun getSummary(titles: Pair<PageTitle, PageTitle>): Observable<Pair<RbPageSummary, RbPageSummary>> {
+        return Observable.zip(ServiceFactory.getRest(titles.first.wikiSite).getSummary(null, titles.first.prefixedText),
+                ServiceFactory.getRest(titles.second.wikiSite).getSummary(null, titles.second.prefixedText),
+                BiFunction<RbPageSummary, RbPageSummary, Pair<RbPageSummary, RbPageSummary>> { source, target -> Pair(source, target) })
     }
-
 
     private class ListEmptyException : RuntimeException()
 }

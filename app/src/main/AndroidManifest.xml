@@ -146,7 +146,6 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".editactionfeed.AddTitleDescriptionsActivity"
-            android:configChanges="orientation"
             android:label="@string/editactionfeed_add_title_descriptions"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.ActionBar" />

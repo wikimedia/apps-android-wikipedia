@@ -11,37 +11,32 @@ import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewTreeObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_add_title_descriptions_item.*
+import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
-import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.MULTILINGUAL_DESC
-import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.TITLE_DESC
+import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.SOURCE_ADD_DESCRIPTIONS
+import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.SOURCE_TRANSLATE_DESCRIPTIONS
 import org.wikipedia.editactionfeed.provider.MissingDescriptionProvider
-import org.wikipedia.page.PageTitle
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
-
 
 class AddTitleDescriptionsItemFragment : Fragment() {
     private val disposables = CompositeDisposable()
     private var summary: RbPageSummary? = null
     private val app = WikipediaApp.getInstance()
-    var sourceDescription: String? = null
+    private var sourceDescription: String = ""
 
     var pagerPosition = -1
 
-    val title: PageTitle?
-        get() = if (summary == null)
-            null
-        else
-            PageTitle(summary!!.title, WikiSite.forLanguageCode(parent().langToCode))
+    val title: String?
+        get() = if (summary == null) null else summary!!.title
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,7 +74,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
     }
 
     private fun getArticleWithMissingDescription() {
-        if (parent().source == TITLE_DESC) {
+        if (parent().source == SOURCE_ADD_DESCRIPTIONS) {
             disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -88,17 +83,14 @@ class AddTitleDescriptionsItemFragment : Fragment() {
                         updateContents()
                     }, { this.setErrorState(it) }))
         } else {
-            disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode), parent().langToCode, true)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ pair ->
-                        sourceDescription = pair.first.description
-                        if (pagerPosition == 0) {
-                            updateSourceDescriptionWithHighlight()
-                        }
-                        summary = pair.second
-                        updateContents()
-                    }, { this.setErrorState(it) })!!)
+            disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode), parent().langToCode, true).subscribeOn(Schedulers.io())?.observeOn(AndroidSchedulers.mainThread())?.subscribe({ pair ->
+                sourceDescription = StringUtils.defaultString(pair.first.description)
+                if (pagerPosition == 0) {
+                    updateSourceDescriptionWithHighlight()
+                }
+                summary = pair.second
+                updateContents()
+            }, { this.setErrorState(it) })!!)
         }
     }
 
@@ -126,31 +118,19 @@ class AddTitleDescriptionsItemFragment : Fragment() {
         }
         viewArticleTitle.text = summary!!.normalizedTitle
 
-        if (parent().source == MULTILINGUAL_DESC) {
+        if (parent().source == SOURCE_TRANSLATE_DESCRIPTIONS) {
             val spannableDescription = SpannableString(sourceDescription)
-            spannableDescription.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.text_highlight_color)), 0, sourceDescription!!.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            spannableDescription.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.text_highlight_color)), 0, sourceDescription.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
             viewArticleSubtitle.text = TextUtils.concat(String.format(getString(R.string.translation_source_description), app.language().getAppLanguageCanonicalName(parent().langFromCode)), spannableDescription)
         }
         viewArticleExtract.text = StringUtil.fromHtml(summary!!.extractHtml)
-        val observer = viewArticleExtract.viewTreeObserver
-        observer.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
-            override fun onGlobalLayout() {
-                if (!isAdded || viewArticleExtract == null) {
-                    return
-                }
-                val maxLines = viewArticleExtract.height / viewArticleExtract.lineHeight - 1
-                val minLines = 3
-                viewArticleExtract.maxLines = Math.max(maxLines, minLines)
-                viewArticleExtract.viewTreeObserver.removeOnGlobalLayoutListener(this)
-            }
-        })
         viewArticleImage.loadImage(if (TextUtils.isEmpty(summary!!.thumbnailUrl)) null else Uri.parse(summary!!.thumbnailUrl))
     }
 
     private fun updateSourceDescriptionWithHighlight() {
-        if (parent().source == MULTILINGUAL_DESC) {
+        if (parent().source == SOURCE_TRANSLATE_DESCRIPTIONS) {
             val spannableDescription = SpannableString(sourceDescription)
-            spannableDescription.setSpan(ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_text_color)), 0, sourceDescription!!.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            spannableDescription.setSpan(ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_text_color)), 0, sourceDescription.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
             parent().sourceDescription = TextUtils.concat(String.format(getString(R.string.translation_source_description), app.language().getAppLanguageCanonicalName(parent().langFromCode)), spannableDescription)
         }
     }
