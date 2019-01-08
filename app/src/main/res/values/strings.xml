@@ -574,7 +574,7 @@
     <string name="description_edit_text_hint">Title description</string>
     <string name="description_edit_save">Publish</string>
     <string name="description_edit_add_description">Add title description</string>
-    <string name="description_edit_translate_description">Translate title descriptions</string>
+    <string name="description_edit_translate_description">Translate title description</string>
     <string name="description_edit_edit_description">Edit description</string>
     <string name="description_edit_cancel_hint">Cancel</string>
     <string name="description_edit_help_title">Help: title descriptions</string>
@@ -621,6 +621,7 @@
 
     <!-- Edit action feed -->
     <string name="editactionfeed_add_title_descriptions">Add title descriptions</string>
+    <string name="editactionfeed_translate_descriptions">Translate title descriptions</string>
     <string name="editactionfeed_review_title_description">Review title description</string>
     <string name="editactionfeed_add_description_button">Add description</string>
     <string name="editactionfeed_my_contributions">My contributions</string>
