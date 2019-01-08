@@ -734,4 +734,9 @@
         <item quantity="one">in-app contribution</item>
         <item quantity="other">in-app contributions</item>
     </plurals>
+    <string name="add_title_descriptions_dialog_title">Add title descriptions</string>
+    <string name="add_title_descriptions_dialog_message">You can now help to improve Wikipedia by adding descriptions that appear below titles in articles. You can configure your languages at any time.</string>
+    <string name="add_translate_descriptions_dialog_title">You are translating title descriptions for the first time</string>
+    <string name="add_translate_descriptions_dialog_message">You can now help to improve Wikipedia by translating title descriptions. You can configure your languages and set a translation direction at any time.</string>
+    <string name="description_edit_tutorial_message">Welcome to the new home for in-app editing on Wikipedia. Here we will suggest opportunities to add content that might be of interest to you. Your contributions are much appreciated. Happy editing!</string>
 </resources>

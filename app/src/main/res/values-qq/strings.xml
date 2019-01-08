@@ -687,4 +687,9 @@
     <item quantity="one">Text suggesting that one in-app contribution was made.</item>
     <item quantity="other">Text suggesting that two or more in-app contributions were made.</item>
   </plurals>
+  <string name="add_title_descriptions_dialog_title">Title text of the dialog shown to first time title description editors.</string>
+  <string name="add_title_descriptions_dialog_message">Message text in the dialog shown to first time title description editors.</string>
+  <string name="add_translate_descriptions_dialog_title">Title text of the dialog shown to editors before their first time  translating descriptions.</string>
+  <string name="add_translate_descriptions_dialog_message">Message text in the dialog shown to editors before their first time translating descriptions.</string>
+  <string name="description_edit_tutorial_message">Concise on-boarding message to the app editor task list.</string>
 </resources>

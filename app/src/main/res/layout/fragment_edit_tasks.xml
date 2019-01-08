@@ -21,7 +21,7 @@
             app:centeredImage="@drawable/ic_action_feed_edit"
             app:imageSize="66dp"
             app:primaryText="@string/edit_tasks_activity_title"
-            app:secondaryText="Pithy introduction to the App editor task list that can be encapsulated in a blurb."
+            app:secondaryText="@string/description_edit_tutorial_message"
             app:tertiaryText="@string/description_edit_tutorial_promise" />
 
         <View
