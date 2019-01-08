@@ -32,6 +32,9 @@ import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.TabCountsView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -56,7 +59,7 @@ public class TabActivity extends BaseActivity {
     private TabListener tabListener = new TabListener();
     private TabFunnel funnel = new TabFunnel();
     private boolean cancelled = true;
-    private long tabRemovedTimeMillis;
+    private long tabUpdatedTimeMillis;
 
     @Nullable private static Bitmap FIRST_TAB_BITMAP;
 
@@ -229,10 +232,7 @@ public class TabActivity extends BaseActivity {
                 alert.setMessage(R.string.close_all_tabs_confirm);
                 alert.setPositiveButton(R.string.close_all_tabs_confirm_yes, (dialog, which) -> {
                     tabSwitcher.clear();
-                    app.getTabList().clear();
                     cancelled = false;
-                    setResult(RESULT_LOAD_FROM_BACKSTACK);
-                    finish();
                 });
                 alert.setNegativeButton(R.string.close_all_tabs_confirm_no, null);
                 alert.create().show();
@@ -273,6 +273,16 @@ public class TabActivity extends BaseActivity {
         snackbar.show();
     }
 
+    private void showUndoAllSnackbar(@NonNull final Tab[] tabs, @NonNull List<org.wikipedia.page.tabs.Tab> appTabs) {
+        Snackbar snackbar = FeedbackUtil.makeSnackbar(this, getString(R.string.all_tab_items_closed), FeedbackUtil.LENGTH_DEFAULT);
+        snackbar.setAction(R.string.reading_list_item_delete_undo, v -> {
+            app.getTabList().addAll(appTabs);
+            tabSwitcher.addAllTabs(tabs);
+            appTabs.clear();
+        });
+        snackbar.show();
+    }
+
     private class TabListener implements TabSwitcherListener {
         @Override public void onSwitcherShown(@NonNull TabSwitcher tabSwitcher) { }
 
@@ -290,8 +300,8 @@ public class TabActivity extends BaseActivity {
             tabCountsView.setTabCount(app.getTabCount());
             cancelled = false;
 
-            final int tabRemoveDebounceMillis = 250;
-            if (System.currentTimeMillis() - tabRemovedTimeMillis > tabRemoveDebounceMillis) {
+            final int tabUpdateDebounceMillis = 250;
+            if (System.currentTimeMillis() - tabUpdatedTimeMillis > tabUpdateDebounceMillis) {
                 funnel.logSelect(app.getTabCount(), tabIndex);
                 setResult(RESULT_LOAD_FROM_BACKSTACK);
                 finish();
@@ -301,6 +311,7 @@ public class TabActivity extends BaseActivity {
         @Override
         public void onTabAdded(@NonNull TabSwitcher tabSwitcher, int index, @NonNull Tab tab, @NonNull Animation animation) {
             tabCountsView.setTabCount(app.getTabCount());
+            tabUpdatedTimeMillis = System.currentTimeMillis();
         }
 
         @Override
@@ -312,12 +323,19 @@ public class TabActivity extends BaseActivity {
             tabCountsView.setTabCount(app.getTabCount());
             setResult(RESULT_LOAD_FROM_BACKSTACK);
             showUndoSnackbar(tab, index, appTab, tabIndex);
-            tabRemovedTimeMillis = System.currentTimeMillis();
+            tabUpdatedTimeMillis = System.currentTimeMillis();
         }
 
         @Override
         public void onAllTabsRemoved(@NonNull TabSwitcher tabSwitcher, @NonNull Tab[] tabs, @NonNull Animation animation) {
             L.d("All tabs removed.");
+            List<org.wikipedia.page.tabs.Tab> appTabs = new ArrayList<>(app.getTabList());
+
+            app.getTabList().clear();
+            tabCountsView.setTabCount(0);
+            setResult(RESULT_LOAD_FROM_BACKSTACK);
+            showUndoAllSnackbar(tabs, appTabs);
+            tabUpdatedTimeMillis = System.currentTimeMillis();
         }
     }
 }
