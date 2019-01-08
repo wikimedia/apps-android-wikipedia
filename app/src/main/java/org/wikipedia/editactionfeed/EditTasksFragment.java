@@ -25,6 +25,7 @@ import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
 import org.wikipedia.views.CircularProgressBar;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
+import org.wikipedia.views.FooterMarginItemDecoration;
 import org.wikipedia.views.HeaderMarginItemDecoration;
 
 import java.util.ArrayList;
@@ -72,6 +73,8 @@ public class EditTasksFragment extends Fragment {
         tasksRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         final int topDecorationDp = 16;
         tasksRecyclerView.addItemDecoration(new HeaderMarginItemDecoration(topDecorationDp, 0));
+        tasksRecyclerView.addItemDecoration(new FooterMarginItemDecoration(0, topDecorationDp));
+
         setUpTasks();
         RecyclerAdapter adapter = new RecyclerAdapter(tasks);
         tasksRecyclerView.setAdapter(adapter);
@@ -133,16 +136,6 @@ public class EditTasksFragment extends Fragment {
             }
         });
 
-        EditTask imageCaptionEditTask = new EditTask();
-        imageCaptionEditTask.setTitle(getString(R.string.image_caption_task_title));
-        imageCaptionEditTask.setDescription(getString(R.string.image_caption_task_description));
-        imageCaptionEditTask.setImagePlaceHolderShown(true);
-        imageCaptionEditTask.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_image_gray_24dp));
-        imageCaptionEditTask.setDisabled(true);
-        imageCaptionEditTask.setDisabledDescriptionText(String.format(getString(R.string.image_caption_edit_disable_text), 50));
-        tasks.add(imageCaptionEditTask);
-        callbacks.add(null);
-
         if (Prefs.showMultilingualTask()) {
             EditTask multilingualTask = new EditTask();
             multilingualTask.setTitle(getString(R.string.multilingual_task_title));
@@ -176,6 +169,28 @@ public class EditTasksFragment extends Fragment {
                 }
             });
         }
+
+        EditTask imageCaptionEditTask = new EditTask();
+        imageCaptionEditTask.setTitle(getString(R.string.image_caption_task_title));
+        imageCaptionEditTask.setDescription(getString(R.string.image_caption_task_description));
+        imageCaptionEditTask.setImagePlaceHolderShown(true);
+        imageCaptionEditTask.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_icon_caption_images));
+        imageCaptionEditTask.setDisabled(true);
+        imageCaptionEditTask.setDisabledDescriptionText(String.format(getString(R.string.image_caption_edit_disable_text), 50));
+        tasks.add(imageCaptionEditTask);
+        callbacks.add(null);
+
+        EditTask imageCaptionTranslationEditTask = new EditTask();
+        imageCaptionTranslationEditTask.setTitle(getString(R.string.translate_caption_task_title));
+        imageCaptionTranslationEditTask.setDescription(getString(R.string.translate_caption_task_description));
+        imageCaptionTranslationEditTask.setImagePlaceHolderShown(true);
+        imageCaptionTranslationEditTask.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_icon_translate_title_descriptions));
+        imageCaptionTranslationEditTask.setDisabled(true);
+        imageCaptionTranslationEditTask.setDisabledDescriptionText(String.format(getString(R.string.image_caption_edit_disable_text), 50));
+        tasks.add(imageCaptionTranslationEditTask);
+        callbacks.add(null);
+
+
     }
 
     @Override

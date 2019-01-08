@@ -564,7 +564,6 @@
   <string name="description_edit_text_hint">Hint text that is shown when the description field is empty.</string>
   <string name="description_edit_save">Hint for the button that is pressed for saving the new description.\n{{Identical|Publish}}</string>
   <string name="description_edit_add_description">Label that prompts the user to add a description to an article that does not yet have one.</string>
-  <string name="description_edit_translate_description">Label that prompts the user to translate a description of an article from one language to another.</string>
   <string name="description_edit_edit_description">Label that prompts the user to edit the description of an article that already has one.</string>
   <string name="description_edit_cancel_hint">Hint for button that cancels editing of the current description.\n{{Identical|Cancel}}</string>
   <string name="description_edit_help_title">Title at the top of the screen that shows additional help and information about editing descriptions.</string>
@@ -696,4 +695,6 @@
   <string name="add_translate_descriptions_dialog_title">Title text of the dialog shown to editors before their first time  translating descriptions.</string>
   <string name="add_translate_descriptions_dialog_message">Message text in the dialog shown to editors before their first time translating descriptions.</string>
   <string name="description_edit_tutorial_message">Concise on-boarding message to the app editor task list.</string>
+  <string name="translate_caption_task_title">Image caption translation tasks heading.</string>
+  <string name="translate_caption_task_description">Image caption translation tasks explanation given to user.</string>
 </resources>
