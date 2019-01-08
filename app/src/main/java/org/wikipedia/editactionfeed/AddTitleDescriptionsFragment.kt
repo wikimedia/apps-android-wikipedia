@@ -45,9 +45,10 @@ class AddTitleDescriptionsFragment : Fragment() {
     private var funnel: RandomizerFunnel? = null
     private val disposables = CompositeDisposable()
     private val app = WikipediaApp.getInstance()
-    private var languageList: MutableList<String?> = mutableListOf()
-    private var languageToList: MutableList<String?> = mutableListOf()
-    private var languageCodesToList: MutableList<String?> = arrayListOf()
+    private var siteMatrix: SiteMatrix? = null
+    private var languageList: MutableList<String> = mutableListOf()
+    private var languageToList: MutableList<String> = mutableListOf()
+    private var languageCodesToList: MutableList<String> = arrayListOf()
     var langFromCode: String = app.language().appLanguageCode
     var langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
     var source: Int = SOURCE_ADD_DESCRIPTIONS
@@ -112,6 +113,18 @@ class AddTitleDescriptionsFragment : Fragment() {
             }
         }
 
+        arrows.setOnClickListener {
+            val pos = languageList.indexOf(languageToList[wikiToLanguageSpinner.selectedItemPosition])
+            val prevFromLang = languageList[wikiFromLanguageSpinner.selectedItemPosition]
+            wikiFromLanguageSpinner.setSelection(pos)
+            val postDelay: Long = 100
+            wikiToLanguageSpinner.postDelayed({
+                if (isAdded) {
+                    wikiToLanguageSpinner.setSelection(languageToList.indexOf(prevFromLang))
+                }
+            }, postDelay)
+        }
+
         showOnboarding()
     }
 
@@ -166,33 +179,31 @@ class AddTitleDescriptionsFragment : Fragment() {
         disposables.add(ServiceFactory.get(app.wikiSite).siteMatrix
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map { SiteMatrix.getSites(it) }
+                .map { siteMatrix = it; }
                 .doFinally { updateFromLanguageSpinner() }
-                .subscribe({ sites ->
+                .subscribe({
                     for (code in app.language().appLanguageCodes) {
                         // TODO: confirm: do we have to show the "WIKIPEDIA" text after the language name?
-                        languageList.add(getLanguageCanonicalName(sites, code))
+                        languageList.add(getLanguageLocalName(code))
                     }
                 }, { L.e(it) }))
     }
 
-    private fun getLanguageCanonicalName(sites: List<SiteMatrix.SiteInfo>, code: String): String {
-        var canonicalName: String? = null
-        for (info in sites) {
+    private fun getLanguageLocalName(code: String): String {
+        if (siteMatrix == null) {
+            return app.language().getAppLanguageLocalizedName(code)!!
+        }
+        var name: String? = null
+        for (info in SiteMatrix.getSites(siteMatrix!!)) {
             if (code == info.code()) {
-                canonicalName = info.localName()
+                name = info.name()
                 break
             }
         }
-        if (TextUtils.isEmpty(canonicalName)) {
-            canonicalName = app.language().getAppLanguageCanonicalName(code)
+        if (TextUtils.isEmpty(name)) {
+            name = app.language().getAppLanguageLocalizedName(code)
         }
-
-        if (canonicalName == null) {
-            canonicalName = code
-        }
-
-        return canonicalName
+        return name ?: code
     }
 
     private fun resetTitleDescriptionItemAdapter() {
@@ -228,7 +239,7 @@ class AddTitleDescriptionsFragment : Fragment() {
         languageCodesToList.removeAt(fromLanguageSpinnerPosition)
         languageToList.clear()
         for (language in languageCodesToList) {
-            languageToList.add(app.language().getAppLanguageLocalizedName(language))
+            languageToList.add(getLanguageLocalName(language))
         }
 
         val toAdapter = ArrayAdapter<String>(requireContext(), R.layout.item_language_spinner, languageToList)
@@ -236,7 +247,7 @@ class AddTitleDescriptionsFragment : Fragment() {
 
         val pos = languageCodesToList.indexOf(langToCode)
         if (pos < 0) {
-            langToCode = languageCodesToList[0]!!
+            langToCode = languageCodesToList[0]
         } else {
             wikiToLanguageSpinner.setSelection(pos)
         }
@@ -258,7 +269,7 @@ class AddTitleDescriptionsFragment : Fragment() {
     private inner class OnToSpinnerItemSelectedListener : AdapterView.OnItemSelectedListener {
         override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
             if (langToCode != languageCodesToList[position]) {
-                langToCode = languageCodesToList[position]!!
+                langToCode = languageCodesToList[position]
                 resetTitleDescriptionItemAdapter()
             }
         }
