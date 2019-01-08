@@ -35,7 +35,7 @@ object MissingDescriptionProvider {
                 .retry { t: Throwable -> t is ListEmptyException }
     }
 
-    fun getNextArticleWithMissingDescription(sourceWiki: WikiSite, targetLang: String, sourceLangMustExist: Boolean): Observable<Pair<RbPageSummary, RbPageSummary>> {
+    fun getNextArticleWithMissingDescription(sourceWiki: WikiSite, targetLang: String, sourceLangMustExist: Boolean): Observable<Pair<String, RbPageSummary>> {
         val targetWiki = WikiSite.forLanguageCode(targetLang)
 
         return ServiceFactory.get(sourceWiki).randomWithPageProps
@@ -50,35 +50,34 @@ object MissingDescriptionProvider {
                     ServiceFactory.get(WikiSite(Service.WIKIDATA_URL))
                             .getWikidataLabelsAndDescriptions(StringUtils.join(qNumbers, '|'))
                 }
-                .map<Pair<PageTitle, PageTitle>> { response ->
-                    var sourceAndTargetPageTitles: Pair<PageTitle, PageTitle>? = null
-
+                .map<Pair<String, PageTitle>> { response ->
+                    var sourceDescriptionAndTargetTitle: Pair<String, PageTitle>? = null
                     for (q in response.entities()!!.keys) {
                         val entity = response.entities()!![q]
-                        if (entity == null || !entity.labels().containsKey(sourceWiki.languageCode())
+                        if (entity == null
                                 || entity.descriptions().containsKey(targetLang)
                                 || sourceLangMustExist && !entity.descriptions().containsKey(sourceWiki.languageCode())
                                 || !entity.sitelinks().containsKey(sourceWiki.dbName())
                                 || !entity.sitelinks().containsKey(targetWiki.dbName())) {
                             continue
                         }
-                        sourceAndTargetPageTitles = Pair(PageTitle(entity.sitelinks()[sourceWiki.dbName()]!!.title, sourceWiki),
+                        sourceDescriptionAndTargetTitle = Pair(entity.descriptions()[sourceWiki.languageCode()]!!.value(),
                                 PageTitle(entity.sitelinks()[targetWiki.dbName()]!!.title, targetWiki))
                         break
                     }
-                    if (sourceAndTargetPageTitles == null) {
+                    if (sourceDescriptionAndTargetTitle == null) {
                         throw ListEmptyException()
                     }
-                    sourceAndTargetPageTitles
+                    sourceDescriptionAndTargetTitle
                 }
-                .flatMap { sourceAndTargetPageTitles: Pair<PageTitle, PageTitle> -> getSummary(sourceAndTargetPageTitles) }
+                .flatMap { sourceAndTargetPageTitles: Pair<String, PageTitle> -> getSummary(sourceAndTargetPageTitles) }
                 .retry { t: Throwable -> t is ListEmptyException }
     }
 
-    private fun getSummary(titles: Pair<PageTitle, PageTitle>): Observable<Pair<RbPageSummary, RbPageSummary>> {
-        return Observable.zip(ServiceFactory.getRest(titles.first.wikiSite).getSummary(null, titles.first.prefixedText),
+    private fun getSummary(titles: Pair<String, PageTitle>): Observable<Pair<String, RbPageSummary>> {
+        return Observable.zip(Observable.just(titles.first),
                 ServiceFactory.getRest(titles.second.wikiSite).getSummary(null, titles.second.prefixedText),
-                BiFunction<RbPageSummary, RbPageSummary, Pair<RbPageSummary, RbPageSummary>> { source, target -> Pair(source, target) })
+                BiFunction<String, RbPageSummary, Pair<String, RbPageSummary>> { source, target -> Pair(source, target) })
     }
 
     private class ListEmptyException : RuntimeException()
