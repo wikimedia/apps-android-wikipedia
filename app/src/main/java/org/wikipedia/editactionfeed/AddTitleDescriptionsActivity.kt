@@ -19,6 +19,8 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar!!.elevation = 0f
+        supportActionBar!!.title = getString(if (intent.getIntExtra(EXTRA_SOURCE, SOURCE_ADD_DESCRIPTIONS) == SOURCE_ADD_DESCRIPTIONS)
+            R.string.editactionfeed_add_title_descriptions else R.string.editactionfeed_translate_descriptions)
     }
 
     override fun createFragment(): AddTitleDescriptionsFragment {

@@ -593,7 +593,8 @@
   <string name="description_edit_help_tips_example2_hint">Title description for the article mentioned in {{msg-wikimedia|Wikipedia-android-strings-description edit help tips example2\"}}</string>
   <string name="description_edit_help_more_info">Heading for further information about descriptions.\n{{Identical|More information}}</string>
   <string name="description_edit_help_meta_info">Meta information about Wikidata descriptions and their role in Wikimedia Foundation projects.</string>
-  <string name="editactionfeed_add_title_descriptions">Title of the add title descriptions page.</string>
+  <string name="editactionfeed_add_title_descriptions">Title of screen where the user chooses articles that are missing descriptions to be added.</string>
+  <string name="editactionfeed_translate_descriptions">Title of screen where the user chooses descriptions to translate from one article to another.</string>
   <string name="editactionfeed_review_title_description">Title of the review title description page.</string>
   <string name="editactionfeed_add_description_button">A button text for adding description.</string>
   <string name="editactionfeed_my_contributions">A overflow menu text that leads to my contributions page</string>
