@@ -23,6 +23,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static org.wikipedia.Constants.ACTION_DESCRIPTION_EDIT_UNLOCK_THRESHOLD;
+
 public class MainDrawerView extends ScrollView {
     public interface Callback {
         void loginLogoutClick();
@@ -70,9 +72,10 @@ public class MainDrawerView extends ScrollView {
             accountAvatar.setVisibility(View.VISIBLE);
             accountWikiGlobe.setVisibility(View.GONE);
             notificationsContainer.setVisibility(View.VISIBLE);
-            if (ReleaseUtil.isPreBetaRelease()) {
+            if (ReleaseUtil.isPreBetaRelease() && Prefs.getTotalUserDescriptionsEdited() >= ACTION_DESCRIPTION_EDIT_UNLOCK_THRESHOLD) {
                 editTasksContainer.setVisibility(VISIBLE);
             }
+            maybeShowIndicatorDots();
         } else {
             accountNameView.setVisibility(GONE);
             loginLogoutButton.setText(getContext().getString(R.string.main_drawer_login));

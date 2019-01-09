@@ -150,6 +150,7 @@
                 android:layout_gravity="end"
                 android:contentDescription="@null"
                 android:tint="?attr/colorAccent"
+                android:visibility="gone"
                 app:srcCompat="@drawable/shape_circle" />
         </FrameLayout>
 
