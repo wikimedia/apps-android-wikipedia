@@ -84,7 +84,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
                     }, { this.setErrorState(it) }))
         } else {
             disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode), parent().langToCode, true).subscribeOn(Schedulers.io())?.observeOn(AndroidSchedulers.mainThread())?.subscribe({ pair ->
-                sourceDescription = StringUtils.defaultString(pair.first.description)
+                sourceDescription = StringUtils.defaultString(pair.first)
                 if (pagerPosition == 0) {
                     updateSourceDescriptionWithHighlight()
                 }

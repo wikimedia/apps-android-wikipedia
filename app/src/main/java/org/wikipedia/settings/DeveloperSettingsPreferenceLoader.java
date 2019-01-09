@@ -195,8 +195,8 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(pair -> new AlertDialog.Builder(getActivity())
-                                            .setTitle(StringUtil.fromHtml(pair.getFirst().getDisplayTitle()))
-                                            .setMessage(StringUtil.fromHtml(pair.getFirst().getDescription()))
+                                            .setTitle(StringUtil.fromHtml(pair.getSecond().getDisplayTitle()))
+                                            .setMessage(StringUtil.fromHtml(pair.getSecond().getDescription()))
                                             .setPositiveButton("Go", (dialog, which) -> {
                                                 PageTitle title = new PageTitle(pair.getSecond().getNormalizedTitle(), WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getAppLanguageCodes().get(1)));
                                                 getActivity().startActivity(PageActivity.newIntentForNewTab(getActivity(), new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title));

@@ -196,7 +196,12 @@ class AddTitleDescriptionsFragment : Fragment() {
     }
 
     private fun resetTitleDescriptionItemAdapter() {
-        addTitleDescriptionsItemPager.adapter = ViewPagerAdapter(requireActivity() as AppCompatActivity)
+        val postDelay: Long = 250
+        wikiToLanguageSpinner.postDelayed({
+            if (isAdded) {
+                addTitleDescriptionsItemPager.adapter = ViewPagerAdapter(requireActivity() as AppCompatActivity)
+            }
+        }, postDelay)
     }
 
     private fun setInitialUiState() {
