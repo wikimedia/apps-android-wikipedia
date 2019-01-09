@@ -171,6 +171,13 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=0&grnlimit=50&prop=pageprops|description")
     @NonNull Observable<MwQueryResponse> getRandomWithPageProps();
 
+    @GET(MW_API_PREFIX + "action=query&prop=categories&clprop=hidden&cllimit=500")
+    @NonNull Observable<MwQueryResponse> getCategories(@NonNull @Query("titles") String titles);
+
+    @GET(MW_API_PREFIX + "action=query&list=categorymembers&cmlimit=500")
+    @NonNull Observable<MwQueryResponse> getCategoryMembers(@NonNull @Query("cmtitle") String title,
+                                                            @Nullable @Query("cmcontinue") String continueStr);
+
 
     // ------- CSRF, Login, and Create Account -------
 
