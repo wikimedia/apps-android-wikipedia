@@ -210,6 +210,8 @@
   <string name="edit_preview">Header text to show above the preview of the edited article.\n{{Identical|Preview}}</string>
   <string name="edit_undo">Button label to undo the previous text that was typed.</string>
   <string name="edit_redo">Button label to redo the previous text that was typed.</string>
+  <string name="edit_zoom_in">Button label to increase the text size in the editor window.</string>
+  <string name="edit_zoom_out">Button label to decrease the text size in the editor window.</string>
   <string name="edit_summary_tag_typo">Clickable summary tag for fixing a typo</string>
   <string name="edit_summary_tag_grammar">Clickable summary tag for fixing grammar</string>
   <string name="edit_summary_tag_links">Clickable summary tag for adding link(s)</string>

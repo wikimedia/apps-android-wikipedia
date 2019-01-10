@@ -754,6 +754,14 @@ public final class Prefs {
         setBoolean(R.string.preference_key_reading_lists_first_time_sync, value);
     }
 
+    public static int getEditingTextSizeExtra() {
+        return getInt(R.string.preference_key_editing_text_size_extra, 0);
+    }
+
+    public static void setEditingTextSizeExtra(int extra) {
+        setInt(R.string.preference_key_editing_text_size_extra, extra);
+    }
+
     public static boolean isMultilingualSearchTutorialEnabled() {
         return getBoolean(R.string.preference_key_multilingual_search_tutorial_enabled, true);
     }

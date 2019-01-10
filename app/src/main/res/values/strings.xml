@@ -200,6 +200,8 @@
     <string name="edit_preview">Preview</string>
     <string name="edit_undo">Undo</string>
     <string name="edit_redo">Redo</string>
+    <string name="edit_zoom_in">Zoom in</string>
+    <string name="edit_zoom_out">Zoom out</string>
     <string name="edit_summary_tag_typo">Fixed typo</string>
     <string name="edit_summary_tag_grammar">Fixed grammar</string>
     <string name="edit_summary_tag_links">Added links</string>
