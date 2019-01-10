@@ -272,6 +272,7 @@
   <string name="close_all_tabs_confirm_no">Ne</string>
   <string name="button_close_tab">Zavřít záložku</string>
   <string name="tab_item_closed">%s zavřena.</string>
+  <string name="all_tab_items_closed">Všechny záložky zavřeny.</string>
   <string name="tool_tip_bookmark_icon_title">Přidat do seznamu k přečtení</string>
   <string name="tool_tip_bookmark_icon_text">Klepnutím na ikonu záložek uložíte článek do seznamu k přečtení.</string>
   <string name="tool_tip_share">Po zvýraznění zajímavého faktu jej zkuste sdílet na své oblíbené síti!</string>
@@ -556,6 +557,7 @@
   <string name="description_edit_text_hint">Popis článku</string>
   <string name="description_edit_save">Zveřejnit</string>
   <string name="description_edit_add_description">Přidat popis článku</string>
+  <string name="description_edit_translate_description" fuzzy="true">Překládat popisy članků</string>
   <string name="description_edit_edit_description">Upravit popis</string>
   <string name="description_edit_cancel_hint">Zrušit</string>
   <string name="description_edit_help_title">Nápověda: popis článku</string>
@@ -595,6 +597,7 @@
   <string name="editactionfeed_my_contributions">Mé příspěvky</string>
   <string name="editactionfeed_from_language">Jazyk:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Další informace</string>
+  <string name="editactionfeed_to_language">Do:</string>
   <string name="description_edit_revert_subtitle">Děkujeme za editaci Wikipedie!</string>
   <string name="description_edit_revert_intro">Víme, že jste se snažili o to nejlepší, ale jeden z wikipedistů měl obavy. Možné důvody vrácení vaší editace jsou:</string>
   <string name="description_edit_revert_reason1">váš příspěvek nedodržel některé z &lt;a href=\"%1$s\"&gt;pravidel&lt;/a&gt;.</string>
@@ -670,11 +673,12 @@
   <string name="image_caption_task_title">Popisy obrázků</string>
   <string name="image_caption_task_description">Přidat popisy k obrázkům</string>
   <string name="multilingual_task_title">Více úkolů pro vícejazyčné editory</string>
-  <string name="multilingual_task_description">Tipy k překladu jsou k dispozici, pokud čtete a píšete ve více než jednom jazyce Wikipedie.</string>
+  <string name="multilingual_task_description">Tipy k překladu budou k dispozici, pokud čtete a píšete ve více než jednom jazyce Wikipedie.</string>
   <string name="image_caption_edit_disable_text">Zamknuto, dokud neprovedete %d ověřených editací v aplikaci</string>
   <string name="multilingual_task_negative">Není pro mě</string>
   <string name="multilingual_task_positive">Přidat jazyky</string>
   <string name="editing_level_text">ÚROVEŇ %d editora z aplikace</string>
+  <string name="translation_source_description">%s popis:</string>
   <plurals name="edit_action_contribution_count">
     <item quantity="one">příspěvek v aplikaci</item>
     <item quantity="other">příspěvků v aplikaci</item>

@@ -8,6 +8,7 @@
 * Rasal Lia
 * Sandipan
 * Sayma Jahan
+* Tahmid02016
 * Tauhid16
 * Wikisagnik
 * আজিজ
@@ -19,6 +20,8 @@
   <string name="app_name_beta">উইকিপিডিয়া বেটা</string>
   <string name="app_name_alpha">উইকিপিডিয়া আলফা</string>
   <string name="wikimedia">উইকিমিডিয়া</string>
+  <string name="nav_item_back">পিছনে যান</string>
+  <string name="nav_item_forward">সামনে যান</string>
   <string name="search_hint">উইকিপিডিয়া অনুসন্ধান</string>
   <string name="search_hint_search_history">ইতিহাস অনুসন্ধান করুন</string>
   <string name="search_hint_search_my_lists">আমার তালিকায় অনুসন্ধান করুন</string>
@@ -125,6 +128,7 @@
   <string name="create_account_generic_error">অ্যাকাউন্ট তৈরী করা যাচ্ছে না</string>
   <string name="create_account_next">পরবর্তী</string>
   <string name="email_recommendation_dialog_title">কোন ইমেল ঠিকানা ছাড়াই অ্যাকাউন্ট তৈরি করবেন?</string>
+  <string name="email_recommendation_dialog_create_without_email_action">ইমেইল ছাড়াই চালিয়ে যান</string>
   <string name="email_recommendation_dialog_create_with_email_action">একটি ইমেইল ঠিকানা যোগ করুন</string>
   <string name="create_account_button">অ্যাকাউন্ট তৈরি করুন</string>
   <string name="create_account_name_unavailable">\"%s\" নামে কোনো ব্যবহারকারী উপলব্ধ নেই। দয়া করে অন্য কোনো নাম বাছুন।</string>
@@ -259,6 +263,7 @@
   <string name="address_copied">ঠিকানা ক্লিপবোর্ডে অনুলিপি হয়েছে।</string>
   <string name="text_copied">লেখা ক্লিপবোর্ডে অনুলিপি হয়েছে।</string>
   <string name="button_continue_to_article">নিবন্ধ পড়ুন</string>
+  <string name="button_continue_to_disambiguation">অনুরূপ পাতা দেখুন</string>
   <string name="button_add_to_reading_list">পড়ার তালিকায় যোগ করুন</string>
   <string name="page_offline_notice_cannot_load_while_offline">নিবন্ধ অফলাইনে থাকাকালীন সময়ে লোড করা যাবে না।</string>
   <string name="page_offline_notice_add_to_reading_list">ইঙ্গিত: নিবন্ধটিকে পড়ার তালিকায় যোগ করে ও আপনি অনলাইনে আসলে এটি ডাউনলোড করা হবে।</string>
@@ -397,11 +402,20 @@
     <item quantity="one">%1$dটি তালিকা বাকী</item>
     <item quantity="other">%1$dটি তালিকা বাকী</item>
   </plurals>
+  <string name="notification_echo_channel_description">উইকিপিডিয়া বিজ্ঞপ্তি</string>
+  <string name="notifications_activity_title">বিজ্ঞপ্তি</string>
+  <string name="notifications_activity_title_archived">বিজ্ঞপ্তি (আর্কাইভকৃত)</string>
+  <string name="notifications_search">বিজ্ঞপ্তি অনুসন্ধান করুন</string>
+  <string name="notifications_view_unread">অপঠিতগুলো দেখান</string>
+  <string name="notifications_view_archived">আর্কাইভকৃতগুলো দেখান</string>
+  <string name="notifications_prefs">বিজ্ঞপ্তির পছন্দসমূহ</string>
+  <string name="notifications_archive">পঠিত এবং আর্কাইভকৃত হিসেবে চিহ্নিত করুন</string>
   <string name="notifications_poll_enable_title">বিজ্ঞপ্তি সক্রিয় করুন</string>
   <string name="notifications_poll_enable_positive">সক্ষম করুন</string>
   <string name="notifications_poll_enable_negative">এখন নয়</string>
   <string name="notifications_view_archived_button_text">সংরক্ষণাগারভুক্ত বিজ্ঞপ্তিগুলি দেখুন</string>
   <string name="notification_preferences_title">বিজ্ঞপ্তির পছন্দসমূহ</string>
+  <string name="notifications_mark_unread">অপঠিত হিসেবে চিহ্নিত করুন</string>
   <string name="preference_title_notification_welcome">স্বাগতম</string>
   <string name="preference_summary_notification_welcome">একটি অ্যাকাউন্ট তৈরি করা হয়েছে</string>
   <string name="preference_title_notification_milestone">মাইলফলক</string>
@@ -482,6 +496,11 @@
   <string name="description_edit_help_tips_example2">বিশ্বের সর্ব্বোচ্চ পর্বত</string>
   <string name="description_edit_help_tips_example2_hint">মাউন্ট এভারেস্ট সম্বন্ধীয় একটি নিবন্ধের জন্য শিরোনাম বর্ণনা</string>
   <string name="description_edit_help_more_info">আরও তথ্য</string>
+  <string name="editactionfeed_add_description_button">বিবরণ যোগ করুন</string>
+  <string name="editactionfeed_my_contributions">আমার অবদান</string>
+  <string name="editactionfeed_from_language">প্রেরক:</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">আরও জানুন</string>
+  <string name="editactionfeed_to_language">প্রাপক:</string>
   <string name="description_edit_revert_subtitle">উইকিপিডিয়ায় সম্পাদনা করার জন্য ধন্যবাদ!</string>
   <string name="description_edit_revert_reason1">আপনার অবদান &lt;a href=\"%1$s\"&gt;নীতিমালা&lt;/a&gt; অনুসরণ করেনি।</string>
   <string name="description_edit_revert_reason2">আপনার অবদান পরীক্ষামূলক বা ধ্বংসপ্রবণতামূলক বলে মনে হচ্ছে।</string>
@@ -534,4 +553,10 @@
   <string name="add_wikipedia_languages_text">উইকিপিডিয়ার ভাষা যোগ করুন</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ভাষা সম্পাদনা করুন</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">না ধন্যবাদ</string>
+  <string name="main_drawer_open">খুলুন</string>
+  <string name="main_drawer_close">বন্ধ করুন</string>
+  <string name="main_drawer_help">সাহায্য</string>
+  <string name="main_drawer_login">উইকিপিডিয়াতে প্রবেশ করুন/যোগ দিন</string>
+  <string name="multilingual_task_negative">আমার জন্য নয়</string>
+  <string name="multilingual_task_positive">ভাষা যোগ করুন</string>
 </resources>

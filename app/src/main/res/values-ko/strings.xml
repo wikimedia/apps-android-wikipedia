@@ -549,6 +549,7 @@
   <string name="description_edit_text_hint">제목 설명</string>
   <string name="description_edit_save">게시</string>
   <string name="description_edit_add_description">제목 설명 추가</string>
+  <string name="description_edit_translate_description" fuzzy="true">제목 설명 번역하기</string>
   <string name="description_edit_edit_description">설명 편집</string>
   <string name="description_edit_cancel_hint">취소</string>
   <string name="description_edit_help_title">도움말: 제목 설명</string>
@@ -660,6 +661,7 @@
   <string name="multilingual_task_description">둘 이상의 위키백과 언어로 읽고 쓰는 경우에 번역 작업이 가능합니다.</string>
   <string name="multilingual_task_positive">언어 추가</string>
   <string name="editing_level_text">레벨 %d 앱 편집기</string>
+  <string name="translation_source_description">%s 설명:</string>
   <plurals name="edit_action_contribution_count">
     <item quantity="one">인앱 기여</item>
     <item quantity="other">인앱 기여</item>

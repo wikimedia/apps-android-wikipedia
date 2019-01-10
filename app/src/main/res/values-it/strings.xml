@@ -274,6 +274,7 @@
   <string name="close_all_tabs_confirm_yes">Sì</string>
   <string name="close_all_tabs_confirm_no">No</string>
   <string name="button_close_tab">Chiudi scheda</string>
+  <string name="all_tab_items_closed">Tutte le schede chiuse</string>
   <string name="tool_tip_bookmark_icon_title">Aggiungi all\'elenco di lettura</string>
   <string name="tool_tip_share">Dopo aver evidenziato un dato interessante, prova a condividerlo sul tuo network preferito!</string>
   <string name="page_view_in_browser">Visualizza la pagina nel browser</string>
@@ -474,6 +475,7 @@
   <string name="description_edit_text_hint">Descrizione del titolo</string>
   <string name="description_edit_save">Pubblica</string>
   <string name="description_edit_add_description">Aggiungi una descrizione del titolo</string>
+  <string name="description_edit_translate_description">Traduci la descrizione del titolo</string>
   <string name="description_edit_edit_description">Modifica descrizione</string>
   <string name="description_edit_cancel_hint">Annulla</string>
   <string name="description_edit_help_title">Aiuto: descrizioni del titolo</string>
@@ -494,6 +496,7 @@
   <string name="description_edit_help_tips_example2">La montagna più alta della Terra</string>
   <string name="description_edit_help_tips_example2_hint">descrizione del titolo per un articolo sul Monte Everest</string>
   <string name="description_edit_help_more_info">Ulteriori informazioni</string>
+  <string name="editactionfeed_translate_descriptions">Traduci le descrizioni del titolo</string>
   <string name="editactionfeed_add_description_button">Aggiungi descrizione</string>
   <string name="editactionfeed_my_contributions">I miei contributi</string>
   <string name="editactionfeed_from_language">Da:</string>
@@ -555,4 +558,5 @@
   <string name="main_drawer_login">Entra / unisciti a Wikipedia</string>
   <string name="title_description_task_title">Aggiungi descrizioni del titolo</string>
   <string name="multilingual_task_positive">Aggiungi lingue</string>
+  <string name="translation_source_description">Descrizione in %s:</string>
 </resources>

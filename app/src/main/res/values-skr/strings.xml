@@ -253,6 +253,7 @@
   <string name="description_edit_help_more_info">ٻیاں معلومات</string>
   <string name="editactionfeed_from_language">توں:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">ٻیا سِکھو</string>
+  <string name="editactionfeed_to_language">کوں:</string>
   <string name="size_gb">%.2f جی بی</string>
   <string name="size_mb">%.2f ایم بی</string>
   <string name="onboarding_skip">چھوڑو</string>
@@ -278,4 +279,5 @@
   <string name="main_drawer_open">کھولو</string>
   <string name="main_drawer_close">بند کرو</string>
   <string name="main_drawer_help">مدد</string>
+  <string name="translation_source_description">%s وضاحت:</string>
 </resources>

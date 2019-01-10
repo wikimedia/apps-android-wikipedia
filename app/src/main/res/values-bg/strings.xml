@@ -567,6 +567,9 @@
   <string name="description_edit_help_tips_example2_hint">описание на заглавието на статия за връх Еверест</string>
   <string name="description_edit_help_more_info">Допълнителна информация</string>
   <string name="description_edit_help_meta_info">Описанията се складират и поддържат в Уикиданни, проект на Фондация Уикимедия, който предоставя безплатна, съвместна, вторична база от данни, спомагаща Уикипедия и други проекти.</string>
+  <string name="editactionfeed_add_title_descriptions">Добавяне на описания на заглавия</string>
+  <string name="editactionfeed_add_description_button">Добавяне на описание</string>
+  <string name="editactionfeed_my_contributions">Моите приноси</string>
   <string name="description_edit_revert_subtitle">Благодарим за редактирането на Уикипедия!</string>
   <string name="description_edit_revert_intro">Знаем, че дадохте всичко от себе си, но един от преглеждащите има забележка. Възможните причини за върната редакция включват:</string>
   <string name="description_edit_revert_reason1">вашият принос е в разрез с едно от &lt;a href=\"%1$s\"&gt;напътствията за описания&lt;/a&gt;.</string>
@@ -636,4 +639,6 @@
   <string name="main_drawer_close">Затваряне</string>
   <string name="main_drawer_help">Помощ</string>
   <string name="main_drawer_login">Влизане в / присъединяване към Уикипедия</string>
+  <string name="title_description_task_title">Добавяне на описания на заглавия</string>
+  <string name="multilingual_task_positive">Добавяне на езици</string>
 </resources>

@@ -550,6 +550,7 @@
   <string name="description_edit_text_hint">Titelbeskrivelse</string>
   <string name="description_edit_save">Offentliggør</string>
   <string name="description_edit_add_description">Tilføj titelbeskrivelse</string>
+  <string name="description_edit_translate_description">Oversæt titelbeskrivelse</string>
   <string name="description_edit_edit_description">Rediger beskrivelse</string>
   <string name="description_edit_cancel_hint">Annuller</string>
   <string name="description_edit_help_title">Hjælp: Titelbeskrivelser</string>
@@ -584,11 +585,13 @@
   <string name="description_edit_help_more_info">Flere oplysninger</string>
   <string name="description_edit_help_meta_info">Beskrivelser lagres og vedligeholdes på Wikidata, et projekt under Wikimedia Foundation, som stiller en gratis, kollaborativ, flersproget, sekundær database til rådighed til understøttelse af Wikipedia og andre projekter.</string>
   <string name="editactionfeed_add_title_descriptions">Tilføj titelbeskrivelser</string>
+  <string name="editactionfeed_translate_descriptions">Oversæt titelbeskrivelser</string>
   <string name="editactionfeed_review_title_description">Korrekturlæs titelbeskrivelse</string>
   <string name="editactionfeed_add_description_button">Tilføj beskrivelse</string>
   <string name="editactionfeed_my_contributions">Mine bidrag</string>
   <string name="editactionfeed_from_language">Fra:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Lær mere</string>
+  <string name="editactionfeed_to_language">Til:</string>
   <string name="description_edit_revert_subtitle">Tak for din redigering af Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi ved at du har gjort dit bedste, men en af korrekturlæserne havde en indvending. Blandt mulige årsager til at din redigering blev omgjort kan nævnes:</string>
   <string name="description_edit_revert_reason1">dit bidrag fulgte ikke en af &lt;a href=\"%1$s\"&gt;retningslinjerne&lt;/a&gt;.</string>

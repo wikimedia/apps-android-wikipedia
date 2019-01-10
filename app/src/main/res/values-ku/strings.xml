@@ -184,6 +184,7 @@
   <string name="close_all_tabs_confirm_yes">Erê</string>
   <string name="close_all_tabs_confirm_no">Na</string>
   <string name="button_close_tab">Hilpekînê bigre</string>
+  <string name="all_tab_items_closed">Hemû hilpekîn girtî ne.</string>
   <string name="format_error_server_message">Peyam:\"%s\"</string>
   <string name="button_continue_to_article">Gotarê bixwîne</string>
   <string name="nav_item_donate">Piştgiriyê bide Wîkîpediyayê</string>
@@ -233,6 +234,7 @@
   <string name="view_featured_article_footer_saved_button_label">Hat tomarkirin</string>
   <string name="description_edit_save">Biweșîne</string>
   <string name="description_edit_cancel_hint">Betal bike</string>
+  <string name="editactionfeed_to_language">Bo:</string>
   <string name="languages_list_activity_title">Zimaneke lê zêde bike</string>
   <string name="wikipedia_languages_title">Zimanên Wîkîpediyayê</string>
   <string name="wikipedia_languages_your_languages_text">Zimanên te</string>

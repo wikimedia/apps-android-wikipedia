@@ -252,4 +252,5 @@
   <string name="more_language_options">vairāk</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Labot valodas</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nē, paldies</string>
+  <string name="translation_source_description">%s apraksts:</string>
 </resources>

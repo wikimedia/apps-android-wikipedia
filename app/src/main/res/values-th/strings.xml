@@ -2,6 +2,7 @@
 <!-- Authors:
 * Aefgh39622
 * Ans
+* B20180
 * Bluegram
 * CodeNameBOSS
 * Geonuch
@@ -177,6 +178,7 @@
   <string name="menu_close_all_tabs">ปิดแท็บทั้งหมด</string>
   <string name="close_all_tabs_confirm">คุณแน่ใจว่าต้องการปิดแท็บทั้งหมด?</string>
   <string name="button_close_tab">ปิดแท็บ</string>
+  <string name="all_tab_items_closed">ปิดแท็บทั้งหมดแล้ว</string>
   <string name="page_view_in_browser">ดูหน้าในเบราว์เซอร์</string>
   <string name="tool_tip_lang_button">คุณสามารถค้นหาและอ่านในวิกิพีเดียหลายภาษาในแอปได้แล้ว\n\n\nแตะบนไอคอนเพื่อเพิ่มภาษาเพิ่มเติม</string>
   <string name="error_unknown">เกิดข้อผิดพลาดไม่ทราบสาเหตุ</string>
@@ -241,6 +243,8 @@
     <item quantity="other">%d วันที่ผ่านมา</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">วันนี้</string>
+  <string name="description_edit_translate_description">แปลคำอธิบายชื่อเรื่อง</string>
+  <string name="editactionfeed_translate_descriptions">แปลคำอธิบายชื่อเรื่อง</string>
   <string name="onboarding_skip">ข้าม</string>
   <string name="onboarding_explore_title">วิธีใหม่ในการสำรวจ</string>
   <string name="onboarding_analytics_title">ส่งข้อมูลแบบไม่ระบุตัวตน</string>

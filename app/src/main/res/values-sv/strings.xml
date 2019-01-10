@@ -266,6 +266,7 @@
   <string name="close_all_tabs_confirm_no">Nej</string>
   <string name="button_close_tab">Stäng flik</string>
   <string name="tab_item_closed">%s stängdes.</string>
+  <string name="all_tab_items_closed">Alla flikar stängdes.</string>
   <string name="tool_tip_bookmark_icon_title">Lägg till i läslista</string>
   <string name="tool_tip_bookmark_icon_text">Tryck på bokmärkesikonen för att spara artikeln i en läslista.</string>
   <string name="tool_tip_share">När du har markerat intressant fakta, prova att dela det på dina favoritnätverk!</string>
@@ -549,6 +550,7 @@
   <string name="description_edit_text_hint">Titelbeskrivning</string>
   <string name="description_edit_save">Publicera</string>
   <string name="description_edit_add_description">Lägg till titelbeskrivning</string>
+  <string name="description_edit_translate_description">Översätt titelbeskrivning</string>
   <string name="description_edit_edit_description">Redigera beskrivningen</string>
   <string name="description_edit_cancel_hint">Avbryt</string>
   <string name="description_edit_help_title">Hjälp: Titelbeskrivningar</string>
@@ -583,11 +585,13 @@
   <string name="description_edit_help_more_info">Mer information</string>
   <string name="description_edit_help_meta_info">Beskrivningar lagras och underhålls på Wikidata, ett projekt av Wikimedia Foundation som tillhandahåller en gratis, gemensam och flerspråkig sekundär databas för att stödja Wikipedia och andra projekt.</string>
   <string name="editactionfeed_add_title_descriptions">Lägg till titelbeskrivning</string>
+  <string name="editactionfeed_translate_descriptions">Översätt titelbeskrivningar</string>
   <string name="editactionfeed_review_title_description">Granska titelbeskrivningen</string>
   <string name="editactionfeed_add_description_button">Lägg till beskrivning</string>
   <string name="editactionfeed_my_contributions">Mina bidrag</string>
   <string name="editactionfeed_from_language">Från:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Läs mer</string>
+  <string name="editactionfeed_to_language">Till:</string>
   <string name="description_edit_revert_subtitle">Tack för att du redigerar på Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi vet att du försökte ditt bästa men en av korrekturläsarna hade en invändning. Möjliga anledningar till att din redigering gjordes om inkluderar:</string>
   <string name="description_edit_revert_reason1">ditt bidrag följde inte ett av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>
@@ -668,6 +672,7 @@
   <string name="multilingual_task_negative">Ingenting för mig</string>
   <string name="multilingual_task_positive">Lägg till språk</string>
   <string name="editing_level_text">NIVÅ %d appredigerare</string>
+  <string name="translation_source_description">Beskrivning på %s:</string>
   <plurals name="edit_action_contribution_count">
     <item quantity="one">bidrag i appen</item>
     <item quantity="other">bidrag i appen</item>

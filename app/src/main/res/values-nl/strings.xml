@@ -556,6 +556,7 @@
   <string name="description_edit_text_hint">Titelbeschrijving</string>
   <string name="description_edit_save">Publiceren</string>
   <string name="description_edit_add_description">Titelbeschrijving toevoegen</string>
+  <string name="description_edit_translate_description" fuzzy="true">Vertaal titelbeschrijvingen</string>
   <string name="description_edit_edit_description">Beschrijving bewerken</string>
   <string name="description_edit_cancel_hint">Annuleren</string>
   <string name="description_edit_help_title">Hulp: titelbeschrijvingen</string>
@@ -591,6 +592,7 @@
   <string name="editactionfeed_my_contributions">Mijn bijdragen</string>
   <string name="editactionfeed_from_language">Van:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">meer lezen</string>
+  <string name="editactionfeed_to_language">Naar:</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
   <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan hebt, maar een van de beoordelaars zag een punt van zorg. Mogelijke redenen waarom uw bewerking is teruggedraaid, zijn:</string>
   <string name="description_edit_revert_reason1">uw bijdrage valt niet onder één van de &lt;a href=\"%1$s\"&gt;richtlijnen&lt;/a&gt;.</string>
@@ -667,4 +669,5 @@
   <string name="multilingual_task_description">Vertalingstaken zijn beschikbaar wanneer u kunt lezen en schrijven in meer dan een Wikipedia taal.</string>
   <string name="multilingual_task_negative">Niet voor mij</string>
   <string name="multilingual_task_positive">Talen toevoegen</string>
+  <string name="translation_source_description">%s beschrijving:</string>
 </resources>

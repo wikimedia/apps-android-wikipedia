@@ -270,6 +270,7 @@
   <string name="close_all_tabs_confirm_no">No</string>
   <string name="button_close_tab">Tanca la pestanya</string>
   <string name="tab_item_closed">S\'ha tancat %s.</string>
+  <string name="all_tab_items_closed">S\'han tancat totes les pestanyes.</string>
   <string name="tool_tip_bookmark_icon_title">Afegeix a la llista de lectura</string>
   <string name="tool_tip_bookmark_icon_text">Fes un toc a la icona d\'adreces d\'interès per desar l\'article a la llista de lectura.</string>
   <string name="tool_tip_share">Després de destacar un fet interessant, proveu de compartir-lo a les vostres xarxes preferides!</string>
@@ -553,6 +554,7 @@
   <string name="description_edit_text_hint">Descripció de títol</string>
   <string name="description_edit_save">Publica</string>
   <string name="description_edit_add_description">Afegeix una descripció de títol</string>
+  <string name="description_edit_translate_description">Tradueix la descripció de títol</string>
   <string name="description_edit_edit_description">Modifica la descripció</string>
   <string name="description_edit_cancel_hint">Cancel·la</string>
   <string name="description_edit_help_title">Ajuda: descripcions dels títols</string>
@@ -587,11 +589,13 @@
   <string name="description_edit_help_more_info">Més informació</string>
   <string name="description_edit_help_meta_info">Les descripcions s\'emmagatzemen i mantenen a Wikidata, el projecte de la Fundació Wikimedia que proporciona una base de dades secundària lliure, col·laborativa i multilingüe per a donar suport a la Viquipèdia i a altres projectes.</string>
   <string name="editactionfeed_add_title_descriptions">Afegeix descripcions de títol</string>
+  <string name="editactionfeed_translate_descriptions">Traducció de les descripcions de títol</string>
   <string name="editactionfeed_review_title_description">Revisa la descripció de títol</string>
   <string name="editactionfeed_add_description_button">Afegeix una descripció</string>
   <string name="editactionfeed_my_contributions">Les meves contribucions</string>
   <string name="editactionfeed_from_language">De:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Més informació</string>
+  <string name="editactionfeed_to_language">A:</string>
   <string name="description_edit_revert_subtitle">Gràcies per editar a la Viquipèdia!</string>
   <string name="description_edit_revert_intro">Sabem que heu fet el millor possible, però un dels revisors tenia una precaució. Els motius possibles de la reversió de la modificació poden ser:</string>
   <string name="description_edit_revert_reason1">la vostra contribució no seguia una de les &lt;a href=\"%1$s\"&gt;directrius&lt;/a&gt;.</string>
@@ -672,6 +676,7 @@
   <string name="multilingual_task_negative">No per a mi</string>
   <string name="multilingual_task_positive">Afegeix llengües</string>
   <string name="editing_level_text">NIVELL %d d\'editor d\'aplicació</string>
+  <string name="translation_source_description">Descripció en %s:</string>
   <plurals name="edit_action_contribution_count">
     <item quantity="one">contribució en l\'aplicació</item>
     <item quantity="other">contribucions en l\'aplicació</item>

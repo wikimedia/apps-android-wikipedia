@@ -282,6 +282,7 @@
   <string name="close_all_tabs_confirm_no">Non</string>
   <string name="button_close_tab">Fermer l’onglet</string>
   <string name="tab_item_closed">%s fermé.</string>
+  <string name="all_tab_items_closed">Tous les onglets sont fermés.</string>
   <string name="tool_tip_bookmark_icon_title">Ajouter à la liste de lecture</string>
   <string name="tool_tip_bookmark_icon_text">Cliquez sur l\'icône du signet pour enregistrer l\'article dans une liste de lecture.</string>
   <string name="tool_tip_share">Après avoir surligné un fait intéressant, essayez de le partager sur vos réseaux favoris !</string>
@@ -564,6 +565,7 @@
   <string name="description_edit_text_hint">Description du titre</string>
   <string name="description_edit_save">Publier</string>
   <string name="description_edit_add_description">Ajouter une description du titre</string>
+  <string name="description_edit_translate_description">Traduire la description du titre</string>
   <string name="description_edit_edit_description">Modifier la description</string>
   <string name="description_edit_cancel_hint">Annuler</string>
   <string name="description_edit_help_title">Aide : descriptions des titres</string>
@@ -598,11 +600,13 @@
   <string name="description_edit_help_more_info">Plus d’information</string>
   <string name="description_edit_help_meta_info">Les descriptions sont stockées et mises à jour dans Wikidata, un projet de la Fondation Wikimédia qui fournit une base de données libre, collaborative, multilingue et secondaire soutenant Wikipédia et d’autres projets.</string>
   <string name="editactionfeed_add_title_descriptions">Ajouter les descriptions de titre</string>
+  <string name="editactionfeed_translate_descriptions">Traduire les descriptions de titre</string>
   <string name="editactionfeed_review_title_description">Relire la description du titre</string>
   <string name="editactionfeed_add_description_button">Ajouter une description</string>
   <string name="editactionfeed_my_contributions">Mes contributions</string>
   <string name="editactionfeed_from_language">De :</string>
   <string name="editactionfeed_add_title_dialog_learn_more">En savoir plus</string>
+  <string name="editactionfeed_to_language">À :</string>
   <string name="description_edit_revert_subtitle">Merci pour l’édition de Wikipédia !</string>
   <string name="description_edit_revert_intro">Nous savons que vous avez fait de votre mieux, mais un de nos relecteurs a eu un souci. Les raisons possibles de l’annulation de votre modification comprennent :</string>
   <string name="description_edit_revert_reason1">votre contribution ne respectait pas une des &lt;a href=\"%1$s\"&gt;directives&lt;/a&gt;.</string>
@@ -683,6 +687,7 @@
   <string name="multilingual_task_negative">Pas pour moi</string>
   <string name="multilingual_task_positive">Ajouter des langues</string>
   <string name="editing_level_text">NIVEAU %d d’éditeur d’application</string>
+  <string name="translation_source_description">description de %s :</string>
   <plurals name="edit_action_contribution_count">
     <item quantity="one">contribution dans l’application</item>
     <item quantity="other">contributions dans l’application</item>

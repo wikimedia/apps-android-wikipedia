@@ -20,6 +20,7 @@
 * ShockD
 * Tacsipacsi
 * Trizek (WMF)
+* Wladek92
 -->
 <resources>
   <string name="app_name_prod">Name of the application.\n{{Identical|Wikipedia}}</string>
@@ -600,6 +601,7 @@
   <string name="editactionfeed_my_contributions">A overflow menu text that leads to my contributions page</string>
   <string name="editactionfeed_from_language">A label shows that the current selected Wikipedia language for fetching articles.</string>
   <string name="editactionfeed_add_title_dialog_learn_more">A button text for leading users to the help page of editing title descriptions.</string>
+  <string name="editactionfeed_to_language">label text indicating that the selected languauge is the one into which the description will be traslated to.</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
   <string name="description_edit_revert_intro">Introduction message informing the user that their edit was reverted, and leading into possible reasons for the revert.</string>
   <string name="description_edit_revert_reason1">Reason for an edit being reverted, because it did not follow the guidelines for descriptions. (Please preserve the anchor tag in its exact form)</string>
@@ -680,10 +682,9 @@
   <string name="multilingual_task_negative">Negative action button text for editing tasks.</string>
   <string name="multilingual_task_positive">Positive action button text for editing tasks.</string>
   <string name="editing_level_text">Text indicating the level of app editing reached. %d indicates the level number</string>
+  <string name="translation_source_description">Label text that indicated that the description text shown is of the source language %1$s is the language and %2$s is the description</string>
   <plurals name="edit_action_contribution_count">
     <item quantity="one">Text suggesting that one in-app contribution was made.</item>
     <item quantity="other">Text suggesting that two or more in-app contributions were made.</item>
   </plurals>
-  <string name="editactionfeed_to_language">label text indicating that the selected languauge is the one into which the description will be traslated to.</string>
-  <string name="translation_source_description">Label text that indicated that the description text shown is of the source language %1$s is the langugae and %2$s is the description</string>
 </resources>

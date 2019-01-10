@@ -456,6 +456,7 @@
   <string name="description_edit_text_hint">Titelbeschreiwung</string>
   <string name="description_edit_save">Verëffentlechen</string>
   <string name="description_edit_add_description">Beschreiwung vum Titel derbäisetzen</string>
+  <string name="description_edit_translate_description" fuzzy="true">Titelbeschreiwungen iwwersetzen</string>
   <string name="description_edit_edit_description">Beschreiwung änneren</string>
   <string name="description_edit_cancel_hint">Ofbriechen</string>
   <string name="description_edit_help_title">Hëllef:Titelbeschreiwungen</string>
@@ -488,6 +489,7 @@
   <string name="editactionfeed_add_title_descriptions">Beschreiwunge vun den Titelen derbäisetzen</string>
   <string name="editactionfeed_add_description_button">Beschreiwung derbäisetzen</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Fir méi ze wëssen</string>
+  <string name="editactionfeed_to_language">Fir:</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>
@@ -546,4 +548,5 @@
   <string name="main_drawer_help">Hëllef</string>
   <string name="multilingual_task_negative">Net fir mech</string>
   <string name="multilingual_task_positive">Sproochen derbäisetzen</string>
+  <string name="translation_source_description">%s Beschreiwung:</string>
 </resources>

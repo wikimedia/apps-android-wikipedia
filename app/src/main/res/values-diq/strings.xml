@@ -174,7 +174,9 @@
   <string name="editactionfeed_my_contributions">İştirakê mı</string>
   <string name="editactionfeed_from_language">Rıştoğ:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Zêde bımuse</string>
+  <string name="editactionfeed_to_language">Gırewtoğ:</string>
   <string name="onboarding_continue">Dewam ke</string>
   <string name="onboarding_maybe_later">Belkiya badêna</string>
   <string name="multilingual_task_positive">Zıwanan cı ke</string>
+  <string name="translation_source_description">arezekerdışê %s:</string>
 </resources>
