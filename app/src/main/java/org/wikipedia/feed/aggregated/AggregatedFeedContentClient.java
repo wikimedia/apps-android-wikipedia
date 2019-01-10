@@ -33,8 +33,6 @@ import io.reactivex.schedulers.Schedulers;
 
 public class AggregatedFeedContentClient {
     @NonNull private Map<String, AggregatedFeedContent> aggregatedResponses = new HashMap<>();
-    private int numResponsesExpected;
-    private int numResponsesReceived;
     private int aggregatedResponseAge = -1;
     private CompositeDisposable disposables = new CompositeDisposable();
 
@@ -141,8 +139,6 @@ public class AggregatedFeedContentClient {
 
     public void cancel() {
         disposables.clear();
-        numResponsesReceived = 0;
-        numResponsesExpected = 0;
     }
 
     private abstract static class BaseClient implements FeedClient {
@@ -177,35 +173,23 @@ public class AggregatedFeedContentClient {
         public void cancel() {
         }
 
-        private void addAggregatedResponse(@Nullable AggregatedFeedContent content, @NonNull WikiSite wiki) {
-            aggregatedClient.aggregatedResponses.put(wiki.languageCode(), content);
-            aggregatedClient.aggregatedResponseAge = age;
-        }
-
         private void requestAggregated() {
             aggregatedClient.cancel();
             UtcDate date = DateUtil.getUtcRequestDateFor(age);
-            aggregatedClient.numResponsesExpected = FeedContentType.getAggregatedLanguages().size();
-
             aggregatedClient.disposables.add(Observable.fromIterable(FeedContentType.getAggregatedLanguages())
-                    .flatMap(lang -> ServiceFactory.getRest(WikiSite.forLanguageCode(lang)).getAggregatedFeed(date.year(), date.month(), date.date()), Pair::new)
-                    .subscribeOn(Schedulers.io())
+                    .flatMap(lang -> ServiceFactory.getRest(WikiSite.forLanguageCode(lang)).getAggregatedFeed(date.year(), date.month(), date.date()).subscribeOn(Schedulers.io()), Pair::new)
+                    .toList()
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(pair -> {
-                        aggregatedClient.numResponsesReceived++;
-                        AggregatedFeedContent content = pair.second;
-                        if (content == null) {
-                            if (cb != null) {
-                                cb.error(new RuntimeException("Aggregated response was not in the correct format."));
-                            }
-                            return;
-                        }
-                        addAggregatedResponse(content, WikiSite.forLanguageCode(pair.first));
-                        if (aggregatedClient.numResponsesReceived < aggregatedClient.numResponsesExpected) {
-                            return;
-                        }
-
+                    .subscribe(pairList -> {
                         List<Card> cards = new ArrayList<>();
+                        for (Pair<String, AggregatedFeedContent> pair : pairList) {
+                            AggregatedFeedContent content = pair.second;
+                            if (content == null) {
+                                continue;
+                            }
+                            aggregatedClient.aggregatedResponses.put(WikiSite.forLanguageCode(pair.first).languageCode(), content);
+                            aggregatedClient.aggregatedResponseAge = age;
+                        }
                         if (aggregatedClient.aggregatedResponses.containsKey(wiki.languageCode())) {
                             getCardFromResponse(aggregatedClient.aggregatedResponses, wiki, age, cards);
                         }
@@ -214,10 +198,6 @@ public class AggregatedFeedContentClient {
                         }
                     }, caught -> {
                         L.v(caught);
-                        aggregatedClient.numResponsesReceived++;
-                        if (aggregatedClient.numResponsesReceived < aggregatedClient.numResponsesExpected) {
-                            return;
-                        }
                         if (cb != null) {
                             cb.error(caught);
                         }
