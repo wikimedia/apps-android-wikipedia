@@ -3,6 +3,7 @@ package org.wikipedia.feed.aggregated;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.util.Pair;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceFactory;
@@ -25,15 +26,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import retrofit2.Call;
-import retrofit2.Response;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class AggregatedFeedContentClient {
-    @NonNull private Map<String, Call<AggregatedFeedContent>> calls = new HashMap<>();
     @NonNull private Map<String, AggregatedFeedContent> aggregatedResponses = new HashMap<>();
     private int numResponsesExpected;
     private int numResponsesReceived;
     private int aggregatedResponseAge = -1;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     public static class OnThisDayFeed extends BaseClient {
         public OnThisDayFeed(@NonNull AggregatedFeedContentClient aggregatedClient) {
@@ -136,34 +139,13 @@ public class AggregatedFeedContentClient {
         aggregatedResponseAge = -1;
     }
 
-    void addAggregatedResponse(@Nullable AggregatedFeedContent content, int age, @NonNull WikiSite wiki) {
-        aggregatedResponses.put(wiki.languageCode(), content);
-        this.aggregatedResponseAge = age;
-    }
-
-    void requestAggregated(int age, @NonNull retrofit2.Callback<AggregatedFeedContent> cb) {
-        cancel();
-        UtcDate date = DateUtil.getUtcRequestDateFor(age);
-        numResponsesExpected = FeedContentType.getAggregatedLanguages().size();
-        for (String lang : FeedContentType.getAggregatedLanguages()) {
-            WikiSite wiki = WikiSite.forLanguageCode(lang);
-            Call<AggregatedFeedContent> call = ServiceFactory.getRest(wiki)
-                    .getAggregatedFeed(lang, date.year(), date.month(), date.date());
-            call.enqueue(cb);
-            calls.put(lang, call);
-        }
-    }
-
     public void cancel() {
-        for (Call call : calls.values()) {
-            call.cancel();
-        }
-        calls.clear();
+        disposables.clear();
         numResponsesReceived = 0;
         numResponsesExpected = 0;
     }
 
-    private abstract static class BaseClient implements FeedClient, retrofit2.Callback<AggregatedFeedContent> {
+    private abstract static class BaseClient implements FeedClient {
         @NonNull private AggregatedFeedContentClient aggregatedClient;
         @Nullable private Callback cb;
         private WikiSite wiki;
@@ -187,7 +169,7 @@ public class AggregatedFeedContentClient {
                 getCardFromResponse(aggregatedClient.aggregatedResponses, wiki, age, cards);
                 FeedCoordinator.postCardsToCallback(cb, cards);
             } else {
-                aggregatedClient.requestAggregated(age, this);
+                requestAggregated();
             }
         }
 
@@ -195,42 +177,51 @@ public class AggregatedFeedContentClient {
         public void cancel() {
         }
 
-        @Override public void onResponse(@NonNull Call<AggregatedFeedContent> call,
-                                         @NonNull Response<AggregatedFeedContent> response) {
-            aggregatedClient.numResponsesReceived++;
-            AggregatedFeedContent content = response.body();
-            if (content == null) {
-                if (cb != null) {
-                    cb.error(new RuntimeException("Aggregated response was not in the correct format."));
-                }
-                return;
-            }
-            aggregatedClient.addAggregatedResponse(content, age, WikiSite.forLanguageCode(call.request().header("X-Lang")));
-            if (aggregatedClient.numResponsesReceived < aggregatedClient.numResponsesExpected) {
-                return;
-            }
-
-            List<Card> cards = new ArrayList<>();
-            if (aggregatedClient.aggregatedResponses.containsKey(wiki.languageCode())) {
-                getCardFromResponse(aggregatedClient.aggregatedResponses, wiki, age, cards);
-            }
-            if (cb != null) {
-                FeedCoordinator.postCardsToCallback(cb, cards);
-            }
+        private void addAggregatedResponse(@Nullable AggregatedFeedContent content, @NonNull WikiSite wiki) {
+            aggregatedClient.aggregatedResponses.put(wiki.languageCode(), content);
+            aggregatedClient.aggregatedResponseAge = age;
         }
 
-        @Override public void onFailure(@NonNull Call<AggregatedFeedContent> call, @NonNull Throwable caught) {
-            if (call.isCanceled()) {
-                return;
-            }
-            L.v(caught);
-            aggregatedClient.numResponsesReceived++;
-            if (aggregatedClient.numResponsesReceived < aggregatedClient.numResponsesExpected) {
-                return;
-            }
-            if (cb != null) {
-                cb.error(caught);
-            }
+        private void requestAggregated() {
+            aggregatedClient.cancel();
+            UtcDate date = DateUtil.getUtcRequestDateFor(age);
+            aggregatedClient.numResponsesExpected = FeedContentType.getAggregatedLanguages().size();
+
+            aggregatedClient.disposables.add(Observable.fromIterable(FeedContentType.getAggregatedLanguages())
+                    .flatMap(lang -> ServiceFactory.getRest(WikiSite.forLanguageCode(lang)).getAggregatedFeed(date.year(), date.month(), date.date()), Pair::new)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(pair -> {
+                        aggregatedClient.numResponsesReceived++;
+                        AggregatedFeedContent content = pair.second;
+                        if (content == null) {
+                            if (cb != null) {
+                                cb.error(new RuntimeException("Aggregated response was not in the correct format."));
+                            }
+                            return;
+                        }
+                        addAggregatedResponse(content, WikiSite.forLanguageCode(pair.first));
+                        if (aggregatedClient.numResponsesReceived < aggregatedClient.numResponsesExpected) {
+                            return;
+                        }
+
+                        List<Card> cards = new ArrayList<>();
+                        if (aggregatedClient.aggregatedResponses.containsKey(wiki.languageCode())) {
+                            getCardFromResponse(aggregatedClient.aggregatedResponses, wiki, age, cards);
+                        }
+                        if (cb != null) {
+                            FeedCoordinator.postCardsToCallback(cb, cards);
+                        }
+                    }, caught -> {
+                        L.v(caught);
+                        aggregatedClient.numResponsesReceived++;
+                        if (aggregatedClient.numResponsesReceived < aggregatedClient.numResponsesExpected) {
+                            return;
+                        }
+                        if (cb != null) {
+                            cb.error(caught);
+                        }
+                    }));
         }
     }
 }

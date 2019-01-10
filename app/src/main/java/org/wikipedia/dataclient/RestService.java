@@ -124,10 +124,9 @@ public interface RestService {
 
     @Headers(ACCEPT_HEADER_PREFIX + "aggregated-feed/0.5.0\"")
     @GET("feed/featured/{year}/{month}/{day}")
-    @NonNull Call<AggregatedFeedContent> getAggregatedFeed(@Header("X-Lang") String lang,
-                                                           @Path("year") String year,
-                                                           @Path("month") String month,
-                                                           @Path("day") String day);
+    @NonNull Observable<AggregatedFeedContent> getAggregatedFeed(@Path("year") String year,
+                                                                 @Path("month") String month,
+                                                                 @Path("day") String day);
 
     @GET("feed/availability")
     @NonNull Call<FeedAvailabilityClient.FeedAvailability> getFeedAvailability();
