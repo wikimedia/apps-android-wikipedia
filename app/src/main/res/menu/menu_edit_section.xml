@@ -2,6 +2,14 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/menu_edit_undo"
+        android:icon="@drawable/ic_undo_themed_24dp"
+        android:title="@string/edit_undo"
+        app:showAsAction="always" />
+    <item android:id="@+id/menu_edit_redo"
+        android:icon="@drawable/ic_redo_themed_24dp"
+        android:title="@string/edit_redo"
+        app:showAsAction="always" />
     <item
         android:id="@+id/menu_save_section"
         android:enabled="false"
