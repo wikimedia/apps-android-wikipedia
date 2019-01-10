@@ -369,7 +369,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             loadPageInForegroundTab(title, historyEntry);
         } else if (intent.hasExtra(Constants.INTENT_FEATURED_ARTICLE_FROM_WIDGET)) {
             new IntentFunnel(app).logFeaturedArticleWidgetTap();
-            loadMainPageInForegroundTab();
+            PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
+            HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_WIDGET);
+            loadPageInForegroundTab(title, historyEntry);
         } else {
             loadMainPageInCurrentTab();
         }
