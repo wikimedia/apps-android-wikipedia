@@ -251,12 +251,11 @@ public class DescriptionEditFragment extends Fragment {
 
             disposables.add(ServiceFactory.get(pageTitle.getWikiSite()).getSiteInfo()
                     .flatMap(response -> {
-                        // TODO: we can directly use the response.query().siteInfo().lang() if the API supports the chinese variants
                         String languageCode = response.query().siteInfo() != null && response.query().siteInfo().lang() != null
-                                && !response.query().siteInfo().hasVariants() ? response.query().siteInfo().lang() : pageTitle.getWikiSite().languageCode();
+                                ? response.query().siteInfo().lang() : pageTitle.getWikiSite().languageCode();
                         return ServiceFactory.get(wikiData).postDescriptionEdit(languageCode,
                                 pageTitle.getWikiSite().languageCode(), pageTitle.getWikiSite().dbName(),
-                                pageTitle.getPrefixedText(), editView.getDescription(), editToken,
+                                pageTitle.getConvertedText(), editView.getDescription(), editToken,
                                 AccountUtil.isLoggedIn() ? "user" : null);
                     })
                     .subscribeOn(Schedulers.io())
