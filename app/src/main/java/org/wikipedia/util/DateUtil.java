@@ -110,10 +110,16 @@ public final class DateUtil {
     @NonNull public static String getYearDifferenceString(int year) {
         int diffInYears = Calendar.getInstance().get(Calendar.YEAR) - year;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return diffInYears == 0 ? RelativeDateTimeFormatter.getInstance()
-                    .format(RelativeDateTimeFormatter.Direction.THIS, RelativeDateTimeFormatter.AbsoluteUnit.YEAR)
-                    : RelativeDateTimeFormatter.getInstance().format(diffInYears,
-                    RelativeDateTimeFormatter.Direction.LAST, RelativeDateTimeFormatter.RelativeUnit.YEARS);
+            switch (diffInYears) {
+                case 0:
+                    return RelativeDateTimeFormatter.getInstance().format(RelativeDateTimeFormatter.Direction.THIS, RelativeDateTimeFormatter.AbsoluteUnit.YEAR);
+                case 1:
+                    return RelativeDateTimeFormatter.getInstance().format(RelativeDateTimeFormatter.Direction.LAST, RelativeDateTimeFormatter.AbsoluteUnit.YEAR);
+                case -1:
+                    return RelativeDateTimeFormatter.getInstance().format(RelativeDateTimeFormatter.Direction.NEXT, RelativeDateTimeFormatter.AbsoluteUnit.YEAR);
+                default:
+                    return RelativeDateTimeFormatter.getInstance().format(diffInYears, RelativeDateTimeFormatter.Direction.LAST, RelativeDateTimeFormatter.RelativeUnit.YEARS);
+            }
         } else {
             Context context = WikipediaApp.getInstance().getApplicationContext();
             return diffInYears == 0 ? context.getString(R.string.this_year)
@@ -123,10 +129,16 @@ public final class DateUtil {
 
     @NonNull public static String getDaysAgoString(int daysAgo) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return daysAgo == 0 ? RelativeDateTimeFormatter.getInstance()
-                    .format(RelativeDateTimeFormatter.Direction.THIS, RelativeDateTimeFormatter.AbsoluteUnit.DAY)
-                    : RelativeDateTimeFormatter.getInstance().format(daysAgo,
-                    RelativeDateTimeFormatter.Direction.LAST, RelativeDateTimeFormatter.RelativeUnit.DAYS);
+            switch (daysAgo) {
+                case 0:
+                    return RelativeDateTimeFormatter.getInstance().format(RelativeDateTimeFormatter.Direction.THIS, RelativeDateTimeFormatter.AbsoluteUnit.DAY);
+                case 1:
+                    return RelativeDateTimeFormatter.getInstance().format(RelativeDateTimeFormatter.Direction.LAST, RelativeDateTimeFormatter.AbsoluteUnit.DAY);
+                case -1:
+                    return RelativeDateTimeFormatter.getInstance().format(RelativeDateTimeFormatter.Direction.NEXT, RelativeDateTimeFormatter.AbsoluteUnit.DAY);
+                default:
+                    return RelativeDateTimeFormatter.getInstance().format(daysAgo, RelativeDateTimeFormatter.Direction.LAST, RelativeDateTimeFormatter.RelativeUnit.DAYS);
+            }
         } else {
             Context context = WikipediaApp.getInstance().getApplicationContext();
             // TODO: rename this string/plurals resource:
