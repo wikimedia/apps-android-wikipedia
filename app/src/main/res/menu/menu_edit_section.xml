@@ -10,6 +10,14 @@
         android:icon="@drawable/ic_redo_themed_24dp"
         android:title="@string/edit_redo"
         app:showAsAction="always" />
+    <item android:id="@+id/menu_edit_zoom_in"
+        android:icon="@drawable/ic_zoom_in_themed_24dp"
+        android:title="@string/edit_zoom_in"
+        app:showAsAction="always" />
+    <item android:id="@+id/menu_edit_zoom_out"
+        android:icon="@drawable/ic_zoom_out_themed_24dp"
+        android:title="@string/edit_zoom_out"
+        app:showAsAction="always" />
     <item
         android:id="@+id/menu_save_section"
         android:enabled="false"
