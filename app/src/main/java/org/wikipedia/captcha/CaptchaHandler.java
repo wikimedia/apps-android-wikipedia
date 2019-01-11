@@ -142,6 +142,8 @@ public class CaptchaHandler {
         if (!isReload) {
             ViewAnimations.crossFade(primaryView, captchaContainer);
         }
+        // In case there was a captcha attempt before
+        captchaText.setText("");
         captchaImage.setController(Fresco.newDraweeControllerBuilder()
                 .setUri(captchaResult.getCaptchaUrl(wiki))
                 .setAutoPlayAnimations(true)
@@ -166,9 +168,6 @@ public class CaptchaHandler {
                         } else {
                             captchaImage.getDrawable().clearColorFilter();
                         }
-
-                        // In case there was a captcha attempt before
-                        captchaText.setText("");
                     }
                 })
                 .build());
