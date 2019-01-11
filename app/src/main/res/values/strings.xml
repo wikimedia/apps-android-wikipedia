@@ -579,7 +579,6 @@
     <string name="description_edit_text_hint">Title description</string>
     <string name="description_edit_save">Publish</string>
     <string name="description_edit_add_description">Add title description</string>
-    <string name="description_edit_translate_description">Translate title description</string>
     <string name="description_edit_edit_description">Edit description</string>
     <string name="description_edit_cancel_hint">Cancel</string>
     <string name="description_edit_help_title">Help: title descriptions</string>
@@ -734,6 +733,8 @@
     <string name="multilingual_task_positive">Add languages</string>
     <string name="editing_level_text">LEVEL %d app editor</string>
     <string name="translation_source_description">%s description:\n</string>
+    <string name="translate_caption_task_title">Translate image captions</string>
+    <string name="translate_caption_task_description">Translate captions into other languages</string>
     <plurals name="edit_action_contribution_count">
         <item quantity="one">in-app contribution</item>
         <item quantity="other">in-app contributions</item>
