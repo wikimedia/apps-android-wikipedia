@@ -113,9 +113,4 @@
     <string name="add_square_brackets_to_string">[%s]</string>
     <string name="empty" />
 
-    <!-- TODO: remove after we have the formal dialog texts -->
-    <string name="temp_add_title_descriptions_dialog_title">First time message for add title descriptions task list</string>
-    <string name="temp_add_title_descriptions_dialog_message">Introduction to how this particular app editor task flow works. Can be a short dialog since users should be familiar with the edit type already.</string>
-
-
 </resources>

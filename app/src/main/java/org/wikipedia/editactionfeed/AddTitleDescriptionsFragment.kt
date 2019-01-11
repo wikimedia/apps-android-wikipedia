@@ -161,18 +161,32 @@ class AddTitleDescriptionsFragment : Fragment() {
     }
 
     private fun showOnboarding() {
-        if (Prefs.showEditActionAddTitleDescriptionsOnboarding()) {
+        if (Prefs.showEditActionAddTitleDescriptionsOnboarding() && source == SOURCE_ADD_DESCRIPTIONS) {
             // TODO: update the title and description (T209539)
             AlertDialog.Builder(requireActivity())
-                    .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.temp_add_title_descriptions_dialog_title, R.drawable.lead_default, false))
-                    .setMessage(R.string.temp_add_title_descriptions_dialog_message)
+                    .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.add_title_descriptions_dialog_title, R.drawable.lead_default, false))
+                    .setMessage(R.string.add_title_descriptions_dialog_message)
                     .setPositiveButton(R.string.onboarding_got_it, null)
-                    .setNegativeButton(R.string.editactionfeed_add_title_dialog_learn_more) {
-                        _, _ -> startActivity(DescriptionEditHelpActivity.newIntent(requireContext()))
+                    .setNegativeButton(R.string.editactionfeed_add_title_dialog_learn_more) { _, _ ->
+                        startActivity(DescriptionEditHelpActivity.newIntent(requireContext()))
                     }
                     .show()
             Prefs.setShowEditActionAddTitleDescriptionsOnboarding(false)
         }
+
+        if (Prefs.showEditActionTranslateDescriptionsOnboarding() && source == SOURCE_TRANSLATE_DESCRIPTIONS) {
+
+            AlertDialog.Builder(requireActivity())
+                    .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.add_translate_descriptions_dialog_title, R.drawable.lead_default, false))
+                    .setMessage(R.string.add_translate_descriptions_dialog_message)
+                    .setPositiveButton(R.string.onboarding_got_it, null)
+                    .setNegativeButton(R.string.editactionfeed_add_title_dialog_learn_more) { _, _ ->
+                        startActivity(DescriptionEditHelpActivity.newIntent(requireContext()))
+                    }
+                    .show()
+            Prefs.setShowEditActionTranslateDescriptionsOnboarding(false)
+        }
+
     }
 
     private fun requestLanguagesAndBuildSpinner() {
