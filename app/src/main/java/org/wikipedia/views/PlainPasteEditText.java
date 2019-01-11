@@ -3,8 +3,11 @@ package org.wikipedia.views;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.os.SystemClock;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
 import android.util.AttributeSet;
+import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 
@@ -13,6 +16,8 @@ import org.wikipedia.util.ClipboardUtil;
 import static android.text.InputType.TYPE_TEXT_FLAG_MULTI_LINE;
 
 public class PlainPasteEditText extends TextInputEditText {
+    @Nullable private InputConnection inputConnection;
+
     public PlainPasteEditText(Context context) {
         super(context);
     }
@@ -34,7 +39,7 @@ public class PlainPasteEditText extends TextInputEditText {
     }
 
     @Override public InputConnection onCreateInputConnection(EditorInfo outAttrs) {
-        InputConnection connection = super.onCreateInputConnection(outAttrs);
+        inputConnection = super.onCreateInputConnection(outAttrs);
 
         // For multiline EditTexts that specify a done keyboard action, unset the no carriage return
         // flag which otherwise limits the EditText to a single line
@@ -44,7 +49,30 @@ public class PlainPasteEditText extends TextInputEditText {
             outAttrs.imeOptions &= ~EditorInfo.IME_FLAG_NO_ENTER_ACTION;
         }
 
-        return connection;
+        return inputConnection;
+    }
+
+    @Nullable
+    public InputConnection getInputConnection() {
+        return inputConnection;
+    }
+
+    public void undo() {
+        if (inputConnection != null) {
+            inputConnection.sendKeyEvent(new KeyEvent(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(),
+                    KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_Z, 0, KeyEvent.META_CTRL_ON));
+            inputConnection.sendKeyEvent(new KeyEvent(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(),
+                    KeyEvent.ACTION_UP, KeyEvent.KEYCODE_Z, 0, KeyEvent.META_CTRL_ON));
+        }
+    }
+
+    public void redo() {
+        if (inputConnection != null) {
+            inputConnection.sendKeyEvent(new KeyEvent(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(),
+                    KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_Z, 0, KeyEvent.META_CTRL_ON | KeyEvent.META_SHIFT_ON));
+            inputConnection.sendKeyEvent(new KeyEvent(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(),
+                    KeyEvent.ACTION_UP, KeyEvent.KEYCODE_Z, 0, KeyEvent.META_CTRL_ON | KeyEvent.META_SHIFT_ON));
+        }
     }
 
     private boolean onTextContextMenuPaste() {
