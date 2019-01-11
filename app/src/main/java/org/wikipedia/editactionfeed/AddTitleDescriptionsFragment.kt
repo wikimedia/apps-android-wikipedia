@@ -162,9 +162,8 @@ class AddTitleDescriptionsFragment : Fragment() {
 
     private fun showOnboarding() {
         if (Prefs.showEditActionAddTitleDescriptionsOnboarding() && source == SOURCE_ADD_DESCRIPTIONS) {
-            // TODO: update the title and description (T209539)
             AlertDialog.Builder(requireActivity())
-                    .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.add_title_descriptions_dialog_title, R.drawable.lead_default, false))
+                    .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.add_title_descriptions_dialog_title, R.drawable.ic_dialog_image_title_descriptions, false))
                     .setMessage(R.string.add_title_descriptions_dialog_message)
                     .setPositiveButton(R.string.onboarding_got_it, null)
                     .setNegativeButton(R.string.editactionfeed_add_title_dialog_learn_more) { _, _ ->
@@ -175,9 +174,8 @@ class AddTitleDescriptionsFragment : Fragment() {
         }
 
         if (Prefs.showEditActionTranslateDescriptionsOnboarding() && source == SOURCE_TRANSLATE_DESCRIPTIONS) {
-
             AlertDialog.Builder(requireActivity())
-                    .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.add_translate_descriptions_dialog_title, R.drawable.lead_default, false))
+                    .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.add_translate_descriptions_dialog_title, R.drawable.ic_dialog_image_title_descriptions, false))
                     .setMessage(R.string.add_translate_descriptions_dialog_message)
                     .setPositiveButton(R.string.onboarding_got_it, null)
                     .setNegativeButton(R.string.editactionfeed_add_title_dialog_learn_more) { _, _ ->
