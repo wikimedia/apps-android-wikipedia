@@ -113,6 +113,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         super.onResume();
         // update main nav drawer after rotating screen
         drawerView.updateState();
+        setUpHomeMenuIcon();
     }
 
     @LayoutRes

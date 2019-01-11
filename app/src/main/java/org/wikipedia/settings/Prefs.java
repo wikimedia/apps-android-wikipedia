@@ -117,14 +117,14 @@ public final class Prefs {
     }
 
     public static boolean showEditMenuOptionIndicator() {
-        return getBoolean(R.string.preference_key_show_edit_menu_option_indicator, true);
+        return getBoolean(R.string.preference_key_show_edit_menu_option_indicator, false);
     }
 
     public static void setShowEditMenuOptionIndicator(boolean enabled) {
         setBoolean(R.string.preference_key_show_edit_menu_option_indicator, enabled);
     }
     public static boolean showActionFeedIndicator() {
-        return getBoolean(R.string.preference_key_show_action_feed_indicator, true);
+        return getBoolean(R.string.preference_key_show_action_feed_indicator, false);
     }
 
     public static void setShowActionFeedIndicator(boolean enabled) {
@@ -475,7 +475,7 @@ public final class Prefs {
     }
 
     public static int getTotalUserDescriptionsEdited() {
-        return getInt(R.string.preference_key_total_user_descriptions_edited, getTotalAnonDescriptionsEdited());
+        return getInt(R.string.preference_key_total_user_descriptions_edited, 0);
     }
 
     public static void incrementTotalUserDescriptionsEdited() {
