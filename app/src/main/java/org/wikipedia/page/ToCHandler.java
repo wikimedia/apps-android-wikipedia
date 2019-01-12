@@ -142,7 +142,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(), wiki,
                 page.getPageProperties().getPageId(), adapter.getCount());
 
-        if (Prefs.isTocTutorialEnabled() && !page.isMainPage() && !firstPage) {
+        if (Prefs.isTocTutorialEnabled() && !page.isMainPage() && !firstPage && !Prefs.showActionFeedIndicator()) {
             showTocOnboarding();
         }
     }
