@@ -697,4 +697,6 @@
   <string name="description_edit_tutorial_message">Concise on-boarding message to the app editor task list.</string>
   <string name="translate_caption_task_title">Image caption translation tasks heading.</string>
   <string name="translate_caption_task_description">Image caption translation tasks explanation given to user.</string>
+  <string name="translation_description_edit_task_unlock_title">Title of the dialog box that appears when the user unlocks the feed of suggested articles for translating descriptions from one of their app languages to another.</string>
+  <string name="translation_description_edit_task_unlock_body">Body of the dialog box that appears when the user unlocks the feed of suggested articles for translating descriptions from one of their app languages to another.</string>
 </resources>

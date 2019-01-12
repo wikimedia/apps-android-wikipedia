@@ -43,6 +43,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
+import static org.wikipedia.descriptions.DescriptionEditActivity.EDIT_TASKS_TITLE_DESC_SOURCE;
+import static org.wikipedia.descriptions.DescriptionEditActivity.EDIT_TASKS_TRANSLATE_TITLE_DESC_SOURCE;
+import static org.wikipedia.descriptions.DescriptionEditActivity.PAGE_SOURCE;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_DISALLOWED;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_WARNING;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
@@ -56,10 +59,10 @@ public class DescriptionEditFragment extends Fragment {
 
     private static final String ARG_TITLE = "title";
     private static final String ARG_REVIEW_ENABLED = "reviewEnabled";
-    private static final String ARG_IS_TRANSLATION = "isTranslation";
     private static final String ARG_REVIEWING = "inReviewing";
     private static final String ARG_HIGHLIGHT_TEXT = "highlightText";
     private static final String ARG_TRANSLATION_SOURCE_LANG_DESC = "source_lang_desc";
+    private static final String ARG_INVOKE_SOURCE = "invoke_source";
 
     @BindView(R.id.fragment_description_edit_view) DescriptionEditView editView;
     private Unbinder unbinder;
@@ -68,6 +71,7 @@ public class DescriptionEditFragment extends Fragment {
     @Nullable private String highlightText;
     @Nullable private CsrfTokenClient csrfClient;
     @Nullable private DescriptionEditFunnel funnel;
+    private int source;
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private Runnable successRunnable = new Runnable() {
@@ -83,19 +87,34 @@ public class DescriptionEditFragment extends Fragment {
                 return;
             }
             editView.setSaveState(false);
+            incrementTitleDescriptionEditCount();
+            maybeUnlockDescriptionsTranslation();
             startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext()),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS);
         }
     };
 
+    private void incrementTitleDescriptionEditCount() {
+        if (source == EDIT_TASKS_TITLE_DESC_SOURCE) {
+            Prefs.incrementEditTasksTitleDescriptionsEdited();
+        }
+    }
+
+    private void maybeUnlockDescriptionsTranslation() {
+        if (Prefs.getTotalEditTasksTitleDescriptionsEdited() == 1) {
+            Prefs.setEditActionTranslateDescriptionsUnlocked(true);
+            Prefs.setShowEditActionTranslateDescriptionsUnlockedDialog(true);
+        }
+    }
+
     @NonNull
-    public static DescriptionEditFragment newInstance(@NonNull PageTitle title, @Nullable String highlightText, boolean reviewEnabled, boolean isTranslation, CharSequence sourceDescription) {
+    public static DescriptionEditFragment newInstance(@NonNull PageTitle title, @Nullable String highlightText, boolean reviewEnabled, int source, CharSequence sourceDescription) {
         DescriptionEditFragment instance = new DescriptionEditFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TITLE, GsonMarshaller.marshal(title));
         args.putString(ARG_HIGHLIGHT_TEXT, highlightText);
         args.putBoolean(ARG_REVIEW_ENABLED, reviewEnabled);
-        args.putBoolean(ARG_IS_TRANSLATION, isTranslation);
+        args.putInt(ARG_INVOKE_SOURCE, source);
         args.putCharSequence(ARG_TRANSLATION_SOURCE_LANG_DESC, sourceDescription);
         instance.setArguments(args);
         return instance;
@@ -119,7 +138,8 @@ public class DescriptionEditFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_description_edit, container, false);
         unbinder = ButterKnife.bind(this, view);
-        editView.setTranslationEdit(getArguments().getBoolean(ARG_IS_TRANSLATION));
+        source = getArguments().getInt(ARG_INVOKE_SOURCE, PAGE_SOURCE);
+        editView.setTranslationEdit(source == EDIT_TASKS_TRANSLATE_TITLE_DESC_SOURCE);
         editView.setTranslationSourceLanguageDescription(getArguments().getCharSequence(ARG_TRANSLATION_SOURCE_LANG_DESC));
         editView.setPageTitle(pageTitle);
         editView.setHighlightText(highlightText);
