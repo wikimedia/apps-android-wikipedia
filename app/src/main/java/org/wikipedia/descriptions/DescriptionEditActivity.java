@@ -26,16 +26,19 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     private static final String EXTRA_TITLE = "title";
     private static final String EXTRA_REVIEW_ENABLE = "review";
     private static final String EXTRA_HIGHLIGHT_TEXT = "highlightText";
-    private static final String EXTRA_IS_TRANSLATION = "is_translation";
+    private static final String EXTRA_INVOKE_SOURCE = "source";
     private static final String EXTRA_SOURCE_LANG_DESC = "source_desc";
+    public static final int PAGE_SOURCE = 0;
+    public static final int EDIT_TASKS_TITLE_DESC_SOURCE = 1;
+    public static final int EDIT_TASKS_TRANSLATE_TITLE_DESC_SOURCE = 2;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
-    public static Intent newIntent(@NonNull Context context, @NonNull PageTitle title, @Nullable String highlightText, boolean reviewEnabled, boolean isTranslation, CharSequence sourceDesc) {
+    public static Intent newIntent(@NonNull Context context, @NonNull PageTitle title, @Nullable String highlightText, boolean reviewEnabled, int invokeSource, CharSequence sourceDesc) {
         return new Intent(context, DescriptionEditActivity.class)
                 .putExtra(EXTRA_TITLE, GsonMarshaller.marshal(title))
                 .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
                 .putExtra(EXTRA_REVIEW_ENABLE, reviewEnabled)
-                .putExtra(EXTRA_IS_TRANSLATION, isTranslation)
+                .putExtra(EXTRA_INVOKE_SOURCE, invokeSource)
                 .putExtra(EXTRA_SOURCE_LANG_DESC, sourceDesc);
     }
 
@@ -83,7 +86,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
                 getIntent().getStringExtra(EXTRA_TITLE)),
                 getIntent().getStringExtra(EXTRA_HIGHLIGHT_TEXT),
                 getIntent().getBooleanExtra(EXTRA_REVIEW_ENABLE, false),
-                getIntent().getBooleanExtra(EXTRA_IS_TRANSLATION, false),
+                getIntent().getIntExtra(EXTRA_INVOKE_SOURCE, PAGE_SOURCE),
                 getIntent().getCharSequenceExtra(EXTRA_SOURCE_LANG_DESC));
     }
 

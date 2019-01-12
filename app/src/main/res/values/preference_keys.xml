@@ -109,4 +109,7 @@
     <string name="preference_key_show_multilingual_task">showMultilingualTask</string>
     <string name="preference_key_show_edit_action_add_title_descriptions_onboarding">showEditActionAddTitleDescriptionsOnboarding</string>
     <string name="preference_key_show_edit_action_translate_descriptions_onboarding">showEditActionTranslateDescriptionsOnboarding</string>
+    <string name="preference_key_edit_action_translate_descriptions_unlocked">editActionTranslateDescriptionsUnlocked</string>
+    <string name="preference_key_total_edit_tasks_title_descriptions_edited">editActionTitleDescriptionsEdited</string>
+    <string name="preference_key_show_edit_action_translate_descriptions_unlock_dialog">showEditActionTranslateDescriptionsUnlockDialog</string>
 </resources>

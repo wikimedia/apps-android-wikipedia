@@ -37,8 +37,8 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
-import static org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.SOURCE_ADD_DESCRIPTIONS;
-import static org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.SOURCE_TRANSLATE_DESCRIPTIONS;
+import static org.wikipedia.descriptions.DescriptionEditActivity.EDIT_TASKS_TITLE_DESC_SOURCE;
+import static org.wikipedia.descriptions.DescriptionEditActivity.EDIT_TASKS_TRANSLATE_TITLE_DESC_SOURCE;
 
 public class EditTasksFragment extends Fragment {
     private Unbinder unbinder;
@@ -98,6 +98,20 @@ public class EditTasksFragment extends Fragment {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateUI();
+        updateRecycler();
+    }
+
+    private void updateRecycler() {
+        if (Prefs.isEditActionTranslateDescriptionsUnlocked() && tasks.size() > 2 && tasksRecyclerView.getAdapter() != null) {
+            tasks.get(1).setDisabled(false);
+            tasksRecyclerView.getAdapter().notifyItemChanged(1);
+        }
+    }
+
     private void updateUI() {
         circularProgressBar.setCurrentProgress(Prefs.getTotalUserDescriptionsEdited());
         levelText.setText(String.format(getString(R.string.editing_level_text), 1)); //Todo: derive the level number dynamically by making use of future gaming logic
@@ -132,7 +146,7 @@ public class EditTasksFragment extends Fragment {
 
             @Override
             public void onViewClick() {
-                startActivity(AddTitleDescriptionsActivity.Companion.newIntent(requireActivity(), SOURCE_ADD_DESCRIPTIONS));
+                startActivity(AddTitleDescriptionsActivity.Companion.newIntent(requireActivity(), EDIT_TASKS_TITLE_DESC_SOURCE));
             }
         });
 
@@ -142,6 +156,8 @@ public class EditTasksFragment extends Fragment {
             multilingualTask.setDescription(getString(R.string.multilingual_task_description));
             multilingualTask.setImagePlaceHolderShown(false);
             multilingualTask.setNoActionLayout(false);
+            multilingualTask.setDisabled(!Prefs.isEditActionTranslateDescriptionsUnlocked());
+            multilingualTask.setDisabledDescriptionText(String.format(getString(R.string.image_caption_edit_disable_text), 50));
             multilingualTask.setEnabledPositiveActionString(getString(R.string.multilingual_task_positive));
             multilingualTask.setEnabledNegativeActionString(getString(R.string.multilingual_task_negative));
             tasks.add(multilingualTask);
@@ -164,7 +180,7 @@ public class EditTasksFragment extends Fragment {
                 @Override
                 public void onViewClick() {
                     if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() > 1) {
-                        startActivity(AddTitleDescriptionsActivity.Companion.newIntent(requireActivity(), SOURCE_TRANSLATE_DESCRIPTIONS));
+                        startActivity(AddTitleDescriptionsActivity.Companion.newIntent(requireActivity(), EDIT_TASKS_TRANSLATE_TITLE_DESC_SOURCE));
                     }
                 }
             });
