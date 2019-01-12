@@ -54,6 +54,11 @@ public class SyntaxHighlighterTest {
             latch.countDown();
         }
 
+        @Override
+        public void findTextMatches(List<SpanExtents> spanExtents) {
+
+        }
+
         public List<SpanExtents> await() {
             latch.await();
             return result;
