@@ -201,6 +201,10 @@
   <string name="edit_next">Következő</string>
   <string name="edit_done">Közzététel</string>
   <string name="edit_preview">Előnézet</string>
+  <string name="edit_undo">Visszavonás</string>
+  <string name="edit_redo">Újra</string>
+  <string name="edit_zoom_in">Nagyítás</string>
+  <string name="edit_zoom_out">Kicsinyítés</string>
   <string name="edit_summary_tag_typo">Elírás javítása</string>
   <string name="edit_summary_tag_grammar">Nyelvtani javítás</string>
   <string name="edit_summary_tag_links">Hivatkozások hozzáadása</string>
@@ -269,6 +273,7 @@
   <string name="close_all_tabs_confirm_no">Nem</string>
   <string name="button_close_tab">Fül bezárása</string>
   <string name="tab_item_closed">%s bezárva.</string>
+  <string name="all_tab_items_closed">Az összes fül bezárva.</string>
   <string name="tool_tip_bookmark_icon_title">Hozzáadás az olvasólistához</string>
   <string name="tool_tip_bookmark_icon_text">Bökj a könyvjelző ikonra, hogy a cikket egy olvasólistádra mentsd.</string>
   <string name="tool_tip_share">Egy érdekes adat kijelölése után próbáld meg megosztani a kedvenc hálózataidban!</string>
@@ -586,6 +591,7 @@
   <string name="description_edit_help_more_info">További információk</string>
   <string name="description_edit_help_meta_info">A leírások a Wikidatán tárolódnak, ami Wikimédia Alapítvány egyik projektje, egy szabad, kollaboratív, többnyelvű, másodlagos adatbázis, ami a Wikipédiát és egyéb projekteket támogat.</string>
   <string name="editactionfeed_add_title_descriptions">Címleírások hozzáadása</string>
+  <string name="editactionfeed_translate_descriptions">Címleírások fordítása</string>
   <string name="editactionfeed_review_title_description">Címleírás ellenőrzése</string>
   <string name="editactionfeed_add_description_button">Leírás hozzáadása</string>
   <string name="editactionfeed_my_contributions">Közreműködéseim</string>
@@ -667,12 +673,14 @@
   <string name="image_caption_task_description">Adj feliratokat a képekhez</string>
   <string name="multilingual_task_title">További feladatok többnyelvű szerkesztőknek</string>
   <string name="multilingual_task_description">A fordítási feladatok akkor érhetőek el, ha több mint egy Wikipédia nyelven olvasol és írsz.</string>
-  <string name="image_caption_edit_disable_text">Zárolva, míg el nem végzel %d ellenőrzött alkalmazások belüli szerkesztést</string>
+  <string name="image_caption_edit_disable_text">Zárolva, míg el nem végzel az alkalmazáson belül %d ellenőrzött szerkesztést</string>
   <string name="multilingual_task_negative">Nem nekem való</string>
   <string name="multilingual_task_positive">Nyelvek hozzáadása</string>
   <string name="editing_level_text">%d. SZINTŰ alkalmazásszerkesztő</string>
+  <string name="translation_source_description">%s leírás:</string>
   <plurals name="edit_action_contribution_count">
     <item quantity="one">alkalmazáson belüli közreműködés</item>
     <item quantity="other">alkalmazáson belüli közreműködés</item>
   </plurals>
+  <string name="add_title_descriptions_dialog_title">Címleírások hozzáadása</string>
 </resources>

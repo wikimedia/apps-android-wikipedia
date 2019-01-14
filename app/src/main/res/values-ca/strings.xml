@@ -202,6 +202,10 @@
   <string name="edit_next">Següent</string>
   <string name="edit_done">Publica</string>
   <string name="edit_preview">Vista prèvia</string>
+  <string name="edit_undo">Desfés</string>
+  <string name="edit_redo">Refés</string>
+  <string name="edit_zoom_in">Amplia</string>
+  <string name="edit_zoom_out">Allunya</string>
   <string name="edit_summary_tag_typo">Errada corregida</string>
   <string name="edit_summary_tag_grammar">Errada gramatical corregida</string>
   <string name="edit_summary_tag_links">Enllaços afegits</string>
@@ -554,7 +558,6 @@
   <string name="description_edit_text_hint">Descripció de títol</string>
   <string name="description_edit_save">Publica</string>
   <string name="description_edit_add_description">Afegeix una descripció de títol</string>
-  <string name="description_edit_translate_description">Tradueix la descripció de títol</string>
   <string name="description_edit_edit_description">Modifica la descripció</string>
   <string name="description_edit_cancel_hint">Cancel·la</string>
   <string name="description_edit_help_title">Ajuda: descripcions dels títols</string>
@@ -681,4 +684,9 @@
     <item quantity="one">contribució en l\'aplicació</item>
     <item quantity="other">contribucions en l\'aplicació</item>
   </plurals>
+  <string name="add_title_descriptions_dialog_title">Afegeix descripcions de títol</string>
+  <string name="add_title_descriptions_dialog_message">Podeu ajudar a millorar la Viquipèdia afegint descripcions que apareguin sota dels títols dels articles. Podeu configurar les vostres llengües en qualsevol moment.</string>
+  <string name="add_translate_descriptions_dialog_title">Esteu traduint descripcions de títol per primera vegada</string>
+  <string name="add_translate_descriptions_dialog_message">Podeu ajudar a millorar la Viquipèdia traduint descripcions de títol. Podeu configurar les vostres llengües i definir un sentit de traducció en qualsevol moment.</string>
+  <string name="description_edit_tutorial_message">Us donem la benvinguda a la nova pàgina inicial de l\'aplicació integrada d\'edició a la Viquipèdia. Des d\'aquí us suggerirem oportunitats per afegir contingut que pugui ser del vostre interès. Les vostres contribucions són molt benvingudes. Editeu-hi de gust!</string>
 </resources>

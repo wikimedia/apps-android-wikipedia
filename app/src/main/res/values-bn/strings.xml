@@ -559,4 +559,5 @@
   <string name="main_drawer_login">উইকিপিডিয়াতে প্রবেশ করুন/যোগ দিন</string>
   <string name="multilingual_task_negative">আমার জন্য নয়</string>
   <string name="multilingual_task_positive">ভাষা যোগ করুন</string>
+  <string name="translation_source_description">%s বিবরণ:</string>
 </resources>

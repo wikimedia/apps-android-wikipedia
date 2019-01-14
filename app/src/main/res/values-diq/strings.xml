@@ -103,6 +103,9 @@
   <string name="edit_next">Bahdoyên</string>
   <string name="edit_done" fuzzy="true">Qeyd ke</string>
   <string name="edit_preview">Verqayt</string>
+  <string name="edit_undo">Peyser biya</string>
+  <string name="edit_zoom_in">Nêzdi ke</string>
+  <string name="edit_zoom_out">Dûri fiye</string>
   <string name="edit_summary_tag_grammar">Gramer timarya</string>
   <string name="edit_summary_tag_links">Gırey debyay</string>
   <string name="edit_summary_tag_other">Zewbi</string>

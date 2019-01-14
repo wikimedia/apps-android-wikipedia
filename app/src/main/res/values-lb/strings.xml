@@ -172,6 +172,9 @@
   <string name="edit_next">Weider</string>
   <string name="edit_done">Verëffentlechen</string>
   <string name="edit_preview">Kucken ouni ze späicheren</string>
+  <string name="edit_undo">Réckgängeg maachen</string>
+  <string name="edit_redo">Widderhuelen</string>
+  <string name="edit_zoom_out"> Verklengeren</string>
   <string name="edit_summary_tag_typo">Tippfeeler verbessert</string>
   <string name="edit_summary_tag_grammar">Grammaire verbessert</string>
   <string name="edit_summary_tag_links">Dobäigesat Linken</string>
@@ -456,7 +459,6 @@
   <string name="description_edit_text_hint">Titelbeschreiwung</string>
   <string name="description_edit_save">Verëffentlechen</string>
   <string name="description_edit_add_description">Beschreiwung vum Titel derbäisetzen</string>
-  <string name="description_edit_translate_description" fuzzy="true">Titelbeschreiwungen iwwersetzen</string>
   <string name="description_edit_edit_description">Beschreiwung änneren</string>
   <string name="description_edit_cancel_hint">Ofbriechen</string>
   <string name="description_edit_help_title">Hëllef:Titelbeschreiwungen</string>

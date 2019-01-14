@@ -205,6 +205,10 @@
   <string name="edit_next">다음</string>
   <string name="edit_done">게시</string>
   <string name="edit_preview">미리 보기</string>
+  <string name="edit_undo">실행 취소</string>
+  <string name="edit_redo">다시 실행</string>
+  <string name="edit_zoom_in">확대</string>
+  <string name="edit_zoom_out">축소</string>
   <string name="edit_summary_tag_typo">오타를 고침</string>
   <string name="edit_summary_tag_grammar">문법을 고침</string>
   <string name="edit_summary_tag_links">링크를 추가</string>
@@ -549,7 +553,6 @@
   <string name="description_edit_text_hint">제목 설명</string>
   <string name="description_edit_save">게시</string>
   <string name="description_edit_add_description">제목 설명 추가</string>
-  <string name="description_edit_translate_description" fuzzy="true">제목 설명 번역하기</string>
   <string name="description_edit_edit_description">설명 편집</string>
   <string name="description_edit_cancel_hint">취소</string>
   <string name="description_edit_help_title">도움말: 제목 설명</string>
@@ -582,6 +585,7 @@
   <string name="description_edit_help_more_info">자세한 정보</string>
   <string name="description_edit_help_meta_info">설명은 위키백과와 다른 프로젝트를 지원하는 자유, 협업, 다언어, 2차 데이터베이스를 제공하는 위키미디어 재단의 프로젝트의 하나인 위키데이터에 저장되어 관리됩니다.</string>
   <string name="editactionfeed_add_title_descriptions">제목 설명 추가</string>
+  <string name="editactionfeed_translate_descriptions">제목 설명 번역하기</string>
   <string name="editactionfeed_review_title_description">이 설명 검토</string>
   <string name="editactionfeed_add_description_button">설명 추가</string>
   <string name="editactionfeed_my_contributions">내 기여</string>
@@ -666,4 +670,7 @@
     <item quantity="one">인앱 기여</item>
     <item quantity="other">인앱 기여</item>
   </plurals>
+  <string name="add_title_descriptions_dialog_title">제목 설명 추가</string>
+  <string name="add_translate_descriptions_dialog_title">처음으로 제목 설명을 번역하고 있습니다</string>
+  <string name="add_translate_descriptions_dialog_message">지금 제목 설명을 번역함으로써 위키백과 개선을 도울 수 있습니다. 언제든지 언어를 구성하고 번역 방향을 설정할 수 있습니다.</string>
 </resources>

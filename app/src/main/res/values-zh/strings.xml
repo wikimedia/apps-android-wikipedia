@@ -552,7 +552,6 @@
   <string name="description_edit_text_hint">标题描述</string>
   <string name="description_edit_save">发布</string>
   <string name="description_edit_add_description">添加标题描述</string>
-  <string name="description_edit_translate_description" fuzzy="true">翻译标题描述</string>
   <string name="description_edit_edit_description">编辑描述</string>
   <string name="description_edit_cancel_hint">取消</string>
   <string name="description_edit_help_title">帮助：标题描述</string>

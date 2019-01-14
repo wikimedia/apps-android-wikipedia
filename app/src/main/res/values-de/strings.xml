@@ -4,6 +4,7 @@
 * Envlh
 * Hwboehm
 * Metalhead64
+* Sebastian Wallroth
 * Vogone
 * Xqt
 -->
@@ -193,6 +194,10 @@
   <string name="edit_next">Nächste</string>
   <string name="edit_done">Veröffentlichen</string>
   <string name="edit_preview">Vorschau</string>
+  <string name="edit_undo">Rückgängig</string>
+  <string name="edit_redo">Wiederherstellen</string>
+  <string name="edit_zoom_in">Vergrößern</string>
+  <string name="edit_zoom_out">Verkleinern</string>
   <string name="edit_summary_tag_typo">Tippfehler korrigiert</string>
   <string name="edit_summary_tag_grammar">Grammatik korrigiert</string>
   <string name="edit_summary_tag_links">Links hinzugefügt</string>
@@ -545,7 +550,6 @@
   <string name="description_edit_text_hint">Titelbeschreibung</string>
   <string name="description_edit_save">Veröffentlichen</string>
   <string name="description_edit_add_description">Titelbeschreibung hinzufügen</string>
-  <string name="description_edit_translate_description">Titelbeschreibung übersetzen</string>
   <string name="description_edit_edit_description">Beschreibung bearbeiten</string>
   <string name="description_edit_cancel_hint">Abbrechen</string>
   <string name="description_edit_help_title">Hilfe: Titelbeschreibungen</string>
@@ -668,8 +672,17 @@
   <string name="multilingual_task_positive">Sprachen hinzufügen</string>
   <string name="editing_level_text">App-Autor des NIVEAUS %d</string>
   <string name="translation_source_description">Beschreibung auf %s:</string>
+  <string name="translate_caption_task_title">Bildbeschreibungen übersetzen</string>
+  <string name="translate_caption_task_description">Beschreibungen in andere Sprachen übersetzen</string>
   <plurals name="edit_action_contribution_count">
     <item quantity="one">In-App-Beitrag</item>
     <item quantity="other">In-App-Beiträge</item>
   </plurals>
+  <string name="add_title_descriptions_dialog_title">Titelbeschreibungen hinzufügen</string>
+  <string name="add_title_descriptions_dialog_message">Du kannst jetzt bei der Verbesserung von Wikipedia helfen, indem du Beschreibungen hinzufügst, die unterhalb von Artikeltiteln erscheinen. Du kannst jederzeit deine Sprachen konfigurieren.</string>
+  <string name="add_translate_descriptions_dialog_title">Du übersetzt Titelbeschreibungen zum ersten Mal</string>
+  <string name="add_translate_descriptions_dialog_message">Du kannst jetzt bei der Verbesserung von Wikipedia durch das Übersetzen von Titelbeschreibungen helfen. Du kannst jederzeit deine Sprachen konfigurieren und eine Übersetzungsrichtung festlegen.</string>
+  <string name="description_edit_tutorial_message">Willkommen bei der neuen Startseite für das In-App-Bearbeiten auf Wikipedia. Hier schlagen wir Möglichkeiten zum Hinzufügen von Inhalten vor, die dich interessieren könnten. Deine Beiträge werden hoch geschätzt. Fröhliches Bearbeiten!</string>
+  <string name="translation_description_edit_task_unlock_title">Das Übersetzen von Titelbeschreibungen wurde freigegeben!</string>
+  <string name="translation_description_edit_task_unlock_body">Wir haben mitbekommen, dass du das Bearbeiten von Titelbeschreibungen und das Lesen von Wikipedia in mehreren Sprachen magst. Probiere diese Aufgabenliste aus, die dir einen Zugriff auf das Übersetzen weiterer Titelbeschreibungen ermöglicht!</string>
 </resources>

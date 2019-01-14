@@ -550,7 +550,6 @@
   <string name="description_edit_text_hint">Titelbeskrivning</string>
   <string name="description_edit_save">Publicera</string>
   <string name="description_edit_add_description">Lägg till titelbeskrivning</string>
-  <string name="description_edit_translate_description">Översätt titelbeskrivning</string>
   <string name="description_edit_edit_description">Redigera beskrivningen</string>
   <string name="description_edit_cancel_hint">Avbryt</string>
   <string name="description_edit_help_title">Hjälp: Titelbeskrivningar</string>

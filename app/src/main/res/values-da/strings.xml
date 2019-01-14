@@ -200,6 +200,8 @@
   <string name="edit_next">Næste</string>
   <string name="edit_done">Offentliggør</string>
   <string name="edit_preview">Forhåndsvis</string>
+  <string name="edit_zoom_in">Zoom in</string>
+  <string name="edit_zoom_out">Zoom ud</string>
   <string name="edit_summary_tag_typo">Rettet stavefejl</string>
   <string name="edit_summary_tag_grammar">Rettet grammatik</string>
   <string name="edit_summary_tag_links">Tilføjet links</string>
@@ -268,6 +270,7 @@
   <string name="close_all_tabs_confirm_no">Nej</string>
   <string name="button_close_tab">Luk fane</string>
   <string name="tab_item_closed">%s lukket.</string>
+  <string name="all_tab_items_closed">Alle faner lukket.</string>
   <string name="tool_tip_bookmark_icon_title">Tilføj til læseliste</string>
   <string name="tool_tip_bookmark_icon_text">Tryk på bogmærkeikonet for at gemme artiklen i en læseliste.</string>
   <string name="tool_tip_share">Efter du har markeret et interessant faktum, prøv at dele det på dine foretrukne netværk.</string>
@@ -550,7 +553,6 @@
   <string name="description_edit_text_hint">Titelbeskrivelse</string>
   <string name="description_edit_save">Offentliggør</string>
   <string name="description_edit_add_description">Tilføj titelbeskrivelse</string>
-  <string name="description_edit_translate_description">Oversæt titelbeskrivelse</string>
   <string name="description_edit_edit_description">Rediger beskrivelse</string>
   <string name="description_edit_cancel_hint">Annuller</string>
   <string name="description_edit_help_title">Hjælp: Titelbeskrivelser</string>
@@ -670,4 +672,6 @@
   <string name="multilingual_task_description">Oversættelsesopgaver er tilgængelige, hvis du læser og skriver på mere end et Wikipedia-sprog.</string>
   <string name="multilingual_task_negative">Ikke noget for mig</string>
   <string name="multilingual_task_positive">Tilføj sprog</string>
+  <string name="add_title_descriptions_dialog_title">Tilføj titelbeskrivelser</string>
+  <string name="add_translate_descriptions_dialog_title">Du er ved at oversætte titelbeskrivelse for første gang</string>
 </resources>

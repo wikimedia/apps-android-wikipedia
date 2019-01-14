@@ -686,6 +686,8 @@
   <string name="multilingual_task_positive">Positive action button text for editing tasks.</string>
   <string name="editing_level_text">Text indicating the level of app editing reached. %d indicates the level number</string>
   <string name="translation_source_description">Label text that indicated that the description text shown is of the source language %1$s is the language and %2$s is the description</string>
+  <string name="translate_caption_task_title">Image caption translation tasks heading.</string>
+  <string name="translate_caption_task_description">Image caption translation tasks explanation given to user.</string>
   <plurals name="edit_action_contribution_count">
     <item quantity="one">Text suggesting that one in-app contribution was made.</item>
     <item quantity="other">Text suggesting that two or more in-app contributions were made.</item>
@@ -695,8 +697,6 @@
   <string name="add_translate_descriptions_dialog_title">Title text of the dialog shown to editors before their first time  translating descriptions.</string>
   <string name="add_translate_descriptions_dialog_message">Message text in the dialog shown to editors before their first time translating descriptions.</string>
   <string name="description_edit_tutorial_message">Concise on-boarding message to the app editor task list.</string>
-  <string name="translate_caption_task_title">Image caption translation tasks heading.</string>
-  <string name="translate_caption_task_description">Image caption translation tasks explanation given to user.</string>
   <string name="translation_description_edit_task_unlock_title">Title of the dialog box that appears when the user unlocks the feed of suggested articles for translating descriptions from one of their app languages to another.</string>
   <string name="translation_description_edit_task_unlock_body">Body of the dialog box that appears when the user unlocks the feed of suggested articles for translating descriptions from one of their app languages to another.</string>
 </resources>

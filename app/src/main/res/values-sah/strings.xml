@@ -192,6 +192,10 @@
   <string name="edit_next">Аныгыскы</string>
   <string name="edit_done">Бигэргэт</string>
   <string name="edit_preview">Хайдах буолара</string>
+  <string name="edit_undo">Төттөрү</string>
+  <string name="edit_redo">Хатылаа</string>
+  <string name="edit_zoom_in">Чугаһатыы</string>
+  <string name="edit_zoom_out">Кыччатыы</string>
   <string name="edit_summary_tag_typo">Сыыһата көннөрүлүннэ</string>
   <string name="edit_summary_tag_grammar">Таба суруйуу көннөрүлүннэ</string>
   <string name="edit_summary_tag_links">Сигэлэр киирдилэр</string>
@@ -260,6 +264,7 @@
   <string name="close_all_tabs_confirm_no">Суох</string>
   <string name="button_close_tab">Кыбытыгы сап</string>
   <string name="tab_item_closed">%s сабылынна.</string>
+  <string name="all_tab_items_closed">Кыбытыктар сабылыннылар.</string>
   <string name="tool_tip_bookmark_icon_title">Ааҕыы испииһэгэр киллэр</string>
   <string name="tool_tip_bookmark_icon_text">Кыбытык-бэлиэ ойуутун баттаан ыстатыйаны ааҕыы испииһэгэр киллэр.</string>
   <string name="tool_tip_share">Сэргэҕи бэлиэтээн (хараардан) баран сөбүлүүр түмэт-ситимнэргэр тарҕатан көр!</string>
@@ -609,4 +614,5 @@
   <string name="title_description_task_title">Кылгас быһаарыы эбии</string>
   <string name="multilingual_task_negative">Миэхэ буолбатах</string>
   <string name="multilingual_task_positive">Тылы эбии</string>
+  <string name="add_title_descriptions_dialog_title">Аатын быһаар</string>
 </resources>

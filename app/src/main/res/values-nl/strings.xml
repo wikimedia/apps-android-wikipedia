@@ -556,7 +556,6 @@
   <string name="description_edit_text_hint">Titelbeschrijving</string>
   <string name="description_edit_save">Publiceren</string>
   <string name="description_edit_add_description">Titelbeschrijving toevoegen</string>
-  <string name="description_edit_translate_description" fuzzy="true">Vertaal titelbeschrijvingen</string>
   <string name="description_edit_edit_description">Beschrijving bewerken</string>
   <string name="description_edit_cancel_hint">Annuleren</string>
   <string name="description_edit_help_title">Hulp: titelbeschrijvingen</string>

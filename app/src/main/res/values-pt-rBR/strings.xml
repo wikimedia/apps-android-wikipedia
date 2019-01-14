@@ -213,6 +213,10 @@
   <string name="edit_next">Próximo</string>
   <string name="edit_done">Publicar</string>
   <string name="edit_preview">Pré-visualização</string>
+  <string name="edit_undo">Desfazer</string>
+  <string name="edit_redo">Refazer</string>
+  <string name="edit_zoom_in">Ampliar</string>
+  <string name="edit_zoom_out">Afastar</string>
   <string name="edit_summary_tag_typo">Corrigiu erro ortográfico</string>
   <string name="edit_summary_tag_grammar">Corrigiu gramática</string>
   <string name="edit_summary_tag_links">Adicionou ligações</string>
@@ -281,6 +285,7 @@
   <string name="close_all_tabs_confirm_no">Não</string>
   <string name="button_close_tab">Fechar guia</string>
   <string name="tab_item_closed">%s fechado.</string>
+  <string name="all_tab_items_closed">Todas as guias fechadas.</string>
   <string name="tool_tip_bookmark_icon_title">Adicionar à lista de leitura</string>
   <string name="tool_tip_bookmark_icon_text">Toque no ícone do marcador para salvar o artigo em uma lista de leitura.</string>
   <string name="tool_tip_share">Após destacar um fato interessante, tente compartilhá-lo nas suas redes favoritas!</string>
@@ -598,11 +603,13 @@
   <string name="description_edit_help_more_info">Mais informações</string>
   <string name="description_edit_help_meta_info">As descrições são armazenadas e mantidas no Wikidata, um projeto da Fundação Wikimedia que fornece um banco de dados secundário gratuito, colaborativo, multilíngüe que suporta a Wikipedia e outros projetos.</string>
   <string name="editactionfeed_add_title_descriptions">Adicionar descrições de título</string>
+  <string name="editactionfeed_translate_descriptions">Traduzir as descrições de título</string>
   <string name="editactionfeed_review_title_description">Revisar a descrição do título</string>
   <string name="editactionfeed_add_description_button">Adicionar descrição</string>
   <string name="editactionfeed_my_contributions">Minhas contribuições</string>
   <string name="editactionfeed_from_language">De:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Saiba mais</string>
+  <string name="editactionfeed_to_language">Para:</string>
   <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
   <string name="description_edit_revert_intro">Sabemos que você tentou o seu melhor, mas um dos revisores tinha uma preocupação. Possíveis razões pelas quais a edição foi revertida inclui</string>
   <string name="description_edit_revert_reason1">Sua contribuição não seguiu uma das &lt;a href=\"%1$s\"&gt;diretrizes&lt;/a&gt;.</string>
@@ -683,8 +690,18 @@
   <string name="multilingual_task_negative">Não para mim</string>
   <string name="multilingual_task_positive">Adicionar idiomas</string>
   <string name="editing_level_text">NÍVEL %d editor de aplicativos</string>
+  <string name="translation_source_description">Descrição em %s:</string>
+  <string name="translate_caption_task_title">Traduzir legendas de imagem</string>
+  <string name="translate_caption_task_description">Traduzir legendas para outros idiomas</string>
   <plurals name="edit_action_contribution_count">
     <item quantity="one">contribuição no aplicativo</item>
     <item quantity="other">contribuições no aplicativo</item>
   </plurals>
+  <string name="add_title_descriptions_dialog_title">Adicionar descrições de título</string>
+  <string name="add_title_descriptions_dialog_message">Agora você pode ajudar a melhorar a Wikipédia adicionando descrições que aparecem abaixo dos títulos nos artigos. Você pode configurar seus idiomas a qualquer momento.</string>
+  <string name="add_translate_descriptions_dialog_title">Você está traduzindo as descrições dos títulos pela primeira vez</string>
+  <string name="add_translate_descriptions_dialog_message">Agora você pode ajudar a melhorar o Wikipédia, traduzindo as descrições dos títulos. Você pode configurar seus idiomas e definir uma direção de tradução a qualquer momento.</string>
+  <string name="description_edit_tutorial_message">Bem-vindo ao novo lar da edição no aplicativo na Wikipédia. Aqui, sugerimos oportunidades para adicionar conteúdo que possa ser do seu interesse. Suas contribuições são muito apreciadas. Edição feliz!</string>
+  <string name="translation_description_edit_task_unlock_title">A tradução da edição de descrições de títulos foi desbloqueada!</string>
+  <string name="translation_description_edit_task_unlock_body">Notamos que você gosta de editar descrições de títulos e ler a Wikipédia em vários idiomas. Confira esta lista de tarefas que dá acesso à tradução de mais descrições de títulos!</string>
 </resources>

@@ -267,6 +267,7 @@
   <string name="close_all_tabs_confirm_no">Не</string>
   <string name="button_close_tab">Затвори картицу</string>
   <string name="tab_item_closed">Затворено: %s.</string>
+  <string name="all_tab_items_closed">Све картице су затворене.</string>
   <string name="tool_tip_bookmark_icon_title">Додај на листу за читање</string>
   <string name="tool_tip_bookmark_icon_text">Додирните иконицу обележивача да бисте сачували чланак у листу за читање.</string>
   <string name="tool_tip_share">Након што означите занимљиву чињеницу, делите је на својим омиљеним мрежама.</string>
@@ -581,11 +582,13 @@
   <string name="description_edit_help_more_info">Више информација</string>
   <string name="description_edit_help_meta_info">Описи се смештају и одржавају на Википодацима, пројекту Задужбине Викимедија, који пружа слободну, колаборативну, вишејезичку, секундарну базу података, која помаже Википедији и другим пројектима.</string>
   <string name="editactionfeed_add_title_descriptions">Додавање описа наслова</string>
+  <string name="editactionfeed_translate_descriptions">Преведите описе наслова</string>
   <string name="editactionfeed_review_title_description">Преглед описа наслова</string>
   <string name="editactionfeed_add_description_button">Додај опис</string>
   <string name="editactionfeed_my_contributions">Моји доприноси</string>
   <string name="editactionfeed_from_language">Од:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Сазнајте више</string>
+  <string name="editactionfeed_to_language">За:</string>
   <string name="description_edit_revert_subtitle">Хвала вам што уређујете Википедију.</string>
   <string name="description_edit_revert_intro">Знамо да сте дали све од себе, али један од патролера има примедбу. Могући разлози због чега је ваша измена поништена:</string>
   <string name="description_edit_revert_reason1">ваша измена није била у складу са неком од &lt;a href=\"%1$s\"&gt;смерница&lt;/a&gt;.</string>
@@ -659,4 +662,5 @@
   <string name="title_description_task_title">Додавање описа наслова</string>
   <string name="multilingual_task_negative">Није за мене</string>
   <string name="multilingual_task_positive">Додај језике</string>
+  <string name="translation_source_description">опис (%s):</string>
 </resources>

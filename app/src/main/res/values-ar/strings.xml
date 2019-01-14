@@ -22,6 +22,7 @@
 * ديفيد
 * عبد الإله صديقي
 * محمد أحمد عبد الفتاح
+* مصعب
 -->
 <resources>
   <string name="app_name_prod">ويكيبيديا</string>
@@ -208,6 +209,10 @@
   <string name="edit_next">التالي</string>
   <string name="edit_done">انشر</string>
   <string name="edit_preview">معاينة</string>
+  <string name="edit_undo">تراجع</string>
+  <string name="edit_redo">أعد</string>
+  <string name="edit_zoom_in">تكبير</string>
+  <string name="edit_zoom_out">تصغير</string>
   <string name="edit_summary_tag_typo">تم تصحيح خطأ مطبعي</string>
   <string name="edit_summary_tag_grammar">تم إصلاح النحو</string>
   <string name="edit_summary_tag_links">تمت إضافة روابط</string>
@@ -560,7 +565,6 @@
   <string name="description_edit_text_hint">وصف العنوان</string>
   <string name="description_edit_save">انشر</string>
   <string name="description_edit_add_description">إضافة وصف للعنوان</string>
-  <string name="description_edit_translate_description">ترجمة وصف العنوان</string>
   <string name="description_edit_edit_description">عدل الوصف</string>
   <string name="description_edit_cancel_hint">ألغ</string>
   <string name="description_edit_help_title">مساعدة:وصوف العناوين</string>
@@ -594,7 +598,7 @@
   <string name="description_edit_help_tips_example2_hint">وصف عنوان لمقال حول جبل ايفرست</string>
   <string name="description_edit_help_more_info">مزيد من المعلومات</string>
   <string name="description_edit_help_meta_info">يتم تخزين الأوصاف والحفاظ عليها في ويكي بيانات، وهو مشروع لمؤسسة ويكيميديا ​​الذي يوفر قاعدة بيانات حرة، وتعاونية، ومتعددة اللغات، وثانوية تدعم ويكيبيديا وغيرها من المشاريع.</string>
-  <string name="editactionfeed_add_title_descriptions">إضافة وصوف العناوين</string>
+  <string name="editactionfeed_add_title_descriptions">إضافة وصوفات العنوان</string>
   <string name="editactionfeed_translate_descriptions">ترجمة وصف العنوان</string>
   <string name="editactionfeed_review_title_description">معاينة وصف العنوان</string>
   <string name="editactionfeed_add_description_button">أضف وصفا</string>
@@ -672,7 +676,7 @@
   <string name="main_drawer_close">إغلاق</string>
   <string name="main_drawer_help">مساعدة</string>
   <string name="main_drawer_login">تسجيل الدخول / الاشتراك في ويكيبيديا</string>
-  <string name="title_description_task_title">إضافة وصوف العناوين</string>
+  <string name="title_description_task_title">إضافة وصوفات العنوان</string>
   <string name="title_description_task_description">ساهم في المقالات التي تفتقد لوصوف العناوين</string>
   <string name="image_caption_task_title">تعليقات الصور</string>
   <string name="image_caption_task_description">أضف تعليقاتٍ للصور</string>
@@ -683,8 +687,17 @@
   <string name="multilingual_task_positive">أضف لغات</string>
   <string name="editing_level_text">محرر تطبيق من المستوى %d</string>
   <string name="translation_source_description">وصف %s:</string>
+  <string name="translate_caption_task_title">ترجمة تعليقات الصور</string>
+  <string name="translate_caption_task_description">ترجمة التعليقات إلى لغات أخرى</string>
   <plurals name="edit_action_contribution_count">
     <item quantity="one">مساهمة داخل التطبيق</item>
     <item quantity="other">مساهمات داخل التطبيق</item>
   </plurals>
+  <string name="add_title_descriptions_dialog_title">إضافة وصوفات العنوان</string>
+  <string name="add_title_descriptions_dialog_message">يمكنك الآن المساعدة في تحسين ويكيبيديا عن طريق إضافة الوصوفات التي تظهر أسفل العناوين في المقالات. يمكنك ضبط لغاتك في أي وقت.</string>
+  <string name="add_translate_descriptions_dialog_title">أنت تترجم وصوفات العنوان للمرة الأولى</string>
+  <string name="add_translate_descriptions_dialog_message">يمكنك الآن المساعدة في تحسين ويكيبيديا عن طريق ترجمة وصوفات العنوان. يمكنك ضبط لغاتك وضبط اتجاه الترجمة في أي وقت.</string>
+  <string name="description_edit_tutorial_message">مرحبا بك في البيت الجديد للتعديل من التطبيق على ويكيبيديا. هنا سنقترح الفرص لإضافة المحتوى الذي ربما يكون مهما لك. مساهماتك مرحب بها جدا. تعديل سعيد!</string>
+  <string name="translation_description_edit_task_unlock_title">تعديل ترجمة وصوفات العنوان تم فتحه!</string>
+  <string name="translation_description_edit_task_unlock_body">لقد لاحظنا أنك تحب تعديل وصوفات العنوان وقراءة ويكيبيديا بلغات متعددة. تحقق من قائمة المهام هذه والتي توفر الوصول لترجمة المزيد من وصوفات العنوان!</string>
 </resources>

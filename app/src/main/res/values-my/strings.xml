@@ -535,7 +535,6 @@
   <string name="description_edit_text_hint">ခေါင်းစဉ် ဖော်ပြချက်</string>
   <string name="description_edit_save">လွှင့်တင်ရန်</string>
   <string name="description_edit_add_description">ဖော်ပြချက်အတို ပေါင်းထည့်ရန်</string>
-  <string name="description_edit_translate_description" fuzzy="true">ခေါင်းစဉ်ဖော်ပြချက်များကို ဘာသာပြန်ရန်</string>
   <string name="description_edit_edit_description">ဖော်ပြချက် ပြင်ဆင်ရန်</string>
   <string name="description_edit_cancel_hint">မလုပ်တော့ပါ</string>
   <string name="description_edit_help_title">အကူအညီ:ခေါင်းစဉ် ဖော်ပြချက်များ</string>

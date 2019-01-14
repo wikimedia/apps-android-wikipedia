@@ -212,6 +212,10 @@
   <string name="edit_next">Successivo</string>
   <string name="edit_done">Pubblica</string>
   <string name="edit_preview">Anteprima</string>
+  <string name="edit_undo">Annulla</string>
+  <string name="edit_redo">Ripeti</string>
+  <string name="edit_zoom_in">Zoom avanti</string>
+  <string name="edit_zoom_out">Zoom indietro</string>
   <string name="edit_summary_tag_typo">Corretto errore di battitura</string>
   <string name="edit_summary_tag_grammar">Corretta grammatica</string>
   <string name="edit_summary_tag_links">Aggiunti collegamenti</string>
@@ -475,7 +479,6 @@
   <string name="description_edit_text_hint">Descrizione del titolo</string>
   <string name="description_edit_save">Pubblica</string>
   <string name="description_edit_add_description">Aggiungi una descrizione del titolo</string>
-  <string name="description_edit_translate_description">Traduci la descrizione del titolo</string>
   <string name="description_edit_edit_description">Modifica descrizione</string>
   <string name="description_edit_cancel_hint">Annulla</string>
   <string name="description_edit_help_title">Aiuto: descrizioni del titolo</string>

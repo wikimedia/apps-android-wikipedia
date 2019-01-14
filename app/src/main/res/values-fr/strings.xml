@@ -27,6 +27,7 @@
 * Urhixidur
 * Verdy p
 * Wladek92
+* Zarisi
 -->
 <resources>
   <string name="app_name_prod">Wikipédia</string>
@@ -214,6 +215,10 @@
   <string name="edit_next">Suivant</string>
   <string name="edit_done">Publier</string>
   <string name="edit_preview">Aperçu</string>
+  <string name="edit_undo">Annuler</string>
+  <string name="edit_redo">Refaire</string>
+  <string name="edit_zoom_in">Zoom avant</string>
+  <string name="edit_zoom_out">Zoom arrière</string>
   <string name="edit_summary_tag_typo">Faute de frappe corrigée</string>
   <string name="edit_summary_tag_grammar">Faute de grammaire corrigée</string>
   <string name="edit_summary_tag_links">Liens ajoutés</string>
@@ -565,7 +570,6 @@
   <string name="description_edit_text_hint">Description du titre</string>
   <string name="description_edit_save">Publier</string>
   <string name="description_edit_add_description">Ajouter une description du titre</string>
-  <string name="description_edit_translate_description">Traduire la description du titre</string>
   <string name="description_edit_edit_description">Modifier la description</string>
   <string name="description_edit_cancel_hint">Annuler</string>
   <string name="description_edit_help_title">Aide : descriptions des titres</string>
@@ -688,8 +692,12 @@
   <string name="multilingual_task_positive">Ajouter des langues</string>
   <string name="editing_level_text">NIVEAU %d d’éditeur d’application</string>
   <string name="translation_source_description">description de %s :</string>
+  <string name="translate_caption_task_title">Traduire les légendes des images</string>
+  <string name="translate_caption_task_description">Traduire les légendes dans d\'autres langues</string>
   <plurals name="edit_action_contribution_count">
     <item quantity="one">contribution dans l’application</item>
     <item quantity="other">contributions dans l’application</item>
   </plurals>
+  <string name="add_title_descriptions_dialog_title">Ajouter les descriptions de titres</string>
+  <string name="add_translate_descriptions_dialog_title">Vous êtes en train de traduire les descriptions de titres pour la première fois</string>
 </resources>
