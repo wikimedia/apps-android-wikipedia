@@ -24,7 +24,6 @@ import org.wikipedia.analytics.SessionFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.concurrency.RxBus;
 import org.wikipedia.connectivity.NetworkConnectivityReceiver;
-import org.wikipedia.crash.CrashReporter;
 import org.wikipedia.crash.hockeyapp.HockeyAppCrashReporter;
 import org.wikipedia.database.Database;
 import org.wikipedia.database.DatabaseClient;
@@ -82,7 +81,7 @@ public class WikipediaApp extends Application {
     private Database database;
     private String userAgent;
     private WikiSite wiki;
-    private CrashReporter crashReporter;
+    private HockeyAppCrashReporter crashReporter;
     private RefWatcher refWatcher;
     private RxBus bus;
     private Theme currentTheme = Theme.getFallback();
@@ -381,12 +380,10 @@ public class WikipediaApp extends Application {
 
     private void initExceptionHandling() {
         crashReporter = new HockeyAppCrashReporter(getString(R.string.hockeyapp_app_id), consentAccessor());
-        crashReporter.registerCrashHandler(this);
-
         L.setRemoteLogger(crashReporter);
     }
 
-    private CrashReporter.AutoUploadConsentAccessor consentAccessor() {
+    private HockeyAppCrashReporter.AutoUploadConsentAccessor consentAccessor() {
         return Prefs::isCrashReportAutoUploadEnabled;
     }
 
