@@ -5,7 +5,8 @@
     android:id="@+id/widget_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/widget_shape_background">
+    android:background="@drawable/widget_shape_background"
+    android:foreground="?android:attr/selectableItemBackground">
     <ImageView
         android:layout_width="48dp"
         android:layout_height="48dp"

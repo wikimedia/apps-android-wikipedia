@@ -25,7 +25,7 @@ public class AggregatedFeedContent {
     }
 
     @Nullable
-    RbPageSummary tfa() {
+    public RbPageSummary tfa() {
         return tfa;
     }
 

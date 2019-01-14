@@ -40,6 +40,7 @@ public class HistoryEntry implements Parcelable {
     public static final int SOURCE_NOTIFICATION_SYSTEM = 26;
     public static final int SOURCE_FLOATING_QUEUE = 27;
     public static final int SOURCE_EDIT_DESCRIPTION = 28;
+    public static final int SOURCE_WIDGET = 29;
 
     @NonNull private final PageTitle title;
     @NonNull private final Date timestamp;
