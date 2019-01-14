@@ -728,6 +728,8 @@
     <string name="image_caption_task_description">Add captions to images</string>
     <string name="multilingual_task_title">More tasks for multilingual editors</string>
     <string name="multilingual_task_description">Translation tasks are available if you read and write in more than one Wikipedia language.</string>
+    <string name="translation_task_title">Translate title descriptions</string>
+    <string name="translation_task_description">Translate title descriptions into other languages.</string>
     <string name="image_caption_edit_disable_text">Locked until you’ve made %d verified in-app edits</string>
     <string name="multilingual_task_negative">Not for me</string>
     <string name="multilingual_task_positive">Add languages</string>
