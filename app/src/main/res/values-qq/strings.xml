@@ -701,4 +701,5 @@
   <string name="translation_description_edit_task_unlock_body">Body of the dialog box that appears when the user unlocks the feed of suggested articles for translating descriptions from one of their app languages to another.</string>
   <string name="translation_task_title">Title text of description translation task.</string>
   <string name="translation_task_description">Message text of description translation task.</string>
+  <string name="translate_description_edit_disable_text">Hint message to users about why the translation tasks are locked and how they can be unlocked by making valid edits. %d is the number of edits.</string>
 </resources>

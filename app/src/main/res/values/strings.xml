@@ -731,6 +731,7 @@
     <string name="translation_task_title">Translate title descriptions</string>
     <string name="translation_task_description">Translate title descriptions into other languages.</string>
     <string name="image_caption_edit_disable_text">Locked until you’ve made %d verified in-app edits</string>
+    <string name="translate_description_edit_disable_text">Locked until you’ve edited %d title descriptions</string>
     <string name="multilingual_task_negative">Not for me</string>
     <string name="multilingual_task_positive">Add languages</string>
     <string name="editing_level_text">LEVEL %d app editor</string>

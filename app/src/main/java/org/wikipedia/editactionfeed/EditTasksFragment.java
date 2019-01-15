@@ -155,7 +155,7 @@ public class EditTasksFragment extends Fragment {
         multilingualTask.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_icon_translate_title_descriptions));
         multilingualTask.setNoActionLayout(Prefs.isEditActionTranslateDescriptionsUnlocked());
         multilingualTask.setDisabled(!Prefs.isEditActionTranslateDescriptionsUnlocked());
-        multilingualTask.setDisabledDescriptionText(String.format(getString(R.string.image_caption_edit_disable_text), 2));
+        multilingualTask.setDisabledDescriptionText(String.format(getString(R.string.translate_description_edit_disable_text), 2));
         tasks.add(multilingualTask);
         callbacks.add(new EditTaskView.Callback() {
             @Override
