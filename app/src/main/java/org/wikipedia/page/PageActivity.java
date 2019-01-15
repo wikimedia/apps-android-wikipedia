@@ -673,7 +673,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     protected void onResume() {
         super.onResume();
         app.resetWikiSite();
-        app.getSessionFunnel().touchSession();
     }
 
     @Override
@@ -716,12 +715,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private void handleLangLinkOrPageResult(final Intent data) {
         toolbarContainerView.post(() -> handleIntent(data));
-    }
-
-    @Override
-    protected void onStop() {
-        app.getSessionFunnel().persistSession();
-        super.onStop();
     }
 
     @Override
