@@ -10,10 +10,7 @@
         android:id="@+id/mapview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/paper_color"
-        app:mapbox_styleUrl="asset://mapstyle.json"
-        app:mapbox_uiAttribution="false"
-        app:mapbox_uiLogo="false">
+        android:background="?attr/paper_color">
     </com.mapbox.mapboxsdk.maps.MapView>
 
     <TextView

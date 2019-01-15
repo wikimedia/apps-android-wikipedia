@@ -22,10 +22,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mapbox.mapboxsdk.Mapbox;
-import com.mapbox.mapboxsdk.annotations.Icon;
-import com.mapbox.mapboxsdk.annotations.IconFactory;
-import com.mapbox.mapboxsdk.annotations.Marker;
-import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
 import com.mapbox.mapboxsdk.geometry.LatLng;
@@ -37,6 +33,10 @@ import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Projection;
+import com.mapbox.mapboxsdk.maps.Style;
+import com.mapbox.mapboxsdk.plugins.annotation.Symbol;
+import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager;
+import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -74,7 +74,7 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * Displays a list of nearby pages.
  */
-public class NearbyFragment extends Fragment implements OnMapReadyCallback {
+public class NearbyFragment extends Fragment implements OnMapReadyCallback, Style.OnStyleLoaded {
     public interface Callback {
         void onLoading();
         void onLoaded();
@@ -84,6 +84,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback {
     private static final String NEARBY_LAST_RESULT = "lastRes";
     private static final String NEARBY_LAST_CAMERA_POS = "lastCameraPos";
     private static final String NEARBY_FIRST_LOCATION_LOCK = "firstLocationLock";
+    private static final String ID_ICON = "id-icon";
     private static final int GO_TO_LOCATION_PERMISSION_REQUEST = 50;
     private static final int MAX_RADIUS = 10_000;
 
@@ -94,7 +95,8 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback {
     private CompositeDisposable disposables = new CompositeDisposable();
 
     @Nullable private MapboxMap mapboxMap;
-    private Icon markerIconPassive;
+    private SymbolManager symbolManager;
+    private List<Symbol> currentSymbols = new ArrayList<>();
 
     private NearbyResult currentResults = new NearbyResult();
     private boolean clearResultsOnNextCall;
@@ -121,10 +123,6 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_nearby, container, false);
         unbinder = ButterKnife.bind(this, view);
-
-        markerIconPassive = IconFactory.getInstance(requireContext())
-                .fromBitmap(ResourceUtil.bitmapFromVectorDrawable(requireContext(),
-                        R.drawable.ic_map_marker, null));
 
         osmLicenseTextView.setText(StringUtil.fromHtml(getString(R.string.nearby_osm_license)));
         osmLicenseTextView.setMovementMethod(LinkMovementMethod.getInstance());
@@ -180,11 +178,15 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback {
 
     @Override
     public void onDestroyView() {
-        mapView.onDestroy();
         if (mapboxMap != null) {
-            mapboxMap.removeOnScrollListener(this::fetchNearbyPages);
+            mapboxMap.removeOnCameraMoveListener(this::fetchNearbyPages);
             mapboxMap = null;
         }
+        if (symbolManager != null) {
+            symbolManager.onDestroy();
+            symbolManager = null;
+        }
+        mapView.onDestroy();
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();
@@ -241,25 +243,36 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback {
     }
 
     @Override
-    public void onMapReady(MapboxMap mapboxMap) {
+    public void onMapReady(@NonNull MapboxMap mapboxMap) {
         if (!isAdded()) {
             return;
         }
         this.mapboxMap = mapboxMap;
 
-        enableUserLocationMarker();
+        mapboxMap.getUiSettings().setAttributionEnabled(false);
+        mapboxMap.getUiSettings().setLogoEnabled(false);
+        mapboxMap.addOnCameraMoveListener(this::fetchNearbyPages);
+        mapboxMap.setStyle(new Style.Builder().fromUrl("asset://mapstyle.json")
+                .withImage(ID_ICON, ResourceUtil.bitmapFromVectorDrawable(requireContext(), R.drawable.ic_map_marker, null)),
+                this);
+    }
 
-        mapboxMap.addOnScrollListener(this::fetchNearbyPages);
-        mapboxMap.setOnMarkerClickListener((@NonNull Marker marker) -> {
-            NearbyPage page = findNearbyPageFromMarker(marker);
+    @Override
+    public void onStyleLoaded(@NonNull Style style) {
+        if (!isAdded() || mapboxMap == null) {
+            return;
+        }
+        symbolManager = new SymbolManager(mapView, mapboxMap, style);
+        symbolManager.setIconAllowOverlap(true);
+        symbolManager.setTextAllowOverlap(true);
+        symbolManager.addClickListener(symbol -> {
+            NearbyPage page = findNearbyPageFromSymbol(symbol);
             if (page != null) {
                 onLoadPage(new HistoryEntry(page.getTitle(), HistoryEntry.SOURCE_NEARBY), page.getLocation());
-                return true;
-            } else {
-                return false;
             }
         });
 
+        enableUserLocationMarker();
         if (lastCameraPos != null) {
             mapboxMap.setCameraPosition(lastCameraPos);
         } else {
@@ -269,9 +282,9 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback {
     }
 
     @Nullable
-    private NearbyPage findNearbyPageFromMarker(Marker marker) {
+    private NearbyPage findNearbyPageFromSymbol(Symbol symbol) {
         for (NearbyPage page : currentResults.getList()) {
-            if (page.getTitle().getDisplayText().equals(marker.getTitle())) {
+            if (page.getTitle().getDisplayText().equals(symbol.getTextAnchor())) {
                 return page;
             }
         }
@@ -314,7 +327,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback {
                     .build();
 
             LocationComponent locationComponent = mapboxMap.getLocationComponent();
-            locationComponent.activateLocationComponent(requireActivity(), options);
+            locationComponent.activateLocationComponent(requireActivity(), mapboxMap.getStyle(), options);
             locationComponent.setLocationComponentEnabled(true);
             locationComponent.setCameraMode(CameraMode.TRACKING);
             locationComponent.setRenderMode(RenderMode.COMPASS);
@@ -330,8 +343,6 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback {
             showLocationDisabledSnackbar();
             return;
         }
-
-        enableUserLocationMarker();
 
         if (locationPermitted()) {
             Location location = mapboxMap.getLocationComponent().getLastKnownLocation();
@@ -452,25 +463,25 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback {
         }
 
         getActivity().invalidateOptionsMenu();
-        // Since Marker is a descendant of Annotation, this will remove all Markers.
-        mapboxMap.removeAnnotations();
+        symbolManager.delete(currentSymbols);
+        currentSymbols.clear();
 
-        List<MarkerOptions> optionsList = new ArrayList<>();
+        List<SymbolOptions> optionsList = new ArrayList<>();
+
         for (NearbyPage item : currentResults.getList()) {
             if (item.getLocation() != null) {
-                optionsList.add(createMarkerOptions(item));
+                optionsList.add(getSymbolOptions(item));
             }
         }
-        mapboxMap.addMarkers(optionsList);
+        currentSymbols = symbolManager.create(optionsList);
     }
 
     @NonNull
-    private MarkerOptions createMarkerOptions(NearbyPage page) {
-        Location location = page.getLocation();
-        return new MarkerOptions()
-                .position(new LatLng(location.getLatitude(), location.getLongitude()))
-                .title(page.getTitle().getDisplayText())
-                .icon(markerIconPassive);
+    private SymbolOptions getSymbolOptions(NearbyPage page) {
+        return new SymbolOptions()
+                .withLatLng(new LatLng(page.getLocation()))
+                .withTextAnchor(page.getTitle().getDisplayText())
+                .withIconImage(ID_ICON);
     }
 
     private void onLoading() {
