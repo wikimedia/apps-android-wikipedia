@@ -38,13 +38,13 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
 
     private fun maybeShowTranslationEdit() {
         if (WikipediaApp.getInstance().language().appLanguageCodes.size > 1 && Prefs.showEditActionTranslateDescriptionsUnlockedDialog()) {
+            Prefs.setShowEditActionTranslateDescriptionsUnlockedDialog(false)
             AlertDialog.Builder(this)
                     .setCustomTitle(DialogTitleWithImage(this, R.string.translation_description_edit_task_unlock_title, R.drawable.ic_illustration_description_edit_trophy, true))
                     .setMessage(R.string.translation_description_edit_task_unlock_body)
                     .setPositiveButton(R.string.onboarding_get_started) { _, _ ->startActivity(AddTitleDescriptionsActivity.newIntent(this, EDIT_TASKS_TRANSLATE_TITLE_DESC_SOURCE)) }
                     .setNegativeButton(R.string.onboarding_maybe_later, null)
                     .show()
-            Prefs.setShowEditActionTranslateDescriptionsUnlockedDialog(false)
         }
     }
 

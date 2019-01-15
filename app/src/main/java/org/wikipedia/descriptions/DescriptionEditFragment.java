@@ -95,7 +95,7 @@ public class DescriptionEditFragment extends Fragment {
     };
 
     private void incrementTitleDescriptionEditCount() {
-        if (source == EDIT_TASKS_TITLE_DESC_SOURCE) {
+        if (source == EDIT_TASKS_TITLE_DESC_SOURCE || source == EDIT_TASKS_TRANSLATE_TITLE_DESC_SOURCE) {
             Prefs.incrementEditTasksTitleDescriptionsEdited();
         }
     }
