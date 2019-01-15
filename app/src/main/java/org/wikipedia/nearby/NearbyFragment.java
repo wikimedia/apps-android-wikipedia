@@ -13,6 +13,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.util.Pair;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,7 +59,6 @@ import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -66,9 +66,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -402,31 +402,33 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback {
             double radius = Math.min(MAX_RADIUS, getMapRadius());
 
             // kick off client calls for all supported languages
-            for (String langCode : WikipediaApp.getInstance().language().getAppLanguageCodes()) {
-                disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(langCode)).nearbySearch(latLng, radius)
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .map((Function<MwQueryResponse, List<NearbyPage>>) response -> {
-                            if (response != null && response.query() != null) {
+            disposables.add(Observable.fromIterable(WikipediaApp.getInstance().language().getAppLanguageCodes())
+                    .flatMap(lang -> ServiceFactory.get(WikiSite.forLanguageCode(lang)).nearbySearch(latLng, radius).subscribeOn(Schedulers.io()), Pair::new)
+                    .toList()
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .map(pairs -> {
+                        List<NearbyPage> pages = new ArrayList<>();
+                        for (Pair<String, MwQueryResponse> pair : pairs) {
+                            if (pair.second != null && pair.second.query() != null) {
                                 // noinspection ConstantConditions
-                                return response.query().nearbyPages(WikiSite.forLanguageCode(langCode));
+                                pages.addAll(pair.second.query().nearbyPages(WikiSite.forLanguageCode(pair.first)));
                             }
-                            return Collections.emptyList();
-                        })
-                        .doFinally(() -> onLoaded())
-                        .subscribe(pages -> {
-                            if (clearResultsOnNextCall) {
-                                currentResults.clear();
-                                clearResultsOnNextCall = false;
-                            }
-                            currentResults.add(pages);
-                            showNearbyPages();
-                        }, caught -> {
-                            ThrowableUtil.AppError error = ThrowableUtil.getAppError(requireActivity(), caught);
-                            Toast.makeText(getActivity(), error.getError(), Toast.LENGTH_SHORT).show();
-                            L.e(caught);
-                        }));
-            }
+                        }
+                        return pages;
+                    })
+                    .doFinally(() -> onLoaded())
+                    .subscribe(pages -> {
+                        if (clearResultsOnNextCall) {
+                            currentResults.clear();
+                            clearResultsOnNextCall = false;
+                        }
+                        currentResults.add(pages);
+                        showNearbyPages();
+                    }, caught -> {
+                        ThrowableUtil.AppError error = ThrowableUtil.getAppError(requireActivity(), caught);
+                        Toast.makeText(getActivity(), error.getError(), Toast.LENGTH_SHORT).show();
+                        L.e(caught);
+                    }));
         }
     };
 
