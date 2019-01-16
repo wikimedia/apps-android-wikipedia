@@ -3,6 +3,7 @@ package org.wikipedia.editactionfeed
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.support.v4.app.NavUtils
 import android.support.v7.app.AlertDialog
 import android.view.Menu
 import android.view.MenuItem
@@ -22,6 +23,7 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar!!.elevation = 0f
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = getString(if (intent.getIntExtra(EXTRA_SOURCE, EDIT_TASKS_TITLE_DESC_SOURCE) == EDIT_TASKS_TITLE_DESC_SOURCE)
             R.string.editactionfeed_add_title_descriptions else R.string.editactionfeed_translate_descriptions)
     }
@@ -55,6 +57,11 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            android.R.id.home -> {
+                NavUtils.navigateUpFromSameTask(this)
+                return true
+            }
+
             R.id.menu_help -> {
                 startActivity(DescriptionEditHelpActivity.newIntent(this))
                 true
