@@ -9,7 +9,8 @@
     <org.wikipedia.feed.view.CardHeaderView
         android:id="@+id/view_list_card_header"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/view_card_header_height"/>
+        android:layout_height="@dimen/view_card_header_height"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <org.wikipedia.feed.view.CardLargeHeaderView
         android:id="@+id/view_list_card_large_header"
