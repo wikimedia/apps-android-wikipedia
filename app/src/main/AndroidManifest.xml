@@ -147,7 +147,8 @@
         <activity
             android:name=".editactionfeed.AddTitleDescriptionsActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.ActionBar" />
+            android:theme="@style/AppTheme.ActionBar"
+            android:parentActivityName=".editactionfeed.EditTasksActivity"/>
         <activity
             android:name=".edit.EditSectionActivity"
             android:theme="@style/AppTheme.ActionBar.Page"
