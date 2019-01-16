@@ -868,16 +868,8 @@ public final class Prefs {
         setBoolean(R.string.preference_key_edit_action_translate_descriptions_unlocked, enabled);
     }
 
-    public static int getTotalEditTasksTitleDescriptionsEdited() {
-        return getInt(R.string.preference_key_total_edit_tasks_title_descriptions_edited, 0);
-    }
-
-    public static void incrementEditTasksTitleDescriptionsEdited() {
-        setInt(R.string.preference_key_total_edit_tasks_title_descriptions_edited, getTotalEditTasksTitleDescriptionsEdited() + 1);
-    }
-
     public static boolean showEditActionTranslateDescriptionsUnlockedDialog() {
-        return getBoolean(R.string.preference_key_show_edit_action_translate_descriptions_unlock_dialog, false);
+        return getBoolean(R.string.preference_key_show_edit_action_translate_descriptions_unlock_dialog, true);
     }
 
     public static void setShowEditActionTranslateDescriptionsUnlockedDialog(boolean enabled) {

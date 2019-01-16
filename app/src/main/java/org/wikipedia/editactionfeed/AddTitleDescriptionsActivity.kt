@@ -39,8 +39,9 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
     }
 
     private fun maybeShowTranslationEdit() {
-        if (WikipediaApp.getInstance().language().appLanguageCodes.size > 1 && Prefs.showEditActionTranslateDescriptionsUnlockedDialog()) {
+        if (WikipediaApp.getInstance().language().appLanguageCodes.size > 1 && Prefs.getTotalUserDescriptionsEdited()>=2&& Prefs.showEditActionTranslateDescriptionsUnlockedDialog()) {
             Prefs.setShowEditActionTranslateDescriptionsUnlockedDialog(false)
+            Prefs.setEditActionTranslateDescriptionsUnlocked(true);
             AlertDialog.Builder(this)
                     .setCustomTitle(DialogTitleWithImage(this, R.string.translation_description_edit_task_unlock_title, R.drawable.ic_illustration_description_edit_trophy, true))
                     .setMessage(R.string.translation_description_edit_task_unlock_body)

@@ -43,7 +43,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
-import static org.wikipedia.descriptions.DescriptionEditActivity.EDIT_TASKS_TITLE_DESC_SOURCE;
 import static org.wikipedia.descriptions.DescriptionEditActivity.EDIT_TASKS_TRANSLATE_TITLE_DESC_SOURCE;
 import static org.wikipedia.descriptions.DescriptionEditActivity.PAGE_SOURCE;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_DISALLOWED;
@@ -87,25 +86,10 @@ public class DescriptionEditFragment extends Fragment {
                 return;
             }
             editView.setSaveState(false);
-            incrementTitleDescriptionEditCount();
-            maybeUnlockDescriptionsTranslation();
             startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext()),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS);
         }
     };
-
-    private void incrementTitleDescriptionEditCount() {
-        if (source == EDIT_TASKS_TITLE_DESC_SOURCE || source == EDIT_TASKS_TRANSLATE_TITLE_DESC_SOURCE) {
-            Prefs.incrementEditTasksTitleDescriptionsEdited();
-        }
-    }
-
-    private void maybeUnlockDescriptionsTranslation() {
-        if (Prefs.getTotalEditTasksTitleDescriptionsEdited() == 1) {
-            Prefs.setEditActionTranslateDescriptionsUnlocked(true);
-            Prefs.setShowEditActionTranslateDescriptionsUnlockedDialog(true);
-        }
-    }
 
     @NonNull
     public static DescriptionEditFragment newInstance(@NonNull PageTitle title, @Nullable String highlightText, boolean reviewEnabled, int source, CharSequence sourceDescription) {
