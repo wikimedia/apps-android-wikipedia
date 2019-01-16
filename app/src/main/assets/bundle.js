@@ -326,7 +326,9 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
 
     var contentElem = document.getElementById( "content" );
     contentElem.setAttribute( "dir", window.directionality );
-    setTitleElement(contentElem, payload.section);
+    if (!window.isMainPage) {
+        setTitleElement(contentElem, payload.section);
+    }
 
     lazyDocument = document.implementation.createHTMLDocument( );
     var content = lazyDocument.createElement( "div" );
