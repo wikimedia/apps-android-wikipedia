@@ -2,7 +2,7 @@ package org.wikipedia.model
 
 import android.util.SparseArray
 
-class EnumCodeMap<T : Enum<T>>(enumeration: Class<T>) where T : EnumCode {
+class EnumCodeMap<T>(enumeration: Class<T>) where T : Enum<T>, T : EnumCode {
     private val map: SparseArray<T>
 
     init {
