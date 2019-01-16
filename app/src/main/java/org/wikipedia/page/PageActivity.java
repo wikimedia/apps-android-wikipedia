@@ -33,8 +33,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import net.hockeyapp.android.metrics.MetricsManager;
-
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -141,7 +139,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) getApplicationContext();
-        MetricsManager.register(app);
         app.checkCrashes(this);
         AnimationUtil.setSharedElementTransitions(this);
 

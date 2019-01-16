@@ -11,16 +11,9 @@ class HockeyAppExceptionHandler extends ExceptionHandler {
     private final Thread.UncaughtExceptionHandler defaultExceptionHandler;
     @Nullable private HockeyAppCrashListener listener;
 
-    HockeyAppExceptionHandler(@Nullable HockeyAppCrashListener listener,
-                              boolean ignoreDefaultHandler) {
-        this(Thread.getDefaultUncaughtExceptionHandler(), listener, ignoreDefaultHandler);
-    }
-
-    HockeyAppExceptionHandler(Thread.UncaughtExceptionHandler defaultExceptionHandler,
-                              @Nullable HockeyAppCrashListener listener,
-                              boolean ignoreDefaultHandler) {
-        super(defaultExceptionHandler, listener, ignoreDefaultHandler);
-        this.defaultExceptionHandler = defaultExceptionHandler;
+    HockeyAppExceptionHandler(@Nullable HockeyAppCrashListener listener, boolean ignoreDefaultHandler) {
+        super(Thread.getDefaultUncaughtExceptionHandler(), listener, ignoreDefaultHandler);
+        this.defaultExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
         this.listener = listener;
         this.ignoreDefaultHandler = ignoreDefaultHandler;
     }
