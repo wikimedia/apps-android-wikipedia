@@ -28,12 +28,11 @@ public class SessionFunnel extends Funnel {
 
     public SessionFunnel(WikipediaApp app) {
         super(app, SCHEMA_NAME, REVISION, ReleaseUtil.isProdRelease() ? Funnel.SAMPLE_LOG_100 : Funnel.SAMPLE_LOG_ALL);
-
         sessionData = Prefs.getSessionData();
-        if (sessionData.getStartTime() == 0) {
-            long now = System.currentTimeMillis();
-            sessionData.setStartTime(now);
-            sessionData.setLastTouchTime(now);
+        if (sessionData.getStartTime() == 0 || sessionData.getLastTouchTime() == 0) {
+            // session was serialized/deserialized incorrectly, so reset it.
+            sessionData = new SessionData();
+            persistSession();
         }
         touchSession();
     }
@@ -59,7 +58,7 @@ public class SessionFunnel extends Funnel {
             logSessionData();
             // start a new session by clearing everything.
             sessionData = new SessionData();
-            sessionData.setStartTime(now);
+            persistSession();
         }
         sessionData.setLastTouchTime(now);
     }

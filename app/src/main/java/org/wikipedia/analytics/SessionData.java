@@ -20,6 +20,12 @@ public class SessionData {
     private int pagesFromBack;
     private int pagesWithNoDescription;
 
+    public SessionData() {
+        long now = System.currentTimeMillis();
+        startTime = now;
+        lastTouchTime = now;
+    }
+
     public void addPageViewed(HistoryEntry entry) {
         switch (entry.getSource()) {
             case HistoryEntry.SOURCE_SEARCH:

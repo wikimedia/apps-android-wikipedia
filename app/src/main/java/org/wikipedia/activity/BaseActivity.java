@@ -89,8 +89,15 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
+    @Override
+    protected void onStop() {
+        WikipediaApp.getInstance().getSessionFunnel().persistSession();
+        super.onStop();
+    }
+
     @Override protected void onResume() {
         super.onResume();
+        WikipediaApp.getInstance().getSessionFunnel().touchSession();
 
         // allow this activity's exclusive bus methods to override any existing ones.
         unregisterExclusiveBusMethods();
