@@ -198,6 +198,10 @@
   <string name="edit_next">Nästa</string>
   <string name="edit_done">Publicera</string>
   <string name="edit_preview">Förhandsgranska</string>
+  <string name="edit_undo">Ångra</string>
+  <string name="edit_redo">Gör om</string>
+  <string name="edit_zoom_in">Zooma in</string>
+  <string name="edit_zoom_out">Zooma ut</string>
   <string name="edit_summary_tag_typo">Rättade felstavning</string>
   <string name="edit_summary_tag_grammar">Rättade grammatik</string>
   <string name="edit_summary_tag_links">Lade till länkar</string>
@@ -667,13 +671,24 @@
   <string name="image_caption_task_description">Lägg till bildtexter för bilder</string>
   <string name="multilingual_task_title">Fler uppgifter för flerspråkiga redigerare</string>
   <string name="multilingual_task_description">Översättningsuppgifter finns tillgängliga om du läser och skriver på fler än ett Wikipedia-språk.</string>
+  <string name="translation_task_title">Översätt titelbeskrivningar</string>
+  <string name="translation_task_description">Översätt titelbeskrivningar till andra språk.</string>
   <string name="image_caption_edit_disable_text">Låst tills du har gjort %d verifierade redigeringar i appen</string>
   <string name="multilingual_task_negative">Ingenting för mig</string>
   <string name="multilingual_task_positive">Lägg till språk</string>
   <string name="editing_level_text">NIVÅ %d appredigerare</string>
   <string name="translation_source_description">Beskrivning på %s:</string>
+  <string name="translate_caption_task_title">Översätt bildtexter</string>
+  <string name="translate_caption_task_description">Översätt bildtexter till andra språk</string>
   <plurals name="edit_action_contribution_count">
     <item quantity="one">bidrag i appen</item>
     <item quantity="other">bidrag i appen</item>
   </plurals>
+  <string name="add_title_descriptions_dialog_title">Lägg till titelbeskrivningar</string>
+  <string name="add_title_descriptions_dialog_message">Du kan nu hjälpa till att förbättra Wikipedia genom att lägga till beskrivningar som visas nedanför titlar i artiklar. Du kan konfigurera dina språk när som helst.</string>
+  <string name="add_translate_descriptions_dialog_title">Du översätter titelbeskrivningar för första gången</string>
+  <string name="add_translate_descriptions_dialog_message">Du kan nu hjälpa till att förbättra Wikipedia genom att översätta titelbeskrivningar. Du kan konfigurera dina språk när som helst.</string>
+  <string name="description_edit_tutorial_message">Välkommen till den nya startsidan för att redigera på Wikipedia via appen. Här ger vi förslag på innehåll att lägga till som kanske intresserar dig. Dina bidrag uppskattas. Ha det så roligt!</string>
+  <string name="translation_description_edit_task_unlock_title">Översättning av titelbeskrivningar har låsts upp!</string>
+  <string name="translation_description_edit_task_unlock_body">Vi har märkt att du gillar att redigera titelbeskrivningar och läsa Wikipedia på flera språk. Ta en titt på denna uppgiftslista som ger dig åtkomst till att översätta fler titelbeskrivningar!</string>
 </resources>

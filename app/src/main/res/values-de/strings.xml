@@ -667,7 +667,10 @@
   <string name="image_caption_task_description">Den Bildern Beschreibungen hinzufügen</string>
   <string name="multilingual_task_title">Weitere Aufgaben für mehrsprachige Autoren</string>
   <string name="multilingual_task_description">Übersetzungsaufgaben sind verfügbar, wenn du in mehr als einer Wikipedia-Sprache liest und schreibst.</string>
+  <string name="translation_task_title">Titelbeschreibungen übersetzen</string>
+  <string name="translation_task_description">Titelbeschreibungen in andere Sprachen übersetzen.</string>
   <string name="image_caption_edit_disable_text">Gesperrt, bis du %d verifizierte In-App-Bearbeitungen durchgeführt hast.</string>
+  <string name="translate_description_edit_disable_text">Gesperrt, bis du %d Titelbeschreibungen bearbeitet hast</string>
   <string name="multilingual_task_negative">Nicht für mich</string>
   <string name="multilingual_task_positive">Sprachen hinzufügen</string>
   <string name="editing_level_text">App-Autor des NIVEAUS %d</string>

@@ -670,6 +670,8 @@
   <string name="image_caption_task_description">Tilføj billedtekster til billeder</string>
   <string name="multilingual_task_title">Flere opgaver til flersprogede bidragsydere</string>
   <string name="multilingual_task_description">Oversættelsesopgaver er tilgængelige, hvis du læser og skriver på mere end et Wikipedia-sprog.</string>
+  <string name="translation_task_title">Oversæt titelbeskrivelser</string>
+  <string name="translation_task_description">Oversæt titelbeskrivelser til andre sprog.</string>
   <string name="multilingual_task_negative">Ikke noget for mig</string>
   <string name="multilingual_task_positive">Tilføj sprog</string>
   <string name="add_title_descriptions_dialog_title">Tilføj titelbeskrivelser</string>

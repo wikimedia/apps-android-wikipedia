@@ -678,7 +678,10 @@
   <string name="image_caption_task_description">Přidat popisy k obrázkům</string>
   <string name="multilingual_task_title">Více úkolů pro vícejazyčné editory</string>
   <string name="multilingual_task_description">Tipy k překladu budou k dispozici, pokud čtete a píšete ve více než jednom jazyce Wikipedie.</string>
+  <string name="translation_task_title">Překládat popisy článků</string>
+  <string name="translation_task_description">Přeložit popisy článků do jiných jazyků.</string>
   <string name="image_caption_edit_disable_text">Zamknuto, dokud neprovedete %d ověřených editací v aplikaci</string>
+  <string name="translate_description_edit_disable_text">Zamčeno, dokud neupravíte %d popisů článků</string>
   <string name="multilingual_task_negative">Není pro mě</string>
   <string name="multilingual_task_positive">Přidat jazyky</string>
   <string name="editing_level_text">ÚROVEŇ %d editora z aplikace</string>

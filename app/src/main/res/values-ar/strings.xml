@@ -682,7 +682,10 @@
   <string name="image_caption_task_description">أضف تعليقاتٍ للصور</string>
   <string name="multilingual_task_title">مهام أكثر للمحررين متعددي اللغات</string>
   <string name="multilingual_task_description">مهام الترجمة متاحة إذا كنت تقرأ وتكتب في أكثر من لغة ويكيبيديا واحدة.</string>
+  <string name="translation_task_title">ترجمة وصف العنوان</string>
+  <string name="translation_task_description">ترجمة أوصاف العنوان إلى لغات أخرى.</string>
   <string name="image_caption_edit_disable_text">مقفلة حتى قيامك بـ%d تعديلًا مؤكدًا داخل التطبيق</string>
+  <string name="translate_description_edit_disable_text">مغلق حتى تقوم بتحرير وصف %d من العنوان</string>
   <string name="multilingual_task_negative">ليس لي</string>
   <string name="multilingual_task_positive">أضف لغات</string>
   <string name="editing_level_text">محرر تطبيق من المستوى %d</string>

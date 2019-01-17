@@ -199,6 +199,10 @@
   <string name="edit_next">הבא</string>
   <string name="edit_done">פרסום</string>
   <string name="edit_preview">תצוגה מקדימה</string>
+  <string name="edit_undo">ביטול</string>
+  <string name="edit_redo">ביצוע חוזר</string>
+  <string name="edit_zoom_in">התקרבות</string>
+  <string name="edit_zoom_out">התרחקות</string>
   <string name="edit_summary_tag_typo">תיקון טעות הקלדה</string>
   <string name="edit_summary_tag_grammar">תיקנתי דקדוק</string>
   <string name="edit_summary_tag_links">הוספתי קישורים</string>
@@ -267,6 +271,7 @@
   <string name="close_all_tabs_confirm_no">לא</string>
   <string name="button_close_tab">סגירת לשונית</string>
   <string name="tab_item_closed">הלשונית %s נסגרה.</string>
+  <string name="all_tab_items_closed">כל הלשוניות סגורות.</string>
   <string name="tool_tip_bookmark_icon_title">הוספה לרשימת הקריאה</string>
   <string name="tool_tip_bookmark_icon_text">נא ללחוץ על כפתור הסימנייה כדי לשמור את הערך  לרשימת הקריאה.</string>
   <string name="tool_tip_share">אחרי שהארת עובדה מעניינת זה הזמן לנסות לשתף אותה ברשתות האהובות עליך!</string>
@@ -559,6 +564,8 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">תודה על ההתעניינות בעריכת תיאורים! כדי לעשות עריכות נוספות, נא להיכנס לחשבון הוויקיפדיה שלך.</string>
   <string name="description_edit_license_notice">שינוי תיאור הכותרת מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטוב קומונז CC0&lt;/a&gt;.</string>
+  <string name="description_edit_task_unlock_title">רשימת משימות עריכת תיאורי כותרת נפתחה!</string>
+  <string name="description_edit_task_unlock_body">שמנו לב שאהבת לערוך תיאורי כותרת, אז הרכבנו בשבילך \"משימות עורך באפליקציה\" עם יותר ערכים שחסרים להם תיאורי כותרת כדי לעזור לך להמשיך לתרום!</string>
   <string name="description_edit_success_saved">התיאור פורסם!</string>
   <string name="description_edit_success_encouragement">שיפרת עכשיו את ויקיפדיה עבור כולם</string>
   <string name="description_edit_success_done">בוצע</string>
@@ -582,11 +589,13 @@
   <string name="description_edit_help_more_info">מידע נוסף</string>
   <string name="description_edit_help_meta_info">התיאורים נשמרים ומתוחזקים בוויקינתונים (Wikidata), מיזם של קרן ויקימדיה שמספק מסד נתונים משני חופשי שיתופי רב־לשוני שתומך בוויקיפדיה ובמיזמים אחרים.</string>
   <string name="editactionfeed_add_title_descriptions">הוספת תיאורי כותרת</string>
+  <string name="editactionfeed_translate_descriptions">תרגום תיאורי כותרת</string>
   <string name="editactionfeed_review_title_description">בדיקת תיאור כותרת</string>
   <string name="editactionfeed_add_description_button">הוספת תיאור</string>
   <string name="editactionfeed_my_contributions">התרומות שלי</string>
   <string name="editactionfeed_from_language">מאת:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">מידע נוסף</string>
+  <string name="editactionfeed_to_language">ל־:</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
   <string name="description_edit_revert_intro">אנחנו יודעים שניסית היטב, אבל לאחד מהסוקרים הייתה חשד. סיבות אפשריות לכך שהעריכה שלך שוחזרה:</string>
   <string name="description_edit_revert_reason1">התרומה שלך הייתה מנוגדת ל&lt;a href=\"%1$s\"&gt;הוראות&lt;/a&gt;.</string>
@@ -659,7 +668,10 @@
   <string name="main_drawer_login">כניסה / הצטרפות לוויקיפדיה</string>
   <string name="title_description_task_title">הוספת תיאורי כותרת</string>
   <string name="title_description_task_description">תרומה למאמרים חסרי תיאורי כותרת</string>
+  <string name="image_caption_task_title">הוספת כיתובים לתמונות</string>
   <string name="image_caption_task_description">הוספת תיאורים לתמונות</string>
+  <string name="multilingual_task_title">עוד משימות לעורכים רב־לשוניים</string>
   <string name="multilingual_task_negative">לא בשבילי</string>
   <string name="multilingual_task_positive">הוספת שפות</string>
+  <string name="translation_description_edit_task_unlock_title">עריכת תיאורי כותרת נפתחה!</string>
 </resources>

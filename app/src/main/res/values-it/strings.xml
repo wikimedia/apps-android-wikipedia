@@ -560,6 +560,8 @@
   <string name="main_drawer_help">Aiuto</string>
   <string name="main_drawer_login">Entra / unisciti a Wikipedia</string>
   <string name="title_description_task_title">Aggiungi descrizioni del titolo</string>
+  <string name="translation_task_title">Traduci le descrizioni del titolo</string>
+  <string name="translation_task_description">Traduci le descrizioni del titolo in altre lingue.</string>
   <string name="multilingual_task_positive">Aggiungi lingue</string>
   <string name="translation_source_description">Descrizione in %s:</string>
 </resources>

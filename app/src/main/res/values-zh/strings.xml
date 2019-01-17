@@ -652,4 +652,6 @@
   <string name="main_drawer_close">关闭</string>
   <string name="main_drawer_help">帮助</string>
   <string name="main_drawer_login">登录/加入维基百科</string>
+  <string name="translation_task_title">翻译标题描述</string>
+  <string name="translation_task_description">将标题说明翻译成其他语言。</string>
 </resources>

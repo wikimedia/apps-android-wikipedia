@@ -233,7 +233,7 @@
   <string name="clear_recent_searches_confirm_yes">예</string>
   <string name="clear_recent_searches_confirm_no">아니오</string>
   <string name="error_browser_not_found">웹 페이지를 열 수 없습니다 (찾은 브라우저 앱이 없습니다).</string>
-  <string name="table_infobox">빠른 사실</string>
+  <string name="table_infobox">간략 정보</string>
   <string name="table_other">자세한 정보</string>
   <string name="table_close">닫기</string>
   <string name="widget_name_featured_page">위키백과 알찬 글</string>
@@ -378,8 +378,8 @@
   <string name="reading_list_item_delete_undo">실행 취소</string>
   <string name="reading_list_deleted">%s이(가) 삭제되었습니다</string>
   <string name="saved_list_empty_title">아직 읽기 목록이 없습니다</string>
-  <string name="reading_lists_empty_message">나중에, 심지어는 오프라인 상태에서도 읽을 수 있도록 글들을 목록에 추가합니다.</string>
-  <string name="reading_lists_onboarding_intro">나중에, 심지어는 오프라인 상태에서도 읽을 수 있도록 글들을 문서에 추가해보세요!</string>
+  <string name="reading_lists_empty_message">나중에 오프라인 상태이더라도 읽을 수 있도록 글들을 목록에 추가합니다.</string>
+  <string name="reading_lists_onboarding_intro">나중에 오프라인 상태이더라도 읽을 수 있도록, 글들을 목록에 추가해보세요!</string>
   <string name="reading_lists_onboarding_for_example">예를 들어</string>
   <string name="reading_lists_onboarding_example1">방문할 장소</string>
   <string name="reading_lists_onboarding_example2">좋아하는 동물</string>
@@ -415,7 +415,7 @@
   <string name="reading_list_turned_sync_off_dialog_ok">확인</string>
   <string name="reading_list_turned_sync_off_dialog_settings">설정</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">읽기 목록 동기화를 켜시겠습니까?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">읽기 목록에 저장왼 문서는 지금 위키백과 계정에 동기화할 수 있습니다. &lt;a href=\"#faq\"&gt;더 알아보기&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">읽기 목록에 저장된 문서는 지금 위키백과 계정에 동기화할 수 있습니다. &lt;a href=\"#faq\"&gt;더 알아보기&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">더 이상 표시하지 않음</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">동기화 사용</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">괜찮습니다</string>
@@ -538,9 +538,9 @@
   <string name="feed_configure_menu_reset">기본 보기로 복구</string>
   <string name="feed_configure_menu_select_all">모두 보기</string>
   <string name="feed_configure_menu_deselect_all">모두 숨기기</string>
-  <string name="feed_configure_language_warning">모든 카드 유형이 모든 위키백과 언어에서 사용할 수 있는 것은 아닙니다. 설정에서 선택된 언어를 수정하십시오.</string>
+  <string name="feed_configure_language_warning">모든 카드 유형을 모든 위키백과 언어에서 사용할 수 있는 것은 아닙니다. 설정에서 선택된 언어를 수정하십시오.</string>
   <string name="feed_item_type_news">요즘 화제에 관한 글</string>
-  <string name="feed_item_type_on_this_day">오늘의 역사의 사건</string>
+  <string name="feed_item_type_on_this_day">오늘의 역사적 사건</string>
   <string name="feed_item_type_because_you_read">검색기록에 있는 최근 읽은 글 관련 추천</string>
   <string name="feed_item_type_featured_article">위키백과의 일일 알찬글</string>
   <string name="feed_item_type_trending">하루 중 가장 많이 본 글</string>

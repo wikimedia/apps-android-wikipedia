@@ -122,6 +122,10 @@
   <string name="edit_next">اڳوں تے ونڄو</string>
   <string name="edit_done">چھاپو</string>
   <string name="edit_preview">پیشگی ݙکھالا</string>
+  <string name="edit_undo">واپس</string>
+  <string name="edit_redo">ولدا کرو</string>
+  <string name="edit_zoom_in">وݙا کرو</string>
+  <string name="edit_zoom_out">چھوٹا کرو</string>
   <string name="edit_summary_tag_typo">درستی املا</string>
   <string name="edit_summary_tag_grammar">درستی قواعد</string>
   <string name="edit_summary_tag_links">لنک شامل کیتا</string>
