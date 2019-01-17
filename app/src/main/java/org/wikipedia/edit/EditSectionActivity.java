@@ -37,11 +37,14 @@ import org.wikipedia.edit.preview.EditPreviewFragment;
 import org.wikipedia.edit.richtext.SyntaxHighlighter;
 import org.wikipedia.edit.summaries.EditSummaryFragment;
 import org.wikipedia.edit.wikitext.WikitextClient;
+import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.login.LoginClient;
+import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -50,6 +53,7 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.views.PlainPasteEditText;
 import org.wikipedia.views.ViewAnimations;
 import org.wikipedia.views.WikiErrorView;
+import org.wikipedia.views.WikiTextKeyboardView;
 
 import java.util.concurrent.TimeUnit;
 
@@ -73,6 +77,7 @@ public class EditSectionActivity extends BaseActivity {
     @BindView(R.id.edit_section_load_progress) View sectionProgress;
     @BindView(R.id.edit_section_container) View sectionContainer;
     @BindView(R.id.edit_section_scroll) ScrollView sectionScrollView;
+    @BindView(R.id.edit_keyboard_overlay) WikiTextKeyboardView wikiTextKeyboardView;
     @BindView(R.id.view_edit_section_error) WikiErrorView errorView;
     @BindView(R.id.edit_section_abusefilter_container) View abusefilterContainer;
     @BindView(R.id.edit_section_abusefilter_image) ImageView abuseFilterImage;
@@ -107,6 +112,7 @@ public class EditSectionActivity extends BaseActivity {
     private EditFunnel funnel;
 
     private ProgressDialog progressDialog;
+    private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
     private Runnable successRunnable = new Runnable() {
         @Override public void run() {
@@ -196,7 +202,9 @@ public class EditSectionActivity extends BaseActivity {
         }
 
         sectionText.addTextChangedListener(textWatcher);
-
+        wikiTextKeyboardView.setEditText(sectionText);
+        wikiTextKeyboardView.setCallback(titleStr -> bottomSheetPresenter.show(getSupportFragmentManager(),
+                LinkPreviewDialog.newInstance(new HistoryEntry(new PageTitle(titleStr, title.getWikiSite()), HistoryEntry.SOURCE_INTERNAL_LINK), null)));
         updateTextSize();
 
         // set focus to the EditText, but keep the keyboard hidden until the user changes the cursor location:

@@ -85,6 +85,13 @@
         <attr name="centerDrawable" format="reference" />
     </declare-styleable>
 
+    <declare-styleable name="WikitextKeyboardButtonView">
+        <attr name="buttonImage" format="reference" />
+        <attr name="buttonText" format="string" />
+        <attr name="buttonHint" format="string" />
+        <attr name="buttonTextColor" format="color" />
+    </declare-styleable>
+
     <declare-styleable name="CircularProgressBar">
         <attr name="progressColor" format="color" />
         <attr name="progressBackgroundColor" format="color" />
