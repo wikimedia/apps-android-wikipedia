@@ -710,8 +710,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
         final FindInPageFunnel funnel = new FindInPageFunnel(app, model.getTitle().getWikiSite(),
                 model.getPage().getPageProperties().getPageId());
-        final FindInPageActionProvider findInPageActionProvider
-                = new FindInPageActionProvider(this, funnel);
+        final FindInWebPageActionProvider findInPageActionProvider
+                = new FindInWebPageActionProvider(this, funnel);
 
         startSupportActionMode(new ActionMode.Callback() {
             private final String actionModeTag = "actionModeFindInPage";
