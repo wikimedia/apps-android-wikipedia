@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
                 android:gravity="top|start"
-                android:inputType="textMultiLine|textVisiblePassword"
+                android:inputType="textMultiLine"
                 android:imeOptions="actionNone|flagNoExtractUi"
                 android:scrollbars="vertical"
                 android:textColor="?attr/primary_text_color" />
