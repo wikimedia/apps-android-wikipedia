@@ -11,6 +11,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.page.PageTitle
+import org.wikipedia.wikidata.Entities
 import java.util.*
 
 object MissingDescriptionProvider {
@@ -78,6 +79,67 @@ object MissingDescriptionProvider {
         return Observable.zip(Observable.just(titles.first),
                 ServiceFactory.getRest(titles.second.wikiSite).getSummary(null, titles.second.prefixedText),
                 BiFunction<String, RbPageSummary, Pair<String, RbPageSummary>> { source, target -> Pair(source, target) })
+    }
+
+    fun getNextImageWithMissingCaption(lang: String): Observable<MwQueryPage> {
+        return ServiceFactory.get(WikiSite(Service.COMMONS_URL)).randomWithImageInfo
+                .flatMap<Entities, MwQueryPage>({ result: MwQueryResponse ->
+                    val pages = result.query()!!.pages()
+                    val mNumbers = ArrayList<String>()
+                    for (page in pages!!) {
+                        mNumbers.add("M" + page.pageId())
+                    }
+                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getWikidataLabelsAndDescriptions(StringUtils.join(mNumbers, '|'))
+                }, { mwQueryResponse, entities ->
+                    var item: MwQueryPage? = null
+                    for (m in entities.entities()!!.keys) {
+                        if (entities.entities()!![m]?.labels() != null && entities.entities()!![m]?.labels()!!.containsKey(lang)) {
+                            continue
+                        }
+                        for (page in mwQueryResponse.query()!!.pages()!!) {
+                            if (m == "M" + page.pageId()) {
+                                item = page
+                                break
+                            }
+                        }
+                    }
+                    if (item == null) {
+                        throw ListEmptyException()
+                    }
+                    item
+                })
+                .retry { t: Throwable -> t is ListEmptyException }
+    }
+
+    fun getNextImageWithMissingCaption(sourceLang: String, targetLang: String): Observable<Pair<String, MwQueryPage>> {
+        return ServiceFactory.get(WikiSite(Service.COMMONS_URL)).randomWithImageInfo
+                .flatMap<Entities, Pair<String, MwQueryPage>>({ result: MwQueryResponse ->
+                    val pages = result.query()!!.pages()
+                    val mNumbers = ArrayList<String>()
+                    for (page in pages!!) {
+                        mNumbers.add("M" + page.pageId())
+                    }
+                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getWikidataLabelsAndDescriptions(StringUtils.join(mNumbers, '|'))
+                }, { mwQueryResponse, entities ->
+                    var item: Pair<String, MwQueryPage>? = null
+                    for (m in entities.entities()!!.keys) {
+                        if (entities.entities()!![m]?.labels() == null || !entities.entities()!![m]?.labels()!!.containsKey(sourceLang)
+                                || entities.entities()!![m]?.labels()!!.containsKey(targetLang)) {
+                            continue
+                        }
+                        for (page in mwQueryResponse.query()!!.pages()!!) {
+                            if (m == "M" + page.pageId()) {
+                                item = Pair(entities.entities()!![m]?.labels()!![sourceLang]!!.value(), page)
+                                break
+                            }
+                        }
+                    }
+                    if (item == null) {
+                        throw ListEmptyException()
+                    }
+                    item
+                })
+                .retry { t: Throwable -> t is ListEmptyException }
     }
 
     private class ListEmptyException : RuntimeException()

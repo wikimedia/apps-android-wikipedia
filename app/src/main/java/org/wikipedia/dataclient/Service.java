@@ -171,6 +171,11 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=0&grnlimit=50&prop=pageprops|description")
     @NonNull Observable<MwQueryResponse> getRandomWithPageProps();
 
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&grnlimit=50"
+            + "&prop=description|imageinfo&iiprop=timestamp|user|url&iiurlwidth=" + PREFERRED_THUMB_SIZE)
+    @NonNull Observable<MwQueryResponse> getRandomWithImageInfo();
+
     @GET(MW_API_PREFIX + "action=query&prop=categories&clprop=hidden&cllimit=500")
     @NonNull Observable<MwQueryResponse> getCategories(@NonNull @Query("titles") String titles);
 
