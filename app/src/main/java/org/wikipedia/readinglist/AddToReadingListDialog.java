@@ -121,7 +121,6 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         listsContainer = rootView.findViewById(R.id.lists_container);
         onboardingContainer = rootView.findViewById(R.id.onboarding_container);
         onboardingButton = rootView.findViewById(R.id.onboarding_button);
-        checkAndShowOnboarding();
 
         RecyclerView readingListView = rootView.findViewById(R.id.list_of_lists);
         readingListView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -135,6 +134,8 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
             new ReadingListsFunnel().logAddClick(invokeSource);
         }
 
+        onboardingContainer.setVisibility(View.GONE);
+        listsContainer.setVisibility(View.GONE);
         updateLists();
         return rootView;
     }
@@ -166,6 +167,16 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
 
     private void checkAndShowOnboarding() {
         boolean isOnboarding = Prefs.isReadingListTutorialEnabled();
+        if (isOnboarding) {
+            // Don't show onboarding message if the user already has items in lists (i.e. from syncing).
+            for (ReadingList list : readingLists) {
+                if (!list.pages().isEmpty()) {
+                    isOnboarding = false;
+                    Prefs.setReadingListTutorialEnabled(false);
+                    break;
+                }
+            }
+        }
         onboardingButton.setOnClickListener((v) -> {
             onboardingContainer.setVisibility(View.GONE);
             listsContainer.setVisibility(View.VISIBLE);
@@ -186,6 +197,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                     readingLists = lists;
                     ReadingList.sort(readingLists, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC));
                     adapter.notifyDataSetChanged();
+                    checkAndShowOnboarding();
                 }, L::w));
     }
 
