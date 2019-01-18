@@ -11,7 +11,6 @@ import android.support.annotation.NonNull;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.URLSpan;
-import android.util.Log;
 import android.widget.RemoteViews;
 
 import org.wikipedia.Constants;
@@ -21,6 +20,7 @@ import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
@@ -37,8 +37,6 @@ import static org.wikipedia.page.PageActivity.EXTRA_PAGETITLE;
 import static org.wikipedia.util.UriUtil.decodeURL;
 
 public class WidgetProviderFeaturedPage extends AppWidgetProvider {
-    private static final String TAG = "WidgetFeatured";
-
     public static void forceUpdateWidget(@NonNull Context context) {
         Intent intent = new Intent(context, WidgetProviderFeaturedPage.class);
         intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
@@ -59,7 +57,7 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
 
         getFeaturedArticleInformation((final PageTitle pageTitle, final String widgetText) -> {
             for (final int widgetId : allWidgetIds) {
-                Log.d(TAG, "updating widget...");
+                L.d("updating widget...");
                 final RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
                         R.layout.widget_featured_page);
 
@@ -103,7 +101,7 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
         ServiceFactory.getRest(WikipediaApp.getInstance().getWikiSite()).getAggregatedFeed(date.year(), date.month(), date.date())
                 .flatMap(response -> {
                     if (response.tfa() != null) {
-                        return Observable.just(response.tfa().getDisplayTitle());
+                        return Observable.just(response.tfa());
                     } else {
                         // TODO: this logic can be removed if the feed API can return the featured article for all languages.
                         return getApiService(mainPageTitle)
@@ -113,15 +111,15 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
                 })
                 .subscribeOn(Schedulers.io())
                 .subscribe(response -> {
-                    String widgetText;
+                    String widgetText = mainPageTitle.getText();
                     PageTitle pageTitle = mainPageTitle;
                     if (response instanceof retrofit2.Response) {
                         PageLead lead = (PageLead) ((retrofit2.Response) response).body();
                         L.d("Downloaded page " + mainPageTitle.getDisplayText());
                         widgetText = findFeaturedArticleTitle(lead.getLeadSectionContent());
-                    } else {
-                        widgetText = (String) response;
-                        pageTitle = new PageTitle(widgetText, app.getWikiSite());
+                    } else if (response instanceof RbPageSummary) {
+                        widgetText = ((RbPageSummary) response).getNormalizedTitle();
+                        pageTitle = ((RbPageSummary) response).getPageTitle(app.getWikiSite());
                     }
 
                     cb.onFeaturedArticleReceived(pageTitle, widgetText);
