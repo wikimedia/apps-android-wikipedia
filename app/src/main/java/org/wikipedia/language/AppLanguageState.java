@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Locale;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.wikipedia.language.AppLanguageLookUpTable.TEST_LANGUAGE_CODE;
 
 /** Language lookup and state management for the application language and most recently used article
  * and application languages. */
@@ -133,6 +134,9 @@ public class AppLanguageState {
                 codes.add(insertIndex, code);
                 ++insertIndex;
             }
+        }
+        if (!Prefs.isShowDeveloperSettingsEnabled()) {
+            codes.remove(TEST_LANGUAGE_CODE);
         }
         return codes;
     }
