@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
@@ -43,8 +42,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
-import static org.wikipedia.descriptions.DescriptionEditActivity.EDIT_TASKS_TRANSLATE_TITLE_DESC_SOURCE;
-import static org.wikipedia.descriptions.DescriptionEditActivity.PAGE_SOURCE;
+import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS;
+import static org.wikipedia.Constants.InvokeSource;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_DISALLOWED;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_WARNING;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
@@ -87,7 +86,7 @@ public class DescriptionEditFragment extends Fragment {
             }
             editView.setSaveState(false);
             startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext()),
-                    Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS);
+                    ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS);
         }
     };
 
@@ -122,8 +121,8 @@ public class DescriptionEditFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_description_edit, container, false);
         unbinder = ButterKnife.bind(this, view);
-        source = getArguments().getInt(ARG_INVOKE_SOURCE, PAGE_SOURCE);
-        editView.setTranslationEdit(source == EDIT_TASKS_TRANSLATE_TITLE_DESC_SOURCE);
+        source = getArguments().getInt(ARG_INVOKE_SOURCE, InvokeSource.PAGE_ACTIVITY.ordinal());
+        editView.setTranslationEdit(source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC.ordinal());
         editView.setTranslationSourceLanguageDescription(getArguments().getCharSequence(ARG_TRANSLATION_SOURCE_LANG_DESC));
         editView.setPageTitle(pageTitle);
         editView.setHighlightText(highlightText);
@@ -160,7 +159,7 @@ public class DescriptionEditFragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
-        if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS
+        if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS
                 && getActivity() != null) {
             if (callback() != null) {
                 callback().onDescriptionEditSuccess();
