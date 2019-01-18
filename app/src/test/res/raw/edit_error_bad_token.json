@@ -1,8 +1,10 @@
 {
-  "servedby": "mw1222",
-  "error": {
-    "code": "badtoken",
-    "info": "Invalid token",
-    "docref": "See https://test.wikipedia.org/w/api.php for API usage"
-  }
+  "errors": [
+    {
+      "code": "badtoken",
+      "text": "Invalid token"
+    }
+  ],
+  "docref": "See https://en.wikipedia.org/w/api.php for API usage",
+  "servedby": "mw1222"
 }

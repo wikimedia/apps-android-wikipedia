@@ -1,17 +1,22 @@
 {
-  "servedby": "mw1228",
-  "error": {
-    "code": "failed-save",
-    "info": "This action has been automatically identified as harmful, and therefore disallowed.\nIf you believe your action was constructive, please inform an administrator of what you were trying to do.",
-    "messages": [
-      {
-        "name": "abusefilter-disallowed",
-        "parameters": [
-          "global-123"
-        ],
-        "html": "This action has been automatically identified as harmful, and therefore disallowed.\nIf you believe your action was constructive, please inform an administrator of what you were trying to do."
-      }
-    ],
-    "docref": "See https://www.wikidata.org/w/api.php for API usage"
-  }
+  "errors": [
+    {
+      "code": "failed-save",
+      "text": "This action has been automatically identified as harmful, and therefore disallowed.\nIf you believe your action was constructive, please inform an administrator of what you were trying to do.",
+      "data": {
+        "messages": [
+          {
+            "name": "abusefilter-disallowed",
+            "parameters": [
+              "global-123"
+            ],
+            "html": "This action has been automatically identified as harmful, and therefore disallowed.\nIf you believe your action was constructive, please inform an administrator of what you were trying to do."
+          }
+        ]
+      },
+      "module": "main"
+    }
+  ],
+  "docref": "See https://www.wikidata.org/w/api.php for API usage",
+  "servedby": "mw1228"
 }

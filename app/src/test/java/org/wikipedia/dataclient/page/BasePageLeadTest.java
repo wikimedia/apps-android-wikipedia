@@ -97,6 +97,5 @@ public abstract class BasePageLeadTest extends BasePageClientTest {
         MwServiceError error = e.getError();
         assertThat(error.getTitle(), is("nopage"));
         assertThat(error.getDetails(), is("The page parameter must be set"));
-        assertThat(error.getDocRef(), is("See https://en.wikipedia.org/w/api.php for API usage"));
     }
 }

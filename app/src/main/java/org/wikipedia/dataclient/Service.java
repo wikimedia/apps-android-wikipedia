@@ -38,7 +38,7 @@ public interface Service {
     String COMMONS_URL = "https://commons.wikimedia.org/";
     String META_URL = "https://meta.wikimedia.org/";
 
-    String MW_API_PREFIX = "w/api.php?format=json&formatversion=2&";
+    String MW_API_PREFIX = "w/api.php?format=json&formatversion=2&errorformat=plaintext&";
 
     String MW_PAGE_SECTIONS_URL = MW_API_PREFIX + "action=mobileview&prop="
                                                 + "text|sections&onlyrequestedsections=1&sections=1-"
@@ -301,7 +301,7 @@ public interface Service {
     @NonNull Observable<Entities> getWikidataLabelsAndDescriptions(@Query("ids") @NonNull String idList);
 
     @Headers("Cache-Control: no-cache")
-    @POST(MW_API_PREFIX + "action=wbsetdescription")
+    @POST(MW_API_PREFIX + "action=wbsetdescription&errorlang=uselang")
     @FormUrlEncoded
     Observable<MwPostResponse> postDescriptionEdit(@NonNull @Field("language") String language,
                                                    @NonNull @Field("uselang") String useLang,
