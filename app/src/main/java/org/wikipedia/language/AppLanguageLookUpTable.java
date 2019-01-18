@@ -28,6 +28,7 @@ public class AppLanguageLookUpTable {
     public static final String CHINESE_LANGUAGE_CODE = "zh";
     public static final String NORWEGIAN_LEGACY_LANGUAGE_CODE = "no";
     public static final String NORWEGIAN_BOKMAL_LANGUAGE_CODE = "nb";
+    public static final String TEST_LANGUAGE_CODE = "test";
     public static final String FALLBACK_LANGUAGE_CODE = "en"; // Must exist in preference_language_keys.
 
     @NonNull private final Resources resources;
