@@ -9,5 +9,4 @@
     <item android:id="@+id/menu_my_contributions"
         android:title="@string/editactionfeed_my_contributions"
         app:showAsAction="never"/>
-
 </menu>

@@ -731,4 +731,7 @@
   <string name="translate_descriptions_maybe_later">Text on the negative action button for starting translating title descriptions.\n{{Identical|Maybe later}}</string>
   <string name="title_descriptions_onboarding_got_it">Text on the positive action button for starting editing title descriptions.\n{{Identical|Got it}}</string>
   <string name="translate_descriptions_onboarding_got_it">Text on the positive action button for starting translating title descriptions.\n{{Identical|Got it}}</string>
+  <string name="editactionfeed_my_contributions_type">Label text shown for the type of contributions.</string>
+  <string name="editactionfeed_my_contributions_numbers">Label text shown for the number of contributions.</string>
+  <string name="editactionfeed_my_contributions_category_added_title_description">Label text shown for the added title description.</string>
 </resources>

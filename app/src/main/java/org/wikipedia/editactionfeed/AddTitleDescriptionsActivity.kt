@@ -68,7 +68,7 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
                 true
             }
             R.id.menu_my_contributions -> {
-                // TODO: go to My contributions
+                startActivity(MyContributionsActivity.newIntent(this))
                 true
             }
             else -> super.onOptionsItemSelected(item)

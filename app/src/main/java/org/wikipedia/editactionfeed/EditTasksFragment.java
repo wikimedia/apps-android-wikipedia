@@ -13,14 +13,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.descriptions.DescriptionEditHelpActivity;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.views.CircularProgressBar;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.FooterMarginItemDecoration;
@@ -40,11 +37,7 @@ import static org.wikipedia.descriptions.DescriptionEditActivity.EDIT_TASKS_TRAN
 public class EditTasksFragment extends Fragment {
     private Unbinder unbinder;
     @BindView(R.id.edit_onboarding_view) View editOnboardingView;
-    @BindView(R.id.circular_progress_bar) CircularProgressBar circularProgressBar;
-    @BindView(R.id.level_text) TextView levelText;
-    @BindView(R.id.username) TextView username;
-    @BindView(R.id.edit_count) TextView editCount;
-    @BindView(R.id.contributions_text) TextView contributionsText;
+    @BindView(R.id.my_contributions_progress_view) MyContributionsProgressView myContributionsProgressView;
     @BindView(R.id.task_recyclerview) RecyclerView tasksRecyclerView;
     private List<EditTask> tasks = new ArrayList<>();
     private List<EditTaskView.Callback> callbacks = new ArrayList<>();
@@ -61,7 +54,7 @@ public class EditTasksFragment extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().setElevation(0f);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         showOneTimeOnboarding();
-        updateUI();
+        updateMyContributionsInfo();
         setUpRecyclerView();
         return view;
     }
@@ -98,7 +91,7 @@ public class EditTasksFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        updateUI();
+        updateMyContributionsInfo();
         updateRecycler();
     }
 
@@ -110,12 +103,9 @@ public class EditTasksFragment extends Fragment {
         }
     }
 
-    private void updateUI() {
-        circularProgressBar.setCurrentProgress(Prefs.getTotalUserDescriptionsEdited());
-        levelText.setText(String.format(getString(R.string.editing_level_text), 1)); //Todo: derive the level number dynamically by making use of future gaming logic
-        username.setText(AccountUtil.getUserName());
-        editCount.setText(String.valueOf(Prefs.getTotalUserDescriptionsEdited()));
-        contributionsText.setText(getResources().getQuantityString(R.plurals.edit_action_contribution_count, Prefs.getTotalUserDescriptionsEdited()));
+    private void updateMyContributionsInfo() {
+        // TODO: using the endpoint to update the information
+        myContributionsProgressView.update(1, Prefs.getTotalUserDescriptionsEdited());
     }
 
     private void showOneTimeOnboarding() {
@@ -204,14 +194,17 @@ public class EditTasksFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_edit_tasks, menu);
+        inflater.inflate(R.menu.menu_edit_action_feed, menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.help:
+            case R.id.menu_help:
                 startActivity(DescriptionEditHelpActivity.newIntent(requireContext()));
+                return true;
+            case R.id.menu_my_contributions:
+                startActivity(MyContributionsActivity.Companion.newIntent(requireContext()));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
