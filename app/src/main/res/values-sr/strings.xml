@@ -199,6 +199,10 @@
   <string name="edit_next">Следеће</string>
   <string name="edit_done">Објави</string>
   <string name="edit_preview">Преглед</string>
+  <string name="edit_undo">Опозови</string>
+  <string name="edit_redo">Понови</string>
+  <string name="edit_zoom_in">Увећај</string>
+  <string name="edit_zoom_out">Умањи</string>
   <string name="edit_summary_tag_typo">Исправљена грешка у куцању</string>
   <string name="edit_summary_tag_grammar">Исправљена правописна грешка</string>
   <string name="edit_summary_tag_links">Додати линкови</string>
@@ -660,7 +664,13 @@
   <string name="main_drawer_help">Помоћ</string>
   <string name="main_drawer_login">Пријави ме / придружи ме Википедији</string>
   <string name="title_description_task_title">Додавање описа наслова</string>
+  <string name="translation_task_title">Преведите описе наслова</string>
+  <string name="translation_task_description">Преведите описе наслова на друге језике</string>
+  <string name="translate_description_edit_disable_text">Закључано док не уредите описе наслова (%d)</string>
   <string name="multilingual_task_negative">Није за мене</string>
   <string name="multilingual_task_positive">Додај језике</string>
   <string name="translation_source_description">опис (%s):</string>
+  <string name="translate_caption_task_title">Превођење натписа слика</string>
+  <string name="translate_caption_task_description">Преведите натписе на друге језике</string>
+  <string name="add_title_descriptions_dialog_title">Додавање описа наслова</string>
 </resources>

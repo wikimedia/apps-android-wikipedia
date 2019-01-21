@@ -3,6 +3,7 @@
 * Blurby
 * C13m3n7
 * Crochet.david
+* Dbrant
 * DePlusJean
 * Djiboun
 * Elodark
@@ -690,7 +691,7 @@
   <string name="translation_task_title">Traduire les descriptions de titres</string>
   <string name="translation_task_description">Traduire les descriptions de titres dans d\'autres langues.</string>
   <string name="image_caption_edit_disable_text">Verrouillé jusqu’à ce que vous ayez fait %d modifications vérifiées dans l’application</string>
-  <string name="translate_description_edit_disable_text">Verrouillé tant que vous n\'aurez pas modifié %d description de titre</string>
+  <string name="translate_description_edit_disable_text">Verrouillé tant que vous n\'aurez pas modifié %d descriptions de titre</string>
   <string name="multilingual_task_negative">Pas pour moi</string>
   <string name="multilingual_task_positive">Ajouter des langues</string>
   <string name="editing_level_text">NIVEAU %d d’éditeur d’application</string>
