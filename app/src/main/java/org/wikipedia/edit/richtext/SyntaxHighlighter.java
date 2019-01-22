@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.text.Editable;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.format.DateUtils;
 import android.widget.EditText;
@@ -79,7 +80,7 @@ public class SyntaxHighlighter {
                             // and add our new spans
                             for (SpanExtents spanEx : result) {
                                 textBox.getText().setSpan(spanEx, spanEx.getStart(), spanEx.getEnd(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-                                if (spanEx.getSyntaxRule().hasSearchText()) {
+                                if (spanEx.getSyntaxRule().getSpanStyle().equals(SyntaxRuleStyle.SEARCH_MATCHES)) {
                                     findTextList.add(spanEx);
                                 }
                             }
@@ -163,11 +164,7 @@ public class SyntaxHighlighter {
             }
             @Override
             public void afterTextChanged(final Editable editable) {
-                // queue up syntax highlighting.
-                // if the user adds more text within 1/2 second, the previous request
-                // is cancelled, and a new one is placed.
-                handler.removeCallbacks(syntaxHighlightCallback);
-                handler.postDelayed(syntaxHighlightCallback, DateUtils.SECOND_IN_MILLIS / 2);
+                postHighlightCallback();
             }
         });
     }
@@ -175,6 +172,13 @@ public class SyntaxHighlighter {
     public void applyFindTextSyntax(@Nullable String searchText, @Nullable OnSyntaxHighlightListener listener) {
         this.searchText = searchText;
         this.syntaxHighlightListener = listener;
+        postHighlightCallback();
+    }
+
+    private void postHighlightCallback() {
+        // queue up syntax highlighting.
+        // if the user adds more text within 1/2 second, the previous request
+        // is cancelled, and a new one is placed.
         handler.removeCallbacks(syntaxHighlightCallback);
         handler.postDelayed(syntaxHighlightCallback, DateUtils.SECOND_IN_MILLIS / 2);
     }
@@ -312,41 +316,26 @@ public class SyntaxHighlighter {
 
         @Override
         public List<SpanExtents>  call() {
-
-            if (searchText == null || searchText.length() == 0) {
-                return new ArrayList<>();
+            List<SpanExtents> spansToSet = new ArrayList<>();
+            if (TextUtils.isEmpty(searchText)) {
+                return spansToSet;
             }
 
-            List<SpanExtents> spansToSet = new ArrayList<>();
-            SyntaxRule syntaxItem = new SyntaxRule(searchText, SyntaxRuleStyle.SEARCH_MATCHES);
-            for (int i = 0; i < text.length(); i++) {
-                if (syntaxItem.hasSearchText()) {
-                    SpanExtents newSpanInfo;
-                    boolean pass = true;
-                    int j;
-                    for (j = 0; j < syntaxItem.getSearchText().length(); j++) {
-                        if (text.charAt(i + j) != syntaxItem.getSearchText().charAt(j)) {
-                            pass = false;
-                            break;
-                        }
-                    }
-
-                    if (pass) {
-                        if (j == syntaxItem.getSearchText().length()) {
-                            newSpanInfo = syntaxItem.getSpanStyle().createSpan(context, i, syntaxItem);
-                            newSpanInfo.setStart(i);
-                            newSpanInfo.setEnd(i + syntaxItem.getSearchText().length());
-                            spansToSet.add(newSpanInfo);
-                        }
-                    }
-                } else {
-                    break;
+            SyntaxRule syntaxItem = new SyntaxRule("", "", SyntaxRuleStyle.SEARCH_MATCHES);
+            int position = 0;
+            do {
+                position = text.indexOf(searchText, position);
+                if (position >= 0) {
+                    SpanExtents newSpanInfo = SyntaxRuleStyle.SEARCH_MATCHES.createSpan(context, position, syntaxItem);
+                    newSpanInfo.setStart(position);
+                    newSpanInfo.setEnd(position + searchText.length());
+                    spansToSet.add(newSpanInfo);
+                    position += searchText.length();
                 }
-
                 if (cancelled) {
                     break;
                 }
-            }
+            } while(position >= 0);
 
             return spansToSet;
         }
