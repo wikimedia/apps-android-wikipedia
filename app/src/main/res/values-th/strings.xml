@@ -272,7 +272,7 @@
   <string name="translation_source_description">ลักษณะ %s:</string>
   <string name="translate_caption_task_title">แปลคำบรรยายภาพ</string>
   <string name="translate_caption_task_description">แปลคำบรรยายเป็นภาษาอื่น</string>
-  <string name="add_title_descriptions_dialog_title">เพิ่มคำอธิบายหัวข้อ</string>
+  <string name="add_title_descriptions_dialog_title">เพิ่มคำอธิบายชื่อเรื่อง</string>
   <string name="add_title_descriptions_dialog_message">ตอนนี้คุณสามารถช่วยปรับปรุงวิกิพีเดียโดยการเพิ่มคำอธิบายที่ปรากฏด้านล่างหัวข้อในบทความ คุณสามารถกำหนดค่าภาษาของคุณได้ตลอดเวลา</string>
   <string name="add_translate_descriptions_dialog_title">คุณกำลังแปลคำอธิบายหัวข้อเป็นครั้งแรก</string>
   <string name="description_edit_tutorial_message">ยินดีต้อนรับสู่บ้านใหม่สำหรับการแก้ไขในแอปบนวิกิพีเดีย ที่นี่เราจะแนะนำโอกาสในการเพิ่มเนื้อหาที่อาจเป็นที่สนใจแก่คุณ การช่วยเหลือของคุณได้รับการชื่นชมมาก ขอให้มีความสุขในการแก้ไข !</string>

@@ -185,6 +185,7 @@
   <string name="privacy_policy_description">سياسة الخصوصية</string>
   <string name="terms_of_use_description">شروط الاستخدام</string>
   <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="privacy_policy_url">https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/ar</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/ar</string>
@@ -251,7 +252,7 @@
   <string name="preference_summary_show_images">تفعيل أو إلغاء تفعيل تحميل الصور في الصفحات. أزل اختيار هذا الإعداد إذا كان اتصالك بالإنترنت بطيئًا، أو إذا كانت خطة بياناتك محدودة.</string>
   <string name="preference_title_download_only_over_wifi">التنزيل عبر واي-فاي فقط</string>
   <string name="dialog_title_download_only_over_wifi">تأكيد التحميل باستخدام بيانات الهاتف المحمول؟</string>
-  <string name="dialog_text_download_only_over_wifi">تم تشغيل \"التنزيل عبر واي-فاي فقط\" في الإعدادات، هل تريد السماح باستخدام خطة بيانات الجوال الخاصة بك لهذا التنزيل فقط؟</string>
+  <string name="dialog_text_download_only_over_wifi">تم تشغيل \"التنزيل عبر واي-فاي فقط\" في الإعدادات، هل تريد السماح باستخدام خطة بيانات المحمول الخاصة بك لهذا التنزيل فقط؟</string>
   <string name="dialog_title_download_only_over_wifi_allow">السماح</string>
   <string name="read_more_section">اقرأ المزيد</string>
   <string name="about_article_section">حول هذه المقالة</string>

@@ -162,8 +162,8 @@
   <string name="create_account_password_error">Некорректный пароль</string>
   <string name="create_account_generic_error">Невозможно создать учётную запись</string>
   <string name="create_account_next">Далее</string>
-  <string name="email_recommendation_dialog_title">Создать учётную запись без электронного адреса?</string>
-  <string name="email_recommendation_dialog_message">Хотя указание электронной почты необязательно, но &lt;b&gt;очень  рекомендуется&lt;/b&gt;, поскольку электронная почта используется при восстановлении учётной записи, если вы забудете пароль.</string>
+  <string name="email_recommendation_dialog_title">Создать учётную запись без электронной почты?</string>
+  <string name="email_recommendation_dialog_message">Хотя указание электронной почты необязательно, но &lt;b&gt;очень  рекомендуется&lt;/b&gt;, поскольку электронная почта используется при восстановлении учётной записи если вы забудете пароль.</string>
   <string name="email_recommendation_message">Рекомендуется, поскольку электронная почта требуется для восстановления аккаунта.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Продолжить без эл. почты</string>
   <string name="email_recommendation_dialog_create_with_email_action">Добавить адрес эл. почты</string>
@@ -231,6 +231,10 @@
   <string name="edit_next">Далее</string>
   <string name="edit_done">Сохранить</string>
   <string name="edit_preview">Предпросмотр</string>
+  <string name="edit_undo">Отмена</string>
+  <string name="edit_redo">Повтор действия</string>
+  <string name="edit_zoom_in">Приблизить</string>
+  <string name="edit_zoom_out">Отдалить</string>
   <string name="edit_summary_tag_typo">Исправлена опечатка</string>
   <string name="edit_summary_tag_grammar">Исправлено правописание</string>
   <string name="edit_summary_tag_links">Добавлены ссылки</string>
@@ -304,7 +308,7 @@
   <string name="tool_tip_bookmark_icon_text">Нажмите по иконке закладки, чтобы сохранить статью в список для чтения.</string>
   <string name="tool_tip_share">После выделения интересного факта, попробуйте поделиться им в ваших любимых соц.сетях!</string>
   <string name="page_view_in_browser">Просмотр страницы в браузере</string>
-  <string name="tool_tip_toc_title">Быстрый доступ к просмотру содержания</string>
+  <string name="tool_tip_toc_title">Быстрый доступ к содержанию</string>
   <string name="tool_tip_toc_text">Теперь вы можете смахнуть экран влево, чтобы открыть содержание, а также схватить и прокрутить ползунок для быстрой навигации к различным разделам статьи.</string>
   <string name="tool_tip_lang_button">Теперь вы можете искать и читать в приложении на нескольких языках Википедии.\n\n\nНажмите на значок, чтобы добавить другие языки.</string>
   <string name="error_response_malformed">Ответ сервера был некорректно отформатирован.</string>
@@ -521,18 +525,18 @@
   <string name="notifications_poll_enable_title">Включить уведомления</string>
   <string name="notifications_poll_enable_positive">Включить</string>
   <string name="notifications_poll_enable_negative">Не сейчас</string>
-  <string name="notifications_empty_message">Нет новых извещений!</string>
+  <string name="notifications_empty_message">Новых уведомлений нет!</string>
   <string name="notifications_view_archived_button_text">Просмотреть архивированные уведомления</string>
   <string name="notification_preferences_title">Настройки уведомлений</string>
   <string name="notifications_mark_unread">Отметить как непрочитанное</string>
   <string name="preference_title_notification_poll">Извещения об опросах</string>
   <string name="preference_summary_notification_poll">Позволяет приложению использовать данные для проверки новых уведомлений в фоне.</string>
-  <string name="preference_category_notification_types">Виды извещений в приложении</string>
+  <string name="preference_category_notification_types">Виды уведомлений в приложении</string>
   <string name="preference_title_notification_welcome">Добро пожаловать</string>
   <string name="preference_summary_notification_welcome">Учётная запись создана</string>
   <string name="preference_title_notification_milestone">Этап</string>
   <string name="preference_summary_notification_milestone">Достигнуто определённое число правок</string>
-  <string name="preference_title_notification_thanks">Благодарность</string>
+  <string name="preference_title_notification_thanks">Благодарности</string>
   <string name="preference_summary_notification_thanks">Кто-то поблагодарил вас за правку</string>
   <string name="view_continue_reading_card_title">Продолжить чтение</string>
   <string name="view_because_you_read_card_title">На основе прочитанного</string>
@@ -594,8 +598,8 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/ru</string>
   <string name="description_edit_anon_limit">Спасибо вам за неослабевающий интерес к изменению описаний! Для того, чтобы продолжить вносить изменения, вам необходимо войти в Википедию под своей учётной записью.</string>
   <string name="description_edit_license_notice">Изменяя краткое описание, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_task_unlock_title">Теперь доступен список статей для редактирования кратких описаний!</string>
-  <string name="description_edit_task_unlock_body">Мы заметили, что вы любите работать с краткими описаниями. Возможно вы оцените отдельный список статей, нуждающихся в кратких описаниях, размещённый в приложении “Задания для профи”.</string>
+  <string name="description_edit_task_unlock_title">Список статей для редактирования кратких описаний разблокирован.</string>
+  <string name="description_edit_task_unlock_body">Мы заметили, что вы любите работать с краткими описаниями. Возможно, вы оцените отдельный список статей, нуждающихся в кратких описаниях, размещённый в приложении “Задания для профи”.</string>
   <string name="description_edit_success_saved">Описание сохранено!</string>
   <string name="description_edit_success_encouragement">Вы только что сделали Википедию лучше для всех</string>
   <string name="description_edit_success_done">Готово</string>
@@ -642,7 +646,7 @@
   <string name="onboarding_skip">Пропустить</string>
   <string name="onboarding_continue">Продолжить</string>
   <string name="onboarding_get_started">Начать</string>
-  <string name="onboarding_maybe_later">Может быть, позже</string>
+  <string name="onboarding_maybe_later">Может позже</string>
   <string name="onboarding_explore_title">Новые способы исследований</string>
   <string name="onboarding_explore_text">Путешествуйте по лабиринтам Википедии с помощью постоянно обновляемой ленты. &lt;br/&gt;&lt;b&gt;Настройте&lt;/b&gt; ленту так, чтобы она отвечала вашим интересам — будь то изучение исторических событий, случившихся &lt;b&gt;в этот день&lt;/b&gt;, или положитесь &lt;b&gt;на удачу&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Списки для чтения с синхронизацией</string>
@@ -698,17 +702,29 @@
   <string name="main_drawer_login">Войти в Википедию</string>
   <string name="title_description_task_title">Добавление кратких описаний</string>
   <string name="title_description_task_description">Поучаствовать в добавлении кратких описаний</string>
-  <string name="image_caption_task_title">Описания изображений</string>
+  <string name="image_caption_task_title">Подписи для изображений</string>
   <string name="image_caption_task_description">Добавление описания изображениям</string>
   <string name="multilingual_task_title">Больше задач для редакторов, знающих несколько языков</string>
-  <string name="multilingual_task_description">Задания для перевода доступны, если Вы читаете и пишете на более чем одном языке Wikipedia</string>
+  <string name="multilingual_task_description">Задания для перевода доступны, если Вы читаете и пишете на более чем одном языке Википедии</string>
+  <string name="translation_task_title">Перевод кратких описаний</string>
+  <string name="translation_task_description">Перевод кратких описаний на другие языки</string>
   <string name="image_caption_edit_disable_text">Этот функционал будет открыт тогда, когда вы сделаете %d верифицированных правок в приложении</string>
+  <string name="translate_description_edit_disable_text">Заблокировано, пока вы не отредактируете %d кратких описаний</string>
   <string name="multilingual_task_negative">Не для меня</string>
   <string name="multilingual_task_positive">Добавить языки</string>
   <string name="editing_level_text">Профи %d уровня</string>
   <string name="translation_source_description">описание %s:</string>
+  <string name="translate_caption_task_title">Перевод подписей для изображений</string>
+  <string name="translate_caption_task_description">Перевод подписей для изображений на другие языки</string>
   <plurals name="edit_action_contribution_count">
     <item quantity="one">правка в приложении</item>
     <item quantity="other">правки в приложении</item>
   </plurals>
+  <string name="add_title_descriptions_dialog_title">Добавление кратких описаний</string>
+  <string name="add_title_descriptions_dialog_message">Теперь вы можете улучшить Википедию добавляя краткие описания, отображающиеся под заголовками статей. Список языков, которыми могут быть добавлены описания вы можете отредактировать в любое время в настройках.</string>
+  <string name="add_translate_descriptions_dialog_title">Вы переводите краткие описания в первый раз</string>
+  <string name="add_translate_descriptions_dialog_message">Теперь вы можете улучшить Википедию переводя краткие описания статей. Список языков для перевода вы можете отредактировать в любое время в настройках.</string>
+  <string name="description_edit_tutorial_message">Добро пожаловать в новое приложение для редактирования Википедии. Здесь вам будут предложены возможности для добавления содержимого, которое, надеемся, будет вам интересно. Ваш вклад весьма ценен! Приятного редактирования.</string>
+  <string name="translation_description_edit_task_unlock_title">Перевод кратких описаний разблокирован.</string>
+  <string name="translation_description_edit_task_unlock_body">Мы заметили, что вы любите работать с краткими описаниями и читать Википедию на разных языках. Возможно, вы оцените отдельный список статей, нуждающихся в переводе кратких описанийях.</string>
 </resources>

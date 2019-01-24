@@ -424,6 +424,7 @@
     <item quantity="one">Бу ыстатыйа ситимэ суох ааҕыллыбат буолла.</item>
     <item quantity="other">Бу ыстатыйалар ситимэ суох ааҕыллыбат буоллулар.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync">Ааҕыы испииһэктэрэ тэҥнэннилэр</string>
   <string name="reading_list_menu_last_sync">Тиһэх тэҥнээһин: %s</string>
   <string name="user_option_sync_label">Туруоруулар</string>
   <string name="notification_reverted_title">Төннөрүллүбүт уларытыы</string>
@@ -502,6 +503,7 @@
   <string name="view_featured_article_card_title">Бастыҥ ыстатыйа</string>
   <string name="view_featured_article_footer_save_button_label">Бигэргэт</string>
   <string name="view_featured_article_footer_saved_button_label">Бигэргэннэ</string>
+  <string name="edit_tasks_activity_title">Сорудахтар</string>
   <string name="feed_configure_activity_title">Лиэнтэни нарылаа</string>
   <string name="feed_configure_menu_reset">Анаан этиллибэтэҕинэ турар сиидэлэри сөргүтүү</string>
   <string name="feed_configure_menu_select_all">Барытын көрдөр</string>
@@ -544,10 +546,13 @@
   <string name="description_edit_help_more_info">Сиһилии</string>
   <string name="description_edit_help_meta_info">Ойуулааһыннар Биики-Билии диэн сиргэ бааллар. Биики-Билии (Wikidata) Бикимиэдьийэ Пуондатын бырайыага: аһаҕас, көҥүл туттуллар билии олоҕо, онно Бикипиэдьийэни, Биики Хааһаҕы, Бикимиэдьийэ атын да бырайыактарын уонна да атыттары өйүүргэ аналлаах билии сааһыланан түмүллэр.</string>
   <string name="editactionfeed_add_title_descriptions">Кылгас быһаарыы эбии</string>
+  <string name="editactionfeed_translate_descriptions">Кылгас быһаарыылар  тылбаастара</string>
+  <string name="editactionfeed_review_title_description">Быһаарыылары тургутуу</string>
   <string name="editactionfeed_add_description_button">Быһааран суруй</string>
   <string name="editactionfeed_my_contributions">Бэйэм суруйуум</string>
   <string name="editactionfeed_from_language">Кимтэн:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Бу туһунан сиһилии</string>
+  <string name="editactionfeed_to_language">Кимиэхэ:</string>
   <string name="description_edit_revert_subtitle">Бикипиэдьийэни тупсарбыккар махтал!</string>
   <string name="description_edit_revert_intro">Туһалааҕы оҥоро сатаабыккын эрээри, тугу эрэ сыыспыккын. Көннөрүүгүн төннөрбүт төрүөт маннык буолуон сөп:</string>
   <string name="description_edit_revert_reason1">көннөрүүҥ &lt;a href=\"%1$s\"&gt;тутаах тулаанныртан&lt;/a&gt; биирдэстэригэр сөп түбэспэтэх.</string>
@@ -612,7 +617,18 @@
   <string name="main_drawer_help">Көмө</string>
   <string name="main_drawer_login">Бикипиэдьийэҕэ киирии / бэлиэтэнии</string>
   <string name="title_description_task_title">Кылгас быһаарыы эбии</string>
+  <string name="image_caption_task_title">Ойуу суруга</string>
+  <string name="image_caption_task_description">Ойууга сурук эбии</string>
+  <string name="multilingual_task_title">Элбэх тылы билэр дьоҥҥо соруктар</string>
+  <string name="translation_task_title">Кылгас быһаарыы тылбааһа</string>
+  <string name="translation_task_description">Быһаарыы суругун атын тылларга тылбааһа.</string>
   <string name="multilingual_task_negative">Миэхэ буолбатах</string>
   <string name="multilingual_task_positive">Тылы эбии</string>
+  <string name="translate_caption_task_title">Ойуу суругун тылбааһа</string>
+  <string name="translate_caption_task_description">Ойуу суругун атын тылларга тылбааһа</string>
+  <plurals name="edit_action_contribution_count">
+    <item quantity="one">уларытыы</item>
+    <item quantity="other">уларытыылар</item>
+  </plurals>
   <string name="add_title_descriptions_dialog_title">Аатын быһаар</string>
 </resources>

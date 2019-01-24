@@ -5,6 +5,7 @@
 * Nirjal stha
 * Parbat subedi
 * Suniltheblue
+* पर्वत सुबेदी
 * राम प्रसाद जोशी
 * सरोज कुमार ढकाल
 -->
@@ -238,6 +239,7 @@
   <string name="close_all_tabs_confirm_yes">हो</string>
   <string name="close_all_tabs_confirm_no">होइन</string>
   <string name="button_close_tab">ट्याब बन्द गर्नुहोस्</string>
+  <string name="all_tab_items_closed">सबै ट्याबहरू बन्द गरिए</string>
   <string name="page_view_in_browser">पृष्ठलार्इ ब्राउजरमा हेर्नुहोस्</string>
   <string name="error_response_malformed">सर्भरबाट आएको प्रतिक्रिया सही तरिकाले फर्म्याट गरिएको छैन।</string>
   <string name="error_unknown">एउटा अज्ञात त्रुटि देखापर्‍यो।</string>
@@ -434,5 +436,7 @@
   <string name="main_drawer_open">खुल्ला</string>
   <string name="main_drawer_close">बन्द</string>
   <string name="main_drawer_help">सहायता</string>
+  <string name="translation_task_title">शीर्षक विवरण अनुवाद गर्नुहोस्</string>
   <string name="multilingual_task_positive">भाषाहरू थप गर्नुहोस्</string>
+  <string name="add_title_descriptions_dialog_title">शीर्षकमा विवरण थप्नुहोस्</string>
 </resources>

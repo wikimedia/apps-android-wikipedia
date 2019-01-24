@@ -60,7 +60,7 @@
   <string name="menu_text_select_copy">Kopírovat</string>
   <string name="menu_text_select_define">Definovat</string>
   <string name="menu_text_select_share">Sdílet</string>
-  <string name="menu_text_select_edit_here">Upravit zde</string>
+  <string name="menu_text_select_edit_here">Editovat zde</string>
   <string name="nav_item_nearby">Poblíž</string>
   <string name="nearby_zoom_to_location">Přibližte si místo na mapě</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;Přispěvatelé &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
@@ -214,7 +214,7 @@
   <string name="edit_summary_tag_other">Jinak</string>
   <string name="edit_summary_tag_other_hint">Jiný způsob, jakým jste vylepšili stránku</string>
   <string name="edit_conflict_title">Editační konflikt</string>
-  <string name="edit_conflict_message">Stránka již byla upravena jiným uživatelem a je v konfliktu s vaší úpravou. Prosíme, zkopírujte své úpravy, vraťte se zpět, obnovte stránku a zkuste stránku znovu upravit.</string>
+  <string name="edit_conflict_message">Stránka již byla editována jiným uživatelem a je v konfliktu s vaší editací. Prosíme, zkopírujte svou editaci, vraťte se zpět, obnovte stránku a zkuste stránku znovu editovat.</string>
   <string name="find_next">Najít další</string>
   <string name="find_previous">Najít předchozí</string>
   <string name="find_first_occurence">Toto je první výskyt</string>
@@ -330,8 +330,8 @@
   <string name="article_menu_bar_bookmark">Přidat tento článek do seznamu k přečtení</string>
   <string name="article_menu_bar_share">Sdílet odkaz na článek</string>
   <string name="article_header_edit_hint">Editovat…</string>
-  <string name="article_header_edit_description">Upravit popis článku</string>
-  <string name="article_header_edit_lead_section">Upravit úvod</string>
+  <string name="article_header_edit_description">Editovat popis článku</string>
+  <string name="article_header_edit_lead_section">Editovat úvod</string>
   <string name="color_theme_select">Vzhled</string>
   <string name="color_theme_light">Světlý</string>
   <string name="color_theme_dark">Tmavý</string>
@@ -561,7 +561,7 @@
   <string name="description_edit_text_hint">Popis článku</string>
   <string name="description_edit_save">Zveřejnit</string>
   <string name="description_edit_add_description">Přidat popis článku</string>
-  <string name="description_edit_edit_description">Upravit popis</string>
+  <string name="description_edit_edit_description">Editovat popis</string>
   <string name="description_edit_cancel_hint">Zrušit</string>
   <string name="description_edit_help_title">Nápověda: popis článku</string>
   <string name="description_edit_help_about_wikidata">O Wikidatech</string>
@@ -680,7 +680,7 @@
   <string name="multilingual_task_description">Tipy k překladu budou k dispozici, pokud čtete a píšete ve více než jednom jazyce Wikipedie.</string>
   <string name="translation_task_title">Překládat popisy článků</string>
   <string name="translation_task_description">Přeložit popisy článků do jiných jazyků.</string>
-  <string name="image_caption_edit_disable_text">Zamknuto, dokud neprovedete %d ověřených editací v aplikaci</string>
+  <string name="image_caption_edit_disable_text">Zamknuto, dokud neprovedete %d ověřených editací v aplikaci aplikaci</string>
   <string name="translate_description_edit_disable_text">Zamčeno, dokud neupravíte %d popisů článků</string>
   <string name="multilingual_task_negative">Není pro mě</string>
   <string name="multilingual_task_positive">Přidat jazyky</string>

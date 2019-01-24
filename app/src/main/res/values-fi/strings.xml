@@ -6,6 +6,7 @@
 * ElmA
 * Envlh
 * Jack Phoenix
+* Laurianttila
 * McSalama
 * Nike
 * Olimar
@@ -282,6 +283,8 @@
   <string name="tool_tip_bookmark_icon_text">Napauta kirjanmerkkikuvaketta tallentaaksesi artikkelin lukulistaan.</string>
   <string name="tool_tip_share">Korostettuasi mielenkiintoisen faktan, kokeile jakaa se suosikkiverkostoissasi!</string>
   <string name="page_view_in_browser">Näytä sivu selaimessa</string>
+  <string name="tool_tip_toc_title">Pikalinkki sisällysluetteloon</string>
+  <string name="tool_tip_toc_text">Voit pyyhkäistä vasemmalle avataksesi sisällysluettelon sekä raahata tätä selausnappulaa siirtyäksesi eri osioon artikkelissa.</string>
   <string name="tool_tip_lang_button">Voit nyt lukea monenkielisiä Wikipedioita tällä sovelluksella.\n\n\nNapauta kuvaketta nähdäksesi lisää kieliä.</string>
   <string name="error_response_malformed">Palvelimen vastaus ei ollut oikein muotoiltu.</string>
   <string name="error_unknown">Tapahtui tuntematon virhe.</string>
@@ -495,6 +498,7 @@
   <string name="notifications_poll_enable_title">Ota ilmoitukset käyttöön</string>
   <string name="notifications_poll_enable_positive">Ota käyttöön</string>
   <string name="notifications_poll_enable_negative">Ei nyt</string>
+  <string name="notifications_empty_message">Olet lukenut kaikki ilmoituksesi!</string>
   <string name="notifications_view_archived_button_text">Tarkastele arkistoituja ilmoituksia</string>
   <string name="notification_preferences_title">Ilmoitusasetukset</string>
   <string name="notifications_mark_unread">Merkitse lukemattomaksi</string>
@@ -588,10 +592,13 @@
   <string name="description_edit_help_more_info">Lisätietoja</string>
   <string name="description_edit_help_meta_info">Kuvaukset tallennetaan Wikidataan. Se on Wikimedia Foundationin ylläpitämä vapaasti muokattava monikielinen tietokanta, joka toimii Wikipedian ja muiden wikiprojektien tukena.</string>
   <string name="editactionfeed_add_title_descriptions">Lisää otsikkokuvaukset</string>
+  <string name="editactionfeed_translate_descriptions">Käännä otsikoiden kuvauksia</string>
   <string name="editactionfeed_review_title_description">Esikatsele otsikon kuvausta</string>
   <string name="editactionfeed_add_description_button">Lisää kuvaus</string>
   <string name="editactionfeed_my_contributions">Omat muokkaukset</string>
+  <string name="editactionfeed_from_language">Lähettäjä:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Lisätietoja</string>
+  <string name="editactionfeed_to_language">Vastaanottaja:</string>
   <string name="description_edit_revert_subtitle">Kiitos Wikipedian muokkaamisesta!</string>
   <string name="description_edit_revert_intro">Tiedämme sinun yrittäneen parhaasi, mutta eräällä arvioijalla oli huolenaihe. Mahdolliset syyt muokkauksesi palauttamiselle ovat:</string>
   <string name="description_edit_revert_reason1">muokkauksesi ei noudattanut &lt;a href=\"%1$s\"&gt;käytäntöjä&lt;/a&gt;.</string>
@@ -663,6 +670,11 @@
   <string name="main_drawer_help">Ohje</string>
   <string name="main_drawer_login">Kirjaudu sisään / liity Wikipediaan</string>
   <string name="title_description_task_title">Lisää otsikkokuvaukset</string>
+  <string name="image_caption_task_title">Kuvatekstit</string>
+  <string name="image_caption_task_description">Lisää kuvatekstejä</string>
   <string name="multilingual_task_negative">Ei minulle</string>
   <string name="multilingual_task_positive">Lisää kieliä</string>
+  <string name="translate_caption_task_title">Käännä kuvatekstit</string>
+  <string name="translate_caption_task_description">Käännä kuvatekstit muille kielille</string>
+  <string name="add_translate_descriptions_dialog_title">Olet kääntämässä ensimmäistä otsikon kuvaustasi</string>
 </resources>
