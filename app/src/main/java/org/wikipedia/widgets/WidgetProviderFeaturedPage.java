@@ -55,7 +55,7 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
         ComponentName thisWidget = new ComponentName(context, WidgetProviderFeaturedPage.class);
         final int[] allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
 
-        getFeaturedArticleInformation((final PageTitle pageTitle, final String widgetText) -> {
+        getFeaturedArticleInformation((final PageTitle pageTitle, final CharSequence widgetText) -> {
             for (final int widgetId : allWidgetIds) {
                 L.d("updating widget...");
                 final RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
@@ -111,14 +111,14 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
                 })
                 .subscribeOn(Schedulers.io())
                 .subscribe(response -> {
-                    String widgetText = mainPageTitle.getText();
+                    CharSequence widgetText = mainPageTitle.getText();
                     PageTitle pageTitle = mainPageTitle;
                     if (response instanceof retrofit2.Response) {
                         PageLead lead = (PageLead) ((retrofit2.Response) response).body();
                         L.d("Downloaded page " + mainPageTitle.getDisplayText());
                         widgetText = findFeaturedArticleTitle(lead.getLeadSectionContent());
                     } else if (response instanceof RbPageSummary) {
-                        widgetText = ((RbPageSummary) response).getNormalizedTitle();
+                        widgetText = StringUtil.fromHtml(((RbPageSummary) response).getDisplayTitle());
                         pageTitle = ((RbPageSummary) response).getPageTitle(app.getWikiSite());
                     }
 
@@ -154,6 +154,6 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
     }
 
     private interface Callback {
-        void onFeaturedArticleReceived(@NonNull PageTitle pageTitle, @NonNull String widgetText);
+        void onFeaturedArticleReceived(@NonNull PageTitle pageTitle, @NonNull CharSequence widgetText);
     }
 }
