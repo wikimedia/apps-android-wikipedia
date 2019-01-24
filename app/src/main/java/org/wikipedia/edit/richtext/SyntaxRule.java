@@ -15,6 +15,7 @@ import org.wikipedia.model.BaseModel;
 public class SyntaxRule extends BaseModel {
     private final String startSymbol;
     private final String endSymbol;
+    private final String searchText;
     private final SyntaxRuleStyle spanStyle;
     private final boolean sameStartEnd;
 
@@ -24,6 +25,10 @@ public class SyntaxRule extends BaseModel {
 
     public String getEndSymbol() {
         return endSymbol;
+    }
+
+    public String getSearchText() {
+        return searchText;
     }
 
     public SyntaxRuleStyle getSpanStyle() {
@@ -38,10 +43,24 @@ public class SyntaxRule extends BaseModel {
         return sameStartEnd;
     }
 
+    public boolean hasSearchText() {
+        return searchText != null;
+    }
+
     public SyntaxRule(String startSymbol, String endSymbol, SyntaxRuleStyle spanStyle) {
         this.startSymbol = startSymbol;
         this.endSymbol = endSymbol;
         this.spanStyle = spanStyle;
+        this.searchText = null;
         sameStartEnd = startSymbol.equals(endSymbol);
+    }
+
+    public SyntaxRule(String searchText, SyntaxRuleStyle spanStyle) {
+        this.startSymbol = null;
+        this.endSymbol = null;
+        this.spanStyle = spanStyle;
+        this.searchText = searchText;
+        sameStartEnd = false;
+
     }
 }

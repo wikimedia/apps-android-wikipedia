@@ -57,6 +57,14 @@ public enum SyntaxRuleStyle {
                                                          SyntaxRule syntaxItem) {
             return new StyleSpanEx(Typeface.ITALIC, spanStart, syntaxItem);
         }
+    },
+    SEARCH_MATCHES {
+        @NonNull @Override public SpanExtents createSpan(@NonNull Context ctx, int spanStart,
+        SyntaxRule syntaxItem) {
+            @ColorInt int foreColor = getThemedColor(ctx, R.attr.primary_text_color);
+            @ColorInt int backColor = getThemedColor(ctx, R.attr.text_highlight_color_translucent);
+            return new ColorSpanEx(foreColor, backColor, spanStart, syntaxItem);
+        }
     };
 
     @NonNull public abstract SpanExtents createSpan(@NonNull Context ctx, int spanStart,

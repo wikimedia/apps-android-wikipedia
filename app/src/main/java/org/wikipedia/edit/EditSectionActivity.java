@@ -13,6 +13,7 @@ import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -113,6 +114,7 @@ public class EditSectionActivity extends BaseActivity {
 
     private ProgressDialog progressDialog;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
+    private ActionMode findInEditorActionMode;
 
     private Runnable successRunnable = new Runnable() {
         @Override public void run() {
@@ -496,6 +498,9 @@ public class EditSectionActivity extends BaseActivity {
                 Prefs.setEditingTextSizeExtra(Prefs.getEditingTextSizeExtra() - 1);
                 updateTextSize();
                 return true;
+            case R.id.menu_find_in_editor:
+                showFindInEditor();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -532,6 +537,55 @@ public class EditSectionActivity extends BaseActivity {
     public void showError(@Nullable Throwable caught) {
         errorView.setError(caught);
         errorView.setVisibility(View.VISIBLE);
+    }
+
+    public void showFindInEditor() {
+        final FindInEditorActionProvider findInEditorActionProvider = new FindInEditorActionProvider(this);
+
+        startActionMode(new ActionMode.Callback() {
+            private final String actionModeTag = "actionModeFindInEditor";
+
+            @Override
+            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                findInEditorActionMode = mode;
+                MenuItem menuItem = menu.add(R.string.menu_page_find_in_page);
+                menuItem.setActionProvider(findInEditorActionProvider);
+                menuItem.expandActionView();
+                return true;
+            }
+
+            @Override
+            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                mode.setTag(actionModeTag);
+                return false;
+            }
+
+            @Override
+            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                return false;
+            }
+
+            @Override
+            public void onDestroyActionMode(ActionMode mode) {
+                findInEditorActionMode = null;
+                getEditorView().clearMatches(syntaxHighlighter);
+                getEditorView().setSelection(getEditorView().getSelectionStart(), getEditorView().getSelectionStart());
+            }
+        });
+    }
+
+    public void closeFindInPage() {
+        if (findInEditorActionMode != null) {
+            findInEditorActionMode.finish();
+        }
+    }
+
+    public SyntaxHighlighter getSyntaxHighlighter() {
+        return syntaxHighlighter;
+    }
+
+    public PlainPasteEditText getEditorView() {
+        return sectionText;
     }
 
     @Override

@@ -4,6 +4,7 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.SystemClock;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
 import android.util.AttributeSet;
@@ -11,12 +12,24 @@ import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 
+import org.wikipedia.edit.richtext.SpanExtents;
+import org.wikipedia.edit.richtext.SyntaxHighlighter;
 import org.wikipedia.util.ClipboardUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static android.text.InputType.TYPE_TEXT_FLAG_MULTI_LINE;
 
 public class PlainPasteEditText extends TextInputEditText {
+    public interface FindListener {
+        void onFinished(int activeMatchOrdinal, int numberOfMatches, int textPosition, boolean findingNext);
+    }
+
     @Nullable private InputConnection inputConnection;
+    @Nullable private FindListener findListener;
+    private List<Integer> findInPageTextPositionList = new ArrayList<>();
+    private int findInPageCurrentTextPosition;
 
     public PlainPasteEditText(Context context) {
         super(context);
@@ -91,5 +104,62 @@ public class PlainPasteEditText extends TextInputEditText {
             clipboard.setPrimaryClip(oldClipData);
         }
         return true;
+    }
+
+    public void setFindListener(@NonNull FindListener listener) {
+        this.findListener = listener;
+    }
+
+    public void findInEditor(@Nullable String targetText, @NonNull SyntaxHighlighter syntaxHighlighter) {
+        if (findListener == null) {
+            return;
+        }
+        findInPageCurrentTextPosition = 0;
+        findInPageTextPositionList.clear();
+        // apply find text syntax
+        syntaxHighlighter.applyFindTextSyntax(targetText, new SyntaxHighlighter.OnSyntaxHighlightListener() {
+            @Override
+            public void syntaxHighlightResults(List<SpanExtents> spanExtents) {
+                // ignore
+            }
+
+            @Override
+            public void findTextMatches(List<SpanExtents> spanExtents) {
+                for (SpanExtents spanExtent : spanExtents) {
+                    findInPageTextPositionList.add(spanExtent.getStart());
+                }
+                onFinished(false);
+            }
+        });
+    }
+
+    public void findNext(boolean next) {
+        if (findListener == null) {
+            return;
+        }
+        if (next) {
+            findInPageCurrentTextPosition = findInPageCurrentTextPosition == findInPageTextPositionList.size() - 1 ? 0 : ++findInPageCurrentTextPosition;
+            onFinished(true);
+        } else {
+            findInPageCurrentTextPosition = findInPageCurrentTextPosition == 0 ? findInPageTextPositionList.size() - 1 : --findInPageCurrentTextPosition;
+            onFinished(true);
+        }
+    }
+
+    public void clearMatches(@NonNull SyntaxHighlighter syntaxHighlighter) {
+        if (findListener == null) {
+            return;
+        }
+        findInEditor(null, syntaxHighlighter);
+    }
+
+    private void onFinished(boolean findingNext) {
+        if (findListener == null) {
+            return;
+        }
+        findListener.onFinished(findInPageCurrentTextPosition,
+                findInPageTextPositionList.size(),
+                findInPageTextPositionList.isEmpty() ? 0 : findInPageTextPositionList.get(findInPageCurrentTextPosition),
+                findingNext);
     }
 }
