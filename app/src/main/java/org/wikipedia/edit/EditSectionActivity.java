@@ -114,7 +114,7 @@ public class EditSectionActivity extends BaseActivity {
 
     private ProgressDialog progressDialog;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
-    private ActionMode findInEditorActionMode;
+    private ActionMode actionMode;
 
     private Runnable successRunnable = new Runnable() {
         @Override public void run() {
@@ -207,6 +207,8 @@ public class EditSectionActivity extends BaseActivity {
         wikiTextKeyboardView.setEditText(sectionText);
         wikiTextKeyboardView.setCallback(titleStr -> bottomSheetPresenter.show(getSupportFragmentManager(),
                 LinkPreviewDialog.newInstance(new HistoryEntry(new PageTitle(titleStr, title.getWikiSite()), HistoryEntry.SOURCE_INTERNAL_LINK), null)));
+        sectionText.setOnClickListener(v -> finishActionMode());
+
         updateTextSize();
 
         // set focus to the EditText, but keep the keyboard hidden until the user changes the cursor location:
@@ -540,16 +542,14 @@ public class EditSectionActivity extends BaseActivity {
     }
 
     public void showFindInEditor() {
-        final FindInEditorActionProvider findInEditorActionProvider = new FindInEditorActionProvider(this);
-
         startActionMode(new ActionMode.Callback() {
             private final String actionModeTag = "actionModeFindInEditor";
 
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-                findInEditorActionMode = mode;
+                actionMode = mode;
                 MenuItem menuItem = menu.add(R.string.menu_page_find_in_page);
-                menuItem.setActionProvider(findInEditorActionProvider);
+                menuItem.setActionProvider(new FindInEditorActionProvider(sectionScrollView, sectionText, syntaxHighlighter, actionMode));
                 menuItem.expandActionView();
                 return true;
             }
@@ -567,25 +567,17 @@ public class EditSectionActivity extends BaseActivity {
 
             @Override
             public void onDestroyActionMode(ActionMode mode) {
-                findInEditorActionMode = null;
-                getEditorView().clearMatches(syntaxHighlighter);
-                getEditorView().setSelection(getEditorView().getSelectionStart(), getEditorView().getSelectionStart());
+                sectionText.clearMatches(syntaxHighlighter);
+                sectionText.setSelection(sectionText.getSelectionStart(), sectionText.getSelectionStart());
             }
         });
     }
 
-    public void closeFindInPage() {
-        if (findInEditorActionMode != null) {
-            findInEditorActionMode.finish();
+    public void finishActionMode() {
+        if (actionMode != null) {
+            actionMode.finish();
+            actionMode = null;
         }
-    }
-
-    public SyntaxHighlighter getSyntaxHighlighter() {
-        return syntaxHighlighter;
-    }
-
-    public PlainPasteEditText getEditorView() {
-        return sectionText;
     }
 
     @Override

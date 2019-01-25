@@ -133,11 +133,19 @@ public class PlainPasteEditText extends TextInputEditText {
         });
     }
 
-    public void findNext(boolean next) {
+    public void findNext() {
+        find(true);
+    }
+
+    public void findPrevious() {
+        find(false);
+    }
+
+    private void find(boolean direction) {
         if (findListener == null) {
             return;
         }
-        if (next) {
+        if (direction) {
             findInPageCurrentTextPosition = findInPageCurrentTextPosition == findInPageTextPositionList.size() - 1 ? 0 : ++findInPageCurrentTextPosition;
             onFinished(true);
         } else {
