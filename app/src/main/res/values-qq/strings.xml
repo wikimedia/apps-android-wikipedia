@@ -33,9 +33,8 @@
   <string name="nav_item_forward">Button label for navigating to the next page.</string>
   <string name="search_hint">Hint text for the search box</string>
   <string name="search_hint_search_history">Hint text for the search box when searching browsing history</string>
-  <string name="search_hint_search_my_lists">Hint text for the search box when searching the set of reading lists</string>
-  <string name="search_hint_search_reading_list">Hint text for the search box when searching for pages in a single reading list</string>
   <string name="search_hint_search_languages">Hint text for the search box.</string>
+  <string name="search_hint_search_my_lists_and_articles">Hint text for the search box when searching the set of reading lists or pages in a single reading list</string>
   <string name="nav_item_history">Text in navigation sidebar that when tapped leads to the History screen.\n{{Identical|History}}</string>
   <string name="error_network_error">Error message shown when network cannot be reached when loading a page</string>
   <string name="page_error_retry">Text for button that retries page loading when tapped.\n{{Identical|Retry}}</string>

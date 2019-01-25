@@ -73,7 +73,6 @@ import org.wikipedia.views.ViewUtil;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -121,9 +120,10 @@ public class ReadingListFragment extends Fragment implements
     private SearchCallback searchActionModeCallback = new SearchCallback();
     private MultiSelectActionModeCallback multiSelectActionModeCallback = new MultiSelectCallback();
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
+    private SwipeableItemTouchHelperCallback touchCallback;
     private boolean toolbarExpanded = true;
 
-    @NonNull private List<ReadingListPage> displayedPages = new ArrayList<>();
+    private List<Object> displayedLists = new ArrayList<>();
     private String currentSearchQuery;
     private boolean articleLimitMessageShown = false;
 
@@ -154,7 +154,7 @@ public class ReadingListFragment extends Fragment implements
             toolBarLayout.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.main_status_bar_color));
         }
 
-        ItemTouchHelper.Callback touchCallback = new SwipeableItemTouchHelperCallback(requireContext());
+        touchCallback = new SwipeableItemTouchHelperCallback(requireContext());
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(touchCallback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
 
@@ -347,30 +347,29 @@ public class ReadingListFragment extends Fragment implements
             return;
         }
         currentSearchQuery = query;
-        displayedPages.clear();
         if (TextUtils.isEmpty(query)) {
-            displayedPages.addAll(readingList.pages());
+            displayedLists.clear();
+            displayedLists.addAll(readingList.pages());
+            adapter.notifyDataSetChanged();
+            updateEmptyState(query);
         } else {
-            query = query.toUpperCase(Locale.getDefault());
-            for (ReadingListPage page : readingList.pages()) {
-                if (page.title().toUpperCase(Locale.getDefault())
-                        .contains(query.toUpperCase(Locale.getDefault()))) {
-                    displayedPages.add(page);
-                }
-            }
+            ReadingListSearchUtil.INSTANCE.searchListsAndPages(query, lists -> {
+                displayedLists = lists;
+                adapter.notifyDataSetChanged();
+                updateEmptyState(query);
+            });
         }
-        adapter.notifyDataSetChanged();
-        updateEmptyState(query);
+        touchCallback.setSwipeableEnabled(TextUtils.isEmpty(query));
     }
 
     private void updateEmptyState(@Nullable String searchQuery) {
         if (TextUtils.isEmpty(searchQuery)) {
             searchEmptyView.setVisibility(GONE);
             recyclerView.setVisibility(VISIBLE);
-            emptyView.setVisibility(displayedPages.isEmpty() ? VISIBLE : GONE);
+            emptyView.setVisibility(displayedLists.isEmpty() ? VISIBLE : GONE);
         } else {
-            recyclerView.setVisibility(displayedPages.isEmpty() ? GONE : VISIBLE);
-            searchEmptyView.setVisibility(displayedPages.isEmpty() ? VISIBLE : GONE);
+            recyclerView.setVisibility(displayedLists.isEmpty() ? GONE : VISIBLE);
+            searchEmptyView.setVisibility(displayedLists.isEmpty() ? VISIBLE : GONE);
             emptyView.setVisibility(GONE);
         }
     }
@@ -469,8 +468,8 @@ public class ReadingListFragment extends Fragment implements
 
     private int getSelectedPageCount() {
         int selectedCount = 0;
-        for (ReadingListPage page : displayedPages) {
-            if (page.selected()) {
+        for (Object list : displayedLists) {
+            if (list instanceof ReadingListPage && ((ReadingListPage) list).selected()) {
                 selectedCount++;
             }
         }
@@ -493,10 +492,10 @@ public class ReadingListFragment extends Fragment implements
         if (readingList == null) {
             return result;
         }
-        for (ReadingListPage page : displayedPages) {
-            if (page.selected()) {
-                result.add(page);
-                page.selected(false);
+        for (Object list : displayedLists) {
+            if (list instanceof ReadingListPage && ((ReadingListPage) list).selected()) {
+                result.add((ReadingListPage) list);
+                ((ReadingListPage) list).selected(false);
             }
         }
         return result;
@@ -734,6 +733,24 @@ public class ReadingListFragment extends Fragment implements
         }
     }
 
+    private class ReadingListItemHolder extends DefaultViewHolder<View> {
+        private ReadingListItemView itemView;
+
+        ReadingListItemHolder(ReadingListItemView itemView) {
+            super(itemView);
+            this.itemView = itemView;
+        }
+
+        void bindItem(ReadingList readingList) {
+            itemView.setReadingList(readingList, ReadingListItemView.Description.SUMMARY);
+            itemView.setSearchQuery(currentSearchQuery);
+        }
+
+        public ReadingListItemView getView() {
+            return itemView;
+        }
+    }
+
     private class ReadingListPageItemHolder extends DefaultViewHolder<PageItemView<ReadingListPage>>
                 implements SwipeableItemTouchHelperCallback.Callback {
         private ReadingListPage page;
@@ -750,19 +767,22 @@ public class ReadingListFragment extends Fragment implements
             getView().setImageUrl(page.thumbUrl());
             getView().setSelected(page.selected());
             getView().setActionIcon(R.drawable.ic_more_vert_white_24dp);
-            getView().setActionTint(R.attr.material_theme_de_emphasised_color);
+            getView().setActionTint(R.attr.secondary_text_color);
             getView().setActionHint(R.string.abc_action_menu_overflow_description);
             getView().setSecondaryActionIcon(page.saving() ? R.drawable.ic_download_in_progress : R.drawable.ic_download_circle_gray_24dp,
                     !page.offline() || page.saving());
             getView().setCircularProgressVisibility(page.downloadProgress() > 0 && page.downloadProgress() < MAX_PROGRESS);
             getView().setProgress(page.downloadProgress() == MAX_PROGRESS ? 0 : page.downloadProgress());
             getView().setSecondaryActionHint(R.string.reading_list_article_make_offline);
+            getView().setSearchQuery(currentSearchQuery);
             PageAvailableOfflineHandler.INSTANCE.check(page, available -> getView().setViewsGreyedOut(!available));
         }
 
         @Override
         public void onSwipe() {
-            deleteSinglePage(page);
+            if (TextUtils.isEmpty(currentSearchQuery)) {
+                deleteSinglePage(page);
+            }
         }
     }
 
@@ -775,41 +795,64 @@ public class ReadingListFragment extends Fragment implements
     private final class ReadingListPageItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         private static final int TYPE_HEADER = 0;
         private static final int TYPE_ITEM = 1;
+        private static final int TYPE_PAGE_ITEM = 2;
 
-        @Override
-        public int getItemCount() {
-            return 1 + displayedPages.size();
-        }
-
-        @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int type) {
-            if (type == TYPE_HEADER) {
-                return new ReadingListHeaderHolder(headerView);
-            }
-            return new ReadingListPageItemHolder(new PageItemView<>(requireContext()));
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int pos) {
-            if (readingList != null && holder instanceof ReadingListPageItemHolder) {
-                ((ReadingListPageItemHolder) holder).bindItem(displayedPages.get(pos - 1));
-            }
+        private int getHeaderCount() {
+            return (TextUtils.isEmpty(currentSearchQuery)) ? 1 : 0;
         }
 
         @Override
         public int getItemViewType(int position) {
-            return position == 0 ? TYPE_HEADER : TYPE_ITEM;
+            if (getHeaderCount() == 1 && position == 0) {
+                return TYPE_HEADER;
+            } else if (displayedLists.get(position - getHeaderCount()) instanceof ReadingList) {
+                return TYPE_ITEM;
+            } else {
+                return TYPE_PAGE_ITEM;
+            }
+        }
+
+        @Override
+        public int getItemCount() {
+            return getHeaderCount() + displayedLists.size();
+        }
+
+        @Override
+        public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int type) {
+            if (type == TYPE_ITEM) {
+                ReadingListItemView view = new ReadingListItemView(getContext());
+                return new ReadingListItemHolder(view);
+            } else if (type == TYPE_HEADER) {
+                return new ReadingListHeaderHolder(headerView);
+            } else {
+                return new ReadingListPageItemHolder(new PageItemView<>(requireContext()));
+            }
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int pos) {
+            if (readingList != null) {
+                if (holder instanceof ReadingListItemHolder) {
+                    ((ReadingListItemHolder) holder).bindItem((ReadingList) displayedLists.get(pos - getHeaderCount()));
+                } else if (holder instanceof  ReadingListPageItemHolder) {
+                    ((ReadingListPageItemHolder) holder).bindItem((ReadingListPage) displayedLists.get(pos - getHeaderCount()));
+                }
+            }
         }
 
         @Override public void onViewAttachedToWindow(@NonNull RecyclerView.ViewHolder holder) {
             super.onViewAttachedToWindow(holder);
-            if (holder instanceof ReadingListPageItemHolder) {
+            if (holder instanceof ReadingListItemHolder) {
+                // TODO: set callback for ReadingListItemHolder
+            } else if (holder instanceof  ReadingListPageItemHolder) {
                 ((ReadingListPageItemHolder) holder).getView().setCallback(itemCallback);
             }
         }
 
         @Override public void onViewDetachedFromWindow(@NonNull RecyclerView.ViewHolder holder) {
-            if (holder instanceof ReadingListPageItemHolder) {
+            if (holder instanceof ReadingListItemHolder) {
+                ((ReadingListItemHolder) holder).getView().setCallback(null);
+            } else if (holder instanceof ReadingListPageItemHolder) {
                 ((ReadingListPageItemHolder) holder).getView().setCallback(null);
             }
             super.onViewDetachedFromWindow(holder);
@@ -899,7 +942,7 @@ public class ReadingListFragment extends Fragment implements
 
         @Override
         protected String getSearchHintString() {
-            return getString(R.string.search_hint_search_reading_list);
+            return getString(R.string.search_hint_search_my_lists_and_articles);
         }
 
         @Override
@@ -957,8 +1000,8 @@ public class ReadingListFragment extends Fragment implements
                 updateReadingListData();
             } else if (event instanceof PageDownloadEvent) {
                 int pagePosition = getPagePositionInList(((PageDownloadEvent) event).getPage());
-                if (pagePosition != -1) {
-                    displayedPages.get(pagePosition).downloadProgress(((PageDownloadEvent) event).getPage().downloadProgress());
+                if (pagePosition != -1 && displayedLists.get(pagePosition) instanceof ReadingListPage) {
+                    ((ReadingListPage) displayedLists.get(pagePosition)).downloadProgress(((PageDownloadEvent) event).getPage().downloadProgress());
                     adapter.notifyItemChanged(pagePosition + 1);
                 }
             }
@@ -966,9 +1009,9 @@ public class ReadingListFragment extends Fragment implements
     }
 
     private int getPagePositionInList(ReadingListPage page) {
-        for (ReadingListPage readingListPage : displayedPages) {
-            if (readingListPage.id() == page.id()) {
-                return displayedPages.indexOf(readingListPage);
+        for (Object list : displayedLists) {
+            if (list instanceof ReadingListPage && ((ReadingListPage) list).id() == page.id()) {
+                return displayedLists.indexOf(list);
             }
         }
         return -1;

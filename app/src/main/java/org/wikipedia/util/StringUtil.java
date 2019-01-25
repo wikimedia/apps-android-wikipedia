@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 
@@ -21,6 +22,7 @@ import org.json.JSONArray;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.Collator;
 import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.List;
@@ -205,6 +207,34 @@ public final class StringUtil {
             editText.setSelection(pos, pos + words[words.length - 1].length());
             editText.performLongClick();
         }
+    }
+
+    public static void boldenKeywordText(@NonNull TextView textView, @NonNull String parentText, @Nullable String searchQuery) {
+        int startIndex = indexOf(parentText, searchQuery);
+        if (startIndex >= 0) {
+            parentText = parentText.substring(0, startIndex)
+                    + "<strong>"
+                    + parentText.substring(startIndex, startIndex + searchQuery.length())
+                    + "</strong>"
+                    + parentText.substring(startIndex + searchQuery.length());
+            textView.setText(StringUtil.fromHtml(parentText));
+        } else {
+            textView.setText(parentText);
+        }
+    }
+
+    // case insensitive indexOf, also more lenient with similar chars, like chars with accents
+    private static int indexOf(@NonNull String original, @Nullable String search) {
+        if (!TextUtils.isEmpty(search)) {
+            Collator collator = Collator.getInstance();
+            collator.setStrength(Collator.PRIMARY);
+            for (int i = 0; i <= original.length() - search.length(); i++) {
+                if (collator.equals(search, original.substring(i, i + search.length()))) {
+                    return i;
+                }
+            }
+        }
+        return -1;
     }
 
     @NonNull

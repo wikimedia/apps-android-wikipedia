@@ -40,6 +40,7 @@ import org.wikipedia.main.MainActivity;
 import org.wikipedia.main.MainFragment;
 import org.wikipedia.onboarding.OnboardingView;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
+import org.wikipedia.page.PageAvailableOfflineHandler;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
@@ -51,8 +52,10 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.MarginItemDecoration;
+import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.ReadingListsOverflowView;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.ViewUtil;
@@ -63,17 +66,15 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_NAME_ASC;
 import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_NAME_DESC;
 import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_RECENT_ASC;
 import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_RECENT_DESC;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
+import static org.wikipedia.views.CircularProgressBar.MAX_PROGRESS;
 
 public class ReadingListsFragment extends Fragment implements SortReadingListsDialog.Callback {
     private Unbinder unbinder;
@@ -86,7 +87,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
     @BindView(R.id.reading_list_onboarding_container) ViewGroup onboardingContainer;
     @BindView(R.id.reading_list_swipe_refresh) SwipeRefreshLayout swipeRefreshLayout;
 
-    private List<ReadingList> readingLists = new ArrayList<>();
+    private List<Object> displayedLists = new ArrayList<>();
 
     private ReadingListsFunnel funnel = new ReadingListsFunnel();
     private CompositeDisposable disposables = new CompositeDisposable();
@@ -97,6 +98,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
     @Nullable private ActionMode actionMode;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private OverflowCallback overflowCallback = new OverflowCallback();
+    private String currentSearchQuery;
     private static final int SAVE_COUNT_LIMIT = 3;
 
     @NonNull public static ReadingListsFragment newInstance() {
@@ -129,22 +131,21 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                 if (parent.getChildAdapterPosition(view) == adapter.getItemCount() - 1
                         && ((MainActivity) requireActivity()).isFloatingQueueEnabled()
-                        && readingLists.size() > 1) {
+                        && displayedLists.size() > 1) {
                     super.getItemOffsets(outRect, view, parent, state);
                 }
             }
         });
 
         disposables.add(WikipediaApp.getInstance().getBus().subscribe(new EventBusConsumer()));
-
-        contentContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
-        emptyContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
-        ((ViewGroup)emptyContainer.getChildAt(0)).getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
         swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent));
         swipeRefreshLayout.setOnRefreshListener(() -> refreshSync(ReadingListsFragment.this, swipeRefreshLayout));
         if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
             swipeRefreshLayout.setEnabled(false);
         }
+
+        enableLayoutTransition(true);
+
         return view;
     }
 
@@ -201,8 +202,10 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         public void createNewListClick() {
             String title = getString(R.string.reading_list_name_sample);
             List<String> existingTitles = new ArrayList<>();
-            for (ReadingList tempList : readingLists) {
-                existingTitles.add(tempList.title());
+            for (Object list : displayedLists) {
+                if (list instanceof ReadingList) {
+                    existingTitles.add(((ReadingList) list).title());
+                }
             }
             ReadingListTitleDialog.readingListTitleDialog(requireContext(), title, "",
                     existingTitles, (text, description) -> {
@@ -261,83 +264,78 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         }
     }
 
+    private void enableLayoutTransition(boolean enable) {
+        if (enable) {
+            contentContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+            emptyContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+            ((ViewGroup) emptyContainer.getChildAt(0)).getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+        } else {
+            contentContainer.getLayoutTransition().disableTransitionType(LayoutTransition.CHANGING);
+            emptyContainer.getLayoutTransition().disableTransitionType(LayoutTransition.CHANGING);
+            ((ViewGroup) emptyContainer.getChildAt(0)).getLayoutTransition().disableTransitionType(LayoutTransition.CHANGING);
+        }
+    }
+
     private void updateLists() {
         updateLists(null);
     }
 
     private void updateLists(@Nullable final String searchQuery) {
         maybeShowOnboarding();
-        disposables.add(Observable.fromCallable(() -> {
-            List<ReadingList> lists = ReadingListDbHelper.instance().getAllLists();
-            lists = applySearchQuery(searchQuery, lists);
-            ReadingList.sort(lists, Prefs.getReadingListSortMode(SORT_BY_NAME_ASC));
-            return lists;
-        }).subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(lists -> {
-                    DiffUtil.DiffResult result = DiffUtil.calculateDiff(new DiffUtil.Callback() {
-                        @Override
-                        public int getOldListSize() {
-                            return readingLists.size();
-                        }
-                        @Override
-                        public int getNewListSize() {
-                            return lists.size();
-                        }
+        ReadingListSearchUtil.INSTANCE.searchListsAndPages(searchQuery, lists -> {
+            DiffUtil.DiffResult result = DiffUtil.calculateDiff(new DiffUtil.Callback() {
+                @Override
+                public int getOldListSize() {
+                    return lists.size();
+                }
+                @Override
+                public int getNewListSize() {
+                    return lists.size();
+                }
 
-                        @Override
-                        public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-                            if (readingLists.size() <= oldItemPosition || lists.size() <= newItemPosition) {
-                                return false;
-                            }
-                            return readingLists.get(oldItemPosition).id() == lists.get(newItemPosition).id();
-                        }
-
-                        @Override
-                        public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
-                            if (readingLists.size() <= oldItemPosition || lists.size() <= newItemPosition) {
-                                return false;
-                            }
-                            return readingLists.get(oldItemPosition).id() == lists.get(newItemPosition).id()
-                                    && readingLists.get(oldItemPosition).pages().size() == lists.get(newItemPosition).pages().size()
-                                    && readingLists.get(oldItemPosition).numPagesOffline() == lists.get(newItemPosition).numPagesOffline();
-                        }
-                    });
-                    // If the number of lists has changed, just invalidate everything, as a
-                    // simple way to get the bottom item margin to apply to the correct item.
-                    boolean invalidateAll = readingLists.size() != lists.size();
-                    readingLists = lists;
-                    if (invalidateAll) {
-                        adapter.notifyDataSetChanged();
-                    } else {
-                        result.dispatchUpdatesTo(adapter);
+                @Override
+                public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
+                    if (displayedLists.size() <= oldItemPosition || lists.size() <= newItemPosition) {
+                        return false;
                     }
+                    return displayedLists.get(oldItemPosition) instanceof ReadingList && lists.get(newItemPosition) instanceof ReadingList
+                            && ((ReadingList) displayedLists.get(oldItemPosition)).id() == ((ReadingList) lists.get(newItemPosition)).id();
+                }
 
-                    swipeRefreshLayout.setRefreshing(false);
-                    maybeShowListLimitMessage();
-                    updateEmptyState(searchQuery);
-                    maybeDeleteListFromIntent();
-                }, L::w));
-    }
-
-    @NonNull
-    private List<ReadingList> applySearchQuery(@Nullable String searchQuery, @NonNull List<ReadingList> lists) {
-        List<ReadingList> newList = new ArrayList<>();
-        if (TextUtils.isEmpty(searchQuery)) {
-            newList.addAll(lists);
-            return newList;
-        }
-        String normalizedQuery = StringUtils.stripAccents(searchQuery).toLowerCase();
-        for (ReadingList list : lists) {
-            if (StringUtils.stripAccents(list.title()).toLowerCase().contains(normalizedQuery)) {
-                newList.add(list);
+                @Override
+                public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
+                    if (displayedLists.size() <= oldItemPosition || lists.size() <= newItemPosition) {
+                        return false;
+                    }
+                    return displayedLists.get(oldItemPosition) instanceof ReadingList && lists.get(newItemPosition) instanceof ReadingList
+                            && ((ReadingList) displayedLists.get(oldItemPosition)).id() == ((ReadingList) lists.get(newItemPosition)).id()
+                            && ((ReadingList) displayedLists.get(oldItemPosition)).pages().size() == ((ReadingList) lists.get(newItemPosition)).pages().size()
+                            && ((ReadingList) displayedLists.get(oldItemPosition)).numPagesOffline() == ((ReadingList) lists.get(newItemPosition)).numPagesOffline();
+                }
+            });
+            // If the number of lists has changed, just invalidate everything, as a
+            // simple way to get the bottom item margin to apply to the correct item.
+            boolean invalidateAll = displayedLists.size() != lists.size()
+                    || (!TextUtils.isEmpty(currentSearchQuery)
+                    && !TextUtils.isEmpty(searchQuery)
+                    && !currentSearchQuery.equals(searchQuery));
+            displayedLists = lists;
+            if (invalidateAll) {
+                adapter.notifyDataSetChanged();
+            } else {
+                result.dispatchUpdatesTo(adapter);
             }
-        }
-        return newList;
+
+            swipeRefreshLayout.setRefreshing(false);
+            maybeShowListLimitMessage();
+            updateEmptyState(searchQuery);
+            maybeDeleteListFromIntent();
+            currentSearchQuery = searchQuery;
+        });
     }
 
     private void maybeShowListLimitMessage() {
-        if (getUserVisibleHint() && readingLists.size() >= Constants.MAX_READING_LISTS_LIMIT) {
+        if (getUserVisibleHint() && displayedLists.size() >= Constants.MAX_READING_LISTS_LIMIT) {
             String message = getString(R.string.reading_lists_limit_message);
             FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show();
         }
@@ -346,16 +344,16 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
     private void updateEmptyState(@Nullable String searchQuery) {
         if (TextUtils.isEmpty(searchQuery)) {
             searchEmptyView.setVisibility(View.GONE);
-            if (readingLists.size() == 1) {
+            if (displayedLists.size() == 1) {
                 setEmptyContainerVisibility(true);
                 setUpEmptyContainer();
             }
-            setEmptyContainerVisibility(readingLists.size() == 1);
+            setEmptyContainerVisibility(displayedLists.size() == 1);
         } else {
-            searchEmptyView.setVisibility(readingLists.isEmpty() ? View.VISIBLE : View.GONE);
+            searchEmptyView.setVisibility(displayedLists.isEmpty() ? View.VISIBLE : View.GONE);
             setEmptyContainerVisibility(false);
         }
-        contentContainer.setVisibility(readingLists.isEmpty() ? View.GONE : View.VISIBLE);
+        contentContainer.setVisibility(displayedLists.isEmpty() ? View.GONE : View.VISIBLE);
     }
 
     private void setEmptyContainerVisibility(boolean visible) {
@@ -369,7 +367,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
     }
 
     private void setUpEmptyContainer() {
-        if (!readingLists.get(0).pages().isEmpty()) {
+        if (displayedLists.get(0) instanceof ReadingList && !((ReadingList) displayedLists.get(0)).pages().isEmpty()) {
             emptyTitle.setText(getString(R.string.no_user_lists_title));
             emptyMessage.setText(getString(R.string.no_user_lists_msg));
         } else {
@@ -383,7 +381,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         sortListsBy(position);
     }
 
-    private class ReadingListItemHolder extends RecyclerView.ViewHolder {
+    private class ReadingListItemHolder extends DefaultViewHolder<View> {
         private ReadingListItemView itemView;
 
         ReadingListItemHolder(ReadingListItemView itemView) {
@@ -393,6 +391,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
 
         void bindItem(ReadingList readingList) {
             itemView.setReadingList(readingList, ReadingListItemView.Description.SUMMARY);
+            itemView.setSearchQuery(currentSearchQuery);
         }
 
         public ReadingListItemView getView() {
@@ -400,30 +399,83 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         }
     }
 
-    private final class ReadingListAdapter extends RecyclerView.Adapter<ReadingListItemHolder> {
+    private class ReadingListPageItemHolder extends DefaultViewHolder<PageItemView<ReadingListPage>> {
+
+        ReadingListPageItemHolder(PageItemView<ReadingListPage> itemView) {
+            super(itemView);
+        }
+
+        void bindItem(ReadingListPage page) {
+            getView().setItem(page);
+            getView().setTitle(page.title());
+            getView().setDescription(StringUtils.capitalize(page.description()));
+            getView().setImageUrl(page.thumbUrl());
+            getView().setSelected(page.selected());
+            getView().setActionIcon(R.drawable.ic_more_vert_white_24dp);
+            getView().setActionTint(R.attr.secondary_text_color);
+            getView().setActionHint(R.string.abc_action_menu_overflow_description);
+            getView().setSecondaryActionIcon(page.saving() ? R.drawable.ic_download_in_progress : R.drawable.ic_download_circle_gray_24dp,
+                    !page.offline() || page.saving());
+            getView().setCircularProgressVisibility(page.downloadProgress() > 0 && page.downloadProgress() < MAX_PROGRESS);
+            getView().setProgress(page.downloadProgress() == MAX_PROGRESS ? 0 : page.downloadProgress());
+            getView().setSecondaryActionHint(R.string.reading_list_article_make_offline);
+            getView().setSearchQuery(currentSearchQuery);
+            PageAvailableOfflineHandler.INSTANCE.check(page, available -> getView().setViewsGreyedOut(!available));
+        }
+    }
+
+    private final class ReadingListAdapter extends RecyclerView.Adapter<DefaultViewHolder> {
+        private static final int VIEW_TYPE_ITEM = 0;
+        private static final int VIEW_TYPE_PAGE_ITEM = 1;
+
+        @Override
+        public int getItemViewType(int position) {
+            if (displayedLists.get(position) instanceof ReadingList) {
+                return VIEW_TYPE_ITEM;
+            } else {
+                return VIEW_TYPE_PAGE_ITEM;
+            }
+        }
+
         @Override
         public int getItemCount() {
-            return readingLists.size();
+            return displayedLists.size();
         }
 
         @Override
-        public ReadingListItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int pos) {
-            ReadingListItemView view = new ReadingListItemView(getContext());
-            return new ReadingListItemHolder(view);
+        public DefaultViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            if (viewType == VIEW_TYPE_ITEM) {
+                ReadingListItemView view = new ReadingListItemView(getContext());
+                return new ReadingListItemHolder(view);
+            } else {
+                return new ReadingListPageItemHolder(new PageItemView<>(requireContext()));
+            }
         }
 
         @Override
-        public void onBindViewHolder(@NonNull ReadingListItemHolder holder, int pos) {
-            holder.bindItem(readingLists.get(pos));
+        public void onBindViewHolder(@NonNull DefaultViewHolder holder, int pos) {
+            if (holder instanceof ReadingListItemHolder) {
+                ((ReadingListItemHolder) holder).bindItem((ReadingList) displayedLists.get(pos));
+            } else {
+                ((ReadingListPageItemHolder) holder).bindItem((ReadingListPage) displayedLists.get(pos));
+            }
         }
 
-        @Override public void onViewAttachedToWindow(@NonNull ReadingListItemHolder holder) {
+        @Override public void onViewAttachedToWindow(@NonNull DefaultViewHolder holder) {
             super.onViewAttachedToWindow(holder);
-            holder.getView().setCallback(listItemCallback);
+            if (holder instanceof ReadingListItemHolder) {
+                ((ReadingListItemHolder) holder).getView().setCallback(listItemCallback);
+            } else {
+                // TODO: set callback for ReadingListPageItemHolder
+            }
         }
 
-        @Override public void onViewDetachedFromWindow(@NonNull ReadingListItemHolder holder) {
-            holder.getView().setCallback(null);
+        @Override public void onViewDetachedFromWindow(@NonNull DefaultViewHolder holder) {
+            if (holder instanceof ReadingListItemHolder) {
+                ((ReadingListItemHolder) holder).getView().setCallback(null);
+            } else {
+                ((ReadingListPageItemHolder) holder).getView().setCallback(null);
+            }
             super.onViewDetachedFromWindow(holder);
         }
     }
@@ -444,8 +496,10 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
                 return;
             }
             List<String> existingTitles = new ArrayList<>();
-            for (ReadingList list : readingLists) {
-                existingTitles.add(list.title());
+            for (Object list : displayedLists) {
+                if (list instanceof ReadingList) {
+                    existingTitles.add(((ReadingList) list).title());
+                }
             }
             existingTitles.remove(readingList.title());
             ReadingListTitleDialog.readingListTitleDialog(requireContext(), readingList.title(),
@@ -457,7 +511,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
                         ReadingListSyncAdapter.manualSync();
 
                         updateLists();
-                        funnel.logModifyList(readingList, readingLists.size());
+                        funnel.logModifyList(readingList, displayedLists.size());
                     }).show();
         }
 
@@ -515,9 +569,9 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
             String titleToDelete = requireActivity().getIntent()
                     .getStringExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST);
             requireActivity().getIntent().removeExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST);
-            for (ReadingList list : readingLists) {
-                if (list.title().equals(titleToDelete)) {
-                    deleteList(list);
+            for (Object list : displayedLists) {
+                if (list instanceof ReadingList && ((ReadingList) list).title().equals(titleToDelete)) {
+                    deleteList(((ReadingList) list));
                 }
             }
         }
@@ -534,7 +588,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
             ReadingListDbHelper.instance().deleteList(readingList);
             ReadingListDbHelper.instance().markPagesForDeletion(readingList, readingList.pages(), false);
 
-            funnel.logDeleteList(readingList, readingLists.size());
+            funnel.logDeleteList(readingList, displayedLists.size());
             updateLists();
         }
     }
@@ -559,10 +613,10 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             actionMode = mode;
-
+            // searching delay will let the animation cannot catch the update of list items, and will cause crashes
+            enableLayoutTransition(false);
             ViewUtil.finishActionModeWhenTappingOnView(getView(), actionMode);
             ViewUtil.finishActionModeWhenTappingOnView(emptyContainer, actionMode);
-
             return super.onCreateActionMode(mode, menu);
         }
 
@@ -577,13 +631,14 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
         @Override
         public void onDestroyActionMode(ActionMode mode) {
             super.onDestroyActionMode(mode);
+            enableLayoutTransition(true);
             actionMode = null;
             updateLists();
         }
 
         @Override
         protected String getSearchHintString() {
-            return requireContext().getResources().getString(R.string.search_hint_search_my_lists);
+            return requireContext().getResources().getString(R.string.search_hint_search_my_lists_and_articles);
         }
 
         @Override
