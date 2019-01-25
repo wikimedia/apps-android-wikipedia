@@ -181,4 +181,59 @@ public class ReadingList {
             lists.add(0, defaultList);
         }
     }
+
+    public static void sortGenericList(List<Object> lists, int sortMode) {
+        switch (sortMode) {
+            case SORT_BY_NAME_ASC:
+                Collections.sort(lists, (lhs, rhs) -> {
+                    if (lhs instanceof ReadingList && rhs instanceof ReadingList) {
+                        return ((ReadingList) lhs).accentAndCaseInvariantTitle().compareTo(((ReadingList) lhs).accentAndCaseInvariantTitle());
+                    } else {
+                        return 0;
+                    }
+                });
+                break;
+            case SORT_BY_NAME_DESC:
+                Collections.sort(lists, (lhs, rhs) -> {
+                    if (lhs instanceof ReadingList && rhs instanceof ReadingList) {
+                        return ((ReadingList) rhs).accentAndCaseInvariantTitle().compareTo(((ReadingList) lhs).accentAndCaseInvariantTitle());
+                    } else {
+                        return 0;
+                    }
+                });
+                break;
+            case SORT_BY_RECENT_ASC:
+                Collections.sort(lists, (lhs, rhs) -> {
+                    if (lhs instanceof ReadingList && rhs instanceof ReadingList) {
+                        return Long.compare(((ReadingList) rhs).mtime(), ((ReadingList) lhs).mtime());
+                    } else {
+                        return 0;
+                    }
+                });
+                break;
+            case SORT_BY_RECENT_DESC:
+                Collections.sort(lists, (lhs, rhs) -> {
+                    if (lhs instanceof ReadingList && rhs instanceof ReadingList) {
+                        return Long.compare(((ReadingList) lhs).mtime(), ((ReadingList) rhs).mtime());
+                    } else {
+                        return 0;
+                    }
+                });
+                break;
+            default:
+                break;
+        }
+        // make the Default list sticky on top, regardless of sorting.
+        ReadingList defaultList = null;
+        for (Object list : lists) {
+            if (list instanceof ReadingList && ((ReadingList) list).isDefault()) {
+                defaultList = (ReadingList) list;
+                break;
+            }
+        }
+        if (defaultList != null) {
+            lists.remove(defaultList);
+            lists.add(0, defaultList);
+        }
+    }
 }

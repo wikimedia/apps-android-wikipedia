@@ -27,6 +27,7 @@ import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
@@ -109,6 +110,11 @@ public class ReadingListItemView extends ConstraintLayout {
 
     public void setTitleTextAppearance(@StyleRes int id) {
         TextViewCompat.setTextAppearance(titleView, id);
+    }
+
+    public void setSearchQuery(@Nullable String searchQuery) {
+        // highlight search term within the text
+        StringUtil.boldenKeywordText(titleView, titleView.getText().toString(), searchQuery);
     }
 
     @OnClick void onClick(View view) {
