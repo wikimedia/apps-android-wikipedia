@@ -8,11 +8,13 @@ import android.support.v7.app.AlertDialog
 import android.view.Menu
 import android.view.MenuItem
 import org.wikipedia.Constants.ACTION_DESCRIPTION_EDIT_UNLOCK_THRESHOLD
-import org.wikipedia.Constants.InvokeSource
+import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC
+import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.descriptions.DescriptionEditHelpActivity
+import org.wikipedia.editactionfeed.AddTitleDescriptionsFragment.Companion.newInstance
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.views.DialogTitleWithImage
@@ -23,31 +25,18 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
         super.onCreate(savedInstanceState)
         supportActionBar!!.elevation = 0f
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.title = getString(if (intent.getIntExtra(EXTRA_SOURCE, InvokeSource.EDIT_FEED_TITLE_DESC.ordinal) == InvokeSource.EDIT_FEED_TITLE_DESC.ordinal)
+        supportActionBar!!.title = getString(if (intent.getIntExtra(EXTRA_SOURCE, EDIT_FEED_TITLE_DESC.ordinal) == EDIT_FEED_TITLE_DESC.ordinal)
             R.string.editactionfeed_add_title_descriptions else R.string.editactionfeed_translate_descriptions)
     }
 
     override fun createFragment(): AddTitleDescriptionsFragment {
-        return AddTitleDescriptionsFragment.newInstance(intent.getIntExtra(EXTRA_SOURCE, InvokeSource.EDIT_FEED_TITLE_DESC.ordinal))
+        return newInstance(intent.getIntExtra(EXTRA_SOURCE, EDIT_FEED_TITLE_DESC.ordinal))
     }
 
 
     override fun onResume() {
         super.onResume()
-        maybeShowTranslationEdit()
-    }
-
-    private fun maybeShowTranslationEdit() {
-        if (WikipediaApp.getInstance().language().appLanguageCodes.size > 1 && Prefs.getTotalUserDescriptionsEdited() >= 2 && Prefs.showEditActionTranslateDescriptionsUnlockedDialog()) {
-            Prefs.setShowEditActionTranslateDescriptionsUnlockedDialog(false)
-            Prefs.setEditActionTranslateDescriptionsUnlocked(true);
-            AlertDialog.Builder(this)
-                    .setCustomTitle(DialogTitleWithImage(this, R.string.translation_description_edit_task_unlock_title, R.drawable.ic_illustration_description_edit_trophy, true))
-                    .setMessage(R.string.translation_description_edit_task_unlock_body)
-                    .setPositiveButton(R.string.onboarding_get_started) { _, _ -> startActivity(AddTitleDescriptionsActivity.newIntent(this, InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC.ordinal)) }
-                    .setNegativeButton(R.string.onboarding_maybe_later, null)
-                    .show()
-        }
+        maybeShowTranslationEdit(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -94,9 +83,22 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
             AlertDialog.Builder(context)
                     .setCustomTitle(DialogTitleWithImage(context, R.string.description_edit_task_unlock_title, R.drawable.ic_illustration_description_edit_trophy, true))
                     .setMessage(R.string.description_edit_task_unlock_body)
-                    .setPositiveButton(R.string.onboarding_get_started) { _, _ -> context.startActivity(AddTitleDescriptionsActivity.newIntent(context, InvokeSource.EDIT_FEED_TITLE_DESC.ordinal)) }
+                    .setPositiveButton(R.string.onboarding_get_started) { _, _ -> context.startActivity(AddTitleDescriptionsActivity.newIntent(context, EDIT_FEED_TITLE_DESC.ordinal)) }
                     .setNegativeButton(R.string.onboarding_maybe_later, null)
                     .show()
+        }
+
+        fun maybeShowTranslationEdit(context: Context) {
+            if (WikipediaApp.getInstance().language().appLanguageCodes.size > 1 && Prefs.getTotalUserDescriptionsEdited() >= 2 && Prefs.showEditActionTranslateDescriptionsUnlockedDialog()) {
+                Prefs.setShowEditActionTranslateDescriptionsUnlockedDialog(false)
+                Prefs.setEditActionTranslateDescriptionsUnlocked(true);
+                AlertDialog.Builder(context)
+                        .setCustomTitle(DialogTitleWithImage(context, R.string.translation_description_edit_task_unlock_title, R.drawable.ic_illustration_description_edit_trophy, true))
+                        .setMessage(R.string.translation_description_edit_task_unlock_body)
+                        .setPositiveButton(R.string.onboarding_get_started) { _, _ -> context.startActivity(AddTitleDescriptionsActivity.newIntent(context, EDIT_FEED_TRANSLATE_TITLE_DESC.ordinal)) }
+                        .setNegativeButton(R.string.onboarding_maybe_later, null)
+                        .show()
+            }
         }
     }
 }
