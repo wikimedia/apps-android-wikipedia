@@ -43,6 +43,7 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
     private static final String CONTENT_TYPE_OGG = "application/ogg";
     private static final String ASSETS_URL_PATH = "/android_asset/";
     private static final String PCS_CSS_BASE = "/data/css/mobile/base";
+    private static final String PCS_CSS_PAGELIB = "/data/css/mobile/pagelib";
     private static final String PCS_CSS_SITE = "/data/css/mobile/site";
 
     @NonNull public abstract PageViewModel getModel();
@@ -78,6 +79,15 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
                 try {
                     return new WebResourceResponse("text/css", "utf-8",
                             WikipediaApp.getInstance().getAssets().open("styles.css"));
+                } catch (IOException ex) {
+                    // ignore silently
+                }
+            } else if (url.contains(PCS_CSS_PAGELIB)) {
+                // This means that we failed to fetch the page-library CSS (probably due to
+                // being offline), so replace it with our pre-packaged fallback.
+                try {
+                    return new WebResourceResponse("text/css", "utf-8",
+                            WikipediaApp.getInstance().getAssets().open("wikimedia-page-library.css"));
                 } catch (IOException ex) {
                     // ignore silently
                 }
@@ -125,8 +135,17 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
                 final int statusCode = 200;
                 try {
                     return new WebResourceResponse("text/css", "utf-8", statusCode, "OK",
-                            Collections.emptyMap(),
-                            WikipediaApp.getInstance().getAssets().open("styles.css"));
+                            Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open("styles.css"));
+                } catch (IOException ex) {
+                    // ignore silently
+                }
+            } else if (request.getUrl().toString().contains(PCS_CSS_PAGELIB)) {
+                // This means that we failed to fetch the page-library CSS (probably due to
+                // being offline), so replace it with our pre-packaged fallback.
+                final int statusCode = 200;
+                try {
+                    return new WebResourceResponse("text/css", "utf-8", statusCode, "OK",
+                            Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open("wikimedia-page-library.css"));
                 } catch (IOException ex) {
                     // ignore silently
                 }
