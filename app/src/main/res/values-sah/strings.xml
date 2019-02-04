@@ -466,6 +466,8 @@
   <string name="notifications_view_archived_button_text">Архыыптаммыты көрдөр</string>
   <string name="notification_preferences_title">Биллэриилэри нарылааһын</string>
   <string name="notifications_mark_unread">Ааҕыллыбатах курдук бэлиэтээ</string>
+  <string name="preference_title_notification_poll">Ыйытыктар биллэриилэрэ</string>
+  <string name="preference_category_notification_types">Биллэриилэр көрүҥнэрэ</string>
   <string name="preference_title_notification_welcome">Киирбиккинэн</string>
   <string name="preference_summary_notification_welcome">Бэлиэ-аат оҥоһулунна</string>
   <string name="preference_title_notification_milestone">Хардыы</string>
@@ -510,6 +512,13 @@
   <string name="feed_configure_menu_deselect_all">Барытын кистээ</string>
   <string name="feed_item_type_news">Бүгүн буола турар туһунан</string>
   <string name="feed_item_type_on_this_day">Устуоруйаҕа бүгүн буолбут</string>
+  <string name="feed_item_type_because_you_read">Аахпыккын учуоттаан сүбэлэннэ</string>
+  <string name="feed_item_type_featured_article">Бикипиэдьийэ күннээҕи ыстатыйата</string>
+  <string name="feed_item_type_trending">Бүгүн элбэхтик көрүллүбүт ыстатыйалар</string>
+  <string name="feed_item_type_featured_image">Биики Хааһах күннээҕи ойуута</string>
+  <string name="feed_item_type_main_page">Бикипиэдьийэ сүрүн сирэйэ күн аайы уларыйар</string>
+  <string name="feed_item_type_randomizer">Түбэспиччэ ыстатыйалаах ааҕыы испииһэгин оҥор</string>
+  <string name="feed_empty_message">Кураанах</string>
   <string name="feed_configure_onboarding_action">Нарылааһын</string>
   <string name="description_edit_text_hint">Ойуулааһын</string>
   <string name="description_edit_save">Бигэргэт</string>
@@ -578,6 +587,7 @@
   <string name="onboarding_create_account_contributions">Суруйбуккун кэтээн көрүү</string>
   <string name="onboarding_create_account_preferences">Бэйэ туруорууларын бигэргэтии</string>
   <string name="onboarding_got_it">Бу өйдөнөр</string>
+  <string name="onboarding_multilingual_secondary_text">Эн тэрилгэр маннык тыллар көһүннүлэр:</string>
   <string name="onboarding_multilingual_add_language_text">Тылы эп биитэр сот</string>
   <string name="onboarding_welcome_title_v2">Аһаҕас энциклопедия\n... 300-чэ тылынан</string>
   <string name="app_shortcuts_random">Түбэспиччэ</string>
@@ -587,6 +597,7 @@
   <string name="top_on_this_day">Манна %1$s элбэхтэ көрөллөр</string>
   <string name="on_this_day_card_title">Бүгүн</string>
   <string name="more_events_text">Эбии бу күн</string>
+  <string name="events_count_text">%1$s түбэлтэ буолбут, бу кэм иһигэр: %2$s—%3$d</string>
   <string name="this_year">Быйыл</string>
   <string name="back_to_top">Үөһэ төннүү</string>
   <plurals name="diff_years">
@@ -606,6 +617,7 @@
     <item quantity="other">Талбыт тылларгын сотоҕун дуо?</item>
   </plurals>
   <string name="wikipedia_languages_remove_warning_dialog_title">Тылы түөрэтин сотор кыах суох</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Көрдүүргэ уонна ааҕарга саатар биир тылы хааллар.</string>
   <string name="more_language_options">эбии</string>
   <string name="add_wikipedia_languages_text">Бикипиэдьийэ тылларын эп</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Тыллар испииһэктэриттэн кытай тылын сотоҕун дуо?</string>
@@ -617,13 +629,17 @@
   <string name="main_drawer_help">Көмө</string>
   <string name="main_drawer_login">Бикипиэдьийэҕэ киирии / бэлиэтэнии</string>
   <string name="title_description_task_title">Кылгас быһаарыы эбии</string>
+  <string name="title_description_task_description">Кылгас быһаарыылары суруйууга кыттарга</string>
   <string name="image_caption_task_title">Ойуу суруга</string>
   <string name="image_caption_task_description">Ойууга сурук эбии</string>
   <string name="multilingual_task_title">Элбэх тылы билэр дьоҥҥо соруктар</string>
+  <string name="multilingual_task_description">Тылбаастыырга сорудах Бикипиэдьийэҕэ соҕотох тылтан элбэҕинэн ааҕар эбэтэр суруйар буоллаххына көстүөҕэ.</string>
   <string name="translation_task_title">Кылгас быһаарыы тылбааһа</string>
   <string name="translation_task_description">Быһаарыы суругун атын тылларга тылбааһа.</string>
   <string name="multilingual_task_negative">Миэхэ буолбатах</string>
   <string name="multilingual_task_positive">Тылы эбии</string>
+  <string name="editing_level_text">%d таһымнаах уус</string>
+  <string name="translation_source_description">%s быһаарыыта:</string>
   <string name="translate_caption_task_title">Ойуу суругун тылбааһа</string>
   <string name="translate_caption_task_description">Ойуу суругун атын тылларга тылбааһа</string>
   <plurals name="edit_action_contribution_count">
@@ -631,4 +647,8 @@
     <item quantity="other">уларытыылар</item>
   </plurals>
   <string name="add_title_descriptions_dialog_title">Аатын быһаар</string>
+  <string name="add_title_descriptions_dialog_message">Ыстатыйа аатын анныгар ыстатыйа туһунан кылгастык суруйан Бикипиэдьийэни тупсарыаххын сөп. Тылларын хаһан баҕарар туруорууларгар нарылыаххын сөп.</string>
+  <string name="add_translate_descriptions_dialog_title">Быһаарыыны саҥа оҥорон эрэҕин</string>
+  <string name="add_translate_descriptions_dialog_message">Ыстатыйа аатын анныгар ыстатыйа туһунан кылгастык суруйан Бикипиэдьийэни тупсарыаххын сөп. Тылларын хаһан баҕарар туруорууларгар нарылыаххын сөп.</string>
+  <string name="description_edit_tutorial_message">Бикипиэдьийэни уларытар саҥа дьибилгэккэ киирдиҥ. Манна саҥаны эбэр кыахтаныаҥ, онтон астыныаҥ дии саныыбыт. Эн суруйууҥ наһаа туһалаах! Үөрэ-көтө суруй.</string>
 </resources>

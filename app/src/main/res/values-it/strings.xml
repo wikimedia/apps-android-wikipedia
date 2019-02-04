@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Albe Albe 460
+* Albe Albe460
 * Beta16
 * Bsitzmann
 * Elitre
@@ -14,6 +16,7 @@
 * Gianfranco
 * Greis
 * LACLARETTA
+* Lorelai87
 * Macofe
 * Nastoshka
 * Nemo bis
@@ -63,7 +66,7 @@
   <string name="menu_page_font_and_theme">Carattere e tema</string>
   <string name="menu_page_add_to_list">Aggiungi all\'elenco di lettura</string>
   <string name="menu_page_share">Condividi collegamento</string>
-  <string name="menu_page_open_a_new_tab">Apre una nuova scheda</string>
+  <string name="menu_page_open_a_new_tab">Apri una nuova scheda</string>
   <string name="menu_page_reading_lists">Elenchi di lettura</string>
   <string name="menu_page_recently_viewed">Visitato di recente</string>
   <string name="menu_long_press_open_page">Apri</string>
@@ -127,6 +130,7 @@
   <string name="toast_logout_complete">Disconnesso</string>
   <string name="history_empty_title">Nessuna voce visualizzata recentemente</string>
   <string name="history_empty_message">Traccia quello che hai letto qui.</string>
+  <string name="history_offline_articles_toast">Alcune voci nella cronologia potrebbero non essere visualizzabili offline.</string>
   <string name="search_empty_message">Cerca e leggi l\'enciclopedia libera nella tua lingua</string>
   <string name="search_empty_message_multilingual_upgrade">Cerca in Wikipedia in più lingue</string>
   <string name="delete_selected_items">Cancella gli elementi selezionati</string>
@@ -190,8 +194,10 @@
   <string name="privacy_policy_description">Informativa sulla privacy</string>
   <string name="terms_of_use_description">Condizioni d\'uso</string>
   <string name="about_wikipedia_url">https://it.m.wikipedia.org/wiki/Wikipedia:Sala_stampa/Wikipedia</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it</string>
   <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/it</string>
+  <string name="android_app_request_an_account_url">https://it.wikipedia.org/wiki/Aiuto:Come_registrarsi</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.it</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.it</string>
   <string name="about_libraries_heading">Librerie usate</string>
@@ -222,8 +228,11 @@
   <string name="edit_summary_tag_other">Altro</string>
   <string name="edit_summary_tag_other_hint">Altri modi nei quali hai migliorato la pagina</string>
   <string name="edit_conflict_title">Conflitto di edizione</string>
+  <string name="edit_conflict_message">La pagina è già stata modificata da un altro utente ed è in conflitto con la tua modifica. Copia le modifiche, torna indietro e aggiorna la pagina, quindi prova a modificare di nuovo.</string>
   <string name="find_next">Trova successivo</string>
   <string name="find_previous">Trova precedente</string>
+  <string name="find_first_occurence">Questo è il primo evento</string>
+  <string name="find_last_occurence">Questo è l\'ultimo evento</string>
   <string name="abusefilter_title_warn">Questa potrebbe essere una modifica non costruttiva. Sei proprio sicuro di volerla pubblicare?</string>
   <string name="abusefilter_title_disallow">Non puoi pubblicare questa modifica. Per favore torna indietro e modificala.</string>
   <string name="abusefilter_text_warn">Un filtro automatico ha identificato inutile questa modifica. Potrebbe includere uno o più dei seguenti elementi:&lt;br /&gt;&lt;br /&gt;· Scritte tutte in maiuscolo&lt;br /&gt;· Articolo vuoto o di spam&lt;br /&gt;· Collegamenti esterni o immagini non pertinenti&lt;br /&gt;· Caratteri ripetuti</string>
@@ -250,6 +259,8 @@
   <string name="preference_title_show_images">Mostra immagini</string>
   <string name="preference_summary_show_images">Abilitare o disabilitare il caricamento delle immagini nelle pagine. Deseleziona questa impostazione se la tua connessione Internet è lenta, o se il tuo traffico dati è limitato.</string>
   <string name="preference_title_download_only_over_wifi">Scarica solo tramite Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi">Conferma il download utilizzando i dati mobili?</string>
+  <string name="dialog_text_download_only_over_wifi">Hai \"Scarica solo su Wi-Fi\" attivato nelle impostazioni. Vuoi consentire l\'utilizzo del piano dati mobile solo per questo download?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Consenti</string>
   <string name="read_more_section">Per saperne di più</string>
   <string name="about_article_section">Su questa voce</string>
@@ -278,10 +289,15 @@
   <string name="close_all_tabs_confirm_yes">Sì</string>
   <string name="close_all_tabs_confirm_no">No</string>
   <string name="button_close_tab">Chiudi scheda</string>
+  <string name="tab_item_closed">%s chiuso.</string>
   <string name="all_tab_items_closed">Tutte le schede chiuse</string>
   <string name="tool_tip_bookmark_icon_title">Aggiungi all\'elenco di lettura</string>
+  <string name="tool_tip_bookmark_icon_text">Tocca l\'icona del segnalibro per salvare la voce in un elenco di lettura.</string>
   <string name="tool_tip_share">Dopo aver evidenziato un dato interessante, prova a condividerlo sul tuo network preferito!</string>
   <string name="page_view_in_browser">Visualizza la pagina nel browser</string>
+  <string name="tool_tip_toc_title">Accesso rapido all\'indice</string>
+  <string name="tool_tip_toc_text">Ora puoi scorrere verso sinistra per aprire il sommario e anche toccare e trascinare questo pulsante di scorrimento per passare rapidamente a sezioni diverse di una voce.</string>
+  <string name="tool_tip_lang_button">Ora puoi cercare e leggere in più lingue di Wikipedia nell\'applicazione.\n\n\nTocca l\'icona per aggiungere più lingue.</string>
   <string name="error_response_malformed">Risposta dal server non formattata correttamente.</string>
   <string name="error_unknown">Si è verificato un errore sconosciuto.</string>
   <string name="format_error_server_message">Messaggio: \"%s\"</string>
@@ -298,17 +314,24 @@
   <string name="error_no_maps_app">Impossibile trovare applicazioni che forniscono indicazioni.</string>
   <string name="preference_title_show_link_previews">Mostra anteprime collegamenti</string>
   <string name="preference_summary_show_link_previews">Mostra una piccola anteprima delle voci quando si preme sui collegamenti.</string>
+  <string name="preference_title_collapse_tables">Comprimi tabelle</string>
+  <string name="preference_summary_collapse_tables">Comprimi automaticamente le tabelle nelle voci, ad esempio caselle di informazioni, riferimenti e note.</string>
   <string name="nav_item_donate">Sostieni Wikipedia</string>
   <string name="error_voice_search_not_available">Siacenti, il riconoscimento vocale non è disponibile.</string>
   <string name="location_service_disabled">I servizi di localizzazione sono disattivati.</string>
   <string name="enable_location_service">Attiva</string>
   <string name="location_permissions_enable_prompt">Consenti la localizzazione per vedere i luoghi vicini a te.</string>
   <string name="location_permissions_enable_action">Attiva</string>
+  <string name="error_webview_updating">Il Sistema Web Android è attualmente in fase di aggiornamento. Si prega di riprovare tra un momento.</string>
   <string name="multi_select_items_selected">%d selezionati</string>
   <string name="error_message_generic">Si è verificato un errore</string>
   <string name="view_link_preview_error_button_dismiss">Nascondi</string>
   <string name="error_page_does_not_exist">Questa pagina non esiste</string>
   <string name="view_wiki_error_message_offline">Non è possibile connettersi ad Internet</string>
+  <string name="reference_title">Riferimento %s</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Oscuramento dell\'immagine (in tema Scuro)</string>
+  <string name="preference_title_prefer_offline_content">Preferisci contenuti offline</string>
+  <string name="preference_summary_prefer_offline_content">Salva l\'utilizzo dei dati caricando le voci che sono disponibili offline anziché caricare sempre l\'ultima versione di una voce</string>
   <string name="crash_report_dialog_title">Spiacenti, l\'ultima volta l\'applicazione è andata in errore</string>
   <string name="crash_report_dialog_text">Vuoi inviare una segnalazione sull\'errore a HockeyApp / un fornitore terzo di servizi, in modo che Wikimedia possa rivedere il tuo errore e correggere il bug più che lo ha causato?</string>
   <string name="crash_report_dialog_dont_send_button">Salta</string>
@@ -327,7 +350,11 @@
   <string name="color_theme_light">Chiaro</string>
   <string name="color_theme_dark">Scuro</string>
   <string name="color_theme_black">Nero</string>
+  <string name="color_theme_sepia">Seppia</string>
   <string name="color_theme_test_title">Testo di esempio</string>
+  <string name="color_theme_test_text">Trascina il cursore per modificare le dimensioni del testo che viene utilizzato durante la lettura delle voci. Per impostare le dimensioni del testo nel resto dell\'applicazione, modificare le dimensioni del testo del sistema.</string>
+  <string name="preference_title_app_theme">Tema dell\'applicazione</string>
+  <string name="preference_summary_color_theme">Passa all\'utilizzo del tema dei colori scuri dell\'applicazione</string>
   <string name="text_size_increase">Aumenta la dimensione del testo</string>
   <string name="text_size_decrease">Diminuisci la dimensione del testo</string>
   <string name="text_size_percent_default">%s (predefinito)</string>
@@ -348,8 +375,14 @@
   <string name="reading_list_sort_by_name_desc">Ordina per nome (inverso)</string>
   <string name="reading_list_sort_by_recent">Ordina per data di aggiunta (più recenti)</string>
   <string name="reading_list_sort_by_recent_desc">Ordina per data di aggiunta (più vecchi)</string>
+  <string name="reading_list_sort_by_created">Ordina per data creazione (più recente)</string>
+  <string name="reading_list_sort_by_created_desc">Ordina per data creazione (più vecchia)</string>
   <string name="reading_list_menu_delete">Cancella elenco</string>
   <string name="reading_list_menu_rename">Modifica nome/descrizione</string>
+  <string name="reading_list_action_menu_remove_from_offline">Rimuovi da offline</string>
+  <string name="reading_list_action_menu_save_for_offline">Salva per offline</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Rimuovi tutto da offline</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Salva tutto per offline</string>
   <string name="reading_list_action_menu_add_to_another_list">Aggiungi ad un\'altra lista</string>
   <string name="reading_list_name_sample">Il mio elenco di lettura</string>
   <string name="reading_list_name_hint">Nome di questo elenco</string>
@@ -372,22 +405,48 @@
   <string name="reading_list_add_to_other_list">Aggiungi ad un altro elenco di lettura</string>
   <string name="reading_list_remove_from_list">Rimuovi da %s</string>
   <string name="reading_list_remove_from_lists">Rimuovi dall\'elenco di lettura</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Rimuovi da offline</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Voce appare in più elenchi</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s non sarà più disponibile offline per tutti gli elenchi di lettura:</string>
+  <string name="reading_lists_sync_reminder_title">Attiva la sincronizzazione degli elenchi di lettura?</string>
+  <string name="reading_lists_sync_reminder_text">Le voci salvate negli elenchi di lettura possono ora essere sincronizzate con la tua utenza Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Gli elenchi di lettura possono ora essere sincronizzati su tutti i dispositivi. Accedi alla tua utenza di Wikipedia e consenti ai tuoi elenchi di essere salvati. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Attiva sincronizzazione</string>
   <string name="reading_list_login_reminder_title">Sincronizza elenco di lettura</string>
+  <string name="reading_lists_login_reminder_text">Gli elenchi di lettura possono ora essere sincronizzati su tutti i dispositivi. Accedi alla tua utenza di Wikipedia e consenti ai tuoi elenchi di essere salvati.</string>
   <string name="reading_lists_confirm_remote_delete_yes">Sì</string>
   <string name="reading_lists_confirm_remote_delete_no">No</string>
+  <string name="reading_list_article_save_in_progress">La voce è in fase di scaricamento e sarà disponibile offline al termine.</string>
+  <string name="reading_list_already_contains_selection">L\'elenco scelto contiene già tutte le pagine selezionate.</string>
+  <string name="reading_list_added_articles_list_titled">Aggiunte %1$d voci a %2$s</string>
   <string name="reading_list_delete_confirm">Sei sicuro di voler cancellare %s?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Accedi per abilitare la sincronizzazione</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Accedi per consentire il salvataggio degli elenchi di lettura sulla tua utenza.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Annulla</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Entra</string>
+  <string name="reading_list_turned_sync_off_dialog_title">La sincronizzazione degli elenchi di lettura è stata disattivata</string>
+  <string name="reading_list_turned_sync_off_dialog_text">La sincronizzazione dell\'elenco di lettura è disattivata per la tua utenza e le voci salvate sui tuoi dispositivi registrati non vengono più sottoposti a backup. Attiva la sincronizzazione degli elenchi di lettura nelle impostazioni.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Impostazioni</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Attiva la sincronizzazione degli elenchi di lettura?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Non mostrarmelo di nuovo</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Attiva sincronizzazione</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No, grazie</string>
+  <string name="reading_list_login_option_reminder_dialog_title">Voci degli elenchi di lettura trovate</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Le voci sono state salvate negli elenchi di lettura quando sei uscito. Vorresti aggiungerle agli elenchi di lettura della tua utenza?</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">Sì, aggiungile ai miei elenchi di lettura</string>
+  <string name="reading_list_login_option_reminder_dialog_no">No, cancella le voci</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Mantieni le voci salvate nell\'applicazione?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Ci sono voci attualmente salvate negli elenchi di lettura. Vorresti conservarle anche dopo l\'uscita?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Sì, tieni le voci nell\'elenco</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">No, cancella le voci dagli elenchi</string>
   <string name="default_reading_list_name">Salvato</string>
   <string name="default_reading_list_description">Elenco predefinito per le tue voci salvate</string>
   <string name="no_user_lists_title">Organizza voci in elenchi</string>
+  <string name="no_user_lists_msg">Crea elenchi per luoghi in cui viaggiare, argomenti preferiti e molto altro ancora</string>
   <string name="reading_lists_menu_create_list">Crea nuovo elenco</string>
   <string name="reading_lists_menu_sort_by">Ordina per</string>
+  <string name="reading_lists_refresh_sync_option">Aggiorna la sincronizzazione</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Entra / registrati</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Questa voce ora è disponibile non in linea.</item>
@@ -401,6 +460,7 @@
   <string name="reading_list_menu_last_sync">Ultima sincronizzazione: %s</string>
   <string name="user_option_sync_label">Preferenze</string>
   <string name="notification_reverted_title">Modifica annullata</string>
+  <string name="notification_channel_description">Progresso dello scaricamento</string>
   <string name="notification_syncing_pause_button">Pausa</string>
   <string name="notification_syncing_resume_button">Riprendi</string>
   <string name="notification_syncing_cancel_button">Annulla</string>
@@ -499,6 +559,7 @@
   <string name="description_edit_help_tips_example2">La montagna più alta della Terra</string>
   <string name="description_edit_help_tips_example2_hint">descrizione del titolo per un articolo sul Monte Everest</string>
   <string name="description_edit_help_more_info">Ulteriori informazioni</string>
+  <string name="editactionfeed_add_title_descriptions">Aggiungi descrizioni del titolo</string>
   <string name="editactionfeed_translate_descriptions">Traduci le descrizioni del titolo</string>
   <string name="editactionfeed_add_description_button">Aggiungi descrizione</string>
   <string name="editactionfeed_my_contributions">I miei contributi</string>
@@ -553,6 +614,7 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">Impossibile rimuovere tutte le lingue</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantieni almeno una lingua Wikipedia da cui potrai cercare e leggere il contenuto.</string>
   <string name="more_language_options">altro</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Al momento hai varianti del cinese tradizionale e del cinese semplificato impostate nelle lingue dell\'applicazione. Aggiorna le impostazioni della lingua dell\'applicazione?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Modifica lingue</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No, grazie</string>
   <string name="main_drawer_open">Apri</string>
@@ -564,4 +626,7 @@
   <string name="translation_task_description">Traduci le descrizioni del titolo in altre lingue.</string>
   <string name="multilingual_task_positive">Aggiungi lingue</string>
   <string name="translation_source_description">Descrizione in %s:</string>
+  <string name="translate_caption_task_title">Traduci didascalie immagini</string>
+  <string name="translate_caption_task_description">Traduci didascalie in altre lingue</string>
+  <string name="translation_description_edit_task_unlock_body">Abbiamo notato che ti piace modificare le descrizioni dei titoli e leggere Wikipedia in più lingue. Dai un\'occhiata a questa attività che dà accesso alla traduzione di più descrizioni dei titoli!</string>
 </resources>

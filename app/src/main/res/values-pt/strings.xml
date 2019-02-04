@@ -203,6 +203,10 @@
   <string name="edit_next">Próxima</string>
   <string name="edit_done">Publicar</string>
   <string name="edit_preview">Antevisão</string>
+  <string name="edit_undo">Desfazer</string>
+  <string name="edit_redo">Refazer</string>
+  <string name="edit_zoom_in">Ampliar</string>
+  <string name="edit_zoom_out">Reduzir</string>
   <string name="edit_summary_tag_typo">Correção de erro ortográfico</string>
   <string name="edit_summary_tag_grammar">Correção da gramática</string>
   <string name="edit_summary_tag_links">Adição de hiperligações</string>
@@ -546,7 +550,7 @@
   <string name="feed_item_type_because_you_read">Sugestões baseadas num artigo recentemente lido do seu histórico</string>
   <string name="feed_item_type_featured_article">Artigo destacado do dia na Wikipédia</string>
   <string name="feed_item_type_trending">Artigos mais vistos do dia</string>
-  <string name="feed_item_type_featured_image">Imagem destacada do dia no Wikimedia Commons</string>
+  <string name="feed_item_type_featured_image">Imagem destacada do dia na wiki Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Página principal da Wikipédia com o conteúdo destacado diário</string>
   <string name="feed_item_type_randomizer">Gerar artigos aleatórios para ler</string>
   <string name="feed_empty_message">Não há nada no seu feed Explorar</string>
@@ -672,13 +676,25 @@
   <string name="image_caption_task_description">Adicionar legendas às imagens</string>
   <string name="multilingual_task_title">Mais tarefas para editores multilingues</string>
   <string name="multilingual_task_description">Há tarefas de tradução disponíveis se lê e escreve em mais do que uma língua da Wikipédia.</string>
+  <string name="translation_task_title">Traduzir as descrições de título</string>
+  <string name="translation_task_description">Traduzir as descrições de título para outras línguas.</string>
   <string name="image_caption_edit_disable_text">Trancadas até que tenha feito na aplicação %d edições verificadas</string>
+  <string name="translate_description_edit_disable_text">Trancada até ter editado %d descrições de título</string>
   <string name="multilingual_task_negative">Não é para mim</string>
   <string name="multilingual_task_positive">Adicionar línguas</string>
   <string name="editing_level_text">Editor de NÍVEL %d</string>
   <string name="translation_source_description">Descrição em %s:</string>
+  <string name="translate_caption_task_title">Traduzir legendas de imagem</string>
+  <string name="translate_caption_task_description">Traduzir legendas para outras línguas</string>
   <plurals name="edit_action_contribution_count">
     <item quantity="one">contribuição na aplicação</item>
     <item quantity="other">contribuições na aplicação</item>
   </plurals>
+  <string name="add_title_descriptions_dialog_title">Adicionar descrições de título</string>
+  <string name="add_title_descriptions_dialog_message">Agora pode ajudar a melhorar a Wikipédia adicionando descrições que aparecem abaixo dos títulos nos artigos. Pode configurar as suas línguas em qualquer altura.</string>
+  <string name="add_translate_descriptions_dialog_title">Está a traduzir descrições de título pela primeira vez</string>
+  <string name="add_translate_descriptions_dialog_message">Agora pode ajudar a melhorar a Wikipédia traduzindo as descrições de título. Pode configurar as suas línguas e definir um sentido de tradução em qualquer altura.</string>
+  <string name="description_edit_tutorial_message">Bem-vindo(a) à nova página principal para edição da Wikipédia dentro desta aplicação. Aqui, iremos sugerir oportunidades que podem ser do seu interesse para adição de conteúdos. As suas contribuições são muito bem-vindas. Boas edições!</string>
+  <string name="translation_description_edit_task_unlock_title">A tradução de descrições de título foi destrancada!</string>
+  <string name="translation_description_edit_task_unlock_body">Reparámos que gosta de editar descrições de título e de ler a Wikipédia em várias línguas. Consulte esta lista de tarefas que dá acesso à tradução de mais descrições de título!</string>
 </resources>

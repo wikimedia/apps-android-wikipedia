@@ -351,7 +351,7 @@
   <string name="text_size_decrease">تقليل حجم الخط</string>
   <string name="text_size_percent_default">%s (افتراضي)</string>
   <string name="nav_item_reading_lists">قوائمي</string>
-  <string name="reading_list_save_to">احفظ في قائمة القراءة</string>
+  <string name="reading_list_save_to">حفظ في قائمة القراءة</string>
   <string name="reading_list_create_new">أنشئ قائمة قراءة جديدة</string>
   <string name="reading_list_title_exists">قائمة القراءة \"%s\" موجودة فعلًا.</string>
   <string name="reading_list_added_to_named">أضيفت إلى %s.</string>
@@ -544,7 +544,7 @@
   <string name="view_announcement_card_negative_action">لا شكرًا</string>
   <string name="view_offline_card_text">لا يمكن تحميل المحتوى في وضع عدم الاتصال.</string>
   <string name="view_featured_article_card_title">مقالة مختارة</string>
-  <string name="view_featured_article_footer_save_button_label">احفظ</string>
+  <string name="view_featured_article_footer_save_button_label">حفظ</string>
   <string name="view_featured_article_footer_saved_button_label">حُفظت</string>
   <string name="edit_tasks_activity_title">مهام محرر التطبيق</string>
   <string name="feed_configure_activity_title">تخصيص الخلاصة</string>
@@ -633,7 +633,7 @@
   <string name="onboarding_analytics_switch_title">إرسال بيانات الاستخدام</string>
   <string name="onboarding_create_account_sync">زامن قوائم قراءاتك</string>
   <string name="onboarding_create_account_contributions">تتبع مساهماتك</string>
-  <string name="onboarding_create_account_preferences">احفظ تفضيلاتك</string>
+  <string name="onboarding_create_account_preferences">حفظ تفضيلاتك</string>
   <string name="onboarding_got_it">فهمت</string>
   <string name="onboarding_multilingual_secondary_text">لقد وجدنا ما يلي على جهازك:</string>
   <string name="onboarding_multilingual_add_language_text">أضف أو عدل اللغات</string>

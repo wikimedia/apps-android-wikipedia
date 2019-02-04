@@ -674,6 +674,7 @@
   <string name="translation_task_title">Översätt titelbeskrivningar</string>
   <string name="translation_task_description">Översätt titelbeskrivningar till andra språk.</string>
   <string name="image_caption_edit_disable_text">Låst tills du har gjort %d verifierade redigeringar i appen</string>
+  <string name="translate_description_edit_disable_text">Låst tills du har redigerad %d titelbeskrivningar</string>
   <string name="multilingual_task_negative">Ingenting för mig</string>
   <string name="multilingual_task_positive">Lägg till språk</string>
   <string name="editing_level_text">NIVÅ %d appredigerare</string>

@@ -34,7 +34,7 @@
   <string name="history_item_deleted">הערך %s הוסר מההיסטוריה</string>
   <string name="history_items_deleted">%d ערכים הוסרו מההיסטוריה</string>
   <string name="history_item_delete_undo">ביטול</string>
-  <string name="app_settings">הגדרות האפליקציה</string>
+  <string name="app_settings">הגדרות היישום</string>
   <string name="dialog_title_clear_history">לנקות את היסטוריית הגלישה</string>
   <string name="dialog_message_clear_history">זה ימחק את כל היסטוריית הגלישה שלך ויסגור את כל הלשוניות שפתוחות עכשיו. לעשות את זה?</string>
   <string name="dialog_message_clear_history_yes">כן</string>
@@ -142,9 +142,9 @@
   <string name="create_account_ip_block_help_url">https://he.wikipedia.org/wiki/WP:BLOCK</string>
   <string name="create_account_ip_block_details">פרטים</string>
   <string name="preferences_general_heading">כללי</string>
-  <string name="wikipedia_app_faq">שו\"ת אפליקציית ויקיפדיה</string>
+  <string name="wikipedia_app_faq">שו\"ת יישום ויקיפדיה</string>
   <string name="edit_preview_fetching_dialog_message">אחזור תצוגה מקדימה…</string>
-  <string name="send_feedback">לשלוח משוב על האפליקציה</string>
+  <string name="send_feedback">לשלוח משוב על היישום</string>
   <string name="create_account_account_created_toast">החשבון נוצר!</string>
   <string name="preferences_heading_syncing">סנכרון</string>
   <string name="preferences_heading_data_usage">שימוש בנתונים</string>
@@ -157,9 +157,9 @@
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">זה ימחק לגמריאת כל רשימות הקריאה שסונכרנו בעבר מאחסון מרוחק. להסיר את כל הרשימות המסונכרנות מהחשבון שלך \"%s\"?</string>
   <string name="preferences_privacy_settings_heading">פרטיות</string>
   <string name="preference_title_eventlogging_opt_in">לשלוח דיווחי שימוש</string>
-  <string name="preference_summary_eventlogging_opt_in">לאפשר לוויקימדיה לאסוף מידע על השימוש שלך באפליקציה כדי לשפר אותה</string>
+  <string name="preference_summary_eventlogging_opt_in">לאפשר לוויקימדיה לאסוף מידע על השימוש שלך ביישום כדי לשפר אותה</string>
   <string name="preference_title_auto_upload_crash_reports">לשלוח דיווחי קריסה</string>
-  <string name="preference_summary_auto_upload_crash_reports">לאפשר לאפליקציה לשלוח דיווחי קריסה ל־HockeyApp / ספק שירות צד־שלישי באופן אוטומטי כדי שנוכל לסקור את הקריסה שלך ולתקן את הבאג יותר במהירות ובקלות.</string>
+  <string name="preference_summary_auto_upload_crash_reports">לאפשר ליישום לשלוח דיווחי קריסה ל־HockeyApp / ספק שירות צד־שלישי באופן אוטומטי כדי שנוכל לסקור את הקריסה שלך ולתקן את הבאג יותר במהירות ובקלות.</string>
   <string name="editing_error_spamblacklist">יש כאן קישורים למתחמים חסומים (%s). נא להסיר אותם ולנסות שוב.</string>
   <string name="history_search_list_hint">חיפוש בהיסטוריה</string>
   <string name="error_can_not_process_link">לא היה אפשר להציג את הקישור הזה</string>
@@ -171,7 +171,7 @@
   <string name="page_protected_can_not_edit_title">הדף הזה מוגן</string>
   <string name="settings_item_preferences">הגדרות</string>
   <string name="settings_activity_title">הגדרות</string>
-  <string name="about_description">אודות אפליקציית ויקיפדיה</string>
+  <string name="about_description">אודות יישום ויקיפדיה</string>
   <string name="privacy_policy_description">מדיניות פרטיות</string>
   <string name="terms_of_use_description">תנאי שימוש</string>
   <string name="about_wikipedia_url">https://he.m.wikipedia.org/wiki/Wikipedia:About</string>
@@ -184,7 +184,7 @@
   <string name="about_libraries_heading">ספריות בשימוש</string>
   <string name="about_contributors_heading">תורמים</string>
   <string name="about_translators_heading">מתרגמים</string>
-  <string name="about_translators_translatewiki">האפליקציה הזה תורגמה על־ידי מתרגמים מתנדבים באתר &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_translators_translatewiki">היישום הזה תורגם על־ידי מתרגמים מתנדבים באתר &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">רישיון</string>
   <string name="about_app_license">קוד המקור זמין ב־&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; לפי תנאי &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;רישיון Apache 2.0&lt;/a&gt;. אלא אם נאמר אחרת, התוכן זמין לפי &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;רישיון קריאייטיב קומונז–ייחוס–שיתוף זהה&lt;/a&gt;.</string>
   <string name="about_wmf">מוצר של &lt;a href=\"https://wikimediafoundation.org/\"&gt;קרן ויקימדיה&lt;/a&gt;</string>
@@ -203,7 +203,7 @@
   <string name="edit_redo">ביצוע חוזר</string>
   <string name="edit_zoom_in">התקרבות</string>
   <string name="edit_zoom_out">התרחקות</string>
-  <string name="edit_summary_tag_typo">תיקון טעות הקלדה</string>
+  <string name="edit_summary_tag_typo">תיקנתי טעות הקלדה</string>
   <string name="edit_summary_tag_grammar">תיקנתי דקדוק</string>
   <string name="edit_summary_tag_links">הוספתי קישורים</string>
   <string name="edit_summary_tag_other">אחר</string>
@@ -226,7 +226,7 @@
   <string name="clear_recent_searches_confirm">האם באמת רצית לנקות את היסטוריית החיפוש שלך?</string>
   <string name="clear_recent_searches_confirm_yes">כן</string>
   <string name="clear_recent_searches_confirm_no">לא</string>
-  <string name="error_browser_not_found">לא ניתן לפתוח אתר אינטרנט (לא נמצאה אפליקציית דפדפן).</string>
+  <string name="error_browser_not_found">לא ניתן לפתוח אתר אינטרנט (לא נמצא יישום דפדפן).</string>
   <string name="table_infobox">עובדות מהירות</string>
   <string name="table_other">מידע נוסף</string>
   <string name="table_close">סגירה</string>
@@ -278,7 +278,7 @@
   <string name="page_view_in_browser">להציג את הדף בדפדפן</string>
   <string name="tool_tip_toc_title">גישה מהירה לתוכן העניינים</string>
   <string name="tool_tip_toc_text">עכשיו אפשר להחליק ימינה כדי לפתוח את תוכן העניינים, וגם ללחוץ ולגרור על כפתור הגלילה כדי לדלג מהר לחלקים השונים של הערך.</string>
-  <string name="tool_tip_lang_button">עכשיו אפשר לחפש ולקרוא ערכים בוויקיפדיה בשפות מרובות באמצעות האפליקציה.\n\n\nיש ללחוץ על הצלמית כדי להוסיף שפות נוספות.</string>
+  <string name="tool_tip_lang_button">עכשיו אפשר לחפש ולקרוא ערכים בוויקיפדיה בשפות מרובות באמצעות היישום.\n\n\nיש ללחוץ על הצלמית כדי להוסיף שפות נוספות.</string>
   <string name="error_response_malformed">התשובה מהשרת לא מעוצבת נכון.</string>
   <string name="error_unknown">אירעה שגיאה בלתי־ידועה.</string>
   <string name="format_error_server_message">הודעה: \"%s\"</string>
@@ -292,7 +292,7 @@
   <string name="page_offline_notice_add_to_reading_list">רמז: הוסף את הערך לרשימת הקריאה, והוא יוּרד כששוב יהיה חיבור לרשת.</string>
   <string name="page_offline_notice_last_date">זאת גרסה לקריאה ללא חיבור לרשת של הערך הזה, שנשמרה ב־%s.</string>
   <string name="button_get_directions">לקבל כיוונים</string>
-  <string name="error_no_maps_app">לא מצאתי שום אפליקציה שנותנת כיוונים.</string>
+  <string name="error_no_maps_app">לא מצאתי שום יישום שנותן כיוונים.</string>
   <string name="preference_title_show_link_previews">תצוגה מקדימה של קישורים</string>
   <string name="preference_summary_show_link_previews">הצגת תקציר מהיר של ערכים בעת הקשה על קישורים.</string>
   <string name="preference_title_collapse_tables">מזעור טבלאות</string>
@@ -313,13 +313,13 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">עמעום תמונות (בערכת נושא חשוכה)</string>
   <string name="preference_title_prefer_offline_content">להעדיף תוכן לא מקוון</string>
   <string name="preference_summary_prefer_offline_content">לחסוך בשימוש בנתונים על־ידי טעינת ערכים שזמינים לקריאה במצב לא מקוון במקום טעינת הגרסה האחרונה של הערך</string>
-  <string name="crash_report_dialog_title">סליחה, האפליקציה קרסה בפעם הקודמת</string>
+  <string name="crash_report_dialog_title">סליחה, היישום קרס בפעם הקודמת</string>
   <string name="crash_report_dialog_text">הטם לשלוח דיווח קריסה ל־HockeyApp / ספק שירות צד־שלישי באופן אוטומטי כדי שוויקימדיה תוכל לסקור את הקריסה שלך ולתקן את הבאג שגרם לה?</string>
   <string name="crash_report_dialog_dont_send_button">לדלג</string>
   <string name="crash_report_dialog_always_send_button">לשלוח תמיד</string>
   <string name="crash_report_dialog_send_button">לשלוח</string>
-  <string name="crash_report_activity_title">שגיאת אפליקציה</string>
-  <string name="crash_report_relaunch_or_quit">אנחנו מצטערים, באפליקציית ויקיפדיה אירעה שגיאה והיא נעצרה.\n\nהאם להתחיל מהתחלה או לצאת?</string>
+  <string name="crash_report_activity_title">שגיאת יישום</string>
+  <string name="crash_report_relaunch_or_quit">אנחנו מצטערים, ביישום ויקיפדיה אירעה שגיאה והוא נעצר.\n\nהאם להתחיל מהתחלה או לצאת?</string>
   <string name="crash_report_relaunch">להתחיל מהתחלה</string>
   <string name="crash_report_quit">לצאת</string>
   <string name="article_menu_bar_bookmark">הוספת הערך הזה לרשימת קריאה</string>
@@ -333,9 +333,9 @@
   <string name="color_theme_black">שחור</string>
   <string name="color_theme_sepia">ספיה</string>
   <string name="color_theme_test_title">טקסט לדוגמה</string>
-  <string name="color_theme_test_text">יש לגרור את המחלק כדי לשנות את גודל הטקסט שמוצג בעת קריאת הערכים. כדי להגדיר את גודל הטקסט בשאר האפליקציה, יש לשנות את גודל הטקסט בהגדרות המערכת של המכשיר.</string>
+  <string name="color_theme_test_text">יש לגרור את המחלק כדי לשנות את גודל הטקסט שמוצג בעת קריאת הערכים. כדי להגדיר את גודל הטקסט בשאר היישום, יש לשנות את גודל הטקסט בהגדרות המערכת של המכשיר.</string>
   <string name="preference_title_app_theme">ערכת הנושא של האפליקציה</string>
-  <string name="preference_summary_color_theme">מעבר לשימוש בערכת צבעים כהים של האפליקציה</string>
+  <string name="preference_summary_color_theme">מעבר לשימוש בערכת צבעים כהים של היישום</string>
   <string name="text_size_increase">הגדלת הטקסט</string>
   <string name="text_size_decrease">הקטנת הטקסט</string>
   <string name="text_size_percent_default">%s (ברירת מחדל)</string>
@@ -418,7 +418,7 @@
   <string name="reading_list_login_option_reminder_dialog_text">נשמרו ערכים לרשימת הקריאה שלך בזמן שהיית מחוץ לחשבון. האם ברצונך להוסיף אותם לרשימת הקריאה בחשבון שלך?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">כן, להוסיף אותם לרשימות הקריאה שלי</string>
   <string name="reading_list_login_option_reminder_dialog_no">לא, למחוק את הערכים</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">לשמור את הערכים השמורים באפליקציה?</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">לאחסן את הערכים השמורים ביישום?</string>
   <string name="reading_list_logout_option_reminder_dialog_text">יש ערכים ששמורים עכשיו ברשימות הקריאה שלך. האם לשמור אותם אחרי יציאתך מהחשבון?</string>
   <string name="reading_list_logout_option_reminder_dialog_yes">כן, לשמור ערכים ברשימות</string>
   <string name="reading_list_logout_option_reminder_dialog_no">לא, למחוק ערכים מהרשימות</string>
@@ -496,7 +496,7 @@
   <string name="notification_preferences_title">העדפות הודעות</string>
   <string name="notifications_mark_unread">סימון כהודעה שלא נקראה</string>
   <string name="preference_title_notification_poll">דגימת הודעות</string>
-  <string name="preference_summary_notification_poll">לאפשר לאפליקציה להשתמש בנתונים כדי לבדוק הודעות חדשות ברקע.</string>
+  <string name="preference_summary_notification_poll">לאפשר ליישום להשתמש בנתונים כדי לבדוק הודעות חדשות ברקע.</string>
   <string name="preference_category_notification_types">סוגי הודעות באפליקציה</string>
   <string name="preference_title_notification_welcome">ברוך בואך</string>
   <string name="preference_summary_notification_welcome">נוצר חשבון</string>
@@ -535,7 +535,7 @@
   <string name="view_featured_article_card_title">ערך מומלץ</string>
   <string name="view_featured_article_footer_save_button_label">שמירה</string>
   <string name="view_featured_article_footer_saved_button_label">נשמר</string>
-  <string name="edit_tasks_activity_title">משימות לעורכים באפליקציה</string>
+  <string name="edit_tasks_activity_title">משימות לעורכים ביישום</string>
   <string name="feed_configure_activity_title">התאמה אישית של ההזנה</string>
   <string name="feed_configure_menu_reset">שחזור התצוגה ההתחלתית</string>
   <string name="feed_configure_menu_select_all">להציג הכול</string>
@@ -565,12 +565,12 @@
   <string name="description_edit_anon_limit">תודה על ההתעניינות בעריכת תיאורים! כדי לעשות עריכות נוספות, נא להיכנס לחשבון הוויקיפדיה שלך.</string>
   <string name="description_edit_license_notice">שינוי תיאור הכותרת מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטוב קומונז CC0&lt;/a&gt;.</string>
   <string name="description_edit_task_unlock_title">רשימת משימות עריכת תיאורי כותרת נפתחה!</string>
-  <string name="description_edit_task_unlock_body">שמנו לב שאהבת לערוך תיאורי כותרת, אז הרכבנו בשבילך \"משימות עורך באפליקציה\" עם יותר ערכים שחסרים להם תיאורי כותרת כדי לעזור לך להמשיך לתרום!</string>
+  <string name="description_edit_task_unlock_body">שמנו לב שאהבת לערוך תיאורי כותרת, אז הרכבנו בשבילך \"משימות עורך ביישום\" עם יותר ערכים שחסרים להם תיאורי כותרת כדי לעזור לך להמשיך לתרום!</string>
   <string name="description_edit_success_saved">התיאור פורסם!</string>
   <string name="description_edit_success_encouragement">שיפרת עכשיו את ויקיפדיה עבור כולם</string>
   <string name="description_edit_success_done">בוצע</string>
   <string name="description_edit_success_did_you_know">הידעת?</string>
-  <string name="description_edit_success_article_edit_hint">באפשרותך לערוך ערכים בתוך האפליקציה הזאת. אפשר לנסות לתקן שגיאות כתיב ומשפטים קצרים באמצעות לחיצה על הסמל ^1 בפעם הבאה</string>
+  <string name="description_edit_success_article_edit_hint">באפשרותך לערוך ערכים בתוך היישום הזה. אפשר לנסות לתקן שגיאות כתיב ומשפטים קצרים באמצעות לחיצה על הסמל ^1 בפעם הבאה</string>
   <string name="description_edit_tutorial_title_descriptions">תיאורי כותרת</string>
   <string name="description_edit_tutorial_title_descriptions_summary">סיכום הערך שעוזר לקוראים להבין את הנושא במבט אחד</string>
   <string name="description_edit_tutorial_keep_it_short">זה אמור להיות קצר</string>
@@ -591,9 +591,9 @@
   <string name="editactionfeed_add_title_descriptions">הוספת תיאורי כותרת</string>
   <string name="editactionfeed_translate_descriptions">תרגום תיאורי כותרת</string>
   <string name="editactionfeed_review_title_description">בדיקת תיאור כותרת</string>
-  <string name="editactionfeed_add_description_button">הוספת תיאור</string>
+  <string name="editactionfeed_add_description_button">להוסיף תיאור</string>
   <string name="editactionfeed_my_contributions">התרומות שלי</string>
-  <string name="editactionfeed_from_language">מאת:</string>
+  <string name="editactionfeed_from_language">מ־:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">מידע נוסף</string>
   <string name="editactionfeed_to_language">ל־:</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
@@ -618,7 +618,7 @@
   <string name="onboarding_reading_list_sync_title">רשימת קריאה עם סנכרון</string>
   <string name="onboarding_reading_list_sync_text_v2">אפשר ליצור רשימות קריאה מערכים שברצונך לקרוא מאוחר יותר, גם ללא חיבור לרשת. &lt;br/&gt;יש להיכנס לחשבון הוויקיפדיה שלך כדי לסנכרן את רשימות הקריאה שלך &lt;a href=\"#login\"&gt;הצטרפות לוויקיפדיה&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">שליחת נתונים אלמוניים</string>
-  <string name="onboarding_analytics_offline_text">עזרו לנו לשפר את האפליקציה על־ידי זה שתאפשרו לנו ללמוד איך אתם משתמשים בה. איסוף הנתונים נעשה באלמוניות. &lt;a href=\"#privacy\"&gt;מידע נוסף&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">עזרו לנו לשפר את היישום על־ידי זה שתאפשרו לנו ללמוד איך אתם משתמשים בו. איסוף הנתונים נעשה באלמוניות. &lt;a href=\"#privacy\"&gt;מידע נוסף&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">שליחת נתוני שימוש</string>
   <string name="onboarding_create_account_sync">סנכרון רשימות הקריאה שלכם</string>
   <string name="onboarding_create_account_contributions">מעקב אחר התרומות שלך</string>
@@ -658,8 +658,8 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">יש להשאיר לפחות שפת ויקיפדיה אחת שבה ברצונך לחפש ולקרוא תוכן.</string>
   <string name="more_language_options">עוד</string>
   <string name="add_wikipedia_languages_text">הוספת שפות ויקיפדיה</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">להסיר גרסה אחת של סינית מהגדרות השפה של האפליקציה?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">כרגע מוגדרות גם סינית מסורתית וגם סינית מפושטת בהגדרות השפה של האפליקציה שלך. האם ברצונך לעדכן את הגדרות השפה של האפליקציה?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">להסיר הגוון אחד של סינית מהגדרות השפה של היישום?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">כרגע מוגדרות גם סינית מסורתית וגם סינית מפושטת בהגדרות השפה של היישום שלך. האם ברצונך לעדכן את הגדרות השפה של היישום?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">עריכת השפות</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">לא, תודה</string>
   <string name="main_drawer_open">פתיחה</string>
@@ -671,7 +671,26 @@
   <string name="image_caption_task_title">הוספת כיתובים לתמונות</string>
   <string name="image_caption_task_description">הוספת תיאורים לתמונות</string>
   <string name="multilingual_task_title">עוד משימות לעורכים רב־לשוניים</string>
+  <string name="multilingual_task_description">משימות התרגום זמינות למי שקורא וכותב בוויקיפדיה ביותר משפה אחת.</string>
+  <string name="translation_task_title">תרגום תיאורי כותרת</string>
+  <string name="translation_task_description">תרגום תיאורי כותרת לשפות אחרות.</string>
+  <string name="image_caption_edit_disable_text">נעול עד שתעשו %d עריכות בדוקות ביישום</string>
+  <string name="translate_description_edit_disable_text">נעול עד שתערכו %d תיאורי כותרת</string>
   <string name="multilingual_task_negative">לא בשבילי</string>
   <string name="multilingual_task_positive">הוספת שפות</string>
+  <string name="editing_level_text">עורך ביישום ברמה %d</string>
+  <string name="translation_source_description">תיאור ב%s:</string>
+  <string name="translate_caption_task_title">תרגום כיתובי תמונה</string>
+  <string name="translate_caption_task_description">תרגום כיתובים לשפות אחרות</string>
+  <plurals name="edit_action_contribution_count">
+    <item quantity="one">תרומה ביישום</item>
+    <item quantity="other">תרומות ביישום</item>
+  </plurals>
+  <string name="add_title_descriptions_dialog_title">הוספת תיאורי כותרת</string>
+  <string name="add_title_descriptions_dialog_message">עכשיו אפשר לשפר את ויקיפדיה באמצעות הוספת תיאורים שמופיעים מתחת לכותרות בערכים. אפשר לבחור את השפות שלך בכל זמן.</string>
+  <string name="add_translate_descriptions_dialog_title">אתם מתרגמים את תיאורי הכותרת בפעם הראשונה</string>
+  <string name="add_translate_descriptions_dialog_message">עכשיו אפשר לשפר את ויקיפדיה באמצעות תרגום תיאורי כותרת. אפשר להגדיר את השפות שלך ולהגדיר את כיוון התרגום בכל הזמן.</string>
+  <string name="description_edit_tutorial_message">ברוך בואך לבית החדש לעריכה בתוך היישום בוויקיפדיה. כאן אנחנו נתמוך בהזדמנויות להוסיף תוכן שיכולות לעניין אותך. אנחנו נעריך מאוד את התרומות שלך. עריכה שמחה!</string>
   <string name="translation_description_edit_task_unlock_title">עריכת תיאורי כותרת נפתחה!</string>
+  <string name="translation_description_edit_task_unlock_body">שמנו לב שכיף לך לערוך תיאורים ולקרוא את ויקיפדיה במספר שפות. שימו לב לרשימת המשימות הזאת, שנותנת גישה לתרגום של עוד תיאורי כותרת!</string>
 </resources>

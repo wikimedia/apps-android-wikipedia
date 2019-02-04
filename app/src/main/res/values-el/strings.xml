@@ -65,8 +65,8 @@
   <string name="other_languages_indication_text">Διαβάστε σε άλλη γλώσσα</string>
   <string name="language_count_link_text">Διαθέσιμο σε %d άλλες γλώσσες</string>
   <string name="content_license_html">Το περιεχόμενο είναι διαθέσιμο υπό την &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; εκτός εάν σημειώνεται διαφορετικά</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Με την αποθήκευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt;, και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">Με την αποθήκευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt;, και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Επεξεργασίες σας θα αναφέρονται στην διεύθυνση IP της συσκευής σας. Αν &lt;a href=\"https://#login\"&gt;συνδεθείτε&lt;/a&gt;, θα έχετε μεγαλύτερη ιδιωτικότητα.</string>
+  <string name="edit_save_action_license_logged_in">Με την δημοσίευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt;, και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Με την δημοσίευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt;, και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Επεξεργασίες σας θα αναφέρονται στην διεύθυνση IP της συσκευής σας. Αν &lt;a href=\"https://#login\"&gt;συνδεθείτε&lt;/a&gt;, θα έχετε μεγαλύτερη ιδιωτικότητα.</string>
   <string name="preference_title_language">Γλώσσες Βικιπαίδειας</string>
   <string name="langlinks_filter_hint">Αναζήτηση</string>
   <string name="langlinks_empty">Αυτή η σελίδα δεν είναι διαθέσιμη σε άλλες γλώσσες</string>
@@ -79,7 +79,7 @@
   <string name="dialog_message_edit_failed">Η επεξεργασία απέτυχε!</string>
   <string name="dialog_message_edit_failed_retry">Ξαναπροσπαθήστε</string>
   <string name="dialog_message_edit_failed_cancel">Ακύρωση</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">Οι αλλαγές σου δεν έχουν αποθηκευτεί ακόμα. Είσαι σίγουρος ότι θέλεις να φύγεις από αυτή τη σελίδα;</string>
+  <string name="dialog_message_leaving_edit">Οι αλλαγές σου δεν έχουν δημοσιευτεί ακόμα. Είσαι σίγουρος ότι θέλεις να φύγεις από αυτή τη σελίδα;</string>
   <string name="dialog_message_leaving_edit_leave">Φύγετε</string>
   <string name="dialog_message_leaving_edit_stay">Παραμονή</string>
   <string name="menu_show_toc">Πίνακας Περιεχομένων</string>
@@ -88,6 +88,7 @@
   <string name="search_reading_lists_no_results">Δεν βρέθηκαν αποτελέσματα στις λίστες ανάγνωσης</string>
   <string name="search_history_no_results">Δεν βρέθηκαν αποτελέσματα στο ιστορικό</string>
   <string name="edit_section_captcha_message">Για να βοηθήσετε στην προστασία από αυτόματα ανεπιθύμητα μηνύματα, παρακαλούμε εισαγάγετε τις λέξεις που εμφανίζονται από κάτω</string>
+  <string name="edit_section_captcha_request_an_account_message">Δεν μπορείτε να δείτε την εικόνα; &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Ζητήστε ένα λογαριασμό&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Επαναλάβετε τις λέξεις από πάνω</string>
   <string name="title_captcha">Εισάγετε CAPTCHA</string>
   <string name="edit_section_captcha_reload">Πατήστε το CAPTCHA για επαναφόρτωση</string>
@@ -128,9 +129,15 @@
   <string name="create_account_password_error">Ο κωδικός δεν είναι σωστός</string>
   <string name="create_account_generic_error">Δεν ήταν δυνατή η δημιουργία λογαριασμού</string>
   <string name="create_account_next">Επόμενο</string>
+  <string name="email_recommendation_dialog_title">Δημιουργία λογαριασμού χωρίς διεύθυνση ηλεκτρονικού ταχυδρομείου;</string>
+  <string name="email_recommendation_dialog_message">Παρόλο που διεύθυνση ηλεκτρονικού ταχυδρομείου είναι προαιρετική, &lt;b&gt;είναι προτεινόμενο&lt;/b&gt;, καθώς η διεύθυνση ηλεκτρονικού ταχυδρομείου είναι απαραίτητη στην ανάκτηση λογαριασμού εάν χάσετε τον κωδικό σας.</string>
+  <string name="email_recommendation_message">Συνιστάται επειδή απαιτείται διεύθυνση ηλεκτρονικού ταχυδρομείου για την ανάκτηση λογαριασμού.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Συνέχεια χωρίς διεύθυνση ηλεκτρονικού ταχυδρομείου</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Προσθήκη μιας διεύθυνσης ηλεκτρονικού ταχυδρομείου</string>
   <string name="create_account_button">Δημιουργία λογαριασμού</string>
   <string name="create_account_name_unavailable">Το όνομα χρήστη «%s» δεν είναι διαθέσιμο. Παρακαλούμε επίλεξε διαφορετικό όνομα.</string>
+  <string name="create_account_ip_block_message">Δυστυχώς, αυτή τη στιγμή η διεύθυνσή IP σας είναι αποκλεισμένη από τη δημιουργία νέων λογαριασμών.</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Λεπτομέρειες</string>
   <string name="preferences_general_heading">Γενικά</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
@@ -169,6 +176,7 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.el</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/3.0/</string>
   <string name="about_libraries_heading">Βιβλιοθήκες που χρησιμοποιούνται</string>
@@ -188,6 +196,10 @@
   <string name="edit_next">Επόμενο</string>
   <string name="edit_done">Αποθήκευση</string>
   <string name="edit_preview">Προεπισκόπηση</string>
+  <string name="edit_undo">Αναίρεση</string>
+  <string name="edit_redo">Ακύρωση αναίρεσης</string>
+  <string name="edit_zoom_in">Μεγέθυνση</string>
+  <string name="edit_zoom_out">Σμίκρυνση</string>
   <string name="edit_summary_tag_typo">Διόρθωση ορθογραφίας</string>
   <string name="edit_summary_tag_grammar">Διόρθωση γραμματικής</string>
   <string name="edit_summary_tag_links">Προσθήκη συνδέσμων</string>
@@ -508,6 +520,10 @@
   <string name="description_edit_help_tips_example2">Το ψηλότερο βουνό της γης</string>
   <string name="description_edit_help_tips_example2_hint">περιγραφή τίτλου για ένα λήμμα σχετικά με το Όρος Έβερεστ</string>
   <string name="description_edit_help_more_info">Περισσότερες πληροφορίες</string>
+  <string name="editactionfeed_my_contributions">Οι συνεισφορές μου</string>
+  <string name="editactionfeed_from_language">Από:</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">Μάθετε περισσότερα</string>
+  <string name="editactionfeed_to_language">Προς:</string>
   <string name="description_edit_revert_subtitle">Ευχαριστούμε που επεξεργάζεστε την Βικιπαίδεια!</string>
   <string name="description_edit_revert_reason2">η συνεισφορά σας έμοιαζε περισσότερο σαν πειραματισμός ή βανδαλισμός.</string>
   <string name="description_edit_revert_history">Εάν ενδιαφέρεστε, δείτε το &lt;a href=\"%1$s\"&gt;ιστορικό επεξεργασιών&lt;/a&gt;.</string>
@@ -522,6 +538,7 @@
   <string name="onboarding_skip">Παράβλεψη</string>
   <string name="onboarding_continue">Συνέχεια</string>
   <string name="onboarding_get_started">Ξεκινήστε</string>
+  <string name="onboarding_maybe_later">Ίσως αργότερα</string>
   <string name="onboarding_explore_title">Νέοι τρόποι να εξερευνήσετε</string>
   <string name="onboarding_reading_list_sync_text_v2">Μπορείτε να δημιουργήσετε λίστες ανάγνωσης από άρθρα που θέλετε να διαβάσετε αργότερα, ακόμα και όταν είστε εκτός σύνδεσης. &lt;br/&gt; Συνδεθείτε στον λογαριασμό σας στη Wikipedia για να συγχρονίσετε τις λίστες ανάγνωσης. &lt;a href=\"#login\"&gt; Εγγραφείτε στο Wikipedia &lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Αποστολή ανώνυμων δεδομένων</string>

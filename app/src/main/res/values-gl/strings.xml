@@ -108,6 +108,7 @@
   <string name="toast_logout_complete">Sesión pechada</string>
   <string name="history_empty_title">Non hai artigos vistos recentemente</string>
   <string name="history_empty_message">Manter un rexistro do que fuches lendo aquí.</string>
+  <string name="history_offline_articles_toast">Algúns artigos do historial poden non ser visualizables mentres non estea en liña.</string>
   <string name="search_empty_message">Procure e lea a enciclopedia libre na súa lingua</string>
   <string name="search_empty_message_multilingual_upgrade">Procurar Wikipedia en máis linguas</string>
   <string name="delete_selected_items">Eliminar os elementos seleccionados</string>
@@ -196,6 +197,10 @@
   <string name="edit_next">Seguinte</string>
   <string name="edit_done">Publicar</string>
   <string name="edit_preview">Vista previa</string>
+  <string name="edit_undo">Desfacer</string>
+  <string name="edit_redo">Refacer</string>
+  <string name="edit_zoom_in">Ampliar</string>
+  <string name="edit_zoom_out">Reducir</string>
   <string name="edit_summary_tag_typo">Corrección ortográfica</string>
   <string name="edit_summary_tag_grammar">Corrección gramatical</string>
   <string name="edit_summary_tag_links">Adición de ligazóns</string>
@@ -528,6 +533,7 @@
   <string name="view_featured_article_card_title">Artigo destacado</string>
   <string name="view_featured_article_footer_save_button_label">Gardar</string>
   <string name="view_featured_article_footer_saved_button_label">Gardado</string>
+  <string name="edit_tasks_activity_title">Tarefas de edición</string>
   <string name="feed_configure_activity_title">Configurar a canle</string>
   <string name="feed_configure_menu_reset">Restablecer vista predeterminada</string>
   <string name="feed_configure_menu_select_all">Amosar todo</string>
@@ -556,6 +562,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Grazas polo seu contínuo interés en editar descriciónsǃ Para facer edicións adicionais, por favor, comece sesión na súa conta de Wikipedia.</string>
   <string name="description_edit_license_notice">Ao cambiar a descrición de título, acepto os &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e a liberar irrevocablemente as miñas contribucións baixo os termos da licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_task_unlock_title">Desbloqueouse a lista de tarefas de edición de descripcións de títulos!</string>
   <string name="description_edit_success_saved">Descrición publicada!</string>
   <string name="description_edit_success_encouragement">Acaba de mellorar Wikipedia para todo o mundo</string>
   <string name="description_edit_success_done">Feito</string>

@@ -29,7 +29,7 @@
   <string name="nav_item_forward">Eteenpäin</string>
   <string name="search_hint">Hae Wikipediasta</string>
   <string name="search_hint_search_history">Hae historiasta</string>
-  <string name="search_hint_search_my_lists">Hae lukulistoistasi</string>
+  <string name="search_hint_search_my_lists">Hae omista lukulistoista</string>
   <string name="search_hint_search_reading_list">Etsi lukulistasta</string>
   <string name="search_hint_search_languages">Etsi kieltä</string>
   <string name="nav_item_history">Historia</string>
@@ -80,7 +80,7 @@
   <string name="langlinks_empty">Tämä sivu ei ole saatavilla muilla kielillä</string>
   <string name="langlinks_no_match">Kieliä ei löytynyt</string>
   <string name="langlinks_activity_title">Muilla kielillä</string>
-  <string name="langlinks_your_wikipedia_languages">Wikipedia-kielesi</string>
+  <string name="langlinks_your_wikipedia_languages">Omat Wikipedia-kielet</string>
   <string name="menu_save_changes">Julkaise muutokset</string>
   <string name="dialog_saving_in_progress">Julkaistaan...</string>
   <string name="edit_saved_successfully">Muokkaus julkaistu!</string>
@@ -193,7 +193,7 @@
   <string name="about_translators_heading">Kääntäjät</string>
   <string name="about_translators_translatewiki">Tämän sovelluksen ovat kääntäneet &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-sivuston vapaaehtoiset kääntäjät.</string>
   <string name="about_app_license_heading">Lisenssi</string>
-  <string name="about_app_license">Lähdekoodi löytyy &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritistä&lt;/a&gt; ja &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubista&lt;/a&gt;, ja se on julkaistu &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 -lisenssillä&lt;/a&gt;. Ellei toisin ole mainittu, sisältö on julkaistu &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Nimeä–Tarttuva -lisenssillä&lt;/a&gt;.</string>
+  <string name="about_app_license">Lähdekoodi löytyy &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritistä&lt;/a&gt; ja &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubista&lt;/a&gt;, ja se on julkaistu &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 -lisenssillä&lt;/a&gt;. Ellei toisin ole mainittu, sisältö on julkaistu &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Nimeä–JaaSamoin -lisenssillä&lt;/a&gt;.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundationin&lt;/a&gt; tuote</string>
   <string name="about_activity_title">Tietoja</string>
   <string name="edit_abandon_confirm">Sivua on muokattu. Haluatko varmasti poistua tallentamatta muutoksiasi?</string>
@@ -372,7 +372,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">Poista kaikki offlinesta</string>
   <string name="reading_list_action_menu_save_all_for_offline">Tallenna kaikki offlineen</string>
   <string name="reading_list_action_menu_add_to_another_list">Lisää toiseen listaan</string>
-  <string name="reading_list_name_sample">Minun lukulista</string>
+  <string name="reading_list_name_sample">Oma lukulista</string>
   <string name="reading_list_name_hint">Listan nimi</string>
   <string name="reading_list_description_hint">Kuvaus (ei pakollinen)</string>
   <string name="reading_list_item_deleted">%s poistettu listasta</string>
@@ -648,7 +648,7 @@
   <string name="languages_list_suggested_text">Ehdotettu</string>
   <string name="languages_list_all_text">Kaikki kielet</string>
   <string name="wikipedia_languages_title">Wikipedia-kielet</string>
-  <string name="wikipedia_languages_your_languages_text">Kielesi</string>
+  <string name="wikipedia_languages_your_languages_text">Omat kielet</string>
   <string name="wikipedia_languages_add_language_text">Lisää kieli</string>
   <string name="wikipedia_languages_remove_text">Poista kieli</string>
   <string name="wikipedia_languages_remove_action_mode_title">Poista kieli</string>
@@ -672,9 +672,13 @@
   <string name="title_description_task_title">Lisää otsikkokuvaukset</string>
   <string name="image_caption_task_title">Kuvatekstit</string>
   <string name="image_caption_task_description">Lisää kuvatekstejä</string>
+  <string name="translation_task_title">Käännä otsikon kuvaukset</string>
+  <string name="translation_task_description">Käännä otsikkokuvaukset muille kielille.</string>
   <string name="multilingual_task_negative">Ei minulle</string>
   <string name="multilingual_task_positive">Lisää kieliä</string>
+  <string name="translation_source_description">%s kuvaus:</string>
   <string name="translate_caption_task_title">Käännä kuvatekstit</string>
   <string name="translate_caption_task_description">Käännä kuvatekstit muille kielille</string>
+  <string name="add_title_descriptions_dialog_title">Lisää otsikon kuvaukset</string>
   <string name="add_translate_descriptions_dialog_title">Olet kääntämässä ensimmäistä otsikon kuvaustasi</string>
 </resources>

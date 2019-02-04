@@ -628,7 +628,7 @@
   <string name="editactionfeed_add_description_button">Добавить описание</string>
   <string name="editactionfeed_my_contributions">Мой вклад</string>
   <string name="editactionfeed_from_language">От:</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">Узнать больше</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">Подробнее</string>
   <string name="editactionfeed_to_language">Кому:</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
   <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то неправильное. Возможные причины, почему ваша правка была отменена:</string>

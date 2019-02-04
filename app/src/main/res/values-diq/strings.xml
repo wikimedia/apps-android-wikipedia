@@ -55,7 +55,7 @@
   <string name="dialog_message_edit_failed_cancel">Bıtexelne</string>
   <string name="dialog_message_leaving_edit_leave">Abıriye</string>
   <string name="dialog_message_leaving_edit_stay">Bıman</string>
-  <string name="menu_show_toc">Miyandene</string>
+  <string name="menu_show_toc">Tabloyê zerreki</string>
   <string name="search_no_results_found">Netice nê vineya</string>
   <string name="title_captcha">captcha de fide</string>
   <string name="nav_item_login">Wikipedia ya Cıkew</string>
@@ -83,7 +83,7 @@
   <string name="preferences_general_heading">Bıngeh</string>
   <string name="wikipedia_app_faq">Wikipedia App PZP</string>
   <string name="edit_preview_fetching_dialog_message">Verqayti ano...</string>
-  <string name="send_feedback">Dezgek peyd rışten bırış</string>
+  <string name="send_feedback">Verpersê tetbiqi bırışe</string>
   <string name="create_account_account_created_toast">Hesab vıraziya!</string>
   <string name="preferences_privacy_settings_heading">Nımıtış</string>
   <string name="preference_title_eventlogging_opt_in">Raporanê karıtışi bırış</string>
@@ -104,6 +104,7 @@
   <string name="edit_done" fuzzy="true">Qeyd ke</string>
   <string name="edit_preview">Verqayt</string>
   <string name="edit_undo">Peyser biya</string>
+  <string name="edit_redo">Newe ke</string>
   <string name="edit_zoom_in">Nêzdi ke</string>
   <string name="edit_zoom_out">Dûri fiye</string>
   <string name="edit_summary_tag_grammar">Gramer timarya</string>
@@ -152,6 +153,7 @@
   <string name="reading_list_item_delete_undo">Peyser biya</string>
   <string name="reading_lists_confirm_remote_delete_yes">Eya</string>
   <string name="reading_lists_confirm_remote_delete_no">Nê</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Bıtexelne</string>
   <string name="notification_syncing_cancel_button">Bıtexelne</string>
   <string name="view_featured_image_card_download">Biya war</string>
   <string name="menu_feed_card_dismiss">Na qert bınımn</string>
@@ -167,6 +169,7 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">ewro</string>
   <string name="view_announcement_card_negative_action">Nê, teşekur</string>
+  <string name="view_featured_article_footer_save_button_label">Qeyd ke</string>
   <string name="description_edit_text_hint" fuzzy="true">Yew şınasnayış bınusê</string>
   <string name="description_edit_save" fuzzy="true">Qeyd kerê</string>
   <string name="description_edit_add_description" fuzzy="true">Şınasnayış cı ke</string>
@@ -176,7 +179,7 @@
   <string name="editactionfeed_add_description_button">Arezekerdış cı ke</string>
   <string name="editactionfeed_my_contributions">İştirakê mı</string>
   <string name="editactionfeed_from_language">Rıştoğ:</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">Zêde bımuse</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">Tayêna bımuse</string>
   <string name="editactionfeed_to_language">Gırewtoğ:</string>
   <string name="onboarding_continue">Dewam ke</string>
   <string name="onboarding_maybe_later">Belkiya badêna</string>

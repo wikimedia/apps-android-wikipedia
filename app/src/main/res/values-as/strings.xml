@@ -10,6 +10,8 @@
   <string name="app_name_beta">ৱিকিপিডিয়া বিটা</string>
   <string name="app_name_alpha">ৱিকিপিডিয়া আল্‌ফা</string>
   <string name="wikimedia">ৱিকিমিডিয়া</string>
+  <string name="nav_item_back">ঘূৰি যাওক</string>
+  <string name="nav_item_forward">আগলৈ যাওক</string>
   <string name="search_hint">ৱিকিপিডিয়াত সন্ধান কৰক</string>
   <string name="search_hint_search_history">ইতিহাস সন্ধান কৰক</string>
   <string name="search_hint_search_my_lists">মোৰ তালিকাত সন্ধান কৰক</string>
@@ -56,8 +58,8 @@
   <string name="other_languages_indication_text">আন এটা ভাষাত পঢ়ক</string>
   <string name="language_count_link_text">আন %d ভাষাত উপলব্ধ</string>
   <string name="content_license_html">আন একো উল্লেখ নকৰিলে এই সমল &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ৰ আওতাত উপলব্ধ</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">সাঁচি থওঁতে আপুনি &lt;a href=\"%1$s\"&gt;ব্যৱহাৰৰ চৰ্তাৱলী&lt;/a&gt;ত সন্মতি প্ৰকাশ কৰিছে, আৰু অপৰিৱৰ্তনীয়ভাৱে আপোনাৰ বৰঙণি &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; অনুজ্ঞাপত্ৰৰ আধাৰত মুকলি কৰিছে।</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">সাঁচি থওঁতে আপুনি &lt;a href=\"%1$s\"&gt;ব্যৱহাৰৰ চৰ্তাৱলী&lt;/a&gt;ত সন্মতি প্ৰকাশ কৰিছে, আৰু অপৰিৱৰ্তনীয়ভাৱে আপোনাৰ বৰঙণি &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; অনুজ্ঞাপত্ৰৰ আধাৰত মুকলি কৰিছে। সম্পাদনাসমূহ আপোনাৰ সঁজুলিৰ আই পি ঠিকনাৰ লগত যুক্ত কৰা হ\'ব। আপুনি &lt;a href=\"https://#login\"&gt;লগ্‌ ইন&lt;/a&gt; কৰিলে অধিক গোপনীয়তা লাভ কৰিব।</string>
+  <string name="edit_save_action_license_logged_in">প্ৰকাশ কৰি আপুনি &lt;a href=\"%1$s\"&gt;ব্যৱহাৰৰ চৰ্তাৱলী&lt;/a&gt;ত সন্মতি প্ৰকাশ কৰিছে, আৰু অপৰিৱৰ্তনীয়ভাৱে আপোনাৰ বৰঙণি &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; অনুজ্ঞাপত্ৰৰ আধাৰত মুকলি কৰিছে।</string>
+  <string name="edit_save_action_license_anon">সাঁচি থওঁতে আপুনি &lt;a href=\"%1$s\"&gt;ব্যৱহাৰৰ চৰ্তাৱলী&lt;/a&gt;ত সন্মতি প্ৰকাশ কৰিছে, আৰু অপৰিৱৰ্তনীয়ভাৱে আপোনাৰ বৰঙণি &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; অনুজ্ঞাপত্ৰৰ আধাৰত মুকলি কৰিছে। সম্পাদনাসমূহ আপোনাৰ সঁজুলিৰ আই পি ঠিকনাৰ লগত যুক্ত কৰা হ\'ব। আপুনি &lt;a href=\"https://#login\"&gt;লগ্‌ ইন&lt;/a&gt; কৰিলে অধিক গোপনীয়তা লাভ কৰিব।</string>
   <string name="preference_title_language">ৱিকিপিডিয়াৰ ভাষাসমূহ</string>
   <string name="langlinks_filter_hint">সন্ধান কৰক</string>
   <string name="langlinks_empty">এই পৃষ্ঠাটো আন ভাষাত উপলব্ধ নহয়</string>
@@ -70,7 +72,7 @@
   <string name="dialog_message_edit_failed">সম্পাদনা ব্যৰ্থ হৈছে!</string>
   <string name="dialog_message_edit_failed_retry">পুনৰ চেষ্টা কৰক</string>
   <string name="dialog_message_edit_failed_cancel">বাতিল কৰক</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">আপোনাৰ সালসলনি সাঁচি ৰখা নাই। এই পৃষ্ঠাৰ পৰা আঁতৰি যাব বুলি আপুনি নিশ্চিতনে?</string>
+  <string name="dialog_message_leaving_edit">আপোনাৰ সালসলনি এতিয়াও প্ৰকাশ হোৱা নাই। এই পৃষ্ঠাৰ পৰা আঁতৰি যাব বুলি আপুনি নিশ্চিতনে?</string>
   <string name="dialog_message_leaving_edit_leave">আঁতৰি যাওক</string>
   <string name="dialog_message_leaving_edit_stay">থাকক</string>
   <string name="menu_show_toc">সমলসমূহৰ সূচী</string>
@@ -79,6 +81,7 @@
   <string name="search_reading_lists_no_results">পঢ়া তালিকাত কোনো ফলাফল পোৱা নগ\'ল</string>
   <string name="search_history_no_results">ইতিহাসত কোনো ফলাফল পোৱা নগ\'ল</string>
   <string name="edit_section_captcha_message">স্বয়ংক্ৰিয় স্পামৰ পৰা সুৰক্ষাৰ হেতু অনুগ্ৰহ কৰি তলত দিয়া শব্দবোৰ লিখক</string>
+  <string name="edit_section_captcha_request_an_account_message">ছবিখন দেখা পোৱা নাই? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;এটা একাউণ্টৰ বাবে অনুৰোধ কৰক&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">ওপৰত দিয়া শব্দবোৰ পুনৰ লিখক</string>
   <string name="title_captcha">কেপ্‌চা লিখক</string>
   <string name="edit_section_captcha_reload">CAPTCHA-ত ক্লিক কৰি ৰিল\'ড কৰক</string>
@@ -99,6 +102,7 @@
   <string name="toast_logout_complete">প্ৰস্থান হ\'ল</string>
   <string name="history_empty_title">কোনো শেহতীয়াকৈ পঢ়া পৃষ্ঠা নাই</string>
   <string name="history_empty_message">আপুনি ইয়াত কি পঢ়িছে সেয়া অনুসৰণ কৰক।</string>
+  <string name="history_offline_articles_toast">ইতিহাসত থকা কিছুমান প্ৰবন্ধ অফলাইন পঢ়িব নোৱাৰিব।</string>
   <string name="search_empty_message">আপোনাৰ ভাষাত মুক্ত বিশ্বকোষ সন্ধান কৰক আৰু পঢ়ক</string>
   <string name="search_empty_message_multilingual_upgrade">অধিক ভাষাত ৱিকিপিডিয়া সন্ধান কৰক</string>
   <string name="delete_selected_items">নিৰ্বাচিত আইটেম বিলোপ কৰক</string>
@@ -118,6 +122,10 @@
   <string name="create_account_password_error">গুপ্তশব্দটো ভুল</string>
   <string name="create_account_generic_error">একাউণ্ট সৃষ্টি কৰিব পৰা নগ\'ল</string>
   <string name="create_account_next">পৰৱৰ্তী</string>
+  <string name="email_recommendation_dialog_title">ইমেইল ঠিকনা অবিহনেই একাউণ্ট সৃষ্টি কৰিব?</string>
+  <string name="email_recommendation_dialog_message">যদিও ইমেইল ঠিকনা দিয়াটো বৈকল্পিক, তথাপি আপোনাৰ গুপ্তশব্দ হেৰাই গ\'লে একাউণ্ট পুনৰুদ্ধাৰৰ বাবে ইমেইলৰ প্ৰয়োজন হয় আৰু সেইবাবে এয়া &lt;b&gt;দিয়াটো ভাল&lt;/b&gt;।</string>
+  <string name="email_recommendation_message">একাউণ্ট পুনৰুদ্ধাৰৰ বাবে ইমেইল প্ৰয়োজনীয় বাবে এয়া অনুমোদিত।</string>
+  <string name="email_recommendation_dialog_create_without_email_action">ইমেইল অবিহনেই অব্যাহত ৰাখক</string>
   <string name="email_recommendation_dialog_create_with_email_action">এটা ইমেইল ঠিকনা যোগ কৰক</string>
   <string name="create_account_button">একাউণ্ট সৃষ্টি কৰক</string>
   <string name="create_account_name_unavailable">\"%s\" সদস্যনাম উপলব্ধ নহয়। অনুগ্ৰহ কৰি আন এটা নাম বাছনি কৰক।</string>
@@ -132,6 +140,7 @@
   <string name="preferences_heading_syncing">সুসংগত কৰা হৈছে</string>
   <string name="preferences_heading_data_usage">ডে\'টা ব্যৱহাৰ</string>
   <string name="preferences_heading_experimental">পৰীক্ষামূলক</string>
+  <string name="preference_title_download_reading_list_articles">পাঠ্য তালিকাত থকা প্ৰবন্ধবোৰ ডাউনল\'ড কৰক</string>
   <string name="preferences_privacy_settings_heading">গোপনীয়তা</string>
   <string name="preference_title_eventlogging_opt_in">ব্যৱহাৰৰ প্ৰতিবেদন পঠিয়াওক</string>
   <string name="preference_summary_eventlogging_opt_in">এপ্‌টো উন্নত কৰিবৰ বাবে আপুনি এই এপ্‌ কেনেকৈ ব্যৱহাৰ কৰে জানিবলৈ ৱিকিমিডিয়াক তথ্য সংগ্ৰহৰ অনুমতি দিয়ক</string>
@@ -175,6 +184,10 @@
   <string name="edit_next">পৰৱৰ্তী</string>
   <string name="edit_done">প্ৰকাশ কৰক</string>
   <string name="edit_preview">প্ৰাক্‌দৰ্শন</string>
+  <string name="edit_undo">পূৰ্ববত কৰক</string>
+  <string name="edit_redo">পুনৰ কৰক</string>
+  <string name="edit_zoom_in">ডাঙৰ কৰক</string>
+  <string name="edit_zoom_out">সৰু কৰক</string>
   <string name="edit_summary_tag_typo">বানান শুধৰণি</string>
   <string name="edit_summary_tag_grammar">ব্যাকৰণ শুধৰণি</string>
   <string name="edit_summary_tag_links">লিংক যোগ</string>
@@ -213,6 +226,8 @@
   <string name="preference_summary_show_images">পৃষ্ঠাত ছবিৰ ল\'ডিং সক্ৰিয় বা নিষ্ক্ৰিয় কৰক। আপোনাৰ ইণ্টাৰনেট সংযোগ লেহেমীয়া হ\'লে বা আপোনাৰ ডে\'টা প্লেন সীমিত হ\'লে এই ছেটিংটো অচিহ্নিত কৰক।</string>
   <string name="preference_title_download_only_over_wifi">মাত্ৰ ৱাই-ফাইৰ জৰিয়তে ডাউনল\'ড কৰক</string>
   <string name="dialog_title_download_only_over_wifi">ম\'বাইল ডে\'টা ব্যৱহাৰ কৰি ডাউনল\'ড কৰাটো নিশ্চিতনে?</string>
+  <string name="dialog_text_download_only_over_wifi">আপুনি ছেটিংছত “কেৱল Wi-Fiৰ ডাউনল\'ড কৰিব” বিকল্প সক্ৰিয় কৰি থৈছে। আপুনি কেৱল এই ডাউনল\'ডৰ বাবে ম\'বাইল ডে\'টা প্লেন ব্যৱহাৰ কৰিব খুজিছে?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">অনুমতি দিয়ক</string>
   <string name="read_more_section">আৰু পঢ়ক</string>
   <string name="about_article_section">এই প্ৰবন্ধ সম্পৰ্কে</string>
   <string name="menu_gallery_visit_page">ফাইল পৃষ্ঠালৈ যাওক</string>

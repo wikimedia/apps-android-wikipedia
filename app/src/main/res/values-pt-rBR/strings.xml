@@ -6,6 +6,7 @@
 * BarbaraAckles
 * Cainamarques
 * Caçador de Palavras
+* Deskana
 * Dianakc
 * EVinente
 * Eduardo Addad de Oliveira
@@ -170,7 +171,7 @@
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Isto eliminará completamente do armazenamento remoto todas as listas de leitura sincronizadas anteriormente. Remover todas as listas sincronizadas da sua conta \"%s\"?</string>
   <string name="preferences_privacy_settings_heading">Privacidade</string>
   <string name="preference_title_eventlogging_opt_in">Enviar relatórios de uso</string>
-  <string name="preference_summary_eventlogging_opt_in">Permite que a Wikimedia drecolha informações sobre o uso do aplicativo para aperfeiçoá-lo</string>
+  <string name="preference_summary_eventlogging_opt_in">Permite que a Wikimedia recolha informações sobre o uso do aplicativo para aperfeiçoá-lo</string>
   <string name="preference_title_auto_upload_crash_reports">Enviar relatórios de falhas</string>
   <string name="preference_summary_auto_upload_crash_reports">Permite que o aplicativo envie relatórios de falhas automaticamente ao HockeyApp / um provedor de serviços de terceiros para que possamos a falha e corrigi-la rapidamente e facilmente.</string>
   <string name="editing_error_spamblacklist">Foram detectadas ligações para domínios bloqueadas (%s). Remova-as e tente novamente.</string>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Elroy
 * Envlh
 * Festina90
 * Goefie
@@ -677,5 +678,6 @@
   <string name="multilingual_task_negative">Niet voor mij</string>
   <string name="multilingual_task_positive">Talen toevoegen</string>
   <string name="translation_source_description">%s beschrijving:</string>
+  <string name="translate_caption_task_title">Afbeeldingsbijschriften vertalen</string>
   <string name="add_title_descriptions_dialog_title">Titelbeschrijvingen toevoegen</string>
 </resources>

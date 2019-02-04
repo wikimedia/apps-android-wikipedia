@@ -675,11 +675,16 @@
   <string name="image_caption_task_description">Addició de llegendes a les imatges</string>
   <string name="multilingual_task_title">Més tasques per a editors multilingües</string>
   <string name="multilingual_task_description">Les tasques de traducció són disponibles si llegiu i escriviu en més d\'una llengua de la Viquipèdia.</string>
+  <string name="translation_task_title">Tradueix les descripcions dels títols</string>
+  <string name="translation_task_description">Tradueix les descripcions dels títols en altres llengües.</string>
   <string name="image_caption_edit_disable_text">Bloquejat fins que hàgiu fet %d edicions verificades des de l\'aplicació</string>
+  <string name="translate_description_edit_disable_text">Bloquejat fins que hàgiu editat %d descripcions de títol</string>
   <string name="multilingual_task_negative">No per a mi</string>
   <string name="multilingual_task_positive">Afegeix llengües</string>
   <string name="editing_level_text">NIVELL %d d\'editor d\'aplicació</string>
   <string name="translation_source_description">Descripció en %s:</string>
+  <string name="translate_caption_task_title">Tradueix les llegendes de les imatges</string>
+  <string name="translate_caption_task_description">Tradueix les llegendes en altres llengües</string>
   <plurals name="edit_action_contribution_count">
     <item quantity="one">contribució en l\'aplicació</item>
     <item quantity="other">contribucions en l\'aplicació</item>
@@ -689,4 +694,6 @@
   <string name="add_translate_descriptions_dialog_title">Esteu traduint descripcions de títol per primera vegada</string>
   <string name="add_translate_descriptions_dialog_message">Podeu ajudar a millorar la Viquipèdia traduint descripcions de títol. Podeu configurar les vostres llengües i definir un sentit de traducció en qualsevol moment.</string>
   <string name="description_edit_tutorial_message">Us donem la benvinguda a la nova pàgina inicial de l\'aplicació integrada d\'edició a la Viquipèdia. Des d\'aquí us suggerirem oportunitats per afegir contingut que pugui ser del vostre interès. Les vostres contribucions són molt benvingudes. Editeu-hi de gust!</string>
+  <string name="translation_description_edit_task_unlock_title">S\'ha desbloquejat la traducció de les descripcions dels títols!</string>
+  <string name="translation_description_edit_task_unlock_body">Hem notat que us agrada editar descripcions de títol i llegir la Viquipèdia en més d\'una llengua. Feu un cop d\'ull a aquesta llista de tasques, que us dóna accés a la traducció de més descripcions de títols!</string>
 </resources>

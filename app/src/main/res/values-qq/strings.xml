@@ -7,6 +7,7 @@
 * Kaganer
 * KuboF
 * Liuxinyu970226
+* MarcoAurelio
 * Matma Rex
 * McDutchie
 * Metalhead64
@@ -205,17 +206,17 @@
   <string name="user_logged_in_blocked_from_editing">Message shown in dialog box to users who are blocked from editing when they attempt to save an edit</string>
   <string name="user_anon_blocked_from_editing">Message shown in dialog box to users who are blocked from editing based on their IP address</string>
   <string name="edit_how_page_improved">Question that asks the user how they improved the article after editing</string>
-  <string name="edit_next">Button text to go \"next\" after the editing screen to the preview screen.\n{{Identical|Next}}</string>
+  <string name="edit_next">Button text in the editing screen to go to the next step - the preview screen.\n{{Identical|Next}}</string>
   <string name="edit_done">Button text to finish editing and save the changes.\n{{Identical|Publish}}</string>
   <string name="edit_preview">Header text to show above the preview of the edited article.\n{{Identical|Preview}}</string>
   <string name="edit_undo">Button label to undo the previous text that was typed.</string>
   <string name="edit_redo">Button label to redo the previous text that was typed.</string>
   <string name="edit_zoom_in">Button label to increase the text size in the editor window.</string>
   <string name="edit_zoom_out">Button label to decrease the text size in the editor window.</string>
-  <string name="edit_summary_tag_typo">Clickable summary tag for fixing a typo</string>
-  <string name="edit_summary_tag_grammar">Clickable summary tag for fixing grammar</string>
-  <string name="edit_summary_tag_links">Clickable summary tag for adding link(s)</string>
-  <string name="edit_summary_tag_other">Clickable summary tag for a custom/other edit summary text.\n{{Identical|Other}}</string>
+  <string name="edit_summary_tag_typo">Clickable summary tag for fixing a typo. A part of a list that includes:\n* {{msg-wm|Wikipedia-android-strings-edit summary tag typo}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag grammar}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag links}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag other}}</string>
+  <string name="edit_summary_tag_grammar">Clickable summary tag for fixing grammar. A part of a list that includes:\n* {{msg-wm|Wikipedia-android-strings-edit summary tag typo}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag grammar}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag links}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag other}}</string>
+  <string name="edit_summary_tag_links">Clickable summary tag for adding links. A part of a list that includes:\n* {{msg-wm|Wikipedia-android-strings-edit summary tag typo}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag grammar}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag links}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag other}}</string>
+  <string name="edit_summary_tag_other">Clickable summary tag for a custom/other edit summary text. A part of a list that includes:\n* {{msg-wm|Wikipedia-android-strings-edit summary tag typo}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag grammar}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag links}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag other}}\n{{Identical|Other}}</string>
   <string name="edit_summary_tag_other_hint">Hint (input field placeholder) for the user to write a custom summary of edits</string>
   <string name="edit_conflict_title">Title for dialog box that warns the user about an edit conflict.</string>
   <string name="edit_conflict_message">Message explaining to the user that the edit they are submitting is conflicting with the current state of the article, and instructs the user to go back and reload the page before trying to edit again.</string>
@@ -600,7 +601,7 @@
   <string name="editactionfeed_add_title_descriptions">Title of screen where the user chooses articles that are missing descriptions to be added.</string>
   <string name="editactionfeed_translate_descriptions">Title of screen where the user chooses descriptions to translate from one article to another.</string>
   <string name="editactionfeed_review_title_description">Title of the review title description page.</string>
-  <string name="editactionfeed_add_description_button">A button text for adding description.</string>
+  <string name="editactionfeed_add_description_button">A button text for adding description. Appears next to {{msg-wm|Wikipedia-android-strings-onboarding skip}}. (See also [https://phabricator.wikimedia.org/T214786 bug T214786].)</string>
   <string name="editactionfeed_my_contributions">A overflow menu text that leads to my contributions page</string>
   <string name="editactionfeed_from_language">A label shows that the current selected Wikipedia language for fetching articles.</string>
   <string name="editactionfeed_add_title_dialog_learn_more">A button text for leading users to the help page of editing title descriptions.</string>
@@ -618,7 +619,7 @@
     <item quantity="one">Message shown when an offline article pack has an estimated one minute remaining before the download is finished.</item>
     <item quantity="other">Message shown when an offline article pack has an estimated two or more minutes remaining before the download is finished.</item>
   </plurals>
-  <string name="onboarding_skip">Button label to skip the current onboarding or tutorial screen.\n{{Identical|Skip}}</string>
+  <string name="onboarding_skip">Button label to skip the current onboarding or tutorial screen.\n\nAppears next to {{msg-wm|Wikipedia-android-strings-editactionfeed add description button}}. (See also [https://phabricator.wikimedia.org/T214786 bug T214786].)\n{{Identical|Skip}}</string>
   <string name="onboarding_continue">Button label to continue to the next onboarding or tutorial screen.\n{{Identical|Continue}}</string>
   <string name="onboarding_get_started">Button label to finish the current onboarding or tutorial workflow.\n{{Identical|Get started}}</string>
   <string name="onboarding_maybe_later">Button label to dismiss the current onboarding or tutorial screen without any further action.</string>
@@ -647,8 +648,8 @@
   <string name="this_year">Text to say, \'This year\'</string>
   <string name="back_to_top">Button label for scrolling the content to the top.</string>
   <plurals name="diff_years">
-    <item quantity="one">Text indicating that the event occured one year ago.</item>
-    <item quantity="other">Text indicating that the event occured two or more years ago.\"%d\" is the number of years.</item>
+    <item quantity="one">Text indicating that the event occurred one year ago.</item>
+    <item quantity="other">Text indicating that the event occurred two or more years ago.\"%d\" is the number of years.</item>
   </plurals>
   <string name="languages_list_activity_title">Title shown at the top of the activity for selecting a wikipedia language.</string>
   <string name="languages_list_suggested_text">Section header of the suggested languages in the languages list.</string>

@@ -7,6 +7,7 @@
 * Mgaved
 * NehalDaveND
 * Nitin1485
+* Prong$31
 * Pulkitsingh01
 * Rajatkatiyar10
 * Rishi.Singh
@@ -193,6 +194,10 @@
   <string name="edit_next">अगला</string>
   <string name="edit_done">प्रकाशित करें</string>
   <string name="edit_preview">पूर्वावलोकन</string>
+  <string name="edit_undo">पूर्ववत करें</string>
+  <string name="edit_redo">पुनः करें</string>
+  <string name="edit_zoom_in">आकार बढ़ाएँ</string>
+  <string name="edit_zoom_out">आकार घटाएँ</string>
   <string name="edit_summary_tag_typo">छोटा सा सुधार किया।</string>
   <string name="edit_summary_tag_grammar">व्याकरण में सुधार</string>
   <string name="edit_summary_tag_links">कड़ियाँ लगाई</string>
@@ -496,4 +501,5 @@
     <item quantity="other">%d साल पहले</item>
   </plurals>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">নাই, নালাগে দিয়ক</string>
+  <string name="add_title_descriptions_dialog_title">शीर्षक विवरण जोड़ें</string>
 </resources>

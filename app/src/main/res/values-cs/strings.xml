@@ -31,7 +31,7 @@
   <string name="search_hint_search_reading_list">Hledat v seznamech k přečtení</string>
   <string name="search_hint_search_languages">Hledat jazyk</string>
   <string name="nav_item_history">Historie</string>
-  <string name="error_network_error">Nelze se připojit k internetu.</string>
+  <string name="error_network_error">Nejste připojeni k internetu.</string>
   <string name="page_error_retry">Zkusit znovu</string>
   <string name="page_error_back_to_main">Vrátit se</string>
   <string name="menu_clear_all_history">Vymazat historii</string>
@@ -71,8 +71,8 @@
   <string name="other_languages_indication_text">Přečíst v jiném jazyce</string>
   <string name="language_count_link_text">Dostupný v %d dalších jazycích</string>
   <string name="content_license_html">Obsah je dostupný pod &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, pokud není uvedeno jinak</string>
-  <string name="edit_save_action_license_logged_in">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. &lt;/br&gt;Editace bude přiřazena k IP adrese vašeho zařízení.&lt;br /&gt; Po &lt;a href=\"https://#login\"&gt;přihlášení&lt;/a&gt; budete mít více soukromí.</string>
+  <string name="edit_save_action_license_logged_in">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. &lt;/br&gt;Editace bude přiřazena k IP adrese vašeho zařízení.&lt;br /&gt; Po &lt;a href=\"https://#login\"&gt;přihlášení&lt;/a&gt; budete mít více soukromí.</string>
   <string name="preference_title_language">Jazyky Wikipedie</string>
   <string name="langlinks_filter_hint">Hledat</string>
   <string name="langlinks_empty">Tato stránka není k dispozici v jiných jazycích.</string>
@@ -101,7 +101,7 @@
   <string name="nav_item_login">Přihlásit se do Wikipedie</string>
   <string name="login_username_hint">Uživatelské jméno</string>
   <string name="login_password_hint">Heslo</string>
-  <string name="login_2fa_hint">Dvoufaktorová autentizace</string>
+  <string name="login_2fa_hint">Dvoufaktorový autentizační kód</string>
   <string name="login_2fa_other_workflow_error_msg">Dvoufaktorová autentizace je povinná! Vraťte se k hlavní aktivitě a přihlaste se pomocí tokenu 2FA, poté to zkuste znovu.</string>
   <string name="menu_login">Přihlásit se</string>
   <string name="login_activity_title">Přihlášení do Wikipedie</string>
@@ -161,7 +161,7 @@
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Tato akce odstraní všechny předtím synchronizované seznamy k přečtení z úložného prostoru. Odstranit všechny synchronizované seznamy z vašeho účtu „%s“?</string>
   <string name="preferences_privacy_settings_heading">Soukromí</string>
   <string name="preference_title_eventlogging_opt_in">Odesílat zprávy o využití</string>
-  <string name="preference_summary_eventlogging_opt_in">Umožnit nadaci Wikimedia sbírat informace o tom, jak aplikaci používáte, abychom ji mohli zlepšovat.</string>
+  <string name="preference_summary_eventlogging_opt_in">Umožní nadaci Wikimedia sbírat informace o tom, jak aplikaci používáte, abychom ji mohli zlepšovat.</string>
   <string name="preference_title_auto_upload_crash_reports">Posílat zprávy o chybách</string>
   <string name="preference_summary_auto_upload_crash_reports">Umožní aplikaci automaticky odesílat hlášení o chybách do HockeyApp, poskytovateli služeb třetích stran, abychom mohli chybu přezkoumat a opravit chybu rychleji a jednodušeji.</string>
   <string name="editing_error_spamblacklist">Detekovány odkazy na zablokované domény (%s). Odstraňte je prosím a zkuste to znovu.</string>
@@ -193,7 +193,7 @@
   <string name="about_app_license_heading">Licence</string>
   <string name="about_app_license">Zdrojový kód je dostupný na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; za podmínek &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Pokud není uvedeno jinak, obsah je dostupný za podmínek &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie:Text_licence_Creative_Commons_Attribution-ShareAlike_3.0_Unported\"&gt;licence Creative Commons Uveďte autora – Zachovejte licenci&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"https://wikimediafoundation.org/\"&gt;nadace Wikimedia&lt;/a&gt;</string>
-  <string name="about_activity_title">O aplikaci</string>
+  <string name="about_activity_title">O aplikaci Wikipedie</string>
   <string name="edit_abandon_confirm">Stránka byla změněna. Jste si jisti, že chcete odejít bez uložení změn?</string>
   <string name="edit_abandon_confirm_yes">Ano</string>
   <string name="edit_abandon_confirm_no">Ne</string>
@@ -243,7 +243,7 @@
   <string name="alpha_update_notification_text">Klepnutím ji stáhnete</string>
   <string name="dialog_close_description">Zavřít</string>
   <string name="preference_title_show_images">Zobrazovat obrázky</string>
-  <string name="preference_summary_show_images">Povolit nebo zakázat načítání obrázků na jednotlivých stránkách. Máte-li pomalé připojení k internetu nebo omezený datový limit, odškrtněte toto nastavení.</string>
+  <string name="preference_summary_show_images">Načítání obrázků na jednotlivých stránkách. Toto nastavení je doporučeno pro uživatele, kteří mají pomalé připojení k internetu nebo omezený datový limit.</string>
   <string name="preference_title_download_only_over_wifi">Stahovat pouze přes Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Chcete stahovat pomocí mobilních dat?</string>
   <string name="dialog_text_download_only_over_wifi">Máte zapnutou funkci „Stahování pouze přes Wi-Fi“ v Nastavení. Chcete povolit používání mobilního dat pouze pro toto stahování?</string>
@@ -293,7 +293,7 @@
   <string name="button_continue_to_disambiguation">Zobrazit podobné stránky</string>
   <string name="link_preview_disambiguation_description">Tento název má více než jedna stránka:</string>
   <string name="button_add_to_reading_list">Přidat do seznamu k přečtení</string>
-  <string name="page_offline_notice_cannot_load_while_offline">Články nelze načítat bez připojení k internetu.</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Nejste připojeni k internetu.</string>
   <string name="page_offline_notice_add_to_reading_list">Tip: Pokud článek přidáte do seznamu k přečtení, stáhne se, jakmile budete znovu připojeni.</string>
   <string name="page_offline_notice_last_date">Právě možná čtete neaktuální verzi tohoto článku, která byla uložena %s.</string>
   <string name="button_get_directions">Najít trasu</string>
@@ -313,7 +313,7 @@
   <string name="error_message_generic">Došlo k chybě</string>
   <string name="view_link_preview_error_button_dismiss">Skrýt</string>
   <string name="error_page_does_not_exist">Tato stránka neexistuje</string>
-  <string name="view_wiki_error_message_offline">Nelze se připojit k internetu</string>
+  <string name="view_wiki_error_message_offline">Nejste připojeni k internetu.</string>
   <string name="reference_title">Reference %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Ztmavení obrázků (v Tmavém a Černém motivu)</string>
   <string name="preference_title_prefer_offline_content">Preferovat offline obsah</string>
@@ -445,8 +445,8 @@
     <item quantity="other">Tyto články budou dostupné bez připojení k internetu.</item>
   </plurals>
   <plurals name="reading_list_article_not_offline_message">
-    <item quantity="one">Tento článek nebude dostupný bez připojení k internetu.</item>
-    <item quantity="other">Tyto články nebudou dostupné bez připojení k internetu.</item>
+    <item quantity="one">Tento článek nebude nadále dostupný bez připojení k internetu.</item>
+    <item quantity="other">Tyto články nebudou nadále dostupné bez připojení k internetu.</item>
   </plurals>
   <string name="reading_list_toast_last_sync">Seznamy k přečtení byly úspěšně synchronizovány</string>
   <string name="reading_list_menu_last_sync">Poslední synchronizace: %s</string>
@@ -538,7 +538,7 @@
   <string name="view_continue_reading_card_subtitle_read_date">Přečteno %s</string>
   <string name="view_announcement_card_negative_action">Ne, děkuji</string>
   <string name="view_offline_card_text">Obsah nemůže být načten offline.</string>
-  <string name="view_featured_article_card_title">Vybraný článek</string>
+  <string name="view_featured_article_card_title">Doporučený článek</string>
   <string name="view_featured_article_footer_save_button_label">Uložit</string>
   <string name="view_featured_article_footer_saved_button_label">Uložit</string>
   <string name="edit_tasks_activity_title">Úkoly pro editaci z aplikace</string>
@@ -550,7 +550,7 @@
   <string name="feed_item_type_news">Články o aktuálních událostech</string>
   <string name="feed_item_type_on_this_day">Historické události v tento den</string>
   <string name="feed_item_type_because_you_read">Návrhy založené na nedávno přečteném článku z historie</string>
-  <string name="feed_item_type_featured_article">Vybraný doporučený článek na Wikipedii</string>
+  <string name="feed_item_type_featured_article">Doporučený článek na Wikipedii</string>
   <string name="feed_item_type_trending">Nejčastěji prohlížené články za tento den</string>
   <string name="feed_item_type_featured_image">Denní doporučný obrázek z Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Hlavní strana Wikipedie s každodenním obsahem</string>
@@ -591,7 +591,7 @@
   <string name="description_edit_help_tips_example1">obraz Leonarda da Vinciho</string>
   <string name="description_edit_help_tips_example1_hint">popis článku o Mona Lise</string>
   <string name="description_edit_help_tips_example2">nejvyšší hora na Zemi</string>
-  <string name="description_edit_help_tips_example2_hint">popis článku o Mount Everest</string>
+  <string name="description_edit_help_tips_example2_hint">popis článku o Mount Everestu</string>
   <string name="description_edit_help_more_info">Více informací</string>
   <string name="description_edit_help_meta_info">Popisy jsou uložené ve Wikidatech, projektu &lt;a href=\"http://cs.m.wikipedia.org/wiki/Nadace_Wikimedia\"&gt;nadace Wikimedia&lt;/a&gt;, který poskytuje svobodnou, společně vytvářenou, vícejazyčnou sekundární databázi podporující Wikipedii a další projekty.</string>
   <string name="editactionfeed_add_title_descriptions">Přidat popis článku</string>
@@ -632,8 +632,8 @@
   <string name="onboarding_got_it">Rozumím</string>
   <string name="onboarding_multilingual_secondary_text">Na vašem zařízení jsme našli následující jazyky:</string>
   <string name="onboarding_multilingual_add_language_text">Přidat nebo editovat jazyky</string>
-  <string name="onboarding_welcome_title_v2">Otevřená encyklopedie\n...v téměř 300 jazycích</string>
-  <string name="app_shortcuts_random">Náhodně</string>
+  <string name="onboarding_welcome_title_v2">Otevřená encyklopedie\n...ve více než 300 jazycích</string>
+  <string name="app_shortcuts_random">Náhodný článek</string>
   <string name="app_shortcuts_continue_reading">Pokračovat ve čtení</string>
   <string name="app_shortcuts_search">Hledat</string>
   <string name="more_trending_text">Podobné články</string>
@@ -680,7 +680,7 @@
   <string name="multilingual_task_description">Tipy k překladu budou k dispozici, pokud čtete a píšete ve více než jednom jazyce Wikipedie.</string>
   <string name="translation_task_title">Překládat popisy článků</string>
   <string name="translation_task_description">Přeložit popisy článků do jiných jazyků.</string>
-  <string name="image_caption_edit_disable_text">Zamknuto, dokud neprovedete %d ověřených editací v aplikaci aplikaci</string>
+  <string name="image_caption_edit_disable_text">Zamknuto, dokud neprovedete %d ověřených editací v aplikaci</string>
   <string name="translate_description_edit_disable_text">Zamčeno, dokud neupravíte %d popisů článků</string>
   <string name="multilingual_task_negative">Není pro mě</string>
   <string name="multilingual_task_positive">Přidat jazyky</string>
