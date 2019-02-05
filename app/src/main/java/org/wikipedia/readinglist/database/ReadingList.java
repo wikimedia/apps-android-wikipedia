@@ -8,11 +8,12 @@ import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ReadingList {
+public class ReadingList implements Serializable {
     public static final int SORT_BY_NAME_ASC = 0;
     public static final int SORT_BY_NAME_DESC = 1;
     public static final int SORT_BY_RECENT_ASC = 2;
