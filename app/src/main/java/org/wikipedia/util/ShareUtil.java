@@ -90,7 +90,7 @@ public final class ShareUtil {
     public static Intent buildImageShareChooserIntent(Context context, String subject, String text, Uri uri) {
         Intent shareIntent = createImageShareIntent(subject, text, uri);
         return Intent.createChooser(shareIntent,
-                context.getResources().getString(R.string.share_via));
+                context.getResources().getString(R.string.image_share_via));
     }
 
 

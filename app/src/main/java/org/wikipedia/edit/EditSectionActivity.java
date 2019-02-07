@@ -548,7 +548,7 @@ public class EditSectionActivity extends BaseActivity {
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                 actionMode = mode;
-                MenuItem menuItem = menu.add(R.string.menu_page_find_in_page);
+                MenuItem menuItem = menu.add(R.string.edit_section_find_in_page);
                 menuItem.setActionProvider(new FindInEditorActionProvider(sectionScrollView, sectionText, syntaxHighlighter, actionMode));
                 menuItem.expandActionView();
                 return true;

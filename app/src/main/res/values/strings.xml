@@ -7,6 +7,7 @@
     <string name="wikimedia">Wikimedia</string>
 
     <string name="nav_item_back">Back</string>
+    <string name="page_tabs_back">Back</string>
     <string name="nav_item_forward">Forward</string>
     <string name="search_hint">Search Wikipedia</string>
     <string name="search_hint_search_history">Search history</string>
@@ -16,11 +17,17 @@
     <string name="nav_item_history">History</string>
     <string name="error_network_error">Cannot connect to the Internet.</string>
     <string name="page_error_retry">Retry</string>
+    <string name="card_offline_error_retry">Retry</string>
+    <string name="storage_access_error_retry">Retry</string>
+    <string name="article_load_error_retry">Retry</string>
+    <string name="offline_load_error_retry">Retry</string>
     <string name="page_error_back_to_main">Go back</string>
+    <string name="error_back">Go back</string>
     <string name="menu_clear_all_history">Clear history</string>
     <string name="history_item_deleted">%s removed from history</string>
     <string name="history_items_deleted">%d articles removed from history</string>
     <string name="history_item_delete_undo">Undo</string>
+    <string name="notification_archive_undo">Undo</string>
     <string name="app_settings">App settings</string>
 
     <!-- Saved pages -->
@@ -29,14 +36,17 @@
     <string name="dialog_message_clear_history_yes">Yes</string>
     <string name="dialog_message_clear_history_no">No</string>
     <string name="share_via">Share via</string>
+    <string name="image_share_via">Share via</string>
     <string name="search_redirect_from">Redirected from %s</string>
 
     <!-- Page toolbar menu -->
     <string name="menu_page_show_tabs">Show tabs</string>
     <string name="menu_page_other_languages">Change language</string>
     <string name="menu_page_find_in_page">Find in page</string>
+    <string name="edit_section_find_in_page">Find in page</string>
     <string name="menu_page_font_and_theme">Font and theme</string>
     <string name="menu_page_add_to_list">Add to reading list</string>
+    <string name="feed_card_add_to_list">Add to reading list</string>
     <string name="menu_page_share">Share link</string>
     <string name="menu_page_open_a_new_tab">Open a new tab</string>
     <string name="menu_page_reading_lists">Reading lists</string>
@@ -51,6 +61,9 @@
     <string name="menu_text_select_copy">Copy</string>
     <string name="menu_text_select_define">Define</string>
     <string name="menu_text_select_share">Share</string>
+    <string name="share">Share</string>
+    <string name="on_this_day_page_share">Share</string>
+    <string name="reading_list_page_share">Share</string>
     <string name="menu_text_select_edit_here">Edit here</string>
 
     <!-- Nearby -->
@@ -95,8 +108,13 @@
     <string name="nav_item_login">Log in to Wikipedia</string>
     <string name="login_username_hint">Username</string>
     <string name="login_password_hint">Password</string>
+    <string name="account_creation_password_hint">Password</string>
     <string name="login_2fa_hint">Two-Factor Authentication Code</string>
     <string name="login_2fa_other_workflow_error_msg">Two-factor authentication required!  Please return to the main activity and log in with your 2FA token, then retry.</string>
+    <string name="onboarding_card_login">Log in</string>
+    <string name="page_editing_login">Log in</string>
+    <string name="reading_lists_sync_login">Log in</string>
+    <string name="create_account_login">Log in</string>
     <string name="menu_login">Log in</string>
     <string name="login_activity_title">Log in to Wikipedia</string>
     <string name="login_in_progress_dialog_message">Logging you in…</string>
@@ -552,9 +570,11 @@
     <string name="view_continue_reading_card_subtitle_today">today</string>
     <string name="view_continue_reading_card_subtitle_read_date">Read %s</string>
     <string name="view_announcement_card_negative_action">No thanks</string>
+    <string name="onboarding_negative_action">No thanks</string>
     <string name="view_offline_card_text">Content cannot be loaded when offline.</string>
     <string name="view_featured_article_card_title">Featured article</string>
     <string name="view_featured_article_footer_save_button_label">Save</string>
+    <string name="view_static_card_save_button_label">Save</string>
     <string name="view_featured_article_footer_saved_button_label">Saved</string>
     <string name="edit_tasks_activity_title">App editor tasks</string>
     <string name="feed_configure_activity_title">Customize the feed</string>
@@ -631,6 +651,7 @@
     <string name="editactionfeed_my_contributions">My contributions</string>
     <string name="editactionfeed_from_language">From: </string>
     <string name="editactionfeed_add_title_dialog_learn_more">Learn more</string>
+    <string name="editactionfeed_translate_title_dialog_learn_more">Learn more</string>
     <string name="editactionfeed_to_language">To: </string>
     <!-- /Edit action feed -->
 
@@ -749,4 +770,11 @@
     <string name="description_edit_tutorial_message">Welcome to the new home for in-app editing on Wikipedia. Here we will suggest opportunities to add content that might be of interest to you. Your contributions are much appreciated. Happy editing!</string>
     <string name="translation_description_edit_task_unlock_title">Translating title descriptions editing has been unlocked!</string>
     <string name="translation_description_edit_task_unlock_body">We’ve noticed you like editing title descriptions and read Wikipedia in multiple languages. Check out this task list which gives access to translating more title descriptions!</string>
+    <string name="title_description_editing_skip">Skip</string>
+    <string name="title_description_get_started">Get started</string>
+    <string name="translate_description_get_started">Get started</string>
+    <string name="edit_tasks_onboarding_get_started">Get started</string>
+    <string name="translate_descriptions_maybe_later">Maybe later</string>
+    <string name="title_descriptions_onboarding_got_it">Got it</string>
+    <string name="translate_descriptions_onboarding_got_it">Got it</string>
 </resources>

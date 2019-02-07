@@ -105,7 +105,7 @@ public class WikiErrorView extends LinearLayout {
 
 
         PAGE_OFFLINE(R.drawable.ic_no_article, R.string.page_offline_notice_cannot_load_while_offline,
-                R.string.page_error_retry, R.string.page_offline_notice_add_to_reading_list) {
+                R.string.article_load_error_retry, R.string.page_offline_notice_add_to_reading_list) {
             @Nullable @Override
             OnClickListener buttonClickListener(@NonNull WikiErrorView errorView) {
                 return errorView.getRetryListener();
@@ -113,7 +113,7 @@ public class WikiErrorView extends LinearLayout {
         },
 
         OFFLINE(R.drawable.ic_portable_wifi_off_black_24px, R.string.view_wiki_error_message_offline,
-                R.string.page_error_retry) {
+                R.string.offline_load_error_retry) {
             @Nullable @Override
             OnClickListener buttonClickListener(@NonNull WikiErrorView errorView) {
                 return errorView.getRetryListener();
@@ -121,7 +121,7 @@ public class WikiErrorView extends LinearLayout {
         },
 
         GENERIC(R.drawable.ic_error_black_24dp, R.string.error_message_generic,
-                R.string.page_error_back_to_main) {
+                R.string.error_back) {
             @Nullable @Override
             OnClickListener buttonClickListener(@NonNull WikiErrorView errorView) {
                 return errorView.getBackListener();

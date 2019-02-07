@@ -165,7 +165,7 @@ class AddTitleDescriptionsFragment : Fragment() {
             AlertDialog.Builder(requireActivity())
                     .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.add_title_descriptions_dialog_title, R.drawable.ic_dialog_image_title_descriptions, false))
                     .setMessage(R.string.add_title_descriptions_dialog_message)
-                    .setPositiveButton(R.string.onboarding_got_it, null)
+                    .setPositiveButton(R.string.title_descriptions_onboarding_got_it, null)
                     .setNegativeButton(R.string.editactionfeed_add_title_dialog_learn_more) { _, _ ->
                         startActivity(DescriptionEditHelpActivity.newIntent(requireContext()))
                     }
@@ -177,8 +177,8 @@ class AddTitleDescriptionsFragment : Fragment() {
             AlertDialog.Builder(requireActivity())
                     .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.add_translate_descriptions_dialog_title, R.drawable.ic_dialog_image_title_descriptions, false))
                     .setMessage(R.string.add_translate_descriptions_dialog_message)
-                    .setPositiveButton(R.string.onboarding_got_it, null)
-                    .setNegativeButton(R.string.editactionfeed_add_title_dialog_learn_more) { _, _ ->
+                    .setPositiveButton(R.string.translate_descriptions_onboarding_got_it, null)
+                    .setNegativeButton(R.string.editactionfeed_translate_title_dialog_learn_more) { _, _ ->
                         startActivity(DescriptionEditHelpActivity.newIntent(requireContext()))
                     }
                     .show()

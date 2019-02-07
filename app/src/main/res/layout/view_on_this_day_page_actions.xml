@@ -77,6 +77,6 @@
             android:gravity="center_vertical"
             android:textColor="?attr/primary_text_color"
             android:textSize="16sp"
-            android:text="@string/menu_text_select_share"/>
+            android:text="@string/on_this_day_page_share"/>
     </LinearLayout>
 </merge>

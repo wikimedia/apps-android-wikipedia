@@ -45,7 +45,7 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
             AlertDialog.Builder(this)
                     .setCustomTitle(DialogTitleWithImage(this, R.string.translation_description_edit_task_unlock_title, R.drawable.ic_illustration_description_edit_trophy, true))
                     .setMessage(R.string.translation_description_edit_task_unlock_body)
-                    .setPositiveButton(R.string.onboarding_get_started) { _, _ ->startActivity(AddTitleDescriptionsActivity.newIntent(this, EDIT_TASKS_TRANSLATE_TITLE_DESC_SOURCE)) }
+                    .setPositiveButton(R.string.translate_description_get_started) { _, _ ->startActivity(AddTitleDescriptionsActivity.newIntent(this, EDIT_TASKS_TRANSLATE_TITLE_DESC_SOURCE)) }
                     .setNegativeButton(R.string.onboarding_maybe_later, null)
                     .show()
         }
@@ -95,7 +95,7 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
             AlertDialog.Builder(context)
                     .setCustomTitle(DialogTitleWithImage(context, R.string.description_edit_task_unlock_title, R.drawable.ic_illustration_description_edit_trophy, true))
                     .setMessage(R.string.description_edit_task_unlock_body)
-                    .setPositiveButton(R.string.onboarding_get_started) { _, _ -> context.startActivity(AddTitleDescriptionsActivity.newIntent(context, EDIT_TASKS_TITLE_DESC_SOURCE)) }
+                    .setPositiveButton(R.string.title_description_get_started) { _, _ -> context.startActivity(AddTitleDescriptionsActivity.newIntent(context, EDIT_TASKS_TITLE_DESC_SOURCE)) }
                     .setNegativeButton(R.string.onboarding_maybe_later, null)
                     .show()
         }
