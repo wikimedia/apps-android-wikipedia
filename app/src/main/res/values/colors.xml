@@ -42,6 +42,8 @@
     <color name="kraft">#cbc8c1</color>
     <color name="masi">#6c6760</color>
     <color name="osage">#ff9500</color>
+    <color name="osage_translucent">#80ff9500</color>
+    <color name="parchment">#f8f1e3</color>
 
     <!-- Light and Dark mode consolidation-->
     <color name="black87">#DE000000</color>
