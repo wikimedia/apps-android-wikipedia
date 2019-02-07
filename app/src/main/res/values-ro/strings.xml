@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Danutz
+* Dbrant
 * Ely en
 * Envlh
 * Fitoschido
@@ -29,8 +30,8 @@
   <string name="page_error_retry">Reîncercare</string>
   <string name="page_error_back_to_main">Înapoi</string>
   <string name="menu_clear_all_history">Curăță istoricul</string>
-  <string name="history_item_deleted" fuzzy="true">%s îndepărtate din istoric</string>
-  <string name="history_items_deleted" fuzzy="true">%d articole îndepărtate din istoric</string>
+  <string name="history_item_deleted">%s îndepărtate din istoric</string>
+  <string name="history_items_deleted">%d articole îndepărtate din istoric</string>
   <string name="history_item_delete_undo">Anulează</string>
   <string name="app_settings">Setările din aplicație</string>
   <string name="dialog_title_clear_history">Curățare istoric de navigare</string>
