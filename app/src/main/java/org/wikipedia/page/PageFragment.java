@@ -679,17 +679,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.homeAsUp:
-                // TODO SEARCH: add up navigation, see also http://developer.android.com/training/implementing-navigation/ancestral.html
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
     public void sharePageLink() {
         if (getPage() != null) {
             ShareUtil.shareText(requireActivity(), getPage().getTitle());
