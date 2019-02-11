@@ -226,7 +226,7 @@ public class ShareHandler {
 
     private void showShareToolTip(@NonNull View shareItemView) {
         FeedbackUtil.showTapTargetView(fragment.requireActivity(), shareItemView,
-                R.string.menu_text_select_share, R.string.tool_tip_share, null);
+                R.string.share, R.string.tool_tip_share, null);
     }
 
     private void leaveActionMode() {

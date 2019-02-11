@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_gravity="bottom|end"
-            android:text="@string/onboarding_get_started"
+            android:text="@string/edit_tasks_onboarding_get_started"
             android:textColor="?attr/colorAccent" />
 
     </FrameLayout>

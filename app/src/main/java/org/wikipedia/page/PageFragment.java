@@ -999,7 +999,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             if (!AccountUtil.isLoggedIn() && Prefs.getTotalAnonDescriptionsEdited() >= getResources().getInteger(R.integer.description_max_anon_edits)) {
                 new AlertDialog.Builder(requireActivity())
                         .setMessage(R.string.description_edit_anon_limit)
-                        .setPositiveButton(R.string.menu_login, (DialogInterface dialogInterface, int i) ->
+                        .setPositiveButton(R.string.page_editing_login, (DialogInterface dialogInterface, int i) ->
                                 startActivity(LoginActivity.newIntent(requireContext(), LoginFunnel.SOURCE_EDIT)))
                         .setNegativeButton(android.R.string.cancel, null)
                         .show();

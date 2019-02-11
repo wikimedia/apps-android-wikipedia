@@ -165,7 +165,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private void showStoragePermissionSnackbar() {
         Snackbar snackbar = FeedbackUtil.makeSnackbar(this,
                 getString(R.string.offline_read_permission_rationale), FeedbackUtil.LENGTH_DEFAULT);
-        snackbar.setAction(R.string.page_error_retry, (v) -> requestStoragePermission());
+        snackbar.setAction(R.string.storage_access_error_retry, (v) -> requestStoragePermission());
         snackbar.show();
     }
 

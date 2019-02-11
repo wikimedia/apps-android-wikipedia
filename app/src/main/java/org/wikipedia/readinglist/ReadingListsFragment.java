@@ -643,7 +643,7 @@ public class ReadingListsFragment extends Fragment implements SortReadingListsDi
             onboardingView.setTitle(R.string.reading_list_login_reminder_title);
             onboardingView.setText(R.string.reading_lists_login_reminder_text);
             onboardingView.setNegativeAction(R.string.reading_lists_onboarding_got_it);
-            onboardingView.setPositiveAction(R.string.menu_login);
+            onboardingView.setPositiveAction(R.string.reading_lists_sync_login);
             onboardingContainer.addView(onboardingView);
             onboardingView.setCallback(new LoginReminderOnboardingCallback());
         }

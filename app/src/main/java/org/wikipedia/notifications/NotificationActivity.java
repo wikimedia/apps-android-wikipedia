@@ -326,7 +326,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
     private void showDeleteItemsUndoSnackbar(final List<NotificationListItemContainer> items) {
         Snackbar snackbar = FeedbackUtil.makeSnackbar(this, getResources().getQuantityString(R.plurals.notification_archive_message, items.size(), items.size()),
                 FeedbackUtil.LENGTH_DEFAULT);
-        snackbar.setAction(R.string.history_item_delete_undo, v -> deleteItems(items, true));
+        snackbar.setAction(R.string.notification_archive_undo, v -> deleteItems(items, true));
         snackbar.show();
     }
 

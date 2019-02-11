@@ -54,7 +54,7 @@
                     android:id="@+id/view_wiki_error_button"
                     style="@style/App.Button.White"
                     android:layout_margin="16dp"
-                    android:text="@string/page_error_back_to_main" />
+                    android:text="@string/error_back" />
             </LinearLayout>
 
             <LinearLayout

@@ -97,7 +97,7 @@
             android:layout_weight="1"
             android:background="?attr/paper_color"
             android:foreground="?attr/selectableItemBackground"
-            android:text="@string/onboarding_skip" />
+            android:text="@string/title_description_editing_skip" />
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/addDescriptionButton"
