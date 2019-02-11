@@ -540,11 +540,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         // find the tab in which this title appears...
         int selectedTabPosition = -1;
         for (Tab tab : app.getTabList()) {
-            for (PageBackStackItem item : tab.getBackStack()) {
-                if (item.getTitle().equals(title)) {
-                    selectedTabPosition = app.getTabList().indexOf(tab);
-                    break;
-                }
+            if (tab.getBackStackPositionTitle() != null && tab.getBackStackPositionTitle().equals(title)) {
+                selectedTabPosition = app.getTabList().indexOf(tab);
+                break;
             }
         }
         if (selectedTabPosition == -1) {
