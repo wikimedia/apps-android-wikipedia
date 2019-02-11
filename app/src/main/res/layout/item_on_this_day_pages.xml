@@ -16,7 +16,7 @@
             android:id="@+id/page_list_item_image"
             android:layout_width="72dp"
             android:layout_height="match_parent"
-            app:backgroundImage="@color/base80"
+            app:backgroundImage="?android:attr/windowBackground"
             app:actualImageScaleType="centerCrop" />
 
         <LinearLayout

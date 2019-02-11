@@ -30,7 +30,7 @@
         android:textAllCaps="true"
         android:textSize="14sp"
         android:lineSpacingExtra="8sp"
-        android:textColor="?colorPrimary"
+        android:textColor="?colorAccent"
         android:fontFamily="sans-serif-medium"
         tools:text="Lorem ipsum"/>
 
