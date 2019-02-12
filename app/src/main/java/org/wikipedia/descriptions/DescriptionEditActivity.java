@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.history.HistoryEntry;
@@ -67,7 +68,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     public void onLinkPreviewAddToList(@NonNull PageTitle title) {
         bottomSheetPresenter.show(getSupportFragmentManager(),
                 AddToReadingListDialog.newInstance(title,
-                        AddToReadingListDialog.InvokeSource.LINK_PREVIEW_MENU));
+                        Constants.InvokeSource.LINK_PREVIEW_MENU));
     }
 
     @Override

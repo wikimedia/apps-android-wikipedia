@@ -22,6 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.OnThisDayFunnel;
@@ -276,7 +277,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     public void onAddPageToList(@NonNull HistoryEntry entry) {
         bottomSheetPresenter.show(getChildFragmentManager(),
                 AddToReadingListDialog.newInstance(entry.getTitle(),
-                        AddToReadingListDialog.InvokeSource.ON_THIS_DAY_ACTIVITY));
+                        Constants.InvokeSource.ON_THIS_DAY_ACTIVITY));
     }
 
     @Override

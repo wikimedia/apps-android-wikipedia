@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.FeedFunnel;
@@ -93,7 +94,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     public void onAddPageToList(@NonNull HistoryEntry entry) {
         bottomSheetPresenter.show(((AppCompatActivity)getContext()).getSupportFragmentManager(),
                 AddToReadingListDialog.newInstance(entry.getTitle(),
-                        AddToReadingListDialog.InvokeSource.ON_THIS_DAY_ACTIVITY));
+                        Constants.InvokeSource.ON_THIS_DAY_ACTIVITY));
     }
 
     @Override

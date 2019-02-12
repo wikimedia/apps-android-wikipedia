@@ -65,7 +65,6 @@ import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.leadimages.PageHeaderView;
 import org.wikipedia.page.shareafact.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
-import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
@@ -125,7 +124,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         void onPageShowToolbar();
         void onPageHideSoftKeyboard();
         void onPageAddToReadingList(@NonNull PageTitle title,
-                                    @NonNull AddToReadingListDialog.InvokeSource source);
+                                    @NonNull Constants.InvokeSource source);
         void onPageRemoveFromReadingLists(@NonNull PageTitle title);
         void onPageLoadError(@NonNull PageTitle title);
         void onPageLoadErrorBackPressed();
@@ -179,7 +178,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 new ReadingListBookmarkMenu(tabLayout, new ReadingListBookmarkMenu.Callback() {
                     @Override
                     public void onAddRequest(@Nullable ReadingListPage page) {
-                        addToReadingList(getTitle(), AddToReadingListDialog.InvokeSource.BOOKMARK_BUTTON);
+                        addToReadingList(getTitle(), Constants.InvokeSource.BOOKMARK_BUTTON);
                     }
 
                     @Override
@@ -195,7 +194,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     }
                 }).show(getTitle());
             } else {
-                addToReadingList(getTitle(), AddToReadingListDialog.InvokeSource.BOOKMARK_BUTTON);
+                addToReadingList(getTitle(), Constants.InvokeSource.BOOKMARK_BUTTON);
             }
         }
 
@@ -1165,7 +1164,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    public void addToReadingList(@NonNull PageTitle title, @NonNull AddToReadingListDialog.InvokeSource source) {
+    public void addToReadingList(@NonNull PageTitle title, @NonNull Constants.InvokeSource source) {
         Callback callback = callback();
         if (callback != null) {
             callback.onPageAddToReadingList(title, source);

@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.RandomizerFunnel;
@@ -152,7 +153,7 @@ public class RandomFragment extends Fragment {
     public void onAddPageToList(@NonNull PageTitle title) {
         bottomSheetPresenter.show(getChildFragmentManager(),
                 AddToReadingListDialog.newInstance(title,
-                        AddToReadingListDialog.InvokeSource.RANDOM_ACTIVITY,
+                        Constants.InvokeSource.RANDOM_ACTIVITY,
                         (DialogInterface dialogInterface) -> updateSaveShareButton(title)));
     }
 

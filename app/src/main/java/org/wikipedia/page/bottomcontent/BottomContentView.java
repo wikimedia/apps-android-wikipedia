@@ -34,7 +34,6 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageContainerLongPressHandler;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
@@ -449,12 +448,12 @@ public class BottomContentView extends LinearLayoutOverWebView
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(pageInList -> {
                         if (!pageInList) {
-                            parentFragment.addToReadingList(pageTitle, AddToReadingListDialog.InvokeSource.READ_MORE_BOOKMARK_BUTTON);
+                            parentFragment.addToReadingList(pageTitle, Constants.InvokeSource.READ_MORE_BOOKMARK_BUTTON);
                         } else {
                             new ReadingListBookmarkMenu(view, new ReadingListBookmarkMenu.Callback() {
                                 @Override
                                 public void onAddRequest(@Nullable ReadingListPage page) {
-                                    parentFragment.addToReadingList(pageTitle, AddToReadingListDialog.InvokeSource.READ_MORE_BOOKMARK_BUTTON);
+                                    parentFragment.addToReadingList(pageTitle, Constants.InvokeSource.READ_MORE_BOOKMARK_BUTTON);
                                 }
 
                                 @Override

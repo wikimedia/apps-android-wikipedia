@@ -249,7 +249,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Override public void onFeedAddPageToList(HistoryEntry entry) {
         bottomSheetPresenter.show(getChildFragmentManager(),
                 AddToReadingListDialog.newInstance(entry.getTitle(),
-                        AddToReadingListDialog.InvokeSource.FEED));
+                        Constants.InvokeSource.FEED));
     }
 
     @Override
@@ -359,7 +359,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     public void onLinkPreviewAddToList(@NonNull PageTitle title) {
         bottomSheetPresenter.show(getChildFragmentManager(),
                 AddToReadingListDialog.newInstance(title,
-                        AddToReadingListDialog.InvokeSource.LINK_PREVIEW_MENU));
+                        Constants.InvokeSource.LINK_PREVIEW_MENU));
     }
 
     @Override

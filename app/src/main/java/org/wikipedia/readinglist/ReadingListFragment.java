@@ -560,7 +560,7 @@ public class ReadingListFragment extends Fragment implements
             }
             bottomSheetPresenter.show(getChildFragmentManager(),
                     AddToReadingListDialog.newInstance(titles,
-                            AddToReadingListDialog.InvokeSource.READING_LIST_ACTIVITY));
+                            Constants.InvokeSource.READING_LIST_ACTIVITY));
             update();
         }
     }
@@ -635,7 +635,7 @@ public class ReadingListFragment extends Fragment implements
         if (page != null) {
             bottomSheetPresenter.show(getChildFragmentManager(),
                     AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page),
-                            AddToReadingListDialog.InvokeSource.READING_LIST_ACTIVITY));
+                            Constants.InvokeSource.READING_LIST_ACTIVITY));
         }
     }
 

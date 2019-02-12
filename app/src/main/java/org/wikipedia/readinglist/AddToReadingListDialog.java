@@ -13,10 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.Constants;
+import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.R;
 import org.wikipedia.analytics.ReadingListsFunnel;
-import org.wikipedia.model.EnumCode;
-import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
@@ -37,42 +36,12 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
-    public enum InvokeSource implements EnumCode {
-        BOOKMARK_BUTTON(0),
-        CONTEXT_MENU(1),
-        LINK_PREVIEW_MENU(2),
-        PAGE_OVERFLOW_MENU(3),
-        FEED(4),
-        NEWS_ACTIVITY(5),
-        READING_LIST_ACTIVITY(6),
-        MOST_READ_ACTIVITY(7),
-        RANDOM_ACTIVITY(8),
-        ON_THIS_DAY_ACTIVITY(9),
-        READ_MORE_BOOKMARK_BUTTON(10);
-
-        private static final EnumCodeMap<InvokeSource> MAP = new EnumCodeMap<>(InvokeSource.class);
-
-        private final int code;
-
-        public static InvokeSource of(int code) {
-            return MAP.get(code);
-        }
-
-        @Override public int code() {
-            return code;
-        }
-
-        InvokeSource(int code) {
-            this.code = code;
-        }
-    }
-
     private List<PageTitle> titles;
     private ReadingListAdapter adapter;
     private View listsContainer;
     private View onboardingContainer;
     private View onboardingButton;
-    private InvokeSource invokeSource;
+    private int invokeSource;
     private CreateButtonClickListener createClickListener = new CreateButtonClickListener();
     private CompositeDisposable disposables = new CompositeDisposable();
 
@@ -99,7 +68,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         AddToReadingListDialog dialog = new AddToReadingListDialog();
         Bundle args = new Bundle();
         args.putParcelableArrayList("titles", new ArrayList<Parcelable>(titles));
-        args.putInt("source", source.code());
+        args.putInt("source", source.ordinal());
         dialog.setArguments(args);
         dialog.setOnDismissListener(listener);
         return dialog;
@@ -109,7 +78,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         titles = getArguments().getParcelableArrayList("titles");
-        invokeSource = InvokeSource.of(getArguments().getInt("source"));
+        invokeSource = getArguments().getInt("source");
         adapter = new ReadingListAdapter();
     }
 

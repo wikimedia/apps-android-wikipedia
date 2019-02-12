@@ -55,9 +55,20 @@ public final class Constants {
     public static final int ACTION_DESCRIPTION_EDIT_UNLOCK_THRESHOLD = 1; // TODO: increase to 50 when ready for prime-time.
 
     public enum InvokeSource {
+        BOOKMARK_BUTTON,
+        CONTEXT_MENU,
+        LINK_PREVIEW_MENU,
+        PAGE_OVERFLOW_MENU,
+        FEED,
+        NEWS_ACTIVITY,
+        READING_LIST_ACTIVITY,
+        MOST_READ_ACTIVITY,
+        RANDOM_ACTIVITY,
+        ON_THIS_DAY_ACTIVITY,
+        READ_MORE_BOOKMARK_BUTTON,
         PAGE_ACTIVITY,
         EDIT_FEED_TITLE_DESC,
-        EDIT_FEED_TRANSLATE_TITLE_DESC;
+        EDIT_FEED_TRANSLATE_TITLE_DESC
     }
 
     private Constants() { }
