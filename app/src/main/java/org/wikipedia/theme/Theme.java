@@ -68,4 +68,20 @@ public enum Theme implements EnumCode {
         this.resourceId = resourceId;
         this.nameId = nameId;
     }
+
+    public static String getThemePageLibClass(Theme theme) {
+        switch (theme.getFunnelName()) {
+            case "light":
+                return "pagelib_theme_light";
+            case "dark":
+                return "pagelib_theme_dark";
+            case "black":
+                return "pagelib_theme_black";
+            case "sepia":
+                return "pagelib_theme_sepia";
+            default:
+                return "pagelib_theme_light";
+        }
+
+    }
 }

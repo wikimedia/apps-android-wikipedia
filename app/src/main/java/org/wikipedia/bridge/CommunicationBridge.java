@@ -14,10 +14,9 @@ import android.webkit.WebView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.theme.Theme;
 import org.wikipedia.util.FileUtil;
-import org.wikipedia.util.ResourceUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -68,11 +67,11 @@ public class CommunicationBridge {
     public void resetHtml(@NonNull Context context, @NonNull String assetFileName, @NonNull String wikiUrl) {
         String html = "";
         try {
-            final int rgbMask = 0xFFFFFF;
             html = FileUtil.readFile(WikipediaApp.getInstance().getAssets().open(assetFileName))
                     .replace("$wikiurl", wikiUrl)
-                    .replace("$bodybackground", String.format("#%06X",
-                            ResourceUtil.getThemedColor(context, R.attr.paper_color) & rgbMask));
+                    .replace("$pageLibThemeClass", Theme.getThemePageLibClass(WikipediaApp.getInstance().getCurrentTheme()))
+                    .replace("$pageLibDimImgClass", (WikipediaApp.getInstance().getCurrentTheme().isDark()) ? "pagelib_dim_images" : "");
+
         } catch (IOException e) {
             e.printStackTrace();
         }
