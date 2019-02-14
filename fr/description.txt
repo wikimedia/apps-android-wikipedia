@@ -10,7 +10,7 @@ Proche - Apprenez plus sur ce qu'il y a autour de vous en sélectionnant des poi
 
 Prise en charge linguistique - Changez facilement à la lecture de n’importe quelle langue de Wikipédia, soit en changeant la langue de l’article courant, soit en changeant votre langue préférée lors d’une recherche.
 
-Aperçu des liens - Tapez sur un article pour avoir un aperçu, sans perdre l'endroit où vous lisiez. Appuyez et maintenez un lien pour l'ouvrir dans un nouvel onglet, vous permettant de continuer à lire votre article sans perdre l'endroit où vous lisiez, et passez au nouvel onglet dès que vous être prêt.
+Aperçu des liens - Touchez un article pour avoir un aperçu, sans perdre l'endroit où vous lisiez. Appuyez et maintenez un lien pour l'ouvrir dans un nouvel onglet, vous permettant de continuer à lire votre article sans perdre l'endroit où vous lisiez, et passez au nouvel onglet dès que vous être prêt.
 
 Table des matières - Glissez votre doigt à gauche sur n'importe quel article pour faire apparaître la table des matières, qui vous permettra de passer d'une section d'article à une autre facilement.
 
