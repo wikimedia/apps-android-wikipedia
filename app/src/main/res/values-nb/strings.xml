@@ -617,7 +617,7 @@
   <string name="onboarding_got_it">Skjønner</string>
   <string name="onboarding_multilingual_secondary_text">Følgende ble funnet på enheten din:</string>
   <string name="onboarding_multilingual_add_language_text">Legg til eller endre språk</string>
-  <string name="onboarding_welcome_title_v2">Den frie encyklopedien\n…på nesten 300 språk</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">Den frie encyklopedien\n…på nesten 300 språk</string>
   <string name="app_shortcuts_random">Tilfeldig</string>
   <string name="app_shortcuts_continue_reading">Fortsett å lese</string>
   <string name="app_shortcuts_search">Søk</string>

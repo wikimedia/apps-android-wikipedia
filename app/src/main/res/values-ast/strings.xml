@@ -586,7 +586,7 @@
   <string name="onboarding_got_it">Entendílo</string>
   <string name="onboarding_multilingual_secondary_text">Atopamos les siguientes nel to preséu:</string>
   <string name="onboarding_multilingual_add_language_text">Añadir o editar idiomes</string>
-  <string name="onboarding_welcome_title_v2">La enciclopedia llibre…\n…en casi 300 llingües</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">La enciclopedia llibre…\n…en casi 300 llingües</string>
   <string name="app_shortcuts_random">Al debalu</string>
   <string name="app_shortcuts_continue_reading">Siguir lleyendo</string>
   <string name="app_shortcuts_search">Buscar</string>

@@ -589,7 +589,7 @@
   <string name="onboarding_got_it">Бу өйдөнөр</string>
   <string name="onboarding_multilingual_secondary_text">Эн тэрилгэр маннык тыллар көһүннүлэр:</string>
   <string name="onboarding_multilingual_add_language_text">Тылы эп биитэр сот</string>
-  <string name="onboarding_welcome_title_v2">Аһаҕас энциклопедия\n... 300-чэ тылынан</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">Аһаҕас энциклопедия\n... 300-чэ тылынан</string>
   <string name="app_shortcuts_random">Түбэспиччэ</string>
   <string name="app_shortcuts_continue_reading">Салгыы ааҕыы</string>
   <string name="app_shortcuts_search">Бул</string>

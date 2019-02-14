@@ -568,7 +568,7 @@
   <string name="onboarding_got_it">Mudheng</string>
   <string name="onboarding_multilingual_secondary_text">Awak dhéwé nemu iki ing pirantiné panjenengan:</string>
   <string name="onboarding_multilingual_add_language_text">Wuwuh utawa besut basa</string>
-  <string name="onboarding_welcome_title_v2">Bauwarna Mardika\n…ing mèh 300 basa</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">Bauwarna Mardika\n…ing mèh 300 basa</string>
   <string name="app_shortcuts_random">Waton</string>
   <string name="app_shortcuts_continue_reading">Bacutaké maca</string>
   <string name="app_shortcuts_search">Golèk</string>

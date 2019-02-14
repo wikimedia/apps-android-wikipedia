@@ -629,7 +629,7 @@
   <string name="onboarding_got_it">Selvä</string>
   <string name="onboarding_multilingual_secondary_text">Olemme löytäneet seuraavat laitteestasi:</string>
   <string name="onboarding_multilingual_add_language_text">Lisää tai muokkaa kieliä</string>
-  <string name="onboarding_welcome_title_v2">Vapaa tietosanakirja\n…lähes 300 kielellä</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">Vapaa tietosanakirja\n…lähes 300 kielellä</string>
   <string name="app_shortcuts_random">Satunnainen</string>
   <string name="app_shortcuts_continue_reading">Jatka lukemista</string>
   <string name="app_shortcuts_search">Etsi</string>

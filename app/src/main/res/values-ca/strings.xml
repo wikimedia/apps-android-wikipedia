@@ -629,7 +629,7 @@
   <string name="onboarding_got_it">Entesos</string>
   <string name="onboarding_multilingual_secondary_text">Hem trobat el següent en el dispositiu:</string>
   <string name="onboarding_multilingual_add_language_text">Afegeix o modifica més llengües</string>
-  <string name="onboarding_welcome_title_v2">L’enciclopèdia lliure…\n… en quasi 300 llengües</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">L’enciclopèdia lliure…\n… en quasi 300 llengües</string>
   <string name="app_shortcuts_random">A l\'atzar</string>
   <string name="app_shortcuts_continue_reading">Continua llegint</string>
   <string name="app_shortcuts_search">Cerca</string>

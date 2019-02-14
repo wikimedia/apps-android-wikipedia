@@ -581,7 +581,7 @@
   <string name="onboarding_create_account_preferences">ذخیره ترجیحاتتان</string>
   <string name="onboarding_got_it">گرفتم</string>
   <string name="onboarding_multilingual_add_language_text">ویرایش یا اضافه کردن زبان</string>
-  <string name="onboarding_welcome_title_v2">دانشنامه آزاد\n...با حدود 300 زبان</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">دانشنامه آزاد\n...با حدود 300 زبان</string>
   <string name="app_shortcuts_random">تصادفی</string>
   <string name="app_shortcuts_continue_reading">ادامه دادن به خواندن</string>
   <string name="app_shortcuts_search">جستجو</string>

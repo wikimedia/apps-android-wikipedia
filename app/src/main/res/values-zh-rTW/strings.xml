@@ -23,6 +23,7 @@
   <string name="app_name_alpha">維基百科封測版</string>
   <string name="wikimedia">維基媒體</string>
   <string name="nav_item_back">上一頁</string>
+  <string name="page_tabs_back">返回</string>
   <string name="nav_item_forward">下一頁</string>
   <string name="search_hint">搜尋維基百科</string>
   <string name="search_hint_search_history">搜尋歷史</string>
@@ -32,23 +33,32 @@
   <string name="nav_item_history">歷史</string>
   <string name="error_network_error">無法連上網際網路。</string>
   <string name="page_error_retry">重試</string>
+  <string name="card_offline_error_retry">重試</string>
+  <string name="storage_access_error_retry">重試</string>
+  <string name="article_load_error_retry">重試</string>
+  <string name="offline_load_error_retry">重試</string>
   <string name="page_error_back_to_main">返回</string>
+  <string name="error_back">返回</string>
   <string name="menu_clear_all_history">清除歷史</string>
   <string name="history_item_deleted">%s已從歷史移除</string>
   <string name="history_items_deleted">%d個條目已從歷史移除</string>
   <string name="history_item_delete_undo">還原</string>
+  <string name="notification_archive_undo">還原</string>
   <string name="app_settings">應用程式設定</string>
   <string name="dialog_title_clear_history">清除瀏覽歷史</string>
   <string name="dialog_message_clear_history">這樣做會刪除所有歷史記錄，並且關閉所有目前開啟的分頁。您確定嗎？</string>
   <string name="dialog_message_clear_history_yes">是</string>
   <string name="dialog_message_clear_history_no">否</string>
   <string name="share_via">分享透過</string>
+  <string name="image_share_via">分享透過</string>
   <string name="search_redirect_from">重新導向自 %s</string>
   <string name="menu_page_show_tabs">顯示分頁</string>
   <string name="menu_page_other_languages">替換其它語言版本</string>
   <string name="menu_page_find_in_page">於頁面尋找</string>
+  <string name="edit_section_find_in_page">於頁面中尋找</string>
   <string name="menu_page_font_and_theme">字型與主題</string>
   <string name="menu_page_add_to_list">新增至閱讀清單</string>
+  <string name="feed_card_add_to_list">新增至閱讀清單</string>
   <string name="menu_page_share">分享連結</string>
   <string name="menu_page_open_a_new_tab">開啟新分頁</string>
   <string name="menu_page_reading_lists">閱讀清單</string>
@@ -59,6 +69,9 @@
   <string name="menu_text_select_copy">複製</string>
   <string name="menu_text_select_define">定義</string>
   <string name="menu_text_select_share">分享</string>
+  <string name="share">分享</string>
+  <string name="on_this_day_page_share">分享</string>
+  <string name="reading_list_page_share">分享</string>
   <string name="menu_text_select_edit_here">在此編輯</string>
   <string name="nav_item_nearby">附近</string>
   <string name="nearby_zoom_to_location">縮放至地圖上的位置</string>
@@ -100,8 +113,13 @@
   <string name="nav_item_login">登入維基百科</string>
   <string name="login_username_hint">使用者名稱</string>
   <string name="login_password_hint">密碼</string>
+  <string name="account_creation_password_hint">密碼</string>
   <string name="login_2fa_hint">雙重認證代碼</string>
   <string name="login_2fa_other_workflow_error_msg">需要雙重認證！請返回主操作頁面並以您的 2FA 令牌登入後再重試。</string>
+  <string name="onboarding_card_login">登入</string>
+  <string name="page_editing_login">登入</string>
+  <string name="reading_lists_sync_login">登入</string>
+  <string name="create_account_login">登入</string>
   <string name="menu_login">登入</string>
   <string name="login_activity_title">登入維基百科</string>
   <string name="login_in_progress_dialog_message">正在登入…</string>
@@ -535,9 +553,11 @@
   <string name="view_continue_reading_card_subtitle_today">今天</string>
   <string name="view_continue_reading_card_subtitle_read_date">讀取 %s</string>
   <string name="view_announcement_card_negative_action">不用了，謝謝</string>
+  <string name="onboarding_negative_action">不用了，謝謝</string>
   <string name="view_offline_card_text">內容無法在離線時載入。</string>
   <string name="view_featured_article_card_title">典範條目</string>
   <string name="view_featured_article_footer_save_button_label">儲存</string>
+  <string name="view_static_card_save_button_label">儲存</string>
   <string name="view_featured_article_footer_saved_button_label">已儲存</string>
   <string name="edit_tasks_activity_title">應用程式編者任務</string>
   <string name="feed_configure_activity_title">自訂摘要</string>
@@ -599,6 +619,7 @@
   <string name="editactionfeed_my_contributions">我的貢獻</string>
   <string name="editactionfeed_from_language">從：</string>
   <string name="editactionfeed_add_title_dialog_learn_more">了解更多</string>
+  <string name="editactionfeed_translate_title_dialog_learn_more">了解更多</string>
   <string name="editactionfeed_to_language">譯成：</string>
   <string name="description_edit_revert_subtitle">感謝編輯維基百科！</string>
   <string name="description_edit_revert_intro">我們知道您已盡力了，但有編者檢閱內容有所疑慮而做出還原。您的編輯被回退的原因可能是：</string>
@@ -630,7 +651,7 @@
   <string name="onboarding_got_it">了解</string>
   <string name="onboarding_multilingual_secondary_text">我們在您的裝置上找到以下語言：</string>
   <string name="onboarding_multilingual_add_language_text">添加或編輯語言</string>
-  <string name="onboarding_welcome_title_v2">自由的百科全書\n…近 300 種可用的語言版本</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">自由的百科全書\n…近 300 種可用的語言版本</string>
   <string name="app_shortcuts_random">隨機</string>
   <string name="app_shortcuts_continue_reading">繼續閱讀</string>
   <string name="app_shortcuts_search">搜尋</string>
@@ -697,4 +718,11 @@
   <string name="description_edit_tutorial_message">歡迎來到用於維基百科編輯的應用程式新版內容。在這裡，我們會提供出您可能會感興趣的項目來編輯。對於您的貢獻我們在此感激，祝編安！</string>
   <string name="translation_description_edit_task_unlock_title">翻譯標題描述編輯已解開！</string>
   <string name="translation_description_edit_task_unlock_body">我們注意到您似乎喜歡編輯標題描述以及閱讀各語言的維基百科，請試看看能夠來翻譯更多標題描述的任務清單！</string>
+  <string name="title_description_editing_skip">略過</string>
+  <string name="title_description_get_started">入門</string>
+  <string name="translate_description_get_started">入門</string>
+  <string name="edit_tasks_onboarding_get_started">入門</string>
+  <string name="translate_descriptions_maybe_later">稍後再說</string>
+  <string name="title_descriptions_onboarding_got_it">了解</string>
+  <string name="translate_descriptions_onboarding_got_it">了解</string>
 </resources>

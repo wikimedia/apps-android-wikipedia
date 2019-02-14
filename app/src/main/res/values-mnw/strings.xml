@@ -601,7 +601,7 @@
   <string name="onboarding_got_it">ကလိဂွံ</string>
   <string name="onboarding_multilingual_secondary_text">အရာ ဗွဲသၟဝ်ဝွံ ပိုဲဂွံဆဵု ပ္ဍဲ device မၞး -</string>
   <string name="onboarding_multilingual_add_language_text">စုတ် ဟွံသေင်မ္ဂး ပလေဝ် အရေဝ်ဘာသာ</string>
-  <string name="onboarding_welcome_title_v2">ပြကိုဟ်ဗိသ္တာ သက္ကုၚုဟ် \n… နကဵု အရေဝ်ဘာသာ ကြပ်ပေင် ၃၀၀၊၊</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">ပြကိုဟ်ဗိသ္တာ သက္ကုၚုဟ် \n… နကဵု အရေဝ်ဘာသာ ကြပ်ပေင် ၃၀၀၊၊</string>
   <string name="app_shortcuts_random">ပရိုင်မွဲမွဲ</string>
   <string name="app_shortcuts_continue_reading">ဆက် ဗှ်</string>
   <string name="app_shortcuts_search">ဂၠာဲ</string>

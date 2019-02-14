@@ -596,7 +596,7 @@
   <string name="onboarding_got_it">Tuigim</string>
   <string name="onboarding_multilingual_secondary_text">D\'aimsíomar na teangacha seo a leanas ar do ghléas:</string>
   <string name="onboarding_multilingual_add_language_text">Cuir teangacha leis nó cuir in eagar iad</string>
-  <string name="onboarding_welcome_title_v2">An Chiclipéid Shaor\n…i mbeagnach 300 teanga</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">An Chiclipéid Shaor\n…i mbeagnach 300 teanga</string>
   <string name="app_shortcuts_random">Randamach</string>
   <string name="app_shortcuts_continue_reading">Lean ort ag léamh</string>
   <string name="app_shortcuts_search">Cuardaigh</string>

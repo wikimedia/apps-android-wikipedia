@@ -13,6 +13,8 @@
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikipedia</string>
+  <string name="nav_item_back">Distreiñ</string>
+  <string name="nav_item_forward">Da-heul</string>
   <string name="search_hint">Klask e Wikipedia</string>
   <string name="search_hint_search_history">Klask er roll istor</string>
   <string name="search_hint_search_my_lists">Klask em rolloù</string>
@@ -39,6 +41,9 @@
   <string name="menu_page_font_and_theme">Font ha tem</string>
   <string name="menu_page_add_to_list">Ouzhpennañ d\'ar roll lenn</string>
   <string name="menu_page_share">Rannañ al liamm</string>
+  <string name="menu_page_open_a_new_tab">Digeriñ en un ivinell nevez</string>
+  <string name="menu_page_reading_lists">Rolloù lenn</string>
+  <string name="menu_page_recently_viewed">Gweladennet nevez zo</string>
   <string name="menu_long_press_open_page">Digeriñ</string>
   <string name="menu_long_press_open_in_new_tab">Digeriñ en un ivinell nevez</string>
   <string name="menu_long_press_copy_page">Eilañ chomlec\'h al liamm</string>
@@ -50,25 +55,27 @@
   <string name="nearby_zoom_to_location">Zoumañ war ul lec\'h eus ar gartenn</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; Izili</string>
   <string name="last_updated_text">Hizivadenn ziwezhañ %1$s</string>
-  <string name="talk_page_link_text" fuzzy="true">Kaozeal</string>
-  <string name="edit_history_link_text" fuzzy="true">Istor ar c\'hemmoù</string>
+  <string name="talk_page_link_text">Gwelet ar bajenn gaozeal</string>
+  <string name="edit_history_link_text">Gwelet istor ar c\'hemmoù</string>
   <string name="map_view_link_text">Diskwel war ur gartenn</string>
+  <string name="other_languages_indication_text">Lenn en ur yezh all</string>
   <string name="language_count_link_text">A c\'haller kaout e %d yezh all</string>
   <string name="content_license_html">An endalc\'had a c\'haller kaout e &lt;a  href=\"%1$s\"&gt; aotre-implijout CC BY-SA 3.0&lt;/a&gt; nemet e vefe merket ar c\'hontrol</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Pa\'z enrollit e tegemerit an &lt;a href=\"%1$s\"&gt;Amplegadoù implijout&lt;/a&gt;,ha lakaat a rit ho tegasadennoù dindan an aotre-implijout &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; en ur doare didorradus.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">Pa\'z enrollit e tegemerit an &lt;a href=\"%1$s\"&gt;Amplegadoù implijout&lt;/a&gt;, ha lakaat a rit ho tegasadennoù dindan aotre-implijout &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; en un doare didorradus. Ar c\'hemmoù a vo deroet da chomlec\'h IP hoc\'h ardivink. M\'ho peus &lt;a href=\"https://#login\"&gt;kevreit&lt;/a&gt; ho po muioc\'h a zegasadennoù e kuzhut.</string>
-  <string name="preference_title_language" fuzzy="true">Yezh Wikipedia</string>
+  <string name="edit_save_action_license_logged_in">Pa\'z embannit e tegemerit an &lt;a href=\"%1$s\"&gt;Amplegadoù implijout&lt;/a&gt;,ha lakaat a rit ho tegasadennoù dindan an aotre-implijout &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; en ur doare didorradus.</string>
+  <string name="edit_save_action_license_anon">Pa\'z embannit e tegemerit an &lt;a href=\"%1$s\"&gt;Amplegadoù implijout&lt;/a&gt;, ha lakaat a rit ho tegasadennoù dindan aotre-implijout &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; en un doare didorradus. Ar c\'hemmoù a vo deroet da chomlec\'h IP hoc\'h ardivink. M\'ho peus &lt;a href=\"https://#login\"&gt;kevreit&lt;/a&gt; ho po muioc\'h a zegasadennoù e kuzhut.</string>
+  <string name="preference_title_language">Yezhoù Wikipedia</string>
   <string name="langlinks_filter_hint">Klask</string>
   <string name="langlinks_empty">N\'haller ket kaout ar bajenn-mañ e yezhoù all</string>
-  <string name="langlinks_no_match" fuzzy="true">N\'eus bet kavet yezh ebet a glot gant ho reked.</string>
+  <string name="langlinks_no_match">N\'eus bet kavet yezh ebet.</string>
   <string name="langlinks_activity_title">Yezhoù all</string>
+  <string name="langlinks_your_wikipedia_languages">Ho yezhoù Wikipedia</string>
   <string name="menu_save_changes">Embann ar c\'hemmoù</string>
   <string name="dialog_saving_in_progress">Oc\'h embann...</string>
   <string name="edit_saved_successfully">Kemmoù embannet !</string>
   <string name="dialog_message_edit_failed">C\'hwitet ar c\'hemm !</string>
   <string name="dialog_message_edit_failed_retry">Klask en-dro</string>
   <string name="dialog_message_edit_failed_cancel">Nullañ</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">\"N\'eo ket bet enrollet ho kemmoù c\'hoazh. Ha sur eo ho peus c\'hoant da guitaat ar bajenn-mañ ?\"</string>
+  <string name="dialog_message_leaving_edit">\"N\'eo ket bet embannet ho kemmoù c\'hoazh. Ha sur eo ho peus c\'hoant da guitaat ar bajenn-mañ ?\"</string>
   <string name="dialog_message_leaving_edit_leave">Mont kuit</string>
   <string name="dialog_message_leaving_edit_stay">Chom</string>
   <string name="menu_show_toc">Taolenn</string>
@@ -77,6 +84,7 @@
   <string name="search_reading_lists_no_results">Disoc\'h ebet kavet er rolloù lenn</string>
   <string name="search_history_no_results">Disoc\'h ebet kavet en istor</string>
   <string name="edit_section_captcha_message">Evit reiñ sikour d\'ar gwareziñ a-enep ar posteloù strobus emgefre, bizskrivit ar gerioù a zeu war wel amañ dindan</string>
+  <string name="edit_section_captcha_request_an_account_message">Ne c\'haller ket gwelet ar skeudenn ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Goulenn ur gont&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Advizskrivañ ar gerioù amañ a-us</string>
   <string name="title_captcha">Ebarzhiñ ar c\'haptcha</string>
   <string name="edit_section_captcha_reload">Bizskrivañ ar c\'haptcha evit pellgargañ</string>
@@ -89,11 +97,17 @@
   <string name="login_activity_title">Kevreañ ouzh Wikipedia</string>
   <string name="login_in_progress_dialog_message">O kevreañ ouzh…</string>
   <string name="login_success_toast">Kevreet oc\'h !</string>
+  <string name="reset_password_title">Termeniñ ho ker-tremen</string>
+  <string name="reset_password_description">Kevreet oc\'h gant ur ger-tremen dibad. Evit echuiñ kevreañ e rankit lakaat ur ger-tremen nevez amañ.</string>
+  <string name="reset_password_hint">Ger-tremen nevez</string>
+  <string name="reset_password_button">Enrollañ ha kevreañ</string>
   <string name="preference_title_logout">Digevreañ</string>
   <string name="toast_logout_complete">Digevreet</string>
   <string name="history_empty_title">Pennad ebet lennet nevez zo</string>
   <string name="history_empty_message">Heuliañ ar pezh hoc\'h eus lennet amañ</string>
+  <string name="history_offline_articles_toast">Pennadoù zo eus an istor ne c\'haller lenn ezlinenn.</string>
   <string name="search_empty_message">Kit a-dreuz an hollouezhiadur dieub en ho yezh ha lennit anezhañ</string>
+  <string name="search_empty_message_multilingual_upgrade">Klask e Wikipedia e meur a yezh</string>
   <string name="delete_selected_items">Diverkañ an elfennoù diuzet</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Anv implijer</string>
@@ -111,7 +125,16 @@
   <string name="create_account_password_error">Direizh eo ar ger-tremen</string>
   <string name="create_account_generic_error">N\'haller ket krouiñ ar gont</string>
   <string name="create_account_next">War-lerc\'h</string>
+  <string name="email_recommendation_dialog_title">Krouiñ ur gont hep chomlec\'h postel ?</string>
+  <string name="email_recommendation_dialog_message">Daoust m\'eo diret ar chomlec\'h postel ez eo &lt;b&gt;erbedet&lt;/b&gt; rak ezhomm zo anezhañ evit ma c\'hallfec\'h adtapout ho kont ma kollfec\'h ho ker-tremen.</string>
+  <string name="email_recommendation_message">Erbedet eo rak gallout a reer gant ar chomlec\'h postel adtapout titouroù ar gont.</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Kenderc\'hel hep chomlec\'h postel</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Ouzhpennañ ur chomlec\'h postel</string>
   <string name="create_account_button">Krouiñ ur gont</string>
+  <string name="create_account_name_unavailable">Ne c\'haller ket kaout an anv-implijer %s. Dibabit un anv all, mar plij.</string>
+  <string name="create_account_ip_block_message">Ho tigarez, stanket eo ho chomlec\'h IP er mare-mañ evit krouiñ kontoù nevez.</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_details">Munudoù</string>
   <string name="preferences_general_heading">Hollek</string>
   <string name="wikipedia_app_faq">Arload FAG Wikipedia</string>
   <string name="edit_preview_fetching_dialog_message">O klask un alberz…</string>
@@ -120,7 +143,8 @@
   <string name="preferences_heading_syncing">Sinkronelaat</string>
   <string name="preferences_heading_data_usage">Implij ar roadennoù</string>
   <string name="preferences_heading_experimental">Arnodel</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Gweredekaat sinkroneladur ar rolloù lenn</string>
+  <string name="preference_title_sync_reading_lists_from_account">Sinkroneladur ar rolloù lenn</string>
+  <string name="preference_title_download_reading_list_articles">Pellgargañ pennadoù ar roll lenn</string>
   <string name="preference_summary_sync_reading_lists">Sinkronelaat ar rolloù lenn etre ardivinkoù a bep seurt en ur enrollañ anezho en ho kont wikipedia</string>
   <string name="preference_summary_sync_reading_lists_from_account">Sinkronelaat ar rolloù lenn etre ardinvikoù a bep seurt en ur enrollañ anezho en ho kont Wikipedia « %s »</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Lemel ar rolloù lenn sinkronelaet diouzh ho kont « %s » ?</string>
@@ -149,6 +173,7 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">http://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">http://creativecommons.org/publicdomain/mark/1.0/</string>
   <string name="about_libraries_heading">Levraouegoù implijet</string>
@@ -157,7 +182,7 @@
   <string name="about_translators_translatewiki">Troet eo bet an arload-mañ gant troerien a-youl vat e &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Aotre-implijout</string>
   <string name="about_app_license">Kod mammennoù a c\'haller kaout e &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ha &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; dindan &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licence Apache 2.0&lt;/a&gt;. Nemet kemennoù kontrol a vefe, e c\'haller kaout an endalc\'had &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licence Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">Ur produ gant &lt;a href=\"https://wikimediafoundation.org/\"&gt;Diazezadur Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf">Ur produ gant &lt;a href=\"https://wikimediafoundation.org/\"&gt;Diazezadur Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Diwar-benn</string>
   <string name="edit_abandon_confirm">Kemmet eo bet ar bajenn. Ha sur oc\'h e fell deoc\'h mont kuit anez enrollañ ho kemmoù ?</string>
   <string name="edit_abandon_confirm_yes">Ya</string>
@@ -169,11 +194,16 @@
   <string name="edit_next">War-lerc\'h</string>
   <string name="edit_done">Embann</string>
   <string name="edit_preview">Rakwelet</string>
+  <string name="edit_undo">Dizober</string>
+  <string name="edit_redo">Adober</string>
+  <string name="edit_zoom_in">Zoumañ</string>
+  <string name="edit_zoom_out">Dizoumañ</string>
   <string name="edit_summary_tag_typo">Vi-koukoug reizhet</string>
   <string name="edit_summary_tag_grammar">Fazi yezhadur reizhet</string>
   <string name="edit_summary_tag_links">Liammoù ouzhpennet</string>
   <string name="edit_summary_tag_other">All</string>
   <string name="edit_summary_tag_other_hint">Doareoù all da wellaat ar bajenn</string>
+  <string name="edit_conflict_title">Kemmañ an tabut</string>
   <string name="find_next">Kavout an hini da-heul</string>
   <string name="find_previous">Kavout an hini a-raok</string>
   <string name="abusefilter_title_warn">Evit doare n\'eo ket gwall dalvoudus ar c\'hemmoù-se. Ha sur oc\'h e fell deoc\'h embann anezho ?</string>
@@ -201,6 +231,9 @@
   <string name="dialog_close_description">Serriñ</string>
   <string name="preference_title_show_images">Diskouez ar skeudennoù</string>
   <string name="preference_summary_show_images">Gweredekaat evit diweredekaat pellgargadur ar skeudennoù er pajennoù. Diaskit an arventenn-mañ m\'eo gorrek ho kevreadur Internet, pe m\'eo bevennet hoc\'h ampled roadennoù.</string>
+  <string name="preference_title_download_only_over_wifi">Pellgargañ gant ar Wi-Fi hepken</string>
+  <string name="dialog_title_download_only_over_wifi">Kadarnaat ar pellgargañ en ur implijout ar roadennoù hezoug ?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Aotren</string>
   <string name="read_more_section">Lenn muioc\'h</string>
   <string name="about_article_section">Diwar-benn ar pennad-mañ</string>
   <string name="menu_gallery_visit_page">Mont da bajenn ar restr</string>
@@ -228,14 +261,23 @@
   <string name="close_all_tabs_confirm_yes">Ya</string>
   <string name="close_all_tabs_confirm_no">Ket</string>
   <string name="button_close_tab">Serriñ an ivinell</string>
+  <string name="tab_item_closed">%s serret.</string>
+  <string name="all_tab_items_closed">Serret eo an holl ivinelloù.</string>
+  <string name="tool_tip_bookmark_icon_title">Ouzhpennañ d\'ar roll lenn</string>
+  <string name="tool_tip_bookmark_icon_text">Klikit war arlun ar sined evit enrollañ ar pennad en ur roll lenn.</string>
   <string name="tool_tip_share">Goude bezañ dreistlinennet ur fed dedennus, klaskit rannañ anezhañ war o rouedadoù gwellañ-deuet !</string>
   <string name="page_view_in_browser">Gwelet ar bajenn er merdeer</string>
+  <string name="tool_tip_toc_title">Taolenn evit tizhout buan an endalc\'hadoù</string>
+  <string name="tool_tip_toc_text">Gallout a reot bremañ lakaat riklañ a-gleiz evit digeriñ taolenn an endalc\'hadoù, ha ivez klikañ ha sachañ ar bouton dibunañ evit lammat buan da rannoù disheñvel ur pennad.</string>
+  <string name="tool_tip_lang_button">Klikit war an arlun evit ouzhpennañ meur a yezh.</string>
   <string name="error_response_malformed">N\'eo ket furmadet mat ar respont d\'ar servijer.</string>
   <string name="error_unknown">Ur fazi dianav zo c\'hoarvezet</string>
   <string name="format_error_server_message">Kemennad : %s</string>
   <string name="address_copied">Chomlec\'h eilet er golver</string>
   <string name="text_copied">Testenn kopiet er golver.</string>
   <string name="button_continue_to_article">Lenn ar pennad</string>
+  <string name="button_continue_to_disambiguation">Diskouez ar pajennoù heñvel</string>
+  <string name="link_preview_disambiguation_description">An titl-mañ a ra dave da ouzhpenn ur bajenn :</string>
   <string name="button_add_to_reading_list">Ouzhpennañ d\'ar roll lenn</string>
   <string name="page_offline_notice_cannot_load_while_offline">N\'haller ket kargañ ar pennad pa vezet ezlinenn.</string>
   <string name="page_offline_notice_add_to_reading_list">Ouzhpennit ar pennad d\'ur roll lenn hag e vo pellgarget kentañ tro ma viot enlinenn.</string>
@@ -278,6 +320,7 @@
   <string name="color_theme_light">Sklaer</string>
   <string name="color_theme_dark">Teñval</string>
   <string name="color_theme_black">Du</string>
+  <string name="color_theme_sepia">Sepia</string>
   <string name="color_theme_test_title">Testenn skouer</string>
   <string name="preference_title_app_theme">Tem an arload</string>
   <string name="preference_summary_color_theme">Lezel a-gostez evit implijout tem teñval kenañ an arload</string>
@@ -303,7 +346,7 @@
   <string name="reading_list_sort_by_created">Rummañ dre an deiz krouiñ (an hini nevesañ)</string>
   <string name="reading_list_sort_by_created_desc">Rummañ dre an deiz krouiñ (an hini koshañ)</string>
   <string name="reading_list_menu_delete">Dilemel ar roll</string>
-  <string name="reading_list_menu_rename" fuzzy="true">Adenvel</string>
+  <string name="reading_list_menu_rename">Kemmañ anv/deskrivadur</string>
   <string name="reading_list_action_menu_remove_from_offline">Lemel eus ezlinenn</string>
   <string name="reading_list_action_menu_save_for_offline">Enorollañ \nevit ezlinenn</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Lemel pep tra eus ezlinenn</string>
@@ -335,6 +378,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">Ne c\'haller ket mui kaout %s er mod digevreet en holl rolloù lenn :</string>
   <string name="reading_lists_sync_reminder_title">Gweredekaat sinkroneladur ar roll lenn ?</string>
   <string name="reading_lists_sync_reminder_text">Ar pennadoù enrollet e rolloù lenn a c\'hall bremañ bezañ sinkronelaet gant ho kont Wikipedia &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Evit gouzout hiroc\'h&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Gallout a reer sinkronelaat ar rolloù lenn etre meur a ardivink. Kevreit ouzh ho kont Wikipedia hag aotreit enrollañ ho rolloù. a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Evit gouzout hiroc\'h&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Gweredekaat ar sinkroneladur</string>
   <string name="reading_list_login_reminder_title">Sinkronelaat ar rolloù lenn</string>
   <string name="reading_lists_login_reminder_text">Ar rolloù lenn a c\'hall bremañ bezañ sinkronelaet etre ardivinkoù. Kevreit ouzh ho kont Wikipedia ha roit aotre da enrollañ ho rolloù.</string>
@@ -345,6 +389,23 @@
   <string name="reading_list_added_articles_list_titled">%1$d pennad ouzhpennet da %2$s</string>
   <string name="reading_list_delete_confirm">Ha sur eo hoc\'h eus c\'hoant da zilemel %s ?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Kevreit evit gweredekaat ar sinkronelaat</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Kevreit evit aotren enrollañ ho rolloù lenn en ho kont.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Nullañ</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Kevreañ</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Sinkroneladur ar rolloù lenn diweredekaet</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Diweredekaet eo sinkroneladur ar rolloù lenn evit ho kont, ha ne vez ket mui saveteet ar pennadoù enrollet en hoc\'h ardivinkoù digevreet. Gweredekait sinkroneladur ho rolloù lenn en Arventennoù.</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">Mat eo</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Arventennoù</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Gweredekaat sinkroneladur ar roll lenn ?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Ar pennadoù enrollet er rolloù lenn a c\'hall bezañ sinkronelaet gant ho kont Wikipedia. &lt;a href=\"#faq\"&gt;Evit gouzout hiroc\'h&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Chom hep diskwel an dra-se c\'hoazh.</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Gweredekaat an sinkroneladur</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nann, trugarez</string>
+  <string name="reading_list_login_option_reminder_dialog_title">Pennadoù eus ar roll lennet kavet</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Pennadoù zo bet enrollet er roll lenn pa oac\'h digevreet. Ha c\'hoant ho peus da ouzhpennañ anezho da rolloù lenn ho kont ?</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">Ya, ouzhpennit anezho da\'m rolloù lenn</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Ne\'m eus ket, lemel ar pennadoù</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Mirout ar pennadoù enrollet en arload ?</string>
   <string name="default_reading_list_name">Enrollet</string>
   <string name="default_reading_list_description">Roll dre ziouer evit ho pennadoù enrollet</string>
   <string name="no_user_lists_title">Renkañ pennadoù er rolloù</string>

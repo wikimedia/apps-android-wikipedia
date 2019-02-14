@@ -521,7 +521,7 @@
   <string name="onboarding_got_it">বুঝেছি</string>
   <string name="onboarding_multilingual_secondary_text">আমরা আপনার ডিভাইসে নিম্নলিখিত খুঁজে পেয়েছি:</string>
   <string name="onboarding_multilingual_add_language_text">ভাষা যোগ বা সম্পাদনা করুন</string>
-  <string name="onboarding_welcome_title_v2">একটি মুক্ত বিশ্বকোষ\n...প্রায় ৩০০টি ভাষায়</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">একটি মুক্ত বিশ্বকোষ\n...প্রায় ৩০০টি ভাষায়</string>
   <string name="app_shortcuts_random">অজানাভাবে</string>
   <string name="app_shortcuts_continue_reading">পড়া অব্যাহত রাখুন</string>
   <string name="app_shortcuts_search">অনুসন্ধান</string>

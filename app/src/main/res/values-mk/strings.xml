@@ -10,6 +10,7 @@
   <string name="app_name_alpha">Википедија Алфа</string>
   <string name="wikimedia">Викимедија</string>
   <string name="nav_item_back">Назад</string>
+  <string name="page_tabs_back">Назад</string>
   <string name="nav_item_forward">Напред</string>
   <string name="search_hint">Пребарај ја Википедија</string>
   <string name="search_hint_search_history">Историја на пребарување</string>
@@ -19,23 +20,32 @@
   <string name="nav_item_history">Историја</string>
   <string name="error_network_error">Не можам да се поврзам со семрежјето.</string>
   <string name="page_error_retry">Повтори</string>
+  <string name="card_offline_error_retry">Пробај пак</string>
+  <string name="storage_access_error_retry">Пробај пак</string>
+  <string name="article_load_error_retry">Пробај пак</string>
+  <string name="offline_load_error_retry">Пробај пак</string>
   <string name="page_error_back_to_main">Назад</string>
+  <string name="error_back">Назад</string>
   <string name="menu_clear_all_history">Исчисти историја</string>
   <string name="history_item_deleted">%s е отстранета од историјата</string>
   <string name="history_items_deleted">%d статии се отстранети од историјата</string>
   <string name="history_item_delete_undo">Врати</string>
+  <string name="notification_archive_undo">Врати</string>
   <string name="app_settings">Поставки за прилогот</string>
   <string name="dialog_title_clear_history">Исчисти историја на прелистување</string>
   <string name="dialog_message_clear_history">Со ова ќе ја избришете сета историја на прелистување и ќе ги затворите сите отворени јазичиња. Дали сте сигурни?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
   <string name="dialog_message_clear_history_no">Не</string>
   <string name="share_via">Сподели преку</string>
+  <string name="image_share_via">Сподели преку</string>
   <string name="search_redirect_from">Пренасочено од %s</string>
   <string name="menu_page_show_tabs">Прикажи јазичиња</string>
   <string name="menu_page_other_languages">Смени јазик</string>
   <string name="menu_page_find_in_page">Најди на страницата</string>
+  <string name="edit_section_find_in_page">Најди на страницата</string>
   <string name="menu_page_font_and_theme">Смени фонт и изглед</string>
   <string name="menu_page_add_to_list">Додај во список за читање</string>
+  <string name="feed_card_add_to_list">Додај во список за читање</string>
   <string name="menu_page_share">Сподели врска</string>
   <string name="menu_page_open_a_new_tab">Отвори ново јазиче</string>
   <string name="menu_page_reading_lists">Списоци за читање</string>
@@ -46,6 +56,9 @@
   <string name="menu_text_select_copy">Копирај</string>
   <string name="menu_text_select_define">Во речник</string>
   <string name="menu_text_select_share">Сподели</string>
+  <string name="share">Сподели</string>
+  <string name="on_this_day_page_share">Сподели</string>
+  <string name="reading_list_page_share">Сподели</string>
   <string name="menu_text_select_edit_here">Уреди тука</string>
   <string name="nav_item_nearby">Во близина</string>
   <string name="nearby_zoom_to_location">Приближи на некое место на картата</string>
@@ -87,8 +100,13 @@
   <string name="nav_item_login">Најава на Википедија</string>
   <string name="login_username_hint">Корисничко име</string>
   <string name="login_password_hint">Лозинка</string>
+  <string name="account_creation_password_hint">Лозинка</string>
   <string name="login_2fa_hint">Код за двочинителска заверка</string>
   <string name="login_2fa_other_workflow_error_msg">Се бара двочинителска заверка! Навратете се на главната активност и најавете се со вашата 2FA-шифра, па обидете се повторно.</string>
+  <string name="onboarding_card_login">Најава</string>
+  <string name="page_editing_login">Најава</string>
+  <string name="reading_lists_sync_login">Најава</string>
+  <string name="create_account_login">Најава</string>
   <string name="menu_login">Најава</string>
   <string name="login_activity_title">Најава на Википедија</string>
   <string name="login_in_progress_dialog_message">Ве најавувам…</string>
@@ -522,9 +540,11 @@
   <string name="view_continue_reading_card_subtitle_today">денес</string>
   <string name="view_continue_reading_card_subtitle_read_date">Прочитано %s</string>
   <string name="view_announcement_card_negative_action">Не, благодарам</string>
+  <string name="onboarding_negative_action">Не, благодарам</string>
   <string name="view_offline_card_text">Содржината не може да се вчита додека не сте на линија.</string>
   <string name="view_featured_article_card_title">Избрана статија</string>
   <string name="view_featured_article_footer_save_button_label">Зачувај</string>
+  <string name="view_static_card_save_button_label">Зачувај</string>
   <string name="view_featured_article_footer_saved_button_label">Зачувано</string>
   <string name="edit_tasks_activity_title">Задачи за приложниот уредник</string>
   <string name="feed_configure_activity_title">Прилагоди го доводот</string>
@@ -586,6 +606,7 @@
   <string name="editactionfeed_my_contributions">Мои придонеси</string>
   <string name="editactionfeed_from_language">Од:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Дознајте повеќе</string>
+  <string name="editactionfeed_translate_title_dialog_learn_more">Дознајте повеќе</string>
   <string name="editactionfeed_to_language">На:</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
@@ -617,7 +638,7 @@
   <string name="onboarding_got_it">Јасно</string>
   <string name="onboarding_multilingual_secondary_text">Го пронајдов следново на вашиот уред:</string>
   <string name="onboarding_multilingual_add_language_text">Додај или измени јазици</string>
-  <string name="onboarding_welcome_title_v2">Слободната енциклопедија\n…на речиси 300 јазици</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">Слободната енциклопедија\n…на речиси 300 јазици</string>
   <string name="app_shortcuts_random">Случајна</string>
   <string name="app_shortcuts_continue_reading">Продолжете со читање</string>
   <string name="app_shortcuts_search">Пребарај</string>
@@ -684,4 +705,11 @@
   <string name="description_edit_tutorial_message">Добре дојдовте во новиот дом за уредување од прилог на Википедија. Тука ќе предлагаме можности за додавање на содржини кои може да ве интересираат. Вашите придонеси се мошне ценети. Среќно уредување!</string>
   <string name="translation_description_edit_task_unlock_title">Преведувањето на описи на наслови е отклучено!</string>
   <string name="translation_description_edit_task_unlock_body">Забележавме дека сакате да уредувате описи на наслови и да ја читате Википедија на повеќе јазици. Погледајте го списокот на задачи кој ви овозможува да преведувате повеќе описи на наслови!</string>
+  <string name="title_description_editing_skip">Прескокни</string>
+  <string name="title_description_get_started">Започни</string>
+  <string name="translate_description_get_started">Започни</string>
+  <string name="edit_tasks_onboarding_get_started">Започни</string>
+  <string name="translate_descriptions_maybe_later">Можеби подоцна</string>
+  <string name="title_descriptions_onboarding_got_it">Јасно</string>
+  <string name="translate_descriptions_onboarding_got_it">Јасно</string>
 </resources>

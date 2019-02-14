@@ -23,6 +23,7 @@
   <string name="app_name_alpha">Wikipédia Alfa</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_back">Voltar</string>
+  <string name="page_tabs_back">Voltar</string>
   <string name="nav_item_forward">Seguinte</string>
   <string name="search_hint">Pesquisar na Wikipédia</string>
   <string name="search_hint_search_history">Histórico de pesquisa</string>
@@ -32,23 +33,32 @@
   <string name="nav_item_history">Histórico</string>
   <string name="error_network_error">Não foi possível ligar à Internet.</string>
   <string name="page_error_retry">Tentar novamente</string>
+  <string name="card_offline_error_retry">Tentar novamente</string>
+  <string name="storage_access_error_retry">Tentar novamente</string>
+  <string name="article_load_error_retry">Tentar novamente</string>
+  <string name="offline_load_error_retry">Tentar novamente</string>
   <string name="page_error_back_to_main">Voltar</string>
+  <string name="error_back">Voltar</string>
   <string name="menu_clear_all_history">Limpar histórico</string>
   <string name="history_item_deleted">%s removido do histórico</string>
   <string name="history_items_deleted">%d artigos removidos do histórico</string>
   <string name="history_item_delete_undo">Desfazer</string>
+  <string name="notification_archive_undo">Desfazer</string>
   <string name="app_settings">Configurações da aplicação</string>
   <string name="dialog_title_clear_history">Limpar histórico de navegação</string>
   <string name="dialog_message_clear_history">Isto eliminará todo o seu histórico de navegação e fechará todos os separadores abertos. Tem a certeza?</string>
   <string name="dialog_message_clear_history_yes">Sim</string>
   <string name="dialog_message_clear_history_no">Não</string>
   <string name="share_via">Partilhar via</string>
+  <string name="image_share_via">Partilhar através de</string>
   <string name="search_redirect_from">Redirecionado de %s</string>
   <string name="menu_page_show_tabs">Mostrar separadores</string>
   <string name="menu_page_other_languages">Alterar língua</string>
   <string name="menu_page_find_in_page">Localizar na página</string>
+  <string name="edit_section_find_in_page">Localizar na página</string>
   <string name="menu_page_font_and_theme">Tipo de letra e tema</string>
   <string name="menu_page_add_to_list">Adicionar à lista de leitura</string>
+  <string name="feed_card_add_to_list">Adicionar à lista de leitura</string>
   <string name="menu_page_share">Partilhar hiperligação</string>
   <string name="menu_page_open_a_new_tab">Abrir um novo separador</string>
   <string name="menu_page_reading_lists">Listas de leitura</string>
@@ -59,6 +69,9 @@
   <string name="menu_text_select_copy">Copiar</string>
   <string name="menu_text_select_define">Definir</string>
   <string name="menu_text_select_share">Partilhar</string>
+  <string name="share">Partilhar</string>
+  <string name="on_this_day_page_share">Partilhar</string>
+  <string name="reading_list_page_share">Partilhar</string>
   <string name="menu_text_select_edit_here">Editar aqui</string>
   <string name="nav_item_nearby">Aqui perto</string>
   <string name="nearby_zoom_to_location">Ampliar uma localização no mapa</string>
@@ -100,8 +113,13 @@
   <string name="nav_item_login">Iniciar sessão na Wikipédia</string>
   <string name="login_username_hint">Nome de utilizador</string>
   <string name="login_password_hint">Palavra-passe</string>
+  <string name="account_creation_password_hint">Palavra-passe</string>
   <string name="login_2fa_hint">Código de autenticação de dois fatores</string>
   <string name="login_2fa_other_workflow_error_msg">A autenticação de dois fatores é necessária! Volte à atividade principal e inicie sessão com a sua chave de autenticação de dois fatores, depois tente novamente.</string>
+  <string name="onboarding_card_login">Entrar</string>
+  <string name="page_editing_login">Entrar</string>
+  <string name="reading_lists_sync_login">Entrar</string>
+  <string name="create_account_login">Entrar</string>
   <string name="menu_login">Entrar</string>
   <string name="login_activity_title">Iniciar sessão na Wikipédia</string>
   <string name="login_in_progress_dialog_message">A iniciar sessão…</string>
@@ -535,9 +553,11 @@
   <string name="view_continue_reading_card_subtitle_today">hoje</string>
   <string name="view_continue_reading_card_subtitle_read_date">Ler %s</string>
   <string name="view_announcement_card_negative_action">Não, obrigado</string>
+  <string name="onboarding_negative_action">Não, obrigado</string>
   <string name="view_offline_card_text">O conteúdo não pode ser carregado sem acesso à Internet.</string>
   <string name="view_featured_article_card_title">Artigo destacado</string>
   <string name="view_featured_article_footer_save_button_label">Guardar</string>
+  <string name="view_static_card_save_button_label">Gravar</string>
   <string name="view_featured_article_footer_saved_button_label">Guardado</string>
   <string name="edit_tasks_activity_title">Tarefas de edição</string>
   <string name="feed_configure_activity_title">Personalizar o feed</string>
@@ -599,6 +619,7 @@
   <string name="editactionfeed_my_contributions">As minhas contribuições</string>
   <string name="editactionfeed_from_language">De:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Saber mais</string>
+  <string name="editactionfeed_translate_title_dialog_learn_more">Saiba mais</string>
   <string name="editactionfeed_to_language">Para:</string>
   <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
   <string name="description_edit_revert_intro">Sabemos que tentou fazer o melhor, mas um dos revisores teve uma preocupação. As possíveis razões pelas quais a sua edição foi desfeita incluem:</string>
@@ -630,7 +651,7 @@
   <string name="onboarding_got_it">Percebido</string>
   <string name="onboarding_multilingual_secondary_text">Encontrámos as seguintes no seu dispositivo:</string>
   <string name="onboarding_multilingual_add_language_text">Acrescentar ou editar línguas</string>
-  <string name="onboarding_welcome_title_v2">A Enciclopédia Livre\n... em quase 300 línguas</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">A Enciclopédia Livre\n... em quase 300 línguas</string>
   <string name="app_shortcuts_random">Aleatório</string>
   <string name="app_shortcuts_continue_reading">Continuar a ler</string>
   <string name="app_shortcuts_search">Pesquisar</string>
@@ -697,4 +718,11 @@
   <string name="description_edit_tutorial_message">Bem-vindo(a) à nova página principal para edição da Wikipédia dentro desta aplicação. Aqui, iremos sugerir oportunidades que podem ser do seu interesse para adição de conteúdos. As suas contribuições são muito bem-vindas. Boas edições!</string>
   <string name="translation_description_edit_task_unlock_title">A tradução de descrições de título foi destrancada!</string>
   <string name="translation_description_edit_task_unlock_body">Reparámos que gosta de editar descrições de título e de ler a Wikipédia em várias línguas. Consulte esta lista de tarefas que dá acesso à tradução de mais descrições de título!</string>
+  <string name="title_description_editing_skip">Saltar</string>
+  <string name="title_description_get_started">Começar</string>
+  <string name="translate_description_get_started">Começar</string>
+  <string name="edit_tasks_onboarding_get_started">Começar</string>
+  <string name="translate_descriptions_maybe_later">Talvez mais tarde</string>
+  <string name="title_descriptions_onboarding_got_it">Entendido</string>
+  <string name="translate_descriptions_onboarding_got_it">Entendido</string>
 </resources>
