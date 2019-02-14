@@ -49,6 +49,7 @@
         <item name="actionBarTheme">@style/PageToolbarTheme</item>
         <item name="actionBarStyle">@style/PageToolbarStyle</item>
         <item name="autoCompleteTextViewStyle">@style/PageSearchViewEditTextStyle</item>
+        <item name="actionModeCloseButtonStyle">@style/ActionModeCloseButtonStyle</item>
     </style>
 
     <style name="AppTheme.ActionBar.LanguagesList">

@@ -32,9 +32,10 @@
     <color name="green50">#00af89</color> <!-- Foundation Green: B AA: Secondary link highlight, Positive messages -->
     <color name="green30">#14866d</color> <!-- W AA: -->
     <color name="yellow90">#fef6e7</color>
-    <color name="yellow90_translucent">#80FEF6E7</color>
     <color name="yellow50">#fc3</color> <!-- Foundation Yellow: B AAA: Warning messages -->
-    <color name="yellow50_translucent">#80FFCC33</color> <!-- Foundation Yellow: B AAA: Warning messages -->
+
+    <color name="find_in_page">#FFFF00</color>
+    <color name="find_in_page_active">#FF9632</color>
 
     <!-- Sepia -->
     <color name="amate">#e1dad1</color>

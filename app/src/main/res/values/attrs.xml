@@ -47,7 +47,6 @@
     <attr name="track_off_color" format="color" />
     <attr name="toc_h1_h2_color" format="color" />
     <attr name="text_highlight_color" format="color" />
-    <attr name="text_highlight_color_translucent" format="color" />
 
     <declare-styleable name="AutoFitRecyclerView">
         <attr name="minColumnWidth" format="dimension" />
