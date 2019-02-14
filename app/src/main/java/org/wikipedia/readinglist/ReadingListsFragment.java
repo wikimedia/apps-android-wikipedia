@@ -448,8 +448,17 @@ public class ReadingListsFragment extends Fragment implements
             getView().setProgress(page.downloadProgress() == MAX_PROGRESS ? 0 : page.downloadProgress());
             getView().setSecondaryActionHint(R.string.reading_list_article_make_offline);
             getView().setSearchQuery(currentSearchQuery);
+            getView().setUpChipGroup(getReadingListsWithPage());
             PageAvailableOfflineHandler.INSTANCE.check(page, available -> getView().setViewsGreyedOut(!available));
         }
+    }
+
+    private List<String> getReadingListsWithPage() {
+        List<String> readingListsWithPage = new ArrayList<>();
+        readingListsWithPage.add("Saved");
+        readingListsWithPage.add("Cities");
+        readingListsWithPage.add("Country");
+        return readingListsWithPage;
     }
 
     private final class ReadingListAdapter extends RecyclerView.Adapter<DefaultViewHolder> {
@@ -507,6 +516,7 @@ public class ReadingListsFragment extends Fragment implements
             super.onViewDetachedFromWindow(holder);
         }
     }
+
 
     private class ReadingListItemCallback implements ReadingListItemView.Callback {
 

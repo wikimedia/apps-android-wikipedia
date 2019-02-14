@@ -8,6 +8,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.chip.Chip;
+import android.support.design.chip.ChipGroup;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.view.View;
@@ -23,6 +25,8 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -54,6 +58,7 @@ public class PageItemView<T> extends ConstraintLayout {
     @BindView(R.id.page_list_item_selected_image) View imageSelectedView;
     @BindView(R.id.page_list_header_text) GoneIfEmptyTextView headerView;
     @BindView(R.id.page_list_item_circular_progress_bar) CircularProgressBar circularProgressBar;
+    @BindView(R.id.reading_lists_chip_group) ChipGroup readingListsChipGroup;
 
     @Nullable private Callback<T> callback;
     @Nullable private T item;
@@ -123,6 +128,19 @@ public class PageItemView<T> extends ConstraintLayout {
         if (this.selected != selected) {
             this.selected = selected;
             updateSelectedState();
+        }
+    }
+
+    public void setUpChipGroup(List<String> readingListNames) {
+        readingListsChipGroup.setVisibility(VISIBLE);
+        readingListsChipGroup.removeAllViews();
+        for (String readingListName : readingListNames) {
+            Chip chip = new Chip(readingListsChipGroup.getContext());
+            chip.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+            chip.setTextAppearance(R.style.CustomChipStyle);
+            chip.setText(readingListName);
+            chip.setClickable(true);
+            readingListsChipGroup.addView(chip);
         }
     }
 

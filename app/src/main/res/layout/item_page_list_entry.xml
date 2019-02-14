@@ -124,4 +124,21 @@
         app:tint="?attr/material_theme_secondary_color"
         tools:visibility="visible" />
 
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/page_list_item_description"
+        app:layout_constraintTop_toBottomOf="@id/page_list_item_description">
+
+        <android.support.design.chip.ChipGroup
+            android:id="@+id/reading_lists_chip_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:singleLine="true"
+
+            app:singleSelection="true" />
+    </HorizontalScrollView>
 </merge>
