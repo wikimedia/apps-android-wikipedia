@@ -457,6 +457,14 @@ public class ReadingListsFragment extends Fragment implements
         }
     }
 
+    private List<String> getReadingListsWithPage() {
+        List<String> readingListsWithPage = new ArrayList<>();
+        readingListsWithPage.add("Saved");
+        readingListsWithPage.add("Cities");
+        readingListsWithPage.add("Country");
+        return readingListsWithPage;
+    }
+
     private final class ReadingListAdapter extends RecyclerView.Adapter<DefaultViewHolder> {
         private static final int VIEW_TYPE_ITEM = 0;
         private static final int VIEW_TYPE_PAGE_ITEM = 1;
