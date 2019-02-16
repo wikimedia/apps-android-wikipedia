@@ -11,7 +11,7 @@ import org.wikipedia.feed.view.ListCardItemView;
 import org.wikipedia.feed.view.ListCardRecyclerAdapter;
 import org.wikipedia.feed.view.ListCardView;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.util.DateUtil;
+import org.wikipedia.util.DateUtils;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
@@ -43,7 +43,7 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard>
                 .setCallback(getCallback());
         largeHeaderView().setTitle(card.pageTitle())
                 .setImage(card.image())
-                .setSubtitle(DateUtil.getDaysAgoString(age))
+                .setSubtitle(DateUtils.getDaysAgoString(age))
                 .onClickListener(new SelectPageCallbackAdapter(card))
                 .setVisibility(VISIBLE);
     }

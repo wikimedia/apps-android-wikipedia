@@ -10,11 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.R;
-import org.wikipedia.util.UriUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+
+import static org.wikipedia.util.UriUtils.handleExternalLink;
 
 public class DescriptionEditHelpFragment extends Fragment {
     @BindView(R.id.fragment_description_edit_help_view) DescriptionEditHelpView helpView;
@@ -46,13 +47,13 @@ public class DescriptionEditHelpFragment extends Fragment {
     private class HelpViewCallback implements DescriptionEditHelpView.Callback {
         @Override
         public void onAboutClick() {
-            UriUtil.handleExternalLink(getContext(),
+            handleExternalLink(getContext(),
                     Uri.parse(getString(R.string.wikidata_about_url)));
         }
 
         @Override
         public void onGuideClick() {
-            UriUtil.handleExternalLink(getContext(),
+            handleExternalLink(getContext(),
                     Uri.parse(getString(R.string.wikidata_description_guide_url)));
         }
     }

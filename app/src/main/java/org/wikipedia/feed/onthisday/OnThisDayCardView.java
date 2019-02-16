@@ -31,6 +31,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.DateUtil;
+import org.wikipedia.util.DateUtils;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
@@ -157,9 +158,9 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
                 .setCallback(getCallback());
         descTextView.setText(card.text());
         yearTextView.setText(DateUtil.yearToStringWithEra(card.year()));
-        yearsInfoTextView.setText(DateUtil.getYearDifferenceString(card.year()));
+        yearsInfoTextView.setText(DateUtils.getYearDifferenceString(card.year()));
         dayTextView.setText(card.dayString());
-        nextEventYearsTextView.setText(DateUtil.getYearDifferenceString(card.nextYear()));
+        nextEventYearsTextView.setText(DateUtils.getYearDifferenceString(card.nextYear()));
     }
 
     @Override

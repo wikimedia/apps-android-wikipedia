@@ -13,7 +13,7 @@ import org.wikipedia.R;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.util.ResourceUtil;
 
-import static org.wikipedia.util.UriUtil.handleExternalLink;
+import static org.wikipedia.util.UriUtils.handleExternalLink;
 
 public class SwitchPreferenceWithLinks extends SwitchPreferenceMultiLine {
 

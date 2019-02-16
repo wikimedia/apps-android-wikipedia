@@ -22,6 +22,7 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 
 import org.wikipedia.R;
+import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.gallery.ImageLicense;
 import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.StringUtil;
@@ -222,7 +223,7 @@ public final class SnippetImage {
 
         Drawable d = ContextCompat.getDrawable(context,
                 shouldDefaultToCCLicense(leadImageBitmap, license)
-                        ? R.drawable.ic_license_cc : license.getLicenseIcon());
+                        ? R.drawable.ic_license_cc : GalleryActivity.getLicenseIcon(license));
         d.setBounds(left, top, right, bottom);
         d.draw(canvas);
     }

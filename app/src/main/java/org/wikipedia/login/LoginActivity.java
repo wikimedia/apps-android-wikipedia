@@ -36,7 +36,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
-import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
+import static org.wikipedia.util.UriUtils.visitInExternalBrowser;
 
 public class LoginActivity extends BaseActivity {
     public static final int RESULT_LOGIN_SUCCESS = 1;

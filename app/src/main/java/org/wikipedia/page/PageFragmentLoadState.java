@@ -425,7 +425,13 @@ public class PageFragmentLoadState {
                 .put("siteBaseUrl", model.getTitle().getWikiSite().url())
                 .put("isMainPage", page.isMainPage())
                 .put("isFilePage", page.isFilePage())
-                .put("fromRestBase", page.isFromRestBase())
+
+
+
+                //.put("fromRestBase", page.isFromRestBase())
+
+
+
                 .put("apiLevel", Build.VERSION.SDK_INT)
                 .put("showImages", Prefs.isImageDownloadEnabled())
                 .put("collapseTables", Prefs.isCollapseTablesEnabled())
@@ -479,9 +485,9 @@ public class PageFragmentLoadState {
             return;
         }
         try {
-            String dateStr = DateUtil.getShortDateString(DateUtil
+            String dateStr = DateUtil.getShortDateString(fragment.requireContext(), DateUtil
                     .getHttpLastModifiedDate(dateHeader));
-            Toast.makeText(fragment.getContext().getApplicationContext(),
+            Toast.makeText(fragment.requireContext().getApplicationContext(),
                     fragment.getString(R.string.page_offline_notice_last_date, dateStr),
                     Toast.LENGTH_LONG).show();
         } catch (ParseException e) {

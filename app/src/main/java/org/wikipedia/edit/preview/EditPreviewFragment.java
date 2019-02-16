@@ -44,7 +44,7 @@ import java.util.Locale;
 import retrofit2.Call;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
-import static org.wikipedia.util.UriUtil.handleExternalLink;
+import static org.wikipedia.util.UriUtils.handleExternalLink;
 
 public class EditPreviewFragment extends Fragment {
     private ObservableWebView webview;

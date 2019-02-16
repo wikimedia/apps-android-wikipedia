@@ -62,7 +62,7 @@ import io.reactivex.schedulers.Schedulers;
 import static org.wikipedia.util.L10nUtil.formatDateRelative;
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
-import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
+import static org.wikipedia.util.UriUtils.visitInExternalBrowser;
 
 public class BottomContentView extends LinearLayoutOverWebView
         implements ObservableWebView.OnScrollChangeListener,

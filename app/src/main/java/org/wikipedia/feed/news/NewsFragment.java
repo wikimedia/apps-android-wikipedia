@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.ListCardItemView;
 import org.wikipedia.history.HistoryEntry;
@@ -38,6 +39,7 @@ import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -104,7 +106,7 @@ public class NewsFragment extends Fragment {
         image.loadImage(imageUri);
         text.setText(stripHtml(item.story()));
         initRecycler();
-        links.setAdapter(new RecyclerAdapter(item.linkCards(wiki), new Callback()));
+        links.setAdapter(new RecyclerAdapter(getLinkCards(item, wiki), new Callback()));
         return view;
     }
 
@@ -122,6 +124,14 @@ public class NewsFragment extends Fragment {
         links.setLayoutManager(new LinearLayoutManager(requireContext()));
         links.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable));
         links.setNestedScrollingEnabled(false);
+    }
+
+    @NonNull private List<NewsLinkCard> getLinkCards(NewsItem item, WikiSite wiki) {
+        List<NewsLinkCard> linkCards = new ArrayList<>();
+        for (RbPageSummary link : item.links()) {
+            linkCards.add(new NewsLinkCard(link, wiki));
+        }
+        return linkCards;
     }
 
     private static class RecyclerAdapter extends DefaultRecyclerAdapter<NewsLinkCard, ListCardItemView> {
