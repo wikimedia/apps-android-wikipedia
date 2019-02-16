@@ -27,7 +27,7 @@ import org.wikipedia.readinglist.ReadingListActivity;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
+import static org.wikipedia.util.UriUtils.visitInExternalBrowser;
 
 public final class FeedbackUtil {
     public static final int LENGTH_DEFAULT = (int) TimeUnit.SECONDS.toMillis(5);

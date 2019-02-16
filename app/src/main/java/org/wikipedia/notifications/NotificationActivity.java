@@ -34,7 +34,7 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.NotificationSettingsActivity;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.util.DateUtil;
+import org.wikipedia.util.DateUtils;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
@@ -568,7 +568,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         }
 
         void bindItem(Date date) {
-            dateView.setText(DateUtil.getFeedCardDateString(date));
+            dateView.setText(DateUtils.getFeedCardDateString(date));
         }
     }
 

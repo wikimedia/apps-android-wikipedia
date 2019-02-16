@@ -9,7 +9,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
-import org.wikipedia.util.DateUtil;
+import org.wikipedia.util.DateUtils;
 
 public class FeaturedImageCard extends Card {
     @NonNull private FeaturedImage featuredImage;
@@ -40,7 +40,7 @@ public class FeaturedImageCard extends Card {
     @Override
     @NonNull
     public String subtitle() {
-        return DateUtil.getFeedCardDateString(age);
+        return DateUtils.getFeedCardDateString(age);
     }
 
     @NonNull

@@ -21,7 +21,7 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
 import org.wikipedia.util.FeedbackUtil;
 
-import static org.wikipedia.util.UriUtil.handleExternalLink;
+import static org.wikipedia.util.UriUtils.handleExternalLink;
 
 public class InitialOnboardingFragment extends OnboardingFragment {
     private PageViewCallback pageViewCallback = new PageViewCallback();

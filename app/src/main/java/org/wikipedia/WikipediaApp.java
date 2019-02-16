@@ -149,6 +149,7 @@ public class WikipediaApp extends Application {
         super.onCreate();
 
         WikiSite.setDefaultBaseUrl(Prefs.getMediaWikiBaseUrl());
+        AppAdapter.set(new WikipediaAppAdapter());
 
         // Register here rather than in AndroidManifest.xml so that we can target Android N.
         // https://developer.android.com/topic/performance/background-optimization.html#connectivity-action

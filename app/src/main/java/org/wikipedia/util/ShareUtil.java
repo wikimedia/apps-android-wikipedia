@@ -84,7 +84,7 @@ public final class ShareUtil {
     }
 
     public static String getFeaturedImageShareSubject(@NonNull Context context, int age) {
-        return context.getString(R.string.feed_featured_image_share_subject) + " | " + DateUtil.getFeedCardDateString(age);
+        return context.getString(R.string.feed_featured_image_share_subject) + " | " + DateUtils.getFeedCardDateString(age);
     }
 
     public static Intent buildImageShareChooserIntent(Context context, String subject, String text, Uri uri) {

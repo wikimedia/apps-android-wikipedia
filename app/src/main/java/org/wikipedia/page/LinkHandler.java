@@ -17,7 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.wikipedia.util.UriUtil.decodeURL;
-import static org.wikipedia.util.UriUtil.handleExternalLink;
+import static org.wikipedia.util.UriUtils.handleExternalLink;
 
 /**
  * Handles any html links coming from a {@link org.wikipedia.page.PageFragment}

@@ -9,7 +9,7 @@ import org.wikipedia.feed.FeedCoordinator;
 import org.wikipedia.feed.announcement.Announcement;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.model.Card;
-import org.wikipedia.util.UriUtil;
+import org.wikipedia.util.UriUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -43,7 +43,7 @@ public class OnboardingClient implements FeedClient {
                 "readingListssyncCard",
                 context.getString(R.string.feed_reading_lists_sync_onboarding_text),
                 "https://upload.wikimedia.org/wikipedia/commons/5/53/Reading_list_sync_image.png",
-                new Announcement.Action(context.getString(R.string.onboarding_card_login), UriUtil.LOCAL_URL_LOGIN),
+                new Announcement.Action(context.getString(R.string.onboarding_card_login), UriUtils.LOCAL_URL_LOGIN),
                 context.getString(R.string.onboarding_got_it)));
 
         if (card.shouldShow()) {
@@ -54,7 +54,7 @@ public class OnboardingClient implements FeedClient {
                 "customizeOnboardingCard1",
                 context.getString(R.string.feed_configure_onboarding_text),
                 "https://upload.wikimedia.org/wikipedia/commons/3/3b/Announcement_header_for_Explore_Feed_customization.png",
-                new Announcement.Action(context.getString(R.string.feed_configure_onboarding_action), UriUtil.LOCAL_URL_CUSTOMIZE_FEED),
+                new Announcement.Action(context.getString(R.string.feed_configure_onboarding_action), UriUtils.LOCAL_URL_CUSTOMIZE_FEED),
                 context.getString(R.string.onboarding_got_it)));
         if (card.shouldShow()) {
             cards.add(card);
