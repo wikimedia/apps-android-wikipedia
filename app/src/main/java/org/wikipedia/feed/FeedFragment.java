@@ -50,7 +50,7 @@ import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ThrowableUtil;
-import org.wikipedia.util.UriUtil;
+import org.wikipedia.util.UriUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -458,18 +458,18 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onAnnouncementPositiveAction(@NonNull Card card, @NonNull Uri uri) {
             funnel.cardClicked(card.type(), getCardLanguageCode(card));
-            if (uri.toString().equals(UriUtil.LOCAL_URL_LOGIN)) {
+            if (uri.toString().equals(UriUtils.LOCAL_URL_LOGIN)) {
                 if (getCallback() != null) {
                     getCallback().onLoginRequested();
                 }
-            } else if (uri.toString().equals(UriUtil.LOCAL_URL_SETTINGS)) {
+            } else if (uri.toString().equals(UriUtils.LOCAL_URL_SETTINGS)) {
                 startActivityForResult(SettingsActivity.newIntent(requireContext()), ACTIVITY_REQUEST_SETTINGS);
-            } else if (uri.toString().equals(UriUtil.LOCAL_URL_CUSTOMIZE_FEED)) {
+            } else if (uri.toString().equals(UriUtils.LOCAL_URL_CUSTOMIZE_FEED)) {
                 showConfigureActivity(card.type().code());
-            } else if (uri.toString().equals(UriUtil.LOCAL_URL_LANGUAGES)) {
+            } else if (uri.toString().equals(UriUtils.LOCAL_URL_LANGUAGES)) {
                 showLanguagesActivity(LanguageSettingsInvokeSource.ANNOUNCEMENT.text());
             } else {
-                UriUtil.handleExternalLink(requireContext(), uri);
+                UriUtils.handleExternalLink(requireContext(), uri);
             }
         }
 

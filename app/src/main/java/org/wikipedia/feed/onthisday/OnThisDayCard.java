@@ -11,6 +11,7 @@ import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.WikiSiteCard;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.util.DateUtil;
+import org.wikipedia.util.DateUtils;
 
 import java.util.Calendar;
 import java.util.List;
@@ -53,7 +54,7 @@ public class OnThisDayCard extends WikiSiteCard {
     }
 
     @Override @NonNull public String subtitle() {
-        return DateUtil.getFeedCardShortDateString(date);
+        return DateUtils.getFeedCardShortDateString(date);
     }
 
     @NonNull String dayString() {

@@ -13,7 +13,7 @@ import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.WikiSiteCard;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.util.DateUtil;
+import org.wikipedia.util.DateUtils;
 
 public class FeaturedArticleCard extends WikiSiteCard {
     @NonNull private RbPageSummary page;
@@ -34,7 +34,7 @@ public class FeaturedArticleCard extends WikiSiteCard {
     @Override
     @NonNull
     public String subtitle() {
-        return DateUtil.getFeedCardDateString(age);
+        return DateUtils.getFeedCardDateString(age);
     }
 
     @NonNull

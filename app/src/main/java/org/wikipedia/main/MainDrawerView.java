@@ -17,7 +17,7 @@ import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ResourceUtil;
-import org.wikipedia.util.UriUtil;
+import org.wikipedia.util.UriUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -110,7 +110,7 @@ public class MainDrawerView extends ScrollView {
     }
 
     @OnClick(R.id.main_drawer_donate_container) void onDonateClick() {
-        UriUtil.visitInExternalBrowser(getContext(),
+        UriUtils.visitInExternalBrowser(getContext(),
                 Uri.parse(String.format(getContext().getString(R.string.donate_url),
                         BuildConfig.VERSION_NAME, WikipediaApp.getInstance().language().getSystemLanguageCode())));
     }
@@ -122,7 +122,7 @@ public class MainDrawerView extends ScrollView {
     }
 
     @OnClick(R.id.main_drawer_help_container) void onHelpClick() {
-        UriUtil.visitInExternalBrowser(getContext(),
+        UriUtils.visitInExternalBrowser(getContext(),
                 Uri.parse(getContext().getString(R.string.android_app_faq_url)));
     }
 

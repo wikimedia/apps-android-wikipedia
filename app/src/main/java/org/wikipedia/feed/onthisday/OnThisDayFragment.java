@@ -32,6 +32,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DateUtil;
+import org.wikipedia.util.DateUtils;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
@@ -364,7 +365,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             setPads();
             descTextView.setText(event.text());
             yearTextView.setText(DateUtil.yearToStringWithEra(event.year()));
-            yearsInfoTextView.setText(DateUtil.getYearDifferenceString(event.year()));
+            yearsInfoTextView.setText(DateUtils.getYearDifferenceString(event.year()));
             if (prevEvent != null && prevEvent.year() == event.year()) {
                 yearContainer.setVisibility(View.GONE);
                 yearSpace.setVisibility(View.GONE);

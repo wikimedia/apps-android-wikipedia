@@ -64,7 +64,7 @@ import retrofit2.Call;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.L10nUtil.setConditionalTextDirection;
-import static org.wikipedia.util.UriUtil.handleExternalLink;
+import static org.wikipedia.util.UriUtils.handleExternalLink;
 
 public class EditSectionActivity extends BaseActivity {
     public static final String ACTION_EDIT_SECTION = "org.wikipedia.edit_section";

@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -73,8 +74,8 @@ import io.reactivex.schedulers.Schedulers;
 import static org.wikipedia.util.StringUtil.addUnderscores;
 import static org.wikipedia.util.StringUtil.removeUnderscores;
 import static org.wikipedia.util.StringUtil.strip;
-import static org.wikipedia.util.UriUtil.handleExternalLink;
 import static org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl;
+import static org.wikipedia.util.UriUtils.handleExternalLink;
 
 public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.Callback,
         GalleryItemFragment.Callback {
@@ -556,14 +557,14 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
 
         // determine which icon to display...
-        if (getLicenseIcon(item) == R.drawable.ic_license_by) {
+        if (getLicenseIcon(item.getLicense()) == R.drawable.ic_license_by) {
             licenseIcon.setImageResource(R.drawable.ic_license_cc);
             byIcon.setImageResource(R.drawable.ic_license_by);
             byIcon.setVisibility(View.VISIBLE);
             saIcon.setImageResource(R.drawable.ic_license_sharealike);
             saIcon.setVisibility(View.VISIBLE);
         } else {
-            licenseIcon.setImageResource(getLicenseIcon(item));
+            licenseIcon.setImageResource(getLicenseIcon(item.getLicense()));
             byIcon.setVisibility(View.GONE);
             saIcon.setVisibility(View.GONE);
         }
@@ -595,11 +596,18 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     /**
      * Return an icon (drawable resource id) that corresponds to the type of license
      * under which the specified Gallery item is provided.
-     * @param item Gallery item for which to give a license icon.
-     * @return Resource ID of the icon to display, or 0 if no license is available.
      */
-    private static int getLicenseIcon(GalleryItem item) {
-        return item.getLicense().getLicenseIcon();
+    @DrawableRes public static int getLicenseIcon(ImageLicense license) {
+        if (license.isLicensePD()) {
+            return R.drawable.ic_license_pd;
+        }
+        if (license.isLicenseCCBySa()) {
+            return R.drawable.ic_license_by;
+        }
+        if (license.isLicenseCC()) {
+            return R.drawable.ic_license_cc;
+        }
+        return R.drawable.ic_license_cite;
     }
 
     /**

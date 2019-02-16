@@ -106,7 +106,7 @@ import static org.wikipedia.util.ResourceUtil.getThemedColor;
 import static org.wikipedia.util.StringUtil.addUnderscores;
 import static org.wikipedia.util.ThrowableUtil.isOffline;
 import static org.wikipedia.util.UriUtil.decodeURL;
-import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
+import static org.wikipedia.util.UriUtils.visitInExternalBrowser;
 
 public class PageFragment extends Fragment implements BackPressedHandler {
     public interface Callback {

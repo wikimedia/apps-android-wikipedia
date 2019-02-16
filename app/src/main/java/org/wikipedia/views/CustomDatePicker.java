@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.util.DateUtil;
+import org.wikipedia.util.DateUtils;
 import org.wikipedia.util.ResourceUtil;
 
 import java.util.Calendar;
@@ -151,7 +152,7 @@ public class CustomDatePicker extends DialogFragment {
 
 
     private void setDayString() {
-        day.setText(DateUtil.getFeedCardShortDateString(selectedDay));
+        day.setText(DateUtils.getFeedCardShortDateString(selectedDay));
     }
 
 

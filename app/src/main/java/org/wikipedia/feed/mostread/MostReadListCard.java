@@ -12,7 +12,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.ListCard;
-import org.wikipedia.util.DateUtil;
+import org.wikipedia.util.DateUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ public class MostReadListCard extends ListCard<MostReadItemCard> {
     }
 
     @Nullable @Override public String subtitle() {
-        return DateUtil.getFeedCardDateString(articles.date());
+        return DateUtils.getFeedCardDateString(articles.date());
     }
 
     @NonNull @Override public CardType type() {
