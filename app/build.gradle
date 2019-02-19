@@ -274,7 +274,13 @@ dependencies {
 }
 
 private setSigningConfigKey(config, Properties props) {
-    if (props) {
+    def isRunningOnTravis = System.getenv("CI") == "true"
+    if (isRunningOnTravis) {
+        config.storeFile = file("../wikipedia.keystore")
+        config.storePassword = System.getenv("keystore_password")
+        config.keyAlias = System.getenv("keystore_alias")
+        config.keyPassword = System.getenv("keystore_alias_password")
+    } else {
         config.storeFile = props['keystore'] == null ? null : file(props['keystore'])
         config.storePassword = props['store.pass']
         config.keyAlias = props['key.alias']
