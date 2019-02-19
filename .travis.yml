@@ -13,10 +13,17 @@ branches:
   only:
   - master
 script:
-- if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./scripts/apps-android-wikipedia-test;
-  fi
-- if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./scripts/apps-android-wikipedia-publish-travis;
-  fi
+- bash ./scripts/apps-android-wikipedia-test
 before_install:
 - openssl aes-256-cbc -K $encrypted_62eb76340444_key -iv $encrypted_62eb76340444_iv
   -in wikipedia.keystore.enc -out wikipedia.keystore -d
+deploy:
+  provider: releases
+  skip_cleanup: true
+  overwrite: true
+  api_key:
+    secure: CI+khqrkMXI6Q/erqENJErwmea/Nj5wQ7EDIL5cZnuaSrAsCY73dbgNRFMqSzkktVqNprDdKRfx+neVArblohiTOklQo3IOlKioIw7f8gWclxQEjj2jXG7WE9So2MRF8AGTPWt7ET3NmttPYIJ6UsQXfNrRQPHHvhxsu1Mmk3IW9S7cdKv8ZYo3zJE6V5FqRam//vQBHoicCBruk7kfovxd2k2fuCD31qvZpk3gjTHbOZ2CFqkVkv/vo7USIn8S3w6kmyYAPDRDAEayw3TWQeUPcUBgTo2UAFQzCxaXFckzc049v2E8nY2Zommf2qic4zVl4dHUKTEVbqNK7mVNALTrNcJXTItCFVK1gD/0m4xkYb7XLJ9HFyIF19s7jWnoI5qLwghN4j/i/LrEKjVWrdCl+P1eJVObhRH+YGRXZEHmB15baxHSqJUzTmHbL3xMEvjYlT9tnByCFEWySgUNmvDl3JycoCEQcImqZf9wKDxrqRyo4vJ7nn8agjUEUlxm1YTiMLX9Ar6KsgkZXfpAb9vVm3XQcOjpglum5M93BDOiwgGuHNV1/y6KwqiSGeTmZgdbQ8sSlZyXpCXPwseKdVAQ6b4W3E1FzambJZME2POHIZ4rUlmXldT4IAstIGzYFhMbms7p74hZcRLDNwcIQTuPQXUr593QIjLBcPjfXRrE=
+  file: "app/build/outputs/apk/alpha/release/app-alpha-universal-release.apk"
+  on:
+    repo: wikimedia/apps-android-wikipedia
+    tags: true
