@@ -625,6 +625,11 @@ public class ReadingListsFragment extends Fragment implements
                 }
             }
         }
+
+        @Override
+        public void onListChipClick(@Nullable ReadingList readingList) {
+            startActivity(ReadingListActivity.newIntent(requireContext(), readingList));
+        }
     }
 
     private void maybeDeleteListFromIntent() {

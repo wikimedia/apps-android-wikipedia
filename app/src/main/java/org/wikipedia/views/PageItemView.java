@@ -48,6 +48,7 @@ public class PageItemView<T> extends ConstraintLayout {
         void onThumbClick(@Nullable T item);
         void onActionClick(@Nullable T item, @NonNull View view);
         void onSecondaryActionClick(@Nullable T item, @NonNull View view);
+        void onListChipClick(@Nullable ReadingList readingList);
     }
 
     @BindView(R.id.page_list_item_title) TextView titleView;
@@ -141,6 +142,11 @@ public class PageItemView<T> extends ConstraintLayout {
             chip.setTextAppearance(R.style.CustomChipStyle);
             chip.setText(readingList.title());
             chip.setClickable(true);
+            chip.setOnClickListener(v -> {
+                if (callback != null) {
+                    callback.onListChipClick(readingList);
+                }
+            });
             readingListsChipGroup.addView(chip);
         }
     }
