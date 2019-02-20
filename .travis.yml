@@ -20,6 +20,8 @@ script:
 before_install:
 - openssl aes-256-cbc -K $encrypted_62eb76340444_key -iv $encrypted_62eb76340444_iv
   -in wikipedia.keystore.enc -out wikipedia.keystore -d
+before_deploy:
+- scripts/tag-latest.sh
 deploy:
   provider: releases
   skip_cleanup: true
@@ -29,4 +31,3 @@ deploy:
   file: "app/build/outputs/apk/alpha/release/app-alpha-universal-release.apk"
   on:
     repo: wikimedia/apps-android-wikipedia
-    tags: true
