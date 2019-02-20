@@ -448,7 +448,7 @@ public class ReadingListsFragment extends Fragment implements
             getView().setProgress(page.downloadProgress() == MAX_PROGRESS ? 0 : page.downloadProgress());
             getView().setSecondaryActionHint(R.string.reading_list_article_make_offline);
             getView().setSearchQuery(currentSearchQuery);
-            getView().setUpChipGroup( ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page));
+            getView().setUpChipGroup(ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page));
             PageAvailableOfflineHandler.INSTANCE.check(page, available -> getView().setViewsGreyedOut(!available));
         }
     }
