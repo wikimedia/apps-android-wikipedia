@@ -20,14 +20,13 @@ Image gallery - Tap on an image to view the image full-screen in high resolution
 
 Definitions from Wiktionary - Tap-and-hold to highlight a word, then tap the "Define" button to see a definition of the word from Wiktionary.
 
-Wikipedia Zero - Access Wikipedia for Android free of data charges for participating mobile operators. (link to participating operators). 
+Wikipedia Zero - Access Wikipedia for Android free of data charges for participating mobile operators. (link to participating operators).
 
 Send us your feedback about the app! In the menu, press "Settings", then "About the Wikipedia app", then "Send app feedback".
 
 The code is 100% open source. If you have experience with Java and the Android SDK, then we look forward to your contributions! https://github.com/wikimedia/apps-android-wikipedia
 
-By using this app, you agree to the automatic transmission of crash reports to a third-party service provider. If you would like to disable this feature, please press "Settings," then toggle off "Send crash reports" under the Privacy section.
-Explanation of permissions needed by the app: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+By using this app, you agree to the automatic transmission of crash reports to a third-party service provider. If you would like to disable this feature, please press "Settings," then toggle off "Send crash reports" under the Privacy section. Explanation of permissions needed by the app: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Privacy policy: https://m.wikimediafoundation.org/wiki/Privacy_policy
 
