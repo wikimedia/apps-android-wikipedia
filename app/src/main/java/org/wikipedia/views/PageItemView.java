@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.R;
+import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -131,14 +132,14 @@ public class PageItemView<T> extends ConstraintLayout {
         }
     }
 
-    public void setUpChipGroup(List<String> readingListNames) {
+    public void setUpChipGroup(List<ReadingList> readingLists) {
         readingListsChipGroup.setVisibility(VISIBLE);
         readingListsChipGroup.removeAllViews();
-        for (String readingListName : readingListNames) {
+        for (ReadingList readingList : readingLists) {
             Chip chip = new Chip(readingListsChipGroup.getContext());
             chip.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
             chip.setTextAppearance(R.style.CustomChipStyle);
-            chip.setText(readingListName);
+            chip.setText(readingList.title());
             chip.setClickable(true);
             readingListsChipGroup.addView(chip);
         }
