@@ -81,6 +81,7 @@
         <item name="track_off_color">@color/base100</item>
         <item name="toc_h1_h2_color">@color/base100</item>
         <item name="toc_scroller_button_color">@color/base18</item>
+        <item name="button_background_color">@color/base14</item>
         <item name="text_highlight_color">@color/yellow90</item>
         <item name="text_highlight_color_translucent">@color/yellow90_translucent</item>
 
