@@ -27,7 +27,7 @@ public class AlphaUpdateChecker extends RecurringTask {
 
     private static final String PREFERENCE_KEY_ALPHA_COMMIT = "alpha_last_checked_commit";
     private static final String ALPHA_BUILD_APK_URL = "https://github.com/wikimedia/apps-android-wikipedia/releases/download/latest/app-alpha-universal-release.apk";
-    private static final String ALPHA_BUILD_DATA_URL = "https://github.com/wikimedia/apps-android-wikipedia/releases/download/latest/md5.txt";
+    private static final String ALPHA_BUILD_DATA_URL = "https://github.com/wikimedia/apps-android-wikipedia/releases/download/latest/rev-hash.txt";
     private static final String CHANNEL_ID = "ALPHA_UPDATE_CHECKER_CHANNEL";
     @NonNull private final Context context;
 
