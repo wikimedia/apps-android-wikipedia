@@ -15,6 +15,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.util.log.L;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.UriUtil.isValidPageLink;
@@ -50,8 +51,13 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
             if (result.getType() == WebView.HitTestResult.SRC_ANCHOR_TYPE) {
                 Uri uri = Uri.parse(result.getExtra());
                 if (isValidPageLink(uri)) {
-                    title = ((WebViewContextMenuListener) contextMenuListener).getWikiSite()
-                            .titleForInternalLink(uri.getPath());
+                    WikiSite wikiSite = new WikiSite(uri);
+                    // the following logic keeps the correct language code if the domain has multiple variants (e.g. zh).
+                    if (wikiSite.dbName().equals(((WebViewContextMenuListener) contextMenuListener).getWikiSite().dbName())
+                            && !wikiSite.languageCode().equals(((WebViewContextMenuListener) contextMenuListener).getWikiSite().languageCode())) {
+                        wikiSite = ((WebViewContextMenuListener) contextMenuListener).getWikiSite();
+                    }
+                    title = wikiSite.titleForInternalLink(uri.getPath());
                 }
             }
         } else if (view instanceof ListView) {
@@ -69,7 +75,10 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
             for (int i = 0; i < menu.size(); i++) {
                 menu.getItem(i).setOnMenuItemClickListener(this);
             }
+            L.d("LongPressHandler final " + title.getCanonicalUri());
         }
+
+        L.d("LongPressHandler title " + title.getCanonicalUri());
     }
 
     @Override
