@@ -80,7 +80,7 @@
         <item name="actionModeStyle">@style/ActionModeGreen</item>
     </style>
 
-    <style name="AlertDialogButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+    <style name="AlertDialogButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
         <item name="android:textAlignment">textEnd</item>
         <item name="android:minWidth">0dp</item>
         <item name="android:paddingStart">16dp</item>
