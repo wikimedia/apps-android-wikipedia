@@ -9,7 +9,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
+import org.wikipedia.dataclient.Service;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.NearbyPage;
+import org.wikipedia.page.PageTitle;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -26,6 +29,7 @@ import static org.hamcrest.Matchers.is;
 public class NearbyUnitTest {
     /** dist(origin, point a) */
     private static final int A = 111_319;
+    private static final WikiSite TEST_SITE = new WikiSite(Service.WIKIPEDIA_URL);
 
     private Location nextLocation;
     private List<NearbyPage> nearbyPages;
@@ -51,8 +55,8 @@ public class NearbyUnitTest {
 
     @Test public void testSortWithNullLocations() throws Throwable {
         final Location location = null;
-        nearbyPages.add(new NearbyPage("d", location));
-        nearbyPages.add(new NearbyPage("e", location));
+        nearbyPages.add(new NearbyPage(new PageTitle("d", TEST_SITE), location));
+        nearbyPages.add(new NearbyPage(new PageTitle("e", TEST_SITE), location));
         calcDistances(nearbyPages);
         Collections.sort(nearbyPages, new NearbyDistanceComparator());
         assertThat("a", is(nearbyPages.get(0).getTitle().getDisplayText()));
@@ -65,7 +69,7 @@ public class NearbyUnitTest {
 
     @Test public void testCompare() throws Throwable {
         final Location location = null;
-        NearbyPage nullLocPage = new NearbyPage("nowhere", location);
+        NearbyPage nullLocPage = new NearbyPage(new PageTitle("nowhere", TEST_SITE), location);
 
         calcDistances(nearbyPages);
         nullLocPage.setDistance(getDistance(nullLocPage.getLocation()));
@@ -119,6 +123,6 @@ public class NearbyUnitTest {
         Location location = new Location("");
         location.setLatitude(lat);
         location.setLongitude(lon);
-        return new NearbyPage(title, location);
+        return new NearbyPage(new PageTitle(title, TEST_SITE), location);
     }
 }

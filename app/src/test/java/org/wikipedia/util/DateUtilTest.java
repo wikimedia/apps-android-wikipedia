@@ -3,6 +3,7 @@ package org.wikipedia.util;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
+import org.wikipedia.WikipediaApp;
 
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
@@ -16,7 +17,7 @@ public class DateUtilTest {
 
     @Test
     public void testGetHttpLastModifiedDate() throws Throwable {
-        assertThat(DateUtil.getShortDateString(DateUtil.getHttpLastModifiedDate(HTTP_DATE_HEADER)), is("May 25, 2017"));
+        assertThat(DateUtil.getShortDateString(WikipediaApp.getInstance(), DateUtil.getHttpLastModifiedDate(HTTP_DATE_HEADER)), is("May 25, 2017"));
     }
 
     @Test
