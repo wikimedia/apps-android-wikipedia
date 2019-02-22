@@ -75,10 +75,7 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
             for (int i = 0; i < menu.size(); i++) {
                 menu.getItem(i).setOnMenuItemClickListener(this);
             }
-            L.d("LongPressHandler final " + title.getCanonicalUri());
         }
-
-        L.d("LongPressHandler title " + title.getCanonicalUri());
     }
 
     @Override
