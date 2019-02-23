@@ -73,7 +73,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
     }
 
     private fun getArticleWithMissingDescription() {
-        if (parent().source == InvokeSource.EDIT_FEED_TITLE_DESC.ordinal) {
+        if (parent().source == InvokeSource.EDIT_FEED_TITLE_DESC) {
             disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -117,7 +117,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
         }
         viewArticleTitle.text = summary!!.normalizedTitle
 
-        if (parent().source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC.ordinal) {
+        if (parent().source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
             val spannableDescription = SpannableString(sourceDescription)
             spannableDescription.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.text_highlight_color)), 0, sourceDescription.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
             viewArticleSubtitle.text = TextUtils.concat(String.format(getString(R.string.translation_source_description), app.language().getAppLanguageCanonicalName(parent().langFromCode)), spannableDescription)
@@ -127,7 +127,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
     }
 
     private fun updateSourceDescriptionWithHighlight() {
-        if (parent().source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC.ordinal) {
+        if (parent().source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
             val spannableDescription = SpannableString(sourceDescription)
             spannableDescription.setSpan(ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_text_color)), 0, sourceDescription.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
             parent().sourceDescription = TextUtils.concat(String.format(getString(R.string.translation_source_description), app.language().getAppLanguageCanonicalName(parent().langFromCode)), spannableDescription)

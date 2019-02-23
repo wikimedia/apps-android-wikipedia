@@ -147,7 +147,7 @@ public class EditTasksFragment extends Fragment {
 
             @Override
             public void onViewClick() {
-                startActivity(AddTitleDescriptionsActivity.Companion.newIntent(requireActivity(), InvokeSource.EDIT_FEED_TITLE_DESC.ordinal()));
+                startActivity(AddTitleDescriptionsActivity.Companion.newIntent(requireActivity(), InvokeSource.EDIT_FEED_TITLE_DESC));
             }
         });
 
@@ -173,7 +173,7 @@ public class EditTasksFragment extends Fragment {
                 @Override
                 public void onViewClick() {
                     if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() > 1 && !multilingualTask.getDisabled()) {
-                        startActivity(AddTitleDescriptionsActivity.Companion.newIntent(requireActivity(), EDIT_FEED_TRANSLATE_TITLE_DESC.ordinal()));
+                        startActivity(AddTitleDescriptionsActivity.Companion.newIntent(requireActivity(), EDIT_FEED_TRANSLATE_TITLE_DESC));
                     }
                 }
 
@@ -210,7 +210,7 @@ public class EditTasksFragment extends Fragment {
                 @Override
                 public void onViewClick() {
                     if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() > 1 && !multilingualTask.getDisabled()) {
-                        startActivity(AddTitleDescriptionsActivity.Companion.newIntent(requireActivity(), EDIT_FEED_TRANSLATE_TITLE_DESC.ordinal()));
+                        startActivity(AddTitleDescriptionsActivity.Companion.newIntent(requireActivity(), EDIT_FEED_TRANSLATE_TITLE_DESC));
                     }
                 }
             });
