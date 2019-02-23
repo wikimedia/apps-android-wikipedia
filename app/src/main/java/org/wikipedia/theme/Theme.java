@@ -71,8 +71,6 @@ public enum Theme implements EnumCode {
 
     public static String getThemePageLibClass(Theme theme) {
         switch (theme.getFunnelName()) {
-            case "light":
-                return "pagelib_theme_light";
             case "dark":
                 return "pagelib_theme_dark";
             case "black":

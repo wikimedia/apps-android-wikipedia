@@ -70,7 +70,7 @@ public class CommunicationBridge {
             html = FileUtil.readFile(WikipediaApp.getInstance().getAssets().open(assetFileName))
                     .replace("$wikiurl", wikiUrl)
                     .replace("$pageLibThemeClass", Theme.getThemePageLibClass(WikipediaApp.getInstance().getCurrentTheme()))
-                    .replace("$pageLibDimImgClass", (WikipediaApp.getInstance().getCurrentTheme().isDark()) ? "pagelib_dim_images" : "");
+                    .replace("$pageLibDimImgClass", WikipediaApp.getInstance().getCurrentTheme().isDark() ? "pagelib_dim_images" : "");
 
         } catch (IOException e) {
             e.printStackTrace();
