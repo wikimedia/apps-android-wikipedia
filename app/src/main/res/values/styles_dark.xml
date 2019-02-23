@@ -88,7 +88,7 @@
 
     </style>
 
-    <style name="AlertDialogDark" parent="Theme.AppCompat.Dialog.Alert">
+    <style name="AlertDialogDark" parent="Theme.MaterialComponents.Dialog.Alert">
         <item name="colorAccent">@color/accent75</item>
         <item name="android:colorBackground">?attr/paper_color</item>
         <item name="android:textColorPrimary">?attr/material_theme_secondary_color</item>
@@ -103,7 +103,7 @@
         <item name="android:background">?attr/paper_color</item>
     </style>
 
-    <style name="DialogDark" parent="Theme.AppCompat.Dialog">
+    <style name="DialogDark" parent="Theme.MaterialComponents.Dialog">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="colorAccent">@color/accent75</item>
@@ -115,7 +115,7 @@
         <item name="overlapAnchor">true</item>
     </style>
 
-    <style name="BottomSheetDialogDark" parent="Theme.Design.BottomSheetDialog">
+    <style name="BottomSheetDialogDark" parent="Theme.MaterialComponents.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppBottomSheetModalStyle</item>
         <item name="colorAccent">@color/accent75</item>
         <item name="colorSwitchThumbNormal">@color/base90</item>
