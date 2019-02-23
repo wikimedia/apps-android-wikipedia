@@ -3,6 +3,7 @@ package org.wikipedia.analytics;
 import android.support.annotation.NonNull;
 
 import org.json.JSONObject;
+import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.readinglist.database.ReadingList;
@@ -20,18 +21,18 @@ public class ReadingListsFunnel extends Funnel {
         super(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, wiki);
     }
 
-    public void logAddClick(int source) {
+    public void logAddClick(InvokeSource source) {
         log(
                 "action", "addclick",
-                "addsource", source
+                "addsource", source.ordinal()
         );
     }
 
     public void logAddToList(ReadingList list, int listCount,
-                             int source) {
+                             InvokeSource source) {
         log(
                 "action", list.pages().isEmpty() ? "addtonew" : "addtoexisting",
-                "addsource", source,
+                "addsource", source.ordinal(),
                 "itemcount", list.pages().size(),
                 "listcount", listCount
         );

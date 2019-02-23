@@ -41,7 +41,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private View listsContainer;
     private View onboardingContainer;
     private View onboardingButton;
-    private int invokeSource;
+    private InvokeSource invokeSource;
     private CreateButtonClickListener createClickListener = new CreateButtonClickListener();
     private CompositeDisposable disposables = new CompositeDisposable();
 
@@ -68,7 +68,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         AddToReadingListDialog dialog = new AddToReadingListDialog();
         Bundle args = new Bundle();
         args.putParcelableArrayList("titles", new ArrayList<Parcelable>(titles));
-        args.putInt("source", source.ordinal());
+        args.putSerializable("source", source);
         dialog.setArguments(args);
         dialog.setOnDismissListener(listener);
         return dialog;
@@ -78,7 +78,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         titles = getArguments().getParcelableArrayList("titles");
-        invokeSource = getArguments().getInt("source");
+        invokeSource = (InvokeSource) getArguments().getSerializable("source");
         adapter = new ReadingListAdapter();
     }
 
