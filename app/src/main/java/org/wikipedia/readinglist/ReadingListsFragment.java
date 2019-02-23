@@ -436,7 +436,11 @@ public class ReadingListsFragment extends Fragment implements
         void bindItem(ReadingListPage page) {
             getView().setItem(page);
             getView().setTitle(page.title());
+            getView().setTitleMaxLines(2);
+            getView().setTitleEllipsis();
             getView().setDescription(StringUtils.capitalize(page.description()));
+            getView().setDescriptionMaxLines(2);
+            getView().setDescriptionEllipsis();
             getView().setImageUrl(page.thumbUrl());
             getView().setSelected(page.selected());
             getView().setActionIcon(R.drawable.ic_more_vert_white_24dp);

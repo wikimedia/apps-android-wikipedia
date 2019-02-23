@@ -12,6 +12,7 @@ import android.support.design.chip.Chip;
 import android.support.design.chip.ChipGroup;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -83,8 +84,24 @@ public class PageItemView<T> extends ConstraintLayout {
         titleView.setText(text);
     }
 
+    public void setTitleMaxLines(int linesCount) {
+        titleView.setMaxLines(linesCount);
+    }
+
+    public void setTitleEllipsis() {
+        titleView.setEllipsize(TextUtils.TruncateAt.END);
+    }
+
     public void setDescription(@Nullable CharSequence text) {
         descriptionView.setText(text);
+    }
+
+    public void setDescriptionMaxLines(int linesCount) {
+        descriptionView.setMaxLines(linesCount);
+    }
+
+    public void setDescriptionEllipsis() {
+        descriptionView.setEllipsize(TextUtils.TruncateAt.END);
     }
 
     public void setImageUrl(@Nullable String url) {
