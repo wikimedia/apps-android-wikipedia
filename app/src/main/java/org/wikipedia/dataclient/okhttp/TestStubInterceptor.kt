@@ -1,9 +1,8 @@
 package org.wikipedia.dataclient.okhttp
 
-import java.io.IOException
-
 import okhttp3.Interceptor
 import okhttp3.Response
+import java.io.IOException
 
 class TestStubInterceptor : Interceptor {
     interface Callback {
@@ -19,11 +18,6 @@ class TestStubInterceptor : Interceptor {
     }
 
     companion object {
-
-        private var CALLBACK: Callback? = null
-
-        fun setCallback(callback: Callback?) {
-            CALLBACK = callback
-        }
+        var CALLBACK: Callback? = null
     }
 }
