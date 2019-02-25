@@ -156,8 +156,9 @@ public class PageItemView<T> extends ConstraintLayout {
         readingListsChipGroup.removeAllViews();
         for (ReadingList readingList : readingLists) {
             Chip chip = new Chip(readingListsChipGroup.getContext());
-            chip.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-            chip.setTextAppearance(R.style.CustomChipStyle);
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+                chip.setTextAppearance(R.style.CustomChipStyle);
+            }
             chip.setText(readingList.title());
             chip.setClickable(true);
             chip.setOnClickListener(v -> {
