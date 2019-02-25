@@ -436,7 +436,11 @@ public class ReadingListsFragment extends Fragment implements
         void bindItem(ReadingListPage page) {
             getView().setItem(page);
             getView().setTitle(page.title());
+            getView().setTitleMaxLines(2);
+            getView().setTitleEllipsis();
             getView().setDescription(StringUtils.capitalize(page.description()));
+            getView().setDescriptionMaxLines(2);
+            getView().setDescriptionEllipsis();
             getView().setImageUrl(page.thumbUrl());
             getView().setSelected(page.selected());
             getView().setActionIcon(R.drawable.ic_more_vert_white_24dp);
@@ -448,6 +452,7 @@ public class ReadingListsFragment extends Fragment implements
             getView().setProgress(page.downloadProgress() == MAX_PROGRESS ? 0 : page.downloadProgress());
             getView().setSecondaryActionHint(R.string.reading_list_article_make_offline);
             getView().setSearchQuery(currentSearchQuery);
+            getView().setUpChipGroup(ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page));
             PageAvailableOfflineHandler.INSTANCE.check(page, available -> getView().setViewsGreyedOut(!available));
         }
     }
@@ -507,6 +512,7 @@ public class ReadingListsFragment extends Fragment implements
             super.onViewDetachedFromWindow(holder);
         }
     }
+
 
     private class ReadingListItemCallback implements ReadingListItemView.Callback {
 
@@ -622,6 +628,11 @@ public class ReadingListsFragment extends Fragment implements
                     });
                 }
             }
+        }
+
+        @Override
+        public void onListChipClick(@Nullable ReadingList readingList) {
+            startActivity(ReadingListActivity.newIntent(requireContext(), readingList));
         }
     }
 

@@ -811,6 +811,10 @@ public class ReadingListFragment extends Fragment implements
                 }
             }
         }
+
+        @Override
+        public void onListChipClick(@Nullable ReadingList readingList) {
+        }
     }
 
     private class SearchCallback extends SearchActionModeCallback {

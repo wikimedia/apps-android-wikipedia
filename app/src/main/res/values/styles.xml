@@ -446,4 +446,12 @@
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
+    <style name="CustomChipStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">?attr/section_title_color</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:letterSpacing" tools:targetApi="lollipop">0.01</item>
+    </style>
+
 </resources>
