@@ -61,6 +61,7 @@ public class PageItemView<T> extends ConstraintLayout {
     @BindView(R.id.page_list_item_selected_image) View imageSelectedView;
     @BindView(R.id.page_list_header_text) GoneIfEmptyTextView headerView;
     @BindView(R.id.page_list_item_circular_progress_bar) CircularProgressBar circularProgressBar;
+    @BindView(R.id.chips_scrollview) View chipsScrollView;
     @BindView(R.id.reading_lists_chip_group) ChipGroup readingListsChipGroup;
 
     @Nullable private Callback<T> callback;
@@ -151,12 +152,13 @@ public class PageItemView<T> extends ConstraintLayout {
     }
 
     public void setUpChipGroup(List<ReadingList> readingLists) {
-        readingListsChipGroup.setVisibility(VISIBLE);
+        chipsScrollView.setVisibility(VISIBLE);
         readingListsChipGroup.removeAllViews();
         for (ReadingList readingList : readingLists) {
             Chip chip = new Chip(readingListsChipGroup.getContext());
-            chip.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-            chip.setTextAppearance(R.style.CustomChipStyle);
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+                chip.setTextAppearance(R.style.CustomChipStyle);
+            }
             chip.setText(readingList.title());
             chip.setClickable(true);
             chip.setOnClickListener(v -> {
@@ -208,6 +210,8 @@ public class PageItemView<T> extends ConstraintLayout {
     private void init() {
         inflate(getContext(), R.layout.item_page_list_entry, this);
         ButterKnife.bind(this);
+        setClipChildren(false);
+        setClipToPadding(false);
 
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         final int topBottomPadding = 16;
