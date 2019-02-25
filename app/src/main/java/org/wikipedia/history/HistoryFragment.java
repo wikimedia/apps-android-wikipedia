@@ -36,6 +36,7 @@ import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.main.MainFragment;
 import org.wikipedia.page.PageAvailableOfflineHandler;
+import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
@@ -515,6 +516,10 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         }
         @Override
         public void onSecondaryActionClick(@Nullable IndexedHistoryEntry entry, @NonNull View view) {
+        }
+
+        @Override
+        public void onListChipClick(@Nullable ReadingList readingList) {
         }
     }
 
