@@ -33,9 +33,8 @@
   <string name="nav_item_forward">Button label for navigating to the next page.</string>
   <string name="search_hint">Hint text for the search box</string>
   <string name="search_hint_search_history">Hint text for the search box when searching browsing history</string>
-  <string name="search_hint_search_my_lists">Hint text for the search box when searching the set of reading lists</string>
-  <string name="search_hint_search_reading_list">Hint text for the search box when searching for pages in a single reading list</string>
   <string name="search_hint_search_languages">Hint text for the search box.</string>
+  <string name="search_hint_search_my_lists_and_articles">Hint text for the search box when searching the set of reading lists or pages in a single reading list</string>
   <string name="nav_item_history">Text in navigation sidebar that when tapped leads to the History screen.\n{{Identical|History}}</string>
   <string name="error_network_error">Error message shown when network cannot be reached when loading a page</string>
   <string name="page_error_retry">Text for button that retries page loading when tapped.\n{{Identical|Retry}}</string>
@@ -414,6 +413,7 @@
   <string name="reading_list_add_to_other_list">Menu item to add an article to another reading list (when the article already exists in one or more lists).</string>
   <string name="reading_list_remove_from_list">Menu item to remove an article from a specific reading list. The %s symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_remove_from_lists">Menu item to remove an article from multiple reading lists to which it might belong.</string>
+  <string name="reading_lists_item_deleted">Menu item to remove an article from selected reading lists. The %s symbol is replaced with the name of the article.</string>
   <string name="reading_list_confirm_remove_article_from_offline">Label for a dialog button confirming that the user wants to remove the selected list from offline availability for all reading lists.</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Title for a dialog warning the user that the page the user has selected to remove from offline availability appears in multiple lists.</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">Message for a dialog warning the user that the page the user has selected to remove from offline availability appears in multiple lists.  The names of the lists appear below.  The \"%s\" symbol is the title of the page of the user selected to remove.</string>
