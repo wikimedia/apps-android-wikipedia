@@ -27,6 +27,7 @@
   <string name="app_name_alpha">위키백과 알파</string>
   <string name="wikimedia">위키미디어</string>
   <string name="nav_item_back">뒤로</string>
+  <string name="page_tabs_back">뒤로</string>
   <string name="nav_item_forward">앞으로</string>
   <string name="search_hint">위키백과 검색</string>
   <string name="search_hint_search_history">역사 검색</string>
@@ -36,23 +37,32 @@
   <string name="nav_item_history">방문 기록</string>
   <string name="error_network_error">인터넷에 연결할 수 없습니다.</string>
   <string name="page_error_retry">다시 시도</string>
+  <string name="card_offline_error_retry">다시 시도</string>
+  <string name="storage_access_error_retry">다시 시도</string>
+  <string name="article_load_error_retry">다시 시도</string>
+  <string name="offline_load_error_retry">다시 시도</string>
   <string name="page_error_back_to_main">뒤로 가기</string>
+  <string name="error_back">돌아가기</string>
   <string name="menu_clear_all_history">방문 기록 지우기</string>
   <string name="history_item_deleted">%s 문서가 역사에서 제거되었습니다</string>
   <string name="history_items_deleted">%d개의 문서가 역사에서 제거되었습니다</string>
   <string name="history_item_delete_undo">실행 취소</string>
+  <string name="notification_archive_undo">실행 취소</string>
   <string name="app_settings">앱 설정</string>
   <string name="dialog_title_clear_history">방문 기록 지우기</string>
   <string name="dialog_message_clear_history">모든 방문 기록을 지우고 현재 열려 있는 모든 탭을 닫습니다. 계속하시겠습니까?</string>
   <string name="dialog_message_clear_history_yes">예</string>
   <string name="dialog_message_clear_history_no">아니오</string>
   <string name="share_via">다음을 통해 공유</string>
+  <string name="image_share_via">다음을 통해 공유</string>
   <string name="search_redirect_from">%s에서 넘어옴</string>
   <string name="menu_page_show_tabs">탭 보기</string>
   <string name="menu_page_other_languages">언어 변경</string>
   <string name="menu_page_find_in_page">문서에서 찾기</string>
+  <string name="edit_section_find_in_page">문서에서 찾기</string>
   <string name="menu_page_font_and_theme">글자와 테마</string>
   <string name="menu_page_add_to_list">읽기 목록에 추가</string>
+  <string name="feed_card_add_to_list">읽기 목록에 추가</string>
   <string name="menu_page_share">링크 공유</string>
   <string name="menu_page_open_a_new_tab">새 탭 열기</string>
   <string name="menu_page_reading_lists">읽기 목록</string>
@@ -63,6 +73,9 @@
   <string name="menu_text_select_copy">복사</string>
   <string name="menu_text_select_define">정의</string>
   <string name="menu_text_select_share">공유</string>
+  <string name="share">공유</string>
+  <string name="on_this_day_page_share">공유</string>
+  <string name="reading_list_page_share">공유</string>
   <string name="menu_text_select_edit_here">여기를 편집</string>
   <string name="nav_item_nearby">근처</string>
   <string name="nearby_zoom_to_location">지도 상의 장소를 확대</string>
@@ -104,8 +117,13 @@
   <string name="nav_item_login">위키백과에 로그인</string>
   <string name="login_username_hint">사용자 이름</string>
   <string name="login_password_hint">비밀번호</string>
+  <string name="account_creation_password_hint">비밀번호</string>
   <string name="login_2fa_hint">2요소 인증 코드</string>
   <string name="login_2fa_other_workflow_error_msg">2요소 인증이 필요합니다! 주요 활동으로 돌아간 다음 당신의 2FA 토큰으로 로그인하고 다시 시도하십시오.</string>
+  <string name="onboarding_card_login">로그인</string>
+  <string name="page_editing_login">로그인</string>
+  <string name="reading_lists_sync_login">로그인</string>
+  <string name="create_account_login">로그인</string>
   <string name="menu_login">로그인</string>
   <string name="login_activity_title">위키백과에 로그인</string>
   <string name="login_in_progress_dialog_message">로그인 중…</string>
@@ -531,9 +549,11 @@
   <string name="view_continue_reading_card_subtitle_today">오늘</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s 읽음</string>
   <string name="view_announcement_card_negative_action">괜찮습니다</string>
+  <string name="onboarding_negative_action">괜찮습니다</string>
   <string name="view_offline_card_text">오프라인 상태에서는 내용을 불러올 수 없습니다.</string>
   <string name="view_featured_article_card_title">알찬 글</string>
   <string name="view_featured_article_footer_save_button_label">저장</string>
+  <string name="view_static_card_save_button_label">저장</string>
   <string name="view_featured_article_footer_saved_button_label">저장됨</string>
   <string name="feed_configure_activity_title">피드 사용자 지정</string>
   <string name="feed_configure_menu_reset">기본 보기로 복구</string>
@@ -592,6 +612,7 @@
   <string name="editactionfeed_add_description_button">설명 추가</string>
   <string name="editactionfeed_my_contributions">내 기여</string>
   <string name="editactionfeed_add_title_dialog_learn_more">더 알아보기</string>
+  <string name="editactionfeed_translate_title_dialog_learn_more">더 알아보기</string>
   <string name="description_edit_revert_subtitle">위키백과를 편집해 주셔서 감사합니다!</string>
   <string name="description_edit_revert_intro">저희는 당신이 최선의 노력을 다해주신 것을 알고 있습니다만, 검토자들 중 한 명이 걱정하는 부분이 있습니다. 당신의 편집이 되돌려진 잠재적 이유는 다음과 같습니다:</string>
   <string name="description_edit_revert_reason1">당신의 기여는 &lt;a href=\"%1$s\"&gt;지침들&lt;/a&gt; 가운데 하나를 준수하지 않았습니다.</string>
@@ -622,7 +643,7 @@
   <string name="onboarding_got_it">알겠습니다</string>
   <string name="onboarding_multilingual_secondary_text">장치에서 다음의 언어를 발견했습니다:</string>
   <string name="onboarding_multilingual_add_language_text">언어 추가 또는 편집</string>
-  <string name="onboarding_welcome_title_v2">우리 모두의 백과사전\n...약 300개의 언어 지원</string>
+  <string name="onboarding_welcome_title_v2">우리 모두의 백과사전\n...300개 이상의 언어 지원</string>
   <string name="app_shortcuts_random">임의 문서</string>
   <string name="app_shortcuts_continue_reading">계속 읽기</string>
   <string name="app_shortcuts_search">검색</string>
@@ -683,4 +704,11 @@
   <string name="description_edit_tutorial_message">위키백과의 인앱 편집의 새 터전에 오신 것을 환영합니다. 여기서 저희는 당신이 관심을 가질만한 내용을 추가할 기회를 제시합니다. 기여에 대단히 감사드립니다. 즐거운 편집 되십시오!</string>
   <string name="translation_description_edit_task_unlock_title">제목 설명 편집 번역의 잠금이 해제되었습니다!</string>
   <string name="translation_description_edit_task_unlock_body">제목 설명을 편집하고 여러 언어로 위키백과를 읽는 것을 즐기시는 것 같습니다. 이 작업 목록은 더 많은 제목 설명을 번역하는 권한을 제공하오니 확인해 주십시오!</string>
+  <string name="title_description_editing_skip">건너뛰기</string>
+  <string name="title_description_get_started">시작하기</string>
+  <string name="translate_description_get_started">시작하기</string>
+  <string name="edit_tasks_onboarding_get_started">시작하기</string>
+  <string name="translate_descriptions_maybe_later">나중에</string>
+  <string name="title_descriptions_onboarding_got_it">알겠습니다</string>
+  <string name="translate_descriptions_onboarding_got_it">알겠습니다</string>
 </resources>

@@ -23,6 +23,7 @@
   <string name="app_name_alpha">Wikipédia alfa</string>
   <string name="wikimedia">Wikimédia</string>
   <string name="nav_item_back">Vissza</string>
+  <string name="page_tabs_back">Vissza</string>
   <string name="nav_item_forward">Előre</string>
   <string name="search_hint">Keresés a Wikipédiában</string>
   <string name="search_hint_search_history">Keresés az előzményekben</string>
@@ -32,23 +33,32 @@
   <string name="nav_item_history">Előzmények</string>
   <string name="error_network_error">Nem sikerült csatlakozni az internethez.</string>
   <string name="page_error_retry">Újra</string>
+  <string name="card_offline_error_retry">Újra</string>
+  <string name="storage_access_error_retry">Újra</string>
+  <string name="article_load_error_retry">Újra</string>
+  <string name="offline_load_error_retry">Újra</string>
   <string name="page_error_back_to_main">Vissza</string>
+  <string name="error_back">Visszalépés</string>
   <string name="menu_clear_all_history">Előzmények törlése</string>
   <string name="history_item_deleted">%s eltávolítva az előzményekből</string>
   <string name="history_items_deleted">%d szócikk eltávolítva az előzményekből</string>
   <string name="history_item_delete_undo">Visszavonás</string>
+  <string name="notification_archive_undo">Visszavonás</string>
   <string name="app_settings">Alkalmazásbeállítások</string>
   <string name="dialog_title_clear_history">Böngészési előzmények törlése</string>
   <string name="dialog_message_clear_history">Ez a művelet töröl minden böngészési előzményt és bezár minden nyitott fület. Biztosan ezt szeretnéd?</string>
   <string name="dialog_message_clear_history_yes">Igen</string>
   <string name="dialog_message_clear_history_no">Nem</string>
   <string name="share_via">Megosztás ezzel:</string>
+  <string name="image_share_via">Megosztás ezzel:</string>
   <string name="search_redirect_from">%s szócikkből átirányítva</string>
   <string name="menu_page_show_tabs">Fülek megjelenítése</string>
   <string name="menu_page_other_languages">Nyelvváltás</string>
   <string name="menu_page_find_in_page">Keresés a lapon</string>
+  <string name="edit_section_find_in_page">Keresés a lapon</string>
   <string name="menu_page_font_and_theme">Betűtípus és téma</string>
   <string name="menu_page_add_to_list">Hozzáadás az olvasólistához</string>
+  <string name="feed_card_add_to_list">Hozzáadás az olvasólistához</string>
   <string name="menu_page_share">Hivatkozás megosztása</string>
   <string name="menu_page_open_a_new_tab">Új lap megnyitása</string>
   <string name="menu_page_reading_lists">Olvasólisták</string>
@@ -59,6 +69,9 @@
   <string name="menu_text_select_copy">Másolás</string>
   <string name="menu_text_select_define">Definiálás</string>
   <string name="menu_text_select_share">Megosztás</string>
+  <string name="share">Megosztás</string>
+  <string name="on_this_day_page_share">Megosztás</string>
+  <string name="reading_list_page_share">Megosztás</string>
   <string name="menu_text_select_edit_here">Szerkesztés itt</string>
   <string name="nav_item_nearby">Közelben</string>
   <string name="nearby_zoom_to_location">Közelíts egy helyre a térképen</string>
@@ -100,8 +113,13 @@
   <string name="nav_item_login">Bejelentkezés a Wikipédiába</string>
   <string name="login_username_hint">Szerkesztőnév</string>
   <string name="login_password_hint">Jelszó</string>
+  <string name="account_creation_password_hint">Jelszó</string>
   <string name="login_2fa_hint">Kétlépcsős azonosítás kódja</string>
   <string name="login_2fa_other_workflow_error_msg">Kétlépcsős azonosítás szükséges! Lépj vissza a fő tevékenységhez, jelentkezz be a kétlépcsős tokeneddel, majd próbáld újra.</string>
+  <string name="onboarding_card_login">Bejelentkezés</string>
+  <string name="page_editing_login">Bejelentkezés</string>
+  <string name="reading_lists_sync_login">Bejelentkezés</string>
+  <string name="create_account_login">Bejelentkezés</string>
   <string name="menu_login">Bejelentkezés</string>
   <string name="login_activity_title">Bejelentkezés a Wikipédiába</string>
   <string name="login_in_progress_dialog_message">Bejelentkezés…</string>
@@ -533,9 +551,11 @@
   <string name="view_continue_reading_card_subtitle_today">ma</string>
   <string name="view_continue_reading_card_subtitle_read_date">Elolvasva %s</string>
   <string name="view_announcement_card_negative_action">Köszönöm, nem</string>
+  <string name="onboarding_negative_action">Nem, köszönöm</string>
   <string name="view_offline_card_text">A tartalom nem tölthető be kapcsolat nélkül.</string>
   <string name="view_featured_article_card_title">Kiemelt szócikk</string>
   <string name="view_featured_article_footer_save_button_label">Mentés</string>
+  <string name="view_static_card_save_button_label">Mentés</string>
   <string name="view_featured_article_footer_saved_button_label">Elmentve</string>
   <string name="edit_tasks_activity_title">Alkalmazás szerkesztői feladatok</string>
   <string name="feed_configure_activity_title">A hírcsatorna testreszabása</string>
@@ -597,6 +617,7 @@
   <string name="editactionfeed_my_contributions">Közreműködéseim</string>
   <string name="editactionfeed_from_language">Innen:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Tudj meg többet</string>
+  <string name="editactionfeed_translate_title_dialog_learn_more">Tudj meg többet</string>
   <string name="description_edit_revert_subtitle">Köszönjük, hogy szerkesztetted a Wikipédiát!</string>
   <string name="description_edit_revert_intro">Tudjuk, hogy megtetted a tőled telhetőt, egy egy másik szerkesztőnek aggályai voltak a szerkesztéseddel kapcsolatban. Többek között az alábbiak miatt vonhatták vissza a szerkesztésedet:</string>
   <string name="description_edit_revert_reason1">nem követted az &lt;a href=\"%1$s\"&gt;irányelveket&lt;/a&gt;</string>
@@ -627,7 +648,7 @@
   <string name="onboarding_got_it">Értem</string>
   <string name="onboarding_multilingual_secondary_text">A következőket találtuk a készülékeden:</string>
   <string name="onboarding_multilingual_add_language_text">Nyelvek hozzáadása vagy szerkesztése</string>
-  <string name="onboarding_welcome_title_v2">Az ingyenes enciklopédia\n…közel 300 nyelven</string>
+  <string name="onboarding_welcome_title_v2">Az ingyenes enciklopédia\n…több mint 300 nyelven</string>
   <string name="app_shortcuts_random">Véletlen</string>
   <string name="app_shortcuts_continue_reading">Olvasás folytatása</string>
   <string name="app_shortcuts_search">Keresés</string>
@@ -683,4 +704,11 @@
     <item quantity="other">alkalmazáson belüli közreműködés</item>
   </plurals>
   <string name="add_title_descriptions_dialog_title">Címleírások hozzáadása</string>
+  <string name="title_description_editing_skip">Kihagy</string>
+  <string name="title_description_get_started">Kezdés</string>
+  <string name="translate_description_get_started">Kezdés</string>
+  <string name="edit_tasks_onboarding_get_started">Kezdés</string>
+  <string name="translate_descriptions_maybe_later">Talán később</string>
+  <string name="title_descriptions_onboarding_got_it">Értem</string>
+  <string name="translate_descriptions_onboarding_got_it">Értem</string>
 </resources>

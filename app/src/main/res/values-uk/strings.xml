@@ -512,7 +512,7 @@
   <string name="onboarding_got_it">Зрозуміло</string>
   <string name="onboarding_multilingual_secondary_text">Ми знайшли такі мови на Вашому пристрої:</string>
   <string name="onboarding_multilingual_add_language_text">Додати або редагувати мови</string>
-  <string name="onboarding_welcome_title_v2">Вільна енциклопедія\n…майже 300 мовних версій</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">Вільна енциклопедія\n…майже 300 мовних версій</string>
   <string name="app_shortcuts_random">Випадкова</string>
   <string name="app_shortcuts_continue_reading">Продовжити читання</string>
   <string name="app_shortcuts_search">Пошук</string>

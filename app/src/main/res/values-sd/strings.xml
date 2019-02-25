@@ -519,7 +519,7 @@
   <string name="onboarding_got_it">سمجھي ويئو</string>
   <string name="onboarding_multilingual_secondary_text">اسان توھان جي اوزار تي ھي لڌيون آھن:</string>
   <string name="onboarding_multilingual_add_language_text">وجهو يا ٻوليون سنواريو</string>
-  <string name="onboarding_welcome_title_v2">مفت انسائيڪلوپيڊيا\n...آهي لڳ ڀڳ 300 ٻولين ۾</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">مفت انسائيڪلوپيڊيا\n...آهي لڳ ڀڳ 300 ٻولين ۾</string>
   <string name="app_shortcuts_random">بلاترتيب</string>
   <string name="app_shortcuts_continue_reading">پڙھڻ جاري رکو</string>
   <string name="app_shortcuts_search">ڳوليو</string>

@@ -623,7 +623,7 @@
   <string name="onboarding_got_it">Mengerti</string>
   <string name="onboarding_multilingual_secondary_text">Kami telah menemukan bahasa berikut di perangkat Anda:</string>
   <string name="onboarding_multilingual_add_language_text">Tambah atau sunting bahasa</string>
-  <string name="onboarding_welcome_title_v2">Ensiklopedia Bebas\n…dalam hampir 300 bahasa</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">Ensiklopedia Bebas\n…dalam hampir 300 bahasa</string>
   <string name="app_shortcuts_random">Sembarang</string>
   <string name="app_shortcuts_continue_reading">Lanjutkan membaca</string>
   <string name="app_shortcuts_search">Cari</string>

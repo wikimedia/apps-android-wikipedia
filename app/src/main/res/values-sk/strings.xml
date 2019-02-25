@@ -620,7 +620,7 @@
   <string name="onboarding_got_it">Rozumiem</string>
   <string name="onboarding_multilingual_secondary_text">Na vašom zariadení sme našli nasledujúce jazyky:</string>
   <string name="onboarding_multilingual_add_language_text">Pridať alebo upraviť jazyky</string>
-  <string name="onboarding_welcome_title_v2">Slobodná encyklopédia\n…vo viac než 300 jazykoch</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">Slobodná encyklopédia\n…vo viac než 300 jazykoch</string>
   <string name="app_shortcuts_random">Náhodný článok</string>
   <string name="app_shortcuts_continue_reading">Pokračovať v čítaní</string>
   <string name="app_shortcuts_search">Hľadať</string>

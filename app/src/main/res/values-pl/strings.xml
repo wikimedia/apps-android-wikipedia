@@ -575,7 +575,7 @@
   <string name="onboarding_got_it">Wszystko jasne</string>
   <string name="onboarding_multilingual_secondary_text">Znaleźliśmy następujące na twoim urządzeniu:</string>
   <string name="onboarding_multilingual_add_language_text">Dodaj lub edytuj języki</string>
-  <string name="onboarding_welcome_title_v2">Wolna encyklopedia\n...w prawie 300 językach</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">Wolna encyklopedia\n...w prawie 300 językach</string>
   <string name="app_shortcuts_random">Losowa strona</string>
   <string name="app_shortcuts_continue_reading">Czytaj dalej</string>
   <string name="app_shortcuts_search">Szukaj</string>

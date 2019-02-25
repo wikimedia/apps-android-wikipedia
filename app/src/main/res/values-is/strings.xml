@@ -618,7 +618,7 @@
   <string name="onboarding_got_it">Náði því</string>
   <string name="onboarding_multilingual_secondary_text">Við fundum eftirtalin tungumál á tækinu þínu:</string>
   <string name="onboarding_multilingual_add_language_text">Bæta við eða breyta tungumálum</string>
-  <string name="onboarding_welcome_title_v2">Frjálsa alfræðin\n…á næstum 300 tungumálum</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">Frjálsa alfræðin\n…á næstum 300 tungumálum</string>
   <string name="app_shortcuts_random">Handahófsvalið</string>
   <string name="app_shortcuts_continue_reading">Halda lestri áfram</string>
   <string name="app_shortcuts_search">Leita</string>

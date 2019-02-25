@@ -43,6 +43,8 @@
   <string name="menu_page_add_to_list">अध्ययन सूचीमा थप गर्नुहोस्</string>
   <string name="menu_page_share">लिङ्क आदान-प्रदान गर्नुहोस्</string>
   <string name="menu_page_open_a_new_tab">नयाँ ट्याबमा खोल्नुहोस्</string>
+  <string name="menu_page_reading_lists">पाठन सूची</string>
+  <string name="menu_page_recently_viewed">भर्खरै हेरिएको</string>
   <string name="menu_long_press_open_page">खोल्नुहोस्</string>
   <string name="menu_long_press_open_in_new_tab">नयाँ ट्याबमा खोल्नुहोस्</string>
   <string name="menu_long_press_copy_page">लिङ्कको ठेगाना प्रतिलिपि गर्नुहोस्</string>
@@ -123,6 +125,7 @@
   <string name="create_account_generic_error">खाता सिर्जना गर्न सकिएन</string>
   <string name="create_account_next">अर्को</string>
   <string name="email_recommendation_dialog_title">इमेल ठेगाना विना नै खाता सिर्जना गर्ने हो?</string>
+  <string name="email_recommendation_dialog_message">इमेल ठेगाना वैकल्पिक भएता पनि, यो &lt;b&gt;अत्यधिक सिफारिश गरिएको छ&lt;/b&gt; ,किनकि तपाईले आफ्नो पासवर्ड गुमाउनु भयो भने इमेल खाता प्रयोग गरि पासवर्ड पुन प्राप्त गर्न सक्नुहुनेछ।</string>
   <string name="email_recommendation_message">सुझाव दिइएको किनभने किनभने खाता पुन: प्राप्तिको लागि इमेल आवश्यक हुन्छ ।</string>
   <string name="email_recommendation_dialog_create_without_email_action">इमेल बिना नै निरन्तरता दिनुहोस्</string>
   <string name="email_recommendation_dialog_create_with_email_action">इमेल ठेगाना थप्नुहोस्</string>
@@ -176,7 +179,7 @@
   <string name="user_blocked_from_editing_title">रोक लगाइएको</string>
   <string name="user_logged_in_blocked_from_editing">तपाईंको प्रयोगकर्ता खातालाई यो विकिमा सम्पादन गर्न रोक लगाइएको छ।</string>
   <string name="user_anon_blocked_from_editing">तपाईंको IP ठेगानालाई सम्पादन गर्न रोक लगाइएको छ।</string>
-  <string name="edit_how_page_improved">तपाईंले यस पृष्ठमा कसरी सुधार ल्याउनुभयो?</string>
+  <string name="edit_how_page_improved">तपाईले यस पृष्ठमा कसरी सुधार ल्याउनुभयो?</string>
   <string name="edit_next">अर्को</string>
   <string name="edit_done">प्रकाशन गर्नुहोस्</string>
   <string name="edit_preview">पूर्वावलोकन</string>

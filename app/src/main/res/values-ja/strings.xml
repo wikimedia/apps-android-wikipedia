@@ -617,7 +617,7 @@
   <string name="onboarding_got_it">了解!</string>
   <string name="onboarding_multilingual_secondary_text">お使いの端末で次の言語が見つかりました：</string>
   <string name="onboarding_multilingual_add_language_text">言語の追加または編集</string>
-  <string name="onboarding_welcome_title_v2">自由な百科事典を\n…300近くの言語で</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">自由な百科事典を\n…300近くの言語で</string>
   <string name="app_shortcuts_random">おまかせ表示</string>
   <string name="app_shortcuts_continue_reading">続けて読む</string>
   <string name="app_shortcuts_search">検索</string>

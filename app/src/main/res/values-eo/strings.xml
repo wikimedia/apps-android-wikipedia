@@ -485,7 +485,7 @@
   <string name="onboarding_got_it">Komprenite</string>
   <string name="onboarding_multilingual_secondary_text">Ni trovis la sekvajn sur via aparato:</string>
   <string name="onboarding_multilingual_add_language_text">Aldoni aŭ redakti lingvojn</string>
-  <string name="onboarding_welcome_title_v2">La Libera Enciklopedio\n…en preskaŭ 300 lingvoj</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">La Libera Enciklopedio\n…en preskaŭ 300 lingvoj</string>
   <string name="app_shortcuts_random">Hazarde</string>
   <string name="app_shortcuts_continue_reading">Daŭrigi la legadon</string>
   <string name="app_shortcuts_search">Serĉi</string>
