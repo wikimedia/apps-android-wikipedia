@@ -425,13 +425,7 @@ public class PageFragmentLoadState {
                 .put("siteBaseUrl", model.getTitle().getWikiSite().url())
                 .put("isMainPage", page.isMainPage())
                 .put("isFilePage", page.isFilePage())
-
-
-
-                //.put("fromRestBase", page.isFromRestBase())
-
-
-
+                .put("fromRestBase", page.isFromRestBase())
                 .put("apiLevel", Build.VERSION.SDK_INT)
                 .put("showImages", Prefs.isImageDownloadEnabled())
                 .put("collapseTables", Prefs.isCollapseTablesEnabled())
