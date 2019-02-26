@@ -1,7 +1,6 @@
 package org.wikipedia.bridge;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -14,12 +13,9 @@ import android.webkit.WebView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.util.FileUtil;
-import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.dataclient.RestService;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -54,7 +50,7 @@ public class CommunicationBridge {
 
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
-        webView.setWebChromeClient(new CommunicatingChrome());
+        webView.setWebChromeClient(new CommunicatingChrome()); //to receive and use the error/error message that originated from js layer
         webView.addJavascriptInterface(marshaller, "marshaller");
         eventListeners = new HashMap<>();
         this.addListener("DOMLoaded", (messageType, messagePayload) -> {
@@ -65,19 +61,10 @@ public class CommunicationBridge {
         });
     }
 
-    public void resetHtml(@NonNull Context context, @NonNull String assetFileName, @NonNull String wikiUrl) {
-        String html = "";
-        try {
-            final int rgbMask = 0xFFFFFF;
-            html = FileUtil.readFile(WikipediaApp.getInstance().getAssets().open(assetFileName))
-                    .replace("$wikiurl", wikiUrl)
-                    .replace("$bodybackground", String.format("#%06X",
-                            ResourceUtil.getThemedColor(context, R.attr.paper_color) & rgbMask));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void resetHtml(@NonNull String wikiUrl, String title) {
+        Log.e(WikipediaApp.TAG, "URL" + wikiUrl);
         isDOMReady = false;
-        webView.loadDataWithBaseURL(wikiUrl, html, "text/html", "utf-8", "");
+        webView.loadUrl(wikiUrl + "/" + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + title);
     }
 
     public void cleanup() {
@@ -99,6 +86,7 @@ public class CommunicationBridge {
     }
 
     public void sendMessage(String messageName, JSONObject messageData) {
+        Log.e(WikipediaApp.TAG, "SENDING MESSAGE" + messageName);
         String messagePointer =  marshaller.putPayload(messageData.toString());
 
         String jsString = "javascript:handleMessage( \"" + messageName + "\", \"" + messagePointer + "\" );";
@@ -151,6 +139,7 @@ public class CommunicationBridge {
         }
 
         public synchronized String putPayload(String payload) {
+            Log.e(WikipediaApp.TAG, "PAYLOAD" + payload);
             String key = "pointerKey_" + counter;
             counter++;
             queueItems.put(key, payload);

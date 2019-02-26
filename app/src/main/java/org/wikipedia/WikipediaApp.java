@@ -88,6 +88,7 @@ public class WikipediaApp extends Application {
     private List<Tab> tabList = new ArrayList<>();
 
     private static WikipediaApp INSTANCE;
+    public static final String TAG = "##EXPERIMENTAL##";
 
     public WikipediaApp() {
         INSTANCE = this;

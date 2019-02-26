@@ -89,7 +89,7 @@ public class EditPreviewFragment extends Fragment {
         model.setTitle(pageTitle);
         model.setTitleOriginal(pageTitle);
         model.setCurEntry(new HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK));
-        bridge.resetHtml(requireActivity(), "preview.html", pageTitle.getWikiSite().url());
+        bridge.resetHtml(pageTitle.getWikiSite().url(), "");
         funnel = WikipediaApp.getInstance().getFunnelManager().getEditFunnel(pageTitle);
 
         /*

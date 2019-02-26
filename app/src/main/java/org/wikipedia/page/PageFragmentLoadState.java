@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.Toast;
@@ -141,9 +142,10 @@ public class PageFragmentLoadState {
 
         // Reload the stub index.html into the WebView, which will cause any wiki-specific
         // CSS to be loaded automatically.
-        bridge.resetHtml(fragment.requireActivity(), "index.html", model.getTitle().getWikiSite().url());
+        Log.e(WikipediaApp.TAG, "TITLE" + model.getTitle().getPrefixedText());
+        bridge.resetHtml(model.getTitle().getWikiSite().url(), model.getTitle().getPrefixedText());
 
-        pageLoadCheckReadingLists();
+        //pageLoadCheckReadingLists();
     }
 
     public boolean isLoading() {
