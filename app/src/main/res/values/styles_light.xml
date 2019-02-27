@@ -80,6 +80,8 @@
         <item name="thumb_off_color">@color/base90</item>
         <item name="track_off_color">@color/base0</item>
         <item name="toc_h1_h2_color">@color/base0</item>
+        <item name="toc_scroller_button_color">@color/base100</item>
+        <item name="button_background_color">@color/base100</item>
         <item name="text_highlight_color">@color/yellow50</item>
         <item name="text_highlight_color_translucent">@color/yellow50_translucent</item>
 

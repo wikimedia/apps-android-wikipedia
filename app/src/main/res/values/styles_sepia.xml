@@ -23,6 +23,8 @@
         <item name="secondary_text_color">@color/masi</item>
         <item name="searchItemBackground">@color/parchment</item>
         <item name="nav_tab_background_color">@color/amate</item>
+        <item name="toc_scroller_button_color">@color/parchment</item>
+        <item name="button_background_color">@color/parchment</item>
 
         <item name="text_highlight_color">@color/osage</item>
         <item name="text_highlight_color_translucent">@color/osage_translucent</item>
