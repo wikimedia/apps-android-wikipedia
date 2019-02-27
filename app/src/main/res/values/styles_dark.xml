@@ -89,7 +89,7 @@
 
     </style>
 
-    <style name="AlertDialogDark" parent="Theme.MaterialComponents.Dialog.Alert">
+    <style name="AlertDialogDark" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
         <item name="colorAccent">@color/accent75</item>
         <item name="android:colorBackground">?attr/paper_color</item>
         <item name="android:textColorPrimary">?attr/material_theme_secondary_color</item>
