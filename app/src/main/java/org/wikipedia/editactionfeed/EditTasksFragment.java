@@ -45,7 +45,6 @@ public class EditTasksFragment extends Fragment {
     private List<EditTask> tasks = new ArrayList<>();
     private List<EditTaskView.Callback> callbacks = new ArrayList<>();
 
-
     public static EditTasksFragment newInstance() {
         return new EditTasksFragment();
     }
@@ -88,7 +87,6 @@ public class EditTasksFragment extends Fragment {
         public void onBindViewHolder(@NonNull DefaultViewHolder<EditTaskView> holder, int i) {
             holder.getView().setUpViews(items().get(i), callbacks.get(i));
         }
-
     }
 
     @Override
@@ -109,6 +107,7 @@ public class EditTasksFragment extends Fragment {
     private void updateUI() {
         username.setText(AccountUtil.getUserName());
         contributionsText.setText(getResources().getQuantityString(R.plurals.edit_action_contribution_count, Prefs.getTotalUserDescriptionsEdited()));
+        requireActivity().invalidateOptionsMenu();
     }
 
     private void showOneTimeOnboarding() {
@@ -201,9 +200,15 @@ public class EditTasksFragment extends Fragment {
     }
 
     @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        menu.findItem(R.id.edit_tasks_menu_help).setVisible(editOnboardingView.getVisibility() != View.VISIBLE);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.help:
+            case R.id.edit_tasks_menu_help:
                 startActivity(DescriptionEditHelpActivity.newIntent(requireContext()));
                 return true;
             default:
@@ -215,6 +220,7 @@ public class EditTasksFragment extends Fragment {
     void onGetStartedClicked() {
         Prefs.setShowEditTasksOnboarding(false);
         editOnboardingView.setVisibility(View.GONE);
+        updateUI();
     }
 
     @OnClick(R.id.user_contributions_button)

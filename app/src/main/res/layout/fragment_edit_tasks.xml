@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:visibility="visible"
             app:centeredImage="@drawable/ic_editor_onboarding"
-            app:imageSize="120dp"
+            app:imageSize="207dp"
             app:primaryText="@string/edit_tasks_activity_title"
             app:secondaryText="@string/description_edit_tutorial_message"
             app:tertiaryText="@string/description_edit_tutorial_promise" />
