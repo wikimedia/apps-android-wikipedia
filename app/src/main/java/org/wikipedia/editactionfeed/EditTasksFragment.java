@@ -20,7 +20,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.descriptions.DescriptionEditHelpActivity;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.views.CircularProgressBar;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.FooterMarginItemDecoration;
@@ -40,10 +39,7 @@ import static org.wikipedia.descriptions.DescriptionEditActivity.EDIT_TASKS_TRAN
 public class EditTasksFragment extends Fragment {
     private Unbinder unbinder;
     @BindView(R.id.edit_onboarding_view) View editOnboardingView;
-    @BindView(R.id.circular_progress_bar) CircularProgressBar circularProgressBar;
-    @BindView(R.id.level_text) TextView levelText;
     @BindView(R.id.username) TextView username;
-    @BindView(R.id.edit_count) TextView editCount;
     @BindView(R.id.contributions_text) TextView contributionsText;
     @BindView(R.id.task_recyclerview) RecyclerView tasksRecyclerView;
     private List<EditTask> tasks = new ArrayList<>();
@@ -111,17 +107,14 @@ public class EditTasksFragment extends Fragment {
     }
 
     private void updateUI() {
-        circularProgressBar.setCurrentProgress(Prefs.getTotalUserDescriptionsEdited());
-        levelText.setText(String.format(getString(R.string.editing_level_text), 1)); //Todo: derive the level number dynamically by making use of future gaming logic
         username.setText(AccountUtil.getUserName());
-        editCount.setText(String.valueOf(Prefs.getTotalUserDescriptionsEdited()));
         contributionsText.setText(getResources().getQuantityString(R.plurals.edit_action_contribution_count, Prefs.getTotalUserDescriptionsEdited()));
     }
 
     private void showOneTimeOnboarding() {
-        if (Prefs.showEditTaskOnboarding()) {
+        //if (Prefs.showEditTaskOnboarding()) {
             editOnboardingView.setVisibility(View.VISIBLE);
-        }
+        //}
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
@@ -222,6 +215,11 @@ public class EditTasksFragment extends Fragment {
     void onGetStartedClicked() {
         Prefs.setShowEditTasksOnboarding(false);
         editOnboardingView.setVisibility(View.GONE);
+    }
+
+    @OnClick(R.id.user_contributions_button)
+    void onUserContributionsClicked() {
+        // TODO: go to user contributions screen.
     }
 
     @Override
