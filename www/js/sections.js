@@ -1,6 +1,5 @@
 var bridge = require("./bridge");
 var transformer = require("./transformer");
-var theme = require("./theme");
 var pagelib = require("wikimedia-page-library");
 var lazyLoadViewportDistanceMultiplier = 2; // Load images on the current screen up to one ahead.
 var lazyLoadTransformer = new pagelib.LazyLoadTransformer(window, lazyLoadViewportDistanceMultiplier);
@@ -101,7 +100,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     setWindowAttributes(payload);
     window.offline = false;
 
-    theme.applyTheme(payload);
 
     var contentElem = document.getElementById( "content" );
     contentElem.setAttribute( "dir", window.directionality );
