@@ -36,6 +36,7 @@ public class SyntaxHighlighter {
     private EditText textBox;
     private List<SyntaxRule> syntaxRules;
     private String searchText;
+    private int selectedMatchResultPosition;
 
     private Handler handler;
     private CompositeDisposable disposables = new CompositeDisposable();
@@ -52,7 +53,7 @@ public class SyntaxHighlighter {
                     currentTask.cancel();
                 }
                 currentTask = new SyntaxHighlightTask(textBox.getText());
-                searchTask = new SyntaxHighlightSearchMatchesTask(textBox.getText(), searchText);
+                searchTask = new SyntaxHighlightSearchMatchesTask(textBox.getText(), searchText, selectedMatchResultPosition);
                 disposables.clear();
                 disposables.add(Observable.zip(Observable.fromCallable(currentTask),
                         Observable.fromCallable(searchTask), (f, s) -> {
@@ -172,6 +173,12 @@ public class SyntaxHighlighter {
     public void applyFindTextSyntax(@Nullable String searchText, @Nullable OnSyntaxHighlightListener listener) {
         this.searchText = searchText;
         this.syntaxHighlightListener = listener;
+        setSelectedMatchResultPosition(0);
+        postHighlightCallback();
+    }
+
+    public void setSelectedMatchResultPosition(int selectedMatchResultPosition) {
+        this.selectedMatchResultPosition = selectedMatchResultPosition;
         postHighlightCallback();
     }
 
@@ -301,12 +308,14 @@ public class SyntaxHighlighter {
     }
 
     private class SyntaxHighlightSearchMatchesTask implements Callable<List<SpanExtents>> {
-        SyntaxHighlightSearchMatchesTask(Editable text, String searchText) {
+        SyntaxHighlightSearchMatchesTask(Editable text, String searchText, int selectedMatchResultPosition) {
             this.text = StringUtils.lowerCase(text.toString());
             this.searchText = StringUtils.lowerCase(searchText);
+            this.selectedMatchResultPosition = selectedMatchResultPosition;
         }
 
         private String searchText;
+        private int selectedMatchResultPosition;
         private String text;
         private boolean cancelled;
 
@@ -323,14 +332,21 @@ public class SyntaxHighlighter {
 
             SyntaxRule syntaxItem = new SyntaxRule("", "", SyntaxRuleStyle.SEARCH_MATCHES);
             int position = 0;
+            int matches = 0;
             do {
                 position = text.indexOf(searchText, position);
                 if (position >= 0) {
-                    SpanExtents newSpanInfo = SyntaxRuleStyle.SEARCH_MATCHES.createSpan(context, position, syntaxItem);
+                    SpanExtents newSpanInfo;
+                    if (matches == selectedMatchResultPosition) {
+                        newSpanInfo = SyntaxRuleStyle.SEARCH_MATCH_SELECTED.createSpan(context, position, syntaxItem);
+                    } else {
+                        newSpanInfo = SyntaxRuleStyle.SEARCH_MATCHES.createSpan(context, position, syntaxItem);
+                    }
                     newSpanInfo.setStart(position);
                     newSpanInfo.setEnd(position + searchText.length());
                     spansToSet.add(newSpanInfo);
                     position += searchText.length();
+                    matches++;
                 }
                 if (cancelled) {
                     break;

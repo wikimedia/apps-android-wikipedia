@@ -49,7 +49,6 @@
     <attr name="toc_scroller_button_color" format="color" />
     <attr name="button_background_color" format="color" />
     <attr name="text_highlight_color" format="color" />
-    <attr name="text_highlight_color_translucent" format="color" />
 
     <declare-styleable name="AutoFitRecyclerView">
         <attr name="minColumnWidth" format="dimension" />

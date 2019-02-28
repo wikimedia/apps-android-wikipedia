@@ -27,7 +27,6 @@
         <item name="button_background_color">@color/parchment</item>
 
         <item name="text_highlight_color">@color/osage</item>
-        <item name="text_highlight_color_translucent">@color/osage_translucent</item>
 
         <item name="chart_shade5">@color/kraft</item>
         <item name="green_highlight_color">@color/green50</item>

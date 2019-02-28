@@ -83,7 +83,6 @@
         <item name="toc_scroller_button_color">@color/base100</item>
         <item name="button_background_color">@color/base100</item>
         <item name="text_highlight_color">@color/yellow50</item>
-        <item name="text_highlight_color_translucent">@color/yellow50_translucent</item>
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base100</item>

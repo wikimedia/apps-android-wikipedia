@@ -54,6 +54,7 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.PlainPasteEditText;
 import org.wikipedia.views.ViewAnimations;
+import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 import org.wikipedia.views.WikiTextKeyboardView;
 
@@ -535,6 +536,18 @@ public class EditSectionActivity extends BaseActivity {
         v.setEnabled(item.isEnabled());
         v.setOnClickListener((view) -> onOptionsItemSelected((MenuItem) view.getTag()));
         return true;
+    }
+
+    @Override
+    public void onActionModeStarted(ActionMode mode) {
+        super.onActionModeStarted(mode);
+        if (mode.getTag() == null) {
+            Menu menu = mode.getMenu();
+            menu.clear();
+            mode.getMenuInflater().inflate(R.menu.menu_text_select, menu);
+            // since we disabled the close button in the AndroidManifest.xml, we need to manually setup a close button when in an action mode if long pressed on texts.
+            ViewUtil.setCloseButtonInActionMode(EditSectionActivity.this, mode);
+        }
     }
 
     public void showError(@Nullable Throwable caught) {
