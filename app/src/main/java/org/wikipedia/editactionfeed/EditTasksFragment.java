@@ -112,9 +112,9 @@ public class EditTasksFragment extends Fragment {
     }
 
     private void showOneTimeOnboarding() {
-        //if (Prefs.showEditTaskOnboarding()) {
+        if (Prefs.showEditTaskOnboarding()) {
             editOnboardingView.setVisibility(View.VISIBLE);
-        //}
+        }
     }
 
     @SuppressWarnings("checkstyle:magicnumber")

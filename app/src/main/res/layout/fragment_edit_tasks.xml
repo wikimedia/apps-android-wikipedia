@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="?attr/main_toolbar_color"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <org.wikipedia.onboarding.OnboardingPageView
             android:layout_width="match_parent"
