@@ -81,37 +81,51 @@
     <LinearLayout
         android:id="@+id/bottomButtonContainer"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="?attr/chart_shade5"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/skipButton"
-            style="@style/App.Button.PaperColor"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="1dp"
-            android:layout_marginBottom="0dp"
-            android:layout_weight="1"
-            android:background="?attr/paper_color"
-            android:foreground="?attr/selectableItemBackground"
-            android:text="@string/title_description_editing_skip" />
+        <ImageView
+            android:id="@+id/goPrevButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="4dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="?attr/page_toolbar_icon_color"
+            android:contentDescription="@null"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_replay_black_24dp"/>
 
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/addDescriptionButton"
-            style="@style/App.Button.PaperColor"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="0dp"
-            android:layout_weight="1"
-            android:background="?attr/paper_color"
-            android:foreground="?attr/selectableItemBackground"
-            android:text="@string/editactionfeed_add_description_button" />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/randomNextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@string/view_next_random_article"
+            android:tint="?attr/page_toolbar_icon_color"
+            app:backgroundTint="?attr/page_toolbar_color"
+            app:borderWidth="0dp"
+            app:elevation="4dp"
+            app:srcCompat="@drawable/animated_dice"/>
+
+        <ImageView
+            android:id="@+id/goNextButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="4dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="?attr/page_toolbar_icon_color"
+            android:contentDescription="@null"
+            android:scaleX="-1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_replay_black_24dp"/>
 
     </LinearLayout>
 

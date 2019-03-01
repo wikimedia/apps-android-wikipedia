@@ -9,8 +9,10 @@
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         app:cardBackgroundColor="?attr/paper_color"
         app:cardUseCompatPadding="true">
 
@@ -44,7 +46,7 @@
                 style="@style/SimpleDraweeViewPlaceholder.EditActionFeed"
                 android:id="@+id/viewArticleImage"
                 android:layout_width="match_parent"
-                android:layout_height="192dp"
+                android:layout_height="201dp"
                 app:fadeDuration="0"
                 app:actualImageScaleType="focusCrop" />
 
@@ -77,6 +79,35 @@
                     android:ellipsize="end"
                     tools:text="Lorem ipsum"/>
 
+
+                <LinearLayout
+                    android:id="@+id/viewAddDescriptionButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="6dp"
+                        android:tint="@color/accent50"
+                        android:contentDescription="@null"
+                        app:srcCompat="@drawable/ic_add_circle_black_24dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/accent50"
+                        android:textSize="14sp"
+                        android:text="@string/editactionfeed_add_description_button"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.01"
+                        android:lineSpacingExtra="6sp"
+                        tools:text="Add description"
+                        />
+                </LinearLayout>
+
                 <org.wikipedia.views.GoneIfEmptyTextView
                     android:id="@+id/viewArticleSubtitle"
                     android:layout_width="wrap_content"
@@ -86,6 +117,13 @@
                     android:textColor="?attr/secondary_text_color"
                     android:textSize="12sp"
                     tools:text="Lorem ipsum" />
+
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="19dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="?attr/material_theme_border_color"/>
 
                 <TextView
                     android:id="@+id/viewArticleExtract"
