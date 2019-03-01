@@ -106,14 +106,15 @@ public class EditTasksFragment extends Fragment {
 
     private void updateUI() {
         username.setText(AccountUtil.getUserName());
-        contributionsText.setText(getResources().getQuantityString(R.plurals.edit_action_contribution_count, Prefs.getTotalUserDescriptionsEdited()));
+        contributionsText.setText(getResources().getQuantityString(R.plurals.edit_action_contribution_count,
+                Prefs.getTotalUserDescriptionsEdited(), Prefs.getTotalUserDescriptionsEdited()));
         requireActivity().invalidateOptionsMenu();
     }
 
     private void showOneTimeOnboarding() {
-        if (Prefs.showEditTaskOnboarding()) {
+        //if (Prefs.showEditTaskOnboarding()) {
             editOnboardingView.setVisibility(View.VISIBLE);
-        }
+        //}
     }
 
     @SuppressWarnings("checkstyle:magicnumber")

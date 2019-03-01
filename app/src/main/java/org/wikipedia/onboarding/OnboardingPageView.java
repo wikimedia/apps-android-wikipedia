@@ -127,7 +127,7 @@ public class OnboardingPageView extends LinearLayout {
             imageViewCentered.setImageDrawable(centeredImage);
             if (imageSize > 0 && centeredImage != null && centeredImage.getIntrinsicHeight() > 0) {
                 float aspect = (float)centeredImage.getIntrinsicWidth() / centeredImage.getIntrinsicHeight();
-                LayoutParams params = (LayoutParams) imageViewCentered.getLayoutParams();
+                ViewGroup.LayoutParams params = imageViewCentered.getLayoutParams();
                 params.width = (int) imageSize;
                 params.height = (int) (imageSize / aspect);
                 imageViewCentered.setLayoutParams(params);
