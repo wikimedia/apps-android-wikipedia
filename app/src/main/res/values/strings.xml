@@ -653,6 +653,7 @@
     <string name="editactionfeed_add_title_dialog_learn_more">Learn more</string>
     <string name="editactionfeed_translate_title_dialog_learn_more">Learn more</string>
     <string name="editactionfeed_to_language">To: </string>
+    <string name="editactionfeed_added_by_you">Added by you:</string>
     <!-- /Edit action feed -->
 
     <!-- Description editing revert help -->

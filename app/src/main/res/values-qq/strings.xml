@@ -624,6 +624,7 @@
   <string name="editactionfeed_add_description_button">A button text for adding description. Appears next to {{msg-wm|Wikipedia-android-strings-onboarding skip}}. (See also [https://phabricator.wikimedia.org/T214786 bug T214786].)</string>
   <string name="editactionfeed_my_contributions">A overflow menu text that leads to my contributions page</string>
   <string name="editactionfeed_from_language">A label shows that the current selected Wikipedia language for fetching articles.</string>
+  <string name="editactionfeed_added_by_you">A label shows that the current article description was added by you.</string>
   <string name="editactionfeed_add_title_dialog_learn_more">A button text for leading users to the help page of editing title descriptions.</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">Text on link to help page for translating title descriptions.\n{{Identical|Learn more}}</string>
   <string name="editactionfeed_to_language">Label text indicating that the selected language is the one into which the description will be translated to.</string>
