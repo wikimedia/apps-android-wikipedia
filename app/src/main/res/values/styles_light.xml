@@ -29,11 +29,7 @@
         <!-- Overrides of base Android styles with color sub-definitions -->
         <item name="popupMenuStyle">@style/PopupMenuLight</item>
         <item name="dialogTheme">@style/DialogLight</item>
-        <item name="alertDialogTheme">@style/AlertDialogLight</item>
         <item name="bottomSheetDialogTheme">@style/BottomSheetDialogLight</item>
-
-        <!-- Theme for dialog after long pressing on internal links -->
-        <item name="android:alertDialogTheme">@style/LongPressAlertDialogLight</item>
 
         <!-- Overrides of our own custom style attributes -->
         <item name="toc_item_background">@drawable/toc_item_background_light</item>
@@ -87,21 +83,6 @@
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base100</item>
 
-    </style>
-
-    <style name="AlertDialogLight" parent="Theme.MaterialComponents.Light.Dialog.Alert">
-        <item name="colorAccent">@color/accent50</item>
-        <item name="android:colorBackground">?attr/paper_color</item>
-        <item name="android:textColorPrimary">?attr/material_theme_secondary_color</item>
-        <item name="android:windowTitleStyle">@style/DialogTitleAppearance</item>
-        <item name="android:textAppearanceMedium">@style/DialogTitleTextAppearance</item>
-        <item name="buttonBarButtonStyle">@style/AlertDialogButtonStyle</item>
-        <item name="android:lineSpacingExtra">@dimen/dialog_line_spacing_extra</item>
-    </style>
-
-    <style name="LongPressAlertDialogLight" parent="AlertDialogLight">
-        <item name="android:backgroundTint" tools:targetApi="21">?attr/paper_color</item>
-        <item name="android:background">?attr/paper_color</item>
     </style>
 
     <style name="DialogLight" parent="Theme.MaterialComponents.Light.Dialog">
