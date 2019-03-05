@@ -217,8 +217,6 @@ public class PageItemView<T> extends ConstraintLayout {
     private void init() {
         inflate(getContext(), R.layout.item_page_list_entry, this);
         ButterKnife.bind(this);
-        setClipChildren(false);
-        setClipToPadding(false);
 
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         final int topBottomPadding = 16;
