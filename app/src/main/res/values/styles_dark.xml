@@ -84,6 +84,7 @@
         <item name="button_background_color">@color/base14</item>
         <item name="text_highlight_color">@color/yellow90</item>
         <item name="tab_placeholder_text_color">@color/base10</item>
+        <item name="thumbnail_image_placeholder">@drawable/ic_image_gray_dark_24dp</item>
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base14</item>
