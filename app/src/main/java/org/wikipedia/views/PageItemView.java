@@ -151,7 +151,7 @@ public class PageItemView<T> extends ConstraintLayout {
         }
     }
 
-    public void setListItemImageDimensions(int width,int height) {
+    public void setListItemImageDimensions(int width, int height) {
         imageView.getLayoutParams().width = width;
         imageView.getLayoutParams().height = height;
         requestLayout();
@@ -167,7 +167,7 @@ public class PageItemView<T> extends ConstraintLayout {
             }
             chip.setText(readingList.title());
             chip.setClickable(true);
-            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(getContext(),android.R.attr.windowBackground));
+            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(getContext(), android.R.attr.windowBackground));
             chip.setOnClickListener(v -> {
                 if (callback != null) {
                     callback.onListChipClick(readingList);
@@ -175,6 +175,11 @@ public class PageItemView<T> extends ConstraintLayout {
             });
             readingListsChipGroup.addView(chip);
         }
+    }
+
+    @Override
+    protected float getLeftFadingEdgeStrength() {
+        return 1.0f;
     }
 
     public void setSearchQuery(@Nullable String searchQuery) {
