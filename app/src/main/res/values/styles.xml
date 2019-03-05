@@ -448,7 +448,7 @@
 
     <style name="DialogTitleTextAppearance" parent="TextAppearance.AppCompat.Title">
         <item name="android:textSize">20sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif</item>
     </style>
 
     <style name="CustomChipStyle">
@@ -472,4 +472,5 @@
         <item name="android:backgroundTint" tools:targetApi="21">?attr/paper_color</item>
         <item name="android:background">?attr/paper_color</item>
     </style>
+
 </resources>
