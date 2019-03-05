@@ -151,6 +151,12 @@ public class PageItemView<T> extends ConstraintLayout {
         }
     }
 
+    public void setListItemImageDimensions(int width,int height) {
+        imageView.getLayoutParams().width = width;
+        imageView.getLayoutParams().height = height;
+        requestLayout();
+    }
+
     public void setUpChipGroup(List<ReadingList> readingLists) {
         chipsScrollView.setVisibility(VISIBLE);
         readingListsChipGroup.removeAllViews();
