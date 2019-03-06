@@ -1,5 +1,6 @@
 package org.wikipedia.history;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Rect;
 import android.net.Uri;
@@ -558,6 +559,11 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         @Override
         protected boolean finishActionModeIfKeyboardHiding() {
             return true;
+        }
+
+        @Override
+        protected Context getParentContext() {
+            return requireContext();
         }
     }
 
