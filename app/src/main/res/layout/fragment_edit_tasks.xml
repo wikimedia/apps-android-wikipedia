@@ -44,9 +44,13 @@
     </FrameLayout>
 
     <FrameLayout
+        android:id="@+id/user_contributions_button"
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:background="?attr/main_toolbar_color"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
         android:elevation="4dp">
 
         <LinearLayout
@@ -81,15 +85,11 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/user_contributions_button"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="end|center_vertical"
             android:layout_marginEnd="16dp"
             android:padding="8dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:background="?attr/selectableItemBackgroundBorderless"
             app:srcCompat="@drawable/ic_chevron_forward_gray"
             app:tint="?attr/colorAccent"
             android:contentDescription="@null"/>

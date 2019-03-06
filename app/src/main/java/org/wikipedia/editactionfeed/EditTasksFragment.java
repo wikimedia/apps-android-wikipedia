@@ -167,6 +167,9 @@ public class EditTasksFragment extends Fragment {
             }
         });
 
+        /*
+        TODO: enable when the time is right.
+
         EditTask imageCaptionEditTask = new EditTask();
         imageCaptionEditTask.setTitle(getString(R.string.image_caption_task_title));
         imageCaptionEditTask.setDescription(getString(R.string.image_caption_task_description));
@@ -186,7 +189,7 @@ public class EditTasksFragment extends Fragment {
         imageCaptionTranslationEditTask.setDisabledDescriptionText(String.format(getString(R.string.image_caption_edit_disable_text), 50));
         tasks.add(imageCaptionTranslationEditTask);
         callbacks.add(null);
-
+        */
     }
 
     @Override
