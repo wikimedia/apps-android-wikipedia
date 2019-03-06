@@ -34,7 +34,6 @@
         android:layout_height="300dp"
         android:layout_marginTop="16dp"
         android:scaleType="fitStart"
-        app:srcCompat="@drawable/ic_text_placeholder"
-        app:tint="?android:attr/windowBackground"/>
+        app:srcCompat="@drawable/ic_text_placeholder"/>
 
 </LinearLayout>

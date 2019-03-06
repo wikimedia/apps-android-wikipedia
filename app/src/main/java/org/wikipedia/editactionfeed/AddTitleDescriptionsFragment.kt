@@ -20,15 +20,14 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_add_title_descriptions.*
-import org.wikipedia.Constants
+import org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.RandomizerFunnel
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
-import org.wikipedia.descriptions.DescriptionEditActivity.EDIT_TASKS_TITLE_DESC_SOURCE
-import org.wikipedia.descriptions.DescriptionEditActivity.EDIT_TASKS_TRANSLATE_TITLE_DESC_SOURCE
 import org.wikipedia.descriptions.DescriptionEditHelpActivity
 import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.EXTRA_SOURCE
 import org.wikipedia.history.HistoryEntry
@@ -50,7 +49,7 @@ class AddTitleDescriptionsFragment : Fragment() {
     private var languageCodesToList: MutableList<String> = arrayListOf()
     var langFromCode: String = app.language().appLanguageCode
     var langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
-    var source: Int = EDIT_TASKS_TITLE_DESC_SOURCE
+    var source: InvokeSource = InvokeSource.EDIT_FEED_TITLE_DESC
     var sourceDescription: CharSequence = ""
 
     private val topTitle: PageTitle?
@@ -79,7 +78,7 @@ class AddTitleDescriptionsFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
 
         // TODO: add funnel?
-        source = arguments?.getInt(EXTRA_SOURCE, EDIT_TASKS_TITLE_DESC_SOURCE)!!
+        source = arguments?.getSerializable(EXTRA_SOURCE) as InvokeSource
         return inflater.inflate(R.layout.fragment_add_title_descriptions, container, false)
     }
 
@@ -139,7 +138,7 @@ class AddTitleDescriptionsFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
+        if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
             nextPage()
         }
     }
@@ -150,7 +149,7 @@ class AddTitleDescriptionsFragment : Fragment() {
     }
 
     private fun titleFromPageName(pageName: String?): PageTitle {
-        return PageTitle(pageName, WikiSite.forLanguageCode(if (source == EDIT_TASKS_TITLE_DESC_SOURCE) langFromCode else langToCode))
+        return PageTitle(pageName, WikiSite.forLanguageCode(if (source == InvokeSource.EDIT_FEED_TITLE_DESC) langFromCode else langToCode))
     }
 
     fun onSelectPage(pageName: String) {
@@ -160,7 +159,7 @@ class AddTitleDescriptionsFragment : Fragment() {
     }
 
     private fun showOnboarding() {
-        if (Prefs.showEditActionAddTitleDescriptionsOnboarding() && source == EDIT_TASKS_TITLE_DESC_SOURCE) {
+        if (Prefs.showEditActionAddTitleDescriptionsOnboarding() && source == InvokeSource.EDIT_FEED_TITLE_DESC) {
             AlertDialog.Builder(requireActivity())
                     .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.add_title_descriptions_dialog_title, R.drawable.ic_dialog_image_title_descriptions, false))
                     .setMessage(R.string.add_title_descriptions_dialog_message)
@@ -172,7 +171,7 @@ class AddTitleDescriptionsFragment : Fragment() {
             Prefs.setShowEditActionAddTitleDescriptionsOnboarding(false)
         }
 
-        if (Prefs.showEditActionTranslateDescriptionsOnboarding() && source == EDIT_TASKS_TRANSLATE_TITLE_DESC_SOURCE) {
+        if (Prefs.showEditActionTranslateDescriptionsOnboarding() && source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
             AlertDialog.Builder(requireActivity())
                     .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.add_translate_descriptions_dialog_title, R.drawable.ic_dialog_image_title_descriptions, false))
                     .setMessage(R.string.add_translate_descriptions_dialog_message)
@@ -229,7 +228,7 @@ class AddTitleDescriptionsFragment : Fragment() {
     private fun setInitialUiState() {
         wikiLanguageDropdownContainer.visibility = if (app.language().appLanguageCodes.size > 1) VISIBLE else GONE
 
-        if (source == EDIT_TASKS_TRANSLATE_TITLE_DESC_SOURCE) {
+        if (source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
             fromLabel.visibility = GONE
             arrows.visibility = VISIBLE
             wikiToLanguageSpinner.visibility = VISIBLE
@@ -327,10 +326,10 @@ class AddTitleDescriptionsFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(source: Int): AddTitleDescriptionsFragment {
+        fun newInstance(source: InvokeSource): AddTitleDescriptionsFragment {
             val addTitleDescriptionsFragment = AddTitleDescriptionsFragment()
             val args = Bundle()
-            args.putInt(EXTRA_SOURCE, source)
+            args.putSerializable(EXTRA_SOURCE, source)
             addTitleDescriptionsFragment.arguments = args
             return addTitleDescriptionsFragment
         }

@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
@@ -33,6 +32,7 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -43,8 +43,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
-import static org.wikipedia.descriptions.DescriptionEditActivity.EDIT_TASKS_TRANSLATE_TITLE_DESC_SOURCE;
-import static org.wikipedia.descriptions.DescriptionEditActivity.PAGE_SOURCE;
+import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS;
+import static org.wikipedia.Constants.InvokeSource;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_DISALLOWED;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_WARNING;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
@@ -70,7 +70,7 @@ public class DescriptionEditFragment extends Fragment {
     @Nullable private String highlightText;
     @Nullable private CsrfTokenClient csrfClient;
     @Nullable private DescriptionEditFunnel funnel;
-    private int source;
+    private Serializable source;
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private Runnable successRunnable = new Runnable() {
@@ -87,18 +87,18 @@ public class DescriptionEditFragment extends Fragment {
             }
             editView.setSaveState(false);
             startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext()),
-                    Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS);
+                    ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS);
         }
     };
 
     @NonNull
-    public static DescriptionEditFragment newInstance(@NonNull PageTitle title, @Nullable String highlightText, boolean reviewEnabled, int source, CharSequence sourceDescription) {
+    public static DescriptionEditFragment newInstance(@NonNull PageTitle title, @Nullable String highlightText, boolean reviewEnabled, InvokeSource source, CharSequence sourceDescription) {
         DescriptionEditFragment instance = new DescriptionEditFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TITLE, GsonMarshaller.marshal(title));
         args.putString(ARG_HIGHLIGHT_TEXT, highlightText);
         args.putBoolean(ARG_REVIEW_ENABLED, reviewEnabled);
-        args.putInt(ARG_INVOKE_SOURCE, source);
+        args.putSerializable(ARG_INVOKE_SOURCE, source);
         args.putCharSequence(ARG_TRANSLATION_SOURCE_LANG_DESC, sourceDescription);
         instance.setArguments(args);
         return instance;
@@ -122,8 +122,8 @@ public class DescriptionEditFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_description_edit, container, false);
         unbinder = ButterKnife.bind(this, view);
-        source = getArguments().getInt(ARG_INVOKE_SOURCE, PAGE_SOURCE);
-        editView.setTranslationEdit(source == EDIT_TASKS_TRANSLATE_TITLE_DESC_SOURCE);
+        source = getArguments().getSerializable(ARG_INVOKE_SOURCE);
+        editView.setTranslationEdit(source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC);
         editView.setTranslationSourceLanguageDescription(getArguments().getCharSequence(ARG_TRANSLATION_SOURCE_LANG_DESC));
         editView.setPageTitle(pageTitle);
         editView.setHighlightText(highlightText);
@@ -160,7 +160,7 @@ public class DescriptionEditFragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
-        if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS
+        if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS
                 && getActivity() != null) {
             if (callback() != null) {
                 callback().onDescriptionEditSuccess();

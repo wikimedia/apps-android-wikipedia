@@ -16,8 +16,7 @@
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:roundedCornerRadius="2dp"
-        app:backgroundImage="@color/base100" />
+        app:roundedCornerRadius="2dp" />
 
     <TextView
         android:id="@+id/view_list_card_item_title"

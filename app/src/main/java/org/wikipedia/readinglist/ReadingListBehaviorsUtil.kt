@@ -49,8 +49,6 @@ object ReadingListBehaviorsUtil {
                 }
             }
         }
-
-        L.d("getListsContainPage match " + lists.size)
         return lists
     }
 

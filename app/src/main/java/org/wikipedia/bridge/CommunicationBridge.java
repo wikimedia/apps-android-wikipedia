@@ -15,7 +15,6 @@ import android.webkit.WebView;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.theme.Theme;
 import org.wikipedia.util.FileUtil;
 
 import java.io.IOException;
@@ -69,7 +68,7 @@ public class CommunicationBridge {
         try {
             html = FileUtil.readFile(WikipediaApp.getInstance().getAssets().open(assetFileName))
                     .replace("$wikiurl", wikiUrl)
-                    .replace("$pageLibThemeClass", Theme.getThemePageLibClass(WikipediaApp.getInstance().getCurrentTheme()))
+                    .replace("$pageLibThemeClass", WikipediaApp.getInstance().getCurrentTheme().getPageLibClass())
                     .replace("$pageLibDimImgClass", WikipediaApp.getInstance().getCurrentTheme().isDark() ? "pagelib_dim_images" : "");
 
         } catch (IOException e) {
