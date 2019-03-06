@@ -58,7 +58,6 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
-import org.wikipedia.util.log.L;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.MarginItemDecoration;
@@ -599,7 +598,6 @@ public class ReadingListFragment extends Fragment implements
             getView().setDescription(StringUtils.capitalize(page.description()));
             getView().setImageUrl(page.thumbUrl());
             getView().setSelected(page.selected());
-            getView().setListItemImageDimensions(DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION), DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION));
             getView().setActionIcon(R.drawable.ic_more_vert_white_24dp);
             getView().setActionTint(R.attr.secondary_text_color);
             getView().setActionHint(R.string.abc_action_menu_overflow_description);
@@ -609,6 +607,7 @@ public class ReadingListFragment extends Fragment implements
             getView().setProgress(page.downloadProgress() == MAX_PROGRESS ? 0 : page.downloadProgress());
             getView().setSecondaryActionHint(R.string.reading_list_article_make_offline);
             getView().setSearchQuery(currentSearchQuery);
+            getView().setListItemImageDimensions(getImageDimension(), getImageDimension());
             PageAvailableOfflineHandler.INSTANCE.check(page, available -> getView().setViewsGreyedOut(!available));
         }
 
@@ -620,6 +619,11 @@ public class ReadingListFragment extends Fragment implements
                     update();
                 });
             }
+        }
+
+        private int getImageDimension() {
+            return DimenUtil.roundedDpToPx(TextUtils.isEmpty(currentSearchQuery)
+                    ? DimenUtil.getDimension(R.dimen.view_list_card_item_image) : ARTICLE_ITEM_IMAGE_DIMENSION);
         }
     }
 
@@ -680,7 +684,6 @@ public class ReadingListFragment extends Fragment implements
         @Override public void onViewAttachedToWindow(@NonNull RecyclerView.ViewHolder holder) {
             super.onViewAttachedToWindow(holder);
             if (holder instanceof ReadingListItemHolder) {
-                L.d("onViewAttachedToWindow yes");
                 ((ReadingListItemHolder) holder).getView().setCallback(readingListItemCallback);
             } else if (holder instanceof  ReadingListPageItemHolder) {
                 ((ReadingListPageItemHolder) holder).getView().setCallback(readingListPageItemCallback);
@@ -784,8 +787,10 @@ public class ReadingListFragment extends Fragment implements
 
         @Override
         public boolean onLongClick(@Nullable ReadingListPage item) {
-            beginMultiSelect();
-            toggleSelectPage(item);
+            if (actionMode == null || MultiSelectCallback.is(actionMode)) {
+                beginMultiSelect();
+                toggleSelectPage(item);
+            }
             return true;
         }
 
