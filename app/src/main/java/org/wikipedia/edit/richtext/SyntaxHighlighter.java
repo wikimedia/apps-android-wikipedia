@@ -187,7 +187,7 @@ public class SyntaxHighlighter {
         // if the user adds more text within 1/2 second, the previous request
         // is cancelled, and a new one is placed.
         handler.removeCallbacks(syntaxHighlightCallback);
-        handler.postDelayed(syntaxHighlightCallback, DateUtils.SECOND_IN_MILLIS / 2);
+        handler.postDelayed(syntaxHighlightCallback, TextUtils.isEmpty(searchText) ? DateUtils.SECOND_IN_MILLIS / 2 : 0);
     }
 
     public void cleanup() {

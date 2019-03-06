@@ -565,7 +565,7 @@
   <string name="view_featured_article_footer_save_button_label">Button label for saving the current featured article to a reading list, if it is not already saved.\n{{Identical|Save}}</string>
   <string name="view_static_card_save_button_label">Text on button that indicates user can save article to reading lists.\n{{Identical|Save}}</string>
   <string name="view_featured_article_footer_saved_button_label">Button label for when the current featured article is already saved to a reading list, but may now be removed from the list, or saved to a different list.\n{{Identical|Saved}}</string>
-  <string name="edit_tasks_activity_title">Title shown at the top of the activity for unlocking editing tasks.</string>
+  <string name="edit_tasks_activity_title">Title shown at the top of the activity for unlocking editor tasks.</string>
   <string name="feed_configure_activity_title">Title shown at the top of the screen where the user customizes which cards are shown in the Explore feed.</string>
   <string name="feed_configure_menu_reset">Menu label for resetting the customization of the Explore feed cards to the original defaults.</string>
   <string name="feed_configure_menu_select_all">Menu label for showing all types of Explore feed cards.</string>
@@ -721,7 +721,7 @@
   <string name="add_title_descriptions_dialog_message">Message text in the dialog shown to first time title description editors.</string>
   <string name="add_translate_descriptions_dialog_title">Title text of the dialog shown to editors before their first time  translating descriptions.</string>
   <string name="add_translate_descriptions_dialog_message">Message text in the dialog shown to editors before their first time translating descriptions.</string>
-  <string name="description_edit_tutorial_message">Concise on-boarding message to the app editor task list.</string>
+  <string name="description_edit_tutorial_message">Concise on-boarding message to the editor task list.</string>
   <string name="translation_description_edit_task_unlock_title">Title of the dialog box that appears when the user unlocks the feed of suggested articles for translating descriptions from one of their app languages to another.</string>
   <string name="translation_description_edit_task_unlock_body">Body of the dialog box that appears when the user unlocks the feed of suggested articles for translating descriptions from one of their app languages to another.</string>
   <string name="title_description_editing_skip">Text on the button to skip onboarding screens for editing title descriptions.\n{{Identical|Skip}}</string>

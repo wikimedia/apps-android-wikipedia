@@ -20,7 +20,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.descriptions.DescriptionEditHelpActivity;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.views.CircularProgressBar;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.FooterMarginItemDecoration;
@@ -40,15 +39,11 @@ import static org.wikipedia.descriptions.DescriptionEditActivity.EDIT_TASKS_TRAN
 public class EditTasksFragment extends Fragment {
     private Unbinder unbinder;
     @BindView(R.id.edit_onboarding_view) View editOnboardingView;
-    @BindView(R.id.circular_progress_bar) CircularProgressBar circularProgressBar;
-    @BindView(R.id.level_text) TextView levelText;
     @BindView(R.id.username) TextView username;
-    @BindView(R.id.edit_count) TextView editCount;
     @BindView(R.id.contributions_text) TextView contributionsText;
     @BindView(R.id.task_recyclerview) RecyclerView tasksRecyclerView;
     private List<EditTask> tasks = new ArrayList<>();
     private List<EditTaskView.Callback> callbacks = new ArrayList<>();
-
 
     public static EditTasksFragment newInstance() {
         return new EditTasksFragment();
@@ -92,7 +87,6 @@ public class EditTasksFragment extends Fragment {
         public void onBindViewHolder(@NonNull DefaultViewHolder<EditTaskView> holder, int i) {
             holder.getView().setUpViews(items().get(i), callbacks.get(i));
         }
-
     }
 
     @Override
@@ -111,11 +105,10 @@ public class EditTasksFragment extends Fragment {
     }
 
     private void updateUI() {
-        circularProgressBar.setCurrentProgress(Prefs.getTotalUserDescriptionsEdited());
-        levelText.setText(String.format(getString(R.string.editing_level_text), 1)); //Todo: derive the level number dynamically by making use of future gaming logic
         username.setText(AccountUtil.getUserName());
-        editCount.setText(String.valueOf(Prefs.getTotalUserDescriptionsEdited()));
-        contributionsText.setText(getResources().getQuantityString(R.plurals.edit_action_contribution_count, Prefs.getTotalUserDescriptionsEdited()));
+        contributionsText.setText(getResources().getQuantityString(R.plurals.edit_action_contribution_count,
+                Prefs.getTotalUserDescriptionsEdited(), Prefs.getTotalUserDescriptionsEdited()));
+        requireActivity().invalidateOptionsMenu();
     }
 
     private void showOneTimeOnboarding() {
@@ -174,6 +167,9 @@ public class EditTasksFragment extends Fragment {
             }
         });
 
+        /*
+        TODO: enable when the time is right.
+
         EditTask imageCaptionEditTask = new EditTask();
         imageCaptionEditTask.setTitle(getString(R.string.image_caption_task_title));
         imageCaptionEditTask.setDescription(getString(R.string.image_caption_task_description));
@@ -193,7 +189,7 @@ public class EditTasksFragment extends Fragment {
         imageCaptionTranslationEditTask.setDisabledDescriptionText(String.format(getString(R.string.image_caption_edit_disable_text), 50));
         tasks.add(imageCaptionTranslationEditTask);
         callbacks.add(null);
-
+        */
     }
 
     @Override
@@ -208,9 +204,15 @@ public class EditTasksFragment extends Fragment {
     }
 
     @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        menu.findItem(R.id.edit_tasks_menu_help).setVisible(editOnboardingView.getVisibility() != View.VISIBLE);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.help:
+            case R.id.edit_tasks_menu_help:
                 startActivity(DescriptionEditHelpActivity.newIntent(requireContext()));
                 return true;
             default:
@@ -222,6 +224,12 @@ public class EditTasksFragment extends Fragment {
     void onGetStartedClicked() {
         Prefs.setShowEditTasksOnboarding(false);
         editOnboardingView.setVisibility(View.GONE);
+        updateUI();
+    }
+
+    @OnClick(R.id.user_contributions_button)
+    void onUserContributionsClicked() {
+        // TODO: go to user contributions screen.
     }
 
     @Override

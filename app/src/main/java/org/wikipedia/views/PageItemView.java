@@ -26,7 +26,6 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.log.L;
 
 import java.util.List;
 
@@ -183,7 +182,6 @@ public class PageItemView<T> extends ConstraintLayout {
     }
 
     public void setSearchQuery(@Nullable String searchQuery) {
-        L.d("setSearchQuery " + searchQuery);
         // highlight search term within the text
         StringUtil.boldenKeywordText(titleView, titleView.getText().toString(), searchQuery);
     }

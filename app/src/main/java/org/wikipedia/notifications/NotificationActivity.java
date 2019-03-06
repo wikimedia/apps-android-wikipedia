@@ -642,6 +642,11 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         protected boolean finishActionModeIfKeyboardHiding() {
             return true;
         }
+
+        @Override
+        protected Context getParentContext() {
+            return NotificationActivity.this;
+        }
     }
 
     private class MultiSelectCallback extends MultiSelectActionModeCallback {
