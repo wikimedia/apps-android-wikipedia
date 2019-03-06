@@ -159,6 +159,7 @@ public class PageItemView<T> extends ConstraintLayout {
 
     public void setUpChipGroup(List<ReadingList> readingLists) {
         chipsScrollView.setVisibility(VISIBLE);
+        chipsScrollView.setFadingEdgeLength(0);
         readingListsChipGroup.removeAllViews();
         for (ReadingList readingList : readingLists) {
             Chip chip = new Chip(readingListsChipGroup.getContext());
@@ -179,12 +180,6 @@ public class PageItemView<T> extends ConstraintLayout {
 
     public void hideChipGroup() {
         chipsScrollView.setVisibility(GONE);
-    }
-
-
-    @Override
-    protected float getLeftFadingEdgeStrength() {
-        return 1.0f;
     }
 
     public void setSearchQuery(@Nullable String searchQuery) {
