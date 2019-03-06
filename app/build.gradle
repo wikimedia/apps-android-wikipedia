@@ -7,12 +7,6 @@ import com.android.ddmlib.DdmPreferences
 
 import java.util.concurrent.TimeUnit
 
-// Copy the signing.properties.sample file to ~/.sign/signing.properties and adjust the values.
-final File PROD_PROPS_FILE = new File(System.getProperty('user.home'), '.sign/signing.properties')
-final File REPO_PROPS_FILE = new File('repo.properties')
-final Properties PROD_PROPS = loadProperties(PROD_PROPS_FILE)
-final Properties REPO_PROPS = loadProperties(REPO_PROPS_FILE)
-
 final int ADB_TIMEOUT = TimeUnit.MINUTES.toMillis(15)
 final boolean continuousIntegrationBuild = System.getenv('JENKINS_HOME') != null
 final boolean preDexEnabled = hasProperty('pre.dex') ?
@@ -39,7 +33,6 @@ def computeVersionName(label) {
 
 final JavaVersion JAVA_VERSION = JavaVersion.VERSION_1_8
 android {
-    // Keep version in sync with /project.properties
     compileSdkVersion 28
 
     compileOptions {
@@ -64,7 +57,7 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments('butterknife.minSdk': minSdkVersion.apiString,
-                          'butterknife.debuggable': 'false')
+                        'butterknife.debuggable': 'false')
             }
         }
     }
@@ -79,11 +72,11 @@ android {
     }
 
     signingConfigs {
-        prod {
-            setSigningConfigKey(prod, PROD_PROPS)
-        }
-        debug {
-            setSigningConfigKey(debug, REPO_PROPS)
+        release {
+            storeFile file("${rootDir}/config/keystore/shared-keystore.jks")
+            storePassword "Weballwin"
+            keyAlias "Jenkins"
+            keyPassword "Weballwin"
         }
     }
 
@@ -94,6 +87,7 @@ android {
             testProguardFile 'test-proguard-rules.pro'
         }
         release {
+            signingConfig signingConfigs.release
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             testProguardFile 'test-proguard-rules.pro'
@@ -109,38 +103,10 @@ android {
             signingConfig signingConfigs.debug
             dimension 'default'
         }
-        prod {
-            versionName computeVersionName('r')
-            signingConfig signingConfigs.prod
-            dimension 'default'
-        }
         alpha {
             versionName computeVersionName('alpha')
             applicationIdSuffix 'alpha'
             signingConfig signingConfigs.debug
-            dimension 'default'
-        }
-        beta {
-            versionName computeVersionName('beta')
-            applicationIdSuffix 'beta'
-            signingConfig signingConfigs.prod
-            dimension 'default'
-        }
-        amazon {
-            versionName computeVersionName('amazon')
-            signingConfig signingConfigs.prod
-            dimension 'default'
-        }
-        fdroid {
-            versionName computeVersionName('fdroid')
-            signingConfig signingConfigs.prod
-            dimension 'default'
-        }
-        custom {
-            versionName computeVersionName(customChannel)
-            // next line is for injecting a custom channel value into the custom/AndroidManifest.xml
-            manifestPlaceholders = [customChannel:getProperty('customChannel').toString()]
-            signingConfig signingConfigs.prod
             dimension 'default'
         }
     }
@@ -155,7 +121,8 @@ android {
     }
 
     packagingOptions {
-        exclude 'META-INF/services/javax.annotation.processing.Processor' // required by Butter Knife
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+        // required by Butter Knife
 
         // For Espresso testing libraries. See http://stackoverflow.com/q/33800924/970346.
         exclude 'META-INF/maven/com.google.guava/guava/pom.xml'
@@ -171,7 +138,7 @@ android {
 }
 
 // Map for the version code that gives each ABI a value.
-ext.abiCodes = ['armeabi-v7a':1, 'arm64-v8a':2, x86:3, x86_64:4]
+ext.abiCodes = ['armeabi-v7a': 1, 'arm64-v8a': 2, x86: 3, x86_64: 4]
 
 // For per-density APKs, create a similar map like this:
 // ext.densityCodes = ['mdpi': 1, 'hdpi': 2, 'xhdpi': 3]
@@ -188,36 +155,38 @@ apply from: '../gradle/src/test.gradle'
 apply from: '../gradle/src/checkstyle.gradle'
 
 dependencies {
-
     // To keep the Maven Central dependencies up-to-date
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
     // Debug with ./gradlew -q app:dependencies --configuration compile
 
     String okHttpVersion = '3.12.1'
-    String supportVersion = '28.0.0'
+    String supportVersion = '1.0.0'
     String retrofitVersion = '2.5.0'
-    String espressoVersion = '3.0.1'
-    String butterKnifeVersion = '8.8.1'
-    String frescoVersion = '1.11.0' // When updating this version, resync file copies under app/src/main/java/com/facebook
-    String testingSupportVersion = '1.0.2'
+    String espressoVersion = '3.1.0'
+    String butterKnifeVersion = '10.0.0'
+    String frescoVersion = '1.11.0'
+    // When updating this version, resync file copies under app/src/main/java/com/facebook
+    String testingSupportVersion = '1.1.0'
     String mockitoCore = 'org.mockito:mockito-core:1.9.5'
     String leakCanaryVersion = '1.6.2'
 
+    implementation project(':library')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    implementation "com.android.support:support-compat:$supportVersion"
-    implementation "com.android.support:support-core-utils:$supportVersion"
-    implementation "com.android.support:support-core-ui:$supportVersion"
-    implementation "com.android.support:support-fragment:$supportVersion"
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation "androidx.core:core:$supportVersion"
+    implementation "androidx.legacy:legacy-support-core-utils:$supportVersion"
+    implementation "androidx.legacy:legacy-support-core-ui:$supportVersion"
+    implementation "androidx.fragment:fragment:$supportVersion"
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
 
-    implementation "com.android.support:cardview-v7:$supportVersion"
-    implementation "com.android.support:design:$supportVersion"
-    implementation "com.android.support:recyclerview-v7:$supportVersion"
-    implementation "com.android.support:palette-v7:$supportVersion"
-    implementation "com.android.support:preference-v14:$supportVersion"
+    implementation "androidx.cardview:cardview:$supportVersion"
+    implementation "com.google.android.material:material:$supportVersion"
+    implementation "androidx.recyclerview:recyclerview:$supportVersion"
+    implementation "androidx.palette:palette:$supportVersion"
+    implementation "androidx.legacy:legacy-preference-v14:$supportVersion"
 
-    implementation ('com.github.michael-rapp:chrome-like-tab-switcher:0.3.7') {
+    implementation('com.github.michael-rapp:chrome-like-tab-switcher:0.3.7') {
         // TODO: remove when this component updates its own dependency on Support 28.0.0
         exclude group: 'com.android.support'
     }
@@ -245,7 +214,7 @@ dependencies {
 
     android.productFlavors.each { flavor ->
         String dep
-        if('dev' == flavor.name) {
+        if ('dev' == flavor.name) {
             dep = "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
         } else {
             dep = "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
@@ -265,39 +234,13 @@ dependencies {
     androidTestRuntimeOnly 'com.crittercism.dexmaker:dexmaker-dx:1.4'
 
     // Required by Android JUnit Runner.
-    androidTestImplementation "com.android.support:support-annotations:$supportVersion"
-    androidTestImplementation "com.android.support.test:rules:$testingSupportVersion" // JUnit Rules
-    androidTestImplementation "com.android.support.test:runner:$testingSupportVersion" // Android JUnit Runner
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoVersion"
-    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$espressoVersion"
+    androidTestImplementation "androidx.annotation:annotation:$supportVersion"
+    androidTestImplementation "androidx.test:rules:$testingSupportVersion" // JUnit Rules
+    androidTestImplementation "androidx.test:runner:$testingSupportVersion"
+    // Android JUnit Runner
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
 
-}
-
-private setSigningConfigKey(config, Properties props) {
-    def isRunningOnTravis = System.getenv("CI") == "true"
-    if (isRunningOnTravis) {
-        config.storeFile = file("../wikipedia.keystore")
-        config.storePassword = System.getenv("keystore_password")
-        config.keyAlias = System.getenv("keystore_alias")
-        config.keyPassword = System.getenv("keystore_alias_password")
-    } else if(props != null) {
-        config.storeFile = props['keystore'] == null ? null : file(props['keystore'])
-        config.storePassword = props['store.pass']
-        config.keyAlias = props['key.alias']
-        config.keyPassword = props['key.pass']
-    }
-    return config
-}
-
-private static Properties loadProperties(File file) {
-    Properties props = null
-    if (file.canRead()) {
-        props = new Properties()
-        props.load(new FileInputStream(file))
-    } else {
-        System.err.println "\"${file}\" not found"
-    }
-    return props
 }
 
 addSyncContentProviderAuthority 'readinglists', 'reading_lists'
