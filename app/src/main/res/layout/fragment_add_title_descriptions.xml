@@ -74,7 +74,8 @@
     <android.support.v4.view.ViewPagerWithVelocity
         android:id="@+id/addTitleDescriptionsItemPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="1"
         app:layout_constraintBottom_toTopOf="@id/bottomButtonContainer"
         app:layout_constraintTop_toBottomOf="@id/wikiLanguageDropdownContainer" />
 
@@ -82,6 +83,7 @@
         android:id="@+id/bottomButtonContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent">
 

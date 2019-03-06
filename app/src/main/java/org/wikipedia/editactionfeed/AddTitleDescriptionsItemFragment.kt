@@ -10,6 +10,8 @@ import android.text.style.BackgroundColorSpan
 import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -82,14 +84,17 @@ class AddTitleDescriptionsItemFragment : Fragment() {
                         updateContents()
                     }, { this.setErrorState(it) }))
         } else {
-            disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode), parent().langToCode, true).subscribeOn(Schedulers.io())?.observeOn(AndroidSchedulers.mainThread())?.subscribe({ pair ->
-                sourceDescription = StringUtils.defaultString(pair.first)
-                if (pagerPosition == 0) {
-                    updateSourceDescriptionWithHighlight()
-                }
-                summary = pair.second
-                updateContents()
-            }, { this.setErrorState(it) })!!)
+            disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode), parent().langToCode, true)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ pair ->
+                        sourceDescription = StringUtils.defaultString(pair.first)
+                        if (pagerPosition == 0) {
+                            updateSourceDescriptionWithHighlight()
+                        }
+                        summary = pair.second
+                        updateContents()
+                    }, { this.setErrorState(it) })!!)
         }
     }
 
@@ -123,7 +128,12 @@ class AddTitleDescriptionsItemFragment : Fragment() {
             viewArticleSubtitle.text = TextUtils.concat(String.format(getString(R.string.translation_source_description), app.language().getAppLanguageCanonicalName(parent().langFromCode)), spannableDescription)
         }
         viewArticleExtract.text = StringUtil.fromHtml(summary!!.extractHtml)
-        viewArticleImage.loadImage(if (TextUtils.isEmpty(summary!!.thumbnailUrl)) null else Uri.parse(summary!!.thumbnailUrl))
+        if (TextUtils.isEmpty(summary!!.thumbnailUrl)) {
+            viewArticleImage.visibility = GONE
+        } else {
+            viewArticleImage.visibility = VISIBLE
+            viewArticleImage.loadImage(Uri.parse(summary!!.thumbnailUrl))
+        }
     }
 
     private fun updateSourceDescriptionWithHighlight() {
