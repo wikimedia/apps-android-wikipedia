@@ -131,7 +131,7 @@
         android:layout_gravity="end"
         android:elevation="8dp"
         android:background="@drawable/shape_circle"
-        app:backgroundTint="?attr/nav_tab_background_color"
+        app:backgroundTint="?attr/toc_scroller_button_color"
         app:srcCompat="@drawable/ic_unfold_more_black_24dp"
         app:tint="?attr/colorAccent"
         android:scaleType="center"

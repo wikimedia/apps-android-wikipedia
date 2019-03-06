@@ -349,12 +349,14 @@
     </style>
 
     <style name="SimpleDraweeViewPlaceholder.Article">
-        <item name="placeholderImage">@drawable/ic_image_gray_opaque_24dp</item>
-        <item name="failureImage">@drawable/ic_image_gray_opaque_24dp</item>
-        <item name="backgroundImage">@android:color/white</item>
+        <item name="placeholderImage">?attr/thumbnail_image_placeholder</item>
+        <item name="failureImage">?attr/thumbnail_image_placeholder</item>
+        <item name="backgroundImage">?attr/paper_color</item>
     </style>
 
     <style name="SimpleDraweeViewPlaceholder.EditActionFeed">
+        <item name="placeholderImage">@drawable/ic_image_gray_transparent_24dp</item>
+        <item name="failureImage">@drawable/ic_image_gray_transparent_24dp</item>
         <item name="backgroundImage">@color/base30</item>
     </style>
 
@@ -362,9 +364,9 @@
         <item name="android:layout_width">28dp</item>
         <item name="android:layout_height">28dp</item>
         <item name="android:contentDescription">@null</item>
-        <item name="placeholderImage">@color/base70</item>
-        <item name="failureImage">@color/base70</item>
-        <item name="backgroundImage">@color/base70</item>
+        <item name="placeholderImage">?attr/chart_shade5</item>
+        <item name="failureImage">?attr/chart_shade5</item>
+        <item name="backgroundImage">?attr/chart_shade5</item>
         <item name="roundedCornerRadius">2dp</item>
         <item name="roundTopLeft">false</item>
         <item name="roundTopRight">false</item>
