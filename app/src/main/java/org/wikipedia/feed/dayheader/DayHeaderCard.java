@@ -1,6 +1,6 @@
 package org.wikipedia.feed.dayheader;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;

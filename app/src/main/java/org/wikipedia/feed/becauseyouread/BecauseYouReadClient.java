@@ -1,7 +1,7 @@
 package org.wikipedia.feed.becauseyouread;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.wikipedia.Constants;
 import org.wikipedia.dataclient.ServiceFactory;

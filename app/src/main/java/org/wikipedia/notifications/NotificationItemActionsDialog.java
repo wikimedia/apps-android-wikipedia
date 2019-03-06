@@ -4,9 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatImageView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +23,9 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -42,7 +42,8 @@ public class NotificationItemActionsDialog extends ExtendedBottomSheetDialogFrag
     @BindView(R.id.notification_item_archive_icon) ImageView archiveIconView;
     @BindView(R.id.notification_item_archive_text) TextView archiveTextView;
     @BindView(R.id.notification_action_primary) View primaryView;
-    @BindView(R.id.notification_action_primary_icon) AppCompatImageView primaryImageView;
+    @BindView(R.id.notification_action_primary_icon)
+    AppCompatImageView primaryImageView;
     @BindView(R.id.notification_action_primary_text) TextView primaryTextView;
     @BindView(R.id.notification_action_secondary) View secondaryView;
     @BindView(R.id.notification_action_secondary_icon) AppCompatImageView secondaryImageView;

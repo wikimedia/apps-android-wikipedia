@@ -1,7 +1,7 @@
 package org.wikipedia.dataclient.mwapi.page;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.page.Section;

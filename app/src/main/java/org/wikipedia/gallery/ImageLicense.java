@@ -1,7 +1,6 @@
 package org.wikipedia.gallery;
 
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
+import static org.apache.commons.lang3.StringUtils.defaultString;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -10,14 +9,16 @@ import org.wikipedia.R;
 import java.io.Serializable;
 import java.util.Locale;
 
-import static org.apache.commons.lang3.StringUtils.defaultString;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
 
 public class ImageLicense implements Serializable {
     private static final String CREATIVE_COMMONS_PREFIX = "cc";
     private static final String PUBLIC_DOMAIN_PREFIX = "pd";
     private static final String CC_BY_SA = "ccbysa";
 
-    @NonNull @SerializedName("type") private final String license;
+    @NonNull
+    @SerializedName("type") private final String license;
     @NonNull @SerializedName("code") private final String licenseShortName;
     @NonNull @SerializedName("url") private final String licenseUrl;
 
@@ -68,7 +69,8 @@ public class ImageLicense implements Serializable {
      * under which the specified Gallery item is provided.
      * @return Resource ID of the icon to display.
      */
-    @DrawableRes public int getLicenseIcon() {
+    @DrawableRes
+    public int getLicenseIcon() {
         if (isLicensePD()) {
             return R.drawable.ic_license_pd;
         }

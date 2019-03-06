@@ -4,10 +4,6 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.TimeInterpolator;
 import android.animation.ValueAnimator;
-import android.support.annotation.NonNull;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.RecyclerView.ViewHolder;
-import android.support.v7.widget.SimpleItemAnimator;
 import android.view.View;
 import android.view.ViewPropertyAnimator;
 
@@ -17,8 +13,13 @@ import org.wikipedia.util.DimenUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.core.view.ViewCompat;
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
+import androidx.recyclerview.widget.SimpleItemAnimator;
+
 /**
- * Lifted nearly entirely from android.support.v7.widget.DefaultItemAnimator, with a few
+ * Lifted nearly entirely from androidx.recyclerview.widget.DefaultItemAnimator, with a few
  * key modifications and updates.
  * Dmitry Brant, 2018
  */

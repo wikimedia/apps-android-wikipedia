@@ -6,15 +6,6 @@ import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.AttrRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StyleRes;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SwitchCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -33,6 +24,15 @@ import org.wikipedia.util.StringUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.AttrRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleRes;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.ViewCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
@@ -61,11 +61,14 @@ public class OnboardingPageView extends LinearLayout {
     @BindView(R.id.view_onboarding_page_secondary_text) TextView secondaryTextView;
     @BindView(R.id.view_onboarding_page_tertiary_text) TextView tertiaryTextView;
     @BindView(R.id.view_onboarding_page_switch_container) View switchContainer;
-    @BindView(R.id.view_onboarding_page_switch) SwitchCompat switchView;
+    @BindView(R.id.view_onboarding_page_switch)
+    SwitchCompat switchView;
     @BindView(R.id.options_layout) View listViewContainer;
-    @BindView(R.id.options_list) RecyclerView optionsList;
+    @BindView(R.id.options_list)
+    RecyclerView optionsList;
 
-    @Nullable private Callback callback;
+    @Nullable
+    private Callback callback;
     @Nullable private String listDataType;
     public OnboardingPageView(Context context) {
         super(context);

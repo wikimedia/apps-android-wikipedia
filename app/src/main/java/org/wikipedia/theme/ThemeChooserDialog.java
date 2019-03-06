@@ -2,10 +2,6 @@ package org.wikipedia.theme;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +21,10 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DiscreteSeekBar;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.core.content.ContextCompat;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
@@ -45,7 +45,8 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     @BindView(R.id.button_theme_dark_highlight) View buttonThemeDarkHighlight;
     @BindView(R.id.button_theme_black_highlight) View buttonThemeBlackHighlight;
     @BindView(R.id.button_theme_sepia_highlight) View buttonThemeSepiaHighlight;
-    @BindView(R.id.theme_chooser_dark_mode_dim_images_switch) SwitchCompat dimImagesSwitch;
+    @BindView(R.id.theme_chooser_dark_mode_dim_images_switch)
+    SwitchCompat dimImagesSwitch;
     @BindView(R.id.font_change_progress_bar) ProgressBar fontChangeProgressBar;
 
     public interface Callback {

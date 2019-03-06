@@ -1,10 +1,5 @@
 package org.wikipedia.navtab;
 
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
-import android.support.v4.app.Fragment;
-
 import org.wikipedia.R;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.history.HistoryFragment;
@@ -13,9 +8,15 @@ import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.nearby.NearbyLazyLoadFragment;
 import org.wikipedia.readinglist.ReadingListsFragment;
 
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+import androidx.fragment.app.Fragment;
+
 public enum NavTab implements EnumCode {
     EXPLORE(R.string.nav_item_feed, R.drawable.ic_globe) {
-        @NonNull @Override public Fragment newInstance() {
+        @NonNull
+        @Override public Fragment newInstance() {
             return FeedFragment.newInstance();
         }
     },
@@ -37,8 +38,10 @@ public enum NavTab implements EnumCode {
 
     private static final EnumCodeMap<NavTab> MAP = new EnumCodeMap<>(NavTab.class);
 
-    @StringRes private final int text;
-    @DrawableRes private final int icon;
+    @StringRes
+    private final int text;
+    @DrawableRes
+    private final int icon;
 
     @NonNull public static NavTab of(int code) {
         return MAP.get(code);

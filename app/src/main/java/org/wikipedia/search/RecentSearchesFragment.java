@@ -1,16 +1,11 @@
 package org.wikipedia.search;
 
+import static org.wikipedia.Constants.RECENT_SEARCHES_FRAGMENT_LOADER_ID;
+
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.CursorLoader;
-import android.support.v4.content.Loader;
-import android.support.v4.widget.CursorAdapter;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,13 +18,18 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.SearchHistoryContract;
 import org.wikipedia.util.FeedbackUtil;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.cursoradapter.widget.CursorAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.CursorLoader;
+import androidx.loader.content.Loader;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.reactivex.Completable;
 import io.reactivex.schedulers.Schedulers;
-
-import static org.wikipedia.Constants.RECENT_SEARCHES_FRAGMENT_LOADER_ID;
 
 /** Displays a list of recent searches */
 public class RecentSearchesFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {

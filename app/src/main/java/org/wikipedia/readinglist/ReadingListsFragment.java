@@ -1,18 +1,15 @@
 package org.wikipedia.readinglist;
 
+import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_NAME_ASC;
+import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_NAME_DESC;
+import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_RECENT_ASC;
+import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_RECENT_DESC;
+import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
+import static org.wikipedia.views.CircularProgressBar.MAX_PROGRESS;
+
 import android.animation.LayoutTransition;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.util.DiffUtil;
-import android.support.v7.view.ActionMode;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -64,6 +61,16 @@ import org.wikipedia.views.ViewUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.ActionMode;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -72,24 +79,19 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
-import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_NAME_ASC;
-import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_NAME_DESC;
-import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_RECENT_ASC;
-import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_RECENT_DESC;
-import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
-import static org.wikipedia.views.CircularProgressBar.MAX_PROGRESS;
-
 public class ReadingListsFragment extends Fragment implements
         SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback {
     private Unbinder unbinder;
     @BindView(R.id.reading_list_content_container) ViewGroup contentContainer;
-    @BindView(R.id.reading_list_list) RecyclerView readingListView;
+    @BindView(R.id.reading_list_list)
+    RecyclerView readingListView;
     @BindView(R.id.empty_container) ViewGroup emptyContainer;
     @BindView(R.id.empty_title) TextView emptyTitle;
     @BindView(R.id.empty_message) TextView emptyMessage;
     @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
     @BindView(R.id.reading_list_onboarding_container) ViewGroup onboardingContainer;
-    @BindView(R.id.reading_list_swipe_refresh) SwipeRefreshLayout swipeRefreshLayout;
+    @BindView(R.id.reading_list_swipe_refresh)
+    SwipeRefreshLayout swipeRefreshLayout;
 
     private List<Object> displayedLists = new ArrayList<>();
 
@@ -100,7 +102,8 @@ public class ReadingListsFragment extends Fragment implements
     private ReadingListItemCallback readingListItemCallback = new ReadingListItemCallback();
     private ReadingListPageItemCallback readingListPageItemCallback = new ReadingListPageItemCallback();
     private ReadingListsSearchCallback searchActionModeCallback = new ReadingListsSearchCallback();
-    @Nullable private ActionMode actionMode;
+    @Nullable
+    private ActionMode actionMode;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private OverflowCallback overflowCallback = new OverflowCallback();
     private String currentSearchQuery;

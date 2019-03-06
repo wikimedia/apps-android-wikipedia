@@ -1,8 +1,5 @@
 package org.wikipedia.database.contract;
 
-import android.support.annotation.NonNull;
-import android.support.v4.util.ArraySet;
-
 import org.wikipedia.database.column.CsvColumn;
 import org.wikipedia.database.column.IdColumn;
 import org.wikipedia.database.column.IntColumn;
@@ -12,6 +9,9 @@ import org.wikipedia.database.column.StrColumn;
 
 import java.util.Collection;
 import java.util.Set;
+
+import androidx.annotation.NonNull;
+import androidx.collection.ArraySet;
 
 @SuppressWarnings("checkstyle:interfaceistype")
 public interface OldReadingListPageContract {
@@ -31,7 +31,8 @@ public interface OldReadingListPageContract {
         StrColumn KEY = new StrColumn(TABLE_PAGE, "key", "text not null unique");
         CsvColumn<Set<String>> LIST_KEYS = new CsvColumn<Set<String>>(TABLE_PAGE, "listKeys",
                 "text not null") {
-            @NonNull @Override protected Set<String> val(@NonNull Collection<String> strs) {
+            @NonNull
+            @Override protected Set<String> val(@NonNull Collection<String> strs) {
                 return new ArraySet<>(strs);
             }
             @NonNull @Override protected Collection<String> put(@NonNull Set<String> row) {

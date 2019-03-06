@@ -1,6 +1,6 @@
 package org.wikipedia.language;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Jsoup;

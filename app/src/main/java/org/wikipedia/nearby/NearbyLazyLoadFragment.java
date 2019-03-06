@@ -1,9 +1,6 @@
 package org.wikipedia.nearby;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,12 +8,18 @@ import android.widget.FrameLayout;
 
 import org.wikipedia.WikipediaApp;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 public class NearbyLazyLoadFragment extends Fragment {
     private static final int CONTAINER_VIEW_ID = 0x8675309;
     private static final String CHILD_FRAGMENT_TAG = "lazyChildFragment";
-    @Nullable private Fragment childFragment;
+    @Nullable
+    private Fragment childFragment;
 
-    @NonNull public static NearbyLazyLoadFragment newInstance() {
+    @NonNull
+    public static NearbyLazyLoadFragment newInstance() {
         return new NearbyLazyLoadFragment();
     }
 

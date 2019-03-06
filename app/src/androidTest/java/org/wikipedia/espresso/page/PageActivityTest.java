@@ -1,22 +1,5 @@
 package org.wikipedia.espresso.page;
 
-import android.Manifest;
-import android.support.test.espresso.DataInteraction;
-import android.support.test.rule.ActivityTestRule;
-import android.support.test.rule.GrantPermissionRule;
-import android.support.test.runner.AndroidJUnit4;
-
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.wikipedia.R;
-import org.wikipedia.espresso.search.SearchBehaviors;
-import org.wikipedia.espresso.util.ScreenshotTools;
-import org.wikipedia.page.PageActivity;
-
-import static android.support.test.espresso.Espresso.onData;
-import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.hamcrest.Matchers.anything;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.wikipedia.espresso.util.CompareTools.assertScreenshotWithinTolerance;
@@ -29,6 +12,25 @@ import static org.wikipedia.espresso.util.ViewTools.childAtPosition;
 import static org.wikipedia.espresso.util.ViewTools.viewIsDisplayed;
 import static org.wikipedia.espresso.util.ViewTools.waitFor;
 import static org.wikipedia.espresso.util.ViewTools.whileWithMaxSteps;
+
+import static androidx.test.espresso.Espresso.onData;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+
+import android.Manifest;
+
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.wikipedia.R;
+import org.wikipedia.espresso.search.SearchBehaviors;
+import org.wikipedia.espresso.util.ScreenshotTools;
+import org.wikipedia.page.PageActivity;
+
+import androidx.test.espresso.DataInteraction;
+import androidx.test.rule.ActivityTestRule;
+import androidx.test.rule.GrantPermissionRule;
+import androidx.test.runner.AndroidJUnit4;
 
 @RunWith(AndroidJUnit4.class)
 public final class PageActivityTest {

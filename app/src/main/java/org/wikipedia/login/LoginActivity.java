@@ -1,5 +1,8 @@
 package org.wikipedia.login;
 
+import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
+
 import android.accounts.AccountAuthenticatorResponse;
 import android.accounts.AccountManager;
 import android.app.ProgressDialog;
@@ -7,12 +10,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -31,12 +33,11 @@ import org.wikipedia.views.WikiErrorView;
 
 import java.util.Collections;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
-import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class LoginActivity extends BaseActivity {
     public static final int RESULT_LOGIN_SUCCESS = 1;
@@ -46,7 +47,8 @@ public class LoginActivity extends BaseActivity {
     public static final String EDIT_SESSION_TOKEN = "edit_session_token";
     public static final String ACTION_CREATE_ACCOUNT = "action_create_account";
 
-    @BindView(R.id.login_username_text) TextInputLayout usernameInput;
+    @BindView(R.id.login_username_text)
+    TextInputLayout usernameInput;
     @BindView(R.id.login_password_input) TextInputLayout passwordInput;
     @BindView(R.id.login_2fa_text) EditText twoFactorText;
     @BindView(R.id.view_login_error) WikiErrorView errorView;

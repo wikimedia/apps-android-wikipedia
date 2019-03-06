@@ -1,11 +1,14 @@
 package org.wikipedia.descriptions;
 
+import static org.wikipedia.descriptions.DescriptionEditActivity.EDIT_TASKS_TRANSLATE_TITLE_DESC_SOURCE;
+import static org.wikipedia.descriptions.DescriptionEditActivity.PAGE_SOURCE;
+import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_DISALLOWED;
+import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_WARNING;
+import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,18 +39,15 @@ import org.wikipedia.util.log.L;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-
-import static org.wikipedia.descriptions.DescriptionEditActivity.EDIT_TASKS_TRANSLATE_TITLE_DESC_SOURCE;
-import static org.wikipedia.descriptions.DescriptionEditActivity.PAGE_SOURCE;
-import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_DISALLOWED;
-import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_WARNING;
-import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class DescriptionEditFragment extends Fragment {
 
@@ -67,7 +67,8 @@ public class DescriptionEditFragment extends Fragment {
     private Unbinder unbinder;
     private PageTitle pageTitle;
     private boolean reviewEnabled;
-    @Nullable private String highlightText;
+    @Nullable
+    private String highlightText;
     @Nullable private CsrfTokenClient csrfClient;
     @Nullable private DescriptionEditFunnel funnel;
     private int source;

@@ -1,20 +1,22 @@
 package org.wikipedia.views;
 
+import static androidx.core.content.ContextCompat.getColor;
+import static androidx.core.graphics.drawable.DrawableCompat.setTint;
+
 import android.content.Context;
-import android.support.annotation.ColorRes;
-import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 
 import org.wikipedia.R;
 
-import static android.support.v4.content.ContextCompat.getColor;
-import static android.support.v4.graphics.drawable.DrawableCompat.setTint;
+import androidx.annotation.ColorRes;
+import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class ConfigurableTabLayout extends ConstraintLayout {
-    @ColorRes private static final int TAB_ENABLED_COLOR = android.R.color.white;
+    @ColorRes
+    private static final int TAB_ENABLED_COLOR = android.R.color.white;
     @ColorRes private static final int TAB_DISABLED_COLOR = R.color.base30;
 
     public ConfigurableTabLayout(Context context) {

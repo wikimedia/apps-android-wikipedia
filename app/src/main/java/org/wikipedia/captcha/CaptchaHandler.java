@@ -5,10 +5,6 @@ import android.app.ProgressDialog;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.drawable.Animatable;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -17,6 +13,7 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.BaseControllerListener;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.image.ImageInfo;
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -28,6 +25,9 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.ViewAnimations;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
@@ -44,7 +44,8 @@ public class CaptchaHandler {
     private ProgressDialog progressDialog;
     private CompositeDisposable disposables = new CompositeDisposable();
 
-    @Nullable private String token;
+    @Nullable
+    private String token;
     @Nullable private CaptchaResult captchaResult;
 
     public CaptchaHandler(final Activity activity, final WikiSite wiki, final ProgressDialog progressDialog,

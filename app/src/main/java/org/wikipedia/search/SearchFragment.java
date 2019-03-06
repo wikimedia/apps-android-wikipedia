@@ -1,15 +1,13 @@
 package org.wikipedia.search;
 
+import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH;
+import static org.wikipedia.settings.languages.WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -46,6 +44,12 @@ import org.wikipedia.views.ViewUtil;
 
 import java.util.Locale;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -54,10 +58,6 @@ import io.reactivex.Completable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-
-import static org.apache.commons.lang3.StringUtils.isBlank;
-import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH;
-import static org.wikipedia.settings.languages.WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA;
 
 public class SearchFragment extends Fragment implements SearchResultsFragment.Callback,
         RecentSearchesFragment.Callback, LanguageScrollView.Callback {
@@ -68,18 +68,26 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     private static final int PANEL_RECENT_SEARCHES = 0;
     private static final int PANEL_SEARCH_RESULTS = 1;
 
-    @BindView(R.id.search_toolbar) Toolbar toolbar;
-    @BindView(R.id.search_cab_view) CabSearchView searchView;
-    @BindView(R.id.search_progress_bar) ProgressBar progressBar;
-    @BindView(R.id.search_lang_button_container) View langButtonContainer;
-    @BindView(R.id.search_lang_button) TextView langButton;
-    @BindView(R.id.lang_scroll) LanguageScrollView languageScrollView;
-    @BindView(R.id.language_scroll_container) View languageScrollContainer;
+    @BindView(R.id.search_toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.search_cab_view)
+    CabSearchView searchView;
+    @BindView(R.id.search_progress_bar)
+    ProgressBar progressBar;
+    @BindView(R.id.search_lang_button_container)
+    View langButtonContainer;
+    @BindView(R.id.search_lang_button)
+    TextView langButton;
+    @BindView(R.id.lang_scroll)
+    LanguageScrollView languageScrollView;
+    @BindView(R.id.language_scroll_container)
+    View languageScrollContainer;
     private Unbinder unbinder;
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private WikipediaApp app;
-    @BindView(android.support.v7.appcompat.R.id.search_src_text) EditText searchEditText;
+    @BindView(R.id.search_src_text)
+    EditText searchEditText;
     private SearchFunnel funnel;
     private SearchInvokeSource invokeSource;
     private String searchLanguageCode;
@@ -98,44 +106,49 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
      * The last search term that the user entered. This will be passed into
      * the TitleSearch and FullSearch sub-fragments.
      */
-    @Nullable private String query;
+    @Nullable
+    private String query;
 
-    private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
+    private ExclusiveBottomSheetPresenter bottomSheetPresenter =
+            new ExclusiveBottomSheetPresenter();
     private RecentSearchesFragment recentSearchesFragment;
     private SearchResultsFragment searchResultsFragment;
 
-    private final SearchView.OnCloseListener searchCloseListener = new SearchView.OnCloseListener() {
-        @Override
-        public boolean onClose() {
-            closeSearch();
-            funnel.searchCancel(searchLanguageCode);
-            return false;
-        }
-    };
+    private final SearchView.OnCloseListener searchCloseListener =
+            new SearchView.OnCloseListener() {
+                @Override
+                public boolean onClose() {
+                    closeSearch();
+                    funnel.searchCancel(searchLanguageCode);
+                    return false;
+                }
+            };
 
-    private final SearchView.OnQueryTextListener searchQueryListener = new SearchView.OnQueryTextListener() {
-        @Override
-        public boolean onQueryTextSubmit(String queryText) {
-            PageTitle firstResult = null;
-            if (getActivePanel() == PANEL_SEARCH_RESULTS) {
-                firstResult = searchResultsFragment.getFirstResult();
-            }
-            if (firstResult != null) {
-                navigateToTitle(firstResult, false, 0);
-            }
-            return true;
-        }
+    private final SearchView.OnQueryTextListener searchQueryListener =
+            new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String queryText) {
+                    PageTitle firstResult = null;
+                    if (getActivePanel() == PANEL_SEARCH_RESULTS) {
+                        firstResult = searchResultsFragment.getFirstResult();
+                    }
+                    if (firstResult != null) {
+                        navigateToTitle(firstResult, false, 0);
+                    }
+                    return true;
+                }
 
-        @Override
-        public boolean onQueryTextChange(String queryText) {
-            searchView.setCloseButtonVisibility(queryText);
-            startSearch(queryText.trim(), false);
-            return true;
-        }
-    };
+                @Override
+                public boolean onQueryTextChange(String queryText) {
+                    searchView.setCloseButtonVisibility(queryText);
+                    startSearch(queryText.trim(), false);
+                    return true;
+                }
+            };
 
-    @NonNull public static SearchFragment newInstance(int source,
-                                                      @Nullable String query) {
+    @NonNull
+    public static SearchFragment newInstance(int source,
+            @Nullable String query) {
         SearchFragment fragment = new SearchFragment();
 
         Bundle args = new Bundle();
@@ -155,7 +168,8 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
             handleIntent(requireActivity().getIntent());
         }
 
-        invokeSource = SearchInvokeSource.of(getArguments().getInt(ARG_INVOKE_SOURCE, SearchInvokeSource.TOOLBAR.code()));
+        invokeSource = SearchInvokeSource.of(
+                getArguments().getInt(ARG_INVOKE_SOURCE, SearchInvokeSource.TOOLBAR.code()));
         query = getArguments().getString(ARG_QUERY);
         funnel = new SearchFunnel(app, invokeSource);
     }
@@ -167,16 +181,17 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     }
 
     @Override
-    public View onCreateView(@NonNull final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull final LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
         app = WikipediaApp.getInstance();
         View view = inflater.inflate(R.layout.fragment_search, container, false);
         unbinder = ButterKnife.bind(this, view);
 
         FragmentManager childFragmentManager = getChildFragmentManager();
-        recentSearchesFragment = (RecentSearchesFragment)childFragmentManager.findFragmentById(
+        recentSearchesFragment = (RecentSearchesFragment) childFragmentManager.findFragmentById(
                 R.id.search_panel_recent);
         recentSearchesFragment.setCallback(this);
-        searchResultsFragment = (SearchResultsFragment)childFragmentManager.findFragmentById(
+        searchResultsFragment = (SearchResultsFragment) childFragmentManager.findFragmentById(
                 R.id.fragment_search_results);
 
         toolbar.setNavigationOnClickListener((v) -> requireActivity().finish());
@@ -230,7 +245,8 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
 
         if (app.language().getAppLanguageCodes().size() > 1) {
             languageScrollContainer.setVisibility(View.VISIBLE);
-            languageScrollView.setUpLanguageScrollTabData(app.language().getAppLanguageCodes(), this, position);
+            languageScrollView.setUpLanguageScrollTabData(app.language().getAppLanguageCodes(),
+                    this, position);
             langButtonContainer.setVisibility(View.GONE);
         } else {
             showMultiLingualOnboarding();
@@ -285,6 +301,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
 
     /**
      * Changes the search text box to contain a different string.
+     *
      * @param text The text you want to make the search box display.
      */
     @Override
@@ -299,8 +316,10 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         }
         funnel.searchClick(position, searchLanguageCode);
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
-        startActivity(inNewTab ? PageActivity.newIntentForNewTab(requireContext(), historyEntry, historyEntry.getTitle())
-                : PageActivity.newIntentForExistingTab(requireContext(), historyEntry, historyEntry.getTitle()));
+        startActivity(inNewTab ? PageActivity.newIntentForNewTab(requireContext(), historyEntry,
+                historyEntry.getTitle())
+                : PageActivity.newIntentForExistingTab(requireContext(), historyEntry,
+                        historyEntry.getTitle()));
         closeSearch();
     }
 
@@ -312,7 +331,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
 
     @Override
     public void onSearchResultAddToList(@NonNull PageTitle title,
-                                        @NonNull AddToReadingListDialog.InvokeSource source) {
+            @NonNull AddToReadingListDialog.InvokeSource source) {
         bottomSheetPresenter.show(getChildFragmentManager(), AddToReadingListDialog.newInstance(title, source));
     }
 
@@ -326,7 +345,8 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         progressBar.setVisibility(enabled ? View.VISIBLE : View.GONE);
     }
 
-    @OnClick(R.id.search_container) void onSearchContainerClick() {
+    @OnClick(R.id.search_container)
+    void onSearchContainerClick() {
         // Give the root container view an empty click handler, so that click events won't
         // get passed down to any underlying views (e.g. a PageFragment on top of which
         // this fragment is shown)
@@ -336,7 +356,8 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     void onLangButtonClick() {
         langBtnClicked = true;
         tempLangCodeHolder = searchLanguageCode;
-        Intent intent = WikipediaLanguagesActivity.newIntent(requireActivity(), LanguageSettingsInvokeSource.SEARCH.text());
+        Intent intent = WikipediaLanguagesActivity.newIntent(requireActivity(),
+                LanguageSettingsInvokeSource.SEARCH.text());
         startActivityForResult(intent, ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH);
     }
 
@@ -344,7 +365,8 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
      * Kick off a search, based on a given search term. Will automatically pass the search to
      * Title search or Full search, based on which one is currently displayed.
      * If the search term is empty, the "recent searches" view will be shown.
-     * @param term Phrase to search for.
+     *
+     * @param term  Phrase to search for.
      * @param force Whether to "force" starting this search. If the search is not forced, the
      *              search may be delayed by a small time, so that network requests are not sent
      *              too often.  If the search is forced, the network request is sent immediately.
@@ -434,8 +456,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         // reset its background
         searchEditText.setBackgroundColor(Color.TRANSPARENT);
         // make the search frame match_parent
-        View searchEditFrame = searchView
-                .findViewById(android.support.v7.appcompat.R.id.search_edit_frame);
+        View searchEditFrame = searchView.findViewById(R.id.search_edit_frame);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         searchEditFrame.setLayoutParams(params);
@@ -443,17 +464,18 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         searchEditText.setGravity(Gravity.CENTER_VERTICAL);
         // remove focus line from search plate
         View searchEditPlate = searchView
-                .findViewById(android.support.v7.appcompat.R.id.search_plate);
+                .findViewById(R.id.search_plate);
         searchEditPlate.setBackgroundColor(Color.TRANSPARENT);
 
-        ImageView searchClose = searchView.findViewById(
-                android.support.v7.appcompat.R.id.search_close_btn);
+        ImageView searchClose = searchView.findViewById(R.id.search_close_btn);
         FeedbackUtil.setToolbarButtonLongPressToast(searchClose);
     }
 
     private void initLangButton() {
         langButton.setText(app.language().getAppLanguageCode().toUpperCase(Locale.ENGLISH));
-        ViewUtil.formatLangButton(langButton, app.language().getAppLanguageCode().toUpperCase(Locale.ENGLISH), LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER);
+        ViewUtil.formatLangButton(langButton,
+                app.language().getAppLanguageCode().toUpperCase(Locale.ENGLISH),
+                LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER);
         FeedbackUtil.setToolbarButtonLongPressToast(langButtonContainer);
     }
 
@@ -463,7 +485,9 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
 
     private void addRecentSearch(String title) {
         if (isValidQuery(title)) {
-            disposables.add(Completable.fromAction(() -> app.getDatabaseClient(RecentSearch.class).upsert(new RecentSearch(title), SearchHistoryContract.Query.SELECTION))
+            disposables.add(Completable.fromAction(
+                    () -> app.getDatabaseClient(RecentSearch.class).upsert(new RecentSearch(title),
+                            SearchHistoryContract.Query.SELECTION))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(() -> recentSearchesFragment.updateList(),
@@ -478,9 +502,13 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
             // because it triggers two events while re-drawing the UI
             langBtnClicked = false;
         } else {
-            //We need a temporary language code holder because the previously selected search language code[searchLanguageCode]
+            //We need a temporary language code holder because the previously selected search
+            // language code[searchLanguageCode]
             // gets overwritten when UI is re-drawn
-            funnel.searchLanguageSwitch(!TextUtils.isEmpty(tempLangCodeHolder) && !tempLangCodeHolder.equals(selectedLanguageCode) ? tempLangCodeHolder : searchLanguageCode, selectedLanguageCode);
+            funnel.searchLanguageSwitch(
+                    !TextUtils.isEmpty(tempLangCodeHolder) && !tempLangCodeHolder.equals(
+                            selectedLanguageCode) ? tempLangCodeHolder : searchLanguageCode,
+                    selectedLanguageCode);
             tempLangCodeHolder = null;
         }
         searchLanguageCode = selectedLanguageCode;

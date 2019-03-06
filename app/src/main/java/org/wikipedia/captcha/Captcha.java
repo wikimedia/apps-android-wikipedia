@@ -1,11 +1,12 @@
 package org.wikipedia.captcha;
 
-import android.support.annotation.NonNull;
-
 import org.wikipedia.dataclient.mwapi.MwResponse;
 
+import androidx.annotation.NonNull;
+
 public class Captcha extends MwResponse {
-    @SuppressWarnings("unused,NullableProblems") @NonNull private FancyCaptchaReload fancycaptchareload;
+    @SuppressWarnings("unused,NullableProblems") @NonNull
+    private FancyCaptchaReload fancycaptchareload;
     @NonNull String captchaId() {
         return fancycaptchareload.index();
     }

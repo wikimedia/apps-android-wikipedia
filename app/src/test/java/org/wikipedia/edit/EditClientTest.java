@@ -1,6 +1,6 @@
 package org.wikipedia.edit;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.google.gson.stream.MalformedJsonException;
 

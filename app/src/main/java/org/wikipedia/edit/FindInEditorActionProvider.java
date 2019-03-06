@@ -1,7 +1,7 @@
 package org.wikipedia.edit;
 
 import android.graphics.Rect;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.ActionMode;
 import android.widget.ScrollView;
 

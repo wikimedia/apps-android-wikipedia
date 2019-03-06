@@ -1,15 +1,16 @@
 package org.wikipedia.activity;
 
 import android.os.Bundle;
-import android.support.annotation.IdRes;
-import android.support.annotation.LayoutRes;
-import android.support.v4.app.Fragment;
 
 import org.wikipedia.R;
 import org.wikipedia.theme.Theme;
 
+import androidx.annotation.IdRes;
+import androidx.annotation.LayoutRes;
+import androidx.fragment.app.Fragment;
+
 /**
- * Boilerplate for a {@link android.support.v4.app.FragmentActivity} containing a single stack of
+ * Boilerplate for a {@link androidx.fragment.app.FragmentActivity} containing a single stack of
  * Fragments, with a transparent background.
  *
  * Set a theme on the activity in AndroidManifest.xml to specify a background tint.

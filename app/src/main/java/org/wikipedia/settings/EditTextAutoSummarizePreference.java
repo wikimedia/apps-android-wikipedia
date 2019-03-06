@@ -4,7 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
-import android.support.v7.preference.EditTextPreference;
+import android.preference.EditTextPreference;
 import android.util.AttributeSet;
 
 import org.wikipedia.R;
@@ -46,11 +46,11 @@ public class EditTextAutoSummarizePreference extends EditTextPreference {
         updateAutoSummary();
     }
 
-    @Override
-    public void onAttached() {
-        super.onAttached();
-        updateAutoSummary();
-    }
+//    @Override
+//    public void onAttached() {
+//        super.onAttached();
+//        updateAutoSummary();
+//    }
 
     @Override
     protected boolean persistString(String value) {

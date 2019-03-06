@@ -1,6 +1,6 @@
 package org.wikipedia.feed.progress;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;

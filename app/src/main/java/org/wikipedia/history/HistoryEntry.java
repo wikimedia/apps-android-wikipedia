@@ -2,13 +2,14 @@ package org.wikipedia.history;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.page.PageTitle;
 
 import java.util.Date;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class HistoryEntry implements Parcelable {
     public static final HistoryEntryDatabaseTable DATABASE_TABLE = new HistoryEntryDatabaseTable();
@@ -42,13 +43,15 @@ public class HistoryEntry implements Parcelable {
     public static final int SOURCE_EDIT_DESCRIPTION = 28;
     public static final int SOURCE_WIDGET = 29;
 
-    @NonNull private final PageTitle title;
+    @NonNull
+    private final PageTitle title;
     @NonNull private final Date timestamp;
     private final int source;
     private final int timeSpentSec;
 
     // Transient variable, not stored in the db, to be set when navigating back and forth between articles.
-    @Nullable private String referrer;
+    @Nullable
+    private String referrer;
 
     public HistoryEntry(@NonNull PageTitle title, @NonNull Date timestamp, int source,
                         int timeSpentSec) {

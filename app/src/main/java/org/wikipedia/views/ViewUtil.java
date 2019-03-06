@@ -1,14 +1,13 @@
 package org.wikipedia.views;
 
+import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.view.ActionMode;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
@@ -26,7 +25,9 @@ import org.wikipedia.util.DimenUtil;
 
 import java.util.Locale;
 
-import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.view.ActionMode;
 
 public final class ViewUtil {
     public static boolean detach(@Nullable View view) {

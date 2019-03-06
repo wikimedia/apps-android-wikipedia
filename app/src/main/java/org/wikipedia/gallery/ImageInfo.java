@@ -1,13 +1,13 @@
 package org.wikipedia.gallery;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * Gson POJO for a standard image info object as returned by the API ImageInfo module
@@ -16,7 +16,8 @@ public class ImageInfo implements Serializable {
     @SuppressWarnings("unused") private int size;
     @SuppressWarnings("unused") private int width;
     @SuppressWarnings("unused") private int height;
-    @SuppressWarnings("unused,NullableProblems") @Nullable private String source;
+    @SuppressWarnings("unused,NullableProblems") @Nullable
+    private String source;
     @SuppressWarnings("unused") @SerializedName("thumburl") @Nullable private String thumbUrl;
     @SuppressWarnings("unused") @SerializedName("thumbwidth") private int thumbWidth;
     @SuppressWarnings("unused") @SerializedName("thumbheight") private int thumbHeight;

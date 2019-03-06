@@ -1,73 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<org.wikipedia.views.SwipeRefreshLayoutWithScroll
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<org.wikipedia.views.SwipeRefreshLayoutWithScroll xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/page_refresh_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/paper_color">
 
-    <android.support.design.widget.CoordinatorLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/page_contents_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-            <org.wikipedia.views.ObservableWebView
-                android:id="@+id/page_web_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scrollbars="none"/>
+        <org.wikipedia.views.ObservableWebView
+            android:id="@+id/page_web_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none" />
 
-            <org.wikipedia.page.leadimages.PageHeaderView
-                android:id="@+id/page_header_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+        <org.wikipedia.page.leadimages.PageHeaderView
+            android:id="@+id/page_header_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-            <org.wikipedia.page.bottomcontent.BottomContentView
-                android:id="@+id/page_bottom_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="bottom"
-                android:layout_marginTop="-320dp"/>
+        <org.wikipedia.page.bottomcontent.BottomContentView
+            android:id="@+id/page_bottom_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="-320dp"
+            android:orientation="vertical" />
 
-            <org.wikipedia.views.WikiPageErrorView
-                android:id="@+id/page_error"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:background="?android:windowBackground"
-                android:visibility="gone"/>
+        <org.wikipedia.views.WikiPageErrorView
+            android:id="@+id/page_error"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="?android:windowBackground"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone" />
 
-            <android.support.design.widget.CoordinatorLayout
-                android:id="@+id/fragment_page_coordinator"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom" />
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/fragment_page_coordinator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom" />
 
-            <org.wikipedia.page.PageActionTabLayout
-                android:id="@+id/page_actions_tab_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:background="@color/base18"
-                app:tabSelectedTextColor="@color/base18"
-                app:tabIndicatorColor="@color/base18" />
+        <org.wikipedia.page.PageActionTabLayout
+            android:id="@+id/page_actions_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/base18"
+            app:tabIndicatorColor="@color/base18"
+            app:tabSelectedTextColor="@color/base18" />
 
-            <android.support.v4.widget.Space
-                android:id="@+id/fragment_page_tool_tip_select_text_target"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="80dp"/>
+        <androidx.legacy.widget.Space
+            android:id="@+id/fragment_page_tool_tip_select_text_target"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="80dp" />
 
-            <FrameLayout
-                android:id="@+id/new_tab_container"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+        <FrameLayout
+            android:id="@+id/new_tab_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-    </android.support.design.widget.CoordinatorLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </org.wikipedia.views.SwipeRefreshLayoutWithScroll>

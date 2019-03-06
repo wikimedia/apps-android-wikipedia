@@ -1,12 +1,10 @@
 package org.wikipedia.views;
 
+import static org.wikipedia.util.ThrowableUtil.is404;
+import static org.wikipedia.util.ThrowableUtil.isOffline;
+
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,11 +15,13 @@ import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.dataclient.mwapi.MwException;
 
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.core.content.ContextCompat;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import static org.wikipedia.util.ThrowableUtil.is404;
-import static org.wikipedia.util.ThrowableUtil.isOffline;
 
 public class WikiErrorView extends LinearLayout {
     @BindView(R.id.view_wiki_error_icon) ImageView icon;
@@ -32,7 +32,8 @@ public class WikiErrorView extends LinearLayout {
     @BindView(R.id.view_wiki_error_article_tab_layout_offset) Space tabLayoutOffset;
     @BindView(R.id.view_wiki_error_footer_layout) View footerLayout;
 
-    @Nullable private OnClickListener retryListener;
+    @Nullable
+    private OnClickListener retryListener;
     @Nullable private OnClickListener backListener;
 
     public WikiErrorView(Context context) {

@@ -1,10 +1,10 @@
 package org.wikipedia;
 
+import static org.wikipedia.espresso.Constants.TEST_COMPARISON_OUTPUT_FOLDER;
+
 import android.content.SharedPreferences;
 import android.os.Environment;
 import android.preference.PreferenceManager;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.runner.AndroidJUnitRunner;
 
 import org.wikipedia.dataclient.okhttp.TestStubInterceptor;
 import org.wikipedia.espresso.MockInstrumentationInterceptor;
@@ -15,7 +15,8 @@ import org.wikipedia.util.log.L;
 
 import java.io.File;
 
-import static org.wikipedia.espresso.Constants.TEST_COMPARISON_OUTPUT_FOLDER;
+import androidx.test.InstrumentationRegistry;
+import androidx.test.runner.AndroidJUnitRunner;
 
 public class WikipediaTestRunner extends AndroidJUnitRunner {
     @Override

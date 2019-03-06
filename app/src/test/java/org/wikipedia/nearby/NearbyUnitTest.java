@@ -1,8 +1,8 @@
 package org.wikipedia.nearby;
 
 import android.location.Location;
-import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 
 import org.junit.Before;
 import org.junit.Test;

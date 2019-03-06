@@ -1,4 +1,4 @@
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/addTitleDescriptionsLayout"
@@ -13,8 +13,8 @@
         android:background="?attr/main_toolbar_color"
         android:elevation="4dp"
         android:gravity="center_vertical"
-        app:layout_constraintTop_toTopOf="parent"
         android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible">
 
         <LinearLayout
@@ -22,7 +22,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/fromLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -33,13 +33,13 @@
                 android:text="@string/editactionfeed_from_language"
                 android:textColor="?attr/material_theme_de_emphasised_color"
                 android:textSize="12sp"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
-            <android.support.v7.widget.AppCompatSpinner
+            <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/wikiFromLanguageSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center_vertical" />
         </LinearLayout>
 
 
@@ -48,12 +48,12 @@
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:contentDescription="@null"
-            android:scaleType="center"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
-            app:tint="?attr/colorAccent"
-            app:srcCompat="@drawable/ic_icon_swap" />
+            android:contentDescription="@null"
+            android:scaleType="center"
+            app:srcCompat="@drawable/ic_icon_swap"
+            app:tint="?attr/colorAccent" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -61,17 +61,17 @@
             android:layout_weight="1"
             android:gravity="end">
 
-            <android.support.v7.widget.AppCompatSpinner
+            <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/wikiToLanguageSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center_vertical" />
 
         </LinearLayout>
 
     </LinearLayout>
 
-    <android.support.v4.view.ViewPagerWithVelocity
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/addTitleDescriptionsItemPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -85,7 +85,7 @@
         android:background="?attr/chart_shade5"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/skipButton"
             style="@style/App.Button.PaperColor"
             android:layout_width="0dp"
@@ -99,7 +99,7 @@
             android:foreground="?attr/selectableItemBackground"
             android:text="@string/title_description_editing_skip" />
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/addDescriptionButton"
             style="@style/App.Button.PaperColor"
             android:layout_width="0dp"
@@ -115,4 +115,4 @@
 
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

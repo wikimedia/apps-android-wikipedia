@@ -3,7 +3,6 @@ package org.wikipedia.util;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.support.annotation.DimenRes;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
@@ -12,6 +11,8 @@ import android.view.Window;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+
+import androidx.annotation.DimenRes;
 
 public final class DimenUtil {
     public static float dpToPx(float dp) {
@@ -45,6 +46,7 @@ public final class DimenUtil {
 
     /**
      * Calculates the actual font size for the current device, based on an "sp" measurement.
+     *
      * @param window The window on which the font will be rendered.
      * @param fontSp Measurement in "sp" units of the font.
      * @return Actual font size for the given sp amount.
@@ -105,19 +107,21 @@ public final class DimenUtil {
      * Returns the height of the toolbar in the current activity. The system controls the height of
      * the toolbar, which may be slightly different depending on screen orientation, and device
      * version.
+     *
      * @param context Context used for retrieving the height attribute.
      * @return Height of the toolbar.
      */
     public static int getToolbarHeightPx(Context context) {
-        final TypedArray styledAttributes = context.getTheme().obtainStyledAttributes(new int[] {
-                android.support.v7.appcompat.R.attr.actionBarSize
+        final TypedArray styledAttributes = context.getTheme().obtainStyledAttributes(new int[]{
+                R.attr.actionBarSize
         });
         int size = styledAttributes.getDimensionPixelSize(0, 0);
         styledAttributes.recycle();
         return size;
     }
 
-    @DimenRes private static int getStatusBarId(Context context) {
+    @DimenRes
+    private static int getStatusBarId(Context context) {
         return context.getResources().getIdentifier("status_bar_height", "dimen", "android");
     }
 
@@ -135,5 +139,6 @@ public final class DimenUtil {
         return DimenUtil.getFloat(R.dimen.articleHeaderViewScreenHeightRatio);
     }
 
-    private DimenUtil() { }
+    private DimenUtil() {
+    }
 }

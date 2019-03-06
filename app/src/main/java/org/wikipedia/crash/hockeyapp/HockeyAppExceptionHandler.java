@@ -1,6 +1,6 @@
 package org.wikipedia.crash.hockeyapp;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 
 import net.hockeyapp.android.ExceptionHandler;

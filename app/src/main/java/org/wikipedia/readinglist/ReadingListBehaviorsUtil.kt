@@ -3,9 +3,9 @@ package org.wikipedia.readinglist
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.DialogInterface
-import android.support.v7.app.AlertDialog
 import android.text.Spanned
 import android.text.TextUtils
+import androidx.appcompat.app.AlertDialog
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

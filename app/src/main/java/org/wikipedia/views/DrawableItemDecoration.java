@@ -4,17 +4,19 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.AttrRes;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import org.wikipedia.util.ResourceUtil;
 
+import androidx.annotation.AttrRes;
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
+
 // todo: replace with DividerItemDecoration once it supports headers and footers
 public class DrawableItemDecoration extends RecyclerView.ItemDecoration {
-    @NonNull private final Drawable drawable;
+    @NonNull
+    private final Drawable drawable;
     private final boolean drawEnd;
 
     public DrawableItemDecoration(@NonNull Context context, @AttrRes int id) {

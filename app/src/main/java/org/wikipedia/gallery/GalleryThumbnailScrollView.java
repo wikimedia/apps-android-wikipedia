@@ -1,10 +1,6 @@
 package org.wikipedia.gallery;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -20,10 +16,17 @@ import org.wikipedia.views.ViewUtil;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 public class GalleryThumbnailScrollView extends RecyclerView {
-    @NonNull private final Animation mPressAnimation;
+    @NonNull
+    private final Animation mPressAnimation;
     @NonNull private final Animation mReleaseAnimation;
-    @Nullable private GalleryViewListener mListener;
+    @Nullable
+    private GalleryViewListener mListener;
 
     public GalleryThumbnailScrollView(Context context) {
         this(context, null);

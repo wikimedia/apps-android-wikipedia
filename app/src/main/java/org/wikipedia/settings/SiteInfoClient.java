@@ -1,8 +1,6 @@
 package org.wikipedia.settings;
 
 import android.annotation.SuppressLint;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.wikipedia.Constants;
@@ -15,13 +13,16 @@ import org.wikipedia.util.log.L;
 import java.util.HashMap;
 import java.util.Map;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 public final class SiteInfoClient {
     private static Map<String, SiteInfo> SITE_INFO_MAP = new HashMap<>();
 
-    @NonNull public static String getMainPageForLang(@NonNull String lang) {
+    @NonNull
+    public static String getMainPageForLang(@NonNull String lang) {
         SiteInfo info = getSiteInfoForLang(lang);
         if (info != null && !TextUtils.isEmpty(info.mainPage())) {
             return info.mainPage();
@@ -39,7 +40,8 @@ public final class SiteInfoClient {
     }
 
 
-    @Nullable private static SiteInfo getSiteInfoForLang(@NonNull String lang) {
+    @Nullable
+    private static SiteInfo getSiteInfoForLang(@NonNull String lang) {
         if (SITE_INFO_MAP.containsKey(lang)) {
             return SITE_INFO_MAP.get(lang);
         }

@@ -1,17 +1,14 @@
 package org.wikipedia.views;
 
+import static org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER;
+import static org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER;
+import static org.wikipedia.util.ResourceUtil.getThemedColor;
+
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.TabLayout;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,19 +16,23 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.material.tabs.TabLayout;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.ResourceUtil;
 
 import java.util.List;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.ViewCompat;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-import static org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER;
-import static org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER;
-import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 public class LanguageScrollView extends ConstraintLayout {
     public interface Callback {
@@ -39,7 +40,8 @@ public class LanguageScrollView extends ConstraintLayout {
         void onLanguageButtonClicked();
     }
 
-    @BindView(R.id.horizontal_scroll_languages) TabLayout horizontalLanguageScroll;
+    @BindView(R.id.horizontal_scroll_languages)
+    TabLayout horizontalLanguageScroll;
     @BindView(R.id.more_languages) TextView moreButton;
     @BindView(R.id.horizontal_scroll_languages_gradient) View gradientView;
     private Callback callback;

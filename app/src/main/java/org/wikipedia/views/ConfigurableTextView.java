@@ -1,11 +1,12 @@
 package org.wikipedia.views;
 
+import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
+
 import android.content.Context;
-import android.support.v7.widget.AppCompatTextView;
 import android.text.Spanned;
 import android.util.AttributeSet;
 
-import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
+import androidx.appcompat.widget.AppCompatTextView;
 
 public class ConfigurableTextView extends AppCompatTextView {
     public ConfigurableTextView(Context context) {

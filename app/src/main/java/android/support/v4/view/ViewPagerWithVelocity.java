@@ -3,6 +3,8 @@ package android.support.v4.view;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import androidx.viewpager.widget.ViewPager;
+
 public class ViewPagerWithVelocity extends ViewPager {
     private static final int VELOCITY = 1000;
 
@@ -14,8 +16,8 @@ public class ViewPagerWithVelocity extends ViewPager {
         super(context, attrs);
     }
 
-    @Override
-    void setCurrentItemInternal(int item, boolean smoothScroll, boolean always) {
-        setCurrentItemInternal(item, smoothScroll, always, VELOCITY);
-    }
+//    @Override
+//    void setCurrentItemInternal(int item, boolean smoothScroll, boolean always) {
+//        setCurrentItemInternal(item, smoothScroll, always, VELOCITY);
+//    }
 }

@@ -1,25 +1,18 @@
 package org.wikipedia.notifications;
 
+import static org.wikipedia.util.ResourceUtil.getThemedColor;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.view.ActionMode;
-import android.support.v7.widget.AppCompatImageView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -53,6 +46,16 @@ import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.view.ActionMode;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -60,12 +63,12 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
-import static org.wikipedia.util.ResourceUtil.getThemedColor;
-
 public class NotificationActivity extends BaseActivity implements NotificationItemActionsDialog.Callback {
 
-    @BindView(R.id.notifications_refresh_view) SwipeRefreshLayout swipeRefreshLayout;
-    @BindView(R.id.notifications_recycler_view) RecyclerView recyclerView;
+    @BindView(R.id.notifications_refresh_view)
+    SwipeRefreshLayout swipeRefreshLayout;
+    @BindView(R.id.notifications_recycler_view)
+    RecyclerView recyclerView;
     @BindView(R.id.notifications_progress_bar) View progressBarView;
     @BindView(R.id.notifications_error_view) WikiErrorView errorView;
     @BindView(R.id.notifications_empty_container) View emptyContainerView;
@@ -76,7 +79,8 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private Map<String, WikiSite> dbNameMap = new HashMap<>();
-    @Nullable private String currentContinueStr;
+    @Nullable
+    private String currentContinueStr;
 
     @Nullable private ActionMode actionMode;
     private MultiSelectCallback multiSelectActionModeCallback = new MultiSelectCallback();

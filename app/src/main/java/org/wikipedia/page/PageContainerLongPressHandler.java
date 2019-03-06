@@ -1,6 +1,6 @@
 package org.wikipedia.page;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.wikipedia.LongPressHandler;
 import org.wikipedia.R;

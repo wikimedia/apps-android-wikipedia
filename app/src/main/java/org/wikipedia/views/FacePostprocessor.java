@@ -7,11 +7,6 @@ import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.Rect;
 import android.media.FaceDetector;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.graphics.Palette;
 
 import com.facebook.imagepipeline.request.BasePostprocessor;
 
@@ -22,6 +17,12 @@ import org.wikipedia.util.MathUtil;
 import org.wikipedia.util.log.L;
 
 import java.lang.ref.WeakReference;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.palette.graphics.Palette;
 
 public class FacePostprocessor extends BasePostprocessor {
     private static final int BITMAP_COPY_WIDTH = 200;
@@ -59,7 +60,8 @@ public class FacePostprocessor extends BasePostprocessor {
         }
     }
 
-    @Nullable private static PointF detectFace(@NonNull Bitmap testBitmap) {
+    @Nullable
+    private static PointF detectFace(@NonNull Bitmap testBitmap) {
         final int maxFaces = 1;
         long millis = System.currentTimeMillis();
         // initialize the face detector, and look for only one face...

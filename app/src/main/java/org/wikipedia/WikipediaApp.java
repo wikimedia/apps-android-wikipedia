@@ -1,5 +1,10 @@
 package org.wikipedia;
 
+import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.wikipedia.settings.Prefs.getTextSizeMultiplier;
+import static org.wikipedia.util.DimenUtil.getFontSizeFromSp;
+import static org.wikipedia.util.ReleaseUtil.getChannel;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Application;
@@ -7,9 +12,6 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatDelegate;
 import android.text.TextUtils;
 import android.view.Window;
 import android.webkit.WebView;
@@ -59,15 +61,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.internal.functions.Functions;
 import io.reactivex.plugins.RxJavaPlugins;
 import io.reactivex.schedulers.Schedulers;
-
-import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.wikipedia.settings.Prefs.getTextSizeMultiplier;
-import static org.wikipedia.util.DimenUtil.getFontSizeFromSp;
-import static org.wikipedia.util.ReleaseUtil.getChannel;
 
 public class WikipediaApp extends Application {
     private final RemoteConfig remoteConfig = new RemoteConfig();

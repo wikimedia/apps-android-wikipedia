@@ -1,6 +1,6 @@
 package org.wikipedia.page.action;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;

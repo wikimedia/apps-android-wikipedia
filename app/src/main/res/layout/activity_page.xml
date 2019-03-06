@@ -23,7 +23,7 @@
         android:background="?attr/page_toolbar_color"
         android:elevation="4dp">
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/page_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|end">
-                <android.support.v7.widget.AppCompatImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/page_toolbar_button_search"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -65,7 +65,7 @@
                         android:layout_marginEnd="12dp"
                         tools:text="3"/>
                 </FrameLayout>
-                <android.support.v7.widget.AppCompatImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/page_toolbar_button_show_overflow_menu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
                     app:srcCompat="@drawable/ic_more_vert_themed_24dp"
                     app:tint="?attr/page_toolbar_icon_color"/>
             </LinearLayout>
-        </android.support.v7.widget.Toolbar>
+        </androidx.appcompat.widget.Toolbar>
 
         <ProgressBar
             android:id="@+id/page_progress_bar"

@@ -2,7 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:parentTag="android.support.constraint.ConstraintLayout"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout"
     tools:layout_width="match_parent"
     tools:layout_height="wrap_content"
     tools:paddingTop="16dp"
@@ -45,7 +45,7 @@
         style="@style/MaterialListSubtitle"
         tools:text="Lorem ipsum"/>
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/view_list_card_item_menu"
         android:layout_width="24dp"
         android:layout_height="24dp"

@@ -1,10 +1,9 @@
 package org.wikipedia.savedpages;
 
+import static org.wikipedia.views.CircularProgressBar.MAX_PROGRESS;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.JobIntentService;
 import android.text.TextUtils;
 
 import org.wikipedia.WikipediaApp;
@@ -38,13 +37,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.JobIntentService;
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.CacheControl;
 import okhttp3.Request;
 import okhttp3.Response;
-
-import static org.wikipedia.views.CircularProgressBar.MAX_PROGRESS;
 
 public class SavedPageSyncService extends JobIntentService {
     // Unique job ID for this service (do not duplicate).

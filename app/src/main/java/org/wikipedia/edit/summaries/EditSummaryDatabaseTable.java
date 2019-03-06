@@ -2,7 +2,7 @@ package org.wikipedia.edit.summaries;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;

@@ -1,16 +1,14 @@
 package org.wikipedia.feed.onthisday;
 
+import static org.wikipedia.page.PageActivity.ACTION_LOAD_IN_NEW_TAB;
+import static org.wikipedia.page.PageActivity.EXTRA_HISTORYENTRY;
+import static org.wikipedia.page.PageActivity.EXTRA_PAGETITLE;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
@@ -28,14 +26,16 @@ import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.view.ViewCompat;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
-
-import static org.wikipedia.page.PageActivity.ACTION_LOAD_IN_NEW_TAB;
-import static org.wikipedia.page.PageActivity.EXTRA_HISTORYENTRY;
-import static org.wikipedia.page.PageActivity.EXTRA_PAGETITLE;
 
 public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     public interface ItemCallBack {

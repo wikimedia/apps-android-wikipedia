@@ -1,6 +1,6 @@
 package org.wikipedia.dataclient.page;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.wikipedia.page.Section;
 

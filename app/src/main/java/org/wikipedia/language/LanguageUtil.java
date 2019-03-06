@@ -2,9 +2,6 @@ package org.wikipedia.language;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.os.LocaleListCompat;
 import android.text.TextUtils;
 import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -19,6 +16,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.os.LocaleListCompat;
+
 public final class LanguageUtil {
     private static final String HONG_KONG_COUNTRY_CODE = "HK";
     private static final String MACAU_COUNTRY_CODE = "MO";
@@ -30,7 +31,8 @@ public final class LanguageUtil {
      * Guarantees at least one language code returned.
      * @return List of language codes pluggable into WikiSite.
      */
-    @NonNull public static List<String> getAvailableLanguages() {
+    @NonNull
+    public static List<String> getAvailableLanguages() {
         List<String> languages = new ArrayList<>();
 
         // First, look at languages installed on the system itself.

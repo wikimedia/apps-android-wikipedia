@@ -3,8 +3,6 @@ package org.wikipedia.settings;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
@@ -13,6 +11,9 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.analytics.NotificationPreferencesFunnel;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 
 public class NotificationSettingsActivity extends SingleFragmentActivity<NotificationSettingsFragment> {
     public static Intent newIntent(@NonNull Context ctx) {

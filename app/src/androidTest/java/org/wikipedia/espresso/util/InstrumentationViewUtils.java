@@ -1,19 +1,5 @@
 package org.wikipedia.espresso.util;
 
-import android.support.test.espresso.Espresso;
-import android.support.test.espresso.ViewInteraction;
-
-import org.wikipedia.R;
-
-import static android.support.test.InstrumentationRegistry.getInstrumentation;
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu;
-import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static android.support.test.espresso.matcher.ViewMatchers.withClassName;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_1000;
@@ -24,6 +10,21 @@ import static org.wikipedia.espresso.util.ViewTools.viewIsDisplayed;
 import static org.wikipedia.espresso.util.ViewTools.viewWithTextIsDisplayed;
 import static org.wikipedia.espresso.util.ViewTools.waitFor;
 import static org.wikipedia.espresso.util.ViewTools.whileWithMaxSteps;
+
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
+
+import org.wikipedia.R;
+
+import androidx.test.espresso.Espresso;
+import androidx.test.espresso.ViewInteraction;
 
 @SuppressWarnings("checkstyle:magicnumber")
 public final class InstrumentationViewUtils {
@@ -110,7 +111,7 @@ public final class InstrumentationViewUtils {
                 allOf(withId(R.id.title), withText("Font and theme"),
                         childAtPosition(
                                 childAtPosition(
-                                        withClassName(is("android.support.v7.view.menu.ListMenuItemView")),
+                                        withClassName(is("androidx.appcompat.view.menu.ListMenuItemView")),
                                         0),
                                 0),
                         isDisplayed()));
@@ -145,7 +146,7 @@ public final class InstrumentationViewUtils {
                 allOf(withId(R.id.title), withText("Font and theme"),
                         childAtPosition(
                                 childAtPosition(
-                                        withClassName(is("android.support.v7.view.menu.ListMenuItemView")),
+                                        withClassName(is("androidx.appcompat.view.menu.ListMenuItemView")),
                                         0),
                                 0),
                         isDisplayed()));

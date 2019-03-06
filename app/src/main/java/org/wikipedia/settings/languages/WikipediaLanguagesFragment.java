@@ -1,16 +1,14 @@
 package org.wikipedia.settings.languages;
 
+import static android.app.Activity.RESULT_OK;
+
+import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
+import static org.wikipedia.language.LanguagesListActivity.LANGUAGE_SEARCHED;
+import static org.wikipedia.settings.languages.WikipediaLanguagesActivity.INVOKE_SOURCE_EXTRA;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.view.ActionMode;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -33,21 +31,25 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.ActionMode;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-
-import static android.app.Activity.RESULT_OK;
-import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
-import static org.wikipedia.language.LanguagesListActivity.LANGUAGE_SEARCHED;
-import static org.wikipedia.settings.languages.WikipediaLanguagesActivity.INVOKE_SOURCE_EXTRA;
 
 public class WikipediaLanguagesFragment extends Fragment implements WikipediaLanguagesItemView.Callback {
     public static final String ACTIVITY_RESULT_LANG_POSITION_DATA = "activity_result_lang_position_data";
     public static final String ADD_LANGUAGE_INTERACTIONS = "add_language_interactions";
     public static final String SESSION_TOKEN = "session_token";
 
-    @BindView(R.id.wikipedia_languages_recycler) RecyclerView recyclerView;
+    @BindView(R.id.wikipedia_languages_recycler)
+    RecyclerView recyclerView;
     private WikipediaApp app;
     private Unbinder unbinder;
     private ItemTouchHelper itemTouchHelper;
@@ -64,7 +66,8 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
     private int interactionsCount;
     private boolean isLanguageSearched = false;
 
-    @NonNull public static WikipediaLanguagesFragment newInstance(@NonNull String invokeSource) {
+    @NonNull
+    public static WikipediaLanguagesFragment newInstance(@NonNull String invokeSource) {
         WikipediaLanguagesFragment instance = new WikipediaLanguagesFragment();
         Bundle args = new Bundle();
         args.putString(INVOKE_SOURCE_EXTRA, invokeSource);

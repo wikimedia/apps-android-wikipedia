@@ -2,8 +2,8 @@ package org.wikipedia.espresso.util;
 
 import android.graphics.Bitmap;
 import android.os.Environment;
-import android.support.test.espresso.UiController;
-import android.support.test.espresso.ViewAction;
+import androidx.test.espresso.UiController;
+import androidx.test.espresso.ViewAction;
 import android.view.View;
 
 import org.hamcrest.Matcher;
@@ -15,8 +15,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.matcher.ViewMatchers.isRoot;
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.matcher.ViewMatchers.isRoot;
 import static org.wikipedia.espresso.Constants.SCREENSHOT_COMPRESSION_QUALITY;
 import static org.wikipedia.espresso.Constants.TEST_OUTPUT_FOLDER;
 

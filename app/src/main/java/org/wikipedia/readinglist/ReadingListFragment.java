@@ -1,24 +1,16 @@
 package org.wikipedia.readinglist;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
+import static org.wikipedia.readinglist.ReadingListActivity.EXTRA_READING_LIST_ID;
+import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
+import static org.wikipedia.views.CircularProgressBar.MAX_PROGRESS;
+
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.view.ActionMode;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SimpleItemAnimator;
-import android.support.v7.widget.Toolbar;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -28,6 +20,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
@@ -69,6 +64,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.ActionMode;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.view.ViewCompat;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SimpleItemAnimator;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -79,22 +87,19 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
-import static android.view.View.GONE;
-import static android.view.View.VISIBLE;
-import static org.wikipedia.readinglist.ReadingListActivity.EXTRA_READING_LIST_ID;
-import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
-import static org.wikipedia.views.CircularProgressBar.MAX_PROGRESS;
-
 public class ReadingListFragment extends Fragment implements
         ReadingListItemActionsDialog.Callback, FloatingQueueView.Callback {
     @BindView(R.id.reading_list_toolbar) Toolbar toolbar;
-    @BindView(R.id.reading_list_toolbar_container) CollapsingToolbarLayout toolBarLayout;
-    @BindView(R.id.reading_list_app_bar) AppBarLayout appBarLayout;
+    @BindView(R.id.reading_list_toolbar_container)
+    CollapsingToolbarLayout toolBarLayout;
+    @BindView(R.id.reading_list_app_bar)
+    AppBarLayout appBarLayout;
     @BindView(R.id.reading_list_header) ReadingListHeaderView headerImageView;
     @BindView(R.id.reading_list_contents) RecyclerView recyclerView;
     @BindView(R.id.reading_list_empty_text) TextView emptyView;
     @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
-    @BindView(R.id.reading_list_swipe_refresh) SwipeRefreshLayout swipeRefreshLayout;
+    @BindView(R.id.reading_list_swipe_refresh)
+    SwipeRefreshLayout swipeRefreshLayout;
     @BindView(R.id.floating_queue_view) FloatingQueueView floatingQueueView;
     private Unbinder unbinder;
     private CompositeDisposable disposables = new CompositeDisposable();

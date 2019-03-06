@@ -2,20 +2,22 @@ package org.wikipedia.views;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 import org.wikipedia.R;
 import org.wikipedia.util.DeviceUtil;
+
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AlertDialog;
 
 public final class TextInputDialog extends AlertDialog {
 
@@ -26,7 +28,8 @@ public final class TextInputDialog extends AlertDialog {
         void onCancel();
     }
 
-    @Nullable private Callback callback;
+    @Nullable
+    private Callback callback;
     private EditText editText;
     private EditText secondaryText;
     private TextInputLayout editTextContainer;

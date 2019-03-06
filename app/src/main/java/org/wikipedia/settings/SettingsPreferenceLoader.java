@@ -1,12 +1,9 @@
 package org.wikipedia.settings;
 
+import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
+
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceFragmentCompat;
-import android.support.v7.preference.SwitchPreferenceCompat;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -18,7 +15,11 @@ import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
 import org.wikipedia.theme.ThemeFittingRoomActivity;
 
-import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.SwitchPreferenceCompat;
 
 /** UI code for app settings used by PreferenceFragment. */
 class SettingsPreferenceLoader extends BasePreferenceLoader {

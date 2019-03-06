@@ -1,7 +1,6 @@
 package org.wikipedia.settings;
 
-import android.support.annotation.IntRange;
-import android.support.annotation.Nullable;
+import static java.net.HttpURLConnection.HTTP_NOT_FOUND;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
@@ -11,7 +10,8 @@ import org.wikipedia.util.ReleaseUtil;
 
 import java.util.Random;
 
-import static java.net.HttpURLConnection.HTTP_NOT_FOUND;
+import androidx.annotation.IntRange;
+import androidx.annotation.Nullable;
 
 /**
  * This class encapsulates logic to turn on or off usage of our RESTBase service for a certain

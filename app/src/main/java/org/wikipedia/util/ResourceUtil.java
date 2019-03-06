@@ -8,20 +8,21 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.support.annotation.AnyRes;
-import android.support.annotation.ArrayRes;
-import android.support.annotation.AttrRes;
-import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.IdRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.graphics.drawable.VectorDrawableCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.TypedValue;
 import android.view.MenuItem;
+
+import androidx.annotation.AnyRes;
+import androidx.annotation.ArrayRes;
+import androidx.annotation.AttrRes;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 
 public final class ResourceUtil {
     // See Resources.getIdentifier().
@@ -58,7 +59,8 @@ public final class ResourceUtil {
         return bm;
     }
 
-    @Nullable public static TypedValue getThemedAttribute(@NonNull Context context, @AttrRes int id) {
+    @Nullable
+    public static TypedValue getThemedAttribute(@NonNull Context context, @AttrRes int id) {
         TypedValue typedValue = new TypedValue();
         if (context.getTheme().resolveAttribute(id, typedValue, true)) {
             return typedValue;
@@ -73,7 +75,8 @@ public final class ResourceUtil {
      * @param id Theme-dependent attribute ID to be resolved.
      * @return The actual resource ID of the requested theme-dependent attribute.
      */
-    @AnyRes public static int getThemedAttributeId(@NonNull Context context, @AttrRes int id) {
+    @AnyRes
+    public static int getThemedAttributeId(@NonNull Context context, @AttrRes int id) {
         TypedValue typedValue = getThemedAttribute(context, id);
         if (typedValue == null) {
             throw new IllegalArgumentException("Attribute not found; ID=" + id);
@@ -81,7 +84,8 @@ public final class ResourceUtil {
         return typedValue.resourceId;
     }
 
-    @ColorInt public static int getThemedColor(@NonNull Context context, @AttrRes int id) {
+    @ColorInt
+    public static int getThemedColor(@NonNull Context context, @AttrRes int id) {
         TypedValue typedValue = getThemedAttribute(context, id);
         if (typedValue == null) {
             throw new IllegalArgumentException("Attribute not found; ID=" + id);

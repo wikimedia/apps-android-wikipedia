@@ -1,14 +1,15 @@
 package org.wikipedia.descriptions;
 
-import android.support.annotation.NonNull;
-import android.support.v4.view.PagerAdapter;
-
 import org.wikipedia.R;
 import org.wikipedia.onboarding.OnboardingFragment;
 
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.PagerAdapter;
+
 public class DescriptionEditTutorialFragment extends OnboardingFragment {
 
-    @NonNull public static DescriptionEditTutorialFragment newInstance() {
+    @NonNull
+    public static DescriptionEditTutorialFragment newInstance() {
         return new DescriptionEditTutorialFragment();
     }
 

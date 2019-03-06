@@ -30,7 +30,7 @@
                     android:paddingLeft="@dimen/activity_horizontal_margin"
                     android:paddingRight="@dimen/activity_horizontal_margin">
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/create_account_username"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -41,9 +41,9 @@
                             android:imeOptions="flagNoExtractUi"
                             android:inputType="textNoSuggestions"
                             android:maxLines="1" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/create_account_password_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -58,9 +58,9 @@
                             android:inputType="textPassword"
                             android:imeOptions="flagNoExtractUi"
                             android:maxLines="1" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/create_account_password_repeat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -75,9 +75,9 @@
                             android:inputType="textPassword"
                             android:imeOptions="flagNoExtractUi"
                             android:maxLines="1" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/create_account_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
                             android:imeOptions="actionDone|flagNoExtractUi"
                             android:inputType="textEmailAddress"
                             android:maxLines="1" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
                     <TextView
                         android:id="@+id/email_recommendation_text"
                         android:layout_width="match_parent"

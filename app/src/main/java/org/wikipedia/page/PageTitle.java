@@ -1,9 +1,9 @@
 package org.wikipedia.page;
 
+import static org.wikipedia.util.UriUtil.decodeURL;
+
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import com.google.gson.annotations.SerializedName;
@@ -17,7 +17,8 @@ import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.Locale;
 
-import static org.wikipedia.util.UriUtil.decodeURL;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * Represents certain vital information about a page, including the title, namespace,
@@ -61,8 +62,10 @@ public class PageTitle implements Parcelable {
     // TODO: remove. This legacy code is the localized namespace name (File, Special, Talk, etc) but
     //       isn't consistent across titles. e.g., articles with colons, such as RTÉ News: Six One,
     //       are broken.
-    @Nullable private final String namespace;
-    @NonNull private final String text;
+    @Nullable
+    private final String namespace;
+    @NonNull
+    private final String text;
     @Nullable private final String fragment;
     @Nullable private String thumbUrl;
     @SerializedName("site") @NonNull private final WikiSite wiki;

@@ -1,17 +1,9 @@
 package org.wikipedia.views;
 
+import static org.wikipedia.util.ResourceUtil.getThemedColor;
+
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.AttrRes;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.constraint.ConstraintLayout;
-import android.support.design.chip.Chip;
-import android.support.design.chip.ChipGroup;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 
 import org.wikipedia.R;
 import org.wikipedia.readinglist.database.ReadingList;
@@ -30,12 +24,18 @@ import org.wikipedia.util.log.L;
 
 import java.util.List;
 
+import androidx.annotation.AttrRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
-
-import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 /*
  * TODO: Use this for future RecyclerView updates where we show a list of pages
@@ -62,7 +62,8 @@ public class PageItemView<T> extends ConstraintLayout {
     @BindView(R.id.page_list_header_text) GoneIfEmptyTextView headerView;
     @BindView(R.id.page_list_item_circular_progress_bar) CircularProgressBar circularProgressBar;
     @BindView(R.id.chips_scrollview) View chipsScrollView;
-    @BindView(R.id.reading_lists_chip_group) ChipGroup readingListsChipGroup;
+    @BindView(R.id.reading_lists_chip_group)
+    ChipGroup readingListsChipGroup;
 
     @Nullable private Callback<T> callback;
     @Nullable private T item;

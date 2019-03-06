@@ -3,14 +3,11 @@ package org.wikipedia.readinglist;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.BottomSheetBehavior;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -31,6 +28,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -78,7 +79,8 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
 
     private List<ReadingList> readingLists = new ArrayList<>();
 
-    @Nullable private DialogInterface.OnDismissListener dismissListener;
+    @Nullable
+    private DialogInterface.OnDismissListener dismissListener;
     private ReadingListItemCallback listItemCallback = new ReadingListItemCallback();
 
     public static AddToReadingListDialog newInstance(@NonNull PageTitle title, InvokeSource source) {

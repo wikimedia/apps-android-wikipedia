@@ -2,7 +2,6 @@ package org.wikipedia.main;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +18,7 @@ import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.UriUtil;
 
+import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -40,7 +40,8 @@ public class MainDrawerView extends ScrollView {
     @BindView(R.id.main_drawer_account_wiki_globe) ImageView accountWikiGlobe;
     @BindView(R.id.main_drawer_notifications_container) ViewGroup notificationsContainer;
     @BindView(R.id.main_drawer_app_editing_tasks) ViewGroup editTasksContainer;
-    @Nullable Callback callback;
+    @Nullable
+    Callback callback;
 
     public MainDrawerView(Context context) {
         super(context);

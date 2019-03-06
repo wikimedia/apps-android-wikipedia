@@ -1,8 +1,9 @@
 package org.wikipedia.language;
 
+import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.wikipedia.language.AppLanguageLookUpTable.TEST_LANGUAGE_CODE;
+
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.apache.commons.lang3.StringUtils;
@@ -14,8 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.wikipedia.language.AppLanguageLookUpTable.TEST_LANGUAGE_CODE;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /** Language lookup and state management for the application language and most recently used article
  * and application languages. */

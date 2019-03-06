@@ -2,9 +2,6 @@ package org.wikipedia.language;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.annotation.ArrayRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.wikipedia.R;
@@ -13,6 +10,10 @@ import java.lang.ref.SoftReference;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+
+import androidx.annotation.ArrayRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /** Immutable look up table for all app supported languages. All article languages may not be
   * present in this table as it is statically bundled with the app. */
@@ -31,7 +32,8 @@ public class AppLanguageLookUpTable {
     public static final String TEST_LANGUAGE_CODE = "test";
     public static final String FALLBACK_LANGUAGE_CODE = "en"; // Must exist in preference_language_keys.
 
-    @NonNull private final Resources resources;
+    @NonNull
+    private final Resources resources;
 
     // Language codes for all app supported languages in fixed order. The special code representing
     // the dynamic system language is null.

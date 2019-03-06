@@ -1,11 +1,9 @@
 package org.wikipedia.descriptions;
 
+import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.design.widget.TextInputLayout;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
@@ -17,6 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.dataclient.page.PageSummary;
@@ -25,13 +25,14 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnEditorAction;
 import butterknife.OnTextChanged;
-
-import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class DescriptionEditView extends LinearLayout {
     @BindView(R.id.view_description_edit_header) TextView headerText;
@@ -40,7 +41,8 @@ public class DescriptionEditView extends LinearLayout {
     @BindView(R.id.view_description_edit_cancel_button) ImageView cancelButton;
     @BindView(R.id.view_description_edit_help_button) View helpButton;
     @BindView(R.id.view_description_edit_text) EditText pageDescriptionText;
-    @BindView(R.id.view_description_edit_text_layout) TextInputLayout pageDescriptionLayout;
+    @BindView(R.id.view_description_edit_text_layout)
+    TextInputLayout pageDescriptionLayout;
     @BindView(R.id.view_description_edit_progress_bar) ProgressBar progressBar;
     @BindView(R.id.view_description_edit_page_summary_container) ViewGroup pageSummaryContainer;
     @BindView(R.id.view_description_edit_page_image) FaceAndColorDetectImageView pageImage;

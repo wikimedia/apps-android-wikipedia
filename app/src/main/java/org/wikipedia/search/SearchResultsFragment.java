@@ -1,12 +1,10 @@
 package org.wikipedia.search;
 
+import static org.apache.commons.lang3.StringUtils.isBlank;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.util.LruCache;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +33,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.collection.LruCache;
+import androidx.fragment.app.Fragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -43,8 +45,6 @@ import butterknife.Unbinder;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-
-import static org.apache.commons.lang3.StringUtils.isBlank;
 
 public class SearchResultsFragment extends Fragment {
     public interface Callback {
@@ -78,7 +78,8 @@ public class SearchResultsFragment extends Fragment {
     private final LruCache<String, List<SearchResult>> searchResultsCache = new LruCache<>(MAX_CACHE_SIZE_SEARCH_RESULTS);
     private Handler searchHandler;
     private String currentSearchTerm = "";
-    @Nullable private SearchResults lastFullTextResults;
+    @Nullable
+    private SearchResults lastFullTextResults;
     @NonNull private final List<SearchResult> totalResults = new ArrayList<>();
     private CompositeDisposable disposables = new CompositeDisposable();
 

@@ -1,8 +1,8 @@
 package org.wikipedia.views;
 
+import static org.wikipedia.util.ResourceUtil.getThemedColor;
+
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.SearchView;
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -16,7 +16,8 @@ import org.wikipedia.richtext.RichTextUtil;
 
 import java.util.Arrays;
 
-import static org.wikipedia.util.ResourceUtil.getThemedColor;
+import androidx.appcompat.widget.SearchView;
+import androidx.core.content.ContextCompat;
 
 /** {@link SearchView} that exposes contextual action bar callbacks. */
 public class CabSearchView extends SearchView {
@@ -29,7 +30,7 @@ public class CabSearchView extends SearchView {
     }
 
     public CabSearchView(Context context, AttributeSet attrs) {
-        this(context, attrs, android.support.v7.appcompat.R.attr.searchViewStyle);
+        this(context, attrs, R.attr.searchViewStyle);
     }
 
     public CabSearchView(Context context, AttributeSet attrs, int defStyleAttr) {

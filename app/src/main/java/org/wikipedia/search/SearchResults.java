@@ -1,8 +1,5 @@
 package org.wikipedia.search;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
 
@@ -11,12 +8,17 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 /**
  * Simple Data Object to hold search result data for both prefix search and full text search.
  */
 public class SearchResults {
-    @NonNull private List<SearchResult> results;
-    @Nullable private Map<String, String> continuation;
+    @NonNull
+    private List<SearchResult> results;
+    @Nullable
+    private Map<String, String> continuation;
     @Nullable private String suggestion;
 
     /**

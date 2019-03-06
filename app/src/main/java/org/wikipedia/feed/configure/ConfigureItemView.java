@@ -1,12 +1,6 @@
 package org.wikipedia.feed.configure;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SwitchCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +14,12 @@ import org.wikipedia.feed.FeedContentType;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
@@ -31,12 +31,14 @@ public class ConfigureItemView extends FrameLayout {
         void onLanguagesChanged(FeedContentType contentType);
     }
 
-    @BindView(R.id.feed_content_type_checkbox) SwitchCompat onSwitch;
+    @BindView(R.id.feed_content_type_checkbox)
+    SwitchCompat onSwitch;
     @BindView(R.id.feed_content_type_title) TextView titleView;
     @BindView(R.id.feed_content_type_subtitle) TextView subtitleView;
     @BindView(R.id.feed_content_type_drag_handle) View dragHandleView;
     @BindView(R.id.feed_content_type_lang_list_container) View langListContainer;
-    @BindView(R.id.feed_content_type_lang_list) RecyclerView langRecyclerView;
+    @BindView(R.id.feed_content_type_lang_list)
+    RecyclerView langRecyclerView;
     @Nullable private Callback callback;
     private FeedContentType contentType;
     private LanguageItemAdapter adapter;

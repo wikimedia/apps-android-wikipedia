@@ -1,16 +1,17 @@
 package org.wikipedia.views;
 
+import static android.text.InputType.TYPE_TEXT_FLAG_MULTI_LINE;
+
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.SystemClock;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TextInputEditText;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
+
+import com.google.android.material.textfield.TextInputEditText;
 
 import org.wikipedia.edit.richtext.SpanExtents;
 import org.wikipedia.edit.richtext.SyntaxHighlighter;
@@ -19,14 +20,16 @@ import org.wikipedia.util.ClipboardUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.text.InputType.TYPE_TEXT_FLAG_MULTI_LINE;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class PlainPasteEditText extends TextInputEditText {
     public interface FindListener {
         void onFinished(int activeMatchOrdinal, int numberOfMatches, int textPosition, boolean findingNext);
     }
 
-    @Nullable private InputConnection inputConnection;
+    @Nullable
+    private InputConnection inputConnection;
     @Nullable private FindListener findListener;
     private List<Integer> findInPageTextPositionList = new ArrayList<>();
     private int findInPageCurrentTextPosition;

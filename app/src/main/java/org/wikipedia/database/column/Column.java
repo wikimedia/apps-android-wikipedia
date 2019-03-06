@@ -1,11 +1,13 @@
 package org.wikipedia.database.column;
 
 import android.database.Cursor;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 public abstract class Column<T> {
     private final String tbl;
-    @NonNull private final String name;
+    @NonNull
+    private final String name;
     @NonNull private final String type;
 
     /**

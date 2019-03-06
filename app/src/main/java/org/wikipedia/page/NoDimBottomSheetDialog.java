@@ -2,12 +2,15 @@ package org.wikipedia.page;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomSheetBehavior;
-import android.support.design.widget.BottomSheetDialog;
 import android.widget.FrameLayout;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+
+import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+
+import androidx.annotation.NonNull;
 
 /**
  * Descendant of BottomSheetDialog that prevents the background from being dimmed.
@@ -38,7 +41,7 @@ public class NoDimBottomSheetDialog extends BottomSheetDialog {
         TODO: remove when this is improved in the library.
         */
         getWindow().getDecorView().post(() -> {
-            FrameLayout bottomSheet = getWindow().getDecorView().findViewById(android.support.design.R.id.design_bottom_sheet);
+            FrameLayout bottomSheet = getWindow().getDecorView().findViewById(R.id.design_bottom_sheet);
             BottomSheetBehavior<?> behavior = BottomSheetBehavior.from(bottomSheet);
             behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
         });

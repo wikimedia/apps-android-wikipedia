@@ -2,8 +2,8 @@ package org.wikipedia.descriptions;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;

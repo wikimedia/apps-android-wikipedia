@@ -1,5 +1,8 @@
 package org.wikipedia.page.shareafact;
 
+import static android.text.Layout.Alignment.ALIGN_NORMAL;
+import static android.text.Layout.Alignment.ALIGN_OPPOSITE;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -11,10 +14,6 @@ import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.text.Layout;
 import android.text.Spanned;
 import android.text.StaticLayout;
@@ -26,8 +25,10 @@ import org.wikipedia.gallery.ImageLicense;
 import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.StringUtil;
 
-import static android.text.Layout.Alignment.ALIGN_NORMAL;
-import static android.text.Layout.Alignment.ALIGN_OPPOSITE;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 
 /**
  * Creator and holder of a Bitmap which is comprised of an optional lead image, a title,

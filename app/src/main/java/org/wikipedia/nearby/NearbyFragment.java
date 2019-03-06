@@ -7,13 +7,6 @@ import android.graphics.PointF;
 import android.location.Location;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.util.Pair;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
@@ -62,6 +57,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.core.util.Pair;
+import androidx.fragment.app.Fragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -90,7 +90,8 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Styl
 
     @BindView(R.id.mapview) MapView mapView;
     @BindView(R.id.osm_license) TextView osmLicenseTextView;
-    @BindView(R.id.user_location_button) FloatingActionButton locationButton;
+    @BindView(R.id.user_location_button)
+    FloatingActionButton locationButton;
     private Unbinder unbinder;
     private CompositeDisposable disposables = new CompositeDisposable();
 

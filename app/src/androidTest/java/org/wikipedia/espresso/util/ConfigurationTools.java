@@ -1,7 +1,7 @@
 package org.wikipedia.espresso.util;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.DisplayMetrics;
 import android.view.ViewConfiguration;
 import android.view.WindowManager;

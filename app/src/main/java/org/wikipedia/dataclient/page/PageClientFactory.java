@@ -1,6 +1,6 @@
 package org.wikipedia.dataclient.page;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.page.MwPageClient;

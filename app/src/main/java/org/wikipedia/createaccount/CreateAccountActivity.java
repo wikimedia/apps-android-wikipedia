@@ -1,12 +1,12 @@
 package org.wikipedia.createaccount;
 
+import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -14,6 +14,8 @@ import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -35,15 +37,14 @@ import org.wikipedia.views.WikiErrorView;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-
-import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
-import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class CreateAccountActivity extends BaseActivity {
     public static final int RESULT_ACCOUNT_CREATED = 1;
@@ -65,7 +66,8 @@ public class CreateAccountActivity extends BaseActivity {
 
     @BindView(R.id.create_account_primary_container) View primaryContainer;
     @BindView(R.id.create_account_onboarding_container) View onboardingContainer;
-    @BindView(R.id.create_account_username) TextInputLayout usernameInput;
+    @BindView(R.id.create_account_username)
+    TextInputLayout usernameInput;
     @BindView(R.id.create_account_password_input) TextInputLayout passwordInput;
     @BindView(R.id.create_account_password_repeat) TextInputLayout passwordRepeatInput;
     @BindView(R.id.create_account_email) TextInputLayout emailInput;

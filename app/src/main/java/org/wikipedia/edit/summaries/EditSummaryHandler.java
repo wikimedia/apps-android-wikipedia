@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.RemoteException;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,7 +73,7 @@ public class EditSummaryHandler {
         return false;
     }
 
-    private  class EditSummaryAdapter extends android.support.v4.widget.CursorAdapter {
+    private  class EditSummaryAdapter extends androidx.cursoradapter.widget.CursorAdapter {
         EditSummaryAdapter(Context context, Cursor c, boolean autoRequery) {
             super(context, c, autoRequery);
         }

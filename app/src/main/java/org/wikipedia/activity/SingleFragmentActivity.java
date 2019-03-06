@@ -1,14 +1,16 @@
 package org.wikipedia.activity;
 
 import android.os.Bundle;
-import android.support.annotation.IdRes;
-import android.support.annotation.LayoutRes;
-import android.support.v4.app.Fragment;
 
 import org.wikipedia.R;
 
+import androidx.annotation.IdRes;
+import androidx.annotation.LayoutRes;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+
 /**
- * Boilerplate for a {@link android.support.v4.app.FragmentActivity} containing a single stack of
+ * Boilerplate for a {@link FragmentActivity} containing a single stack of
  * Fragments.
  */
 public abstract class SingleFragmentActivity<T extends Fragment> extends BaseActivity {
@@ -34,8 +36,10 @@ public abstract class SingleFragmentActivity<T extends Fragment> extends BaseAct
         return (T) getSupportFragmentManager().findFragmentById(getContainerId());
     }
 
-    /** @return The resource layout to inflate which must contain a {@link android.view.ViewGroup}
-     * whose ID is {@link #getContainerId()}. */
+    /**
+     * @return The resource layout to inflate which must contain a {@link android.view.ViewGroup}
+     * whose ID is {@link #getContainerId()}.
+     */
     @LayoutRes
     protected int getLayout() {
         return R.layout.activity_single_fragment;

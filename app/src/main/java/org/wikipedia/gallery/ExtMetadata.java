@@ -1,12 +1,13 @@
 package org.wikipedia.gallery;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import com.google.gson.annotations.SerializedName;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 public class ExtMetadata {
-    @SuppressWarnings("unused") @SerializedName("DateTime") @Nullable private Values dateTime;
+    @SuppressWarnings("unused") @SerializedName("DateTime") @Nullable
+    private Values dateTime;
     @SuppressWarnings("unused") @SerializedName("ObjectName") @Nullable private Values objectName;
     @SuppressWarnings("unused") @SerializedName("CommonsMetadataExtension") @Nullable private Values commonsMetadataExtension;
     @SuppressWarnings("unused") @SerializedName("Categories") @Nullable private Values categories;
@@ -54,7 +55,8 @@ public class ExtMetadata {
     }
 
     public class Values {
-        @SuppressWarnings("unused,NullableProblems") @NonNull private String value;
+        @SuppressWarnings("unused,NullableProblems") @NonNull
+        private String value;
         @SuppressWarnings("unused,NullableProblems") @NonNull private String source;
         @SuppressWarnings("unused,NullableProblems") @NonNull private String hidden;
 

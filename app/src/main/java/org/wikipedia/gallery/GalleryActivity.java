@@ -1,5 +1,11 @@
 package org.wikipedia.gallery;
 
+import static org.wikipedia.util.StringUtil.addUnderscores;
+import static org.wikipedia.util.StringUtil.removeUnderscores;
+import static org.wikipedia.util.StringUtil.strip;
+import static org.wikipedia.util.UriUtil.handleExternalLink;
+import static org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl;
+
 import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.Context;
@@ -8,18 +14,6 @@ import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import android.view.Gravity;
@@ -61,6 +55,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -69,12 +75,6 @@ import butterknife.Unbinder;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-
-import static org.wikipedia.util.StringUtil.addUnderscores;
-import static org.wikipedia.util.StringUtil.removeUnderscores;
-import static org.wikipedia.util.StringUtil.strip;
-import static org.wikipedia.util.UriUtil.handleExternalLink;
-import static org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl;
 
 public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.Callback,
         GalleryItemFragment.Callback {
@@ -88,12 +88,15 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     public static final String EXTRA_FEATURED_IMAGE = "featuredImage";
     public static final String EXTRA_FEATURED_IMAGE_AGE = "featuredImageAge";
 
-    @NonNull private WikipediaApp app = WikipediaApp.getInstance();
+    @NonNull
+    private WikipediaApp app = WikipediaApp.getInstance();
     @NonNull private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
-    @Nullable private PageTitle pageTitle;
+    @Nullable
+    private PageTitle pageTitle;
 
     @BindView(R.id.gallery_toolbar_container) ViewGroup toolbarContainer;
-    @BindView(R.id.gallery_toolbar) Toolbar toolbar;
+    @BindView(R.id.gallery_toolbar)
+    Toolbar toolbar;
     @BindView(R.id.gallery_toolbar_gradient) View toolbarGradient;
     @BindView(R.id.gallery_info_container) ViewGroup infoContainer;
     @BindView(R.id.gallery_info_gradient) View infoGradient;
@@ -103,7 +106,8 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @BindView(R.id.gallery_license_icon_by) ImageView byIcon;
     @BindView(R.id.gallery_license_icon_sa) ImageView saIcon;
     @BindView(R.id.gallery_credit_text) TextView creditText;
-    @BindView(R.id.gallery_item_pager) ViewPager galleryPager;
+    @BindView(R.id.gallery_item_pager)
+    ViewPager galleryPager;
     @BindView(R.id.view_gallery_error) WikiErrorView errorView;
     @Nullable private Unbinder unbinder;
     private CompositeDisposable disposables = new CompositeDisposable();
@@ -676,7 +680,8 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
     }
 
-    @ColorInt private int color(@ColorRes int id) {
+    @ColorInt
+    private int color(@ColorRes int id) {
         return ContextCompat.getColor(this, id);
     }
 }

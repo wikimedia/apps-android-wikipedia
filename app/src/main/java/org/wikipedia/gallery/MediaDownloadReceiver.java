@@ -9,8 +9,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -19,6 +17,9 @@ import org.wikipedia.util.FileUtil;
 
 import java.io.File;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 public class MediaDownloadReceiver extends BroadcastReceiver {
     private static final String FILE_NAMESPACE = "File:";
 
@@ -26,7 +27,8 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
         void onSuccess();
     }
 
-    @Nullable private Callback callback;
+    @Nullable
+    private Callback callback;
 
     public void setCallback(@Nullable Callback callback) {
         this.callback = callback;

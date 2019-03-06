@@ -65,7 +65,7 @@
         style="?android:textAppearanceSmall"/>
 
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/captcha_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
             android:imeOptions="actionDone|flagNoExtractUi"
             android:inputType="textVisiblePassword|textNoSuggestions"
             android:maxLines="1" />
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/captcha_submit_button"

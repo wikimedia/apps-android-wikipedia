@@ -1,13 +1,13 @@
 package org.wikipedia.language;
 
+import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.wikipedia.settings.languages.WikipediaLanguagesFragment.ADD_LANGUAGE_INTERACTIONS;
+import static org.wikipedia.settings.languages.WikipediaLanguagesFragment.SESSION_TOKEN;
+import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.view.ActionMode;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -32,23 +32,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.view.ActionMode;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
-import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.wikipedia.settings.languages.WikipediaLanguagesFragment.ADD_LANGUAGE_INTERACTIONS;
-import static org.wikipedia.settings.languages.WikipediaLanguagesFragment.SESSION_TOKEN;
-import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
-
 public class LanguagesListActivity extends BaseActivity {
     private WikipediaApp app;
 
     @BindView(R.id.languages_list_load_progress) View progressBar;
     @BindView(R.id.languages_list_empty_view) SearchEmptyView emptyView;
-    @BindView(R.id.languages_list_recycler) RecyclerView recyclerView;
+    @BindView(R.id.languages_list_recycler)
+    RecyclerView recyclerView;
 
     private LanguagesListAdapter adapter;
     private String currentSearchQuery;
@@ -60,7 +61,8 @@ public class LanguagesListActivity extends BaseActivity {
     public static final String LANGUAGE_SEARCHED = "language_searched";
     private CompositeDisposable disposables = new CompositeDisposable();
 
-    @Nullable private List<SiteMatrix.SiteInfo> siteInfoList;
+    @Nullable
+    private List<SiteMatrix.SiteInfo> siteInfoList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -167,7 +169,8 @@ public class LanguagesListActivity extends BaseActivity {
 
         private static final int VIEW_TYPE_HEADER = 0;
         private static final int VIEW_TYPE_ITEM = 1;
-        @NonNull private final List<String> originalLanguageCodes;
+        @NonNull
+        private final List<String> originalLanguageCodes;
         @NonNull private final List<String> suggestedLanguageCodes;
         @NonNull private final List<String> languageCodes = new ArrayList<>();
         private boolean isSearching;

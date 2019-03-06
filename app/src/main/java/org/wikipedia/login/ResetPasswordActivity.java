@@ -1,17 +1,18 @@
 package org.wikipedia.login;
 
+import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+
 import android.accounts.AccountAuthenticatorResponse;
 import android.accounts.AccountManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -23,30 +24,36 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.views.NonEmptyValidator;
 import org.wikipedia.views.WikiErrorView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class ResetPasswordActivity extends BaseActivity {
     public static final int RESULT_PASSWORD_RESET_SUCCESS = 1;
     public static final String LOGIN_USER_NAME = "userName";
     public static final String LOGIN_TOKEN = "token";
 
-    @BindView(R.id.reset_password_input) TextInputLayout passwordInput;
-    @BindView(R.id.reset_password_repeat) TextInputLayout passwordRepeatInput;
-    @BindView(R.id.login_2fa_text) EditText twoFactorText;
-    @BindView(R.id.view_login_error) WikiErrorView errorView;
-    @BindView(R.id.login_button) View loginButton;
+    @BindView(R.id.reset_password_input)
+    TextInputLayout passwordInput;
+    @BindView(R.id.reset_password_repeat)
+    TextInputLayout passwordRepeatInput;
+    @BindView(R.id.login_2fa_text)
+    EditText twoFactorText;
+    @BindView(R.id.view_login_error)
+    WikiErrorView errorView;
+    @BindView(R.id.login_button)
+    View loginButton;
 
     private ProgressDialog progressDialog;
-    @Nullable private String firstStepToken;
+    @Nullable
+    private String firstStepToken;
     private LoginClient loginClient;
     private String userName;
 
     public static Intent newIntent(@NonNull Context context, @NonNull String userName,
-                                   @Nullable String token) {
+            @Nullable String token) {
         return new Intent(context, ResetPasswordActivity.class)
                 .putExtra(LOGIN_USER_NAME, userName)
                 .putExtra(LOGIN_TOKEN, token);
@@ -61,7 +68,8 @@ public class ResetPasswordActivity extends BaseActivity {
         errorView.setBackClickListener((v) -> onBackPressed());
         errorView.setRetryClickListener((v) -> errorView.setVisibility(View.GONE));
 
-        new NonEmptyValidator((isValid) -> loginButton.setEnabled(isValid), passwordInput, passwordRepeatInput);
+        new NonEmptyValidator((isValid) -> loginButton.setEnabled(isValid), passwordInput,
+                passwordRepeatInput);
 
         passwordInput.getEditText().setOnEditorActionListener((textView, actionId, keyEvent) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
@@ -79,7 +87,8 @@ public class ResetPasswordActivity extends BaseActivity {
         firstStepToken = getIntent().getStringExtra(LOGIN_TOKEN);
     }
 
-    @OnClick(R.id.login_button) void onLoginClick() {
+    @OnClick(R.id.login_button)
+    void onLoginClick() {
         validateThenLogin();
     }
 
@@ -100,7 +109,8 @@ public class ResetPasswordActivity extends BaseActivity {
                 return;
             case PASSWORD_MISMATCH:
                 passwordRepeatInput.requestFocus();
-                passwordRepeatInput.setError(getString(R.string.create_account_passwords_mismatch_error));
+                passwordRepeatInput.setError(
+                        getString(R.string.create_account_passwords_mismatch_error));
                 return;
             default:
                 break;
@@ -109,7 +119,8 @@ public class ResetPasswordActivity extends BaseActivity {
         doLogin();
     }
 
-    @NonNull private CharSequence getText(@NonNull TextInputLayout input) {
+    @NonNull
+    private CharSequence getText(@NonNull TextInputLayout input) {
         return input.getEditText() != null ? input.getEditText().getText() : "";
     }
 
@@ -140,7 +151,8 @@ public class ResetPasswordActivity extends BaseActivity {
                     Bundle extras = getIntent().getExtras();
                     AccountAuthenticatorResponse response = extras == null
                             ? null
-                            : extras.getParcelable(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE);
+                            : extras.getParcelable(
+                                    AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE);
                     AccountUtil.updateAccount(response, result);
 
                     hideSoftKeyboard(ResetPasswordActivity.this);
@@ -167,7 +179,8 @@ public class ResetPasswordActivity extends BaseActivity {
                 FeedbackUtil.showError(ResetPasswordActivity.this, caught);
             }
 
-            @Override public void passwordResetPrompt(@Nullable String token) {
+            @Override
+            public void passwordResetPrompt(@Nullable String token) {
                 // This case should not happen here, and we wouldn't have much to do anyway.
             }
 

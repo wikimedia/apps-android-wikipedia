@@ -1,7 +1,6 @@
 package org.wikipedia.gallery;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import static org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -13,12 +12,15 @@ import org.wikipedia.util.StringUtil;
 import java.io.Serializable;
 import java.util.List;
 
-import static org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class GalleryItem implements Serializable {
     @SuppressWarnings("unused") @SerializedName("section_id") private int sectionId;
-    @SuppressWarnings("unused,NullableProblems") @NonNull private String type;
-    @SuppressWarnings("unused,NullableProblems") @Nullable @SerializedName("audio_type") private String audioType;
+    @SuppressWarnings("unused,NullableProblems") @NonNull
+    private String type;
+    @SuppressWarnings("unused,NullableProblems") @Nullable
+    @SerializedName("audio_type") private String audioType;
     @SuppressWarnings("unused") @Nullable private TextInfo caption;
     @SuppressWarnings("unused") private boolean showInGallery;
     @SuppressWarnings("unused") @NonNull private Titles titles;

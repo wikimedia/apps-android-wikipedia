@@ -1,6 +1,6 @@
 package org.wikipedia.page;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.wikipedia.analytics.FindInPageFunnel;
 import org.wikipedia.views.FindInPageActionProvider;

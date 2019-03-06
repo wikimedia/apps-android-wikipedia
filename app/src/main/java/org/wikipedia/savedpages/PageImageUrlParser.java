@@ -1,7 +1,7 @@
 package org.wikipedia.savedpages;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

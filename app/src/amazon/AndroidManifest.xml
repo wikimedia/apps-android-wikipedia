@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <application>
+    <application tools:replace="android:appComponentFactory">
         <meta-data
             android:name="@string/preference_key_app_channel"
             android:value="Amazon Appstore"

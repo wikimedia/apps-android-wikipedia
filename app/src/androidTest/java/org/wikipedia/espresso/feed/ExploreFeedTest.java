@@ -1,28 +1,5 @@
 package org.wikipedia.espresso.feed;
 
-import android.Manifest;
-import android.app.Activity;
-import android.content.pm.ActivityInfo;
-import android.support.test.espresso.NoMatchingViewException;
-import android.support.test.espresso.PerformException;
-import android.support.test.espresso.ViewInteraction;
-import android.support.test.espresso.contrib.RecyclerViewActions;
-import android.support.test.rule.ActivityTestRule;
-import android.support.test.rule.GrantPermissionRule;
-import android.support.test.runner.AndroidJUnit4;
-import android.text.TextUtils;
-
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.wikipedia.R;
-import org.wikipedia.espresso.util.ScreenshotTools;
-import org.wikipedia.espresso.util.ViewTools;
-import org.wikipedia.main.MainActivity;
-
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.wikipedia.espresso.util.CompareTools.assertScreenshotWithinTolerance;
 import static org.wikipedia.espresso.util.InstrumentationViewUtils.switchToBlackMode;
@@ -33,6 +10,31 @@ import static org.wikipedia.espresso.util.ViewTools.setTextInTextView;
 import static org.wikipedia.espresso.util.ViewTools.viewIsDisplayed;
 import static org.wikipedia.espresso.util.ViewTools.waitFor;
 import static org.wikipedia.espresso.util.ViewTools.whileWithMaxSteps;
+
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+
+import android.Manifest;
+import android.app.Activity;
+import android.content.pm.ActivityInfo;
+import android.text.TextUtils;
+
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.wikipedia.R;
+import org.wikipedia.espresso.util.ScreenshotTools;
+import org.wikipedia.espresso.util.ViewTools;
+import org.wikipedia.main.MainActivity;
+
+import androidx.test.espresso.NoMatchingViewException;
+import androidx.test.espresso.PerformException;
+import androidx.test.espresso.ViewInteraction;
+import androidx.test.espresso.contrib.RecyclerViewActions;
+import androidx.test.rule.ActivityTestRule;
+import androidx.test.rule.GrantPermissionRule;
+import androidx.test.runner.AndroidJUnit4;
 
 @RunWith(AndroidJUnit4.class)
 @SuppressWarnings("checkstyle:magicnumber")

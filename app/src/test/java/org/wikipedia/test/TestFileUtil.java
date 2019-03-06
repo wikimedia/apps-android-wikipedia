@@ -1,7 +1,7 @@
 package org.wikipedia.test;
 
 import android.annotation.TargetApi;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;

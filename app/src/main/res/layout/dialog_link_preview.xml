@@ -9,7 +9,7 @@
     android:layout_gravity="bottom"
     app:behavior_peekHeight="@dimen/bottomSheetPeekHeight">
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -51,7 +51,7 @@
                 android:maxLines="3"
                 android:ellipsize="end"
                 tools:text="Lorem ipsum" />
-            <android.support.v7.widget.AppCompatImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/link_preview_overflow_button"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -110,7 +110,7 @@
             android:layout_height="70dp"/>
     </LinearLayout>
 
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <ProgressBar
         android:id="@+id/link_preview_progress"

@@ -3,7 +3,7 @@ package org.wikipedia.util;
 import android.content.Context;
 import android.icu.text.RelativeDateTimeFormatter;
 import android.os.Build;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;

@@ -1,9 +1,6 @@
 package org.wikipedia.readinglist;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 
 import org.wikipedia.R;
 import org.wikipedia.readinglist.database.ReadingList;
@@ -14,12 +11,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+
 public class RemoveFromReadingListsDialog {
     public interface Callback {
         void onDeleted(@NonNull List<ReadingList> lists, @NonNull ReadingListPage page);
     }
 
-    @Nullable private List<ReadingList> listsContainingPage;
+    @Nullable
+    private List<ReadingList> listsContainingPage;
 
     public RemoveFromReadingListsDialog(@NonNull List<ReadingList> listsContainingPage) {
         this.listsContainingPage = listsContainingPage;

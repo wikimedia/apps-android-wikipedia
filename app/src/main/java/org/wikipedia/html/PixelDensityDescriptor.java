@@ -1,6 +1,6 @@
 package org.wikipedia.html;
 
-import android.support.annotation.FloatRange;
+import androidx.annotation.FloatRange;
 
 import org.wikipedia.model.BaseModel;
 

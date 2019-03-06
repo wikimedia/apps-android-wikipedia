@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="@dimen/view_list_card_item_image"
             android:layout_height="@dimen/view_list_card_item_image"
             android:id="@+id/notification_item_image_background"
@@ -28,7 +28,7 @@
             app:tint="?attr/primary_text_color"
             android:contentDescription="@null"/>
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/notification_item_image"
             android:layout_width="@dimen/view_list_card_item_image"
             android:layout_height="@dimen/view_list_card_item_image"
@@ -38,7 +38,7 @@
 
     </FrameLayout>
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/notification_item_selected_image"
         android:layout_width="@dimen/view_list_card_item_image"
         android:layout_height="@dimen/view_list_card_item_image"
@@ -106,7 +106,7 @@
         android:ellipsize="end"
         tools:text="Lorem ipsum"/>
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/notification_wiki_code_background"
         android:layout_width="0dp"
         android:layout_height="16dp"
@@ -125,7 +125,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/notification_wiki_code_image"
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -148,4 +148,4 @@
 
     </FrameLayout>
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

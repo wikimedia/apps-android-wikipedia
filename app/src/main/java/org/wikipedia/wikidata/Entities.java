@@ -1,14 +1,15 @@
 package org.wikipedia.wikidata;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import org.wikipedia.dataclient.mwapi.MwResponse;
 
 import java.util.Map;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 public class Entities extends MwResponse {
-    @SuppressWarnings("unused") @Nullable private Map<String, Entity> entities;
+    @SuppressWarnings("unused") @Nullable
+    private Map<String, Entity> entities;
     @SuppressWarnings("unused") private int success;
 
     @Nullable public Map<String, Entity> entities() {
@@ -16,7 +17,8 @@ public class Entities extends MwResponse {
     }
 
     public static class Entity {
-        @SuppressWarnings("unused,NullableProblems") @NonNull private String type;
+        @SuppressWarnings("unused,NullableProblems") @NonNull
+        private String type;
         @SuppressWarnings("unused,NullableProblems") @NonNull private String id;
         @SuppressWarnings("unused,NullableProblems") @NonNull private Map<String, Label> labels;
         @SuppressWarnings("unused,NullableProblems") @NonNull private Map<String, Label> descriptions;

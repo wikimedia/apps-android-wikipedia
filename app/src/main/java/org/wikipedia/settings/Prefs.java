@@ -1,8 +1,19 @@
 package org.wikipedia.settings;
 
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
+import static org.wikipedia.settings.PrefsIoUtil.contains;
+import static org.wikipedia.settings.PrefsIoUtil.getBoolean;
+import static org.wikipedia.settings.PrefsIoUtil.getInt;
+import static org.wikipedia.settings.PrefsIoUtil.getKey;
+import static org.wikipedia.settings.PrefsIoUtil.getLong;
+import static org.wikipedia.settings.PrefsIoUtil.getString;
+import static org.wikipedia.settings.PrefsIoUtil.getStringSet;
+import static org.wikipedia.settings.PrefsIoUtil.remove;
+import static org.wikipedia.settings.PrefsIoUtil.setBoolean;
+import static org.wikipedia.settings.PrefsIoUtil.setInt;
+import static org.wikipedia.settings.PrefsIoUtil.setLong;
+import static org.wikipedia.settings.PrefsIoUtil.setString;
+
 import android.text.TextUtils;
 
 import com.google.gson.reflect.TypeToken;
@@ -29,21 +40,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import okhttp3.logging.HttpLoggingInterceptor.Level;
-
-import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
-import static org.wikipedia.settings.PrefsIoUtil.contains;
-import static org.wikipedia.settings.PrefsIoUtil.getBoolean;
-import static org.wikipedia.settings.PrefsIoUtil.getInt;
-import static org.wikipedia.settings.PrefsIoUtil.getKey;
-import static org.wikipedia.settings.PrefsIoUtil.getLong;
-import static org.wikipedia.settings.PrefsIoUtil.getString;
-import static org.wikipedia.settings.PrefsIoUtil.getStringSet;
-import static org.wikipedia.settings.PrefsIoUtil.remove;
-import static org.wikipedia.settings.PrefsIoUtil.setBoolean;
-import static org.wikipedia.settings.PrefsIoUtil.setInt;
-import static org.wikipedia.settings.PrefsIoUtil.setLong;
-import static org.wikipedia.settings.PrefsIoUtil.setString;
 
 /** Shared preferences utility for convenient POJO access. */
 public final class Prefs {

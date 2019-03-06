@@ -4,23 +4,25 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.support.annotation.ColorRes;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 
 import org.wikipedia.R;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
+
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class SwipeableItemTouchHelperCallback extends ItemTouchHelper.Callback {
     private static final float SWIPE_ICON_PADDING_DP = 16f;
     private Paint swipeBackgroundPaint = new Paint();
     private Paint swipeIconPaint = new Paint();
     private Paint itemBackgroundPaint = new Paint();
-    @NonNull private Bitmap swipeIcon;
+    @NonNull
+    private Bitmap swipeIcon;
     private boolean swipeableEnabled;
 
     public interface Callback {

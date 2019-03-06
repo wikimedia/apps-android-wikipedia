@@ -1,15 +1,12 @@
 package org.wikipedia.language;
 
+import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.v7.view.ActionMode;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -42,14 +39,17 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Locale;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.appcompat.view.ActionMode;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-
-import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class LangLinksActivity extends BaseActivity {
     public static final int ACTIVITY_RESULT_LANGLINK_SELECT = 1;
@@ -70,14 +70,16 @@ public class LangLinksActivity extends BaseActivity {
     @BindView(R.id.langlinks_load_progress) View langLinksProgress;
     @BindView(R.id.langlinks_error) WikiErrorView langLinksError;
     @BindView(R.id.langlink_empty_view) SearchEmptyView langLinksEmpty;
-    @BindView(R.id.langlinks_recycler) RecyclerView langLinksList;
+    @BindView(R.id.langlinks_recycler)
+    RecyclerView langLinksList;
 
     private LangLinksAdapter adapter;
     private String currentSearchQuery;
     private ActionMode actionMode;
     private SearchActionModeCallback searchActionModeCallback;
 
-    @Nullable private List<SiteMatrix.SiteInfo> siteInfoList;
+    @Nullable
+    private List<SiteMatrix.SiteInfo> siteInfoList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

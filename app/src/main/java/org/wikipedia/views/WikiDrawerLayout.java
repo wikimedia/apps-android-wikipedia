@@ -2,11 +2,7 @@ package org.wikipedia.views;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.FixedDrawerLayout;
-import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -14,6 +10,11 @@ import android.view.View;
 import org.wikipedia.util.log.L;
 
 import java.lang.reflect.Field;
+
+import androidx.core.view.GravityCompat;
+import androidx.core.view.ViewCompat;
+import androidx.customview.widget.ViewDragHelper;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 /**
  * A thin wrapper around {@link FixedDrawerLayout} with additional functionality:

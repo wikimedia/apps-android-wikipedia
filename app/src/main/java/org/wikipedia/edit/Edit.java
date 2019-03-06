@@ -1,6 +1,6 @@
 package org.wikipedia.edit;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 

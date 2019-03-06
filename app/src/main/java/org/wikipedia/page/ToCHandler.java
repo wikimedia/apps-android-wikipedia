@@ -1,9 +1,12 @@
 package org.wikipedia.page;
 
+import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
+import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
+import static org.wikipedia.util.ResourceUtil.getThemedColor;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.graphics.Typeface;
-import android.support.annotation.NonNull;
 import android.util.SparseIntArray;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -37,9 +40,7 @@ import org.wikipedia.views.SwipeableListView;
 
 import java.util.ArrayList;
 
-import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
-import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
-import static org.wikipedia.util.ResourceUtil.getThemedColor;
+import androidx.annotation.NonNull;
 
 public class ToCHandler implements ObservableWebView.OnClickListener,
         ObservableWebView.OnScrollChangeListener, ObservableWebView.OnContentHeightChangedListener,

@@ -6,17 +6,19 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import org.wikipedia.database.column.Column;
 import org.wikipedia.util.ArrayUtils;
 import org.wikipedia.util.log.L;
 
+import androidx.annotation.NonNull;
+
 public abstract class DatabaseTable<T> {
     protected static final int INITIAL_DB_VERSION = 1;
 
-    @NonNull private final String tableName;
+    @NonNull
+    private final String tableName;
     @NonNull private final Uri baseContentURI;
 
     public DatabaseTable(@NonNull String tableName, @NonNull Uri baseContentURI) {

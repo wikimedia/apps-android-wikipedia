@@ -2,8 +2,8 @@ package org.wikipedia.edit.richtext;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 import android.text.TextPaint;
 import android.text.style.ForegroundColorSpan;
 

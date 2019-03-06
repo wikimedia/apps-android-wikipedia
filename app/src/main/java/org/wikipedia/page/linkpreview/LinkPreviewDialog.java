@@ -1,13 +1,14 @@
 package org.wikipedia.page.linkpreview;
 
+import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
+import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
+import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.PopupMenu;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,13 +37,12 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewUtil;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.PopupMenu;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-
-import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
-import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
-import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         implements LinkPreviewErrorView.Callback, DialogInterface.OnDismissListener {
@@ -69,7 +69,8 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private HistoryEntry historyEntry;
     private PageTitle pageTitle;
-    @Nullable private Location location;
+    @Nullable
+    private Location location;
     private LinkPreviewFunnel funnel;
     private CompositeDisposable disposables = new CompositeDisposable();
 

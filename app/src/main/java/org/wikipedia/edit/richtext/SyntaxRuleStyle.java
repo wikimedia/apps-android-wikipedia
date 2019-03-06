@@ -3,8 +3,8 @@ package org.wikipedia.edit.richtext;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 
 import org.wikipedia.R;
 import org.wikipedia.util.ResourceUtil;
