@@ -106,6 +106,7 @@ public class ReadingListsFragment extends Fragment implements
     private OverflowCallback overflowCallback = new OverflowCallback();
     private String currentSearchQuery;
     private static final int SAVE_COUNT_LIMIT = 3;
+    public static final int ARTICLE_ITEM_IMAGE_DIMENSION = 56;
 
     @NonNull public static ReadingListsFragment newInstance() {
         return new ReadingListsFragment();
@@ -443,6 +444,7 @@ public class ReadingListsFragment extends Fragment implements
             getView().setDescriptionMaxLines(2);
             getView().setDescriptionEllipsis();
             getView().setImageUrl(page.thumbUrl());
+            getView().setListItemImageDimensions(DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION), DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION));
             getView().setSelected(page.selected());
             getView().setActionIcon(R.drawable.ic_more_vert_white_24dp);
             getView().setActionTint(R.attr.secondary_text_color);
