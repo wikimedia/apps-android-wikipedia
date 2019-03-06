@@ -10,6 +10,7 @@
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_back">Zréck</string>
+  <string name="page_tabs_back">Zréck</string>
   <string name="nav_item_forward">Virun</string>
   <string name="search_hint">Op Wikipedia sichen</string>
   <string name="search_hint_search_history">Am Historique sichen</string>
@@ -19,7 +20,11 @@
   <string name="nav_item_history">Versiounen</string>
   <string name="error_network_error">Kann net mam Internet verbannen.</string>
   <string name="page_error_retry">Nach eng Kéier probéieren</string>
+  <string name="card_offline_error_retry">Nach eng Kéier probéieren</string>
+  <string name="article_load_error_retry">Nach eng Kéier probéieren</string>
+  <string name="offline_load_error_retry">Nach eng Kéier probéieren</string>
   <string name="page_error_back_to_main">Zréck goen</string>
+  <string name="error_back">Zréck goen</string>
   <string name="menu_clear_all_history">Historique läschen</string>
   <string name="history_item_deleted">%s aus der Lëscht vun de Versioune geläscht</string>
   <string name="history_items_deleted">%d Artikelen aus dem Verlaf vum Browser erausgeholl</string>
@@ -33,6 +38,7 @@
   <string name="menu_page_show_tabs">Tabs weisen</string>
   <string name="menu_page_other_languages">Sprooch wiesselen</string>
   <string name="menu_page_find_in_page">Op der Säit sichen</string>
+  <string name="edit_section_find_in_page">Op der Säit sichen</string>
   <string name="menu_page_font_and_theme">Schrëftaart a Faarwen</string>
   <string name="menu_page_add_to_list">Op d\'Lieslëscht derbäisetzen</string>
   <string name="menu_page_share">Link deelen</string>
@@ -44,6 +50,9 @@
   <string name="menu_text_select_copy">Kopéieren</string>
   <string name="menu_text_select_define">Definéieren</string>
   <string name="menu_text_select_share">Deelen</string>
+  <string name="share">Deelen</string>
+  <string name="on_this_day_page_share">Deelen</string>
+  <string name="reading_list_page_share">Deelen</string>
   <string name="menu_text_select_edit_here">Hei änneren</string>
   <string name="nav_item_nearby">Nobäi</string>
   <string name="nearby_zoom_to_location">Zoom op eng Plaz op der Kaart</string>
@@ -82,7 +91,10 @@
   <string name="nav_item_login">Op Wikipedia aloggen</string>
   <string name="login_username_hint">Benotzernumm</string>
   <string name="login_password_hint">Passwuert</string>
+  <string name="account_creation_password_hint">Passwuert</string>
   <string name="login_2fa_hint">Code fir Authentifikatioun mat zwee Elementer</string>
+  <string name="page_editing_login">Aloggen</string>
+  <string name="reading_lists_sync_login">Aloggen</string>
   <string name="menu_login">Aloggen</string>
   <string name="login_activity_title">Op Wikipedia aloggen</string>
   <string name="login_in_progress_dialog_message">Dir gitt ageloggt…</string>
@@ -447,8 +459,10 @@
   <string name="view_continue_reading_card_subtitle_today">haut</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s gelies</string>
   <string name="view_announcement_card_negative_action">Nee, merci</string>
+  <string name="onboarding_negative_action">Nee, merci</string>
   <string name="view_offline_card_text">Et ka keen INhalt geluede gi wann Dir offline sidd.</string>
   <string name="view_featured_article_footer_save_button_label">Späicheren</string>
+  <string name="view_static_card_save_button_label">Späicheren</string>
   <string name="view_featured_article_footer_saved_button_label">Gespäichert</string>
   <string name="feed_configure_menu_reset">Standard- Ausgesinn restauréieren</string>
   <string name="feed_configure_menu_select_all">All weisen</string>
@@ -491,6 +505,7 @@
   <string name="editactionfeed_add_title_descriptions">Beschreiwunge vun den Titelen derbäisetzen</string>
   <string name="editactionfeed_add_description_button">Beschreiwung derbäisetzen</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Fir méi ze wëssen</string>
+  <string name="editactionfeed_translate_title_dialog_learn_more">Fir méi ze wëssen</string>
   <string name="editactionfeed_to_language">Fir:</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
@@ -512,7 +527,7 @@
   <string name="onboarding_got_it">Verstan</string>
   <string name="onboarding_multilingual_secondary_text">Mir hunn dëst op Ärem Apparat fonnt:</string>
   <string name="onboarding_multilingual_add_language_text">Sproochen änneren oder derbäisetzen</string>
-  <string name="onboarding_welcome_title_v2">Déi Fräi Enzyklopedie\n... a méi wéi 300 Sproochen</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">Déi Fräi Enzyklopedie\n... a méi wéi 300 Sproochen</string>
   <string name="app_shortcuts_random">Zoufall</string>
   <string name="app_shortcuts_continue_reading">Virufuere mat Liesen</string>
   <string name="app_shortcuts_search">Sichen</string>
@@ -551,4 +566,10 @@
   <string name="multilingual_task_negative">Net fir mech</string>
   <string name="multilingual_task_positive">Sproochen derbäisetzen</string>
   <string name="translation_source_description">%s Beschreiwung:</string>
+  <string name="title_description_editing_skip">Iwwersprangen</string>
+  <string name="title_description_get_started">Fir unzefänken</string>
+  <string name="translate_description_get_started">Fir unzefänken</string>
+  <string name="edit_tasks_onboarding_get_started">Fir unzefänken</string>
+  <string name="translate_descriptions_maybe_later">Vläicht méi spéit</string>
+  <string name="translate_descriptions_onboarding_got_it">Verstan</string>
 </resources>

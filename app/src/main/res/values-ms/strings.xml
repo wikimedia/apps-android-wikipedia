@@ -602,7 +602,7 @@
   <string name="onboarding_got_it">Faham</string>
   <string name="onboarding_multilingual_secondary_text">Kami telah menemui bahasa berikut pada peranti anda:</string>
   <string name="onboarding_multilingual_add_language_text">Tambah atau sunting bahasa</string>
-  <string name="onboarding_welcome_title_v2">Ensiklopedia Bebas\n…dalam hampir 300 bahasa</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">Ensiklopedia Bebas\n…dalam hampir 300 bahasa</string>
   <string name="app_shortcuts_random">Rawak</string>
   <string name="app_shortcuts_continue_reading">Teruskan membaca</string>
   <string name="app_shortcuts_search">Cari</string>

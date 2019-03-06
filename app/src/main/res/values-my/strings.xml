@@ -600,7 +600,7 @@
   <string name="onboarding_got_it">ရပြီဟေ့</string>
   <string name="onboarding_multilingual_secondary_text">သင်၏စက်ပစ္စည်းပေါ်တွင် အောက်ပါများကို တွေ့ရှိပါသည်:</string>
   <string name="onboarding_multilingual_add_language_text">ဘာသာစကားများ ပေါင်းထည့်/တည်းဖြတ်</string>
-  <string name="onboarding_welcome_title_v2">ဘာသာစကားပေါင်း ၃၀၀ နီးပါးခန့်ဖြင့် အခမဲ့လွတ်လပ်စွယ်စုံကျမ်း</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">ဘာသာစကားပေါင်း ၃၀၀ နီးပါးခန့်ဖြင့် အခမဲ့လွတ်လပ်စွယ်စုံကျမ်း</string>
   <string name="app_shortcuts_random">ကျပန်း</string>
   <string name="app_shortcuts_continue_reading">ဆက်လက် ဖတ်ရှုရန်</string>
   <string name="app_shortcuts_search">ရှာဖွေရန်</string>

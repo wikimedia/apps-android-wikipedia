@@ -20,6 +20,7 @@
   <string name="app_name_alpha">ויקיפדיה אלפא</string>
   <string name="wikimedia">ויקימדיה</string>
   <string name="nav_item_back">חזרה</string>
+  <string name="page_tabs_back">חזרה</string>
   <string name="nav_item_forward">התקדמות</string>
   <string name="search_hint">חיפוש בוויקיפדיה</string>
   <string name="search_hint_search_history">היסטוריית חיפוש</string>
@@ -29,23 +30,32 @@
   <string name="nav_item_history">היסטוריה</string>
   <string name="error_network_error">לא ניתן להתחבר לאינטרנט.</string>
   <string name="page_error_retry">ניסיון נוסף</string>
+  <string name="card_offline_error_retry">ניסיון חוזר</string>
+  <string name="storage_access_error_retry">ניסיון חוזר</string>
+  <string name="article_load_error_retry">ניסיון חוזר</string>
+  <string name="offline_load_error_retry">ניסיון חוזר</string>
   <string name="page_error_back_to_main">חזרה</string>
+  <string name="error_back">לחזור</string>
   <string name="menu_clear_all_history">ניקוי היסטוריה</string>
   <string name="history_item_deleted">הערך %s הוסר מההיסטוריה</string>
   <string name="history_items_deleted">%d ערכים הוסרו מההיסטוריה</string>
   <string name="history_item_delete_undo">ביטול</string>
+  <string name="notification_archive_undo">ביטול</string>
   <string name="app_settings">הגדרות היישום</string>
   <string name="dialog_title_clear_history">לנקות את היסטוריית הגלישה</string>
   <string name="dialog_message_clear_history">זה ימחק את כל היסטוריית הגלישה שלך ויסגור את כל הלשוניות שפתוחות עכשיו. לעשות את זה?</string>
   <string name="dialog_message_clear_history_yes">כן</string>
   <string name="dialog_message_clear_history_no">לא</string>
   <string name="share_via">שיתוף באמצעות</string>
+  <string name="image_share_via">שיתוף דרך</string>
   <string name="search_redirect_from">הופנה מהדף %s</string>
   <string name="menu_page_show_tabs">הצגת לשוניות</string>
   <string name="menu_page_other_languages">שינוי שפה</string>
   <string name="menu_page_find_in_page">חיפוש בדף</string>
+  <string name="edit_section_find_in_page">איתור בעמוד</string>
   <string name="menu_page_font_and_theme">גופן וערכת נושא</string>
   <string name="menu_page_add_to_list">הוספה לרשימת הקריאה</string>
+  <string name="feed_card_add_to_list">הוספה לרשימת קריאה</string>
   <string name="menu_page_share">שיתוף קישור</string>
   <string name="menu_page_open_a_new_tab">פתיחת לשונית חדשה</string>
   <string name="menu_page_reading_lists">רשימות קריאה</string>
@@ -56,6 +66,9 @@
   <string name="menu_text_select_copy">העתקה</string>
   <string name="menu_text_select_define">הגדרה</string>
   <string name="menu_text_select_share">שיתוף</string>
+  <string name="share">שיתוף</string>
+  <string name="on_this_day_page_share">שיתוף</string>
+  <string name="reading_list_page_share">שיתוף</string>
   <string name="menu_text_select_edit_here">לערוך כאן</string>
   <string name="nav_item_nearby">בסביבה</string>
   <string name="nearby_zoom_to_location">להתקרב למקום במפה</string>
@@ -97,8 +110,13 @@
   <string name="nav_item_login">כניסה לחשבון בוויקיפדיה</string>
   <string name="login_username_hint">שם משתמש</string>
   <string name="login_password_hint">סיסמה</string>
+  <string name="account_creation_password_hint">ססמה</string>
   <string name="login_2fa_hint">קוד אימות דו־שלבי</string>
   <string name="login_2fa_other_workflow_error_msg">נדרש אימות דו־שלבי! נא לחזור לפעילות הראשית ולהיכנס עם קוד האימות הדו־שלבי (2FA) שלך ואז לנסות שוב.</string>
+  <string name="onboarding_card_login">כניסה</string>
+  <string name="page_editing_login">כניסה</string>
+  <string name="reading_lists_sync_login">כניסה</string>
+  <string name="create_account_login">כניסה</string>
   <string name="menu_login">כניסה לחשבון</string>
   <string name="login_activity_title">כניסה לוויקיפדיה</string>
   <string name="login_in_progress_dialog_message">אנחנו מכניסים אותך לחשבון…</string>
@@ -292,7 +310,7 @@
   <string name="page_offline_notice_add_to_reading_list">רמז: הוסף את הערך לרשימת הקריאה, והוא יוּרד כששוב יהיה חיבור לרשת.</string>
   <string name="page_offline_notice_last_date">זאת גרסה לקריאה ללא חיבור לרשת של הערך הזה, שנשמרה ב־%s.</string>
   <string name="button_get_directions">לקבל כיוונים</string>
-  <string name="error_no_maps_app">לא מצאתי שום יישום שנותן כיוונים.</string>
+  <string name="error_no_maps_app">לא מצאתי אף יישום שנותן הכוונה.</string>
   <string name="preference_title_show_link_previews">תצוגה מקדימה של קישורים</string>
   <string name="preference_summary_show_link_previews">הצגת תקציר מהיר של ערכים בעת הקשה על קישורים.</string>
   <string name="preference_title_collapse_tables">מזעור טבלאות</string>
@@ -531,9 +549,11 @@
   <string name="view_continue_reading_card_subtitle_today">היום</string>
   <string name="view_continue_reading_card_subtitle_read_date">נקרא %s</string>
   <string name="view_announcement_card_negative_action">לא, תודה</string>
+  <string name="onboarding_negative_action">לא תודה</string>
   <string name="view_offline_card_text">לא ניתן לטעון את התוכן ללא חיבור לרשת.</string>
   <string name="view_featured_article_card_title">ערך מומלץ</string>
   <string name="view_featured_article_footer_save_button_label">שמירה</string>
+  <string name="view_static_card_save_button_label">שמירה</string>
   <string name="view_featured_article_footer_saved_button_label">נשמר</string>
   <string name="edit_tasks_activity_title">משימות לעורכים ביישום</string>
   <string name="feed_configure_activity_title">התאמה אישית של ההזנה</string>
@@ -595,6 +615,7 @@
   <string name="editactionfeed_my_contributions">התרומות שלי</string>
   <string name="editactionfeed_from_language">מ־:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">מידע נוסף</string>
+  <string name="editactionfeed_translate_title_dialog_learn_more">מידע נוסף</string>
   <string name="editactionfeed_to_language">ל־:</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
   <string name="description_edit_revert_intro">אנחנו יודעים שניסית היטב, אבל לאחד מהסוקרים הייתה חשד. סיבות אפשריות לכך שהעריכה שלך שוחזרה:</string>
@@ -626,7 +647,7 @@
   <string name="onboarding_got_it">הבנתי</string>
   <string name="onboarding_multilingual_secondary_text">מצאנו את השפות הבאות במכשיר שלך:</string>
   <string name="onboarding_multilingual_add_language_text">הוספה או עריכה של השפות</string>
-  <string name="onboarding_welcome_title_v2">האנציקלופדיה החופשית\n…כמעט ב־300 שפות</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">האנציקלופדיה החופשית\n…כמעט ב־300 שפות</string>
   <string name="app_shortcuts_random">אקראי</string>
   <string name="app_shortcuts_continue_reading">המשך קריאה</string>
   <string name="app_shortcuts_search">חיפוש</string>
@@ -693,4 +714,11 @@
   <string name="description_edit_tutorial_message">ברוך בואך לבית החדש לעריכה בתוך היישום בוויקיפדיה. כאן אנחנו נתמוך בהזדמנויות להוסיף תוכן שיכולות לעניין אותך. אנחנו נעריך מאוד את התרומות שלך. עריכה שמחה!</string>
   <string name="translation_description_edit_task_unlock_title">עריכת תיאורי כותרת נפתחה!</string>
   <string name="translation_description_edit_task_unlock_body">שמנו לב שכיף לך לערוך תיאורים ולקרוא את ויקיפדיה במספר שפות. שימו לב לרשימת המשימות הזאת, שנותנת גישה לתרגום של עוד תיאורי כותרת!</string>
+  <string name="title_description_editing_skip">דילוג</string>
+  <string name="title_description_get_started">מדריך למתחילים</string>
+  <string name="translate_description_get_started">מדריך למתחילים</string>
+  <string name="edit_tasks_onboarding_get_started">מדריך למתחילים</string>
+  <string name="translate_descriptions_maybe_later">אולי מאוחר יותר</string>
+  <string name="title_descriptions_onboarding_got_it">הבנתי</string>
+  <string name="translate_descriptions_onboarding_got_it">הבנתי</string>
 </resources>

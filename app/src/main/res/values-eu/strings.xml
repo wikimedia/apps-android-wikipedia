@@ -579,7 +579,7 @@
   <string name="onboarding_got_it">Ulertuta</string>
   <string name="onboarding_multilingual_secondary_text">Hurrengoak aurkitu ditugu zure gailuan:</string>
   <string name="onboarding_multilingual_add_language_text">Hizkuntzak gehitu ala aldatu</string>
-  <string name="onboarding_welcome_title_v2">Entziklopedia Askea\n... ia 300 hizkuntzatan</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">Entziklopedia Askea\n... ia 300 hizkuntzatan</string>
   <string name="app_shortcuts_random">Ausazkoa</string>
   <string name="app_shortcuts_continue_reading">Irakurtzen jarraitu</string>
   <string name="app_shortcuts_search">Bilatu</string>

@@ -8,11 +8,16 @@
   <string name="app_name_prod">Vikipēdija</string>
   <string name="app_name_beta">Vikipēdija Beta</string>
   <string name="app_name_alpha">Vikipēdija Alpha</string>
+  <string name="page_tabs_back">Atpakaļ</string>
   <string name="search_hint">Meklēt Vikipēdijā</string>
   <string name="search_hint_search_languages">Meklēt valodu</string>
   <string name="nav_item_history">Vēsture</string>
   <string name="error_network_error">Nevar izveidot savienojumu ar Internetu.</string>
   <string name="page_error_retry">Mēģināt vēlreiz</string>
+  <string name="card_offline_error_retry">Mēģināt vēlreiz</string>
+  <string name="storage_access_error_retry">Mēģināt vēlreiz</string>
+  <string name="article_load_error_retry">Mēģināt vēlreiz</string>
+  <string name="offline_load_error_retry">Mēģināt vēlreiz</string>
   <string name="page_error_back_to_main">Atpakaļ</string>
   <string name="menu_clear_all_history">Notīrīt vēsturi</string>
   <string name="history_item_delete_undo">Atsaukt</string>
@@ -33,6 +38,9 @@
   <string name="menu_long_press_copy_page">Kopēt saites adresi</string>
   <string name="menu_text_select_copy">Kopēt</string>
   <string name="menu_text_select_share">Dalīties</string>
+  <string name="share">Dalīties</string>
+  <string name="on_this_day_page_share">Dalīties</string>
+  <string name="reading_list_page_share">Dalīties</string>
   <string name="menu_text_select_edit_here">Labot šeit</string>
   <string name="nav_item_nearby">Tuvumā</string>
   <string name="last_updated_text">Pēdējo reizi atjaunināts %s</string>
@@ -58,6 +66,7 @@
   <string name="nav_item_login">Pieslēgties Vikipēdijai</string>
   <string name="login_username_hint">Lietotājvārds</string>
   <string name="login_password_hint">Parole</string>
+  <string name="account_creation_password_hint">Parole</string>
   <string name="login_2fa_hint">Divpakāpju autentifikācijas kods</string>
   <string name="menu_login">Pieslēgties</string>
   <string name="login_success_toast">Pieslēgšanās veiksmīga!</string>
@@ -213,7 +222,9 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">šodien</string>
   <string name="view_announcement_card_negative_action">Nē, paldies</string>
+  <string name="onboarding_negative_action">Nē, paldies</string>
   <string name="view_featured_article_footer_save_button_label">Saglabāt</string>
+  <string name="view_static_card_save_button_label">Saglabāt</string>
   <string name="view_featured_article_footer_saved_button_label">Saglabāts</string>
   <string name="feed_configure_menu_select_all">Rādīt visus</string>
   <string name="feed_configure_menu_deselect_all">Paslēpt visus</string>
@@ -232,6 +243,7 @@
   <string name="description_edit_help_about_title">Par</string>
   <string name="description_edit_help_tips_examples">Piemēram:</string>
   <string name="description_edit_help_more_info">Vairāk informācijas</string>
+  <string name="editactionfeed_translate_title_dialog_learn_more">Uzzināt vairāk</string>
   <string name="onboarding_skip">Izlaist</string>
   <string name="onboarding_continue">Turpināt</string>
   <string name="onboarding_got_it">Sapratu</string>
@@ -253,4 +265,8 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Labot valodas</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nē, paldies</string>
   <string name="translation_source_description">%s apraksts:</string>
+  <string name="title_description_editing_skip">Izlaist</string>
+  <string name="translate_descriptions_maybe_later">Varbūt vēlāk</string>
+  <string name="title_descriptions_onboarding_got_it">Sapratu</string>
+  <string name="translate_descriptions_onboarding_got_it">Sapratu</string>
 </resources>

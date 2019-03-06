@@ -3,6 +3,7 @@
 * Abdulq
 * BukhariSaeed
 * Hindustanilanguage
+* Meno25
 * Muhammad Shuaib
 * Obaid Raza
 * Sohaib
@@ -509,7 +510,7 @@
   <string name="onboarding_create_account_preferences">اپنی ترجیحات محفوظ کریں</string>
   <string name="onboarding_multilingual_secondary_text">ہمیں آپ کے آلات پر یہ ملا:</string>
   <string name="onboarding_multilingual_add_language_text">زبانیں شامل یا ان میں ترمیم کریں</string>
-  <string name="onboarding_welcome_title_v2">آزاد دائرۃ المعارف\n…تقریباً 300 زبانوں میں</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">آزاد دائرۃ المعارف\n…تقریباً 300 زبانوں میں</string>
   <string name="app_shortcuts_random">جستہ جستہ</string>
   <string name="app_shortcuts_continue_reading">مطالعہ جاری رکھیں</string>
   <string name="app_shortcuts_search">تلاش</string>

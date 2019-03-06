@@ -632,7 +632,7 @@
   <string name="onboarding_got_it">明白了</string>
   <string name="onboarding_multilingual_secondary_text">我们在您的设备上找到以下语言：</string>
   <string name="onboarding_multilingual_add_language_text">添加或编辑语言</string>
-  <string name="onboarding_welcome_title_v2">自由的百科全书…拥有将近300种语言</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">自由的百科全书…拥有将近300种语言</string>
   <string name="app_shortcuts_random">随机</string>
   <string name="app_shortcuts_continue_reading">继续阅读</string>
   <string name="app_shortcuts_search">搜索</string>

@@ -423,7 +423,7 @@
   <string name="onboarding_create_account_preferences">விருப்பங்களை சேமி</string>
   <string name="onboarding_got_it">புரிந்துகொண்டேன்</string>
   <string name="onboarding_multilingual_secondary_text">உங்கள் சாதனத்தில் பின்வரும் மொழிகளை நாங்கள் கண்டறிந்தோம்:</string>
-  <string name="onboarding_welcome_title_v2">இலவச கலை கலஞ்சியம்\n…ஏறத்தாழ 300 மொழிகளில்</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">இலவச கலை கலஞ்சியம்\n…ஏறத்தாழ 300 மொழிகளில்</string>
   <string name="app_shortcuts_random">ஏதோ ஒன்று</string>
   <string name="app_shortcuts_continue_reading">தொடர்ந்து படிக்கவும்</string>
   <string name="app_shortcuts_search">தேடுக</string>

@@ -596,7 +596,7 @@
   <string name="onboarding_got_it">Razumem</string>
   <string name="onboarding_multilingual_secondary_text">Pronašli smo sledeće na vašem uređaju:</string>
   <string name="onboarding_multilingual_add_language_text">Dodaj ili uredi jezike</string>
-  <string name="onboarding_welcome_title_v2">Slobodna enciklopedija\nna gotovo 300 jezika</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">Slobodna enciklopedija\nna gotovo 300 jezika</string>
   <string name="app_shortcuts_random">Slučajni</string>
   <string name="app_shortcuts_continue_reading">Nastavi čitanje</string>
   <string name="app_shortcuts_search">Pretraži</string>

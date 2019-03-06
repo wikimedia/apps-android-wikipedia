@@ -632,7 +632,7 @@
   <string name="onboarding_got_it">Anladım</string>
   <string name="onboarding_multilingual_secondary_text">Cihazınızda aşağıdakilerini bulduk:</string>
   <string name="onboarding_multilingual_add_language_text">Dil ekle veya düzenle</string>
-  <string name="onboarding_welcome_title_v2">Özgür Ansiklopedi\n...yaklaşık 300 dilde</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">Özgür Ansiklopedi\n...yaklaşık 300 dilde</string>
   <string name="app_shortcuts_random">Rastgele</string>
   <string name="app_shortcuts_continue_reading">Okumaya devam et</string>
   <string name="app_shortcuts_search">Arama</string>

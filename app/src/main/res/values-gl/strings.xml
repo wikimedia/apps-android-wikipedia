@@ -620,7 +620,7 @@
   <string name="onboarding_got_it">Entendido</string>
   <string name="onboarding_multilingual_secondary_text">Atopamos o seguinte no seu dispositivoː</string>
   <string name="onboarding_multilingual_add_language_text">Engadir ou editar linguas</string>
-  <string name="onboarding_welcome_title_v2">A enciclopedia libre…\n… en casi 300 linguas</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">A enciclopedia libre…\n… en casi 300 linguas</string>
   <string name="app_shortcuts_random">Ao chou</string>
   <string name="app_shortcuts_continue_reading">Continuar lendo</string>
   <string name="app_shortcuts_search">Procurar</string>
