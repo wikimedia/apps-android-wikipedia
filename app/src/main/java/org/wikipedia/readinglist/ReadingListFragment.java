@@ -82,6 +82,7 @@ import io.reactivex.schedulers.Schedulers;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static org.wikipedia.readinglist.ReadingListActivity.EXTRA_READING_LIST_ID;
+import static org.wikipedia.readinglist.ReadingListsFragment.ARTICLE_ITEM_IMAGE_DIMENSION;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 import static org.wikipedia.views.CircularProgressBar.MAX_PROGRESS;
 
@@ -599,6 +600,18 @@ public class ReadingListFragment extends Fragment implements
             getView().setSecondaryActionHint(R.string.reading_list_article_make_offline);
             getView().setSearchQuery(currentSearchQuery);
             PageAvailableOfflineHandler.INSTANCE.check(page, available -> getView().setViewsGreyedOut(!available));
+
+            if (!TextUtils.isEmpty(currentSearchQuery)) {
+                getView().setTitleMaxLines(2);
+                getView().setTitleEllipsis();
+                getView().setDescriptionMaxLines(2);
+                getView().setDescriptionEllipsis();
+                getView().setListItemImageDimensions(DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION), DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION));
+                getView().setUpChipGroup(ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page));
+            } else {
+                getView().hideChipGroup();
+            }
+
         }
 
         @Override

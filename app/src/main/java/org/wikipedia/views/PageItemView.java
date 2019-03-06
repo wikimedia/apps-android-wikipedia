@@ -177,6 +177,11 @@ public class PageItemView<T> extends ConstraintLayout {
         }
     }
 
+    public void hideChipGroup() {
+        chipsScrollView.setVisibility(GONE);
+    }
+
+
     @Override
     protected float getLeftFadingEdgeStrength() {
         return 1.0f;
