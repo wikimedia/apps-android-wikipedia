@@ -615,7 +615,6 @@ public class ReadingListFragment extends Fragment implements
                 getView().setTitleEllipsis();
                 getView().setDescriptionMaxLines(2);
                 getView().setDescriptionEllipsis();
-                getView().setListItemImageDimensions(DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION), DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION));
                 getView().setUpChipGroup(ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page));
             } else {
                 getView().hideChipGroup();
