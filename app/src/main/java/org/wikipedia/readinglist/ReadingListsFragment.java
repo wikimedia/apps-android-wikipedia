@@ -444,7 +444,7 @@ public class ReadingListsFragment extends Fragment implements
             getView().setDescriptionMaxLines(2);
             getView().setDescriptionEllipsis();
             getView().setImageUrl(page.thumbUrl());
-            getView().setListItemImageDimensions(DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION), DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION));
+            getView().setListItemImageDimensions(getImageDimension(), getImageDimension());
             getView().setSelected(page.selected());
             getView().setActionIcon(R.drawable.ic_more_vert_white_24dp);
             getView().setActionTint(R.attr.secondary_text_color);
@@ -457,6 +457,11 @@ public class ReadingListsFragment extends Fragment implements
             getView().setSearchQuery(currentSearchQuery);
             getView().setUpChipGroup(ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page));
             PageAvailableOfflineHandler.INSTANCE.check(page, available -> getView().setViewsGreyedOut(!available));
+        }
+
+        private int getImageDimension() {
+            return DimenUtil.roundedDpToPx(TextUtils.isEmpty(currentSearchQuery)
+                    ? DimenUtil.getDimension(R.dimen.view_list_card_item_image) : ARTICLE_ITEM_IMAGE_DIMENSION);
         }
     }
 
