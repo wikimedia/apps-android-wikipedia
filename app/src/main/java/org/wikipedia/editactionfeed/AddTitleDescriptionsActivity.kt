@@ -7,8 +7,7 @@ import android.support.v4.app.NavUtils
 import android.support.v7.app.AlertDialog
 import android.view.Menu
 import android.view.MenuItem
-import org.wikipedia.Constants.ACTION_DESCRIPTION_EDIT_UNLOCK_THRESHOLD
-import org.wikipedia.Constants.InvokeSource
+import org.wikipedia.Constants.*
 import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC
 import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC
 import org.wikipedia.R
@@ -90,7 +89,7 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
         }
 
         fun maybeShowTranslationEdit(context: Context) {
-            if (WikipediaApp.getInstance().language().appLanguageCodes.size < 2 || Prefs.getTotalUserDescriptionsEdited() < 2 || !Prefs.showEditActionTranslateDescriptionsUnlockedDialog()) {
+            if (WikipediaApp.getInstance().language().appLanguageCodes.size < MULTILUNGUAL_LANGUAGES_COUNT_MINIMUM || Prefs.getTotalUserDescriptionsEdited() <= ACTION_DESCRIPTION_EDIT_UNLOCK_THRESHOLD || !Prefs.showEditActionTranslateDescriptionsUnlockedDialog()) {
                 return
             }
             Prefs.setShowEditActionTranslateDescriptionsUnlockedDialog(false)

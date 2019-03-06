@@ -38,6 +38,7 @@ import butterknife.Unbinder;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
 import static org.wikipedia.Constants.InvokeSource;
 import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC;
+import static org.wikipedia.Constants.MULTILUNGUAL_LANGUAGES_COUNT_MINIMUM;
 
 public class EditTasksFragment extends Fragment {
     private Unbinder unbinder;
@@ -144,7 +145,7 @@ public class EditTasksFragment extends Fragment {
             }
         });
 
-        if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() == 1) {
+        if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() < MULTILUNGUAL_LANGUAGES_COUNT_MINIMUM) {
             EditTask multilingualTask = new EditTask();
             multilingualTask.setTitle(getString(R.string.multilingual_task_title));
             multilingualTask.setDescription(getString(R.string.multilingual_task_description));
@@ -181,7 +182,7 @@ public class EditTasksFragment extends Fragment {
             });
         }
 
-        if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() > 1) {
+        if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= MULTILUNGUAL_LANGUAGES_COUNT_MINIMUM) {
             EditTask multilingualTask = new EditTask();
             multilingualTask.setTitle(getString(R.string.translation_task_title));
             multilingualTask.setDescription(getString(R.string.translation_task_description));
