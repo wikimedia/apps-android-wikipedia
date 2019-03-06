@@ -29,7 +29,7 @@ public abstract class SearchActionModeCallback implements ActionMode.Callback {
 
             @Override
             public void onQueryTextFocusChange() {
-                if(finishActionModeIfKeyboardHiding()) {
+                if (finishActionModeIfKeyboardHiding()) {
                     mode.finish();
                 }
             }
