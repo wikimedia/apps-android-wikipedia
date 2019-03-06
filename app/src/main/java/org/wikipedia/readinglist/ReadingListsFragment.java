@@ -1,6 +1,7 @@
 package org.wikipedia.readinglist;
 
 import android.animation.LayoutTransition;
+import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -689,6 +690,11 @@ public class ReadingListsFragment extends Fragment implements
         @Override
         protected boolean finishActionModeIfKeyboardHiding() {
             return true;
+        }
+
+        @Override
+        protected Context getParentContext() {
+            return requireContext();
         }
     }
 

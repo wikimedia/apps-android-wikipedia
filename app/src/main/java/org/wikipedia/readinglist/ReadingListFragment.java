@@ -1,5 +1,6 @@
 package org.wikipedia.readinglist;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
@@ -860,6 +861,11 @@ public class ReadingListFragment extends Fragment implements
         @Override
         protected boolean finishActionModeIfKeyboardHiding() {
             return true;
+        }
+
+        @Override
+        protected Context getParentContext() {
+            return requireContext();
         }
     }
 
