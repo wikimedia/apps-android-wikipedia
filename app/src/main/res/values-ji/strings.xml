@@ -13,8 +13,6 @@
   <string name="nav_item_forward">ווײַטער</string>
   <string name="search_hint">זוכן וויקיפעדיע</string>
   <string name="search_hint_search_history">זוך־היסטאריע</string>
-  <string name="search_hint_search_my_lists">זוכן מיינע ליסטעס</string>
-  <string name="search_hint_search_reading_list">זוכן ליין־ליסטע</string>
   <string name="search_hint_search_languages">זוכן א שפראך</string>
   <string name="nav_item_history">היסטאריע</string>
   <string name="error_network_error">מין קען נישט פארבינדן מיט דער אינטערנעץ.א.</string>

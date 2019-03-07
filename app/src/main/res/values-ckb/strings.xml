@@ -13,8 +13,6 @@
   <string name="wikimedia">ویکیمیدیا</string>
   <string name="search_hint">گەڕان بە ویکیپیدیا</string>
   <string name="search_hint_search_history">گەڕان بە مێژوو</string>
-  <string name="search_hint_search_my_lists">گەڕان لە پێڕستەکانم</string>
-  <string name="search_hint_search_reading_list">گەڕان لە پێڕستی خوێندنەوە</string>
   <string name="search_hint_search_languages">گەڕان بەدوای زمانێکدا</string>
   <string name="nav_item_history">مێژوو</string>
   <string name="error_network_error">ناتوانرێت ئینتەرنێت بھێندرێت.</string>

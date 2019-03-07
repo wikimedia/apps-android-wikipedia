@@ -11,8 +11,6 @@
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Guetar na Wikipedia</string>
   <string name="search_hint_search_history">Guetar nel historial</string>
-  <string name="search_hint_search_my_lists">Guetar nes mios llistes</string>
-  <string name="search_hint_search_reading_list">Guetar na llista de llectura</string>
   <string name="search_hint_search_languages">Buscar una llingua</string>
   <string name="nav_item_history">Historial</string>
   <string name="error_network_error">Nun pudo conectase a Internet.</string>
