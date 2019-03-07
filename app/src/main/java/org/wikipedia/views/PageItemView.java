@@ -158,6 +158,7 @@ public class PageItemView<T> extends ConstraintLayout {
 
     public void setUpChipGroup(List<ReadingList> readingLists) {
         chipsScrollView.setVisibility(VISIBLE);
+        chipsScrollView.setFadingEdgeLength(0);
         readingListsChipGroup.removeAllViews();
         for (ReadingList readingList : readingLists) {
             Chip chip = new Chip(readingListsChipGroup.getContext());
@@ -166,6 +167,7 @@ public class PageItemView<T> extends ConstraintLayout {
             }
             chip.setText(readingList.title());
             chip.setClickable(true);
+            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(getContext(), android.R.attr.windowBackground));
             chip.setOnClickListener(v -> {
                 if (callback != null) {
                     callback.onListChipClick(readingList);
@@ -173,6 +175,10 @@ public class PageItemView<T> extends ConstraintLayout {
             });
             readingListsChipGroup.addView(chip);
         }
+    }
+
+    public void hideChipGroup() {
+        chipsScrollView.setVisibility(GONE);
     }
 
     public void setSearchQuery(@Nullable String searchQuery) {
@@ -214,8 +220,6 @@ public class PageItemView<T> extends ConstraintLayout {
     private void init() {
         inflate(getContext(), R.layout.item_page_list_entry, this);
         ButterKnife.bind(this);
-        setClipChildren(false);
-        setClipToPadding(false);
 
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         final int topBottomPadding = 16;
