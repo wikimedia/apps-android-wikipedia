@@ -15,6 +15,8 @@ import org.wikipedia.util.DeviceUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static org.wikipedia.util.ResourceUtil.getThemedColor;
+
 public class SearchActionProvider extends ActionProvider {
 
     public interface Callback {
@@ -22,7 +24,7 @@ public class SearchActionProvider extends ActionProvider {
         void onQueryTextFocusChange();
     }
 
-    @BindView(R.id.search_input) SearchView searchView;
+    @BindView(R.id.search_input) CabSearchView searchView;
 
     private Context context;
     private String searchHintString;
@@ -51,6 +53,7 @@ public class SearchActionProvider extends ActionProvider {
         searchView.setInputType(EditorInfo.TYPE_CLASS_TEXT);
         searchView.setSubmitButtonEnabled(false);
         searchView.setQueryHint(searchHintString);
+        searchView.setSearchHintTextThemedColor(getThemedColor(getContext(), R.attr.material_theme_de_emphasised_color));
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {

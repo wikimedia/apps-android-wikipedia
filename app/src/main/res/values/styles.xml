@@ -199,10 +199,6 @@
         <item name="android:textColorHint">?attr/page_toolbar_icon_color</item>
     </style>
 
-    <style name="FindInPageSearchViewStyle" parent="@style/Widget.AppCompat.SearchView">
-        <item name="android:textSize">16sp</item>
-    </style>
-
     <style name="ListView" parent="@style/Widget.AppCompat.ListView">
         <item name="android:divider">@null</item>
         <item name="android:dividerHeight">0dp</item>
@@ -364,9 +360,9 @@
         <item name="android:layout_width">28dp</item>
         <item name="android:layout_height">28dp</item>
         <item name="android:contentDescription">@null</item>
-        <item name="placeholderImage">?attr/chart_shade5</item>
-        <item name="failureImage">?attr/chart_shade5</item>
-        <item name="backgroundImage">?attr/chart_shade5</item>
+        <item name="placeholderImage">?attr/material_theme_border_color</item>
+        <item name="failureImage">?attr/material_theme_border_color</item>
+        <item name="backgroundImage">?attr/material_theme_border_color</item>
         <item name="roundedCornerRadius">2dp</item>
         <item name="roundTopLeft">false</item>
         <item name="roundTopRight">false</item>
