@@ -24,8 +24,6 @@
   <string name="nav_item_forward">সামনে যান</string>
   <string name="search_hint">উইকিপিডিয়া অনুসন্ধান</string>
   <string name="search_hint_search_history">ইতিহাস অনুসন্ধান করুন</string>
-  <string name="search_hint_search_my_lists">আমার তালিকায় অনুসন্ধান করুন</string>
-  <string name="search_hint_search_reading_list">পড়ার তালিকায় অনুসন্ধান করুন</string>
   <string name="search_hint_search_languages">একটি ভাষার জন্য অনুসন্ধান করুন</string>
   <string name="nav_item_history">ইতিহাস</string>
   <string name="error_network_error">ইন্টারনেটের সাথে সংযোগ করা যাবে না।</string>

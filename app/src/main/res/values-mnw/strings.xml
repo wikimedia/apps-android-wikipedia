@@ -13,8 +13,6 @@
   <string name="nav_item_forward">ဂတ</string>
   <string name="search_hint">ဂၠာဲ ပ္ဍဲ ဝဳကဳပဳဒဳယာ</string>
   <string name="search_hint_search_history">ဂၠာဲ ပ္ဍဲ ဒၞာဲမဗှ်လဝ်တုဲ</string>
-  <string name="search_hint_search_my_lists">ဂၠာဲ ပ္ဍဲ စရင် အဲ</string>
-  <string name="search_hint_search_reading_list">ဂၠာဲ ပ္ဍဲ စရင် လိက်ဗွဟ်</string>
   <string name="search_hint_search_languages">ဂၠာဲ သွက် အရေဝ်ဘာသာ မွဲ</string>
   <string name="nav_item_history">အရာမဗှ်လဝ်တုဲ</string>
   <string name="error_network_error">ဆက် ကဵု အေန်တာနေတ် ဟွံဂွံ</string>
@@ -641,8 +639,8 @@
   <string name="main_drawer_close">ကၟာတ်</string>
   <string name="main_drawer_help">ရီု</string>
   <string name="main_drawer_login">လုပ်ဇၟိက်/ ပါလုပ် ဝဳကဳပဳဒဳယာ</string>
-  <string name="title_description_task_title">စုတ် က္ဍိုပ်လိက် ပရူပရာ</string>
-  <string name="title_description_task_description">တြးပ္တိတ် လိက်ပရေင် မဟွံမဲ ကုက္ဍိုပ်လိက်</string>
+  <string name="title_description_task_title" fuzzy="true">စုတ် က္ဍိုပ်လိက် ပရူပရာ</string>
+  <string name="title_description_task_description" fuzzy="true">တြးပ္တိတ် လိက်ပရေင် မဟွံမဲ ကုက္ဍိုပ်လိက်</string>
   <string name="image_caption_task_title">ပရူ ဗီုရုပ်</string>
   <string name="image_caption_task_description">စုတ် ပရူပရာ ပ္ဍဲ ဗီုရုပ်</string>
   <string name="multilingual_task_title">ထပ်စုတ် မဒါန်ပလေဝ် ဘာသာနာနာ</string>

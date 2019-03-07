@@ -12,8 +12,6 @@
   <string name="nav_item_forward">Dale</string>
   <string name="search_hint">Wikipediju přepytać</string>
   <string name="search_hint_search_history">Pytanska historija</string>
-  <string name="search_hint_search_my_lists">Moje lisćiny přepytać</string>
-  <string name="search_hint_search_reading_list">Čitansku lisćinu přepytać</string>
   <string name="search_hint_search_languages">Za rěču pytać</string>
   <string name="nav_item_history">Historija</string>
   <string name="error_network_error">Njenamakam zwisk z internetom.</string>

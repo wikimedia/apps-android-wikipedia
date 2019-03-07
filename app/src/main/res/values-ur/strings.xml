@@ -23,8 +23,6 @@
   <string name="nav_item_forward">آگے</string>
   <string name="search_hint">ویکیپیڈیا میں تلاش کریں</string>
   <string name="search_hint_search_history">تاریخچہ میں تلاش کریں</string>
-  <string name="search_hint_search_my_lists">میری فہرستوں میں تلاش کریں</string>
-  <string name="search_hint_search_reading_list">فہرست مطالعہ میں تلاش کریں</string>
   <string name="search_hint_search_languages">زبان تلاش کریں</string>
   <string name="nav_item_history">تاریخچہ</string>
   <string name="error_network_error">انٹرنیٹ سے رابطہ نہیں ہو سکا۔</string>

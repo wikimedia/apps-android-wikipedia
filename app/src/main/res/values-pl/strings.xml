@@ -36,8 +36,6 @@
   <string name="nav_item_forward">Dalej</string>
   <string name="search_hint">Szukaj w Wikipedii</string>
   <string name="search_hint_search_history">Historia wyszukiwania</string>
-  <string name="search_hint_search_my_lists">Przeszukaj moje listy</string>
-  <string name="search_hint_search_reading_list">Przeszukaj listę do przeczytania</string>
   <string name="search_hint_search_languages">Szukaj języka</string>
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Nie można połączyć z internetem.</string>
@@ -606,6 +604,6 @@
   <string name="main_drawer_close">Zamknij</string>
   <string name="main_drawer_help">Pomoc</string>
   <string name="main_drawer_login">Zaloguj się / dołącz do Wikipedii</string>
-  <string name="title_description_task_title">Dodaj opisy tytułów</string>
+  <string name="title_description_task_title" fuzzy="true">Dodaj opisy tytułów</string>
   <string name="multilingual_task_positive">Dodaj języki</string>
 </resources>

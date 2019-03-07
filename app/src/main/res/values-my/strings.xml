@@ -20,8 +20,6 @@
   <string name="nav_item_forward">ရှေ့ပြန်သွားရန်</string>
   <string name="search_hint">ဝီကီပီးဒီးယားထဲတွင် ရှာဖွေပါ</string>
   <string name="search_hint_search_history">ရှာဖွေမှု သမိုင်း</string>
-  <string name="search_hint_search_my_lists">မိမိ၏ စောင့်ကြည့်စာရင်းအား ရှာဖွေပါ</string>
-  <string name="search_hint_search_reading_list">ဖတ်ရှုစာရင်းအား ရှာဖွေပါ</string>
   <string name="search_hint_search_languages">ဘာသာစကားတစ်ခုအတွက် ရှာဖွေရန်</string>
   <string name="nav_item_history">မှတ်တမ်း</string>
   <string name="error_network_error">အင်တာနက်သို့ ချိတ်ဆက်နိုင်ခြင်း မရှိပါ။</string>
@@ -638,8 +636,8 @@
   <string name="main_drawer_close">ပိတ်ရန်</string>
   <string name="main_drawer_help">အကူအညီ</string>
   <string name="main_drawer_login">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် / ပါဝင်ရန်</string>
-  <string name="title_description_task_title">ခေါင်းစဉ်ဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
-  <string name="title_description_task_description">ခေါင်းစဉ်ဖော်ပြချက်မပါဘဲ ဆောင်းပါးများတွင် ပံ့ပိုးမည်</string>
+  <string name="title_description_task_title" fuzzy="true">ခေါင်းစဉ်ဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
+  <string name="title_description_task_description" fuzzy="true">ခေါင်းစဉ်ဖော်ပြချက်မပါဘဲ ဆောင်းပါးများတွင် ပံ့ပိုးမည်</string>
   <string name="multilingual_task_negative">မိမိအတွက် မဟုတ်ပါ</string>
   <string name="multilingual_task_positive">ဘာသာစကားများ ထည့်သွင်းရန်</string>
   <string name="translation_source_description">%s ဖော်ပြချက်:</string>

@@ -609,6 +609,17 @@ public class ReadingListFragment extends Fragment implements
             getView().setSearchQuery(currentSearchQuery);
             getView().setListItemImageDimensions(getImageDimension(), getImageDimension());
             PageAvailableOfflineHandler.INSTANCE.check(page, available -> getView().setViewsGreyedOut(!available));
+
+            if (!TextUtils.isEmpty(currentSearchQuery)) {
+                getView().setTitleMaxLines(2);
+                getView().setTitleEllipsis();
+                getView().setDescriptionMaxLines(2);
+                getView().setDescriptionEllipsis();
+                getView().setUpChipGroup(ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page));
+            } else {
+                getView().hideChipGroup();
+            }
+
         }
 
         @Override

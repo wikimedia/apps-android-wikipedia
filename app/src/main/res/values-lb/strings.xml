@@ -14,8 +14,6 @@
   <string name="nav_item_forward">Virun</string>
   <string name="search_hint">Op Wikipedia sichen</string>
   <string name="search_hint_search_history">Am Historique sichen</string>
-  <string name="search_hint_search_my_lists">A menge Lëschte sichen</string>
-  <string name="search_hint_search_reading_list">Lieslëscht duerchsichen</string>
   <string name="search_hint_search_languages">No enger Sprooch sichen</string>
   <string name="nav_item_history">Versiounen</string>
   <string name="error_network_error">Kann net mam Internet verbannen.</string>
@@ -29,6 +27,7 @@
   <string name="history_item_deleted">%s aus der Lëscht vun de Versioune geläscht</string>
   <string name="history_items_deleted">%d Artikelen aus dem Verlaf vum Browser erausgeholl</string>
   <string name="history_item_delete_undo">Réckgängeg maachen</string>
+  <string name="notification_archive_undo">Réckgängeg maachen</string>
   <string name="dialog_title_clear_history">Historique vum  Browse läschen</string>
   <string name="dialog_message_clear_history">Dëst läscht Äre kompletten Historique a mécht all Tabs déi elo op sinn zou. Sidd Dir sécher?</string>
   <string name="dialog_message_clear_history_yes">Jo</string>
@@ -95,6 +94,7 @@
   <string name="login_2fa_hint">Code fir Authentifikatioun mat zwee Elementer</string>
   <string name="page_editing_login">Aloggen</string>
   <string name="reading_lists_sync_login">Aloggen</string>
+  <string name="create_account_login">Aloggen</string>
   <string name="menu_login">Aloggen</string>
   <string name="login_activity_title">Op Wikipedia aloggen</string>
   <string name="login_in_progress_dialog_message">Dir gitt ageloggt…</string>
@@ -563,6 +563,8 @@
   <string name="main_drawer_open">Opmaachen</string>
   <string name="main_drawer_close">Zoumaachen</string>
   <string name="main_drawer_help">Hëllef</string>
+  <string name="title_description_task_title">Beschreiwungen derbäisetzen</string>
+  <string name="translation_task_title">Beschreiwungen iwwersetzen</string>
   <string name="multilingual_task_negative">Net fir mech</string>
   <string name="multilingual_task_positive">Sproochen derbäisetzen</string>
   <string name="translation_source_description">%s Beschreiwung:</string>
@@ -571,5 +573,6 @@
   <string name="translate_description_get_started">Fir unzefänken</string>
   <string name="edit_tasks_onboarding_get_started">Fir unzefänken</string>
   <string name="translate_descriptions_maybe_later">Vläicht méi spéit</string>
+  <string name="title_descriptions_onboarding_got_it">Verstan</string>
   <string name="translate_descriptions_onboarding_got_it">Verstan</string>
 </resources>

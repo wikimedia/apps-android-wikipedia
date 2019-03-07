@@ -17,8 +17,6 @@
   <string name="nav_item_forward">Инники</string>
   <string name="search_hint">Бикипиэдьийэттэн булуу</string>
   <string name="search_hint_search_history">Көрдөөһүн сурунаала</string>
-  <string name="search_hint_search_my_lists">Мин испииһэктэрбиттэн көрдөөһүн</string>
-  <string name="search_hint_search_reading_list">Аҕыы тиһилигэр көрдөө</string>
   <string name="search_hint_search_languages">Тылы көрдөөһүн</string>
   <string name="nav_item_history">Устуоруйата</string>
   <string name="error_network_error">Интэриниэти кытта ситим суох.</string>
@@ -505,7 +503,7 @@
   <string name="view_featured_article_card_title">Бастыҥ ыстатыйа</string>
   <string name="view_featured_article_footer_save_button_label">Бигэргэт</string>
   <string name="view_featured_article_footer_saved_button_label">Бигэргэннэ</string>
-  <string name="edit_tasks_activity_title">Сорудахтар</string>
+  <string name="edit_tasks_activity_title" fuzzy="true">Сорудахтар</string>
   <string name="feed_configure_activity_title">Лиэнтэни нарылаа</string>
   <string name="feed_configure_menu_reset">Анаан этиллибэтэҕинэ турар сиидэлэри сөргүтүү</string>
   <string name="feed_configure_menu_select_all">Барытын көрдөр</string>
@@ -628,21 +626,21 @@
   <string name="main_drawer_close">Сап</string>
   <string name="main_drawer_help">Көмө</string>
   <string name="main_drawer_login">Бикипиэдьийэҕэ киирии / бэлиэтэнии</string>
-  <string name="title_description_task_title">Кылгас быһаарыы эбии</string>
-  <string name="title_description_task_description">Кылгас быһаарыылары суруйууга кыттарга</string>
+  <string name="title_description_task_title" fuzzy="true">Кылгас быһаарыы эбии</string>
+  <string name="title_description_task_description" fuzzy="true">Кылгас быһаарыылары суруйууга кыттарга</string>
   <string name="image_caption_task_title">Ойуу суруга</string>
   <string name="image_caption_task_description">Ойууга сурук эбии</string>
   <string name="multilingual_task_title">Элбэх тылы билэр дьоҥҥо соруктар</string>
   <string name="multilingual_task_description">Тылбаастыырга сорудах Бикипиэдьийэҕэ соҕотох тылтан элбэҕинэн ааҕар эбэтэр суруйар буоллаххына көстүөҕэ.</string>
-  <string name="translation_task_title">Кылгас быһаарыы тылбааһа</string>
-  <string name="translation_task_description">Быһаарыы суругун атын тылларга тылбааһа.</string>
+  <string name="translation_task_title" fuzzy="true">Кылгас быһаарыы тылбааһа</string>
+  <string name="translation_task_description" fuzzy="true">Быһаарыы суругун атын тылларга тылбааһа.</string>
   <string name="multilingual_task_negative">Миэхэ буолбатах</string>
   <string name="multilingual_task_positive">Тылы эбии</string>
   <string name="editing_level_text">%d таһымнаах уус</string>
   <string name="translation_source_description">%s быһаарыыта:</string>
   <string name="translate_caption_task_title">Ойуу суругун тылбааһа</string>
   <string name="translate_caption_task_description">Ойуу суругун атын тылларга тылбааһа</string>
-  <plurals name="edit_action_contribution_count">
+  <plurals name="edit_action_contribution_count" fuzzy="true">
     <item quantity="one">уларытыы</item>
     <item quantity="other">уларытыылар</item>
   </plurals>
@@ -650,5 +648,5 @@
   <string name="add_title_descriptions_dialog_message">Ыстатыйа аатын анныгар ыстатыйа туһунан кылгастык суруйан Бикипиэдьийэни тупсарыаххын сөп. Тылларын хаһан баҕарар туруорууларгар нарылыаххын сөп.</string>
   <string name="add_translate_descriptions_dialog_title">Быһаарыыны саҥа оҥорон эрэҕин</string>
   <string name="add_translate_descriptions_dialog_message">Ыстатыйа аатын анныгар ыстатыйа туһунан кылгастык суруйан Бикипиэдьийэни тупсарыаххын сөп. Тылларын хаһан баҕарар туруорууларгар нарылыаххын сөп.</string>
-  <string name="description_edit_tutorial_message">Бикипиэдьийэни уларытар саҥа дьибилгэккэ киирдиҥ. Манна саҥаны эбэр кыахтаныаҥ, онтон астыныаҥ дии саныыбыт. Эн суруйууҥ наһаа туһалаах! Үөрэ-көтө суруй.</string>
+  <string name="description_edit_tutorial_message" fuzzy="true">Бикипиэдьийэни уларытар саҥа дьибилгэккэ киирдиҥ. Манна саҥаны эбэр кыахтаныаҥ, онтон астыныаҥ дии саныыбыт. Эн суруйууҥ наһаа туһалаах! Үөрэ-көтө суруй.</string>
 </resources>
