@@ -37,8 +37,6 @@
   <string name="nav_item_forward">İleri</string>
   <string name="search_hint">Vikipedi\'de Ara</string>
   <string name="search_hint_search_history">Arama geçmişi</string>
-  <string name="search_hint_search_my_lists">Listelerimde ara</string>
-  <string name="search_hint_search_reading_list">Okuma listesinde ara</string>
   <string name="search_hint_search_languages">Bu dilde ara</string>
   <string name="nav_item_history">Geçmiş</string>
   <string name="error_network_error">İnternete bağlanılamıyor.</string>
@@ -545,7 +543,7 @@
   <string name="view_featured_article_card_title">Seçkin madde</string>
   <string name="view_featured_article_footer_save_button_label">Kaydet</string>
   <string name="view_featured_article_footer_saved_button_label">Kaydedildi</string>
-  <string name="edit_tasks_activity_title">Uygulama düzenleyici görevleri</string>
+  <string name="edit_tasks_activity_title" fuzzy="true">Uygulama düzenleyici görevleri</string>
   <string name="feed_configure_activity_title">Beslemeyi özelleştir</string>
   <string name="feed_configure_menu_reset">Varsayılan görünümü geri yükle</string>
   <string name="feed_configure_menu_select_all">Hepsini göster</string>
@@ -672,8 +670,8 @@
   <string name="main_drawer_close">Kapat</string>
   <string name="main_drawer_help">Yardım</string>
   <string name="main_drawer_login">Vikipedi\'ye giriş yapın / kaydolun</string>
-  <string name="title_description_task_title">Başlık tanımı ekle</string>
-  <string name="title_description_task_description">Başlık tanımı olmayan sayfalara katkı yap</string>
+  <string name="title_description_task_title" fuzzy="true">Başlık tanımı ekle</string>
+  <string name="title_description_task_description" fuzzy="true">Başlık tanımı olmayan sayfalara katkı yap</string>
   <string name="multilingual_task_description">Eğer birden fazla Vikipedi dilinde okuyup yazabiliyorsanız, çeviri görevleri size göredir.</string>
   <string name="multilingual_task_negative">Bana göre değil</string>
   <string name="multilingual_task_positive">Dil ekle</string>

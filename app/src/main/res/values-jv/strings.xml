@@ -12,8 +12,6 @@
   <string name="nav_item_forward">Maju</string>
   <string name="search_hint">Golèk ing Wikipédia</string>
   <string name="search_hint_search_history">Golèk ing sajarah</string>
-  <string name="search_hint_search_my_lists">Golèk ing pratélanku</string>
-  <string name="search_hint_search_reading_list">Golèk ing pratélan wacan</string>
   <string name="search_hint_search_languages">Golèk basa</string>
   <string name="nav_item_history">Sajarah</string>
   <string name="error_network_error">Ora nggayut Internèt.</string>

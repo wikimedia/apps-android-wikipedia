@@ -14,8 +14,6 @@
   <string name="wikimedia">ვიკიმედია</string>
   <string name="search_hint">ძიება ვიკიპედიაზე</string>
   <string name="search_hint_search_history">ისტორიის ძებნა</string>
-  <string name="search_hint_search_my_lists">ჩემი სიების ძებნა</string>
-  <string name="search_hint_search_reading_list">საკითხავი სიების ძებნა</string>
   <string name="nav_item_history">ისტორია</string>
   <string name="error_network_error">ინტერნეტთან დაკავშირება ვერ ხერხდება.</string>
   <string name="page_error_retry">გამეორება</string>

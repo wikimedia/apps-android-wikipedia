@@ -35,8 +35,6 @@
   <string name="nav_item_forward">Volgende</string>
   <string name="search_hint">In Wikipedia zoeken</string>
   <string name="search_hint_search_history">Zoekgeschiedenis</string>
-  <string name="search_hint_search_my_lists">In mijn lijsten zoeken</string>
-  <string name="search_hint_search_reading_list">In leeslijsten zoeken</string>
   <string name="search_hint_search_languages">Zoeken naar een taal</string>
   <string name="nav_item_history">Geschiedenis</string>
   <string name="error_network_error">Er is geen verbinding met het internet.</string>
@@ -46,7 +44,7 @@
   <string name="article_load_error_retry">Opnieuw proberen</string>
   <string name="offline_load_error_retry">Opnieuw proberen</string>
   <string name="page_error_back_to_main">Terug</string>
-  <string name="error_back">Terug gaan</string>
+  <string name="error_back">Terug</string>
   <string name="menu_clear_all_history">Geschiedenis wissen</string>
   <string name="history_item_deleted">%s verwijderd uit geheugen</string>
   <string name="history_items_deleted">%d pagina\'s uit geschiedenis verwijderd</string>
@@ -567,7 +565,7 @@
   <string name="view_featured_article_footer_save_button_label">Opslaan</string>
   <string name="view_static_card_save_button_label">Opslaan</string>
   <string name="view_featured_article_footer_saved_button_label">Opgeslagen</string>
-  <string name="edit_tasks_activity_title">App-bewerkertaken</string>
+  <string name="edit_tasks_activity_title" fuzzy="true">App-bewerkertaken</string>
   <string name="feed_configure_activity_title">Overzicht bewerken</string>
   <string name="feed_configure_menu_reset">Standaardoverzicht terugzetten</string>
   <string name="feed_configure_menu_select_all">Alles weergeven</string>
@@ -624,7 +622,7 @@
   <string name="editactionfeed_my_contributions">Mijn bijdragen</string>
   <string name="editactionfeed_from_language">Van:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">meer lezen</string>
-  <string name="editactionfeed_translate_title_dialog_learn_more">Meer lezen</string>
+  <string name="editactionfeed_translate_title_dialog_learn_more">Meer informatie</string>
   <string name="editactionfeed_to_language">Naar:</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
   <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan hebt, maar een van de beoordelaars zag een punt van zorg. Mogelijke redenen waarom uw bewerking is teruggedraaid, zijn:</string>
@@ -696,19 +694,19 @@
   <string name="main_drawer_close">Sluiten</string>
   <string name="main_drawer_help">Hulp</string>
   <string name="main_drawer_login">Log in / aanmelden bij Wikipedia</string>
-  <string name="title_description_task_title">Titelbeschrijving toevoegen</string>
-  <string name="title_description_task_description">Bijdragen aan artikels zonder titelbeschrijvingen</string>
+  <string name="title_description_task_title" fuzzy="true">Titelbeschrijving toevoegen</string>
+  <string name="title_description_task_description" fuzzy="true">Bijdragen aan artikels zonder titelbeschrijvingen</string>
   <string name="image_caption_task_description">Voeg titels toe aan plaatjes</string>
   <string name="multilingual_task_title">Meer taken voor meertalige bewerkers</string>
   <string name="multilingual_task_description">Vertalingstaken zijn beschikbaar wanneer u kunt lezen en schrijven in meer dan een Wikipedia taal.</string>
-  <string name="translation_task_title">Titelbeschrijvingen vertalen</string>
+  <string name="translation_task_title" fuzzy="true">Titelbeschrijvingen vertalen</string>
   <string name="multilingual_task_negative">Niet voor mij</string>
   <string name="multilingual_task_positive">Talen toevoegen</string>
   <string name="editing_level_text">NIVEAU %d appbewerker</string>
   <string name="translation_source_description">%s beschrijving:</string>
   <string name="translate_caption_task_title">Afbeeldingsbijschriften vertalen</string>
   <string name="translate_caption_task_description">Onderschriften vertalen in andere talen</string>
-  <plurals name="edit_action_contribution_count">
+  <plurals name="edit_action_contribution_count" fuzzy="true">
     <item quantity="one">in-app contribution</item>
     <item quantity="other">bijdragen in app</item>
   </plurals>

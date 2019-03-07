@@ -11,8 +11,6 @@
   <string name="wikimedia">Wikimédia</string>
   <string name="search_hint">Paluruh Wikipédia</string>
   <string name="search_hint_search_history">Jujut pamaluruhan</string>
-  <string name="search_hint_search_my_lists">Paluruh daptar kuring</string>
-  <string name="search_hint_search_reading_list">Paluruh daptar bacaan</string>
   <string name="search_hint_search_languages">Sungsi basa</string>
   <string name="nav_item_history">Jujutan</string>
   <string name="error_network_error">Teu bisa nyambungkeun kana internét</string>

@@ -13,8 +13,6 @@
   <string name="nav_item_forward">ទៅមុខ</string>
   <string name="search_hint">ស្វែងរកនៅក្នុងវិគីភីឌា</string>
   <string name="search_hint_search_history">ស្វែងរកប្រវត្តិ</string>
-  <string name="search_hint_search_my_lists">ស្វែងរកក្នុងបញ្ជីខ្ញុំ</string>
-  <string name="search_hint_search_reading_list">ស្វែងរកក្នុងបញ្ជីអំណាន</string>
   <string name="search_hint_search_languages">ស្វែងរកភាសា</string>
   <string name="nav_item_history">ប្រវត្តិ</string>
   <string name="error_network_error">មិនអាចភ្ជាប់អ៊ីនធើណិតបានទេ។</string>
