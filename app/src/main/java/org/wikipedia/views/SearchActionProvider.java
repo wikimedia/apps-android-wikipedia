@@ -53,7 +53,7 @@ public class SearchActionProvider extends ActionProvider {
         searchView.setInputType(EditorInfo.TYPE_CLASS_TEXT);
         searchView.setSubmitButtonEnabled(false);
         searchView.setQueryHint(searchHintString);
-        searchView.setSearchHintTextThemedColor(getThemedColor(getContext(), R.attr.material_theme_de_emphasised_color));
+        searchView.setSearchHintTextColor(getThemedColor(getContext(), R.attr.material_theme_de_emphasised_color));
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {

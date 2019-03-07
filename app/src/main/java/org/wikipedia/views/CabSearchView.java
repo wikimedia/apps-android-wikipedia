@@ -56,7 +56,7 @@ public class CabSearchView extends SearchView {
         textView.setFilters(newFilters);
     }
 
-    public void setSearchHintTextThemedColor(int color) {
+    public void setSearchHintTextColor(int color) {
         searchSrcTextView.setHintTextColor(color);
     }
 
