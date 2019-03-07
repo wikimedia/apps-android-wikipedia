@@ -105,7 +105,8 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
         searchEmptyView.setEmptyText(R.string.search_history_no_results);
 
-        ItemTouchHelper.Callback touchCallback = new SwipeableItemTouchHelperCallback(requireContext());
+        SwipeableItemTouchHelperCallback touchCallback = new SwipeableItemTouchHelperCallback(requireContext());
+        touchCallback.setSwipeableEnabled(true);
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(touchCallback);
         itemTouchHelper.attachToRecyclerView(historyList);
 
