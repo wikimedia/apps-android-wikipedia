@@ -121,6 +121,11 @@
                         android:textSize="14sp" />
                 </LinearLayout>
 
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="1dp"
+                    android:background="?attr/chart_shade5"/>
+
                 <TextView
                     android:id="@+id/viewArticleExtract"
                     android:layout_width="match_parent"
