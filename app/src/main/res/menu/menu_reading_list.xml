@@ -4,7 +4,7 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menu_search_lists"
         android:icon="@drawable/ic_search_white_24dp"
-        android:title="@string/search_hint"
+        android:title="@string/search_hint_search_my_lists_and_articles"
         app:showAsAction="ifRoom" />
     <item android:id="@+id/menu_sort_options"
           android:icon="@drawable/ic_sort_white_24dp"

@@ -78,6 +78,10 @@ public class FindInPageActionProvider extends ActionProvider {
         this.listener = listener;
     }
 
+    public void setSearchViewQuery(@NonNull String searchQuery) {
+        searchView.setQuery(searchQuery, true);
+    }
+
     public void setMatchesResults(int activeMatchOrdinal, int numberOfMatches) {
         if (numberOfMatches > 0) {
             findInPageMatch.setText(context.getString(R.string.find_in_page_result,

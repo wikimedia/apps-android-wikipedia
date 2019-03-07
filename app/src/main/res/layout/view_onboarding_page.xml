@@ -53,13 +53,10 @@
 
                 <org.wikipedia.views.AppTextView
                     android:id="@+id/view_onboarding_page_secondary_text"
-                    style="@style/TextViewCentered"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:gravity="center"
                     android:lineSpacingMultiplier="1.22"
-                    android:textAlignment="center"
                     android:textColor="?attr/material_theme_secondary_color"
                     android:textColorLink="?attr/colorAccent"
                     android:textSize="16sp"
@@ -105,10 +102,8 @@
 
                 <TextView
                     android:id="@+id/view_onboarding_page_tertiary_text"
-                    style="@style/TextViewCentered"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center|bottom"
                     android:layout_marginBottom="16dp"
                     android:layout_marginTop="40dp"
                     android:text="@string/description_edit_tutorial_promise"

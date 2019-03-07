@@ -100,8 +100,7 @@ public class ReadingListBookmarkMenu {
         if (isListsContainingPageEmpty()) {
             return;
         }
-        new RemoveFromReadingListsDialog(listsContainingPage).deleteOrShowDialog(context,
-                page -> {
+        new RemoveFromReadingListsDialog(listsContainingPage).deleteOrShowDialog(context, (lists, page) -> {
                     if (callback != null) {
                         callback.onDeleted(page);
                     }

@@ -56,7 +56,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 269
+        versionCode 270
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
         vectorDrawables.useSupportLibrary = true
@@ -90,7 +90,7 @@ android {
     buildTypes {
         debug {
             minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro', 'proguard-rules-debug.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             testProguardFile 'test-proguard-rules.pro'
         }
         release {
@@ -280,7 +280,7 @@ private setSigningConfigKey(config, Properties props) {
         config.storePassword = System.getenv("keystore_password")
         config.keyAlias = System.getenv("keystore_alias")
         config.keyPassword = System.getenv("keystore_alias_password")
-    } else {
+    } else if(props != null) {
         config.storeFile = props['keystore'] == null ? null : file(props['keystore'])
         config.storePassword = props['store.pass']
         config.keyAlias = props['key.alias']
