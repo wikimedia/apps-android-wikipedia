@@ -112,7 +112,7 @@ class AddTitleDescriptionsFragment : Fragment() {
             }
         }
 
-        arrows.setOnClickListener {
+        arrow.setOnClickListener {
             val pos = languageList.indexOf(languageToList[wikiToLanguageSpinner.selectedItemPosition])
             val prevFromLang = languageList[wikiFromLanguageSpinner.selectedItemPosition]
             wikiFromLanguageSpinner.setSelection(pos)
@@ -231,11 +231,11 @@ class AddTitleDescriptionsFragment : Fragment() {
 
         if (source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
             fromLabel.visibility = GONE
-            arrows.visibility = VISIBLE
+            arrow.visibility = VISIBLE
             wikiToLanguageSpinner.visibility = VISIBLE
         } else {
             fromLabel.visibility = VISIBLE
-            arrows.visibility = GONE
+            arrow.visibility = GONE
             wikiToLanguageSpinner.visibility = GONE
         }
     }
