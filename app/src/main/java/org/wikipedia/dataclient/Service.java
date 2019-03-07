@@ -291,14 +291,14 @@ public interface Service {
                                        @Nullable @Field("captchaword") String captchaWord);
 
     @GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts")
-    @NonNull Call<MwQueryResponse> getEditorTaskCounts();
+    @NonNull Observable<MwQueryResponse> getEditorTaskCounts();
 
-    @GET(MW_API_PREFIX + "action=query&generator=wikimediaeditortaskssuggestions&gwetstask=missingdescriptions&gwetslimit=10")
-    @NonNull Call<MwQueryResponse> getEditorTaskMissingDescriptions(@NonNull @Field("gwetstarget") String targetLanguage);
+    @GET(MW_API_PREFIX + "action=query&generator=wikimediaeditortaskssuggestions&prop=pageprops&gwetstask=missingdescriptions&gwetslimit=3")
+    @NonNull Observable<MwQueryResponse> getEditorTaskMissingDescriptions(@NonNull @Field("gwetstarget") String targetLanguage);
 
-    @GET(MW_API_PREFIX + "action=query&generator=wikimediaeditortaskssuggestions&gwetstask=descriptiontranslations&gwetslimit=10")
-    @NonNull Call<MwQueryResponse> getEditorTaskTranslatableDescriptions(@NonNull @Field("gwetssource") String sourceLanguage,
-                                                                         @NonNull @Field("gwetstarget") String targetLanguage);
+    @GET(MW_API_PREFIX + "action=query&generator=wikimediaeditortaskssuggestions&prop=pageprops&gwetstask=descriptiontranslations&gwetslimit=3")
+    @NonNull Observable<MwQueryResponse> getEditorTaskTranslatableDescriptions(@NonNull @Field("gwetssource") String sourceLanguage,
+                                                                               @NonNull @Field("gwetstarget") String targetLanguage);
 
 
     // ------- Wikidata -------
