@@ -28,7 +28,6 @@ import org.wikipedia.analytics.RandomizerFunnel
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
-import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditHelpActivity
 import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.EXTRA_SOURCE
 import org.wikipedia.history.HistoryEntry
@@ -103,14 +102,7 @@ class AddTitleDescriptionsFragment : Fragment() {
             updateFromLanguageSpinner()
         }
 
-        skipButton.setOnClickListener { nextPage() }
 
-        addDescriptionButton.setOnClickListener {
-            if (topTitle != null) {
-                startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, true, source, sourceDescription),
-                        ACTIVITY_REQUEST_DESCRIPTION_EDIT)
-            }
-        }
 
         arrow.setOnClickListener {
             val pos = languageList.indexOf(languageToList[wikiToLanguageSpinner.selectedItemPosition])

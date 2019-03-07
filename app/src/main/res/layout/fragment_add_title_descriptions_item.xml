@@ -87,16 +87,50 @@
                     android:textSize="12sp"
                     tools:text="Lorem ipsum" />
 
+                <LinearLayout
+                    android:id="@+id/addDescriptionContainer"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/arrow"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/shape_circle"
+                        android:backgroundTint="?attr/colorAccent"
+                        android:clickable="true"
+                        android:contentDescription="@null"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:padding="2dp"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/ic_add_gray_themed_24dp"
+                        app:tint="@android:color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.01"
+                        android:lineSpacingExtra="6sp"
+                        android:text="Add German translation"
+                        android:textColor="?attr/colorAccent"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
                 <TextView
                     android:id="@+id/viewArticleExtract"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="16dp"
-                    android:maxLines="3"
+                    android:layout_weight="1"
                     android:ellipsize="end"
                     android:lineSpacingMultiplier="1.4"
+                    android:maxLines="3"
                     android:textColor="?attr/primary_text_color"
                     tools:text="Lorem ipsum"/>
 

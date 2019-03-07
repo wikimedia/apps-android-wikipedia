@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.TextUtils
-import android.text.style.BackgroundColorSpan
 import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
@@ -16,12 +15,15 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_add_title_descriptions_item.*
 import org.apache.commons.lang3.StringUtils
+import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
+import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.editactionfeed.provider.MissingDescriptionProvider
+import org.wikipedia.page.PageTitle
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -65,6 +67,16 @@ class AddTitleDescriptionsItemFragment : Fragment() {
                 parent().onSelectPage(title!!)
             }
         }
+        addDescriptionContainer.setOnClickListener {
+            if (title != null) {
+                startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), titleFromPageName(title), null, true, InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC, sourceDescription),
+                        Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT)
+            }
+        }
+    }
+
+    private fun titleFromPageName(pageName: String?): PageTitle {
+        return PageTitle(pageName, WikiSite.forLanguageCode(parent().langToCode))
     }
 
     override fun onDestroy() {
@@ -118,9 +130,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
         viewArticleTitle.text = summary!!.normalizedTitle
 
         if (parent().source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
-            val spannableDescription = SpannableString(sourceDescription)
-            spannableDescription.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.text_highlight_color)), 0, sourceDescription.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-            viewArticleSubtitle.text = TextUtils.concat(String.format(getString(R.string.translation_source_description), app.language().getAppLanguageCanonicalName(parent().langFromCode)), spannableDescription)
+            viewArticleSubtitle.text = sourceDescription
         }
         viewArticleExtract.text = StringUtil.fromHtml(summary!!.extractHtml)
         viewArticleImage.loadImage(if (TextUtils.isEmpty(summary!!.thumbnailUrl)) null else Uri.parse(summary!!.thumbnailUrl))
