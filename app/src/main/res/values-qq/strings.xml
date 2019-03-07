@@ -584,6 +584,8 @@
   <string name="feed_configure_onboarding_text">Onboarding text that describes the new functionality of customizing the Explore feed.</string>
   <string name="description_edit_text_hint">Hint text that is shown when the description field is empty.</string>
   <string name="description_edit_save">Hint for the button that is pressed for saving the new description.\n{{Identical|Publish}}</string>
+  <string name="description_edit_article">Label that prompts the user that the summary of the article shows under the label.</string>
+  <string name="description_edit_read">Label that prompts the user to click and open a preview dialog of the article.</string>
   <string name="description_edit_add_description">Label that prompts the user to add a description to an article that does not yet have one.</string>
   <string name="description_edit_edit_description">Label that prompts the user to edit the description of an article that already has one.</string>
   <string name="description_edit_cancel_hint">Hint for button that cancels editing of the current description.\n{{Identical|Cancel}}</string>

@@ -79,12 +79,11 @@
         app:layout_constraintBottom_toTopOf="@id/bottomButtonContainer"
         app:layout_constraintTop_toBottomOf="@id/wikiLanguageDropdownContainer" />
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/bottomButtonContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <ImageView
@@ -97,15 +96,17 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:tint="?attr/page_toolbar_icon_color"
             android:contentDescription="@null"
+            android:layout_marginEnd="32dp"
             android:visibility="gone"
-            app:srcCompat="@drawable/ic_replay_black_24dp"/>
+            app:srcCompat="@drawable/ic_replay_black_24dp"
+            app:layout_constraintRight_toLeftOf="@+id/randomNextButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/randomNextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:contentDescription="@string/view_next_random_article"
@@ -113,7 +114,11 @@
             app:backgroundTint="?attr/page_toolbar_color"
             app:borderWidth="0dp"
             app:elevation="4dp"
-            app:srcCompat="@drawable/animated_dice"/>
+            app:srcCompat="@drawable/animated_dice"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <ImageView
             android:id="@+id/goNextButton"
@@ -126,9 +131,13 @@
             android:tint="?attr/page_toolbar_icon_color"
             android:contentDescription="@null"
             android:scaleX="-1"
+            android:layout_marginStart="32dp"
             android:visibility="gone"
-            app:srcCompat="@drawable/ic_replay_black_24dp"/>
+            app:srcCompat="@drawable/ic_replay_black_24dp"
+            app:layout_constraintLeft_toRightOf="@+id/randomNextButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
-    </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

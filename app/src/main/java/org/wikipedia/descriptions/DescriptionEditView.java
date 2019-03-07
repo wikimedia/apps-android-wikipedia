@@ -1,7 +1,6 @@
 package org.wikipedia.descriptions;
 
 import android.content.Context;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
@@ -22,8 +21,8 @@ import org.wikipedia.R;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
-import org.wikipedia.views.FaceAndColorDetectImageView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,14 +35,13 @@ import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 public class DescriptionEditView extends LinearLayout {
     @BindView(R.id.view_description_edit_header) TextView headerText;
     @BindView(R.id.view_description_edit_page_title) TextView pageTitleText;
-    @BindView(R.id.view_description_edit_save_button) View saveButton;
+    @BindView(R.id.view_description_edit_save_button) ImageView saveButton;
     @BindView(R.id.view_description_edit_cancel_button) ImageView cancelButton;
     @BindView(R.id.view_description_edit_help_button) View helpButton;
     @BindView(R.id.view_description_edit_text) EditText pageDescriptionText;
     @BindView(R.id.view_description_edit_text_layout) TextInputLayout pageDescriptionLayout;
     @BindView(R.id.view_description_edit_progress_bar) ProgressBar progressBar;
     @BindView(R.id.view_description_edit_page_summary_container) ViewGroup pageSummaryContainer;
-    @BindView(R.id.view_description_edit_page_image) FaceAndColorDetectImageView pageImage;
     @BindView(R.id.view_description_edit_page_summary) TextView pageSummaryText;
     @BindView(R.id.view_description_edit_container) ViewGroup descriptionEditContainer;
     @BindView(R.id.view_description_edit_review_container) DescriptionEditReviewView pageReviewContainer;
@@ -86,6 +84,17 @@ public class DescriptionEditView extends LinearLayout {
         setReviewHeaderText(false);
     }
 
+    public void editTaskEnabled(boolean enabled) {
+        if (enabled) {
+            pageTitleText.setVisibility(View.GONE);
+            saveButton.setColorFilter(ResourceUtil.getThemedColor(getContext(), R.attr.themed_icon_color), android.graphics.PorterDuff.Mode.SRC_IN);
+            cancelButton.setImageResource(R.drawable.ic_arrow_back_themed_24dp);
+        } else {
+            cancelButton.setImageResource(R.drawable.ic_close_main_themed_24dp);
+        }
+
+    }
+
     private void setReviewHeaderText(boolean inReview) {
         int headerTextRes = inReview ? R.string.editactionfeed_review_title_description
                 : TextUtils.isEmpty(originalDescription)
@@ -96,8 +105,6 @@ public class DescriptionEditView extends LinearLayout {
 
     public void setPageSummary(@NonNull PageSummary pageSummary) {
         pageSummaryContainer.setVisibility(View.VISIBLE);
-        pageImage.loadImage(TextUtils.isEmpty(pageSummary.getThumbnailUrl()) ? null
-                : Uri.parse(pageSummary.getThumbnailUrl()));
         pageSummaryText.setText(isTranslationEdit ? translationSourceLanguageDescription : StringUtil.fromHtml(pageSummary.getExtractHtml()));
         this.pageSummary = pageSummary;
     }
@@ -116,13 +123,11 @@ public class DescriptionEditView extends LinearLayout {
             setReviewHeaderText(true);
             pageReviewContainer.setPageSummary(pageSummary, getDescription());
             pageReviewContainer.show();
-            cancelButton.setImageResource(R.drawable.ic_arrow_back_themed_24dp);
             descriptionEditContainer.setVisibility(GONE);
             hideSoftKeyboard(pageReviewContainer);
         } else {
             setReviewHeaderText(false);
             pageReviewContainer.hide();
-            cancelButton.setImageResource(R.drawable.ic_close_main_themed_24dp);
             descriptionEditContainer.setVisibility(VISIBLE);
         }
     }

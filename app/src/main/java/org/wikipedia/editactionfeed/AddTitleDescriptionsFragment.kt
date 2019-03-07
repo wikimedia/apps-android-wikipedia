@@ -2,6 +2,7 @@ package org.wikipedia.editactionfeed
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
+import android.graphics.drawable.Animatable
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentStatePagerAdapter
@@ -28,10 +29,9 @@ import org.wikipedia.analytics.RandomizerFunnel
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
+import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditHelpActivity
 import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.EXTRA_SOURCE
-import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.AnimationUtil
@@ -102,14 +102,14 @@ class AddTitleDescriptionsFragment : Fragment() {
             updateFromLanguageSpinner()
         }
 
-//        skipButton.setOnClickListener { nextPage() }
-//
-//        addDescriptionButton.setOnClickListener {
-//            if (topTitle != null) {
-//                startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, true, source, sourceDescription),
-//                        Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT)
-//            }
-//        }
+        goPrevButton.setOnClickListener { previousPage() }
+        randomNextButton.setOnClickListener {
+            if (randomNextButton.drawable is Animatable) {
+                (randomNextButton.drawable as Animatable).start()
+            }
+            randomPage()
+        }
+        goNextButton.setOnClickListener { nextPage() }
 
         arrows.setOnClickListener {
             val pos = languageList.indexOf(languageToList[wikiToLanguageSpinner.selectedItemPosition])
@@ -143,7 +143,15 @@ class AddTitleDescriptionsFragment : Fragment() {
         }
     }
 
+    private fun previousPage() {
+        // TODO: confirm with design
+    }
+
     private fun nextPage() {
+        // TODO: confirm with design
+    }
+
+    private fun randomPage() {
         viewPagerListener.setNextPageSelectedAutomatic()
         addTitleDescriptionsItemPager.setCurrentItem(addTitleDescriptionsItemPager.currentItem + 1, true)
     }
@@ -152,10 +160,11 @@ class AddTitleDescriptionsFragment : Fragment() {
         return PageTitle(pageName, WikiSite.forLanguageCode(if (source == InvokeSource.EDIT_FEED_TITLE_DESC) langFromCode else langToCode))
     }
 
-    fun onSelectPage(pageName: String) {
-        val title = titleFromPageName(pageName)
-        startActivity(PageActivity.newIntentForNewTab(requireActivity(),
-                HistoryEntry(title, HistoryEntry.SOURCE_RANDOM), title))
+    fun onSelectPage() {
+        if (topTitle != null) {
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, true, source, sourceDescription),
+                    ACTIVITY_REQUEST_DESCRIPTION_EDIT)
+        }
     }
 
     private fun showOnboarding() {
@@ -193,7 +202,6 @@ class AddTitleDescriptionsFragment : Fragment() {
                 .doFinally { updateFromLanguageSpinner() }
                 .subscribe({
                     for (code in app.language().appLanguageCodes) {
-                        // TODO: confirm: do we have to show the "WIKIPEDIA" text after the language name?
                         languageList.add(getLanguageLocalName(code))
                     }
                 }, { L.e(it) }))

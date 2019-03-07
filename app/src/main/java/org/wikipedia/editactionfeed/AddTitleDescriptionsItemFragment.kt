@@ -63,9 +63,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
         }
 
         viewArticleContainer.setOnClickListener {
-            if (title != null) {
-                parent().onSelectPage(title!!)
-            }
+            parent().onSelectPage()
         }
     }
 

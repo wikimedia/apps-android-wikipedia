@@ -598,6 +598,8 @@
     <!-- Description editing -->
     <string name="description_edit_text_hint">Title description</string>
     <string name="description_edit_save">Publish</string>
+    <string name="description_edit_article">Article</string>
+    <string name="description_edit_read">Read</string>
     <string name="description_edit_add_description">Add title description</string>
     <string name="description_edit_edit_description">Edit description</string>
     <string name="description_edit_cancel_hint">Cancel</string>
