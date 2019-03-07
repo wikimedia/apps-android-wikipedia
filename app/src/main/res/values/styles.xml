@@ -341,7 +341,7 @@
         <item name="failureImage">@drawable/ic_image_gray_24dp</item>
         <item name="failureImageScaleType">fitCenter</item>
         <item name="fadeDuration">0</item>
-        <item name="backgroundImage">@color/base80</item>
+        <item name="backgroundImage">?attr/paper_color</item>
     </style>
 
     <style name="SimpleDraweeViewPlaceholder.Article">
