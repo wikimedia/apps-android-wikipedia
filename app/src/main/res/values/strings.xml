@@ -600,6 +600,7 @@
     <string name="description_edit_save">Publish</string>
     <string name="description_edit_add_description">Add title description</string>
     <string name="description_edit_edit_description">Edit description</string>
+    <string name="add_translation">Add %s translation</string>
     <string name="description_edit_cancel_hint">Cancel</string>
     <string name="description_edit_help_title">Help: title descriptions</string>
     <string name="description_edit_help_about_wikidata">About Wikidata</string>

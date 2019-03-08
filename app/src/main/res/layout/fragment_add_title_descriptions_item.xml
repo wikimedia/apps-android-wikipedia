@@ -109,13 +109,13 @@
                         app:tint="@android:color/white" />
 
                     <TextView
+                        android:id="@+id/callToActionText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="6dp"
                         android:fontFamily="sans-serif-medium"
                         android:letterSpacing="0.01"
                         android:lineSpacingExtra="6sp"
-                        android:text="Add German translation"
                         android:textColor="?attr/colorAccent"
                         android:textSize="14sp" />
                 </LinearLayout>

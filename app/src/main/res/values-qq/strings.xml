@@ -731,4 +731,5 @@
   <string name="translate_descriptions_maybe_later">Text on the negative action button for starting translating title descriptions.\n{{Identical|Maybe later}}</string>
   <string name="title_descriptions_onboarding_got_it">Text on the positive action button for starting editing title descriptions.\n{{Identical|Got it}}</string>
   <string name="translate_descriptions_onboarding_got_it">Text on the positive action button for starting translating title descriptions.\n{{Identical|Got it}}</string>
+  <string name="add_translation">Text on the action button for translating title descriptions. %s represents the language into which the description needs to be translated.</string>
 </resources>
