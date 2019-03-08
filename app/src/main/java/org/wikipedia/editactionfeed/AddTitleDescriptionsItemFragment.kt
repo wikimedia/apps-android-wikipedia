@@ -64,11 +64,6 @@ class AddTitleDescriptionsItemFragment : Fragment() {
 
         viewArticleContainer.setOnClickListener {
             if (title != null) {
-                parent().onSelectPage(title!!)
-            }
-        }
-        addDescriptionContainer.setOnClickListener {
-            if (title != null) {
                 startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), titleFromPageName(title), null, true, InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC, sourceDescription),
                         Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT)
             }
@@ -132,8 +127,17 @@ class AddTitleDescriptionsItemFragment : Fragment() {
         if (parent().source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
             viewArticleSubtitle.text = sourceDescription
         }
+
         viewArticleExtract.text = StringUtil.fromHtml(summary!!.extractHtml)
-        viewArticleImage.loadImage(if (TextUtils.isEmpty(summary!!.thumbnailUrl)) null else Uri.parse(summary!!.thumbnailUrl))
+
+        if (TextUtils.isEmpty(summary!!.thumbnailUrl)) {
+            viewArticleImage.visibility = View.GONE
+            viewArticleExtract.maxLines = 10
+        } else {
+            viewArticleImage.visibility = View.VISIBLE
+            viewArticleImage.loadImage(Uri.parse(summary!!.thumbnailUrl))
+            viewArticleExtract.maxLines = 3
+        }
     }
 
     private fun updateSourceDescriptionWithHighlight() {
