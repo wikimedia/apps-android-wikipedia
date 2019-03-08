@@ -81,6 +81,8 @@
         <item name="text_highlight_color">@color/yellow50</item>
         <item name="tab_placeholder_text_color">@color/base80</item>
         <item name="thumbnail_image_placeholder">@drawable/ic_image_gray_light_24dp</item>
+        <item name="chip_background_color">@color/base80</item>
+        <item name="chip_text_color">@color/base20</item>
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base100</item>

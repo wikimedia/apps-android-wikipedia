@@ -167,7 +167,7 @@ public class PageItemView<T> extends ConstraintLayout {
             }
             chip.setText(readingList.title());
             chip.setClickable(true);
-            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(getContext(), android.R.attr.windowBackground));
+            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(getContext(), R.attr.chip_background_color));
             chip.setOnClickListener(v -> {
                 if (callback != null) {
                     callback.onListChipClick(readingList);

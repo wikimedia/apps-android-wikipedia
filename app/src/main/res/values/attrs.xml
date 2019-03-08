@@ -51,8 +51,10 @@
     <attr name="button_background_color" format="color" />
     <attr name="text_highlight_color" format="color" />
     <attr name="tab_placeholder_text_color" format="color" />
+    <attr name="chip_background_color" format="color"/>
+    <attr name="chip_text_color" format="color"/>
 
-    <declare-styleable name="AutoFitRecyclerView">
+<declare-styleable name="AutoFitRecyclerView">
         <attr name="minColumnWidth" format="dimension" />
     </declare-styleable>
 
