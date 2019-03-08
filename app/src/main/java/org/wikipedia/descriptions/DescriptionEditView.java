@@ -10,7 +10,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -18,11 +17,13 @@ import android.widget.TextView;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.views.PlainPasteEditText;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,16 +39,19 @@ public class DescriptionEditView extends LinearLayout {
     @BindView(R.id.view_description_edit_save_button) ImageView saveButton;
     @BindView(R.id.view_description_edit_cancel_button) ImageView cancelButton;
     @BindView(R.id.view_description_edit_help_button) View helpButton;
-    @BindView(R.id.view_description_edit_text) EditText pageDescriptionText;
+    @BindView(R.id.view_description_edit_text) PlainPasteEditText pageDescriptionText;
     @BindView(R.id.view_description_edit_text_layout) TextInputLayout pageDescriptionLayout;
     @BindView(R.id.view_description_edit_progress_bar) ProgressBar progressBar;
     @BindView(R.id.view_description_edit_page_summary_container) ViewGroup pageSummaryContainer;
     @BindView(R.id.view_description_edit_page_summary) TextView pageSummaryText;
     @BindView(R.id.view_description_edit_container) ViewGroup descriptionEditContainer;
     @BindView(R.id.view_description_edit_review_container) DescriptionEditReviewView pageReviewContainer;
+    @BindView(R.id.view_description_edit_license_container) DescriptionEditLicenseView licenseContainer;
+    @BindView(R.id.view_description_edit_read_article_bar_container) DescriptionEditReadArticleBarView readArticleBarContainer;
 
     @Nullable private String originalDescription;
     @Nullable private Callback callback;
+    private PageTitle pageTitle;
     private PageSummary pageSummary;
     private boolean isTranslationEdit;
     private CharSequence translationSourceLanguageDescription;
@@ -56,6 +60,7 @@ public class DescriptionEditView extends LinearLayout {
         void onSaveClick();
         void onHelpClick();
         void onCancelClick();
+        void onReadArticleClick();
     }
 
     public DescriptionEditView(Context context) {
@@ -78,6 +83,7 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     public void setPageTitle(@NonNull PageTitle pageTitle) {
+        this.pageTitle = pageTitle;
         setTitle(pageTitle.getDisplayText());
         originalDescription = pageTitle.getDescription();
         setDescription(originalDescription);
@@ -87,12 +93,18 @@ public class DescriptionEditView extends LinearLayout {
     public void editTaskEnabled(boolean enabled) {
         if (enabled) {
             pageTitleText.setVisibility(View.GONE);
+            licenseContainer.setVisibility(GONE);
             saveButton.setColorFilter(ResourceUtil.getThemedColor(getContext(), R.attr.themed_icon_color), android.graphics.PorterDuff.Mode.SRC_IN);
             cancelButton.setImageResource(R.drawable.ic_arrow_back_themed_24dp);
+            setHintText();
         } else {
             cancelButton.setImageResource(R.drawable.ic_close_main_themed_24dp);
         }
+    }
 
+    private void setHintText() {
+        pageDescriptionLayout.setHint(String.format(getContext().getString(R.string.description_edit_text_hint_per_language),
+                WikipediaApp.getInstance().language().getAppLanguageCanonicalName(pageTitle.getWikiSite().languageCode())));
     }
 
     private void setReviewHeaderText(boolean inReview) {
@@ -106,6 +118,7 @@ public class DescriptionEditView extends LinearLayout {
     public void setPageSummary(@NonNull PageSummary pageSummary) {
         pageSummaryContainer.setVisibility(View.VISIBLE);
         pageSummaryText.setText(isTranslationEdit ? translationSourceLanguageDescription : StringUtil.fromHtml(pageSummary.getExtractHtml()));
+        readArticleBarContainer.setPageSummary(pageSummary, view -> performReadArticleClick());
         this.pageSummary = pageSummary;
     }
 
@@ -123,21 +136,19 @@ public class DescriptionEditView extends LinearLayout {
             setReviewHeaderText(true);
             pageReviewContainer.setPageSummary(pageSummary, getDescription());
             pageReviewContainer.show();
+            readArticleBarContainer.hide();
             descriptionEditContainer.setVisibility(GONE);
             hideSoftKeyboard(pageReviewContainer);
         } else {
             setReviewHeaderText(false);
             pageReviewContainer.hide();
+            readArticleBarContainer.show();
             descriptionEditContainer.setVisibility(VISIBLE);
         }
     }
 
     public boolean showingReviewContent() {
         return pageReviewContainer.isShowing();
-    }
-
-    public ViewGroup getPageSummaryContainer() {
-        return pageSummaryContainer;
     }
 
     @NonNull public String getDescription() {
@@ -163,6 +174,16 @@ public class DescriptionEditView extends LinearLayout {
     @OnClick(R.id.view_description_edit_cancel_button) void onCancelClick() {
         if (callback != null) {
             callback.onCancelClick();
+        }
+    }
+
+    @OnClick(R.id.view_description_edit_page_summary_container) void onReadArticleClick() {
+        performReadArticleClick();
+    }
+
+    private void performReadArticleClick() {
+        if (callback != null && pageSummary != null) {
+            callback.onReadArticleClick();
         }
     }
 
@@ -221,7 +242,7 @@ public class DescriptionEditView extends LinearLayout {
         saveButton.setAlpha(enabled ? 1f : disabledAlpha);
     }
 
-    private void showProgressBar(boolean show) {
+    public void showProgressBar(boolean show) {
         progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 

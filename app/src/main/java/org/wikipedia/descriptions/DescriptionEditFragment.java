@@ -131,6 +131,7 @@ public class DescriptionEditFragment extends Fragment {
         editView.setCallback(new EditViewCallback());
         editView.editTaskEnabled(reviewEnabled);
         if (reviewEnabled) {
+            editView.showProgressBar(true);
             loadPageSummary(savedInstanceState);
         }
 
@@ -174,13 +175,9 @@ public class DescriptionEditFragment extends Fragment {
                 .summary(pageTitle.getWikiSite(), pageTitle.getPrefixedText(), null)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doFinally(() -> editView.showProgressBar(false))
                 .subscribe(summary -> {
                     editView.setPageSummary(summary);
-                    editView.getPageSummaryContainer().setOnClickListener(view -> {
-                        if (callback() != null) {
-                            callback().onPageSummaryContainerClicked(pageTitle);
-                        }
-                    });
                     if (savedInstanceState != null) {
                         editView.loadReviewContent(savedInstanceState.getBoolean(ARG_REVIEWING));
                     }
@@ -322,6 +319,11 @@ public class DescriptionEditFragment extends Fragment {
             } else {
                 finish();
             }
+        }
+
+        @Override
+        public void onReadArticleClick() {
+            callback().onPageSummaryContainerClicked(pageTitle);
         }
     }
 }

@@ -597,6 +597,7 @@
 
     <!-- Description editing -->
     <string name="description_edit_text_hint">Title description</string>
+    <string name="description_edit_text_hint_per_language">%s description</string>
     <string name="description_edit_save">Publish</string>
     <string name="description_edit_article">Article</string>
     <string name="description_edit_read">Read</string>

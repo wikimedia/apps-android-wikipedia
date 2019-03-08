@@ -102,14 +102,14 @@ class AddTitleDescriptionsFragment : Fragment() {
             updateFromLanguageSpinner()
         }
 
-        goPrevButton.setOnClickListener { previousPage() }
-        randomNextButton.setOnClickListener {
-            if (randomNextButton.drawable is Animatable) {
-                (randomNextButton.drawable as Animatable).start()
+        updateBackButton(0)
+        backButton.setOnClickListener { previousPage() }
+        nextButton.setOnClickListener {
+            if (nextButton.drawable is Animatable) {
+                (nextButton.drawable as Animatable).start()
             }
-            randomPage()
+            nextPage()
         }
-        goNextButton.setOnClickListener { nextPage() }
 
         arrows.setOnClickListener {
             val pos = languageList.indexOf(languageToList[wikiToLanguageSpinner.selectedItemPosition])
@@ -144,16 +144,20 @@ class AddTitleDescriptionsFragment : Fragment() {
     }
 
     private fun previousPage() {
-        // TODO: confirm with design
+        viewPagerListener.setNextPageSelectedAutomatic()
+        if (addTitleDescriptionsItemPager.currentItem > 0) {
+            addTitleDescriptionsItemPager.setCurrentItem(addTitleDescriptionsItemPager.currentItem - 1, true)
+        }
     }
 
     private fun nextPage() {
-        // TODO: confirm with design
-    }
-
-    private fun randomPage() {
         viewPagerListener.setNextPageSelectedAutomatic()
         addTitleDescriptionsItemPager.setCurrentItem(addTitleDescriptionsItemPager.currentItem + 1, true)
+    }
+
+    private fun updateBackButton(pagerPosition: Int) {
+        backButton.isClickable = pagerPosition != 0
+        backButton.alpha = if (pagerPosition == 0) 0.31f else 1f
     }
 
     private fun titleFromPageName(pageName: String?): PageTitle {
@@ -319,6 +323,7 @@ class AddTitleDescriptionsFragment : Fragment() {
         override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
         override fun onPageSelected(position: Int) {
+            updateBackButton(position)
             if (!nextPageSelectedAutomatic && funnel != null) {
                 if (position > prevPosition) {
                     funnel!!.swipedForward()

@@ -100,8 +100,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="@dimen/list_item_vertical_padding">
+            android:orientation="vertical">
 
             <org.wikipedia.descriptions.DescriptionEditReviewView
                 android:id="@+id/view_description_edit_review_container"
@@ -109,11 +108,10 @@
                 android:layout_height="match_parent"
                 android:visibility="gone" />
 
-            <LinearLayout
+            <android.support.constraint.ConstraintLayout
                 android:id="@+id/view_description_edit_container"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
                 <LinearLayout
                     android:id="@+id/view_description_edit_page_summary_container"
@@ -123,6 +121,8 @@
                     android:paddingStart="@dimen/list_item_horizontal_padding"
                     android:background="?attr/selectableItemBackground"
                     android:orientation="vertical"
+                    android:paddingTop="@dimen/list_item_vertical_padding"
+                    app:layout_constraintTop_toTopOf="parent"
                     android:visibility="gone">
 
                     <TextView
@@ -156,8 +156,10 @@
                 </LinearLayout>
 
                 <FrameLayout
+                    android:id="@+id/view_description_edit_text_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/view_description_edit_page_summary_container"
                     android:paddingTop="8dp">
 
                     <!-- todo: this class has a lot of ViewGroups. TextInputLayout (a subclass of LinearLayout)
@@ -193,21 +195,31 @@
                         android:padding="12dp"
                         android:layout_gravity="end"
                         android:contentDescription="@string/description_edit_help_title"
-                        app:srcCompat="@drawable/ic_help_black_24dp"
-                        android:tint="@color/base30"
+                        app:srcCompat="@drawable/ic_error_outline_black_24dp"
+                        android:tint="?attr/colorAccent"
                         android:clickable="true"
                         android:background="?attr/selectableItemBackgroundBorderless"/>
 
                 </FrameLayout>
 
                 <org.wikipedia.descriptions.DescriptionEditLicenseView
+                    android:id="@+id/view_description_edit_license_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-                    android:layout_marginBottom="16dp"/>
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintTop_toBottomOf="@+id/view_description_edit_text_container"/>
 
-            </LinearLayout>
+                <org.wikipedia.descriptions.DescriptionEditReadArticleBarView
+                    android:id="@+id/view_description_edit_read_article_bar_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view_description_edit_license_container"
+                    app:layout_constraintVertical_bias="1.0" />
+
+            </android.support.constraint.ConstraintLayout>
 
         </LinearLayout>
 

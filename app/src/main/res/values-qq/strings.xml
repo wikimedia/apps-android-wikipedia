@@ -584,6 +584,7 @@
   <string name="feed_configure_onboarding_action">Button label for onboarding card that introduces the customization of the Explore feed.</string>
   <string name="feed_configure_onboarding_text">Onboarding text that describes the new functionality of customizing the Explore feed.</string>
   <string name="description_edit_text_hint">Hint text that is shown when the description field is empty.</string>
+  <string name="description_edit_text_hint_per_language">Language specified hint text that is shown when the description field is empty. The \"%s\" symbol is replaced with the name of the current selected language.</string>
   <string name="description_edit_save">Hint for the button that is pressed for saving the new description.\n{{Identical|Publish}}</string>
   <string name="description_edit_article">Label that prompts the user that the summary of the article shows under the label.</string>
   <string name="description_edit_read">Label that prompts the user to click and open a preview dialog of the article.</string>
