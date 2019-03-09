@@ -32,9 +32,11 @@ import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditHelpActivity
 import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.EXTRA_SOURCE
+import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.EXTRA_SOURCE_ADDED_DESCRIPTION
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.AnimationUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DialogTitleWithImage
 
@@ -139,6 +141,10 @@ class AddTitleDescriptionsFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
+            topChild?.showAddedDescriptionView(data?.getStringExtra(EXTRA_SOURCE_ADDED_DESCRIPTION))
+            // TODO: use a snackbar with an icon
+            FeedbackUtil.showMessage(this, R.string.description_edit_success_saved_snackbar)
+
             nextPage()
         }
     }
@@ -166,6 +172,8 @@ class AddTitleDescriptionsFragment : Fragment() {
 
     fun onSelectPage() {
         if (topTitle != null) {
+            // TODO: check this
+            val sourceDescription = if (TextUtils.isEmpty(topChild?.addedDescription)) sourceDescription else topChild?.addedDescription
             startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, true, source, sourceDescription),
                     ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
@@ -174,7 +182,8 @@ class AddTitleDescriptionsFragment : Fragment() {
     private fun showOnboarding() {
         if (Prefs.showEditActionAddTitleDescriptionsOnboarding() && source == InvokeSource.EDIT_FEED_TITLE_DESC) {
             AlertDialog.Builder(requireActivity())
-                    .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.add_title_descriptions_dialog_title, R.drawable.ic_dialog_image_title_descriptions, false))
+                    .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.add_title_descriptions_dialog_title,
+                            R.drawable.ic_dialog_image_title_descriptions, false))
                     .setMessage(R.string.add_title_descriptions_dialog_message)
                     .setPositiveButton(R.string.title_descriptions_onboarding_got_it, null)
                     .setNegativeButton(R.string.editactionfeed_add_title_dialog_learn_more) { _, _ ->
@@ -186,7 +195,8 @@ class AddTitleDescriptionsFragment : Fragment() {
 
         if (Prefs.showEditActionTranslateDescriptionsOnboarding() && source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
             AlertDialog.Builder(requireActivity())
-                    .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.add_translate_descriptions_dialog_title, R.drawable.ic_dialog_image_title_descriptions, false))
+                    .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.add_translate_descriptions_dialog_title,
+                            R.drawable.ic_dialog_image_title_descriptions, false))
                     .setMessage(R.string.add_translate_descriptions_dialog_message)
                     .setPositiveButton(R.string.translate_descriptions_onboarding_got_it, null)
                     .setNegativeButton(R.string.editactionfeed_translate_title_dialog_learn_more) { _, _ ->

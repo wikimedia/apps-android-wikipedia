@@ -617,6 +617,7 @@
 
     <!-- Description editing success -->
     <string name="description_edit_success_saved">Description published!</string>
+    <string name="description_edit_success_saved_snackbar">Description published!</string>
     <string name="description_edit_success_encouragement">You just made Wikipedia better for everyone</string>
     <string name="description_edit_success_done">Done</string>
     <string name="description_edit_success_did_you_know">Did you know?</string>

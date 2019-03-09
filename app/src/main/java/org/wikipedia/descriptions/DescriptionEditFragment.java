@@ -42,10 +42,12 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
+import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS;
 import static org.wikipedia.Constants.InvokeSource;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_DISALLOWED;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_WARNING;
+import static org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.EXTRA_SOURCE_ADDED_DESCRIPTION;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class DescriptionEditFragment extends Fragment {
@@ -84,8 +86,14 @@ public class DescriptionEditFragment extends Fragment {
                 return;
             }
             editView.setSaveState(false);
-            startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext()),
-                    ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS);
+            if (!reviewEnabled) {
+                startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext()),
+                        ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS);
+            } else {
+                requireActivity().setResult(RESULT_OK,
+                        new Intent().putExtra(EXTRA_SOURCE_ADDED_DESCRIPTION,editView.getDescription()));
+                finish();
+            }
         }
     };
 

@@ -33,7 +33,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
     private var summary: RbPageSummary? = null
     private val app = WikipediaApp.getInstance()
     private var sourceDescription: String = ""
-
+    var addedDescription: String = ""
     var pagerPosition = -1
 
     val title: String?
@@ -100,6 +100,15 @@ class AddTitleDescriptionsItemFragment : Fragment() {
         super.setUserVisibleHint(isVisibleToUser)
         if (isAdded && isVisibleToUser) {
             updateSourceDescriptionWithHighlight()
+        }
+    }
+
+    fun showAddedDescriptionView(addedDescription: String?) {
+        if (!TextUtils.isEmpty(addedDescription)) {
+            viewArticleSubtitleContainer.visibility = VISIBLE
+            viewAddDescriptionButton.visibility = GONE
+            viewArticleSubtitle.text = addedDescription
+            this.addedDescription = addedDescription!!
         }
     }
 

@@ -65,6 +65,7 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
 
     companion object {
         const val EXTRA_SOURCE = "source"
+        const val EXTRA_SOURCE_ADDED_DESCRIPTION = "addedDescription"
 
         fun newIntent(context: Context, source: InvokeSource): Intent {
             return Intent(context, AddTitleDescriptionsActivity::class.java)

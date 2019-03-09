@@ -601,6 +601,7 @@
   <string name="description_edit_task_unlock_title">Title of the dialog box that appears when the user unlocks the feed of suggested articles that need a description to be added.</string>
   <string name="description_edit_task_unlock_body">Body of the dialog box that appears when the user unlocks the feed of suggested articles that need a description to be added.</string>
   <string name="description_edit_success_saved">Message that the description the user just added was saved.</string>
+  <string name="description_edit_success_saved_snackbar">Message shown on a snackbar that the description the user just added was saved.</string>
   <string name="description_edit_success_encouragement">Message that the user made Wikipedia better for everyone</string>
   <string name="description_edit_success_done">Button text to dismiss the description editing success screen\n{{Identical|Done}}</string>
   <string name="description_edit_success_did_you_know">Heading for a tip about editing articles in the app\n{{Identical|Did you know}}</string>
