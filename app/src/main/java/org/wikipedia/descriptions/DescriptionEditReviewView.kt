@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.Uri
 import android.text.TextUtils
 import android.util.AttributeSet
+import android.view.View
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.view_description_edit_review.view.*
 import org.apache.commons.lang3.StringUtils
@@ -35,7 +36,13 @@ class DescriptionEditReviewView @JvmOverloads constructor(
         articleTitle!!.text = StringUtil.fromHtml(pageSummary.displayTitle)
         articleSubtitle!!.text = StringUtils.capitalize(description)
         articleExtract!!.text = StringUtil.fromHtml(pageSummary.extractHtml)
-        articleImage!!.loadImage(if (TextUtils.isEmpty(pageSummary.thumbnailUrl)) null else Uri.parse(pageSummary.thumbnailUrl))
+
+        if (TextUtils.isEmpty(pageSummary.thumbnailUrl)) {
+            articleImage.visibility = View.GONE
+        } else {
+            articleImage.visibility = View.VISIBLE
+            articleImage.loadImage(Uri.parse(pageSummary.thumbnailUrl))
+        }
     }
 
 }
