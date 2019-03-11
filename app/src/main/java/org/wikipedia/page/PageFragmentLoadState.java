@@ -383,7 +383,7 @@ public class PageFragmentLoadState {
         }
     }
 
-    private void sendMarginPayload() {
+    void sendMarginPayload() {
         JSONObject marginPayload = marginPayload();
         bridge.sendMessage("setMargins", marginPayload);
     }
