@@ -35,6 +35,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.AnimationUtil
+import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DialogTitleWithImage
 
@@ -114,6 +115,7 @@ class AddTitleDescriptionsFragment : Fragment() {
                     wikiToLanguageSpinner.setSelection(languageToList.indexOf(prevFromLang))
                 }
             }, postDelay)
+            setConditionalLayoutDirection(requireActivity().window.peekDecorView(),langToCode)
         }
 
         showOnboarding()
@@ -225,10 +227,12 @@ class AddTitleDescriptionsFragment : Fragment() {
             fromLabel.visibility = GONE
             arrow.visibility = VISIBLE
             wikiToLanguageSpinner.visibility = VISIBLE
+            setConditionalLayoutDirection(requireActivity().window.peekDecorView(),langToCode)
         } else {
             fromLabel.visibility = VISIBLE
             arrow.visibility = GONE
             wikiToLanguageSpinner.visibility = GONE
+            setConditionalLayoutDirection(requireActivity().window.peekDecorView(),langFromCode)
         }
     }
 
@@ -263,6 +267,7 @@ class AddTitleDescriptionsFragment : Fragment() {
                 resetTitleDescriptionItemAdapter()
             }
             updateToLanguageSpinner(position)
+            setConditionalLayoutDirection(requireActivity().window.peekDecorView(), langFromCode)
         }
 
         override fun onNothingSelected(parent: AdapterView<*>) {
@@ -275,6 +280,7 @@ class AddTitleDescriptionsFragment : Fragment() {
                 langToCode = languageCodesToList[position]
                 resetTitleDescriptionItemAdapter()
             }
+            setConditionalLayoutDirection(requireActivity().window.peekDecorView(), langToCode)
         }
         override fun onNothingSelected(parent: AdapterView<*>) {
         }
