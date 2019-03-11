@@ -20,7 +20,7 @@ Image gallery - Tap on an image to view the image full-screen in high resolution
 
 Definitions from Wiktionary - Tap-and-hold to highlight a word, then tap the "Define" button to see a definition of the word from Wiktionary.
 
-Wikipedia Zero - Access Wikipedia for Android free of data charges for participating mobile operators. (link to participating operators). 
+Wikipedia Zero - Access Wikipedia for Android free of data charges for participating mobile operators. (link to participating operators).
 
 Send us your feedback about the app! In the menu, press "Settings", then "About the Wikipedia app", then "Send app feedback".
 
