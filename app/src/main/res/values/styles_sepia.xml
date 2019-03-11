@@ -34,6 +34,8 @@
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/parchment</item>
+        <item name="chip_background_color">@color/amate</item>
+        <item name="chip_text_color">@color/masi</item>
 
     </style>
 
