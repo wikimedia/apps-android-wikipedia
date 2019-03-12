@@ -230,6 +230,10 @@ bridge.registerListener( "clearContents", function() {
     clearContents();
 });
 
+bridge.registerListener( "setMargins", function( payload ) {
+    document.getElementById( "content" ).style.marginTop = payload.marginTop + "px";
+});
+
 bridge.registerListener( "setPaddingTop", function( payload ) {
     document.body.style.paddingTop = payload.paddingTop + "px";
 });
