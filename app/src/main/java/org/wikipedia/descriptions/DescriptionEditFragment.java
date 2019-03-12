@@ -91,7 +91,7 @@ public class DescriptionEditFragment extends Fragment {
                         ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS);
             } else {
                 requireActivity().setResult(RESULT_OK,
-                        new Intent().putExtra(EXTRA_SOURCE_ADDED_DESCRIPTION,editView.getDescription()));
+                        new Intent().putExtra(EXTRA_SOURCE_ADDED_DESCRIPTION, editView.getDescription()));
                 finish();
             }
         }
