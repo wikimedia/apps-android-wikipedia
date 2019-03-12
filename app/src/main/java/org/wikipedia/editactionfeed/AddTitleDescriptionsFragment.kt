@@ -57,7 +57,7 @@ class AddTitleDescriptionsFragment : Fragment() {
     private val topTitle: PageTitle?
         get() {
             val f = topChild
-            return titleFromPageName(f?.title)
+            return titleFromPageName(f?.title, f?.addedDescription)
         }
 
     private val topChild: AddTitleDescriptionsItemFragment?
@@ -142,9 +142,7 @@ class AddTitleDescriptionsFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
             topChild?.showAddedDescriptionView(data?.getStringExtra(EXTRA_SOURCE_ADDED_DESCRIPTION))
-            // TODO: use a snackbar with an icon
             FeedbackUtil.showMessage(this, R.string.description_edit_success_saved_snackbar)
-
             nextPage()
         }
     }
@@ -166,14 +164,12 @@ class AddTitleDescriptionsFragment : Fragment() {
         backButton.alpha = if (pagerPosition == 0) 0.31f else 1f
     }
 
-    private fun titleFromPageName(pageName: String?): PageTitle {
-        return PageTitle(pageName, WikiSite.forLanguageCode(if (source == InvokeSource.EDIT_FEED_TITLE_DESC) langFromCode else langToCode))
+    private fun titleFromPageName(pageName: String?, description: String?): PageTitle {
+        return PageTitle(pageName, WikiSite.forLanguageCode(if (source == InvokeSource.EDIT_FEED_TITLE_DESC) langFromCode else langToCode), null, description)
     }
 
     fun onSelectPage() {
         if (topTitle != null) {
-            // TODO: check this
-            val sourceDescription = if (TextUtils.isEmpty(topChild?.addedDescription)) sourceDescription else topChild?.addedDescription
             startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, true, source, sourceDescription),
                     ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }

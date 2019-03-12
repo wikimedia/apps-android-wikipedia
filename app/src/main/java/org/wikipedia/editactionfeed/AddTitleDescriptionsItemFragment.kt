@@ -34,6 +34,8 @@ class AddTitleDescriptionsItemFragment : Fragment() {
     private val app = WikipediaApp.getInstance()
     private var sourceDescription: String = ""
     var addedDescription: String = ""
+        internal set
+
     var pagerPosition = -1
 
     val title: String?
