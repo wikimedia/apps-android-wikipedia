@@ -11,12 +11,6 @@ bridge.registerListener( "clearContents", function() {
     clearContents();
 });
 
-bridge.registerListener( "setMargins", function( payload ) {
-    document.getElementById( "content" ).style.marginTop = payload.marginTop + "px";
-    document.getElementById( "content" ).style.marginLeft = payload.marginLeft + "px";
-    document.getElementById( "content" ).style.marginRight = payload.marginRight + "px";
-});
-
 bridge.registerListener( "setPaddingTop", function( payload ) {
     document.body.style.paddingTop = payload.paddingTop + "px";
 });

@@ -367,7 +367,6 @@ public class PageFragmentLoadState {
     private void pageLoadDisplayLeadSection() {
         Page page = model.getPage();
 
-        sendMarginPayload();
 
         sendLeadSectionPayload(page);
 
@@ -380,24 +379,6 @@ public class PageFragmentLoadState {
         refreshView.setRefreshing(false);
         if (fragment.callback() != null) {
             fragment.callback().onPageUpdateProgressBar(true, true, 0);
-        }
-    }
-
-    void sendMarginPayload() {
-        JSONObject marginPayload = marginPayload();
-        bridge.sendMessage("setMargins", marginPayload);
-    }
-
-    private JSONObject marginPayload() {
-        int horizontalMargin = DimenUtil.roundedPxToDp(getDimension(R.dimen.content_margin));
-        int verticalMargin = DimenUtil.roundedPxToDp(getDimension(R.dimen.activity_vertical_margin));
-        try {
-            return new JSONObject()
-                    .put("marginTop", verticalMargin)
-                    .put("marginLeft", horizontalMargin)
-                    .put("marginRight", horizontalMargin);
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
         }
     }
 
