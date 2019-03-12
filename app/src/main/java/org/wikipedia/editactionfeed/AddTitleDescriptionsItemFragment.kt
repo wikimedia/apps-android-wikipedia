@@ -24,6 +24,7 @@ import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.editactionfeed.provider.MissingDescriptionProvider
 import org.wikipedia.page.PageTitle
+import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -51,6 +52,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setConditionalLayoutDirection(viewArticleContainer, if (parent().source.ordinal == InvokeSource.EDIT_FEED_TITLE_DESC.ordinal) parent().langFromCode else parent().langToCode)
         viewArticleImage.setLegacyVisibilityHandlingEnabled(true)
         cardItemErrorView.setBackClickListener { requireActivity().finish() }
         cardItemErrorView.setRetryClickListener {
