@@ -7,7 +7,6 @@ import android.support.v4.view.ActionProvider;
 import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.widget.ImageView;
 
 import org.wikipedia.R;
 import org.wikipedia.util.DeviceUtil;
@@ -62,6 +61,7 @@ public class SearchActionProvider extends ActionProvider {
 
             @Override
             public boolean onQueryTextChange(String s) {
+                searchView.setCloseButtonVisibility(s);
                 callback.onQueryTextChange(s);
                 return true;
             }
@@ -72,13 +72,10 @@ public class SearchActionProvider extends ActionProvider {
                 callback.onQueryTextFocusChange();
             }
         });
+
         // remove focus line from search plate
         View searchEditPlate = searchView.findViewById(android.support.v7.appcompat.R.id.search_plate);
         searchEditPlate.setBackgroundColor(Color.TRANSPARENT);
-        // remove the close icon in search view
-        ImageView searchCloseButton = searchView.findViewById(android.support.v7.appcompat.R.id.search_close_btn);
-        searchCloseButton.setEnabled(false);
-        searchCloseButton.setImageDrawable(null);
 
         DeviceUtil.showSoftKeyboard(searchView);
         return view;

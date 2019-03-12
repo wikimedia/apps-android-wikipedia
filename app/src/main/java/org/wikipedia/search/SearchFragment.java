@@ -11,13 +11,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -58,6 +54,7 @@ import io.reactivex.schedulers.Schedulers;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH;
 import static org.wikipedia.settings.languages.WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA;
+import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 public class SearchFragment extends Fragment implements SearchResultsFragment.Callback,
         RecentSearchesFragment.Callback, LanguageScrollView.Callback {
@@ -79,7 +76,6 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private WikipediaApp app;
-    @BindView(android.support.v7.appcompat.R.id.search_src_text) EditText searchEditText;
     private SearchFunnel funnel;
     private SearchInvokeSource invokeSource;
     private String searchLanguageCode;
@@ -385,7 +381,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         // automatically trigger the showing of the corresponding search results.
         if (isValidQuery(query)) {
             searchView.setQuery(query, false);
-            searchEditText.selectAll();
+            searchView.selectAllQueryTexts();
         }
     }
 
@@ -430,25 +426,12 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     private void initSearchView() {
         searchView.setOnQueryTextListener(searchQueryListener);
         searchView.setOnCloseListener(searchCloseListener);
+        searchView.setSearchHintTextColor(getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color));
 
-        // reset its background
-        searchEditText.setBackgroundColor(Color.TRANSPARENT);
-        // make the search frame match_parent
-        View searchEditFrame = searchView
-                .findViewById(android.support.v7.appcompat.R.id.search_edit_frame);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        searchEditFrame.setLayoutParams(params);
-        // center the search text in it
-        searchEditText.setGravity(Gravity.CENTER_VERTICAL);
         // remove focus line from search plate
         View searchEditPlate = searchView
                 .findViewById(android.support.v7.appcompat.R.id.search_plate);
         searchEditPlate.setBackgroundColor(Color.TRANSPARENT);
-
-        ImageView searchClose = searchView.findViewById(
-                android.support.v7.appcompat.R.id.search_close_btn);
-        FeedbackUtil.setToolbarButtonLongPressToast(searchClose);
     }
 
     private void initLangButton() {

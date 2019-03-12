@@ -362,7 +362,7 @@
         <item name="android:contentDescription">@null</item>
         <item name="placeholderImage">?attr/material_theme_border_color</item>
         <item name="failureImage">?attr/material_theme_border_color</item>
-        <item name="backgroundImage">?attr/material_theme_border_color</item>
+        <item name="backgroundImage">?attr/paper_color</item>
         <item name="roundedCornerRadius">2dp</item>
         <item name="roundTopLeft">false</item>
         <item name="roundTopRight">false</item>
@@ -452,9 +452,8 @@
     <style name="CustomChipStyle">
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textColor">?attr/section_title_color</item>
+        <item name="android:textColor">?attr/chip_text_color</item>
         <item name="android:lineSpacingExtra">2sp</item>
-        <item name="android:letterSpacing" tools:targetApi="lollipop">0.01</item>
     </style>
 
     <style name="AlertDialogStyle" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">

@@ -12,6 +12,7 @@ import android.support.design.chip.Chip;
 import android.support.design.chip.ChipGroup;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v4.widget.TextViewCompat;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -162,12 +163,10 @@ public class PageItemView<T> extends ConstraintLayout {
         readingListsChipGroup.removeAllViews();
         for (ReadingList readingList : readingLists) {
             Chip chip = new Chip(readingListsChipGroup.getContext());
-            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
-                chip.setTextAppearance(R.style.CustomChipStyle);
-            }
+            TextViewCompat.setTextAppearance(chip, R.style.CustomChipStyle);
             chip.setText(readingList.title());
             chip.setClickable(true);
-            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(getContext(), android.R.attr.windowBackground));
+            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(getContext(), R.attr.chip_background_color));
             chip.setOnClickListener(v -> {
                 if (callback != null) {
                     callback.onListChipClick(readingList);
