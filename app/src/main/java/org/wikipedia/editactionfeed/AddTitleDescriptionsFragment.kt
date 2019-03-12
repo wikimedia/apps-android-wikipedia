@@ -288,6 +288,7 @@ class AddTitleDescriptionsFragment : Fragment() {
                 resetTitleDescriptionItemAdapter()
             }
             updateToLanguageSpinner(position)
+            updateBackButton(0)
         }
 
         override fun onNothingSelected(parent: AdapterView<*>) {
