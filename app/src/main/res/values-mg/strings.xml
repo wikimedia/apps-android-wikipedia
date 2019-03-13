@@ -9,8 +9,6 @@
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Hikaroka an\'i Wikipedia</string>
   <string name="search_hint_search_history">Hikaroka ny tantara</string>
-  <string name="search_hint_search_my_lists">Hikaroka ny lisitra</string>
-  <string name="search_hint_search_reading_list">Hikaroka ny lisi-pamakiana</string>
   <string name="search_hint_search_languages">Hikaroka fiteny</string>
   <string name="nav_item_history">Tantara</string>
   <string name="error_network_error">Tsy afaka mifandray amin\'ny Aterineto.</string>

@@ -14,8 +14,6 @@
   <string name="wikimedia">Wikimèdia</string>
   <string name="search_hint">Recercar dins Wikipèdia</string>
   <string name="search_hint_search_history">Recercar dins l\'istoric</string>
-  <string name="search_hint_search_my_lists">Recercar dins mas listas</string>
-  <string name="search_hint_search_reading_list">Recercar dins ma lista de lectura</string>
   <string name="nav_item_history">Istoric</string>
   <string name="error_network_error">Impossible de se connectar a Internet.</string>
   <string name="page_error_retry">Ensajar tornarmai</string>

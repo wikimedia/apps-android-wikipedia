@@ -38,7 +38,8 @@
                 android:inputType="textMultiLine"
                 android:imeOptions="actionNone|flagNoExtractUi"
                 android:scrollbars="vertical"
-                android:textColor="?attr/primary_text_color" />
+                android:textColor="?attr/primary_text_color"
+                android:textColorHighlight="#FF9632"/>
         </ScrollView>
 
         <HorizontalScrollView

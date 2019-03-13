@@ -29,8 +29,6 @@
   <string name="nav_item_forward">Eteenpäin</string>
   <string name="search_hint">Hae Wikipediasta</string>
   <string name="search_hint_search_history">Hae historiasta</string>
-  <string name="search_hint_search_my_lists">Hae omista lukulistoista</string>
-  <string name="search_hint_search_reading_list">Etsi lukulistasta</string>
   <string name="search_hint_search_languages">Etsi kieltä</string>
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Internet-yhteyden muodostaminen epäonnistui.</string>
@@ -669,11 +667,11 @@
   <string name="main_drawer_close">Sulje</string>
   <string name="main_drawer_help">Ohje</string>
   <string name="main_drawer_login">Kirjaudu sisään / liity Wikipediaan</string>
-  <string name="title_description_task_title">Lisää otsikkokuvaukset</string>
+  <string name="title_description_task_title" fuzzy="true">Lisää otsikkokuvaukset</string>
   <string name="image_caption_task_title">Kuvatekstit</string>
   <string name="image_caption_task_description">Lisää kuvatekstejä</string>
-  <string name="translation_task_title">Käännä otsikon kuvaukset</string>
-  <string name="translation_task_description">Käännä otsikkokuvaukset muille kielille.</string>
+  <string name="translation_task_title" fuzzy="true">Käännä otsikon kuvaukset</string>
+  <string name="translation_task_description" fuzzy="true">Käännä otsikkokuvaukset muille kielille.</string>
   <string name="multilingual_task_negative">Ei minulle</string>
   <string name="multilingual_task_positive">Lisää kieliä</string>
   <string name="translation_source_description">%s kuvaus:</string>

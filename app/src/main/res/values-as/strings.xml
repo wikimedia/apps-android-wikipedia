@@ -14,8 +14,6 @@
   <string name="nav_item_forward">আগলৈ যাওক</string>
   <string name="search_hint">ৱিকিপিডিয়াত সন্ধান কৰক</string>
   <string name="search_hint_search_history">ইতিহাস সন্ধান কৰক</string>
-  <string name="search_hint_search_my_lists">মোৰ তালিকাত সন্ধান কৰক</string>
-  <string name="search_hint_search_reading_list">পঢ়াৰ তালিকাত সন্ধান কৰক</string>
   <string name="search_hint_search_languages">ভাষাৰ সন্ধান কৰক</string>
   <string name="nav_item_history">ইতিহাস</string>
   <string name="error_network_error">ইণ্টাৰনেটৰ লগত সংযোগ কৰিব পৰা নাই।</string>

@@ -21,6 +21,7 @@ public class SwipeableItemTouchHelperCallback extends ItemTouchHelper.Callback {
     private Paint swipeIconPaint = new Paint();
     private Paint itemBackgroundPaint = new Paint();
     @NonNull private Bitmap swipeIcon;
+    private boolean swipeableEnabled;
 
     public interface Callback {
         void onSwipe();
@@ -38,6 +39,10 @@ public class SwipeableItemTouchHelperCallback extends ItemTouchHelper.Callback {
         this.swipeIcon = ResourceUtil.bitmapFromVectorDrawable(context, swipeIcon, swipeIconTint);
     }
 
+    public void setSwipeableEnabled(boolean enabled) {
+        swipeableEnabled = enabled;
+    }
+
     @Override
     public boolean isLongPressDragEnabled() {
         return false;
@@ -45,7 +50,7 @@ public class SwipeableItemTouchHelperCallback extends ItemTouchHelper.Callback {
 
     @Override
     public boolean isItemViewSwipeEnabled() {
-        return true;
+        return swipeableEnabled;
     }
 
     @Override

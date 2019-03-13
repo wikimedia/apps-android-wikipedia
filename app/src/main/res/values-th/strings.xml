@@ -21,8 +21,6 @@
   <string name="nav_item_forward">ถัดไป</string>
   <string name="search_hint">ค้นหาในวิกิพีเดีย</string>
   <string name="search_hint_search_history">ค้นหาประวัติ</string>
-  <string name="search_hint_search_my_lists">ค้นหารายการของฉัน</string>
-  <string name="search_hint_search_reading_list">ค้นหารายการอ่าน</string>
   <string name="search_hint_search_languages">ค้นหาภาษา</string>
   <string name="nav_item_history">ประวัติ</string>
   <string name="error_network_error">ไม่สามารถเชื่อมต่อเครือข่ายอินเตอร์เน็ตได้</string>
@@ -274,7 +272,7 @@
   <string name="onboarding_analytics_switch_title">ส่งข้อมูลการใช้งาน</string>
   <string name="onboarding_multilingual_secondary_text">เราได้พบภาษาดังต่อไปนี้บนอุปกรณ์ของคุณ:</string>
   <string name="onboarding_multilingual_add_language_text">เพิ่มหรือแก้ไขภาษา</string>
-  <string name="onboarding_welcome_title_v2" fuzzy="true">สารานุกรมเสรี\n…ในกว่า 300 ภาษา</string>
+  <string name="onboarding_welcome_title_v2">สารานุกรมเสรี\n…ในกว่า 300 ภาษา</string>
   <string name="languages_list_activity_title">เพิ่มภาษา</string>
   <string name="languages_list_all_text">ภาษาทั้งหมด</string>
   <string name="wikipedia_languages_your_languages_text">ภาษาของคุณ</string>
@@ -285,15 +283,15 @@
   </plurals>
   <string name="wikipedia_languages_remove_dialog_content">คุณจะเห็นเฉพาะเนื้อหาที่อยู่บนฟีดสำรวจและตัวกรองการค้นหาแบบด่วนสำหรับภาษาวิกิพีเดียที่เหลือเท่านั้น</string>
   <string name="add_wikipedia_languages_text">เพิ่มภาษาของวิกิพีเดีย</string>
-  <string name="translation_task_title">แปลคำอธิบายหัวข้อ</string>
-  <string name="translation_task_description">แปลคำอธิบายหัวข้อเป็นภาษาอื่น</string>
-  <string name="translate_description_edit_disable_text">ล็อกไว้จนกว่าคุณจะได้แก้ไข %d คำอธิบายหัวข้อ</string>
+  <string name="translation_task_title" fuzzy="true">แปลคำอธิบายหัวข้อ</string>
+  <string name="translation_task_description" fuzzy="true">แปลคำอธิบายหัวข้อเป็นภาษาอื่น</string>
+  <string name="translate_description_edit_disable_text" fuzzy="true">ล็อกไว้จนกว่าคุณจะได้แก้ไข %d คำอธิบายหัวข้อ</string>
   <string name="translation_source_description">ลักษณะ %s:</string>
   <string name="translate_caption_task_title">แปลคำบรรยายภาพ</string>
   <string name="translate_caption_task_description">แปลคำบรรยายเป็นภาษาอื่น</string>
   <string name="add_title_descriptions_dialog_title">เพิ่มคำอธิบายชื่อเรื่อง</string>
   <string name="add_title_descriptions_dialog_message">ตอนนี้คุณสามารถช่วยปรับปรุงวิกิพีเดียโดยการเพิ่มคำอธิบายที่ปรากฏด้านล่างหัวข้อในบทความ คุณสามารถกำหนดค่าภาษาของคุณได้ตลอดเวลา</string>
   <string name="add_translate_descriptions_dialog_title">คุณกำลังแปลคำอธิบายหัวข้อเป็นครั้งแรก</string>
-  <string name="description_edit_tutorial_message">ยินดีต้อนรับสู่บ้านใหม่สำหรับการแก้ไขในแอปบนวิกิพีเดีย ที่นี่เราจะแนะนำโอกาสในการเพิ่มเนื้อหาที่อาจเป็นที่สนใจแก่คุณ การช่วยเหลือของคุณได้รับการชื่นชมมาก ขอให้มีความสุขในการแก้ไข !</string>
+  <string name="description_edit_tutorial_message" fuzzy="true">ยินดีต้อนรับสู่บ้านใหม่สำหรับการแก้ไขในแอปบนวิกิพีเดีย ที่นี่เราจะแนะนำโอกาสในการเพิ่มเนื้อหาที่อาจเป็นที่สนใจแก่คุณ การช่วยเหลือของคุณได้รับการชื่นชมมาก ขอให้มีความสุขในการแก้ไข !</string>
   <string name="translation_description_edit_task_unlock_title">การแปลคำอธิบายหัวข้อได้รับการปลดล็อกแล้ว !</string>
 </resources>
