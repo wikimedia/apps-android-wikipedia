@@ -491,7 +491,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         // but only if we've finished fetching the page.
         if (!pageFragmentLoadState.isLoading() && !errorState) {
             pageFragmentLoadState.layoutLeadImage();
-            pageFragmentLoadState.sendMarginPayload();
         }
     }
 

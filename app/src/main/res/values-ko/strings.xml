@@ -681,11 +681,11 @@
   <string name="main_drawer_close">닫기</string>
   <string name="main_drawer_help">도움말</string>
   <string name="main_drawer_login">위키백과에 로그인 / 가입</string>
-  <string name="title_description_task_title" fuzzy="true">제목 설명 추가</string>
+  <string name="title_description_task_title">설명 추가</string>
   <string name="title_description_task_description" fuzzy="true">제목 설명 없이 문서에 기여</string>
   <string name="image_caption_task_description">이미지에 캡션 추가</string>
   <string name="multilingual_task_description">둘 이상의 위키백과 언어로 읽고 쓰는 경우에 번역 작업이 가능합니다.</string>
-  <string name="translation_task_title" fuzzy="true">제목 설명 번역하기</string>
+  <string name="translation_task_title">설명 번역하기</string>
   <string name="translation_task_description" fuzzy="true">제목 설명을 다른 언어로 번역합니다.</string>
   <string name="multilingual_task_positive">언어 추가</string>
   <string name="editing_level_text">레벨 %d 앱 편집기</string>
