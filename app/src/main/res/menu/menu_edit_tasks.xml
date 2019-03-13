@@ -7,5 +7,8 @@
     <item
         android:id="@+id/edit_tasks_menu_help"
         android:title="@string/main_drawer_help"
-        app:showAsAction="never" />
+        android:icon="@drawable/ic_info_outline_black_24dp"
+        android:iconTint="?attr/main_toolbar_icon_color"
+        android:iconTintMode="src_in"
+        app:showAsAction="always" />
 </menu>

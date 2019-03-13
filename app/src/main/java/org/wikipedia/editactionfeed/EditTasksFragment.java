@@ -1,9 +1,12 @@
 package org.wikipedia.editactionfeed;
 
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,10 +21,11 @@ import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
-import org.wikipedia.descriptions.DescriptionEditHelpActivity;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
+import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.FooterMarginItemDecoration;
@@ -250,13 +254,18 @@ public class EditTasksFragment extends Fragment {
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
         menu.findItem(R.id.edit_tasks_menu_help).setVisible(editOnboardingView.getVisibility() != View.VISIBLE);
+        Drawable drawable = menu.findItem(R.id.edit_tasks_menu_help).getIcon();
+        drawable = DrawableCompat.wrap(drawable);
+        DrawableCompat.setTint(drawable, ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_icon_color));
+        menu.findItem(R.id.edit_tasks_menu_help).setIcon(drawable);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.edit_tasks_menu_help:
-                startActivity(DescriptionEditHelpActivity.newIntent(requireContext()));
+                UriUtil.visitInExternalBrowser(getContext(),
+                        Uri.parse(requireContext().getString(R.string.android_app_edit_help_url)));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

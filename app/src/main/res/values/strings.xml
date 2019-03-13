@@ -630,17 +630,6 @@
     <!-- /Description editing tutorial -->
 
     <!-- Description editing help -->
-    <string name="description_edit_help_about_title">About</string>
-    <string name="description_edit_help_description">Title descriptions summarize an article to help readers understand the subject at a glance.</string>
-    <string name="description_edit_help_tips">Tips for creating descriptions</string>
-    <string name="description_edit_help_tips_description">Descriptions should ideally fit on one line, and are between two to twelve words long. They are not capitalized unless the first word is a proper noun.</string>
-    <string name="description_edit_help_tips_examples">For example:</string>
-    <string name="description_edit_help_tips_example1">painting by Leonardo da Vinci</string>
-    <string name="description_edit_help_tips_example1_hint">title description for an article about the Mona Lisa</string>
-    <string name="description_edit_help_tips_example2">Earth\'s highest mountain</string>
-    <string name="description_edit_help_tips_example2_hint">title description for an article about Mount Everest</string>
-    <string name="description_edit_help_more_info">More information</string>
-    <string name="description_edit_help_meta_info">Descriptions are stored and maintained on Wikidata, a project of the Wikimedia Foundation which provides a free, collaborative, multilingual, secondary database supporting Wikipedia and other projects.</string>
     <!-- /Description editing help -->
 
     <!-- Edit action feed -->
@@ -777,4 +766,5 @@
     <string name="translate_descriptions_maybe_later">Maybe later</string>
     <string name="title_descriptions_onboarding_got_it">Got it</string>
     <string name="translate_descriptions_onboarding_got_it">Got it</string>
+    <string name="android_app_edit_help_url">https://www.wikidata.org/wiki/Wikimedia_Apps/Suggested_edits</string>
 </resources>

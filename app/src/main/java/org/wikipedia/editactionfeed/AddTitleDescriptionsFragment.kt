@@ -2,6 +2,7 @@ package org.wikipedia.editactionfeed
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentStatePagerAdapter
@@ -29,13 +30,13 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
-import org.wikipedia.descriptions.DescriptionEditHelpActivity
 import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.EXTRA_SOURCE
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.AnimationUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DialogTitleWithImage
 
@@ -166,7 +167,8 @@ class AddTitleDescriptionsFragment : Fragment() {
                     .setMessage(R.string.add_title_descriptions_dialog_message)
                     .setPositiveButton(R.string.title_descriptions_onboarding_got_it, null)
                     .setNegativeButton(R.string.editactionfeed_add_title_dialog_learn_more) { _, _ ->
-                        startActivity(DescriptionEditHelpActivity.newIntent(requireContext()))
+                        UriUtil.visitInExternalBrowser(context,
+                                Uri.parse(requireContext().getString(R.string.android_app_edit_help_url)))
                     }
                     .show()
             Prefs.setShowEditActionAddTitleDescriptionsOnboarding(false)
@@ -178,7 +180,8 @@ class AddTitleDescriptionsFragment : Fragment() {
                     .setMessage(R.string.add_translate_descriptions_dialog_message)
                     .setPositiveButton(R.string.translate_descriptions_onboarding_got_it, null)
                     .setNegativeButton(R.string.editactionfeed_translate_title_dialog_learn_more) { _, _ ->
-                        startActivity(DescriptionEditHelpActivity.newIntent(requireContext()))
+                        UriUtil.visitInExternalBrowser(context,
+                                Uri.parse(requireContext().getString(R.string.android_app_edit_help_url)))
                     }
                     .show()
             Prefs.setShowEditActionTranslateDescriptionsOnboarding(false)
