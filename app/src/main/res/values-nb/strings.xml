@@ -683,6 +683,7 @@
   <string name="image_caption_task_description">Legg til bildetekster til bilder</string>
   <string name="multilingual_task_title">Flere oppgaver for flerspråklige bidragsytere</string>
   <string name="multilingual_task_description">Oversettelsesoppgaver er tilgjengelige hvis du leser eller skriver flere Wikipedia-språk.</string>
+  <string name="translation_task_title">Oversett beskrivelser</string>
   <string name="image_caption_edit_disable_text" fuzzy="true">Ikke tilgjengelig før du har gjort %d verifiserte redigeringer fra appen.</string>
   <string name="multilingual_task_negative">Passer ikke for meg</string>
   <string name="multilingual_task_positive">Legg til språk</string>

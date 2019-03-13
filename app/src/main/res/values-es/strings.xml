@@ -731,7 +731,7 @@
   <string name="add_title_descriptions_dialog_message">Ahora puedes ayudar a mejorar Wikipedia añadiendo descripciones que aparece bajo títulos en artículos.  Puedes configurar tus idiomas en cualquier momento.</string>
   <string name="add_translate_descriptions_dialog_title">Estás traduciendo descripciones de título por primera vez</string>
   <string name="add_translate_descriptions_dialog_message">Ahora puedes ayudar a mejorar Wikipedia añadiendo descripciones que aparece bajo títulos en artículos.  Puedes configurar tus idiomas y poner una directiva de traducción en cualquier momento.</string>
-  <string name="description_edit_tutorial_message" fuzzy="true">\nBienvenido a la página de inicio de edición en la app de Wikipedia. Aquí te mostraremos sugerencias para añadir contenido que te pueda ser de interés. Apreciamos mucho tus contribuciones. ¡Que lo pases bien!</string>
+  <string name="description_edit_tutorial_message">\nBienvenido a la página de inicio de edición en la app de Wikipedia. Aquí te mostraremos sugerencias para añadir contenido que te pueda ser de interés. Apreciamos mucho tus contribuciones. ¡Que lo pases bien!</string>
   <string name="translation_description_edit_task_unlock_title">¡La edición de traducciones de descripciones de título ha sido desbloqueada!</string>
   <string name="translation_description_edit_task_unlock_body">\nHemos notado que te gusta editar descripciones de título y que lees Wikipedia en varios idiomas. ¡Comprueba esta lista de tareas que te da acceso a traducir más descripciones de título!</string>
   <string name="title_description_editing_skip">\nOmitir</string>
