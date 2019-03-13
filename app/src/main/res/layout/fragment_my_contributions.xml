@@ -3,52 +3,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="?android:attr/windowBackground"
+    android:background="?paper_color"
     android:orientation="vertical"
     tools:context="org.wikipedia.editactionfeed.MyContributionsActivity">
 
-    <org.wikipedia.editactionfeed.MyContributionsProgressView
-        android:id="@+id/myContributionsProgressView"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="96dp"
+        android:layout_height="72dp"
         android:background="?attr/main_toolbar_color"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp" />
+        android:elevation="4dp" >
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp">
-
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/editactionfeed_my_contributions_type"
-            android:textSize="12sp"
-            android:textColor="?attr/material_theme_secondary_color"
-            android:lineSpacingExtra="4sp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/editactionfeed_my_contributions_numbers"
-            android:textSize="12sp"
-            android:textColor="?attr/material_theme_secondary_color"
-            android:lineSpacingExtra="4sp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="56dp">
 
-    </android.support.constraint.ConstraintLayout>
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/material_theme_primary_color"
+                android:textSize="16sp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                tools:text="Androidloggedinusername" />
+
+            <TextView
+                android:id="@+id/contributionsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/material_theme_secondary_color"
+                android:layout_marginTop="4dp"
+                android:textSize="16sp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                tools:text="100 in-app contributions" />
+
+        </LinearLayout>
+    </FrameLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:scrollbars="vertical"/>
 
 </LinearLayout>

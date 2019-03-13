@@ -4,16 +4,16 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import kotlinx.android.synthetic.main.fragment_my_contributions.*
-import kotlinx.android.synthetic.main.item_my_contributions_type_entry.view.*
-import kotlinx.android.synthetic.main.item_my_contributions_type_header.view.*
+import kotlinx.android.synthetic.main.item_my_contributions.view.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.auth.AccountUtil
+import org.wikipedia.descriptions.DescriptionEditHelpActivity
 import org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER
 import org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER
+import org.wikipedia.settings.Prefs
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.ViewUtil
 
@@ -21,7 +21,7 @@ class MyContributionsFragment : Fragment() {
 
     private var myContributionsData: MyContributions = MyContributions()
     private var list = mutableListOf<Any>()
-    private val adapter = WikipediaLanguageItemAdapter()
+    private val adapter = MyContributionsItemAdapter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_my_contributions, container, false)
@@ -32,13 +32,32 @@ class MyContributionsFragment : Fragment() {
         // TODO: using the endpoint to update the information
         prepareMockData()
         setupList()
-        myContributionsProgressView.update(myContributionsData.level!!, myContributionsData.editCount!!)
+        setupProgressData()
         setupRecyclerView()
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        // TODO: use exclamation mark icon
+        inflater!!.inflate(R.menu.menu_my_contributions, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return when (item!!.itemId) {
+            R.id.menu_help -> {
+                startActivity(DescriptionEditHelpActivity.newIntent(requireContext()))
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     // TODO: remove this once the endpoint is completed.
     private fun prepareMockData() {
-        val typeList: MutableList<MyContributions.ContributionType> = mutableListOf()
         val mockList: MutableList<MyContributions.EditCount> = mutableListOf()
 
         var tempVar: MyContributions.EditCount = MyContributions.EditCount()
@@ -54,26 +73,18 @@ class MyContributionsFragment : Fragment() {
         tempVar.languageCode = "ja"
         mockList.add(tempVar)
 
-        val tempVar2: MyContributions.ContributionType = MyContributions.ContributionType()
-        tempVar2.list = mockList
-        tempVar2.typeCode = 1
-        tempVar2.typeTitle = getString(R.string.editactionfeed_my_contributions_category_added_title_description)
-        typeList.add(tempVar2)
-        typeList.add(tempVar2)
-        typeList.add(tempVar2)
-        typeList.add(tempVar2)
+        myContributionsData.list = mockList
+    }
 
-        myContributionsData.level = 1
-        myContributionsData.editCount = 5
-        myContributionsData.list = typeList
+    private fun setupProgressData() {
+        username.text = AccountUtil.getUserName()
+        contributionsText.text = resources.getQuantityString(R.plurals.edit_action_contribution_count,
+                Prefs.getTotalUserDescriptionsEdited(), Prefs.getTotalUserDescriptionsEdited())
     }
 
     private fun setupList() {
-        for (type in myContributionsData.list!!) {
-            list.add(type)
-            for (entry in type.list!!) {
-                list.add(entry)
-            }
+        for (counts in myContributionsData.list!!) {
+            list.add(counts)
         }
     }
 
@@ -83,46 +94,23 @@ class MyContributionsFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(activity)
     }
 
-    private inner class WikipediaLanguageItemAdapter : RecyclerView.Adapter<DefaultViewHolder<*>>() {
-        override fun getItemViewType(position: Int): Int {
-            return if (list[position] is MyContributions.ContributionType) {
-                VIEW_TYPE_HEADER
-            } else {
-                VIEW_TYPE_ITEM
-            }
-        }
+    private inner class MyContributionsItemAdapter : RecyclerView.Adapter<ItemViewHolder>() {
 
         override fun getItemCount(): Int {
             return list.size
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<*> {
-            val context = parent.context
-            val inflater = LayoutInflater.from(context)
-
-            return if (viewType == VIEW_TYPE_HEADER) {
-                TypeHeaderViewHolder(inflater.inflate(R.layout.item_my_contributions_type_header, parent, false))
-            } else {
-                TypeEntryViewHolder(inflater.inflate(R.layout.item_my_contributions_type_entry, parent, false))
-            }
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
+            return ItemViewHolder(LayoutInflater.from(parent.context)
+                    .inflate(R.layout.item_my_contributions, parent, false))
         }
 
-        override fun onBindViewHolder(holder: DefaultViewHolder<*>, pos: Int) {
-            if (holder is TypeHeaderViewHolder) {
-                holder.bindItem(list[pos] as MyContributions.ContributionType)
-            } else if (holder is TypeEntryViewHolder) {
-                holder.bindItem(list[pos] as MyContributions.EditCount)
-            }
+        override fun onBindViewHolder(holder: ItemViewHolder, pos: Int) {
+            holder.bindItem(list[pos] as MyContributions.EditCount)
         }
     }
 
-    private inner class TypeHeaderViewHolder internal constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
-        internal fun bindItem(item: MyContributions.ContributionType) {
-            view.typeTitle.text = item.typeTitle
-        }
-    }
-
-    private inner class TypeEntryViewHolder internal constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
+    private inner class ItemViewHolder internal constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
         internal fun bindItem(item: MyContributions.EditCount) {
             ViewUtil.formatLangButton(itemView.languageCode, item.languageCode!!, LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER)
             itemView.languageCode.text = item.languageCode
@@ -132,10 +120,6 @@ class MyContributionsFragment : Fragment() {
     }
 
     companion object {
-
-        private const val VIEW_TYPE_HEADER = 0
-        private const val VIEW_TYPE_ITEM = 1
-
         fun newInstance(): MyContributionsFragment {
             return MyContributionsFragment()
         }

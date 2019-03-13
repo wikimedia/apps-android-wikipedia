@@ -13,9 +13,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.descriptions.DescriptionEditHelpActivity;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
 import org.wikipedia.settings.Prefs;
@@ -41,7 +43,8 @@ import static org.wikipedia.Constants.MULTILUNGUAL_LANGUAGES_COUNT_MINIMUM;
 public class EditTasksFragment extends Fragment {
     private Unbinder unbinder;
     @BindView(R.id.edit_onboarding_view) View editOnboardingView;
-    @BindView(R.id.my_contributions_progress_view) MyContributionsProgressView myContributionsProgressView;
+    @BindView(R.id.username) TextView username;
+    @BindView(R.id.contributions_text) TextView contributionsText;
     @BindView(R.id.task_recyclerview) RecyclerView tasksRecyclerView;
     private List<EditTask> tasks = new ArrayList<>();
     private List<EditTaskView.Callback> callbacks = new ArrayList<>();
@@ -57,7 +60,7 @@ public class EditTasksFragment extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().setElevation(0f);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         showOneTimeOnboarding();
-        updateMyContributionsInfo();
+        updateUI();
         setUpRecyclerView();
         return view;
     }
@@ -93,7 +96,7 @@ public class EditTasksFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        updateMyContributionsInfo();
+        updateUI();
         updateRecycler();
     }
 
@@ -105,9 +108,10 @@ public class EditTasksFragment extends Fragment {
         }
     }
 
-    private void updateMyContributionsInfo() {
-        // TODO: using the endpoint to update the information
-        myContributionsProgressView.update(Prefs.getTotalUserDescriptionsEdited());
+    private void updateUI() {
+        username.setText(AccountUtil.getUserName());
+        contributionsText.setText(getResources().getQuantityString(R.plurals.edit_action_contribution_count,
+                Prefs.getTotalUserDescriptionsEdited(), Prefs.getTotalUserDescriptionsEdited()));
         requireActivity().invalidateOptionsMenu();
     }
 
@@ -266,12 +270,12 @@ public class EditTasksFragment extends Fragment {
     void onGetStartedClicked() {
         Prefs.setShowEditTasksOnboarding(false);
         editOnboardingView.setVisibility(View.GONE);
-        updateMyContributionsInfo();
+        updateUI();
     }
 
-    @OnClick(R.id.my_contributions_progress_view)
+    @OnClick(R.id.user_contributions_button)
     void onUserContributionsClicked() {
-        // TODO: go to user contributions screen.
+        startActivity(MyContributionsActivity.Companion.newIntent(requireContext()));
     }
 
     @Override
