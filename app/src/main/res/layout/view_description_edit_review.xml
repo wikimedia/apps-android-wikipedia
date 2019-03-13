@@ -74,10 +74,9 @@
                 android:layout_weight="1"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="24dp"
-                android:maxLines="8"
                 android:ellipsize="end"
-                android:lineSpacingMultiplier="1.4"
-                android:textSize="14sp"
+                android:textSize="16sp"
+                android:lineSpacingExtra="12sp"
                 android:textColor="?attr/primary_text_color"
                 tools:text="Lorem ipsum"/>
 
@@ -95,7 +94,6 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:background="?attr/material_theme_border_color"
-            android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"/>
 
         <org.wikipedia.descriptions.DescriptionEditLicenseView

@@ -92,7 +92,7 @@
                         android:text="@string/editactionfeed_added_by_you"
                         android:textStyle="italic"
                         android:textColor="?attr/secondary_text_color"
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         android:lineSpacingExtra="6sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"/>
@@ -104,7 +104,7 @@
                         android:ellipsize="end"
                         android:maxLines="3"
                         android:textColor="?attr/secondary_text_color"
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         android:layout_marginEnd="5dp"
                         android:lineSpacingExtra="6sp"
                         app:layout_constraintVertical_weight="1"
@@ -170,6 +170,7 @@
                     android:layout_marginBottom="16dp"
                     android:ellipsize="end"
                     android:lineSpacingExtra="10sp"
+                    android:textSize="14sp"
                     android:textColor="?attr/primary_text_color"
                     tools:text="Lorem ipsum"/>
 

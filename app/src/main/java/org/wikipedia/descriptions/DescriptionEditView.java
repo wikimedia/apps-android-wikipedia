@@ -20,7 +20,6 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.page.linkpreview.LinkPreviewContents;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
@@ -118,9 +117,10 @@ public class DescriptionEditView extends LinearLayout {
 
     public void setPageSummary(@NonNull PageSummary pageSummary) {
         pageSummaryContainer.setVisibility(View.VISIBLE);
+
         pageSummaryText.setText(isTranslationEdit
                 ? translationSourceLanguageDescription
-                : new LinkPreviewContents(pageSummary, pageTitle.getWikiSite()).getExtract());
+                : StringUtil.fromHtml(pageSummary.getExtractHtml()));
         readArticleBarContainer.setPageSummary(pageSummary, view -> performReadArticleClick());
         this.pageSummary = pageSummary;
     }

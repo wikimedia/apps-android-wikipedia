@@ -24,8 +24,8 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.editactionfeed.provider.MissingDescriptionProvider
-import org.wikipedia.page.linkpreview.LinkPreviewContents
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 class AddTitleDescriptionsItemFragment : Fragment() {
@@ -136,7 +136,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
             spannableDescription.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.text_highlight_color)), 0, sourceDescription.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
             viewArticleSubtitle.text = TextUtils.concat(String.format(getString(R.string.translation_source_description), app.language().getAppLanguageCanonicalName(parent().langFromCode)), spannableDescription)
         }
-        viewArticleExtract.text = LinkPreviewContents(summary!!, WikiSite.forLanguageCode(parent().langFromCode)).extract
+        viewArticleExtract.text = StringUtil.fromHtml(summary!!.extractHtml)
         if (TextUtils.isEmpty(summary!!.thumbnailUrl)) {
             viewArticleImage.visibility = GONE
             viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
@@ -160,8 +160,8 @@ class AddTitleDescriptionsItemFragment : Fragment() {
     }
 
     companion object {
-        private const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 7
-        private const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 14
+        const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 7
+        const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 14
 
         fun newInstance(): AddTitleDescriptionsItemFragment {
             return AddTitleDescriptionsItemFragment()

@@ -39,10 +39,17 @@ class DescriptionEditReviewView @JvmOverloads constructor(
 
         if (TextUtils.isEmpty(pageSummary.thumbnailUrl)) {
             articleImage.visibility = View.GONE
+            articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {
             articleImage.visibility = View.VISIBLE
             articleImage.loadImage(Uri.parse(pageSummary.thumbnailUrl))
+            articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
         }
+    }
+
+    companion object {
+        const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 9
+        const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 15
     }
 
 }
