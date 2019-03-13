@@ -8,8 +8,12 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.chip.Chip;
+import android.support.design.chip.ChipGroup;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v4.widget.TextViewCompat;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -18,9 +22,13 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.R;
+import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.StringUtil;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,6 +49,7 @@ public class PageItemView<T> extends ConstraintLayout {
         void onThumbClick(@Nullable T item);
         void onActionClick(@Nullable T item, @NonNull View view);
         void onSecondaryActionClick(@Nullable T item, @NonNull View view);
+        void onListChipClick(@Nullable ReadingList readingList);
     }
 
     @BindView(R.id.page_list_item_title) TextView titleView;
@@ -52,6 +61,8 @@ public class PageItemView<T> extends ConstraintLayout {
     @BindView(R.id.page_list_item_selected_image) View imageSelectedView;
     @BindView(R.id.page_list_header_text) GoneIfEmptyTextView headerView;
     @BindView(R.id.page_list_item_circular_progress_bar) CircularProgressBar circularProgressBar;
+    @BindView(R.id.chips_scrollview) View chipsScrollView;
+    @BindView(R.id.reading_lists_chip_group) ChipGroup readingListsChipGroup;
 
     @Nullable private Callback<T> callback;
     @Nullable private T item;
@@ -74,8 +85,24 @@ public class PageItemView<T> extends ConstraintLayout {
         titleView.setText(text);
     }
 
+    public void setTitleMaxLines(int linesCount) {
+        titleView.setMaxLines(linesCount);
+    }
+
+    public void setTitleEllipsis() {
+        titleView.setEllipsize(TextUtils.TruncateAt.END);
+    }
+
     public void setDescription(@Nullable CharSequence text) {
         descriptionView.setText(text);
+    }
+
+    public void setDescriptionMaxLines(int linesCount) {
+        descriptionView.setMaxLines(linesCount);
+    }
+
+    public void setDescriptionEllipsis() {
+        descriptionView.setEllipsize(TextUtils.TruncateAt.END);
     }
 
     public void setImageUrl(@Nullable String url) {
@@ -122,6 +149,40 @@ public class PageItemView<T> extends ConstraintLayout {
             this.selected = selected;
             updateSelectedState();
         }
+    }
+
+    public void setListItemImageDimensions(int width, int height) {
+        imageView.getLayoutParams().width = width;
+        imageView.getLayoutParams().height = height;
+        requestLayout();
+    }
+
+    public void setUpChipGroup(List<ReadingList> readingLists) {
+        chipsScrollView.setVisibility(VISIBLE);
+        chipsScrollView.setFadingEdgeLength(0);
+        readingListsChipGroup.removeAllViews();
+        for (ReadingList readingList : readingLists) {
+            Chip chip = new Chip(readingListsChipGroup.getContext());
+            TextViewCompat.setTextAppearance(chip, R.style.CustomChipStyle);
+            chip.setText(readingList.title());
+            chip.setClickable(true);
+            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(getContext(), R.attr.chip_background_color));
+            chip.setOnClickListener(v -> {
+                if (callback != null) {
+                    callback.onListChipClick(readingList);
+                }
+            });
+            readingListsChipGroup.addView(chip);
+        }
+    }
+
+    public void hideChipGroup() {
+        chipsScrollView.setVisibility(GONE);
+    }
+
+    public void setSearchQuery(@Nullable String searchQuery) {
+        // highlight search term within the text
+        StringUtil.boldenKeywordText(titleView, titleView.getText().toString(), searchQuery);
     }
 
     @OnClick void onClick() {

@@ -132,8 +132,7 @@
                         android:layout_height="@dimen/view_list_card_item_image"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:roundedCornerRadius="2dp"
-                        app:backgroundImage="@color/base100" />
+                        app:roundedCornerRadius="2dp" />
 
                     <!-- TODO: confirm with designer about the maxLines or make it scrollable-->
                     <TextView

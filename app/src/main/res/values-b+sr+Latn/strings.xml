@@ -11,8 +11,6 @@
   <string name="nav_item_forward">Prosledi</string>
   <string name="search_hint">Pretražite Vikipediju</string>
   <string name="search_hint_search_history">Istorija pretrage</string>
-  <string name="search_hint_search_my_lists">Pretražite po svojim listama</string>
-  <string name="search_hint_search_reading_list">Pretražite po listi za čitanje</string>
   <string name="search_hint_search_languages">Pretražite jezike</string>
   <string name="nav_item_history">Istorija</string>
   <string name="error_network_error">Nije moguće povezati se sa internetom.</string>

@@ -159,6 +159,11 @@ public class LanguagesListActivity extends BaseActivity {
         protected boolean finishActionModeIfKeyboardHiding() {
             return false;
         }
+
+        @Override
+        protected Context getParentContext() {
+            return LanguagesListActivity.this;
+        }
     }
 
     @SuppressWarnings("checkstyle:magicnumber")

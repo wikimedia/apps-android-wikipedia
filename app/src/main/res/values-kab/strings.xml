@@ -12,8 +12,6 @@
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Nadi di Wikipedia</string>
   <string name="search_hint_search_history">Nadi amazray</string>
-  <string name="search_hint_search_my_lists">Nadi di tebdart-iw</string>
-  <string name="search_hint_search_reading_list">Nadi di tebdart-iw n tɣuri</string>
   <string name="search_hint_search_languages">Nadi γef akk tutlayin</string>
   <string name="nav_item_history">Amazray</string>
   <string name="error_network_error">Ur izmir ara ad yeqqen ar Internet.</string>

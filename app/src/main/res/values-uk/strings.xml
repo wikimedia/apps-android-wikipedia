@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Alex Khimich
+* Andrew J.Kurbiko
 * Andriykopanytsia
 * Avatar6
 * Base
@@ -21,32 +22,39 @@
   <string name="app_name_alpha">Вікіпедія Альфа</string>
   <string name="wikimedia">Вікімедіа</string>
   <string name="nav_item_back">Назад</string>
+  <string name="page_tabs_back">Назад</string>
   <string name="nav_item_forward">Уперед</string>
   <string name="search_hint">Пошук по Вікіпедії</string>
   <string name="search_hint_search_history">Історія пошуку</string>
-  <string name="search_hint_search_my_lists">Пошук у моїх списках</string>
-  <string name="search_hint_search_reading_list">Пошук у списку для читання</string>
   <string name="search_hint_search_languages">Пошук мови</string>
   <string name="nav_item_history">Історія</string>
   <string name="error_network_error">Не вдається підключитися до інтернету.</string>
   <string name="page_error_retry">Повторити</string>
+  <string name="card_offline_error_retry">Повторити</string>
+  <string name="storage_access_error_retry">Повторити</string>
+  <string name="article_load_error_retry">Повторити</string>
+  <string name="offline_load_error_retry">Повторити</string>
   <string name="page_error_back_to_main">Повернутися</string>
+  <string name="error_back">Повернутися</string>
   <string name="menu_clear_all_history">Очистити журнал</string>
   <string name="history_item_deleted">%s видалено зі списку</string>
   <string name="history_items_deleted">%d статей вилучено зі списку</string>
   <string name="history_item_delete_undo">Скасувати</string>
+  <string name="notification_archive_undo">Скасувати</string>
   <string name="app_settings">Налаштування</string>
   <string name="dialog_title_clear_history">Очистити історію перегляду</string>
   <string name="dialog_message_clear_history">Буде видалена вся історія відвідування сторінок і закриті всі відкриті вкладки. Ви впевнені?</string>
   <string name="dialog_message_clear_history_yes">Так</string>
   <string name="dialog_message_clear_history_no">Ні</string>
   <string name="share_via">Поділитися через</string>
+  <string name="image_share_via">Поділитися через</string>
   <string name="search_redirect_from">Перенаправлено з %s</string>
   <string name="menu_page_show_tabs">Показати вкладки</string>
   <string name="menu_page_other_languages">Змінити мову</string>
   <string name="menu_page_find_in_page">Знайти на сторінці</string>
   <string name="menu_page_font_and_theme">Змінити шрифт і тему</string>
   <string name="menu_page_add_to_list">Додати до списку для читання</string>
+  <string name="feed_card_add_to_list">Додати до списку для читання</string>
   <string name="menu_page_share">Поділитися посиланням</string>
   <string name="menu_page_open_a_new_tab">Відкрити нову вкладку</string>
   <string name="menu_page_reading_lists">Списки для читання</string>
@@ -57,6 +65,8 @@
   <string name="menu_text_select_copy">Скопіювати</string>
   <string name="menu_text_select_define">Визначення</string>
   <string name="menu_text_select_share">Поділитися</string>
+  <string name="on_this_day_page_share">Поділитися</string>
+  <string name="reading_list_page_share">Поділитися</string>
   <string name="menu_text_select_edit_here">Редагувати тут</string>
   <string name="nav_item_nearby">Неподалік</string>
   <string name="nearby_zoom_to_location">Вказати місце розташування на карті</string>
@@ -100,6 +110,8 @@
   <string name="login_password_hint">Пароль</string>
   <string name="login_2fa_hint">Код двофакторної автентифікації</string>
   <string name="login_2fa_other_workflow_error_msg">Необхідна двофакторна автентифікація! будь ласка, поверніться до головного простору дій та увійдіть з використанням токену 2FA, після чого спробуйте заново.</string>
+  <string name="onboarding_card_login">Увійти</string>
+  <string name="page_editing_login">Увійти</string>
   <string name="menu_login">Увійти</string>
   <string name="login_activity_title">Вхід у Вікіпедію</string>
   <string name="login_in_progress_dialog_message">Входимо до системи…</string>
@@ -406,6 +418,12 @@
   <string name="reading_list_turned_sync_off_dialog_ok">Готово</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Налаштування</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Увімкнути синхронізацію списків для читання?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Увімкнути синхронізацію</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ні, дякую</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Нi, видалити статті</string>
+  <string name="default_reading_list_name">Збережене</string>
+  <string name="reading_lists_menu_create_list">Створити новий список</string>
+  <string name="reading_lists_menu_sort_by">Сортувати за</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ця стаття тепер буде доступна автономно.</item>
     <item quantity="other">Ці статті тепер будуть доступні автономно.</item>
@@ -417,10 +435,26 @@
   <string name="reading_list_menu_last_sync">Остання синхронізація: %s</string>
   <string name="user_option_sync_label">Налаштування</string>
   <string name="notification_reverted_title">Скасоване редагування</string>
+  <string name="notification_channel_description">Прогрес завантаження</string>
+  <string name="notification_syncing_pause_button">Пауза</string>
+  <string name="notification_syncing_resume_button">Продовжити</string>
+  <string name="notification_syncing_cancel_button">Скасувати</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Завантаження статті</item>
     <item quantity="other">Завантаження статей</item>
   </plurals>
+  <string name="notification_echo_channel_description">Сповіщення Вікіпедії</string>
+  <string name="notifications_activity_title">Сповіщення</string>
+  <string name="notifications_activity_title_archived">Сповіщення (архівовані)</string>
+  <string name="notifications_search">Шукати сповіщення</string>
+  <string name="notifications_prefs">Налаштування сповіщень</string>
+  <string name="notifications_archive">Позначити як прочитане та архівувати</string>
+  <string name="notifications_poll_enable_title">Увімкнути сповіщення</string>
+  <string name="notifications_poll_enable_positive">Увімкнути</string>
+  <string name="notifications_poll_enable_negative">Не зараз</string>
+  <string name="preference_title_notification_welcome">Ласкаво просимо</string>
+  <string name="preference_title_notification_milestone">Віха</string>
+  <string name="preference_title_notification_thanks">Дякуємо</string>
   <string name="view_continue_reading_card_title">Продовжити читання</string>
   <string name="view_because_you_read_card_title">Оскільки Ви читали</string>
   <string name="view_random_card_title">Рандомайзер</string>
@@ -450,10 +484,15 @@
   <string name="view_continue_reading_card_subtitle_today">сьогодні</string>
   <string name="view_continue_reading_card_subtitle_read_date">Прочитано %s</string>
   <string name="view_announcement_card_negative_action">Ні, дякую</string>
+  <string name="onboarding_negative_action">Ні, дякую</string>
   <string name="view_offline_card_text">Вміст не може бути завантажено в автономному режимі.</string>
   <string name="view_featured_article_card_title">Вибрана стаття</string>
   <string name="view_featured_article_footer_save_button_label">Зберегти</string>
+  <string name="view_static_card_save_button_label">Зберегти</string>
   <string name="view_featured_article_footer_saved_button_label">Збережено</string>
+  <string name="feed_configure_menu_select_all">Показати усе</string>
+  <string name="feed_configure_menu_deselect_all">Заховати усе</string>
+  <string name="feed_configure_onboarding_action">Налаштувати</string>
   <string name="description_edit_text_hint">Опис назви</string>
   <string name="description_edit_save">Опублікувати</string>
   <string name="description_edit_add_description">Додати опис назви</string>
@@ -488,12 +527,19 @@
   <string name="description_edit_help_tips_example2_hint">опис статті про Еверест</string>
   <string name="description_edit_help_more_info">Більше інформації</string>
   <string name="description_edit_help_meta_info">Описи зберігаються та обслуговуються на Вікіданих — проекті Фонду Вікімедіа, який слугує вільною, спільною, багатомовною, допоміжною базою даних, яка підтримує Вікіпедію та інші проекти.</string>
+  <string name="editactionfeed_add_description_button">Додати опис</string>
+  <string name="editactionfeed_my_contributions">Мій внесок</string>
+  <string name="editactionfeed_from_language">Від:</string>
+  <string name="editactionfeed_translate_title_dialog_learn_more">Дізнатися більше</string>
+  <string name="editactionfeed_to_language">До:</string>
   <string name="description_edit_revert_subtitle">Дякуємо за редагування Вікіпедії!</string>
   <string name="description_edit_revert_intro">Ми знаємо, що Ви старались як могли, але в одного з перевіряльників виникли сумніви. Ймовірні причини скасування Вашого редагування:</string>
   <string name="description_edit_revert_reason1">Ваше редагування не відповідало одній з &lt;a href=\"%1$s\"&gt;настанов&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">Ваше редагування виглядало як тест чи вандалізм.</string>
   <string name="description_edit_revert_history">Якщо Ви зацікавлені, перегляньте &lt;a href=\"%1$s\"&gt;історію редагувань&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Для перегляду в автономному режимі потрібен дозвіл на доступ до пам\'яті на вашому пристрої.</string>
+  <string name="size_gb">%.2f ГБ</string>
+  <string name="size_mb">%.2f МБ</string>
   <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">1 хвилина залишилась</item>
     <item quantity="other">%d хвилин залишилось</item>
@@ -501,6 +547,7 @@
   <string name="onboarding_skip">Пропустити</string>
   <string name="onboarding_continue">Продовжити</string>
   <string name="onboarding_get_started">Розпочати</string>
+  <string name="onboarding_maybe_later">Можливо, пізніше</string>
   <string name="onboarding_explore_title">Пізнаємо по-новому</string>
   <string name="onboarding_explore_text" fuzzy="true">Відкрийте для себе обрані статті, популярні теми та поради щодо читання в каналі перегляду.</string>
   <string name="onboarding_reading_list_sync_title">Синхронізовані списки для читання</string>
@@ -527,8 +574,23 @@
     <item quantity="one">Минулий рік</item>
     <item quantity="other">%d роки тому</item>
   </plurals>
+  <string name="languages_list_activity_title">Додати мову</string>
+  <string name="languages_list_suggested_text">Запропоновані</string>
+  <string name="languages_list_all_text">Всі мови</string>
+  <string name="wikipedia_languages_title">Мови Вікіпедії</string>
+  <string name="add_wikipedia_languages_text">Додати мови Вікіпедії</string>
   <string name="main_drawer_open">Відкрити</string>
   <string name="main_drawer_close">Закрити</string>
   <string name="main_drawer_help">Допомога</string>
   <string name="main_drawer_login">Увійти до Вікіпедії</string>
+  <string name="multilingual_task_negative">Не для мене</string>
+  <string name="multilingual_task_positive">Додати мови</string>
+  <string name="translation_source_description">%s опис:</string>
+  <string name="translate_caption_task_title">Переклад підписів для зображень</string>
+  <string name="title_description_editing_skip">Пропустити</string>
+  <string name="title_description_get_started">Розпочати</string>
+  <string name="translate_description_get_started">Розпочати</string>
+  <string name="edit_tasks_onboarding_get_started">Розпочати</string>
+  <string name="translate_descriptions_maybe_later">Можливо, пізніше</string>
+  <string name="translate_descriptions_onboarding_got_it">Зрозуміло</string>
 </resources>

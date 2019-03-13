@@ -20,8 +20,6 @@
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Tìm trong Wikipedia</string>
   <string name="search_hint_search_history">Tìm trong lịch sử</string>
-  <string name="search_hint_search_my_lists">Tìm trong danh sách đọc của tôi</string>
-  <string name="search_hint_search_reading_list">Tìm trong danh sách đọc</string>
   <string name="search_hint_search_languages">Tìm một ngôn ngữ</string>
   <string name="nav_item_history">Lịch sử</string>
   <string name="error_network_error">Không thể kết nối với Internet.</string>

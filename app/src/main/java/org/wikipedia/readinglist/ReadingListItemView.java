@@ -27,6 +27,7 @@ import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
@@ -111,6 +112,11 @@ public class ReadingListItemView extends ConstraintLayout {
         TextViewCompat.setTextAppearance(titleView, id);
     }
 
+    public void setSearchQuery(@Nullable String searchQuery) {
+        // highlight search term within the text
+        StringUtil.boldenKeywordText(titleView, titleView.getText().toString(), searchQuery);
+    }
+
     @OnClick void onClick(View view) {
         if (callback != null && readingList != null) {
             callback.onClick(readingList);
@@ -192,7 +198,7 @@ public class ReadingListItemView extends ConstraintLayout {
 
     private void loadThumbnail(@NonNull SimpleDraweeView view, @Nullable String url) {
         if (TextUtils.isEmpty(url)) {
-            view.getHierarchy().setFailureImage(R.drawable.ic_image_gray_24dp,
+            view.getHierarchy().setFailureImage(ResourceUtil.getThemedAttributeId(getContext(), R.attr.thumbnail_image_placeholder),
                     ScalingUtils.ScaleType.FIT_CENTER);
         } else {
             ViewUtil.loadImageUrlInto(view, url);

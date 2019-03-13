@@ -18,11 +18,8 @@ class MyContributionsProgressView @JvmOverloads constructor(
         gravity = CENTER_VERTICAL
     }
 
-    fun update(userLevel: Int, editCount: Int) {
-        circularProgressBar.setCurrentProgress(editCount.toDouble())
+    fun update(editCount: Int) {
         usernameText.text = AccountUtil.getUserName()
-        levelText.text = String.format(context.getString(R.string.editing_level_text), userLevel)
-        editCountText.text = editCount.toString()
         contributionsText.text = resources.getQuantityString(R.plurals.edit_action_contribution_count, editCount)
     }
 }

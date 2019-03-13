@@ -31,9 +31,8 @@
   <string name="nav_item_forward">앞으로</string>
   <string name="search_hint">위키백과 검색</string>
   <string name="search_hint_search_history">역사 검색</string>
-  <string name="search_hint_search_my_lists">내 목록 검색</string>
-  <string name="search_hint_search_reading_list">읽기 목록 검색</string>
   <string name="search_hint_search_languages">언어 검색</string>
+  <string name="search_hint_search_my_lists_and_articles">내 목록 및 문서 검색</string>
   <string name="nav_item_history">방문 기록</string>
   <string name="error_network_error">인터넷에 연결할 수 없습니다.</string>
   <string name="page_error_retry">다시 시도</string>
@@ -682,26 +681,26 @@
   <string name="main_drawer_close">닫기</string>
   <string name="main_drawer_help">도움말</string>
   <string name="main_drawer_login">위키백과에 로그인 / 가입</string>
-  <string name="title_description_task_title">제목 설명 추가</string>
-  <string name="title_description_task_description">제목 설명 없이 문서에 기여</string>
+  <string name="title_description_task_title">설명 추가</string>
+  <string name="title_description_task_description" fuzzy="true">제목 설명 없이 문서에 기여</string>
   <string name="image_caption_task_description">이미지에 캡션 추가</string>
   <string name="multilingual_task_description">둘 이상의 위키백과 언어로 읽고 쓰는 경우에 번역 작업이 가능합니다.</string>
-  <string name="translation_task_title">제목 설명 번역하기</string>
-  <string name="translation_task_description">제목 설명을 다른 언어로 번역합니다.</string>
+  <string name="translation_task_title">설명 번역하기</string>
+  <string name="translation_task_description" fuzzy="true">제목 설명을 다른 언어로 번역합니다.</string>
   <string name="multilingual_task_positive">언어 추가</string>
   <string name="editing_level_text">레벨 %d 앱 편집기</string>
   <string name="translation_source_description">%s 설명:</string>
   <string name="translate_caption_task_title">이미지 설명 번역하기</string>
   <string name="translate_caption_task_description">설명을 다른 언어로 번역하기</string>
   <plurals name="edit_action_contribution_count">
-    <item quantity="one">인앱 기여</item>
-    <item quantity="other">인앱 기여</item>
+    <item quantity="one">1개 기여</item>
+    <item quantity="other">%d개 기여</item>
   </plurals>
   <string name="add_title_descriptions_dialog_title">제목 설명 추가</string>
   <string name="add_title_descriptions_dialog_message">문서의 제목 아래에 나타나는 설명을 추가함으로써 지금 위키백과의 개선을 도울 수 있습니다. 언제든지 당신의 언어를 구성할 수 있습니다.</string>
   <string name="add_translate_descriptions_dialog_title">처음으로 제목 설명을 번역하고 있습니다</string>
   <string name="add_translate_descriptions_dialog_message">지금 제목 설명을 번역함으로써 위키백과 개선을 도울 수 있습니다. 언제든지 언어를 구성하고 번역 방향을 설정할 수 있습니다.</string>
-  <string name="description_edit_tutorial_message">위키백과의 인앱 편집의 새 터전에 오신 것을 환영합니다. 여기서 저희는 당신이 관심을 가질만한 내용을 추가할 기회를 제시합니다. 기여에 대단히 감사드립니다. 즐거운 편집 되십시오!</string>
+  <string name="description_edit_tutorial_message" fuzzy="true">위키백과의 빠른 앱 편집의 새 터전에 오신 것을 환영합니다. 여기서 저희는 당신이 관심을 가질만한 내용을 추가할 기회를 제시합니다. 기여에 대단히 감사드립니다. 즐거운 편집 되십시오!</string>
   <string name="translation_description_edit_task_unlock_title">제목 설명 편집 번역의 잠금이 해제되었습니다!</string>
   <string name="translation_description_edit_task_unlock_body">제목 설명을 편집하고 여러 언어로 위키백과를 읽는 것을 즐기시는 것 같습니다. 이 작업 목록은 더 많은 제목 설명을 번역하는 권한을 제공하오니 확인해 주십시오!</string>
   <string name="title_description_editing_skip">건너뛰기</string>

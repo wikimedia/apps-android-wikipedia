@@ -5,22 +5,20 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
-import android.util.Log;
 import android.widget.RemoteViews;
 
 import org.wikipedia.R;
 import org.wikipedia.search.SearchActivity;
 import org.wikipedia.search.SearchInvokeSource;
+import org.wikipedia.util.log.L;
 
 public class WidgetProviderSearch extends AppWidgetProvider {
-    private static final String TAG = "WidgetSearch";
-
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         ComponentName thisWidget = new ComponentName(context, WidgetProviderSearch.class);
         int[] allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
         for (int widgetId : allWidgetIds) {
-            Log.d(TAG, "updating widget...");
+            L.d("updating widget...");
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_search);
 
             // Create a PendingIntent to act as the onClickListener

@@ -12,14 +12,15 @@
         android:id="@+id/edit_onboarding_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/main_toolbar_color"
         android:visibility="gone">
 
         <org.wikipedia.onboarding.OnboardingPageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="visible"
-            app:centeredImage="@drawable/ic_action_feed_edit"
-            app:imageSize="66dp"
+            app:centeredImage="@drawable/ic_editor_onboarding"
+            app:imageSize="207dp"
             app:primaryText="@string/edit_tasks_activity_title"
             app:secondaryText="@string/description_edit_tutorial_message"
             app:tertiaryText="@string/description_edit_tutorial_promise" />
@@ -42,13 +43,17 @@
 
     </FrameLayout>
 
+
+
     <org.wikipedia.editactionfeed.MyContributionsProgressView
         android:id="@+id/my_contributions_progress_view"
         android:layout_width="match_parent"
-        android:layout_height="96dp"
+        android:layout_height="72dp"
         android:background="?attr/main_toolbar_color"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp" />
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:elevation="4dp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/task_recyclerview"

@@ -9,8 +9,6 @@
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Pretraži Wikipediju</string>
   <string name="search_hint_search_history">Pretraži historiju</string>
-  <string name="search_hint_search_my_lists">Pretraži moje spiskove</string>
-  <string name="search_hint_search_reading_list">Pretraži spisak za čitanje</string>
   <string name="search_hint_search_languages">Pronađi jezik</string>
   <string name="nav_item_history">Historija</string>
   <string name="error_network_error">Ne mogu se povezati na internet.</string>

@@ -20,8 +20,6 @@
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Bilatu Wikipedian</string>
   <string name="search_hint_search_history">Bilatu historia</string>
-  <string name="search_hint_search_my_lists">Nire zerrendetan bilatu</string>
-  <string name="search_hint_search_reading_list">Irakurketa zerrenda bilatu</string>
   <string name="search_hint_search_languages">Hizkuntza bat bilatu</string>
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Ezin izan da Internetera konektatu.</string>
