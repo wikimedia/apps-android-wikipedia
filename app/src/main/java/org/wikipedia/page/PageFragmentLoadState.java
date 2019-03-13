@@ -367,7 +367,7 @@ public class PageFragmentLoadState {
     private void pageLoadDisplayLeadSection() {
         Page page = model.getPage();
 
-        sendMarginPayload();
+        bridge.sendMessage("setMargins", marginPayload());
 
         sendLeadSectionPayload(page);
 
@@ -381,11 +381,6 @@ public class PageFragmentLoadState {
         if (fragment.callback() != null) {
             fragment.callback().onPageUpdateProgressBar(true, true, 0);
         }
-    }
-
-    void sendMarginPayload() {
-        JSONObject marginPayload = marginPayload();
-        bridge.sendMessage("setMargins", marginPayload);
     }
 
     private JSONObject marginPayload() {
