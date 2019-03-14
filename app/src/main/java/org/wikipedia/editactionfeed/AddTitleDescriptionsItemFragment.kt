@@ -64,7 +64,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
             getArticleWithMissingDescription()
         }
 
-        viewArticleContainer.setOnClickListener {
+        cardView.setOnClickListener {
             parent().onSelectPage()
         }
     }
