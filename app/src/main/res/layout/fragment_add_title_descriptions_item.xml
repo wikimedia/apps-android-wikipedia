@@ -87,43 +87,6 @@
                     android:textSize="12sp"
                     tools:text="Lorem ipsum" />
 
-                <LinearLayout
-                    android:id="@+id/addDescriptionContainer"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="16dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/shape_circle"
-                        android:backgroundTint="?attr/colorAccent"
-                        android:contentDescription="@null"
-                        android:foreground="?attr/selectableItemBackgroundBorderless"
-                        android:padding="2dp"
-                        android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/ic_add_gray_themed_24dp"
-                        app:tint="@android:color/white" />
-
-                    <TextView
-                        android:id="@+id/callToActionText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="6dp"
-                        android:fontFamily="sans-serif-medium"
-                        android:letterSpacing="0.01"
-                        android:lineSpacingExtra="6sp"
-                        android:textColor="?attr/colorAccent"
-                        android:textSize="14sp" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="60dp"
-                    android:layout_height="1dp"
-                    android:background="?attr/chart_shade5"/>
-
                 <TextView
                     android:id="@+id/viewArticleExtract"
                     android:layout_width="match_parent"
