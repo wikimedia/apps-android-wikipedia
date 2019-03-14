@@ -468,7 +468,6 @@
   <string name="description_edit_help_title">مدد:عنوان جي تشريح</string>
   <string name="description_edit_help_about_wikidata">وڪيڊيٽا بابت</string>
   <string name="description_edit_help_wikidata_guide">تشريحون لکڻ لاءِ وڪيڊيٽا رھنما (گائيڊ)</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">تشريحن کي ترميم ڪرڻ واري توھان جي لاڳيتي دلچسپيءَ لاءِ مھرباني! وڌيڪ ترميمون ڪرڻ لاءِ، پنھنجي وڪيپيڊيا کاتي ۾ داخل ٿيو.</string>
   <string name="description_edit_license_notice">تشريح تبديل ڪرڻ سان، مان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان راضي آھيان ۽ پنھنجون ڀاڱيداريون اريووڪيبلي &lt;a href=\"%2$s\"&gt;ڪريئيٽوِ ڪامنز سيسيزيرو&lt;/a&gt; لائسنس تحت ڏيان ٿو.</string>
@@ -483,17 +482,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">خيالي ھڪ سٽ، ٻن کان ٻارھن اکرن جي وچ ۾</string>
   <string name="description_edit_tutorial_button_label_start_editing">سنوارڻ شروع ڪريو</string>
   <string name="description_edit_tutorial_promise">شرپع ڪرڻ سان، مان واعدو ٿو ڪريان مان ھن خوبي جو غلط استعمال نہ ڪندس.</string>
-  <string name="description_edit_help_about_title">بابت</string>
-  <string name="description_edit_help_description">عنوان جي تشريح ڪنھن بہ مضمون جو تت ڏئي ٿي تہ جيئن پڙھندڙ موضوع کي ھڪ ئي نظر ۾ سمجھي وڃن.</string>
-  <string name="description_edit_help_tips">تشريح وجھڻ لاءِ ٽوٽڪا</string>
-  <string name="description_edit_help_tips_description">تشريحون ھڪ سٽ تي پوريون ٿيڻ گھرجن، ۽ اھي ڊيگھ ۾ ٻن کان ٻارھن لفظن جي وچ ۾ ھجڻ گھرجن. انھن کي وڏن اکرن ۾ لکيو وڃي جيسيتائين پھريون لفظ ڪو خاص اسم ھجي.</string>
-  <string name="description_edit_help_tips_examples">مثال طور:</string>
-  <string name="description_edit_help_tips_example1">ليونارڊو ڊا ونسي جي مصوري</string>
-  <string name="description_edit_help_tips_example1_hint">مونا ليزا بابت ھڪ مضمون جي عنوان جي تشريح</string>
-  <string name="description_edit_help_tips_example2">دنيا جو سڀ کان اوچو جبل</string>
-  <string name="description_edit_help_tips_example2_hint">مائونٽ ايوريسٽ بابت ھڪ مضمون جي عنوان جي تشريح</string>
-  <string name="description_edit_help_more_info">وڌيڪ معلومات</string>
-  <string name="description_edit_help_meta_info">تشريحن کي وڪيڊيٽا ۾ سنڀاليو ۽ سھيڙيو ويندو آھي، جيڪا پڻ وڪيميڊيا فائونڊيشن جي ھڪ رٿا آھي، اھا مفت، گڏيل، گھڻ زباني، ثانوي ڊيٽابيس آھي، جيڪا وڪيپيڊيا ۽ ٻين رٿائن جي پٺڀرائي ڪري ٿي.</string>
   <string name="description_edit_revert_subtitle">وڪيپيڊيا ترميم ڪرڻ لاءِ مھرباني!</string>
   <string name="description_edit_revert_intro">اسان ڄاڻون ٿا توھان ڀرپور ڪوشش ڪئي، پر ھڪ جائزيڪار کي ڪو شڪ آھي. توھان جي ترميم ورايو وڃڻ جي سببن ۾ شامل آھن:</string>
   <string name="description_edit_revert_reason1">توھان جي ڀاڱيداريءَ &lt;a href=\"%1$s\"&gt;ھدايتن&lt;/a&gt; مان ڪنھن ھڪ جي پيروي نہ ڪئي.</string>

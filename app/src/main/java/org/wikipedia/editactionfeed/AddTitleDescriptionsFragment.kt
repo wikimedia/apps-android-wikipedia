@@ -30,7 +30,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
-import org.wikipedia.descriptions.DescriptionEditHelpActivity
 import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.EXTRA_SOURCE
 import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.EXTRA_SOURCE_ADDED_DESCRIPTION
 import org.wikipedia.page.PageTitle
@@ -183,7 +182,7 @@ class AddTitleDescriptionsFragment : Fragment() {
                     .setMessage(R.string.add_title_descriptions_dialog_message)
                     .setPositiveButton(R.string.title_descriptions_onboarding_got_it, null)
                     .setNegativeButton(R.string.editactionfeed_add_title_dialog_learn_more) { _, _ ->
-                        startActivity(DescriptionEditHelpActivity.newIntent(requireContext()))
+                        FeedbackUtil.showAndroidAppEditingFAQ(context)
                     }
                     .show()
             Prefs.setShowEditActionAddTitleDescriptionsOnboarding(false)
@@ -196,7 +195,7 @@ class AddTitleDescriptionsFragment : Fragment() {
                     .setMessage(R.string.add_translate_descriptions_dialog_message)
                     .setPositiveButton(R.string.translate_descriptions_onboarding_got_it, null)
                     .setNegativeButton(R.string.editactionfeed_translate_title_dialog_learn_more) { _, _ ->
-                        startActivity(DescriptionEditHelpActivity.newIntent(requireContext()))
+                        FeedbackUtil.showAndroidAppEditingFAQ(context)
                     }
                     .show()
             Prefs.setShowEditActionTranslateDescriptionsOnboarding(false)

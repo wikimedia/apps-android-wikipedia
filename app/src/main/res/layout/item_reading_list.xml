@@ -14,7 +14,7 @@
         style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/list_item_horizontal_padding"
         app:roundTopLeft="true" />
 
     <com.facebook.drawee.view.SimpleDraweeView
@@ -47,7 +47,7 @@
         android:layout_height="57dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/list_item_horizontal_padding"
         android:background="@drawable/button_shape_add_reading_list"
         android:contentDescription="@null"
         android:padding="10dp"

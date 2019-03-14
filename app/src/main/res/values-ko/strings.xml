@@ -578,7 +578,6 @@
   <string name="description_edit_help_title">도움말: 제목 설명</string>
   <string name="description_edit_help_about_wikidata">위키데이터 정보</string>
   <string name="description_edit_help_wikidata_guide">설명 작성을 위한 위키데이터 안내서</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/ko</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">설명 편집에 지속적인 관심을 주셔서 감사합니다! 추가 편집을 하려면 위키백과 계정에 로그인해 주십시오.</string>
   <string name="description_edit_license_notice">제목 설명을 변경함으로써, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하며 내 기여를 &lt;a href=\"%2$s\"&gt;크리에이티브 커먼즈 CC0&lt;/a&gt; 라이선스로 배포하는 것을 동의합니다.</string>
@@ -594,17 +593,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">2개부터 12개 사이의 단어에 한 줄이 적당합니다</string>
   <string name="description_edit_tutorial_button_label_start_editing">편집 시작</string>
   <string name="description_edit_tutorial_promise">시작함으로써 나는 이 기능을 악용하지 않을 것을 약속합니다.</string>
-  <string name="description_edit_help_about_title">정보</string>
-  <string name="description_edit_help_description">제목 설명은 독자들이 한눈에 주제를 파악할 수 있도록 글을 요약합니다.</string>
-  <string name="description_edit_help_tips">설명 작성에 대한 도움말</string>
-  <string name="description_edit_help_tips_description">설명은 2개에서 12개 사이의 단어 길이의 한 줄에 맞추는 것이 이상적입니다. 처음 오는 단어가 고유 명사가 아니라면 대문자로 쓰지 않습니다.</string>
-  <string name="description_edit_help_tips_examples">예를 들어:</string>
-  <string name="description_edit_help_tips_example1">레오나르도 다 빈치의 그림</string>
-  <string name="description_edit_help_tips_example1_hint">모나리자에 관한 문서의 제목 설명</string>
-  <string name="description_edit_help_tips_example2">지구상에서 가장 높은 산</string>
-  <string name="description_edit_help_tips_example2_hint">에베레스트 산에 관한 문서의 제목 설명</string>
-  <string name="description_edit_help_more_info">자세한 정보</string>
-  <string name="description_edit_help_meta_info">설명은 위키백과와 다른 프로젝트를 지원하는 자유, 협업, 다언어, 2차 데이터베이스를 제공하는 위키미디어 재단의 프로젝트의 하나인 위키데이터에 저장되어 관리됩니다.</string>
   <string name="editactionfeed_add_title_descriptions">제목 설명 추가</string>
   <string name="editactionfeed_translate_descriptions">제목 설명 번역하기</string>
   <string name="editactionfeed_review_title_description">이 설명 검토</string>

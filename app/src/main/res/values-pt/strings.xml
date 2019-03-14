@@ -584,7 +584,6 @@
   <string name="description_edit_help_title">Ajuda: descrições de títulos</string>
   <string name="description_edit_help_about_wikidata">Sobre o Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guia Wikidata para escrever descrições</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/pt</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Agradecemos o seu interesse contínuo em editar descrições! Para realizar edições adicionais autentique-se com a sua conta da Wikipédia, por favor.</string>
   <string name="description_edit_license_notice">Ao alterar a descrição do título, concordo com as &lt;a href=\"%1$s\"&gt;Condições de utilização&lt;/a&gt; e em publicar irrevogavelmente as minhas contribuições ao abrigo da licença &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
@@ -601,17 +600,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente uma linha, entre duas e doze palavras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Começar a editar</string>
   <string name="description_edit_tutorial_promise">Ao começar, prometo não utilizar esta funcionalidade de forma abusiva.</string>
-  <string name="description_edit_help_about_title">Sobre</string>
-  <string name="description_edit_help_description">As descrições de título resumem um artigo para ajudar os leitores a compreender imediatamente o assunto.</string>
-  <string name="description_edit_help_tips">Dicas para criar descrições</string>
-  <string name="description_edit_help_tips_description">Idealmente, as descrições devem caber numa linha e ter entre duas a doze palavras. Não começam por letra maiúscula, a menos que a primeira palavra seja um substantivo próprio.</string>
-  <string name="description_edit_help_tips_examples">Por exemplo:</string>
-  <string name="description_edit_help_tips_example1">pintura de Leonardo da Vinci</string>
-  <string name="description_edit_help_tips_example1_hint">descrição para um artigo sobre a Mona Lisa</string>
-  <string name="description_edit_help_tips_example2">Evereste, a montanha mais alta da Terra</string>
-  <string name="description_edit_help_tips_example2_hint">descrição para um artigo sobre o monte Evereste</string>
-  <string name="description_edit_help_more_info">Mais informação</string>
-  <string name="description_edit_help_meta_info">As descrições são armazenadas e mantidas no Wikidata, um projeto da Wikimedia Foundation que fornece uma base de dados secundária livre, colaborativa e multilingue, que apoia a Wikipédia e outros projetos.</string>
   <string name="editactionfeed_add_title_descriptions">Adicionar descrições de título</string>
   <string name="editactionfeed_translate_descriptions">Traduzir as descrições de título</string>
   <string name="editactionfeed_review_title_description">Rever descrição do título</string>
