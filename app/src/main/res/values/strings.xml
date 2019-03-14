@@ -765,5 +765,5 @@
     <string name="translate_descriptions_maybe_later">Maybe later</string>
     <string name="title_descriptions_onboarding_got_it">Got it</string>
     <string name="translate_descriptions_onboarding_got_it">Got it</string>
-    <string name="android_app_edit_help_url">https://www.wikidata.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+    <string name="android_app_edit_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
 </resources>
