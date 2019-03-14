@@ -2,7 +2,6 @@ package org.wikipedia.editactionfeed
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.NavUtils
 import android.support.v7.app.AlertDialog
@@ -16,8 +15,8 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.editactionfeed.AddTitleDescriptionsFragment.Companion.newInstance
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
-import org.wikipedia.util.UriUtil
 import org.wikipedia.views.DialogTitleWithImage
 
 class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptionsFragment>() {
@@ -53,8 +52,7 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
             }
 
             R.id.menu_help -> {
-                UriUtil.visitInExternalBrowser(baseContext,
-                        Uri.parse(baseContext.getString(R.string.android_app_edit_help_url)))
+                FeedbackUtil.showAndroidAppEditingFAQ(baseContext)
                 true
             }
             R.id.menu_my_contributions -> {

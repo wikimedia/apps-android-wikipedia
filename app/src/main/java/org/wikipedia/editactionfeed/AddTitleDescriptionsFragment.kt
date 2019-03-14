@@ -2,7 +2,6 @@ package org.wikipedia.editactionfeed
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentStatePagerAdapter
@@ -36,7 +35,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.AnimationUtil
-import org.wikipedia.util.UriUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DialogTitleWithImage
 
@@ -167,8 +166,7 @@ class AddTitleDescriptionsFragment : Fragment() {
                     .setMessage(R.string.add_title_descriptions_dialog_message)
                     .setPositiveButton(R.string.title_descriptions_onboarding_got_it, null)
                     .setNegativeButton(R.string.editactionfeed_add_title_dialog_learn_more) { _, _ ->
-                        UriUtil.visitInExternalBrowser(context,
-                                Uri.parse(requireContext().getString(R.string.android_app_edit_help_url)))
+                        FeedbackUtil.showAndroidAppEditingFAQ(context)
                     }
                     .show()
             Prefs.setShowEditActionAddTitleDescriptionsOnboarding(false)
@@ -180,8 +178,7 @@ class AddTitleDescriptionsFragment : Fragment() {
                     .setMessage(R.string.add_translate_descriptions_dialog_message)
                     .setPositiveButton(R.string.translate_descriptions_onboarding_got_it, null)
                     .setNegativeButton(R.string.editactionfeed_translate_title_dialog_learn_more) { _, _ ->
-                        UriUtil.visitInExternalBrowser(context,
-                                Uri.parse(requireContext().getString(R.string.android_app_edit_help_url)))
+                        FeedbackUtil.showAndroidAppEditingFAQ(context)
                     }
                     .show()
             Prefs.setShowEditActionTranslateDescriptionsOnboarding(false)

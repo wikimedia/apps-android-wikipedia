@@ -1,7 +1,6 @@
 package org.wikipedia.descriptions;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -31,7 +30,6 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.Date;
@@ -310,8 +308,7 @@ public class DescriptionEditFragment extends Fragment {
 
         @Override
         public void onHelpClick() {
-            UriUtil.visitInExternalBrowser(getContext(),
-                    Uri.parse(requireContext().getString(R.string.android_app_edit_help_url)));
+            FeedbackUtil.showAndroidAppEditingFAQ(requireContext());
         }
 
         @Override

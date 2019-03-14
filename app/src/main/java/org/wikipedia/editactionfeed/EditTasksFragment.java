@@ -1,7 +1,6 @@
 package org.wikipedia.editactionfeed;
 
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -24,8 +23,8 @@ import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
+import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
-import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.FooterMarginItemDecoration;
@@ -264,8 +263,7 @@ public class EditTasksFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.edit_tasks_menu_help:
-                UriUtil.visitInExternalBrowser(getContext(),
-                        Uri.parse(requireContext().getString(R.string.android_app_edit_help_url)));
+                FeedbackUtil.showAndroidAppEditingFAQ(requireContext());
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
