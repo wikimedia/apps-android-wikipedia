@@ -39,7 +39,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="17dp">
+            android:paddingBottom="@dimen/randomizer_text_view_bottom_padding"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground">
 
             <org.wikipedia.views.FaceAndColorDetectImageView
                 style="@style/SimpleDraweeViewPlaceholder"
@@ -60,9 +62,7 @@
                 android:layout_height="164dp"
                 android:orientation="vertical"
                 android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:clickable="true"
-                android:background="?attr/selectableItemBackground">
+                android:paddingRight="16dp">
 
                 <TextView
                     android:id="@+id/view_random_article_card_article_title"
@@ -96,6 +96,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:paddingTop="8dp"
+                    android:paddingBottom="16dp"
                     android:maxLines="4"
                     android:ellipsize="end"
                     android:lineSpacingMultiplier="1.4"
