@@ -330,10 +330,6 @@
   <string name="description_edit_success_did_you_know">იცოდით?</string>
   <string name="description_edit_tutorial_title_descriptions">სათაურის აღწერილობა</string>
   <string name="description_edit_tutorial_button_label_start_editing">დაიწყე რედაქტირება</string>
-  <string name="description_edit_help_tips_examples">მაგალითად:</string>
-  <string name="description_edit_help_tips_example1">ლეონარდო და ვინჩის ნახატი</string>
-  <string name="description_edit_help_tips_example2">დედამიწის უმაღლესი მწვერვალი</string>
-  <string name="description_edit_help_more_info">მეტი ინფორმაცია</string>
   <string name="size_gb">%.2f გბ</string>
   <string name="size_mb">%.2f მბ</string>
   <plurals name="offline_compilation_download_time_remaining">

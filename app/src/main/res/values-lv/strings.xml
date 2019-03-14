@@ -240,9 +240,6 @@
   <string name="description_edit_success_done">Gatavs</string>
   <string name="description_edit_success_did_you_know">Vai tu zināji?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Sākt labošanu</string>
-  <string name="description_edit_help_about_title">Par</string>
-  <string name="description_edit_help_tips_examples">Piemēram:</string>
-  <string name="description_edit_help_more_info">Vairāk informācijas</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">Uzzināt vairāk</string>
   <string name="onboarding_skip">Izlaist</string>
   <string name="onboarding_continue">Turpināt</string>

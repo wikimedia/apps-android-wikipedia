@@ -581,7 +581,6 @@
   <string name="description_edit_help_title">Ajuda: descripcions dels títols</string>
   <string name="description_edit_help_about_wikidata">Quant a Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guia de Wikidata per a escriure descripcions</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/ca</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Gràcies pel vostre continu interès en editar descripcions! Per a fer edicions addicionals, inicieu una sessió amb el vostre compte de Viquipèdia.</string>
   <string name="description_edit_license_notice">En canviar la descripció del títol, estic d\'acord amb els &lt;a href=\"%1$s\"&gt;termes d\'ús&lt;/a&gt; i allibero irrevocablement les meves contribucions sota la llicència &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
@@ -598,17 +597,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealment una línia, entre dos o dotze mots</string>
   <string name="description_edit_tutorial_button_label_start_editing">Comença a editar</string>
   <string name="description_edit_tutorial_promise">En començar, prometeu que no fareu mal ús d\'aquesta funcionalitat.</string>
-  <string name="description_edit_help_about_title">Quant a</string>
-  <string name="description_edit_help_description">Les descripcions del títol d\'un article ajuden als lectors a entendre la temàtica d\'un cop d\'ull</string>
-  <string name="description_edit_help_tips">Consells per a crear descripcions</string>
-  <string name="description_edit_help_tips_description">Les descripcions idealment haurien de cabre en una línia i tenir entre dues i dotze paraules. No es posen en majúscules a menys que la primera paraula sigui un nom propi.</string>
-  <string name="description_edit_help_tips_examples">Per exemple:</string>
-  <string name="description_edit_help_tips_example1">quadre de Leonardo da Vinci</string>
-  <string name="description_edit_help_tips_example1_hint">descripció de títol d\'un article sobre la Mona Lisa</string>
-  <string name="description_edit_help_tips_example2">La muntanya més alta de la Terra</string>
-  <string name="description_edit_help_tips_example2_hint">descripció d\'un títol d\'un article sobre l\'Everest</string>
-  <string name="description_edit_help_more_info">Més informació</string>
-  <string name="description_edit_help_meta_info">Les descripcions s\'emmagatzemen i mantenen a Wikidata, el projecte de la Fundació Wikimedia que proporciona una base de dades secundària lliure, col·laborativa i multilingüe per a donar suport a la Viquipèdia i a altres projectes.</string>
   <string name="editactionfeed_add_title_descriptions">Afegeix descripcions de títol</string>
   <string name="editactionfeed_translate_descriptions">Traducció de les descripcions de títol</string>
   <string name="editactionfeed_review_title_description">Revisa la descripció de títol</string>

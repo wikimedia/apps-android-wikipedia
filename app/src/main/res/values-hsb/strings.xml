@@ -397,15 +397,6 @@
   <string name="description_edit_success_done">Hotowo</string>
   <string name="description_edit_success_did_you_know">Hižo wědźał(a)?</string>
   <string name="description_edit_tutorial_title_descriptions">Titulowe wopisy</string>
-  <string name="description_edit_help_about_title">Wo projekće</string>
-  <string name="description_edit_help_tips">Pokiwy za wutworjenje wopisow</string>
-  <string name="description_edit_help_tips_examples">Na přikład:</string>
-  <string name="description_edit_help_tips_example1">mólba Leonarda da Vinci</string>
-  <string name="description_edit_help_tips_example1_hint">wopisanje za zapisk wo Mona Lisa</string>
-  <string name="description_edit_help_tips_example2">najwyša hora na swěće</string>
-  <string name="description_edit_help_tips_example2_hint">wopisanje za zapisk wo Mount Everest</string>
-  <string name="description_edit_help_more_info">Wjace informacijow</string>
-  <string name="description_edit_help_meta_info">Wopisanja so składuja a zarjaduja na Wikidatach, projekće załožby Wikimedija, kotryž poskići swobodnu, zhromadnu, wjacerěčnu datowu banku, podpěrujo Wikipediju a druhe projekty.</string>
   <string name="description_edit_revert_subtitle">Měj dźak za wobdźěłanje Wikipedije!</string>
   <string name="description_edit_revert_reason2">twój přinošk wupadaše kaž eksperiment abo wandalizm.</string>
   <string name="size_gb">%.2f GB</string>

@@ -584,7 +584,6 @@
   <string name="description_edit_help_title">協助：標題描述</string>
   <string name="description_edit_help_about_wikidata">關於維基數據</string>
   <string name="description_edit_help_wikidata_guide">關於編寫描述的維基數據指引</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/zh</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/zh</string>
   <string name="description_edit_anon_limit">感謝您保持著對於編輯描述的興致！要進行額外編輯，請登入您的維基百科帳號。</string>
   <string name="description_edit_license_notice">透過更改標題描述，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤銷所發表出我的個人貢獻。</string>
@@ -601,17 +600,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">原則上為一行，介於 2 至 12 個字之間</string>
   <string name="description_edit_tutorial_button_label_start_editing">開始編輯</string>
   <string name="description_edit_tutorial_promise">首先，我保證不會濫用此功能。</string>
-  <string name="description_edit_help_about_title">關於</string>
-  <string name="description_edit_help_description">標題描述能概括條目，以幫助讀者快速了解內容。</string>
-  <string name="description_edit_help_tips">建立描述的提示</string>
-  <string name="description_edit_help_tips_description">描述盡量使用一行文字，且長度介於 2 到 12 個字元之間。另外除非第一個詞為專有名詞，否則不用大寫。</string>
-  <string name="description_edit_help_tips_examples">例如：</string>
-  <string name="description_edit_help_tips_example1">李奧納多·達文西的繪畫</string>
-  <string name="description_edit_help_tips_example1_hint">有關蒙娜麗莎條目的標題描述</string>
-  <string name="description_edit_help_tips_example2">地球第一高峰</string>
-  <string name="description_edit_help_tips_example2_hint">有關聖母峰條目的標題描述</string>
-  <string name="description_edit_help_more_info">更多資訊</string>
-  <string name="description_edit_help_meta_info">描述會被保管在維基數據，那是維基媒體基金會計畫的另一個專案，是個自由、共同作業、多語言的二級資料庫，支援著維基百科及其它相類專案。</string>
   <string name="editactionfeed_add_title_descriptions">增加標題描述</string>
   <string name="editactionfeed_translate_descriptions">翻譯標題描述</string>
   <string name="editactionfeed_review_title_description">檢閱標題描述</string>
