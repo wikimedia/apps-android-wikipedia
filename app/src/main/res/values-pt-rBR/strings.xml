@@ -690,16 +690,16 @@
   <string name="main_drawer_close">Fechar</string>
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Entrar / Juntar na Wikipédia</string>
-  <string name="title_description_task_title" fuzzy="true">Adicionar descrições de título</string>
-  <string name="title_description_task_description" fuzzy="true">Contribuir para artigos sem descrições de títulos</string>
+  <string name="title_description_task_title">Adicionar descrições</string>
+  <string name="title_description_task_description">Contribuir para artigos sem descrições</string>
   <string name="image_caption_task_title">Legendas de imagens</string>
   <string name="image_caption_task_description">Adicionar legendas às imagens</string>
   <string name="multilingual_task_title">Mais tarefas para editores multilíngues</string>
   <string name="multilingual_task_description">As tarefas de tradução estão disponíveis se você ler e escrever em mais de um idioma da Wikipedia.</string>
-  <string name="translation_task_title" fuzzy="true">Traduzir descrições de títulos</string>
-  <string name="translation_task_description" fuzzy="true">Traduzir descrições de títulos para outros idiomas.</string>
-  <string name="image_caption_edit_disable_text" fuzzy="true">Bloqueado até que você tenha feito %d edições no aplicativo verificadas</string>
-  <string name="translate_description_edit_disable_text" fuzzy="true">Bloqueado até que você tenha editado %d descrições de título</string>
+  <string name="translation_task_title">Traduzir descrições</string>
+  <string name="translation_task_description">Traduzir descrições em idiomas do artigo.</string>
+  <string name="image_caption_edit_disable_text">Bloqueado até que você tenha feito %d contribuições verificadas</string>
+  <string name="translate_description_edit_disable_text">Bloqueado até que você tenha feito %d contribuições verificadas</string>
   <string name="multilingual_task_negative">Não para mim</string>
   <string name="multilingual_task_positive">Adicionar idiomas</string>
   <string name="editing_level_text">NÍVEL %d editor de aplicativos</string>
@@ -714,7 +714,7 @@
   <string name="add_title_descriptions_dialog_message">Agora você pode ajudar a melhorar a Wikipédia adicionando descrições que aparecem abaixo dos títulos nos artigos. Você pode configurar seus idiomas a qualquer momento.</string>
   <string name="add_translate_descriptions_dialog_title">Você está traduzindo as descrições dos títulos pela primeira vez</string>
   <string name="add_translate_descriptions_dialog_message">Agora você pode ajudar a melhorar o Wikipédia, traduzindo as descrições dos títulos. Você pode configurar seus idiomas e definir uma direção de tradução a qualquer momento.</string>
-  <string name="description_edit_tutorial_message" fuzzy="true">Bem-vindo ao novo lar da edição no aplicativo na Wikipédia. Aqui, sugerimos oportunidades para adicionar conteúdo que possa ser do seu interesse. Suas contribuições são muito apreciadas. Edição feliz!</string>
+  <string name="description_edit_tutorial_message">Bem-vindo ao novo lar para edição rápida no aplicativo da Wikipedia. Suas contribuições são muito apreciadas. Edição feliz!</string>
   <string name="translation_description_edit_task_unlock_title">A tradução da edição de descrições de títulos foi desbloqueada!</string>
   <string name="translation_description_edit_task_unlock_body">Notamos que você gosta de editar descrições de títulos e ler a Wikipédia em vários idiomas. Confira esta lista de tarefas que dá acesso à tradução de mais descrições de títulos!</string>
   <string name="title_description_editing_skip">Pular</string>

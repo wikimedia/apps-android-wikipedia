@@ -28,6 +28,7 @@
   <string name="search_hint">Cerca a la Viquipèdia</string>
   <string name="search_hint_search_history">Historial de cerca</string>
   <string name="search_hint_search_languages">Cerca una llengua</string>
+  <string name="search_hint_search_my_lists_and_articles">Cerca les meves llistes i articles</string>
   <string name="nav_item_history">Historial</string>
   <string name="error_network_error">No pot connectar-se a Internet.</string>
   <string name="page_error_retry">Torna a provar</string>
@@ -389,6 +390,7 @@
   <string name="reading_list_description_hint">Descripció (opcional)</string>
   <string name="reading_list_item_deleted">%s suprimit de la llista</string>
   <string name="reading_list_items_deleted">%d articles esborrats de la llista</string>
+  <string name="reading_lists_item_deleted">%s suprimit de les llistes</string>
   <string name="reading_list_item_delete_undo">Desfés</string>
   <string name="reading_list_deleted">%s eliminada</string>
   <string name="saved_list_empty_title">Encara no hi ha cap llista de lectura.</string>
@@ -556,7 +558,7 @@
   <string name="view_featured_article_footer_save_button_label">Desa</string>
   <string name="view_static_card_save_button_label">Desa</string>
   <string name="view_featured_article_footer_saved_button_label">Desat</string>
-  <string name="edit_tasks_activity_title" fuzzy="true">Tasques d\'editor de l\'aplicació</string>
+  <string name="edit_tasks_activity_title">Tasques d\'editor</string>
   <string name="feed_configure_activity_title">Personalitza el canal</string>
   <string name="feed_configure_menu_reset">Restaura la vista per defecte</string>
   <string name="feed_configure_menu_select_all">Mostra-ho tot</string>
@@ -585,7 +587,7 @@
   <string name="description_edit_anon_limit">Gràcies pel vostre continu interès en editar descripcions! Per a fer edicions addicionals, inicieu una sessió amb el vostre compte de Viquipèdia.</string>
   <string name="description_edit_license_notice">En canviar la descripció del títol, estic d\'acord amb els &lt;a href=\"%1$s\"&gt;termes d\'ús&lt;/a&gt; i allibero irrevocablement les meves contribucions sota la llicència &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_task_unlock_title">S\'ha desbloquejat la llista de tasques d\'edició de les descripcions de títol!</string>
-  <string name="description_edit_task_unlock_body" fuzzy="true">Hem notat que us agrada editar les descripcions de títol. Per això hem compilat una llista de «tasques d\'editor d\'aplicació» amb més articles que no tenen descripcions de títol perquè pugueu continuar contribuint-hi!</string>
+  <string name="description_edit_task_unlock_body">Hem notat que us agrada editar les descripcions de títol. Per això hem compilat una llista de «tasques d\'editor» amb més articles que no tenen descripcions de títol perquè pugueu continuar contribuint-hi!</string>
   <string name="description_edit_success_saved">S\'ha publicat la descripció!</string>
   <string name="description_edit_success_encouragement">Acabeu de millorar la Viquipèdia per a tothom</string>
   <string name="description_edit_success_done">Fet</string>
@@ -676,31 +678,31 @@
   <string name="main_drawer_close">Tanca</string>
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Inicia una sessió / uniu-vos a la Viquipèdia</string>
-  <string name="title_description_task_title" fuzzy="true">Afegeix descripcions de títol</string>
-  <string name="title_description_task_description" fuzzy="true">Contribuïu a articles sense descripcions de títol</string>
+  <string name="title_description_task_title">Afegeix descripcions</string>
+  <string name="title_description_task_description">Contribuïu a articles sense descripcions</string>
   <string name="image_caption_task_title">Afegeix llegendes a les imatges</string>
   <string name="image_caption_task_description">Addició de llegendes a les imatges</string>
   <string name="multilingual_task_title">Més tasques per a editors multilingües</string>
   <string name="multilingual_task_description">Les tasques de traducció són disponibles si llegiu i escriviu en més d\'una llengua de la Viquipèdia.</string>
-  <string name="translation_task_title" fuzzy="true">Tradueix les descripcions dels títols</string>
-  <string name="translation_task_description" fuzzy="true">Tradueix les descripcions dels títols en altres llengües.</string>
-  <string name="image_caption_edit_disable_text" fuzzy="true">Bloquejat fins que hàgiu fet %d edicions verificades des de l\'aplicació</string>
-  <string name="translate_description_edit_disable_text" fuzzy="true">Bloquejat fins que hàgiu editat %d descripcions de títol</string>
+  <string name="translation_task_title">Tradueix les descripcions</string>
+  <string name="translation_task_description">Tradueix les descripcions en les diferents llengües de l\'article.</string>
+  <string name="image_caption_edit_disable_text">Bloquejat fins que no hàgiu fet %d contribucions verificades</string>
+  <string name="translate_description_edit_disable_text">Bloquejat fins que no hàgiu fet %d contribucions verificades</string>
   <string name="multilingual_task_negative">No per a mi</string>
   <string name="multilingual_task_positive">Afegeix llengües</string>
   <string name="editing_level_text">NIVELL %d d\'editor d\'aplicació</string>
   <string name="translation_source_description">Descripció en %s:</string>
   <string name="translate_caption_task_title">Tradueix les llegendes de les imatges</string>
   <string name="translate_caption_task_description">Tradueix les llegendes en altres llengües</string>
-  <plurals name="edit_action_contribution_count" fuzzy="true">
-    <item quantity="one">contribució en l\'aplicació</item>
-    <item quantity="other">contribucions en l\'aplicació</item>
+  <plurals name="edit_action_contribution_count">
+    <item quantity="one">1 contribució</item>
+    <item quantity="other">%d contribucions</item>
   </plurals>
   <string name="add_title_descriptions_dialog_title">Afegeix descripcions de títol</string>
   <string name="add_title_descriptions_dialog_message">Podeu ajudar a millorar la Viquipèdia afegint descripcions que apareguin sota dels títols dels articles. Podeu configurar les vostres llengües en qualsevol moment.</string>
   <string name="add_translate_descriptions_dialog_title">Esteu traduint descripcions de títol per primera vegada</string>
   <string name="add_translate_descriptions_dialog_message">Podeu ajudar a millorar la Viquipèdia traduint descripcions de títol. Podeu configurar les vostres llengües i definir un sentit de traducció en qualsevol moment.</string>
-  <string name="description_edit_tutorial_message" fuzzy="true">Us donem la benvinguda a la nova pàgina inicial de l\'aplicació integrada d\'edició a la Viquipèdia. Des d\'aquí us suggerirem oportunitats per afegir contingut que pugui ser del vostre interès. Les vostres contribucions són molt benvingudes. Editeu-hi de gust!</string>
+  <string name="description_edit_tutorial_message">Us donem la benvinguda a la nova pàgina inicial d\'edició ràpida de l\'aplicació de la Viquipèdia. Les vostres contribucions són molt benvingudes. Editeu-hi de gust!</string>
   <string name="translation_description_edit_task_unlock_title">S\'ha desbloquejat la traducció de les descripcions dels títols!</string>
   <string name="translation_description_edit_task_unlock_body">Hem notat que us agrada editar descripcions de títol i llegir la Viquipèdia en més d\'una llengua. Feu un cop d\'ull a aquesta llista de tasques, que us dóna accés a la traducció de més descripcions de títols!</string>
   <string name="title_description_editing_skip">Omet</string>

@@ -34,7 +34,6 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -72,7 +71,6 @@ public class DescriptionEditFragment extends Fragment {
     @Nullable private String highlightText;
     @Nullable private CsrfTokenClient csrfClient;
     @Nullable private DescriptionEditFunnel funnel;
-    private Serializable source;
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private Runnable successRunnable = new Runnable() {
@@ -124,8 +122,7 @@ public class DescriptionEditFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_description_edit, container, false);
         unbinder = ButterKnife.bind(this, view);
-        source = getArguments().getSerializable(ARG_INVOKE_SOURCE);
-        editView.setTranslationEdit(source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC);
+        editView.setTranslationEdit(getArguments().getSerializable(ARG_INVOKE_SOURCE) == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC);
         editView.setTranslationSourceLanguageDescription(getArguments().getCharSequence(ARG_TRANSLATION_SOURCE_LANG_DESC));
         editView.setPageTitle(pageTitle);
         editView.setHighlightText(highlightText);
