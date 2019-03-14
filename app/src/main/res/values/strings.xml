@@ -628,9 +628,6 @@
     <string name="description_edit_tutorial_promise">By starting, I promise not to misuse this feature.</string>
     <!-- /Description editing tutorial -->
 
-    <!-- Description editing help -->
-    <!-- /Description editing help -->
-
     <!-- Edit action feed -->
     <string name="editactionfeed_add_title_descriptions">Add title descriptions</string>
     <string name="editactionfeed_translate_descriptions">Translate title descriptions</string>
