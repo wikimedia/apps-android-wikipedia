@@ -308,7 +308,7 @@ public class DescriptionEditFragment extends Fragment {
 
         @Override
         public void onHelpClick() {
-            startActivity(DescriptionEditHelpActivity.newIntent(requireContext()));
+            FeedbackUtil.showAndroidAppEditingFAQ(requireContext());
         }
 
         @Override

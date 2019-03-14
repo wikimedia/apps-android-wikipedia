@@ -539,7 +539,6 @@
   <string name="description_edit_help_title">Pomoć: opisi naslova</string>
   <string name="description_edit_help_about_wikidata">O Vikipodacima</string>
   <string name="description_edit_help_wikidata_guide">Vodič na Vikipodacima za pisanje opisa</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Hvala vam na neprestanom interesu za uređivanje opisa. Da biste napravili još izmena, prijavite se na svoj nalog na Vikipediji.</string>
   <string name="description_edit_license_notice">Promenom opisa naslova, slažete se sa &lt;a href=\"%1$s\"&gt;uslovima korišćenja&lt;/a&gt; i prihvatate neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
@@ -554,17 +553,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Po mogućstvu jedan red, od dve do dvanaest reči</string>
   <string name="description_edit_tutorial_button_label_start_editing">Započni uređivanje</string>
   <string name="description_edit_tutorial_promise">Kada počnem, obećavam da neću zloupotrebiti ovu funkciju.</string>
-  <string name="description_edit_help_about_title">O opisima</string>
-  <string name="description_edit_help_description">Opisi naslova rezimiraju članak kako bi čitaoci na prvi pogled razumeli njegovu temu.</string>
-  <string name="description_edit_help_tips">Saveti za pisanje opisa</string>
-  <string name="description_edit_help_tips_description">Opisi bi, po mogućstvu, trebalo da budu u jednom redu i da se sastoje od dve do dvanaest reči. Ne počinju velikim slovom osim ako je prva reč vlastita imenica.</string>
-  <string name="description_edit_help_tips_examples">Na primer:</string>
-  <string name="description_edit_help_tips_example1">slika Leonarda da Vinčija</string>
-  <string name="description_edit_help_tips_example1_hint">opis naslova za članak o Mona Lizi</string>
-  <string name="description_edit_help_tips_example2">najviša planina na Zemlji</string>
-  <string name="description_edit_help_tips_example2_hint">opis naslova za članak o Mont Everestu</string>
-  <string name="description_edit_help_more_info">Više informacija</string>
-  <string name="description_edit_help_meta_info">Opisi se smeštaju i održavaju na Vikipodacima, projektu Zadužbine Vikimedija, koji pruža slobodnu, kolaborativnu, višejezičku, sekundarnu bazu podataka, koja pomaže Vikipediji i drugim projektima.</string>
   <string name="description_edit_revert_subtitle">Hvala vam što uređujete Vikipediju.</string>
   <string name="description_edit_revert_intro">Znamo da ste dali sve od sebe, ali jedan od patrolera ima primedbu. Mogući razlozi zbog čega je vaša izmena poništena:</string>
   <string name="description_edit_revert_reason1">vaša izmena nije bila u skladu sa nekom od &lt;a href=\"%1$s\"&gt;smernica&lt;/a&gt;.</string>

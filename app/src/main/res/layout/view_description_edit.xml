@@ -195,9 +195,8 @@
                         android:padding="12dp"
                         android:layout_gravity="end"
                         android:contentDescription="@string/description_edit_help_title"
-                        app:srcCompat="@drawable/ic_help_black_24dp"
+                        app:srcCompat="@drawable/ic_info_outline_black_24dp"
                         android:tint="@color/base30"
-                        android:clickable="true"
                         android:background="?attr/selectableItemBackgroundBorderless"/>
 
                 </FrameLayout>
