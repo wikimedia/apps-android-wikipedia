@@ -71,7 +71,6 @@ class AddTitleDescriptionsItemFragment : Fragment() {
             }
         }
 
-        callToActionText.text = getString(R.string.add_translation, app.language().getAppLanguageCanonicalName(parent().langToCode))
     }
 
     private fun titleFromPageName(pageName: String?): PageTitle {
