@@ -8,9 +8,8 @@
     <android.support.v7.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="24dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         app:cardBackgroundColor="?attr/paper_color"
@@ -58,7 +57,7 @@
             <LinearLayout
                 android:id="@+id/viewArticleContainer"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
@@ -172,6 +171,7 @@
                     android:lineSpacingExtra="10sp"
                     android:textSize="14sp"
                     android:textColor="?attr/primary_text_color"
+                    android:minLines="3"
                     tools:text="Lorem ipsum"/>
 
             </LinearLayout>
