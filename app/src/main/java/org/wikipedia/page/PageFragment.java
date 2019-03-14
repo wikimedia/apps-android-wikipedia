@@ -19,7 +19,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -498,15 +497,12 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         return app.getTabList().get(app.getTabList().size() - 1);
     }
 
-    private void setCurrentTab(int position, boolean updatePrevBackStackItem) {
+    private void setCurrentTab(int position) {
         // move the selected tab to the bottom of the list, and navigate to it!
         // (but only if it's a different tab than the one currently in view!
         if (position < app.getTabList().size() - 1) {
             Tab tab = app.getTabList().remove(position);
             app.getTabList().add(tab);
-            if (updatePrevBackStackItem) {
-                pageFragmentLoadState.updateCurrentBackStackItem();
-            }
             pageFragmentLoadState.setTab(tab);
             pageFragmentLoadState.loadFromBackStack();
         }
@@ -555,7 +551,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (selectedTabPosition == app.getTabList().size() - 1) {
             pageFragmentLoadState.loadFromBackStack();
         } else {
-            setCurrentTab(selectedTabPosition, false);
+            setCurrentTab(selectedTabPosition);
         }
     }
 
@@ -929,7 +925,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             protected void onReferenceClicked(int selectedIndex, @NonNull List<Reference> adjacentReferences) {
 
                 if (!isAdded()) {
-                    Log.d("PageFragment", "Detached from activity, so stopping reference click.");
+                    L.d("Detached from activity, so stopping reference click.");
                     return;
                 }
 
