@@ -55,10 +55,6 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
                 FeedbackUtil.showAndroidAppEditingFAQ(baseContext)
                 true
             }
-            R.id.menu_my_contributions -> {
-                startActivity(MyContributionsActivity.newIntent(this))
-                true
-            }
             else -> super.onOptionsItemSelected(item)
         }
     }

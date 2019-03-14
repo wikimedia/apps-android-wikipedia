@@ -10,10 +10,10 @@ import kotlinx.android.synthetic.main.item_my_contributions.view.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.descriptions.DescriptionEditHelpActivity
 import org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER
 import org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.ViewUtil
 
@@ -49,7 +49,7 @@ class MyContributionsFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         return when (item!!.itemId) {
             R.id.menu_help -> {
-                startActivity(DescriptionEditHelpActivity.newIntent(requireContext()))
+                FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
                 true
             }
             else -> super.onOptionsItemSelected(item)
