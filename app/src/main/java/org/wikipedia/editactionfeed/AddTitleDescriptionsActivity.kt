@@ -25,7 +25,7 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
         super.onCreate(savedInstanceState)
         supportActionBar!!.elevation = 0f
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.title = getString(if (intent.getIntExtra(EXTRA_SOURCE, EDIT_FEED_TITLE_DESC.ordinal) == EDIT_FEED_TITLE_DESC.ordinal)
+        supportActionBar!!.title = getString(if (intent.getSerializableExtra(EXTRA_SOURCE) == EDIT_FEED_TITLE_DESC)
             R.string.editactionfeed_add_title_descriptions else R.string.editactionfeed_translate_descriptions)
     }
 
