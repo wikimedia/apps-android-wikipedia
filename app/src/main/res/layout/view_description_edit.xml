@@ -126,7 +126,7 @@
                     android:visibility="gone">
 
                     <org.wikipedia.views.FaceAndColorDetectImageView
-                        style="@style/SimpleDraweeViewPlaceholder.Article"
+                        style="@style/SimpleDraweeViewPlaceholder"
                         android:id="@+id/view_description_edit_page_image"
                         android:layout_width="@dimen/view_list_card_item_image"
                         android:layout_height="@dimen/view_list_card_item_image"

@@ -336,17 +336,11 @@
 
     <style name="SimpleDraweeViewPlaceholder">
         <item name="actualImageScaleType">centerCrop</item>
-        <item name="placeholderImage">@drawable/ic_image_gray_24dp</item>
+        <item name="placeholderImage">?attr/thumbnail_image_placeholder</item>
         <item name="placeholderImageScaleType">fitCenter</item>
-        <item name="failureImage">@drawable/ic_image_gray_24dp</item>
+        <item name="failureImage">?attr/thumbnail_image_placeholder</item>
         <item name="failureImageScaleType">fitCenter</item>
         <item name="fadeDuration">0</item>
-        <item name="backgroundImage">?attr/paper_color</item>
-    </style>
-
-    <style name="SimpleDraweeViewPlaceholder.Article">
-        <item name="placeholderImage">?attr/thumbnail_image_placeholder</item>
-        <item name="failureImage">?attr/thumbnail_image_placeholder</item>
         <item name="backgroundImage">?attr/paper_color</item>
     </style>
 
@@ -362,7 +356,6 @@
         <item name="android:contentDescription">@null</item>
         <item name="placeholderImage">?attr/material_theme_border_color</item>
         <item name="failureImage">?attr/material_theme_border_color</item>
-        <item name="backgroundImage">?attr/paper_color</item>
         <item name="roundedCornerRadius">2dp</item>
         <item name="roundTopLeft">false</item>
         <item name="roundTopRight">false</item>
