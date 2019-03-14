@@ -1,9 +1,11 @@
 package org.wikipedia.editactionfeed;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,10 +20,11 @@ import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
-import org.wikipedia.descriptions.DescriptionEditHelpActivity;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
+import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.FooterMarginItemDecoration;
@@ -256,11 +259,7 @@ public class EditTasksFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_help:
-                startActivity(DescriptionEditHelpActivity.newIntent(requireContext()));
-                return true;
-            case R.id.menu_my_contributions:
-                startActivity(MyContributionsActivity.Companion.newIntent(requireContext()));
-                return true;
+                FeedbackUtil.showAndroidAppEditingFAQ(requireContext());
             default:
                 return super.onOptionsItemSelected(item);
         }

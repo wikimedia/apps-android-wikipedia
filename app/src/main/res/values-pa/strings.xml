@@ -280,8 +280,6 @@
   <string name="description_edit_help_about_wikidata">ਵਿਕੀਡਾਟਾ ਬਾਰੇ</string>
   <string name="description_edit_success_done">ਮੁਕੰਮਲ</string>
   <string name="description_edit_success_did_you_know">ਕੀ ਤੁਸੀੰ ਜਾਣਦੇ ਹੋ?</string>
-  <string name="description_edit_help_about_title">ਬਾਰੇ</string>
-  <string name="description_edit_help_more_info">ਹੋਰ ਜਾਣਕਾਰੀ</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">ਹੋਰ ਸਿੱਖੋ</string>
   <string name="onboarding_skip">ਛੱਡੋ</string>
   <string name="onboarding_continue">ਜਾਰੀ ਰੱਖੋ</string>

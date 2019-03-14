@@ -566,7 +566,6 @@
   <string name="description_edit_cancel_hint">Annulla</string>
   <string name="description_edit_help_title">Aiuto: descrizioni del titolo</string>
   <string name="description_edit_help_about_wikidata">Su Wikidata</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduzione/it</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/it</string>
   <string name="description_edit_success_saved">Descrizione pubblicata!</string>
   <string name="description_edit_success_encouragement">Hai appena reso Wikipedia migliore per tutti</string>
@@ -575,13 +574,6 @@
   <string name="description_edit_tutorial_title_descriptions">Descrizioni del titolo</string>
   <string name="description_edit_tutorial_keep_it_short">Sii breve</string>
   <string name="description_edit_tutorial_button_label_start_editing">Inizia a modificare</string>
-  <string name="description_edit_help_about_title">Informazioni</string>
-  <string name="description_edit_help_tips">Consigli per creare descrizioni</string>
-  <string name="description_edit_help_tips_examples">Per esempio:</string>
-  <string name="description_edit_help_tips_example1">dipinto da Leonardo da Vinci</string>
-  <string name="description_edit_help_tips_example2">La montagna più alta della Terra</string>
-  <string name="description_edit_help_tips_example2_hint">descrizione del titolo per un articolo sul Monte Everest</string>
-  <string name="description_edit_help_more_info">Ulteriori informazioni</string>
   <string name="editactionfeed_add_title_descriptions">Aggiungi descrizioni del titolo</string>
   <string name="editactionfeed_translate_descriptions">Traduci le descrizioni del titolo</string>
   <string name="editactionfeed_add_description_button">Aggiungi descrizione</string>

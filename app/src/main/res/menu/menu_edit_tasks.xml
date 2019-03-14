@@ -5,8 +5,6 @@
     tools:ignore="AlwaysShowAction">
     <item android:id="@+id/menu_help"
         android:title="@string/main_drawer_help"
-        app:showAsAction="never"/>
-    <item android:id="@+id/menu_my_contributions"
-        android:title="@string/editactionfeed_my_contributions"
-        app:showAsAction="never"/>
+        android:icon="@drawable/ic_error_outline_themed_24dp"
+        app:showAsAction="always" />
 </menu>

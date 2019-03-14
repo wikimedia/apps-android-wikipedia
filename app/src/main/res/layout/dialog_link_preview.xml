@@ -29,7 +29,7 @@
             android:background="?attr/selectableItemBackground"
             android:minHeight="64dp">
             <com.facebook.drawee.view.SimpleDraweeView
-                style="@style/SimpleDraweeViewPlaceholder.Article"
+                style="@style/SimpleDraweeViewPlaceholder"
                 android:id="@+id/link_preview_thumbnail"
                 android:layout_width="@dimen/defaultListItemSize"
                 android:layout_height="@dimen/defaultListItemSize"

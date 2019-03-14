@@ -501,7 +501,6 @@
   <string name="description_edit_help_title">Довідка: описи назв</string>
   <string name="description_edit_help_about_wikidata">Про Вікідані</string>
   <string name="description_edit_help_wikidata_guide">Посібник Вікіданих з написання описів</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/uk</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Дякуємо за Ваш незмінний інтерес до редагування описів! Щоб здійснити додаткові редагування, будь ласка, увійдіть зі свого облікового запису у Вікіпедії.</string>
   <string name="description_edit_license_notice">Змінюючи опис назви, я погоджуюсь на &lt;a href=\"%1$s\"&gt;Умови використання&lt;/a&gt;, і на невідкличну публікацію моїх редагувань на умовах ліцензії &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
@@ -516,17 +515,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">В ідеалі — один рядок, від двох до дванадцяти слів</string>
   <string name="description_edit_tutorial_button_label_start_editing">Почати редагування</string>
   <string name="description_edit_tutorial_promise">Починаючи, я обіцяю не зловживати цією функцією.</string>
-  <string name="description_edit_help_about_title">Інформація</string>
-  <string name="description_edit_help_description">Описи надають короткі відомості про статтю, щоб користувачі могли зрозуміти тему з першого погляду.</string>
-  <string name="description_edit_help_tips">Підказки щодо створення описів</string>
-  <string name="description_edit_help_tips_description">В ідеалі описи мають бути не більшими як один рядок, і мають містити від двох до дванадцяти слів. Велика літера на початку використовується лише якщо перше слово є власною назвою.</string>
-  <string name="description_edit_help_tips_examples">Наприклад:</string>
-  <string name="description_edit_help_tips_example1">картина Леонардо да Вінчі</string>
-  <string name="description_edit_help_tips_example1_hint">опис статті про Мону Лізу</string>
-  <string name="description_edit_help_tips_example2">найвища гора на Землі</string>
-  <string name="description_edit_help_tips_example2_hint">опис статті про Еверест</string>
-  <string name="description_edit_help_more_info">Більше інформації</string>
-  <string name="description_edit_help_meta_info">Описи зберігаються та обслуговуються на Вікіданих — проекті Фонду Вікімедіа, який слугує вільною, спільною, багатомовною, допоміжною базою даних, яка підтримує Вікіпедію та інші проекти.</string>
   <string name="editactionfeed_add_description_button">Додати опис</string>
   <string name="editactionfeed_my_contributions">Мій внесок</string>
   <string name="editactionfeed_from_language">Від:</string>

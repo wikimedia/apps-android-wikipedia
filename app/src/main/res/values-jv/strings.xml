@@ -514,7 +514,6 @@
   <string name="description_edit_help_title">Pitulung: wedharané sesirah</string>
   <string name="description_edit_help_about_wikidata">Ngenani Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Tuntunan Wikidata kanggo nulis andharan</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Matur nuwun kanggo kapentingan terus ing mbesut panyadra! Kanggo nggawe besutan tambahan, mangga mlebu menyang akun Wikipedia Panjenengan.</string>
   <string name="description_edit_license_notice">Kanthi ngganti wedharané sesirah, aku sarujuk marang &lt;a href=\"%1$s\"&gt;Pranatan Pangguna&lt;/a&gt; lan nguculaké sumbanganku ing pangayomané lisènsi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
@@ -529,17 +528,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Prayogané salarik, tembungé cacahé antarané loro tekan rolas</string>
   <string name="description_edit_tutorial_button_label_start_editing">Wiwit mbesut</string>
   <string name="description_edit_tutorial_promise">Kanthi miwiti, kula jangji ora nyalahi panganggoné fitur iki.</string>
-  <string name="description_edit_help_about_title">Ngenani</string>
-  <string name="description_edit_help_description">Wedharané sesirah ngringkes sawijining artikel supaya pamaca kabiyantu olèhé mangertèni subyèké kanthi satlereman.</string>
-  <string name="description_edit_help_tips">Kiyat nggawé wedharan</string>
-  <string name="description_edit_help_tips_description">Wedharan prayogané pas salarik, lan dawané antarané rong nganti telung tembung. Wedharané ora perlu ditulis nganggo huruf gedhé kajaba jeneng.</string>
-  <string name="description_edit_help_tips_examples">Contoné:</string>
-  <string name="description_edit_help_tips_example1">lukisané Leonardo da Vinci</string>
-  <string name="description_edit_help_tips_example1_hint">wedharané sesirah tumrap artikel ngenani Mona Lisa</string>
-  <string name="description_edit_help_tips_example2">gunung paling dhuwur ing bumi</string>
-  <string name="description_edit_help_tips_example2_hint">wedharané sesirah tumrap artikel ngenani Gunung Everest</string>
-  <string name="description_edit_help_more_info">Katerangan liyané</string>
-  <string name="description_edit_help_meta_info">Katerangan disimpen lan dikemunah ing Wikidata, proyèké Yeyasan Wikimédia sing ngemunah basis dhata sèkundhèr, multibasa, kolaboratif, lan bébas déné nyengkuyung Wikipédia lan proyèk liyané.</string>
   <string name="description_edit_revert_subtitle">Matur nuwun kanggo mbesut ing Wikipedia!</string>
   <string name="description_edit_revert_intro">Awak dhéwé sumurup panjenengan wis njajal sakatogé, nanging salah siji pamriksa sedhih. Alesané bokmanawa besutané panjenengan dibalèkaké ya iku:</string>
   <string name="description_edit_revert_reason1">kontribusi panjenengan ora ngetutake salah siji &lt;a href=\"%1$s\"&gt;pedoman&lt;/a&gt;.</string>

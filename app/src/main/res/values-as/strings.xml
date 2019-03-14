@@ -376,7 +376,6 @@
   <string name="description_edit_help_title">সহায়: শিৰোনামৰ বৰ্ণনা</string>
   <string name="description_edit_help_about_wikidata">ৱিকিপিডিয়াৰ বিষয়ে</string>
   <string name="description_edit_help_wikidata_guide">বিৱৰণ লিখাৰ বাবে ৱিকিপিডিয়াৰ নিৰ্দেশিকা</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/as</string>
   <string name="description_edit_success_saved">বিৱৰণ প্ৰকাশ হৈছে!</string>
   <string name="description_edit_success_encouragement">আপুনি সকলোৰে বাবে ৱিকিপিডিয়া উন্নত কৰি তুলিছে</string>
   <string name="description_edit_success_done">কৰা হ’ল</string>
@@ -385,11 +384,6 @@
   <string name="description_edit_tutorial_title_descriptions">শিৰোনামৰ বিৱৰণ</string>
   <string name="description_edit_tutorial_keep_it_short">সংক্ষিপ্ত ৰাখক</string>
   <string name="description_edit_tutorial_button_label_start_editing">সম্পাদনা আৰম্ভ কৰক</string>
-  <string name="description_edit_help_about_title">বিষয়ে</string>
-  <string name="description_edit_help_tips">বিৱৰণ সৃষ্টি কৰাৰ বাবে পৰামৰ্শ</string>
-  <string name="description_edit_help_tips_examples">উদাহৰণস্বৰূপে:</string>
-  <string name="description_edit_help_tips_example1">লিঅ\'নাৰ্ড\' ডা ভিঞ্চিয়ে অঁকা চিত্ৰ</string>
-  <string name="description_edit_help_more_info">অধিক তথ্য</string>
   <string name="editactionfeed_my_contributions">মোৰ বৰঙণিসমূহ</string>
   <string name="editactionfeed_from_language">পৰা:</string>
   <string name="description_edit_revert_subtitle">ৱিকিপিডিয়া সম্পাদনা কৰাৰ বাবে ধন্যবাদ!</string>
