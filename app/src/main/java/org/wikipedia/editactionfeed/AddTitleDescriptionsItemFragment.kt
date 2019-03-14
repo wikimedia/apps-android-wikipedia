@@ -133,15 +133,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
         }
 
         viewArticleExtract.text = StringUtil.fromHtml(summary!!.extractHtml)
-
-        if (TextUtils.isEmpty(summary!!.thumbnailUrl)) {
-            viewArticleImage.visibility = View.GONE
-            viewArticleExtract.maxLines = 10
-        } else {
-            viewArticleImage.visibility = View.VISIBLE
-            viewArticleImage.loadImage(Uri.parse(summary!!.thumbnailUrl))
-            viewArticleExtract.maxLines = 3
-        }
+        viewArticleImage.loadImage(if (TextUtils.isEmpty(summary!!.thumbnailUrl)) null else Uri.parse(summary!!.thumbnailUrl))
     }
 
     private fun updateSourceDescriptionWithHighlight() {

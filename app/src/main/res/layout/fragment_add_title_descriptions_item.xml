@@ -37,7 +37,7 @@
         <LinearLayout
             android:id="@+id/cardItemContainer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <org.wikipedia.views.FaceAndColorDetectImageView
@@ -56,8 +56,7 @@
             <LinearLayout
                 android:id="@+id/viewArticleContainer"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
@@ -131,7 +130,6 @@
                     android:layout_height="0dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="16dp"
-                    android:layout_weight="1"
                     android:ellipsize="end"
                     android:lineSpacingMultiplier="1.4"
                     android:maxLines="3"

@@ -12,7 +12,6 @@
         android:layout_marginTop="1px"
         android:background="?attr/main_toolbar_color"
         android:elevation="4dp"
-        android:layoutDirection="ltr"
         android:gravity="center_vertical"
         app:layout_constraintTop_toTopOf="parent"
         android:visibility="gone"
