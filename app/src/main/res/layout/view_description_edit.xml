@@ -195,10 +195,10 @@
                         android:padding="12dp"
                         android:layout_gravity="end"
                         android:contentDescription="@string/description_edit_help_title"
-                        app:srcCompat="@drawable/ic_error_outline_black_24dp"
-                        android:tint="?attr/colorAccent"
                         android:clickable="true"
-                        android:background="?attr/selectableItemBackgroundBorderless"/>
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        app:srcCompat="@drawable/ic_info_outline_black_24dp"
+                        app:tint="?attr/main_toolbar_icon_color"/>
 
                 </FrameLayout>
 
