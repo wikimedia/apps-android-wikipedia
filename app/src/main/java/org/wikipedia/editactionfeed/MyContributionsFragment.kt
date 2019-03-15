@@ -43,7 +43,7 @@ class MyContributionsFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
         // TODO: use exclamation mark icon
-        inflater!!.inflate(R.menu.menu_my_contributions, menu)
+        inflater!!.inflate(R.menu.menu_edit_tasks, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
