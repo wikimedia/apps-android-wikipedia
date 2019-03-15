@@ -632,7 +632,7 @@
     <string name="description_edit_tutorial_promise">By starting, I promise not to misuse this feature.</string>
     <!-- /Description editing tutorial -->
 
-    <!-- Edit action feed -->
+    <!-- Suggested edits (Edit action feed) -->
     <string name="editactionfeed_add_title_descriptions">Add descriptions</string>
     <string name="editactionfeed_translate_descriptions">Translate title descriptions</string>
     <string name="editactionfeed_review_title_description">Review description</string>
@@ -643,7 +643,19 @@
     <string name="editactionfeed_translate_title_dialog_learn_more">Learn more</string>
     <string name="editactionfeed_to_language">To: </string>
     <string name="editactionfeed_added_by_you">Added by you:</string>
-    <!-- /Edit action feed -->
+    <string name="suggested_edits_unlock_add_descriptions_dialog_title">You unlocked the “Add descriptions“ task</string>
+    <string name="suggested_edits_unlock_add_descriptions_dialog_message">Congratulations on your third contribution! Since you’re super good at editing, we’ve compiled a list of articles missing descriptions. Could you help us to improve Wikipedia?</string>
+    <string name="suggested_edits_unlock_translate_descriptions_dialog_title">You unlocked the “Translate descriptions“ task</string>
+    <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Congratulations on your 50th contribution, we’re impressed! You’re using the app in multiple languages, so we’ve compiled a list of articles needing description translations. Could you continue to help us improving Wikipedia?</string>
+    <string name="suggested_edits_unlock_dialog_no">Maybe later</string>
+    <string name="suggested_edits_unlock_dialog_yes">Yes, let’s go</string>
+    <string name="suggested_edits_unlock_add_descriptions_notification_title">You unlocked “Add descriptions“</string>
+    <string name="suggested_edits_unlock_translate_descriptions_notification_title">You unlocked “Translate descriptions“</string>
+    <string name="suggested_edits_unlock_notification_text">Suggested edits</string>
+    <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Congratulations on your third contribution. Since you’re super good at editing, we’ve compiled a list of articles missing descriptions. Could you help us to improve Wikipedia?</string>
+    <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Congratulations on your 50th contribution, we’re impressed! You’re using the app in multiple languages, so we’ve compiled a list of articles needing description translations. Could you continue to help us improving Wikipedia?</string>
+    <string name="suggested_edits_unlock_notification_button">Yes, let’s go</string>
+    <!-- /Suggested edits (Edit action feed) -->
 
     <!-- Description editing revert help -->
     <string name="description_edit_revert_subtitle">Thanks for editing Wikipedia!</string>

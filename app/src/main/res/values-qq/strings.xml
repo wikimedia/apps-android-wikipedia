@@ -726,4 +726,16 @@
   <string name="title_descriptions_onboarding_got_it">Text on the positive action button for starting editing title descriptions.\n{{Identical|Got it}}</string>
   <string name="translate_descriptions_onboarding_got_it">Text on the positive action button for starting translating title descriptions.\n{{Identical|Got it}}</string>
   <string name="android_app_edit_help_url">URL leading to the help page for article editing from within the app. If you can find the appropriate language specific URL of the mobile site please do so.</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Title text of the dialog shown to user that the “Add descriptions“ task has been unlocked.</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Message text of the dialog shown to user that the “Add descriptions“ task has been unlocked.</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Title text of the dialog shown to user that the “Translate descriptions“ task has been unlocked.</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Message text of the dialog shown to user that the “Add descriptions“ task has been unlocked.</string>
+  <string name="suggested_edits_unlock_dialog_no">Negative action button text for the dialog action that goes to the suggested edits screen.</string>
+  <string name="suggested_edits_unlock_dialog_yes">Positive action button text for the dialog action that goes to the suggested edits screen</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">Title text of the notification bar shown to user that the “Add descriptions“ task has been unlocked.</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Title text of the notification bar shown to user that the “Translate descriptions“ task has been unlocked.</string>
+  <string name="suggested_edits_unlock_notification_text">Short text of the notification bar shown to user that the subject of this notification</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Long text of the notification bar shown to user that the detail of this notification</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Long text of the notification bar shown to user that the detail of this notification</string>
+  <string name="suggested_edits_unlock_notification_button">Action button text for the dialog action that goes to the suggested edits screen</string>
 </resources>
