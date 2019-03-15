@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="8dp"
+        android:paddingBottom="@dimen/randomizer_card_view_bottom_padding"
         app:cardBackgroundColor="?attr/paper_color"
         app:cardUseCompatPadding="true">
 
@@ -39,7 +40,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="@dimen/randomizer_text_view_bottom_padding"
             android:clickable="true"
             android:background="?attr/selectableItemBackground">
 
@@ -47,7 +47,7 @@
                 style="@style/SimpleDraweeViewPlaceholder"
                 android:id="@+id/view_random_article_card_image"
                 android:layout_width="match_parent"
-                android:layout_height="192dp"
+                android:layout_height="@dimen/randomizer_image_view_height"
                 app:fadeDuration="0"
                 app:actualImageScaleType="focusCrop" />
 
@@ -59,7 +59,7 @@
             <LinearLayout
                 android:id="@+id/view_random_article_card_text_container"
                 android:layout_width="match_parent"
-                android:layout_height="164dp"
+                android:layout_height="@dimen/randomizer_text_view_height"
                 android:orientation="vertical"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp">
