@@ -584,7 +584,10 @@
   <string name="feed_configure_onboarding_action">Button label for onboarding card that introduces the customization of the Explore feed.</string>
   <string name="feed_configure_onboarding_text">Onboarding text that describes the new functionality of customizing the Explore feed.</string>
   <string name="description_edit_text_hint">Hint text that is shown when the description field is empty.</string>
+  <string name="description_edit_text_hint_per_language">Language specified hint text that is shown when the description field is empty. The \"%s\" symbol is replaced with the name of the current selected language.</string>
   <string name="description_edit_save">Hint for the button that is pressed for saving the new description.\n{{Identical|Publish}}</string>
+  <string name="description_edit_article">Label that prompts the user that the summary of the article shows under the label.</string>
+  <string name="description_edit_read">Label that prompts the user to click and open a preview dialog of the article.</string>
   <string name="description_edit_add_description">Label that prompts the user to add a description to an article that does not yet have one.</string>
   <string name="description_edit_edit_description">Label that prompts the user to edit the description of an article that already has one.</string>
   <string name="description_edit_cancel_hint">Hint for button that cancels editing of the current description.\n{{Identical|Cancel}}</string>
@@ -597,6 +600,7 @@
   <string name="description_edit_task_unlock_title">Title of the dialog box that appears when the user unlocks the feed of suggested articles that need a description to be added.</string>
   <string name="description_edit_task_unlock_body">Body of the dialog box that appears when the user unlocks the feed of suggested articles that need a description to be added.</string>
   <string name="description_edit_success_saved">Message that the description the user just added was saved.</string>
+  <string name="description_edit_success_saved_snackbar">Message shown on a snackbar that the description the user just added was saved.</string>
   <string name="description_edit_success_encouragement">Message that the user made Wikipedia better for everyone</string>
   <string name="description_edit_success_done">Button text to dismiss the description editing success screen\n{{Identical|Done}}</string>
   <string name="description_edit_success_did_you_know">Heading for a tip about editing articles in the app\n{{Identical|Did you know}}</string>
@@ -613,6 +617,7 @@
   <string name="editactionfeed_add_description_button">A button text for adding description. Appears next to {{msg-wm|Wikipedia-android-strings-onboarding skip}}. (See also [https://phabricator.wikimedia.org/T214786 bug T214786].)</string>
   <string name="editactionfeed_my_contributions">A overflow menu text that leads to my contributions page</string>
   <string name="editactionfeed_from_language">A label shows that the current selected Wikipedia language for fetching articles.</string>
+  <string name="editactionfeed_added_by_you">A label shows that the current article description was added by you.</string>
   <string name="editactionfeed_add_title_dialog_learn_more">A button text for leading users to the help page of editing title descriptions.</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">Text on link to help page for translating title descriptions.\n{{Identical|Learn more}}</string>
   <string name="editactionfeed_to_language">Label text indicating that the selected language is the one into which the description will be translated to.</string>
