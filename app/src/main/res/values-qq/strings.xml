@@ -727,4 +727,5 @@
   <string name="translate_descriptions_onboarding_got_it">Text on the positive action button for starting translating title descriptions.\n{{Identical|Got it}}</string>
   <string name="add_translation">Text on the action button for translating title descriptions. %s represents the language into which the description needs to be translated.</string>
   <string name="android_app_edit_help_url">URL leading to the help page for article editing from within the app. If you can find the appropriate language specific URL of the mobile site please do so.</string>
+  <string name="editactionfeed_translated_by_you">A label shows that the current article description was translated by the user.</string>
 </resources>

@@ -17,15 +17,12 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_add_title_descriptions_item.*
 import org.apache.commons.lang3.StringUtils
-import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
-import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.editactionfeed.provider.MissingDescriptionProvider
-import org.wikipedia.page.PageTitle
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -56,7 +53,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setConditionalLayoutDirection(viewArticleContainer, if (parent().source.ordinal == InvokeSource.EDIT_FEED_TITLE_DESC.ordinal) parent().langFromCode else parent().langToCode)
+        setConditionalLayoutDirection(viewArticleContainer, if (parent().source == InvokeSource.EDIT_FEED_TITLE_DESC) parent().langFromCode else parent().langToCode)
         viewArticleImage.setLegacyVisibilityHandlingEnabled(true)
         cardItemErrorView.setBackClickListener { requireActivity().finish() }
         cardItemErrorView.setRetryClickListener {
@@ -68,20 +65,10 @@ class AddTitleDescriptionsItemFragment : Fragment() {
             getArticleWithMissingDescription()
         }
 
-        viewArticleContainer.setOnClickListener {
-            if (title != null) {
-                startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), titleFromPageName(title), null, true, InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC, sourceDescription),
-                        Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT)
-            }
-        }
         cardView.setOnClickListener {
             parent().onSelectPage()
         }
 
-    }
-
-    private fun titleFromPageName(pageName: String?): PageTitle {
-        return PageTitle(pageName, WikiSite.forLanguageCode(parent().langToCode))
     }
 
     override fun onDestroy() {
@@ -123,6 +110,11 @@ class AddTitleDescriptionsItemFragment : Fragment() {
     fun showAddedDescriptionView(addedDescription: String?) {
         if (!TextUtils.isEmpty(addedDescription)) {
             viewArticleSubtitleContainer.visibility = VISIBLE
+            if (parent().source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
+                viewArticleSubtitleAddedBy.visibility = VISIBLE
+                viewArticleSubtitleEdit.visibility = VISIBLE
+                viewArticleSubtitleAddedBy.text = getString(R.string.editactionfeed_translated_by_you)
+            }
             viewAddDescriptionButton.visibility = GONE
             viewArticleSubtitle.text = addedDescription
             this.addedDescription = addedDescription!!
@@ -147,7 +139,11 @@ class AddTitleDescriptionsItemFragment : Fragment() {
         viewArticleTitle.text = summary!!.normalizedTitle
 
         if (parent().source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
+            viewArticleSubtitleContainer.visibility = VISIBLE
+            viewArticleSubtitleAddedBy.visibility = GONE
+            viewArticleSubtitleEdit.visibility = GONE
             viewArticleSubtitle.text = sourceDescription
+            callToActionText.text = String.format(getString(R.string.add_translation), app.language().getAppLanguageLocalizedName(parent().langToCode))
         }
 
         viewArticleExtract.text = StringUtil.fromHtml(summary!!.extractHtml)
