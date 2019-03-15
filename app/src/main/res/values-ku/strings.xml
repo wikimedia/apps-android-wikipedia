@@ -15,8 +15,6 @@
   <string name="nav_item_forward">Pêşve</string>
   <string name="search_hint">Li Wîkîpediyayê bigere</string>
   <string name="search_hint_search_history">Dîroka lêgerînê</string>
-  <string name="search_hint_search_my_lists">Di lîsteyên min de bigere</string>
-  <string name="search_hint_search_reading_list">Di lîsteya xwendinê de bigere</string>
   <string name="search_hint_search_languages">Li zimanekî bigere</string>
   <string name="nav_item_history">Dîrok</string>
   <string name="error_network_error">Ji înternetê re nikara bê girêdan.</string>

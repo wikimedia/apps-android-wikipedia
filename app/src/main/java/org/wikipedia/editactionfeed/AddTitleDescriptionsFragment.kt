@@ -2,6 +2,7 @@ package org.wikipedia.editactionfeed
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
+import android.graphics.drawable.Animatable
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentStatePagerAdapter
@@ -28,13 +29,13 @@ import org.wikipedia.analytics.RandomizerFunnel
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
-import org.wikipedia.descriptions.DescriptionEditHelpActivity
+import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.EXTRA_SOURCE
-import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.PageActivity
+import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.EXTRA_SOURCE_ADDED_DESCRIPTION
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.AnimationUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DialogTitleWithImage
 
@@ -55,7 +56,7 @@ class AddTitleDescriptionsFragment : Fragment() {
     private val topTitle: PageTitle?
         get() {
             val f = topChild
-            return titleFromPageName(f?.title)
+            return titleFromPageName(f?.title, f?.addedDescription)
         }
 
     private val topChild: AddTitleDescriptionsItemFragment?
@@ -102,7 +103,14 @@ class AddTitleDescriptionsFragment : Fragment() {
             updateFromLanguageSpinner()
         }
 
-
+        updateBackButton(0)
+        backButton.setOnClickListener { previousPage() }
+        nextButton.setOnClickListener {
+            if (nextButton.drawable is Animatable) {
+                (nextButton.drawable as Animatable).start()
+            }
+            nextPage()
+        }
 
         arrow.setOnClickListener {
             val pos = languageList.indexOf(languageToList[wikiToLanguageSpinner.selectedItemPosition])
@@ -132,7 +140,16 @@ class AddTitleDescriptionsFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
+            topChild?.showAddedDescriptionView(data?.getStringExtra(EXTRA_SOURCE_ADDED_DESCRIPTION))
+            FeedbackUtil.showMessage(this, R.string.description_edit_success_saved_snackbar)
             nextPage()
+        }
+    }
+
+    private fun previousPage() {
+        viewPagerListener.setNextPageSelectedAutomatic()
+        if (addTitleDescriptionsItemPager.currentItem > 0) {
+            addTitleDescriptionsItemPager.setCurrentItem(addTitleDescriptionsItemPager.currentItem - 1, true)
         }
     }
 
@@ -141,24 +158,31 @@ class AddTitleDescriptionsFragment : Fragment() {
         addTitleDescriptionsItemPager.setCurrentItem(addTitleDescriptionsItemPager.currentItem + 1, true)
     }
 
-    private fun titleFromPageName(pageName: String?): PageTitle {
-        return PageTitle(pageName, WikiSite.forLanguageCode(if (source == InvokeSource.EDIT_FEED_TITLE_DESC) langFromCode else langToCode))
+    private fun updateBackButton(pagerPosition: Int) {
+        backButton.isClickable = pagerPosition != 0
+        backButton.alpha = if (pagerPosition == 0) 0.31f else 1f
     }
 
-    fun onSelectPage(pageName: String) {
-        val title = titleFromPageName(pageName)
-        startActivity(PageActivity.newIntentForNewTab(requireActivity(),
-                HistoryEntry(title, HistoryEntry.SOURCE_RANDOM), title))
+    private fun titleFromPageName(pageName: String?, description: String?): PageTitle {
+        return PageTitle(pageName, WikiSite.forLanguageCode(if (source == InvokeSource.EDIT_FEED_TITLE_DESC) langFromCode else langToCode), null, description)
+    }
+
+    fun onSelectPage() {
+        if (topTitle != null) {
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, true, source, sourceDescription),
+                    ACTIVITY_REQUEST_DESCRIPTION_EDIT)
+        }
     }
 
     private fun showOnboarding() {
         if (Prefs.showEditActionAddTitleDescriptionsOnboarding() && source == InvokeSource.EDIT_FEED_TITLE_DESC) {
             AlertDialog.Builder(requireActivity())
-                    .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.add_title_descriptions_dialog_title, R.drawable.ic_dialog_image_title_descriptions, false))
+                    .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.add_title_descriptions_dialog_title,
+                            R.drawable.ic_dialog_image_title_descriptions, false))
                     .setMessage(R.string.add_title_descriptions_dialog_message)
                     .setPositiveButton(R.string.title_descriptions_onboarding_got_it, null)
                     .setNegativeButton(R.string.editactionfeed_add_title_dialog_learn_more) { _, _ ->
-                        startActivity(DescriptionEditHelpActivity.newIntent(requireContext()))
+                        FeedbackUtil.showAndroidAppEditingFAQ(context)
                     }
                     .show()
             Prefs.setShowEditActionAddTitleDescriptionsOnboarding(false)
@@ -166,11 +190,12 @@ class AddTitleDescriptionsFragment : Fragment() {
 
         if (Prefs.showEditActionTranslateDescriptionsOnboarding() && source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
             AlertDialog.Builder(requireActivity())
-                    .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.add_translate_descriptions_dialog_title, R.drawable.ic_dialog_image_title_descriptions, false))
+                    .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.add_translate_descriptions_dialog_title,
+                            R.drawable.ic_dialog_image_title_descriptions, false))
                     .setMessage(R.string.add_translate_descriptions_dialog_message)
                     .setPositiveButton(R.string.translate_descriptions_onboarding_got_it, null)
                     .setNegativeButton(R.string.editactionfeed_translate_title_dialog_learn_more) { _, _ ->
-                        startActivity(DescriptionEditHelpActivity.newIntent(requireContext()))
+                        FeedbackUtil.showAndroidAppEditingFAQ(context)
                     }
                     .show()
             Prefs.setShowEditActionTranslateDescriptionsOnboarding(false)
@@ -186,7 +211,6 @@ class AddTitleDescriptionsFragment : Fragment() {
                 .doFinally { updateFromLanguageSpinner() }
                 .subscribe({
                     for (code in app.language().appLanguageCodes) {
-                        // TODO: confirm: do we have to show the "WIKIPEDIA" text after the language name?
                         languageList.add(getLanguageLocalName(code))
                     }
                 }, { L.e(it) }))
@@ -263,6 +287,7 @@ class AddTitleDescriptionsFragment : Fragment() {
                 resetTitleDescriptionItemAdapter()
             }
             updateToLanguageSpinner(position)
+            updateBackButton(0)
         }
 
         override fun onNothingSelected(parent: AdapterView<*>) {
@@ -304,6 +329,7 @@ class AddTitleDescriptionsFragment : Fragment() {
         override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
         override fun onPageSelected(position: Int) {
+            updateBackButton(position)
             if (!nextPageSelectedAutomatic && funnel != null) {
                 if (position > prevPosition) {
                     funnel!!.swipedForward()

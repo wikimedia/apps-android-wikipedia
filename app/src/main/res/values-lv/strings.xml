@@ -240,9 +240,6 @@
   <string name="description_edit_success_done">Gatavs</string>
   <string name="description_edit_success_did_you_know">Vai tu zināji?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Sākt labošanu</string>
-  <string name="description_edit_help_about_title">Par</string>
-  <string name="description_edit_help_tips_examples">Piemēram:</string>
-  <string name="description_edit_help_more_info">Vairāk informācijas</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">Uzzināt vairāk</string>
   <string name="onboarding_skip">Izlaist</string>
   <string name="onboarding_continue">Turpināt</string>
@@ -264,6 +261,7 @@
   <string name="more_language_options">vairāk</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Labot valodas</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nē, paldies</string>
+  <string name="title_description_task_title">Pievienot apakstus</string>
   <string name="translation_source_description">%s apraksts:</string>
   <string name="title_description_editing_skip">Izlaist</string>
   <string name="translate_descriptions_maybe_later">Varbūt vēlāk</string>

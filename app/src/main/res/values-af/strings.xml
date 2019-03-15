@@ -14,8 +14,6 @@
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Soek in Wikipedia</string>
   <string name="search_hint_search_history">Soekgeskiedenis</string>
-  <string name="search_hint_search_my_lists">Deursiek my lyste</string>
-  <string name="search_hint_search_reading_list">Deursoek leeslys</string>
   <string name="search_hint_search_languages">Soek na ’n taal</string>
   <string name="nav_item_history">Geskiedenis</string>
   <string name="error_network_error">Kan nie aan die internet koppel nie.</string>
@@ -342,13 +340,6 @@
   <string name="description_edit_tutorial_title_descriptions">Titelbeskrywings</string>
   <string name="description_edit_tutorial_keep_it_short">Hou dit kort</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begin redigeer</string>
-  <string name="description_edit_help_about_title">Aangaande</string>
-  <string name="description_edit_help_tips_examples">Byvoorbeeld:</string>
-  <string name="description_edit_help_tips_example1">skildery deur Leonardo da Vinci</string>
-  <string name="description_edit_help_tips_example1_hint">titelbeskrywing vir ’n artikel oor die Mona Lisa</string>
-  <string name="description_edit_help_tips_example2">Aarde se hoogste berg</string>
-  <string name="description_edit_help_tips_example2_hint">Titelbeskrywing vir ’n artikel oor Berg Everest</string>
-  <string name="description_edit_help_more_info">Meer inligting</string>
   <string name="description_edit_revert_subtitle">Dankie dat u bydra tot Wikipedia!</string>
   <string name="size_gb">%.2f GG</string>
   <string name="size_mb">%.2f MG</string>

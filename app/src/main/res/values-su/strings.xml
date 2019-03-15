@@ -11,8 +11,6 @@
   <string name="wikimedia">Wikimédia</string>
   <string name="search_hint">Paluruh Wikipédia</string>
   <string name="search_hint_search_history">Jujut pamaluruhan</string>
-  <string name="search_hint_search_my_lists">Paluruh daptar kuring</string>
-  <string name="search_hint_search_reading_list">Paluruh daptar bacaan</string>
   <string name="search_hint_search_languages">Sungsi basa</string>
   <string name="nav_item_history">Jujutan</string>
   <string name="error_network_error">Teu bisa nyambungkeun kana internét</string>
@@ -409,7 +407,6 @@
   <string name="description_edit_help_title">Pitulung: pedaran judul</string>
   <string name="description_edit_help_about_wikidata">Ngeunaan Wikipédia</string>
   <string name="description_edit_help_wikidata_guide">Pituduh Wikidata pikeun nulis pedaran</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="description_edit_anon_limit">Hatur nuhun kana kapercayaan anjeun dina ngédit pedaran! Pikeun nyieun éditan panambah, sok waé asup log kana akun Wikipédia anjeun.</string>
   <string name="description_edit_license_notice">Ku ngarobah déskripsi judul, kami satuju kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamakéan&lt;/a&gt; sarta ngaleupas kontribusi kami dina lisénsi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Déskripsi geus dimedalkeun</string>
@@ -423,17 +420,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Alusna mah sabaris, antara dua nepi ka dua welas kecap</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mimitian ngédit</string>
   <string name="description_edit_tutorial_promise">Ku ngamimitianna, kuring jangji moal nyalahgunakeun ieu fitur.</string>
-  <string name="description_edit_help_about_title">Ngeunaan</string>
-  <string name="description_edit_help_description">Déskripsi judul ngaringkes hiji artikel pikeun nulungan nu maca dina nyangkem subyék ku saliwatan.</string>
-  <string name="description_edit_help_tips">Tips pikeun nyieun pedaran</string>
-  <string name="description_edit_help_tips_description">Ari Deskripsi téh idéalna mah kudu dipdangkeun dina sabaris, sarta éta téh antara 2-12 kecap. Déskripsi teu dikapitalisasi iwal kecap munggaranna nyaéta kecap barang.</string>
-  <string name="description_edit_help_tips_examples">Pikeun conto:</string>
-  <string name="description_edit_help_tips_example1">lukisan karya Leonardo da Vinci</string>
-  <string name="description_edit_help_tips_example1_hint">pedaran judul pikeun artikel ngeunaan Mona Lisa</string>
-  <string name="description_edit_help_tips_example2">Gunung pangjangkungna di marcapada</string>
-  <string name="description_edit_help_tips_example2_hint">pedaran judul pikeun artikel ngeunaan Gunung Everest</string>
-  <string name="description_edit_help_more_info">Informasi leuwih jero</string>
-  <string name="description_edit_help_meta_info">Déskripsi disimpen sarta dipulasara di Wikidata, hiji proyék ti Wikimedia Foundation anu nyayagakeun basis data bébas, kolaboratif, multibasa, sékunder nu ngarojong Wikipédia jeung proyék-proyék lianna.</string>
   <string name="description_edit_revert_subtitle">Hatur nuhun tos ngédit di Wikipédia!</string>
   <string name="description_edit_revert_intro">Kami nyaho anjeun nyoba nu panghadéna, ngan salah sahiji pamariksa mibanda kakhawatiran. Kamungkinan alesan éditan anjeun geus dibalikkeun ngawengku:</string>
   <string name="description_edit_revert_reason1">kontribusi anjeun teu numutkeun kana salah sahiji &lt;a href=\"%1$s\"&gt;palanggeran&lt;/a&gt;.</string>

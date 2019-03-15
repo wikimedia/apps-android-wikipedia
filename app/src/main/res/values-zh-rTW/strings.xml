@@ -27,9 +27,8 @@
   <string name="nav_item_forward">下一頁</string>
   <string name="search_hint">搜尋維基百科</string>
   <string name="search_hint_search_history">搜尋歷史</string>
-  <string name="search_hint_search_my_lists">搜尋我的清單</string>
-  <string name="search_hint_search_reading_list">搜尋閱讀清單</string>
   <string name="search_hint_search_languages">搜尋語言</string>
+  <string name="search_hint_search_my_lists_and_articles">搜尋我的清單與條目</string>
   <string name="nav_item_history">歷史</string>
   <string name="error_network_error">無法連上網際網路。</string>
   <string name="page_error_retry">重試</string>
@@ -390,8 +389,9 @@
   <string name="reading_list_name_sample">我的閱讀清單</string>
   <string name="reading_list_name_hint">此清單的名稱</string>
   <string name="reading_list_description_hint">描述（可選）</string>
-  <string name="reading_list_item_deleted">%s 已從清單之中移除</string>
+  <string name="reading_list_item_deleted">%s已從清單之中移除</string>
   <string name="reading_list_items_deleted">從清單移除%d個條目</string>
+  <string name="reading_lists_item_deleted">%s已從清單之中移除</string>
   <string name="reading_list_item_delete_undo">還原</string>
   <string name="reading_list_deleted">%s 已刪除</string>
   <string name="saved_list_empty_title">尚無閱讀清單</string>
@@ -559,7 +559,7 @@
   <string name="view_featured_article_footer_save_button_label">儲存</string>
   <string name="view_static_card_save_button_label">儲存</string>
   <string name="view_featured_article_footer_saved_button_label">已儲存</string>
-  <string name="edit_tasks_activity_title">應用程式編者任務</string>
+  <string name="edit_tasks_activity_title">編者任務</string>
   <string name="feed_configure_activity_title">自訂摘要</string>
   <string name="feed_configure_menu_reset">重新設定預設檢視</string>
   <string name="feed_configure_menu_select_all">顯示全部</string>
@@ -584,12 +584,11 @@
   <string name="description_edit_help_title">協助：標題描述</string>
   <string name="description_edit_help_about_wikidata">關於維基數據</string>
   <string name="description_edit_help_wikidata_guide">關於編寫描述的維基數據指引</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/zh</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/zh</string>
   <string name="description_edit_anon_limit">感謝您保持著對於編輯描述的興致！要進行額外編輯，請登入您的維基百科帳號。</string>
   <string name="description_edit_license_notice">透過更改標題描述，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤銷所發表出我的個人貢獻。</string>
   <string name="description_edit_task_unlock_title">標題描述編輯任務清單已解開！</string>
-  <string name="description_edit_task_unlock_body">我們注意到您似乎喜歡編輯標題描述，因此我們做出了一份裡頭含有缺少標題描述之條目的「應用程式編者任務」清單，來幫助您繼續這方面的貢獻！</string>
+  <string name="description_edit_task_unlock_body">我們注意到您似乎喜歡編輯標題描述，因此我們做出了一份裡頭含有缺少標題描述之條目的「編者任務」清單，來幫助您繼續這方面的貢獻！</string>
   <string name="description_edit_success_saved">已發佈描述！</string>
   <string name="description_edit_success_encouragement">謝謝您！您剛剛已令維基百科變得更完善，所有人都會受惠</string>
   <string name="description_edit_success_done">完成</string>
@@ -601,17 +600,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">原則上為一行，介於 2 至 12 個字之間</string>
   <string name="description_edit_tutorial_button_label_start_editing">開始編輯</string>
   <string name="description_edit_tutorial_promise">首先，我保證不會濫用此功能。</string>
-  <string name="description_edit_help_about_title">關於</string>
-  <string name="description_edit_help_description">標題描述能概括條目，以幫助讀者快速了解內容。</string>
-  <string name="description_edit_help_tips">建立描述的提示</string>
-  <string name="description_edit_help_tips_description">描述盡量使用一行文字，且長度介於 2 到 12 個字元之間。另外除非第一個詞為專有名詞，否則不用大寫。</string>
-  <string name="description_edit_help_tips_examples">例如：</string>
-  <string name="description_edit_help_tips_example1">李奧納多·達文西的繪畫</string>
-  <string name="description_edit_help_tips_example1_hint">有關蒙娜麗莎條目的標題描述</string>
-  <string name="description_edit_help_tips_example2">地球第一高峰</string>
-  <string name="description_edit_help_tips_example2_hint">有關聖母峰條目的標題描述</string>
-  <string name="description_edit_help_more_info">更多資訊</string>
-  <string name="description_edit_help_meta_info">描述會被保管在維基數據，那是維基媒體基金會計畫的另一個專案，是個自由、共同作業、多語言的二級資料庫，支援著維基百科及其它相類專案。</string>
   <string name="editactionfeed_add_title_descriptions">增加標題描述</string>
   <string name="editactionfeed_translate_descriptions">翻譯標題描述</string>
   <string name="editactionfeed_review_title_description">檢閱標題描述</string>
@@ -651,7 +639,7 @@
   <string name="onboarding_got_it">了解</string>
   <string name="onboarding_multilingual_secondary_text">我們在您的裝置上找到以下語言：</string>
   <string name="onboarding_multilingual_add_language_text">添加或編輯語言</string>
-  <string name="onboarding_welcome_title_v2" fuzzy="true">自由的百科全書\n…近 300 種可用的語言版本</string>
+  <string name="onboarding_welcome_title_v2">自由的百科全書\n…超過 300 種可用的語言版本</string>
   <string name="app_shortcuts_random">隨機</string>
   <string name="app_shortcuts_continue_reading">繼續閱讀</string>
   <string name="app_shortcuts_search">搜尋</string>
@@ -691,16 +679,16 @@
   <string name="main_drawer_close">關閉</string>
   <string name="main_drawer_help">說明</string>
   <string name="main_drawer_login">登入/加入維基百科</string>
-  <string name="title_description_task_title">增加標題描述</string>
-  <string name="title_description_task_description">不帶標題描述來貢獻條目</string>
+  <string name="title_description_task_title">增加描述</string>
+  <string name="title_description_task_description">不帶描述來貢獻條目</string>
   <string name="image_caption_task_title">圖片說明</string>
   <string name="image_caption_task_description">新增圖片的說明</string>
   <string name="multilingual_task_title">更多多語言編者的任務</string>
   <string name="multilingual_task_description">若您有在一種以上語言的維基百科做出讀寫，則可進行翻譯任務。</string>
-  <string name="translation_task_title">翻譯標題描述</string>
-  <string name="translation_task_description">翻譯標題描述成其它語言。</string>
-  <string name="image_caption_edit_disable_text">直到您在應用程式內達成 %d 次經過驗證的編輯才會解開</string>
-  <string name="translate_description_edit_disable_text">直到您編輯過 %d 次標題描述才會解開</string>
+  <string name="translation_task_title">翻譯描述</string>
+  <string name="translation_task_description">跨條目語言翻譯描述。</string>
+  <string name="image_caption_edit_disable_text">直到您達成 %d 次經過驗證的貢獻才會解開</string>
+  <string name="translate_description_edit_disable_text">直到您達成 %d 次經過驗證的編輯才會解開</string>
   <string name="multilingual_task_negative">不適合我</string>
   <string name="multilingual_task_positive">新增語言</string>
   <string name="editing_level_text">等級 %d 的應用程式編者</string>
@@ -708,14 +696,14 @@
   <string name="translate_caption_task_title">翻譯圖片說明</string>
   <string name="translate_caption_task_description">翻譯說明成其它語言</string>
   <plurals name="edit_action_contribution_count">
-    <item quantity="one">在應用程式裡的編輯</item>
-    <item quantity="other">在應用程式裡的編輯</item>
+    <item quantity="one">1 次貢獻</item>
+    <item quantity="other">%d 次貢獻</item>
   </plurals>
   <string name="add_title_descriptions_dialog_title">增加標題描述</string>
   <string name="add_title_descriptions_dialog_message">您現在可以透過新增在條目標題下方的描述來協助改善維基百科。您可以隨時設置您的語言。</string>
   <string name="add_translate_descriptions_dialog_title">您正在首次翻譯標題描述</string>
   <string name="add_translate_descriptions_dialog_message">您現在可以透過翻譯標題描述來協助改善維基百科。您可以隨時設置您的語言和設定翻譯領域。</string>
-  <string name="description_edit_tutorial_message">歡迎來到用於維基百科編輯的應用程式新版內容。在這裡，我們會提供出您可能會感興趣的項目來編輯。對於您的貢獻我們在此感激，祝編安！</string>
+  <string name="description_edit_tutorial_message">歡迎來到在維基百科應用程式裡用於快速編輯的新主頁。對於您的貢獻我們在此感激，祝編安！</string>
   <string name="translation_description_edit_task_unlock_title">翻譯標題描述編輯已解開！</string>
   <string name="translation_description_edit_task_unlock_body">我們注意到您似乎喜歡編輯標題描述以及閱讀各語言的維基百科，請試看看能夠來翻譯更多標題描述的任務清單！</string>
   <string name="title_description_editing_skip">略過</string>

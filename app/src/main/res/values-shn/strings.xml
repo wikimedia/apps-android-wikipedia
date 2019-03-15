@@ -12,8 +12,6 @@
   <string name="nav_item_forward">သိုပ်ႇၼႃႈ</string>
   <string name="search_hint">ၶူၼ်ႉႁႃ ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="search_hint_search_history">ၶူၼ်ႉႁႃ ပိုၼ်းလင်</string>
-  <string name="search_hint_search_my_lists">ၶူၼ်ႉႁႃ သဵၼ်ႈမၢႆၵဝ်ၶႃႈ</string>
-  <string name="search_hint_search_reading_list">ၶူၼ်ႉႁႃ သဵၼ်ႈမၢႆလွင်ႈလူ</string>
   <string name="search_hint_search_languages">ၶူၼ်ႉႁႃ တႃႇၽႃႇသႃႇၵႂၢမ်း</string>
   <string name="nav_item_history">ပိုၼ်း</string>
   <string name="error_network_error">ဢမ်ႇၸၢင်ႈ ၵွင်ႉသိုပ်ႇၸူး ဢိၼ်ႇထႃႇၼႅတ်ႉ</string>
@@ -334,7 +332,6 @@
   <string name="description_edit_help_title">Help: ၶေႃႈသပ်းလႅင်း ႁူဝ်ၶေႃႈ</string>
   <string name="description_edit_help_about_wikidata">လွင်ႈ ဝီႇၶီႇတေႇတႃႇ</string>
   <string name="description_edit_help_wikidata_guide">ဝီႇၶီႇတေႇတႃႇ ၼႄပၼ် တွၼ်ႈတႃႇ လွင်ႈတႅမ်ႈၶေႃႈသပ်းလႅင်း</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="description_edit_anon_limit">ငိၼ်းၶွပ်ႈၸႂ်ၼိူဝ် လွင်ႈၸဝ်ႈၵဝ်ႇ သိုပ်ႇမႄးထတ်း ၶေႃႈသပ်းလႅင်း! တွၼ်ႈတႃႇႁဵတ်း လွင်ႈမႄးထတ်းထႅင်ႈ ၶႅၼ်းတေႃႈ ၶဝ်ႈလွၵ်ႉဢိၼ်ႇၸူး ဢၶွင်ႉ ဝီႇၶီႇၽီးတီးယႃး ၸဝ်ႈၵဝ်ႇလႄႈ</string>
   <string name="description_edit_license_notice">ယွၼ်ႉလႅၵ်ႈလၢႆႈ ၶေႃႈသပ်းလႅင်းႁူဝ်ၶေႃႈသေ ၵဝ်ၶႃႈ ၽွမ်ႉၸႂ်တင်း  &lt;a href=\"%1$s\"&gt;ၶေႃႈၽွမ်ႉၸႂ်တႃၸႂ်ႉတိုဝ်း&lt;/a&gt; သေ ၵမ်းလိုၼ်းမႃး တေပိုၼ်ဢွၵ်ႇ လွင်ႈၶဝ်ႈႁူမ်ႈၶႃႈ ၵႃႈတီႈၽၢႆႇတႂ်ႈ &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; license ၼၼ်ႉဢေႃႈ။</string>
   <string name="description_edit_success_saved">ၶေႃႈသပ်းလႅင်း ပိုၼ်ဢွၵ်ႇၵႂႃႇယဝ်ႉ!</string>
@@ -348,17 +345,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">ၼိုင်ႈထႅဝ်ၼႆႉ ၶႅမ်ႉလိူဝ်၊ ၶေႃႈၵႂၢမ်းသွင်ၶေႃႈတေႃႇ သိပ်းသွင်ၶေႃႈ</string>
   <string name="description_edit_tutorial_button_label_start_editing">တႄႇလွင်ႈမႄးထတ်း</string>
   <string name="description_edit_tutorial_promise">ပေႃးတႄႇ၊ ၵဝ်ၶႃႈပၼ်ၶေႃႈမၼ်ႈဝႃႈ တေဢမ်ႇၸႂ်ႉၽိတ်း ႁၢင်ႈၽၢင်ဢၼ်ၼႆႉ။</string>
-  <string name="description_edit_help_about_title">လွင်ႈတၢင်း</string>
-  <string name="description_edit_help_description">ၶေႃႈသပ်းလႅင်း ႁူဝ်ၶေႃႈ ႁုပ်ပၼ် ပွင်ႈလိၵ်ႈ တွၼ်ႈတႃႇၸွႆႈထႅမ် ၽူႈလူလိၵ်ႈ တႃႇႁႂ်ႈပွင်ႇၸႂ် ၼိူဝ် လွင်ႈတၢင်းပွင်ႈလိၵ်ႈၼႆႉ။</string>
-  <string name="description_edit_help_tips">လွၵ်းလၢႆးတွၼ်ႈတႃႇ လွင်ႈၵေႃႇသၢင်ႈ ၶေႃႈသပ်းလႅင်း</string>
-  <string name="description_edit_help_tips_description">ၶေႃႈသပ်းလႅင်း ထုၵ်ႇလီပဵၼ် ထႅဝ်လဵဝ် လႄႈ တၢင်းယၢဝ်းထုၵ်ႇလီမီး ၼႂ်းၵႄႈ ၶေႃႈၵႂၢမ်း သွင်ၶေႃႈ တေႃႇ သိပ်းသွင်ၶေႃႈ။</string>
-  <string name="description_edit_help_tips_examples">တူဝ်ယၢင်ႇ</string>
-  <string name="description_edit_help_tips_example1">Leonardo da Vinci ၵေႃႉၸၼ်ဝႆ့</string>
-  <string name="description_edit_help_tips_example1_hint">ၶေႃႈသပ်းလႅင်း ႁူဝ်ၶေႃႈ တွၼ်ႈတႃႇ ပွင်ႈလိၵ်ႈ လွင်ႈ မူဝ်ႇၼႃႇလီႇသႃႇ</string>
-  <string name="description_edit_help_tips_example2">လွႆသုင်သုတ်း ၼႂ်းလူၵ်ႈ</string>
-  <string name="description_edit_help_tips_example2_hint">ၶေႃႈသပ်းလႅင်း ႁူဝ်ၶေႃႈ တွၼ်ႈတႃ ပွင်ႈလိၵ်ႈ လွႆလူင် ဢေႇဝရၢတ်ႈ</string>
-  <string name="description_edit_help_more_info">လွၼ်ႉၶၢဝ်ႇ ၼမ်လိူဝ်</string>
-  <string name="description_edit_help_meta_info">ၶေႃႈသပ်းလႅင်းၸိုဝ်းၼႆႉ ထုၵ်ႇသိမ်းဝႆႉ လႄႈ ထုၵ်ႇမူၼ်ႉမႄး တီႈၼႂ်း ဝီႇၶီႇမီႇတီႇယႃႇ၊ ဢၼ်ပဵၼ် ၼႃႈၵၢၼ် ၶွင် ၾွင်ႇတေးသျိၼ်း ဝီႇၶီႇမီႇတီႇယႃႇ ဢၼ်ၵမ်ႉထႅမ်ဝႆႉပၼ် လွတ်ႈလႅဝ်း၊ လၢႆလၢႆ၊ ၶဝ်ႈႁူမ်ႈ၊ ၽႃႇသႃႇလၢႆမဵဝ်း၊ ထၢၼ်ၶေႃႈမုၼ်းမၢႆသွင်ႈ ဢၼ်ၵမ်ႉထႅမ်ပၼ် ဝီႇၶီႇၽီးတီးယႃးလႄႈ ၼႃႈၵၢၼ်တၢင်ႇၸိူဝ်း။</string>
   <string name="description_edit_revert_subtitle">ငိၼ်းၸူမ်းၶွပ်ႈၸႂ် တႃႇ လွင်ႈမႄးထတ်း ဝီႇၶီႇၽီးတီးယႃး!</string>
   <string name="description_edit_revert_intro">ႁဝ်းၶႃႈႁူႉဝႃႈ ၸဝ်ႈၵဝ်ႇ ၶတ်းၸႂ်ၼင်ႇပဵၼ်လႆႈ၊ ၵူၺ်းၵႃႈ ၽူႈၶိုၼ်းလူတူၺ်း တၢင်ႇၵေႃႉ ၵေႃႈ ပဵၼ်ဢၼ်ၶဝ်ႈၵပ်းၵၢႆႇဝႆႉ။ ၼႆႉပဵၼ် လွင်ႈတၢင်းဢၼ်ပွင်ႈလိၵ်ႈၸဝ်ႈၵဝ်ႇ ထုၵ်ႇပိၼ်ႈၶိုၼ်း:</string>
   <string name="description_edit_revert_reason1">လွင်ႈၶဝ်ႈႁူမ်ႈၸဝ်ႈၵဝ်ႇ ဢမ်ႇၸွမ်းဝႆႉၼင်ႇ &lt;a href=\"%1$s\"&gt;ၽိုၼ်ၸုင်&lt;/a&gt;.</string>

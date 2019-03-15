@@ -43,7 +43,7 @@
             android:background="@null"
             android:layout_gravity="center_horizontal"
             android:contentDescription="@string/captcha_image"
-            style="@style/SimpleDraweeViewPlaceholder.Article"/>
+            style="@style/SimpleDraweeViewPlaceholder"/>
         <ProgressBar
             android:id="@+id/captcha_image_progress"
             android:layout_width="match_parent"

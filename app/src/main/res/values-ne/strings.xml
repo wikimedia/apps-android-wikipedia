@@ -18,8 +18,6 @@
   <string name="nav_item_forward">अगाडि</string>
   <string name="search_hint">विकिपिडियामा खोज्नुहोस्</string>
   <string name="search_hint_search_history">इतिहास खोज्नुहोस्</string>
-  <string name="search_hint_search_my_lists">मेरा सूचीहरू खोज्नुहोस्</string>
-  <string name="search_hint_search_reading_list">अध्ययन सूची खोज्नुहोस्</string>
   <string name="search_hint_search_languages">कुनै भाषाको लागि खोजी गर्नुहोस्</string>
   <string name="nav_item_history">इतिहास</string>
   <string name="error_network_error">इन्टरनेटमा जडान हुन सकेन।</string>
@@ -43,7 +41,7 @@
   <string name="menu_page_add_to_list">अध्ययन सूचीमा थप गर्नुहोस्</string>
   <string name="menu_page_share">लिङ्क आदान-प्रदान गर्नुहोस्</string>
   <string name="menu_page_open_a_new_tab">नयाँ ट्याबमा खोल्नुहोस्</string>
-  <string name="menu_page_reading_lists">पाठन सूची</string>
+  <string name="menu_page_reading_lists">पठन सूचीहरू</string>
   <string name="menu_page_recently_viewed">भर्खरै हेरिएको</string>
   <string name="menu_long_press_open_page">खोल्नुहोस्</string>
   <string name="menu_long_press_open_in_new_tab">नयाँ ट्याबमा खोल्नुहोस्</string>
@@ -101,7 +99,7 @@
   <string name="reset_password_description">तपाईँ अस्थायी पासवर्ड प्रयोग गरेर लग इन गर्नुभएको छ । लग इन पूरा गर्न, यहाँ तपाईँले नयाँ पासवर्ड सेट गर्नुहोस् ।</string>
   <string name="reset_password_hint">नयाँ पासवर्ड</string>
   <string name="reset_password_button">सङ्ग्रह गर्नुहोस् र लग इन गर्नुहोस्</string>
-  <string name="preference_title_logout">लग आउट गर्नुहोस्</string>
+  <string name="preference_title_logout">निर्गमन</string>
   <string name="toast_logout_complete">लग आउट गरियो</string>
   <string name="history_empty_title">भर्खरै हेरिएको कुनै पनि लेख छैन</string>
   <string name="history_empty_message">आफूले पढिरहेका कुराहरूलाई यहाँबाट पहिल्याउनुहोस्।</string>
@@ -179,7 +177,7 @@
   <string name="user_blocked_from_editing_title">रोक लगाइएको</string>
   <string name="user_logged_in_blocked_from_editing">तपाईंको प्रयोगकर्ता खातालाई यो विकिमा सम्पादन गर्न रोक लगाइएको छ।</string>
   <string name="user_anon_blocked_from_editing">तपाईंको IP ठेगानालाई सम्पादन गर्न रोक लगाइएको छ।</string>
-  <string name="edit_how_page_improved">तपाईले यस पृष्ठमा कसरी सुधार ल्याउनुभयो?</string>
+  <string name="edit_how_page_improved">तपाईँले यस पृष्ठमा कसरी सुधार ल्याउनुभयो?</string>
   <string name="edit_next">अर्को</string>
   <string name="edit_done">प्रकाशन गर्नुहोस्</string>
   <string name="edit_preview">पूर्वावलोकन</string>
@@ -396,10 +394,6 @@
   <string name="description_edit_success_did_you_know">के तपाईँलाई थाह छ?</string>
   <string name="description_edit_tutorial_keep_it_short">यसलाई छोटो राख्नुहोस्</string>
   <string name="description_edit_tutorial_button_label_start_editing">सम्पादन सुरु गर्नुहोस्</string>
-  <string name="description_edit_help_about_title">बारेमा</string>
-  <string name="description_edit_help_tips_examples">उदाहरणका लागि:</string>
-  <string name="description_edit_help_tips_example2">पृथ्वीको सबैभन्दा अग्लो हिमाल</string>
-  <string name="description_edit_help_more_info">थप जानकारी</string>
   <string name="editactionfeed_add_title_descriptions">शिर्षकमा विवरण थप्नुहोस्</string>
   <string name="editactionfeed_add_description_button">विवरण थप्नुहोस्</string>
   <string name="editactionfeed_add_title_dialog_learn_more">अझै बढी पढ्नुहोस्</string>
@@ -439,7 +433,7 @@
   <string name="main_drawer_open">खुल्ला</string>
   <string name="main_drawer_close">बन्द</string>
   <string name="main_drawer_help">सहायता</string>
-  <string name="translation_task_title">शीर्षक विवरण अनुवाद गर्नुहोस्</string>
+  <string name="translation_task_title" fuzzy="true">शीर्षक विवरण अनुवाद गर्नुहोस्</string>
   <string name="multilingual_task_positive">भाषाहरू थप गर्नुहोस्</string>
   <string name="add_title_descriptions_dialog_title">शीर्षकमा विवरण थप्नुहोस्</string>
 </resources>

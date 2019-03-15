@@ -28,9 +28,8 @@
   <string name="nav_item_forward">Dále</string>
   <string name="search_hint">Hledání ve Wikipedii</string>
   <string name="search_hint_search_history">Hledat v historii</string>
-  <string name="search_hint_search_my_lists">Hledat v mých seznamech</string>
-  <string name="search_hint_search_reading_list">Hledat v seznamech k přečtení</string>
   <string name="search_hint_search_languages">Hledat jazyk</string>
+  <string name="search_hint_search_my_lists_and_articles">Vyhledávat v mých seznamech a článcích</string>
   <string name="nav_item_history">Historie</string>
   <string name="error_network_error">Nejste připojeni k internetu.</string>
   <string name="page_error_retry">Zkusit znovu</string>
@@ -393,6 +392,7 @@
   <string name="reading_list_description_hint">Popis (nepovinný):</string>
   <string name="reading_list_item_deleted">Článek %s odebrán ze seznamu</string>
   <string name="reading_list_items_deleted">%d článků odebráno ze seznamu</string>
+  <string name="reading_lists_item_deleted">Článek %s odebrán ze seznamů</string>
   <string name="reading_list_item_delete_undo">Zpět</string>
   <string name="reading_list_deleted">Seznam %s byl smazán</string>
   <string name="saved_list_empty_title">Žádné uložené stránky</string>
@@ -561,7 +561,7 @@
   <string name="view_featured_article_footer_save_button_label">Uložit</string>
   <string name="view_static_card_save_button_label">Uložit</string>
   <string name="view_featured_article_footer_saved_button_label">Uložit</string>
-  <string name="edit_tasks_activity_title">Úkoly pro editaci z aplikace</string>
+  <string name="edit_tasks_activity_title">Úkoly pro wikipedisty</string>
   <string name="feed_configure_activity_title">Přizpůsobit kanál Objevit</string>
   <string name="feed_configure_menu_reset">Obnovit výchozí filtry</string>
   <string name="feed_configure_menu_select_all">Zobrazit vše</string>
@@ -586,12 +586,11 @@
   <string name="description_edit_help_title">Nápověda: popis článku</string>
   <string name="description_edit_help_about_wikidata">O Wikidatech</string>
   <string name="description_edit_help_wikidata_guide">Návod na Wikidatech k vytváření popisů</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/cs</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/cs</string>
   <string name="description_edit_anon_limit">Děkujeme za váš trvalý zájem o editaci popisů! Chcete-li provést další úpravy, přihlaste se prosím k účtu Wikipedie.</string>
   <string name="description_edit_license_notice">Změnou popisu souhlasím s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelně souhlasím s podmínkami licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_task_unlock_title">Tipy pro popisy článků byly odemknuty!</string>
-  <string name="description_edit_task_unlock_body">Všimli jsme si, že se vám líbí editace popisů článků a proto jsme sestavili seznam „Úkoly pro editaci z aplikace“ s články, kterým chybějí popisy. Úkoly vám pomohou přispívat do Wikipedie!</string>
+  <string name="description_edit_task_unlock_body">Všimli jsme si, že se vám líbí editace popisů článků a proto jsme sestavili seznam „Úkoly pro wikipedisty“ s články, kterým chybějí popisy. Úkoly vám pomohou přispívat do Wikipedie!</string>
   <string name="description_edit_success_saved">Popis byl zveřejněn!</string>
   <string name="description_edit_success_encouragement">Wikipedie je díky vám lepší než předtím, děkujeme ☺</string>
   <string name="description_edit_success_done">Hotovo</string>
@@ -603,17 +602,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">V ideálním případě jeden řádek o dvou až dvanácti slovech</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začít editovat</string>
   <string name="description_edit_tutorial_promise">Tímto slibuji, že této funkce nezneužiji.</string>
-  <string name="description_edit_help_about_title">O aplikaci</string>
-  <string name="description_edit_help_description">Popis shrnuje základní informace o tématu článku, aby čtenáři ihned pochopili, o čem článek pojednává.</string>
-  <string name="description_edit_help_tips">Tipy pro vytváření popisů</string>
-  <string name="description_edit_help_tips_description">Ideální popis se vejde na jeden řádek a je 2 až 12 slov dlouhý. Nezačíná velkým písmenem, jen pokud je první slovo vlastní podstatné jméno.</string>
-  <string name="description_edit_help_tips_examples">Například:</string>
-  <string name="description_edit_help_tips_example1">obraz Leonarda da Vinciho</string>
-  <string name="description_edit_help_tips_example1_hint">popis článku o Mona Lise</string>
-  <string name="description_edit_help_tips_example2">nejvyšší hora na Zemi</string>
-  <string name="description_edit_help_tips_example2_hint">popis článku o Mount Everestu</string>
-  <string name="description_edit_help_more_info">Více informací</string>
-  <string name="description_edit_help_meta_info">Popisy jsou uložené ve Wikidatech, projektu &lt;a href=\"http://cs.m.wikipedia.org/wiki/Nadace_Wikimedia\"&gt;nadace Wikimedia&lt;/a&gt;, který poskytuje svobodnou, společně vytvářenou, vícejazyčnou sekundární databázi podporující Wikipedii a další projekty.</string>
   <string name="editactionfeed_add_title_descriptions">Přidat popis článku</string>
   <string name="editactionfeed_translate_descriptions">Překládat popisy članků</string>
   <string name="editactionfeed_review_title_description">Náhled popisu článku</string>
@@ -700,9 +688,9 @@
   <string name="multilingual_task_title">Více úkolů pro vícejazyčné editory</string>
   <string name="multilingual_task_description">Tipy k překladu budou k dispozici, pokud čtete a píšete ve více než jednom jazyce Wikipedie.</string>
   <string name="translation_task_title">Překládat popisy článků</string>
-  <string name="translation_task_description">Přeložit popisy článků do jiných jazyků.</string>
-  <string name="image_caption_edit_disable_text">Zamknuto, dokud neprovedete %d ověřených editací v aplikaci</string>
-  <string name="translate_description_edit_disable_text">Zamčeno, dokud neupravíte %d popisů článků</string>
+  <string name="translation_task_description">Překládat popisy článků napříč jazyky.</string>
+  <string name="image_caption_edit_disable_text">Zamknuto, dokud neprovedete %d ověřených příspěvků</string>
+  <string name="translate_description_edit_disable_text">Zamčeno, dokud neprovedete %d ověřených editací</string>
   <string name="multilingual_task_negative">Není pro mě</string>
   <string name="multilingual_task_positive">Přidat jazyky</string>
   <string name="editing_level_text">ÚROVEŇ %d editora z aplikace</string>
@@ -710,14 +698,14 @@
   <string name="translate_caption_task_title">Překládat popisy obrázků</string>
   <string name="translate_caption_task_description">Přeložit popisy obrázků do jiných jazyků</string>
   <plurals name="edit_action_contribution_count">
-    <item quantity="one">příspěvek v aplikaci</item>
-    <item quantity="other">příspěvků v aplikaci</item>
+    <item quantity="one">1 příspěvek</item>
+    <item quantity="other">%d příspěvků</item>
   </plurals>
   <string name="add_title_descriptions_dialog_title">Přidat popisy článků</string>
   <string name="add_title_descriptions_dialog_message">Nyní můžete pomoci zlepšit Wikipedii přidáním popisů, které se zobrazují pod názvy článků. Vaše jazyky si můžete kdykoli nakonfigurovat.</string>
   <string name="add_translate_descriptions_dialog_title">Poprvé překládáte popisy článků</string>
   <string name="add_translate_descriptions_dialog_message">Nyní můžete zlepšit Wikipedii překladem popisů článků. Můžete si nakonfigurovat jazyky a kdykoli změnit směr překladu.</string>
-  <string name="description_edit_tutorial_message">Vítejte v novém domově pro editaci Wikipedie v aplikaci. Zde vám navrhneme příležitosti přidat obsah, který by vás mohl zajímat. Vaše příspěvky jsou velmi oceňovány. \nHodně štěstí!</string>
+  <string name="description_edit_tutorial_message">Vítejte v novém domově pro jednoduchou editaci Wikipedie v aplikaci. Vaše příspěvky jsou velmi oceňovány. Hodně štěstí!</string>
   <string name="translation_description_edit_task_unlock_title">Překládání popisů článků bylo odemčeno!</string>
   <string name="translation_description_edit_task_unlock_body">Všimli jsme si, že máte rádi editaci popisů článků a čtení Wikipedie ve více jazycích. \nPodívejte se na tento seznam úkolů, který poskytuje přístup k překladu více popisů článků!</string>
   <string name="title_description_editing_skip">Přeskočit</string>
