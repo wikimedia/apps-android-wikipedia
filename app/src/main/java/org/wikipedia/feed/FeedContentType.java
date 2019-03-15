@@ -11,6 +11,7 @@ import org.wikipedia.feed.becauseyouread.BecauseYouReadClient;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.mainpage.MainPageClient;
 import org.wikipedia.feed.random.RandomClient;
+import org.wikipedia.feed.suggestededits.SuggestedEditFeedClient;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.settings.Prefs;
@@ -75,6 +76,13 @@ public enum FeedContentType implements EnumCode {
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
             return isEnabled() ? new BecauseYouReadClient() : null;
+        }
+    },
+    SUGGESTED_EDITS(9, R.string.add_title_descriptions_dialog_title, R.string.feed_item_type_because_you_read, false) {
+        @Nullable
+        @Override
+        public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
+            return isEnabled() ? new SuggestedEditFeedClient() : null;
         }
     };
 
