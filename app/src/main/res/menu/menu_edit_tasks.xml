@@ -5,10 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="AlwaysShowAction">
     <item
-        android:id="@+id/edit_tasks_menu_help"
+        android:id="@+id/menu_help"
         android:title="@string/main_drawer_help"
-        android:icon="@drawable/ic_info_outline_black_24dp"
-        android:iconTint="?attr/main_toolbar_icon_color"
-        android:iconTintMode="src_in"
+        android:icon="@drawable/ic_info_outline_themed_24dp"
         app:showAsAction="always" />
 </menu>
