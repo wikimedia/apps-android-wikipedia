@@ -598,7 +598,7 @@
   <string name="description_edit_tutorial_promise">A kezdéskor megígérem, hogy nem élek vissza ezzel a funkcióval.</string>
   <string name="editactionfeed_add_title_descriptions">Címleírások hozzáadása</string>
   <string name="editactionfeed_translate_descriptions">Címleírások fordítása</string>
-  <string name="editactionfeed_review_title_description">Címleírás ellenőrzése</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">Címleírás ellenőrzése</string>
   <string name="editactionfeed_add_description_button">Leírás hozzáadása</string>
   <string name="editactionfeed_my_contributions">Közreműködéseim</string>
   <string name="editactionfeed_from_language">Innen:</string>

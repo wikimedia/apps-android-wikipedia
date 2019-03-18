@@ -561,7 +561,10 @@
   <string name="feed_configure_onboarding_action">Özelleştir</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Keşfet özet akışınızı özelleştirme&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Artık akışınızda neyin gösterileceğini seçebilir ve en sevdiğiniz içerik türlerine öncelik de verebilirsiniz.</string>
   <string name="description_edit_text_hint">Başlık tanımı</string>
+  <string name="description_edit_text_hint_per_language">%s açıklaması</string>
   <string name="description_edit_save">Yayımla</string>
+  <string name="description_edit_article">Madde</string>
+  <string name="description_edit_read">Oku</string>
   <string name="description_edit_add_description">Başlık tanımı ekle</string>
   <string name="description_edit_edit_description">Tanımı düzenle</string>
   <string name="description_edit_cancel_hint">İptal</string>
@@ -573,6 +576,7 @@
   <string name="description_edit_license_notice">Başlık tanımını değiştirerek &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarımı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansıyla yayımlamayı kabul ediyorum.</string>
   <string name="description_edit_task_unlock_title">Başlık açıklaması düzenleme görev listesi açıldı!</string>
   <string name="description_edit_success_saved">Açıklama yayımlandı!</string>
+  <string name="description_edit_success_saved_snackbar">Açıklama yayımlandı!</string>
   <string name="description_edit_success_encouragement">Vikipedi\'yi herkes için daha iyi hâle getirdin</string>
   <string name="description_edit_success_done">Tamam</string>
   <string name="description_edit_success_did_you_know">Biliyor musunuz?</string>
@@ -583,11 +587,12 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">İdeal olarak iki ila on iki kelimelik bir cümle</string>
   <string name="description_edit_tutorial_button_label_start_editing">Düzenlemeye başla</string>
   <string name="description_edit_tutorial_promise">Başlarken bu özelliği kötüye kullanmayacağıma söz veriyorum.</string>
-  <string name="editactionfeed_add_title_descriptions">Başlık tanımı ekle</string>
-  <string name="editactionfeed_review_title_description">Başlık açıklamasını düzenle</string>
+  <string name="editactionfeed_add_title_descriptions">Açıklama ekle</string>
+  <string name="editactionfeed_review_title_description">Yorum açıklaması</string>
   <string name="editactionfeed_add_description_button">Açıklama ekle</string>
   <string name="editactionfeed_my_contributions">Katkılarım</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Daha fazla bilgi</string>
+  <string name="editactionfeed_added_by_you">Sizin eklediğiniz:</string>
   <string name="description_edit_revert_subtitle">Vikipedi\'yi düzenlediğiniz için teşekkürler!</string>
   <string name="description_edit_revert_intro">Elinizden geleni yaptığınızı biliyoruz ama incleyenlerden biri, bir sıkıntı gördü. Değişikliğiniz geri alınmasının muhtemel sebepleri şunlar olabilir:</string>
   <string name="description_edit_revert_reason1">katkınız &lt;a href=\"%1$s\"&gt;kurallardan&lt;/a&gt; birine uymuyordu.</string>
@@ -663,4 +668,5 @@
   <string name="multilingual_task_description">Eğer birden fazla Vikipedi dilinde okuyup yazabiliyorsanız, çeviri görevleri size göredir.</string>
   <string name="multilingual_task_negative">Bana göre değil</string>
   <string name="multilingual_task_positive">Dil ekle</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
 </resources>

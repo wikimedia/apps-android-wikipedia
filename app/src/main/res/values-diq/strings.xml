@@ -223,7 +223,10 @@
   <string name="view_static_card_save_button_label">Qeyd ke</string>
   <string name="view_featured_article_footer_saved_button_label">Qeyd bi</string>
   <string name="description_edit_text_hint">Şınasnayış sernamey</string>
+  <string name="description_edit_text_hint_per_language">arezekerdışê %s</string>
   <string name="description_edit_save">Bıweşane</string>
+  <string name="description_edit_article">Meqale</string>
+  <string name="description_edit_read">Bıwane</string>
   <string name="description_edit_add_description">Şınasnayışê sernamey cı kerê</string>
   <string name="description_edit_cancel_hint">Bıtexelne</string>
   <string name="description_edit_success_done">Temam</string>

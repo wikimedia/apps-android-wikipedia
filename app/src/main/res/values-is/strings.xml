@@ -590,7 +590,7 @@
   <string name="description_edit_tutorial_promise">Ef ég byrja, lofa ég að misnota ekki þennan eiginleika.</string>
   <string name="editactionfeed_add_title_descriptions">Bæta við lýsingum á titlum</string>
   <string name="editactionfeed_translate_descriptions">Þýða lýsingar á titlum</string>
-  <string name="editactionfeed_review_title_description">Yfirfara lýsingu á titli</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">Yfirfara lýsingu á titli</string>
   <string name="editactionfeed_add_description_button">Bæta við lýsingu</string>
   <string name="editactionfeed_my_contributions">Framlögin mín</string>
   <string name="editactionfeed_from_language">Frá:</string>

@@ -609,7 +609,7 @@
   <string name="description_edit_tutorial_promise">通过开始，我承诺不会滥用该功能。</string>
   <string name="editactionfeed_add_title_descriptions">添加标题描述</string>
   <string name="editactionfeed_translate_descriptions">翻译标题描述</string>
-  <string name="editactionfeed_review_title_description">巡查标题描述</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">巡查标题描述</string>
   <string name="editactionfeed_add_description_button">添加描述</string>
   <string name="editactionfeed_my_contributions">我的贡献</string>
   <string name="editactionfeed_from_language">从：</string>

@@ -585,6 +585,7 @@
   <string name="description_edit_revert_reason2">il tuo contributo sembra essere un esperimento o un vandalismo.</string>
   <string name="description_edit_revert_history">Se sei interessato, vedi la &lt;a href=\"%1$s\"&gt;cronologia delle modifiche&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Per accedere allo spazio di archiviazione sul tuo dispositivo per la navigazione offline è richiesto un permesso.</string>
+  <string name="offline_read_final_rationale">Per utilizzare la libreria offline è necessaria l\'autorizzazione per accedere allo spazio di archiviazione sul dispositivo.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
   <plurals name="offline_compilation_download_time_remaining">
