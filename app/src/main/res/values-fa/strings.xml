@@ -544,7 +544,6 @@
   <string name="description_edit_help_title">راهنما:توضیحات عنوان</string>
   <string name="description_edit_help_about_wikidata">دربارهٔ ویکی‌داده</string>
   <string name="description_edit_help_wikidata_guide">راهنمای ویکی‌داده برای نوشتن توضیحات</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">به خاطر ویرایش توضیحات ممنون! برای ویرایش‌های بیشتر با حساب ویکی‌پدیا وارد سامانه شوید.</string>
   <string name="description_edit_license_notice">با تغییر توضیحات عنوان، موافق &lt;a href=\"%1$s\"&gt;شرایط استفاده&lt;/a&gt; و انتشار تحت مجوز &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; هستم.</string>
@@ -559,17 +558,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">به طور ایده‌آل یک خط، بین دو تا دوازده کلمه</string>
   <string name="description_edit_tutorial_button_label_start_editing">آغاز ویرایش کردن</string>
   <string name="description_edit_tutorial_promise">پیش از استفاده، قول می‌دهم از این ویژگی سو‌ءاستفاده نکنم.</string>
-  <string name="description_edit_help_about_title">درباره</string>
-  <string name="description_edit_help_description">خلاصه توضیح عنوان به خواننده کمک می‌کند که موضوع مقاله را در یک نگاه متوجه شود.</string>
-  <string name="description_edit_help_tips">ترفند برای ایجاد توضیحات</string>
-  <string name="description_edit_help_tips_description">توضیحات بهتر است حداکثر در یک خط که معمولاً دوازده کلمه‌است، نوشته شود.</string>
-  <string name="description_edit_help_tips_examples">برای مثال:</string>
-  <string name="description_edit_help_tips_example1">نقاشی توسط لئوناردو داوینچی</string>
-  <string name="description_edit_help_tips_example1_hint">توضیحات عنوان درمورد مقالهٔ مونالیزا</string>
-  <string name="description_edit_help_tips_example2">بلندترین قلهٔ زمین</string>
-  <string name="description_edit_help_tips_example2_hint">توضویحات عنوان دربارهٔ قلهٔ اورست</string>
-  <string name="description_edit_help_more_info">اطلاعات بیشتر</string>
-  <string name="description_edit_help_meta_info">توضیحات در ویکی‌داده ذخیره می‌شوند که پروژه‌ای از بنیاد ویکی‌مدیاست و به ویکی‌پدیا و سایر پروژه‌‌های خواهر خدمات می‌دهد.</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">اطلاعات بیشتر</string>
   <string name="editactionfeed_to_language">به:</string>
   <string name="description_edit_revert_subtitle">از بابت ویرایش در ویکی‌پدیا ممنونیم!</string>

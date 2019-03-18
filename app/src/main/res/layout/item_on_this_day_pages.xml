@@ -12,7 +12,7 @@
         android:orientation="horizontal">
 
         <org.wikipedia.views.FaceAndColorDetectImageView
-            style="@style/SimpleDraweeViewPlaceholder.Article"
+            style="@style/SimpleDraweeViewPlaceholder"
             android:id="@+id/page_list_item_image"
             android:layout_width="72dp"
             android:layout_height="match_parent"

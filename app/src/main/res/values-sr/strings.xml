@@ -576,7 +576,6 @@
   <string name="description_edit_help_title">Помоћ: описи наслова</string>
   <string name="description_edit_help_about_wikidata">О Википодацима</string>
   <string name="description_edit_help_wikidata_guide">Водич на Википодацима за писање описа</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Хвала вам на непрестаном интересу за уређивање описа. Да бисте направили још измена, пријавите се на свој налог на Википедији.</string>
   <string name="description_edit_license_notice">Променом описа наслова, слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање својих доприноса под лиценцом &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
@@ -591,17 +590,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">По могућству један ред, од две до дванаест речи</string>
   <string name="description_edit_tutorial_button_label_start_editing">Започни уређивање</string>
   <string name="description_edit_tutorial_promise">Када почнем, обећавам да нећу злоупотребити ову функцију.</string>
-  <string name="description_edit_help_about_title">О описима</string>
-  <string name="description_edit_help_description">Описи наслова резимирају чланак како би читаоци на први поглед разумели његову тему.</string>
-  <string name="description_edit_help_tips">Савети за писање описа</string>
-  <string name="description_edit_help_tips_description">Описи би, по могућству, требало да буду у једном реду и да се састоје од две до дванаест речи. Не почињу великим словом осим ако је прва реч властита именица.</string>
-  <string name="description_edit_help_tips_examples">На пример:</string>
-  <string name="description_edit_help_tips_example1">слика Леонарда да Винчија</string>
-  <string name="description_edit_help_tips_example1_hint">опис наслова за чланак о Мона Лизи</string>
-  <string name="description_edit_help_tips_example2">највиша планина на Земљи</string>
-  <string name="description_edit_help_tips_example2_hint">опис наслова за чланак о Монт Евересту</string>
-  <string name="description_edit_help_more_info">Више информација</string>
-  <string name="description_edit_help_meta_info">Описи се смештају и одржавају на Википодацима, пројекту Задужбине Викимедија, који пружа слободну, колаборативну, вишејезичку, секундарну базу података, која помаже Википедији и другим пројектима.</string>
   <string name="editactionfeed_add_title_descriptions">Додавање описа наслова</string>
   <string name="editactionfeed_translate_descriptions">Преведите описе наслова</string>
   <string name="editactionfeed_review_title_description">Преглед описа наслова</string>

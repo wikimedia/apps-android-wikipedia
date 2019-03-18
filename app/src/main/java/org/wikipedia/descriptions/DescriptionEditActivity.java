@@ -33,7 +33,12 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     private static final String EXTRA_SOURCE_LANG_DESC = "source_desc";
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
-    public static Intent newIntent(@NonNull Context context, @NonNull PageTitle title, @Nullable String highlightText, boolean reviewEnabled, @NonNull InvokeSource invokeSource, CharSequence sourceDesc) {
+    public static Intent newIntent(@NonNull Context context,
+                                   @NonNull PageTitle title,
+                                   @Nullable String highlightText,
+                                   boolean reviewEnabled,
+                                   @NonNull InvokeSource invokeSource,
+                                   @Nullable CharSequence sourceDesc) {
         return new Intent(context, DescriptionEditActivity.class)
                 .putExtra(EXTRA_TITLE, GsonMarshaller.marshal(title))
                 .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)

@@ -591,7 +591,6 @@
   <string name="description_edit_help_title">مساعدة:وصوف العناوين</string>
   <string name="description_edit_help_about_wikidata">عن ويكي بيانات</string>
   <string name="description_edit_help_wikidata_guide">دليل ويكي بيانات لكتابة الوصوف</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">شكرًا لاهتمامك المستمر بتعديل الوصوف! لإضافة المزيد من التعديلات، فضلًا سجل الدخول لحسابك في ويكيبيديا.</string>
   <string name="description_edit_license_notice">بتغييري لوصف العنوان، أنا أوافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt; وعلى نشر مساهماتي بصورة لا رجعة فيها تحت ترخيص &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
@@ -608,17 +607,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">بشكلٍ مثالي سطر واحد يكفي، ما بين كلمتين إلى اثنتا عشرة كلمة</string>
   <string name="description_edit_tutorial_button_label_start_editing">ابدأ التعديل</string>
   <string name="description_edit_tutorial_promise">ببدئي، أنا أعد بعدم إساءة استخدام هذه الميزة.</string>
-  <string name="description_edit_help_about_title">حول</string>
-  <string name="description_edit_help_description">وصوف العناوين تُلخّص المقالة للتسهيل على القراء فهم الموضوع بلمحة.</string>
-  <string name="description_edit_help_tips">تلميحات لإنشاء الوصوف</string>
-  <string name="description_edit_help_tips_description">يُفترض أن سطرا واحدا يكفي للوصف، ويكون بين كلمتين إلى اثنتا عشرة كلمة.</string>
-  <string name="description_edit_help_tips_examples">على سبيل المثال:</string>
-  <string name="description_edit_help_tips_example1">اللوحة بواسطة ليوناردو دا فينشي</string>
-  <string name="description_edit_help_tips_example1_hint">وصف عنوان لمقال عن لوحة الموناليزا</string>
-  <string name="description_edit_help_tips_example2">أعلى جبل في الأرض</string>
-  <string name="description_edit_help_tips_example2_hint">وصف عنوان لمقال حول جبل ايفرست</string>
-  <string name="description_edit_help_more_info">مزيد من المعلومات</string>
-  <string name="description_edit_help_meta_info">يتم تخزين الأوصاف والحفاظ عليها في ويكي بيانات، وهو مشروع لمؤسسة ويكيميديا ​​الذي يوفر قاعدة بيانات حرة، وتعاونية، ومتعددة اللغات، وثانوية تدعم ويكيبيديا وغيرها من المشاريع.</string>
   <string name="editactionfeed_add_title_descriptions">إضافة وصوفات العنوان</string>
   <string name="editactionfeed_translate_descriptions">ترجمة وصف العنوان</string>
   <string name="editactionfeed_review_title_description">معاينة وصف العنوان</string>

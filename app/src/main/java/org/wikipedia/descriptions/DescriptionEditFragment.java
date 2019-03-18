@@ -42,10 +42,12 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
+import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS;
 import static org.wikipedia.Constants.InvokeSource;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_DISALLOWED;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_WARNING;
+import static org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.EXTRA_SOURCE_ADDED_DESCRIPTION;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class DescriptionEditFragment extends Fragment {
@@ -84,13 +86,23 @@ public class DescriptionEditFragment extends Fragment {
                 return;
             }
             editView.setSaveState(false);
-            startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext()),
-                    ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS);
+            if (!reviewEnabled) {
+                startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext()),
+                        ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS);
+            } else {
+                requireActivity().setResult(RESULT_OK,
+                        new Intent().putExtra(EXTRA_SOURCE_ADDED_DESCRIPTION, editView.getDescription()));
+                finish();
+            }
         }
     };
 
     @NonNull
-    public static DescriptionEditFragment newInstance(@NonNull PageTitle title, @Nullable String highlightText, boolean reviewEnabled, InvokeSource source, CharSequence sourceDescription) {
+    public static DescriptionEditFragment newInstance(@NonNull PageTitle title,
+                                                      @Nullable String highlightText,
+                                                      boolean reviewEnabled,
+                                                      @NonNull InvokeSource source,
+                                                      @Nullable CharSequence sourceDescription) {
         DescriptionEditFragment instance = new DescriptionEditFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TITLE, GsonMarshaller.marshal(title));
@@ -125,8 +137,9 @@ public class DescriptionEditFragment extends Fragment {
         editView.setPageTitle(pageTitle);
         editView.setHighlightText(highlightText);
         editView.setCallback(new EditViewCallback());
-
+        editView.editTaskEnabled(reviewEnabled);
         if (reviewEnabled) {
+            editView.showProgressBar(true);
             loadPageSummary(savedInstanceState);
         }
 
@@ -170,13 +183,9 @@ public class DescriptionEditFragment extends Fragment {
                 .summary(pageTitle.getWikiSite(), pageTitle.getPrefixedText(), null)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doFinally(() -> editView.showProgressBar(false))
                 .subscribe(summary -> {
                     editView.setPageSummary(summary);
-                    editView.getPageSummaryContainer().setOnClickListener(view -> {
-                        if (callback() != null) {
-                            callback().onPageSummaryContainerClicked(pageTitle);
-                        }
-                    });
                     if (savedInstanceState != null) {
                         editView.loadReviewContent(savedInstanceState.getBoolean(ARG_REVIEWING));
                     }
@@ -308,7 +317,7 @@ public class DescriptionEditFragment extends Fragment {
 
         @Override
         public void onHelpClick() {
-            startActivity(DescriptionEditHelpActivity.newIntent(requireContext()));
+            FeedbackUtil.showAndroidAppEditingFAQ(requireContext());
         }
 
         @Override
@@ -318,6 +327,11 @@ public class DescriptionEditFragment extends Fragment {
             } else {
                 finish();
             }
+        }
+
+        @Override
+        public void onReadArticleClick() {
+            callback().onPageSummaryContainerClicked(pageTitle);
         }
     }
 }

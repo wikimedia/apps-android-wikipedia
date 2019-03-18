@@ -239,9 +239,6 @@
   <string name="description_edit_help_title">קעפל באַשרייבונגען</string>
   <string name="description_edit_help_about_wikidata">װעגן װיקידאַטן</string>
   <string name="description_edit_success_done">ערליידיקט</string>
-  <string name="description_edit_help_about_title">וועגן</string>
-  <string name="description_edit_help_tips_examples">צום ביישפיל:</string>
-  <string name="description_edit_help_more_info">נאך אינפֿאָרמאַציע</string>
   <string name="onboarding_welcome_title_v2" fuzzy="true">די פֿרייע ענציקלאפעדיע</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">רעדאקטירן שפראכן</string>
 </resources>

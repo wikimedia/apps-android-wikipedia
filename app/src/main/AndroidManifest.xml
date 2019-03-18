@@ -215,11 +215,6 @@
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
-            android:name=".descriptions.DescriptionEditHelpActivity"
-            android:label="@string/description_edit_help_title"
-            android:theme="@style/AppTheme.ActionBar" />
-
-        <activity
             android:name=".descriptions.DescriptionEditTutorialActivity" />
 
         <activity

@@ -18,10 +18,10 @@ import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
-import org.wikipedia.descriptions.DescriptionEditHelpActivity;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
+import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.FooterMarginItemDecoration;
@@ -38,7 +38,7 @@ import butterknife.Unbinder;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
 import static org.wikipedia.Constants.InvokeSource;
 import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC;
-import static org.wikipedia.Constants.MULTILUNGUAL_LANGUAGES_COUNT_MINIMUM;
+import static org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION;
 
 public class EditTasksFragment extends Fragment {
     private Unbinder unbinder;
@@ -145,7 +145,7 @@ public class EditTasksFragment extends Fragment {
             }
         });
 
-        if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() < MULTILUNGUAL_LANGUAGES_COUNT_MINIMUM) {
+        if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
             EditTask multilingualTask = new EditTask();
             multilingualTask.setTitle(getString(R.string.multilingual_task_title));
             multilingualTask.setDescription(getString(R.string.multilingual_task_description));
@@ -182,7 +182,7 @@ public class EditTasksFragment extends Fragment {
             });
         }
 
-        if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= MULTILUNGUAL_LANGUAGES_COUNT_MINIMUM) {
+        if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
             EditTask multilingualTask = new EditTask();
             multilingualTask.setTitle(getString(R.string.translation_task_title));
             multilingualTask.setDescription(getString(R.string.translation_task_description));
@@ -249,14 +249,14 @@ public class EditTasksFragment extends Fragment {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        menu.findItem(R.id.edit_tasks_menu_help).setVisible(editOnboardingView.getVisibility() != View.VISIBLE);
+        menu.findItem(R.id.menu_help).setVisible(editOnboardingView.getVisibility() != View.VISIBLE);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.edit_tasks_menu_help:
-                startActivity(DescriptionEditHelpActivity.newIntent(requireContext()));
+            case R.id.menu_help:
+                FeedbackUtil.showAndroidAppEditingFAQ(requireContext());
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

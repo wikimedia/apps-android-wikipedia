@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="AlwaysShowAction">
     <item
-        android:id="@+id/edit_tasks_menu_help"
+        android:id="@+id/menu_help"
         android:title="@string/main_drawer_help"
-        app:showAsAction="never" />
+        android:icon="@drawable/ic_info_outline_themed_24dp"
+        app:showAsAction="always" />
 </menu>
