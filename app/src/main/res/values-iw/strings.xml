@@ -599,7 +599,7 @@
   <string name="description_edit_tutorial_promise">תחילת העריכה היא התחייבות שלי לא להשתמש באפשרות הזאת לרעה.</string>
   <string name="editactionfeed_add_title_descriptions">הוספת תיאורי כותרת</string>
   <string name="editactionfeed_translate_descriptions">תרגום תיאורי כותרת</string>
-  <string name="editactionfeed_review_title_description">בדיקת תיאור כותרת</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">בדיקת תיאור כותרת</string>
   <string name="editactionfeed_add_description_button">להוסיף תיאור</string>
   <string name="editactionfeed_my_contributions">התרומות שלי</string>
   <string name="editactionfeed_from_language">מ־:</string>

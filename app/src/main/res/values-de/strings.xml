@@ -569,7 +569,10 @@
   <string name="feed_configure_onboarding_action">Anpassen</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Passe deinen Entdecken-Feed an&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kannst jetzt auswählen, was auf deinem Feed angezeigt werden soll und auch deine Lieblingsinhalte priorisieren.</string>
   <string name="description_edit_text_hint">Titelbeschreibung</string>
+  <string name="description_edit_text_hint_per_language">Beschreibung auf %s</string>
   <string name="description_edit_save">Veröffentlichen</string>
+  <string name="description_edit_article">Artikel</string>
+  <string name="description_edit_read">Lesen</string>
   <string name="description_edit_add_description">Titelbeschreibung hinzufügen</string>
   <string name="description_edit_edit_description">Beschreibung bearbeiten</string>
   <string name="description_edit_cancel_hint">Abbrechen</string>
@@ -582,6 +585,7 @@
   <string name="description_edit_task_unlock_title">Die Liste der Titelbeschreibungs-Bearbeitungsaufgaben wurde freigegeben!</string>
   <string name="description_edit_task_unlock_body">Wir haben mitbekommen, dass du gerne Titelbeschreibungen bearbeitest. Deshalb haben wir die Liste „Autorenaufgaben“ mit weiteren Artikeln, denen Titelbeschreibungen fehlen, zusammengestellt, damit du mit dem Beitragen fortfahren kannst!</string>
   <string name="description_edit_success_saved">Beschreibung veröffentlicht!</string>
+  <string name="description_edit_success_saved_snackbar">Beschreibung veröffentlicht!</string>
   <string name="description_edit_success_encouragement">Du hast soeben Wikipedia für jeden besser gemacht</string>
   <string name="description_edit_success_done">Fertig</string>
   <string name="description_edit_success_did_you_know">Schon gewusst?</string>
@@ -592,15 +596,16 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealerweise eine Zeile, zwischen zwei und zwölf Wörtern</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mit dem Bearbeiten anfangen</string>
   <string name="description_edit_tutorial_promise">Ich verspreche, dass ich diese Funktion nicht missbrauchen werde.</string>
-  <string name="editactionfeed_add_title_descriptions">Titelbeschreibungen hinzufügen</string>
+  <string name="editactionfeed_add_title_descriptions">Beschreibungen hinzufügen</string>
   <string name="editactionfeed_translate_descriptions">Titelbeschreibungen übersetzen</string>
-  <string name="editactionfeed_review_title_description">Titelbeschreibung überprüfen</string>
+  <string name="editactionfeed_review_title_description">Beschreibung überprüfen</string>
   <string name="editactionfeed_add_description_button">Beschreibung hinzufügen</string>
   <string name="editactionfeed_my_contributions">Meine Beiträge</string>
   <string name="editactionfeed_from_language">Von:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Mehr erfahren</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">Mehr erfahren</string>
   <string name="editactionfeed_to_language">Nach:</string>
+  <string name="editactionfeed_added_by_you">Von dir hinzugefügt:</string>
   <string name="description_edit_revert_subtitle">Vielen Dank für das Bearbeiten von Wikipedia!</string>
   <string name="description_edit_revert_intro">Wir wissen, dass du dein Bestes gegeben hast, aber einer unserer Prüfer hat Bedenken. Mögliche Gründe, warum deine Bearbeitung rückgängig gemacht wurde:</string>
   <string name="description_edit_revert_reason1">Dein Beitrag folgt keiner der &lt;a href=\"%1$s\"&gt;Richtlinien&lt;/a&gt;.</string>
@@ -705,4 +710,5 @@
   <string name="translate_descriptions_maybe_later">Vielleicht später</string>
   <string name="title_descriptions_onboarding_got_it">Verstanden</string>
   <string name="translate_descriptions_onboarding_got_it">Verstanden</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
 </resources>

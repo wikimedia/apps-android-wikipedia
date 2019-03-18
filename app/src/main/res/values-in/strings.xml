@@ -602,7 +602,7 @@
   <string name="description_edit_tutorial_promise">Dengan memulai, saya berjanji untuk tidak menyalahgunakan fitur ini.</string>
   <string name="editactionfeed_add_title_descriptions">Tambahkan deskripsi judul</string>
   <string name="editactionfeed_translate_descriptions">Terjemahkan deskripsi judul</string>
-  <string name="editactionfeed_review_title_description">Tinjau deskripsi judul</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">Tinjau deskripsi judul</string>
   <string name="editactionfeed_add_description_button">Tambahkan deskripsi</string>
   <string name="editactionfeed_my_contributions">Kontribusi saya</string>
   <string name="editactionfeed_from_language">Dari:</string>

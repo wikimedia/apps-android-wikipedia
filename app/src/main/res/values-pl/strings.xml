@@ -5,6 +5,7 @@
 * Chrumps
 * CiaPan
 * Darellur
+* Dbrant
 * DeRudySoulStorm
 * Debeet
 * Devwebtel
@@ -59,7 +60,7 @@
   <string name="menu_page_add_to_list">Dodaj do listy czytanych</string>
   <string name="menu_page_share">Udostępnij łącze</string>
   <string name="menu_page_open_a_new_tab">Otwórz nową kartę</string>
-  <string name="menu_page_reading_lists">Lity do przeczytania</string>
+  <string name="menu_page_reading_lists">Listy do przeczytania</string>
   <string name="menu_page_recently_viewed">Niedawno odwiedzone</string>
   <string name="menu_long_press_open_page">Otwórz</string>
   <string name="menu_long_press_open_in_new_tab">Otwórz w nowej karcie</string>
