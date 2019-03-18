@@ -23,6 +23,9 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter
 
 class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEditCard>(context), ItemTouchHelperSwipeAdapter.SwipeableView {
+    interface Callback {
+        fun onSuggestedEditsCardClick()
+    }
 
     private val disposables = CompositeDisposable()
     val CARD_BOTTOM_PADDING = 16.0f
@@ -74,24 +77,17 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
         param.setMargins(0, 0, 0, 0)
         cardView.useCompatPadding = false
         cardView.setContentPadding(0, 0, 0, DimenUtil.roundedDpToPx(CARD_BOTTOM_PADDING))
-
+        cardView.setOnClickListener {
+            if (callback != null && card != null) {
+                callback!!.onSuggestedEditsCardClick()
+            }
+        }
     }
 
 
     override fun onDetachedFromWindow() {
         disposables.clear()
         super.onDetachedFromWindow()
-    }
-
-    @OnClick(R.id.cardView)
-    internal fun onCardClick() {
-        if (callback != null && card != null) {
-
-        }
-    }
-
-    override fun setCallback(callback: FeedAdapter.Callback?) {
-        super.setCallback(callback)
     }
 
 

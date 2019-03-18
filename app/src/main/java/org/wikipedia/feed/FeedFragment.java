@@ -26,6 +26,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FeedFunnel;
+import org.wikipedia.editactionfeed.EditTasksActivity;
 import org.wikipedia.feed.configure.ConfigureActivity;
 import org.wikipedia.feed.configure.ConfigureItemLanguageDialogView;
 import org.wikipedia.feed.configure.LanguageItemAdapter;
@@ -501,6 +502,12 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onMoreContentSelected(@NonNull Card card) {
             startActivity(MostReadArticlesActivity.newIntent(requireContext(), (MostReadListCard) card));
+        }
+
+        @Override
+        public void onSuggestedEditsCardClick() {
+            startActivity(EditTasksActivity.newIntent(requireActivity()));
+
         }
     }
 
