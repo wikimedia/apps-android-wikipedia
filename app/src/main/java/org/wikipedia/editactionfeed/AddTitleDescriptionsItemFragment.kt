@@ -143,7 +143,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
             viewArticleSubtitleAddedBy.visibility = GONE
             viewArticleSubtitleEdit.visibility = GONE
             viewArticleSubtitle.text = sourceDescription
-            callToActionText.text = String.format(getString(R.string.add_translation), app.language().getAppLanguageLocalizedName(parent().langToCode))
+            callToActionText.text = String.format(getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(parent().langToCode))
         }
 
         viewArticleExtract.text = StringUtil.fromHtml(summary!!.extractHtml)
