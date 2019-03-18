@@ -600,13 +600,13 @@
   <string name="description_edit_help_title">Ayuda: descripción de títulos</string>
   <string name="description_edit_help_about_wikidata">Acerca de Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guía de Wikidata para escribir descripciones</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/es</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/es</string>
   <string name="description_edit_anon_limit">¡Gracias por tu continuo interés en la edición de descripciones! Para realizar cambios adicionales, inicia sesión en tu cuenta de Wikipedia.</string>
   <string name="description_edit_license_notice">Al cambiar la descripción del título, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_task_unlock_title">¡Se desbloqueó la lista de tareas de edición de descripciones de título!</string>
   <string name="description_edit_task_unlock_body" fuzzy="true">\n¡Hemos notado que te gusta editar descripciones de título, así que hemos recopilado una lista de \"Tareas de editor\" con más artículos a los que le faltan descripciones de título para ayudarte a continuar contribuyendo!</string>
   <string name="description_edit_success_saved">Descripción publicada</string>
+  <string name="description_edit_success_saved_snackbar">¡Descripción publicada!</string>
   <string name="description_edit_success_encouragement">Acabas de mejorar Wikipedia para todos</string>
   <string name="description_edit_success_done">Hecho</string>
   <string name="description_edit_success_did_you_know">¿Sabías?</string>
@@ -617,20 +617,9 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente una línea, entre dos y doce palabras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Empezar a editar</string>
   <string name="description_edit_tutorial_promise">Al empezar, me comprometo a no hacer mal uso de esta funcionalidad.</string>
-  <string name="description_edit_help_about_title">Acerca de</string>
-  <string name="description_edit_help_description">Las descripciones de título resumen un artículo para ayudar a que los lectores entiendan el tema rápidamente.</string>
-  <string name="description_edit_help_tips">Consejos para crear descripciones</string>
-  <string name="description_edit_help_tips_description">Idealmente, las descripciones deberían caber en una línea, y tener entre dos y doce palabras. No están en mayúsculas, a menos que la primera palabra sea un sustantivo propio.</string>
-  <string name="description_edit_help_tips_examples">Por ejemplo:</string>
-  <string name="description_edit_help_tips_example1">pintura de Leonardo da Vinci</string>
-  <string name="description_edit_help_tips_example1_hint">descripción de título para un artículo sobre la Mona Lisa</string>
-  <string name="description_edit_help_tips_example2">La montaña más alta de la tierra</string>
-  <string name="description_edit_help_tips_example2_hint">descripción de título para un artículo sobre el Monte Everest</string>
-  <string name="description_edit_help_more_info">Más información</string>
-  <string name="description_edit_help_meta_info">Las descripciones se almacenan y mantienen en Wikidata, un proyecto de la Fundación Wikimedia que proporciona una base de datos secundaria, libre, colaborativa y multilingüe, que apoya a Wikipedia y a otros proyectos.</string>
-  <string name="editactionfeed_add_title_descriptions">Añadir descripciones de título</string>
+  <string name="editactionfeed_add_title_descriptions">Añadir descripciones</string>
   <string name="editactionfeed_translate_descriptions">Traduce descripciones de título</string>
-  <string name="editactionfeed_review_title_description">Revisar descripción de titulo</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">Revisar descripción de titulo</string>
   <string name="editactionfeed_add_description_button">Añadir descripción</string>
   <string name="editactionfeed_my_contributions">Mis contribuciones</string>
   <string name="editactionfeed_from_language">De:</string>

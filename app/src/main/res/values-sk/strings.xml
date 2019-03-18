@@ -554,7 +554,6 @@
   <string name="description_edit_help_title">Pomocník: popis</string>
   <string name="description_edit_help_about_wikidata">O Wikiúdajoch</string>
   <string name="description_edit_help_wikidata_guide">Návod na písanie popisov na Wikiúdajoch</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/sk</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Ďakujeme za Váš pokračujúci záujem o úpravu popisov! Pre ďalšie úpravy sa, prosím, prihláste do Vášho účtu na Wikipédii.</string>
   <string name="description_edit_license_notice">Zmenou popisu súhlasím s &lt;a href=\"%1$s\"&gt;Podmienkami používania&lt;/a&gt; a neodvolateľne súhlasím s podmienkami licencie &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
@@ -571,19 +570,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">V ideálnom prípade jeden riadok s dvoma až dvanástimi slovami</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začať s úpravami</string>
   <string name="description_edit_tutorial_promise">Sľubujem, že nezneužijem túto funkciu.</string>
-  <string name="description_edit_help_about_title">O popisoch</string>
-  <string name="description_edit_help_description">Popis prináša základné informácie o predmete článku kvôli jednoduchšiemu pochopeniu o čom je.</string>
-  <string name="description_edit_help_tips">Tipy na tvorbu popisov</string>
-  <string name="description_edit_help_tips_description">Popis by mal byť najviac len jeden riadok, 2 až 12 slov dlhý. Nezačína sa veľkým písmenom, iba ak je prvé slovo vlastné podstatné meno.</string>
-  <string name="description_edit_help_tips_examples">Napríklad:</string>
-  <string name="description_edit_help_tips_example1">obraz od Leonarda da Vinciho</string>
-  <string name="description_edit_help_tips_example1_hint">popis článku o Mone Lise</string>
-  <string name="description_edit_help_tips_example2">najvyššia hora na Zemi</string>
-  <string name="description_edit_help_tips_example2_hint">popis článku o Mont Evereste</string>
-  <string name="description_edit_help_more_info">Viac informácií</string>
-  <string name="description_edit_help_meta_info">Popisy sú uložené vo Wikiúdajoch, ktoré sú projektom Wikimedia Foundation, ktorý poskytuje slobodnú, spoločne vytváranú, viacjazyčnú sekundárnu databázu podporujúcu Wikipédiu a ďalšie projekty.</string>
-  <string name="editactionfeed_add_title_descriptions">Pridať popis článku</string>
-  <string name="editactionfeed_review_title_description">Náhľad popisu článku</string>
+  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Pridať popis článku</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">Náhľad popisu článku</string>
   <string name="editactionfeed_add_description_button">Pridať popis</string>
   <string name="editactionfeed_my_contributions">Moje príspevky</string>
   <string name="editactionfeed_from_language">Z jazyka:</string>

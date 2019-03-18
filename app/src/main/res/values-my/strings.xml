@@ -538,7 +538,6 @@
   <string name="description_edit_help_title">အကူအညီ:ခေါင်းစဉ် ဖော်ပြချက်များ</string>
   <string name="description_edit_help_about_wikidata">ဝီကီဒေတာအကြောင်း</string>
   <string name="description_edit_help_wikidata_guide">ဖော်ပြချက်များ ရေးသားရန်အတွက် ဝီကီဒေတာ လမ်းညွှန်</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">ဖော်ပြချက်တည်းဖြတ်မှုကို ဆက်တိုက်စိတ်ဝင်စားသည့်အတွက် ကျေးဇူးတင်ပါသည်၊ ထပ်တိုးတည်းဖြတ်မှုများ လုပ်ဆောင်ရန် ကျေးဇူးပြု၍ ဝီကီပီးဒီးယားအကောင့်ထဲသို့ ဝင်ရောက်ပါ။</string>
   <string name="description_edit_license_notice">ခေါင်းစဉ်ဖော်ပြချက်ကို ပြောင်းလဲရာတွင် &lt;a href=\"%1$s\"&gt;အသုံးပြုခြင်းဆိုင်ရာ သတ်မှတ်ချက်များ&lt;/a&gt;ကို သဘောတူလိုက်နာပြီး မိမိ၏ပံ့ပိုးမှုများကို &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; လိုင်စင်ဖြင့် အချောသတ်ထုတ်ပြန်ပါမည်။</string>
@@ -553,19 +552,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">စာတစ်ကြောင်းထဲ၊ စာလုံး နှစ်လုံးမှ တစ်ဆယ့်နှစ်လုံးအကြား</string>
   <string name="description_edit_tutorial_button_label_start_editing">စတင်တည်းဖြတ်</string>
   <string name="description_edit_tutorial_promise">စတင်ခြင်းဖြင့် ဤအင်္ဂရပ်ကို တလွဲအသုံးမပြုပါဟု ကတိပြုပါသည်။</string>
-  <string name="description_edit_help_about_title">အကြောင်းအရာ</string>
-  <string name="description_edit_help_description">ခေါင်းစဉ်ဖော်ပြချက်များသည် ဆောင်းပါးတစ်ခုကို အကျဉ်းချုပ်ဖော်ပြပေးပြီး တချက်ကြည့်ရုံဖြင့် အကြောင်းအရာကို စာဖတ်သူများ နားလည်စေရန် ကူညီပေးသည်။</string>
-  <string name="description_edit_help_tips">ဖော်ပြချက်ဖန်တီးရန် နည်းလမ်းများ</string>
-  <string name="description_edit_help_tips_description">ဖော်ပြချက်သည် စံနှုန်းအရ တစ်ကြောင်းတည်းဖြင့် ပြီးမြောက်သင့်ပြီး စကားလုံး ၂ ခုမှ ၁၂ ခုကြား ရှည်လျားသင့်ပါသည်။</string>
-  <string name="description_edit_help_tips_examples">နမူနာအားဖြင့်</string>
-  <string name="description_edit_help_tips_example1">လီယိုနာဒို ဗင်စီ၏ ပန်းချီလက်ရာ</string>
-  <string name="description_edit_help_tips_example1_hint">မိုနာလီဆာ ဆောင်းပါးအကြောင်း ခေါင်းစဉ်ဖော်ပြချက်</string>
-  <string name="description_edit_help_tips_example2">ကမ္ဘာ့အမြင့်ဆုံးတောင်</string>
-  <string name="description_edit_help_tips_example2_hint">ဧဝရတ်တောင် ဆောင်းပါးအကြောင်း ခေါင်းစဉ်ဖော်ပြချက်</string>
-  <string name="description_edit_help_more_info">သတင်းအချက်အလက် ပို၍</string>
-  <string name="description_edit_help_meta_info">ဖော်ပြချက်များကို ဝီကီဒေတာတွင် သိမ်းဆည်းထိန်းသိမ်းထားသည်။ ယင်းသည် ဝီကီမီဒီယာ ဖောင်ဒေးရှင်း၏ ပရောဂျက်တစ်ခုဖြစ်ပြီး ဝီကီပီးဒီးယားနှင့် အခြားပရောဂျက်များကို ထောက်ပံ့ပေးသည့် လွတ်လပ်၊ ပူးပေါင်းပေးသော ဒေတာဘေ့စ်စနစ်တစ်ခုဖြစ်ပါသည်။</string>
-  <string name="editactionfeed_add_title_descriptions">ခေါင်းစဉ်ဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
-  <string name="editactionfeed_review_title_description">ခေါင်းစဉ်ဖော်ပြချက် ပြန်လည်ဆန်းစစ်ရန်</string>
+  <string name="editactionfeed_add_title_descriptions" fuzzy="true">ခေါင်းစဉ်ဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">ခေါင်းစဉ်ဖော်ပြချက် ပြန်လည်ဆန်းစစ်ရန်</string>
   <string name="editactionfeed_add_description_button">ဖော်ပြချက်ထည့်သွင်းပါ</string>
   <string name="editactionfeed_my_contributions">ပံ့ပိုးထားမှုများ</string>
   <string name="editactionfeed_from_language">မှ -</string>

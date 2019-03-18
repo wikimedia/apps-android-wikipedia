@@ -508,7 +508,6 @@
   <string name="description_edit_help_title">সাহায্য: শিরোনামের বিবরণ</string>
   <string name="description_edit_help_about_wikidata">উইকিউপাত্ত সম্পর্কে</string>
   <string name="description_edit_help_wikidata_guide">বিবরণ লেখার জন্য উইকিউপাত্তের নির্দেশিকা</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/bn</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/bn</string>
   <string name="description_edit_anon_limit">বিবরণ সম্পাদনায় আপনার আগ্রহের জন্য ধন্যবাদ! অতিরিক্ত সম্পাদনা করার জন্য, আপনার উইকিপিডিয়ার অ্যাকাউন্টে প্রবেশ করুন।</string>
   <string name="description_edit_license_notice">শিরোনামের বিবরণ পরিবর্তন করার দ্বারা, আমি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত ও আমি আমার অবদান &lt;a href=\"%2$s\"&gt;ক্রিয়েটিভ কমন্স সিসি০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশ করছি।</string>
@@ -523,18 +522,9 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">এক লাইনে, দুই থেকে বারো পর্যন্ত শব্দ রাখা যাবে</string>
   <string name="description_edit_tutorial_button_label_start_editing">সম্পাদনা শুরু করুন</string>
   <string name="description_edit_tutorial_promise">শুরু করার দ্বারা, আমি প্রতিজ্ঞা করছি এই বৈশিষ্ট্যের অপব্যবহার করব না।</string>
-  <string name="description_edit_help_about_title">পরিচিতি</string>
-  <string name="description_edit_help_description">শিরোনামের বিবরণ একটি নিবন্ধকে সংক্ষিপ্তকরণ করে যা পাঠককে এক নজরে বিষয়টি বুঝতে সাহায্য করে।</string>
-  <string name="description_edit_help_tips">বিবরণ তৈরি করার জন্য পরামর্শ</string>
-  <string name="description_edit_help_tips_examples">উদাহরণস্বরূপ:</string>
-  <string name="description_edit_help_tips_example1">লিওনার্দো দা ভিঞ্চি দ্বারা অঙ্কিত চিত্র</string>
-  <string name="description_edit_help_tips_example1_hint">মোনালিসা সম্বন্ধীয় একটি নিবন্ধের জন্য শিরোনাম বর্ণনা</string>
-  <string name="description_edit_help_tips_example2">বিশ্বের সর্ব্বোচ্চ পর্বত</string>
-  <string name="description_edit_help_tips_example2_hint">মাউন্ট এভারেস্ট সম্বন্ধীয় একটি নিবন্ধের জন্য শিরোনাম বর্ণনা</string>
-  <string name="description_edit_help_more_info">আরও তথ্য</string>
-  <string name="editactionfeed_add_title_descriptions">শিরোনামের বিবরণ যোগ করুন</string>
+  <string name="editactionfeed_add_title_descriptions" fuzzy="true">শিরোনামের বিবরণ যোগ করুন</string>
   <string name="editactionfeed_translate_descriptions">শিরোনামের বিবরণ অনুবাদ করুন</string>
-  <string name="editactionfeed_review_title_description">শিরোনামের বিবরণ পর্যালোচনা করুন</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">শিরোনামের বিবরণ পর্যালোচনা করুন</string>
   <string name="editactionfeed_add_description_button">বিবরণ যোগ করুন</string>
   <string name="editactionfeed_my_contributions">আমার অবদান</string>
   <string name="editactionfeed_from_language">প্রেরক:</string>

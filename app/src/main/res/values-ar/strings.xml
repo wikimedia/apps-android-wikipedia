@@ -584,20 +584,23 @@
   <string name="feed_configure_onboarding_action">تخصيص</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;تخصيص خلاصة استكشافك&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;يمكنك الآن اختيار ما تريد عرضه على خلاصتك، وكذلك تحديد أولويات أنواع المحتوى المفضلة لديك.</string>
   <string name="description_edit_text_hint">وصف العنوان</string>
+  <string name="description_edit_text_hint_per_language">وصف %s</string>
   <string name="description_edit_save">انشر</string>
+  <string name="description_edit_article">مقالة</string>
+  <string name="description_edit_read">قراءة</string>
   <string name="description_edit_add_description">إضافة وصف للعنوان</string>
   <string name="description_edit_edit_description">عدل الوصف</string>
   <string name="description_edit_cancel_hint">ألغ</string>
   <string name="description_edit_help_title">مساعدة:وصوف العناوين</string>
   <string name="description_edit_help_about_wikidata">عن ويكي بيانات</string>
   <string name="description_edit_help_wikidata_guide">دليل ويكي بيانات لكتابة الوصوف</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">شكرًا لاهتمامك المستمر بتعديل الوصوف! لإضافة المزيد من التعديلات، فضلًا سجل الدخول لحسابك في ويكيبيديا.</string>
   <string name="description_edit_license_notice">بتغييري لوصف العنوان، أنا أوافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt; وعلى نشر مساهماتي بصورة لا رجعة فيها تحت ترخيص &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_task_unlock_title">قائمة مهمة تحرير وصوف العناوين فُتحت!</string>
   <string name="description_edit_task_unlock_body">لاحظنا أنك تُحب تعديل وصوف العناوين، لذلك قمنا بتجميع قائمة \"مهام المحرر\" بها المزيد من المقالات التي تفتقد لوصوف العناوين وذلك لمساعدتك في مواصلة المساهمة!</string>
   <string name="description_edit_success_saved">نُشر الوصف!</string>
+  <string name="description_edit_success_saved_snackbar">نُشِر الوصف!</string>
   <string name="description_edit_success_encouragement">لقد جعلت ويكيبيديا أفضل للجميع</string>
   <string name="description_edit_success_done">تم</string>
   <string name="description_edit_success_did_you_know">هل تعلم؟</string>
@@ -608,26 +611,16 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">بشكلٍ مثالي سطر واحد يكفي، ما بين كلمتين إلى اثنتا عشرة كلمة</string>
   <string name="description_edit_tutorial_button_label_start_editing">ابدأ التعديل</string>
   <string name="description_edit_tutorial_promise">ببدئي، أنا أعد بعدم إساءة استخدام هذه الميزة.</string>
-  <string name="description_edit_help_about_title">حول</string>
-  <string name="description_edit_help_description">وصوف العناوين تُلخّص المقالة للتسهيل على القراء فهم الموضوع بلمحة.</string>
-  <string name="description_edit_help_tips">تلميحات لإنشاء الوصوف</string>
-  <string name="description_edit_help_tips_description">يُفترض أن سطرا واحدا يكفي للوصف، ويكون بين كلمتين إلى اثنتا عشرة كلمة.</string>
-  <string name="description_edit_help_tips_examples">على سبيل المثال:</string>
-  <string name="description_edit_help_tips_example1">اللوحة بواسطة ليوناردو دا فينشي</string>
-  <string name="description_edit_help_tips_example1_hint">وصف عنوان لمقال عن لوحة الموناليزا</string>
-  <string name="description_edit_help_tips_example2">أعلى جبل في الأرض</string>
-  <string name="description_edit_help_tips_example2_hint">وصف عنوان لمقال حول جبل ايفرست</string>
-  <string name="description_edit_help_more_info">مزيد من المعلومات</string>
-  <string name="description_edit_help_meta_info">يتم تخزين الأوصاف والحفاظ عليها في ويكي بيانات، وهو مشروع لمؤسسة ويكيميديا ​​الذي يوفر قاعدة بيانات حرة، وتعاونية، ومتعددة اللغات، وثانوية تدعم ويكيبيديا وغيرها من المشاريع.</string>
-  <string name="editactionfeed_add_title_descriptions">إضافة وصوفات العنوان</string>
+  <string name="editactionfeed_add_title_descriptions">إضافة وصوفات</string>
   <string name="editactionfeed_translate_descriptions">ترجمة وصف العنوان</string>
-  <string name="editactionfeed_review_title_description">معاينة وصف العنوان</string>
+  <string name="editactionfeed_review_title_description">معاينة الوصف</string>
   <string name="editactionfeed_add_description_button">أضف وصفا</string>
   <string name="editactionfeed_my_contributions">مساهماتي</string>
   <string name="editactionfeed_from_language">من:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">معرفة المزيد</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">معرفة المزيد</string>
   <string name="editactionfeed_to_language">إلى:</string>
+  <string name="editactionfeed_added_by_you">أُضِيف بواسطتك:</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
   <string name="description_edit_revert_intro">نحن نعلم أنك جربت أفضل ما لديك، ولكن كان أحد المراجعين قلقا، من بين الأسباب المحتملة لاسترجاع تعديلك ما يلي:</string>
   <string name="description_edit_revert_reason1">مساهمتك لا تتبع أحد &lt;a href=\"%1$s\"&gt;الإرشادات&lt;/a&gt;.</string>
@@ -732,4 +725,5 @@
   <string name="translate_descriptions_maybe_later">ربما لاحقا</string>
   <string name="title_descriptions_onboarding_got_it">فهمت</string>
   <string name="translate_descriptions_onboarding_got_it">فهمت</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
 </resources>

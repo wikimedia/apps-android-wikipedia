@@ -523,7 +523,6 @@
   <string name="description_edit_help_title">Laguntza: izenburuen deskribapenak</string>
   <string name="description_edit_help_about_wikidata">Wikidatari buruz</string>
   <string name="description_edit_help_wikidata_guide">Wikidata gida idatzitako deskribapenentzat</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="description_edit_anon_limit">Eskerrik asko deskribapenak aldatzen jarri duzun etengabeko interesagatik! Aldaketa gehigarriak egiteko, saioa hasi zure Wikipedia kontuan.</string>
   <string name="description_edit_license_notice">Deskribapena aldatzerakoan, hurrengo hau onartzen dut &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; eta onartzen dut nire ekarpenak aske uzten ditudala &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; lizentziaren babespean.</string>
   <string name="description_edit_success_saved">Deskribapea argiraratu da!</string>
@@ -537,17 +536,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideala, lerro bakarra, bi eta hamabi hitz artean</string>
   <string name="description_edit_tutorial_button_label_start_editing">Aldatzen hasi</string>
   <string name="description_edit_tutorial_promise">Hasteko, zin dagit ezarpen hau ez dudala gehiegikeriz erabiliko.</string>
-  <string name="description_edit_help_about_title">Honi buruz</string>
-  <string name="description_edit_help_description">Deskribapenak artikulua laburbiltzen du, irakurleek gaia begirada batez uler dezaten.</string>
-  <string name="description_edit_help_tips">Deskribapenak sortzeko aholkuak</string>
-  <string name="description_edit_help_tips_description">Deskribapenak lerro bakarrean egokitu beharko lirateke, eta bi edo hamabi hitz artean egokitu. Ez da letra larria erabiliko, lehen hitza izen propioa ez bada.</string>
-  <string name="description_edit_help_tips_examples">Adibidez:</string>
-  <string name="description_edit_help_tips_example1">Leonardo da Vinciren margolana</string>
-  <string name="description_edit_help_tips_example1_hint">Mona Lisaren inguruko artikulu batentzako deskribapena</string>
-  <string name="description_edit_help_tips_example2">Lurreko mendirik garaiena</string>
-  <string name="description_edit_help_tips_example2_hint">Everest Mendiari buruzko artikuluarentzako izenburu-deskribapena</string>
-  <string name="description_edit_help_more_info">Informazio gehiago</string>
-  <string name="description_edit_help_meta_info">Deskribapenak Wikidatan gorde eta mantentzen dira, Wikimedia Fundazioaren proiektua, doako, lankidetzarako, eleaniztasuneko eta bigarren mailako datu-baseak Wikipedia eta beste proiektu batzuk babesten dituena.</string>
   <string name="description_edit_revert_subtitle">Eskerrik asko Wikipedia aldatzeagatik!</string>
   <string name="description_edit_revert_intro">Badakigu hoberen egiten saiatu zarela, baina gure berrikuskarietako batek arazo bat ikusi du. Zure aldaketa lehengoratzeko arrazoi posibleen artean hurrengoak daude:</string>
   <string name="description_edit_revert_reason1">zure ekarpenak ez du &lt;a href=\"%1$s\"&gt;guidelines&lt;/a&gt;(e)tatik bat jarraitu.</string>

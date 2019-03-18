@@ -537,7 +537,6 @@
   <string name="description_edit_help_title">Skoazell : deskrivadurioù an titloù</string>
   <string name="description_edit_help_about_wikidata">Diwar-benn Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Sturlevr Wikidata evit skrivañ deskrivadurioù</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Trugarez da ziskouez oc\'h dedennet da zegas cheñchamantoù en deskrivadurioù. Trugarez ! Evit ober muioc\'h a gemmoù, kevreit ouzh ho kont Wikipedia.</string>
   <string name="description_edit_license_notice">Pa gemann deskrivadur an titl e tegemeran an &lt;a href=\"%1$s\"&gt; Divizoù implijout&lt;/a&gt; ha lakaat ma tegasadennoù dindan an aotre-implijout &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; ha ne c\'hallan ket distreiñ war ma diviz.</string>
@@ -552,17 +551,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">D\'ar gwellañ ul linenn, etre daou ha daouzek ger.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Kregiñ da aozañ</string>
   <string name="description_edit_tutorial_promise">Stagañ a ran ganti ha reiñ a ran ma ger da chom hep drougimplij an arc\'hwel-mañ</string>
-  <string name="description_edit_help_about_title">Diwar-benn</string>
-  <string name="description_edit_help_description">Gant deskrivadurioù an titloù e c\'haller kompren, e berr gomzoù, danvez ur pennad en un taol-lagad.</string>
-  <string name="description_edit_help_tips">Alioù evit krouiñ deskrivadurioù</string>
-  <string name="description_edit_help_tips_description">An deskrivadurioù a rankfe, ar pep gwellañ a vefe, bezañ skrivet en ul linenn hepken, gant etre daou ha daouzek ger. Ne vezont ket skrivet gant lizherennoù bras nemet e vefe ar ger kentañ un anv divoutin.</string>
-  <string name="description_edit_help_tips_examples">Da skouer :</string>
-  <string name="description_edit_help_tips_example1">livet gant Leonardo da Vinci</string>
-  <string name="description_edit_help_tips_example1_hint">Deskrivadur un titl evit ur pennad diwar-benn Mona Lisa</string>
-  <string name="description_edit_help_tips_example2">Menez uhelañ ar bed</string>
-  <string name="description_edit_help_tips_example2_hint">Deskrivadur un titl evit ur pennad diwar-benn ar menez Everest</string>
-  <string name="description_edit_help_more_info">Muioc\'h a ditouroù</string>
-  <string name="description_edit_help_meta_info">Stoket ha hizivaet e vez an deskrivadurioù e Wikidata, en ur raktres eus an Diazezadur Wikimedia hag a bourvez un diaz roadennoù frank, kenober, liesyezhek hag a-eilrenk oc\'h embregañ Wikipedia ha raktresoù all.</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Gouzout hiroc\'h</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">Gouzout hiroc\'h</string>
   <string name="description_edit_revert_subtitle">Trugarez evit kemer perzh e Wikipedia !</string>

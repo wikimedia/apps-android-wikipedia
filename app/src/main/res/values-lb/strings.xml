@@ -471,17 +471,20 @@
   <string name="feed_item_type_on_this_day">Evenementer an der Vergaangenheet op dësem Dag</string>
   <string name="feed_configure_onboarding_action">Upassen</string>
   <string name="description_edit_text_hint">Titelbeschreiwung</string>
+  <string name="description_edit_text_hint_per_language">%s Beschreiwung</string>
   <string name="description_edit_save">Verëffentlechen</string>
+  <string name="description_edit_article">Artikel</string>
+  <string name="description_edit_read">Liesen</string>
   <string name="description_edit_add_description">Beschreiwung vum Titel derbäisetzen</string>
   <string name="description_edit_edit_description">Beschreiwung änneren</string>
   <string name="description_edit_cancel_hint">Ofbriechen</string>
   <string name="description_edit_help_title">Hëllef:Titelbeschreiwungen</string>
   <string name="description_edit_help_about_wikidata">Iwwer Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Wikipedia-Guide fir d\'Schreiwe vu Beschreiwungen</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/de#Richtlinien</string>
   <string name="description_edit_anon_limit">Merci fir Ären Interessi fir Beschreiwungen z\'änneren! Fir méi Ännerungen ze maache loggt Iech w.e.g. mat Ärem Wikipedia-Benotzerkont an.</string>
   <string name="description_edit_success_saved">Beschreiwung verëffentlecht!</string>
+  <string name="description_edit_success_saved_snackbar">Beschreiwung verëffentlecht!</string>
   <string name="description_edit_success_encouragement">Dir hutt elo grad Wikipedia fir jidderee verbessert</string>
   <string name="description_edit_success_done">Fäerdeg</string>
   <string name="description_edit_success_did_you_know">Wousst Dir?</string>
@@ -492,21 +495,13 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealerweis eng Linn, mat tëscht zwee an zwielef Wierder</string>
   <string name="description_edit_tutorial_button_label_start_editing">Ufänke mat Änneren</string>
   <string name="description_edit_tutorial_promise">Ech verspriechen dës Funktioun net ze mëssbrauchen.</string>
-  <string name="description_edit_help_about_title">Iwwer</string>
-  <string name="description_edit_help_description">D\'Beschreiwunge vun engem Titel resüméieren en Artikel fir de LIeser ze hëllefe fir de Sujet op ee Bléck ze verstoen.</string>
-  <string name="description_edit_help_tips">Tuyaue fir d\'Uleeë vu Beschreiwungen</string>
-  <string name="description_edit_help_tips_description">Beschreiwunge sollten an eng Zeil passen an tëscht zwee an zwielef Wierder laang sinn. Si sinn net a grousse Buschtawen et sief dat éischt Wuert ass een Numm.</string>
-  <string name="description_edit_help_tips_examples">Zum Beispill:</string>
-  <string name="description_edit_help_tips_example1">Bild vum Leonardo da vinci</string>
-  <string name="description_edit_help_tips_example1_hint">Titelbeschreiwung fir en Artikel iwwer d\'Mona Lisa</string>
-  <string name="description_edit_help_tips_example2">Héchste Bierg vun der Welt</string>
-  <string name="description_edit_help_tips_example2_hint">Titelbeschreiwung fir en Artikel iwwer de Mount Everest</string>
-  <string name="description_edit_help_more_info">Méi Informatiounen</string>
-  <string name="editactionfeed_add_title_descriptions">Beschreiwunge vun den Titelen derbäisetzen</string>
+  <string name="editactionfeed_add_title_descriptions">Beschreiwungen derbäisetzen</string>
+  <string name="editactionfeed_review_title_description">Beschreiwung iwwerliesen</string>
   <string name="editactionfeed_add_description_button">Beschreiwung derbäisetzen</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Fir méi ze wëssen</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">Fir méi ze wëssen</string>
   <string name="editactionfeed_to_language">Fir:</string>
+  <string name="editactionfeed_added_by_you">Vun Iech derbäigesat:</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>
@@ -527,7 +522,7 @@
   <string name="onboarding_got_it">Verstan</string>
   <string name="onboarding_multilingual_secondary_text">Mir hunn dëst op Ärem Apparat fonnt:</string>
   <string name="onboarding_multilingual_add_language_text">Sproochen änneren oder derbäisetzen</string>
-  <string name="onboarding_welcome_title_v2" fuzzy="true">Déi Fräi Enzyklopedie\n... a méi wéi 300 Sproochen</string>
+  <string name="onboarding_welcome_title_v2">Déi Fräi Enzyklopedie\n... a méi wéi 300 Sproochen</string>
   <string name="app_shortcuts_random">Zoufall</string>
   <string name="app_shortcuts_continue_reading">Virufuere mat Liesen</string>
   <string name="app_shortcuts_search">Sichen</string>
@@ -575,4 +570,5 @@
   <string name="translate_descriptions_maybe_later">Vläicht méi spéit</string>
   <string name="title_descriptions_onboarding_got_it">Verstan</string>
   <string name="translate_descriptions_onboarding_got_it">Verstan</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
 </resources>

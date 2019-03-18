@@ -526,7 +526,6 @@
   <string name="description_edit_help_title">Көмө: баһы ойуулааһын</string>
   <string name="description_edit_help_about_wikidata">Биики-Билии туһунан</string>
   <string name="description_edit_help_wikidata_guide">Биики-Билиигэ ойуулааһыны оҥоруу туһунан ыйыы-кэрдии</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Ойуулааһыны уларытыыга болҕомтоҥ иһин махтанабыт! Салгыы уларытарга Бикипиэдьийэҕэ бэлиэ-ааккынан киириэхтээххин.</string>
   <string name="description_edit_license_notice">Бигэргэттэххинэ &lt;a href=\"%1$s\"&gt;Туһаныы сиэрин&lt;/a&gt; уонна төннөрүллүбэт &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; лиссиэнсийэннэн бэчээттиири кытта сөбүлэһэргин биллэрэҕин.</string>
@@ -541,20 +540,9 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Биир сурааһын, иккиттэн уон иккигэ диэри тыл буолара ордук</string>
   <string name="description_edit_tutorial_button_label_start_editing">Уларытыыны саҕалаа</string>
   <string name="description_edit_tutorial_promise">Саҕалыырбар бу кыаҕы сөпкө туһаныам диэн мэктиэлиибин.</string>
-  <string name="description_edit_help_about_title">Бу туһунан</string>
-  <string name="description_edit_help_description">Кылгас ойуулааһын ыстатыйа тиэмэтин көрөөт да өйдүүргэ көмөлөһөр.</string>
-  <string name="description_edit_help_tips">Ойуулаһыыны оҥорууга сүбэлэр</string>
-  <string name="description_edit_help_tips_description">Ойуулааһын - толору этии буолбатах, отой кылгас быһаарыы. Уһуна үксүгэр икки сүһүөхтэн уон икки сүһүөххэ диэри буолар, биир устуруокаҕа батара ордук. Таба суруйуу быраабылата атыны ирдээбэт түгэнигэр ойуулааһыны кыра буукубаттан саҕалыыр куолу. Туочука туруоруллубат.</string>
-  <string name="description_edit_help_tips_examples">Холобур:</string>
-  <string name="description_edit_help_tips_example1">Леонардо да Винчи хартыыната</string>
-  <string name="description_edit_help_tips_example1_hint">Мона Лиза туһунан ыстатыйа ис хоһооно</string>
-  <string name="description_edit_help_tips_example2">Сир саамай үрдүк хайата</string>
-  <string name="description_edit_help_tips_example2_hint">Эверест чыпчаалын туһунан ыстатыйа ис хоһооно</string>
-  <string name="description_edit_help_more_info">Сиһилии</string>
-  <string name="description_edit_help_meta_info">Ойуулааһыннар Биики-Билии диэн сиргэ бааллар. Биики-Билии (Wikidata) Бикимиэдьийэ Пуондатын бырайыага: аһаҕас, көҥүл туттуллар билии олоҕо, онно Бикипиэдьийэни, Биики Хааһаҕы, Бикимиэдьийэ атын да бырайыактарын уонна да атыттары өйүүргэ аналлаах билии сааһыланан түмүллэр.</string>
-  <string name="editactionfeed_add_title_descriptions">Кылгас быһаарыы эбии</string>
+  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Кылгас быһаарыы эбии</string>
   <string name="editactionfeed_translate_descriptions">Кылгас быһаарыылар  тылбаастара</string>
-  <string name="editactionfeed_review_title_description">Быһаарыылары тургутуу</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">Быһаарыылары тургутуу</string>
   <string name="editactionfeed_add_description_button">Быһааран суруй</string>
   <string name="editactionfeed_my_contributions">Бэйэм суруйуум</string>
   <string name="editactionfeed_from_language">Кимтэн:</string>

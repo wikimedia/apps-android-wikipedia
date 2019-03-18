@@ -486,7 +486,6 @@
   <string name="description_edit_cancel_hint">கைவிடுக</string>
   <string name="description_edit_help_title">உதவி: தலைப்பு விவரங்கள்</string>
   <string name="description_edit_help_about_wikidata">விக்கிதரவைப் பற்றி</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/ta</string>
   <string name="description_edit_success_saved">விவரம் பதிப்பிடப்பட்டது!</string>
   <string name="description_edit_success_encouragement">நீங்கள் விக்கிப்பீடியாவை அனைவருக்காகவும் மேம்படுத்தியுள்ளீர்கள்</string>
   <string name="description_edit_success_done">முடிந்தது</string>
@@ -495,11 +494,6 @@
   <string name="description_edit_tutorial_keep_it_short">இதை குறைவாக வைக்கவும்p</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">ஒரு வரியில், இரண்டிலிருந்து பன்னிரண்டு வார்த்தைகளில்</string>
   <string name="description_edit_tutorial_button_label_start_editing">தொகுக்கக் துவங்கவும்</string>
-  <string name="description_edit_help_about_title">இதுபற்றி</string>
-  <string name="description_edit_help_tips">விவரங்கள் உருவாக்குவதற்கான துணுக்குகள்</string>
-  <string name="description_edit_help_tips_examples">எடுத்துக்காட்டு:</string>
-  <string name="description_edit_help_tips_example2">பூமியின் உயரமான மலை</string>
-  <string name="description_edit_help_more_info">மேலதிகத் தகவல்கள்</string>
   <string name="editactionfeed_my_contributions">என் பங்களிப்புக்கள்</string>
   <string name="editactionfeed_add_title_dialog_learn_more">மேலும் அறிக</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">மேலும் அறிக</string>

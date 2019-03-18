@@ -346,13 +346,6 @@
   <string name="description_edit_success_done">រួចរាល់</string>
   <string name="description_edit_success_did_you_know">តើអ្នកដឹងទេ?</string>
   <string name="description_edit_tutorial_button_label_start_editing">ចាប់ផ្ដើមកែប្រែ</string>
-  <string name="description_edit_help_about_title">អំពី</string>
-  <string name="description_edit_help_tips_examples">ឧទាហរណ៍៖</string>
-  <string name="description_edit_help_tips_example1">គំនូរគូរដោយឡេអូណារដូ ដា វីនជី</string>
-  <string name="description_edit_help_tips_example1_hint">ចំណងជើងពណ៌នាសម្រាប់អត្ថបទសរសេរអំពីរូបគំនូរម៉ូណា លីសា</string>
-  <string name="description_edit_help_tips_example2">ភ្នំខ្ពស់ជាងគេនៅលើផែនដី</string>
-  <string name="description_edit_help_tips_example2_hint">ចំណងជើងពណ៌នាសម្រាប់អត្ថបទសរសេរអំពីភ្នំអេវើរេស</string>
-  <string name="description_edit_help_more_info">ព័ត៌មានបន្ថែម</string>
   <string name="onboarding_skip">រំលង</string>
   <string name="onboarding_continue">បន្ត</string>
   <string name="onboarding_get_started">ចាប់ផ្ដើមប្រើ</string>

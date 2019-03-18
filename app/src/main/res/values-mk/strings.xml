@@ -564,20 +564,23 @@
   <string name="feed_configure_onboarding_action">Прилагоди</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Прилагодете си го тековникот „Истражи“&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Можете да изберете што да се прикажува во тековникот и да им дадете предност на вашите омилени видови содржини.</string>
   <string name="description_edit_text_hint">Опис на насловот</string>
+  <string name="description_edit_text_hint_per_language">Опис на %s</string>
   <string name="description_edit_save">Објави</string>
+  <string name="description_edit_article">Статија</string>
+  <string name="description_edit_read">Прочитај</string>
   <string name="description_edit_add_description">Додај опис на насловот</string>
   <string name="description_edit_edit_description">Уреди опис</string>
   <string name="description_edit_cancel_hint">Откажи</string>
   <string name="description_edit_help_title">Помош: описи на наслови</string>
   <string name="description_edit_help_about_wikidata">За Википодатоците</string>
   <string name="description_edit_help_wikidata_guide">Водич за пишување описи на Википодатоците</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/mk?uselang=mk</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English?uselang=mk</string>
   <string name="description_edit_anon_limit">Ви благодариме за постојаниот интерес за уредување на описите! За да направите уште уредувања, ќе мора да се најавите со вашата сметка на Википедија.</string>
   <string name="description_edit_license_notice">Менувајќи го описот на насловот, се согласувам со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувам моите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;Криејтив комонс CC0&lt;/a&gt;</string>
   <string name="description_edit_task_unlock_title">Списокот на задачи за уредување на описи на насловите е отклучен!</string>
   <string name="description_edit_task_unlock_body">Забележавме дека сакате да уредувате описи на наслови, па затоа составивме список „Уреднички задачи“ со повеќе статии без опис на насловите за да ви помогнеме во понатамошната работа!</string>
   <string name="description_edit_success_saved">Описот е објавен!</string>
+  <string name="description_edit_success_saved_snackbar">Описот е објавен!</string>
   <string name="description_edit_success_encouragement">Штотуку ја подобривте Википедија за сите</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Дали сте знаеле?</string>
@@ -588,26 +591,16 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">По можност еден ред, од два до дванаесет збора</string>
   <string name="description_edit_tutorial_button_label_start_editing">Почнете со уредување</string>
   <string name="description_edit_tutorial_promise">Почнувајќи, ветувам дека нема да ја злоупотребувам функцијава.</string>
-  <string name="description_edit_help_about_title">За описите</string>
-  <string name="description_edit_help_description">Описите на насловите на статиите даваат краток преглед за да им помогнат на читателите да ја разберат содржината.</string>
-  <string name="description_edit_help_tips">Совети за создавање описи</string>
-  <string name="description_edit_help_tips_description">Описите по можност треба да бидат во еден ред, и да се состојат од два до дванаесет збора. Не се ставаат први почетни букви, освен ако зборот не е лична именка.</string>
-  <string name="description_edit_help_tips_examples">На пример:</string>
-  <string name="description_edit_help_tips_example1">слика на Леонардо да Винчи</string>
-  <string name="description_edit_help_tips_example1_hint">опис на насловот на статијата за Мона Лиза</string>
-  <string name="description_edit_help_tips_example2">Највисока планина во светот</string>
-  <string name="description_edit_help_tips_example2_hint">опис на насловот на статија за Монт Еверест</string>
-  <string name="description_edit_help_more_info">Повеќе информации</string>
-  <string name="description_edit_help_meta_info">Описите се складираат и одржуваат на Википодатоците — проект на Фондацијата Викимедија, кој овозможува слободна, соработна, повеќејазична база на податоци што ја поддржува Википедија и другите проекти.</string>
-  <string name="editactionfeed_add_title_descriptions">Додај описи на наслови</string>
+  <string name="editactionfeed_add_title_descriptions">Додај описи</string>
   <string name="editactionfeed_translate_descriptions">Превод на описи на наслови</string>
-  <string name="editactionfeed_review_title_description">Преглед на опис на наслов</string>
+  <string name="editactionfeed_review_title_description">Преглед на описот</string>
   <string name="editactionfeed_add_description_button">Додај опис</string>
   <string name="editactionfeed_my_contributions">Мои придонеси</string>
   <string name="editactionfeed_from_language">Од:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Дознајте повеќе</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">Дознајте повеќе</string>
   <string name="editactionfeed_to_language">На:</string>
+  <string name="editactionfeed_added_by_you">Додадено од вас:</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>
@@ -712,4 +705,5 @@
   <string name="translate_descriptions_maybe_later">Можеби подоцна</string>
   <string name="title_descriptions_onboarding_got_it">Јасно</string>
   <string name="translate_descriptions_onboarding_got_it">Јасно</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
 </resources>

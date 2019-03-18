@@ -548,19 +548,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Líne amháin dá bhféadfaí é, idir aon fhocal amháin agus dhá fhocal déag</string>
   <string name="description_edit_tutorial_button_label_start_editing">Cuir in eagar</string>
   <string name="description_edit_tutorial_promise">Agus mé ag tosú, geallaim nach mbainfidh mé mí-úsáid as an ngné seo.</string>
-  <string name="description_edit_help_about_title">Maidir leis</string>
-  <string name="description_edit_help_description">Úsáidtear sainchuntais theideal a úsáid faoi choinne ailt a choimriú, chun cabhrú le léitheoirí an t-ábhar a thuiscint ar an bpointe.</string>
-  <string name="description_edit_help_tips">Leideanna ar shainchuntais a chruthú</string>
-  <string name="description_edit_help_tips_description">Ba chóir do shainchuntais a oiriúnú ar líne amháin dá bhféadfaí é, idir aon fhocal amháin agus dhá fhocal déag. Ní chuirtear ceannlitreacha orthu, ach amháin ar an gcéad fhocal má tá ainmfhocal dílis i gceist.</string>
-  <string name="description_edit_help_tips_examples">Mar shampla:</string>
-  <string name="description_edit_help_tips_example1">pictiúr de chuid Leonardo da Vinci</string>
-  <string name="description_edit_help_tips_example1_hint">sainchuntas teidil ar alt faoin Mona Lisa</string>
-  <string name="description_edit_help_tips_example2">an sliabh is airde ar domhan</string>
-  <string name="description_edit_help_tips_example2_hint">sainchuntas teidil ar alt faoi Sliabh Everest</string>
-  <string name="description_edit_help_more_info">Tuilleadh eolais</string>
-  <string name="description_edit_help_meta_info">Stóráltar agus cothabháltar sainchuntais ar Wikidata, tionscadal de chuid na Fondúireachta Wikimedia a chuireann bunachar sonraí saor in aisce comhoibríoch ilteangach tánaisteach ar fáil mar thacaíocht do Vicipéid agus do thionscadail eile.</string>
-  <string name="editactionfeed_add_title_descriptions">Cuir sainchuntais theideal leis</string>
-  <string name="editactionfeed_review_title_description">Athbhreithnigh sainchuntas teidil</string>
+  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Cuir sainchuntais theideal leis</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">Athbhreithnigh sainchuntas teidil</string>
   <string name="editactionfeed_add_description_button">Cuir sainchuntas leis</string>
   <string name="editactionfeed_from_language">Ó:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Foghlaim tuilleadh</string>

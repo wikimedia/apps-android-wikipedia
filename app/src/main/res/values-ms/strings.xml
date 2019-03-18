@@ -573,7 +573,6 @@
   <string name="description_edit_help_title">Bantuan: huraian tajuk</string>
   <string name="description_edit_help_about_wikidata">Mengenai Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Bimbingan Wikidata untuk menulis penerangan</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Terima kasih kerana minat anda terus dalam menyunting huraian! Untuk membuat suntingan tambahan, sila log masuk ke akaun Wikipedia anda.</string>
   <string name="description_edit_license_notice">Dengan menukar huraian tajuk, saya menyetujui &lt;a href=\"%1$s\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan saya tanpa tertarik balik dengan lesen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
@@ -590,20 +589,9 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Sebaik-baiknya satu baris, antara dua hingga dua belas perkataan</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mula menyunting</string>
   <string name="description_edit_tutorial_promise">Dengan bermula, saya berjanji tidak akan menyalahgunakan ciri ini.</string>
-  <string name="description_edit_help_about_title">Perihal</string>
-  <string name="description_edit_help_description">Huraian tajuk meringkaskan rencana untuk membantu pembaca memahami subjek dengan pantas.</string>
-  <string name="description_edit_help_tips">Petua untuk menciptakan huraian</string>
-  <string name="description_edit_help_tips_description">Huraian ideal harus muat pada satu baris, dan antara dua hingga dua belas perkataan panjang. Huraian tidak ditulis dalam huruf besar kecuali perkataan pertamanya ialah kata nama khas.</string>
-  <string name="description_edit_help_tips_examples">Sebagai contoh:</string>
-  <string name="description_edit_help_tips_example1">lukisan oleh Leonardo da Vinci</string>
-  <string name="description_edit_help_tips_example1_hint">huraian tajuk untuk rencana mengenai Mona Lisa</string>
-  <string name="description_edit_help_tips_example2">gunung tertinggi di Bumi</string>
-  <string name="description_edit_help_tips_example2_hint">huraian tajuk untuk rencana mengenai Gunung Everest</string>
-  <string name="description_edit_help_more_info">Maklumat lanjut</string>
-  <string name="description_edit_help_meta_info">Huraian disimpan dan disenggarakan di Wikidata, projek Wikimedia Foundation yang menyediakan pangkalan pengetahuan bebas, kerjasama, berbilang bahasa, sekunder menyokong Wikipedia dan projek-projek lain.</string>
-  <string name="editactionfeed_add_title_descriptions">Tambah penerangan tajuk</string>
+  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Tambah penerangan tajuk</string>
   <string name="editactionfeed_translate_descriptions">Terjemah penerangan tajuk</string>
-  <string name="editactionfeed_review_title_description">Kaji penerangan tajuk</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">Kaji penerangan tajuk</string>
   <string name="editactionfeed_add_description_button">Tambah penerangan</string>
   <string name="editactionfeed_my_contributions">Sumbangan saya</string>
   <string name="editactionfeed_from_language">Daripada:</string>

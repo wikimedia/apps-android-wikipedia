@@ -394,11 +394,7 @@
   <string name="description_edit_success_did_you_know">के तपाईँलाई थाह छ?</string>
   <string name="description_edit_tutorial_keep_it_short">यसलाई छोटो राख्नुहोस्</string>
   <string name="description_edit_tutorial_button_label_start_editing">सम्पादन सुरु गर्नुहोस्</string>
-  <string name="description_edit_help_about_title">बारेमा</string>
-  <string name="description_edit_help_tips_examples">उदाहरणका लागि:</string>
-  <string name="description_edit_help_tips_example2">पृथ्वीको सबैभन्दा अग्लो हिमाल</string>
-  <string name="description_edit_help_more_info">थप जानकारी</string>
-  <string name="editactionfeed_add_title_descriptions">शिर्षकमा विवरण थप्नुहोस्</string>
+  <string name="editactionfeed_add_title_descriptions" fuzzy="true">शिर्षकमा विवरण थप्नुहोस्</string>
   <string name="editactionfeed_add_description_button">विवरण थप्नुहोस्</string>
   <string name="editactionfeed_add_title_dialog_learn_more">अझै बढी पढ्नुहोस्</string>
   <string name="description_edit_revert_subtitle">विकिपिडिया सम्पादन गर्नुभएकोमा धन्यवाद!</string>

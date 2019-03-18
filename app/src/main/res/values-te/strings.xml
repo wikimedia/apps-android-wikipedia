@@ -204,8 +204,5 @@
   <string name="description_edit_success_done">పూర్తయ్యింది</string>
   <string name="description_edit_success_did_you_know">మీకు తెలుసా?</string>
   <string name="description_edit_tutorial_title_descriptions">శీర్షిక వివరణలు</string>
-  <string name="description_edit_help_about_title">గురించి</string>
-  <string name="description_edit_help_tips_examples">ఉదాహరణకు:</string>
-  <string name="description_edit_help_more_info">మరింత సమాచారం</string>
   <string name="description_edit_revert_subtitle">వికీపీడియాలో మార్పుచేర్పులు చేసినందుకు ధన్యవాదాలు!</string>
 </resources>

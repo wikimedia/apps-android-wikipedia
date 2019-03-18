@@ -536,7 +536,6 @@
   <string name="description_edit_help_title">Trợ giúp: miêu tả tiêu đề</string>
   <string name="description_edit_help_about_wikidata">Giới thiệu về Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Hướng dẫn viết miêu tả tại Wikidata</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/vi</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Special:MyLanguage/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Cảm ơn bạn vì sự quan tâm đến việc sửa miêu tả! Để thực hiện thêm sửa đổi nữa, xin hãy đăng nhập vào tài khoản Wikipedia của bạn.</string>
   <string name="description_edit_license_notice">Với việc lưu trang, tôi chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của mình theo giấy phép &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
@@ -551,17 +550,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Cố gắng viết một dòng có 2–12 từ mà thôi</string>
   <string name="description_edit_tutorial_button_label_start_editing">Bắt đầu sửa đổi</string>
   <string name="description_edit_tutorial_promise">Với việc bắt đầu sửa đổi, tôi hứa không lạm dụng tính năng này.</string>
-  <string name="description_edit_help_about_title">Giới thiệu</string>
-  <string name="description_edit_help_description">Các miêu tả tiêu đề tóm lược bài viết để giúp độc giả dễ dàng hiểu đề tài.</string>
-  <string name="description_edit_help_tips">Cách viết miêu tả hữu ích</string>
-  <string name="description_edit_help_tips_description">Cố gắng viết miêu tả có một dòng từ 2 đến 12 từ mà thôi. Chỉ viết hoa chữ đầu tiên nếu từ đầu tiên là danh từ riêng.</string>
-  <string name="description_edit_help_tips_examples">Ví dụ:</string>
-  <string name="description_edit_help_tips_example1">bài thơ của Nguyễn Du</string>
-  <string name="description_edit_help_tips_example1_hint">miêu tả tiêu đề của bài về Truyện Kiều</string>
-  <string name="description_edit_help_tips_example2">đỉnh núi cao nhất trên Trái Đất</string>
-  <string name="description_edit_help_tips_example2_hint">miêu tả tiêu đề của bài về đỉnh Everest</string>
-  <string name="description_edit_help_more_info">Thêm thông tin</string>
-  <string name="description_edit_help_meta_info">Các miêu tả được lưu và bảo quản tại Wikidata, một dự án trực thuộc Quỹ Wikimedia cung cấp cơ sở dữ liệu mở, theo mô hình cộng tác, có sẵn trong nhiều ngôn ngữ, hỗ trợ Wikipedia và các dự án liên quan.</string>
   <string name="description_edit_revert_subtitle">Cảm ơn bạn đã sửa đổi Wikipedia.</string>
   <string name="description_edit_revert_intro">Rất tiếc, bạn đã cố gắng sửa đổi một cách chính xác, nhưng một người xem lại đã nhận thấy vấn đề. Họ đã lùi lại sửa đổi của bạn, có thể do một lý do sau:</string>
   <string name="description_edit_revert_reason1">đóng góp của bạn vi phạm một &lt;a href=\"%1$s\"&gt;quy định&lt;/a&gt;.</string>

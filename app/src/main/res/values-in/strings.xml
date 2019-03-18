@@ -584,7 +584,6 @@
   <string name="description_edit_help_title">Bantuan: deskripsi judul</string>
   <string name="description_edit_help_about_wikidata">Tentang Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Panduan Wikidata untuk menulis deskripsi</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Terima kasih atas kepercayaan Anda dalam menyunting deskripsi! Untuk melakukan penyuntingan tambahan, silakan masuk log ke akun Wikipedia Anda.</string>
   <string name="description_edit_license_notice">Dengan mengubah deskripsi judul, saya setuju terhadap &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt; dan melepas kontribusi saya di bawah lisensi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
@@ -601,20 +600,9 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealnya satu baris, antara 2-12 kata</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mulai menyunting</string>
   <string name="description_edit_tutorial_promise">Dengan memulai, saya berjanji untuk tidak menyalahgunakan fitur ini.</string>
-  <string name="description_edit_help_about_title">Tentang</string>
-  <string name="description_edit_help_description">Deskripsi judul meringkaskan sebuah artikel untuk membantu pembaca memahami subjek dengan sekilas.</string>
-  <string name="description_edit_help_tips">Tips untuk membuat deskripsi</string>
-  <string name="description_edit_help_tips_description">Deskripsi idealnya harus ditampilkan di satu baris, dan antara 2-12 kata. Deskripsi tidak dikapitalisasi kecuali kata pertama adalah kata benda.</string>
-  <string name="description_edit_help_tips_examples">Sebagai contoh:</string>
-  <string name="description_edit_help_tips_example1">lukisan karya Leonardo da Vinci</string>
-  <string name="description_edit_help_tips_example1_hint">deskripsi judul untuk artikel tentang Mona Lisa</string>
-  <string name="description_edit_help_tips_example2">gunung tertinggi di Bumi</string>
-  <string name="description_edit_help_tips_example2_hint">deskripsi judul untuk artikel tentang Gunung Everest</string>
-  <string name="description_edit_help_more_info">Informasi lebih lanjut</string>
-  <string name="description_edit_help_meta_info">Deskripsi disimpan dan dipelihara di Wikidata, sebuah proyek dari Wikimedia Foundation yang menyediakan basis data bebas, kolaboratif, multibahasa, sekunder yang mendukung Wikipedia dan proyek-proyek lainnya.</string>
-  <string name="editactionfeed_add_title_descriptions">Tambahkan deskripsi judul</string>
+  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Tambahkan deskripsi judul</string>
   <string name="editactionfeed_translate_descriptions">Terjemahkan deskripsi judul</string>
-  <string name="editactionfeed_review_title_description">Tinjau deskripsi judul</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">Tinjau deskripsi judul</string>
   <string name="editactionfeed_add_description_button">Tambahkan deskripsi</string>
   <string name="editactionfeed_my_contributions">Kontribusi saya</string>
   <string name="editactionfeed_from_language">Dari:</string>

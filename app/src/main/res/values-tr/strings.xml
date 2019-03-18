@@ -561,19 +561,22 @@
   <string name="feed_configure_onboarding_action">Özelleştir</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Keşfet özet akışınızı özelleştirme&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Artık akışınızda neyin gösterileceğini seçebilir ve en sevdiğiniz içerik türlerine öncelik de verebilirsiniz.</string>
   <string name="description_edit_text_hint">Başlık tanımı</string>
+  <string name="description_edit_text_hint_per_language">%s açıklaması</string>
   <string name="description_edit_save">Yayımla</string>
+  <string name="description_edit_article">Madde</string>
+  <string name="description_edit_read">Oku</string>
   <string name="description_edit_add_description">Başlık tanımı ekle</string>
   <string name="description_edit_edit_description">Tanımı düzenle</string>
   <string name="description_edit_cancel_hint">İptal</string>
   <string name="description_edit_help_title">Yardım: Başlık tanımları</string>
   <string name="description_edit_help_about_wikidata">Vikiveri hakkında</string>
   <string name="description_edit_help_wikidata_guide">Tanım yazımı için Vikiveri rehberi</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/tr</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Tanımları düzenlemeye olan ilginiz için teşekkürler! Daha fazla değişiklik yapmak için lütfen Vikipedi hesabınıza giriş yapın.</string>
   <string name="description_edit_license_notice">Başlık tanımını değiştirerek &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarımı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansıyla yayımlamayı kabul ediyorum.</string>
   <string name="description_edit_task_unlock_title">Başlık açıklaması düzenleme görev listesi açıldı!</string>
   <string name="description_edit_success_saved">Açıklama yayımlandı!</string>
+  <string name="description_edit_success_saved_snackbar">Açıklama yayımlandı!</string>
   <string name="description_edit_success_encouragement">Vikipedi\'yi herkes için daha iyi hâle getirdin</string>
   <string name="description_edit_success_done">Tamam</string>
   <string name="description_edit_success_did_you_know">Biliyor musunuz?</string>
@@ -584,22 +587,12 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">İdeal olarak iki ila on iki kelimelik bir cümle</string>
   <string name="description_edit_tutorial_button_label_start_editing">Düzenlemeye başla</string>
   <string name="description_edit_tutorial_promise">Başlarken bu özelliği kötüye kullanmayacağıma söz veriyorum.</string>
-  <string name="description_edit_help_about_title">Hakkında</string>
-  <string name="description_edit_help_description">Başlık tanımları, okuyucuların bir bakışta konuyu anlamalarına yardımcı olmak için bir maddeyi özetler.</string>
-  <string name="description_edit_help_tips">Tanım yazmak için ipuçları</string>
-  <string name="description_edit_help_tips_description">Tanımların bir satıra sığacak şekilde, iki ila on iki kelimeden uzunluğunda olması tercih edilir. Özel isim olmadıkça büyük harf kullanılmaz.</string>
-  <string name="description_edit_help_tips_examples">Örneğin:</string>
-  <string name="description_edit_help_tips_example1">Leonardo da Vinci tablosu</string>
-  <string name="description_edit_help_tips_example1_hint">Mona Lisa hakkındaki bir madde için başlık tanımı</string>
-  <string name="description_edit_help_tips_example2">Dünya\'nın en yüksek dağı</string>
-  <string name="description_edit_help_tips_example2_hint">Everest Dağı hakkındaki bir madde için başlık tanımı</string>
-  <string name="description_edit_help_more_info">Daha fazla bilgi</string>
-  <string name="description_edit_help_meta_info">Tanımlar; Wikimedia Vakfı\'nın bir projesi olan, ücretsiz, iş birlikçi, çok dilli, Vikipedi ve diğer projelerini destekleyen ikincil veritabanı Vikiveri\'de saklanır ve oradan sağlanır.</string>
-  <string name="editactionfeed_add_title_descriptions">Başlık tanımı ekle</string>
-  <string name="editactionfeed_review_title_description">Başlık açıklamasını düzenle</string>
+  <string name="editactionfeed_add_title_descriptions">Açıklama ekle</string>
+  <string name="editactionfeed_review_title_description">Yorum açıklaması</string>
   <string name="editactionfeed_add_description_button">Açıklama ekle</string>
   <string name="editactionfeed_my_contributions">Katkılarım</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Daha fazla bilgi</string>
+  <string name="editactionfeed_added_by_you">Sizin eklediğiniz:</string>
   <string name="description_edit_revert_subtitle">Vikipedi\'yi düzenlediğiniz için teşekkürler!</string>
   <string name="description_edit_revert_intro">Elinizden geleni yaptığınızı biliyoruz ama incleyenlerden biri, bir sıkıntı gördü. Değişikliğiniz geri alınmasının muhtemel sebepleri şunlar olabilir:</string>
   <string name="description_edit_revert_reason1">katkınız &lt;a href=\"%1$s\"&gt;kurallardan&lt;/a&gt; birine uymuyordu.</string>
@@ -675,4 +668,5 @@
   <string name="multilingual_task_description">Eğer birden fazla Vikipedi dilinde okuyup yazabiliyorsanız, çeviri görevleri size göredir.</string>
   <string name="multilingual_task_negative">Bana göre değil</string>
   <string name="multilingual_task_positive">Dil ekle</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
 </resources>

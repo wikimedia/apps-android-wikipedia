@@ -591,7 +591,6 @@
   <string name="description_edit_help_title">帮助：标题描述</string>
   <string name="description_edit_help_about_wikidata">关于维基数据</string>
   <string name="description_edit_help_wikidata_guide">维基数据写描述的指引</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/zh</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/zh</string>
   <string name="description_edit_anon_limit">感谢您对继续编辑描述感兴趣！要做出额外编辑，请登录您的维基百科账户。</string>
   <string name="description_edit_license_notice">通过更改标题描述，表明我同意&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;知识共享CC0&lt;/a&gt;许可协议不可撤销地发表我的贡献。</string>
@@ -608,20 +607,9 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">一般应为一行，2~12个字之间</string>
   <string name="description_edit_tutorial_button_label_start_editing">开始编辑</string>
   <string name="description_edit_tutorial_promise">通过开始，我承诺不会滥用该功能。</string>
-  <string name="description_edit_help_about_title">关于</string>
-  <string name="description_edit_help_description">标题描述可对条目作出总结，以帮助读者一眼了解主题。</string>
-  <string name="description_edit_help_tips">创建描述的技巧</string>
-  <string name="description_edit_help_tips_description">描述应最好用一行文字，并且长度应在2~12个字之间。除非第一个词是专有名词，否则不应大写。</string>
-  <string name="description_edit_help_tips_examples">例如：</string>
-  <string name="description_edit_help_tips_example1">由列奥纳多·达·芬奇绘画</string>
-  <string name="description_edit_help_tips_example1_hint">有关蒙娜丽莎条目的标题描述</string>
-  <string name="description_edit_help_tips_example2">地球第一高峰</string>
-  <string name="description_edit_help_tips_example2_hint">有关珠穆朗玛峰条目的标题描述</string>
-  <string name="description_edit_help_more_info">更多信息</string>
-  <string name="description_edit_help_meta_info">描述在维基数据存储并管理，这是维基媒体基金会项目之一，它为维基百科和其他项目提供自由、协作、多语言的二级数据库支持。</string>
-  <string name="editactionfeed_add_title_descriptions">添加标题描述</string>
+  <string name="editactionfeed_add_title_descriptions" fuzzy="true">添加标题描述</string>
   <string name="editactionfeed_translate_descriptions">翻译标题描述</string>
-  <string name="editactionfeed_review_title_description">巡查标题描述</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">巡查标题描述</string>
   <string name="editactionfeed_add_description_button">添加描述</string>
   <string name="editactionfeed_my_contributions">我的贡献</string>
   <string name="editactionfeed_from_language">从：</string>

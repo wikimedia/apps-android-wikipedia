@@ -223,7 +223,4 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d ny lahatsoratra 1 no azo vakiana, %2$.2f MB</string>
   <string name="description_edit_text_hint">Visavisan\'ilay lohateny</string>
   <string name="description_edit_add_description">Hanampy visavisan-dohateny</string>
-  <string name="description_edit_help_about_title">Mombamomba</string>
-  <string name="description_edit_help_tips_examples">Ohatra:</string>
-  <string name="description_edit_help_more_info">Torohay fanampiny</string>
 </resources>

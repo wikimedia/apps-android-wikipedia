@@ -581,7 +581,6 @@
   <string name="description_edit_help_title">עזרה: תיאורי כותרות</string>
   <string name="description_edit_help_about_wikidata">אודות ויקינתונים</string>
   <string name="description_edit_help_wikidata_guide">מדריך ויקינתונים לכתיבת תיאורים</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/he</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">תודה על ההתעניינות בעריכת תיאורים! כדי לעשות עריכות נוספות, נא להיכנס לחשבון הוויקיפדיה שלך.</string>
   <string name="description_edit_license_notice">שינוי תיאור הכותרת מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטוב קומונז CC0&lt;/a&gt;.</string>
@@ -598,20 +597,9 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">יהיה מושלם אם זאת תהיה שורה אחת, בין שתיים לשתים־עשרה מילים</string>
   <string name="description_edit_tutorial_button_label_start_editing">להתחיל לערוך</string>
   <string name="description_edit_tutorial_promise">תחילת העריכה היא התחייבות שלי לא להשתמש באפשרות הזאת לרעה.</string>
-  <string name="description_edit_help_about_title">אודות</string>
-  <string name="description_edit_help_description">תיאורי כותרת מסכמים את הערך כדי לעזור לקוראים להבין את הנושא במבט אחד.</string>
-  <string name="description_edit_help_tips">עצות ליצירת תיאורים</string>
-  <string name="description_edit_help_tips_description">תיאורים אמורים להיכנס לשורה אחת, ולכלול בין שתיים לשתים־עשרה מילים.</string>
-  <string name="description_edit_help_tips_examples">למשל:</string>
-  <string name="description_edit_help_tips_example1">ציור של לאונרדו דה וינצ\'י</string>
-  <string name="description_edit_help_tips_example1_hint">תיאור כותרת של ערך על המונה ליזה</string>
-  <string name="description_edit_help_tips_example2">ההר הגבוה בכדור הארץ</string>
-  <string name="description_edit_help_tips_example2_hint">תיאור הכותרת של ערך על הר אוורסט</string>
-  <string name="description_edit_help_more_info">מידע נוסף</string>
-  <string name="description_edit_help_meta_info">התיאורים נשמרים ומתוחזקים בוויקינתונים (Wikidata), מיזם של קרן ויקימדיה שמספק מסד נתונים משני חופשי שיתופי רב־לשוני שתומך בוויקיפדיה ובמיזמים אחרים.</string>
-  <string name="editactionfeed_add_title_descriptions">הוספת תיאורי כותרת</string>
+  <string name="editactionfeed_add_title_descriptions" fuzzy="true">הוספת תיאורי כותרת</string>
   <string name="editactionfeed_translate_descriptions">תרגום תיאורי כותרת</string>
-  <string name="editactionfeed_review_title_description">בדיקת תיאור כותרת</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">בדיקת תיאור כותרת</string>
   <string name="editactionfeed_add_description_button">להוסיף תיאור</string>
   <string name="editactionfeed_my_contributions">התרומות שלי</string>
   <string name="editactionfeed_from_language">מ־:</string>
