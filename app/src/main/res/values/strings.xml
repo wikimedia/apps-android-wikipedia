@@ -597,7 +597,10 @@
 
     <!-- Description editing -->
     <string name="description_edit_text_hint">Title description</string>
+    <string name="description_edit_text_hint_per_language">%s description</string>
     <string name="description_edit_save">Publish</string>
+    <string name="description_edit_article">Article</string>
+    <string name="description_edit_read">Read</string>
     <string name="description_edit_add_description">Add title description</string>
     <string name="description_edit_edit_description">Edit description</string>
     <string name="description_edit_cancel_hint">Cancel</string>
@@ -613,6 +616,7 @@
 
     <!-- Description editing success -->
     <string name="description_edit_success_saved">Description published!</string>
+    <string name="description_edit_success_saved_snackbar">Description published!</string>
     <string name="description_edit_success_encouragement">You just made Wikipedia better for everyone</string>
     <string name="description_edit_success_done">Done</string>
     <string name="description_edit_success_did_you_know">Did you know?</string>
@@ -629,15 +633,16 @@
     <!-- /Description editing tutorial -->
 
     <!-- Edit action feed -->
-    <string name="editactionfeed_add_title_descriptions">Add title descriptions</string>
+    <string name="editactionfeed_add_title_descriptions">Add descriptions</string>
     <string name="editactionfeed_translate_descriptions">Translate title descriptions</string>
-    <string name="editactionfeed_review_title_description">Review title description</string>
+    <string name="editactionfeed_review_title_description">Review description</string>
     <string name="editactionfeed_add_description_button">Add description</string>
     <string name="editactionfeed_my_contributions">My contributions</string>
     <string name="editactionfeed_from_language">From: </string>
     <string name="editactionfeed_add_title_dialog_learn_more">Learn more</string>
     <string name="editactionfeed_translate_title_dialog_learn_more">Learn more</string>
     <string name="editactionfeed_to_language">To: </string>
+    <string name="editactionfeed_added_by_you">Added by you:</string>
     <!-- /Edit action feed -->
 
     <!-- Description editing revert help -->
