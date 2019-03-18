@@ -256,7 +256,7 @@ public class DescriptionEditFragment extends Fragment {
                                 ? response.query().siteInfo().lang() : pageTitle.getWikiSite().languageCode();
                         return ServiceFactory.get(wikiData).postDescriptionEdit(languageCode,
                                 pageTitle.getWikiSite().languageCode(), pageTitle.getWikiSite().dbName(),
-                                pageTitle.getConvertedText(), editView.getDescription(), editToken,
+                                pageTitle.getConvertedText(), editView.getDescription(), null, editToken,
                                 AccountUtil.isLoggedIn() ? "user" : null);
                     })
                     .subscribeOn(Schedulers.io())
