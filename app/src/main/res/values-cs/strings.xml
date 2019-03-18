@@ -579,7 +579,10 @@
   <string name="feed_configure_onboarding_action">Přizpůsobit</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Přizpůsobte si svůj kanál Objevit&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Nyní si můžete vybrat, co se má zobrazovat na vaší stránce, a také upřednostňovat své oblíbené typy obsahu.</string>
   <string name="description_edit_text_hint">Popis článku</string>
+  <string name="description_edit_text_hint_per_language">%s popis</string>
   <string name="description_edit_save">Zveřejnit</string>
+  <string name="description_edit_article">Článek</string>
+  <string name="description_edit_read">Číst</string>
   <string name="description_edit_add_description">Přidat popis článku</string>
   <string name="description_edit_edit_description">Editovat popis</string>
   <string name="description_edit_cancel_hint">Zrušit</string>
@@ -592,6 +595,7 @@
   <string name="description_edit_task_unlock_title">Tipy pro popisy článků byly odemknuty!</string>
   <string name="description_edit_task_unlock_body">Všimli jsme si, že se vám líbí editace popisů článků a proto jsme sestavili seznam „Úkoly pro wikipedisty“ s články, kterým chybějí popisy. Úkoly vám pomohou přispívat do Wikipedie!</string>
   <string name="description_edit_success_saved">Popis byl zveřejněn!</string>
+  <string name="description_edit_success_saved_snackbar">Popis byl zveřejněn!</string>
   <string name="description_edit_success_encouragement">Wikipedie je díky vám lepší než předtím, děkujeme ☺</string>
   <string name="description_edit_success_done">Hotovo</string>
   <string name="description_edit_success_did_you_know">Věděli jste, že?</string>
@@ -611,6 +615,7 @@
   <string name="editactionfeed_add_title_dialog_learn_more">Další informace</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">Další informace</string>
   <string name="editactionfeed_to_language">Do:</string>
+  <string name="editactionfeed_added_by_you">Přidáno vámi:</string>
   <string name="description_edit_revert_subtitle">Děkujeme za editaci Wikipedie!</string>
   <string name="description_edit_revert_intro">Víme, že jste se snažili o to nejlepší, ale jeden z wikipedistů měl obavy. Možné důvody vrácení vaší editace jsou:</string>
   <string name="description_edit_revert_reason1">váš příspěvek nedodržel některé z &lt;a href=\"%1$s\"&gt;pravidel&lt;/a&gt;.</string>
@@ -689,12 +694,12 @@
   <string name="multilingual_task_description">Tipy k překladu budou k dispozici, pokud čtete a píšete ve více než jednom jazyce Wikipedie.</string>
   <string name="translation_task_title">Překládat popisy článků</string>
   <string name="translation_task_description">Překládat popisy článků napříč jazyky.</string>
-  <string name="image_caption_edit_disable_text">Zamknuto, dokud neprovedete %d ověřených příspěvků</string>
-  <string name="translate_description_edit_disable_text">Zamčeno, dokud neprovedete %d ověřených editací</string>
+  <string name="image_caption_edit_disable_text">Zamknuto, dokud neprovedete %d prověřené příspěvky</string>
+  <string name="translate_description_edit_disable_text">Zamčeno, dokud neprovedete %d ověřené příspěvky</string>
   <string name="multilingual_task_negative">Není pro mě</string>
   <string name="multilingual_task_positive">Přidat jazyky</string>
   <string name="editing_level_text">ÚROVEŇ %d editora z aplikace</string>
-  <string name="translation_source_description">%s popis:</string>
+  <string name="translation_source_description">Popis v jazyce %s:</string>
   <string name="translate_caption_task_title">Překládat popisy obrázků</string>
   <string name="translate_caption_task_description">Přeložit popisy obrázků do jiných jazyků</string>
   <plurals name="edit_action_contribution_count">
@@ -715,4 +720,5 @@
   <string name="translate_descriptions_maybe_later">Možná později</string>
   <string name="title_descriptions_onboarding_got_it">Rozumím</string>
   <string name="translate_descriptions_onboarding_got_it">Rozumím</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/cs</string>
 </resources>

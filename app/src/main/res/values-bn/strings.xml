@@ -522,6 +522,9 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">এক লাইনে, দুই থেকে বারো পর্যন্ত শব্দ রাখা যাবে</string>
   <string name="description_edit_tutorial_button_label_start_editing">সম্পাদনা শুরু করুন</string>
   <string name="description_edit_tutorial_promise">শুরু করার দ্বারা, আমি প্রতিজ্ঞা করছি এই বৈশিষ্ট্যের অপব্যবহার করব না।</string>
+  <string name="editactionfeed_add_title_descriptions" fuzzy="true">শিরোনামের বিবরণ যোগ করুন</string>
+  <string name="editactionfeed_translate_descriptions">শিরোনামের বিবরণ অনুবাদ করুন</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">শিরোনামের বিবরণ পর্যালোচনা করুন</string>
   <string name="editactionfeed_add_description_button">বিবরণ যোগ করুন</string>
   <string name="editactionfeed_my_contributions">আমার অবদান</string>
   <string name="editactionfeed_from_language">প্রেরক:</string>

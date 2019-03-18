@@ -579,7 +579,7 @@
   <string name="description_edit_tutorial_promise">Aloittamalla lupaan olla väärinkäyttämättä tätä ominaisuutta.</string>
   <string name="editactionfeed_add_title_descriptions">Lisää otsikkokuvaukset</string>
   <string name="editactionfeed_translate_descriptions">Käännä otsikoiden kuvauksia</string>
-  <string name="editactionfeed_review_title_description">Esikatsele otsikon kuvausta</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">Esikatsele otsikon kuvausta</string>
   <string name="editactionfeed_add_description_button">Lisää kuvaus</string>
   <string name="editactionfeed_my_contributions">Omat muokkaukset</string>
   <string name="editactionfeed_from_language">Lähettäjä:</string>

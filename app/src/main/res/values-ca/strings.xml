@@ -601,7 +601,7 @@
   <string name="description_edit_tutorial_promise">En començar, prometeu que no fareu mal ús d\'aquesta funcionalitat.</string>
   <string name="editactionfeed_add_title_descriptions">Afegeix descripcions de títol</string>
   <string name="editactionfeed_translate_descriptions">Traducció de les descripcions de títol</string>
-  <string name="editactionfeed_review_title_description">Revisa la descripció de títol</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">Revisa la descripció de títol</string>
   <string name="editactionfeed_add_description_button">Afegeix una descripció</string>
   <string name="editactionfeed_my_contributions">Les meves contribucions</string>
   <string name="editactionfeed_from_language">De:</string>

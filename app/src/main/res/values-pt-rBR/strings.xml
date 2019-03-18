@@ -27,6 +27,7 @@
 * TheEduGobi
 * Walesson
 * Webysther
+* Welerson98
 -->
 <resources>
   <string name="app_name_prod">Wikipédia</string>
@@ -589,6 +590,7 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalize seu feed de Explorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora você pode escolher o que mostrar em seu feed, e também priorizar seus tipos de conteúdo favoritos.</string>
   <string name="description_edit_text_hint">Descrição do título</string>
   <string name="description_edit_save">Publicar</string>
+  <string name="description_edit_article">Artigo</string>
   <string name="description_edit_add_description">Adicionar descrição do título</string>
   <string name="description_edit_edit_description">Editar descrição</string>
   <string name="description_edit_cancel_hint">Cancelar</string>
@@ -620,6 +622,7 @@
   <string name="editactionfeed_add_title_dialog_learn_more">Saiba mais</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">Saiba mais</string>
   <string name="editactionfeed_to_language">Para:</string>
+  <string name="editactionfeed_added_by_you">Adicionado por você:</string>
   <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
   <string name="description_edit_revert_intro">Sabemos que você tentou o seu melhor, mas um dos revisores tinha uma preocupação. Possíveis razões pelas quais a edição foi revertida inclui</string>
   <string name="description_edit_revert_reason1">Sua contribuição não seguiu uma das &lt;a href=\"%1$s\"&gt;diretrizes&lt;/a&gt;.</string>
