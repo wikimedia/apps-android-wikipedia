@@ -1,4 +1,5 @@
 <FrameLayout
+    android:id="@+id/suggestedEditsRootView"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -162,6 +163,7 @@
                 </LinearLayout>
 
                 <View
+                    android:id="@+id/divider"
                     android:layout_width="@dimen/divider_width_for_article"
                     android:layout_height="1dp"
                     android:layout_marginTop="19dp"
