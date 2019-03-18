@@ -12,7 +12,8 @@ public class SuggestedEditsFunnel extends TimedFunnel {
     private static final String SUGGESTED_EDITS_UI_VERSION = "1.0";
     private static final String SUGGESTED_EDITS_API_VERSION = "1.0";
 
-    public static final String SUGGESTED_EDITS_COMMENT = "Added from Suggested Edits " + SUGGESTED_EDITS_UI_VERSION;
+    public static final String SUGGESTED_EDITS_ADD_COMMENT = "#suggestededit-add " + SUGGESTED_EDITS_UI_VERSION;
+    public static final String SUGGESTED_EDITS_TRANSLATE_COMMENT = "#suggestededit-translate " + SUGGESTED_EDITS_UI_VERSION;
 
     public SuggestedEditsFunnel(WikipediaApp app) {
         super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_ALL);

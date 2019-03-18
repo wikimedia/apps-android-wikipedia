@@ -269,7 +269,8 @@ public class DescriptionEditFragment extends Fragment {
                         return ServiceFactory.get(wikiData).postDescriptionEdit(languageCode,
                                 pageTitle.getWikiSite().languageCode(), pageTitle.getWikiSite().dbName(),
                                 pageTitle.getConvertedText(), editView.getDescription(),
-                                (invokeSource == InvokeSource.EDIT_FEED_TITLE_DESC || invokeSource == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) ? SuggestedEditsFunnel.SUGGESTED_EDITS_COMMENT : null,
+                                invokeSource == InvokeSource.EDIT_FEED_TITLE_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
+                                        : invokeSource == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null,
                                 editToken, AccountUtil.isLoggedIn() ? "user" : null);
                     })
                     .subscribeOn(Schedulers.io())
