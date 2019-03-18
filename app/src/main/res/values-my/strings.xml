@@ -552,8 +552,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">စာတစ်ကြောင်းထဲ၊ စာလုံး နှစ်လုံးမှ တစ်ဆယ့်နှစ်လုံးအကြား</string>
   <string name="description_edit_tutorial_button_label_start_editing">စတင်တည်းဖြတ်</string>
   <string name="description_edit_tutorial_promise">စတင်ခြင်းဖြင့် ဤအင်္ဂရပ်ကို တလွဲအသုံးမပြုပါဟု ကတိပြုပါသည်။</string>
-  <string name="editactionfeed_add_title_descriptions" fuzzy="true">ခေါင်းစဉ်ဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
-  <string name="editactionfeed_review_title_description" fuzzy="true">ခေါင်းစဉ်ဖော်ပြချက် ပြန်လည်ဆန်းစစ်ရန်</string>
+  <string name="editactionfeed_add_title_descriptions">ခေါင်းစဉ်ဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
+  <string name="editactionfeed_review_title_description">ခေါင်းစဉ်ဖော်ပြချက် ပြန်လည်ဆန်းစစ်ရန်</string>
   <string name="editactionfeed_add_description_button">ဖော်ပြချက်ထည့်သွင်းပါ</string>
   <string name="editactionfeed_my_contributions">ပံ့ပိုးထားမှုများ</string>
   <string name="editactionfeed_from_language">မှ -</string>

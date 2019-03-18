@@ -13,9 +13,9 @@ import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
-import org.wikipedia.descriptions.DescriptionEditHelpActivity
 import org.wikipedia.editactionfeed.AddTitleDescriptionsFragment.Companion.newInstance
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.views.DialogTitleWithImage
 
@@ -25,7 +25,7 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
         super.onCreate(savedInstanceState)
         supportActionBar!!.elevation = 0f
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.title = getString(if (intent.getIntExtra(EXTRA_SOURCE, EDIT_FEED_TITLE_DESC.ordinal) == EDIT_FEED_TITLE_DESC.ordinal)
+        supportActionBar!!.title = getString(if (intent.getSerializableExtra(EXTRA_SOURCE) == EDIT_FEED_TITLE_DESC)
             R.string.editactionfeed_add_title_descriptions else R.string.editactionfeed_translate_descriptions)
     }
 
@@ -52,7 +52,7 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
             }
 
             R.id.menu_help -> {
-                startActivity(DescriptionEditHelpActivity.newIntent(this))
+                FeedbackUtil.showAndroidAppEditingFAQ(baseContext)
                 true
             }
             R.id.menu_my_contributions -> {
@@ -65,6 +65,7 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
 
     companion object {
         const val EXTRA_SOURCE = "source"
+        const val EXTRA_SOURCE_ADDED_DESCRIPTION = "addedDescription"
 
         fun newIntent(context: Context, source: InvokeSource): Intent {
             return Intent(context, AddTitleDescriptionsActivity::class.java)

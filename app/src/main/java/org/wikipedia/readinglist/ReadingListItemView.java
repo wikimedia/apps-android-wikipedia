@@ -198,7 +198,7 @@ public class ReadingListItemView extends ConstraintLayout {
 
     private void loadThumbnail(@NonNull SimpleDraweeView view, @Nullable String url) {
         if (TextUtils.isEmpty(url)) {
-            view.getHierarchy().setFailureImage(R.drawable.ic_image_gray_24dp,
+            view.getHierarchy().setFailureImage(ResourceUtil.getThemedAttributeId(getContext(), R.attr.thumbnail_image_placeholder),
                     ScalingUtils.ScaleType.FIT_CENTER);
         } else {
             ViewUtil.loadImageUrlInto(view, url);

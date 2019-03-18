@@ -590,7 +590,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">По могућству један ред, од две до дванаест речи</string>
   <string name="description_edit_tutorial_button_label_start_editing">Започни уређивање</string>
   <string name="description_edit_tutorial_promise">Када почнем, обећавам да нећу злоупотребити ову функцију.</string>
-  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Додавање описа наслова</string>
+  <string name="editactionfeed_add_title_descriptions">Додавање описа наслова</string>
   <string name="editactionfeed_translate_descriptions">Преведите описе наслова</string>
   <string name="editactionfeed_review_title_description" fuzzy="true">Преглед описа наслова</string>
   <string name="editactionfeed_add_description_button">Додај опис</string>

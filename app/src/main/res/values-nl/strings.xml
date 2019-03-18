@@ -604,7 +604,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealiter één regel, tussen twee en twaalf woorden</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begin met bewerken</string>
   <string name="description_edit_tutorial_promise">Door te beginnen, beloof ik geen misbruik te maken van deze functie.</string>
-  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Titelbeschrijvingen toevoegen</string>
+  <string name="editactionfeed_add_title_descriptions">Titelbeschrijvingen toevoegen</string>
   <string name="editactionfeed_translate_descriptions">Titelbeschrijvingen vertalen</string>
   <string name="editactionfeed_add_description_button">Beschrijving toevoegen</string>
   <string name="editactionfeed_my_contributions">Mijn bijdragen</string>

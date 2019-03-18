@@ -574,7 +574,7 @@
   <string name="description_edit_tutorial_title_descriptions">Descrizioni del titolo</string>
   <string name="description_edit_tutorial_keep_it_short">Sii breve</string>
   <string name="description_edit_tutorial_button_label_start_editing">Inizia a modificare</string>
-  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Aggiungi descrizioni del titolo</string>
+  <string name="editactionfeed_add_title_descriptions">Aggiungi descrizioni del titolo</string>
   <string name="editactionfeed_translate_descriptions">Traduci le descrizioni del titolo</string>
   <string name="editactionfeed_add_description_button">Aggiungi descrizione</string>
   <string name="editactionfeed_my_contributions">I miei contributi</string>

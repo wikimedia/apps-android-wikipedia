@@ -600,7 +600,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealnya satu baris, antara 2-12 kata</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mulai menyunting</string>
   <string name="description_edit_tutorial_promise">Dengan memulai, saya berjanji untuk tidak menyalahgunakan fitur ini.</string>
-  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Tambahkan deskripsi judul</string>
+  <string name="editactionfeed_add_title_descriptions">Tambahkan deskripsi judul</string>
   <string name="editactionfeed_translate_descriptions">Terjemahkan deskripsi judul</string>
   <string name="editactionfeed_review_title_description" fuzzy="true">Tinjau deskripsi judul</string>
   <string name="editactionfeed_add_description_button">Tambahkan deskripsi</string>

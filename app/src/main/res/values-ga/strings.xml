@@ -548,8 +548,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Líne amháin dá bhféadfaí é, idir aon fhocal amháin agus dhá fhocal déag</string>
   <string name="description_edit_tutorial_button_label_start_editing">Cuir in eagar</string>
   <string name="description_edit_tutorial_promise">Agus mé ag tosú, geallaim nach mbainfidh mé mí-úsáid as an ngné seo.</string>
-  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Cuir sainchuntais theideal leis</string>
-  <string name="editactionfeed_review_title_description" fuzzy="true">Athbhreithnigh sainchuntas teidil</string>
+  <string name="editactionfeed_add_title_descriptions">Cuir sainchuntais theideal leis</string>
+  <string name="editactionfeed_review_title_description">Athbhreithnigh sainchuntas teidil</string>
   <string name="editactionfeed_add_description_button">Cuir sainchuntas leis</string>
   <string name="editactionfeed_from_language">Ó:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Foghlaim tuilleadh</string>

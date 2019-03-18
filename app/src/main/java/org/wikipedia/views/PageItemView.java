@@ -12,6 +12,7 @@ import android.support.design.chip.Chip;
 import android.support.design.chip.ChipGroup;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v4.widget.TextViewCompat;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -158,14 +159,14 @@ public class PageItemView<T> extends ConstraintLayout {
 
     public void setUpChipGroup(List<ReadingList> readingLists) {
         chipsScrollView.setVisibility(VISIBLE);
+        chipsScrollView.setFadingEdgeLength(0);
         readingListsChipGroup.removeAllViews();
         for (ReadingList readingList : readingLists) {
             Chip chip = new Chip(readingListsChipGroup.getContext());
-            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
-                chip.setTextAppearance(R.style.CustomChipStyle);
-            }
+            TextViewCompat.setTextAppearance(chip, R.style.CustomChipStyle);
             chip.setText(readingList.title());
             chip.setClickable(true);
+            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(getContext(), R.attr.chip_background_color));
             chip.setOnClickListener(v -> {
                 if (callback != null) {
                     callback.onListChipClick(readingList);
@@ -173,6 +174,10 @@ public class PageItemView<T> extends ConstraintLayout {
             });
             readingListsChipGroup.addView(chip);
         }
+    }
+
+    public void hideChipGroup() {
+        chipsScrollView.setVisibility(GONE);
     }
 
     public void setSearchQuery(@Nullable String searchQuery) {
@@ -214,8 +219,6 @@ public class PageItemView<T> extends ConstraintLayout {
     private void init() {
         inflate(getContext(), R.layout.item_page_list_entry, this);
         ButterKnife.bind(this);
-        setClipChildren(false);
-        setClipToPadding(false);
 
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         final int topBottomPadding = 16;

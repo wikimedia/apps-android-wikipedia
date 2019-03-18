@@ -26,7 +26,7 @@
             tools:text="Macau"/>
 
         <org.wikipedia.views.FaceAndColorDetectImageView
-            style="@style/SimpleDraweeViewPlaceholder.Article"
+            style="@style/SimpleDraweeViewPlaceholder"
             android:id="@+id/floatingQueueThumbnail"
             android:layout_width="72dp"
             android:layout_height="match_parent"

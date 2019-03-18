@@ -630,7 +630,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">В идеале одна строка, от двух до двенадцати слов</string>
   <string name="description_edit_tutorial_button_label_start_editing">Начать редактирование</string>
   <string name="description_edit_tutorial_promise">Начав, я обещаю не злоупотреблять этой функцией.</string>
-  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Добавление кратких описаний</string>
+  <string name="editactionfeed_add_title_descriptions">Добавление кратких описаний</string>
   <string name="editactionfeed_translate_descriptions">Перевод кратких описаний</string>
   <string name="editactionfeed_review_title_description" fuzzy="true">Проверка кратких описаний</string>
   <string name="editactionfeed_add_description_button">Добавить описание</string>

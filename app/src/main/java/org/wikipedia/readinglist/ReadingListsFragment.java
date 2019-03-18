@@ -106,7 +106,7 @@ public class ReadingListsFragment extends Fragment implements
     private OverflowCallback overflowCallback = new OverflowCallback();
     private String currentSearchQuery;
     private static final int SAVE_COUNT_LIMIT = 3;
-    public static final int ARTICLE_ITEM_IMAGE_DIMENSION = 56;
+    public static final int ARTICLE_ITEM_IMAGE_DIMENSION = 57;
 
     @NonNull public static ReadingListsFragment newInstance() {
         return new ReadingListsFragment();

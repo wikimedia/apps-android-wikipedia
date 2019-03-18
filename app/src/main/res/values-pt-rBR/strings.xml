@@ -613,7 +613,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente uma linha, entre dois a doze palavras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Começar a editar</string>
   <string name="description_edit_tutorial_promise">Ao começar, eu prometo não fazer mau uso, esta funcionalidade.</string>
-  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Adicionar descrições de título</string>
+  <string name="editactionfeed_add_title_descriptions">Adicionar descrições de título</string>
   <string name="editactionfeed_translate_descriptions">Traduzir as descrições de título</string>
   <string name="editactionfeed_review_title_description">Revisar a descrição do título</string>
   <string name="editactionfeed_add_description_button">Adicionar descrição</string>
