@@ -29,7 +29,6 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     private static final String EXTRA_TITLE = "title";
     private static final String EXTRA_REVIEW_ENABLE = "review";
     private static final String EXTRA_HIGHLIGHT_TEXT = "highlightText";
-    private static final String EXTRA_INVOKE_SOURCE = "source";
     private static final String EXTRA_SOURCE_LANG_DESC = "source_desc";
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
@@ -91,7 +90,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
                 getIntent().getStringExtra(EXTRA_TITLE)),
                 getIntent().getStringExtra(EXTRA_HIGHLIGHT_TEXT),
                 getIntent().getBooleanExtra(EXTRA_REVIEW_ENABLE, false),
-                (InvokeSource) getIntent().getSerializableExtra(EXTRA_INVOKE_SOURCE),
+                (InvokeSource) getIntent().getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE),
                 getIntent().getCharSequenceExtra(EXTRA_SOURCE_LANG_DESC));
     }
 
