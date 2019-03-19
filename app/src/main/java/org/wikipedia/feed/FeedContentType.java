@@ -6,6 +6,7 @@ import android.support.annotation.StringRes;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.feed.aggregated.AggregatedFeedContentClient;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadClient;
 import org.wikipedia.feed.dataclient.FeedClient;
@@ -82,7 +83,7 @@ public enum FeedContentType implements EnumCode {
         @Nullable
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
-            return isEnabled() ? new SuggestedEditFeedClient() : null;
+            return isEnabled() && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline() ? new SuggestedEditFeedClient() : null;
         }
     };
 

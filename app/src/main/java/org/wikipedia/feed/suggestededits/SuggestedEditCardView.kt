@@ -5,7 +5,6 @@ import android.content.Context
 import android.net.Uri
 import android.view.View
 import android.widget.FrameLayout
-import butterknife.OnClick
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -62,6 +61,11 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
          cardItemErrorView.visibility = View.VISIBLE
          cardItemProgressBar.visibility = View.GONE
          cardItemContainer.visibility = View.GONE*/
+    }
+
+    override fun setCallback(callback: FeedAdapter.Callback?) {
+        super.setCallback(callback)
+        headerView.setCallback(callback)
     }
 
     private fun updateContents() {
