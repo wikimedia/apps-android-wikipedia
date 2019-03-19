@@ -652,8 +652,8 @@
     <string name="suggested_edits_unlock_add_descriptions_notification_title">You unlocked “Add descriptions“</string>
     <string name="suggested_edits_unlock_translate_descriptions_notification_title">You unlocked “Translate descriptions“</string>
     <string name="suggested_edits_unlock_notification_text">Suggested edits</string>
-    <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Congratulations on your third contribution. Since you’re super good at editing, we’ve compiled a list of articles missing descriptions. Could you help us to improve Wikipedia?</string>
-    <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Congratulations on your 50th contribution, we’re impressed! You’re using the app in multiple languages, so we’ve compiled a list of articles needing description translations. Could you continue to help us improving Wikipedia?</string>
+    <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Suggested edits\n\nCongratulations on your third contribution. Since you’re super good at editing, we’ve compiled a list of articles missing descriptions. Could you help us to improve Wikipedia?</string>
+    <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Suggested edits\n\nCongratulations on your 50th contribution, we’re impressed! You’re using the app in multiple languages, so we’ve compiled a list of articles needing description translations. Could you continue to help us improving Wikipedia?</string>
     <string name="suggested_edits_unlock_notification_button">Yes, let’s go</string>
     <!-- /Suggested edits (Edit action feed) -->
 

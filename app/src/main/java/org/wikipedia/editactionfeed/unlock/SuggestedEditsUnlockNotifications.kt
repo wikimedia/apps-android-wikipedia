@@ -70,6 +70,7 @@ object SuggestedEditsUnlockNotifications {
                 .setContentTitle(context.getString(R.string.suggested_edits_unlock_add_descriptions_notification_title))
                 .setContentText(context.getString(R.string.suggested_edits_unlock_notification_text))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+//                .setContentIntent(pendingIntentBuilder(context, AddTitleDescriptionsActivity::class.java, Constants.InvokeSource.EDIT_FEED_TITLE_DESC, 1))
                 .setSound(null)
 
         builder.addAction(notificationActionBuilder(context, AddTitleDescriptionsActivity::class.java,

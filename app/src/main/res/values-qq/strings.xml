@@ -735,7 +735,7 @@
   <string name="suggested_edits_unlock_add_descriptions_notification_title">Title text of the notification bar shown to user that the “Add descriptions“ task has been unlocked.</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_title">Title text of the notification bar shown to user that the “Translate descriptions“ task has been unlocked.</string>
   <string name="suggested_edits_unlock_notification_text">Short text of the notification bar shown to user that the subject of this notification</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Long text of the notification bar shown to user that the detail of this notification</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Long text of the notification bar shown to user that the detail of this notification</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Short text\n\nLong text of the notification bar shown to user that the detail of this notification</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Short text\n\nLong text of the notification bar shown to user that the detail of this notification</string>
   <string name="suggested_edits_unlock_notification_button">Action button text for the dialog action that goes to the suggested edits screen</string>
 </resources>

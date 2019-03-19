@@ -1,6 +1,7 @@
 package org.wikipedia.editactionfeed.unlock
 
 import android.app.Service
+import android.content.Context
 import android.content.Intent
 import android.os.IBinder
 import io.reactivex.Observable
@@ -24,7 +25,7 @@ class SuggestedEditsUnlockService : Service() {
 
         val unlockType = intent.getSerializableExtra(INTENT_EXTRA_UNLOCK_TYPE) as Constants.InvokeSource
 
-        disposables.add(Observable.interval(UNLOCK_CHECK_IN_HOURS, TimeUnit.HOURS)
+        disposables.add(Observable.interval(UNLOCK_CHECK_IN_HOURS, TimeUnit.SECONDS)
                 .map {
                     // TODO: check status from API
                     if (unlockType == Constants.InvokeSource.EDIT_FEED_TITLE_DESC) {
@@ -32,6 +33,7 @@ class SuggestedEditsUnlockService : Service() {
                     } else {
                         // TODO ..
                     }
+                    // TODO: return actual status
                     true
                 }
                 .subscribe({
@@ -54,5 +56,10 @@ class SuggestedEditsUnlockService : Service() {
     companion object {
         private const val UNLOCK_CHECK_IN_HOURS: Long = 24
         const val INTENT_EXTRA_UNLOCK_TYPE = "intentExtraUnlockType"
+
+        fun newIntent(context: Context, source: Constants.InvokeSource): Intent {
+            return Intent(context, SuggestedEditsUnlockService::class.java)
+                    .putExtra(INTENT_EXTRA_UNLOCK_TYPE, source)
+        }
     }
 }

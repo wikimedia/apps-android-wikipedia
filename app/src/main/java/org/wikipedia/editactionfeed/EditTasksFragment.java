@@ -18,6 +18,7 @@ import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.editactionfeed.unlock.SuggestedEditsUnlockService;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
@@ -37,6 +38,7 @@ import butterknife.Unbinder;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
 import static org.wikipedia.Constants.InvokeSource;
+import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC;
 import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC;
 import static org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION;
 
@@ -62,6 +64,7 @@ public class EditTasksFragment extends Fragment {
         showOneTimeOnboarding();
         updateUI();
         setUpRecyclerView();
+        requireActivity().startService(SuggestedEditsUnlockService.Companion.newIntent(requireContext(), EDIT_FEED_TITLE_DESC));
         return view;
     }
 
