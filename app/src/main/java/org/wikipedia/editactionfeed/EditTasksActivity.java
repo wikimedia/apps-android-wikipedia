@@ -9,7 +9,6 @@ import org.wikipedia.Constants;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.main.MainActivity;
-import org.wikipedia.util.log.L;
 
 public class EditTasksActivity extends SingleFragmentActivity<EditTasksFragment> {
 
