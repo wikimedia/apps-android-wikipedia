@@ -11,6 +11,7 @@ import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.editactionfeed.AddTitleDescriptionsFragment.Companion.newInstance
+import org.wikipedia.editactionfeed.unlock.SuggestedEditsUnlockDialogs
 import org.wikipedia.util.FeedbackUtil
 
 class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptionsFragment>() {
@@ -30,7 +31,7 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
 
     override fun onResume() {
         super.onResume()
-        SuggestedEditsUnlockUtil.showUnlockTranslateDescriptionDialog(this)
+        SuggestedEditsUnlockDialogs.showUnlockTranslateDescriptionDialog(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

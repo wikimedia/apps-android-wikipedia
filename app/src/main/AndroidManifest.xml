@@ -356,6 +356,8 @@
             android:name=".savedpages.SavedPageSyncService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
+        <service android:name=".editactionfeed.unlock.SuggestedEditsUnlockService" />
+
         <receiver android:name=".savedpages.SavedPageSyncNotification" />
 
     </application>

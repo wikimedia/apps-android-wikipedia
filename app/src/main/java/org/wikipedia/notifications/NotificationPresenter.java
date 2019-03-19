@@ -120,7 +120,7 @@ public final class NotificationPresenter {
         builder.addAction(0, labelStr, pendingIntent);
     }
 
-    private static Bitmap drawNotificationBitmap(@NonNull Context context, @ColorRes int color, @DrawableRes int icon) {
+    public static Bitmap drawNotificationBitmap(@NonNull Context context, @ColorRes int color, @DrawableRes int icon) {
         final int bitmapHalfSize = DimenUtil.roundedDpToPx(20);
         final int iconHalfSize = DimenUtil.roundedDpToPx(12);
         Bitmap bmp = Bitmap.createBitmap(bitmapHalfSize * 2, bitmapHalfSize * 2, Bitmap.Config.ARGB_8888);
