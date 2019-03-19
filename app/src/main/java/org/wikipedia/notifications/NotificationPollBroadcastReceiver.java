@@ -90,6 +90,8 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
                             if (n.getUtcIso8601().compareTo(lastNotificationTime) > 0) {
                                 lastNotificationTime = n.getUtcIso8601();
                             }
+
+                            // TODO: checkout the status of SuggestedEdits
                         }
                     }
                     if (lastNotificationTime.compareTo(Prefs.getRemoteNotificationsSeenTime()) <= 0) {

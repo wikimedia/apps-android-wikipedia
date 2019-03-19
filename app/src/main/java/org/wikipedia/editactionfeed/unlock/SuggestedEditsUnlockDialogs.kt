@@ -15,11 +15,11 @@ object SuggestedEditsUnlockDialogs {
 
     fun showUnlockAddDescriptionDialog(context: Context) {
         // TODO: migrate this logic to NotificationReceiver, and account for reverts.
-        if (Prefs.isActionEditDescriptionsUnlocked() || Prefs.getTotalUserDescriptionsEdited() < Constants.ACTION_DESCRIPTION_EDIT_UNLOCK_THRESHOLD
+        if (Prefs.isSuggestedEditsAddDescriptionsUnlocked()
                 || !ReleaseUtil.isPreBetaRelease()) {
             return
         }
-        Prefs.setActionEditDescriptionsUnlocked(true)
+        Prefs.setSuggestedEditsAddDescriptionsUnlocked(true)
         Prefs.setShowActionFeedIndicator(true)
         Prefs.setShowEditMenuOptionIndicator(true)
         AlertDialog.Builder(context)
@@ -32,10 +32,12 @@ object SuggestedEditsUnlockDialogs {
 
     fun showUnlockTranslateDescriptionDialog(context: Context) {
         // TODO: migrate this logic to NotificationReceiver, and account for reverts.
-        if (WikipediaApp.getInstance().language().appLanguageCodes.size < Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION || Prefs.getTotalUserDescriptionsEdited() <= Constants.ACTION_DESCRIPTION_EDIT_UNLOCK_THRESHOLD || !Prefs.showEditActionTranslateDescriptionsUnlockedDialog()) {
+        if (WikipediaApp.getInstance().language().appLanguageCodes.size < Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION
+                || Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()
+                || !ReleaseUtil.isPreBetaRelease()) {
             return
         }
-        Prefs.setActionEditDescriptionsUnlocked(true)
+        Prefs.setSuggestedEditsTranslateDescriptionsUnlocked(true)
         Prefs.setShowActionFeedIndicator(true)
         Prefs.setShowEditMenuOptionIndicator(true)
         AlertDialog.Builder(context)

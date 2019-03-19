@@ -13,6 +13,8 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.crash.RemoteLogException;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.editactionfeed.provider.MissingDescriptionProvider;
+import org.wikipedia.editactionfeed.unlock.SuggestedEditsUnlockDialogs;
+import org.wikipedia.editactionfeed.unlock.SuggestedEditsUnlockNotifications;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
@@ -218,6 +220,34 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                             .setPositiveButton(R.string.onboarding_get_started, null)
                             .setNegativeButton(R.string.onboarding_maybe_later, null)
                             .show();
+                    return true;
+                });
+
+        findPreference(context.getString(R.string.preferences_developer_suggested_edits_add_description_dialog))
+                .setOnPreferenceClickListener(preference -> {
+                    Prefs.setSuggestedEditsAddDescriptionsUnlocked(false);
+                    SuggestedEditsUnlockDialogs.INSTANCE.showUnlockAddDescriptionDialog(getActivity());
+                    return true;
+                });
+
+        findPreference(context.getString(R.string.preferences_developer_suggested_edits_add_description_notification))
+                .setOnPreferenceClickListener(preference -> {
+                    Prefs.setSuggestedEditsAddDescriptionsUnlocked(false);
+                    SuggestedEditsUnlockNotifications.INSTANCE.showUnlockAddDescriptionNotification(getActivity());
+                    return true;
+                });
+
+        findPreference(context.getString(R.string.preferences_developer_suggested_edits_translate_description_dialog))
+                .setOnPreferenceClickListener(preference -> {
+                    Prefs.setSuggestedEditsTranslateDescriptionsUnlocked(false);
+                    SuggestedEditsUnlockDialogs.INSTANCE.showUnlockTranslateDescriptionDialog(getActivity());
+                    return true;
+                });
+
+        findPreference(context.getString(R.string.preferences_developer_suggested_edits_translate_description_notification))
+                .setOnPreferenceClickListener(preference -> {
+                    Prefs.setSuggestedEditsTranslateDescriptionsUnlocked(false);
+                    SuggestedEditsUnlockNotifications.INSTANCE.showUnlockTranslateDescriptionNotification(getActivity());
                     return true;
                 });
     }

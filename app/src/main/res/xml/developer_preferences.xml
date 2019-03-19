@@ -290,4 +290,32 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/preferences_developer_suggested_edits_category">
+
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_suggested_edits_add_descriptions_unlocked"
+            android:title="@string/preference_key_suggested_edits_add_descriptions_unlocked" />
+
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_suggested_edits_translate_descriptions_unlocked"
+            android:title="@string/preference_key_suggested_edits_translate_descriptions_unlocked" />
+
+        <Preference
+            android:key="@string/preferences_developer_suggested_edits_add_description_dialog"
+            android:title="@string/preferences_developer_suggested_edits_add_description_dialog"/>
+
+        <Preference
+            android:key="@string/preferences_developer_suggested_edits_add_description_notification"
+            android:title="@string/preferences_developer_suggested_edits_add_description_notification"/>
+
+        <Preference
+            android:key="@string/preferences_developer_suggested_edits_translate_description_dialog"
+            android:title="@string/preferences_developer_suggested_edits_translate_description_dialog"/>
+
+        <Preference
+            android:key="@string/preferences_developer_suggested_edits_translate_description_notification"
+            android:title="@string/preferences_developer_suggested_edits_translate_description_notification"/>
+
+    </PreferenceCategory>
+
 </android.support.v7.preference.PreferenceScreen>

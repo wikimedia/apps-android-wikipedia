@@ -9,6 +9,7 @@ import android.view.MenuItem
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.editactionfeed.AddTitleDescriptionsFragment.Companion.newInstance
 import org.wikipedia.editactionfeed.unlock.SuggestedEditsUnlockDialogs
@@ -42,7 +43,12 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                NavUtils.navigateUpFromSameTask(this)
+                if (WikipediaApp.getInstance().haveMainActivity()) {
+                    NavUtils.navigateUpFromSameTask(this)
+                } else {
+                    startActivity(EditTasksActivity.newIntent(this))
+                }
+                finish()
                 return true
             }
 

@@ -828,14 +828,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_edit_tasks_onboarding, showOnboarding);
     }
 
-    public static boolean isActionEditDescriptionsUnlocked() {
-        return getBoolean(R.string.preference_key_action_edit_descriptions_unlocked, false);
-    }
-
-    public static void setActionEditDescriptionsUnlocked(boolean unlocked) {
-        setBoolean(R.string.preference_key_action_edit_descriptions_unlocked, unlocked);
-    }
-
     public static boolean shouldShowHistoryOfflineArticlesToast() {
         return getBoolean(R.string.preference_key_history_offline_articles_toast, true);
     }
@@ -860,21 +852,22 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_edit_action_translate_descriptions_onboarding, enabled);
     }
 
-    public static boolean isEditActionTranslateDescriptionsUnlocked() {
-        return getBoolean(R.string.preference_key_edit_action_translate_descriptions_unlocked, false);
+    public static boolean isSuggestedEditsTranslateDescriptionsUnlocked() {
+        return getBoolean(R.string.preference_key_suggested_edits_translate_descriptions_unlocked, false);
     }
 
-    public static void setEditActionTranslateDescriptionsUnlocked(boolean enabled) {
-        setBoolean(R.string.preference_key_edit_action_translate_descriptions_unlocked, enabled);
+    public static void setSuggestedEditsTranslateDescriptionsUnlocked(boolean enabled) {
+        setBoolean(R.string.preference_key_suggested_edits_translate_descriptions_unlocked, enabled);
     }
 
-    public static boolean showEditActionTranslateDescriptionsUnlockedDialog() {
-        return getBoolean(R.string.preference_key_show_edit_action_translate_descriptions_unlock_dialog, true);
+    public static boolean isSuggestedEditsAddDescriptionsUnlocked() {
+        return getBoolean(R.string.preference_key_suggested_edits_add_descriptions_unlocked, false);
     }
 
-    public static void setShowEditActionTranslateDescriptionsUnlockedDialog(boolean enabled) {
-        setBoolean(R.string.preference_key_show_edit_action_translate_descriptions_unlock_dialog, enabled);
+    public static void setSuggestedEditsAddDescriptionsUnlocked(boolean enabled) {
+        setBoolean(R.string.preference_key_suggested_edits_add_descriptions_unlocked, enabled);
     }
+
     public static boolean showMultilingualTask() {
         return getBoolean(R.string.preference_key_show_multilingual_task, true);
     }
