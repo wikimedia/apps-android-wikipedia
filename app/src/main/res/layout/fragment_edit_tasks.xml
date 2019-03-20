@@ -94,6 +94,12 @@
             app:tint="?attr/colorAccent"
             android:contentDescription="@null"/>
 
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"/>
+
     </FrameLayout>
 
     <android.support.v7.widget.RecyclerView

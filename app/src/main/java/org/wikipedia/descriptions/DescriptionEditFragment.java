@@ -79,8 +79,6 @@ public class DescriptionEditFragment extends Fragment {
         @Override public void run() {
             if (!AccountUtil.isLoggedIn()) {
                 Prefs.incrementTotalAnonDescriptionsEdited();
-            } else {
-                Prefs.incrementTotalUserDescriptionsEdited();
             }
             Prefs.setLastDescriptionEditTime(new Date().getTime());
 

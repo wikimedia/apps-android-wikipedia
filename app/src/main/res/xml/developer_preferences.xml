@@ -158,6 +158,14 @@
             android:title="@string/preference_key_dialog_with_image_test"
             android:summary="Show our customized dialog with an image above the title." />
 
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_action_edit_descriptions_unlocked"
+            android:title="@string/preference_key_action_edit_descriptions_unlocked" />
+
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_edit_action_translate_descriptions_unlocked"
+            android:title="@string/preference_key_edit_action_translate_descriptions_unlocked" />
+
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
             android:key="@string/preference_key_locally_known_notifications"
