@@ -19,7 +19,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -93,6 +92,8 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
 import static android.app.Activity.RESULT_OK;
+import static org.wikipedia.Constants.ACTIVITY_REQUEST_GALLERY;
+import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
 import static org.wikipedia.descriptions.DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT;
 import static org.wikipedia.page.PageActivity.ACTION_RESUME_READING;
 import static org.wikipedia.page.PageCacher.loadIntoCache;
@@ -496,15 +497,12 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         return app.getTabList().get(app.getTabList().size() - 1);
     }
 
-    private void setCurrentTab(int position, boolean updatePrevBackStackItem) {
+    private void setCurrentTab(int position) {
         // move the selected tab to the bottom of the list, and navigate to it!
         // (but only if it's a different tab than the one currently in view!
         if (position < app.getTabList().size() - 1) {
             Tab tab = app.getTabList().remove(position);
             app.getTabList().add(tab);
-            if (updatePrevBackStackItem) {
-                pageFragmentLoadState.updateCurrentBackStackItem();
-            }
             pageFragmentLoadState.setTab(tab);
             pageFragmentLoadState.loadFromBackStack();
         }
@@ -553,7 +551,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (selectedTabPosition == app.getTabList().size() - 1) {
             pageFragmentLoadState.loadFromBackStack();
         } else {
-            setCurrentTab(selectedTabPosition, false);
+            setCurrentTab(selectedTabPosition);
         }
     }
 
@@ -673,6 +671,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
                 && resultCode == RESULT_OK) {
             AddTitleDescriptionsActivity.Companion.maybeShowEditUnlockDialog(requireActivity());
+            AddTitleDescriptionsActivity.Companion.maybeShowTranslationEdit(requireActivity());
             refreshPage();
         }
     }
@@ -926,7 +925,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             protected void onReferenceClicked(int selectedIndex, @NonNull List<Reference> adjacentReferences) {
 
                 if (!isAdded()) {
-                    Log.d("PageFragment", "Detached from activity, so stopping reference click.");
+                    L.d("Detached from activity, so stopping reference click.");
                     return;
                 }
 
@@ -953,7 +952,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
                             model.getTitleOriginal(), filename, fileUrl, wiki,
                             GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
-                            Constants.ACTIVITY_REQUEST_GALLERY);
+                            ACTIVITY_REQUEST_GALLERY);
                 } else {
                     linkHandler.onUrlClick(href, messagePayload.optString("title"), "");
                 }
@@ -969,7 +968,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
                         model.getTitleOriginal(), filename, wiki,
                         GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
-                        Constants.ACTIVITY_REQUEST_GALLERY);
+                        ACTIVITY_REQUEST_GALLERY);
             } catch (JSONException e) {
                 L.logRemoteErrorIfProd(e);
             }
@@ -1014,7 +1013,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             startActivityForResult(DescriptionEditTutorialActivity.newIntent(requireContext(), text),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL);
         } else {
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), getTitle(), text, false, DescriptionEditActivity.PAGE_SOURCE, null),
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), getTitle(), text, false, PAGE_ACTIVITY, null),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT);
         }
     }

@@ -55,9 +55,8 @@
   <string name="nav_item_forward">Вперёд</string>
   <string name="search_hint">Поиск по Википедии</string>
   <string name="search_hint_search_history">История поиска</string>
-  <string name="search_hint_search_my_lists">Поиск в моих списках</string>
-  <string name="search_hint_search_reading_list">Поиск списка для чтения</string>
   <string name="search_hint_search_languages">Поиск языка</string>
+  <string name="search_hint_search_my_lists_and_articles">Поиск в списках для чтения</string>
   <string name="nav_item_history">История</string>
   <string name="error_network_error">Не удаётся подключиться к интернету.</string>
   <string name="page_error_retry">Повторить</string>
@@ -420,6 +419,7 @@
   <string name="reading_list_description_hint">Описание (необязательно)</string>
   <string name="reading_list_item_deleted">%s удалено из списка</string>
   <string name="reading_list_items_deleted">%d статей удалено из списка</string>
+  <string name="reading_lists_item_deleted">%s удалено из списков</string>
   <string name="reading_list_item_delete_undo">Отменить</string>
   <string name="reading_list_deleted">%s удалено</string>
   <string name="saved_list_empty_title">Ещё нет списков для чтения</string>
@@ -614,12 +614,11 @@
   <string name="description_edit_help_title">Справка: краткие описания</string>
   <string name="description_edit_help_about_wikidata">О Викиданных</string>
   <string name="description_edit_help_wikidata_guide">Руководство для Викиданных по созданию описаний</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/ru</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/ru</string>
   <string name="description_edit_anon_limit">Спасибо вам за неослабевающий интерес к изменению описаний! Для того, чтобы продолжить вносить изменения, вам необходимо войти в Википедию под своей учётной записью.</string>
   <string name="description_edit_license_notice">Изменяя краткое описание, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_task_unlock_title">Список статей для редактирования кратких описаний разблокирован.</string>
-  <string name="description_edit_task_unlock_body">Мы заметили, что вы любите работать с краткими описаниями. Возможно, вы оцените отдельный список статей, нуждающихся в кратких описаниях, размещённый в приложении “Задания для профи”.</string>
+  <string name="description_edit_task_unlock_body">Мы заметили, что вы любите работать с краткими описаниями. Возможно, вы оцените отдельный список статей, нуждающихся в кратких описаниях, размещённый в разделе “Задания для профи”.</string>
   <string name="description_edit_success_saved">Описание сохранено!</string>
   <string name="description_edit_success_encouragement">Вы только что сделали Википедию лучше для всех</string>
   <string name="description_edit_success_done">Готово</string>
@@ -631,20 +630,9 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">В идеале одна строка, от двух до двенадцати слов</string>
   <string name="description_edit_tutorial_button_label_start_editing">Начать редактирование</string>
   <string name="description_edit_tutorial_promise">Начав, я обещаю не злоупотреблять этой функцией.</string>
-  <string name="description_edit_help_about_title">О кратких описаниях</string>
-  <string name="description_edit_help_description">Краткие описания помогают читателям понять тему статьи с первого взгляда.</string>
-  <string name="description_edit_help_tips">Советы по созданию описаний</string>
-  <string name="description_edit_help_tips_description">Описания должны, в идеале, вписываться в одну строку и составлять от двух до двенадцати слов. Их следует начинать со строчной (маленькой) буквы, кроме случаев, когда первое слово — имя собственное. Точку в конце ставить не следует.</string>
-  <string name="description_edit_help_tips_examples">Например:</string>
-  <string name="description_edit_help_tips_example1">картина Леонардо да Винчи</string>
-  <string name="description_edit_help_tips_example1_hint">краткое описание статьи о Мона Лизе</string>
-  <string name="description_edit_help_tips_example2">Самая высокая гора Земли</string>
-  <string name="description_edit_help_tips_example2_hint">краткое описание статьи о горе Эверест</string>
-  <string name="description_edit_help_more_info">Подробная информация</string>
-  <string name="description_edit_help_meta_info">Описания хранятся в Викиданных (Wikidata) — проекте Фонда Викимедиа, представляющем собой свободную совместно наполняемую  многоязычную основанную на внешних источниках вторичную базу данных для поддержки Википедии и других проектов.</string>
   <string name="editactionfeed_add_title_descriptions">Добавление кратких описаний</string>
   <string name="editactionfeed_translate_descriptions">Перевод кратких описаний</string>
-  <string name="editactionfeed_review_title_description">Проверка кратких описаний</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">Проверка кратких описаний</string>
   <string name="editactionfeed_add_description_button">Добавить описание</string>
   <string name="editactionfeed_my_contributions">Мой вклад</string>
   <string name="editactionfeed_from_language">От:</string>
@@ -681,7 +669,7 @@
   <string name="onboarding_got_it">Понятно</string>
   <string name="onboarding_multilingual_secondary_text">Мы нашли следующие языки на вашем устройстве:</string>
   <string name="onboarding_multilingual_add_language_text">Добавить или удалить язык</string>
-  <string name="onboarding_welcome_title_v2" fuzzy="true">Свободная энциклопедия\n…почти на 300 языках</string>
+  <string name="onboarding_welcome_title_v2">Свободная энциклопедия\n…более, чем на 300 языках</string>
   <string name="app_shortcuts_random">Случайная</string>
   <string name="app_shortcuts_continue_reading">Продолжить чтение</string>
   <string name="app_shortcuts_search">Поиск</string>
@@ -728,7 +716,7 @@
   <string name="multilingual_task_title">Больше задач для редакторов, знающих несколько языков</string>
   <string name="multilingual_task_description">Задания для перевода доступны, если Вы читаете и пишете на более чем одном языке Википедии</string>
   <string name="translation_task_title">Перевод кратких описаний</string>
-  <string name="translation_task_description">Перевод кратких описаний на другие языки</string>
+  <string name="translation_task_description">Перевод кратких описаний на другие языки.</string>
   <string name="image_caption_edit_disable_text">Этот функционал будет открыт тогда, когда вы сделаете %d верифицированных правок в приложении</string>
   <string name="translate_description_edit_disable_text">Заблокировано, пока вы не отредактируете %d кратких описаний</string>
   <string name="multilingual_task_negative">Не для меня</string>
@@ -738,14 +726,14 @@
   <string name="translate_caption_task_title">Перевод подписей для изображений</string>
   <string name="translate_caption_task_description">Перевод подписей для изображений на другие языки</string>
   <plurals name="edit_action_contribution_count">
-    <item quantity="one">правка в приложении</item>
-    <item quantity="other">правки в приложении</item>
+    <item quantity="one">одна правка</item>
+    <item quantity="other">%d правки</item>
   </plurals>
   <string name="add_title_descriptions_dialog_title">Добавление кратких описаний</string>
   <string name="add_title_descriptions_dialog_message">Теперь вы можете улучшить Википедию добавляя краткие описания, отображающиеся под заголовками статей. Список языков, которыми могут быть добавлены описания вы можете отредактировать в любое время в настройках.</string>
   <string name="add_translate_descriptions_dialog_title">Вы переводите краткие описания в первый раз</string>
   <string name="add_translate_descriptions_dialog_message">Теперь вы можете улучшить Википедию переводя краткие описания статей. Список языков для перевода вы можете отредактировать в любое время в настройках.</string>
-  <string name="description_edit_tutorial_message">Добро пожаловать в новое приложение для редактирования Википедии. Здесь вам будут предложены возможности для добавления содержимого, которое, надеемся, будет вам интересно. Ваш вклад весьма ценен! Приятного редактирования.</string>
+  <string name="description_edit_tutorial_message">Добро пожаловать в новое приложение для быстрого редактирования Википедии. Ваш вклад весьма ценен. Приятного редактирования!</string>
   <string name="translation_description_edit_task_unlock_title">Перевод кратких описаний разблокирован.</string>
   <string name="translation_description_edit_task_unlock_body">Мы заметили, что вы любите работать с краткими описаниями и читать Википедию на разных языках. Возможно, вы оцените отдельный список статей, нуждающихся в переводе кратких описанийях.</string>
   <string name="title_description_editing_skip">Пропустить</string>

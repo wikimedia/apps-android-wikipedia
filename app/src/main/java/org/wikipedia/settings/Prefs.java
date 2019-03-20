@@ -875,6 +875,13 @@ public final class Prefs {
     public static void setShowEditActionTranslateDescriptionsUnlockedDialog(boolean enabled) {
         setBoolean(R.string.preference_key_show_edit_action_translate_descriptions_unlock_dialog, enabled);
     }
+    public static boolean showMultilingualTask() {
+        return getBoolean(R.string.preference_key_show_multilingual_task, true);
+    }
+
+    public static void setShowMultilingualTask(boolean showTask) {
+        setBoolean(R.string.preference_key_show_multilingual_task, showTask);
+    }
 
     private Prefs() { }
 }

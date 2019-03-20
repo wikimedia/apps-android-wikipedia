@@ -13,8 +13,6 @@
   <string name="nav_item_forward">ווײַטער</string>
   <string name="search_hint">זוכן וויקיפעדיע</string>
   <string name="search_hint_search_history">זוך־היסטאריע</string>
-  <string name="search_hint_search_my_lists">זוכן מיינע ליסטעס</string>
-  <string name="search_hint_search_reading_list">זוכן ליין־ליסטע</string>
   <string name="search_hint_search_languages">זוכן א שפראך</string>
   <string name="nav_item_history">היסטאריע</string>
   <string name="error_network_error">מין קען נישט פארבינדן מיט דער אינטערנעץ.א.</string>
@@ -241,9 +239,6 @@
   <string name="description_edit_help_title">קעפל באַשרייבונגען</string>
   <string name="description_edit_help_about_wikidata">װעגן װיקידאַטן</string>
   <string name="description_edit_success_done">ערליידיקט</string>
-  <string name="description_edit_help_about_title">וועגן</string>
-  <string name="description_edit_help_tips_examples">צום ביישפיל:</string>
-  <string name="description_edit_help_more_info">נאך אינפֿאָרמאַציע</string>
   <string name="onboarding_welcome_title_v2" fuzzy="true">די פֿרייע ענציקלאפעדיע</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">רעדאקטירן שפראכן</string>
 </resources>

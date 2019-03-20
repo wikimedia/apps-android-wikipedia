@@ -13,7 +13,7 @@
     android:foreground="?attr/selectableItemBackground">
 
     <com.facebook.drawee.view.SimpleDraweeView
-        style="@style/SimpleDraweeViewPlaceholder.Article"
+        style="@style/SimpleDraweeViewPlaceholder"
         android:id="@+id/page_list_item_image"
         android:layout_width="@dimen/view_list_card_item_image"
         android:layout_height="@dimen/view_list_card_item_image"

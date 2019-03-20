@@ -34,9 +34,8 @@
   <string name="nav_item_forward">إلى الأمام</string>
   <string name="search_hint">ابحث في ويكيبيديا</string>
   <string name="search_hint_search_history">البحث في التاريخ</string>
-  <string name="search_hint_search_my_lists">ابحث في قوائمي</string>
-  <string name="search_hint_search_reading_list">ابحث في قائمة القراءة</string>
   <string name="search_hint_search_languages">بحث عن لغة</string>
+  <string name="search_hint_search_my_lists_and_articles">البحث في قوائمي ومقالاتي</string>
   <string name="nav_item_history">التاريخ</string>
   <string name="error_network_error">لا يوجد اتصال بالإنترنت.</string>
   <string name="page_error_retry">إعادة المحاولة</string>
@@ -188,7 +187,7 @@
   <string name="preference_summary_eventlogging_opt_in">السماح لويكيميديا بجمع المعلومات حول كيفية استخدام التطبيق لتحسينه</string>
   <string name="preference_title_auto_upload_crash_reports">إرسال تقارير الأعطال</string>
   <string name="preference_summary_auto_upload_crash_reports">إسمح للتطبيق بإرسال تقارير الأعطال تلقائيا إلى HockeyApp / مزود خدمة من طرف ثالث،  حتى نتمكن من مراجعة العطل الخاص بك وإصلاح الخلل بشكل أسرع وأكثر سهولة.</string>
-  <string name="editing_error_spamblacklist">تم اكتشاف روابط لنطاقات ممنوعة:  (%s). الرجاء إزالة هذه النطاقات والمحاولة مرةً أخرى.</string>
+  <string name="editing_error_spamblacklist">تم اكتشاف وصلات لنطاقات ممنوعة (%s). الرجاء إزالة هذه النطاقات والمحاولة مرة أخرى.</string>
   <string name="history_search_list_hint">البحث في التاريخ</string>
   <string name="error_can_not_process_link">تعذّر عرض هذا الرابط</string>
   <string name="page_protected_autoconfirmed">تمت حماية هذه الصفحة جزئياً.</string>
@@ -234,7 +233,7 @@
   <string name="edit_zoom_out">تصغير</string>
   <string name="edit_summary_tag_typo">تم تصحيح خطأ مطبعي</string>
   <string name="edit_summary_tag_grammar">تم إصلاح النحو</string>
-  <string name="edit_summary_tag_links">تمت إضافة روابط</string>
+  <string name="edit_summary_tag_links">تمت إضافة وصلات</string>
   <string name="edit_summary_tag_other">أخرى</string>
   <string name="edit_summary_tag_other_hint">طرق أخرى استخدمتها لتحسين الصفحة</string>
   <string name="edit_conflict_title">تضارب تحرير</string>
@@ -399,6 +398,7 @@
   <string name="reading_list_description_hint">الوصف (اختياري):</string>
   <string name="reading_list_item_deleted">أزيلت %s من القائمة</string>
   <string name="reading_list_items_deleted">أزيلت %d مقالة من القائمة</string>
+  <string name="reading_lists_item_deleted">تمت إزالة %s من القوائم</string>
   <string name="reading_list_item_delete_undo">تراجع</string>
   <string name="reading_list_deleted">أزيلت %s</string>
   <string name="saved_list_empty_title">لا توجد قوائم قراءة بعد</string>
@@ -566,7 +566,7 @@
   <string name="view_featured_article_footer_save_button_label">حفظ</string>
   <string name="view_static_card_save_button_label">حفظ</string>
   <string name="view_featured_article_footer_saved_button_label">حُفظت</string>
-  <string name="edit_tasks_activity_title">مهام محرر التطبيق</string>
+  <string name="edit_tasks_activity_title">مهام المحرر</string>
   <string name="feed_configure_activity_title">تخصيص الخلاصة</string>
   <string name="feed_configure_menu_reset">استعادة العرض الافتراضي</string>
   <string name="feed_configure_menu_select_all">عرض الكل</string>
@@ -584,20 +584,23 @@
   <string name="feed_configure_onboarding_action">تخصيص</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;تخصيص خلاصة استكشافك&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;يمكنك الآن اختيار ما تريد عرضه على خلاصتك، وكذلك تحديد أولويات أنواع المحتوى المفضلة لديك.</string>
   <string name="description_edit_text_hint">وصف العنوان</string>
+  <string name="description_edit_text_hint_per_language">وصف %s</string>
   <string name="description_edit_save">انشر</string>
+  <string name="description_edit_article">مقالة</string>
+  <string name="description_edit_read">قراءة</string>
   <string name="description_edit_add_description">إضافة وصف للعنوان</string>
   <string name="description_edit_edit_description">عدل الوصف</string>
   <string name="description_edit_cancel_hint">ألغ</string>
   <string name="description_edit_help_title">مساعدة:وصوف العناوين</string>
   <string name="description_edit_help_about_wikidata">عن ويكي بيانات</string>
   <string name="description_edit_help_wikidata_guide">دليل ويكي بيانات لكتابة الوصوف</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">شكرًا لاهتمامك المستمر بتعديل الوصوف! لإضافة المزيد من التعديلات، فضلًا سجل الدخول لحسابك في ويكيبيديا.</string>
   <string name="description_edit_license_notice">بتغييري لوصف العنوان، أنا أوافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt; وعلى نشر مساهماتي بصورة لا رجعة فيها تحت ترخيص &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_task_unlock_title">قائمة مهمة تحرير وصوف العناوين فُتحت!</string>
-  <string name="description_edit_task_unlock_body">لاحظنا أنك تُحب تعديل وصوف العناوين، لذلك قمنا بتجميع قائمة \"مهام محرر التطبيق\" بها المزيد من المقالات التي تفتقد لوصوف العناوين وذلك لمساعدتك في مواصلة المساهمة!</string>
+  <string name="description_edit_task_unlock_body">لاحظنا أنك تُحب تعديل وصوف العناوين، لذلك قمنا بتجميع قائمة \"مهام المحرر\" بها المزيد من المقالات التي تفتقد لوصوف العناوين وذلك لمساعدتك في مواصلة المساهمة!</string>
   <string name="description_edit_success_saved">نُشر الوصف!</string>
+  <string name="description_edit_success_saved_snackbar">نُشِر الوصف!</string>
   <string name="description_edit_success_encouragement">لقد جعلت ويكيبيديا أفضل للجميع</string>
   <string name="description_edit_success_done">تم</string>
   <string name="description_edit_success_did_you_know">هل تعلم؟</string>
@@ -608,26 +611,16 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">بشكلٍ مثالي سطر واحد يكفي، ما بين كلمتين إلى اثنتا عشرة كلمة</string>
   <string name="description_edit_tutorial_button_label_start_editing">ابدأ التعديل</string>
   <string name="description_edit_tutorial_promise">ببدئي، أنا أعد بعدم إساءة استخدام هذه الميزة.</string>
-  <string name="description_edit_help_about_title">حول</string>
-  <string name="description_edit_help_description">وصوف العناوين تُلخّص المقالة للتسهيل على القراء فهم الموضوع بلمحة.</string>
-  <string name="description_edit_help_tips">تلميحات لإنشاء الوصوف</string>
-  <string name="description_edit_help_tips_description">يُفترض أن سطرا واحدا يكفي للوصف، ويكون بين كلمتين إلى اثنتا عشرة كلمة.</string>
-  <string name="description_edit_help_tips_examples">على سبيل المثال:</string>
-  <string name="description_edit_help_tips_example1">اللوحة بواسطة ليوناردو دا فينشي</string>
-  <string name="description_edit_help_tips_example1_hint">وصف عنوان لمقال عن لوحة الموناليزا</string>
-  <string name="description_edit_help_tips_example2">أعلى جبل في الأرض</string>
-  <string name="description_edit_help_tips_example2_hint">وصف عنوان لمقال حول جبل ايفرست</string>
-  <string name="description_edit_help_more_info">مزيد من المعلومات</string>
-  <string name="description_edit_help_meta_info">يتم تخزين الأوصاف والحفاظ عليها في ويكي بيانات، وهو مشروع لمؤسسة ويكيميديا ​​الذي يوفر قاعدة بيانات حرة، وتعاونية، ومتعددة اللغات، وثانوية تدعم ويكيبيديا وغيرها من المشاريع.</string>
-  <string name="editactionfeed_add_title_descriptions">إضافة وصوفات العنوان</string>
+  <string name="editactionfeed_add_title_descriptions">إضافة وصوفات</string>
   <string name="editactionfeed_translate_descriptions">ترجمة وصف العنوان</string>
-  <string name="editactionfeed_review_title_description">معاينة وصف العنوان</string>
+  <string name="editactionfeed_review_title_description">معاينة الوصف</string>
   <string name="editactionfeed_add_description_button">أضف وصفا</string>
   <string name="editactionfeed_my_contributions">مساهماتي</string>
   <string name="editactionfeed_from_language">من:</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">اعرف المزيد</string>
+  <string name="editactionfeed_add_title_dialog_learn_more">معرفة المزيد</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">معرفة المزيد</string>
   <string name="editactionfeed_to_language">إلى:</string>
+  <string name="editactionfeed_added_by_you">أُضِيف بواسطتك:</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
   <string name="description_edit_revert_intro">نحن نعلم أنك جربت أفضل ما لديك، ولكن كان أحد المراجعين قلقا، من بين الأسباب المحتملة لاسترجاع تعديلك ما يلي:</string>
   <string name="description_edit_revert_reason1">مساهمتك لا تتبع أحد &lt;a href=\"%1$s\"&gt;الإرشادات&lt;/a&gt;.</string>
@@ -658,7 +651,7 @@
   <string name="onboarding_got_it">فهمت</string>
   <string name="onboarding_multilingual_secondary_text">لقد وجدنا ما يلي على جهازك:</string>
   <string name="onboarding_multilingual_add_language_text">أضف أو عدل اللغات</string>
-  <string name="onboarding_welcome_title_v2" fuzzy="true">الموسوعة الحرة ... في  أكثر  من 300 لغة</string>
+  <string name="onboarding_welcome_title_v2">الموسوعة الحرة \n…بأكثر من 300 لغة</string>
   <string name="app_shortcuts_random">عشوائي</string>
   <string name="app_shortcuts_continue_reading">مواصلة القراءة</string>
   <string name="app_shortcuts_search">بحث</string>
@@ -698,16 +691,16 @@
   <string name="main_drawer_close">إغلاق</string>
   <string name="main_drawer_help">مساعدة</string>
   <string name="main_drawer_login">تسجيل الدخول / الاشتراك في ويكيبيديا</string>
-  <string name="title_description_task_title">إضافة وصوفات العنوان</string>
-  <string name="title_description_task_description">ساهم في المقالات التي تفتقد لوصوف العناوين</string>
+  <string name="title_description_task_title">إضافة وصوفات</string>
+  <string name="title_description_task_description">ساهم في المقالات التي تفتقد للوصوف</string>
   <string name="image_caption_task_title">تعليقات الصور</string>
   <string name="image_caption_task_description">أضف تعليقاتٍ للصور</string>
   <string name="multilingual_task_title">مهام أكثر للمحررين متعددي اللغات</string>
   <string name="multilingual_task_description">مهام الترجمة متاحة إذا كنت تقرأ وتكتب في أكثر من لغة ويكيبيديا واحدة.</string>
-  <string name="translation_task_title">ترجمة وصف العنوان</string>
-  <string name="translation_task_description">ترجمة أوصاف العنوان إلى لغات أخرى.</string>
-  <string name="image_caption_edit_disable_text">مقفلة حتى قيامك بـ%d تعديلًا مؤكدًا داخل التطبيق</string>
-  <string name="translate_description_edit_disable_text">مغلق حتى تقوم بتحرير وصف %d من العنوان</string>
+  <string name="translation_task_title">ترجمة الوصوف</string>
+  <string name="translation_task_description">ترجمة الأوصاف عبر لغات المقالة.</string>
+  <string name="image_caption_edit_disable_text">مقفلة حتى قيامك بـ%d تعديلًا مؤكدًا</string>
+  <string name="translate_description_edit_disable_text">مغلق حتى تقوم ب%d تعديلا مؤكدا</string>
   <string name="multilingual_task_negative">ليس لي</string>
   <string name="multilingual_task_positive">أضف لغات</string>
   <string name="editing_level_text">محرر تطبيق من المستوى %d</string>
@@ -715,14 +708,14 @@
   <string name="translate_caption_task_title">ترجمة تعليقات الصور</string>
   <string name="translate_caption_task_description">ترجمة التعليقات إلى لغات أخرى</string>
   <plurals name="edit_action_contribution_count">
-    <item quantity="one">مساهمة داخل التطبيق</item>
-    <item quantity="other">مساهمات داخل التطبيق</item>
+    <item quantity="one">مساهمة</item>
+    <item quantity="other">%d مساهمات</item>
   </plurals>
   <string name="add_title_descriptions_dialog_title">إضافة وصوفات العنوان</string>
   <string name="add_title_descriptions_dialog_message">يمكنك الآن المساعدة في تحسين ويكيبيديا عن طريق إضافة الوصوفات التي تظهر أسفل العناوين في المقالات. يمكنك ضبط لغاتك في أي وقت.</string>
   <string name="add_translate_descriptions_dialog_title">أنت تترجم وصوفات العنوان للمرة الأولى</string>
   <string name="add_translate_descriptions_dialog_message">يمكنك الآن المساعدة في تحسين ويكيبيديا عن طريق ترجمة وصوفات العنوان. يمكنك ضبط لغاتك وضبط اتجاه الترجمة في أي وقت.</string>
-  <string name="description_edit_tutorial_message">مرحبا بك في البيت الجديد للتعديل من التطبيق على ويكيبيديا. هنا سنقترح الفرص لإضافة المحتوى الذي ربما يكون مهما لك. مساهماتك مرحب بها جدا. تعديل سعيد!</string>
+  <string name="description_edit_tutorial_message">مرحبا بك في البيت الجديد للتعديل السريع من تطبيق ويكيبيديا. مساهماتك مرحب بها جدا. تحرير سعيد!</string>
   <string name="translation_description_edit_task_unlock_title">تعديل ترجمة وصوفات العنوان تم فتحه!</string>
   <string name="translation_description_edit_task_unlock_body">لقد لاحظنا أنك تحب تعديل وصوفات العنوان وقراءة ويكيبيديا بلغات متعددة. تحقق من قائمة المهام هذه والتي توفر الوصول لترجمة المزيد من وصوفات العنوان!</string>
   <string name="title_description_editing_skip">تجاوز</string>
@@ -732,4 +725,5 @@
   <string name="translate_descriptions_maybe_later">ربما لاحقا</string>
   <string name="title_descriptions_onboarding_got_it">فهمت</string>
   <string name="translate_descriptions_onboarding_got_it">فهمت</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
 </resources>

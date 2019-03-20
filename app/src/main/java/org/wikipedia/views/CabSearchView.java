@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.richtext.RichTextUtil;
+import org.wikipedia.util.FeedbackUtil;
 
 import java.util.Arrays;
 
@@ -20,7 +21,8 @@ import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 /** {@link SearchView} that exposes contextual action bar callbacks. */
 public class CabSearchView extends SearchView {
-    private  ImageView searchCloseBtn;
+    private ImageView searchCloseBtn;
+    private SearchView.SearchAutoComplete searchSrcTextView;
 
     private static final int SEARCH_TEXT_SIZE = 16;
 
@@ -36,7 +38,7 @@ public class CabSearchView extends SearchView {
         super(context, attrs, defStyleAttr);
 
         int themedIconColor = getThemedColor(getContext(), R.attr.page_toolbar_icon_color);
-        SearchView.SearchAutoComplete searchSrcTextView = findViewById(R.id.search_src_text);
+        searchSrcTextView = findViewById(R.id.search_src_text);
         searchSrcTextView.setTextColor(getThemedColor(getContext(), R.attr.primary_text_color));
         searchSrcTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, SEARCH_TEXT_SIZE);
         searchSrcTextView.setHintTextColor(themedIconColor);
@@ -45,6 +47,7 @@ public class CabSearchView extends SearchView {
         searchCloseBtn = findViewById(R.id.search_close_btn);
         searchCloseBtn.setVisibility(GONE);
         searchCloseBtn.setColorFilter(themedIconColor);
+        FeedbackUtil.setToolbarButtonLongPressToast(searchCloseBtn);
         addFilter(searchSrcTextView, new PlainTextInputFilter());
     }
 
@@ -53,6 +56,14 @@ public class CabSearchView extends SearchView {
         InputFilter[] newFilters = Arrays.copyOf(filters, filters.length + 1);
         newFilters[filters.length] = filter;
         textView.setFilters(newFilters);
+    }
+
+    public void selectAllQueryTexts() {
+        searchSrcTextView.selectAll();
+    }
+
+    public void setSearchHintTextColor(int color) {
+        searchSrcTextView.setHintTextColor(color);
     }
 
     public void setCloseButtonVisibility(String searchString) {
