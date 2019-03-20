@@ -110,8 +110,11 @@ public class EditTasksFragment extends Fragment {
 
     private void updateUI() {
         username.setText(AccountUtil.getUserName());
-        contributionsText.setText(getResources().getQuantityString(R.plurals.edit_action_contribution_count,
-                Prefs.getTotalUserDescriptionsEdited(), Prefs.getTotalUserDescriptionsEdited()));
+
+        // TODO:
+        //contributionsText.setText(getResources().getQuantityString(R.plurals.edit_action_contribution_count,
+        //        Prefs.getTotalUserDescriptionsEdited(), Prefs.getTotalUserDescriptionsEdited()));
+
         requireActivity().invalidateOptionsMenu();
     }
 

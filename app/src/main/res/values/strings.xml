@@ -539,6 +539,8 @@
     <string name="preference_summary_notification_milestone">Certain edit counts are reached</string>
     <string name="preference_title_notification_thanks">Thanks</string>
     <string name="preference_summary_notification_thanks">Someone thanks you for an edit</string>
+    <string name="preference_title_notification_revert">Revert</string>
+    <string name="preference_summary_notification_revert">One of your contributions was reverted</string>
     <!-- /Notifications -->
 
     <!-- The Feed -->

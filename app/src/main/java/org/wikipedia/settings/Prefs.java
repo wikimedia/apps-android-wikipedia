@@ -474,22 +474,6 @@ public final class Prefs {
         setInt(R.string.preference_key_total_anon_descriptions_edited, getTotalAnonDescriptionsEdited() + 1);
     }
 
-    public static int getTotalUserDescriptionsEdited() {
-        return getInt(R.string.preference_key_total_user_descriptions_edited, 0);
-    }
-
-    public static void incrementTotalUserDescriptionsEdited() {
-        setInt(R.string.preference_key_total_user_descriptions_edited, getTotalUserDescriptionsEdited() + 1);
-    }
-
-    public static int getTotalUserDescriptionsReverted() {
-        return getInt(R.string.preference_key_total_user_descriptions_edited, 0);
-    }
-
-    public static void incrementTotalUserDescriptionsReverted() {
-        setInt(R.string.preference_key_total_user_descriptions_edited, getTotalUserDescriptionsReverted() + 1);
-    }
-
     public static boolean isReadingListSyncEnabled() {
         return getBoolean(R.string.preference_key_sync_reading_lists, false);
     }
@@ -595,6 +579,10 @@ public final class Prefs {
 
     public static boolean notificationThanksEnabled() {
         return getBoolean(R.string.preference_key_notification_thanks_enable, true);
+    }
+
+    public static boolean notificationRevertEnabled() {
+        return getBoolean(R.string.preference_key_notification_revert_enable, true);
     }
 
     public static boolean showAllNotifications() {
@@ -868,13 +856,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_edit_action_translate_descriptions_unlocked, enabled);
     }
 
-    public static boolean showEditActionTranslateDescriptionsUnlockedDialog() {
-        return getBoolean(R.string.preference_key_show_edit_action_translate_descriptions_unlock_dialog, true);
-    }
-
-    public static void setShowEditActionTranslateDescriptionsUnlockedDialog(boolean enabled) {
-        setBoolean(R.string.preference_key_show_edit_action_translate_descriptions_unlock_dialog, enabled);
-    }
     public static boolean showMultilingualTask() {
         return getBoolean(R.string.preference_key_show_multilingual_task, true);
     }
