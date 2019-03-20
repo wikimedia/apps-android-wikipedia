@@ -12,10 +12,10 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.crash.RemoteLogException;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity;
 import org.wikipedia.editactionfeed.provider.MissingDescriptionProvider;
-import org.wikipedia.editactionfeed.unlock.SuggestedEditsUnlockDialogs;
-import org.wikipedia.editactionfeed.unlock.SuggestedEditsUnlockNotifications;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.notifications.NotificationEditorTasksHandler;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
@@ -227,28 +227,28 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
         findPreference(context.getString(R.string.preferences_developer_suggested_edits_add_description_dialog))
                 .setOnPreferenceClickListener(preference -> {
                     Prefs.setSuggestedEditsAddDescriptionsUnlocked(false);
-                    SuggestedEditsUnlockDialogs.INSTANCE.showUnlockAddDescriptionDialog(getActivity());
+                    AddTitleDescriptionsActivity.Companion.showEditUnlockDialog(getActivity());
                     return true;
                 });
 
         findPreference(context.getString(R.string.preferences_developer_suggested_edits_add_description_notification))
                 .setOnPreferenceClickListener(preference -> {
                     Prefs.setSuggestedEditsAddDescriptionsUnlocked(false);
-                    SuggestedEditsUnlockNotifications.INSTANCE.showUnlockAddDescriptionNotification(getActivity());
+                    NotificationEditorTasksHandler.maybeShowEditDescriptionUnlockNotification(getActivity());
                     return true;
                 });
 
         findPreference(context.getString(R.string.preferences_developer_suggested_edits_translate_description_dialog))
                 .setOnPreferenceClickListener(preference -> {
                     Prefs.setSuggestedEditsTranslateDescriptionsUnlocked(false);
-                    SuggestedEditsUnlockDialogs.INSTANCE.showUnlockTranslateDescriptionDialog(getActivity());
+                    AddTitleDescriptionsActivity.Companion.showTranslateUnlockDialog(getActivity());
                     return true;
                 });
 
         findPreference(context.getString(R.string.preferences_developer_suggested_edits_translate_description_notification))
                 .setOnPreferenceClickListener(preference -> {
                     Prefs.setSuggestedEditsTranslateDescriptionsUnlocked(false);
-                    SuggestedEditsUnlockNotifications.INSTANCE.showUnlockTranslateDescriptionNotification(getActivity());
+                    NotificationEditorTasksHandler.maybeShowTranslateDescriptionUnlockNotification(getActivity());
                     return true;
                 });
     }

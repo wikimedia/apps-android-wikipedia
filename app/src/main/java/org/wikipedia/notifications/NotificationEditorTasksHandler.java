@@ -23,35 +23,47 @@ public final class NotificationEditorTasksHandler {
         Object eventToDispatch = null;
 
         if (numTargetsPassed > 1) {
-            if (!Prefs.isActionEditDescriptionsUnlocked()) {
-                Prefs.setActionEditDescriptionsUnlocked(true);
+            if (!Prefs.isSuggestedEditsAddDescriptionsUnlocked()) {
+                Prefs.setSuggestedEditsAddDescriptionsUnlocked(true);
                 Prefs.setShowActionFeedIndicator(true);
                 Prefs.setShowEditMenuOptionIndicator(true);
-                maybeShowEditDescriptionUnlockNotification(context);
+
+                if (!WikipediaApp.getInstance().isAnyActivityResumed()) {
+                    maybeShowEditDescriptionUnlockNotification(context);
+                }
+
                 eventToDispatch = new EditorTaskUnlockEvent(1);
             }
-            if (!Prefs.isEditActionTranslateDescriptionsUnlocked() && WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
-                Prefs.setEditActionTranslateDescriptionsUnlocked(true);
-                maybeShowTranslateDescriptionUnlockNotification(context);
+            if (!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked() && WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
+                Prefs.setSuggestedEditsTranslateDescriptionsUnlocked(true);
+
+                if (!WikipediaApp.getInstance().isAnyActivityResumed()) {
+                    maybeShowTranslateDescriptionUnlockNotification(context);
+                }
+
                 eventToDispatch = new EditorTaskUnlockEvent(numTargetsPassed);
             }
         } else if (numTargetsPassed > 0) {
-            if (!Prefs.isActionEditDescriptionsUnlocked()) {
-                Prefs.setActionEditDescriptionsUnlocked(true);
+            if (!Prefs.isSuggestedEditsAddDescriptionsUnlocked()) {
+                Prefs.setSuggestedEditsAddDescriptionsUnlocked(true);
                 Prefs.setShowActionFeedIndicator(true);
                 Prefs.setShowEditMenuOptionIndicator(true);
-                maybeShowEditDescriptionUnlockNotification(context);
+
+                if (!WikipediaApp.getInstance().isAnyActivityResumed()) {
+                    maybeShowEditDescriptionUnlockNotification(context);
+                }
+
                 eventToDispatch = new EditorTaskUnlockEvent(numTargetsPassed);
             }
-            if (Prefs.isEditActionTranslateDescriptionsUnlocked()) {
-                Prefs.setEditActionTranslateDescriptionsUnlocked(false);
+            if (Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()) {
+                Prefs.setSuggestedEditsTranslateDescriptionsUnlocked(false);
             }
         } else {
-            if (Prefs.isActionEditDescriptionsUnlocked()) {
-                Prefs.setActionEditDescriptionsUnlocked(false);
+            if (Prefs.isSuggestedEditsAddDescriptionsUnlocked()) {
+                Prefs.setSuggestedEditsAddDescriptionsUnlocked(false);
             }
-            if (Prefs.isEditActionTranslateDescriptionsUnlocked()) {
-                Prefs.setEditActionTranslateDescriptionsUnlocked(false);
+            if (Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()) {
+                Prefs.setSuggestedEditsTranslateDescriptionsUnlocked(false);
             }
         }
 
@@ -60,30 +72,26 @@ public final class NotificationEditorTasksHandler {
         }
     }
 
-    private static void maybeShowEditDescriptionUnlockNotification(@NonNull Context context) {
-        if (!WikipediaApp.getInstance().isAnyActivityResumed()) {
-            Intent intent = AddTitleDescriptionsActivity.Companion.newIntent(context, Constants.InvokeSource.EDIT_FEED_TITLE_DESC);
-            NotificationCompat.Builder builder = NotificationPresenter.getDefaultBuilder(context);
-            PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-            builder.addAction(0, context.getString(R.string.title_description_get_started), pendingIntent);
-            NotificationPresenter.showNotification(context, 0, context.getString(R.string.description_edit_task_unlock_title),
-                    context.getString(R.string.description_edit_task_unlock_body),
-                    context.getString(R.string.description_edit_task_unlock_body),
-                    R.drawable.ic_mode_edit_white_24dp, R.color.accent50, intent);
-        }
+    public static void maybeShowEditDescriptionUnlockNotification(@NonNull Context context) {
+        Intent intent = AddTitleDescriptionsActivity.Companion.newIntent(context, Constants.InvokeSource.EDIT_FEED_TITLE_DESC);
+        NotificationCompat.Builder builder = NotificationPresenter.getDefaultBuilder(context);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.addAction(0, context.getString(R.string.suggested_edits_unlock_notification_button), pendingIntent);
+        NotificationPresenter.showNotification(context, 0, context.getString(R.string.suggested_edits_unlock_add_descriptions_notification_title),
+                context.getString(R.string.suggested_edits_unlock_notification_text),
+                context.getString(R.string.suggested_edits_unlock_add_descriptions_notification_big_text),
+                R.drawable.ic_mode_edit_white_24dp, R.color.accent50, intent, builder);
     }
 
-    private static void maybeShowTranslateDescriptionUnlockNotification(@NonNull Context context) {
-        if (!WikipediaApp.getInstance().isAnyActivityResumed()) {
-            Intent intent = AddTitleDescriptionsActivity.Companion.newIntent(context, Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC);
-            NotificationCompat.Builder builder = NotificationPresenter.getDefaultBuilder(context);
-            PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-            builder.addAction(0, context.getString(R.string.title_description_get_started), pendingIntent);
-            NotificationPresenter.showNotification(context, 0, context.getString(R.string.translation_description_edit_task_unlock_title),
-                    context.getString(R.string.translation_description_edit_task_unlock_body),
-                    context.getString(R.string.translation_description_edit_task_unlock_body),
-                    R.drawable.ic_mode_edit_white_24dp, R.color.accent50, intent);
-        }
+    public static void maybeShowTranslateDescriptionUnlockNotification(@NonNull Context context) {
+        Intent intent = AddTitleDescriptionsActivity.Companion.newIntent(context, Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC);
+        NotificationCompat.Builder builder = NotificationPresenter.getDefaultBuilder(context);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.addAction(0, context.getString(R.string.suggested_edits_unlock_notification_button), pendingIntent);
+        NotificationPresenter.showNotification(context, 0, context.getString(R.string.suggested_edits_unlock_translate_descriptions_notification_title),
+                context.getString(R.string.suggested_edits_unlock_notification_text),
+                context.getString(R.string.suggested_edits_unlock_translate_descriptions_notification_big_text),
+                R.drawable.ic_mode_edit_white_24dp, R.color.accent50, intent, builder);
     }
 
     private NotificationEditorTasksHandler() {

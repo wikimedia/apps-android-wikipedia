@@ -71,19 +71,23 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
 
         fun showEditUnlockDialog(context: Context) {
             AlertDialog.Builder(context)
-                    .setCustomTitle(DialogTitleWithImage(context, R.string.description_edit_task_unlock_title, R.drawable.ic_illustration_description_edit_trophy, true))
-                    .setMessage(R.string.description_edit_task_unlock_body)
-                    .setPositiveButton(R.string.onboarding_get_started) { _, _ -> context.startActivity(AddTitleDescriptionsActivity.newIntent(context, EDIT_FEED_TITLE_DESC)) }
-                    .setNegativeButton(R.string.onboarding_maybe_later, null)
+                    .setCustomTitle(DialogTitleWithImage(context, R.string.suggested_edits_unlock_translate_descriptions_dialog_title,
+                            R.drawable.ic_illustration_description_edit_trophy, true))
+                    .setMessage(R.string.suggested_edits_unlock_add_descriptions_dialog_message)
+                    .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _
+                        -> context.startActivity(AddTitleDescriptionsActivity.newIntent(context, EDIT_FEED_TITLE_DESC)) }
+                    .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
                     .show()
         }
 
         fun showTranslateUnlockDialog(context: Context) {
             AlertDialog.Builder(context)
-                    .setCustomTitle(DialogTitleWithImage(context, R.string.translation_description_edit_task_unlock_title, R.drawable.ic_illustration_description_edit_trophy, true))
-                    .setMessage(R.string.translation_description_edit_task_unlock_body)
-                    .setPositiveButton(R.string.onboarding_get_started) { _, _ -> context.startActivity(AddTitleDescriptionsActivity.newIntent(context, EDIT_FEED_TRANSLATE_TITLE_DESC)) }
-                    .setNegativeButton(R.string.onboarding_maybe_later, null)
+                    .setCustomTitle(DialogTitleWithImage(context, R.string.suggested_edits_unlock_translate_descriptions_dialog_title,
+                            R.drawable.ic_illustration_description_edit_trophy, true))
+                    .setMessage(R.string.suggested_edits_unlock_translate_descriptions_dialog_message)
+                    .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _
+                        -> context.startActivity(AddTitleDescriptionsActivity.newIntent(context, EDIT_FEED_TRANSLATE_TITLE_DESC)) }
+                    .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
                     .show()
         }
     }
