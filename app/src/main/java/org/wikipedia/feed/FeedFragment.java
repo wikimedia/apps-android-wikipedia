@@ -26,7 +26,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FeedFunnel;
-import org.wikipedia.editactionfeed.EditTasksActivity;
+import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.feed.configure.ConfigureActivity;
 import org.wikipedia.feed.configure.ConfigureItemLanguageDialogView;
 import org.wikipedia.feed.configure.LanguageItemAdapter;
@@ -38,11 +38,13 @@ import org.wikipedia.feed.mostread.MostReadArticlesActivity;
 import org.wikipedia.feed.mostread.MostReadListCard;
 import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.feed.random.RandomCardView;
+import org.wikipedia.feed.suggestededits.SuggestedEditCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.settings.Prefs;
@@ -61,9 +63,12 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
+import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
+import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_FEED_CONFIGURE;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_SETTINGS;
+import static org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.EXTRA_SOURCE_ADDED_DESCRIPTION;
 import static org.wikipedia.language.AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
 import static org.wikipedia.language.AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
 
@@ -80,6 +85,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     private final FeedAdapter.Callback feedCallback = new FeedCallback();
     private FeedScrollListener feedScrollListener = new FeedScrollListener();
     private boolean searchIconVisible;
+    private SuggestedEditCardView suggestedEditCardView;
 
     public interface Callback {
         void onFeedSearchRequested();
@@ -221,6 +227,11 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                 && resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED)
                 || requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
             refresh();
+        } else if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
+            if (suggestedEditCardView != null) {
+                suggestedEditCardView.showAddedDescriptionView(data.getStringExtra(EXTRA_SOURCE_ADDED_DESCRIPTION));
+            }
+            FeedbackUtil.showMessage(this, R.string.description_edit_success_saved_snackbar);
         }
     }
 
@@ -505,9 +516,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public void onSuggestedEditsCardClick() {
-            startActivity(EditTasksActivity.newIntent(requireActivity()));
-
+        public void onSuggestedEditsCardClick(@NonNull PageTitle pageTitle, @NonNull final SuggestedEditCardView view) {
+            suggestedEditCardView = view;
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), pageTitle, null, true, Constants.InvokeSource.FEED, null),
+                    ACTIVITY_REQUEST_DESCRIPTION_EDIT);
         }
     }
 

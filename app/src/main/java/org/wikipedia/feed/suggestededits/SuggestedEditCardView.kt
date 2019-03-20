@@ -3,9 +3,11 @@ package org.wikipedia.feed.suggestededits
 
 import android.content.Context
 import android.net.Uri
+import android.text.TextUtils
 import android.view.View
 import android.widget.FrameLayout
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.annotations.NonNull
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_add_title_descriptions_item.view.*
@@ -16,6 +18,7 @@ import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.editactionfeed.provider.MissingDescriptionProvider
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
+import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
@@ -23,7 +26,7 @@ import org.wikipedia.views.ItemTouchHelperSwipeAdapter
 
 class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEditCard>(context), ItemTouchHelperSwipeAdapter.SwipeableView {
     interface Callback {
-        fun onSuggestedEditsCardClick()
+        fun onSuggestedEditsCardClick(@NonNull pageTitle: PageTitle, @NonNull view: SuggestedEditCardView)
     }
 
     private val disposables = CompositeDisposable()
@@ -83,7 +86,7 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
         cardView.setContentPadding(0, 0, 0, DimenUtil.roundedDpToPx(CARD_BOTTOM_PADDING))
         cardView.setOnClickListener {
             if (callback != null && card != null) {
-                callback!!.onSuggestedEditsCardClick()
+                callback!!.onSuggestedEditsCardClick(summary!!.getPageTitle(WikiSite.forLanguageCode(WikipediaApp.getInstance().language().appLanguageCode)), this)
             }
         }
     }
@@ -104,5 +107,13 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
                 .setLangCode(card.wikiSite().languageCode())
                 .setCard(card)
                 .setCallback(callback)
+    }
+
+    fun showAddedDescriptionView(addedDescription: String?) {
+        if (!TextUtils.isEmpty(addedDescription)) {
+            viewArticleSubtitleContainer.visibility = View.VISIBLE
+            viewAddDescriptionButton.visibility = View.GONE
+            viewArticleSubtitle.text = addedDescription
+        }
     }
 }

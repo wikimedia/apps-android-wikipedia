@@ -83,7 +83,7 @@ public enum FeedContentType implements EnumCode {
         @Nullable
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
-            return isEnabled() && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline() ? new SuggestedEditFeedClient() : null;
+            return isEnabled() && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline() && Prefs.isActionEditDescriptionsUnlocked() ? new SuggestedEditFeedClient() : null;
         }
     };
 
