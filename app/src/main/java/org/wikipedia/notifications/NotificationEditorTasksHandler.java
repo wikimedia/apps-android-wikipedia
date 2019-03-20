@@ -75,7 +75,7 @@ public final class NotificationEditorTasksHandler {
 
     private static void maybeShowTranslateDescriptionUnlockNotification(@NonNull Context context) {
         if (!WikipediaApp.getInstance().isAnyActivityResumed()) {
-            Intent intent = AddTitleDescriptionsActivity.Companion.newIntent(context, Constants.InvokeSource.EDIT_FEED_TITLE_DESC);
+            Intent intent = AddTitleDescriptionsActivity.Companion.newIntent(context, Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC);
             NotificationCompat.Builder builder = NotificationPresenter.getDefaultBuilder(context);
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             builder.addAction(0, context.getString(R.string.title_description_get_started), pendingIntent);
