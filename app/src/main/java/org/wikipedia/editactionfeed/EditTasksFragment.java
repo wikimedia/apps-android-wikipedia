@@ -18,10 +18,14 @@ import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.dataclient.Service;
+import org.wikipedia.dataclient.ServiceFactory;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.FooterMarginItemDecoration;
@@ -34,6 +38,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
 import static org.wikipedia.Constants.InvokeSource;
@@ -46,8 +53,10 @@ public class EditTasksFragment extends Fragment {
     @BindView(R.id.username) TextView username;
     @BindView(R.id.contributions_text) TextView contributionsText;
     @BindView(R.id.task_recyclerview) RecyclerView tasksRecyclerView;
+    @BindView(R.id.progress_bar) View progressBar;
     private List<EditTask> tasks = new ArrayList<>();
     private List<EditTaskView.Callback> callbacks = new ArrayList<>();
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     public static EditTasksFragment newInstance() {
         return new EditTasksFragment();
@@ -108,14 +117,30 @@ public class EditTasksFragment extends Fragment {
         }
     }
 
+    private void fetchUserContributions() {
+        contributionsText.setVisibility(View.GONE);
+        progressBar.setVisibility(View.VISIBLE);
+
+        disposables.add(ServiceFactory.get(new WikiSite(Service.WIKIDATA_URL)).getEditorTaskCounts()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doFinally(() -> {
+                    progressBar.setVisibility(View.GONE);
+                    contributionsText.setVisibility(View.VISIBLE);
+                })
+                .subscribe(response -> {
+                    int totalEdits = 0;
+                    for (int count : response.query().editorTaskCounts().getDescriptionEditsPerLanguage().values()) {
+                        totalEdits += count;
+                    }
+                    contributionsText.setText(getResources().getQuantityString(R.plurals.edit_action_contribution_count, totalEdits, totalEdits));
+                }, L::e));
+    }
+
     private void updateUI() {
         username.setText(AccountUtil.getUserName());
-
-        // TODO:
-        //contributionsText.setText(getResources().getQuantityString(R.plurals.edit_action_contribution_count,
-        //        Prefs.getTotalUserDescriptionsEdited(), Prefs.getTotalUserDescriptionsEdited()));
-
         requireActivity().invalidateOptionsMenu();
+        fetchUserContributions();
     }
 
     private void showOneTimeOnboarding() {
@@ -281,6 +306,7 @@ public class EditTasksFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        disposables.clear();
         if (unbinder != null) {
             unbinder.unbind();
             unbinder = null;
