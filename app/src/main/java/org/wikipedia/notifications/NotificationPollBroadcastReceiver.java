@@ -107,7 +107,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
         ServiceFactory.get(new WikiSite(Service.WIKIDATA_URL)).getEditorTaskCounts()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(response -> NotificationEditorTasksHandler.dispatchEditorTaskResults(response.query().editorTaskCounts()), L::e);
+                .subscribe(response -> NotificationEditorTasksHandler.dispatchEditorTaskResults(context, response.query().editorTaskCounts()), L::e);
     }
 
     @SuppressLint("CheckResult")

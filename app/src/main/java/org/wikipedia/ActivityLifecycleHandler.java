@@ -36,7 +36,7 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
 
     @Override
     public void onActivityPaused(Activity activity) {
-        anyActivityResumed = true;
+        anyActivityResumed = false;
     }
 
     @Override
