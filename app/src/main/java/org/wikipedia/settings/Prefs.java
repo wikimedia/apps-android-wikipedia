@@ -570,7 +570,7 @@ public final class Prefs {
     }
 
     public static boolean notificationPollEnabled() {
-        return getBoolean(R.string.preference_key_notification_poll_enable, false);
+        return getBoolean(R.string.preference_key_notification_poll_enable, true);
     }
 
     public static void setNotificationPollEnabled(boolean enabled) {
