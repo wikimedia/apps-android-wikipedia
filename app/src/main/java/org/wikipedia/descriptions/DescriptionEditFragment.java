@@ -136,8 +136,8 @@ public class DescriptionEditFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_description_edit, container, false);
         unbinder = ButterKnife.bind(this, view);
-        editView.setTranslationSourceLanguageDescription((Pair) getArguments().getSerializable(EXTRA_SOURCE_PAIR));
         editView.setTranslationEdit(invokeSource == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC);
+        editView.setTranslationSourceLanguageDescription((Pair) getArguments().getSerializable(EXTRA_SOURCE_PAIR));
         editView.setPageTitle(pageTitle);
         editView.setHighlightText(highlightText);
         editView.setCallback(new EditViewCallback());
