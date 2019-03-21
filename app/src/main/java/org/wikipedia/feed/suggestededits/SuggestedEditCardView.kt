@@ -2,8 +2,10 @@ package org.wikipedia.feed.suggestededits
 
 
 import android.content.Context
+import android.graphics.Color
 import android.net.Uri
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -86,10 +88,10 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
 
     private fun setErrorState(t: Throwable) {
         L.e(t)
-        /* cardItemErrorView.setError(t)
+         cardItemErrorView.setError(t)
          cardItemErrorView.visibility = View.VISIBLE
          cardItemProgressBar.visibility = View.GONE
-         cardItemContainer.visibility = View.GONE*/
+         cardItemContainer.visibility = View.GONE
     }
 
     override fun setCallback(callback: FeedAdapter.Callback?) {
@@ -98,13 +100,23 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
     }
 
     private fun updateContents() {
+        viewAddDescriptionButton.visibility = View.VISIBLE
+
         viewArticleTitle.text = summary!!.normalizedTitle
+        if(summary!!.thumbnailUrl!=null)
         viewArticleImage.loadImage(Uri.parse(summary!!.thumbnailUrl))
         callToActionText.text = if (translation) String.format(context.getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(app.language().appLanguageCodes.get(1))) else context.getString(R.string.editactionfeed_add_description_button)
 
     }
 
     private fun hideViews() {
+        viewArticleExtract.text = ""
+        viewArticleTitle.text = ""
+        callToActionText.text=""
+        viewArticleImage.loadImage(null)
+        headerView.visibility = View.GONE
+        viewAddDescriptionButton.visibility = View.GONE
+        viewArticleSubtitleContainer.visibility = View.GONE
         viewArticleExtract.visibility = View.GONE
         divider.visibility = View.GONE
         suggestedEditsRootView.setPadding(0, 0, 0, 0)
@@ -132,7 +144,7 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
                 .setSubtitle(card.subtitle())
                 .setImage(R.drawable.ic_mode_edit_white_24dp)
                 .setImageCircleColor(ResourceUtil.getThemedAttributeId(context, R.attr.material_theme_de_emphasised_color))
-                .setLangCode(card.wikiSite().languageCode())
+                .setLangCode(if(translation)card.wikiSite().languageCode() else "")
                 .setCard(card)
                 .setCallback(callback)
     }
