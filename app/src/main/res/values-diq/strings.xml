@@ -231,6 +231,7 @@
   <string name="description_edit_cancel_hint">Bıtexelne</string>
   <string name="description_edit_success_done">Temam</string>
   <string name="description_edit_success_did_you_know">Tı zanê?</string>
+  <string name="editactionfeed_add_title_descriptions">Arezekerdış cı ke</string>
   <string name="editactionfeed_add_description_button">Arezekerdış cı ke</string>
   <string name="editactionfeed_my_contributions">İştirakê mı</string>
   <string name="editactionfeed_from_language">Rıştoğ:</string>
