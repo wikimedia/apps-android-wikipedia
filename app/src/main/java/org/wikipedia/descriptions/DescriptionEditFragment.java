@@ -41,6 +41,7 @@ import butterknife.Unbinder;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
+import kotlin.Pair;
 
 import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS;
@@ -102,14 +103,14 @@ public class DescriptionEditFragment extends Fragment {
                                                       @Nullable String highlightText,
                                                       boolean reviewEnabled,
                                                       @NonNull InvokeSource source,
-                                                      @Nullable CharSequence sourceDescription) {
+                                                      @Nullable Pair sourcePair) {
         DescriptionEditFragment instance = new DescriptionEditFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TITLE, GsonMarshaller.marshal(title));
         args.putString(ARG_HIGHLIGHT_TEXT, highlightText);
         args.putBoolean(ARG_REVIEW_ENABLED, reviewEnabled);
         args.putSerializable(ARG_INVOKE_SOURCE, source);
-        args.putCharSequence(ARG_TRANSLATION_SOURCE_LANG_DESC, sourceDescription);
+        args.putSerializable(ARG_TRANSLATION_SOURCE_LANG_DESC, sourcePair);
         instance.setArguments(args);
         return instance;
     }
@@ -133,7 +134,7 @@ public class DescriptionEditFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_description_edit, container, false);
         unbinder = ButterKnife.bind(this, view);
         editView.setTranslationEdit(getArguments().getSerializable(ARG_INVOKE_SOURCE) == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC);
-        editView.setTranslationSourceLanguageDescription(getArguments().getCharSequence(ARG_TRANSLATION_SOURCE_LANG_DESC));
+        editView.setTranslationSourceLanguageDescription((Pair) getArguments().getSerializable(ARG_TRANSLATION_SOURCE_LANG_DESC));
         editView.setPageTitle(pageTitle);
         editView.setHighlightText(highlightText);
         editView.setCallback(new EditViewCallback());

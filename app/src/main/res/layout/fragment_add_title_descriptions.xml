@@ -51,15 +51,18 @@
 
             <ImageView
                 android:id="@+id/arrow"
-                android:layout_width="16dp"
-                android:layout_height="8dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_gravity="center"
-                android:contentDescription="@null"
-                android:scaleType="center"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                app:tint="?attr/material_theme_secondary_color"
-                app:srcCompat="@drawable/ic_baseline_arrow_right_alt_24px" />
+                android:contentDescription="@null"
+                android:paddingStart="4dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="4dp"
+                android:paddingBottom="8dp"
+                android:scaleType="center"
+                app:srcCompat="@drawable/ic_baseline_arrow_right_alt_24px"
+                app:tint="?attr/material_theme_secondary_color" />
 
             <LinearLayout
                 android:layout_width="0dp"

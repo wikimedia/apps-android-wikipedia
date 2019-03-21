@@ -19,6 +19,8 @@ import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 
+import kotlin.Pair;
+
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
@@ -37,12 +39,12 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
                                    @Nullable String highlightText,
                                    boolean reviewEnabled,
                                    @NonNull InvokeSource invokeSource,
-                                   @Nullable CharSequence sourceDesc) {
+                                   @Nullable Pair sourcePair) {
         return new Intent(context, DescriptionEditActivity.class)
                 .putExtra(EXTRA_TITLE, GsonMarshaller.marshal(title))
                 .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
                 .putExtra(EXTRA_REVIEW_ENABLE, reviewEnabled)
-                .putExtra(EXTRA_SOURCE_LANG_DESC, sourceDesc)
+                .putExtra(EXTRA_SOURCE_LANG_DESC, sourcePair)
                 .putExtra(INTENT_EXTRA_INVOKE_SOURCE, invokeSource);
     }
 
@@ -91,7 +93,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
                 getIntent().getStringExtra(EXTRA_HIGHLIGHT_TEXT),
                 getIntent().getBooleanExtra(EXTRA_REVIEW_ENABLE, false),
                 (InvokeSource) getIntent().getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE),
-                getIntent().getCharSequenceExtra(EXTRA_SOURCE_LANG_DESC));
+                (Pair) getIntent().getSerializableExtra(EXTRA_SOURCE_LANG_DESC));
     }
 
     @Override

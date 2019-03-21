@@ -30,6 +30,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnEditorAction;
 import butterknife.OnTextChanged;
+import kotlin.Pair;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
@@ -47,9 +48,11 @@ public class DescriptionEditView extends LinearLayout {
     @BindView(R.id.view_description_edit_container) ViewGroup descriptionEditContainer;
     @BindView(R.id.view_description_edit_review_container) DescriptionEditReviewView pageReviewContainer;
     @BindView(R.id.view_description_edit_license_container) DescriptionEditLicenseView licenseContainer;
+    @BindView(R.id.label_text) TextView labelText;
     @BindView(R.id.view_description_edit_read_article_bar_container) DescriptionEditReadArticleBarView readArticleBarContainer;
 
     @Nullable private String originalDescription;
+    @Nullable private String originalLanguageCode;
     @Nullable private Callback callback;
     private PageTitle pageTitle;
     private PageSummary pageSummary;
@@ -117,7 +120,10 @@ public class DescriptionEditView extends LinearLayout {
 
     public void setPageSummary(@NonNull PageSummary pageSummary) {
         pageSummaryContainer.setVisibility(View.VISIBLE);
-
+        labelText.setText(isTranslationEdit
+                ? String.format(getContext().getString(R.string.description_edit_text_hint_per_language),
+                WikipediaApp.getInstance().language().getAppLanguageCanonicalName(originalLanguageCode))
+                : getContext().getString(R.string.description_edit_article));
         pageSummaryText.setText(isTranslationEdit
                 ? translationSourceLanguageDescription
                 : StringUtil.fromHtml(pageSummary.getExtractHtml()));
@@ -253,7 +259,10 @@ public class DescriptionEditView extends LinearLayout {
         isTranslationEdit = translationEdit;
     }
 
-    public void setTranslationSourceLanguageDescription(CharSequence translationSourceLanguageDescription) {
-        this.translationSourceLanguageDescription = translationSourceLanguageDescription;
+    public void setTranslationSourceLanguageDescription(Pair sourcePair) {
+        if (sourcePair != null) {
+            this.translationSourceLanguageDescription = (CharSequence) sourcePair.getSecond();
+            this.originalLanguageCode = (String) sourcePair.getFirst();
+        }
     }
 }
