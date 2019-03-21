@@ -31,7 +31,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     private static final String EXTRA_TITLE = "title";
     private static final String EXTRA_REVIEW_ENABLE = "review";
     private static final String EXTRA_HIGHLIGHT_TEXT = "highlightText";
-    private static final String EXTRA_SOURCE_LANG_DESC = "source_desc";
+    private static final String EXTRA_SOURCE_PAIR = "extra_source_pair";
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
     public static Intent newIntent(@NonNull Context context,
@@ -44,7 +44,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
                 .putExtra(EXTRA_TITLE, GsonMarshaller.marshal(title))
                 .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
                 .putExtra(EXTRA_REVIEW_ENABLE, reviewEnabled)
-                .putExtra(EXTRA_SOURCE_LANG_DESC, sourcePair)
+                .putExtra(EXTRA_SOURCE_PAIR, sourcePair)
                 .putExtra(INTENT_EXTRA_INVOKE_SOURCE, invokeSource);
     }
 
@@ -93,7 +93,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
                 getIntent().getStringExtra(EXTRA_HIGHLIGHT_TEXT),
                 getIntent().getBooleanExtra(EXTRA_REVIEW_ENABLE, false),
                 (InvokeSource) getIntent().getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE),
-                (Pair) getIntent().getSerializableExtra(EXTRA_SOURCE_LANG_DESC));
+                (Pair) getIntent().getSerializableExtra(EXTRA_SOURCE_PAIR));
     }
 
     @Override
