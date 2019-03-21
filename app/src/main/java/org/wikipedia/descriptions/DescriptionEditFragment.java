@@ -14,6 +14,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.DescriptionEditFunnel;
+import org.wikipedia.analytics.SuggestedEditsFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.Service;
@@ -72,6 +73,7 @@ public class DescriptionEditFragment extends Fragment {
     @Nullable private String highlightText;
     @Nullable private CsrfTokenClient csrfClient;
     @Nullable private DescriptionEditFunnel funnel;
+    private InvokeSource invokeSource;
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private Runnable successRunnable = new Runnable() {
@@ -123,6 +125,7 @@ public class DescriptionEditFragment extends Fragment {
                 ? DescriptionEditFunnel.Type.NEW
                 : DescriptionEditFunnel.Type.EXISTING;
         highlightText = getArguments().getString(ARG_HIGHLIGHT_TEXT);
+        invokeSource = (InvokeSource) getArguments().getSerializable(ARG_INVOKE_SOURCE);
         funnel = new DescriptionEditFunnel(WikipediaApp.getInstance(), pageTitle, type);
         funnel.logStart();
     }
@@ -133,8 +136,8 @@ public class DescriptionEditFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_description_edit, container, false);
         unbinder = ButterKnife.bind(this, view);
-        editView.setTranslationEdit(getArguments().getSerializable(ARG_INVOKE_SOURCE) == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC);
         editView.setTranslationSourceLanguageDescription((Pair) getArguments().getSerializable(EXTRA_SOURCE_PAIR));
+        editView.setTranslationEdit(invokeSource == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC);
         editView.setPageTitle(pageTitle);
         editView.setHighlightText(highlightText);
         editView.setCallback(new EditViewCallback());
@@ -266,8 +269,10 @@ public class DescriptionEditFragment extends Fragment {
                                 ? response.query().siteInfo().lang() : pageTitle.getWikiSite().languageCode();
                         return ServiceFactory.get(wikiData).postDescriptionEdit(languageCode,
                                 pageTitle.getWikiSite().languageCode(), pageTitle.getWikiSite().dbName(),
-                                pageTitle.getConvertedText(), editView.getDescription(), editToken,
-                                AccountUtil.isLoggedIn() ? "user" : null);
+                                pageTitle.getConvertedText(), editView.getDescription(),
+                                invokeSource == InvokeSource.EDIT_FEED_TITLE_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
+                                        : invokeSource == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null,
+                                editToken, AccountUtil.isLoggedIn() ? "user" : null);
                     })
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())

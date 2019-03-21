@@ -303,22 +303,26 @@ public interface Service {
     @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=wbsetdescription&errorlang=uselang")
     @FormUrlEncoded
+    @SuppressWarnings("checkstyle:parameternumber")
     Observable<MwPostResponse> postDescriptionEdit(@NonNull @Field("language") String language,
                                                    @NonNull @Field("uselang") String useLang,
                                                    @NonNull @Field("site") String site,
                                                    @NonNull @Field("title") String title,
                                                    @NonNull @Field("value") String newDescription,
+                                                   @Nullable @Field("summary") String summary,
                                                    @NonNull @Field("token") String token,
                                                    @Nullable @Field("assert") String user);
 
     @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=wbsetlabel&errorlang=uselang")
     @FormUrlEncoded
+    @SuppressWarnings("checkstyle:parameternumber")
     Observable<MwPostResponse> postLabelEdit(@NonNull @Field("language") String language,
                                              @NonNull @Field("uselang") String useLang,
                                              @NonNull @Field("site") String site,
                                              @NonNull @Field("title") String title,
                                              @NonNull @Field("value") String newDescription,
+                                             @Nullable @Field("summary") String summary,
                                              @NonNull @Field("token") String token,
                                              @Nullable @Field("assert") String user);
 }

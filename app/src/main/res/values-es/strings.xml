@@ -606,6 +606,7 @@
   <string name="description_edit_task_unlock_title">¡Se desbloqueó la lista de tareas de edición de descripciones de título!</string>
   <string name="description_edit_task_unlock_body" fuzzy="true">\n¡Hemos notado que te gusta editar descripciones de título, así que hemos recopilado una lista de \"Tareas de editor\" con más artículos a los que le faltan descripciones de título para ayudarte a continuar contribuyendo!</string>
   <string name="description_edit_success_saved">Descripción publicada</string>
+  <string name="description_edit_success_saved_snackbar">¡Descripción publicada!</string>
   <string name="description_edit_success_encouragement">Acabas de mejorar Wikipedia para todos</string>
   <string name="description_edit_success_done">Hecho</string>
   <string name="description_edit_success_did_you_know">¿Sabías?</string>
@@ -616,9 +617,9 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente una línea, entre dos y doce palabras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Empezar a editar</string>
   <string name="description_edit_tutorial_promise">Al empezar, me comprometo a no hacer mal uso de esta funcionalidad.</string>
-  <string name="editactionfeed_add_title_descriptions">Añadir descripciones de título</string>
+  <string name="editactionfeed_add_title_descriptions">Añadir descripciones</string>
   <string name="editactionfeed_translate_descriptions">Traduce descripciones de título</string>
-  <string name="editactionfeed_review_title_description">Revisar descripción de titulo</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">Revisar descripción de titulo</string>
   <string name="editactionfeed_add_description_button">Añadir descripción</string>
   <string name="editactionfeed_my_contributions">Mis contribuciones</string>
   <string name="editactionfeed_from_language">De:</string>
