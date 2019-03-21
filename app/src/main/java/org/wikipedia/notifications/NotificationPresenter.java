@@ -75,7 +75,7 @@ public final class NotificationPresenter {
                 break;
         }
 
-        showNotification(context, (int) n.key(), wikiSiteName, title, title, icon, color, activityIntent);
+        showNotification(context, builder, (int) n.key(), wikiSiteName, title, title, icon, color, activityIntent);
     }
 
     public static NotificationCompat.Builder getDefaultBuilder(@NonNull Context context) {
@@ -98,10 +98,9 @@ public final class NotificationPresenter {
     }
 
     @SuppressWarnings("checkstyle:parameternumber")
-    public static void showNotification(@NonNull Context context, int id, @NonNull String title, @NonNull String text,
-                                        @NonNull CharSequence longText, @DrawableRes int icon, @ColorRes int color, @NonNull Intent bodyIntent) {
-        NotificationCompat.Builder builder = getDefaultBuilder(context);
-
+    public static void showNotification(@NonNull Context context, @NonNull NotificationCompat.Builder builder, int id,
+                                        @NonNull String title, @NonNull String text, @NonNull CharSequence longText,
+                                        @DrawableRes int icon, @ColorRes int color, @NonNull Intent bodyIntent) {
         builder.setContentIntent(PendingIntent.getActivity(context, REQUEST_CODE_ACTIVITY, bodyIntent, PendingIntent.FLAG_UPDATE_CURRENT))
                 .setLargeIcon(drawNotificationBitmap(context, color, icon))
                 .setSmallIcon(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? R.drawable.ic_wikipedia_w : R.mipmap.launcher)

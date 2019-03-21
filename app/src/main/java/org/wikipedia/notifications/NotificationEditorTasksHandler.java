@@ -66,7 +66,7 @@ public final class NotificationEditorTasksHandler {
             NotificationCompat.Builder builder = NotificationPresenter.getDefaultBuilder(context);
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             builder.addAction(0, context.getString(R.string.title_description_get_started), pendingIntent);
-            NotificationPresenter.showNotification(context, 0, context.getString(R.string.description_edit_task_unlock_title),
+            NotificationPresenter.showNotification(context, builder, 0, context.getString(R.string.description_edit_task_unlock_title),
                     context.getString(R.string.description_edit_task_unlock_body),
                     context.getString(R.string.description_edit_task_unlock_body),
                     R.drawable.ic_mode_edit_white_24dp, R.color.accent50, intent);
@@ -79,7 +79,7 @@ public final class NotificationEditorTasksHandler {
             NotificationCompat.Builder builder = NotificationPresenter.getDefaultBuilder(context);
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             builder.addAction(0, context.getString(R.string.title_description_get_started), pendingIntent);
-            NotificationPresenter.showNotification(context, 0, context.getString(R.string.translation_description_edit_task_unlock_title),
+            NotificationPresenter.showNotification(context, builder, 0, context.getString(R.string.translation_description_edit_task_unlock_title),
                     context.getString(R.string.translation_description_edit_task_unlock_body),
                     context.getString(R.string.translation_description_edit_task_unlock_body),
                     R.drawable.ic_mode_edit_white_24dp, R.color.accent50, intent);
