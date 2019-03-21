@@ -4,30 +4,30 @@ import io.reactivex.annotations.NonNull
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.util.DateUtil
 
 class SuggestedEditCard(wiki: WikiSite) : WikiSiteCard(wiki) {
     var wiki: WikiSite? = null
-    var sourcePage: RbPageSummary? = null
-    var destinationLanguageCode: String? = null
     var age: Int? = null
+    var translation: Boolean = false
 
     override fun type(): CardType {
         return CardType.SUGGESTED_EDITS
     }
 
-    constructor(@NonNull sourcePage: RbPageSummary, @NonNull destinationLanguageCode: String, @NonNull age: Int, @NonNull wiki: WikiSite) : this(wiki) {
-        this.age = age
-        this.sourcePage = sourcePage
-        this.destinationLanguageCode = destinationLanguageCode
+    constructor(@NonNull wiki: WikiSite, @NonNull translation: Boolean) : this(wiki) {
         this.wiki = wiki
+        this.translation = translation
     }
 
     override fun title(): String {
         return WikipediaApp.getInstance().getString(R.string.suggested_edits)
+    }
+
+    fun isTranslation(): Boolean {
+        return translation
     }
 
     override fun subtitle(): String {

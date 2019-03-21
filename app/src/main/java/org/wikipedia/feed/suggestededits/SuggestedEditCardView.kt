@@ -11,6 +11,7 @@ import io.reactivex.annotations.NonNull
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_add_title_descriptions_item.view.*
+import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
@@ -31,6 +32,9 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
 
     private val disposables = CompositeDisposable()
     val CARD_BOTTOM_PADDING = 16.0f
+    var translation: Boolean = false
+    private var sourceDescription: String = ""
+    private val app = WikipediaApp.getInstance()
 
 
     init {
@@ -39,6 +43,7 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
 
     override fun setCard(card: SuggestedEditCard) {
         super.setCard(card)
+        translation = card.isTranslation()
         setLayoutDirectionByWikiSite(card.wikiSite(), rootView!!)
         hideViews()
         getArticleWithMissingDescription()
@@ -48,13 +53,34 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
     private var summary: RbPageSummary? = null
 
     private fun getArticleWithMissingDescription() {
-        disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(WikipediaApp.getInstance().language().appLanguageCode))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ pageSummary ->
-                    summary = pageSummary
-                    updateContents()
-                }, { this.setErrorState(it) }))
+        if (translation) {
+            disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(app.language().appLanguageCodes.get(0)), app.language().appLanguageCodes.get(1), true)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ pair ->
+                        sourceDescription = StringUtils.defaultString(pair.first)
+                        summary = pair.second
+                        updateSourceDescriptionWithHighlight()
+                    }, { this.setErrorState(it) })!!)
+
+        } else {
+            disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(app.language().appLanguageCode))
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ pageSummary ->
+                        summary = pageSummary
+                        updateContents()
+                    }, { this.setErrorState(it) }))
+        }
+
+    }
+
+    private fun updateSourceDescriptionWithHighlight() {
+        viewArticleSubtitleContainer.visibility = View.VISIBLE
+        viewArticleSubtitleAddedBy.visibility = View.GONE
+        viewArticleSubtitleEdit.visibility = View.GONE
+        viewArticleSubtitle.text = sourceDescription
+        updateContents()
 
     }
 
@@ -74,6 +100,8 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
     private fun updateContents() {
         viewArticleTitle.text = summary!!.normalizedTitle
         viewArticleImage.loadImage(Uri.parse(summary!!.thumbnailUrl))
+        callToActionText.text = if (translation) String.format(context.getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(app.language().appLanguageCodes.get(1))) else context.getString(R.string.editactionfeed_add_description_button)
+
     }
 
     private fun hideViews() {
@@ -86,7 +114,7 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
         cardView.setContentPadding(0, 0, 0, DimenUtil.roundedDpToPx(CARD_BOTTOM_PADDING))
         cardView.setOnClickListener {
             if (callback != null && card != null) {
-                callback!!.onSuggestedEditsCardClick(summary!!.getPageTitle(WikiSite.forLanguageCode(WikipediaApp.getInstance().language().appLanguageCode)), this)
+                callback!!.onSuggestedEditsCardClick(summary!!.getPageTitle(WikiSite.forLanguageCode(if (translation) app.language().appLanguageCodes.get(1) else app.language().appLanguageCode)), this)
             }
         }
     }

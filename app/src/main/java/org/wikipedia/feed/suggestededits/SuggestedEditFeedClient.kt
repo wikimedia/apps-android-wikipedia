@@ -4,10 +4,10 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.dataclient.DummyClient
 import org.wikipedia.feed.model.Card
 
-class SuggestedEditFeedClient : DummyClient() {
+class SuggestedEditFeedClient(var translation: Boolean) : DummyClient() {
 
     override fun getNewCard(wiki: WikiSite): Card {
-        return SuggestedEditCard(wiki)
+        return SuggestedEditCard(wiki, translation)
     }
 
 }
