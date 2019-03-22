@@ -30,7 +30,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnEditorAction;
 import butterknife.OnTextChanged;
-import kotlin.Pair;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
@@ -52,12 +51,12 @@ public class DescriptionEditView extends LinearLayout {
     @BindView(R.id.view_description_edit_read_article_bar_container) DescriptionEditReadArticleBarView readArticleBarContainer;
 
     @Nullable private String originalDescription;
-    @Nullable private String originalLanguageCode;
     @Nullable private Callback callback;
     private PageTitle pageTitle;
     private PageSummary pageSummary;
     private boolean isTranslationEdit;
-    private CharSequence translationSourceLanguageDescription;
+    @Nullable private CharSequence translationSourceDescription;
+    @Nullable private String translationSourceLanguageCode;
 
     public interface Callback {
         void onSaveClick();
@@ -122,10 +121,10 @@ public class DescriptionEditView extends LinearLayout {
         pageSummaryContainer.setVisibility(View.VISIBLE);
         labelText.setText(isTranslationEdit
                 ? String.format(getContext().getString(R.string.description_edit_text_hint_per_language),
-                WikipediaApp.getInstance().language().getAppLanguageCanonicalName(originalLanguageCode))
+                WikipediaApp.getInstance().language().getAppLanguageCanonicalName(translationSourceLanguageCode))
                 : getContext().getString(R.string.description_edit_article));
         pageSummaryText.setText(isTranslationEdit
-                ? translationSourceLanguageDescription
+                ? translationSourceDescription
                 : StringUtil.fromHtml(pageSummary.getExtractHtml()));
         readArticleBarContainer.setPageSummary(pageSummary, view -> performReadArticleClick());
         this.pageSummary = pageSummary;
@@ -259,10 +258,10 @@ public class DescriptionEditView extends LinearLayout {
         isTranslationEdit = translationEdit;
     }
 
-    public void setTranslationSourceLanguageDescription(Pair sourcePair) {
-        if (sourcePair != null) {
-            this.translationSourceLanguageDescription = (CharSequence) sourcePair.getSecond();
-            this.originalLanguageCode = (String) sourcePair.getFirst();
+    public void setTranslationSources(@Nullable CharSequence description, @Nullable String languageCode) {
+        if (description != null && languageCode != null) {
+            this.translationSourceDescription = description;
+            this.translationSourceLanguageCode = languageCode;
         }
     }
 }
