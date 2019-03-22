@@ -56,7 +56,10 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     @Override
     public void onPageSummaryContainerClicked(@NonNull PageTitle pageTitle) {
         bottomSheetPresenter.show(getSupportFragmentManager(),
-                LinkPreviewDialog.newInstance(new HistoryEntry(pageTitle, HistoryEntry.SOURCE_EDIT_DESCRIPTION), null));
+                LinkPreviewDialog.newInstance(new HistoryEntry(pageTitle,
+                        getIntent().hasExtra(EXTRA_INVOKE_SOURCE) && getIntent().getSerializableExtra(EXTRA_INVOKE_SOURCE) == InvokeSource.PAGE_ACTIVITY
+                                ? HistoryEntry.SOURCE_EDIT_DESCRIPTION : HistoryEntry.SOURCE_SUGGESTED_EDITS),
+                        null));
     }
 
     public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {

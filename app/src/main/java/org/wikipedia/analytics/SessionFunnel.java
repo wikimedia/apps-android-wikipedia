@@ -1,9 +1,7 @@
 package org.wikipedia.analytics;
 
-import android.support.annotation.NonNull;
 import android.text.format.DateUtils;
 
-import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.settings.Prefs;
@@ -20,7 +18,7 @@ public class SessionFunnel extends Funnel {
     public static final int MIN_SESSION_TIMEOUT = 1;
 
     private static final String SCHEMA_NAME = "MobileWikiAppSessions";
-    private static final int REVISION = 18115099;
+    private static final int REVISION = 18948969;
 
     private SessionData sessionData;
     private long leadSectionStartTime;
@@ -44,9 +42,6 @@ public class SessionFunnel extends Funnel {
     public void persistSession() {
         Prefs.setSessionData(sessionData);
     }
-
-    @Override
-    protected void preprocessSessionToken(@NonNull JSONObject eventData) { }
 
     /**
      * Update the timestamp for the current session. If the last-updated time is older than the
@@ -114,6 +109,7 @@ public class SessionFunnel extends Funnel {
                 "fromDisambig", sessionData.getPagesFromDisambig(),
                 "fromBack", sessionData.getPagesFromBack(),
                 "noDescription", sessionData.getPagesWithNoDescription(),
+                "fromSuggestedEdits", sessionData.getPagesFromSuggestedEdits(),
                 "totalPages", sessionData.getTotalPages(),
                 "leadLatency", sessionData.getLeadLatency(),
                 "restLatency", sessionData.getRestLatency(),
