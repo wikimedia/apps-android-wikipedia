@@ -42,7 +42,6 @@ import butterknife.Unbinder;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-import kotlin.Pair;
 
 import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS;
@@ -63,7 +62,7 @@ public class DescriptionEditFragment extends Fragment {
     private static final String ARG_REVIEW_ENABLED = "reviewEnabled";
     private static final String ARG_REVIEWING = "inReviewing";
     private static final String ARG_HIGHLIGHT_TEXT = "highlightText";
-    private static final String EXTRA_SOURCE_PAIR = "extra_source_pair";
+    private static final String ARG_TRANSLATION_SOURCE_LANG_DESC = "source_lang_desc";
     private static final String ARG_INVOKE_SOURCE = "invoke_source";
 
     @BindView(R.id.fragment_description_edit_view) DescriptionEditView editView;
@@ -105,14 +104,14 @@ public class DescriptionEditFragment extends Fragment {
                                                       @Nullable String highlightText,
                                                       boolean reviewEnabled,
                                                       @NonNull InvokeSource source,
-                                                      @Nullable Pair sourcePair) {
+                                                      @Nullable CharSequence sourceDescription) {
         DescriptionEditFragment instance = new DescriptionEditFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TITLE, GsonMarshaller.marshal(title));
         args.putString(ARG_HIGHLIGHT_TEXT, highlightText);
         args.putBoolean(ARG_REVIEW_ENABLED, reviewEnabled);
         args.putSerializable(ARG_INVOKE_SOURCE, source);
-        args.putSerializable(EXTRA_SOURCE_PAIR, sourcePair);
+        args.putCharSequence(ARG_TRANSLATION_SOURCE_LANG_DESC, sourceDescription);
         instance.setArguments(args);
         return instance;
     }
@@ -137,7 +136,7 @@ public class DescriptionEditFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_description_edit, container, false);
         unbinder = ButterKnife.bind(this, view);
         editView.setTranslationEdit(invokeSource == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC);
-        editView.setTranslationSourceLanguageDescription((Pair) getArguments().getSerializable(EXTRA_SOURCE_PAIR));
+        editView.setTranslationSourceLanguageDescription(getArguments().getCharSequence(ARG_TRANSLATION_SOURCE_LANG_DESC));
         editView.setPageTitle(pageTitle);
         editView.setHighlightText(highlightText);
         editView.setCallback(new EditViewCallback());

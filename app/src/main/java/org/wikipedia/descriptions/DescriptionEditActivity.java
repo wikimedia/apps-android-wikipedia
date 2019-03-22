@@ -19,8 +19,6 @@ import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 
-import kotlin.Pair;
-
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
@@ -31,7 +29,8 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     private static final String EXTRA_TITLE = "title";
     private static final String EXTRA_REVIEW_ENABLE = "review";
     private static final String EXTRA_HIGHLIGHT_TEXT = "highlightText";
-    private static final String EXTRA_SOURCE_PAIR = "extra_source_pair";
+    private static final String EXTRA_INVOKE_SOURCE = "source";
+    private static final String EXTRA_SOURCE_LANG_DESC = "source_desc";
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
     public static Intent newIntent(@NonNull Context context,
@@ -39,12 +38,12 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
                                    @Nullable String highlightText,
                                    boolean reviewEnabled,
                                    @NonNull InvokeSource invokeSource,
-                                   @Nullable Pair sourcePair) {
+                                   @Nullable CharSequence sourceDesc) {
         return new Intent(context, DescriptionEditActivity.class)
                 .putExtra(EXTRA_TITLE, GsonMarshaller.marshal(title))
                 .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
                 .putExtra(EXTRA_REVIEW_ENABLE, reviewEnabled)
-                .putExtra(EXTRA_SOURCE_PAIR, sourcePair)
+                .putExtra(EXTRA_SOURCE_LANG_DESC, sourceDesc)
                 .putExtra(INTENT_EXTRA_INVOKE_SOURCE, invokeSource);
     }
 
@@ -95,8 +94,8 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
                 getIntent().getStringExtra(EXTRA_TITLE)),
                 getIntent().getStringExtra(EXTRA_HIGHLIGHT_TEXT),
                 getIntent().getBooleanExtra(EXTRA_REVIEW_ENABLE, false),
-                (InvokeSource) getIntent().getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE),
-                (Pair) getIntent().getSerializableExtra(EXTRA_SOURCE_PAIR));
+                (InvokeSource) getIntent().getSerializableExtra(EXTRA_INVOKE_SOURCE),
+                getIntent().getCharSequenceExtra(EXTRA_SOURCE_LANG_DESC));
     }
 
     @Override
