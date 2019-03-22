@@ -169,7 +169,7 @@ class AddTitleDescriptionsFragment : Fragment() {
 
     fun onSelectPage() {
         if (topTitle != null) {
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, true, langFromCode, sourceDescription.toString(), source),
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, true, sourceDescription.toString(), langFromCode, source),
                     ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
     }
