@@ -584,6 +584,7 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Pas uw Explore-feed aan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;U kunt nu kiezen wat u in uw feed wilt laten zien en ook prioriteit geven aan uw favoriete soorten inhoud.</string>
   <string name="description_edit_text_hint">Titelbeschrijving</string>
   <string name="description_edit_save">Publiceren</string>
+  <string name="description_edit_article">Artikel</string>
   <string name="description_edit_read">Lezen</string>
   <string name="description_edit_add_description">Titelbeschrijving toevoegen</string>
   <string name="description_edit_edit_description">Beschrijving bewerken</string>
