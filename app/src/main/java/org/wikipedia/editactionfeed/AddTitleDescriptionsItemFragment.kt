@@ -6,10 +6,11 @@ import android.support.v4.app.Fragment
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.TextUtils
-import android.text.style.BackgroundColorSpan
 import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -22,6 +23,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.editactionfeed.provider.MissingDescriptionProvider
+import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -31,6 +33,8 @@ class AddTitleDescriptionsItemFragment : Fragment() {
     private var summary: RbPageSummary? = null
     private val app = WikipediaApp.getInstance()
     private var sourceDescription: String = ""
+    var addedDescription: String = ""
+        internal set
 
     var pagerPosition = -1
 
@@ -49,6 +53,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setConditionalLayoutDirection(viewArticleContainer, if (parent().source == InvokeSource.EDIT_FEED_TITLE_DESC) parent().langFromCode else parent().langToCode)
         viewArticleImage.setLegacyVisibilityHandlingEnabled(true)
         cardItemErrorView.setBackClickListener { requireActivity().finish() }
         cardItemErrorView.setRetryClickListener {
@@ -60,11 +65,10 @@ class AddTitleDescriptionsItemFragment : Fragment() {
             getArticleWithMissingDescription()
         }
 
-        viewArticleContainer.setOnClickListener {
-            if (title != null) {
-                parent().onSelectPage(title!!)
-            }
+        cardView.setOnClickListener {
+            parent().onSelectPage()
         }
+
     }
 
     override fun onDestroy() {
@@ -82,14 +86,17 @@ class AddTitleDescriptionsItemFragment : Fragment() {
                         updateContents()
                     }, { this.setErrorState(it) }))
         } else {
-            disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode), parent().langToCode, true).subscribeOn(Schedulers.io())?.observeOn(AndroidSchedulers.mainThread())?.subscribe({ pair ->
-                sourceDescription = StringUtils.defaultString(pair.first)
-                if (pagerPosition == 0) {
-                    updateSourceDescriptionWithHighlight()
-                }
-                summary = pair.second
-                updateContents()
-            }, { this.setErrorState(it) })!!)
+            disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode), parent().langToCode, true)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ pair ->
+                        sourceDescription = StringUtils.defaultString(pair.first)
+                        if (pagerPosition == 0) {
+                            updateSourceDescriptionWithHighlight()
+                        }
+                        summary = pair.second
+                        updateContents()
+                    }, { this.setErrorState(it) })!!)
         }
     }
 
@@ -97,6 +104,20 @@ class AddTitleDescriptionsItemFragment : Fragment() {
         super.setUserVisibleHint(isVisibleToUser)
         if (isAdded && isVisibleToUser) {
             updateSourceDescriptionWithHighlight()
+        }
+    }
+
+    fun showAddedDescriptionView(addedDescription: String?) {
+        if (!TextUtils.isEmpty(addedDescription)) {
+            viewArticleSubtitleContainer.visibility = VISIBLE
+            if (parent().source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
+                viewArticleSubtitleAddedBy.visibility = VISIBLE
+                viewArticleSubtitleEdit.visibility = VISIBLE
+                viewArticleSubtitleAddedBy.text = getString(R.string.editactionfeed_translated_by_you)
+            }
+            viewAddDescriptionButton.visibility = GONE
+            viewArticleSubtitle.text = addedDescription
+            this.addedDescription = addedDescription!!
         }
     }
 
@@ -118,19 +139,29 @@ class AddTitleDescriptionsItemFragment : Fragment() {
         viewArticleTitle.text = summary!!.normalizedTitle
 
         if (parent().source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
-            val spannableDescription = SpannableString(sourceDescription)
-            spannableDescription.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.text_highlight_color)), 0, sourceDescription.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-            viewArticleSubtitle.text = TextUtils.concat(String.format(getString(R.string.translation_source_description), app.language().getAppLanguageCanonicalName(parent().langFromCode)), spannableDescription)
+            viewArticleSubtitleContainer.visibility = VISIBLE
+            viewArticleSubtitleAddedBy.visibility = GONE
+            viewArticleSubtitleEdit.visibility = GONE
+            viewArticleSubtitle.text = sourceDescription
+            callToActionText.text = String.format(getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(parent().langToCode))
         }
+
         viewArticleExtract.text = StringUtil.fromHtml(summary!!.extractHtml)
-        viewArticleImage.loadImage(if (TextUtils.isEmpty(summary!!.thumbnailUrl)) null else Uri.parse(summary!!.thumbnailUrl))
+        if (TextUtils.isEmpty(summary!!.thumbnailUrl)) {
+            viewArticleImage.visibility = GONE
+            viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
+        } else {
+            viewArticleImage.visibility = VISIBLE
+            viewArticleImage.loadImage(Uri.parse(summary!!.thumbnailUrl))
+            viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
+        }
     }
 
     private fun updateSourceDescriptionWithHighlight() {
         if (parent().source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
             val spannableDescription = SpannableString(sourceDescription)
             spannableDescription.setSpan(ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_text_color)), 0, sourceDescription.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-            parent().sourceDescription = TextUtils.concat(String.format(getString(R.string.translation_source_description), app.language().getAppLanguageCanonicalName(parent().langFromCode)), spannableDescription)
+            parent().sourceDescription = sourceDescription
         }
     }
 
@@ -139,6 +170,8 @@ class AddTitleDescriptionsItemFragment : Fragment() {
     }
 
     companion object {
+        const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 6
+        const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 13
 
         fun newInstance(): AddTitleDescriptionsItemFragment {
             return AddTitleDescriptionsItemFragment()

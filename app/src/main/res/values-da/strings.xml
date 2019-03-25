@@ -573,6 +573,7 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Tilpas dit Udforsk-feed&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu vælge, hvad der skal vises i dit feed, og også prioritere dine foretrukne typer indhold.</string>
   <string name="description_edit_text_hint">Titelbeskrivelse</string>
   <string name="description_edit_save">Offentliggør</string>
+  <string name="description_edit_article">Artikel</string>
   <string name="description_edit_add_description">Tilføj titelbeskrivelse</string>
   <string name="description_edit_edit_description">Rediger beskrivelse</string>
   <string name="description_edit_cancel_hint">Annuller</string>
@@ -595,9 +596,9 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Helst én linje, mellem to og tolv ord</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begynd at redigere</string>
   <string name="description_edit_tutorial_promise">Ved at begynde lover jeg ikke at misbruge denne funktion.</string>
-  <string name="editactionfeed_add_title_descriptions">Tilføj titelbeskrivelser</string>
+  <string name="editactionfeed_add_title_descriptions">Tilføj beskrivelser</string>
   <string name="editactionfeed_translate_descriptions">Oversæt titelbeskrivelser</string>
-  <string name="editactionfeed_review_title_description">Korrekturlæs titelbeskrivelse</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">Korrekturlæs titelbeskrivelse</string>
   <string name="editactionfeed_add_description_button">Tilføj beskrivelse</string>
   <string name="editactionfeed_my_contributions">Mine bidrag</string>
   <string name="editactionfeed_from_language">Fra:</string>

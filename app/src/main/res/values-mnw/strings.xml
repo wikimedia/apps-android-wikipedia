@@ -551,8 +551,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">ခိုဟ်အိုတ် မွဲပၞောန် နွံစ မလိက် အကြာ ၂ မ ကဵု ၁၂ မ</string>
   <string name="description_edit_tutorial_button_label_start_editing">စ ပလေဝ်ဒါန်</string>
   <string name="description_edit_tutorial_promise">နကဵု မစဟီု၊ အဲဒုင်ဝှဲ ဒဒှ်ရ အဲဟွံပလီု (ဝါ) ဟွံသုင်စောဲ လပါ်ပရေအ် လိက်ဏအ်ရ၊၊</string>
-  <string name="editactionfeed_add_title_descriptions">စုတ် က္ဍိုပ်လိက် ပရူပရာ</string>
-  <string name="editactionfeed_review_title_description">ပလေဝ်ဒါန် က္ဍိုပ်လိက် မဗမံက်ထ္ၜး</string>
+  <string name="editactionfeed_add_title_descriptions" fuzzy="true">စုတ် က္ဍိုပ်လိက် ပရူပရာ</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">ပလေဝ်ဒါန် က္ဍိုပ်လိက် မဗမံက်ထ္ၜး</string>
   <string name="editactionfeed_add_description_button">ထပ် မဗၟံက်ထ္ၜး</string>
   <string name="editactionfeed_my_contributions">အရာ အဲ မကၠောန်လဝ်ဂမၠိုင်</string>
   <string name="editactionfeed_from_language">နူ:</string>

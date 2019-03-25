@@ -570,8 +570,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">V ideálnom prípade jeden riadok s dvoma až dvanástimi slovami</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začať s úpravami</string>
   <string name="description_edit_tutorial_promise">Sľubujem, že nezneužijem túto funkciu.</string>
-  <string name="editactionfeed_add_title_descriptions">Pridať popis článku</string>
-  <string name="editactionfeed_review_title_description">Náhľad popisu článku</string>
+  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Pridať popis článku</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">Náhľad popisu článku</string>
   <string name="editactionfeed_add_description_button">Pridať popis</string>
   <string name="editactionfeed_my_contributions">Moje príspevky</string>
   <string name="editactionfeed_from_language">Z jazyka:</string>

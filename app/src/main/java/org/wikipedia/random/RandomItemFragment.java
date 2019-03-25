@@ -109,7 +109,7 @@ public class RandomItemFragment extends Fragment {
         containerView.setVisibility(View.GONE);
     }
 
-    @OnClick(R.id.view_random_article_card_text_container) void onClick(View v) {
+    @OnClick(R.id.random_item_container) void onClick(View v) {
         if (getTitle() != null) {
             parent().onSelectPage(getTitle());
         }

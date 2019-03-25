@@ -597,9 +597,9 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">יהיה מושלם אם זאת תהיה שורה אחת, בין שתיים לשתים־עשרה מילים</string>
   <string name="description_edit_tutorial_button_label_start_editing">להתחיל לערוך</string>
   <string name="description_edit_tutorial_promise">תחילת העריכה היא התחייבות שלי לא להשתמש באפשרות הזאת לרעה.</string>
-  <string name="editactionfeed_add_title_descriptions">הוספת תיאורי כותרת</string>
+  <string name="editactionfeed_add_title_descriptions" fuzzy="true">הוספת תיאורי כותרת</string>
   <string name="editactionfeed_translate_descriptions">תרגום תיאורי כותרת</string>
-  <string name="editactionfeed_review_title_description">בדיקת תיאור כותרת</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">בדיקת תיאור כותרת</string>
   <string name="editactionfeed_add_description_button">להוסיף תיאור</string>
   <string name="editactionfeed_my_contributions">התרומות שלי</string>
   <string name="editactionfeed_from_language">מ־:</string>
