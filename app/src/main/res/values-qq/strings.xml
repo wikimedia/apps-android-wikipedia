@@ -589,6 +589,7 @@
   <string name="description_edit_article">Label that prompts the user that the summary of the article shows under the label.\n{{Identical|Article}}</string>
   <string name="description_edit_read">Label that prompts the user to click and open a preview dialog of the article.\n{{Identical|Read}}</string>
   <string name="description_edit_add_description">Label that prompts the user to add a description to an article that does not yet have one.</string>
+  <string name="description_edit_add_description_v2">Label that prompts the user to add a description to an article that does not yet have one.</string>
   <string name="description_edit_edit_description">Label that prompts the user to edit the description of an article that already has one.</string>
   <string name="add_translation">Text on the action button for translating title descriptions. %s represents the language into which the description needs to be translated.</string>
   <string name="description_edit_cancel_hint">Hint for button that cancels editing of the current description.\n{{Identical|Cancel}}</string>
