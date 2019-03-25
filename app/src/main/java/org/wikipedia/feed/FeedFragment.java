@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.jetbrains.annotations.NotNull;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -516,9 +517,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public void onSuggestedEditsCardClick(@NonNull PageTitle pageTitle, @NonNull final SuggestedEditCardView view) {
+        public void onSuggestedEditsCardClick(@NotNull PageTitle pageTitle, @NotNull String sourceDescription, @NotNull String sourceLangCode, @NotNull SuggestedEditCardView view) {
             suggestedEditCardView = view;
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), pageTitle, null, true, Constants.InvokeSource.FEED, null),
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), pageTitle, null, true, sourceDescription, sourceLangCode, Constants.InvokeSource.FEED),
                     ACTIVITY_REQUEST_DESCRIPTION_EDIT);
         }
     }

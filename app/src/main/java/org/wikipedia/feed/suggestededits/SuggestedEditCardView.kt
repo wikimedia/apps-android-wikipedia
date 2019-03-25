@@ -2,10 +2,8 @@ package org.wikipedia.feed.suggestededits
 
 
 import android.content.Context
-import android.graphics.Color
 import android.net.Uri
 import android.text.TextUtils
-import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -29,7 +27,7 @@ import org.wikipedia.views.ItemTouchHelperSwipeAdapter
 
 class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEditCard>(context), ItemTouchHelperSwipeAdapter.SwipeableView {
     interface Callback {
-        fun onSuggestedEditsCardClick(@NonNull pageTitle: PageTitle, @NonNull view: SuggestedEditCardView)
+        fun onSuggestedEditsCardClick(@NonNull pageTitle: PageTitle, @NonNull sourceDescription: String, @NonNull sourceLangCode: String, @NonNull view: SuggestedEditCardView)
     }
 
     private val disposables = CompositeDisposable()
@@ -88,10 +86,10 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
 
     private fun setErrorState(t: Throwable) {
         L.e(t)
-         cardItemErrorView.setError(t)
-         cardItemErrorView.visibility = View.VISIBLE
-         cardItemProgressBar.visibility = View.GONE
-         cardItemContainer.visibility = View.GONE
+        cardItemErrorView.setError(t)
+        cardItemErrorView.visibility = View.VISIBLE
+        cardItemProgressBar.visibility = View.GONE
+        cardItemContainer.visibility = View.GONE
     }
 
     override fun setCallback(callback: FeedAdapter.Callback?) {
@@ -103,8 +101,8 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
         viewAddDescriptionButton.visibility = View.VISIBLE
 
         viewArticleTitle.text = summary!!.normalizedTitle
-        if(summary!!.thumbnailUrl!=null)
-        viewArticleImage.loadImage(Uri.parse(summary!!.thumbnailUrl))
+        if (summary!!.thumbnailUrl != null)
+            viewArticleImage.loadImage(Uri.parse(summary!!.thumbnailUrl))
         callToActionText.text = if (translation) String.format(context.getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(app.language().appLanguageCodes.get(1))) else context.getString(R.string.editactionfeed_add_description_button)
 
     }
@@ -112,7 +110,7 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
     private fun hideViews() {
         viewArticleExtract.text = ""
         viewArticleTitle.text = ""
-        callToActionText.text=""
+        callToActionText.text = ""
         viewArticleImage.loadImage(null)
         headerView.visibility = View.GONE
         viewAddDescriptionButton.visibility = View.GONE
@@ -126,7 +124,7 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
         cardView.setContentPadding(0, 0, 0, DimenUtil.roundedDpToPx(CARD_BOTTOM_PADDING))
         cardView.setOnClickListener {
             if (callback != null && card != null) {
-                callback!!.onSuggestedEditsCardClick(summary!!.getPageTitle(WikiSite.forLanguageCode(if (translation) app.language().appLanguageCodes.get(1) else app.language().appLanguageCode)), this)
+                callback!!.onSuggestedEditsCardClick(summary!!.getPageTitle(WikiSite.forLanguageCode(if (translation) app.language().appLanguageCodes.get(1) else app.language().appLanguageCode)), sourceDescription, if (translation) app.language().appLanguageCodes.get(1) else app.language().appLanguageCode, this)
             }
         }
     }
@@ -144,7 +142,7 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
                 .setSubtitle(card.subtitle())
                 .setImage(R.drawable.ic_mode_edit_white_24dp)
                 .setImageCircleColor(ResourceUtil.getThemedAttributeId(context, R.attr.material_theme_de_emphasised_color))
-                .setLangCode(if(translation)card.wikiSite().languageCode() else "")
+                .setLangCode(if (translation) card.wikiSite().languageCode() else "")
                 .setCard(card)
                 .setCallback(callback)
     }
