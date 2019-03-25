@@ -773,5 +773,4 @@
     <string name="suggested_edits">Suggested edits</string>
     <string name="feed_item_type_suggested_edit">Suggestions based on your language and editing history.</string>
     <string name="feed_item_type_suggested_translation_edit">Suggestions based on your languages and translation history.</string>
-    <string name="add_translation">Add %s translation</string>
 </resources>
