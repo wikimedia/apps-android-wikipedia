@@ -10,7 +10,7 @@ import java.util.Map;
 @SuppressWarnings("unused")
 public class EditorTaskCounts {
     @Nullable private Counts counts;
-    @Nullable private Targets targetsPassed;
+    @Nullable @SerializedName("targets_passed") private Targets targetsPassed;
 
     @Nullable
     public Map<String, Integer> getDescriptionEditsPerLanguage() {
