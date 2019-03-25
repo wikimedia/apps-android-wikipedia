@@ -6,22 +6,19 @@ import android.net.Uri
 import android.text.TextUtils
 import android.view.View
 import android.widget.FrameLayout
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.annotations.NonNull
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_add_title_descriptions_item.view.*
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
-import org.wikipedia.editactionfeed.provider.MissingDescriptionProvider
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter
 
@@ -32,10 +29,11 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
 
     private val disposables = CompositeDisposable()
     val CARD_BOTTOM_PADDING = 16.0f
+    val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 6
     var translation: Boolean = false
     private var sourceDescription: String = ""
     private val app = WikipediaApp.getInstance()
-
+    private var summary: RbPageSummary? = null
 
     init {
         View.inflate(getContext(), R.layout.fragment_add_title_descriptions_item, this)
@@ -44,53 +42,24 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
     override fun setCard(card: SuggestedEditCard) {
         super.setCard(card)
         translation = card.isTranslation()
+        summary = card.getsummary()
+        sourceDescription = card.getSourceDescription()
         setLayoutDirectionByWikiSite(card.wikiSite(), rootView!!)
         hideViews()
-        getArticleWithMissingDescription()
         header(card)
-    }
-
-    private var summary: RbPageSummary? = null
-
-    private fun getArticleWithMissingDescription() {
-        if (translation) {
-            disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(app.language().appLanguageCodes.get(0)), app.language().appLanguageCodes.get(1), true)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ pair ->
-                        sourceDescription = StringUtils.defaultString(pair.first)
-                        summary = pair.second
-                        updateSourceDescriptionWithHighlight()
-                    }, { this.setErrorState(it) })!!)
-
-        } else {
-            disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(app.language().appLanguageCode))
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ pageSummary ->
-                        summary = pageSummary
-                        updateContents()
-                    }, { this.setErrorState(it) }))
-        }
-
+        updateSourceDescriptionWithHighlight()
     }
 
     private fun updateSourceDescriptionWithHighlight() {
-        viewArticleSubtitleContainer.visibility = View.VISIBLE
-        viewArticleSubtitleAddedBy.visibility = View.GONE
-        viewArticleSubtitleEdit.visibility = View.GONE
-        viewArticleSubtitle.text = sourceDescription
+        if (translation) {
+            viewArticleSubtitleContainer.visibility = View.VISIBLE
+            viewArticleSubtitleAddedBy.visibility = View.GONE
+            viewArticleSubtitleEdit.visibility = View.GONE
+            viewArticleSubtitle.text = sourceDescription
+        }
         updateContents()
-
     }
 
-    private fun setErrorState(t: Throwable) {
-        L.e(t)
-        cardItemErrorView.setError(t)
-        cardItemErrorView.visibility = View.VISIBLE
-        cardItemProgressBar.visibility = View.GONE
-        cardItemContainer.visibility = View.GONE
-    }
 
     override fun setCallback(callback: FeedAdapter.Callback?) {
         super.setCallback(callback)
@@ -99,12 +68,24 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
 
     private fun updateContents() {
         viewAddDescriptionButton.visibility = View.VISIBLE
-
         viewArticleTitle.text = summary!!.normalizedTitle
-        if (summary!!.thumbnailUrl != null)
-            viewArticleImage.loadImage(Uri.parse(summary!!.thumbnailUrl))
         callToActionText.text = if (translation) String.format(context.getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(app.language().appLanguageCodes.get(1))) else context.getString(R.string.editactionfeed_add_description_button)
+        showImageOrExtract()
+    }
 
+    private fun showImageOrExtract() {
+        if (TextUtils.isEmpty(summary!!.thumbnailUrl)) {
+            viewArticleImage.visibility = View.GONE
+            viewArticleExtract.visibility = View.VISIBLE
+            divider.visibility = View.VISIBLE
+            viewArticleExtract.text = StringUtil.fromHtml(summary!!.extractHtml)
+            viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
+        } else {
+            viewArticleImage.visibility = View.VISIBLE
+            viewArticleExtract.visibility = View.GONE
+            divider.visibility = View.GONE
+            viewArticleImage.loadImage(Uri.parse(summary!!.thumbnailUrl))
+        }
     }
 
     private fun hideViews() {
@@ -114,6 +95,7 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
         viewArticleImage.loadImage(null)
         headerView.visibility = View.GONE
         viewAddDescriptionButton.visibility = View.GONE
+        cardItemProgressBar.visibility = View.GONE
         viewArticleSubtitleContainer.visibility = View.GONE
         viewArticleExtract.visibility = View.GONE
         divider.visibility = View.GONE
@@ -151,7 +133,20 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
         if (!TextUtils.isEmpty(addedDescription)) {
             viewArticleSubtitleContainer.visibility = View.VISIBLE
             viewAddDescriptionButton.visibility = View.GONE
+            viewArticleSubtitleAddedBy.visibility = View.VISIBLE
+            viewArticleSubtitleEdit.visibility = View.VISIBLE
             viewArticleSubtitle.text = addedDescription
+            if (translation) viewArticleSubtitleAddedBy.text = context.getString(R.string.editactionfeed_translated_by_you)
+            else viewArticleSubtitleAddedBy.text = context.getString(R.string.editactionfeed_added_by_you)
         }
     }
+
+    private fun setErrorState(t: Throwable) {
+        L.e(t)
+        cardItemErrorView.setError(t)
+        cardItemErrorView.visibility = View.VISIBLE
+        cardItemProgressBar.visibility = View.GONE
+        cardItemContainer.visibility = View.GONE
+    }
+
 }

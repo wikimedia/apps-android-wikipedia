@@ -1,9 +1,9 @@
 package org.wikipedia.feed.suggestededits
 
-import io.reactivex.annotations.NonNull
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.util.DateUtil
@@ -12,14 +12,17 @@ class SuggestedEditCard(wiki: WikiSite) : WikiSiteCard(wiki) {
     var wiki: WikiSite? = null
     var age: Int? = null
     var translation: Boolean = false
-
+    private var sourceDescription: String = ""
+    private var summary: RbPageSummary? = null
     override fun type(): CardType {
         return CardType.SUGGESTED_EDITS
     }
 
-    constructor(@NonNull wiki: WikiSite, @NonNull translation: Boolean) : this(wiki) {
+    constructor(wiki: WikiSite, translation: Boolean, summary: RbPageSummary?, sourceDescription: String) : this(wiki) {
         this.wiki = wiki
         this.translation = translation
+        this.summary = summary
+        this.sourceDescription = sourceDescription
     }
 
     override fun title(): String {
@@ -32,5 +35,13 @@ class SuggestedEditCard(wiki: WikiSite) : WikiSiteCard(wiki) {
 
     override fun subtitle(): String {
         return DateUtil.getFeedCardDateString(0)
+    }
+
+    fun getsummary(): RbPageSummary? {
+        return summary
+    }
+
+    fun getSourceDescription(): String {
+        return sourceDescription
     }
 }
