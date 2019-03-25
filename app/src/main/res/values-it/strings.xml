@@ -560,7 +560,10 @@
   <string name="feed_item_type_randomizer">Genera voci casuali da leggere</string>
   <string name="feed_configure_onboarding_action">Personalizza</string>
   <string name="description_edit_text_hint">Descrizione del titolo</string>
+  <string name="description_edit_text_hint_per_language">descrizione in %s</string>
   <string name="description_edit_save">Pubblica</string>
+  <string name="description_edit_article">Voce</string>
+  <string name="description_edit_read">Leggi</string>
   <string name="description_edit_add_description">Aggiungi una descrizione del titolo</string>
   <string name="description_edit_edit_description">Modifica descrizione</string>
   <string name="description_edit_cancel_hint">Annulla</string>
@@ -568,19 +571,21 @@
   <string name="description_edit_help_about_wikidata">Su Wikidata</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/it</string>
   <string name="description_edit_success_saved">Descrizione pubblicata!</string>
+  <string name="description_edit_success_saved_snackbar">Descrizione pubblicata!</string>
   <string name="description_edit_success_encouragement">Hai appena reso Wikipedia migliore per tutti</string>
   <string name="description_edit_success_done">Fatto</string>
   <string name="description_edit_success_did_you_know">Lo sapevi?</string>
   <string name="description_edit_tutorial_title_descriptions">Descrizioni del titolo</string>
   <string name="description_edit_tutorial_keep_it_short">Sii breve</string>
   <string name="description_edit_tutorial_button_label_start_editing">Inizia a modificare</string>
-  <string name="editactionfeed_add_title_descriptions">Aggiungi descrizioni del titolo</string>
+  <string name="editactionfeed_add_title_descriptions">Aggiungi descrizioni</string>
   <string name="editactionfeed_translate_descriptions">Traduci le descrizioni del titolo</string>
   <string name="editactionfeed_add_description_button">Aggiungi descrizione</string>
   <string name="editactionfeed_my_contributions">I miei contributi</string>
   <string name="editactionfeed_from_language">Da:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Ulteriori informazioni</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">Ulteriori informazioni</string>
+  <string name="editactionfeed_added_by_you">Aggiunto da te:</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
   <string name="description_edit_revert_reason2">il tuo contributo sembra essere un esperimento o un vandalismo.</string>
   <string name="description_edit_revert_history">Se sei interessato, vedi la &lt;a href=\"%1$s\"&gt;cronologia delle modifiche&lt;/a&gt;.</string>

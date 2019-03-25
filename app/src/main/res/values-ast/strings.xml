@@ -523,6 +523,7 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalizar la canal Esplorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora puedes esbillar lo que desees ver na to canal, y tamién dar prioridá a les tos tribes de conteníu favorites.</string>
   <string name="description_edit_text_hint">Descripción del títulu</string>
   <string name="description_edit_save">Espublizar</string>
+  <string name="description_edit_article">Artículu</string>
   <string name="description_edit_add_description">Amestar una descripción del títulu</string>
   <string name="description_edit_edit_description">Editar la descripción</string>
   <string name="description_edit_cancel_hint">Encaboxar</string>

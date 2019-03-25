@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-INPUT_PATH="https://en.wikipedia.org/api/rest_v1/data/css/mobile/base"
+INPUT_PATH="https://meta.wikimedia.org/api/rest_v1/data/css/mobile/base"
 OUTPUT_PATH="`dirname $0`/../app/src/main/assets"
 
 curl $INPUT_PATH > "$OUTPUT_PATH/styles.css"

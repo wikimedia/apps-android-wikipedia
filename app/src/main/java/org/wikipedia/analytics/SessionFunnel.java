@@ -1,14 +1,11 @@
 package org.wikipedia.analytics;
 
-import android.support.annotation.NonNull;
 import android.text.format.DateUtils;
 
-import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.RbSwitch;
-import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.StringUtil;
 
 public class SessionFunnel extends Funnel {
@@ -20,14 +17,14 @@ public class SessionFunnel extends Funnel {
     public static final int MIN_SESSION_TIMEOUT = 1;
 
     private static final String SCHEMA_NAME = "MobileWikiAppSessions";
-    private static final int REVISION = 18115099;
+    private static final int REVISION = 18948969;
 
     private SessionData sessionData;
     private long leadSectionStartTime;
     private long restSectionsStartTime;
 
     public SessionFunnel(WikipediaApp app) {
-        super(app, SCHEMA_NAME, REVISION, ReleaseUtil.isProdRelease() ? Funnel.SAMPLE_LOG_100 : Funnel.SAMPLE_LOG_ALL);
+        super(app, SCHEMA_NAME, REVISION);
         sessionData = Prefs.getSessionData();
         if (sessionData.getStartTime() == 0 || sessionData.getLastTouchTime() == 0) {
             // session was serialized/deserialized incorrectly, so reset it.
@@ -44,9 +41,6 @@ public class SessionFunnel extends Funnel {
     public void persistSession() {
         Prefs.setSessionData(sessionData);
     }
-
-    @Override
-    protected void preprocessSessionToken(@NonNull JSONObject eventData) { }
 
     /**
      * Update the timestamp for the current session. If the last-updated time is older than the
@@ -114,6 +108,7 @@ public class SessionFunnel extends Funnel {
                 "fromDisambig", sessionData.getPagesFromDisambig(),
                 "fromBack", sessionData.getPagesFromBack(),
                 "noDescription", sessionData.getPagesWithNoDescription(),
+                "fromSuggestedEdits", sessionData.getPagesFromSuggestedEdits(),
                 "totalPages", sessionData.getTotalPages(),
                 "leadLatency", sessionData.getLeadLatency(),
                 "restLatency", sessionData.getRestLatency(),

@@ -579,7 +579,7 @@
   <string name="feed_configure_onboarding_action">Přizpůsobit</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Přizpůsobte si svůj kanál Objevit&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Nyní si můžete vybrat, co se má zobrazovat na vaší stránce, a také upřednostňovat své oblíbené typy obsahu.</string>
   <string name="description_edit_text_hint">Popis článku</string>
-  <string name="description_edit_text_hint_per_language">%s popis</string>
+  <string name="description_edit_text_hint_per_language">popis v jazyce %s</string>
   <string name="description_edit_save">Zveřejnit</string>
   <string name="description_edit_article">Článek</string>
   <string name="description_edit_read">Číst</string>

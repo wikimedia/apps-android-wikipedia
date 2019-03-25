@@ -588,8 +588,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideelt éi linje, mellom to og tolv ord</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begynn å redigere</string>
   <string name="description_edit_tutorial_promise">Ved å begynne lover jeg å ikke misbruke denne funksjonen.</string>
-  <string name="editactionfeed_add_title_descriptions">Om tittelbeskrivelser</string>
-  <string name="editactionfeed_review_title_description">Korrekturles tittelbeskrivelser</string>
+  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Om tittelbeskrivelser</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">Korrekturles tittelbeskrivelser</string>
   <string name="editactionfeed_add_description_button">Legg til beskrivelse</string>
   <string name="editactionfeed_my_contributions">Mine bidrag</string>
   <string name="editactionfeed_from_language">Fra:</string>

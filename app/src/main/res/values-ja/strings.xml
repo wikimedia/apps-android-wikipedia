@@ -693,9 +693,9 @@
   <string name="multilingual_task_title">多言語話者の編集者向けのタスク</string>
   <string name="multilingual_task_description">2言語以上で読み書きができる編集者向けに編集タスクがあります。</string>
   <string name="translation_task_title">説明を翻訳</string>
-  <string name="translation_task_description" fuzzy="true">記事の説明を他の言語に翻訳する。</string>
-  <string name="image_caption_edit_disable_text" fuzzy="true">最低%d件のアプリ内編集が完了するまでロックされています</string>
-  <string name="translate_description_edit_disable_text" fuzzy="true">最低%d件の記事の説明を編集するまでロックされています</string>
+  <string name="translation_task_description">説明文を他の言語に翻訳する。</string>
+  <string name="image_caption_edit_disable_text">最低%d件の有効な編集が完了するまでロックされています</string>
+  <string name="translate_description_edit_disable_text">最低%d件の有効な編集をするまでロックされています</string>
   <string name="multilingual_task_negative">私向けではありません</string>
   <string name="multilingual_task_positive">言語を追加</string>
   <string name="editing_level_text">レベル %d のアプリ編集者</string>
@@ -710,7 +710,7 @@
   <string name="add_title_descriptions_dialog_message">ウィキペディアの改良に貢献する方法として、記事名の下に表示される説明を追加できるようになりました。使用言語はいつでも設定が可能です。</string>
   <string name="add_translate_descriptions_dialog_title">記事の説明を編集するのは初めてです</string>
   <string name="add_translate_descriptions_dialog_message">記事の説明を翻訳してウィキペディアの改良に貢献できるようになりました。使用言語の設定と原語・訳語のペアの指定はいつでも可能です。</string>
-  <string name="description_edit_tutorial_message" fuzzy="true">ようこそ、ここはウィキペディアの編集をさっと実行するアプリの新しいホームページです。あなたが関心を持ちそうなものをお勧めして、内容の充実をお願いしていきます。ぜひ作業にご参加くださるようお願いいたします。編集をお楽しみください！</string>
+  <string name="description_edit_tutorial_message">ようこそ、ここはウィキペディアの編集をさっと実行するアプリの新しいホームページです。皆さんにはぜひ編集にご参加をお願いいたします。ではお楽しみください！</string>
   <string name="translation_description_edit_task_unlock_title">記事の説明の翻訳が開始できるようになりました！</string>
   <string name="translation_description_edit_task_unlock_body">複数言語でウィキペディアを読み書きでき、記事の説明の編集を続けておられるようです。もっと記事の説明を翻訳できるように、こちらのタスクリストをご用意しました。ぜひ目を通すしてくださるようお願いします！</string>
   <string name="title_description_editing_skip">スキップ</string>

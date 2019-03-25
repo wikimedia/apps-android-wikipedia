@@ -23,7 +23,7 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
         supportActionBar!!.elevation = 0f
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = getString(if (intent.getSerializableExtra(EXTRA_SOURCE) == EDIT_FEED_TITLE_DESC)
-            R.string.editactionfeed_add_title_descriptions else R.string.editactionfeed_translate_descriptions)
+            R.string.editactionfeed_add_title_descriptions else R.string.translation_task_title)
     }
 
     override fun createFragment(): AddTitleDescriptionsFragment {
