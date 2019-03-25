@@ -593,9 +593,9 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">По могућству један ред, од две до дванаест речи</string>
   <string name="description_edit_tutorial_button_label_start_editing">Започни уређивање</string>
   <string name="description_edit_tutorial_promise">Када почнем, обећавам да нећу злоупотребити ову функцију.</string>
-  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Додавање описа наслова</string>
+  <string name="editactionfeed_add_title_descriptions">Додавање описа</string>
   <string name="editactionfeed_translate_descriptions">Преведите описе наслова</string>
-  <string name="editactionfeed_review_title_description" fuzzy="true">Преглед описа наслова</string>
+  <string name="editactionfeed_review_title_description">Преглед описа</string>
   <string name="editactionfeed_add_description_button">Додај опис</string>
   <string name="editactionfeed_my_contributions">Моји доприноси</string>
   <string name="editactionfeed_from_language">Од:</string>
@@ -671,10 +671,10 @@
   <string name="main_drawer_close">Затвори</string>
   <string name="main_drawer_help">Помоћ</string>
   <string name="main_drawer_login">Пријави ме / придружи ме Википедији</string>
-  <string name="title_description_task_title" fuzzy="true">Додавање описа наслова</string>
-  <string name="translation_task_title" fuzzy="true">Преведите описе наслова</string>
-  <string name="translation_task_description" fuzzy="true">Преведите описе наслова на друге језике</string>
-  <string name="translate_description_edit_disable_text" fuzzy="true">Закључано док не уредите описе наслова (%d)</string>
+  <string name="title_description_task_title">Додавање описа</string>
+  <string name="translation_task_title">Преведите описе</string>
+  <string name="translation_task_description">Преведите описе по језицима чланака.</string>
+  <string name="translate_description_edit_disable_text">Закључано док не направите (%d) проверених доприноса</string>
   <string name="multilingual_task_negative">Није за мене</string>
   <string name="multilingual_task_positive">Додај језике</string>
   <string name="translation_source_description">опис (%s):</string>

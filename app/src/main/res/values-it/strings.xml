@@ -566,6 +566,7 @@
   <string name="description_edit_read">Leggi</string>
   <string name="description_edit_add_description">Aggiungi una descrizione del titolo</string>
   <string name="description_edit_edit_description">Modifica descrizione</string>
+  <string name="add_translation">Aggiungi traduzione in %s</string>
   <string name="description_edit_cancel_hint">Annulla</string>
   <string name="description_edit_help_title">Aiuto: descrizioni del titolo</string>
   <string name="description_edit_help_about_wikidata">Su Wikidata</string>
@@ -586,6 +587,7 @@
   <string name="editactionfeed_add_title_dialog_learn_more">Ulteriori informazioni</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">Ulteriori informazioni</string>
   <string name="editactionfeed_added_by_you">Aggiunto da te:</string>
+  <string name="editactionfeed_translated_by_you">Tradotto da te:</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
   <string name="description_edit_revert_reason2">il tuo contributo sembra essere un esperimento o un vandalismo.</string>
   <string name="description_edit_revert_history">Se sei interessato, vedi la &lt;a href=\"%1$s\"&gt;cronologia delle modifiche&lt;/a&gt;.</string>

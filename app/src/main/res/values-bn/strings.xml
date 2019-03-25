@@ -504,6 +504,7 @@
   <string name="description_edit_save">প্রকাশ করুন</string>
   <string name="description_edit_add_description">শিরোনামের বিবরণ যোগ করুন</string>
   <string name="description_edit_edit_description">বিবরণ সম্পাদনা করুন</string>
+  <string name="add_translation">%s অনুবাদ যোগ করুন</string>
   <string name="description_edit_cancel_hint">বাতিল</string>
   <string name="description_edit_help_title">সাহায্য: শিরোনামের বিবরণ</string>
   <string name="description_edit_help_about_wikidata">উইকিউপাত্ত সম্পর্কে</string>
@@ -531,6 +532,7 @@
   <string name="editactionfeed_add_title_dialog_learn_more">আরও জানুন</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">আরও জানুন</string>
   <string name="editactionfeed_to_language">প্রাপক:</string>
+  <string name="editactionfeed_translated_by_you">আপনার দ্বারা অনূদিত:</string>
   <string name="description_edit_revert_subtitle">উইকিপিডিয়ায় সম্পাদনা করার জন্য ধন্যবাদ!</string>
   <string name="description_edit_revert_reason1">আপনার অবদান &lt;a href=\"%1$s\"&gt;নীতিমালা&lt;/a&gt; অনুসরণ করেনি।</string>
   <string name="description_edit_revert_reason2">আপনার অবদান পরীক্ষামূলক বা ধ্বংসপ্রবণতামূলক বলে মনে হচ্ছে।</string>
