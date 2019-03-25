@@ -731,5 +731,4 @@
   <string name="suggested_edits">Title text for suggested edits card.</string>
   <string name="feed_item_type_suggested_edit">Short description for Explore feed card that contains suggestions for editing based on the editing history of the user.</string>
   <string name="feed_item_type_suggested_translation_edit">Short description for Explore feed card that contains suggestions for editing based on the translation history of the user.</string>
-  <string name="editactionfeed_translated_by_you">A label shows that the current article description was translated by the user.</string>
 </resources>
