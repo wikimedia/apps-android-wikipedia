@@ -221,7 +221,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     private void finishActionMode() {
-        for (ActionMode mode : currentActionModes) {
+        Set<ActionMode> actionModesToFinish = new HashSet<>(currentActionModes);
+        for (ActionMode mode : actionModesToFinish) {
             mode.finish();
         }
         currentActionModes.clear();

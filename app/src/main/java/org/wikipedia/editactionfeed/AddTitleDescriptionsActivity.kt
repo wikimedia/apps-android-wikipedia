@@ -90,7 +90,8 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
         }
 
         fun maybeShowTranslationEdit(context: Context) {
-            if (WikipediaApp.getInstance().language().appLanguageCodes.size < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION || Prefs.getTotalUserDescriptionsEdited() <= ACTION_DESCRIPTION_EDIT_UNLOCK_THRESHOLD || !Prefs.showEditActionTranslateDescriptionsUnlockedDialog()) {
+            if (WikipediaApp.getInstance().language().appLanguageCodes.size < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION || Prefs.getTotalUserDescriptionsEdited() <= ACTION_DESCRIPTION_EDIT_UNLOCK_THRESHOLD
+                    || !Prefs.showEditActionTranslateDescriptionsUnlockedDialog() || !ReleaseUtil.isPreBetaRelease()) {
                 return
             }
             Prefs.setShowEditActionTranslateDescriptionsUnlockedDialog(false)
