@@ -5,6 +5,7 @@
 * Chrumps
 * CiaPan
 * Darellur
+* Dbrant
 * DeRudySoulStorm
 * Debeet
 * Devwebtel
@@ -59,7 +60,7 @@
   <string name="menu_page_add_to_list">Dodaj do listy czytanych</string>
   <string name="menu_page_share">Udostępnij łącze</string>
   <string name="menu_page_open_a_new_tab">Otwórz nową kartę</string>
-  <string name="menu_page_reading_lists">Lity do przeczytania</string>
+  <string name="menu_page_reading_lists">Listy do przeczytania</string>
   <string name="menu_page_recently_viewed">Niedawno odwiedzone</string>
   <string name="menu_long_press_open_page">Otwórz</string>
   <string name="menu_long_press_open_in_new_tab">Otwórz w nowej karcie</string>
@@ -538,7 +539,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Najlepiej jedna linia, od dwóch do dwunastu wyrazów.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Rozpocznij edycję</string>
   <string name="description_edit_tutorial_promise">Rozpoczynając, obiecuję nie nadużywać tej funkcji.</string>
-  <string name="editactionfeed_add_title_descriptions">Dodaj opisy tytułów</string>
+  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Dodaj opisy tytułów</string>
   <string name="editactionfeed_add_description_button">Dodaj opis</string>
   <string name="editactionfeed_my_contributions">Mój wkład</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Dowiedz się więcej</string>

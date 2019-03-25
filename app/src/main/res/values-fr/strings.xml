@@ -589,7 +589,10 @@
   <string name="feed_configure_onboarding_action">Personnaliser</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personnaliser votre fil d’exploration&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Vous pouvez maintenant choisir ce que vous voulez montrer sur votre fil, et aussi prioriser vos types de contenu favoris.</string>
   <string name="description_edit_text_hint">Description du titre</string>
+  <string name="description_edit_text_hint_per_language">description de %s</string>
   <string name="description_edit_save">Publier</string>
+  <string name="description_edit_article">Article</string>
+  <string name="description_edit_read">Lire</string>
   <string name="description_edit_add_description">Ajouter une description du titre</string>
   <string name="description_edit_edit_description">Modifier la description</string>
   <string name="description_edit_cancel_hint">Annuler</string>
@@ -602,6 +605,7 @@
   <string name="description_edit_task_unlock_title">La liste des tâches de mise à jour des descriptions de titre a été déverrouillée !</string>
   <string name="description_edit_task_unlock_body">Nous avons remarqué que vous aimez modifier les descriptions de titre, nous avons donc compilé une liste « Tâches d’éditeur » avec davantage d’articles manquant de descriptions de titre, pour vous aider à continuer à contribuer !</string>
   <string name="description_edit_success_saved">Description publiée !</string>
+  <string name="description_edit_success_saved_snackbar">Description publiée !</string>
   <string name="description_edit_success_encouragement">Vous venez juste de rendre Wikipédia meilleure pour tout le monde</string>
   <string name="description_edit_success_done">Fermer</string>
   <string name="description_edit_success_did_you_know">Le saviez-vous ?</string>
@@ -612,15 +616,16 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idéalement une ligne, entre deux et douze mots</string>
   <string name="description_edit_tutorial_button_label_start_editing">Commencez à éditer</string>
   <string name="description_edit_tutorial_promise">En commençant, je promets de ne pas abuser de cette fonctionnalité.</string>
-  <string name="editactionfeed_add_title_descriptions">Ajouter les descriptions de titre</string>
+  <string name="editactionfeed_add_title_descriptions">Ajouter des descriptions</string>
   <string name="editactionfeed_translate_descriptions">Traduire les descriptions de titre</string>
-  <string name="editactionfeed_review_title_description">Relire la description du titre</string>
+  <string name="editactionfeed_review_title_description">Relire la description</string>
   <string name="editactionfeed_add_description_button">Ajouter une description</string>
   <string name="editactionfeed_my_contributions">Mes contributions</string>
   <string name="editactionfeed_from_language">De :</string>
   <string name="editactionfeed_add_title_dialog_learn_more">En savoir plus</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">En savoir plus</string>
   <string name="editactionfeed_to_language">À :</string>
+  <string name="editactionfeed_added_by_you">Ajouté par vous :</string>
   <string name="description_edit_revert_subtitle">Merci pour l’édition de Wikipédia !</string>
   <string name="description_edit_revert_intro">Nous savons que vous avez fait de votre mieux, mais un de nos relecteurs a eu un souci. Les raisons possibles de l’annulation de votre modification comprennent :</string>
   <string name="description_edit_revert_reason1">votre contribution ne respectait pas une des &lt;a href=\"%1$s\"&gt;directives&lt;/a&gt;.</string>
@@ -725,4 +730,5 @@
   <string name="translate_descriptions_maybe_later">Peut-être plus tard</string>
   <string name="title_descriptions_onboarding_got_it">C’est bon !</string>
   <string name="translate_descriptions_onboarding_got_it">C’est bon !</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
 </resources>

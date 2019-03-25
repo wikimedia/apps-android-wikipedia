@@ -519,6 +519,7 @@ public class EditSectionActivity extends BaseActivity {
         menu.findItem(R.id.menu_edit_zoom_out).setVisible(!editPreviewFragment.isActive());
         menu.findItem(R.id.menu_edit_undo).setVisible((android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) && !editPreviewFragment.isActive());
         menu.findItem(R.id.menu_edit_redo).setVisible((android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) && !editPreviewFragment.isActive());
+        menu.findItem(R.id.menu_find_in_editor).setVisible(!editPreviewFragment.isActive());
 
         if (abusefilterEditResult != null) {
             item.setEnabled(abusefilterEditResult.getType() != EditAbuseFilterResult.TYPE_ERROR);

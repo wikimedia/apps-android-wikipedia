@@ -47,6 +47,7 @@ public class DescriptionEditView extends LinearLayout {
     @BindView(R.id.view_description_edit_container) ViewGroup descriptionEditContainer;
     @BindView(R.id.view_description_edit_review_container) DescriptionEditReviewView pageReviewContainer;
     @BindView(R.id.view_description_edit_license_container) DescriptionEditLicenseView licenseContainer;
+    @BindView(R.id.label_text) TextView labelText;
     @BindView(R.id.view_description_edit_read_article_bar_container) DescriptionEditReadArticleBarView readArticleBarContainer;
 
     @Nullable private String originalDescription;
@@ -54,7 +55,8 @@ public class DescriptionEditView extends LinearLayout {
     private PageTitle pageTitle;
     private PageSummary pageSummary;
     private boolean isTranslationEdit;
-    private CharSequence translationSourceLanguageDescription;
+    @Nullable private CharSequence translationSourceDescription;
+    @Nullable private String translationSourceLanguageCode;
 
     public interface Callback {
         void onSaveClick();
@@ -110,16 +112,19 @@ public class DescriptionEditView extends LinearLayout {
     private void setReviewHeaderText(boolean inReview) {
         int headerTextRes = inReview ? R.string.editactionfeed_review_title_description
                 : TextUtils.isEmpty(originalDescription)
-                ? (isTranslationEdit ? R.string.editactionfeed_translate_descriptions : R.string.description_edit_add_description)
+                ? (isTranslationEdit ? R.string.translation_task_title : R.string.description_edit_add_description)
                 : R.string.description_edit_edit_description;
         headerText.setText(getContext().getString(headerTextRes));
     }
 
     public void setPageSummary(@NonNull PageSummary pageSummary) {
         pageSummaryContainer.setVisibility(View.VISIBLE);
-
+        labelText.setText(isTranslationEdit
+                ? String.format(getContext().getString(R.string.description_edit_text_hint_per_language),
+                WikipediaApp.getInstance().language().getAppLanguageCanonicalName(translationSourceLanguageCode))
+                : getContext().getString(R.string.description_edit_article));
         pageSummaryText.setText(isTranslationEdit
-                ? translationSourceLanguageDescription
+                ? translationSourceDescription
                 : StringUtil.fromHtml(pageSummary.getExtractHtml()));
         readArticleBarContainer.setPageSummary(pageSummary, view -> performReadArticleClick());
         this.pageSummary = pageSummary;
@@ -253,7 +258,10 @@ public class DescriptionEditView extends LinearLayout {
         isTranslationEdit = translationEdit;
     }
 
-    public void setTranslationSourceLanguageDescription(CharSequence translationSourceLanguageDescription) {
-        this.translationSourceLanguageDescription = translationSourceLanguageDescription;
+    public void setTranslationSources(@Nullable CharSequence description, @Nullable String languageCode) {
+        if (description != null && languageCode != null) {
+            this.translationSourceDescription = description;
+            this.translationSourceLanguageCode = languageCode;
+        }
     }
 }

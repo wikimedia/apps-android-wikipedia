@@ -223,11 +223,15 @@
   <string name="view_static_card_save_button_label">Qeyd ke</string>
   <string name="view_featured_article_footer_saved_button_label">Qeyd bi</string>
   <string name="description_edit_text_hint">Şınasnayış sernamey</string>
+  <string name="description_edit_text_hint_per_language">arezekerdışê %s</string>
   <string name="description_edit_save">Bıweşane</string>
+  <string name="description_edit_article">Meqale</string>
+  <string name="description_edit_read">Bıwane</string>
   <string name="description_edit_add_description">Şınasnayışê sernamey cı kerê</string>
   <string name="description_edit_cancel_hint">Bıtexelne</string>
   <string name="description_edit_success_done">Temam</string>
   <string name="description_edit_success_did_you_know">Tı zanê?</string>
+  <string name="editactionfeed_add_title_descriptions">Arezekerdış cı ke</string>
   <string name="editactionfeed_add_description_button">Arezekerdış cı ke</string>
   <string name="editactionfeed_my_contributions">İştirakê mı</string>
   <string name="editactionfeed_from_language">Rıştoğ:</string>
