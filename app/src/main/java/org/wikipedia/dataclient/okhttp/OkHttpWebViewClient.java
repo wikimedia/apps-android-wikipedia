@@ -175,6 +175,11 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
                 .url(request.getUrl().toString())
                 .cacheControl(getModel().getCacheControl());
         for (String header : request.getRequestHeaders().keySet()) {
+            if (header.equals("If-None-Match") || header.equals("If-Modified-Since")) {
+                // Strip away conditional headers from the request coming from the WebView, since
+                // we want control of caching for ourselves (it can break OkHttp's caching internals).
+                continue;
+            }
             builder.header(header, request.getRequestHeaders().get(header));
         }
         return OkHttpConnectionFactory.getClient().newCall(addHeaders(builder).build()).execute();

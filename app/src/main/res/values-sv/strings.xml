@@ -573,7 +573,10 @@
   <string name="feed_configure_onboarding_action">Anpassa</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Anpassa ditt utforskarflöde&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu välja vad som ska visas i ditt flöde och även prioritera dina favoritinnehållstyper.</string>
   <string name="description_edit_text_hint">Titelbeskrivning</string>
+  <string name="description_edit_text_hint_per_language">Beskrivning på %s</string>
   <string name="description_edit_save">Publicera</string>
+  <string name="description_edit_article">Artikel</string>
+  <string name="description_edit_read">Läs</string>
   <string name="description_edit_add_description">Lägg till titelbeskrivning</string>
   <string name="description_edit_edit_description">Redigera beskrivningen</string>
   <string name="description_edit_cancel_hint">Avbryt</string>
@@ -586,6 +589,7 @@
   <string name="description_edit_task_unlock_title">Listan över redigeringsuppgifter för titelbeskrivningar har låsts upp!</string>
   <string name="description_edit_task_unlock_body">Vi har märkt att du gillar att redigera titelbeskrivningar, så vi har tagit fram en lista över uppgifter med fler artiklar som saknar titelbeskrivningar för att hjälpa dig att fortsätta bidra!</string>
   <string name="description_edit_success_saved">Beskrivningen publicerades!</string>
+  <string name="description_edit_success_saved_snackbar">Beskrivningen publicerades!</string>
   <string name="description_edit_success_encouragement">Du gjorde precis Wikipedia bättre för alla</string>
   <string name="description_edit_success_done">Klar</string>
   <string name="description_edit_success_did_you_know">Visste du att?</string>
@@ -596,15 +600,16 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Helst en rad, mellan två till tolv ord</string>
   <string name="description_edit_tutorial_button_label_start_editing">Börja redigera</string>
   <string name="description_edit_tutorial_promise">Genom att börja, lovar jag att inte missbruka denna funktion.</string>
-  <string name="editactionfeed_add_title_descriptions">Lägg till titelbeskrivning</string>
+  <string name="editactionfeed_add_title_descriptions">Lägg till beskrivningar</string>
   <string name="editactionfeed_translate_descriptions">Översätt titelbeskrivningar</string>
-  <string name="editactionfeed_review_title_description" fuzzy="true">Granska titelbeskrivningen</string>
+  <string name="editactionfeed_review_title_description">Granska beskrivning</string>
   <string name="editactionfeed_add_description_button">Lägg till beskrivning</string>
   <string name="editactionfeed_my_contributions">Mina bidrag</string>
   <string name="editactionfeed_from_language">Från:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Läs mer</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">Läs mer</string>
   <string name="editactionfeed_to_language">Till:</string>
+  <string name="editactionfeed_added_by_you">Lades till av dig:</string>
   <string name="description_edit_revert_subtitle">Tack för att du redigerar på Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi vet att du försökte ditt bästa men en av korrekturläsarna hade en invändning. Möjliga anledningar till att din redigering gjordes om inkluderar:</string>
   <string name="description_edit_revert_reason1">ditt bidrag följde inte ett av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>
@@ -709,4 +714,5 @@
   <string name="translate_descriptions_maybe_later">Kanske senare</string>
   <string name="title_descriptions_onboarding_got_it">Jag förstår</string>
   <string name="translate_descriptions_onboarding_got_it">Jag förstår</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sv</string>
 </resources>

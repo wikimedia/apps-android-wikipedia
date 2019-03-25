@@ -26,7 +26,7 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
         supportActionBar!!.elevation = 0f
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = getString(if (intent.getSerializableExtra(EXTRA_SOURCE) == EDIT_FEED_TITLE_DESC)
-            R.string.editactionfeed_add_title_descriptions else R.string.editactionfeed_translate_descriptions)
+            R.string.editactionfeed_add_title_descriptions else R.string.translation_task_title)
     }
 
     override fun createFragment(): AddTitleDescriptionsFragment {
@@ -90,7 +90,7 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
         }
 
         fun maybeShowTranslationEdit(context: Context) {
-            if (WikipediaApp.getInstance().language().appLanguageCodes.size < MULTILUNGUAL_LANGUAGES_COUNT_MINIMUM || Prefs.getTotalUserDescriptionsEdited() <= ACTION_DESCRIPTION_EDIT_UNLOCK_THRESHOLD || !Prefs.showEditActionTranslateDescriptionsUnlockedDialog()) {
+            if (WikipediaApp.getInstance().language().appLanguageCodes.size < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION || Prefs.getTotalUserDescriptionsEdited() <= ACTION_DESCRIPTION_EDIT_UNLOCK_THRESHOLD || !Prefs.showEditActionTranslateDescriptionsUnlockedDialog()) {
                 return
             }
             Prefs.setShowEditActionTranslateDescriptionsUnlockedDialog(false)

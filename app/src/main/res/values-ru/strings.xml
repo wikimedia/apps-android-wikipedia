@@ -607,7 +607,10 @@
   <string name="feed_configure_onboarding_action">Настроить</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Настройте свою ленту&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Теперь вы можете выбрать, что будет отображаться в ленте, а также определить приоритеты для выбранных типов содержимого.</string>
   <string name="description_edit_text_hint">Краткое описание</string>
+  <string name="description_edit_text_hint_per_language">%s описание</string>
   <string name="description_edit_save">Сохранить</string>
+  <string name="description_edit_article">Статья</string>
+  <string name="description_edit_read">Читать</string>
   <string name="description_edit_add_description">Добавить краткое описание</string>
   <string name="description_edit_edit_description">Править описание</string>
   <string name="description_edit_cancel_hint">Отмена</string>
@@ -620,6 +623,7 @@
   <string name="description_edit_task_unlock_title">Список статей для редактирования кратких описаний разблокирован.</string>
   <string name="description_edit_task_unlock_body">Мы заметили, что вы любите работать с краткими описаниями. Возможно, вы оцените отдельный список статей, нуждающихся в кратких описаниях, размещённый в разделе “Задания для профи”.</string>
   <string name="description_edit_success_saved">Описание сохранено!</string>
+  <string name="description_edit_success_saved_snackbar">Описание сохранено!</string>
   <string name="description_edit_success_encouragement">Вы только что сделали Википедию лучше для всех</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Знаете ли вы?</string>
@@ -630,15 +634,16 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">В идеале одна строка, от двух до двенадцати слов</string>
   <string name="description_edit_tutorial_button_label_start_editing">Начать редактирование</string>
   <string name="description_edit_tutorial_promise">Начав, я обещаю не злоупотреблять этой функцией.</string>
-  <string name="editactionfeed_add_title_descriptions">Добавление кратких описаний</string>
+  <string name="editactionfeed_add_title_descriptions">Добавить описания</string>
   <string name="editactionfeed_translate_descriptions">Перевод кратких описаний</string>
-  <string name="editactionfeed_review_title_description" fuzzy="true">Проверка кратких описаний</string>
+  <string name="editactionfeed_review_title_description">Проверить описание</string>
   <string name="editactionfeed_add_description_button">Добавить описание</string>
   <string name="editactionfeed_my_contributions">Мой вклад</string>
   <string name="editactionfeed_from_language">От:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Подробнее</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">Узнать больше</string>
   <string name="editactionfeed_to_language">Кому:</string>
+  <string name="editactionfeed_added_by_you">Добавлено вами:</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
   <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то неправильное. Возможные причины, почему ваша правка была отменена:</string>
   <string name="description_edit_revert_reason1">ваш вклад не отвечал одному из &lt;a href=\"%1$s\"&gt;руководящих принципов&lt;/a&gt;.</string>
@@ -743,4 +748,5 @@
   <string name="translate_descriptions_maybe_later">Может быть, позже</string>
   <string name="title_descriptions_onboarding_got_it">Понятно</string>
   <string name="translate_descriptions_onboarding_got_it">Понятно</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru</string>
 </resources>

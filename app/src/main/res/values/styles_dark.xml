@@ -76,6 +76,7 @@
         <item name="thumb_off_color">@color/base70</item>
         <item name="track_off_color">@color/base100</item>
         <item name="toc_h1_h2_color">@color/base100</item>
+        <item name="toc_scroller_button_drawable">@drawable/shape_circle_dark</item>
         <item name="toc_scroller_button_color">@color/base18</item>
         <item name="button_background_color">@color/base14</item>
         <item name="text_highlight_color">@color/yellow90</item>
