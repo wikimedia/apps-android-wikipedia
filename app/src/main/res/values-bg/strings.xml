@@ -591,7 +591,7 @@
   <string name="description_edit_tutorial_promise">Започвайки, обещавам да не злоупотребявам с тази функция.</string>
   <string name="editactionfeed_add_title_descriptions">Добавяне на описания</string>
   <string name="editactionfeed_translate_descriptions">Превод на описания на заглавия</string>
-  <string name="editactionfeed_review_title_description">Преглед на описание</string>
+  <string name="editactionfeed_review_title_description">Преглед на описанието</string>
   <string name="editactionfeed_add_description_button">Добавяне на описание</string>
   <string name="editactionfeed_my_contributions">Моите приноси</string>
   <string name="editactionfeed_from_language">От:</string>
@@ -670,15 +670,15 @@
   <string name="main_drawer_help">Помощ</string>
   <string name="main_drawer_login">Влизане в / присъединяване към Уикипедия</string>
   <string name="title_description_task_title">Добавяне на описания</string>
-  <string name="title_description_task_description">Допринасяйте към статии без описания</string>
+  <string name="title_description_task_description">Допринесете към статии без описания</string>
   <string name="image_caption_task_title">Описания на картини</string>
   <string name="image_caption_task_description">Добавяне на описания на картини</string>
   <string name="multilingual_task_title">Повече задачи за многоезични редактори</string>
   <string name="multilingual_task_description">Има задачи за превод на расположение, ако четете и пишете на Уикипедия на повече от един език.</string>
   <string name="translation_task_title">Превод на описания</string>
-  <string name="translation_task_description">Превод на описания на други езици</string>
-  <string name="image_caption_edit_disable_text">Заключено, докато не направите %d проверени приноса</string>
-  <string name="translate_description_edit_disable_text">Заключено, докато не направите %d проверени приноса</string>
+  <string name="translation_task_description">Превод на описания на други езици.</string>
+  <string name="image_caption_edit_disable_text">Заключено, докато не придобиете %d проверени редакции</string>
+  <string name="translate_description_edit_disable_text">Заключено, докато не придобиете %d проверени редакции</string>
   <string name="multilingual_task_negative">Не за мен</string>
   <string name="multilingual_task_positive">Добавяне на езици</string>
   <string name="editing_level_text">Приложен редактор от %d app. степен</string>
@@ -687,7 +687,7 @@
   <string name="translate_caption_task_description">Превод на описания на други езици</string>
   <plurals name="edit_action_contribution_count">
     <item quantity="one">1 принос</item>
-    <item quantity="other">%d приноси</item>
+    <item quantity="other">%d приноса</item>
   </plurals>
   <string name="add_title_descriptions_dialog_title">Добавяне на описания на заглавието</string>
   <string name="add_title_descriptions_dialog_message">Сега можете да помогнете с редактирането на Уикипедия, като добавите описания, които се появяват под заглавията на статиите. Можете да персонализирате езиците по всяко време.</string>
