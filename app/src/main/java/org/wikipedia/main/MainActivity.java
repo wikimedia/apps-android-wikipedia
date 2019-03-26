@@ -289,7 +289,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             Prefs.setShowEditMenuOptionIndicator(false);
             drawerView.maybeShowIndicatorDots();
             if (Prefs.showEditTaskOnboarding()) {
-                startActivity(SuggestedEditsOnboardingActivity.Companion.newIntent(MainActivity.this));
+                startActivity(SuggestedEditsOnboardingActivity.Companion.newIntent(MainActivity.this, Constants.InvokeSource.MAIN_ACTIVITY));
             } else {
                 startActivity(EditTasksActivity.newIntent(MainActivity.this));
             }

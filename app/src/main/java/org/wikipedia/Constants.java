@@ -26,6 +26,7 @@ public final class Constants {
     public static final int ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH = 60;
     public static final int ACTIVITY_REQUEST_BROWSE_TABS = 61;
     public static final int ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY = 62;
+    public static final int ACTIVITY_REQUEST_EDIT_ONBOARDING = 63;
 
     public static final String INTENT_RETURN_TO_MAIN = "returnToMain";
     public static final String INTENT_FEATURED_ARTICLE_FROM_WIDGET = "featuredArticleFromWidget";
@@ -59,7 +60,8 @@ public final class Constants {
         PAGE_ACTIVITY,
         EDIT_FEED_TITLE_DESC,
         EDIT_FEED_TRANSLATE_TITLE_DESC,
-        FEED
+        FEED,
+        MAIN_ACTIVITY
     }
 
     private Constants() { }
