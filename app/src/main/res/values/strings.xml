@@ -774,6 +774,4 @@
     <string name="feed_item_type_suggested_edit">Suggestions based on your language and editing history.</string>
     <string name="feed_item_type_suggested_translation_edit">Suggestions based on your languages and translation history.</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
