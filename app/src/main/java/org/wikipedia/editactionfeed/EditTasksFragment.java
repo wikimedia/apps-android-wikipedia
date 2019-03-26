@@ -59,7 +59,6 @@ public class EditTasksFragment extends Fragment {
         unbinder = ButterKnife.bind(this, view);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setElevation(0f);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        showOneTimeOnboarding();
         updateUI();
         setUpRecyclerView();
         return view;
@@ -115,11 +114,6 @@ public class EditTasksFragment extends Fragment {
         requireActivity().invalidateOptionsMenu();
     }
 
-    private void showOneTimeOnboarding() {
-        if (Prefs.showEditTaskOnboarding()) {
-            editOnboardingView.setVisibility(View.VISIBLE);
-        }
-    }
 
     @SuppressWarnings("checkstyle:magicnumber")
     private void setUpTasks() {
@@ -249,7 +243,6 @@ public class EditTasksFragment extends Fragment {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        menu.findItem(R.id.menu_help).setVisible(editOnboardingView.getVisibility() != View.VISIBLE);
     }
 
     @Override
@@ -263,12 +256,6 @@ public class EditTasksFragment extends Fragment {
         }
     }
 
-    @OnClick(R.id.get_started_button)
-    void onGetStartedClicked() {
-        Prefs.setShowEditTasksOnboarding(false);
-        editOnboardingView.setVisibility(View.GONE);
-        updateUI();
-    }
 
     @OnClick(R.id.user_contributions_button)
     void onUserContributionsClicked() {

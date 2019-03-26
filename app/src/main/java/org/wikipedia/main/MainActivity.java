@@ -27,6 +27,7 @@ import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.notifications.NotificationActivity;
 import org.wikipedia.onboarding.InitialOnboardingActivity;
+import org.wikipedia.onboarding.SuggestedEditsOnboardingActivity;
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.settings.AboutActivity;
@@ -287,7 +288,11 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         public void editingTasksClick() {
             Prefs.setShowEditMenuOptionIndicator(false);
             drawerView.maybeShowIndicatorDots();
-            startActivity(EditTasksActivity.newIntent(MainActivity.this));
+            if (Prefs.showEditTaskOnboarding()) {
+                startActivity(SuggestedEditsOnboardingActivity.Companion.newIntent(MainActivity.this));
+            } else {
+                startActivity(EditTasksActivity.newIntent(MainActivity.this));
+            }
             closeMainDrawer();
         }
 

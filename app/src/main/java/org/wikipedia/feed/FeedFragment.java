@@ -45,6 +45,7 @@ import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
+import org.wikipedia.onboarding.SuggestedEditsOnboardingActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
@@ -519,8 +520,13 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onSuggestedEditsCardClick(@NotNull PageTitle pageTitle, @NotNull String sourceDescription, @NotNull String sourceLangCode, @NotNull SuggestedEditCardView view) {
             suggestedEditCardView = view;
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), pageTitle, null, true, sourceDescription, sourceLangCode, Constants.InvokeSource.FEED),
-                    ACTIVITY_REQUEST_DESCRIPTION_EDIT);
+            if (Prefs.showEditTaskOnboarding()) {
+                startActivity(SuggestedEditsOnboardingActivity.Companion.newIntent(requireActivity()));
+            } else {
+                startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), pageTitle, null, true, sourceDescription, sourceLangCode, Constants.InvokeSource.FEED),
+                        ACTIVITY_REQUEST_DESCRIPTION_EDIT);
+            }
+
         }
     }
 
