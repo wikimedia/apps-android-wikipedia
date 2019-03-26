@@ -5,10 +5,10 @@ import android.net.Uri
 import android.support.constraint.ConstraintLayout
 import android.text.TextUtils
 import android.util.AttributeSet
-import android.view.View
 import kotlinx.android.synthetic.main.view_description_edit_read_article_bar.view.*
 import org.wikipedia.R
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.StringUtil
 
 class DescriptionEditReadArticleBarView @JvmOverloads constructor(
@@ -27,10 +27,17 @@ class DescriptionEditReadArticleBarView @JvmOverloads constructor(
         visibility = GONE
     }
 
-    fun setPageSummary(pageSummary: PageSummary) {
+    fun setPageSummary(pageSummary: PageSummary, languageCode: String) {
+        setConditionalLayoutDirection(this, languageCode)
         viewArticleTitle!!.text = StringUtil.fromHtml(pageSummary.displayTitle)
-        viewArticleImage!!.visibility = if (TextUtils.isEmpty(pageSummary.thumbnailUrl)) GONE else View.VISIBLE
-        viewArticleImage!!.loadImage(Uri.parse(pageSummary.thumbnailUrl))
+
+        if (TextUtils.isEmpty(pageSummary.thumbnailUrl)) {
+            viewArticleImage!!.visibility = GONE
+        } else {
+            viewArticleImage!!.visibility = VISIBLE
+            viewArticleImage!!.loadImage(Uri.parse(pageSummary.thumbnailUrl))
+        }
+
         show()
     }
 

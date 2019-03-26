@@ -58,6 +58,7 @@
                 android:id="@+id/viewArticleContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:minHeight="231dp"
                 android:orientation="vertical"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"

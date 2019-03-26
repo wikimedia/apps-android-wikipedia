@@ -32,6 +32,7 @@ import butterknife.OnEditorAction;
 import butterknife.OnTextChanged;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class DescriptionEditView extends LinearLayout {
     @BindView(R.id.view_description_edit_header) TextView headerText;
@@ -126,8 +127,9 @@ public class DescriptionEditView extends LinearLayout {
                 : getContext().getString(R.string.description_edit_article));
         pageSummaryText.setText(isTranslationEdit
                 ? translationSourceDescription
-                : StringUtil.fromHtml(pageSummary.getExtractHtml()));
-        readArticleBarContainer.setPageSummary(pageSummary);
+                : StringUtil.fromHtml(pageSummary.getExtract()));
+        setConditionalLayoutDirection(pageSummaryText, (isTranslationEdit) ? translationSourceLanguageCode : pageTitle.getWikiSite().languageCode());
+        readArticleBarContainer.setPageSummary(pageSummary, pageTitle.getWikiSite().languageCode());
         readArticleBarContainer.setOnClickListener(view -> performReadArticleClick());
         this.pageSummary = pageSummary;
     }
@@ -144,7 +146,7 @@ public class DescriptionEditView extends LinearLayout {
     public void loadReviewContent(boolean enabled) {
         if (enabled) {
             setReviewHeaderText(true);
-            pageReviewContainer.setPageSummary(pageSummary, getDescription());
+            pageReviewContainer.setPageSummary(pageSummary, getDescription(), pageTitle.getWikiSite().languageCode());
             pageReviewContainer.show();
             readArticleBarContainer.hide();
             descriptionEditContainer.setVisibility(GONE);

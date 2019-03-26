@@ -122,8 +122,8 @@
                     android:background="?attr/selectableItemBackground"
                     android:orientation="vertical"
                     android:paddingTop="15dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
                         android:id="@+id/label_text"
@@ -145,6 +145,7 @@
                         android:textColor="?attr/material_theme_primary_color"
                         android:maxLines="4"
                         android:ellipsize="end"
+                        android:gravity="start"
                         tools:text="Lorem ipsum"/>
 
                     <View
@@ -183,7 +184,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:imeOptions="actionDone"
-                            android:inputType="textMultiLine"
+                            android:inputType="textMultiLine|textCapSentences"
                             android:textSize="16sp"
                             android:hint="@string/description_edit_text_hint">
                             <requestFocus />
