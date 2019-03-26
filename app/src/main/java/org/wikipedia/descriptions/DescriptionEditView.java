@@ -105,6 +105,7 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     private void setHintText() {
+        pageDescriptionLayout.setHintTextAppearance(R.style.DescriptionEditViewHintTextStyle);
         pageDescriptionLayout.setHint(String.format(getContext().getString(R.string.description_edit_text_hint_per_language),
                 WikipediaApp.getInstance().language().getAppLanguageCanonicalName(pageTitle.getWikiSite().languageCode())));
     }
@@ -126,7 +127,8 @@ public class DescriptionEditView extends LinearLayout {
         pageSummaryText.setText(isTranslationEdit
                 ? translationSourceDescription
                 : StringUtil.fromHtml(pageSummary.getExtractHtml()));
-        readArticleBarContainer.setPageSummary(pageSummary, view -> performReadArticleClick());
+        readArticleBarContainer.setPageSummary(pageSummary);
+        readArticleBarContainer.setOnClickListener(view -> performReadArticleClick());
         this.pageSummary = pageSummary;
     }
 

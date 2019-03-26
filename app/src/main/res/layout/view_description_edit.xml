@@ -121,7 +121,7 @@
                     android:paddingStart="@dimen/list_item_horizontal_padding"
                     android:background="?attr/selectableItemBackground"
                     android:orientation="vertical"
-                    android:paddingTop="@dimen/list_item_vertical_padding"
+                    android:paddingTop="15dp"
                     app:layout_constraintTop_toTopOf="parent"
                     android:visibility="gone">
 
@@ -185,7 +185,9 @@
                             android:imeOptions="actionDone"
                             android:inputType="textMultiLine"
                             android:textSize="16sp"
-                            android:hint="@string/description_edit_text_hint"/>
+                            android:hint="@string/description_edit_text_hint">
+                            <requestFocus />
+                        </org.wikipedia.views.PlainPasteEditText>
                     </android.support.design.widget.TextInputLayout>
 
                     <ImageView
@@ -216,6 +218,9 @@
                     android:id="@+id/view_description_edit_read_article_bar_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?android:attr/selectableItemBackground"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/view_description_edit_license_container"
                     app:layout_constraintVertical_bias="1.0" />
