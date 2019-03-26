@@ -74,7 +74,7 @@
   <string name="reading_list_page_share">Sdílet</string>
   <string name="menu_text_select_edit_here">Editovat zde</string>
   <string name="nav_item_nearby">Poblíž</string>
-  <string name="nearby_zoom_to_location">Přibližte si místo na mapě</string>
+  <string name="nearby_zoom_to_location">Přibližte místo na mapě</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;Přispěvatelé &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Naposledy aktualizováno %s</string>
   <string name="talk_page_link_text">Zobrazit diskusní stránku</string>
@@ -100,7 +100,7 @@
   <string name="dialog_message_leaving_edit">Vaše změny nebyly dosud zveřejněny. Jste si jisti, že chcete opustit tuto stránku?</string>
   <string name="dialog_message_leaving_edit_leave">Ukončit</string>
   <string name="dialog_message_leaving_edit_stay">Zůstat</string>
-  <string name="menu_show_toc">Tabulka s obsahem</string>
+  <string name="menu_show_toc">Obsah</string>
   <string name="search_no_results_found">Nebyly nalezeny žádné výsledky</string>
   <string name="search_reading_list_no_results">Nenalezeny žádné výsledky v seznamu „%s“</string>
   <string name="search_reading_lists_no_results">V seznamech k přečtení nebyly nalezeny žádné výsledky</string>
@@ -585,6 +585,7 @@
   <string name="description_edit_read">Číst</string>
   <string name="description_edit_add_description">Přidat popis článku</string>
   <string name="description_edit_edit_description">Editovat popis</string>
+  <string name="add_translation">Přidáno %s překladů</string>
   <string name="description_edit_cancel_hint">Zrušit</string>
   <string name="description_edit_help_title">Nápověda: popis článku</string>
   <string name="description_edit_help_about_wikidata">O Wikidatech</string>
@@ -616,6 +617,7 @@
   <string name="editactionfeed_translate_title_dialog_learn_more">Další informace</string>
   <string name="editactionfeed_to_language">Do:</string>
   <string name="editactionfeed_added_by_you">Přidáno vámi:</string>
+  <string name="editactionfeed_translated_by_you">Přeloženo vámi:</string>
   <string name="description_edit_revert_subtitle">Děkujeme za editaci Wikipedie!</string>
   <string name="description_edit_revert_intro">Víme, že jste se snažili o to nejlepší, ale jeden z wikipedistů měl obavy. Možné důvody vrácení vaší editace jsou:</string>
   <string name="description_edit_revert_reason1">váš příspěvek nedodržel některé z &lt;a href=\"%1$s\"&gt;pravidel&lt;/a&gt;.</string>
@@ -704,7 +706,8 @@
   <string name="translate_caption_task_description">Přeložit popisy obrázků do jiných jazyků</string>
   <plurals name="edit_action_contribution_count">
     <item quantity="one">1 příspěvek</item>
-    <item quantity="other">%d příspěvků</item>
+    <item quantity="two">2 příspěvky</item>
+    <item quantity="other">three=3 příspěvky</item>
   </plurals>
   <string name="add_title_descriptions_dialog_title">Přidat popisy článků</string>
   <string name="add_title_descriptions_dialog_message">Nyní můžete pomoci zlepšit Wikipedii přidáním popisů, které se zobrazují pod názvy článků. Vaše jazyky si můžete kdykoli nakonfigurovat.</string>

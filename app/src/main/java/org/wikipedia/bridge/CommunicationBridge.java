@@ -1,7 +1,6 @@
 package org.wikipedia.bridge;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -52,6 +51,7 @@ public class CommunicationBridge {
 
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
+        webView.getSettings().setMediaPlaybackRequiresUserGesture(false);
         webView.setWebChromeClient(new CommunicatingChrome());
         webView.addJavascriptInterface(marshaller, "marshaller");
         eventListeners = new HashMap<>();
@@ -63,7 +63,7 @@ public class CommunicationBridge {
         });
     }
 
-    public void resetHtml(@NonNull Context context, @NonNull String assetFileName, @NonNull String wikiUrl) {
+    public void resetHtml(@NonNull String assetFileName, @NonNull String wikiUrl) {
         String html = "";
         try {
             html = FileUtil.readFile(WikipediaApp.getInstance().getAssets().open(assetFileName))
