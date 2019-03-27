@@ -39,7 +39,7 @@ import org.wikipedia.feed.mostread.MostReadArticlesActivity;
 import org.wikipedia.feed.mostread.MostReadListCard;
 import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.feed.random.RandomCardView;
-import org.wikipedia.feed.suggestededits.SuggestedEditCardView;
+import org.wikipedia.feed.suggestededits.SuggestedEditsCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
@@ -68,9 +68,9 @@ import butterknife.Unbinder;
 import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT;
-import static org.wikipedia.Constants.ACTIVITY_REQUEST_EDIT_ONBOARDING;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_FEED_CONFIGURE;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_SETTINGS;
+import static org.wikipedia.Constants.ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING;
 import static org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.EXTRA_SOURCE_ADDED_DESCRIPTION;
 import static org.wikipedia.language.AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
 import static org.wikipedia.language.AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
@@ -88,7 +88,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     private final FeedAdapter.Callback feedCallback = new FeedCallback();
     private FeedScrollListener feedScrollListener = new FeedScrollListener();
     private boolean searchIconVisible;
-    private SuggestedEditCardView suggestedEditCardView;
+    private SuggestedEditsCardView suggestedEditsCardView;
     private PageTitle descriptionEditPageTitle;
     private String sourceDescription;
     private String sourceLangCode;
@@ -234,11 +234,11 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                 || requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
             refresh();
         } else if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
-            if (suggestedEditCardView != null) {
-                suggestedEditCardView.showAddedDescriptionView(data.getStringExtra(EXTRA_SOURCE_ADDED_DESCRIPTION));
+            if (suggestedEditsCardView != null) {
+                suggestedEditsCardView.showAddedDescriptionView(data.getStringExtra(EXTRA_SOURCE_ADDED_DESCRIPTION));
             }
             FeedbackUtil.showMessage(this, R.string.description_edit_success_saved_snackbar);
-        } else if (requestCode == ACTIVITY_REQUEST_EDIT_ONBOARDING && resultCode == RESULT_OK) {
+        } else if (requestCode == ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING && resultCode == RESULT_OK) {
             startDescriptionEditScreen();
         }
     }
@@ -529,14 +529,14 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public void onSuggestedEditsCardClick(@NotNull PageTitle pageTitle, @NotNull String sourceDescription, @NotNull String sourceLangCode, @NotNull SuggestedEditCardView view) {
-            suggestedEditCardView = view;
+        public void onSuggestedEditsCardClick(@NotNull PageTitle pageTitle, @NotNull String sourceDescription, @NotNull String sourceLangCode, @NotNull SuggestedEditsCardView view) {
+            suggestedEditsCardView = view;
             descriptionEditPageTitle = pageTitle;
             FeedFragment.this.sourceDescription = sourceDescription;
             FeedFragment.this.sourceLangCode = sourceLangCode;
             if (Prefs.showEditTaskOnboarding()) {
                 startActivityForResult(SuggestedEditsOnboardingActivity.Companion.newIntent(requireContext(), Constants.InvokeSource.FEED),
-                        ACTIVITY_REQUEST_EDIT_ONBOARDING);
+                        ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING);
             } else {
                 startDescriptionEditScreen();
             }

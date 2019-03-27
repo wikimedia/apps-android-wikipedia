@@ -8,18 +8,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_suggested_edits.*
-import org.wikipedia.Constants
+import org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.editactionfeed.EditTasksActivity
 import org.wikipedia.settings.Prefs
 
 
 class SuggestedEditsOnboardingFragment : Fragment() {
-    var source: Constants.InvokeSource? = null
+    var source: InvokeSource? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        source = arguments?.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
+        source = arguments?.getSerializable(INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         return inflater.inflate(R.layout.fragment_suggested_edits, container, false)
     }
 
@@ -27,20 +28,20 @@ class SuggestedEditsOnboardingFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         Prefs.setShowEditTasksOnboarding(false)
         getStartedButton.setOnClickListener {
-            if (source == Constants.InvokeSource.FEED) {
+            if (source == InvokeSource.FEED) {
                 requireActivity().setResult(Activity.RESULT_OK)
-                requireActivity().finish()
             } else {
                 startActivity(EditTasksActivity.newIntent(requireActivity()))
             }
+            requireActivity().finish()
         }
     }
 
     companion object {
-        fun newInstance(invokeSource: Constants.InvokeSource): SuggestedEditsOnboardingFragment {
+        fun newInstance(invokeSource: InvokeSource): SuggestedEditsOnboardingFragment {
             val suggestedEditsOnboardingFragment = SuggestedEditsOnboardingFragment()
             val args = Bundle()
-            args.putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+            args.putSerializable(INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
             suggestedEditsOnboardingFragment.arguments = args
             return suggestedEditsOnboardingFragment
         }

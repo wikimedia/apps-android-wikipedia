@@ -17,7 +17,7 @@ import org.wikipedia.feed.onthisday.OnThisDayCardView;
 import org.wikipedia.feed.progress.ProgressCardView;
 import org.wikipedia.feed.random.RandomCardView;
 import org.wikipedia.feed.searchbar.SearchCardView;
-import org.wikipedia.feed.suggestededits.SuggestedEditCardView;
+import org.wikipedia.feed.suggestededits.SuggestedEditsCardView;
 import org.wikipedia.feed.view.FeedCardView;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
@@ -105,7 +105,7 @@ public enum CardType implements EnumCode {
     },
     SUGGESTED_EDITS(21, FeedContentType.SUGGESTED_EDITS) {
         @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
-            return new SuggestedEditCardView(ctx);
+            return new SuggestedEditsCardView(ctx);
         }
     },
     DAY_HEADER(97) {

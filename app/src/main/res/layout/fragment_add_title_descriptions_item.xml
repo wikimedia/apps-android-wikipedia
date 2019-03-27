@@ -1,5 +1,5 @@
 <FrameLayout
-    android:id="@+id/suggestedEditsRootView"
+    android:id="@+id/suggestedEditsItemRootView"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

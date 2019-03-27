@@ -12,7 +12,7 @@ import org.wikipedia.feed.becauseyouread.BecauseYouReadClient;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.mainpage.MainPageClient;
 import org.wikipedia.feed.random.RandomClient;
-import org.wikipedia.feed.suggestededits.SuggestedEditFeedClient;
+import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.settings.Prefs;
@@ -83,14 +83,14 @@ public enum FeedContentType implements EnumCode {
         @Nullable
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
-            return isEnabled() && age % 2 == 0 && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline() && Prefs.isActionEditDescriptionsUnlocked() ? new SuggestedEditFeedClient(false) : null;
+            return isEnabled() && age % 2 == 0 && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline() && Prefs.isActionEditDescriptionsUnlocked() ? new SuggestedEditsFeedClient(false) : null;
         }
     },
     SUGGESTED_TRANSLATION_EDITS(9, R.string.translation_task_title, R.string.feed_item_type_suggested_translation_edit, false) {
         @Nullable
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
-            return isEnabled() && age % 2 != 0 && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline() && Prefs.isActionEditDescriptionsUnlocked() ? new SuggestedEditFeedClient(true) : null;
+            return isEnabled() && age % 2 != 0 && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline() && Prefs.isActionEditDescriptionsUnlocked() ? new SuggestedEditsFeedClient(true) : null;
         }
     };
 

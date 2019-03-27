@@ -19,12 +19,11 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.log.L
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter
 
-class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEditCard>(context), ItemTouchHelperSwipeAdapter.SwipeableView {
+class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context), ItemTouchHelperSwipeAdapter.SwipeableView {
     interface Callback {
-        fun onSuggestedEditsCardClick(@NonNull pageTitle: PageTitle, @NonNull sourceDescription: String, @NonNull sourceLangCode: String, @NonNull view: SuggestedEditCardView)
+        fun onSuggestedEditsCardClick(@NonNull pageTitle: PageTitle, @NonNull sourceDescription: String, @NonNull sourceLangCode: String, @NonNull view: SuggestedEditsCardView)
     }
 
     private val disposables = CompositeDisposable()
@@ -39,13 +38,13 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
         View.inflate(getContext(), R.layout.fragment_add_title_descriptions_item, this)
     }
 
-    override fun setCard(card: SuggestedEditCard) {
+    override fun setCard(@NonNull card: SuggestedEditsCard) {
         super.setCard(card)
+        prepareViews()
         translation = card.isTranslation()
         summary = card.getsummary()
         sourceDescription = card.getSourceDescription()
         setLayoutDirectionByWikiSite(card.wikiSite(), rootView!!)
-        hideViews()
         header(card)
         updateSourceDescriptionWithHighlight()
     }
@@ -88,7 +87,7 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
         }
     }
 
-    private fun hideViews() {
+    private fun prepareViews() {
         viewArticleExtract.text = ""
         viewArticleTitle.text = ""
         callToActionText.text = ""
@@ -99,7 +98,7 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
         viewArticleSubtitleContainer.visibility = View.GONE
         viewArticleExtract.visibility = View.GONE
         divider.visibility = View.GONE
-        suggestedEditsRootView.setPadding(0, 0, 0, 0)
+        suggestedEditsItemRootView.setPadding(0, 0, 0, 0)
         val param = cardView.layoutParams as FrameLayout.LayoutParams
         param.setMargins(0, 0, 0, 0)
         cardView.useCompatPadding = false
@@ -118,7 +117,7 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
     }
 
 
-    private fun header(card: SuggestedEditCard) {
+    private fun header(card: SuggestedEditsCard) {
         headerView.visibility = View.VISIBLE
         headerView!!.setTitle(card.title())
                 .setSubtitle(card.subtitle())
@@ -139,14 +138,6 @@ class SuggestedEditCardView(context: Context) : DefaultFeedCardView<SuggestedEdi
             if (translation) viewArticleSubtitleAddedBy.text = context.getString(R.string.editactionfeed_translated_by_you)
             else viewArticleSubtitleAddedBy.text = context.getString(R.string.editactionfeed_added_by_you)
         }
-    }
-
-    private fun setErrorState(t: Throwable) {
-        L.e(t)
-        cardItemErrorView.setError(t)
-        cardItemErrorView.visibility = View.VISIBLE
-        cardItemProgressBar.visibility = View.GONE
-        cardItemContainer.visibility = View.GONE
     }
 
 }

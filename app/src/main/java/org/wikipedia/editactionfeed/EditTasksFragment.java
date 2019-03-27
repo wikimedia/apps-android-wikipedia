@@ -42,7 +42,6 @@ import static org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION;
 
 public class EditTasksFragment extends Fragment {
     private Unbinder unbinder;
-    @BindView(R.id.edit_onboarding_view) View editOnboardingView;
     @BindView(R.id.username) TextView username;
     @BindView(R.id.contributions_text) TextView contributionsText;
     @BindView(R.id.task_recyclerview) RecyclerView tasksRecyclerView;

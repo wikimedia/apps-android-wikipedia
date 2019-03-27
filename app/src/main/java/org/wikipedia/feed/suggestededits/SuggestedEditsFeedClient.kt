@@ -12,9 +12,8 @@ import org.wikipedia.editactionfeed.provider.MissingDescriptionProvider
 import org.wikipedia.feed.FeedCoordinator
 import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.feed.model.Card
-import org.wikipedia.util.log.L
 
-class SuggestedEditFeedClient(var translation: Boolean) : FeedClient {
+class SuggestedEditsFeedClient(var translation: Boolean) : FeedClient {
     private val disposables = CompositeDisposable()
     var sourceDescription: String = ""
     private val app = WikipediaApp.getInstance()
@@ -33,7 +32,7 @@ class SuggestedEditFeedClient(var translation: Boolean) : FeedClient {
                         sourceDescription = StringUtils.defaultString(pair.first)
                         summary = pair.second
                         FeedCoordinator.postCardsToCallback(cb, if (pair == null) emptyList<Card>() else listOf(toSuggestedEditsCard(wiki)))
-                    }, { this.setErrorState(it, cb) }))
+                    }, { cb.success(emptyList()) }))
 
         } else {
             disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(app.language().appLanguageCode))
@@ -42,22 +41,19 @@ class SuggestedEditFeedClient(var translation: Boolean) : FeedClient {
                     .subscribe({ pageSummary ->
                         summary = pageSummary
                         FeedCoordinator.postCardsToCallback(cb, if (summary == null) emptyList<Card>() else listOf(toSuggestedEditsCard(wiki)))
-                    }, { this.setErrorState(it, cb) }))
+                    }, { cb.success(emptyList()) }))
         }
 
     }
 
-    private fun setErrorState(t: Throwable, cb: FeedClient.Callback) {
-        L.e(t)
-    }
 
     override fun cancel() {
         disposables.clear()
     }
 
-    private fun toSuggestedEditsCard(wiki: WikiSite): SuggestedEditCard {
+    private fun toSuggestedEditsCard(wiki: WikiSite): SuggestedEditsCard {
 
-        return SuggestedEditCard(wiki, translation, summary, sourceDescription)
+        return SuggestedEditsCard(wiki, translation, summary, sourceDescription)
     }
 
 }

@@ -8,12 +8,13 @@ import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.util.DateUtil
 
-class SuggestedEditCard(wiki: WikiSite) : WikiSiteCard(wiki) {
+class SuggestedEditsCard(wiki: WikiSite) : WikiSiteCard(wiki) {
     var wiki: WikiSite? = null
     var age: Int? = null
     var translation: Boolean = false
     private var sourceDescription: String = ""
     private var summary: RbPageSummary? = null
+
     override fun type(): CardType {
         return CardType.SUGGESTED_EDITS
     }
