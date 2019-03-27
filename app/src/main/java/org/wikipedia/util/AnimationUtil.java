@@ -69,6 +69,7 @@ public final class AnimationUtil {
                 // keep it in place (undo the default translation)
                 view.setTranslationX(-(view.getWidth() * position));
                 view.setRotation(0f);
+                view.setAlpha(1.0f - position);
             } else { // (1,+Infinity]
                 // and make it transparent
                 view.setAlpha(0f);
