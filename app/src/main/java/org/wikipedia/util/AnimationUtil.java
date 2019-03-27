@@ -65,13 +65,13 @@ public final class AnimationUtil {
                 view.setRotation(factor);
                 view.setTranslationX((view.getWidth() * position / 2));
                 view.animate().alpha(1.0f).setDuration(100);
-            } else if (position <= 1) { // (0,1]
+            } else if (position < 1) { // (0,1]
                 // keep it in place (undo the default translation)
                 view.setTranslationX(-(view.getWidth() * position));
-                // and make it translucent
-                view.setAlpha(0.0f);
                 view.setRotation(0f);
             } else { // (1,+Infinity]
+                // and make it transparent
+                view.setAlpha(0f);
                 // This page is way off-screen to the right.
                 view.setRotation(0f);
                 view.setTranslationX(0);
