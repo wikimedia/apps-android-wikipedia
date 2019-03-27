@@ -334,9 +334,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     document.getElementById( "content" ).appendChild( content );
 
     applySectionTransforms(content, true);
-
-    transformer.transform( "hideTables", document );
-    lazyLoadTransformer.loadPlaceholders();
 });
 
 function clearContents() {
