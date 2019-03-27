@@ -11,6 +11,7 @@ import java.util.Map;
 public class EditorTaskCounts {
     @Nullable private Counts counts;
     @Nullable @SerializedName("targets_passed") private Targets targetsPassed;
+    @Nullable private Targets targets;
 
     @Nullable
     public Map<String, Integer> getDescriptionEditsPerLanguage() {
@@ -20,6 +21,11 @@ public class EditorTaskCounts {
     @Nullable
     public List<Integer> getDescriptionEditTargetsPassed() {
         return targetsPassed != null && targetsPassed.appDescriptionEdits != null ? targetsPassed.appDescriptionEdits : null;
+    }
+
+    @Nullable
+    public List<Integer> getDescriptionEditTargets() {
+        return targets != null && targets.appDescriptionEdits != null ? targets.appDescriptionEdits : null;
     }
 
     public class Counts {
