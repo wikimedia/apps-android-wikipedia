@@ -3,7 +3,6 @@ package org.wikipedia.language;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
@@ -57,8 +56,6 @@ public class LangLinksActivity extends BaseActivity {
     public static final String ACTION_LANGLINKS_FOR_TITLE = "org.wikipedia.langlinks_for_title";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
 
-    private static final String LANGUAGE_ENTRIES_BUNDLE_KEY = "languageEntries";
-
     private static final String GOTHIC_LANGUAGE_CODE = "got";
 
     private List<PageTitle> languageEntries;
@@ -91,10 +88,6 @@ public class LangLinksActivity extends BaseActivity {
         }
 
         title = getIntent().getParcelableExtra(EXTRA_PAGETITLE);
-
-        if (savedInstanceState != null && savedInstanceState.containsKey(LANGUAGE_ENTRIES_BUNDLE_KEY)) {
-            languageEntries = savedInstanceState.getParcelableArrayList(LANGUAGE_ENTRIES_BUNDLE_KEY);
-        }
 
         langLinksEmpty.setVisibility(View.GONE);
         langLinksProgress.setVisibility(View.VISIBLE);
@@ -185,14 +178,6 @@ public class LangLinksActivity extends BaseActivity {
         @Override
         protected Context getParentContext() {
             return LangLinksActivity.this;
-        }
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        if (languageEntries != null) {
-           outState.putParcelableArrayList(LANGUAGE_ENTRIES_BUNDLE_KEY, new ArrayList<Parcelable>(languageEntries));
         }
     }
 
