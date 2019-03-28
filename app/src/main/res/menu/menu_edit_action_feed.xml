@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="AlwaysShowAction">
     <item android:id="@+id/menu_help"
-        android:title="@string/main_drawer_help"
+        android:title="@string/suggested_edits_menu_info"
         app:showAsAction="never"/>
     <item android:id="@+id/menu_my_contributions"
         android:title="@string/editactionfeed_my_contributions"

@@ -728,4 +728,5 @@
   <string name="title_descriptions_onboarding_got_it">Text on the positive action button for starting editing title descriptions.\n{{Identical|Got it}}</string>
   <string name="translate_descriptions_onboarding_got_it">Text on the positive action button for starting translating title descriptions.\n{{Identical|Got it}}</string>
   <string name="android_app_edit_help_url">URL leading to the help page for article editing from within the app. If you can find the appropriate language specific URL of the mobile site please do so.</string>
+  <string name="suggested_edits_menu_info">Suggested edits menu label for accessing the editing FAQ.\n{{Identical|Info}}</string>
 </resources>

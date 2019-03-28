@@ -2,6 +2,7 @@
 <!-- Authors:
 * !Silent
 * AVrana
+* Alvarenga
 * Anaclaudiaml
 * BarbaraAckles
 * Cainamarques
@@ -152,7 +153,7 @@
   <string name="login_dont_have_account">Não possui uma conta?</string>
   <string name="login_join_wikipedia">Junte-se à Wikipedia</string>
   <string name="login_forgot_password">Esqueceu sua senha?</string>
-  <string name="create_account_already_have">já tem uma conta?</string>
+  <string name="create_account_already_have">Já tem uma conta?</string>
   <string name="create_account_activity_title">Criar uma conta</string>
   <string name="dialog_create_account_checking_progress">Verificando</string>
   <string name="create_account_email_hint">E-mail (Opcional)</string>
