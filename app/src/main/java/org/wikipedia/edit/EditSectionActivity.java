@@ -543,9 +543,6 @@ public class EditSectionActivity extends BaseActivity {
     public void onActionModeStarted(ActionMode mode) {
         super.onActionModeStarted(mode);
         if (mode.getTag() == null) {
-            Menu menu = mode.getMenu();
-            menu.clear();
-            mode.getMenuInflater().inflate(R.menu.menu_text_select, menu);
             // since we disabled the close button in the AndroidManifest.xml, we need to manually setup a close button when in an action mode if long pressed on texts.
             ViewUtil.setCloseButtonInActionMode(EditSectionActivity.this, mode);
         }
