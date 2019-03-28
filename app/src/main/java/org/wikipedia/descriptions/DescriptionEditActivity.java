@@ -29,22 +29,25 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     private static final String EXTRA_TITLE = "title";
     private static final String EXTRA_REVIEW_ENABLE = "review";
     private static final String EXTRA_HIGHLIGHT_TEXT = "highlightText";
-    private static final String EXTRA_INVOKE_SOURCE = "source";
-    private static final String EXTRA_SOURCE_LANG_DESC = "source_desc";
+    private static final String EXTRA_TRANSLATION_SOURCE_DESCRIPTION = "translationSourceDescription";
+    private static final String EXTRA_TRANSLATION_SOURCE_LANGUAGE_CODE = "translationSourceLanguageCode";
+    private static final String EXTRA_INVOKE_SOURCE = "invokeSource";
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
     public static Intent newIntent(@NonNull Context context,
                                    @NonNull PageTitle title,
                                    @Nullable String highlightText,
                                    boolean reviewEnabled,
-                                   @NonNull InvokeSource invokeSource,
-                                   @Nullable CharSequence sourceDesc) {
+                                   @Nullable CharSequence translationSourceDescription,
+                                   @Nullable String translationSourceLanguageCode,
+                                   @NonNull InvokeSource invokeSource) {
         return new Intent(context, DescriptionEditActivity.class)
                 .putExtra(EXTRA_TITLE, GsonMarshaller.marshal(title))
                 .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
                 .putExtra(EXTRA_REVIEW_ENABLE, reviewEnabled)
-                .putExtra(EXTRA_SOURCE_LANG_DESC, sourceDesc)
-                .putExtra(INTENT_EXTRA_INVOKE_SOURCE, invokeSource);
+                .putExtra(EXTRA_TRANSLATION_SOURCE_DESCRIPTION, translationSourceDescription)
+                .putExtra(EXTRA_TRANSLATION_SOURCE_LANGUAGE_CODE, translationSourceLanguageCode)
+                .putExtra(EXTRA_INVOKE_SOURCE, invokeSource);
     }
 
     @Override
@@ -94,8 +97,9 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
                 getIntent().getStringExtra(EXTRA_TITLE)),
                 getIntent().getStringExtra(EXTRA_HIGHLIGHT_TEXT),
                 getIntent().getBooleanExtra(EXTRA_REVIEW_ENABLE, false),
-                (InvokeSource) getIntent().getSerializableExtra(EXTRA_INVOKE_SOURCE),
-                getIntent().getCharSequenceExtra(EXTRA_SOURCE_LANG_DESC));
+                getIntent().getCharSequenceExtra(EXTRA_TRANSLATION_SOURCE_DESCRIPTION),
+                getIntent().getStringExtra(EXTRA_TRANSLATION_SOURCE_LANGUAGE_CODE),
+                (InvokeSource) getIntent().getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE));
     }
 
     @Override

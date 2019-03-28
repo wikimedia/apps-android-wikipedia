@@ -4,6 +4,7 @@
 * Abbedabb
 * Ainali
 * Bengtsson96
+* Dbrant
 * Jon Harald Søby
 * Jopparn
 * Josve05a
@@ -522,7 +523,7 @@
   <string name="preference_summary_notification_milestone">Vissa antal redigeringar uppnås</string>
   <string name="preference_title_notification_thanks">Tack</string>
   <string name="preference_summary_notification_thanks">Någon tackar dig för en redigering</string>
-  <string name="view_continue_reading_card_title">Fortsätt läs</string>
+  <string name="view_continue_reading_card_title">Fortsätt läsa</string>
   <string name="view_because_you_read_card_title">Eftersom du läste</string>
   <string name="view_random_card_title">Randomiserare</string>
   <string name="view_random_card_subtitle">Bläddra bland slumpartiklar att läsa från Wikipedia</string>

@@ -590,6 +590,7 @@
   <string name="description_edit_read">Label that prompts the user to click and open a preview dialog of the article.\n{{Identical|Read}}</string>
   <string name="description_edit_add_description">Label that prompts the user to add a description to an article that does not yet have one.</string>
   <string name="description_edit_edit_description">Label that prompts the user to edit the description of an article that already has one.</string>
+  <string name="add_translation">Text on the action button for translating title descriptions. %s represents the language into which the description needs to be translated.</string>
   <string name="description_edit_cancel_hint">Hint for button that cancels editing of the current description.\n{{Identical|Cancel}}</string>
   <string name="description_edit_help_title">Title at the top of the screen that shows additional help and information about editing descriptions.</string>
   <string name="description_edit_help_about_wikidata">Menu label for navigating to a page describing Wikidata.</string>
@@ -621,6 +622,7 @@
   <string name="editactionfeed_translate_title_dialog_learn_more">Text on link to help page for translating title descriptions.\n{{Identical|Learn more}}</string>
   <string name="editactionfeed_to_language">Label text indicating that the selected language is the one into which the description will be translated to.</string>
   <string name="editactionfeed_added_by_you">A label shows that the current article description was added by you.</string>
+  <string name="editactionfeed_translated_by_you">A label shows that the current article description was translated by the user.</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
   <string name="description_edit_revert_intro">Introduction message informing the user that their edit was reverted, and leading into possible reasons for the revert.</string>
   <string name="description_edit_revert_reason1">Reason for an edit being reverted, because it did not follow the guidelines for descriptions. (Please preserve the anchor tag in its exact form)</string>
