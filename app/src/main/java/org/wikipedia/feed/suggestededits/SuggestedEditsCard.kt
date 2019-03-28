@@ -11,7 +11,7 @@ import org.wikipedia.util.DateUtil
 class SuggestedEditsCard(wiki: WikiSite) : WikiSiteCard(wiki) {
     var wiki: WikiSite? = null
     var age: Int? = null
-    var translation: Boolean = false
+    var isTranslation: Boolean = false
     var sourceDescription: String = ""
     var summary: RbPageSummary? = null
 
@@ -21,17 +21,13 @@ class SuggestedEditsCard(wiki: WikiSite) : WikiSiteCard(wiki) {
 
     constructor(wiki: WikiSite, translation: Boolean, summary: RbPageSummary?, sourceDescription: String) : this(wiki) {
         this.wiki = wiki
-        this.translation = translation
+        this.isTranslation = translation
         this.summary = summary
         this.sourceDescription = sourceDescription
     }
 
     override fun title(): String {
         return WikipediaApp.getInstance().getString(R.string.suggested_edits)
-    }
-
-    fun isTranslation(): Boolean {
-        return translation
     }
 
     override fun subtitle(): String {

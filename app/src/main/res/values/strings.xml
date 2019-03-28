@@ -590,6 +590,8 @@
     <string name="feed_item_type_featured_image">Daily featured image from Wikimedia Commons</string>
     <string name="feed_item_type_main_page">Main page of Wikipedia with daily featured content</string>
     <string name="feed_item_type_randomizer">Generate random articles to read</string>
+    <string name="feed_item_type_add_description">Suggestions to add article descriptions to Wikipedia</string>
+    <string name="feed_item_type_translate_description">Suggestions to translate article descriptions on Wikipedia</string>
     <string name="feed_empty_message">There\'s nothing on your Explore feed</string>
     <string name="feed_configure_onboarding_action">Customize</string>
     <string name="feed_configure_onboarding_text"><![CDATA[<strong>Customize your Explore feed</strong><br /><br />You can now choose what to show on your feed, and also prioritize your favorite types of content.]]></string>
@@ -773,6 +775,4 @@
     <string name="suggested_edits">Suggested edits</string>
     <string name="suggested_edits_add_descriptions">Suggested edits: Add descriptions</string>
     <string name="suggested_edits_translate_descriptions">Suggested edits: Translate descriptions</string>
-    <string name="feed_item_type_add_description">Suggestions to add article descriptions to Wikipedia</string>
-    <string name="feed_item_type_translate_description">Suggestions to translate article descriptions on Wikipedia</string>
 </resources>

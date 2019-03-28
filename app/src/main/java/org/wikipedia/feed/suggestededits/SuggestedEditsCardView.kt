@@ -44,10 +44,10 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     override fun setCard(@NonNull card: SuggestedEditsCard) {
         super.setCard(card)
         prepareViews()
-        translation = card.isTranslation()
+        translation = card.isTranslation
         summary = card.summary
         sourceDescription = card.sourceDescription
-        setLayoutDirectionByWikiSite(card.wikiSite(), rootView!!)
+        setLayoutDirectionByWikiSite(WikiSite.forLanguageCode(sourceLangCode), rootView!!)
         header(card)
         updateSourceDescriptionWithHighlight()
     }
