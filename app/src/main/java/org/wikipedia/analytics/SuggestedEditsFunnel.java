@@ -16,6 +16,7 @@ public class SuggestedEditsFunnel extends TimedFunnel {
     public static final String SUGGESTED_EDITS_TRANSLATE_COMMENT = "#suggestededit-translate " + SUGGESTED_EDITS_UI_VERSION;
 
     private String parentSessionToken;
+    private int helpOpenedCount = 0;
 
     public SuggestedEditsFunnel(WikipediaApp app, String parentSessionToken) {
         super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_ALL);
@@ -26,6 +27,10 @@ public class SuggestedEditsFunnel extends TimedFunnel {
         preprocessData(eventData, "session_token", parentSessionToken);
     }
 
+    public void helpOpened() {
+        helpOpenedCount++;
+    }
+
     @Override
     protected JSONObject preprocessData(@NonNull JSONObject eventData) {
         preprocessData(eventData, "ui_version", SUGGESTED_EDITS_UI_VERSION);
@@ -34,6 +39,8 @@ public class SuggestedEditsFunnel extends TimedFunnel {
     }
 
     public void log() {
-        // TODO
+        log(
+                "help_opened", helpOpenedCount
+        );
     }
 }

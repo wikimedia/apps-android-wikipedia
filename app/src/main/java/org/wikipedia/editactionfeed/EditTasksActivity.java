@@ -23,6 +23,18 @@ public class EditTasksActivity extends SingleFragmentActivity<EditTasksFragment>
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+        getFunnel().pause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getFunnel().resume();
+    }
+
+    @Override
     public void onDestroy() {
         super.onDestroy();
         getFunnel().log();
