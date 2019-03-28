@@ -12,8 +12,8 @@ class SuggestedEditsCard(wiki: WikiSite) : WikiSiteCard(wiki) {
     var wiki: WikiSite? = null
     var age: Int? = null
     var translation: Boolean = false
-    private var sourceDescription: String = ""
-    private var summary: RbPageSummary? = null
+    var sourceDescription: String = ""
+    var summary: RbPageSummary? = null
 
     override fun type(): CardType {
         return CardType.SUGGESTED_EDITS
@@ -36,13 +36,5 @@ class SuggestedEditsCard(wiki: WikiSite) : WikiSiteCard(wiki) {
 
     override fun subtitle(): String {
         return DateUtil.getFeedCardDateString(0)
-    }
-
-    fun getsummary(): RbPageSummary? {
-        return summary
-    }
-
-    fun getSourceDescription(): String {
-        return sourceDescription
     }
 }

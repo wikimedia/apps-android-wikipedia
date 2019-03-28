@@ -45,8 +45,8 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         super.setCard(card)
         prepareViews()
         translation = card.isTranslation()
-        summary = card.getsummary()
-        sourceDescription = card.getSourceDescription()
+        summary = card.summary
+        sourceDescription = card.sourceDescription
         setLayoutDirectionByWikiSite(card.wikiSite(), rootView!!)
         header(card)
         updateSourceDescriptionWithHighlight()
