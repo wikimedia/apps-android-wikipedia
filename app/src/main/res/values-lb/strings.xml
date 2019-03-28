@@ -477,6 +477,7 @@
   <string name="description_edit_read">Liesen</string>
   <string name="description_edit_add_description">Beschreiwung vum Titel derbäisetzen</string>
   <string name="description_edit_edit_description">Beschreiwung änneren</string>
+  <string name="add_translation">Iwwersetzung op %s derbäisetzen</string>
   <string name="description_edit_cancel_hint">Ofbriechen</string>
   <string name="description_edit_help_title">Hëllef:Titelbeschreiwungen</string>
   <string name="description_edit_help_about_wikidata">Iwwer Wikidata</string>
