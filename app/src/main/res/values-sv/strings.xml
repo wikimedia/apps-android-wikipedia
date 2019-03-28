@@ -580,6 +580,7 @@
   <string name="description_edit_read">Läs</string>
   <string name="description_edit_add_description">Lägg till titelbeskrivning</string>
   <string name="description_edit_edit_description">Redigera beskrivningen</string>
+  <string name="add_translation">Lägg till översättning på %s</string>
   <string name="description_edit_cancel_hint">Avbryt</string>
   <string name="description_edit_help_title">Hjälp: Titelbeskrivningar</string>
   <string name="description_edit_help_about_wikidata">Om Wikidata</string>
@@ -611,6 +612,7 @@
   <string name="editactionfeed_translate_title_dialog_learn_more">Läs mer</string>
   <string name="editactionfeed_to_language">Till:</string>
   <string name="editactionfeed_added_by_you">Lades till av dig:</string>
+  <string name="editactionfeed_translated_by_you">Översattes av dig:</string>
   <string name="description_edit_revert_subtitle">Tack för att du redigerar på Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi vet att du försökte ditt bästa men en av korrekturläsarna hade en invändning. Möjliga anledningar till att din redigering gjordes om inkluderar:</string>
   <string name="description_edit_revert_reason1">ditt bidrag följde inte ett av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>

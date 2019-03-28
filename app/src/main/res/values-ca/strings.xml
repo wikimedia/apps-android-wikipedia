@@ -582,6 +582,7 @@
   <string name="description_edit_read">Llegeix</string>
   <string name="description_edit_add_description">Afegeix una descripció de títol</string>
   <string name="description_edit_edit_description">Modifica la descripció</string>
+  <string name="add_translation">Afegeix una traducció al %s</string>
   <string name="description_edit_cancel_hint">Cancel·la</string>
   <string name="description_edit_help_title">Ajuda: descripcions dels títols</string>
   <string name="description_edit_help_about_wikidata">Quant a Wikidata</string>

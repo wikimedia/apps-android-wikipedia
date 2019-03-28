@@ -485,6 +485,7 @@
   </plurals>
   <plurals name="notification_syncing_description">
     <item quantity="one">zbývá %1$d článek</item>
+    <item quantity="few">zbývají %1$d články</item>
     <item quantity="other">zbývá %1$d článků</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_channel_name">
@@ -497,6 +498,7 @@
   </plurals>
   <plurals name="notification_syncing_reading_list_description">
     <item quantity="one">zbývá %1$d seznam</item>
+    <item quantity="few">zbývají %1$d seznamy</item>
     <item quantity="other">zbývá %1$d seznamů</item>
   </plurals>
   <string name="notification_echo_channel_description">Upozornění z Wikipedie</string>
@@ -509,8 +511,8 @@
   <string name="notifications_archive">Označit jako přečtené</string>
   <plurals name="notification_archive_message">
     <item quantity="one">Upozornění bylo archivováno</item>
-    <item quantity="two">2 upozornění byla archivována</item>
-    <item quantity="other">three=3 upozornění byla archivována</item>
+    <item quantity="few">%d upozornění byly archivovány</item>
+    <item quantity="other">%d upozornění bylo archivováno</item>
   </plurals>
   <string name="notifications_poll_enable_title">Aktivovat upozornění</string>
   <string name="notifications_poll_enable_positive">Zapnout</string>
@@ -706,8 +708,8 @@
   <string name="translate_caption_task_description">Přeložit popisy obrázků do jiných jazyků</string>
   <plurals name="edit_action_contribution_count">
     <item quantity="one">1 příspěvek</item>
-    <item quantity="two">2 příspěvky</item>
-    <item quantity="other">three=3 příspěvky</item>
+    <item quantity="few">%d příspěvky</item>
+    <item quantity="other">%d příspěvků</item>
   </plurals>
   <string name="add_title_descriptions_dialog_title">Přidat popisy článků</string>
   <string name="add_title_descriptions_dialog_message">Nyní můžete pomoci zlepšit Wikipedii přidáním popisů, které se zobrazují pod názvy článků. Vaše jazyky si můžete kdykoli nakonfigurovat.</string>

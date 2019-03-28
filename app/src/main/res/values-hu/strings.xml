@@ -152,7 +152,7 @@
   <string name="create_account_next">Következő</string>
   <string name="email_recommendation_dialog_title">Biztos létrehozod a fiókot e-mail-cím nélkül?</string>
   <string name="email_recommendation_dialog_message">Noha az e-mail-cím opcionális, megadása &lt;b&gt;erősen javallott&lt;/b&gt;, hogy elfelejtett jelszó esetén helyreállíthasd fiókodat.</string>
-  <string name="email_recommendation_message">Ajánlott a fiók egy esetleges helyreállítsa végett.</string>
+  <string name="email_recommendation_message">Ajánlott, mert a fiók esetleges helyreállításához szükséges lesz.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Folytatás e-mail-cím nélkül</string>
   <string name="email_recommendation_dialog_create_with_email_action">E-mail-cím megadása</string>
   <string name="create_account_button">Regisztráció</string>
@@ -178,7 +178,7 @@
   <string name="preference_title_eventlogging_opt_in">Használati jelentés küldése</string>
   <string name="preference_summary_eventlogging_opt_in">A Wikimédia adatokat gyűjthet arról, hogy hogyan használod az appot, hogy még jobbá tehessük.</string>
   <string name="preference_title_auto_upload_crash_reports">Hibajelentés küldése</string>
-  <string name="preference_summary_auto_upload_crash_reports">Az alkalmazás automatikusan küldhet hibajelentéseket a HockeyAppnek / egy harmadik fél szolgáltatónak, hogy elemezhessük az összeomlást, és gyorsabban és könnyebben kijavíthassuk a hibát.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Az alkalmazás automatikusan küldhet hibajelentéseket a HockeyAppnek / egy harmadik fél szolgáltatónak, hogy elemezhessük az összeomlást, gyorsabban és könnyebben kijavíthassuk a hibát.</string>
   <string name="editing_error_spamblacklist">Tiltott webhelyre (%s) mutató linkeket helyeztél el. Távolítsd el őket, majd próbáld újra.</string>
   <string name="history_search_list_hint">Keresés az előzményekben</string>
   <string name="error_can_not_process_link">Nem lehet megjeleníteni ezt a hivatkozást</string>
@@ -207,7 +207,7 @@
   <string name="about_app_license">A forráskód elérhető &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerriten&lt;/a&gt; és &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubon&lt;/a&gt; az &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; alatt. Ha nincs másként jelezve, a tartalom egy &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creatice Commons Nevezd meg! – Így add tovább! licenc&lt;/a&gt; alatt érhető el.</string>
   <string name="about_wmf">A &lt;a href=\"https://wikimediafoundation.org\"&gt;Wikimédia Alapítvány&lt;/a&gt; terméke</string>
   <string name="about_activity_title">Névjegy</string>
-  <string name="edit_abandon_confirm">A lap megváltozott. Biztos mentés nélkül akarsz kilépni?</string>
+  <string name="edit_abandon_confirm">A lap megváltozott. A módosítások mentése nélkül akarsz kilépni?</string>
   <string name="edit_abandon_confirm_yes">Igen</string>
   <string name="edit_abandon_confirm_no">Nem</string>
   <string name="user_blocked_from_editing_title">Blokkolva</string>
@@ -259,7 +259,7 @@
   <string name="preference_summary_show_images">Képek betöltésének engedélyezése vagy letiltása. Kapcsold ki, ha az internetkapcsolatod lassú vagy az adatcsomagod korlátozott.</string>
   <string name="preference_title_download_only_over_wifi">Letöltés csak Wi-Fi-n</string>
   <string name="dialog_title_download_only_over_wifi">Megerősíted a mobiladat használatával történő letöltést?</string>
-  <string name="dialog_text_download_only_over_wifi">A beállításaidnál engedélyezve van a „letöltés csak Wi-Fi-n”. Engedélyezed mobil adatforgalmad használatát ehhez a letöltéshez?</string>
+  <string name="dialog_text_download_only_over_wifi">A beállításaidnál „letöltés csak Wi-Fi-n” van jelölve. Engedélyezed mobil adatforgalmad használatát ehhez a letöltéshez?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Engedélyezés</string>
   <string name="read_more_section">További információ</string>
   <string name="about_article_section">Erről a szócikkről</string>
@@ -302,7 +302,7 @@
   <string name="format_error_server_message">Üzenet: „%s”</string>
   <string name="address_copied">Cím a vágólapra másolva.</string>
   <string name="text_copied">Szöveg a vágólapra másolva.</string>
-  <string name="button_continue_to_article">Cikk elolvasása</string>
+  <string name="button_continue_to_article">Cikk olvasása</string>
   <string name="button_continue_to_disambiguation">Hasonló lapok megtekintése</string>
   <string name="link_preview_disambiguation_description">Ez a cím több mint egy lapra utal:</string>
   <string name="button_add_to_reading_list">Hozzáadás az olvasólistához</string>
@@ -333,7 +333,7 @@
   <string name="preference_summary_prefer_offline_content">Adathasználat csökkentése a kapcsolat nélkül is elérhető tartalmak betöltésével, a cikk legfrissebb verziója helyett.</string>
   <string name="crash_report_dialog_title">Sajnáljuk, az alkalmazás összeomlott legutóbb</string>
   <string name="crash_report_dialog_text">Szeretnél küldeni egy összeomlási jelentést a HockeyAppnek / egy harmadik fél szolgáltatónak, hogy a Wikimédia átnézhesse az összeomlást és kijavíthassa az ezt okozó hibát?</string>
-  <string name="crash_report_dialog_dont_send_button">Kihagyás</string>
+  <string name="crash_report_dialog_dont_send_button">Kihagy</string>
   <string name="crash_report_dialog_always_send_button">Küldés mindig</string>
   <string name="crash_report_dialog_send_button">Küldés</string>
   <string name="crash_report_activity_title">Alkalmazáshiba</string>
@@ -351,7 +351,7 @@
   <string name="color_theme_black">Fekete</string>
   <string name="color_theme_sepia">Szépia</string>
   <string name="color_theme_test_title">Mintaszöveg</string>
-  <string name="color_theme_test_text">Mozgasd a csúszkát az olvasott szöveg méretének megváltoztatásához. Az alkalmazás többi részében található szöveget méretének változtatása a rendszer szöveg méretének módosításával lehetséges.</string>
+  <string name="color_theme_test_text">Mozgasd a csúszkát az olvasás alatt lévő szövegek méretének változtatásához. Az alkalmazás többi részében található szövegek méretének változtatása a rendszer szövegméretének módosításával lehetséges.</string>
   <string name="preference_title_app_theme">Alkalmazástéma</string>
   <string name="preference_summary_color_theme">Váltás az alkalmazás sötét témájának használatára</string>
   <string name="text_size_increase">Betűméret növelése</string>
