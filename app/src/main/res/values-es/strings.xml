@@ -148,7 +148,7 @@
   <string name="toast_logout_complete">Sesión cerrada</string>
   <string name="history_empty_title">No hay hay artículos visitados recientemente</string>
   <string name="history_empty_message">Consulta lo que has leído aquí.</string>
-  <string name="history_offline_articles_toast">Algunos artículos en el historial no son visibles mientras se este fuera de linea.</string>
+  <string name="history_offline_articles_toast">Es posible que algunos artículos del historial no aparezcan al estar sin conexión.</string>
   <string name="search_empty_message">Busca y lee la enciclopedia libre en tu idioma</string>
   <string name="search_empty_message_multilingual_upgrade">Buscar Wikipedia en más idiomas.</string>
   <string name="delete_selected_items">Eliminar los elementos seleccionados</string>
