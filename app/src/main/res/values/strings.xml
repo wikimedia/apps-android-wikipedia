@@ -771,6 +771,8 @@
     <string name="translate_descriptions_onboarding_got_it">Got it</string>
     <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
     <string name="suggested_edits">Suggested edits</string>
-    <string name="feed_item_type_suggested_edit">Suggestions based on your language and editing history.</string>
-    <string name="feed_item_type_suggested_translation_edit">Suggestions based on your languages and translation history.</string>
+    <string name="suggested_edits_add_descriptions">Suggested edits: Add descriptions</string>
+    <string name="suggested_edits_translate_descriptions">Suggested edits: Translate descriptions</string>
+    <string name="feed_item_type_add_description">Suggestions to add article descriptions to Wikipedia</string>
+    <string name="feed_item_type_translate_description">Suggestions to translate article descriptions on Wikipedia</string>
 </resources>
