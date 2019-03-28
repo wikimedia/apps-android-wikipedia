@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -56,6 +57,7 @@ public class EditTasksFragment extends Fragment {
     @BindView(R.id.username) TextView username;
     @BindView(R.id.contributions_text) TextView contributionsText;
     @BindView(R.id.task_recyclerview) RecyclerView tasksRecyclerView;
+    @BindView(R.id.suggested_edits_swipe_refresh) SwipeRefreshLayout swipeRefreshLayout;
     @BindView(R.id.progress_bar) View progressBar;
 
     private EditTask addDescriptionsTask;
@@ -81,6 +83,8 @@ public class EditTasksFragment extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         showOneTimeOnboarding();
+
+        swipeRefreshLayout.setOnRefreshListener(this::updateUI);
 
         tasksRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         final int topDecorationDp = 16;
@@ -127,6 +131,7 @@ public class EditTasksFragment extends Fragment {
                 .doFinally(() -> {
                     progressBar.setVisibility(View.GONE);
                     contributionsText.setVisibility(View.VISIBLE);
+                    swipeRefreshLayout.setRefreshing(false);
                 })
                 .subscribe(response -> {
                     EditorTaskCounts editorTaskCounts = response.query().editorTaskCounts();
