@@ -60,7 +60,8 @@ public final class Constants {
         PAGE_ACTIVITY,
         EDIT_FEED_TITLE_DESC,
         EDIT_FEED_TRANSLATE_TITLE_DESC,
-        FEED,
+        FEED_CARD_SUGGESTED_EDITS_ADD_DESC,
+        FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC,
         MAIN_ACTIVITY
     }
 

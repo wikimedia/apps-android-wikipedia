@@ -33,6 +33,9 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     private var sourceDescription: String = ""
     private val app = WikipediaApp.getInstance()
     private var summary: RbPageSummary? = null
+    private var sourceLangCode: String = app.language().appLanguageCode
+    private var targetLangCode: String = app.language().appLanguageCodes.get(1)
+
 
     init {
         View.inflate(getContext(), R.layout.fragment_add_title_descriptions_item, this)
@@ -59,6 +62,9 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         updateContents()
     }
 
+    fun isTranslation(): Boolean {
+        return translation
+    }
 
     override fun setCallback(callback: FeedAdapter.Callback?) {
         super.setCallback(callback)
@@ -68,7 +74,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     private fun updateContents() {
         viewAddDescriptionButton.visibility = View.VISIBLE
         viewArticleTitle.text = summary!!.normalizedTitle
-        callToActionText.text = if (translation) String.format(context.getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(app.language().appLanguageCodes.get(1))) else context.getString(R.string.editactionfeed_add_description_button)
+        callToActionText.text = if (translation) String.format(context.getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(targetLangCode)) else context.getString(R.string.editactionfeed_add_description_button)
         showImageOrExtract()
     }
 
@@ -105,7 +111,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         cardView.setContentPadding(0, 0, 0, DimenUtil.roundedDpToPx(CARD_BOTTOM_PADDING))
         cardView.setOnClickListener {
             if (callback != null && card != null) {
-                callback!!.onSuggestedEditsCardClick(summary!!.getPageTitle(WikiSite.forLanguageCode(if (translation) app.language().appLanguageCodes.get(1) else app.language().appLanguageCode)), sourceDescription, if (translation) app.language().appLanguageCodes.get(1) else app.language().appLanguageCode, this)
+                callback!!.onSuggestedEditsCardClick(summary!!.getPageTitle(WikiSite.forLanguageCode(if (translation) targetLangCode else sourceLangCode)), sourceDescription, sourceLangCode, this)
             }
         }
     }

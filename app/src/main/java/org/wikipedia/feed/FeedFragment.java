@@ -71,6 +71,8 @@ import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_FEED_CONFIGURE;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_SETTINGS;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_ADD_DESC;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
 import static org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.EXTRA_SOURCE_ADDED_DESCRIPTION;
 import static org.wikipedia.language.AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
 import static org.wikipedia.language.AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
@@ -244,7 +246,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     }
 
     private void startDescriptionEditScreen() {
-        startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), descriptionEditPageTitle, null, true, sourceDescription, sourceLangCode, Constants.InvokeSource.FEED),
+        startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), descriptionEditPageTitle, null, true, sourceDescription, sourceLangCode, suggestedEditsCardView.isTranslation() ? FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC : FEED_CARD_SUGGESTED_EDITS_ADD_DESC),
                 ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }
 
@@ -535,7 +537,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             FeedFragment.this.sourceDescription = sourceDescription;
             FeedFragment.this.sourceLangCode = sourceLangCode;
             if (Prefs.showEditTaskOnboarding()) {
-                startActivityForResult(SuggestedEditsOnboardingActivity.Companion.newIntent(requireContext(), Constants.InvokeSource.FEED),
+                startActivityForResult(SuggestedEditsOnboardingActivity.Companion.newIntent(requireContext(), FEED_CARD_SUGGESTED_EDITS_ADD_DESC),
                         ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING);
             } else {
                 startDescriptionEditScreen();

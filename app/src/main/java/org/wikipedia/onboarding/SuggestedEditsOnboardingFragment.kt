@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_suggested_edits.*
 import org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE
 import org.wikipedia.Constants.InvokeSource
+import org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_ADD_DESC
+import org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC
 import org.wikipedia.R
 import org.wikipedia.editactionfeed.EditTasksActivity
 import org.wikipedia.settings.Prefs
@@ -28,7 +30,7 @@ class SuggestedEditsOnboardingFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         Prefs.setShowEditTasksOnboarding(false)
         getStartedButton.setOnClickListener {
-            if (source == InvokeSource.FEED) {
+            if (source == FEED_CARD_SUGGESTED_EDITS_ADD_DESC || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
                 requireActivity().setResult(Activity.RESULT_OK)
             } else {
                 startActivity(EditTasksActivity.newIntent(requireActivity()))

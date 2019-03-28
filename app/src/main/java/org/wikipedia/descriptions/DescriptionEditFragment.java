@@ -46,6 +46,7 @@ import io.reactivex.schedulers.Schedulers;
 import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS;
 import static org.wikipedia.Constants.InvokeSource;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_DISALLOWED;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_WARNING;
 import static org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.EXTRA_SOURCE_ADDED_DESCRIPTION;
@@ -138,7 +139,7 @@ public class DescriptionEditFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_description_edit, container, false);
         unbinder = ButterKnife.bind(this, view);
-        editView.setTranslationEdit(invokeSource == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC);
+        editView.setTranslationEdit(invokeSource == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC);
         editView.setTranslationSources(getArguments().getCharSequence(ARG_TRANSLATION_SOURCE_DESCRIPTION),
                 getArguments().getString(ARG_TRANSLATION_SOURCE_LANGUAGE_CODE));
         editView.setPageTitle(pageTitle);
