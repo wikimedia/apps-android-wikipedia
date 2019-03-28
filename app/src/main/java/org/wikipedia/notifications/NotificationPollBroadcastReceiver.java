@@ -56,6 +56,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
 
             locallyKnownNotifications = Prefs.getLocallyKnownNotifications();
             pollNotifications(context);
+            pollEditorTaskCounts(context);
         }
     }
 
@@ -80,9 +81,6 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
 
     @SuppressLint("CheckResult")
     private void pollNotifications(@NonNull final Context context) {
-        // Here we do two things: query the Echo API to get the user's actual notifications, and
-        // also query the Editor Tasks API to get the user's current achievements and unlocked features.
-
         ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getLastUnreadNotification()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -103,7 +101,10 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
                     Prefs.setRemoteNotificationsSeenTime(lastNotificationTime);
                     retrieveNotifications(context);
                 }, L::e);
+    }
 
+    @SuppressLint("CheckResult")
+    public static void pollEditorTaskCounts(@NonNull final Context context) {
         ServiceFactory.get(new WikiSite(Service.WIKIDATA_URL)).getEditorTaskCounts()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
