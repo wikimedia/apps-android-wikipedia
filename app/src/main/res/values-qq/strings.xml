@@ -669,6 +669,14 @@
     <item quantity="one">Text indicating that the event occurred one year ago.</item>
     <item quantity="other">Text indicating that the event occurred two or more years ago.\"%d\" is the number of years.</item>
   </plurals>
+  <string name="wikitext_bold">Button label for making the selected text bold.</string>
+  <string name="wikitext_italic">Button label for making the selected text italic.</string>
+  <string name="wikitext_link">Button label for making the selected text into a link.</string>
+  <string name="wikitext_bulleted_list">Button label for starting a bulleted list at the current cursor position.</string>
+  <string name="wikitext_numbered_list">Button label for starting a numbered list at the current cursor position.</string>
+  <string name="wikitext_template">Button label for making the selected text into a template.</string>
+  <string name="wikitext_reference">Button label for adding a reference at the current cursor position.</string>
+  <string name="wikitext_preview_link">Button label for showing a preview of the link that is at the current cursor position.</string>
   <string name="languages_list_activity_title">Title shown at the top of the activity for selecting a wikipedia language.</string>
   <string name="languages_list_suggested_text">Section header of the suggested languages in the languages list.</string>
   <string name="languages_list_all_text">Section header of all languages in the languages list.</string>
