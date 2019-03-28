@@ -26,30 +26,41 @@
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_back">Takaisin</string>
+  <string name="page_tabs_back">Takaisin</string>
   <string name="nav_item_forward">Eteenpäin</string>
   <string name="search_hint">Hae Wikipediasta</string>
   <string name="search_hint_search_history">Hae historiasta</string>
   <string name="search_hint_search_languages">Etsi kieltä</string>
+  <string name="search_hint_search_my_lists_and_articles">Hae omia listoja ja artikkeleita</string>
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Internet-yhteyden muodostaminen epäonnistui.</string>
   <string name="page_error_retry">Yritä uudelleen</string>
+  <string name="card_offline_error_retry">Yritä uudelleen</string>
+  <string name="storage_access_error_retry">Yritä uudelleen</string>
+  <string name="article_load_error_retry">Yritä uudelleen</string>
+  <string name="offline_load_error_retry">Yritä uudelleen</string>
   <string name="page_error_back_to_main">Takaisin</string>
+  <string name="error_back">Takaisin</string>
   <string name="menu_clear_all_history">Tyhjennä historia</string>
   <string name="history_item_deleted">%s poistettu historiasta</string>
   <string name="history_items_deleted">%d artikkelia poistettu historiasta</string>
   <string name="history_item_delete_undo">Kumoa</string>
+  <string name="notification_archive_undo">Kumoa</string>
   <string name="app_settings">Sovellusasetukset</string>
   <string name="dialog_title_clear_history">Tyhjennä selaushistoria</string>
   <string name="dialog_message_clear_history">Tämä tyhjentää koko selaushistoriasi ja sulkee kaikki avoimet välilehdet. Oletko varma?</string>
   <string name="dialog_message_clear_history_yes">Kyllä</string>
   <string name="dialog_message_clear_history_no">Ei</string>
   <string name="share_via">Jaa palvelussa</string>
+  <string name="image_share_via">Jaa palvelussa</string>
   <string name="search_redirect_from">Ohjattu sivulta %s</string>
   <string name="menu_page_show_tabs">Näytä välilehdet</string>
   <string name="menu_page_other_languages">Vaihda kieli</string>
   <string name="menu_page_find_in_page">Etsi sivulta</string>
+  <string name="edit_section_find_in_page">Etsi sivulta</string>
   <string name="menu_page_font_and_theme">Kirjasin ja teema</string>
   <string name="menu_page_add_to_list">Lisää lukulistaan</string>
+  <string name="feed_card_add_to_list">Lisää lukulistaan</string>
   <string name="menu_page_share">Jaa linkki</string>
   <string name="menu_page_open_a_new_tab">Avaa uudessa välilehdessä</string>
   <string name="menu_page_reading_lists">Lukulistat</string>
@@ -60,6 +71,9 @@
   <string name="menu_text_select_copy">Kopioi</string>
   <string name="menu_text_select_define">Määritelmä</string>
   <string name="menu_text_select_share">Jaa</string>
+  <string name="share">Jaa</string>
+  <string name="on_this_day_page_share">Jaa</string>
+  <string name="reading_list_page_share">Jaa</string>
   <string name="menu_text_select_edit_here">Muokkaa tästä</string>
   <string name="nav_item_nearby">Lähistöllä</string>
   <string name="nearby_zoom_to_location">Lähennä kartalla olevaan kohteeseen</string>
@@ -101,8 +115,13 @@
   <string name="nav_item_login">Kirjaudu sisään Wikipediaan</string>
   <string name="login_username_hint">Käyttäjänimi</string>
   <string name="login_password_hint">Salasana</string>
+  <string name="account_creation_password_hint">Salasana</string>
   <string name="login_2fa_hint">Kaksivaiheinen tunnistautumiskoodi</string>
   <string name="login_2fa_other_workflow_error_msg">Kaksivaiheinen tunnistautuminen vaaditaan! Palaa kirjautumissivulle, kirjaudu sisään kaksivaiheisen tunnistautumisen koodilla ja yritä sitten uudelleen.</string>
+  <string name="onboarding_card_login">Kirjaudu sisään</string>
+  <string name="page_editing_login">Kirjaudu sisään</string>
+  <string name="reading_lists_sync_login">Kirjaudu sisään</string>
+  <string name="create_account_login">Kirjaudu sisään</string>
   <string name="menu_login">Kirjaudu sisään</string>
   <string name="login_activity_title">Kirjaudu Wikipediaan</string>
   <string name="login_in_progress_dialog_message">Kirjaudutaan…</string>
@@ -375,6 +394,7 @@
   <string name="reading_list_description_hint">Kuvaus (ei pakollinen)</string>
   <string name="reading_list_item_deleted">%s poistettu listasta</string>
   <string name="reading_list_items_deleted">%d artikkelia poistettu listasta</string>
+  <string name="reading_lists_item_deleted">%s poistettu listoista</string>
   <string name="reading_list_item_delete_undo">Kumoa</string>
   <string name="reading_list_deleted">%s poistettu</string>
   <string name="saved_list_empty_title">Tallennettuja sivuja ei vielä ole</string>
@@ -535,9 +555,11 @@
   <string name="view_continue_reading_card_subtitle_today">tänään</string>
   <string name="view_continue_reading_card_subtitle_read_date">Luettu %s</string>
   <string name="view_announcement_card_negative_action">Ei kiitos</string>
+  <string name="onboarding_negative_action">Ei kiitos</string>
   <string name="view_offline_card_text">Sisältöä ei voida ladata offline-tilassa</string>
   <string name="view_featured_article_card_title">Suositeltu artikkeli</string>
   <string name="view_featured_article_footer_save_button_label">Tallenna</string>
+  <string name="view_static_card_save_button_label">Tallenna</string>
   <string name="view_featured_article_footer_saved_button_label">Tallennettu</string>
   <string name="feed_configure_activity_title">Mukauta syötettä</string>
   <string name="feed_configure_menu_reset">Palauta oletusnäkymä</string>
@@ -557,8 +579,11 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Mukauta Tutki-syötettä&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Voit nyt valita mitä haluat näyttää syötteessäsi, ja myös priorisoida suosikki sisältötyyppisi.</string>
   <string name="description_edit_text_hint">Otsikon kuvaus</string>
   <string name="description_edit_save">Julkaise</string>
+  <string name="description_edit_article">Artikkeli</string>
+  <string name="description_edit_read">Lue</string>
   <string name="description_edit_add_description">Lisää otsikon kuvaus</string>
   <string name="description_edit_edit_description">Muokkaa kuvausta</string>
+  <string name="add_translation">Lisää %s käännös</string>
   <string name="description_edit_cancel_hint">Peruuta</string>
   <string name="description_edit_help_title">Ohje: otsikon kuvaukset</string>
   <string name="description_edit_help_about_wikidata">Tietoa Wikidatasta</string>
@@ -577,13 +602,14 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ihanteellisesti yksi rivi, kahdesta kahteentoista sanaa</string>
   <string name="description_edit_tutorial_button_label_start_editing">Aloita muokkaaminen</string>
   <string name="description_edit_tutorial_promise">Aloittamalla lupaan olla väärinkäyttämättä tätä ominaisuutta.</string>
-  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Lisää otsikkokuvaukset</string>
+  <string name="editactionfeed_add_title_descriptions">Lisää kuvaukset</string>
   <string name="editactionfeed_translate_descriptions">Käännä otsikoiden kuvauksia</string>
-  <string name="editactionfeed_review_title_description" fuzzy="true">Esikatsele otsikon kuvausta</string>
+  <string name="editactionfeed_review_title_description">Esikatsele kuvausta</string>
   <string name="editactionfeed_add_description_button">Lisää kuvaus</string>
   <string name="editactionfeed_my_contributions">Omat muokkaukset</string>
   <string name="editactionfeed_from_language">Lähettäjä:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Lisätietoja</string>
+  <string name="editactionfeed_translate_title_dialog_learn_more">Lisätietoja</string>
   <string name="editactionfeed_to_language">Vastaanottaja:</string>
   <string name="description_edit_revert_subtitle">Kiitos Wikipedian muokkaamisesta!</string>
   <string name="description_edit_revert_intro">Tiedämme sinun yrittäneen parhaasi, mutta eräällä arvioijalla oli huolenaihe. Mahdolliset syyt muokkauksesi palauttamiselle ovat:</string>
@@ -615,7 +641,7 @@
   <string name="onboarding_got_it">Selvä</string>
   <string name="onboarding_multilingual_secondary_text">Olemme löytäneet seuraavat laitteestasi:</string>
   <string name="onboarding_multilingual_add_language_text">Lisää tai muokkaa kieliä</string>
-  <string name="onboarding_welcome_title_v2" fuzzy="true">Vapaa tietosanakirja\n…lähes 300 kielellä</string>
+  <string name="onboarding_welcome_title_v2">Vapaa tietosanakirja\n…yli 300 kielellä</string>
   <string name="app_shortcuts_random">Satunnainen</string>
   <string name="app_shortcuts_continue_reading">Jatka lukemista</string>
   <string name="app_shortcuts_search">Etsi</string>
@@ -655,11 +681,11 @@
   <string name="main_drawer_close">Sulje</string>
   <string name="main_drawer_help">Ohje</string>
   <string name="main_drawer_login">Kirjaudu sisään / liity Wikipediaan</string>
-  <string name="title_description_task_title" fuzzy="true">Lisää otsikkokuvaukset</string>
+  <string name="title_description_task_title">Lisää kuvaukset</string>
   <string name="image_caption_task_title">Kuvatekstit</string>
   <string name="image_caption_task_description">Lisää kuvatekstejä</string>
-  <string name="translation_task_title" fuzzy="true">Käännä otsikon kuvaukset</string>
-  <string name="translation_task_description" fuzzy="true">Käännä otsikkokuvaukset muille kielille.</string>
+  <string name="translation_task_title">Käännä kuvaukset</string>
+  <string name="translation_task_description">Käännä kuvaukset muille kielille.</string>
   <string name="multilingual_task_negative">Ei minulle</string>
   <string name="multilingual_task_positive">Lisää kieliä</string>
   <string name="translation_source_description">%s kuvaus:</string>
@@ -667,4 +693,5 @@
   <string name="translate_caption_task_description">Käännä kuvatekstit muille kielille</string>
   <string name="add_title_descriptions_dialog_title">Lisää otsikon kuvaukset</string>
   <string name="add_translate_descriptions_dialog_title">Olet kääntämässä ensimmäistä otsikon kuvaustasi</string>
+  <string name="title_description_editing_skip">Ohita</string>
 </resources>

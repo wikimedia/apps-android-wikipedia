@@ -613,6 +613,7 @@
   <string name="description_edit_read">Читать</string>
   <string name="description_edit_add_description">Добавить краткое описание</string>
   <string name="description_edit_edit_description">Править описание</string>
+  <string name="add_translation">Добавить перевод на %s</string>
   <string name="description_edit_cancel_hint">Отмена</string>
   <string name="description_edit_help_title">Справка: краткие описания</string>
   <string name="description_edit_help_about_wikidata">О Викиданных</string>
