@@ -136,6 +136,7 @@
   <string name="reset_password_button">Button label for setting a new password and logging in with it.</string>
   <string name="preference_title_logout">{{Identical|Log out}}</string>
   <string name="toast_logout_complete">Toast popup message notifying the user that they have been logged out.\n{{Identical|Logged out}}</string>
+  <string name="logout_prompt">Message that asks the user whether they really want to log out.</string>
   <string name="history_empty_title">Used in \"Browsing history\" page if there is nothing to show.</string>
   <string name="history_empty_message">Brief explanation that there are currently no History entries to look at. Just to fill an empty screen. This usually happens when a user just deleted history entries.</string>
   <string name="history_offline_articles_toast">Message shown in a toast when some articles in the history page may not be viewable while offline.</string>
