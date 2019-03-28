@@ -205,10 +205,10 @@ public class EditTasksFragment extends Fragment {
             int targetForTranslateDescriptions = editorTaskCounts.getDescriptionEditTargets().get(1);
 
             displayedTasks.add(addDescriptionsTask);
-            addDescriptionsTask.setDisabled(Prefs.isActionEditDescriptionsUnlocked());
+            addDescriptionsTask.setDisabled(Prefs.isEditActionAddDescriptionsUnlocked());
 
             if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
-                if (Prefs.showMultilingualTask()) {
+                if (Prefs.showTranslateDescriptionsTeaserTask()) {
                     displayedTasks.add(translateDescriptionsTeaserTask);
                     translateDescriptionsTeaserTask.setDisabledDescriptionText(String.format(getString(R.string.image_caption_edit_disable_text), targetForTranslateDescriptions));
                     translateDescriptionsTeaserTask.setDisabled(Prefs.isEditActionTranslateDescriptionsUnlocked());
@@ -293,7 +293,7 @@ public class EditTasksFragment extends Fragment {
                 int multilingualTaskPosition = displayedTasks.indexOf(translateDescriptionsTeaserTask);
                 displayedTasks.remove(translateDescriptionsTeaserTask);
                 tasksRecyclerView.getAdapter().notifyItemChanged(multilingualTaskPosition);
-                Prefs.setShowMultilingualTask(false);
+                Prefs.setShowTranslateDescriptionsTeaserTask(false);
             }
         }
 

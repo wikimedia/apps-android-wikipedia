@@ -816,11 +816,11 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_edit_tasks_onboarding, showOnboarding);
     }
 
-    public static boolean isActionEditDescriptionsUnlocked() {
+    public static boolean isEditActionAddDescriptionsUnlocked() {
         return getBoolean(R.string.preference_key_action_edit_descriptions_unlocked, false);
     }
 
-    public static void setActionEditDescriptionsUnlocked(boolean unlocked) {
+    public static void setEditActionAddDescriptionsUnlocked(boolean unlocked) {
         setBoolean(R.string.preference_key_action_edit_descriptions_unlocked, unlocked);
     }
 
@@ -856,11 +856,11 @@ public final class Prefs {
         setBoolean(R.string.preference_key_edit_action_translate_descriptions_unlocked, enabled);
     }
 
-    public static boolean showMultilingualTask() {
+    public static boolean showTranslateDescriptionsTeaserTask() {
         return getBoolean(R.string.preference_key_show_multilingual_task, true);
     }
 
-    public static void setShowMultilingualTask(boolean showTask) {
+    public static void setShowTranslateDescriptionsTeaserTask(boolean showTask) {
         setBoolean(R.string.preference_key_show_multilingual_task, showTask);
     }
 

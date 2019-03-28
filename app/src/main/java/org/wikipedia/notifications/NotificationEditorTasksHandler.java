@@ -23,8 +23,8 @@ public final class NotificationEditorTasksHandler {
         Object eventToDispatch = null;
 
         if (numTargetsPassed > 1) {
-            if (!Prefs.isActionEditDescriptionsUnlocked()) {
-                Prefs.setActionEditDescriptionsUnlocked(true);
+            if (!Prefs.isEditActionAddDescriptionsUnlocked()) {
+                Prefs.setEditActionAddDescriptionsUnlocked(true);
                 Prefs.setShowActionFeedIndicator(true);
                 Prefs.setShowEditMenuOptionIndicator(true);
                 maybeShowEditDescriptionUnlockNotification(context);
@@ -36,8 +36,8 @@ public final class NotificationEditorTasksHandler {
                 eventToDispatch = new EditorTaskUnlockEvent(numTargetsPassed);
             }
         } else if (numTargetsPassed > 0) {
-            if (!Prefs.isActionEditDescriptionsUnlocked()) {
-                Prefs.setActionEditDescriptionsUnlocked(true);
+            if (!Prefs.isEditActionAddDescriptionsUnlocked()) {
+                Prefs.setEditActionAddDescriptionsUnlocked(true);
                 Prefs.setShowActionFeedIndicator(true);
                 Prefs.setShowEditMenuOptionIndicator(true);
                 maybeShowEditDescriptionUnlockNotification(context);
@@ -47,8 +47,8 @@ public final class NotificationEditorTasksHandler {
                 Prefs.setEditActionTranslateDescriptionsUnlocked(false);
             }
         } else {
-            if (Prefs.isActionEditDescriptionsUnlocked()) {
-                Prefs.setActionEditDescriptionsUnlocked(false);
+            if (Prefs.isEditActionAddDescriptionsUnlocked()) {
+                Prefs.setEditActionAddDescriptionsUnlocked(false);
             }
             if (Prefs.isEditActionTranslateDescriptionsUnlocked()) {
                 Prefs.setEditActionTranslateDescriptionsUnlocked(false);
