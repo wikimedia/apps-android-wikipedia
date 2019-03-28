@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
@@ -251,13 +252,18 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     private class DrawerViewCallback implements MainDrawerView.Callback {
         @Override public void loginLogoutClick() {
             if (AccountUtil.isLoggedIn()) {
-                WikipediaApp.getInstance().logOut();
-                FeedbackUtil.showMessage(MainActivity.this, R.string.toast_logout_complete);
-                if (Prefs.isReadingListSyncEnabled() && !ReadingListDbHelper.instance().isEmpty()) {
-                    ReadingListSyncBehaviorDialogs.removeExistingListsOnLogoutDialog(MainActivity.this);
-                }
-                Prefs.setReadingListsLastSyncTime(null);
-                Prefs.setReadingListSyncEnabled(false);
+                new AlertDialog.Builder(MainActivity.this)
+                        .setMessage(R.string.logout_prompt)
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .setPositiveButton(R.string.preference_title_logout, (dialog, which) -> {
+                            WikipediaApp.getInstance().logOut();
+                            FeedbackUtil.showMessage(MainActivity.this, R.string.toast_logout_complete);
+                            if (Prefs.isReadingListSyncEnabled() && !ReadingListDbHelper.instance().isEmpty()) {
+                                ReadingListSyncBehaviorDialogs.removeExistingListsOnLogoutDialog(MainActivity.this);
+                            }
+                            Prefs.setReadingListsLastSyncTime(null);
+                            Prefs.setReadingListSyncEnabled(false);
+                        }).show();
             } else {
                 getFragment().onLoginRequested();
             }
