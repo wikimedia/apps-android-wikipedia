@@ -210,18 +210,18 @@ public class EditTasksFragment extends Fragment {
             int targetForTranslateDescriptions = editorTaskCounts.getDescriptionEditTargets().get(1);
 
             displayedTasks.add(addDescriptionsTask);
-            addDescriptionsTask.setDisabled(Prefs.isEditActionAddDescriptionsUnlocked());
+            addDescriptionsTask.setDisabled(!Prefs.isEditActionAddDescriptionsUnlocked());
 
             if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
                 if (Prefs.showTranslateDescriptionsTeaserTask()) {
                     displayedTasks.add(translateDescriptionsTeaserTask);
                     translateDescriptionsTeaserTask.setDisabledDescriptionText(String.format(getString(R.string.image_caption_edit_disable_text), targetForTranslateDescriptions));
-                    translateDescriptionsTeaserTask.setDisabled(Prefs.isEditActionTranslateDescriptionsUnlocked());
+                    translateDescriptionsTeaserTask.setDisabled(!Prefs.isEditActionTranslateDescriptionsUnlocked());
                 }
             } else {
                 displayedTasks.add(translateDescriptionsTask);
                 translateDescriptionsTask.setDisabledDescriptionText(String.format(getString(R.string.image_caption_edit_disable_text), targetForTranslateDescriptions));
-                translateDescriptionsTask.setDisabled(Prefs.isEditActionTranslateDescriptionsUnlocked());
+                translateDescriptionsTask.setDisabled(!Prefs.isEditActionTranslateDescriptionsUnlocked());
             }
 
             // TODO: enable image caption tasks.

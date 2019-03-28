@@ -2,30 +2,44 @@ package org.wikipedia.dataclient.mwapi;
 
 import android.support.annotation.Nullable;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.annotations.SerializedName;
 
+import org.wikipedia.json.GsonUtil;
+
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
 @SuppressWarnings("unused")
 public class EditorTaskCounts {
-    @Nullable private Counts counts;
-    @Nullable @SerializedName("targets_passed") private Targets targetsPassed;
-    @Nullable private Targets targets;
+    @Nullable private JsonElement counts;
+    @Nullable @SerializedName("targets_passed") private JsonElement targetsPassed;
+    @Nullable private JsonElement targets;
 
     @Nullable
     public Map<String, Integer> getDescriptionEditsPerLanguage() {
-        return counts != null && counts.appDescriptionEdits != null ? counts.appDescriptionEdits : null;
+        if (counts != null && !(counts instanceof JsonArray)) {
+            return GsonUtil.getDefaultGson().fromJson(counts, Counts.class).appDescriptionEdits;
+        }
+        return Collections.emptyMap();
     }
 
     @Nullable
     public List<Integer> getDescriptionEditTargetsPassed() {
-        return targetsPassed != null && targetsPassed.appDescriptionEdits != null ? targetsPassed.appDescriptionEdits : null;
+        if (targetsPassed != null && !(targetsPassed instanceof JsonArray)) {
+            return GsonUtil.getDefaultGson().fromJson(targetsPassed, Targets.class).appDescriptionEdits;
+        }
+        return Collections.emptyList();
     }
 
     @Nullable
     public List<Integer> getDescriptionEditTargets() {
-        return targets != null && targets.appDescriptionEdits != null ? targets.appDescriptionEdits : null;
+        if (targets != null && !(targets instanceof JsonArray)) {
+            return GsonUtil.getDefaultGson().fromJson(targets, Targets.class).appDescriptionEdits;
+        }
+        return Collections.emptyList();
     }
 
     public class Counts {

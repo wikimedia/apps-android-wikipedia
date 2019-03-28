@@ -77,7 +77,7 @@ class EditTaskView extends FrameLayout {
 
     @OnClick(R.id.task_info_layout)
     void onClick(View v) {
-        if (callback != null) {
+        if (callback != null && !task.getDisabled()) {
             callback.onViewClick(task);
         }
     }
