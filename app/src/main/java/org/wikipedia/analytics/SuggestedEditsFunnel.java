@@ -7,7 +7,7 @@ import org.wikipedia.WikipediaApp;
 
 public class SuggestedEditsFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppSuggestedEdits";
-    private static final int REV_ID = 0; // TODO
+    private static final int REV_ID = 18949003;
 
     private static final String SUGGESTED_EDITS_UI_VERSION = "1.0";
     private static final String SUGGESTED_EDITS_API_VERSION = "1.0";
@@ -15,12 +15,15 @@ public class SuggestedEditsFunnel extends TimedFunnel {
     public static final String SUGGESTED_EDITS_ADD_COMMENT = "#suggestededit-add " + SUGGESTED_EDITS_UI_VERSION;
     public static final String SUGGESTED_EDITS_TRANSLATE_COMMENT = "#suggestededit-translate " + SUGGESTED_EDITS_UI_VERSION;
 
-    public SuggestedEditsFunnel(WikipediaApp app) {
+    private String parentSessionToken;
+
+    public SuggestedEditsFunnel(WikipediaApp app, String parentSessionToken) {
         super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_ALL);
+        this.parentSessionToken = parentSessionToken;
     }
 
     @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) {
-        // TODO: preprocessData(eventData, "session_token", token);
+        preprocessData(eventData, "session_token", parentSessionToken);
     }
 
     @Override
