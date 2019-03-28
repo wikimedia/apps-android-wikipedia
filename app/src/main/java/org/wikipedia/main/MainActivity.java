@@ -251,11 +251,11 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
 
     private class DrawerViewCallback implements MainDrawerView.Callback {
         @Override public void loginLogoutClick() {
-            new AlertDialog.Builder(MainActivity.this)
-                    .setMessage(R.string.logout_prompt)
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .setPositiveButton(R.string.preference_title_logout, (dialog, which) -> {
-                        if (AccountUtil.isLoggedIn()) {
+            if (AccountUtil.isLoggedIn()) {
+                new AlertDialog.Builder(MainActivity.this)
+                        .setMessage(R.string.logout_prompt)
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .setPositiveButton(R.string.preference_title_logout, (dialog, which) -> {
                             WikipediaApp.getInstance().logOut();
                             FeedbackUtil.showMessage(MainActivity.this, R.string.toast_logout_complete);
                             if (Prefs.isReadingListSyncEnabled() && !ReadingListDbHelper.instance().isEmpty()) {
@@ -263,11 +263,11 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
                             }
                             Prefs.setReadingListsLastSyncTime(null);
                             Prefs.setReadingListSyncEnabled(false);
-                        } else {
-                            getFragment().onLoginRequested();
-                        }
-                        closeMainDrawer();
-                    }).show();
+                        }).show();
+            } else {
+                getFragment().onLoginRequested();
+            }
+            closeMainDrawer();
         }
 
         @Override public void notificationsClick() {
