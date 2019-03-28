@@ -13,13 +13,8 @@ branches:
   only:
   - master
 script:
-- if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./scripts/apps-android-wikipedia-test;
-  fi
-- if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./scripts/apps-android-wikipedia-publish-travis;
-  fi
-before_install:
-- openssl aes-256-cbc -K $encrypted_62eb76340444_key -iv $encrypted_62eb76340444_iv
-  -in wikipedia.keystore.enc -out wikipedia.keystore -d
+- if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./scripts/apps-android-wikipedia-test; fi
+- if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./scripts/apps-android-wikipedia-publish-travis; fi
 before_deploy:
 - scripts/tag-latest.sh
 deploy:
