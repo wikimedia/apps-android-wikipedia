@@ -96,6 +96,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
         this.context = fragment.requireActivity();
     }
 
+    @SuppressWarnings("checkstyle:methodlength")
     @Override
     public void loadPreferences() {
         loadPreferences(R.xml.developer_preferences);
