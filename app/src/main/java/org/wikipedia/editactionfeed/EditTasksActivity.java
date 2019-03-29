@@ -47,8 +47,7 @@ public class EditTasksActivity extends SingleFragmentActivity<EditTasksFragment>
 
     public static SuggestedEditsFunnel getFunnel() {
         if (FUNNEL == null) {
-            FUNNEL = new SuggestedEditsFunnel(WikipediaApp.getInstance(),
-                    WikipediaApp.getInstance().getSessionFunnel().getSessionToken());
+            FUNNEL = new SuggestedEditsFunnel(WikipediaApp.getInstance());
         }
         return FUNNEL;
     }

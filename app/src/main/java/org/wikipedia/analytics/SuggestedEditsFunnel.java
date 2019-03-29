@@ -18,9 +18,9 @@ public class SuggestedEditsFunnel extends TimedFunnel {
     private String parentSessionToken;
     private int helpOpenedCount = 0;
 
-    public SuggestedEditsFunnel(WikipediaApp app, String parentSessionToken) {
+    public SuggestedEditsFunnel(WikipediaApp app) {
         super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_ALL);
-        this.parentSessionToken = parentSessionToken;
+        this.parentSessionToken = app.getSessionFunnel().getSessionToken();
     }
 
     @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) {
@@ -29,13 +29,6 @@ public class SuggestedEditsFunnel extends TimedFunnel {
 
     public void helpOpened() {
         helpOpenedCount++;
-    }
-
-    @Override
-    protected JSONObject preprocessData(@NonNull JSONObject eventData) {
-        preprocessData(eventData, "ui_version", SUGGESTED_EDITS_UI_VERSION);
-        preprocessData(eventData, "api_version", SUGGESTED_EDITS_API_VERSION);
-        return super.preprocessData(eventData);
     }
 
     public void log() {
