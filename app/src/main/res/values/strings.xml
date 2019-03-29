@@ -124,6 +124,7 @@
     <string name="reset_password_button">Save and log in</string>
     <string name="preference_title_logout">Log out</string>
     <string name="toast_logout_complete">Logged out</string>
+    <string name="logout_prompt">Are you sure you want to log out?</string>
     <string name="history_empty_title">No recently viewed articles</string>
     <string name="history_empty_message">Track what you\'ve been reading here.</string>
     <string name="history_offline_articles_toast">Some articles in history may not be viewable while offline.</string>
@@ -733,6 +734,15 @@
     <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No thanks</string>
     <!-- /MultiLingual -->
 
+    <string name="wikitext_bold">Bold</string>
+    <string name="wikitext_italic">Italic</string>
+    <string name="wikitext_link">Link</string>
+    <string name="wikitext_bulleted_list">Bulleted list</string>
+    <string name="wikitext_numbered_list">Numbered list</string>
+    <string name="wikitext_template">Template</string>
+    <string name="wikitext_reference">Reference</string>
+    <string name="wikitext_preview_link">Preview link</string>
+
     <string name="main_drawer_open">Open</string>
     <string name="main_drawer_close">Close</string>
     <string name="main_drawer_help">Help</string>
@@ -775,4 +785,5 @@
     <string name="suggested_edits">Suggested edits</string>
     <string name="suggested_edits_add_descriptions">Suggested edits: Add descriptions</string>
     <string name="suggested_edits_translate_descriptions">Suggested edits: Translate descriptions</string>
+    <string name="suggested_edits_menu_info">Info</string>
 </resources>
