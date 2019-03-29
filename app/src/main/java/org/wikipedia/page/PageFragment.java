@@ -48,7 +48,6 @@ import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.descriptions.DescriptionEditTutorialActivity;
 import org.wikipedia.edit.EditHandler;
-import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.UpdateHistoryTask;
@@ -670,8 +669,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             startDescriptionEditActivity(data.getStringExtra(DESCRIPTION_SELECTED_TEXT));
         } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
                 && resultCode == RESULT_OK) {
-            AddTitleDescriptionsActivity.Companion.maybeShowEditUnlockDialog(requireActivity());
-            AddTitleDescriptionsActivity.Companion.maybeShowTranslationEdit(requireActivity());
             refreshPage();
         }
     }

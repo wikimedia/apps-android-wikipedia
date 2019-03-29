@@ -595,6 +595,7 @@
   <string name="description_edit_read">Lire</string>
   <string name="description_edit_add_description">Ajouter une description du titre</string>
   <string name="description_edit_edit_description">Modifier la description</string>
+  <string name="add_translation">Ajouter la traduction %s</string>
   <string name="description_edit_cancel_hint">Annuler</string>
   <string name="description_edit_help_title">Aide : descriptions des titres</string>
   <string name="description_edit_help_about_wikidata">À propos de Wikidata</string>
@@ -626,6 +627,7 @@
   <string name="editactionfeed_translate_title_dialog_learn_more">En savoir plus</string>
   <string name="editactionfeed_to_language">À :</string>
   <string name="editactionfeed_added_by_you">Ajouté par vous :</string>
+  <string name="editactionfeed_translated_by_you">Traduit par vous :</string>
   <string name="description_edit_revert_subtitle">Merci pour l’édition de Wikipédia !</string>
   <string name="description_edit_revert_intro">Nous savons que vous avez fait de votre mieux, mais un de nos relecteurs a eu un souci. Les raisons possibles de l’annulation de votre modification comprennent :</string>
   <string name="description_edit_revert_reason1">votre contribution ne respectait pas une des &lt;a href=\"%1$s\"&gt;directives&lt;/a&gt;.</string>

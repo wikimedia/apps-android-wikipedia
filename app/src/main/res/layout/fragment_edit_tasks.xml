@@ -96,10 +96,31 @@
             app:tint="?attr/colorAccent"
             android:contentDescription="@null"/>
 
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="-4dp"
+            android:indeterminate="true"
+            android:indeterminateTint="?attr/colorAccent"
+            android:progressBackgroundTint="@color/accent30"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
     </FrameLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/task_recyclerview"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/suggested_edits_swipe_refresh"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/task_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
 </LinearLayout>

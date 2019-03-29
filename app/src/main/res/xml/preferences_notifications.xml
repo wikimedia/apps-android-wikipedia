@@ -30,6 +30,12 @@
             android:title="@string/preference_title_notification_thanks"
             android:summary="@string/preference_summary_notification_thanks" />
 
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_notification_revert_enable"
+            android:defaultValue="true"
+            android:title="@string/preference_title_notification_revert"
+            android:summary="@string/preference_summary_notification_revert" />
+
     </PreferenceCategory>
 
 </android.support.v7.preference.PreferenceScreen>

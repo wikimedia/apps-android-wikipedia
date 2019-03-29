@@ -467,6 +467,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
             tempLangCodeHolder = null;
         }
         searchLanguageCode = selectedLanguageCode;
+        searchResultsFragment.setLayoutDirection(searchLanguageCode);
         startSearch(query, true);
     }
 

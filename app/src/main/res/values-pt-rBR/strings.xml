@@ -2,6 +2,7 @@
 <!-- Authors:
 * !Silent
 * AVrana
+* Alvarenga
 * Anaclaudiaml
 * BarbaraAckles
 * Cainamarques
@@ -152,7 +153,7 @@
   <string name="login_dont_have_account">Não possui uma conta?</string>
   <string name="login_join_wikipedia">Junte-se à Wikipedia</string>
   <string name="login_forgot_password">Esqueceu sua senha?</string>
-  <string name="create_account_already_have">já tem uma conta?</string>
+  <string name="create_account_already_have">Já tem uma conta?</string>
   <string name="create_account_activity_title">Criar uma conta</string>
   <string name="dialog_create_account_checking_progress">Verificando</string>
   <string name="create_account_email_hint">E-mail (Opcional)</string>
@@ -595,6 +596,7 @@
   <string name="description_edit_read">Ler</string>
   <string name="description_edit_add_description">Adicionar descrição do título</string>
   <string name="description_edit_edit_description">Editar descrição</string>
+  <string name="add_translation">Adicionar %s tradução</string>
   <string name="description_edit_cancel_hint">Cancelar</string>
   <string name="description_edit_help_title">Ajuda: descrição do título</string>
   <string name="description_edit_help_about_wikidata">Sobre Wikidata</string>
@@ -626,6 +628,7 @@
   <string name="editactionfeed_translate_title_dialog_learn_more">Saiba mais</string>
   <string name="editactionfeed_to_language">Para:</string>
   <string name="editactionfeed_added_by_you">Adicionado por você:</string>
+  <string name="editactionfeed_translated_by_you">Traduzido por você:</string>
   <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
   <string name="description_edit_revert_intro">Sabemos que você tentou o seu melhor, mas um dos revisores tinha uma preocupação. Possíveis razões pelas quais a edição foi revertida inclui</string>
   <string name="description_edit_revert_reason1">Sua contribuição não seguiu uma das &lt;a href=\"%1$s\"&gt;diretrizes&lt;/a&gt;.</string>

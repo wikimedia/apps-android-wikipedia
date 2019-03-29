@@ -477,6 +477,7 @@
   <string name="description_edit_read">Liesen</string>
   <string name="description_edit_add_description">Beschreiwung vum Titel derbäisetzen</string>
   <string name="description_edit_edit_description">Beschreiwung änneren</string>
+  <string name="add_translation">Iwwersetzung op %s derbäisetzen</string>
   <string name="description_edit_cancel_hint">Ofbriechen</string>
   <string name="description_edit_help_title">Hëllef:Titelbeschreiwungen</string>
   <string name="description_edit_help_about_wikidata">Iwwer Wikidata</string>
@@ -502,6 +503,7 @@
   <string name="editactionfeed_translate_title_dialog_learn_more">Fir méi ze wëssen</string>
   <string name="editactionfeed_to_language">Fir:</string>
   <string name="editactionfeed_added_by_you">Vun Iech derbäigesat:</string>
+  <string name="editactionfeed_translated_by_you">Vun Iech iwwersat:</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>

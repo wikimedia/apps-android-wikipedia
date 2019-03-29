@@ -45,6 +45,8 @@ import de.mrapp.android.tabswitcher.TabSwitcherDecorator;
 import de.mrapp.android.tabswitcher.TabSwitcherListener;
 import de.mrapp.android.util.logging.LogLevel;
 
+import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
+
 public class TabActivity extends BaseActivity {
     public static final int RESULT_LOAD_FROM_BACKSTACK = 10;
     public static final int RESULT_NEW_TAB = 11;
@@ -155,6 +157,8 @@ public class TabActivity extends BaseActivity {
                     descriptionText.setText(title.getDescription());
                     descriptionText.setVisibility(View.VISIBLE);
                 }
+
+                setConditionalLayoutDirection(view, title.getWikiSite().languageCode());
             }
 
             @Override
