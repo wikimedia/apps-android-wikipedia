@@ -574,9 +574,13 @@
   <string name="feed_configure_onboarding_action">התאמה אישית</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;תעשו התאמה אישית של ההזנה שלכם&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;אתם יכולים לבחור מה להציג בהזנה שלכם ולתעדף את סוגי התוכן שאתם אוהבים.</string>
   <string name="description_edit_text_hint">תיאור הכותרת</string>
+  <string name="description_edit_text_hint_per_language">תיאור (%s)</string>
   <string name="description_edit_save">פרסום</string>
+  <string name="description_edit_article">ערך</string>
+  <string name="description_edit_read">לקרוא</string>
   <string name="description_edit_add_description">הוספת תיאור כותרת</string>
   <string name="description_edit_edit_description">עריכת התיאור</string>
+  <string name="add_translation">הוספת תרגום ל%s</string>
   <string name="description_edit_cancel_hint">ביטול</string>
   <string name="description_edit_help_title">עזרה: תיאורי כותרות</string>
   <string name="description_edit_help_about_wikidata">אודות ויקינתונים</string>
@@ -587,6 +591,7 @@
   <string name="description_edit_task_unlock_title">רשימת משימות עריכת תיאורי כותרת נפתחה!</string>
   <string name="description_edit_task_unlock_body">הבחנו שעריכת תיאורי כותרת נושאת חן בעיניך, לכן אספנו רשימת „משימות עריכה” עם ערכים נוספים שחסר להם תיאור וישמחו לקבל את התייחסותך!</string>
   <string name="description_edit_success_saved">התיאור פורסם!</string>
+  <string name="description_edit_success_saved_snackbar">התיאור פורסם!</string>
   <string name="description_edit_success_encouragement">שיפרת עכשיו את ויקיפדיה עבור כולם</string>
   <string name="description_edit_success_done">בוצע</string>
   <string name="description_edit_success_did_you_know">הידעת?</string>
@@ -597,15 +602,17 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">יהיה מושלם אם זאת תהיה שורה אחת, בין שתיים לשתים־עשרה מילים</string>
   <string name="description_edit_tutorial_button_label_start_editing">להתחיל לערוך</string>
   <string name="description_edit_tutorial_promise">תחילת העריכה היא התחייבות שלי לא להשתמש באפשרות הזאת לרעה.</string>
-  <string name="editactionfeed_add_title_descriptions" fuzzy="true">הוספת תיאורי כותרת</string>
+  <string name="editactionfeed_add_title_descriptions">הוספת תיאורים</string>
   <string name="editactionfeed_translate_descriptions">תרגום תיאורי כותרת</string>
-  <string name="editactionfeed_review_title_description" fuzzy="true">בדיקת תיאור כותרת</string>
+  <string name="editactionfeed_review_title_description">סקירת תיאור</string>
   <string name="editactionfeed_add_description_button">להוסיף תיאור</string>
   <string name="editactionfeed_my_contributions">התרומות שלי</string>
   <string name="editactionfeed_from_language">מ־:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">מידע נוסף</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">מידע נוסף</string>
   <string name="editactionfeed_to_language">ל־:</string>
+  <string name="editactionfeed_added_by_you">נוסף על־ידיך</string>
+  <string name="editactionfeed_translated_by_you">תורגם על ידיך:</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
   <string name="description_edit_revert_intro">אנחנו יודעים שניסית היטב, אבל לאחד מהסוקרים הייתה חשד. סיבות אפשריות לכך שהעריכה שלך שוחזרה:</string>
   <string name="description_edit_revert_reason1">התרומה שלך הייתה מנוגדת ל&lt;a href=\"%1$s\"&gt;הוראות&lt;/a&gt;.</string>
@@ -710,4 +717,5 @@
   <string name="translate_descriptions_maybe_later">אולי מאוחר יותר</string>
   <string name="title_descriptions_onboarding_got_it">הבנתי</string>
   <string name="translate_descriptions_onboarding_got_it">הבנתי</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/he</string>
 </resources>

@@ -598,7 +598,7 @@
   <string name="description_edit_tutorial_promise">Ved at begynde lover jeg ikke at misbruge denne funktion.</string>
   <string name="editactionfeed_add_title_descriptions">Tilføj beskrivelser</string>
   <string name="editactionfeed_translate_descriptions">Oversæt titelbeskrivelser</string>
-  <string name="editactionfeed_review_title_description" fuzzy="true">Korrekturlæs titelbeskrivelse</string>
+  <string name="editactionfeed_review_title_description">Korrekturlæs beskrivelse</string>
   <string name="editactionfeed_add_description_button">Tilføj beskrivelse</string>
   <string name="editactionfeed_my_contributions">Mine bidrag</string>
   <string name="editactionfeed_from_language">Fra:</string>

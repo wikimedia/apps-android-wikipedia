@@ -583,6 +583,7 @@
   <string name="description_edit_read">閱讀</string>
   <string name="description_edit_add_description">增加標題描述</string>
   <string name="description_edit_edit_description">編輯描述</string>
+  <string name="add_translation">新增%s翻譯</string>
   <string name="description_edit_cancel_hint">取消</string>
   <string name="description_edit_help_title">協助：標題描述</string>
   <string name="description_edit_help_about_wikidata">關於維基數據</string>
@@ -614,10 +615,11 @@
   <string name="editactionfeed_translate_title_dialog_learn_more">了解更多</string>
   <string name="editactionfeed_to_language">譯成：</string>
   <string name="editactionfeed_added_by_you">由您所增加：</string>
+  <string name="editactionfeed_translated_by_you">您的翻譯：</string>
   <string name="description_edit_revert_subtitle">感謝編輯維基百科！</string>
   <string name="description_edit_revert_intro">我們知道您已盡力了，但有編者檢閱內容有所疑慮而做出還原。您的編輯被回退的原因可能是：</string>
   <string name="description_edit_revert_reason1">您的貢獻並未遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>
-  <string name="description_edit_revert_reason2">您的貢獻內容看起來像是試驗性質的，或是有心破壞。</string>
+  <string name="description_edit_revert_reason2">您的貢獻內容看起來像是試驗性質、或是有心破壞的。</string>
   <string name="description_edit_revert_history">若您有興趣，請查看&lt;a href=\"%1$s\"&gt;編輯歷史&lt;/a&gt;。</string>
   <string name="offline_read_permission_rationale">需要可存取在您裝置上儲存庫的權限才能離線瀏覽。</string>
   <string name="offline_read_final_rationale">需要可存取在您裝置上儲存庫的權限才能使用離線圖書館。</string>

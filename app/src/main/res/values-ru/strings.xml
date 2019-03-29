@@ -613,6 +613,7 @@
   <string name="description_edit_read">Читать</string>
   <string name="description_edit_add_description">Добавить краткое описание</string>
   <string name="description_edit_edit_description">Править описание</string>
+  <string name="add_translation">Добавить перевод на %s</string>
   <string name="description_edit_cancel_hint">Отмена</string>
   <string name="description_edit_help_title">Справка: краткие описания</string>
   <string name="description_edit_help_about_wikidata">О Викиданных</string>
@@ -644,6 +645,7 @@
   <string name="editactionfeed_translate_title_dialog_learn_more">Узнать больше</string>
   <string name="editactionfeed_to_language">Кому:</string>
   <string name="editactionfeed_added_by_you">Добавлено вами:</string>
+  <string name="editactionfeed_translated_by_you">Переведено вами:</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
   <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то неправильное. Возможные причины, почему ваша правка была отменена:</string>
   <string name="description_edit_revert_reason1">ваш вклад не отвечал одному из &lt;a href=\"%1$s\"&gt;руководящих принципов&lt;/a&gt;.</string>
