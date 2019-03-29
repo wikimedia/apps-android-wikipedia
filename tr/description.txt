@@ -1,0 +1,39 @@
+Resmi Wikipedia Android uygulaması, Vikipedi hakkındaki bilgileri bulmanıza, keşfetmenize ve keşfetmenize yardımcı olmak için tasarlanmıştır. Uygulama aracılığıyla hızlı bir arama yaparak arkadaşınızla bir bahis yapın ya da öne çıkan makaleler, resimler, önerilen makaleler ve daha fazla bilgi edinmek için keşif özet akışını kullanın. Yaklaşık 300 dilde 39 milyondan fazla makalesi ile en sevdiğiniz ücretsiz çevrimiçi ansiklopedi artık parmaklarınızın ucunda.
+
+Özellikler:
+
+Feed'i keşfedin - Yeni "feed'i keşfet", trend olan makaleler, güncel etkinlikler, önerilen okumalar ve daha fazlası dahil olmak üzere, ana ekranda doğrudan ve sürekli olarak Wikipedia içeriğini güncellemeyi önerir.
+
+Sesle tümleşik arama - Cihazınızdaki sesle etkinleştirilen arama dahil olmak üzere, uygulamanızın en üstünde bulunan önemli bir arama çubuğuyla aradığınızı kolayca bulun.
+
+Yakında - Geçerli ve yakın konumunuzla ilgili makaleleri görmek için etkileşimli bir haritada puan seçerek etrafınızdakiler hakkında daha fazla bilgi edinin.
+
+Dil desteği - Güncel makalenin dilini değiştirerek ya da arama yaparken tercih ettiğiniz arama dilini değiştirerek dil destekli Vikipedi'ye sorunsuzca geçiş yapın.
+
+Önizleme bağlantısı - Önizlemek için, okumakta olduğunuz yerinizdeki yerinizi kaybetmeden bir makaleye dokunun. Yeni bir sekmede açmak için bir bağlantıyı basılı tutun, geçerli makaleyi yerinizi kaybetmeden okumaya devam edin ve hazır olduğunuzda yeni sekmeye geçin.
+
+İçindekiler - herhangi bir makalenin sol üst kısmına kaydırın, bu da içerik bölümlerini kolayca bulmanızı sağlar.
+
+Okuma listeleri - Göz attığınız makaleleri, çevrimdışı olduğunuzda bile erişebileceğiniz okuma listelerinde düzenleyin. İstediğiniz kadar liste oluşturun, onlara özel adlar ve açıklamalar verin ve bunları herhangi bir dil wiki'sinden makalelerle doldurun.
+
+Resim galerisi - Tam görüntüleri taramak için hızlıca kaydırmak için seçeneklerle, görüntüyü tam ekran yüksek çözünürlükte görüntülemek için bir resme dokunun.
+
+Vikisözlükten tanımlar - Bir kelimeyi vurgulamak için Dokun ve basılı tutun, ardından "Tanımla" düğmesine dokunarak Vikisözlük kelimesinin bir tanımını görebilirsiniz.
+
+Wikipedia Zero - Katılan mobil operatörler için Android'den ücretsiz veri ücretleri. (katılımcı operatörlere bağlantı).
+
+Uygulama ile ilgili görüşlerinizi bize gönderin! Menüde "Ayarlar" a, ardından "Wikipedia uygulaması hakkında", ardından "Uygulama geri bildirimi gönder" e basın.
+
+Kod %100 açık kaynaklıdır. Java ve Android SDK ile tecrübeniz varsa, katkılarınızı bekliyoruz! https://github.com/wikimedia/apps-android-wikipedia
+
+Bu uygulamayı kullanarak, kilitlenme raporlarının bir üçüncü taraf hizmet sağlayıcısına otomatik olarak iletilmesini kabul edersiniz. Bu özelliği devre dışı bırakmak isterseniz, lütfen "Ayarlar" a basın, ardından Gizlilik bölümündeki "Kilitlenme raporları gönder" seçeneğini işaretleyin. Uygulamanın ihtiyaç duyduğu izinlerin açıklaması: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+
+Gizlilik politikası: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Kilitlenme raporu üçüncü taraf hizmet sağlayıcısı gizlilik politikası: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
+
+Kullanım Şartları: https://m.wikimediafoundation.org/wiki/Terms_of_Use
+
+Wikimedia Vakfı hakkında
+
+Wikimedia Vakfı, Wikipedia ve diğer Wikimedia projelerini destekleyen kar amacı gütmeyen bir kuruluştur. Wikimedia Vakfı, temel olarak bağışlar yoluyla finanse edilen hayır kurumu organizasyonudur. Daha fazla bilgi için lütfen web sitemizi ziyaret edin: https://wikimediafoundation.org/wiki/Home.

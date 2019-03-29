@@ -10,4 +10,37 @@ Funktioner:
    - Språkstöd: Appen låter dig enkelt växla mellan att läsa Wikipedia på olika språk.
    - Wikipedia Zero: Inga dataavgifter från deltagande mobiloperatörer för att använda appen.
 
-Koden har öppen källkod. Om du har erfarenhet av Java och Android SDK kan du hjälpa oss! https://github.com/Wikimedia/apps-Android-wikipedia
+Röstintegrerad sökning - Hitta lätt vad du letar efter med ett framträdande sökfält längst upp i progarmmet, inklusive röstaktiverad sökning på din enhet.
+
+Närliggande - Lär dig mer om vad som finns runt dig genom att välja punkter på en interaktiv karta för att se saker relaterade till din aktuella och närliggande platser.
+
+Språkstöd - Växla sömlöst till att läsa vilken Wikipedia som har språkstöd, antingen genom att ändra språket för den aktuella artikeln eller genom att ändra ditt önskade sökspråk medan du söker.
+
+Förhandsvisning av länkar - Klicka på en artikel för att förhandsvisa den, utan att tappa platsen där du läser för närvarande. Tryck och håll på en länk för att ;ppna den i en ny flik, vilket låter dig fortsätta läsa den akutella artikeln utan att tappa bort dit och växla till den nya flika när du är redo.
+
+Innehåll - svep åt vänster på vilken artikel som helst för att visa innehållet, vilket enkelt låter dig hoppa till artikelavsnitt.
+
+Läslistor - Organisera artiklnar du bläddar genom i läslistor, vilket kan ge dig åtkomst även när du är frånkopplad. Skapa så många listor du vill, ge dem anpassade namn och beskrivningar och placera artiklar i dem från vilket språks wiki som helst.
+
+Bildgalleri - Klicka på en bild för att visa bilden i helskärm i hög upplösning med alternativet att svepa för att bläddra genom ytterligare bilder.
+
+Definitioner från Wiktionary - Klicka på och håll för att färgmarkera ett ord, klicka sedan på knappen ”Definiera” för att se en definition av ordet från Wiktionary.
+
+Wikipedia Zero - Använd Wikipedia för Android utan datakostnad för de mobiloperatörer som deltar. (länk till operatörer som deltar).
+
+Skicka oss din återkoppling om appen! I menyn, klicka på ”Inställningar” och sedan ”Om Wikipedia Appen” och sedan ”Skicka återkoppling”.
+
+Appen består av 100% öppen källkod. Om du har erfarenhet av Java och Android SDK ser vi fram emot att du hjälper oss!
+https://github.com/wikimedia/apps-android-wikipedia
+
+Genom att använda denna app, samtycker du till automatisk överföring av felrapporter till en utomstående tjänsteleverantör. Om du vill inaktivera den här funktionen, vänligen tryck på ”Inställningar” och inaktivera ”Skicka kraschrapporter” under avsnittet Sekretess. Förklaring av behörigheter som krävs av appen: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+
+Sekretesspolicy: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Krasch rapport tredjepartsleverantörs sekretesspolicy: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
+
+Villkor för användning: https://m.wikimediafoundation.org/wiki/Terms_of_Use
+
+Om Wikimedia-stiftelsen
+
+Wikimedia-stiftelsen är den ideella organisation som ger stöd till Wikipedia och de andra Wikimedia-projekten. Wikimedia-stiftelsen är en välgörenhetsorganisation som finansieras huvudsakligen genom donationer. För vidare information, besök vår webbplats: https://wikimediafoundation.org/wiki/Home.

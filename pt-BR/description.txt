@@ -1,12 +1,39 @@
-Aplicação oficial Wikipédia para Android. A Wikipédia é uma enciclopédia livre que contém mais de 32 milhões de artigos em 280 idiomas, sendo a referência mais abrangente compilada por trabalho humano. A aplicação foi reescrita do zero e está melhor que nunca.
+O aplicativo oficial da Wikipedia para Android foi desenvolvido para ajudar você a encontrar, descobrir e explorar o conhecimento na Wikipédia. Faça uma aposta com um amigo fazendo uma pesquisa rápida no aplicativo ou mergulhe em artigos em destaque, imagens, artigos recomendados e muito mais usando o feed de exploração. Com mais de 39 milhões de artigos em quase 300 idiomas, sua enciclopédia online livre favorita está agora ao seu alcance.
 
 Caraterísticas:
-   - Velocidade: A nossa nova aplicação permite-lhe navegar e editar na Wikipédia de uma forma mais rápida do que nunca.
-   - Edição: Pode editar na Wikipédia! Com sessão iniciada ou não, nós agradecemos-lhe todas as suas contribuições.
-   - Páginas recentes: Fornecemos-lhe o seu histórico de leitura, para que possa acompanhar as ligações que quiser sem se perder.
-   - Páginas guardadas: Pode guardar páginas selecionadas para leitura e navegação ''offline'' mesmo sem ligação de dados.
-   - Partilha: Use as suas aplicações sociais para partilhar a soma de todo o conhecimento humano.
-   - Suporte de idioma: A aplicação permite que, de forma fácil, consiga ler a Wikipédia escrita em qualquer idioma.
-   - Wikipédia Zero: Taxa de dados dispensada para operadores móveis participantes.
 
-O código é totalmente aberto. Se tem experiência com linguagens Java e Android SDK, venha trabalhar connosco! https://github.com/wikimedia/apps-android-wikipedia
+Explorar - A nova função 'explorar' oferece conteúdo recomendado e constantemente atualizado da Wikipédia diretamente na sua tela inicial, incluindo artigos em destaque, eventos atuais, leituras sugeridas, e mais.
+
+Pesquisa integrada por voz - encontre facilmente o que você está procurando com uma barra de pesquisa proeminente na parte superior do aplicativo, incluindo a pesquisa ativada por voz no seu dispositivo.
+
+Próximo - Saiba mais sobre o que está ao seu redor, selecionando pontos em um mapa interativo para ver artigos relacionados à sua localização atual e próxima.
+
+Suporte a idiomas - alterne facilmente para a leitura de qualquer idioma suportada pela Wikipédia, seja alterando o idioma do artigo atual ou alterando seu idioma de pesquisa preferencial durante a pesquisa.
+
+Visualizações de links - toque em um artigo para visualizá-lo, sem perder seu posição onde você está lendo atualmente. Mantenha pressionado um link para abri-lo em uma nova guia, permitindo que você continue lendo o artigo atual sem perder sua posição e mude para a nova guia quando estiver pronto.
+
+Índice - deslize para a esquerda em qualquer artigo para exibir o índice, o que permite que você pule facilmente para as seções do artigo.
+
+Listas de leitura - Organize os artigos que você navega nas listas de leitura, que você pode acessar mesmo quando estiver off-line. Crie quantas listas desejar, forneça nomes e descrições personalizadas e preencha-as com artigos de qualquer idioma do wiki.
+
+Galeria de imagens - Toque em uma imagem para exibi-la em tela cheia em alta resolução, com opções de deslizar para explorar imagens adicionais.
+
+Definições do Wikcionário - Toque e segure para destacar uma palavra, depois toque no botão "Definir" para ver uma definição da palavra do Wikcionário.
+
+Wikipédia Zero - Acesse a Wikipédia para o Android sem gastar seus dados nas operadoras móveis participantes. (link das operadoras participantes).
+
+Envie-nos sua opinião sobre o app! No menu, pressione "Configurações", "Sobre o aplicativo da Wikipédia" e "Enviar feedback do aplicativo".
+
+O código é 100% open source. Se você tem experiência com o Java e o Android SDK, esperamos ansiosamente por suas contribuições! https://github.com/wikimedia/apps-android-wikipedia
+
+Ao usar este aplicativo, você concorda com a transmissão automática de relatórios de falhas para um provedor de serviços terceirizado. Se você quiser desativar esse recurso, pressione "Configurações" e desative "Enviar relatórios de falhas" na seção Privacidade. Explicação das permissões necessárias pelo aplicativo: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+
+Política de privacidade: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Política de privacidade do provedor de serviços terceirizados do relatório de falhas: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
+
+Termos de Uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use
+
+Sobre a Fundação Wikimedia
+
+A Fundação Wikimedia é uma organização sem fins lucrativos de apoia a Wikipédia e outros projetos da Wikimedia. A Fundação Wikimedia é uma entidade filantrópica financiada principalmente através de doações. Para mais informações, por favor visite nossa página web: https://wikimediafoundation.org/wiki/Home.

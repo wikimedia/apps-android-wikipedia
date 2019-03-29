@@ -1,0 +1,39 @@
+Android-erako Wikipedia aplikazio ofiziala Wikipediako jakinduria aurkitu, deskubritu, miatu dezazun laguntzeko egina dago. Irabazi apustuak lagunekin aplikazioan bilatuz, edo sakondu artikulu nabarmenduetan, irudietan, aholkatutako artikuluetan, eta gehiago jarioa esploratzeko ezaugarriarekin. 300 hizkuntzatan idatzitako 39 miloi artikulu baino gehiagorekin, zure gogoko entziklopedia eskuan duzu orain.
+
+Ezaugarriak:
+
+Esploratu jarioa - Ezaugarri berri honek aholkatutako eta etengabe berritutako edukia dakar zure hasiera pantailara, joeran dauden artikuluak, uneko gertaerak, ahokatutako irakurketak, eta gehiago.
+
+Ahots bidezko bilaketa integratua - Aurkitu erraz bilatzen duzuna aplikazioaren goialdeko bilaketa barra nabarmenarekin, ahots bidezko bilaketa barne.
+
+Inguruan - Ikasi zer dagoen zure inguruan mapa interaktibo batean zure kokalekutik hurbil dauden tokiei buruzko artikuluak aukeratuz.
+
+Hizkuntzetarako euskarria - Aldatu erraz Wikipediak onartutako edozein hizkuntzara, artikuluaren hizkuntza edo bilaketarako hobetsitako hizkuntza aldatuz.
+
+Esteken aurrebista - Sakatu artikulu batean hau aurreikusteko, orain irakurtzen ari zarena galdu gabe. Sakatu eta mantendu esteka fitxa berri batean irekitzeko, uneko artikula mantenduz, eta aldatu fitxa berrira nahi duzunean.
+
+Edukien taula - pasatu hatza ezkerrera edozein artikulutan edukien taula azalarazteko, artikuluaren atal desberdinetara erraz saltatzeko.
+
+Irakurketa zerrenda - Antolatu bisitatutako artikuluak irakurketa zerrendan, lineaz kanpo ere atzitu dezakezu. Sortu nahi beste zerrenda, eman zuk aukeratutako izenak eta azalpenak, eta elikatu edozein hizkuntzatako wikietatik.
+
+Irudi galeria - Sakatu irudi batean berau pantaila osoan eta bereizmen handian ikusteko, hatza pasa dezakezu irudi gehiago ikusteko.
+
+Wiktionary-ko definizioak - Sakatu eta mantendu hitz bat nabarmentzeko, gero sakatu "Definitu" botoia Wiktionary-ko hitzaren definizioa ikusteko.
+
+Wikipedia Zero - Atzitu Android-erako Wikipedia datuak ordaindu gabe parte hartzen duten operadoreekin. (Parte hartzen duten operadoreetara esteka).
+
+Bidali guri aplikazioari buruzko iruzkinak! Menuan sakatu "Ezarpenak", gero "Wikipedia aplikazioari buruz", gero "Bidali aplikazioari buruzko iruzkina".
+
+Kodea %100 irekia da, Javarekin eta Android SDK-rekin esperientzia baduzu, zure ekarpenen zai gaude! https://github.com/wikimedia/apps-android-wikipedia
+
+Aplikazio hau erabiltzean, kraskatze txostenak hirugarrengo bati automatikoki bidaltzea onartzen duzu. Ezaugarri hau desgaitu nahi baduzu, sakatu "Ezarpenak", gero desaktibatu "Bidali kraskatze txostenak" pribatutasun atalean. Aplikazioak behar dituen baimenen azalpena: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+
+Pribatutasun politika: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Kraskatze txostena jasotzen duen hirugarrengoaren pribatutasun politika: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
+
+Erabilera baldintzak: https://m.wikimediafoundation.org/wiki/Terms_of_Use
+
+Wikimedia Foundationi buruz
+
+Wikimedia Fundazioa Wikipedia eta beste Wikimedia proiektua sustatzen dituen irabazi asmorik gabeko erakundea da. Wikimedia Fundazioa nagusiki dohaintzen bidez finantzatutako erakundea da. Informazio gehiagorako, bisitatu gure webgunea: https://wikimediafoundation.org/wiki/Home.

@@ -1,11 +1,39 @@
 Officiële Wikipedia-app voor Android. Wikipedia is de vrije encylopedie met meer dan 31 miljoen artikelen in 280 talen, en de meest uitgebreide en meest gebruikte bron gemaakt door de mens. De app is vanaf de grond opnieuw opgebouwd en is beter dan ooit te voren.
 
 Functies:
-   - Snelheid: onze nieuwe native app zorgt voor een snellere app dan ooit te voren, waarmee u nog sneller kunt verkennen en bewerken.
-   - Bewerken: U kan Wikipedia bewerken! Met of zonder account, we zijn blij met al uw bijdragen!
-   - Recente pagina\'s: we bieden een overzicht van recent gelezen pagina\'s aan, waardoor u zoveel mogelijk kunt doorklikken zonder de weg kwijt te raken.
-   - Delen: gebruik uw bestaande apps voor sociale media om de menselijke kennis te delen.
-   - Meertalig: de app biedt makkelijke toegang tot Wikipedia in elke taal.
-   - Wikipedia Zero: Wikipedia bezoeken zonder kosten bij geselecteerde mobiele provides.
 
 De broncode is volledig opensource. Heeft u ervaring met Java en de Android-SDK, fork ons dan! https://github.com/wikimedia/apps-android-wikipedia
+
+Zoeken via geïntegreerde spraak - Vind eenvoudig wat u zoekt met een prominente zoekbalk bovenaan de app, inclusief spraakgestuurd zoeken op uw apparaat.
+
+In de buurt - Kom meer te weten over wat zich nabij jou bevindt door punten op een interactieve map te selecteren, om artikels over je huidige en nabije posities te lezen.
+
+Taalondersteuning - Wissel eenvoudig naar gelijk welke taal ondersteund door Wikipedia, ofwel door het veranderen van de taal van het huidige artikel, ofwel door je voorkeurszoektaal bij het zoeken aan te passen.
+
+Voorbeeldweergaven voor koppelingen - Tik op een artikel om een voorbeeldweergave te krijgen, zonder te verliezen waar je in het huidige artikel zat. Hou ingedrukt op een koppeling om ze in een nieuw tabblad te openen, waardoor je het huidige artikel kan blijven lezen zonder te verliezen waar je zat, en wissel naar het nieuwe tabblad wanneer je klaar bent.
+
+Inhoudstafel - veeg naar links op een artikel om de inhoudstafel te tonen, waardoor je eenvoudig naar andere delen van het artikel kan springen.
+
+Leeslijsten - Organiseer de artikels waar je door bladert in leeslijsten, die je ook offline kan bekijken. Maak zoveel lijsten aan als je wilt, geef ze aangepaste namen en beschrijvingen, en vul ze met artikels in gelijk welke taal.
+
+Afbeeldingsgalerij - Tik op een afbeelding om deze in hoge resolutie te tonen in volledig scherm, met opties om te vegen om extra afbeeldingen te bekijken.
+
+Definities van Wiktionary - Tik en hou ingedrukt om een woord te markeren, en tik dan op de knop "Definiëren" om een definitie van het woord op Wiktionary te bekijken.
+
+Wikipedia Zero - Verkrijg toegang tot Wikipedia voor Android zonder gegevenskosten, bij deelnemende mobiele leveranciers. (koppeling naar deelnemende leveranciers).
+
+Stuur ons je terugkoppeling over de app! Druk in het menu op "Instellingen", dan "Over de Wikipedia-app" en vervolgens "Terugkoppeling sturen".
+
+De broncode is 100% vrij. Als je ervaring hebt met Java en de Android-SDK, kijken we uit naar je bijdragen! https://github.com/wikimedia/apps-android-wikipedia
+
+Door het gebruik van deze app, ga je akkoord met het automatisch indienen van crashrapportages bij een derdepartijdienstleverancier. Als je deze functie wilt uitschakelen, ga dan naar "Instellingen" en schakel onder het onderdeel Privacy "Crashrapportages versturen" uit. Verklaring voor toestemmingen vereist door de app: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+
+Privacybeleid: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Privacybeleid voor crashrapportages bij derdepartijdienstleverancier: https://privacy.microsoft.com/nl-nl/privacystatement
+
+Gebruiksvoorwaarden: https://m.wikimediafoundation.org/wiki/Terms_of_Use
+
+Over de Wikimedia Foundation
+
+De Wikimedia Foundation is de non-profitorganisatie die Wikipedia en andere Wikimedia-projecten ondersteunt. De Wikimedia Foundation is een liefdadigheidsorganisatie die voornamelijk wordt gefinancierd door giften. Voor meer informatie, bezoek onze website: https://wikimediafoundation.org/wiki/Home.

@@ -1,0 +1,39 @@
+Oficjalna aplikacja Wikipedii na Androida zaprojektowana, aby pomóc Ci odszukać informacje i odkrywać wiedzę na Wikipedii. Rozwiąż zakład z przyjacielem szybko odnajdując odpowiedź przez apkę lub buszuj w wyróżnionych artykułach i zdjęciach i odkrywaj polecaną zawartość. Mając przeszło 39 milionów artykułów w prawie 300 językach, Twoja ulubiona darmowa internetowa encyklopedia teraz w Twoich dłoniach.
+
+Cechy:
+
+Kanał odkrywaj - oferuje bezustannie uaktualnianą polecaną zawartość Wikipedii na ekranie głównym, włączając artykuły zyskujące na popularności, aktualności, polecane i więcej.
+
+Wyszukiwanie głosowe - z łatwością znajdź to co chcesz z wyrazistą wyszukiwarką w górnej belce aplikacji, ze wsparciem dla wyszukiwania głosowego na Twoim urządzeniu.
+
+W pobliżu - dowiedz się więcej o tym co znajduje się w Twojej okolicy klikając punkty na interaktywnej mapie, aby wyświetlić artykuły związane z Twoją lokalizacją.
+
+Wsparcie językowe - gładko przełączaj się pomiędzy każdą wersją językową Wikipedii, albo poprzez zmianę języka czytanego artykułu, albo przez zmianę preferowanego języka wyszukiwania.
+
+Podgląd odnośników - stuknij w artykuł, aby wyświetlić jego podgląd bez opuszczania czytanego artykułu. Naciśnij i przytrzymaj odnośnik, aby otworzyć go w nowej karcie, co pozwoli Ci kontynuować czytanie obecnego artykułu i przejście do następnego, kiedy będziesz gotowy.
+
+Tablica zawartości - przesuń palcem w prawo przy dowolnym artykule, aby wyświetlić jego tablicę zawartości, która pozwoli Ci z łatwością skakać między akapitami artykułu.
+
+Listy czytania - porządkuj przeglądane artykuły w listy czytania, do których masz dostęp nawet offline. Twórz tyle list, ile chcesz, dodaj im nazwy i opisy, i zapełniaj je artykułami w dowolnym języku.
+
+Galeria zdjęć - stuknij w zdjęcie, aby wyświetlić je w wysokiej rozdzielczości na pełnym ekranie z możliwością przeglądania dalszych zdjęć.
+
+Definicje z Wikisłownika - naciśnij i przytrzymaj, aby podświetlić słowo, a następnie stuknij w przycisk „definicja”, aby wyświetlić definicję słowa z Wikisłownika.
+
+Wikipedia Zero - dostęp do Wikipedii na Androidzie bez kosztów przesyłu danych u wybranych operatorów.
+
+Wyślij swoją opinię na temat aplikacji! Wybierz z menu „ustawienia”, następnie „o aplikacji Wikipedia” i „prześlij opinię”.
+
+Kod jest w 100% otwartoźródłowy. Jeżeli masz doświadczenie z Javą i Android SDK, czekamy na Twój wkład! [ttps://github.com/wikimedia/apps-android-wikipedia]
+
+Używając tej aplikacji zgadzasz się z automatycznym przesyłaniem raportów o błędach na serwery strony trzeciej. Jeżeli chciałbyś wyłączyć tą opcję, stuknij „ustawienia”, i odznacz „wysyłaj raporty o błędach” w sekcji prywatność. Objaśnienie pozwoleń wymaganych przez aplikację: [https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions]
+
+Polityka prywatności: [https://meta.wikimedia.org/wiki/Privacy_policy/pl]
+
+Polityka prywatności dostawcy usługi raportowania błędów: [https://privacy.microsoft.com/pl-pl/privacystatement]
+
+Warunki użytkowania: [https://m.wikimediafoundation.org/wiki/Terms_of_Use/pl]
+
+O Fundacji Wikimedia
+
+Fundacja Wikimedia jest organizacją non-profit wspierającą Wikipedię i inne projekty Wikimedia. Fundacja Wikimedia jest organizacją charytatywną zasilaną głównie przez dotacje. Aby dowiedzieć się więcej, odwiedź naszą stronę: [https://wikimediafoundation.org/wiki/Home]

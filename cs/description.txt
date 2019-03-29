@@ -1,12 +1,9 @@
 Oficiální aplikace Wikipedie pro Android. Wikipedie je otevřená encyklopedie obsahující více než 32 milionů článků ve 280 jazycích, je to nejrozsáhlejší a nejšířeji používané referenční dílo, které lidstvo kdy vyrobilo. Aplikace byla přebudována od nuly a je lepší než kdy předtím.
 
 Funkce:
-   - Rychlost: Naše nová nativní aplikace vám umožňuje prohlížet si a editovat Wikipedii rychleji než kdy dřív.
-   - Editace: Wikipedii můžete editovat! Přihlášeni či nepřihlášeni, děkujeme za všechny vaše příspěvky.
-   - Nedávné stránky: Nabízíme historii vaší četby, takže můžete proklikávat libovolným množstvím odkazů, aniž byste se někdy ztratili.
-   - Uložené stránky: Můžete si uložit vybrané stránky ke čtení offline a číst si je i bez datového připojení.
-   - Sdílení: Sdílejte sumu lidských znalostí pomocí svých existujících aplikací sociálních sítí.
-   - Podpora jazyků: Aplikace vám umožňuje snadno přecházet mezi čtením Wikipedie v různých jazycích.
-   - Wikipedia Zero: Bezplatné datové připojení od účastnících se mobilních operátorů.
 
-Zcela otevřený zdrojový kód. Pokud máte zkušenosti s Javou a SDK Androidu, můžete forkovat! https://github.com/wikimedia/apps-android-wikipedia
+Zcela otevřený zdrojový kód. Pokud máte zkušenosti s Javou a SDK Androidu, můžete forkovat! https://github.com/wikimedia/apps-android-wikipedia.
+
+Podmínky používání: https://m.wikimediafoundation.org/wiki/Terms_of_Use
+
+O nadaci Wikimedia

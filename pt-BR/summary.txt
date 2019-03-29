@@ -1,1 +1,1 @@
-Aplicação oficial Wikipédia para Android.
+Aplicativo oficial do Wikipédia para Android.

@@ -1,0 +1,39 @@
+La oficiala aplikaĵo de Vikipedio por Androido estas projektita por helpi al vi trovi kaj esplori scion per Vikipedio. Juĝu veton kun amiko per rapide serĉi per la aplikaĵo aŭ dronu en elstarajn aŭ legindajn artikolojn, bildojn, kaj pli per la esplor-fluo. Kun pli ol 39 milionoj da artikoloj en preskaŭ 300 lingvoj, via ŝatata interreta enciklopedio nun estas en viaj manoj.
+
+Eblaĵoj:
+
+Esplor-fluo - prezentas kaj senĉese ĝisdatigas legindan Vikipedian enhavon sur la hejmekrano, ampleksante populariĝantajn artikolojn, nunajn eventojn, legindaĵojn kaj pli.
+
+Pervoĉa serĉo - facile trovi kion vi serĉas per distingebla serĉujo ĉe supre de la aplikaĵo, inkluzive pervoĉan serĉon per via aparato.
+
+Proksime - legi pri kio okazas ĉirkaŭ vi per elekti punktojn sur la interaga mapo por legi artikolojn rilatajn al via proksimaĵo.
+
+Lingva subteno - senprobleme baskuli inter ĉiuj subtenataj lingvoj de Vikipedio, aŭ per ŝanĝi la lingvon de la legata artikolo aŭ per ŝanĝi preferatan lingvon de serĉado.
+
+Antaŭrigardo de ligiloj - frapetu la artikolon por antaŭrigardi ĝin senforlasante la legatan artikolon. Premtenu ligilon por malfermi ĝin en nova langeto, por ke pluigu legi la nunan artikolon kaj baskulu al la nova langeto kiam vi estos preta.
+
+Tabulo de enhavo - ŝovumu maldekstren ĉe ĉiu artikolo por montri la tabulon de enhavo, kiu ebligas al vi facile navigi inter sekcioj de artikolo.
+
+Leg-listoj - organizi foliumatajn artikolojn per leg-listojn, kiuj vi povas aliri eĉ seninterrete. Kreu tiom da listoj, kiom vi volas, laŭvole nomi kaj priskribi ilin kaj plenigu ilin per artikolojn de iu ajn lingvo.
+
+Bild-galerio - frapetu bildon por montri ĝin alt-distingive, kun eblo por baskuli inter aliaj bildoj.
+
+Difinoj el Vikivortaro - premtenu por marki vorton kaj sekve frapetu la butonon “difini” por montri difinon de la vorto el Vikivortaro.
+
+Vikipedio Zero - aliri Vikipedion ĉe Androido sen pagoj por datum-transfero por partoprenantaj provizantoj de sendrata komunikado.
+
+Sendu vian opinion pri la aplikaĵo! En la menuo, elektu “agordoj”, sekve “pri la Vikipedia aplikaĵo” kaj sekve “sendi rimarkojn pri tiu ĉi aplikaĵo”.
+
+La kodo estas malferma en 100%. Se vi spertas pri Ĝavo kaj Android SDK, ni atendas viajn kontribuojn! https://github.com/wikimedia/apps-android-wikipedia
+
+Uzante tiun ĉi aplikaĵo, vi konsentas aŭ aŭtomata transsendo de raportoj pri paneoj al ekstera servo. Se vi volas malaktivigi tiun ĉi funkcion, premu “agordoj”-n, sekve malmarku “sendi raportojn pri paneoj”-n en la sekcio privateco. Permesoj uzataj de la aplikaĵo estas klarigitaj ĉe: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+
+Privateca politiko: https://meta.wikimedia.org/wiki/Privacy_policy/eo
+
+Privateca politiko de ekstera servo por pane-raportoj: https://privacy.microsoft.com/en-us/privacystatement
+
+Kondiĉoj de uzado: https://m.wikimediafoundation.org/wiki/Terms_of_Use
+
+Pri la Fondaĵo Vikimedio
+
+La Fondaĵo Vikimedio estas ne-profit-cela organizaĵo, kiu subtenas Vikipedion kaj aliaj Vikimediaj projektoj. La Fondaĵo Vikimedio estas subtenata ĉefe per donacoj. Por pli da informoj bonvolu viziti nian retejon: https://wikimediafoundation.org/wiki/Home

@@ -1,0 +1,39 @@
+Wikipedia ametlik Androidi rakendus on loodud teadmiste Wikipedia otsimiseks, avastamiseks ja uurimiseks. Otsi kiirelt rakendusest või sukeldu esiletoodud ja soovitatud artiklitesse-piltidesse, või veelgi enamasse kasutades uurimisvoogu, et lahendada kihlvedu sõbraga. Sisaldades üle 39 miljoni artikli peaaegu 300 keeles on su tasuta lemmikentsüklopeedia sõrmede all.
+
+Omadused:
+
+Voo uurimine - uus 'voo uurimine' pakub soovitatud ja pidevalt uuenevat Wikipedia sisu avaekraanil: seal on hetkel olulised artilklid, praegused sündmused, soovitatud lugemine ja palju muud.
+
+Hääljuhitud otsing - leia otsitu lihtsalt kasutades rakenduse ülaservas olevat prominentset otsinguriba, kaasates oma seadme hääljuhitud otsingu.
+
+Naabruses - Vali interaktiivselt kaardid punktid, et tutvuda lähemalt nende naabruses olevaga, et leida artikleid, mis on seotud su praeguse asukoha ja naabruskonnaga.
+
+Keelte tugi - lülitu sujuvalt igale keelele, mida Wikipeedia toetab; vaheta kas artikli keelt või muuda eelistatud keel otsingus.
+
+Viida eelvaated - artikli eelvaateks koputa temal; nii ei muutu su hetkel loetava artikli asukoht. Vajuta lingil ja hoia, et avada artikkel uuel kaardil; nii saad jätkata praeguse artikli lugemist ja lülituda uuele kaardile siis, kui oled selleks valmis.
+
+Sisukord - viipa vasakule, et avada artikli sisukord, mis lubab sul lihtsalt liikuda artikli soovitud sektsiooni.
+
+Lugemisloendid - organiseeri loetud artiklid lugemisloenditesse, mida saad kasutada isegi võrguühenduseta. Loo nii palju loendeid kui soovid, anna neile sobivad nimed ja kirjeldused ning lisa neisse artiklid suvalises Wikipeedia keeles.
+
+Pildigalerii - koputa pildil, et näha kõrglahutusega pilti täisekraanil; piltide vahel liikumiseks viipa.
+
+Wiktionary mõisted - koputa ja hoia, et valida sõna, mille määratlust sa soovid Wiktionaryst näha koputades nupul "Määratle".
+
+Wikipedia Zero - Kasuta Wikipedia for Android rakendust selles osalevate mobiilside operaatorite võrkudes andmedastustasuta. (Viit osalevatele operaatoritele).
+
+Saada meile oma arvamus rakendusest! Vajuta menüüs olles "Seaded" -> "Wikipedia rakendusest" -> "Saada tagasisidet".
+
+Kood on 100% avatud lähtekoodiga. Kui sul on kogemusi Java ja Androidi SDK-ga, siis ootame sinu panust! https://github.com/wikimedia/apps-android-wikipedia
+
+Seda rakendust kasutades nõustud sellega, et automaatsed krahhiraportid saadetakse kolmanda osapoole teenusepakkujale. Kui soovid selle funktsiooni välja lülitada, siis vali "Seaded" ja lülita sektsionist "Privaatsus" välja "Saada krahhiraportid". Rakenduse kasutatavate lubade seletus: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+
+Privaatsuspoliitika: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Krahhiraportite kolmanda osapoole privaatsuspoliitika: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
+
+Kasutustingimused: https://m.wikimediafoundation.org/wiki/Terms_of_Use
+
+Wikimedia Foundation
+
+Wikimedia Foundation on mittetulundusorganisatsioon, mis toetab Wikipeediat ta teisi Wikimedia projekte. Wikimedia Foundation on heategevuslik organisatsioon, mida rahastatakse peamiselt annetustega. Lisainfot leiad meie veebilehelt: https://wikimediafoundation.org/wiki/Home.

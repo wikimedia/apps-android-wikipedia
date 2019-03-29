@@ -10,3 +10,15 @@ Funksjonalitet:
    - Wikipedia Zero: Datakostnader dekkes av enkelte mobiloperatører.
 
 Kildekoden er åpen. Hvis du har erfaring med Java og Android SDK er du velkommen til å bli med å lage appen bedre! https://github.com/wikimedia/apps-android-wikipedia
+
+Språkstøtte - Bytt sømløst til ethvert språk som støttes på Wikipedia, enten ved å endre språk for valgt artikkel, eller ved å endre foretrukket søkespråk mens du søker.
+
+Lenkeforhåndsvisninger - Trykk på en artikkel for å forhåndsvise den, uten å miste hvor du var i det du leser. Trykk og hold en lenke for å åpne den i ny fane, noe som lar deg fortsette å lese gjeldende artikkel uten å glemme hvor du er, og bytte til en ny fane først når du er klar.
+
+Innholdsfortegnelse - dra til venstre på vilkårlig artikkel for å hente innholdsfortegnelse, som enkelt lar deg hoppe til artikkeldeler.
+
+Leselister - Organiser artiklene du leser i leselister, som du har tilgang til selv når du er frakoblet. Opprett så mange lister du vil, gi dem egne navn og beskrivelser, og legg artikler i dem fra hvilket språk du ønsker.
+
+Bildegalleri - Trykk på et bilde for å vise bilde i fullskjerm i høy oppløsning, med valg for å dra for å vise ytterligere bilder.
+
+Om Wikimedia-stiftelsen

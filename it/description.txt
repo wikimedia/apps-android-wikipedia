@@ -1,14 +1,40 @@
-App ufficiale di Wikipedia per Android.
-Wikipedia è l'enciclopedia libera con oltre 32 milioni di voci in 280 lingue, ed è l'opera di consultazione più completa e più diffusa che l'uomo abbia mai compilato. L'app è stata completamente riscritta ed è di gran lunga migliore.
+L'app ufficiale di Wikipedia per Android è stata creata per aiutarti a cercare, scoprire ed esplorare la conoscenza su Wikipedia. Fai una scommessa con un amico facendo una rapida ricerca nell'app, immergiti negli articoli e immagini in vetrina o usa la funzione Esplora. Con oltre 39 milioni di articoli in quasi 300 lingue, la tua enciclopedia online e libera preferita è ora a portata di mano.
 
 Caratteristiche:
-   - Velocità: la nostra nuova app nativa ti permette di consultare e modificare Wikipedia più velocemente che in passato.
-   - Modifica: puoi modificare Wikipedia! Che tu sia registrato o no, ti ringraziamo per tutti i tuoi contributi.
-   - Pagine recenti: ti offriamo la cronologia delle tue letture, così che tu possa seguire tutti i collegamenti che vuoi senza mai perderti.
-   - Pagine salvate: puoi salvare le pagine che ti interessano per leggerle offline e consultarle anche in assenza di connessione dati.
-   - Condivisione: usa le tue app di social network preferite per condividere la somma di tutta la conoscenza umana.
-   - Supporto linguistico: l'app ti permette di accedere senza soluzione di continuità alle Wikipedia scritte in altre lingue.
-   - Wikipedia Zero: nessun costo di connessione con gli operatori mobili partecipanti.
 
-Il codice è interamente open source. Se hai esperienza con Java e l'Android SDK, vieni a forkarci!
-https://github.com/wikimedia/apps-android-wikipedia
+Esplora - la nuova funzione "Esplora" offre contenuti di Wikipedia consigliati e costantemente aggiornati direttamente sulla schermata iniziale, inclusi articoli di tendenza, eventi attuali, letture consigliate e altro ancora.
+
+Ricerca vocale - Cerca facilmente cosa stai cercando con una evidente barra di ricerca in cima all'app, che comprende anche la ricerca vocale.
+
+Nelle vicinanze - Scopri di più su ciò che ti sta attorno selezionando i punti su una mappa interattiva e per vedere gli articoli relativi alle posizioni.
+
+Supporto lingue - Leggi in qualsiasi lingua senza problemi-supporta Wikipedia, cambiando la lingua dell'articolo attuale o cambiando la lingua di ricerca preferita.
+
+Anteprima link - Tocca un articolo per vedere un'anteprima, senza perdere il segno di quello che stai leggendo. Tieni premuto su un link per aprirlo in una nuova pagina, permettendoti di continuare a leggere l'articolo corrente senza perdere il segno, e vai sulla nuova pagaina quando sei pronto.
+
+Tabella dei contenuti - scorri a sinistra su un articolo per visualizzare la tabella dei contenuti, che ti permette di passare su sezioni di articolo facilmente.
+
+Liste di lettura - Organizza gli articoli che sfogli in liste di lettura, a cui puoi accedere anche offline. Crea quante liste vuoi, dai dei nomi e delle descrizioni, e riempile con articoli da qualsiasi lingua della wiki.
+
+Galleria immagini - Tocca un'immagine per vederla a schermo intero in alta risoluzione, con l'opzione di scorrere per sfogliare immagini addizionali.
+
+Definizioni da Wiktionary - Tieni premuto per evidenziare un parola, poi tocca il bottone "Definisci" per vedere la definizione della parola dal Wiktionary.
+
+Wikipedia Zero . Accesso a Wikipedia per Android senza costi sul traffico dati da parte degli operatori mobili partecipanti. (link agli operatori partecipanti).
+
+Inviaci la tua opinione sull'app! Dal menu, premi "Impostazioni", quindi "Circa l'app di Wikipedia", e "Invia opinione sull'app".
+
+Il codice è 100% a sorgente aperto. Se hai esperienza con Java e con l'Android SDK, aspettiamo di vedere i tuoi contributi! https://github.com/wikimedia/apps-android-wikipedia
+
+Usando quest'app accetti la trasmissione automatica di rapporti di crash a un servizio di terze parti. Se vuoi disabilitare questa funzione, premi "Impostazioni" e disabilita "Invia rapporti di crash" sulla sezione Privacy. Spiegazioni sui permessi necessari all'applicazione:
+https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+
+Politica sulla privacy: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Privacy policy del fornitore di terze parti sui rapporti di crash: https://www.microsoft.com/it-it/privacystatement/OnlineServices/Default.aspx
+
+Termini d'uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use
+
+Circa la Wikimedia Foundation
+
+La Wikimedia Foundation è la fondazione non-profit che supporta Wikipedia e altri progetti Wikimedia. La Wikimedia Foundation è un'organizzazione di caritevole supportata principalmente attraverso donazioni. Per altre informazioni, visita il nostro sito: https://wikimediafoundation.org/wiki/Home.
