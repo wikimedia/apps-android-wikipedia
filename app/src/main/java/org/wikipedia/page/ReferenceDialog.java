@@ -23,6 +23,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
+
 /**
  * A dialog that displays the currently clicked reference.
  */
@@ -55,6 +57,8 @@ public class ReferenceDialog extends BottomSheetDialog {
         referencesViewPager.setAdapter(new ReferencesAdapter(adjacentReferences));
         pageIndicatorView.setCount(adjacentReferences.size());
         referencesViewPager.setCurrentItem(selectedIndex, true);
+
+        setConditionalLayoutDirection(rootView, referenceLinkHandler.getWikiSite().languageCode());
     }
 
     @NonNull private String processLinkTextWithAlphaReferences(@NonNull String linkText) {
