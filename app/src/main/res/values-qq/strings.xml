@@ -136,6 +136,7 @@
   <string name="reset_password_button">Button label for setting a new password and logging in with it.</string>
   <string name="preference_title_logout">{{Identical|Log out}}</string>
   <string name="toast_logout_complete">Toast popup message notifying the user that they have been logged out.\n{{Identical|Logged out}}</string>
+  <string name="logout_prompt">Message that asks the user whether they really want to log out.</string>
   <string name="history_empty_title">Used in \"Browsing history\" page if there is nothing to show.</string>
   <string name="history_empty_message">Brief explanation that there are currently no History entries to look at. Just to fill an empty screen. This usually happens when a user just deleted history entries.</string>
   <string name="history_offline_articles_toast">Message shown in a toast when some articles in the history page may not be viewable while offline.</string>
@@ -668,6 +669,14 @@
     <item quantity="one">Text indicating that the event occurred one year ago.</item>
     <item quantity="other">Text indicating that the event occurred two or more years ago.\"%d\" is the number of years.</item>
   </plurals>
+  <string name="wikitext_bold">Button label for making the selected text bold.</string>
+  <string name="wikitext_italic">Button label for making the selected text italic.</string>
+  <string name="wikitext_link">Button label for making the selected text into a link.</string>
+  <string name="wikitext_bulleted_list">Button label for starting a bulleted list at the current cursor position.</string>
+  <string name="wikitext_numbered_list">Button label for starting a numbered list at the current cursor position.</string>
+  <string name="wikitext_template">Button label for making the selected text into a template.</string>
+  <string name="wikitext_reference">Button label for adding a reference at the current cursor position.</string>
+  <string name="wikitext_preview_link">Button label for showing a preview of the link that is at the current cursor position.</string>
   <string name="languages_list_activity_title">Title shown at the top of the activity for selecting a wikipedia language.</string>
   <string name="languages_list_suggested_text">Section header of the suggested languages in the languages list.</string>
   <string name="languages_list_all_text">Section header of all languages in the languages list.</string>
@@ -728,4 +737,5 @@
   <string name="title_descriptions_onboarding_got_it">Text on the positive action button for starting editing title descriptions.\n{{Identical|Got it}}</string>
   <string name="translate_descriptions_onboarding_got_it">Text on the positive action button for starting translating title descriptions.\n{{Identical|Got it}}</string>
   <string name="android_app_edit_help_url">URL leading to the help page for article editing from within the app. If you can find the appropriate language specific URL of the mobile site please do so.</string>
+  <string name="suggested_edits_menu_info">Suggested edits menu label for accessing the editing FAQ.\n{{Identical|Info}}</string>
 </resources>

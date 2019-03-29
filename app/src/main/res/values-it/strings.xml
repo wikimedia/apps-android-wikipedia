@@ -52,8 +52,8 @@
   <string name="storage_access_error_retry">Riprova</string>
   <string name="article_load_error_retry">Riprova</string>
   <string name="offline_load_error_retry">Riprova</string>
-  <string name="page_error_back_to_main">Indietro</string>
-  <string name="error_back">Indietro</string>
+  <string name="page_error_back_to_main">Torna indietro</string>
+  <string name="error_back">Torna indietro</string>
   <string name="menu_clear_all_history">Cancella la cronologia</string>
   <string name="history_item_deleted">%s rimosso dalla cronologia</string>
   <string name="history_items_deleted">%d voci rimosse dalla cronologia</string>
@@ -463,6 +463,7 @@
   <string name="no_user_lists_title">Organizza voci in elenchi</string>
   <string name="no_user_lists_msg">Crea elenchi per luoghi in cui viaggiare, argomenti preferiti e molto altro ancora</string>
   <string name="split_reading_list_message">C\'è un limite di %d voci per elenco di lettura. Gli elenchi esistenti con più di questo limite sono stati suddivisi in più elenchi.</string>
+  <string name="reading_list_article_limit_message">Impossibile aggiungere a questo elenco. Hai raggiunto il limite di %2$d voci per elenco per \"%1$s\".</string>
   <string name="reading_lists_limit_message">Impossibile creare un altro elenco. Hai raggiunto il limite di 100 elenchi di lettura per utenza.</string>
   <string name="reading_lists_menu_create_list">Crea nuovo elenco</string>
   <string name="reading_lists_menu_sort_by">Ordina per</string>
@@ -529,6 +530,7 @@
   <string name="view_featured_image_card_download">Scarica</string>
   <string name="menu_feed_card_dismiss">Nascondi questa scheda</string>
   <string name="menu_feed_card_dismissed">Scheda nascosta.</string>
+  <string name="menu_feed_card_edit_card_languages">Modifica le lingue della scheda</string>
   <string name="menu_feed_overflow_label">Altre opzioni</string>
   <string name="feed_featured_image_share_subject">Immagine in vetrina da Wikimedia Commons</string>
   <string name="feed">Esplora</string>
@@ -543,6 +545,7 @@
   <string name="view_continue_reading_card_subtitle_read_date">Letto %s</string>
   <string name="view_announcement_card_negative_action">No, grazie</string>
   <string name="onboarding_negative_action">No, grazie</string>
+  <string name="view_offline_card_text">Il contenuto non può essere caricato offline.</string>
   <string name="view_featured_article_card_title">Voce in vetrina</string>
   <string name="view_featured_article_footer_save_button_label">Salva</string>
   <string name="view_static_card_save_button_label">Salva</string>
@@ -619,6 +622,7 @@
   <string name="more_events_text">Altro in questo giorno</string>
   <string name="events_count_text">%1$s eventi dal %2$s–%3$d</string>
   <string name="this_year">Questo anno</string>
+  <string name="back_to_top">Torna all\'inizio</string>
   <plurals name="diff_years">
     <item quantity="one">L\'anno scorso</item>
     <item quantity="other">%d anni fa</item>
@@ -635,10 +639,12 @@
     <item quantity="one">Rimuovere la lingua selezionata?</item>
     <item quantity="other">Rimuovere le lingue selezionate?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Veisualizzerai solo il contenuto sul collegamento Explore e filtri di ricerca rapida per le restanti lingue di Wikipedia.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Visualizzerai solo i contenuti nel feed Esplora e i filtri di ricerca rapida per le restanti lingue di Wikipedia.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Impossibile rimuovere tutte le lingue</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantieni almeno una lingua Wikipedia da cui potrai cercare e leggere il contenuto.</string>
   <string name="more_language_options">altro</string>
+  <string name="add_wikipedia_languages_text">Aggiungi le lingue di Wikipedia</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Rimuovere una variante cinese dalle lingue della tua app?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Al momento hai varianti del cinese tradizionale e del cinese semplificato impostate nelle lingue dell\'applicazione. Aggiorna le impostazioni della lingua dell\'applicazione?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Modifica lingue</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No, grazie</string>
@@ -647,6 +653,8 @@
   <string name="main_drawer_help">Aiuto</string>
   <string name="main_drawer_login">Entra / unisciti a Wikipedia</string>
   <string name="title_description_task_title">Aggiungi descrizioni</string>
+  <string name="title_description_task_description">Contribuire alle voci senza descrizioni</string>
+  <string name="image_caption_task_title">Didascalia immagini</string>
   <string name="image_caption_task_description">Aggiungi didascalie alle immagini</string>
   <string name="multilingual_task_title">Più attività per editori multilingue</string>
   <string name="multilingual_task_description">Le attività di traduzione sono disponibili se leggi e scrivi in ​​più di una lingua di Wikipedia.</string>
@@ -666,6 +674,7 @@
   <string name="add_title_descriptions_dialog_title">Aggiungi descrizioni del titolo</string>
   <string name="add_title_descriptions_dialog_message">Ora puoi aiutare a migliorare Wikipedia aggiungendo descrizioni che appaiono sotto i titoli nelle voci. Puoi configurare le tue lingue in qualsiasi momento.</string>
   <string name="add_translate_descriptions_dialog_title">Stai traducendo le descrizioni dei titoli per la prima volta</string>
+  <string name="description_edit_tutorial_message">Benvenuto nella nuova pagina principale per la modifica rapida nell\'applicazione Wikipedia. I tuoi contributi sono molto apprezzati. Buona modifica!</string>
   <string name="translation_description_edit_task_unlock_title">La traduzione delle descrizioni dei titoli è stata sbloccata!</string>
   <string name="translation_description_edit_task_unlock_body">Abbiamo notato che ti piace modificare le descrizioni dei titoli e leggere Wikipedia in più lingue. Dai un\'occhiata a questa attività che dà accesso alla traduzione di più descrizioni dei titoli!</string>
   <string name="title_description_editing_skip">Salta</string>
