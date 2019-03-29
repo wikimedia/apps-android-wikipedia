@@ -147,7 +147,7 @@
         <activity
             android:name=".editactionfeed.AddTitleDescriptionsActivity"
             android:screenOrientation="portrait"
-            android:launchMode="singleInstance"
+            android:launchMode="singleTask"
             android:theme="@style/AppTheme.ActionBar"
             android:parentActivityName=".editactionfeed.EditTasksActivity"/>
         <activity
@@ -255,7 +255,7 @@
 
         <activity
             android:name=".editactionfeed.EditTasksActivity"
-            android:launchMode="singleInstance"
+            android:launchMode="singleTask"
             android:label="@string/edit_tasks_activity_title"
             android:theme="@style/AppTheme.ActionBar" />
 
