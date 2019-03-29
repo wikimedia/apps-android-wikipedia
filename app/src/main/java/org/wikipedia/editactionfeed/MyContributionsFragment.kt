@@ -5,23 +5,32 @@ import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.*
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_my_contributions.*
 import kotlinx.android.synthetic.main.item_my_contributions.view.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.dataclient.Service
+import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.EditorTaskCounts
+import org.wikipedia.notifications.NotificationEditorTasksHandler
 import org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER
 import org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.ViewUtil
 
 class MyContributionsFragment : Fragment() {
 
-    private var myContributionsData: MyContributions = MyContributions()
-    private var list = mutableListOf<Any>()
     private val adapter = MyContributionsItemAdapter()
+    private val disposables = CompositeDisposable()
+    private var languageList = listOf<String>()
+    private lateinit var editorTaskCounts: EditorTaskCounts
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_my_contributions, container, false)
@@ -29,11 +38,13 @@ class MyContributionsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // TODO: using the endpoint to update the information
-        prepareMockData()
-        setupList()
-        setupProgressData()
-        setupRecyclerView()
+
+        swipeRefreshLayout.setOnRefreshListener { this.updateUI() }
+        contributionsRecyclerView.setHasFixedSize(true)
+        contributionsRecyclerView.adapter = adapter
+        contributionsRecyclerView.layoutManager = LinearLayoutManager(activity)
+        username.text = AccountUtil.getUserName()
+        fetchUserContributions()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -42,7 +53,6 @@ class MyContributionsFragment : Fragment() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
-        // TODO: use exclamation mark icon
         inflater!!.inflate(R.menu.menu_edit_tasks, menu)
     }
 
@@ -56,48 +66,40 @@ class MyContributionsFragment : Fragment() {
         }
     }
 
-    // TODO: remove this once the endpoint is completed.
-    private fun prepareMockData() {
-        val mockList: MutableList<MyContributions.EditCount> = mutableListOf()
-
-        var tempVar: MyContributions.EditCount = MyContributions.EditCount()
-        tempVar.editCount = 3
-        tempVar.languageCode = "en"
-        mockList.add(tempVar)
-        tempVar = MyContributions.EditCount()
-        tempVar.editCount = 5
-        tempVar.languageCode = "zh-hant"
-        mockList.add(tempVar)
-        tempVar = MyContributions.EditCount()
-        tempVar.editCount = 2
-        tempVar.languageCode = "ja"
-        mockList.add(tempVar)
-
-        myContributionsData.list = mockList
+    private fun updateUI() {
+        requireActivity().invalidateOptionsMenu()
+        fetchUserContributions()
     }
 
-    private fun setupProgressData() {
-        username.text = AccountUtil.getUserName()
-        contributionsText.text = resources.getQuantityString(R.plurals.edit_action_contribution_count,
-                Prefs.getTotalUserDescriptionsEdited(), Prefs.getTotalUserDescriptionsEdited())
-    }
+    private fun fetchUserContributions() {
+        contributionsText.visibility = View.GONE
+        progressBar.visibility = View.VISIBLE
 
-    private fun setupList() {
-        for (counts in myContributionsData.list!!) {
-            list.add(counts)
-        }
-    }
-
-    private fun setupRecyclerView() {
-        recyclerView.setHasFixedSize(true)
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(activity)
+        disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).editorTaskCounts
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doFinally {
+                    progressBar.visibility = View.GONE
+                    contributionsText.visibility = View.VISIBLE
+                    swipeRefreshLayout.isRefreshing = false
+                }
+                .subscribe({ response ->
+                    editorTaskCounts = response.query()!!.editorTaskCounts()!!
+                    NotificationEditorTasksHandler.dispatchEditorTaskResults(requireContext(), editorTaskCounts)
+                    val totalEdits = editorTaskCounts.descriptionEditsPerLanguage!!.values.sum()
+                    languageList = editorTaskCounts.descriptionEditsPerLanguage!!.keys.toList()
+                    contributionsText.text = resources.getQuantityString(R.plurals.edit_action_contribution_count, totalEdits, totalEdits)
+                    adapter.notifyDataSetChanged()
+                }, { throwable ->
+                    L.e(throwable)
+                    FeedbackUtil.showError(requireActivity(), throwable)
+                }))
     }
 
     private inner class MyContributionsItemAdapter : RecyclerView.Adapter<ItemViewHolder>() {
 
         override fun getItemCount(): Int {
-            return list.size
+            return languageList.size
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -106,16 +108,16 @@ class MyContributionsFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: ItemViewHolder, pos: Int) {
-            holder.bindItem(list[pos] as MyContributions.EditCount)
+            holder.bindItem(languageList[pos])
         }
     }
 
     private inner class ItemViewHolder internal constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
-        internal fun bindItem(item: MyContributions.EditCount) {
-            ViewUtil.formatLangButton(itemView.languageCode, item.languageCode!!, LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER)
-            itemView.languageCode.text = item.languageCode
-            itemView.languageTitle.text = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(item.languageCode)
-            itemView.editCount.text = item.editCount.toString()
+        internal fun bindItem(langCode: String) {
+            ViewUtil.formatLangButton(itemView.languageCode, langCode, LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER)
+            itemView.languageCode.text = langCode
+            itemView.languageTitle.text = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(langCode)
+            itemView.editCount.text = editorTaskCounts.descriptionEditsPerLanguage!![langCode].toString()
         }
     }
 

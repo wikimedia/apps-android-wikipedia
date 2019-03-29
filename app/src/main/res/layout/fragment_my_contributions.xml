@@ -43,13 +43,31 @@
                 tools:text="100 in-app contributions" />
 
         </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="-4dp"
+            android:indeterminate="true"
+            android:indeterminateTint="?attr/colorAccent"
+            android:progressBackgroundTint="@color/accent30"
+            android:visibility="gone"
+            tools:visibility="visible"/>
     </FrameLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:scrollbars="vertical"/>
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/contributionsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:scrollbars="vertical"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </LinearLayout>
