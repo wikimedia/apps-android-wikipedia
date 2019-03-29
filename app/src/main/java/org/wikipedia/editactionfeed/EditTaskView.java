@@ -16,9 +16,9 @@ import butterknife.OnClick;
 
 class EditTaskView extends FrameLayout {
     public interface Callback {
-        void onPositiveActionClick();
-        void onNegativeActionClick();
-        void onViewClick();
+        void onPositiveActionClick(EditTask task);
+        void onNegativeActionClick(EditTask task);
+        void onViewClick(EditTask task);
     }
     @BindView(R.id.task_info_layout) View taskInfoLayout;
     @BindView(R.id.title) TextView title;
@@ -30,6 +30,7 @@ class EditTaskView extends FrameLayout {
     @BindView(R.id.disabled_text) TextView disabledTextView;
     @BindView(R.id.positive_button) TextView enabledPositiveActionButton;
     @BindView(R.id.negative_button) TextView enabledNegativeActionButton;
+    private EditTask task;
     private Callback callback;
 
     EditTaskView(@NonNull Context context) {
@@ -45,6 +46,7 @@ class EditTaskView extends FrameLayout {
 
     @SuppressWarnings("checkstyle:magicnumber")
     void setUpViews(EditTask editTask, Callback callback) {
+        this.task = editTask;
         this.callback = callback;
         title.setText(editTask.getTitle());
         description.setText(editTask.getDescription());
@@ -62,23 +64,21 @@ class EditTaskView extends FrameLayout {
     @OnClick(R.id.positive_button)
     void onPositiveClick(View v) {
         if (callback != null) {
-            callback.onPositiveActionClick();
+            callback.onPositiveActionClick(task);
         }
     }
 
     @OnClick(R.id.negative_button)
     void onNegativeClick(View v) {
         if (callback != null) {
-            callback.onNegativeActionClick();
+            callback.onNegativeActionClick(task);
         }
     }
 
     @OnClick(R.id.task_info_layout)
     void onClick(View v) {
-        if (callback != null) {
-            callback.onViewClick();
+        if (callback != null && !task.getDisabled()) {
+            callback.onViewClick(task);
         }
     }
-
-
 }

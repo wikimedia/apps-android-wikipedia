@@ -24,6 +24,8 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.crash.CrashReportActivity;
+import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity;
+import org.wikipedia.events.EditorTaskUnlockEvent;
 import org.wikipedia.events.NetworkConnectEvent;
 import org.wikipedia.events.ReadingListsEnableDialogEvent;
 import org.wikipedia.events.ReadingListsMergeLocalDialogEvent;
@@ -244,6 +246,12 @@ public abstract class BaseActivity extends AppCompatActivity {
                 ReadingListSyncBehaviorDialogs.mergeExistingListsOnLoginDialog(BaseActivity.this);
             } else if (event instanceof ReadingListsEnableDialogEvent) {
                 ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(BaseActivity.this);
+            } else if (event instanceof EditorTaskUnlockEvent) {
+                if (((EditorTaskUnlockEvent) event).getNumTargetsPassed() == 1) {
+                    AddTitleDescriptionsActivity.Companion.showEditUnlockDialog(BaseActivity.this);
+                } else if (((EditorTaskUnlockEvent) event).getNumTargetsPassed() == 2) {
+                    AddTitleDescriptionsActivity.Companion.showTranslateUnlockDialog(BaseActivity.this);
+                }
             }
         }
     }

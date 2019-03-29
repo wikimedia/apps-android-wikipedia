@@ -17,6 +17,7 @@ import java.util.*
 object MissingDescriptionProvider {
     // TODO: add a maximum-retry limit -- it's currently infinite, or until disposed.
 
+    @Deprecated("Remove when the new API is deployed to production.")
     fun getNextArticleWithMissingDescription(wiki: WikiSite): Observable<RbPageSummary> {
         return ServiceFactory.get(wiki).randomWithPageProps
                 .map<List<MwQueryPage>> { response ->
@@ -36,6 +37,16 @@ object MissingDescriptionProvider {
                 .retry { t: Throwable -> t is ListEmptyException }
     }
 
+    fun getNextArticleWithMissingDescriptionNew(wiki: WikiSite): Observable<RbPageSummary> {
+        return ServiceFactory.get(wiki).getEditorTaskMissingDescriptions(wiki.languageCode())
+                .map<MwQueryPage> { response ->
+                    response.query()!!.pages()!![0]
+                }
+                .flatMap { page: MwQueryPage -> ServiceFactory.getRest(wiki).getSummary(null, page.title()) }
+                .retry { t: Throwable -> t is ListEmptyException }
+    }
+
+    @Deprecated("Remove when the new API is deployed to production.")
     fun getNextArticleWithMissingDescription(sourceWiki: WikiSite, targetLang: String, sourceLangMustExist: Boolean): Observable<Pair<String, RbPageSummary>> {
         val targetWiki = WikiSite.forLanguageCode(targetLang)
 
@@ -58,6 +69,41 @@ object MissingDescriptionProvider {
                         if (entity == null
                                 || entity.descriptions().containsKey(targetLang)
                                 || sourceLangMustExist && !entity.descriptions().containsKey(sourceWiki.languageCode())
+                                || !entity.sitelinks().containsKey(sourceWiki.dbName())
+                                || !entity.sitelinks().containsKey(targetWiki.dbName())) {
+                            continue
+                        }
+                        sourceDescriptionAndTargetTitle = Pair(entity.descriptions()[sourceWiki.languageCode()]!!.value(),
+                                PageTitle(entity.sitelinks()[targetWiki.dbName()]!!.title, targetWiki))
+                        break
+                    }
+                    if (sourceDescriptionAndTargetTitle == null) {
+                        throw ListEmptyException()
+                    }
+                    sourceDescriptionAndTargetTitle
+                }
+                .flatMap { sourceAndTargetPageTitles: Pair<String, PageTitle> -> getSummary(sourceAndTargetPageTitles) }
+                .retry { t: Throwable -> t is ListEmptyException }
+    }
+
+    fun getNextArticleWithMissingDescriptionNew(sourceWiki: WikiSite, targetLang: String): Observable<Pair<String, RbPageSummary>> {
+        val targetWiki = WikiSite.forLanguageCode(targetLang)
+        return ServiceFactory.get(sourceWiki).getEditorTaskTranslatableDescriptions(sourceWiki.languageCode(), targetLang)
+                .flatMap { response: MwQueryResponse ->
+                    val qNumbers = ArrayList<String>()
+                    for (page in response.query()!!.pages()!!) {
+                        qNumbers.add(page.title())
+                    }
+                    ServiceFactory.get(WikiSite(Service.WIKIDATA_URL))
+                            .getWikidataLabelsAndDescriptions(StringUtils.join(qNumbers, '|'))
+                }
+                .map<Pair<String, PageTitle>> { response ->
+                    var sourceDescriptionAndTargetTitle: Pair<String, PageTitle>? = null
+                    for (q in response.entities()!!.keys) {
+                        val entity = response.entities()!![q]
+                        if (entity == null
+                                || entity.descriptions().containsKey(targetLang)
+                                || !entity.descriptions().containsKey(sourceWiki.languageCode())
                                 || !entity.sitelinks().containsKey(sourceWiki.dbName())
                                 || !entity.sitelinks().containsKey(targetWiki.dbName())) {
                             continue
