@@ -601,8 +601,6 @@
   <string name="wikidata_description_guide_url">URL that points to a page on Wikidata that contains guidelines for writing descriptions. Preferably the URL should link directly to the section that lists specific guidelines.</string>
   <string name="description_edit_anon_limit">Dialog message that informs the user that they must log in before making edits to additional descriptions.</string>
   <string name="description_edit_license_notice">Disclaimer that specifies the Terms of Use and CC license that applies to editing descriptions. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
-  <string name="description_edit_task_unlock_title">Title of the dialog box that appears when the user unlocks the feed of suggested articles that need a description to be added.</string>
-  <string name="description_edit_task_unlock_body">Body of the dialog box that appears when the user unlocks the feed of suggested articles that need a description to be added.</string>
   <string name="description_edit_success_saved">Message that the description the user just added was saved.</string>
   <string name="description_edit_success_saved_snackbar">Message shown on a snackbar that the description the user just added was saved.</string>
   <string name="description_edit_success_encouragement">Message that the user made Wikipedia better for everyone</string>
@@ -716,7 +714,6 @@
   <string name="translate_description_edit_disable_text">Hint message to users about why the translation tasks are locked and how they can be unlocked by making valid edits. %d is the number of edits.</string>
   <string name="multilingual_task_negative">Negative action button text for editing tasks.</string>
   <string name="multilingual_task_positive">Positive action button text for editing tasks.</string>
-  <string name="editing_level_text">Text indicating the level of app editing reached. %d indicates the level number</string>
   <string name="translation_source_description">Label text that indicated that the description text shown is of the source language %1$s is the language and %2$s is the description</string>
   <string name="translate_caption_task_title">Image caption translation tasks heading.</string>
   <string name="translate_caption_task_description">Image caption translation tasks explanation given to user.</string>
@@ -729,8 +726,6 @@
   <string name="add_translate_descriptions_dialog_title">Title text of the dialog shown to editors before their first time  translating descriptions.</string>
   <string name="add_translate_descriptions_dialog_message">Message text in the dialog shown to editors before their first time translating descriptions.</string>
   <string name="description_edit_tutorial_message">Concise on-boarding message to the editor task list.</string>
-  <string name="translation_description_edit_task_unlock_title">Title of the dialog box that appears when the user unlocks the feed of suggested articles for translating descriptions from one of their app languages to another.</string>
-  <string name="translation_description_edit_task_unlock_body">Body of the dialog box that appears when the user unlocks the feed of suggested articles for translating descriptions from one of their app languages to another.</string>
   <string name="title_description_editing_skip">Text on the button to skip onboarding screens for editing title descriptions.\n{{Identical|Skip}}</string>
   <string name="title_description_get_started">Text on button to start editing title descriptions.\n{{Identical|Get started}}</string>
   <string name="translate_description_get_started">Text on button to start translating title descriptions.\n{{Identical|Get started}}</string>
@@ -740,4 +735,16 @@
   <string name="translate_descriptions_onboarding_got_it">Text on the positive action button for starting translating title descriptions.\n{{Identical|Got it}}</string>
   <string name="android_app_edit_help_url">URL leading to the help page for article editing from within the app. If you can find the appropriate language specific URL of the mobile site please do so.</string>
   <string name="suggested_edits_menu_info">Suggested edits menu label for accessing the editing FAQ.\n{{Identical|Info}}</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Title text of the dialog shown to user that the “Add descriptions“ task has been unlocked.</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Message text of the dialog shown to user that the “Add descriptions“ task has been unlocked.</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Title text of the dialog shown to user that the “Translate descriptions“ task has been unlocked.</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Message text of the dialog shown to user that the “Add descriptions“ task has been unlocked.</string>
+  <string name="suggested_edits_unlock_dialog_no">Negative action button text for the dialog action that goes to the suggested edits screen.</string>
+  <string name="suggested_edits_unlock_dialog_yes">Positive action button text for the dialog action that goes to the suggested edits screen</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">Title text of the notification bar shown to user that the “Add descriptions“ task has been unlocked.</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Title text of the notification bar shown to user that the “Translate descriptions“ task has been unlocked.</string>
+  <string name="suggested_edits_unlock_notification_text">Short text of the notification bar shown to user that the subject of this notification</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Short text\n\nLong text of the notification bar shown to user that the detail of this notification</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Short text\n\nLong text of the notification bar shown to user that the detail of this notification</string>
+  <string name="suggested_edits_unlock_notification_button">Action button text for the dialog action that goes to the suggested edits screen</string>
 </resources>

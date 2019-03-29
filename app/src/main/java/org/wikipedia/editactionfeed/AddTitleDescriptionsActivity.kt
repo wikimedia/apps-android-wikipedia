@@ -7,10 +7,11 @@ import android.support.v4.app.NavUtils
 import android.support.v7.app.AlertDialog
 import android.view.Menu
 import android.view.MenuItem
-import org.wikipedia.Constants.*
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC
 import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.editactionfeed.AddTitleDescriptionsFragment.Companion.newInstance
 import org.wikipedia.util.FeedbackUtil
@@ -39,6 +40,12 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
         return when (item.itemId) {
             android.R.id.home -> {
                 NavUtils.navigateUpFromSameTask(this)
+                if (WikipediaApp.getInstance().haveMainActivity()) {
+                    NavUtils.navigateUpFromSameTask(this)
+                } else {
+                    startActivity(EditTasksActivity.newIntent(this))
+                }
+                finish()
                 return true
             }
 
@@ -61,19 +68,19 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
 
         fun showEditUnlockDialog(context: Context) {
             AlertDialog.Builder(context)
-                    .setCustomTitle(DialogTitleWithImage(context, R.string.description_edit_task_unlock_title, R.drawable.ic_illustration_description_edit_trophy, true))
-                    .setMessage(R.string.description_edit_task_unlock_body)
-                    .setPositiveButton(R.string.onboarding_get_started) { _, _ -> context.startActivity(AddTitleDescriptionsActivity.newIntent(context, EDIT_FEED_TITLE_DESC)) }
-                    .setNegativeButton(R.string.onboarding_maybe_later, null)
+                    .setCustomTitle(DialogTitleWithImage(context, R.string.suggested_edits_unlock_add_descriptions_dialog_title, R.drawable.ic_illustration_description_edit_trophy, true))
+                    .setMessage(R.string.suggested_edits_unlock_add_descriptions_dialog_message)
+                    .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ -> context.startActivity(AddTitleDescriptionsActivity.newIntent(context, EDIT_FEED_TITLE_DESC)) }
+                    .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
                     .show()
         }
 
         fun showTranslateUnlockDialog(context: Context) {
             AlertDialog.Builder(context)
-                    .setCustomTitle(DialogTitleWithImage(context, R.string.translation_description_edit_task_unlock_title, R.drawable.ic_illustration_description_edit_trophy, true))
-                    .setMessage(R.string.translation_description_edit_task_unlock_body)
-                    .setPositiveButton(R.string.onboarding_get_started) { _, _ -> context.startActivity(AddTitleDescriptionsActivity.newIntent(context, EDIT_FEED_TRANSLATE_TITLE_DESC)) }
-                    .setNegativeButton(R.string.onboarding_maybe_later, null)
+                    .setCustomTitle(DialogTitleWithImage(context, R.string.suggested_edits_unlock_translate_descriptions_dialog_title, R.drawable.ic_illustration_description_edit_trophy, true))
+                    .setMessage(R.string.suggested_edits_unlock_translate_descriptions_dialog_message)
+                    .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ -> context.startActivity(AddTitleDescriptionsActivity.newIntent(context, EDIT_FEED_TRANSLATE_TITLE_DESC)) }
+                    .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
                     .show()
         }
     }
