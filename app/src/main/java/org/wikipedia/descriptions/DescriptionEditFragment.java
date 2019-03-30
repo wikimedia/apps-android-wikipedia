@@ -87,6 +87,11 @@ public class DescriptionEditFragment extends Fragment {
                 NotificationPollBroadcastReceiver.pollEditorTaskCounts(requireContext());
             }
             Prefs.setLastDescriptionEditTime(new Date().getTime());
+            if (invokeSource == InvokeSource.EDIT_FEED_TITLE_DESC) {
+                SuggestedEditsFunnel.get().getAddDescriptionStats().success();
+            } else if (invokeSource == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
+                SuggestedEditsFunnel.get().getTranslateDescriptionStats().success();
+            }
 
             if (getActivity() == null)  {
                 return;
@@ -98,7 +103,8 @@ public class DescriptionEditFragment extends Fragment {
             } else {
                 requireActivity().setResult(RESULT_OK,
                         new Intent().putExtra(EXTRA_SOURCE_ADDED_DESCRIPTION, editView.getDescription()));
-                finish();
+                hideSoftKeyboard(requireActivity());
+                requireActivity().finish();
             }
         }
     };
@@ -180,8 +186,7 @@ public class DescriptionEditFragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
-        if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS
-                && getActivity() != null) {
+        if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS && getActivity() != null) {
             if (callback() != null) {
                 callback().onDescriptionEditSuccess();
             }
@@ -208,11 +213,6 @@ public class DescriptionEditFragment extends Fragment {
             csrfClient = null;
         }
         disposables.clear();
-    }
-
-    private void finish() {
-        hideSoftKeyboard(requireActivity());
-        requireActivity().finish();
     }
 
     private Callback callback() {
@@ -325,6 +325,11 @@ public class DescriptionEditFragment extends Fragment {
             if (funnel != null && logError) {
                 funnel.logError(caught.getMessage());
             }
+            if (invokeSource == InvokeSource.EDIT_FEED_TITLE_DESC) {
+                SuggestedEditsFunnel.get().getAddDescriptionStats().cancel();
+            } else if (invokeSource == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
+                SuggestedEditsFunnel.get().getTranslateDescriptionStats().cancel();
+            }
         }
 
         @Override
@@ -337,7 +342,8 @@ public class DescriptionEditFragment extends Fragment {
             if (reviewEnabled && editView.showingReviewContent()) {
                 editView.loadReviewContent(false);
             } else {
-                finish();
+                hideSoftKeyboard(requireActivity());
+                requireActivity().onBackPressed();
             }
         }
 

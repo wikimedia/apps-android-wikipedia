@@ -26,6 +26,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.RandomizerFunnel
+import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
@@ -135,6 +136,16 @@ class AddTitleDescriptionsFragment : Fragment() {
             funnel = null
         }
         super.onDestroyView()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        SuggestedEditsFunnel.get().pause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        SuggestedEditsFunnel.get().resume()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -337,6 +348,13 @@ class AddTitleDescriptionsFragment : Fragment() {
                     funnel!!.swipedBack()
                 }
             }
+
+            if (source == InvokeSource.EDIT_FEED_TITLE_DESC) {
+                SuggestedEditsFunnel.get().addDescriptionStats.impression()
+            } else if (source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
+                SuggestedEditsFunnel.get().translateDescriptionStats.impression()
+            }
+
             nextPageSelectedAutomatic = false
             prevPosition = position
         }

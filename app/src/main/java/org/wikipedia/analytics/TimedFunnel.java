@@ -32,7 +32,10 @@ import java.util.concurrent.TimeUnit;
     }
 
     public void resume() {
-        startTime += (System.currentTimeMillis() - pauseTime);
+        if (pauseTime > 0) {
+            startTime += (System.currentTimeMillis() - pauseTime);
+        }
+        pauseTime = 0;
     }
 
     /** Override me for deviant implementations. */
