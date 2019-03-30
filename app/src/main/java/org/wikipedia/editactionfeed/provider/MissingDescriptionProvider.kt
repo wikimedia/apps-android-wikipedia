@@ -38,11 +38,11 @@ object MissingDescriptionProvider {
     }
 
     fun getNextArticleWithMissingDescriptionNew(wiki: WikiSite): Observable<RbPageSummary> {
-        return ServiceFactory.get(wiki).getEditorTaskMissingDescriptions(wiki.languageCode())
+        return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getEditorTaskMissingDescriptions("en")
                 .map<MwQueryPage> { response ->
                     response.query()!!.pages()!![0]
                 }
-                .flatMap { page: MwQueryPage -> ServiceFactory.getRest(wiki).getSummary(null, page.title()) }
+                .flatMap { page: MwQueryPage -> ServiceFactory.getRest(wiki).getSummary(null, "Dog") }
                 .retry { t: Throwable -> t is ListEmptyException }
     }
 
@@ -88,7 +88,7 @@ object MissingDescriptionProvider {
 
     fun getNextArticleWithMissingDescriptionNew(sourceWiki: WikiSite, targetLang: String): Observable<Pair<String, RbPageSummary>> {
         val targetWiki = WikiSite.forLanguageCode(targetLang)
-        return ServiceFactory.get(sourceWiki).getEditorTaskTranslatableDescriptions(sourceWiki.languageCode(), targetLang)
+        return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getEditorTaskTranslatableDescriptions(sourceWiki.languageCode(), targetLang)
                 .flatMap { response: MwQueryResponse ->
                     val qNumbers = ArrayList<String>()
                     for (page in response.query()!!.pages()!!) {
@@ -109,7 +109,7 @@ object MissingDescriptionProvider {
                             continue
                         }
                         sourceDescriptionAndTargetTitle = Pair(entity.descriptions()[sourceWiki.languageCode()]!!.value(),
-                                PageTitle(entity.sitelinks()[targetWiki.dbName()]!!.title, targetWiki))
+                                PageTitle(entity.sitelinks()[sourceWiki.dbName()]!!.title, sourceWiki))
                         break
                     }
                     if (sourceDescriptionAndTargetTitle == null) {

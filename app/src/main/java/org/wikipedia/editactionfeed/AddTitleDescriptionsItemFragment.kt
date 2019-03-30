@@ -78,7 +78,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
 
     private fun getArticleWithMissingDescription() {
         if (parent().source == InvokeSource.EDIT_FEED_TITLE_DESC) {
-            disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode))
+            disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescriptionNew(WikiSite.forLanguageCode(parent().langFromCode))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ pageSummary ->
@@ -86,7 +86,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
                         updateContents()
                     }, { this.setErrorState(it) }))
         } else {
-            disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode), parent().langToCode, true)
+            disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescriptionNew(WikiSite.forLanguageCode(parent().langFromCode), parent().langToCode)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ pair ->
