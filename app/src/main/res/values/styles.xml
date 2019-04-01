@@ -463,4 +463,9 @@
         <item name="android:background">?attr/paper_color</item>
     </style>
 
+    <style name="DescriptionEditViewHintTextStyle">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?attr/colorAccent</item>
+    </style>
 </resources>
