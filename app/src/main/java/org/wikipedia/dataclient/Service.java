@@ -294,11 +294,11 @@ public interface Service {
     @NonNull Observable<MwQueryResponse> getEditorTaskCounts();
 
     @GET(MW_API_PREFIX + "action=query&generator=wikimediaeditortaskssuggestions&prop=pageprops&gwetstask=missingdescriptions&gwetslimit=3")
-    @NonNull Observable<MwQueryResponse> getEditorTaskMissingDescriptions(@NonNull @Field("gwetstarget") String targetLanguage);
+    @NonNull Observable<MwQueryResponse> getEditorTaskMissingDescriptions(@NonNull @Query("gwetstarget") String targetLanguage);
 
     @GET(MW_API_PREFIX + "action=query&generator=wikimediaeditortaskssuggestions&prop=pageprops&gwetstask=descriptiontranslations&gwetslimit=3")
-    @NonNull Observable<MwQueryResponse> getEditorTaskTranslatableDescriptions(@NonNull @Field("gwetssource") String sourceLanguage,
-                                                                               @NonNull @Field("gwetstarget") String targetLanguage);
+    @NonNull Observable<MwQueryResponse> getEditorTaskTranslatableDescriptions(@NonNull @Query("gwetssource") String sourceLanguage,
+                                                                               @NonNull @Query("gwetstarget") String targetLanguage);
 
 
     // ------- Wikidata -------
