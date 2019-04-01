@@ -23,6 +23,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.editactionfeed.provider.MissingDescriptionProvider
+import org.wikipedia.page.PageTitle
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -30,6 +31,7 @@ import org.wikipedia.util.log.L
 
 class AddTitleDescriptionsItemFragment : Fragment() {
     private val disposables = CompositeDisposable()
+    var targetPageTitle: PageTitle? = null
     private var summary: RbPageSummary? = null
     private val app = WikipediaApp.getInstance()
     private var sourceDescription: String = ""
@@ -37,9 +39,6 @@ class AddTitleDescriptionsItemFragment : Fragment() {
         internal set
 
     var pagerPosition = -1
-
-    val title: String?
-        get() = if (summary == null) null else summary!!.title
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,7 +89,9 @@ class AddTitleDescriptionsItemFragment : Fragment() {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ pair ->
-                        sourceDescription = StringUtils.defaultString(pair.first)
+                        targetPageTitle = pair.first
+                        sourceDescription = StringUtils.defaultString(pair.second.description)
+
                         if (pagerPosition == 0) {
                             updateSourceDescriptionWithHighlight()
                         }

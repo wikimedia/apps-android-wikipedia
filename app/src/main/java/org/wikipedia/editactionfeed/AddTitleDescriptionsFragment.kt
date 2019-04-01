@@ -21,8 +21,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_add_title_descriptions.*
-import org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
-import org.wikipedia.Constants.InvokeSource
+import org.wikipedia.Constants.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.RandomizerFunnel
@@ -56,7 +55,7 @@ class AddTitleDescriptionsFragment : Fragment() {
     private val topTitle: PageTitle?
         get() {
             val f = topChild
-            return titleFromPageName(f?.title, f?.addedDescription)
+            return f?.targetPageTitle
         }
 
     private val topChild: AddTitleDescriptionsItemFragment?
