@@ -94,7 +94,7 @@ class AddTitleDescriptionsFragment : Fragment() {
         wikiToLanguageSpinner.onItemSelectedListener = OnToSpinnerItemSelectedListener()
 
         addTitleDescriptionsItemPager.offscreenPageLimit = 2
-        addTitleDescriptionsItemPager.setPageTransformer(true, AnimationUtil.PagerTransformer())
+        addTitleDescriptionsItemPager.setPageTransformer(true, AnimationUtil.PagerTransformerWithoutPreviews())
         addTitleDescriptionsItemPager.addOnPageChangeListener(viewPagerListener)
 
         resetTitleDescriptionItemAdapter()
@@ -257,17 +257,8 @@ class AddTitleDescriptionsFragment : Fragment() {
     }
 
     private fun setInitialUiState() {
-        wikiLanguageDropdownContainer.visibility = if (app.language().appLanguageCodes.size > 1) VISIBLE else GONE
-
-        if (source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
-            fromLabel.visibility = GONE
-            arrow.visibility = VISIBLE
-            wikiToLanguageSpinner.visibility = VISIBLE
-        } else {
-            fromLabel.visibility = VISIBLE
-            arrow.visibility = GONE
-            wikiToLanguageSpinner.visibility = GONE
-        }
+        wikiLanguageDropdownContainer.visibility = if (app.language().appLanguageCodes.size > 1
+                && source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) VISIBLE else GONE
     }
 
     private fun logImpression() {
