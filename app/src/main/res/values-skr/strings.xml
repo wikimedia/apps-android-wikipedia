@@ -231,6 +231,7 @@
   <string name="preference_title_notification_welcome">ست بسم اللہ</string>
   <string name="preference_title_notification_milestone">سنگ میل</string>
   <string name="preference_title_notification_thanks">شکریہ</string>
+  <string name="preference_title_notification_revert">واپس</string>
   <string name="view_featured_image_card_download">ڈاؤن لوڈ ، لہاوݨ</string>
   <string name="menu_feed_card_dismiss">ایں کارڈ کوں لکاؤ</string>
   <string name="menu_feed_overflow_label">ٻئے اختیار</string>
@@ -275,8 +276,13 @@
   <string name="more_language_options">ٻئے</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">زباناں وچ تبدیلی کرو</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">کو، شکریہ</string>
+  <string name="wikitext_bold">موٹا</string>
+  <string name="wikitext_italic">ترچھا</string>
+  <string name="wikitext_link">ربط</string>
+  <string name="wikitext_template">سانچہ</string>
   <string name="main_drawer_open">کھولو</string>
   <string name="main_drawer_close">بند کرو</string>
   <string name="main_drawer_help">مدد</string>
   <string name="translation_source_description">%s وضاحت:</string>
+  <string name="suggested_edits_menu_info">معلومات</string>
 </resources>

@@ -130,6 +130,7 @@
   <string name="reset_password_button">Gravar e iniciar sessão</string>
   <string name="preference_title_logout">Sair</string>
   <string name="toast_logout_complete">Sessão terminada</string>
+  <string name="logout_prompt">Tem a certeza de que pretende sair?</string>
   <string name="history_empty_title">Não há artigos vistos recentemente</string>
   <string name="history_empty_message">Registo do que esteve a ler</string>
   <string name="history_offline_articles_toast">Alguns artigos do historial podem não ser consultáveis enquanto estiver off-line.</string>
@@ -527,6 +528,8 @@
   <string name="preference_summary_notification_milestone">São atingidos determinados números de edições</string>
   <string name="preference_title_notification_thanks">Agradecimentos</string>
   <string name="preference_summary_notification_thanks">Alguém agradece uma edição sua</string>
+  <string name="preference_title_notification_revert">Reverter</string>
+  <string name="preference_summary_notification_revert">Uma das suas contribuições foi revertida</string>
   <string name="view_continue_reading_card_title">Continuar a ler</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatório</string>
@@ -584,6 +587,7 @@
   <string name="description_edit_read">Ler</string>
   <string name="description_edit_add_description">Adicionar descrição do título</string>
   <string name="description_edit_edit_description">Editar descrição</string>
+  <string name="add_translation">Adicionar tradução para %s</string>
   <string name="description_edit_cancel_hint">Cancelar</string>
   <string name="description_edit_help_title">Ajuda: descrições de títulos</string>
   <string name="description_edit_help_about_wikidata">Sobre o Wikidata</string>
@@ -591,8 +595,8 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Agradecemos o seu interesse contínuo em editar descrições! Para realizar edições adicionais autentique-se com a sua conta da Wikipédia, por favor.</string>
   <string name="description_edit_license_notice">Ao alterar a descrição do título, concordo com as &lt;a href=\"%1$s\"&gt;Condições de utilização&lt;/a&gt; e em publicar irrevogavelmente as minhas contribuições ao abrigo da licença &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_task_unlock_title">A lista de tarefas de edição das descrições de título foi destrancada!</string>
-  <string name="description_edit_task_unlock_body">Notámos que gosta de editar as descrições de título, por isso compilámos uma lista de \"Tarefas de edição\" com mais artigos a que falta a descrição de título, para ajudá-lo a continuar a contribuir!</string>
+  <string name="description_edit_task_unlock_title">Destrancou \"Adicionar descrições\"</string>
+  <string name="description_edit_task_unlock_body">Agradecemos a sua contribuição constante! Porque é super-bom a editar, compilámos uma lista de artigos a que falta a descrição de título. Pode ajudar-nos a melhorar a Wikipédia?</string>
   <string name="description_edit_success_saved">Descrição publicada!</string>
   <string name="description_edit_success_saved_snackbar">Descrição publicada!</string>
   <string name="description_edit_success_encouragement">Acabou de melhorar a Wikipédia para bem de todos</string>
@@ -615,6 +619,7 @@
   <string name="editactionfeed_translate_title_dialog_learn_more">Saiba mais</string>
   <string name="editactionfeed_to_language">Para:</string>
   <string name="editactionfeed_added_by_you">Adicionada por si:</string>
+  <string name="editactionfeed_translated_by_you">Traduzida por si:</string>
   <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
   <string name="description_edit_revert_intro">Sabemos que tentou fazer o melhor, mas um dos revisores teve uma preocupação. As possíveis razões pelas quais a sua edição foi desfeita incluem:</string>
   <string name="description_edit_revert_reason1">a sua contribuição não seguiu uma das &lt;a href=\"%1$s\"&gt;diretrizes&lt;/a&gt;.</string>
@@ -681,6 +686,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Neste momento tem as variantes tradicional e simplificado do chinês definidas nas suas línguas da aplicação. Atualizar as definições das suas línguas da aplicação?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Editar línguas</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Não, obrigado</string>
+  <string name="wikitext_bold">Negrito</string>
+  <string name="wikitext_italic">Itálico</string>
+  <string name="wikitext_link">Hiperligação</string>
+  <string name="wikitext_bulleted_list">Lista com marcadores</string>
+  <string name="wikitext_numbered_list">Lista numerada</string>
+  <string name="wikitext_template">Predefinição</string>
+  <string name="wikitext_reference">Referência</string>
+  <string name="wikitext_preview_link">Antever hiperligação</string>
   <string name="main_drawer_open">Abrir</string>
   <string name="main_drawer_close">Fechar</string>
   <string name="main_drawer_help">Ajuda</string>
@@ -710,8 +723,8 @@
   <string name="add_translate_descriptions_dialog_title">Está a traduzir descrições de título pela primeira vez</string>
   <string name="add_translate_descriptions_dialog_message">Agora pode ajudar a melhorar a Wikipédia traduzindo as descrições de título. Pode configurar as suas línguas e definir um sentido de tradução em qualquer altura.</string>
   <string name="description_edit_tutorial_message">Bem-vindo(a) à nova página principal para edição rápida na aplicação da Wikipédia. As suas contribuições são muito bem-vindas. Boas edições!</string>
-  <string name="translation_description_edit_task_unlock_title">A tradução de descrições de título foi destrancada!</string>
-  <string name="translation_description_edit_task_unlock_body">Reparámos que gosta de editar descrições de título e de ler a Wikipédia em várias línguas. Consulte esta lista de tarefas que dá acesso à tradução de mais descrições de título!</string>
+  <string name="translation_description_edit_task_unlock_title">Destrancou \"Traduzir descrições\"</string>
+  <string name="translation_description_edit_task_unlock_body">Agradecemos a sua contribuição constante! Está a usar a aplicação em várias línguas, por isso compilámos uma lista de artigos que necessitam de tradução das descrições. Pode continuar a ajudar-nos a melhorar a Wikipédia?</string>
   <string name="title_description_editing_skip">Saltar</string>
   <string name="title_description_get_started">Começar</string>
   <string name="translate_description_get_started">Começar</string>
@@ -720,4 +733,5 @@
   <string name="title_descriptions_onboarding_got_it">Entendido</string>
   <string name="translate_descriptions_onboarding_got_it">Entendido</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_menu_info">Informação</string>
 </resources>

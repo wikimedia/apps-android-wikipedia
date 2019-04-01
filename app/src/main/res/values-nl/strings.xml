@@ -705,7 +705,7 @@
   <string name="add_title_descriptions_dialog_message">Je kunt nu helpen Wikipedia te verbeteren door beschrijvingen toe te voegen die onder titels in artikelen verschijnen. Je kunt jouw talen op elk gewenst moment configureren.</string>
   <string name="add_translate_descriptions_dialog_title">Je vertaalt voor het eerst titelbeschrijvingen</string>
   <string name="add_translate_descriptions_dialog_message">Je kunt nu helpen om Wikipedia te verbeteren door titelbeschrijvingen te vertalen. Je kunt jouw talen instellen en op elk gewenst moment een vertaalrichting instellen.</string>
-  <string name="translation_description_edit_task_unlock_title">Het bewerken van titelbeschrijvingen is ontgrendeld!</string>
+  <string name="translation_description_edit_task_unlock_title" fuzzy="true">Het bewerken van titelbeschrijvingen is ontgrendeld!</string>
   <string name="title_description_editing_skip">Overslaan</string>
   <string name="title_description_get_started">Aan de slag</string>
   <string name="translate_description_get_started">Aan de slag</string>

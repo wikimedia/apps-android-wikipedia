@@ -142,6 +142,7 @@
   <string name="reset_password_button">Enregistrer et se connecter</string>
   <string name="preference_title_logout">Se déconnecter</string>
   <string name="toast_logout_complete">Déconnecté</string>
+  <string name="logout_prompt">Êtes-vous sûr de vouloir vous déconnecter ?</string>
   <string name="history_empty_title">Aucun article consulté récemment</string>
   <string name="history_empty_message">Tracer ce que vous avez lu ici.</string>
   <string name="history_offline_articles_toast">Certains articles de l\'historique peuvent ne pas être consultables en mode déconnecté.</string>
@@ -538,6 +539,8 @@
   <string name="preference_summary_notification_milestone">Un certain nombre de modifications a été atteint</string>
   <string name="preference_title_notification_thanks">Merci</string>
   <string name="preference_summary_notification_thanks">Quelqu’un vous a remercié pour une modification</string>
+  <string name="preference_title_notification_revert">Révoquer</string>
+  <string name="preference_summary_notification_revert">Une de vos contributions a été révoquée</string>
   <string name="view_continue_reading_card_title">Continuer à lire</string>
   <string name="view_because_you_read_card_title">Parce que vous avez lu</string>
   <string name="view_random_card_title">Aléatoire</string>
@@ -603,8 +606,8 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Merci pour votre intérêt renouvelé à modifier des descriptions ! Pour faire plus de modifications, veuillez vous connecter à votre compte Wikipédia.</string>
   <string name="description_edit_license_notice">En modifiant la description du titre, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et de placer de façon irrévocable mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_task_unlock_title">La liste des tâches de mise à jour des descriptions de titre a été déverrouillée !</string>
-  <string name="description_edit_task_unlock_body">Nous avons remarqué que vous aimez modifier les descriptions de titre, nous avons donc compilé une liste « Tâches d’éditeur » avec davantage d’articles manquant de descriptions de titre, pour vous aider à continuer à contribuer !</string>
+  <string name="description_edit_task_unlock_title">Vous avez déverrouillé « Ajouter des descriptions »</string>
+  <string name="description_edit_task_unlock_body">Merci d\'avoir continué à contribuer! Comme vous êtes super bon en édition, nous avons compilé une liste d\'articles pour lesquels il manque les descriptions. Pouvez-vous nous aider à améliorer Wikipedia ?</string>
   <string name="description_edit_success_saved">Description publiée !</string>
   <string name="description_edit_success_saved_snackbar">Description publiée !</string>
   <string name="description_edit_success_encouragement">Vous venez juste de rendre Wikipédia meilleure pour tout le monde</string>
@@ -694,6 +697,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Vous avez actuellement les deux variantes Chinois traditionnel et simplifié mises dans vos langues de l’application. Mettre à jour vos paramètres de langue de l’application ?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Modifier les langues</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Non merci</string>
+  <string name="wikitext_bold">Gras</string>
+  <string name="wikitext_italic">Italique</string>
+  <string name="wikitext_link">Lien</string>
+  <string name="wikitext_bulleted_list">Liste à puces</string>
+  <string name="wikitext_numbered_list">Liste numérotée</string>
+  <string name="wikitext_template">Modèle</string>
+  <string name="wikitext_reference">Référence</string>
+  <string name="wikitext_preview_link">Lien vers l\'aperçu</string>
   <string name="main_drawer_open">Ouvrir</string>
   <string name="main_drawer_close">Fermer</string>
   <string name="main_drawer_help">Aide</string>
@@ -723,8 +734,8 @@
   <string name="add_translate_descriptions_dialog_title">Vous êtes en train de traduire les descriptions de titres pour la première fois</string>
   <string name="add_translate_descriptions_dialog_message">Vous pouvez maintenant aider à améliorer Wikipédia en traduisant les descriptions de titre. Vous pouvez configurer vos langues et définir un sens de traduction à tout moment.</string>
   <string name="description_edit_tutorial_message">Bienvenue dans le nouvel accueil pour la modification rapide dans l’application de Wikipédia. Vos contributions sont toujours très appréciées. Bonnes modifications!</string>
-  <string name="translation_description_edit_task_unlock_title">La modification des descriptions de titre traduites a été déverrouillée !</string>
-  <string name="translation_description_edit_task_unlock_body">Nous avons remarqué que vous aimez modifier les descriptions de titre et lire Wikipédia dans plusieurs langues. Regardez cette liste de tâches qui donne accès à la traduction de plus de descriptions de titre !</string>
+  <string name="translation_description_edit_task_unlock_title">Vous avez déverrouillé « Traduire les descriptions »</string>
+  <string name="translation_description_edit_task_unlock_body">Merci d\'avoir continué à contribuer! Vous utilisez l\'application dans diverses langues, aussi nous avons compilé une liste d\'articles pour lesquels il manque la traduction des descriptions. Pouvez-vous continuer à nous aider à améliorer Wikipedia ?</string>
   <string name="title_description_editing_skip">Sauter</string>
   <string name="title_description_get_started">Commencer</string>
   <string name="translate_description_get_started">Commencer</string>
@@ -733,4 +744,5 @@
   <string name="title_descriptions_onboarding_got_it">C’est bon !</string>
   <string name="translate_descriptions_onboarding_got_it">C’est bon !</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_menu_info">Info</string>
 </resources>

@@ -145,6 +145,7 @@
   <string name="reset_password_button">Salva ed accedi</string>
   <string name="preference_title_logout">Esci</string>
   <string name="toast_logout_complete">Disconnesso</string>
+  <string name="logout_prompt">Sei sicuro di voler uscire?</string>
   <string name="history_empty_title">Nessuna voce visualizzata recentemente</string>
   <string name="history_empty_message">Traccia quello che hai letto qui.</string>
   <string name="history_offline_articles_toast">Alcune voci nella cronologia potrebbero non essere visualizzabili offline.</string>
@@ -517,6 +518,8 @@
   <string name="preference_title_notification_milestone">Pietra miliare</string>
   <string name="preference_title_notification_thanks">Ringraziamenti</string>
   <string name="preference_summary_notification_thanks">Qualcuno ti ha ringraziato per una modifica</string>
+  <string name="preference_title_notification_revert">Ripristina</string>
+  <string name="preference_summary_notification_revert">Uno dei tuoi contributi è stato annullato</string>
   <string name="view_continue_reading_card_title">Continua a leggere</string>
   <string name="view_because_you_read_card_title">Perché hai letto</string>
   <string name="view_random_card_title">Una pagina a caso</string>
@@ -574,6 +577,7 @@
   <string name="description_edit_help_title">Aiuto: descrizioni del titolo</string>
   <string name="description_edit_help_about_wikidata">Su Wikidata</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/it</string>
+  <string name="description_edit_task_unlock_title">Hai sbloccato \"Aggiungi descrizioni\"</string>
   <string name="description_edit_success_saved">Descrizione pubblicata!</string>
   <string name="description_edit_success_saved_snackbar">Descrizione pubblicata!</string>
   <string name="description_edit_success_encouragement">Hai appena reso Wikipedia migliore per tutti</string>
@@ -648,6 +652,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Al momento hai varianti del cinese tradizionale e del cinese semplificato impostate nelle lingue dell\'applicazione. Aggiorna le impostazioni della lingua dell\'applicazione?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Modifica lingue</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No, grazie</string>
+  <string name="wikitext_bold">Grassetto</string>
+  <string name="wikitext_italic">Corsivo</string>
+  <string name="wikitext_link">Collegamento</string>
+  <string name="wikitext_bulleted_list">Elenco puntato</string>
+  <string name="wikitext_numbered_list">Elenco numerato</string>
+  <string name="wikitext_template">Template</string>
+  <string name="wikitext_reference">Riferimento</string>
+  <string name="wikitext_preview_link">Anteprima collegamento</string>
   <string name="main_drawer_open">Apri</string>
   <string name="main_drawer_close">Chiudi</string>
   <string name="main_drawer_help">Aiuto</string>
@@ -675,8 +687,8 @@
   <string name="add_title_descriptions_dialog_message">Ora puoi aiutare a migliorare Wikipedia aggiungendo descrizioni che appaiono sotto i titoli nelle voci. Puoi configurare le tue lingue in qualsiasi momento.</string>
   <string name="add_translate_descriptions_dialog_title">Stai traducendo le descrizioni dei titoli per la prima volta</string>
   <string name="description_edit_tutorial_message">Benvenuto nella nuova pagina principale per la modifica rapida nell\'applicazione Wikipedia. I tuoi contributi sono molto apprezzati. Buona modifica!</string>
-  <string name="translation_description_edit_task_unlock_title">La traduzione delle descrizioni dei titoli è stata sbloccata!</string>
-  <string name="translation_description_edit_task_unlock_body">Abbiamo notato che ti piace modificare le descrizioni dei titoli e leggere Wikipedia in più lingue. Dai un\'occhiata a questa attività che dà accesso alla traduzione di più descrizioni dei titoli!</string>
+  <string name="translation_description_edit_task_unlock_title">Hai sbloccato \"Traduci descrizioni\"</string>
+  <string name="translation_description_edit_task_unlock_body">Grazie per i tuoi continui contributi! Stai utilizzando l\'applicazione in più lingue, quindi abbiamo compilato un elenco di voci che richiedono traduzioni delle descrizione. Vuoi continuare ad aiutarci a migliorare Wikipedia?</string>
   <string name="title_description_editing_skip">Salta</string>
   <string name="title_description_get_started">Inizia</string>
   <string name="translate_description_get_started">Inizia</string>
@@ -684,4 +696,5 @@
   <string name="translate_descriptions_maybe_later">Forse più tardi</string>
   <string name="title_descriptions_onboarding_got_it">Capito</string>
   <string name="translate_descriptions_onboarding_got_it">Capito</string>
+  <string name="suggested_edits_menu_info">Informazioni</string>
 </resources>

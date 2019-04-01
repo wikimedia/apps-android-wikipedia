@@ -534,6 +534,8 @@
   <string name="preference_summary_notification_milestone">Short summary explaining what Milestone notifications are.</string>
   <string name="preference_title_notification_thanks">Label for settings switch that enables or disables Thanks notifications.</string>
   <string name="preference_summary_notification_thanks">Short summary explaining what Thanks notifications are.</string>
+  <string name="preference_title_notification_revert">Label for settings switch that enables or disables Revert notifications.</string>
+  <string name="preference_summary_notification_revert">Short summary explaining what Revert notifications are.</string>
   <string name="view_continue_reading_card_title">Label for card in the feed that reminds the user to continue reading an article from their browsing history.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
   <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
@@ -590,6 +592,7 @@
   <string name="description_edit_article">Label that prompts the user that the summary of the article shows under the label.\n{{Identical|Article}}</string>
   <string name="description_edit_read">Label that prompts the user to click and open a preview dialog of the article.\n{{Identical|Read}}</string>
   <string name="description_edit_add_description">Label that prompts the user to add a description to an article that does not yet have one.</string>
+  <string name="description_edit_add_description_v2">Label that prompts the user to add a description to an article that does not yet have one.</string>
   <string name="description_edit_edit_description">Label that prompts the user to edit the description of an article that already has one.</string>
   <string name="add_translation">Text on the action button for translating title descriptions. %s represents the language into which the description needs to be translated.</string>
   <string name="description_edit_cancel_hint">Hint for button that cancels editing of the current description.\n{{Identical|Cancel}}</string>
@@ -669,14 +672,6 @@
     <item quantity="one">Text indicating that the event occurred one year ago.</item>
     <item quantity="other">Text indicating that the event occurred two or more years ago.\"%d\" is the number of years.</item>
   </plurals>
-  <string name="wikitext_bold">Button label for making the selected text bold.</string>
-  <string name="wikitext_italic">Button label for making the selected text italic.</string>
-  <string name="wikitext_link">Button label for making the selected text into a link.</string>
-  <string name="wikitext_bulleted_list">Button label for starting a bulleted list at the current cursor position.</string>
-  <string name="wikitext_numbered_list">Button label for starting a numbered list at the current cursor position.</string>
-  <string name="wikitext_template">Button label for making the selected text into a template.</string>
-  <string name="wikitext_reference">Button label for adding a reference at the current cursor position.</string>
-  <string name="wikitext_preview_link">Button label for showing a preview of the link that is at the current cursor position.</string>
   <string name="languages_list_activity_title">Title shown at the top of the activity for selecting a wikipedia language.</string>
   <string name="languages_list_suggested_text">Section header of the suggested languages in the languages list.</string>
   <string name="languages_list_all_text">Section header of all languages in the languages list.</string>
@@ -698,6 +693,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Description of the dialog that prompts to the users about removing a Chinese variant from the app languages.</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Affirmative answer to open the Wikipedia languages page to manage the existing languages that have been set up.</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Negative answer to keep the existing app languages settings.</string>
+  <string name="wikitext_bold">Button label for making the selected text bold.</string>
+  <string name="wikitext_italic">Button label for making the selected text italic.</string>
+  <string name="wikitext_link">Button label for making the selected text into a link.</string>
+  <string name="wikitext_bulleted_list">Button label for starting a bulleted list at the current cursor position.</string>
+  <string name="wikitext_numbered_list">Button label for starting a numbered list at the current cursor position.</string>
+  <string name="wikitext_template">Button label for making the selected text into a template.\n{{Identical|Template}}</string>
+  <string name="wikitext_reference">Button label for adding a reference at the current cursor position.\n{{Identical|Reference}}</string>
+  <string name="wikitext_preview_link">Button label for showing a preview of the link that is at the current cursor position.</string>
   <string name="main_drawer_open">Main navigation drawer label for the content description of the open drawable resource.</string>
   <string name="main_drawer_close">Main navigation drawer label for the content description of the close drawable resource.</string>
   <string name="main_drawer_help">Main navigation drawer menu label for accessing the app FAQ.</string>
