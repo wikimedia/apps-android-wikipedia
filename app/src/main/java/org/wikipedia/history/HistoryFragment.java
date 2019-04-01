@@ -1,5 +1,6 @@
 package org.wikipedia.history;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Rect;
 import android.net.Uri;
@@ -36,6 +37,7 @@ import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.main.MainFragment;
 import org.wikipedia.page.PageAvailableOfflineHandler;
+import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
@@ -103,7 +105,8 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
         searchEmptyView.setEmptyText(R.string.search_history_no_results);
 
-        ItemTouchHelper.Callback touchCallback = new SwipeableItemTouchHelperCallback(requireContext());
+        SwipeableItemTouchHelperCallback touchCallback = new SwipeableItemTouchHelperCallback(requireContext());
+        touchCallback.setSwipeableEnabled(true);
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(touchCallback);
         itemTouchHelper.attachToRecyclerView(historyList);
 
@@ -516,6 +519,10 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onSecondaryActionClick(@Nullable IndexedHistoryEntry entry, @NonNull View view) {
         }
+
+        @Override
+        public void onListChipClick(@Nullable ReadingList readingList) {
+        }
     }
 
     private class HistorySearchCallback extends SearchActionModeCallback {
@@ -553,6 +560,11 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         @Override
         protected boolean finishActionModeIfKeyboardHiding() {
             return true;
+        }
+
+        @Override
+        protected Context getParentContext() {
+            return requireContext();
         }
     }
 

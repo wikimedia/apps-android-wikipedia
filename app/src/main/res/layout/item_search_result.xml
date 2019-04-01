@@ -13,14 +13,13 @@
     android:foreground="?attr/selectableItemBackground">
 
     <com.facebook.drawee.view.SimpleDraweeView
-        style="@style/SimpleDraweeViewPlaceholder.Article"
+        style="@style/SimpleDraweeViewPlaceholder"
         android:id="@+id/page_list_item_image"
         android:layout_width="@dimen/view_list_card_item_image"
         android:layout_height="@dimen/view_list_card_item_image"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:roundedCornerRadius="2dp"
-        app:backgroundImage="@color/base100" />
+        app:roundedCornerRadius="2dp" />
 
     <TextView
         android:id="@+id/page_list_item_title"

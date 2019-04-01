@@ -50,7 +50,7 @@
                         android:layout_marginTop="8dp"
                         app:passwordToggleEnabled="true"
                         app:passwordToggleTint="?android:textColorHint"
-                        android:hint="@string/login_password_hint">
+                        android:hint="@string/account_creation_password_hint">
 
                         <org.wikipedia.views.PlainPasteEditText
                             android:layout_width="match_parent"

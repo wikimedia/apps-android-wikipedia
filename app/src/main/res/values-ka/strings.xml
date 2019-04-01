@@ -14,8 +14,6 @@
   <string name="wikimedia">ვიკიმედია</string>
   <string name="search_hint">ძიება ვიკიპედიაზე</string>
   <string name="search_hint_search_history">ისტორიის ძებნა</string>
-  <string name="search_hint_search_my_lists">ჩემი სიების ძებნა</string>
-  <string name="search_hint_search_reading_list">საკითხავი სიების ძებნა</string>
   <string name="nav_item_history">ისტორია</string>
   <string name="error_network_error">ინტერნეტთან დაკავშირება ვერ ხერხდება.</string>
   <string name="page_error_retry">გამეორება</string>
@@ -332,10 +330,6 @@
   <string name="description_edit_success_did_you_know">იცოდით?</string>
   <string name="description_edit_tutorial_title_descriptions">სათაურის აღწერილობა</string>
   <string name="description_edit_tutorial_button_label_start_editing">დაიწყე რედაქტირება</string>
-  <string name="description_edit_help_tips_examples">მაგალითად:</string>
-  <string name="description_edit_help_tips_example1">ლეონარდო და ვინჩის ნახატი</string>
-  <string name="description_edit_help_tips_example2">დედამიწის უმაღლესი მწვერვალი</string>
-  <string name="description_edit_help_more_info">მეტი ინფორმაცია</string>
   <string name="size_gb">%.2f გბ</string>
   <string name="size_mb">%.2f მბ</string>
   <plurals name="offline_compilation_download_time_remaining">

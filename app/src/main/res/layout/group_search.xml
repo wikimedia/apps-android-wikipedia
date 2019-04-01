@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/search_container"
+    android:layout_gravity="top"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <org.wikipedia.views.CabSearchView
+        android:id="@+id/search_input"
+        android:inputType="text"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:hint="@string/search_hint_search_my_lists_and_articles"
+        android:layout_gravity="center_vertical"
+        android:imeOptions="actionSearch|flagNoExtractUi"
+        android:layout_marginStart="-16dp"
+        app:iconifiedByDefault="false"
+        app:searchIcon="@null"
+        app:closeIcon="@null"
+        android:maxLines="1" />
+
+</LinearLayout>

@@ -36,6 +36,7 @@ import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
+import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.DimenUtil;
@@ -482,6 +483,10 @@ public class BottomContentView extends LinearLayoutOverWebView
         }
 
         @Override public void onSecondaryActionClick(@Nullable RbPageSummary item, @NonNull View view) {
+        }
+
+        @Override
+        public void onListChipClick(@Nullable ReadingList readingList) {
         }
     }
 

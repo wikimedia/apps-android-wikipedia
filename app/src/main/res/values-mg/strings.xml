@@ -9,8 +9,6 @@
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Hikaroka an\'i Wikipedia</string>
   <string name="search_hint_search_history">Hikaroka ny tantara</string>
-  <string name="search_hint_search_my_lists">Hikaroka ny lisitra</string>
-  <string name="search_hint_search_reading_list">Hikaroka ny lisi-pamakiana</string>
   <string name="search_hint_search_languages">Hikaroka fiteny</string>
   <string name="nav_item_history">Tantara</string>
   <string name="error_network_error">Tsy afaka mifandray amin\'ny Aterineto.</string>
@@ -225,7 +223,4 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d ny lahatsoratra 1 no azo vakiana, %2$.2f MB</string>
   <string name="description_edit_text_hint">Visavisan\'ilay lohateny</string>
   <string name="description_edit_add_description">Hanampy visavisan-dohateny</string>
-  <string name="description_edit_help_about_title">Mombamomba</string>
-  <string name="description_edit_help_tips_examples">Ohatra:</string>
-  <string name="description_edit_help_more_info">Torohay fanampiny</string>
 </resources>

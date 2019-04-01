@@ -24,6 +24,8 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.crash.CrashReportActivity;
+import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity;
+import org.wikipedia.events.EditorTaskUnlockEvent;
 import org.wikipedia.events.NetworkConnectEvent;
 import org.wikipedia.events.ReadingListsEnableDialogEvent;
 import org.wikipedia.events.ReadingListsMergeLocalDialogEvent;
@@ -165,7 +167,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private void showStoragePermissionSnackbar() {
         Snackbar snackbar = FeedbackUtil.makeSnackbar(this,
                 getString(R.string.offline_read_permission_rationale), FeedbackUtil.LENGTH_DEFAULT);
-        snackbar.setAction(R.string.page_error_retry, (v) -> requestStoragePermission());
+        snackbar.setAction(R.string.storage_access_error_retry, (v) -> requestStoragePermission());
         snackbar.show();
     }
 
@@ -244,6 +246,12 @@ public abstract class BaseActivity extends AppCompatActivity {
                 ReadingListSyncBehaviorDialogs.mergeExistingListsOnLoginDialog(BaseActivity.this);
             } else if (event instanceof ReadingListsEnableDialogEvent) {
                 ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(BaseActivity.this);
+            } else if (event instanceof EditorTaskUnlockEvent) {
+                if (((EditorTaskUnlockEvent) event).getNumTargetsPassed() == 1) {
+                    AddTitleDescriptionsActivity.Companion.showEditUnlockDialog(BaseActivity.this);
+                } else if (((EditorTaskUnlockEvent) event).getNumTargetsPassed() == 2) {
+                    AddTitleDescriptionsActivity.Companion.showTranslateUnlockDialog(BaseActivity.this);
+                }
             }
         }
     }

@@ -29,14 +29,13 @@
             android:background="?attr/selectableItemBackground"
             android:minHeight="64dp">
             <com.facebook.drawee.view.SimpleDraweeView
-                style="@style/SimpleDraweeViewPlaceholder.Article"
+                style="@style/SimpleDraweeViewPlaceholder"
                 android:id="@+id/link_preview_thumbnail"
                 android:layout_width="@dimen/defaultListItemSize"
                 android:layout_height="@dimen/defaultListItemSize"
                 android:layout_margin="16dp"
                 android:layout_gravity="center_vertical"
-                android:contentDescription="@null"
-                app:backgroundImage="@color/base100"/>
+                android:contentDescription="@null"/>
             <TextView
                 android:id="@+id/link_preview_title"
                 android:layout_width="0dp"

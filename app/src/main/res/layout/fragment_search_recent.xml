@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             style="@style/App.Button"
-            app:backgroundTint="?attr/paper_color"
+            app:backgroundTint="?attr/button_background_color"
             android:text="@string/add_wikipedia_languages_text"
             android:textColor="?attr/secondary_text_color"
             tools:text="Add Wikipedia languages" />

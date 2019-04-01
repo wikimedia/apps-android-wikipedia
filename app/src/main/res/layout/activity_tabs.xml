@@ -32,7 +32,7 @@
                 android:layout_width="48dp"
                 android:layout_height="match_parent"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/nav_item_back">
+                android:contentDescription="@string/page_tabs_back">
                 <org.wikipedia.views.TabCountsView
                     android:id="@+id/tab_counts_view"
                     android:layout_width="18dp"

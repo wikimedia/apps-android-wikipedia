@@ -1,15 +1,5 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Optionally pass an Android SDK location as an argument:
-# $ apps-android-wikipedia-test /srv/jenkins-workspace/tools/android-sdk
-if [ ! $# -eq 0 ]; then
-  echo "org.gradle.jvmargs=-Xmx1536M" >> gradle.properties
-  export ANDROID_HOME="${1}"
-  scripts/jenkins_sdk_setup "${ANDROID_HOME}"
-else
-  export ANDROID_HOME="$PWD/.sdk"
-fi
-
 scripts/missing-qq.py
-./gradlew clean checkstyle assembleAlphaRelease lintAlphaRelease testAlphaRelease assembleAndroidTest
+./gradlew clean checkstyle assembleAlphaRelease lintAlphaRelease testAlphaRelease

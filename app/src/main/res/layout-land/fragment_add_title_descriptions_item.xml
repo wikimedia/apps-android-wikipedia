@@ -1,0 +1,179 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="15dp"
+    android:paddingEnd="40dp">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center_vertical"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardBackgroundColor="?attr/paper_color"
+        app:cardUseCompatPadding="true">
+
+        <ProgressBar
+            android:id="@+id/cardItemProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="64dp"
+            android:layout_marginTop="64dp"
+            android:background="?attr/paper_color"/>
+
+
+        <org.wikipedia.views.WikiErrorView
+            android:id="@+id/cardItemErrorView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="48dp"
+            android:background="?attr/paper_color"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/cardItemContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <org.wikipedia.views.FaceAndColorDetectImageView
+                style="@style/SimpleDraweeViewPlaceholder.EditActionFeed"
+                android:id="@+id/viewArticleImage"
+                android:layout_width="match_parent"
+                android:layout_height="136dp"
+                app:fadeDuration="0"
+                app:actualImageScaleType="focusCrop" />
+
+            <LinearLayout
+                android:id="@+id/viewArticleContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="116dp"
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="11dp"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:id="@+id/viewArticleTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:fontFamily="serif"
+                    android:textColor="?attr/primary_text_color"
+                    android:lineSpacingExtra="8sp"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    tools:text="Lorem ipsum"/>
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/viewArticleSubtitleContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/viewArticleSubtitleAddedBy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/editactionfeed_added_by_you"
+                        android:textStyle="italic"
+                        android:textColor="?attr/secondary_text_color"
+                        android:textSize="14sp"
+                        android:lineSpacingExtra="6sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <org.wikipedia.views.GoneIfEmptyTextView
+                        android:id="@+id/viewArticleSubtitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="3"
+                        android:textColor="?attr/secondary_text_color"
+                        android:textSize="14sp"
+                        android:layout_marginEnd="5dp"
+                        android:lineSpacingExtra="6sp"
+                        app:layout_constraintVertical_weight="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/viewArticleSubtitleAddedBy"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/viewArticleSubtitleEdit"
+                        tools:text="Lorem ipsum" />
+
+                    <ImageView
+                        android:id="@+id/viewArticleSubtitleEdit"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:tint="?attr/page_toolbar_icon_color"
+                        android:contentDescription="@null"
+                        app:srcCompat="@drawable/ic_mode_edit_white_24dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </android.support.constraint.ConstraintLayout>
+
+                <LinearLayout
+                    android:id="@+id/viewAddDescriptionButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="6dp"
+                        android:tint="@color/accent50"
+                        android:contentDescription="@null"
+                        app:srcCompat="@drawable/ic_add_circle_black_24dp"/>
+
+                    <TextView
+                        android:id="@+id/callToActionText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/accent50"
+                        android:textSize="14sp"
+                        android:text="@string/editactionfeed_add_description_button"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.01"
+                        android:lineSpacingExtra="6sp"
+                        tools:text="Add description"
+                        />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="@dimen/divider_width_for_article"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="19dp"
+                    android:background="?attr/material_theme_border_color"/>
+
+                <TextView
+                    android:id="@+id/viewArticleExtract"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:ellipsize="end"
+                    android:lineSpacingExtra="10sp"
+                    android:textSize="14sp"
+                    android:textColor="?attr/primary_text_color"
+                    android:maxLines="2"
+                    tools:text="Lorem ipsum"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</FrameLayout>

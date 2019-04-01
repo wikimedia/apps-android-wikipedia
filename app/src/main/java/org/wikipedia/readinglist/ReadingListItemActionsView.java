@@ -44,10 +44,10 @@ public class ReadingListItemActionsView extends LinearLayout {
         init();
     }
 
-    public void setState(@NonNull String pageTitle, @NonNull String listTitle, boolean offline) {
+    public void setState(@NonNull String pageTitle, @NonNull String removeFromListText, boolean offline) {
         offlineSwitchView.setChecked(offline);
         titleView.setText(pageTitle);
-        removeTextView.setText(getResources().getString(R.string.reading_list_remove_from_list, listTitle));
+        removeTextView.setText(removeFromListText);
     }
 
     public void setCallback(@Nullable Callback callback) {

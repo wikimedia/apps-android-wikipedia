@@ -13,8 +13,6 @@
   <string name="wikimedia">ویکیمیدیا</string>
   <string name="search_hint">گەڕان بە ویکیپیدیا</string>
   <string name="search_hint_search_history">گەڕان بە مێژوو</string>
-  <string name="search_hint_search_my_lists">گەڕان لە پێڕستەکانم</string>
-  <string name="search_hint_search_reading_list">گەڕان لە پێڕستی خوێندنەوە</string>
   <string name="search_hint_search_languages">گەڕان بەدوای زمانێکدا</string>
   <string name="nav_item_history">مێژوو</string>
   <string name="error_network_error">ناتوانرێت ئینتەرنێت بھێندرێت.</string>
@@ -353,7 +351,6 @@
   <string name="description_edit_help_title">یارمەتی: وەسفەکانی سەرناو</string>
   <string name="description_edit_help_about_wikidata">دەربارەی ویکیداتا</string>
   <string name="description_edit_help_wikidata_guide">ڕێبەری ویکیداتا بۆ نووسینی وەسفەکان</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">سوپاس بۆ بەردەوامبوونت لە دەستکاریکردن! بۆ دەستکاریکردنی زیاتر، تکایە بچۆ ژوورەوە بۆ ھەژماری ویکیپیدیاکەت.</string>
   <string name="description_edit_license_notice">بە گۆڕینی ڕوونکردنەوەی ناوەکە، من &lt;a href=\"%1$s\"&gt;مەرجەکانی بەکارھێنان&lt;/a&gt; پەسەند دەکەم و بەبێ پەشیمان بوونەوە بەشدارییەکانم بڵاو دەکەمەوە لەژێر مۆڵەتنامەی &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
@@ -367,17 +364,6 @@
   <string name="description_edit_tutorial_keep_it_short">با کورت بێت</string>
   <string name="description_edit_tutorial_button_label_start_editing">دەستکردن بە دەستکاری</string>
   <string name="description_edit_tutorial_promise">بە دەستپێکردن، من پەیمان دەدەم کە بە خراپی ئەم ئامرازە بەکارنەھێنم.</string>
-  <string name="description_edit_help_about_title">سه‌باره‌ت</string>
-  <string name="description_edit_help_description">وەسفی ناوەکان وتارێک کورت دەکاتەوە بۆ یارمەتیدانی خوێنەران لە تێگەیشتنی بابەتەکە بە سەیرکردنێک.</string>
-  <string name="description_edit_help_tips">یارمەتی بۆ دروستکردنی وەسف</string>
-  <string name="description_edit_help_tips_description">وەسفەکان دەبێت جێگەیان ببێتەوە لەسەر یەک خەت، دەبێت لە بەینی دوو بۆ دوانزە وشەدا بن. ئەبێت بە کوردی ناوەندی بنووسرێن و پیتی لاتینیان تێدا بەکار نەھاتبێت.</string>
-  <string name="description_edit_help_tips_examples">بۆ نموونە:</string>
-  <string name="description_edit_help_tips_example1">وێنەی لیۆناردۆ دافینشی</string>
-  <string name="description_edit_help_tips_example1_hint">وەسفی وتارێک دەربارەی مۆنا لیزا</string>
-  <string name="description_edit_help_tips_example2">بەرزترین چیای زەوی</string>
-  <string name="description_edit_help_tips_example2_hint">وەسفی وتارێک دەربارەی شاخی ئێڤەرێست</string>
-  <string name="description_edit_help_more_info">زانیاریی زیاتر</string>
-  <string name="description_edit_help_meta_info">وەسفەکان لەسەر ویکیدراوە خەزێنە دەکرێن و دەستکاری دەکرێن، پرۆژەیەکی ویکیمیدیایە کە پێکھاتووە لە بنکەدراوەیەک کە بەشێوەیەکی خۆڕایی بەکاردەھێندرێت بۆ پشتگیریکرشنی ویکیپیدیا و پرۆژەکانی تر.</string>
   <string name="description_edit_revert_subtitle">سپاس بۆ دەستکاریکردنی ویکیپیدیا!</string>
   <string name="description_edit_revert_intro">دەزانین کە ھەوڵێکی باشت داوە، بەڵام یەکێک لە بەسەرداچوونەوەکەران کێشەیەکی تێبینی کردبوو. لەوانەیە لەبەر ئەم ھۆکارانە دەستکارییەکەت پووچەڵ کرابێتەوە:</string>
   <string name="description_edit_revert_reason1">بەشدارییەکەت یەکێک لە &lt;a href=\"%1$s\"&gt;سیاسەتەکان&lt;/a&gt;ی پێشێل کردووە.</string>

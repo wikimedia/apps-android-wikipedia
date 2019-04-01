@@ -3,6 +3,7 @@
 * Chronist
 * Envlh
 * Hwboehm
+* Lucas Werkmeister
 * Metalhead64
 * Sebastian Wallroth
 * Vogone
@@ -14,32 +15,41 @@
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_back">Zurück</string>
+  <string name="page_tabs_back">Zurück</string>
   <string name="nav_item_forward">Vorwärts</string>
   <string name="search_hint">Wikipedia durchsuchen</string>
   <string name="search_hint_search_history">Suchverlauf</string>
-  <string name="search_hint_search_my_lists">Meine Listen durchsuchen</string>
-  <string name="search_hint_search_reading_list">Leseliste durchsuchen</string>
   <string name="search_hint_search_languages">Nach einer Sprache suchen</string>
+  <string name="search_hint_search_my_lists_and_articles">Meine Listen und Artikel durchsuchen</string>
   <string name="nav_item_history">Verlauf</string>
   <string name="error_network_error">Kann nicht mit dem Internet verbinden.</string>
   <string name="page_error_retry">Erneut versuchen</string>
+  <string name="card_offline_error_retry">Wiederholen</string>
+  <string name="storage_access_error_retry">Wiederholen</string>
+  <string name="article_load_error_retry">Wiederholen</string>
+  <string name="offline_load_error_retry">Wiederholen</string>
   <string name="page_error_back_to_main">Zurück gehen</string>
+  <string name="error_back">Zurück gehen</string>
   <string name="menu_clear_all_history">Verlauf löschen</string>
   <string name="history_item_deleted">%s aus dem Verlauf gelöscht</string>
   <string name="history_items_deleted">%d Artikel aus dem Verlauf gelöscht</string>
   <string name="history_item_delete_undo">Rückgängig</string>
+  <string name="notification_archive_undo">Rückgängig</string>
   <string name="app_settings">App-Einstellungen</string>
   <string name="dialog_title_clear_history">Browsing-Verlauf löschen</string>
   <string name="dialog_message_clear_history">Dies löscht deinen gesamten Browsing-Verlauf und schließt alle derzeit geöffneten Registerkarten. Bist du sicher?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
   <string name="dialog_message_clear_history_no">Nein</string>
   <string name="share_via">Teilen über</string>
+  <string name="image_share_via">Teilen über</string>
   <string name="search_redirect_from">Weiterleitung von %s</string>
   <string name="menu_page_show_tabs">Registerkarten anzeigen</string>
   <string name="menu_page_other_languages">Sprache ändern</string>
   <string name="menu_page_find_in_page">In Seite finden</string>
+  <string name="edit_section_find_in_page">In Seite suchen</string>
   <string name="menu_page_font_and_theme">Schriftart und Farbschema ändern</string>
   <string name="menu_page_add_to_list">Zur Leseliste hinzufügen</string>
+  <string name="feed_card_add_to_list">Zu Leseliste hinzufügen</string>
   <string name="menu_page_share">Link teilen</string>
   <string name="menu_page_open_a_new_tab">Eine neue Registerkarte öffnen</string>
   <string name="menu_page_reading_lists">Leselisten</string>
@@ -50,6 +60,9 @@
   <string name="menu_text_select_copy">Kopieren</string>
   <string name="menu_text_select_define">Definieren</string>
   <string name="menu_text_select_share">Teilen</string>
+  <string name="share">Teilen</string>
+  <string name="on_this_day_page_share">Teilen</string>
+  <string name="reading_list_page_share">Teilen</string>
   <string name="menu_text_select_edit_here">Hier bearbeiten</string>
   <string name="nav_item_nearby">In der Nähe</string>
   <string name="nearby_zoom_to_location">Vergrößere auf einen Standort auf der Karte</string>
@@ -91,8 +104,13 @@
   <string name="nav_item_login">Bei Wikipedia anmelden</string>
   <string name="login_username_hint">Benutzername</string>
   <string name="login_password_hint">Passwort</string>
+  <string name="account_creation_password_hint">Passwort</string>
   <string name="login_2fa_hint">Zwei-Faktor-Authentifikationscode</string>
   <string name="login_2fa_other_workflow_error_msg">Zwei-Faktor-Authentifikation erforderlich! Bitte gehe zu den Hauptaktivitäten zurück, melde dich mit deinem 2FA-Token an und versuche es erneut.</string>
+  <string name="onboarding_card_login">Anmelden</string>
+  <string name="page_editing_login">Anmelden</string>
+  <string name="reading_lists_sync_login">Anmelden</string>
+  <string name="create_account_login">Anmelden</string>
   <string name="menu_login">Anmelden</string>
   <string name="login_activity_title">Bei Wikipedia anmelden</string>
   <string name="login_in_progress_dialog_message">Melde dich an …</string>
@@ -365,6 +383,7 @@
   <string name="reading_list_description_hint">Beschreibung (optional)</string>
   <string name="reading_list_item_deleted">%s von der Liste entfernt</string>
   <string name="reading_list_items_deleted">%d Artikel aus der Liste entfernt</string>
+  <string name="reading_lists_item_deleted">%s von den Listen entfernt</string>
   <string name="reading_list_item_delete_undo">Rückgängig</string>
   <string name="reading_list_deleted">%s gelöscht</string>
   <string name="saved_list_empty_title">Es sind noch keine Leselisten vorhanden.</string>
@@ -526,11 +545,13 @@
   <string name="view_continue_reading_card_subtitle_today">Heute</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s gelesen</string>
   <string name="view_announcement_card_negative_action">Nein, danke</string>
+  <string name="onboarding_negative_action">Nein, danke</string>
   <string name="view_offline_card_text">Der Inhalt kann nicht geladen werden, während du offline bist.</string>
   <string name="view_featured_article_card_title">Vorgestellter Artikel</string>
   <string name="view_featured_article_footer_save_button_label">Speichern</string>
+  <string name="view_static_card_save_button_label">Speichern</string>
   <string name="view_featured_article_footer_saved_button_label">Gespeichert</string>
-  <string name="edit_tasks_activity_title">App-Autoren-Aufgaben</string>
+  <string name="edit_tasks_activity_title">Autorenaufgaben</string>
   <string name="feed_configure_activity_title">Den Feed anpassen</string>
   <string name="feed_configure_menu_reset">Standardansicht wiederherstellen</string>
   <string name="feed_configure_menu_select_all">Alle anzeigen</string>
@@ -548,20 +569,24 @@
   <string name="feed_configure_onboarding_action">Anpassen</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Passe deinen Entdecken-Feed an&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kannst jetzt auswählen, was auf deinem Feed angezeigt werden soll und auch deine Lieblingsinhalte priorisieren.</string>
   <string name="description_edit_text_hint">Titelbeschreibung</string>
+  <string name="description_edit_text_hint_per_language">Beschreibung auf %s</string>
   <string name="description_edit_save">Veröffentlichen</string>
+  <string name="description_edit_article">Artikel</string>
+  <string name="description_edit_read">Lesen</string>
   <string name="description_edit_add_description">Titelbeschreibung hinzufügen</string>
   <string name="description_edit_edit_description">Beschreibung bearbeiten</string>
+  <string name="add_translation">Übersetzung auf %s hinzufügen</string>
   <string name="description_edit_cancel_hint">Abbrechen</string>
   <string name="description_edit_help_title">Hilfe: Titelbeschreibungen</string>
   <string name="description_edit_help_about_wikidata">Über Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Wikidata-Anleitung zum Verfassen von Beschreibungen</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/de</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/de#Richtlinien</string>
   <string name="description_edit_anon_limit">Vielen Dank für dein fortwährendes Interesse an der Bearbeitung von Beschreibungen! Um zusätzliche Bearbeitungen durchzuführen, melde dich bitte bei deinem Wikipedia-Benutzerkonto an.</string>
   <string name="description_edit_license_notice">Durch das Ändern der Titelbeschreibungen stimme ich den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und der unwiderruflichen Veröffentlichung meiner Beiträge unter der &lt;a href=\"%2$s\"&gt;Creative-Commons-Lizenz CC0&lt;/a&gt; zu.</string>
   <string name="description_edit_task_unlock_title">Die Liste der Titelbeschreibungs-Bearbeitungsaufgaben wurde freigegeben!</string>
-  <string name="description_edit_task_unlock_body">Wir haben mitbekommen, dass du gerne Titelbeschreibungen bearbeitest. Deshalb haben wir die Liste „App-Autoren-Aufgaben“ mit weiteren Artikeln, denen Titelbeschreibungen fehlen, zusammengestellt, damit du mit dem Beitragen fortfahren kannst!</string>
+  <string name="description_edit_task_unlock_body">Wir haben mitbekommen, dass du gerne Titelbeschreibungen bearbeitest. Deshalb haben wir die Liste „Autorenaufgaben“ mit weiteren Artikeln, denen Titelbeschreibungen fehlen, zusammengestellt, damit du mit dem Beitragen fortfahren kannst!</string>
   <string name="description_edit_success_saved">Beschreibung veröffentlicht!</string>
+  <string name="description_edit_success_saved_snackbar">Beschreibung veröffentlicht!</string>
   <string name="description_edit_success_encouragement">Du hast soeben Wikipedia für jeden besser gemacht</string>
   <string name="description_edit_success_done">Fertig</string>
   <string name="description_edit_success_did_you_know">Schon gewusst?</string>
@@ -572,25 +597,17 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealerweise eine Zeile, zwischen zwei und zwölf Wörtern</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mit dem Bearbeiten anfangen</string>
   <string name="description_edit_tutorial_promise">Ich verspreche, dass ich diese Funktion nicht missbrauchen werde.</string>
-  <string name="description_edit_help_about_title">Über</string>
-  <string name="description_edit_help_description">Titelbeschreibungen fassen einen Artikel zusammen, um Lesern im Überblick beim Verstehen des Themas zu helfen.</string>
-  <string name="description_edit_help_tips">Tipps zum Erstellen von Beschreibungen</string>
-  <string name="description_edit_help_tips_description">Beschreibungen sollten idealerweise in eine Zeile passen und zwischen zwei und zwölf Wörter lang sein. Sie werden nicht groß geschrieben, außer das erste Wort ist ein Eigenname.</string>
-  <string name="description_edit_help_tips_examples">Zum Beispiel:</string>
-  <string name="description_edit_help_tips_example1">Gemälde von Leonardo da Vinci</string>
-  <string name="description_edit_help_tips_example1_hint">Titelbeschreibung für einen Artikel über die Mona Lisa</string>
-  <string name="description_edit_help_tips_example2">Höchster Berg der Erde</string>
-  <string name="description_edit_help_tips_example2_hint">Titelbeschreibung für einen Artikel über den Mount Everest</string>
-  <string name="description_edit_help_more_info">Weitere Informationen</string>
-  <string name="description_edit_help_meta_info">Beschreibungen werden in Wikidata gespeichert und verwaltet, ein Projekt der Wikimedia Foundation, das eine freie, kollaborative, mehrsprachige sekundäre Datenbank bietet, die von Wikipedia und anderen Projekten unterstützt wird.</string>
-  <string name="editactionfeed_add_title_descriptions">Titelbeschreibungen hinzufügen</string>
+  <string name="editactionfeed_add_title_descriptions">Beschreibungen hinzufügen</string>
   <string name="editactionfeed_translate_descriptions">Titelbeschreibungen übersetzen</string>
-  <string name="editactionfeed_review_title_description">Titelbeschreibung überprüfen</string>
+  <string name="editactionfeed_review_title_description">Beschreibung überprüfen</string>
   <string name="editactionfeed_add_description_button">Beschreibung hinzufügen</string>
   <string name="editactionfeed_my_contributions">Meine Beiträge</string>
   <string name="editactionfeed_from_language">Von:</string>
   <string name="editactionfeed_add_title_dialog_learn_more">Mehr erfahren</string>
+  <string name="editactionfeed_translate_title_dialog_learn_more">Mehr erfahren</string>
   <string name="editactionfeed_to_language">Nach:</string>
+  <string name="editactionfeed_added_by_you">Von dir hinzugefügt:</string>
+  <string name="editactionfeed_translated_by_you">Von dir übersetzt:</string>
   <string name="description_edit_revert_subtitle">Vielen Dank für das Bearbeiten von Wikipedia!</string>
   <string name="description_edit_revert_intro">Wir wissen, dass du dein Bestes gegeben hast, aber einer unserer Prüfer hat Bedenken. Mögliche Gründe, warum deine Bearbeitung rückgängig gemacht wurde:</string>
   <string name="description_edit_revert_reason1">Dein Beitrag folgt keiner der &lt;a href=\"%1$s\"&gt;Richtlinien&lt;/a&gt;.</string>
@@ -621,7 +638,7 @@
   <string name="onboarding_got_it">Verstanden</string>
   <string name="onboarding_multilingual_secondary_text">Wir haben das Folgende auf deinem Gerät gefunden:</string>
   <string name="onboarding_multilingual_add_language_text">Sprachen hinzufügen oder bearbeiten</string>
-  <string name="onboarding_welcome_title_v2">Die freie Enzyklopädie\n… in fast 300 Sprachen</string>
+  <string name="onboarding_welcome_title_v2">Die freie Enzyklopädie\n… in über 300 Sprachen</string>
   <string name="app_shortcuts_random">Zufällig</string>
   <string name="app_shortcuts_continue_reading">Mit dem Lesen fortfahren</string>
   <string name="app_shortcuts_search">Suchen</string>
@@ -661,16 +678,16 @@
   <string name="main_drawer_close">Schließen</string>
   <string name="main_drawer_help">Hilfe</string>
   <string name="main_drawer_login">Anmelden / Wikipedia beitreten</string>
-  <string name="title_description_task_title">Titelbeschreibungen hinzufügen</string>
-  <string name="title_description_task_description">Zu Artikeln ohne Titelbeschreibungen beitragen</string>
+  <string name="title_description_task_title">Beschreibungen hinzufügen</string>
+  <string name="title_description_task_description">Zu Artikeln ohne Beschreibungen beitragen</string>
   <string name="image_caption_task_title">Beschreibungsbilder</string>
   <string name="image_caption_task_description">Den Bildern Beschreibungen hinzufügen</string>
   <string name="multilingual_task_title">Weitere Aufgaben für mehrsprachige Autoren</string>
   <string name="multilingual_task_description">Übersetzungsaufgaben sind verfügbar, wenn du in mehr als einer Wikipedia-Sprache liest und schreibst.</string>
-  <string name="translation_task_title">Titelbeschreibungen übersetzen</string>
-  <string name="translation_task_description">Titelbeschreibungen in andere Sprachen übersetzen.</string>
-  <string name="image_caption_edit_disable_text">Gesperrt, bis du %d verifizierte In-App-Bearbeitungen durchgeführt hast.</string>
-  <string name="translate_description_edit_disable_text">Gesperrt, bis du %d Titelbeschreibungen bearbeitet hast</string>
+  <string name="translation_task_title">Beschreibungen übersetzen</string>
+  <string name="translation_task_description">Beschreibungen in andere Artikelsprachen übersetzen.</string>
+  <string name="image_caption_edit_disable_text">Gesperrt, bis du %d verifizierte Beiträge durchgeführt hast.</string>
+  <string name="translate_description_edit_disable_text">Gesperrt, bis du %d verifizierte Beiträge durchgeführt hast</string>
   <string name="multilingual_task_negative">Nicht für mich</string>
   <string name="multilingual_task_positive">Sprachen hinzufügen</string>
   <string name="editing_level_text">App-Autor des NIVEAUS %d</string>
@@ -678,14 +695,22 @@
   <string name="translate_caption_task_title">Bildbeschreibungen übersetzen</string>
   <string name="translate_caption_task_description">Beschreibungen in andere Sprachen übersetzen</string>
   <plurals name="edit_action_contribution_count">
-    <item quantity="one">In-App-Beitrag</item>
-    <item quantity="other">In-App-Beiträge</item>
+    <item quantity="one">Ein Beitrag</item>
+    <item quantity="other">%d Beiträge</item>
   </plurals>
   <string name="add_title_descriptions_dialog_title">Titelbeschreibungen hinzufügen</string>
   <string name="add_title_descriptions_dialog_message">Du kannst jetzt bei der Verbesserung von Wikipedia helfen, indem du Beschreibungen hinzufügst, die unterhalb von Artikeltiteln erscheinen. Du kannst jederzeit deine Sprachen konfigurieren.</string>
   <string name="add_translate_descriptions_dialog_title">Du übersetzt Titelbeschreibungen zum ersten Mal</string>
   <string name="add_translate_descriptions_dialog_message">Du kannst jetzt bei der Verbesserung von Wikipedia durch das Übersetzen von Titelbeschreibungen helfen. Du kannst jederzeit deine Sprachen konfigurieren und eine Übersetzungsrichtung festlegen.</string>
-  <string name="description_edit_tutorial_message">Willkommen bei der neuen Startseite für das In-App-Bearbeiten auf Wikipedia. Hier schlagen wir Möglichkeiten zum Hinzufügen von Inhalten vor, die dich interessieren könnten. Deine Beiträge werden hoch geschätzt. Fröhliches Bearbeiten!</string>
+  <string name="description_edit_tutorial_message">Willkommen bei der neuen Startseite zum schnellen Bearbeiten in der Wikipedia-App. Deine Beiträge werden hoch geschätzt. Fröhliches Bearbeiten!</string>
   <string name="translation_description_edit_task_unlock_title">Das Übersetzen von Titelbeschreibungen wurde freigegeben!</string>
   <string name="translation_description_edit_task_unlock_body">Wir haben mitbekommen, dass du das Bearbeiten von Titelbeschreibungen und das Lesen von Wikipedia in mehreren Sprachen magst. Probiere diese Aufgabenliste aus, die dir einen Zugriff auf das Übersetzen weiterer Titelbeschreibungen ermöglicht!</string>
+  <string name="title_description_editing_skip">Überspringen</string>
+  <string name="title_description_get_started">Anfangen</string>
+  <string name="translate_description_get_started">Anfangen</string>
+  <string name="edit_tasks_onboarding_get_started">Anfangen</string>
+  <string name="translate_descriptions_maybe_later">Vielleicht später</string>
+  <string name="title_descriptions_onboarding_got_it">Verstanden</string>
+  <string name="translate_descriptions_onboarding_got_it">Verstanden</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
 </resources>

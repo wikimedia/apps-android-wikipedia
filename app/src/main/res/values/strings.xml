@@ -7,20 +7,26 @@
     <string name="wikimedia">Wikimedia</string>
 
     <string name="nav_item_back">Back</string>
+    <string name="page_tabs_back">Back</string>
     <string name="nav_item_forward">Forward</string>
     <string name="search_hint">Search Wikipedia</string>
     <string name="search_hint_search_history">Search history</string>
-    <string name="search_hint_search_my_lists">Search my lists</string>
-    <string name="search_hint_search_reading_list">Search reading list</string>
     <string name="search_hint_search_languages">Search for a language</string>
+    <string name="search_hint_search_my_lists_and_articles">Search my lists and articles</string>
     <string name="nav_item_history">History</string>
     <string name="error_network_error">Cannot connect to the Internet.</string>
     <string name="page_error_retry">Retry</string>
+    <string name="card_offline_error_retry">Retry</string>
+    <string name="storage_access_error_retry">Retry</string>
+    <string name="article_load_error_retry">Retry</string>
+    <string name="offline_load_error_retry">Retry</string>
     <string name="page_error_back_to_main">Go back</string>
+    <string name="error_back">Go back</string>
     <string name="menu_clear_all_history">Clear history</string>
     <string name="history_item_deleted">%s removed from history</string>
     <string name="history_items_deleted">%d articles removed from history</string>
     <string name="history_item_delete_undo">Undo</string>
+    <string name="notification_archive_undo">Undo</string>
     <string name="app_settings">App settings</string>
 
     <!-- Saved pages -->
@@ -29,14 +35,17 @@
     <string name="dialog_message_clear_history_yes">Yes</string>
     <string name="dialog_message_clear_history_no">No</string>
     <string name="share_via">Share via</string>
+    <string name="image_share_via">Share via</string>
     <string name="search_redirect_from">Redirected from %s</string>
 
     <!-- Page toolbar menu -->
     <string name="menu_page_show_tabs">Show tabs</string>
     <string name="menu_page_other_languages">Change language</string>
     <string name="menu_page_find_in_page">Find in page</string>
+    <string name="edit_section_find_in_page">Find in page</string>
     <string name="menu_page_font_and_theme">Font and theme</string>
     <string name="menu_page_add_to_list">Add to reading list</string>
+    <string name="feed_card_add_to_list">Add to reading list</string>
     <string name="menu_page_share">Share link</string>
     <string name="menu_page_open_a_new_tab">Open a new tab</string>
     <string name="menu_page_reading_lists">Reading lists</string>
@@ -51,6 +60,9 @@
     <string name="menu_text_select_copy">Copy</string>
     <string name="menu_text_select_define">Define</string>
     <string name="menu_text_select_share">Share</string>
+    <string name="share">Share</string>
+    <string name="on_this_day_page_share">Share</string>
+    <string name="reading_list_page_share">Share</string>
     <string name="menu_text_select_edit_here">Edit here</string>
 
     <!-- Nearby -->
@@ -95,8 +107,13 @@
     <string name="nav_item_login">Log in to Wikipedia</string>
     <string name="login_username_hint">Username</string>
     <string name="login_password_hint">Password</string>
+    <string name="account_creation_password_hint">Password</string>
     <string name="login_2fa_hint">Two-Factor Authentication Code</string>
     <string name="login_2fa_other_workflow_error_msg">Two-factor authentication required!  Please return to the main activity and log in with your 2FA token, then retry.</string>
+    <string name="onboarding_card_login">Log in</string>
+    <string name="page_editing_login">Log in</string>
+    <string name="reading_lists_sync_login">Log in</string>
+    <string name="create_account_login">Log in</string>
     <string name="menu_login">Log in</string>
     <string name="login_activity_title">Log in to Wikipedia</string>
     <string name="login_in_progress_dialog_message">Logging you in…</string>
@@ -107,6 +124,7 @@
     <string name="reset_password_button">Save and log in</string>
     <string name="preference_title_logout">Log out</string>
     <string name="toast_logout_complete">Logged out</string>
+    <string name="logout_prompt">Are you sure you want to log out?</string>
     <string name="history_empty_title">No recently viewed articles</string>
     <string name="history_empty_message">Track what you\'ve been reading here.</string>
     <string name="history_offline_articles_toast">Some articles in history may not be viewable while offline.</string>
@@ -381,6 +399,7 @@
     <string name="reading_list_description_hint">Description (optional)</string>
     <string name="reading_list_item_deleted">%s removed from list</string>
     <string name="reading_list_items_deleted">%d articles removed from list</string>
+    <string name="reading_lists_item_deleted">%s removed from lists</string>
     <string name="reading_list_item_delete_undo">Undo</string>
     <string name="reading_list_deleted">%s deleted</string>
     <string name="saved_list_empty_title">No saved pages yet</string>
@@ -521,6 +540,8 @@
     <string name="preference_summary_notification_milestone">Certain edit counts are reached</string>
     <string name="preference_title_notification_thanks">Thanks</string>
     <string name="preference_summary_notification_thanks">Someone thanks you for an edit</string>
+    <string name="preference_title_notification_revert">Revert</string>
+    <string name="preference_summary_notification_revert">One of your contributions was reverted</string>
     <!-- /Notifications -->
 
     <!-- The Feed -->
@@ -552,11 +573,13 @@
     <string name="view_continue_reading_card_subtitle_today">today</string>
     <string name="view_continue_reading_card_subtitle_read_date">Read %s</string>
     <string name="view_announcement_card_negative_action">No thanks</string>
+    <string name="onboarding_negative_action">No thanks</string>
     <string name="view_offline_card_text">Content cannot be loaded when offline.</string>
     <string name="view_featured_article_card_title">Featured article</string>
     <string name="view_featured_article_footer_save_button_label">Save</string>
+    <string name="view_static_card_save_button_label">Save</string>
     <string name="view_featured_article_footer_saved_button_label">Saved</string>
-    <string name="edit_tasks_activity_title">App editor tasks</string>
+    <string name="edit_tasks_activity_title">Editor tasks</string>
     <string name="feed_configure_activity_title">Customize the feed</string>
     <string name="feed_configure_menu_reset">Restore default view</string>
     <string name="feed_configure_menu_select_all">Show all</string>
@@ -577,23 +600,28 @@
 
     <!-- Description editing -->
     <string name="description_edit_text_hint">Title description</string>
+    <string name="description_edit_text_hint_per_language">%s description</string>
     <string name="description_edit_save">Publish</string>
+    <string name="description_edit_article">Article</string>
+    <string name="description_edit_read">Read</string>
     <string name="description_edit_add_description">Add title description</string>
+    <string name="description_edit_add_description_v2">Add description</string>
     <string name="description_edit_edit_description">Edit description</string>
+    <string name="add_translation">Add %s translation</string>
     <string name="description_edit_cancel_hint">Cancel</string>
     <string name="description_edit_help_title">Help: title descriptions</string>
     <string name="description_edit_help_about_wikidata">About Wikidata</string>
     <string name="description_edit_help_wikidata_guide">Wikidata guide for writing descriptions</string>
-    <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
     <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
     <string name="description_edit_anon_limit">Thanks for your continued interest in editing descriptions! To make additional edits, please log in to your Wikipedia account.</string>
     <string name="description_edit_license_notice"><![CDATA[By changing the title description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
-    <string name="description_edit_task_unlock_title">Title descriptions editing task list has been unlocked!</string>
-    <string name="description_edit_task_unlock_body">We’ve noticed you like editing title descriptions, so we’ve compiled an “App editor tasks” list with more articles missing title descriptions to help you continue contributing!</string>
+    <string name="description_edit_task_unlock_title">You unlocked "Add descriptions"</string>
+    <string name="description_edit_task_unlock_body">Thanks for your continued contributions! Since you’re super good at editing, we’ve compiled a list of articles missing descriptions. Could you help us improve Wikipedia?</string>
     <!-- /Description editing -->
 
     <!-- Description editing success -->
     <string name="description_edit_success_saved">Description published!</string>
+    <string name="description_edit_success_saved_snackbar">Description published!</string>
     <string name="description_edit_success_encouragement">You just made Wikipedia better for everyone</string>
     <string name="description_edit_success_done">Done</string>
     <string name="description_edit_success_did_you_know">Did you know?</string>
@@ -609,29 +637,18 @@
     <string name="description_edit_tutorial_promise">By starting, I promise not to misuse this feature.</string>
     <!-- /Description editing tutorial -->
 
-    <!-- Description editing help -->
-    <string name="description_edit_help_about_title">About</string>
-    <string name="description_edit_help_description">Title descriptions summarize an article to help readers understand the subject at a glance.</string>
-    <string name="description_edit_help_tips">Tips for creating descriptions</string>
-    <string name="description_edit_help_tips_description">Descriptions should ideally fit on one line, and are between two to twelve words long. They are not capitalized unless the first word is a proper noun.</string>
-    <string name="description_edit_help_tips_examples">For example:</string>
-    <string name="description_edit_help_tips_example1">painting by Leonardo da Vinci</string>
-    <string name="description_edit_help_tips_example1_hint">title description for an article about the Mona Lisa</string>
-    <string name="description_edit_help_tips_example2">Earth\'s highest mountain</string>
-    <string name="description_edit_help_tips_example2_hint">title description for an article about Mount Everest</string>
-    <string name="description_edit_help_more_info">More information</string>
-    <string name="description_edit_help_meta_info">Descriptions are stored and maintained on Wikidata, a project of the Wikimedia Foundation which provides a free, collaborative, multilingual, secondary database supporting Wikipedia and other projects.</string>
-    <!-- /Description editing help -->
-
     <!-- Edit action feed -->
-    <string name="editactionfeed_add_title_descriptions">Add title descriptions</string>
+    <string name="editactionfeed_add_title_descriptions">Add descriptions</string>
     <string name="editactionfeed_translate_descriptions">Translate title descriptions</string>
-    <string name="editactionfeed_review_title_description">Review title description</string>
+    <string name="editactionfeed_review_title_description">Review description</string>
     <string name="editactionfeed_add_description_button">Add description</string>
     <string name="editactionfeed_my_contributions">My contributions</string>
     <string name="editactionfeed_from_language">From: </string>
     <string name="editactionfeed_add_title_dialog_learn_more">Learn more</string>
+    <string name="editactionfeed_translate_title_dialog_learn_more">Learn more</string>
     <string name="editactionfeed_to_language">To: </string>
+    <string name="editactionfeed_added_by_you">Added by you:</string>
+    <string name="editactionfeed_translated_by_you">Translated by you:</string>
     <!-- /Edit action feed -->
 
     <!-- Description editing revert help -->
@@ -671,7 +688,7 @@
     <string name="onboarding_got_it">Got it</string>
     <string name="onboarding_multilingual_secondary_text">We’ve found the following on your device:</string>
     <string name="onboarding_multilingual_add_language_text">Add or edit languages</string>
-    <string name="onboarding_welcome_title_v2">The Free Encyclopedia\n&#8230;in nearly 300 languages</string>
+    <string name="onboarding_welcome_title_v2">The Free Encyclopedia\n&#8230;in over 300 languages</string>
     <!-- /Onboarding -->
 
     <!-- App Shortcuts -->
@@ -718,20 +735,29 @@
     <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No thanks</string>
     <!-- /MultiLingual -->
 
+    <string name="wikitext_bold">Bold</string>
+    <string name="wikitext_italic">Italic</string>
+    <string name="wikitext_link">Link</string>
+    <string name="wikitext_bulleted_list">Bulleted list</string>
+    <string name="wikitext_numbered_list">Numbered list</string>
+    <string name="wikitext_template">Template</string>
+    <string name="wikitext_reference">Reference</string>
+    <string name="wikitext_preview_link">Preview link</string>
+
     <string name="main_drawer_open">Open</string>
     <string name="main_drawer_close">Close</string>
     <string name="main_drawer_help">Help</string>
     <string name="main_drawer_login">Log in / join Wikipedia</string>
-    <string name="title_description_task_title">Add title descriptions</string>
-    <string name="title_description_task_description">Contribute to articles without title descriptions</string>
+    <string name="title_description_task_title">Add descriptions</string>
+    <string name="title_description_task_description">Contribute to articles without descriptions</string>
     <string name="image_caption_task_title">Caption images</string>
     <string name="image_caption_task_description">Add captions to images</string>
     <string name="multilingual_task_title">More tasks for multilingual editors</string>
     <string name="multilingual_task_description">Translation tasks are available if you read and write in more than one Wikipedia language.</string>
-    <string name="translation_task_title">Translate title descriptions</string>
-    <string name="translation_task_description">Translate title descriptions into other languages.</string>
-    <string name="image_caption_edit_disable_text">Locked until you’ve made %d verified in-app edits</string>
-    <string name="translate_description_edit_disable_text">Locked until you’ve edited %d title descriptions</string>
+    <string name="translation_task_title">Translate descriptions</string>
+    <string name="translation_task_description">Translate descriptions across article languages.</string>
+    <string name="image_caption_edit_disable_text">Locked until you’ve made %d verified contributions</string>
+    <string name="translate_description_edit_disable_text">Locked until you’ve made %d verified contributions</string>
     <string name="multilingual_task_negative">Not for me</string>
     <string name="multilingual_task_positive">Add languages</string>
     <string name="editing_level_text">LEVEL %d app editor</string>
@@ -739,14 +765,23 @@
     <string name="translate_caption_task_title">Translate image captions</string>
     <string name="translate_caption_task_description">Translate captions into other languages</string>
     <plurals name="edit_action_contribution_count">
-        <item quantity="one">in-app contribution</item>
-        <item quantity="other">in-app contributions</item>
+        <item quantity="one">1 contribution</item>
+        <item quantity="other">%d contributions</item>
     </plurals>
     <string name="add_title_descriptions_dialog_title">Add title descriptions</string>
     <string name="add_title_descriptions_dialog_message">You can now help to improve Wikipedia by adding descriptions that appear below titles in articles. You can configure your languages at any time.</string>
     <string name="add_translate_descriptions_dialog_title">You are translating title descriptions for the first time</string>
     <string name="add_translate_descriptions_dialog_message">You can now help to improve Wikipedia by translating title descriptions. You can configure your languages and set a translation direction at any time.</string>
-    <string name="description_edit_tutorial_message">Welcome to the new home for in-app editing on Wikipedia. Here we will suggest opportunities to add content that might be of interest to you. Your contributions are much appreciated. Happy editing!</string>
-    <string name="translation_description_edit_task_unlock_title">Translating title descriptions editing has been unlocked!</string>
-    <string name="translation_description_edit_task_unlock_body">We’ve noticed you like editing title descriptions and read Wikipedia in multiple languages. Check out this task list which gives access to translating more title descriptions!</string>
+    <string name="description_edit_tutorial_message">Welcome to the new home for quick editing in the Wikipedia app. Your contributions are much appreciated. Happy editing!</string>
+    <string name="translation_description_edit_task_unlock_title">You unlocked "Translate descriptions"</string>
+    <string name="translation_description_edit_task_unlock_body">Thanks for your continued contributions! You’re using the app in multiple languages, so we’ve compiled a list of articles needing description translations. Could you continue to help us improve Wikipedia?</string>
+    <string name="title_description_editing_skip">Skip</string>
+    <string name="title_description_get_started">Get started</string>
+    <string name="translate_description_get_started">Get started</string>
+    <string name="edit_tasks_onboarding_get_started">Get started</string>
+    <string name="translate_descriptions_maybe_later">Maybe later</string>
+    <string name="title_descriptions_onboarding_got_it">Got it</string>
+    <string name="translate_descriptions_onboarding_got_it">Got it</string>
+    <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+    <string name="suggested_edits_menu_info">Info</string>
 </resources>
