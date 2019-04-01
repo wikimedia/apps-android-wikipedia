@@ -241,7 +241,7 @@ public class EditTasksFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_edit_tasks, menu);
+        inflater.inflate(R.menu.menu_suggested_edits_tasks, menu);
     }
 
     @Override

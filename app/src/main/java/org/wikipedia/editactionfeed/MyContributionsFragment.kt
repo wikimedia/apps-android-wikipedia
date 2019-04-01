@@ -53,7 +53,7 @@ class MyContributionsFragment : Fragment() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
-        inflater!!.inflate(R.menu.menu_edit_tasks, menu)
+        inflater!!.inflate(R.menu.menu_suggested_edits_tasks, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {

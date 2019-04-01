@@ -32,7 +32,7 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_edit_tasks, menu)
+        menuInflater.inflate(R.menu.menu_suggested_edits, menu)
         return true
     }
 
@@ -51,6 +51,10 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
 
             R.id.menu_help -> {
                 FeedbackUtil.showAndroidAppEditingFAQ(baseContext)
+                true
+            }
+            R.id.menu_my_contributions -> {
+                startActivity(MyContributionsActivity.newIntent(this))
                 true
             }
             else -> super.onOptionsItemSelected(item)
