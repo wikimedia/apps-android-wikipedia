@@ -65,8 +65,8 @@ public class AppLanguageLookUpTable {
     public String getCanonicalName(@Nullable String code) {
         String name = defaultIndex(getCanonicalNames(), indexOfCode(code), null);
         if (TextUtils.isEmpty(name) && !TextUtils.isEmpty(code)) {
-            if (code.equals(Locale.CHINA.getLanguage())) {
-                name = Locale.CHINA.getDisplayName(Locale.ENGLISH);
+            if (code.equals(Locale.CHINESE.getLanguage())) {
+                name = Locale.CHINESE.getDisplayName(Locale.ENGLISH);
             } else if (code.equals(NORWEGIAN_LEGACY_LANGUAGE_CODE)) {
                 name = defaultIndex(getCanonicalNames(), indexOfCode(NORWEGIAN_BOKMAL_LANGUAGE_CODE), null);
             }
@@ -78,8 +78,8 @@ public class AppLanguageLookUpTable {
     public String getLocalizedName(@Nullable String code) {
         String name = defaultIndex(getLocalizedNames(), indexOfCode(code), null);
         if (TextUtils.isEmpty(name) && !TextUtils.isEmpty(code)) {
-            if (code.equals(Locale.CHINA.getLanguage())) {
-                name = Locale.CHINA.getDisplayName(Locale.CHINA);
+            if (code.equals(Locale.CHINESE.getLanguage())) {
+                name = Locale.CHINESE.getDisplayName(Locale.CHINESE);
             } else if (code.equals(NORWEGIAN_LEGACY_LANGUAGE_CODE)) {
                 name = defaultIndex(getLocalizedNames(), indexOfCode(NORWEGIAN_BOKMAL_LANGUAGE_CODE), null);
             }

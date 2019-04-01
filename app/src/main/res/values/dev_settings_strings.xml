@@ -35,5 +35,9 @@
     <string name="preferences_developer_test_delete_lists">Delete Test reading lists</string>
     <string name="preferences_developer_summary_configure_articles">Type the number of articles</string>
     <string name="preferences_developer_summary_configure_reading_lists">Type the number of lists</string>
-
+    <string name="preferences_developer_suggested_edits_category">Suggested edits</string>
+    <string name="preferences_developer_suggested_edits_add_description_dialog">Show add description dialog</string>
+    <string name="preferences_developer_suggested_edits_add_description_notification">Show add description notification</string>
+    <string name="preferences_developer_suggested_edits_translate_description_dialog">Show translate description dialog</string>
+    <string name="preferences_developer_suggested_edits_translate_description_notification">Show translate description notification</string>
 </resources>
