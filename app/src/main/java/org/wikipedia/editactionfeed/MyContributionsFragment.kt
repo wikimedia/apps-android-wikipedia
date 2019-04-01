@@ -116,7 +116,7 @@ class MyContributionsFragment : Fragment() {
         internal fun bindItem(langCode: String) {
             ViewUtil.formatLangButton(itemView.languageCode, langCode, LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER)
             itemView.languageCode.text = langCode
-            itemView.languageTitle.text = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(langCode)
+            itemView.languageTitle.text = WikipediaApp.getInstance().language().getAppLanguageCanonicalName(langCode)
             itemView.editCount.text = editorTaskCounts.descriptionEditsPerLanguage!![langCode].toString()
         }
     }
