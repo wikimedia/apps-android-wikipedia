@@ -5,90 +5,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    tools:parentTag="android.widget.LinearLayout"
+    tools:parentTag="android.support.constraint.ConstraintLayout"
     tools:background="@android:color/white">
 
-    <LinearLayout
-        android:id="@+id/articleContainer"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-        <org.wikipedia.views.FaceAndColorDetectImageView
-            style="@style/SimpleDraweeViewPlaceholder.EditActionFeed"
-            android:id="@+id/articleImage"
-            android:layout_width="match_parent"
-            android:layout_height="192dp"
-            app:fadeDuration="0"
-            app:actualImageScaleType="focusCrop" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?attr/material_theme_border_color"/>
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/licenseContainer">
         <LinearLayout
+            android:id="@+id/articleContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp">
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/articleTitle"
+            <org.wikipedia.views.FaceAndColorDetectImageView
+                style="@style/SimpleDraweeViewPlaceholder.EditActionFeed"
+                android:id="@+id/articleImage"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:fontFamily="serif"
-                android:textColor="?attr/primary_text_color"
-                android:lineSpacingExtra="8sp"
-                android:layout_marginTop="20dp"
-                android:maxLines="2"
-                android:ellipsize="end"
-                tools:text="Lorem ipsum"/>
-
-            <org.wikipedia.views.GoneIfEmptyTextView
-                android:id="@+id/articleSubtitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="?attr/secondary_text_color"
-                android:layout_marginTop="5dp"
-                android:textSize="14sp"
-                android:maxLines="6"
-                android:lineSpacingExtra="6sp"
-                android:ellipsize="end"
-                tools:text="Lorem ipsum"/>
+                android:layout_height="192dp"
+                app:fadeDuration="0"
+                app:actualImageScaleType="focusCrop" />
 
             <View
-                android:layout_width="@dimen/divider_width_for_article"
+                android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="19dp"
                 android:background="?attr/material_theme_border_color"/>
 
-            <TextView
-                android:id="@+id/articleExtract"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="24dp"
-                android:ellipsize="end"
-                android:textSize="16sp"
-                android:lineSpacingExtra="12sp"
-                android:textColor="?attr/primary_text_color"
-                tools:text="Lorem ipsum"/>
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
 
+                <TextView
+                    android:id="@+id/articleTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:fontFamily="serif"
+                    android:textColor="?attr/primary_text_color"
+                    android:lineSpacingExtra="8sp"
+                    android:layout_marginTop="20dp"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    tools:text="Lorem ipsum"/>
+
+                <org.wikipedia.views.GoneIfEmptyTextView
+                    android:id="@+id/articleSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="?attr/secondary_text_color"
+                    android:layout_marginTop="5dp"
+                    android:textSize="14sp"
+                    android:maxLines="6"
+                    android:lineSpacingExtra="6sp"
+                    android:ellipsize="end"
+                    tools:text="Lorem ipsum"/>
+
+                <View
+                    android:layout_width="@dimen/divider_width_for_article"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="19dp"
+                    android:background="?attr/material_theme_border_color"/>
+
+                <TextView
+                    android:id="@+id/articleExtract"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="24dp"
+                    android:ellipsize="end"
+                    android:textSize="16sp"
+                    android:lineSpacingExtra="10sp"
+                    android:textColor="?attr/primary_text_color"
+                    tools:text="Lorem ipsum"/>
+
+            </LinearLayout>
         </LinearLayout>
-
-    </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
+        android:id="@+id/licenseContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
         <View
             android:id="@+id/indicatorDivider"
             android:layout_width="match_parent"
@@ -97,7 +105,7 @@
             android:layout_marginBottom="16dp"/>
 
         <org.wikipedia.descriptions.DescriptionEditLicenseView
-            android:id="@+id/licenseContainer"
+            android:id="@+id/licenseView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"

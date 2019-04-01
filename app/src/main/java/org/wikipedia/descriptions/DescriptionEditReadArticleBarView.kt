@@ -8,6 +8,7 @@ import android.util.AttributeSet
 import kotlinx.android.synthetic.main.view_description_edit_read_article_bar.view.*
 import org.wikipedia.R
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.StringUtil
 
 class DescriptionEditReadArticleBarView @JvmOverloads constructor(
@@ -26,10 +27,17 @@ class DescriptionEditReadArticleBarView @JvmOverloads constructor(
         visibility = GONE
     }
 
-    fun setPageSummary(pageSummary: PageSummary, listener: OnClickListener) {
+    fun setPageSummary(pageSummary: PageSummary, languageCode: String) {
+        setConditionalLayoutDirection(this, languageCode)
         viewArticleTitle!!.text = StringUtil.fromHtml(pageSummary.displayTitle)
-        viewArticleImage!!.loadImage(if (TextUtils.isEmpty(pageSummary.thumbnailUrl)) null else Uri.parse(pageSummary.thumbnailUrl))
-        viewReadButton.setOnClickListener(listener)
+
+        if (TextUtils.isEmpty(pageSummary.thumbnailUrl)) {
+            viewArticleImage!!.visibility = GONE
+        } else {
+            viewArticleImage!!.visibility = VISIBLE
+            viewArticleImage!!.loadImage(Uri.parse(pageSummary.thumbnailUrl))
+        }
+
         show()
     }
 

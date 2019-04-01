@@ -32,6 +32,7 @@ import butterknife.OnEditorAction;
 import butterknife.OnTextChanged;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class DescriptionEditView extends LinearLayout {
     @BindView(R.id.view_description_edit_header) TextView headerText;
@@ -105,6 +106,7 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     private void setHintText() {
+        pageDescriptionLayout.setHintTextAppearance(R.style.DescriptionEditViewHintTextStyle);
         pageDescriptionLayout.setHint(String.format(getContext().getString(R.string.description_edit_text_hint_per_language),
                 WikipediaApp.getInstance().language().getAppLanguageCanonicalName(pageTitle.getWikiSite().languageCode())));
     }
@@ -112,7 +114,7 @@ public class DescriptionEditView extends LinearLayout {
     private void setReviewHeaderText(boolean inReview) {
         int headerTextRes = inReview ? R.string.editactionfeed_review_title_description
                 : TextUtils.isEmpty(originalDescription)
-                ? (isTranslationEdit ? R.string.translation_task_title : R.string.description_edit_add_description)
+                ? (isTranslationEdit ? R.string.translation_task_title : R.string.description_edit_add_description_v2)
                 : R.string.description_edit_edit_description;
         headerText.setText(getContext().getString(headerTextRes));
     }
@@ -125,8 +127,10 @@ public class DescriptionEditView extends LinearLayout {
                 : getContext().getString(R.string.description_edit_article));
         pageSummaryText.setText(isTranslationEdit
                 ? translationSourceDescription
-                : StringUtil.fromHtml(pageSummary.getExtractHtml()));
-        readArticleBarContainer.setPageSummary(pageSummary, view -> performReadArticleClick());
+                : StringUtil.fromHtml(pageSummary.getExtract()));
+        setConditionalLayoutDirection(pageSummaryText, (isTranslationEdit) ? translationSourceLanguageCode : pageTitle.getWikiSite().languageCode());
+        readArticleBarContainer.setPageSummary(pageSummary, pageTitle.getWikiSite().languageCode());
+        readArticleBarContainer.setOnClickListener(view -> performReadArticleClick());
         this.pageSummary = pageSummary;
     }
 
@@ -142,7 +146,7 @@ public class DescriptionEditView extends LinearLayout {
     public void loadReviewContent(boolean enabled) {
         if (enabled) {
             setReviewHeaderText(true);
-            pageReviewContainer.setPageSummary(pageSummary, getDescription());
+            pageReviewContainer.setPageSummary(pageSummary, getDescription(), pageTitle.getWikiSite().languageCode());
             pageReviewContainer.show();
             readArticleBarContainer.hide();
             descriptionEditContainer.setVisibility(GONE);
