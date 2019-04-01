@@ -3,11 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="AlwaysShowAction">
-    <item android:id="@+id/menu_help"
+    <item
+        android:id="@+id/menu_help"
         android:title="@string/suggested_edits_menu_info"
-        app:showAsAction="never"/>
-    <item android:id="@+id/menu_my_contributions"
+        android:icon="@drawable/ic_info_outline_themed_24dp"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_my_contributions"
         android:title="@string/editactionfeed_my_contributions"
         app:showAsAction="never"/>
-
 </menu>

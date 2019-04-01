@@ -241,7 +241,7 @@ public class EditTasksFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_edit_tasks, menu);
+        inflater.inflate(R.menu.menu_suggested_edits_tasks, menu);
     }
 
     @Override
@@ -255,7 +255,6 @@ public class EditTasksFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.menu_help:
                 FeedbackUtil.showAndroidAppEditingFAQ(requireContext());
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -270,7 +269,7 @@ public class EditTasksFragment extends Fragment {
 
     @OnClick(R.id.user_contributions_button)
     void onUserContributionsClicked() {
-        // TODO: go to user contributions screen.
+        startActivity(MyContributionsActivity.Companion.newIntent(requireContext()));
     }
 
     @Override
