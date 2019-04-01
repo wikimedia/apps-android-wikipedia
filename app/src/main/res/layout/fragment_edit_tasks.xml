@@ -43,6 +43,8 @@
 
     </FrameLayout>
 
+
+
     <FrameLayout
         android:id="@+id/user_contributions_button"
         android:layout_width="match_parent"
@@ -51,7 +53,7 @@
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
         android:focusable="true"
-        android:elevation="4dp">
+        android:elevation="4dp" >
 
         <LinearLayout
             android:layout_width="match_parent"
