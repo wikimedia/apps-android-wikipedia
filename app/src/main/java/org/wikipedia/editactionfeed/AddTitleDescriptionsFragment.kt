@@ -74,6 +74,9 @@ class AddTitleDescriptionsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
+
+        // Record the first impression, since the ViewPager doesn't send an event for the first topmost item.
+        logImpression()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -267,6 +270,14 @@ class AddTitleDescriptionsFragment : Fragment() {
         }
     }
 
+    private fun logImpression() {
+        if (source == InvokeSource.EDIT_FEED_TITLE_DESC) {
+            SuggestedEditsFunnel.get().addDescriptionStats.impression()
+        } else if (source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
+            SuggestedEditsFunnel.get().translateDescriptionStats.impression()
+        }
+    }
+
     private fun updateFromLanguageSpinner() {
         wikiFromLanguageSpinner.adapter = ArrayAdapter<String>(requireContext(), R.layout.item_language_spinner, languageList)
     }
@@ -349,11 +360,7 @@ class AddTitleDescriptionsFragment : Fragment() {
                 }
             }
 
-            if (source == InvokeSource.EDIT_FEED_TITLE_DESC) {
-                SuggestedEditsFunnel.get().addDescriptionStats.impression()
-            } else if (source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
-                SuggestedEditsFunnel.get().translateDescriptionStats.impression()
-            }
+            logImpression()
 
             nextPageSelectedAutomatic = false
             prevPosition = position

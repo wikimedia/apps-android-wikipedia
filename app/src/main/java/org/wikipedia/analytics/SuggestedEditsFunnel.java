@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import com.google.gson.annotations.SerializedName;
 
 import org.json.JSONObject;
+import org.wikipedia.Constants;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.json.GsonUtil;
 
@@ -20,21 +21,27 @@ public class SuggestedEditsFunnel extends TimedFunnel {
     public static final String SUGGESTED_EDITS_ADD_COMMENT = "#suggestededit-add " + SUGGESTED_EDITS_UI_VERSION;
     public static final String SUGGESTED_EDITS_TRANSLATE_COMMENT = "#suggestededit-translate " + SUGGESTED_EDITS_UI_VERSION;
 
+    private Constants.InvokeSource invokeSource;
     private String parentSessionToken;
     private int helpOpenedCount = 0;
     private int contributionsOpenedCount = 0;
     private SuggestedEditStatsCollection statsCollection = new SuggestedEditStatsCollection();
 
-    public SuggestedEditsFunnel(WikipediaApp app) {
+    public SuggestedEditsFunnel(WikipediaApp app, Constants.InvokeSource invokeSource) {
         super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_ALL);
+        this.invokeSource = invokeSource;
         this.parentSessionToken = app.getSessionFunnel().getSessionToken();
     }
 
-    public static SuggestedEditsFunnel get() {
+    public static SuggestedEditsFunnel get(Constants.InvokeSource invokeSource) {
         if (INSTANCE == null) {
-            INSTANCE = new SuggestedEditsFunnel(WikipediaApp.getInstance());
+            INSTANCE = new SuggestedEditsFunnel(WikipediaApp.getInstance(), invokeSource);
         }
         return INSTANCE;
+    }
+
+    public static SuggestedEditsFunnel get() {
+        return get(Constants.InvokeSource.NAV_MENU);
     }
 
     public static void reset() {
@@ -65,7 +72,9 @@ public class SuggestedEditsFunnel extends TimedFunnel {
         log(
                 "edit_tasks", GsonUtil.getDefaultGson().toJson(statsCollection),
                 "help_opened", helpOpenedCount,
-                "scorecard_opened", contributionsOpenedCount
+                "scorecard_opened", contributionsOpenedCount,
+                "source", (invokeSource == Constants.InvokeSource.ONBOARDING_DIALOG ? "dialog"
+                        : invokeSource == Constants.InvokeSource.NOTIFICATION ? "notification" : "menu")
         );
     }
 

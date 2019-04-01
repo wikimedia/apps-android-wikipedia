@@ -57,7 +57,10 @@ public final class Constants {
     public enum InvokeSource {
         PAGE_ACTIVITY,
         EDIT_FEED_TITLE_DESC,
-        EDIT_FEED_TRANSLATE_TITLE_DESC
+        EDIT_FEED_TRANSLATE_TITLE_DESC,
+        ONBOARDING_DIALOG,
+        NOTIFICATION,
+        NAV_MENU
     }
 
     private Constants() { }

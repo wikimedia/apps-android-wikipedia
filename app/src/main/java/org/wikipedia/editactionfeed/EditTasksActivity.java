@@ -5,18 +5,25 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
+import org.wikipedia.Constants;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
 
 public class EditTasksActivity extends SingleFragmentActivity<EditTasksFragment> {
-    public static Intent newIntent(@NonNull Context context) {
-        return new Intent(context, EditTasksActivity.class);
+    public static Intent newIntent(@NonNull Context context, Constants.InvokeSource invokeSource) {
+        return new Intent(context, EditTasksActivity.class)
+                .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SuggestedEditsFunnel.reset();
+        if (getIntent().hasExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE)) {
+            SuggestedEditsFunnel.get((Constants.InvokeSource) getIntent().getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE));
+        } else {
+            SuggestedEditsFunnel.get();
+        }
     }
 
     @Override

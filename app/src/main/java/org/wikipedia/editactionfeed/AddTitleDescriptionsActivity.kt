@@ -8,10 +8,10 @@ import android.support.v7.app.AlertDialog
 import android.view.Menu
 import android.view.MenuItem
 import org.wikipedia.Constants.*
-import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC
-import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC
+import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
+import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.editactionfeed.AddTitleDescriptionsFragment.Companion.newInstance
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.views.DialogTitleWithImage
@@ -59,15 +59,17 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
         const val EXTRA_SOURCE_ADDED_DESCRIPTION = "addedDescription"
 
         fun newIntent(context: Context, source: InvokeSource): Intent {
-            return Intent(context, AddTitleDescriptionsActivity::class.java)
-                    .putExtra(EXTRA_SOURCE, source)
+            return Intent(context, AddTitleDescriptionsActivity::class.java).putExtra(EXTRA_SOURCE, source)
         }
 
         fun showEditUnlockDialog(context: Context) {
             AlertDialog.Builder(context)
                     .setCustomTitle(DialogTitleWithImage(context, R.string.description_edit_task_unlock_title, R.drawable.ic_illustration_description_edit_trophy, true))
                     .setMessage(R.string.description_edit_task_unlock_body)
-                    .setPositiveButton(R.string.onboarding_get_started) { _, _ -> context.startActivity(AddTitleDescriptionsActivity.newIntent(context, EDIT_FEED_TITLE_DESC)) }
+                    .setPositiveButton(R.string.onboarding_get_started) { _, _ ->
+                        SuggestedEditsFunnel.get(ONBOARDING_DIALOG)
+                        context.startActivity(AddTitleDescriptionsActivity.newIntent(context, EDIT_FEED_TITLE_DESC))
+                    }
                     .setNegativeButton(R.string.onboarding_maybe_later, null)
                     .show()
         }
@@ -76,7 +78,10 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
             AlertDialog.Builder(context)
                     .setCustomTitle(DialogTitleWithImage(context, R.string.translation_description_edit_task_unlock_title, R.drawable.ic_illustration_description_edit_trophy, true))
                     .setMessage(R.string.translation_description_edit_task_unlock_body)
-                    .setPositiveButton(R.string.onboarding_get_started) { _, _ -> context.startActivity(AddTitleDescriptionsActivity.newIntent(context, EDIT_FEED_TRANSLATE_TITLE_DESC)) }
+                    .setPositiveButton(R.string.onboarding_get_started) { _, _ ->
+                        SuggestedEditsFunnel.get(ONBOARDING_DIALOG)
+                        context.startActivity(AddTitleDescriptionsActivity.newIntent(context, EDIT_FEED_TRANSLATE_TITLE_DESC))
+                    }
                     .setNegativeButton(R.string.onboarding_maybe_later, null)
                     .show()
         }

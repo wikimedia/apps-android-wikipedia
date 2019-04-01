@@ -9,6 +9,7 @@ import android.support.v4.app.NotificationCompat;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.SuggestedEditsFunnel;
 import org.wikipedia.dataclient.mwapi.EditorTaskCounts;
 import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity;
 import org.wikipedia.events.EditorTaskUnlockEvent;
@@ -62,6 +63,7 @@ public final class NotificationEditorTasksHandler {
 
     private static void maybeShowEditDescriptionUnlockNotification(@NonNull Context context) {
         if (!WikipediaApp.getInstance().isAnyActivityResumed()) {
+            SuggestedEditsFunnel.get(Constants.InvokeSource.NOTIFICATION).pause();
             Intent intent = AddTitleDescriptionsActivity.Companion.newIntent(context, Constants.InvokeSource.EDIT_FEED_TITLE_DESC);
             NotificationCompat.Builder builder = NotificationPresenter.getDefaultBuilder(context);
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -75,6 +77,7 @@ public final class NotificationEditorTasksHandler {
 
     private static void maybeShowTranslateDescriptionUnlockNotification(@NonNull Context context) {
         if (!WikipediaApp.getInstance().isAnyActivityResumed()) {
+            SuggestedEditsFunnel.get(Constants.InvokeSource.NOTIFICATION).pause();
             Intent intent = AddTitleDescriptionsActivity.Companion.newIntent(context, Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC);
             NotificationCompat.Builder builder = NotificationPresenter.getDefaultBuilder(context);
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);

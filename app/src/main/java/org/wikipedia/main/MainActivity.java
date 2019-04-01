@@ -293,7 +293,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         public void editingTasksClick() {
             Prefs.setShowEditMenuOptionIndicator(false);
             drawerView.maybeShowIndicatorDots();
-            startActivity(EditTasksActivity.newIntent(MainActivity.this));
+            startActivity(EditTasksActivity.newIntent(MainActivity.this, Constants.InvokeSource.NAV_MENU));
             closeMainDrawer();
         }
 
