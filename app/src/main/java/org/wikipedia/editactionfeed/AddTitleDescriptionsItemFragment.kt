@@ -34,7 +34,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
     var targetPageTitle: PageTitle? = null
     private var summary: RbPageSummary? = null
     private val app = WikipediaApp.getInstance()
-    private var sourceDescription: String = ""
+    var sourceDescription: String = ""
     var addedDescription: String = ""
         internal set
 
@@ -65,7 +65,9 @@ class AddTitleDescriptionsItemFragment : Fragment() {
         }
 
         cardView.setOnClickListener {
-            parent().onSelectPage()
+            if (!TextUtils.isEmpty(sourceDescription)) {
+                parent().onSelectPage()
+            }
         }
 
     }
@@ -163,7 +165,6 @@ class AddTitleDescriptionsItemFragment : Fragment() {
         if (parent().source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
             val spannableDescription = SpannableString(sourceDescription)
             spannableDescription.setSpan(ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_text_color)), 0, sourceDescription.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-            parent().sourceDescription = sourceDescription
         }
     }
 
