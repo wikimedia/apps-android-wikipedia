@@ -832,22 +832,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_history_offline_articles_toast, showToast);
     }
 
-    public static boolean showEditActionAddTitleDescriptionsOnboarding() {
-        return getBoolean(R.string.preference_key_show_edit_action_add_title_descriptions_onboarding, true);
-    }
-
-    public static void setShowEditActionAddTitleDescriptionsOnboarding(boolean enabled) {
-        setBoolean(R.string.preference_key_show_edit_action_add_title_descriptions_onboarding, enabled);
-    }
-
-    public static boolean showEditActionTranslateDescriptionsOnboarding() {
-        return getBoolean(R.string.preference_key_show_edit_action_translate_descriptions_onboarding, true);
-    }
-
-    public static void setShowEditActionTranslateDescriptionsOnboarding(boolean enabled) {
-        setBoolean(R.string.preference_key_show_edit_action_translate_descriptions_onboarding, enabled);
-    }
-
     public static boolean isEditActionTranslateDescriptionsUnlocked() {
         return getBoolean(R.string.preference_key_edit_action_translate_descriptions_unlocked, false);
     }
