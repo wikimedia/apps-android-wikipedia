@@ -51,7 +51,6 @@ class AddTitleDescriptionsFragment : Fragment() {
     var langFromCode: String = app.language().appLanguageCode
     var langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
     var source: InvokeSource = InvokeSource.EDIT_FEED_TITLE_DESC
-    var sourceDescription: CharSequence = ""
 
     private val topTitle: PageTitle?
         get() {
@@ -90,7 +89,7 @@ class AddTitleDescriptionsFragment : Fragment() {
         wikiToLanguageSpinner.onItemSelectedListener = OnToSpinnerItemSelectedListener()
 
         addTitleDescriptionsItemPager.offscreenPageLimit = 2
-        addTitleDescriptionsItemPager.setPageTransformer(true, AnimationUtil.PagerTransformer())
+        addTitleDescriptionsItemPager.setPageTransformer(true, AnimationUtil.PagerTransformerWithoutPreviews())
         addTitleDescriptionsItemPager.addOnPageChangeListener(viewPagerListener)
 
         resetTitleDescriptionItemAdapter()
@@ -169,7 +168,7 @@ class AddTitleDescriptionsFragment : Fragment() {
 
     fun onSelectPage() {
         if (topTitle != null) {
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, true, sourceDescription.toString(), langFromCode, source),
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, true, topChild!!.sourceDescription, langFromCode, source),
                     ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
     }
@@ -243,17 +242,8 @@ class AddTitleDescriptionsFragment : Fragment() {
     }
 
     private fun setInitialUiState() {
-        wikiLanguageDropdownContainer.visibility = if (app.language().appLanguageCodes.size > 1) VISIBLE else GONE
-
-        if (source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
-            fromLabel.visibility = GONE
-            arrow.visibility = VISIBLE
-            wikiToLanguageSpinner.visibility = VISIBLE
-        } else {
-            fromLabel.visibility = VISIBLE
-            arrow.visibility = GONE
-            wikiToLanguageSpinner.visibility = GONE
-        }
+        wikiLanguageDropdownContainer.visibility = if (app.language().appLanguageCodes.size > 1
+                && source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) VISIBLE else GONE
     }
 
     private fun updateFromLanguageSpinner() {

@@ -91,139 +91,139 @@
 
     </FrameLayout>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:orientation="vertical"
         android:fillViewport="true">
 
-        <LinearLayout
+        <org.wikipedia.descriptions.DescriptionEditReviewView
+            android:id="@+id/view_description_edit_review_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:visibility="gone" />
 
-            <org.wikipedia.descriptions.DescriptionEditReviewView
-                android:id="@+id/view_description_edit_review_container"
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/view_description_edit_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/view_description_edit_page_summary_container"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="gone" />
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/list_item_horizontal_padding"
+                android:paddingStart="@dimen/list_item_horizontal_padding"
+                android:background="?attr/selectableItemBackground"
+                android:orientation="vertical"
+                android:paddingTop="15dp"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/view_description_edit_container"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/label_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/description_edit_article"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="?attr/material_theme_de_emphasised_color"
+                    tools:text="Article"/>
 
-                <LinearLayout
-                    android:id="@+id/view_description_edit_page_summary_container"
+                <TextView
+                    android:id="@+id/view_description_edit_page_summary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingEnd="@dimen/list_item_horizontal_padding"
-                    android:paddingStart="@dimen/list_item_horizontal_padding"
-                    android:background="?attr/selectableItemBackground"
-                    android:orientation="vertical"
-                    android:paddingTop="@dimen/list_item_vertical_padding"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:visibility="gone">
+                    android:layout_marginTop="5dp"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="6sp"
+                    android:textColor="?attr/material_theme_primary_color"
+                    android:maxLines="4"
+                    android:ellipsize="end"
+                    android:gravity="start"
+                    tools:text="Lorem ipsum"/>
 
-                    <TextView
-                        android:id="@+id/label_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/description_edit_article"
-                        android:textSize="12sp"
-                        android:fontFamily="sans-serif-medium"
-                        android:textColor="?attr/material_theme_de_emphasised_color"
-                        tools:text="Article"/>
+                <View
+                    android:layout_width="@dimen/divider_width_for_article"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="19dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="?attr/material_theme_border_color"/>
 
-                    <TextView
-                        android:id="@+id/view_description_edit_page_summary"
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/view_description_edit_text_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/view_description_edit_page_summary_container"
+                android:paddingTop="8dp">
+
+                <!-- todo: this class has a lot of ViewGroups. TextInputLayout (a subclass of LinearLayout)
+                           adds another. try to collapse this group into others. the same change should
+                           probably be attempted for other TextInputLayout usages -->
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/view_description_edit_text_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:textAlignment="viewStart"
+                    android:gravity="start"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="@integer/description_max_chars"
+                    app:counterOverflowTextAppearance="@style/CounterOverflowTextAppearance">
+                    <org.wikipedia.views.PlainPasteEditText
+                        android:id="@+id/view_description_edit_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:textSize="14sp"
-                        android:lineSpacingExtra="6sp"
-                        android:textColor="?attr/material_theme_primary_color"
-                        android:maxLines="4"
-                        android:ellipsize="end"
-                        tools:text="Lorem ipsum"/>
+                        android:imeOptions="actionDone"
+                        android:inputType="textMultiLine|textCapSentences"
+                        android:textSize="16sp"
+                        android:hint="@string/description_edit_text_hint">
+                        <requestFocus />
+                    </org.wikipedia.views.PlainPasteEditText>
+                </android.support.design.widget.TextInputLayout>
 
-                    <View
-                        android:layout_width="@dimen/divider_width_for_article"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="19dp"
-                        android:layout_marginBottom="2dp"
-                        android:background="?attr/material_theme_border_color"/>
+                <ImageView
+                    android:id="@+id/view_description_edit_help_button"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="4dp"
+                    android:padding="12dp"
+                    android:layout_gravity="end"
+                    android:contentDescription="@string/description_edit_help_title"
+                    android:clickable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:srcCompat="@drawable/ic_info_outline_black_24dp"
+                    app:tint="?attr/main_toolbar_icon_color"/>
 
-                </LinearLayout>
+            </FrameLayout>
 
-                <FrameLayout
-                    android:id="@+id/view_description_edit_text_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/view_description_edit_page_summary_container"
-                    android:paddingTop="8dp">
+            <org.wikipedia.descriptions.DescriptionEditLicenseView
+                android:id="@+id/view_description_edit_license_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/view_description_edit_text_container"/>
 
-                    <!-- todo: this class has a lot of ViewGroups. TextInputLayout (a subclass of LinearLayout)
-                               adds another. try to collapse this group into others. the same change should
-                               probably be attempted for other TextInputLayout usages -->
-                    <android.support.design.widget.TextInputLayout
-                        android:id="@+id/view_description_edit_text_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:textAlignment="viewStart"
-                        android:gravity="start"
-                        app:counterEnabled="true"
-                        app:counterMaxLength="@integer/description_max_chars"
-                        app:counterOverflowTextAppearance="@style/CounterOverflowTextAppearance">
-                        <org.wikipedia.views.PlainPasteEditText
-                            android:id="@+id/view_description_edit_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:imeOptions="actionDone"
-                            android:inputType="textMultiLine"
-                            android:textSize="16sp"
-                            android:hint="@string/description_edit_text_hint"/>
-                    </android.support.design.widget.TextInputLayout>
+            <org.wikipedia.descriptions.DescriptionEditReadArticleBarView
+                android:id="@+id/view_description_edit_read_article_bar_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_description_edit_license_container"
+                app:layout_constraintVertical_bias="1.0" />
 
-                    <ImageView
-                        android:id="@+id/view_description_edit_help_button"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_margin="4dp"
-                        android:padding="12dp"
-                        android:layout_gravity="end"
-                        android:contentDescription="@string/description_edit_help_title"
-                        android:clickable="true"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        app:srcCompat="@drawable/ic_info_outline_black_24dp"
-                        app:tint="?attr/main_toolbar_icon_color"/>
+        </android.support.constraint.ConstraintLayout>
 
-                </FrameLayout>
-
-                <org.wikipedia.descriptions.DescriptionEditLicenseView
-                    android:id="@+id/view_description_edit_license_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="16dp"
-                    app:layout_constraintTop_toBottomOf="@+id/view_description_edit_text_container"/>
-
-                <org.wikipedia.descriptions.DescriptionEditReadArticleBarView
-                    android:id="@+id/view_description_edit_read_article_bar_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/view_description_edit_license_container"
-                    app:layout_constraintVertical_bias="1.0" />
-
-            </android.support.constraint.ConstraintLayout>
-
-        </LinearLayout>
-
-    </ScrollView>
+    </LinearLayout>
 
 </merge>

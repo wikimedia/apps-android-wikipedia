@@ -146,7 +146,7 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".editactionfeed.AddTitleDescriptionsActivity"
-            android:screenOrientation="portrait"
+            android:launchMode="singleTask"
             android:theme="@style/AppTheme.ActionBar"
             android:parentActivityName=".editactionfeed.EditTasksActivity"/>
         <activity
@@ -254,8 +254,15 @@
 
         <activity
             android:name=".editactionfeed.EditTasksActivity"
+            android:launchMode="singleTask"
             android:label="@string/edit_tasks_activity_title"
             android:theme="@style/AppTheme.ActionBar" />
+
+        <activity
+            android:name=".editactionfeed.MyContributionsActivity"
+            android:label="@string/editactionfeed_my_contributions"
+            android:theme="@style/AppTheme.ActionBar" />
+
         <provider
             android:authorities="${applicationId}"
             android:name=".database.AppContentProvider"

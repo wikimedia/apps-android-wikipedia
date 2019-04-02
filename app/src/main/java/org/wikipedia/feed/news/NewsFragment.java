@@ -47,6 +47,7 @@ import butterknife.Unbinder;
 import static org.wikipedia.feed.news.NewsActivity.EXTRA_NEWS_ITEM;
 import static org.wikipedia.feed.news.NewsActivity.EXTRA_WIKI;
 import static org.wikipedia.richtext.RichTextUtil.stripHtml;
+import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class NewsFragment extends Fragment {
     @BindView(R.id.view_news_fullscreen_header_image) FaceAndColorDetectImageView image;
@@ -84,6 +85,8 @@ public class NewsFragment extends Fragment {
 
         NewsItem item = GsonUnmarshaller.unmarshal(NewsItem.class, requireActivity().getIntent().getStringExtra(EXTRA_NEWS_ITEM));
         WikiSite wiki = GsonUnmarshaller.unmarshal(WikiSite.class, requireActivity().getIntent().getStringExtra(EXTRA_WIKI));
+
+        setConditionalLayoutDirection(view, wiki.languageCode());
 
         Uri imageUri = item.featureImage();
         if (imageUri == null) {
