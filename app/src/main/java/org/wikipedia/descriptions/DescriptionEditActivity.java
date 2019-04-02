@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivity;
+import org.wikipedia.analytics.SuggestedEditsFunnel;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
@@ -32,6 +33,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     private static final String EXTRA_TRANSLATION_SOURCE_DESCRIPTION = "translationSourceDescription";
     private static final String EXTRA_TRANSLATION_SOURCE_LANGUAGE_CODE = "translationSourceLanguageCode";
     private static final String EXTRA_INVOKE_SOURCE = "invokeSource";
+    private InvokeSource invokeSource;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
     public static Intent newIntent(@NonNull Context context,
@@ -93,13 +95,16 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
 
     @Override
     public DescriptionEditFragment createFragment() {
+        invokeSource = (InvokeSource) getIntent().getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE);
+        SuggestedEditsFunnel.get().click(invokeSource);
+
         return DescriptionEditFragment.newInstance(GsonUnmarshaller.unmarshal(PageTitle.class,
                 getIntent().getStringExtra(EXTRA_TITLE)),
                 getIntent().getStringExtra(EXTRA_HIGHLIGHT_TEXT),
                 getIntent().getBooleanExtra(EXTRA_REVIEW_ENABLE, false),
                 getIntent().getCharSequenceExtra(EXTRA_TRANSLATION_SOURCE_DESCRIPTION),
                 getIntent().getStringExtra(EXTRA_TRANSLATION_SOURCE_LANGUAGE_CODE),
-                (InvokeSource) getIntent().getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE));
+                invokeSource);
     }
 
     @Override
@@ -108,6 +113,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
             getFragment().editView.loadReviewContent(false);
         } else {
             hideSoftKeyboard(this);
+            SuggestedEditsFunnel.get().cancel(invokeSource);
             super.onBackPressed();
         }
     }

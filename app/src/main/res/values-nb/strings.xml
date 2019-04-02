@@ -575,7 +575,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Takk for at du fortsetter med å legge inn beskrivelser! Logg inn med Wikipedia-kontoen din om du ønsker å gjøre flere redigeringer.</string>
   <string name="description_edit_license_notice">Ved å endre tittelbeskrivelsen aksepterer jeg &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt; og samtykker til å ugjenkallelig slippe bidragene mine under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-lisensen.</string>
-  <string name="description_edit_task_unlock_title">Listen over tittelbeskrivelsesredigeringsoppgaver har blitt låst opp!</string>
+  <string name="description_edit_task_unlock_title" fuzzy="true">Listen over tittelbeskrivelsesredigeringsoppgaver har blitt låst opp!</string>
   <string name="description_edit_task_unlock_body" fuzzy="true">Vi har lagt merke til at du gjerne redigerer tittelbeskrivelser, så vi har laget en liste med flere artikler som mangler tittelbeskrivelser som du hjelpe til med å beskrive!</string>
   <string name="description_edit_success_saved">Beskrivelsen ble publisert!</string>
   <string name="description_edit_success_encouragement">Du har akkurat bidratt til å gjøre Wikipedia litt bedre for alle</string>

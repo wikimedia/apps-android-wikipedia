@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.view_description_edit_license.view.*
 import org.wikipedia.R
+import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.StringUtil
 
 class DescriptionEditLicenseView  @JvmOverloads constructor(
@@ -20,4 +21,7 @@ class DescriptionEditLicenseView  @JvmOverloads constructor(
         licenseText!!.movementMethod = LinkMovementMethod()
     }
 
+    fun removeUnderlinesFromLinks() {
+        RichTextUtil.removeUnderlinesFromLinks(licenseText)
+    }
 }

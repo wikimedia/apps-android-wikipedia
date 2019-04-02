@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.ViewPager
-import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -26,6 +25,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.RandomizerFunnel
+import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
@@ -33,11 +33,9 @@ import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.EXTRA_SOURCE
 import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.EXTRA_SOURCE_ADDED_DESCRIPTION
 import org.wikipedia.page.PageTitle
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.AnimationUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.DialogTitleWithImage
 
 class AddTitleDescriptionsFragment : Fragment() {
     private val viewPagerListener = ViewPagerListener()
@@ -51,7 +49,6 @@ class AddTitleDescriptionsFragment : Fragment() {
     var langFromCode: String = app.language().appLanguageCode
     var langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
     var source: InvokeSource = InvokeSource.EDIT_FEED_TITLE_DESC
-    var sourceDescription: CharSequence = ""
 
     private val topTitle: PageTitle?
         get() {
@@ -73,6 +70,9 @@ class AddTitleDescriptionsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
+
+        // Record the first impression, since the ViewPager doesn't send an event for the first topmost item.
+        SuggestedEditsFunnel.get().impression(source)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -90,7 +90,7 @@ class AddTitleDescriptionsFragment : Fragment() {
         wikiToLanguageSpinner.onItemSelectedListener = OnToSpinnerItemSelectedListener()
 
         addTitleDescriptionsItemPager.offscreenPageLimit = 2
-        addTitleDescriptionsItemPager.setPageTransformer(true, AnimationUtil.PagerTransformer())
+        addTitleDescriptionsItemPager.setPageTransformer(true, AnimationUtil.PagerTransformerWithoutPreviews())
         addTitleDescriptionsItemPager.addOnPageChangeListener(viewPagerListener)
 
         resetTitleDescriptionItemAdapter()
@@ -123,8 +123,6 @@ class AddTitleDescriptionsFragment : Fragment() {
                 }
             }, postDelay)
         }
-
-        showOnboarding()
     }
 
     override fun onDestroyView() {
@@ -135,6 +133,16 @@ class AddTitleDescriptionsFragment : Fragment() {
             funnel = null
         }
         super.onDestroyView()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        SuggestedEditsFunnel.get().pause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        SuggestedEditsFunnel.get().resume()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -169,38 +177,9 @@ class AddTitleDescriptionsFragment : Fragment() {
 
     fun onSelectPage() {
         if (topTitle != null) {
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, true, sourceDescription.toString(), langFromCode, source),
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, true, topChild!!.sourceDescription, langFromCode, source),
                     ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
-    }
-
-    private fun showOnboarding() {
-        if (Prefs.showEditActionAddTitleDescriptionsOnboarding() && source == InvokeSource.EDIT_FEED_TITLE_DESC) {
-            AlertDialog.Builder(requireActivity())
-                    .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.add_title_descriptions_dialog_title,
-                            R.drawable.ic_dialog_image_title_descriptions, false))
-                    .setMessage(R.string.add_title_descriptions_dialog_message)
-                    .setPositiveButton(R.string.title_descriptions_onboarding_got_it, null)
-                    .setNegativeButton(R.string.editactionfeed_add_title_dialog_learn_more) { _, _ ->
-                        FeedbackUtil.showAndroidAppEditingFAQ(context)
-                    }
-                    .show()
-            Prefs.setShowEditActionAddTitleDescriptionsOnboarding(false)
-        }
-
-        if (Prefs.showEditActionTranslateDescriptionsOnboarding() && source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
-            AlertDialog.Builder(requireActivity())
-                    .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.add_translate_descriptions_dialog_title,
-                            R.drawable.ic_dialog_image_title_descriptions, false))
-                    .setMessage(R.string.add_translate_descriptions_dialog_message)
-                    .setPositiveButton(R.string.translate_descriptions_onboarding_got_it, null)
-                    .setNegativeButton(R.string.editactionfeed_translate_title_dialog_learn_more) { _, _ ->
-                        FeedbackUtil.showAndroidAppEditingFAQ(context)
-                    }
-                    .show()
-            Prefs.setShowEditActionTranslateDescriptionsOnboarding(false)
-        }
-
     }
 
     private fun requestLanguagesAndBuildSpinner() {
@@ -243,17 +222,8 @@ class AddTitleDescriptionsFragment : Fragment() {
     }
 
     private fun setInitialUiState() {
-        wikiLanguageDropdownContainer.visibility = if (app.language().appLanguageCodes.size > 1) VISIBLE else GONE
-
-        if (source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
-            fromLabel.visibility = GONE
-            arrow.visibility = VISIBLE
-            wikiToLanguageSpinner.visibility = VISIBLE
-        } else {
-            fromLabel.visibility = VISIBLE
-            arrow.visibility = GONE
-            wikiToLanguageSpinner.visibility = GONE
-        }
+        wikiLanguageDropdownContainer.visibility = if (app.language().appLanguageCodes.size > 1
+                && source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) VISIBLE else GONE
     }
 
     private fun updateFromLanguageSpinner() {
@@ -337,6 +307,9 @@ class AddTitleDescriptionsFragment : Fragment() {
                     funnel!!.swipedBack()
                 }
             }
+
+            SuggestedEditsFunnel.get().impression(source)
+
             nextPageSelectedAutomatic = false
             prevPosition = position
         }

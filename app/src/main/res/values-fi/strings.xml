@@ -23,7 +23,7 @@
 <resources>
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beeta</string>
-  <string name="app_name_alpha">Wikipedia Alpha</string>
+  <string name="app_name_alpha">Wikipedia Alfa</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_back">Takaisin</string>
   <string name="page_tabs_back">Takaisin</string>
@@ -132,6 +132,7 @@
   <string name="reset_password_button">Tallenna ja kirjaudu sisään</string>
   <string name="preference_title_logout">Kirjaudu ulos</string>
   <string name="toast_logout_complete">Kirjauduit ulos</string>
+  <string name="logout_prompt">Haluatko varmasti kirjautua ulos?</string>
   <string name="history_empty_title">Ei äskettäin tarkasteltuja artikkeleita</string>
   <string name="history_empty_message">Pidä kirjaa lukemisistasi.</string>
   <string name="history_offline_articles_toast">Jotkut artikkelit historiassa eivät ehkä ole nähtävissä offline-tilassa.</string>
@@ -357,7 +358,7 @@
   <string name="color_theme_black">Musta</string>
   <string name="color_theme_sepia">Seepia</string>
   <string name="color_theme_test_title">Näyteteksti</string>
-  <string name="color_theme_test_text">Vedä liukusäädintä muuttaaksesi tekstin kokoa jota käytetään artikkeleiden lukemisessa. Asettaaksesi tekstin koon kokonaan muuhun sovellukseen, muuta järjestelmäsi tekstin kokoa.</string>
+  <string name="color_theme_test_text">Vedä liukusäädintä muuttaaksesi tekstin kokoa jota käytetään luettaessa artikkeleita. Asettaaksesi tekstin koon kokonaan muualle sovellukseen, muuta järjestelmäsi tekstin kokoa.</string>
   <string name="preference_title_app_theme">Sovelluksen teema</string>
   <string name="preference_summary_color_theme">Vaihda sovelluksen tummaan väriteemaan</string>
   <string name="text_size_increase">Pienennä tekstin kokoa</string>
@@ -578,10 +579,12 @@
   <string name="feed_configure_onboarding_action">Mukauta</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Mukauta Tutki-syötettä&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Voit nyt valita mitä haluat näyttää syötteessäsi, ja myös priorisoida suosikki sisältötyyppisi.</string>
   <string name="description_edit_text_hint">Otsikon kuvaus</string>
+  <string name="description_edit_text_hint_per_language">Kuvaus kielellä %s</string>
   <string name="description_edit_save">Julkaise</string>
   <string name="description_edit_article">Artikkeli</string>
   <string name="description_edit_read">Lue</string>
   <string name="description_edit_add_description">Lisää otsikon kuvaus</string>
+  <string name="description_edit_add_description_v2">Lisää kuvaus</string>
   <string name="description_edit_edit_description">Muokkaa kuvausta</string>
   <string name="add_translation">Lisää %s käännös</string>
   <string name="description_edit_cancel_hint">Peruuta</string>
@@ -592,6 +595,7 @@
   <string name="description_edit_anon_limit">Kiitos jatkuvasta mielenkiinnostasi kuvausten muokkaamiseen! Tehdäksesi lisämuokkauksia, kirjaudu sisään Wikipedia-tunnuksellesi.</string>
   <string name="description_edit_license_notice">Muuttamalla otsikon kuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssin ehtojen mukaisesti.</string>
   <string name="description_edit_success_saved">Kuvaus julkaistu!</string>
+  <string name="description_edit_success_saved_snackbar">Kuvaus julkaistu!</string>
   <string name="description_edit_success_encouragement">Teit juuri Wikipediasta kaikille paremman</string>
   <string name="description_edit_success_done">Valmis</string>
   <string name="description_edit_success_did_you_know">Tiesitkö?</string>
@@ -611,6 +615,8 @@
   <string name="editactionfeed_add_title_dialog_learn_more">Lisätietoja</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">Lisätietoja</string>
   <string name="editactionfeed_to_language">Vastaanottaja:</string>
+  <string name="editactionfeed_added_by_you">Sinun lisäämäsi:</string>
+  <string name="editactionfeed_translated_by_you">Sinun kääntämäsi:</string>
   <string name="description_edit_revert_subtitle">Kiitos Wikipedian muokkaamisesta!</string>
   <string name="description_edit_revert_intro">Tiedämme sinun yrittäneen parhaasi, mutta eräällä arvioijalla oli huolenaihe. Mahdolliset syyt muokkauksesi palauttamiselle ovat:</string>
   <string name="description_edit_revert_reason1">muokkauksesi ei noudattanut &lt;a href=\"%1$s\"&gt;käytäntöjä&lt;/a&gt;.</string>
@@ -677,6 +683,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Sinulla on tällä hetkellä valittuna sekä perinteisen että yksinkertaistetun kiinan muotoja. Haluatko päivittää kieliasetuksiasi?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Muokkaa kieliä</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ei kiitos</string>
+  <string name="wikitext_bold">Lihavoi</string>
+  <string name="wikitext_italic">Kursivoi</string>
+  <string name="wikitext_link">Linkki</string>
+  <string name="wikitext_bulleted_list">Ajatusviivallinen luettelo</string>
+  <string name="wikitext_numbered_list">Numeroitu luettelo</string>
+  <string name="wikitext_template">Malline</string>
+  <string name="wikitext_reference">Lähde</string>
+  <string name="wikitext_preview_link">Esikatsele linkki</string>
   <string name="main_drawer_open">Avaa</string>
   <string name="main_drawer_close">Sulje</string>
   <string name="main_drawer_help">Ohje</string>
@@ -694,4 +708,10 @@
   <string name="add_title_descriptions_dialog_title">Lisää otsikon kuvaukset</string>
   <string name="add_translate_descriptions_dialog_title">Olet kääntämässä ensimmäistä otsikon kuvaustasi</string>
   <string name="title_description_editing_skip">Ohita</string>
+  <string name="title_description_get_started">Aloittaminen</string>
+  <string name="translate_description_get_started">Aloittaminen</string>
+  <string name="edit_tasks_onboarding_get_started">Aloittaminen</string>
+  <string name="translate_descriptions_maybe_later">Ehkä myöhemmin</string>
+  <string name="title_descriptions_onboarding_got_it">Selvä</string>
+  <string name="translate_descriptions_onboarding_got_it">Selvä</string>
 </resources>

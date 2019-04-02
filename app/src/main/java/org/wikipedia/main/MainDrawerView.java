@@ -70,7 +70,7 @@ public class MainDrawerView extends ScrollView {
             accountAvatar.setVisibility(View.VISIBLE);
             accountWikiGlobe.setVisibility(View.GONE);
             notificationsContainer.setVisibility(View.VISIBLE);
-            if (ReleaseUtil.isPreBetaRelease() && Prefs.isActionEditDescriptionsUnlocked()) {
+            if (ReleaseUtil.isPreBetaRelease() && Prefs.isSuggestedEditsAddDescriptionsUnlocked()) {
                 editTasksContainer.setVisibility(VISIBLE);
             }
             maybeShowIndicatorDots();

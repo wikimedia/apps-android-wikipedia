@@ -34,28 +34,7 @@ public final class NotificationPresenter {
         @DrawableRes int icon = R.drawable.ic_wikipedia_w;
         @ColorRes int color = R.color.base30;
 
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        if (notificationManager == null) {
-            return;
-        }
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            NotificationChannel notificationChannel = notificationManager.getNotificationChannel(CHANNEL_ID);
-            if (notificationChannel == null) {
-                int importance = NotificationManager.IMPORTANCE_HIGH;
-                notificationChannel = new NotificationChannel(CHANNEL_ID,
-                        context.getString(R.string.notification_echo_channel_description), importance);
-                notificationChannel.setLightColor(ContextCompat.getColor(context, R.color.accent50));
-                notificationChannel.enableVibration(true);
-                notificationManager.createNotificationChannel(notificationChannel);
-            }
-        }
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
-                .setDefaults(NotificationCompat.DEFAULT_ALL)
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setAutoCancel(true);
-
+        NotificationCompat.Builder builder = getDefaultBuilder(context);
 
         title = StringUtil.fromHtml(n.getContents() != null ? n.getContents().getHeader() : "").toString();
 
@@ -96,15 +75,42 @@ public final class NotificationPresenter {
                 break;
         }
 
-        builder.setContentIntent(PendingIntent.getActivity(context, REQUEST_CODE_ACTIVITY, activityIntent, PendingIntent.FLAG_UPDATE_CURRENT))
+        showNotification(context, builder, (int) n.key(), wikiSiteName, title, title, icon, color, activityIntent);
+    }
+
+    public static NotificationCompat.Builder getDefaultBuilder(@NonNull Context context) {
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationChannel notificationChannel = notificationManager.getNotificationChannel(CHANNEL_ID);
+            if (notificationChannel == null) {
+                int importance = NotificationManager.IMPORTANCE_HIGH;
+                notificationChannel = new NotificationChannel(CHANNEL_ID,
+                        context.getString(R.string.notification_echo_channel_description), importance);
+                notificationChannel.setLightColor(ContextCompat.getColor(context, R.color.accent50));
+                notificationChannel.enableVibration(true);
+                notificationManager.createNotificationChannel(notificationChannel);
+            }
+        }
+        return new NotificationCompat.Builder(context, CHANNEL_ID)
+                .setDefaults(NotificationCompat.DEFAULT_ALL)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setAutoCancel(true);
+    }
+
+    @SuppressWarnings("checkstyle:parameternumber")
+    public static void showNotification(@NonNull Context context, @NonNull NotificationCompat.Builder builder, int id,
+                                        @NonNull String title, @NonNull String text, @NonNull CharSequence longText,
+                                        @DrawableRes int icon, @ColorRes int color, @NonNull Intent bodyIntent) {
+        builder.setContentIntent(PendingIntent.getActivity(context, REQUEST_CODE_ACTIVITY, bodyIntent, PendingIntent.FLAG_UPDATE_CURRENT))
                 .setLargeIcon(drawNotificationBitmap(context, color, icon))
                 .setSmallIcon(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? R.drawable.ic_wikipedia_w : R.mipmap.launcher)
                 .setColor(ContextCompat.getColor(context, color))
-                .setContentTitle(wikiSiteName)
-                .setContentText(title)
-                .setStyle(new NotificationCompat.BigTextStyle().bigText(title));
+                .setContentTitle(title)
+                .setContentText(text)
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(longText));
 
-        notificationManager.notify((int) n.key(), builder.build());
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(id, builder.build());
     }
 
     private static void addAction(Context context, NotificationCompat.Builder builder, Notification.Link link, int requestCode) {

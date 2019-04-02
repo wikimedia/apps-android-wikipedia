@@ -32,17 +32,17 @@
     <TextView
         android:id="@+id/viewArticleTitle"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="55dp"
         android:textSize="14sp"
         android:textColor="?attr/material_theme_primary_color"
         android:lineSpacingExtra="6sp"
         android:layout_marginStart="16dp"
+        android:fontFamily="serif"
         android:gravity="center_vertical"
         app:layout_constraintStart_toEndOf="@+id/viewArticleImage"
         app:layout_constraintEnd_toStartOf="@+id/viewReadButton"
         app:layout_constraintTop_toBottomOf="@+id/viewDivider"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintVertical_weight="1"/>
 
     <TextView
@@ -50,16 +50,14 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:textSize="14sp"
-        android:textColor="?attr/colorAccent"
+        android:textColor="?attr/material_theme_de_emphasised_color"
         android:text="@string/description_edit_read"
         android:fontFamily="sans-serif-medium"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:background="?android:attr/selectableItemBackground"
         android:gravity="center_vertical"
         android:textAllCaps="true"
         app:layout_constraintVertical_weight="1"
-        app:layout_constraintStart_toEndOf="@+id/viewArticleTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewDivider"
         app:layout_constraintBottom_toBottomOf="parent"/>
