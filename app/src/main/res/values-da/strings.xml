@@ -583,7 +583,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Tak for din fortsatte interesse i at redigere beskrivelser! Log venligst ind på din Wikipedia-konto for at foretage yderligere redigeringer.</string>
   <string name="description_edit_license_notice">Ved at ændre titelbeskrivelsen accepterer jeg &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt; samt at uigenkaldeligt frigive mine bidrag under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-licensen.</string>
-  <string name="description_edit_task_unlock_title">Listen over opgaver vedrørende redigering af titelbeskrivelser er blevet låst op!</string>
+  <string name="description_edit_task_unlock_title" fuzzy="true">Listen over opgaver vedrørende redigering af titelbeskrivelser er blevet låst op!</string>
   <string name="description_edit_task_unlock_body" fuzzy="true">Vi har bemærket at du kan lide at redigere titelbeskrivelser, så vi har udformet en liste med flere artikler som mangler titelbeskrivelser for at hjælpe dig til at forsætte med at bidrage!</string>
   <string name="description_edit_success_saved">Beskrivelsen blev offentliggjort!</string>
   <string name="description_edit_success_encouragement">Du har lige gjort Wikipedia bedre for alle</string>
@@ -605,6 +605,7 @@
   <string name="editactionfeed_add_title_dialog_learn_more">Lær mere</string>
   <string name="editactionfeed_translate_title_dialog_learn_more">Lær mere</string>
   <string name="editactionfeed_to_language">Til:</string>
+  <string name="editactionfeed_translated_by_you">Oversat af dig:</string>
   <string name="description_edit_revert_subtitle">Tak for din redigering af Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi ved at du har gjort dit bedste, men en af korrekturlæserne havde en indvending. Blandt mulige årsager til at din redigering blev omgjort kan nævnes:</string>
   <string name="description_edit_revert_reason1">dit bidrag fulgte ikke en af &lt;a href=\"%1$s\"&gt;retningslinjerne&lt;/a&gt;.</string>

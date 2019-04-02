@@ -127,6 +127,7 @@
   <string name="reset_password_button">সংরক্ষণ ও প্রবেশ করুন</string>
   <string name="preference_title_logout">প্রস্থান</string>
   <string name="toast_logout_complete">প্রস্থান সম্পন্ন</string>
+  <string name="logout_prompt">আপনি কি নিশ্চিত যে আপনি প্রস্থান করতে চান?</string>
   <string name="history_empty_title">সম্প্রতি কোন নিবন্ধ দেখা হয়নি</string>
   <string name="history_empty_message">এখানে আপনি কি পড়ছেন তা অনুসরণ করুন।</string>
   <string name="history_offline_articles_toast">অফলাইন থাকাকালীন ইতিহাসের কিছু নিবন্ধ অপ্রদর্শিত হতে পারে।</string>
@@ -359,7 +360,7 @@
   <string name="reading_list_sort_ellipsis">বাছাই করুন...</string>
   <string name="reading_list_sort_by_name">নাম অনুযায়ী বাছাই</string>
   <string name="reading_list_sort_by_name_desc">নাম অনুযায়ী বাছাই (বিপরীত)</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">সাম্প্রতিক অনুযায়ী বাছাই</string>
+  <string name="reading_list_sort_by_recent">যোগের তারিখ অনুযায়ী বাছাই (নবীনতম)</string>
   <string name="reading_list_sort_by_recent_desc">যোগের তারিখ অনুযায়ী সাজান (প্রাচীনতম)</string>
   <string name="reading_list_sort_by_created">সৃষ্টির তারিখ অনুযায়ী সাজান (নবীনতম)</string>
   <string name="reading_list_sort_by_created_desc">সৃষ্টির তারিখ অনুযায়ী সাজান (প্রাচীনতম)</string>
@@ -523,9 +524,9 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">এক লাইনে, দুই থেকে বারো পর্যন্ত শব্দ রাখা যাবে</string>
   <string name="description_edit_tutorial_button_label_start_editing">সম্পাদনা শুরু করুন</string>
   <string name="description_edit_tutorial_promise">শুরু করার দ্বারা, আমি প্রতিজ্ঞা করছি এই বৈশিষ্ট্যের অপব্যবহার করব না।</string>
-  <string name="editactionfeed_add_title_descriptions" fuzzy="true">শিরোনামের বিবরণ যোগ করুন</string>
+  <string name="editactionfeed_add_title_descriptions">বিবরণ যোগ করুন</string>
   <string name="editactionfeed_translate_descriptions">শিরোনামের বিবরণ অনুবাদ করুন</string>
-  <string name="editactionfeed_review_title_description" fuzzy="true">শিরোনামের বিবরণ পর্যালোচনা করুন</string>
+  <string name="editactionfeed_review_title_description">বিবরণ পর্যালোচনা করুন</string>
   <string name="editactionfeed_add_description_button">বিবরণ যোগ করুন</string>
   <string name="editactionfeed_my_contributions">আমার অবদান</string>
   <string name="editactionfeed_from_language">প্রেরক:</string>
@@ -586,6 +587,9 @@
   <string name="add_wikipedia_languages_text">উইকিপিডিয়ার ভাষা যোগ করুন</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ভাষা সম্পাদনা করুন</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">না ধন্যবাদ</string>
+  <string name="wikitext_bold">গাঢ়</string>
+  <string name="wikitext_italic">বাঁকা</string>
+  <string name="wikitext_template">টেমপ্লেট</string>
   <string name="main_drawer_open">খুলুন</string>
   <string name="main_drawer_close">বন্ধ করুন</string>
   <string name="main_drawer_help">সাহায্য</string>
@@ -593,4 +597,5 @@
   <string name="multilingual_task_negative">আমার জন্য নয়</string>
   <string name="multilingual_task_positive">ভাষা যোগ করুন</string>
   <string name="translation_source_description">%s বিবরণ:</string>
+  <string name="suggested_edits_menu_info">তথ্য</string>
 </resources>

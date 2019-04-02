@@ -594,7 +594,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/zh</string>
   <string name="description_edit_anon_limit">感谢您对继续编辑描述感兴趣！要做出额外编辑，请登录您的维基百科账户。</string>
   <string name="description_edit_license_notice">通过更改标题描述，表明我同意&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;知识共享CC0&lt;/a&gt;许可协议不可撤销地发表我的贡献。</string>
-  <string name="description_edit_task_unlock_title">“词条描述”编辑任务列表已解锁！</string>
+  <string name="description_edit_task_unlock_title" fuzzy="true">“词条描述”编辑任务列表已解锁！</string>
   <string name="description_edit_task_unlock_body" fuzzy="true">我们注意到您偏好编辑条目描述，故我们汇编了一个内含缺少标题描述的条目的“应用程序编者任务”列表来助你持续贡献！</string>
   <string name="description_edit_success_saved">描述已发布！</string>
   <string name="description_edit_success_encouragement">您只是让维基百科更好地服务大家</string>
@@ -711,8 +711,8 @@
   <string name="add_translate_descriptions_dialog_title">你正首次尝试翻译词条概述</string>
   <string name="add_translate_descriptions_dialog_message">现在你可以通过翻译标题描述帮助改进维基百科了。你可以随时确认或重置所使用的语言。</string>
   <string name="description_edit_tutorial_message" fuzzy="true">欢迎来到维基百科的新版应用内编辑界面。在这里，我们会提供你感兴趣的内容供你编辑。向你的贡献致敬！祝编辑愉快~</string>
-  <string name="translation_description_edit_task_unlock_title">编辑标题描述功能已解锁！</string>
-  <string name="translation_description_edit_task_unlock_body">我们注意到您喜欢编辑标题描述，同时也常阅读多种语言版本的维基百科词条。欢迎查看此列表并帮助我们翻译更多的标题描述。</string>
+  <string name="translation_description_edit_task_unlock_title" fuzzy="true">编辑标题描述功能已解锁！</string>
+  <string name="translation_description_edit_task_unlock_body" fuzzy="true">我们注意到您喜欢编辑标题描述，同时也常阅读多种语言版本的维基百科词条。欢迎查看此列表并帮助我们翻译更多的标题描述。</string>
   <string name="title_description_editing_skip">跳过</string>
   <string name="title_description_get_started">入门</string>
   <string name="translate_description_get_started">入门</string>
