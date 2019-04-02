@@ -55,7 +55,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setConditionalLayoutDirection(viewArticleContainer, if (parent().source == InvokeSource.EDIT_FEED_TITLE_DESC) parent().langFromCode else parent().langToCode)
+        setConditionalLayoutDirection(viewArticleContainer, parent().langFromCode)
         viewArticleImage.setLegacyVisibilityHandlingEnabled(true)
         cardItemErrorView.setBackClickListener { requireActivity().finish() }
         cardItemErrorView.setRetryClickListener {
