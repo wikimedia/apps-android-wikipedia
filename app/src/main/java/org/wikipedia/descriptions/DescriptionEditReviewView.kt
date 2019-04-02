@@ -18,7 +18,7 @@ class DescriptionEditReviewView @JvmOverloads constructor(
 
     init {
         inflate(context, R.layout.view_description_edit_review, this)
-        licenseView.useSuggestedEditsLicenseNotice()
+        licenseView.buildLicenseNotice(false)
         licenseView.removeUnderlinesFromLinks()
     }
 

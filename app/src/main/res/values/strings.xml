@@ -198,6 +198,7 @@
     <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
     <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
     <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+    <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
     <string name="about_libraries_heading">Libraries used</string>
     <string name="about_contributors_heading">Contributors</string>
     <string name="about_translators_heading">Translators</string>
@@ -655,6 +656,7 @@
     <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Suggested edits\n\nCongratulations on your 50th contribution, we’re impressed! You’re using the app in multiple languages, so we’ve compiled a list of articles needing description translations. Could you continue to help us improving Wikipedia?</string>
     <string name="suggested_edits_unlock_notification_button">Yes, let’s go</string>
     <string name="suggested_edits_license_notice"><![CDATA[By adding the title description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
+    <string name="suggested_edits_menu_info">Info</string>
     <string name="title_description_task_title">Add descriptions</string>
     <string name="title_description_task_description">Contribute to articles without descriptions</string>
     <string name="image_caption_task_title">Caption images</string>
@@ -675,8 +677,6 @@
     </plurals>
     <string name="description_edit_tutorial_message">Welcome to the new home for quick editing in the Wikipedia app. Your contributions are much appreciated. Happy editing!</string>
     <string name="edit_tasks_onboarding_get_started">Get started</string>
-    <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-    <string name="suggested_edits_menu_info">Info</string>
     <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->
