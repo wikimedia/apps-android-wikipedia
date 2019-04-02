@@ -25,6 +25,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.RandomizerFunnel
+import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
@@ -69,6 +70,9 @@ class AddTitleDescriptionsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
+
+        // Record the first impression, since the ViewPager doesn't send an event for the first topmost item.
+        SuggestedEditsFunnel.get().impression(source)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -129,6 +133,16 @@ class AddTitleDescriptionsFragment : Fragment() {
             funnel = null
         }
         super.onDestroyView()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        SuggestedEditsFunnel.get().pause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        SuggestedEditsFunnel.get().resume()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -293,6 +307,9 @@ class AddTitleDescriptionsFragment : Fragment() {
                     funnel!!.swipedBack()
                 }
             }
+
+            SuggestedEditsFunnel.get().impression(source)
+
             nextPageSelectedAutomatic = false
             prevPosition = position
         }
