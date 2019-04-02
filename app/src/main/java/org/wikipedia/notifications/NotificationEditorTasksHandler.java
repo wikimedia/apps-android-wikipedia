@@ -78,7 +78,7 @@ public final class NotificationEditorTasksHandler {
     }
 
     public static void maybeShowTranslateDescriptionUnlockNotification(@NonNull Context context, boolean forced) {
-        if (!WikipediaApp.getInstance().isAnyActivityResumed() && !Prefs.isSuggestedEditsTranslateDescriptionsMessageShown()  || forced) {
+        if (!WikipediaApp.getInstance().isAnyActivityResumed() && !Prefs.isSuggestedEditsTranslateDescriptionsMessageShown() || forced) {
             Prefs.setSuggestedEditsTranslateDescriptionsMessageShown(true);
             SuggestedEditsFunnel.get(Constants.InvokeSource.NOTIFICATION).pause();
             Intent intent = EditTasksActivity.newIntent(context, Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC);
