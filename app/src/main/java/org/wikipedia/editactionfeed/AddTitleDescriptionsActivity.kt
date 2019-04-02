@@ -3,14 +3,12 @@ package org.wikipedia.editactionfeed
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.NavUtils
 import android.support.v7.app.AlertDialog
 import android.view.Menu
 import android.view.MenuItem
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.editactionfeed.AddTitleDescriptionsFragment.Companion.newInstance
