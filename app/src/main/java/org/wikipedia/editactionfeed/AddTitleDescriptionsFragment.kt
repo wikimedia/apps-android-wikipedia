@@ -51,7 +51,6 @@ class AddTitleDescriptionsFragment : Fragment() {
     var langFromCode: String = app.language().appLanguageCode
     var langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
     var source: InvokeSource = InvokeSource.EDIT_FEED_TITLE_DESC
-    var sourceDescription: CharSequence = ""
 
     private val topTitle: PageTitle?
         get() {
@@ -169,7 +168,7 @@ class AddTitleDescriptionsFragment : Fragment() {
 
     fun onSelectPage() {
         if (topTitle != null) {
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, true, sourceDescription.toString(), langFromCode, source),
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, true, topChild!!.sourceDescription, langFromCode, source),
                     ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
     }
