@@ -66,7 +66,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
         }
 
         cardView.setOnClickListener {
-            if (!TextUtils.isEmpty(sourceDescription)) {
+            if (summary != null) {
                 parent().onSelectPage()
             }
         }
