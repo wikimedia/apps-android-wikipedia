@@ -52,6 +52,46 @@ public class SuggestedEditsFunnel extends TimedFunnel {
         preprocessData(eventData, "session_token", parentSessionToken);
     }
 
+    public void impression(Constants.InvokeSource source) {
+        if (source == Constants.InvokeSource.EDIT_FEED_TITLE_DESC) {
+            statsCollection.addDescriptionStats.impressions++;
+        } else if (source == Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
+            statsCollection.translateDescriptionStats.impressions++;
+        }
+    }
+
+    public void click(Constants.InvokeSource source) {
+        if (source == Constants.InvokeSource.EDIT_FEED_TITLE_DESC) {
+            statsCollection.addDescriptionStats.clicks++;
+        } else if (source == Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
+            statsCollection.translateDescriptionStats.clicks++;
+        }
+    }
+
+    public void cancel(Constants.InvokeSource source) {
+        if (source == Constants.InvokeSource.EDIT_FEED_TITLE_DESC) {
+            statsCollection.addDescriptionStats.cancels++;
+        } else if (source == Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
+            statsCollection.translateDescriptionStats.cancels++;
+        }
+    }
+
+    public void success(Constants.InvokeSource source) {
+        if (source == Constants.InvokeSource.EDIT_FEED_TITLE_DESC) {
+            statsCollection.addDescriptionStats.successes++;
+        } else if (source == Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
+            statsCollection.translateDescriptionStats.successes++;
+        }
+    }
+
+    public void failure(Constants.InvokeSource source) {
+        if (source == Constants.InvokeSource.EDIT_FEED_TITLE_DESC) {
+            statsCollection.addDescriptionStats.failures++;
+        } else if (source == Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
+            statsCollection.translateDescriptionStats.failures++;
+        }
+    }
+
     public SuggestedEditStats getAddDescriptionStats() {
         return statsCollection.addDescriptionStats;
     }
@@ -83,31 +123,12 @@ public class SuggestedEditsFunnel extends TimedFunnel {
         @SerializedName("translate-description") private SuggestedEditStats translateDescriptionStats = new SuggestedEditStats();
     }
 
-    public static class SuggestedEditStats {
+    @SuppressWarnings("unused")
+    private static class SuggestedEditStats {
         private int impressions;
         private int clicks;
         private int cancels;
         private int successes;
         private int failures;
-
-        public void impression() {
-            impressions++;
-        }
-
-        public void click() {
-            clicks++;
-        }
-
-        public void cancel() {
-            cancels++;
-        }
-
-        public void success() {
-            successes++;
-        }
-
-        public void failure() {
-            failures++;
-        }
     }
 }

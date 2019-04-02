@@ -46,7 +46,7 @@ public class EditTasksActivity extends SingleFragmentActivity<EditTasksFragment>
         super.onDestroy();
         SuggestedEditsFunnel.get().log();
     }
-    
+
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:

@@ -96,11 +96,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     @Override
     public DescriptionEditFragment createFragment() {
         invokeSource = (InvokeSource) getIntent().getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE);
-        if (invokeSource == InvokeSource.EDIT_FEED_TITLE_DESC) {
-            SuggestedEditsFunnel.get().getAddDescriptionStats().click();
-        } else if (invokeSource == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
-            SuggestedEditsFunnel.get().getTranslateDescriptionStats().click();
-        }
+        SuggestedEditsFunnel.get().click(invokeSource);
 
         return DescriptionEditFragment.newInstance(GsonUnmarshaller.unmarshal(PageTitle.class,
                 getIntent().getStringExtra(EXTRA_TITLE)),
@@ -117,11 +113,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
             getFragment().editView.loadReviewContent(false);
         } else {
             hideSoftKeyboard(this);
-            if (invokeSource == InvokeSource.EDIT_FEED_TITLE_DESC) {
-                SuggestedEditsFunnel.get().getAddDescriptionStats().cancel();
-            } else if (invokeSource == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
-                SuggestedEditsFunnel.get().getTranslateDescriptionStats().cancel();
-            }
+            SuggestedEditsFunnel.get().cancel(invokeSource);
             super.onBackPressed();
         }
     }

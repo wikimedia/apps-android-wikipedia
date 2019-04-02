@@ -87,11 +87,7 @@ public class DescriptionEditFragment extends Fragment {
                 NotificationPollBroadcastReceiver.pollEditorTaskCounts(requireContext());
             }
             Prefs.setLastDescriptionEditTime(new Date().getTime());
-            if (invokeSource == InvokeSource.EDIT_FEED_TITLE_DESC) {
-                SuggestedEditsFunnel.get().getAddDescriptionStats().success();
-            } else if (invokeSource == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
-                SuggestedEditsFunnel.get().getTranslateDescriptionStats().success();
-            }
+            SuggestedEditsFunnel.get().success(invokeSource);
 
             if (getActivity() == null)  {
                 return;
@@ -325,11 +321,7 @@ public class DescriptionEditFragment extends Fragment {
             if (funnel != null && logError) {
                 funnel.logError(caught.getMessage());
             }
-            if (invokeSource == InvokeSource.EDIT_FEED_TITLE_DESC) {
-                SuggestedEditsFunnel.get().getAddDescriptionStats().cancel();
-            } else if (invokeSource == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
-                SuggestedEditsFunnel.get().getTranslateDescriptionStats().cancel();
-            }
+            SuggestedEditsFunnel.get().cancel(invokeSource);
         }
 
         @Override
