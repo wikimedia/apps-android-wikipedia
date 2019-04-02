@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.ViewPager
-import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -33,11 +32,9 @@ import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.EXTRA_SOURCE
 import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.EXTRA_SOURCE_ADDED_DESCRIPTION
 import org.wikipedia.page.PageTitle
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.AnimationUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.DialogTitleWithImage
 
 class AddTitleDescriptionsFragment : Fragment() {
     private val viewPagerListener = ViewPagerListener()
@@ -122,8 +119,6 @@ class AddTitleDescriptionsFragment : Fragment() {
                 }
             }, postDelay)
         }
-
-        showOnboarding()
     }
 
     override fun onDestroyView() {
@@ -171,35 +166,6 @@ class AddTitleDescriptionsFragment : Fragment() {
             startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, true, topChild!!.sourceDescription, langFromCode, source),
                     ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
-    }
-
-    private fun showOnboarding() {
-        if (Prefs.showEditActionAddTitleDescriptionsOnboarding() && source == InvokeSource.EDIT_FEED_TITLE_DESC) {
-            AlertDialog.Builder(requireActivity())
-                    .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.add_title_descriptions_dialog_title,
-                            R.drawable.ic_dialog_image_title_descriptions, false))
-                    .setMessage(R.string.add_title_descriptions_dialog_message)
-                    .setPositiveButton(R.string.title_descriptions_onboarding_got_it, null)
-                    .setNegativeButton(R.string.editactionfeed_add_title_dialog_learn_more) { _, _ ->
-                        FeedbackUtil.showAndroidAppEditingFAQ(context)
-                    }
-                    .show()
-            Prefs.setShowEditActionAddTitleDescriptionsOnboarding(false)
-        }
-
-        if (Prefs.showEditActionTranslateDescriptionsOnboarding() && source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
-            AlertDialog.Builder(requireActivity())
-                    .setCustomTitle(DialogTitleWithImage(requireActivity(), R.string.add_translate_descriptions_dialog_title,
-                            R.drawable.ic_dialog_image_title_descriptions, false))
-                    .setMessage(R.string.add_translate_descriptions_dialog_message)
-                    .setPositiveButton(R.string.translate_descriptions_onboarding_got_it, null)
-                    .setNegativeButton(R.string.editactionfeed_translate_title_dialog_learn_more) { _, _ ->
-                        FeedbackUtil.showAndroidAppEditingFAQ(context)
-                    }
-                    .show()
-            Prefs.setShowEditActionTranslateDescriptionsOnboarding(false)
-        }
-
     }
 
     private fun requestLanguagesAndBuildSpinner() {
