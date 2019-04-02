@@ -21,6 +21,13 @@ class DescriptionEditLicenseView  @JvmOverloads constructor(
         licenseText!!.movementMethod = LinkMovementMethod()
     }
 
+    fun useSuggestedEditsLicenseNotice() {
+        licenseText!!.text = StringUtil.fromHtml(String
+                .format(context.getString(R.string.suggested_edits_license_notice),
+                        context.getString(R.string.terms_of_use_url),
+                        context.getString(R.string.cc_0_url)))
+    }
+
     fun removeUnderlinesFromLinks() {
         RichTextUtil.removeUnderlinesFromLinks(licenseText)
     }

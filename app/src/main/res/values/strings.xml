@@ -659,6 +659,7 @@
     <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Suggested edits\n\nCongratulations on your third contribution. Since you’re super good at editing, we’ve compiled a list of articles missing descriptions. Could you help us to improve Wikipedia?</string>
     <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Suggested edits\n\nCongratulations on your 50th contribution, we’re impressed! You’re using the app in multiple languages, so we’ve compiled a list of articles needing description translations. Could you continue to help us improving Wikipedia?</string>
     <string name="suggested_edits_unlock_notification_button">Yes, let’s go</string>
+    <string name="suggested_edits_license_notice"><![CDATA[By adding the title description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
     <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->
