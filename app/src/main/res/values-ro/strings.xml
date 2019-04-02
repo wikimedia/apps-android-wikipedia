@@ -373,5 +373,5 @@
   <string name="more_language_options">mai mult</string>
   <string name="translation_source_description">Descrierea %s:</string>
   <string name="translate_caption_task_description">Traduceți subtitrările în alte limbi</string>
-  <string name="translation_description_edit_task_unlock_title">Traducerea editării descrierilor titlurilor a fost deblocată!</string>
+  <string name="translation_description_edit_task_unlock_title" fuzzy="true">Traducerea editării descrierilor titlurilor a fost deblocată!</string>
 </resources>

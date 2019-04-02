@@ -130,6 +130,7 @@
   <string name="reset_password_button">Uložit a přihlásit se</string>
   <string name="preference_title_logout">Odhlásit se</string>
   <string name="toast_logout_complete">Odhlášeno</string>
+  <string name="logout_prompt">Jste si jisti, že se chcete odhlásit?</string>
   <string name="history_empty_title">Nejsou zde žádné nedávno navštívené stránky</string>
   <string name="history_empty_message">Mějte přehled o tom, co jste zde četli.</string>
   <string name="history_offline_articles_toast">Některé články v historii nemusí být zobrazeny, když je zařízení offline.</string>
@@ -511,7 +512,7 @@
   <string name="notifications_archive">Označit jako přečtené</string>
   <plurals name="notification_archive_message">
     <item quantity="one">Upozornění bylo archivováno</item>
-    <item quantity="few">%d upozornění byly archivovány</item>
+    <item quantity="few">%d upozornění byla archivována</item>
     <item quantity="other">%d upozornění bylo archivováno</item>
   </plurals>
   <string name="notifications_poll_enable_title">Aktivovat upozornění</string>
@@ -530,6 +531,8 @@
   <string name="preference_summary_notification_milestone">Dosáhli jste určitého počtu editací</string>
   <string name="preference_title_notification_thanks">Poděkování</string>
   <string name="preference_summary_notification_thanks">Někdo Vám poděkoval za Vaši editaci</string>
+  <string name="preference_title_notification_revert">Vrácení zpět</string>
+  <string name="preference_summary_notification_revert">Jeden z vašich příspěvků byl vrácen zpět</string>
   <string name="view_continue_reading_card_title">Pokračovat ve čtení</string>
   <string name="view_because_you_read_card_title">Protože čtete</string>
   <string name="view_random_card_title">Náhodný článek</string>
@@ -595,8 +598,8 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/cs</string>
   <string name="description_edit_anon_limit">Děkujeme za váš trvalý zájem o editaci popisů! Chcete-li provést další úpravy, přihlaste se prosím k účtu Wikipedie.</string>
   <string name="description_edit_license_notice">Změnou popisu souhlasím s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelně souhlasím s podmínkami licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_task_unlock_title">Tipy pro popisy článků byly odemknuty!</string>
-  <string name="description_edit_task_unlock_body">Všimli jsme si, že se vám líbí editace popisů článků a proto jsme sestavili seznam „Úkoly pro wikipedisty“ s články, kterým chybějí popisy. Úkoly vám pomohou přispívat do Wikipedie!</string>
+  <string name="description_edit_task_unlock_title">Odemkli jste přidávání popisů!</string>
+  <string name="description_edit_task_unlock_body">Děkujeme za vaše příspěvky! Vzhledem k tomu, že se jste v editaci dobří, nabízíme vám seznam článků, kterým chybí popisy. Pomůžete nám prosím vylepšit Wikipedii?</string>
   <string name="description_edit_success_saved">Popis byl zveřejněn!</string>
   <string name="description_edit_success_saved_snackbar">Popis byl zveřejněn!</string>
   <string name="description_edit_success_encouragement">Wikipedie je díky vám lepší než předtím, děkujeme ☺</string>
@@ -631,7 +634,8 @@
   <string name="size_mb">%.2f MB</string>
   <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">zbývá 1 minuta</item>
-    <item quantity="other">%d minut zbývá</item>
+    <item quantity="few">zbývají %d minuty</item>
+    <item quantity="other">zbývá %d minut</item>
   </plurals>
   <string name="onboarding_skip">Přeskočit</string>
   <string name="onboarding_continue">Pokračovat</string>
@@ -686,6 +690,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">V současné době máte ve svých jazycích aplikaci nastavenou jak Tradiční, tak Zjednodušenou čínštinu. Chcete aktualizovat nastavení jazyků aplikace?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Upravit jazyky</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ne, děkuji</string>
+  <string name="wikitext_bold">Tučné</string>
+  <string name="wikitext_italic">Kurzíva</string>
+  <string name="wikitext_link">Odkaz</string>
+  <string name="wikitext_bulleted_list">Seznam s odrážkami</string>
+  <string name="wikitext_numbered_list">Číslovaný seznam</string>
+  <string name="wikitext_template">Šablona</string>
+  <string name="wikitext_reference">Reference</string>
+  <string name="wikitext_preview_link">Náhled odkazu</string>
   <string name="main_drawer_open">Otevřít</string>
   <string name="main_drawer_close">Zavřít</string>
   <string name="main_drawer_help">Nápověda</string>
@@ -698,7 +710,7 @@
   <string name="multilingual_task_description">Tipy k překladu budou k dispozici, pokud čtete a píšete ve více než jednom jazyce Wikipedie.</string>
   <string name="translation_task_title">Překládat popisy článků</string>
   <string name="translation_task_description">Překládat popisy článků napříč jazyky.</string>
-  <string name="image_caption_edit_disable_text">Zamknuto, dokud neprovedete %d prověřené příspěvky</string>
+  <string name="image_caption_edit_disable_text">Zamknuto, dokud neprovedete %d prověřených příspěvků</string>
   <string name="translate_description_edit_disable_text">Zamčeno, dokud neprovedete %d ověřené příspěvky</string>
   <string name="multilingual_task_negative">Není pro mě</string>
   <string name="multilingual_task_positive">Přidat jazyky</string>
@@ -716,8 +728,8 @@
   <string name="add_translate_descriptions_dialog_title">Poprvé překládáte popisy článků</string>
   <string name="add_translate_descriptions_dialog_message">Nyní můžete zlepšit Wikipedii překladem popisů článků. Můžete si nakonfigurovat jazyky a kdykoli změnit směr překladu.</string>
   <string name="description_edit_tutorial_message">Vítejte v novém domově pro jednoduchou editaci Wikipedie v aplikaci. Vaše příspěvky jsou velmi oceňovány. Hodně štěstí!</string>
-  <string name="translation_description_edit_task_unlock_title">Překládání popisů článků bylo odemčeno!</string>
-  <string name="translation_description_edit_task_unlock_body">Všimli jsme si, že máte rádi editaci popisů článků a čtení Wikipedie ve více jazycích. \nPodívejte se na tento seznam úkolů, který poskytuje přístup k překladu více popisů článků!</string>
+  <string name="translation_description_edit_task_unlock_title">Odemkli jste překládání popisů!</string>
+  <string name="translation_description_edit_task_unlock_body">Děkujeme za vaše příspěvky! Používáte aplikaci ve více jazycích, takže jsme sestavili seznam článků, které potřebují překlady popisu. Mohli byste nám i nadále pomáhat vylepšit Wikipedii?</string>
   <string name="title_description_editing_skip">Přeskočit</string>
   <string name="title_description_get_started">Začít</string>
   <string name="translate_description_get_started">Začít</string>
@@ -726,4 +738,5 @@
   <string name="title_descriptions_onboarding_got_it">Rozumím</string>
   <string name="translate_descriptions_onboarding_got_it">Rozumím</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/cs</string>
+  <string name="suggested_edits_menu_info">Informace</string>
 </resources>

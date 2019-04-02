@@ -126,6 +126,7 @@
   <string name="reset_password_button">שמירה וכניסה לחשבון</string>
   <string name="preference_title_logout">יציאה מהחשבון</string>
   <string name="toast_logout_complete">יצאת מהחשבון</string>
+  <string name="logout_prompt">האם ברצונך באמת לצאת מהחשבון?</string>
   <string name="history_empty_title">אין ערכים שהוצגו לאחרונה</string>
   <string name="history_empty_message">כאן עוקבים אחרי מה שקראת.</string>
   <string name="history_offline_articles_toast">ייתכן שחלק מהערכים בהיסטוריה אינם זמינים להצגה ללא חיבור לרשת.</string>
@@ -588,8 +589,8 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">תודה על ההתעניינות בעריכת תיאורים! כדי לעשות עריכות נוספות, נא להיכנס לחשבון הוויקיפדיה שלך.</string>
   <string name="description_edit_license_notice">שינוי תיאור הכותרת מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטוב קומונז CC0&lt;/a&gt;.</string>
-  <string name="description_edit_task_unlock_title">רשימת משימות עריכת תיאורי כותרת נפתחה!</string>
-  <string name="description_edit_task_unlock_body">הבחנו שעריכת תיאורי כותרת נושאת חן בעיניך, לכן אספנו רשימת „משימות עריכה” עם ערכים נוספים שחסר להם תיאור וישמחו לקבל את התייחסותך!</string>
+  <string name="description_edit_task_unlock_title" fuzzy="true">רשימת משימות עריכת תיאורי כותרת נפתחה!</string>
+  <string name="description_edit_task_unlock_body" fuzzy="true">הבחנו שעריכת תיאורי כותרת נושאת חן בעיניך, לכן אספנו רשימת „משימות עריכה” עם ערכים נוספים שחסר להם תיאור וישמחו לקבל את התייחסותך!</string>
   <string name="description_edit_success_saved">התיאור פורסם!</string>
   <string name="description_edit_success_saved_snackbar">התיאור פורסם!</string>
   <string name="description_edit_success_encouragement">שיפרת עכשיו את ויקיפדיה עבור כולם</string>
@@ -679,6 +680,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">כרגע מוגדרות גם סינית מסורתית וגם סינית מפושטת בהגדרות השפה של היישום שלך. האם ברצונך לעדכן את הגדרות השפה של היישום?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">עריכת השפות</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">לא, תודה</string>
+  <string name="wikitext_bold">בולט</string>
+  <string name="wikitext_italic">נטוי</string>
+  <string name="wikitext_link">קישור</string>
+  <string name="wikitext_bulleted_list">רשימה עם תבליטים</string>
+  <string name="wikitext_numbered_list">רשימה ממוספרת</string>
+  <string name="wikitext_template">תבנית</string>
+  <string name="wikitext_reference">הערת שוליים</string>
+  <string name="wikitext_preview_link">תצוגה מקדימה של קישור</string>
   <string name="main_drawer_open">פתיחה</string>
   <string name="main_drawer_close">סגירה</string>
   <string name="main_drawer_help">עזרה</string>
@@ -708,8 +717,8 @@
   <string name="add_translate_descriptions_dialog_title">אתם מתרגמים את תיאורי הכותרת בפעם הראשונה</string>
   <string name="add_translate_descriptions_dialog_message">עכשיו אפשר לשפר את ויקיפדיה באמצעות תרגום תיאורי כותרת. אפשר להגדיר את השפות שלך ולהגדיר את כיוון התרגום בכל הזמן.</string>
   <string name="description_edit_tutorial_message">ברוך בואך לבית החדש לעריכה מהירה מתוך יישומון ויקיפדיה. אנו מאוד מעריכים את התרומות שלך. בהצלחה בעריכה!</string>
-  <string name="translation_description_edit_task_unlock_title">עריכת תיאורי כותרת נפתחה!</string>
-  <string name="translation_description_edit_task_unlock_body">שמנו לב שכיף לך לערוך תיאורים ולקרוא את ויקיפדיה במספר שפות. שימו לב לרשימת המשימות הזאת, שנותנת גישה לתרגום של עוד תיאורי כותרת!</string>
+  <string name="translation_description_edit_task_unlock_title" fuzzy="true">עריכת תיאורי כותרת נפתחה!</string>
+  <string name="translation_description_edit_task_unlock_body" fuzzy="true">שמנו לב שכיף לך לערוך תיאורים ולקרוא את ויקיפדיה במספר שפות. שימו לב לרשימת המשימות הזאת, שנותנת גישה לתרגום של עוד תיאורי כותרת!</string>
   <string name="title_description_editing_skip">דילוג</string>
   <string name="title_description_get_started">מדריך למתחילים</string>
   <string name="translate_description_get_started">מדריך למתחילים</string>
@@ -718,4 +727,5 @@
   <string name="title_descriptions_onboarding_got_it">הבנתי</string>
   <string name="translate_descriptions_onboarding_got_it">הבנתי</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/he</string>
+  <string name="suggested_edits_menu_info">מידע</string>
 </resources>

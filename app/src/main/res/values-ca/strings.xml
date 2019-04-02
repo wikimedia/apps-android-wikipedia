@@ -129,6 +129,7 @@
   <string name="reset_password_button">Desa-la i inicia-hi una sessió</string>
   <string name="preference_title_logout">Finalitza la sessió</string>
   <string name="toast_logout_complete">Sessió finalitzada</string>
+  <string name="logout_prompt">Segur que voleu finalitzar la vostra sessió?</string>
   <string name="history_empty_title">No hi ha articles vists recentment</string>
   <string name="history_empty_message">Consulteu el que heu llegit aquí.</string>
   <string name="history_offline_articles_toast">Alguns articles de l\'historial potser no són visibles quan s\'és fora de línia.</string>
@@ -590,8 +591,8 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Gràcies pel vostre continu interès en editar descripcions! Per a fer edicions addicionals, inicieu una sessió amb el vostre compte de Viquipèdia.</string>
   <string name="description_edit_license_notice">En canviar la descripció del títol, estic d\'acord amb els &lt;a href=\"%1$s\"&gt;termes d\'ús&lt;/a&gt; i allibero irrevocablement les meves contribucions sota la llicència &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_task_unlock_title">S\'ha desbloquejat la llista de tasques d\'edició de les descripcions de títol!</string>
-  <string name="description_edit_task_unlock_body">Hem notat que us agrada editar les descripcions de títol. Per això hem compilat una llista de «tasques d\'editor» amb més articles que no tenen descripcions de títol perquè pugueu continuar contribuint-hi!</string>
+  <string name="description_edit_task_unlock_title" fuzzy="true">S\'ha desbloquejat la llista de tasques d\'edició de les descripcions de títol!</string>
+  <string name="description_edit_task_unlock_body" fuzzy="true">Hem notat que us agrada editar les descripcions de títol. Per això hem compilat una llista de «tasques d\'editor» amb més articles que no tenen descripcions de títol perquè pugueu continuar contribuint-hi!</string>
   <string name="description_edit_success_saved">S\'ha publicat la descripció!</string>
   <string name="description_edit_success_saved_snackbar">S’ha publicat la descripció.</string>
   <string name="description_edit_success_encouragement">Acabeu de millorar la Viquipèdia per a tothom</string>
@@ -614,6 +615,7 @@
   <string name="editactionfeed_translate_title_dialog_learn_more">Més informació</string>
   <string name="editactionfeed_to_language">A:</string>
   <string name="editactionfeed_added_by_you">Afegides per vós:</string>
+  <string name="editactionfeed_translated_by_you">Traduïdes per vós:</string>
   <string name="description_edit_revert_subtitle">Gràcies per editar a la Viquipèdia!</string>
   <string name="description_edit_revert_intro">Sabem que heu fet el millor possible, però un dels revisors tenia una precaució. Els motius possibles de la reversió de la modificació poden ser:</string>
   <string name="description_edit_revert_reason1">la vostra contribució no seguia una de les &lt;a href=\"%1$s\"&gt;directrius&lt;/a&gt;.</string>
@@ -680,6 +682,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Ara teniu les variants tradicional i simplificada del xinès a les llengües de l\'aplicació? Voleu actualitzar la configuració de llengües de l\'aplicació?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Modifica les llengües</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No, gràcies</string>
+  <string name="wikitext_bold">Negreta</string>
+  <string name="wikitext_italic">Cursiva</string>
+  <string name="wikitext_link">Enllaç</string>
+  <string name="wikitext_bulleted_list">Llista puntejada</string>
+  <string name="wikitext_numbered_list">Llista numerada</string>
+  <string name="wikitext_template">Plantilla</string>
+  <string name="wikitext_reference">Referència</string>
+  <string name="wikitext_preview_link">Previsualitza l’enllaç</string>
   <string name="main_drawer_open">Obre</string>
   <string name="main_drawer_close">Tanca</string>
   <string name="main_drawer_help">Ajuda</string>
@@ -709,8 +719,8 @@
   <string name="add_translate_descriptions_dialog_title">Esteu traduint descripcions de títol per primera vegada</string>
   <string name="add_translate_descriptions_dialog_message">Podeu ajudar a millorar la Viquipèdia traduint descripcions de títol. Podeu configurar les vostres llengües i definir un sentit de traducció en qualsevol moment.</string>
   <string name="description_edit_tutorial_message">Us donem la benvinguda a la nova pàgina inicial d\'edició ràpida de l\'aplicació de la Viquipèdia. Les vostres contribucions són molt benvingudes. Editeu-hi de gust!</string>
-  <string name="translation_description_edit_task_unlock_title">S\'ha desbloquejat la traducció de les descripcions dels títols!</string>
-  <string name="translation_description_edit_task_unlock_body">Hem notat que us agrada editar descripcions de títol i llegir la Viquipèdia en més d\'una llengua. Feu un cop d\'ull a aquesta llista de tasques, que us dóna accés a la traducció de més descripcions de títols!</string>
+  <string name="translation_description_edit_task_unlock_title" fuzzy="true">S\'ha desbloquejat la traducció de les descripcions dels títols!</string>
+  <string name="translation_description_edit_task_unlock_body" fuzzy="true">Hem notat que us agrada editar descripcions de títol i llegir la Viquipèdia en més d\'una llengua. Feu un cop d\'ull a aquesta llista de tasques, que us dóna accés a la traducció de més descripcions de títols!</string>
   <string name="title_description_editing_skip">Omet</string>
   <string name="title_description_get_started">Primers passos</string>
   <string name="translate_description_get_started">Primers passos</string>
@@ -718,4 +728,5 @@
   <string name="translate_descriptions_maybe_later">Potser més tard</string>
   <string name="title_descriptions_onboarding_got_it">Entesos</string>
   <string name="translate_descriptions_onboarding_got_it">Entesos</string>
+  <string name="suggested_edits_menu_info">Informació</string>
 </resources>
