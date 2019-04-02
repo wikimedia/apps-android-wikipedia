@@ -263,6 +263,8 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
                             }
                             Prefs.setReadingListsLastSyncTime(null);
                             Prefs.setReadingListSyncEnabled(false);
+                            Prefs.setSuggestedEditsAddDescriptionsUnlocked(false);
+                            Prefs.setSuggestedEditsTranslateDescriptionsUnlocked(false);
                         }).show();
             } else {
                 getFragment().onLoginRequested();

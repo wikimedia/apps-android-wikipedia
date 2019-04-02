@@ -24,35 +24,36 @@ public final class NotificationEditorTasksHandler {
         Object eventToDispatch = null;
 
         if (numTargetsPassed > 1) {
-            if (!Prefs.isEditActionAddDescriptionsUnlocked()) {
-                Prefs.setEditActionAddDescriptionsUnlocked(true);
+            if (!Prefs.isSuggestedEditsAddDescriptionsUnlocked()) {
+                Prefs.setSuggestedEditsAddDescriptionsUnlocked(true);
                 Prefs.setShowActionFeedIndicator(true);
                 Prefs.setShowEditMenuOptionIndicator(true);
                 maybeShowEditDescriptionUnlockNotification(context, false);
                 eventToDispatch = new EditorTaskUnlockEvent(1);
             }
-            if (!Prefs.isEditActionTranslateDescriptionsUnlocked() && WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
-                Prefs.setEditActionTranslateDescriptionsUnlocked(true);
+            if (!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()
+                    && WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
+                Prefs.setSuggestedEditsTranslateDescriptionsUnlocked(true);
                 maybeShowTranslateDescriptionUnlockNotification(context, false);
                 eventToDispatch = new EditorTaskUnlockEvent(numTargetsPassed);
             }
         } else if (numTargetsPassed > 0) {
-            if (!Prefs.isEditActionAddDescriptionsUnlocked()) {
-                Prefs.setEditActionAddDescriptionsUnlocked(true);
+            if (!Prefs.isSuggestedEditsAddDescriptionsUnlocked()) {
+                Prefs.setSuggestedEditsAddDescriptionsUnlocked(true);
                 Prefs.setShowActionFeedIndicator(true);
                 Prefs.setShowEditMenuOptionIndicator(true);
                 maybeShowEditDescriptionUnlockNotification(context, false);
                 eventToDispatch = new EditorTaskUnlockEvent(numTargetsPassed);
             }
-            if (Prefs.isEditActionTranslateDescriptionsUnlocked()) {
-                Prefs.setEditActionTranslateDescriptionsUnlocked(false);
+            if (Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()) {
+                Prefs.setSuggestedEditsTranslateDescriptionsUnlocked(false);
             }
         } else {
-            if (Prefs.isEditActionAddDescriptionsUnlocked()) {
-                Prefs.setEditActionAddDescriptionsUnlocked(false);
+            if (Prefs.isSuggestedEditsAddDescriptionsUnlocked()) {
+                Prefs.setSuggestedEditsAddDescriptionsUnlocked(false);
             }
-            if (Prefs.isEditActionTranslateDescriptionsUnlocked()) {
-                Prefs.setEditActionTranslateDescriptionsUnlocked(false);
+            if (Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()) {
+                Prefs.setSuggestedEditsTranslateDescriptionsUnlocked(false);
             }
         }
 
@@ -62,7 +63,8 @@ public final class NotificationEditorTasksHandler {
     }
 
     public static void maybeShowEditDescriptionUnlockNotification(@NonNull Context context, boolean forced) {
-        if (!WikipediaApp.getInstance().isAnyActivityResumed() || forced) {
+        if (!WikipediaApp.getInstance().isAnyActivityResumed() && !Prefs.isSuggestedEditsAddDescriptionsMessageShown() || forced) {
+            Prefs.setSuggestedEditsAddDescriptionsMessageShown(true);
             SuggestedEditsFunnel.get(Constants.InvokeSource.NOTIFICATION).pause();
             Intent intent = EditTasksActivity.newIntent(context, Constants.InvokeSource.EDIT_FEED_TITLE_DESC);
             NotificationCompat.Builder builder = NotificationPresenter.getDefaultBuilder(context);
@@ -76,7 +78,8 @@ public final class NotificationEditorTasksHandler {
     }
 
     public static void maybeShowTranslateDescriptionUnlockNotification(@NonNull Context context, boolean forced) {
-        if (!WikipediaApp.getInstance().isAnyActivityResumed() || forced) {
+        if (!WikipediaApp.getInstance().isAnyActivityResumed() && !Prefs.isSuggestedEditsTranslateDescriptionsMessageShown()  || forced) {
+            Prefs.setSuggestedEditsTranslateDescriptionsMessageShown(true);
             SuggestedEditsFunnel.get(Constants.InvokeSource.NOTIFICATION).pause();
             Intent intent = EditTasksActivity.newIntent(context, Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC);
             NotificationCompat.Builder builder = NotificationPresenter.getDefaultBuilder(context);
