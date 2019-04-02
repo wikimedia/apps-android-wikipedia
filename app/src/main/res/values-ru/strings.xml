@@ -109,9 +109,9 @@
   <string name="map_view_link_text">Посмотреть на карте</string>
   <string name="other_languages_indication_text">На другом языке</string>
   <string name="language_count_link_text">Доступно на %d других языках</string>
-  <string name="content_license_html">Содержимое доступно в соответствии с лицензией &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, если не указано иное</string>
-  <string name="edit_save_action_license_logged_in">Отправляя свои изменения, вы соглашаетесь с &lt;a href=\"%1$s\" &gt;условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Публикуя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Правки будут привязаны к IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуйтесь&lt;/a&gt;, то сможете получить более высокий уровень конфиденциальности.</string>
+  <string name="content_license_html">Содержимое доступно в соответствии с лицензией &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, если не указано иное</string>
+  <string name="edit_save_action_license_logged_in">Отправляя свои изменения, вы соглашаетесь с &lt;a href=\"%1$s\" &gt;условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Публикуя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Правки будут привязаны к IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуйтесь&lt;/a&gt;, то сможете получить более высокий уровень конфиденциальности.</string>
   <string name="preference_title_language">Языки Википедии</string>
   <string name="langlinks_filter_hint">Поиск</string>
   <string name="langlinks_empty">Эта страница недоступна на других языках.</string>
@@ -157,6 +157,7 @@
   <string name="reset_password_button">Сохранить и войти</string>
   <string name="preference_title_logout">Завершение сеанса</string>
   <string name="toast_logout_complete">Сеанс был завершён</string>
+  <string name="logout_prompt">Вы уверены, что хотите выйти?</string>
   <string name="history_empty_title">Нет недавно просмотренных статей</string>
   <string name="history_empty_message">Отслеживайте здесь прочитанные вами статьи.</string>
   <string name="history_offline_articles_toast">Некоторые страницы в истории могут быть недоступны оффлайн.</string>
@@ -306,8 +307,8 @@
   <string name="err_cannot_save_file">Не удаётся сохранить файл</string>
   <string name="snippet_share_intro">«%1$s» на сайте @Wikipedia: %2$s</string>
   <string name="expand_refs">Нажмите, чтобы развернуть</string>
-  <string name="share_snippet_button">Поделиться как изображением</string>
-  <string name="share_normal_button">Поделиться как текстом</string>
+  <string name="share_snippet_button">Поделиться изображением</string>
+  <string name="share_normal_button">Поделиться текстом</string>
   <string name="snippet_share_preview_image_desc">Предварительный просмотр изображения</string>
   <string name="cc_logo">Лицензия Creative Commons</string>
   <string name="captcha_image">Капча-изображение</string>
@@ -530,7 +531,7 @@
   </plurals>
   <string name="notification_echo_channel_description">Уведомления Википедии</string>
   <string name="notifications_activity_title">Уведомления</string>
-  <string name="notifications_activity_title_archived">Уведомления (архивированные)</string>
+  <string name="notifications_activity_title_archived">Архив уведомлений</string>
   <string name="notifications_search">Искать уведомления</string>
   <string name="notifications_view_unread">Просмотр непрочитанных</string>
   <string name="notifications_view_archived">Просмотр архивированных</string>
@@ -544,7 +545,7 @@
   <string name="notifications_poll_enable_positive">Включить</string>
   <string name="notifications_poll_enable_negative">Не сейчас</string>
   <string name="notifications_empty_message">Новых уведомлений нет!</string>
-  <string name="notifications_view_archived_button_text">Просмотреть архивированные уведомления</string>
+  <string name="notifications_view_archived_button_text">Просмотр архива уведомления</string>
   <string name="notification_preferences_title">Настройки уведомлений</string>
   <string name="notifications_mark_unread">Отметить как непрочитанное</string>
   <string name="preference_title_notification_poll">Извещения об опросах</string>
@@ -556,6 +557,8 @@
   <string name="preference_summary_notification_milestone">Достигнуто определённое число правок</string>
   <string name="preference_title_notification_thanks">Благодарности</string>
   <string name="preference_summary_notification_thanks">Кто-то поблагодарил вас за правку</string>
+  <string name="preference_title_notification_revert">Откаты правок</string>
+  <string name="preference_summary_notification_revert">Одна из ваших правок была откачена</string>
   <string name="view_continue_reading_card_title">Продолжить чтение</string>
   <string name="view_because_you_read_card_title">На основе прочитанного</string>
   <string name="view_random_card_title">Рандомизатор</string>
@@ -621,8 +624,8 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/ru</string>
   <string name="description_edit_anon_limit">Спасибо вам за неослабевающий интерес к изменению описаний! Для того, чтобы продолжить вносить изменения, вам необходимо войти в Википедию под своей учётной записью.</string>
   <string name="description_edit_license_notice">Изменяя краткое описание, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_task_unlock_title">Список статей для редактирования кратких описаний разблокирован.</string>
-  <string name="description_edit_task_unlock_body">Мы заметили, что вы любите работать с краткими описаниями. Возможно, вы оцените отдельный список статей, нуждающихся в кратких описаниях, размещённый в разделе “Задания для профи”.</string>
+  <string name="description_edit_task_unlock_title">Вы разблокировали добавление кратких описаний.</string>
+  <string name="description_edit_task_unlock_body">Спасибо за ваш вклад! Поскольку вы хороши в редактировании, возможно вам будет интересен список статей, нуждающихся в кратких описаниях. Поможете улучшить Википедию?</string>
   <string name="description_edit_success_saved">Описание сохранено!</string>
   <string name="description_edit_success_saved_snackbar">Описание сохранено!</string>
   <string name="description_edit_success_encouragement">Вы только что сделали Википедию лучше для всех</string>
@@ -712,6 +715,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">У вас в наличии и традиционный, и упрощённый китайские языки. Обновить языковые настройки, с возможностью удалить один из вариантов?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Редактировать языки</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Использовать текущие настройки</string>
+  <string name="wikitext_bold">Полужирный</string>
+  <string name="wikitext_italic">Курсив</string>
+  <string name="wikitext_link">Ссылка</string>
+  <string name="wikitext_bulleted_list">Ненумерованный список</string>
+  <string name="wikitext_numbered_list">Нумерованный список</string>
+  <string name="wikitext_template">Шаблон</string>
+  <string name="wikitext_reference">Примечание</string>
+  <string name="wikitext_preview_link">Предпросмотр ссылки</string>
   <string name="main_drawer_open">Открыть</string>
   <string name="main_drawer_close">Закрыть</string>
   <string name="main_drawer_help">Справка</string>
@@ -741,8 +752,8 @@
   <string name="add_translate_descriptions_dialog_title">Вы переводите краткие описания в первый раз</string>
   <string name="add_translate_descriptions_dialog_message">Теперь вы можете улучшить Википедию переводя краткие описания статей. Список языков для перевода вы можете отредактировать в любое время в настройках.</string>
   <string name="description_edit_tutorial_message">Добро пожаловать в новое приложение для быстрого редактирования Википедии. Ваш вклад весьма ценен. Приятного редактирования!</string>
-  <string name="translation_description_edit_task_unlock_title">Перевод кратких описаний разблокирован.</string>
-  <string name="translation_description_edit_task_unlock_body">Мы заметили, что вы любите работать с краткими описаниями и читать Википедию на разных языках. Возможно, вы оцените отдельный список статей, нуждающихся в переводе кратких описанийях.</string>
+  <string name="translation_description_edit_task_unlock_title">Вы разблокировали перевод кратких описаний.</string>
+  <string name="translation_description_edit_task_unlock_body">Спасибо за ваш вклад! Поскольку вы используете это приложение с разными языками, возможно вам будет интересен список статей, нуждающихся в переводе кратких описаний. Поможете улучшить Википедию таким образом?</string>
   <string name="title_description_editing_skip">Пропустить</string>
   <string name="title_description_get_started">Начать</string>
   <string name="translate_description_get_started">Начать</string>
@@ -751,4 +762,5 @@
   <string name="title_descriptions_onboarding_got_it">Понятно</string>
   <string name="translate_descriptions_onboarding_got_it">Понятно</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru</string>
+  <string name="suggested_edits_menu_info">Информация</string>
 </resources>

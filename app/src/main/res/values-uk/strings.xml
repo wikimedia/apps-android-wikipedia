@@ -129,6 +129,7 @@
   <string name="reset_password_button">Зберегти і увійти</string>
   <string name="preference_title_logout">Вийти із системи</string>
   <string name="toast_logout_complete">Ви вийшли із системи</string>
+  <string name="logout_prompt">Ви впевнені, що хочете вийти?</string>
   <string name="history_empty_title">Немає недавно відвіданих сторінок</string>
   <string name="history_empty_message">Відстежувати те, що Ви вже читали тут.</string>
   <string name="history_offline_articles_toast">Деякі статті в історії можуть бути недоступними в режимі офлайн.</string>
@@ -316,6 +317,8 @@
   <string name="error_no_maps_app">Не вдалося знайти жодної програми, яка прокладала б маршрут.</string>
   <string name="preference_title_show_link_previews">Показувати попередній перегляд посилань</string>
   <string name="preference_summary_show_link_previews">Показувати попередній перегляд статей при натисненні на посилання.</string>
+  <string name="preference_title_collapse_tables">Згорнути таблиці</string>
+  <string name="preference_summary_collapse_tables">Автоматично згортати табличні блоки (інфобокси, примітки, коментарі тощо).</string>
   <string name="nav_item_donate">Підтримати Вікіпедію</string>
   <string name="error_voice_search_not_available">На жаль, розпізнавання голосу не підтримується.</string>
   <string name="location_service_disabled">Служби локалізації вимкнені.</string>
@@ -389,6 +392,7 @@
   <string name="reading_list_description_hint">Опис (за бажанням)</string>
   <string name="reading_list_item_deleted">%s видалено зі списку</string>
   <string name="reading_list_items_deleted">%d статей вилучено зі списку</string>
+  <string name="reading_lists_item_deleted">%s видалено зі списків</string>
   <string name="reading_list_item_delete_undo">Скасувати</string>
   <string name="reading_list_deleted">%s видалено</string>
   <string name="saved_list_empty_title">Ще немає збережених сторінок</string>
@@ -558,7 +562,7 @@
   <string name="onboarding_got_it">Зрозуміло</string>
   <string name="onboarding_multilingual_secondary_text">Ми знайшли такі мови на Вашому пристрої:</string>
   <string name="onboarding_multilingual_add_language_text">Додати або редагувати мови</string>
-  <string name="onboarding_welcome_title_v2" fuzzy="true">Вільна енциклопедія\n…майже 300 мовних версій</string>
+  <string name="onboarding_welcome_title_v2">Вільна енциклопедія\n…понад 300 мовних версій</string>
   <string name="app_shortcuts_random">Випадкова</string>
   <string name="app_shortcuts_continue_reading">Продовжити читання</string>
   <string name="app_shortcuts_search">Пошук</string>

@@ -121,6 +121,7 @@
   <string name="reset_password_button">Speichern und anmelden</string>
   <string name="preference_title_logout">Abmelden</string>
   <string name="toast_logout_complete">Abgemeldet</string>
+  <string name="logout_prompt">Möchtest du dich wirklich abmelden?</string>
   <string name="history_empty_title">Keine kürzlich besuchten Artikel</string>
   <string name="history_empty_message">Verfolge hier, was du gelesen hast.</string>
   <string name="history_offline_articles_toast">Einige Artikel im Verlauf könnten nicht anschaubar sein, während du offline bist.</string>
@@ -518,6 +519,8 @@
   <string name="preference_summary_notification_milestone">Es wurden bestimmte Bearbeitungszahlen erreicht</string>
   <string name="preference_title_notification_thanks">Dankeschöns</string>
   <string name="preference_summary_notification_thanks">Jemand dankt dir für eine Bearbeitung</string>
+  <string name="preference_title_notification_revert">Zurücksetzung</string>
+  <string name="preference_summary_notification_revert">Eines deiner Beiträge wurde zurückgesetzt</string>
   <string name="view_continue_reading_card_title">Mit dem Lesen fortfahren</string>
   <string name="view_because_you_read_card_title">Weil du das gelesen hast</string>
   <string name="view_random_card_title">Zufallsgenerator</string>
@@ -574,6 +577,7 @@
   <string name="description_edit_article">Artikel</string>
   <string name="description_edit_read">Lesen</string>
   <string name="description_edit_add_description">Titelbeschreibung hinzufügen</string>
+  <string name="description_edit_add_description_v2">Beschreibung hinzufügen</string>
   <string name="description_edit_edit_description">Beschreibung bearbeiten</string>
   <string name="add_translation">Übersetzung auf %s hinzufügen</string>
   <string name="description_edit_cancel_hint">Abbrechen</string>
@@ -583,8 +587,8 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/de#Richtlinien</string>
   <string name="description_edit_anon_limit">Vielen Dank für dein fortwährendes Interesse an der Bearbeitung von Beschreibungen! Um zusätzliche Bearbeitungen durchzuführen, melde dich bitte bei deinem Wikipedia-Benutzerkonto an.</string>
   <string name="description_edit_license_notice">Durch das Ändern der Titelbeschreibungen stimme ich den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und der unwiderruflichen Veröffentlichung meiner Beiträge unter der &lt;a href=\"%2$s\"&gt;Creative-Commons-Lizenz CC0&lt;/a&gt; zu.</string>
-  <string name="description_edit_task_unlock_title">Die Liste der Titelbeschreibungs-Bearbeitungsaufgaben wurde freigegeben!</string>
-  <string name="description_edit_task_unlock_body">Wir haben mitbekommen, dass du gerne Titelbeschreibungen bearbeitest. Deshalb haben wir die Liste „Autorenaufgaben“ mit weiteren Artikeln, denen Titelbeschreibungen fehlen, zusammengestellt, damit du mit dem Beitragen fortfahren kannst!</string>
+  <string name="description_edit_task_unlock_title">Du hast „Beschreibungen hinzufügen“ freigegeben</string>
+  <string name="description_edit_task_unlock_body">Vielen Dank für deine kontinuierlichen Beiträge! Da du im Bearbeiten supergut bist, haben wir eine Liste der Artikel zusammengestellt, denen Beschreibungen fehlen. Kannst du uns bei der Verbesserung von Wikipedia helfen?</string>
   <string name="description_edit_success_saved">Beschreibung veröffentlicht!</string>
   <string name="description_edit_success_saved_snackbar">Beschreibung veröffentlicht!</string>
   <string name="description_edit_success_encouragement">Du hast soeben Wikipedia für jeden besser gemacht</string>
@@ -674,6 +678,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Du hast derzeit sowohl die Variantensätze für das traditionelle als auch für das vereinfachte Chinesisch in deinen App-Sprachen. Einstellungen für deine App-Sprachen aktualisieren?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sprachen bearbeiten</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nein danke</string>
+  <string name="wikitext_bold">Fett</string>
+  <string name="wikitext_italic">Kursiv</string>
+  <string name="wikitext_link">Link</string>
+  <string name="wikitext_bulleted_list">Aufzählungsliste</string>
+  <string name="wikitext_numbered_list">Nummerierte Liste</string>
+  <string name="wikitext_template">Vorlage</string>
+  <string name="wikitext_reference">Einzelnachweis</string>
+  <string name="wikitext_preview_link">Vorschau des Links anzeigen</string>
   <string name="main_drawer_open">Öffnen</string>
   <string name="main_drawer_close">Schließen</string>
   <string name="main_drawer_help">Hilfe</string>
@@ -703,8 +715,8 @@
   <string name="add_translate_descriptions_dialog_title">Du übersetzt Titelbeschreibungen zum ersten Mal</string>
   <string name="add_translate_descriptions_dialog_message">Du kannst jetzt bei der Verbesserung von Wikipedia durch das Übersetzen von Titelbeschreibungen helfen. Du kannst jederzeit deine Sprachen konfigurieren und eine Übersetzungsrichtung festlegen.</string>
   <string name="description_edit_tutorial_message">Willkommen bei der neuen Startseite zum schnellen Bearbeiten in der Wikipedia-App. Deine Beiträge werden hoch geschätzt. Fröhliches Bearbeiten!</string>
-  <string name="translation_description_edit_task_unlock_title">Das Übersetzen von Titelbeschreibungen wurde freigegeben!</string>
-  <string name="translation_description_edit_task_unlock_body">Wir haben mitbekommen, dass du das Bearbeiten von Titelbeschreibungen und das Lesen von Wikipedia in mehreren Sprachen magst. Probiere diese Aufgabenliste aus, die dir einen Zugriff auf das Übersetzen weiterer Titelbeschreibungen ermöglicht!</string>
+  <string name="translation_description_edit_task_unlock_title">Du hast „Beschreibungen übersetzen“ freigegeben</string>
+  <string name="translation_description_edit_task_unlock_body">Vielen Dank für deine kontinuierlichen Beiträge! Du benutzt die App in mehreren Sprachen. Deshalb haben wir eine Liste der Artikel zusammengestellt, die eine Übersetzung der Beschreibung benötigen. Kannst du uns weiterhin bei der Verbesserung von Wikipedia helfen?</string>
   <string name="title_description_editing_skip">Überspringen</string>
   <string name="title_description_get_started">Anfangen</string>
   <string name="translate_description_get_started">Anfangen</string>
@@ -713,4 +725,5 @@
   <string name="title_descriptions_onboarding_got_it">Verstanden</string>
   <string name="translate_descriptions_onboarding_got_it">Verstanden</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_menu_info">Information</string>
 </resources>

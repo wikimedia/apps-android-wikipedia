@@ -136,6 +136,7 @@
   <string name="reset_password_button">حفظ وتسجيل الدخول</string>
   <string name="preference_title_logout">تسجيل الخروج</string>
   <string name="toast_logout_complete">تم تسجيل الخروج</string>
+  <string name="logout_prompt">هل أنت متأكد أنك تريد تسجيل الخروج؟</string>
   <string name="history_empty_title">لا مقالات معروضة مؤخرًا!</string>
   <string name="history_empty_message">يمكنك متابعة ما كنت تقرأه هنا.</string>
   <string name="history_offline_articles_toast">قد لا تكون بعض المقالات في السجل قابلة للعرض دون اتصال.</string>
@@ -533,6 +534,8 @@
   <string name="preference_summary_notification_milestone">عند الوصول لعدد معين من التعديلات</string>
   <string name="preference_title_notification_thanks">شكرا</string>
   <string name="preference_summary_notification_thanks">شخص ما يشكرك على تعديل ما</string>
+  <string name="preference_title_notification_revert">تراجع</string>
+  <string name="preference_summary_notification_revert">تم إرجاع إحدى مساهماتك</string>
   <string name="view_continue_reading_card_title">واصل القراءة</string>
   <string name="view_because_you_read_card_title">لأنك قرأت</string>
   <string name="view_random_card_title">صفحات عشوائية</string>
@@ -598,8 +601,8 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">شكرًا لاهتمامك المستمر بتعديل الوصوف! لإضافة المزيد من التعديلات، فضلًا سجل الدخول لحسابك في ويكيبيديا.</string>
   <string name="description_edit_license_notice">بتغييري لوصف العنوان، أنا أوافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt; وعلى نشر مساهماتي بصورة لا رجعة فيها تحت ترخيص &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_task_unlock_title">قائمة مهمة تحرير وصوف العناوين فُتحت!</string>
-  <string name="description_edit_task_unlock_body">لاحظنا أنك تُحب تعديل وصوف العناوين، لذلك قمنا بتجميع قائمة \"مهام المحرر\" بها المزيد من المقالات التي تفتقد لوصوف العناوين وذلك لمساعدتك في مواصلة المساهمة!</string>
+  <string name="description_edit_task_unlock_title">لقد قمت بإلغاء حماية \"إضافة أوصاف\"</string>
+  <string name="description_edit_task_unlock_body">شكرا على مساهماتكم المستمرة! لأنك رائع في التحرير؛ فقد جمعنا قائمة بالمقالات التي تفتقر إلى الوصف، هل يمكنك مساعدتنا في تحسين ويكيبيديا؟</string>
   <string name="description_edit_success_saved">نُشر الوصف!</string>
   <string name="description_edit_success_saved_snackbar">نُشِر الوصف!</string>
   <string name="description_edit_success_encouragement">لقد جعلت ويكيبيديا أفضل للجميع</string>
@@ -689,6 +692,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">لديك حاليا مجموعة من المتغيرات الصينية التقليدية والمبسطة في لغات تطبيقك، تحديث إعدادات لغات تطبيقك؟</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">تعديل اللغات</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">لا شكرًا</string>
+  <string name="wikitext_bold">غليظ</string>
+  <string name="wikitext_italic">مائل</string>
+  <string name="wikitext_link">وصلة</string>
+  <string name="wikitext_bulleted_list">قائمة منقطة</string>
+  <string name="wikitext_numbered_list">قائمة مرقمة</string>
+  <string name="wikitext_template">قالب</string>
+  <string name="wikitext_reference">مرجع</string>
+  <string name="wikitext_preview_link">معاينة الرابط</string>
   <string name="main_drawer_open">مفتوح</string>
   <string name="main_drawer_close">إغلاق</string>
   <string name="main_drawer_help">مساعدة</string>
@@ -718,8 +729,8 @@
   <string name="add_translate_descriptions_dialog_title">أنت تترجم وصوفات العنوان للمرة الأولى</string>
   <string name="add_translate_descriptions_dialog_message">يمكنك الآن المساعدة في تحسين ويكيبيديا عن طريق ترجمة وصوفات العنوان. يمكنك ضبط لغاتك وضبط اتجاه الترجمة في أي وقت.</string>
   <string name="description_edit_tutorial_message">مرحبا بك في البيت الجديد للتعديل السريع من تطبيق ويكيبيديا. مساهماتك مرحب بها جدا. تحرير سعيد!</string>
-  <string name="translation_description_edit_task_unlock_title">تعديل ترجمة وصوفات العنوان تم فتحه!</string>
-  <string name="translation_description_edit_task_unlock_body">لقد لاحظنا أنك تحب تعديل وصوفات العنوان وقراءة ويكيبيديا بلغات متعددة. تحقق من قائمة المهام هذه والتي توفر الوصول لترجمة المزيد من وصوفات العنوان!</string>
+  <string name="translation_description_edit_task_unlock_title">لقد قمت بإلغاء حماية \"ترجمة الأوصاف\"</string>
+  <string name="translation_description_edit_task_unlock_body">شكرا على مساهماتك المستمرة! أنت تستخدم التطبيق بلغات متعددة؛ لذا قمنا بتجميع قائمة بالمقالات التي تحتاج إلى ترجمة وصف، هل يمكنك الاستمرار في مساعدتنا على تحسين ويكيبيديا؟</string>
   <string name="title_description_editing_skip">تجاوز</string>
   <string name="title_description_get_started">ابدأ</string>
   <string name="translate_description_get_started">ابدأ</string>
@@ -728,4 +739,5 @@
   <string name="title_descriptions_onboarding_got_it">فهمت</string>
   <string name="translate_descriptions_onboarding_got_it">فهمت</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_menu_info">معلومات</string>
 </resources>

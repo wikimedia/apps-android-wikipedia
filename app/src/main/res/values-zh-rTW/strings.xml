@@ -129,6 +129,7 @@
   <string name="reset_password_button">儲存並登入</string>
   <string name="preference_title_logout">登出</string>
   <string name="toast_logout_complete">已登出</string>
+  <string name="logout_prompt">您確定要登出嗎？</string>
   <string name="history_empty_title">沒有近期檢視的頁面</string>
   <string name="history_empty_message">追蹤您在此讀過的內容。</string>
   <string name="history_offline_articles_toast">一些在歷史紀錄裡的條目可能無法在離線時閱覽。</string>
@@ -180,7 +181,7 @@
   <string name="preference_summary_eventlogging_opt_in">允許維基媒體收集有關您如何使用該應用程式使應用程式更好的資訊</string>
   <string name="preference_title_auto_upload_crash_reports">傳送損毀報告</string>
   <string name="preference_summary_auto_upload_crash_reports">允許手機應用程式自動傳送錯誤報告至 HockeyApp / 第三方服務提供者，以讓我們可以更快速、更簡易地來檢閱錯誤報告及修復問題。</string>
-  <string name="editing_error_spamblacklist">檢測到來自被封鎖網域 (%s) 的連結。請刪除它們並再試一次。</string>
+  <string name="editing_error_spamblacklist">檢測到來自被封鎖網域（%s）的連結。請刪除它們並再試一次。</string>
   <string name="history_search_list_hint">搜尋歷史</string>
   <string name="error_can_not_process_link">無法顯示此連結</string>
   <string name="page_protected_autoconfirmed">此頁面已受半保護。</string>
@@ -199,7 +200,7 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
+  <string name="android_app_request_an_account_url">https://zh.m.wikipedia.org/wiki/Wikipedia:账号请求</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.zh_TW</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh_TW</string>
   <string name="about_libraries_heading">使用的函式庫</string>
@@ -210,7 +211,7 @@
   <string name="about_app_license">原始碼位於 &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; 與 &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根據 &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 許可證明&lt;/a&gt;授權。除非另有聲明，内容採用&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;創用 CC 姓名標示 -相同方式分享授權條款&lt;/a&gt;。</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;維基媒體基金會&lt;/a&gt;出品</string>
   <string name="about_activity_title">關於</string>
-  <string name="edit_abandon_confirm">頁面已修改。確定要離開，而不存儲更改？</string>
+  <string name="edit_abandon_confirm">頁面已修改。確定要離開而不存儲您的更改嗎？</string>
   <string name="edit_abandon_confirm_yes">是</string>
   <string name="edit_abandon_confirm_no">否</string>
   <string name="user_blocked_from_editing_title">已封鎖</string>
@@ -315,7 +316,7 @@
   <string name="button_get_directions">取得路線</string>
   <string name="error_no_maps_app">無法找到任何提供路線的應用程式。</string>
   <string name="preference_title_show_link_previews">顯示連結預覽</string>
-  <string name="preference_summary_show_link_previews">在點選連結時，顯示條目的快速預覽。</string>
+  <string name="preference_summary_show_link_previews">在輕觸連結時，顯示條目的快速預覽。</string>
   <string name="preference_title_collapse_tables">折疊表格</string>
   <string name="preference_summary_collapse_tables">自動折疊在條目裡的表格，例如像是資訊框、參考資料、註解等等。</string>
   <string name="nav_item_donate">支持維基百科</string>
@@ -526,6 +527,8 @@
   <string name="preference_summary_notification_milestone">當達到某種程度的編輯數</string>
   <string name="preference_title_notification_thanks">感謝</string>
   <string name="preference_summary_notification_thanks">某人感謝您所做的編輯</string>
+  <string name="preference_title_notification_revert">回退</string>
+  <string name="preference_summary_notification_revert">您所做出的其一貢獻已被回退</string>
   <string name="view_continue_reading_card_title">繼續閱讀</string>
   <string name="view_because_you_read_card_title">您曾閱讀過的</string>
   <string name="view_random_card_title">隨機條目產生器</string>
@@ -591,8 +594,8 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/zh</string>
   <string name="description_edit_anon_limit">感謝您保持著對於編輯描述的興致！要進行額外編輯，請登入您的維基百科帳號。</string>
   <string name="description_edit_license_notice">透過更改標題描述，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤銷所發表出我的個人貢獻。</string>
-  <string name="description_edit_task_unlock_title">標題描述編輯任務清單已解開！</string>
-  <string name="description_edit_task_unlock_body">我們注意到您似乎喜歡編輯標題描述，因此我們做出了一份裡頭含有缺少標題描述之條目的「編者任務」清單，來幫助您繼續這方面的貢獻！</string>
+  <string name="description_edit_task_unlock_title">您解開了「添加描述」</string>
+  <string name="description_edit_task_unlock_body">感謝您持續地貢獻！因為您善於編輯的緣故，我們彙整出條目缺少描述的清單，您是否能協助我們來改善維基百科嗎？</string>
   <string name="description_edit_success_saved">已發佈描述！</string>
   <string name="description_edit_success_saved_snackbar">已發佈描述！</string>
   <string name="description_edit_success_encouragement">謝謝您！您剛剛已令維基百科變得更完善，所有人都會受惠</string>
@@ -682,6 +685,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">在您的應用程式語言裡，目前有繁體與簡體的中文異體設定。要更新您的應用程式語言設定嗎？</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">編輯語言</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">不用了，謝謝</string>
+  <string name="wikitext_bold">粗體</string>
+  <string name="wikitext_italic">斜體</string>
+  <string name="wikitext_link">連結</string>
+  <string name="wikitext_bulleted_list">符號清單</string>
+  <string name="wikitext_numbered_list">編號清單</string>
+  <string name="wikitext_template">模板</string>
+  <string name="wikitext_reference">參考文獻</string>
+  <string name="wikitext_preview_link">預覽連結</string>
   <string name="main_drawer_open">開啟</string>
   <string name="main_drawer_close">關閉</string>
   <string name="main_drawer_help">說明</string>
@@ -711,8 +722,8 @@
   <string name="add_translate_descriptions_dialog_title">您正在首次翻譯標題描述</string>
   <string name="add_translate_descriptions_dialog_message">您現在可以透過翻譯標題描述來協助改善維基百科。您可以隨時設置您的語言和設定翻譯領域。</string>
   <string name="description_edit_tutorial_message">歡迎來到在維基百科應用程式裡用於快速編輯的新主頁。對於您的貢獻我們在此感激，祝編安！</string>
-  <string name="translation_description_edit_task_unlock_title">翻譯標題描述編輯已解開！</string>
-  <string name="translation_description_edit_task_unlock_body">我們注意到您似乎喜歡編輯標題描述以及閱讀各語言的維基百科，請試看看能夠來翻譯更多標題描述的任務清單！</string>
+  <string name="translation_description_edit_task_unlock_title">您解開了「翻譯描述」</string>
+  <string name="translation_description_edit_task_unlock_body">感謝您持續地貢獻！您目前以多語言使用此應用程式，因此我們彙整出條目需要描述翻譯的清單，您是否能繼續協助我們來改善維基百科嗎？</string>
   <string name="title_description_editing_skip">略過</string>
   <string name="title_description_get_started">入門</string>
   <string name="translate_description_get_started">入門</string>
@@ -721,4 +732,5 @@
   <string name="title_descriptions_onboarding_got_it">了解</string>
   <string name="translate_descriptions_onboarding_got_it">了解</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_menu_info">資訊</string>
 </resources>
