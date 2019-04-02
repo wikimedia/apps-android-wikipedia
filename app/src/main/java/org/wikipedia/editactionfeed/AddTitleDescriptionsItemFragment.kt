@@ -31,14 +31,17 @@ import org.wikipedia.util.log.L
 
 class AddTitleDescriptionsItemFragment : Fragment() {
     private val disposables = CompositeDisposable()
-    var targetPageTitle: PageTitle? = null
     private var summary: RbPageSummary? = null
     private val app = WikipediaApp.getInstance()
     var sourceDescription: String = ""
     var addedDescription: String = ""
         internal set
+    var targetPageTitle: PageTitle? = null
 
     var pagerPosition = -1
+
+    val title: String?
+        get() = if (summary == null) null else summary!!.title
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,7 +68,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
         }
 
         cardView.setOnClickListener {
-            if (!TextUtils.isEmpty(sourceDescription)) {
+            if (summary != null) {
                 parent().onSelectPage()
             }
         }
