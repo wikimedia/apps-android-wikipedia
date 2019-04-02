@@ -12,7 +12,6 @@ import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.editactionfeed.AddTitleDescriptionsFragment.Companion.newInstance
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.views.DialogTitleWithImage
 
@@ -58,33 +57,27 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
         }
 
         fun showEditUnlockDialog(context: Context) {
-            if (!Prefs.isSuggestedEditsAddDescriptionsMessageShown()) {
-                Prefs.setSuggestedEditsAddDescriptionsMessageShown(true)
-                AlertDialog.Builder(context)
-                        .setCustomTitle(DialogTitleWithImage(context, R.string.suggested_edits_unlock_add_descriptions_dialog_title, R.drawable.ic_illustration_description_edit_trophy, true))
-                        .setMessage(R.string.suggested_edits_unlock_add_descriptions_dialog_message)
-                        .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ ->
-                            SuggestedEditsFunnel.get(ONBOARDING_DIALOG)
-                            context.startActivity(EditTasksActivity.newIntent(context, EDIT_FEED_TITLE_DESC))
-                        }
-                        .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
-                        .show()
-            }
+            AlertDialog.Builder(context)
+                    .setCustomTitle(DialogTitleWithImage(context, R.string.suggested_edits_unlock_add_descriptions_dialog_title, R.drawable.ic_illustration_description_edit_trophy, true))
+                    .setMessage(R.string.suggested_edits_unlock_add_descriptions_dialog_message)
+                    .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ ->
+                        SuggestedEditsFunnel.get(ONBOARDING_DIALOG)
+                        context.startActivity(EditTasksActivity.newIntent(context, EDIT_FEED_TITLE_DESC))
+                    }
+                    .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
+                    .show()
         }
 
         fun showTranslateUnlockDialog(context: Context) {
-            if (!Prefs.isSuggestedEditsTranslateDescriptionsMessageShown()) {
-                Prefs.setSuggestedEditsTranslateDescriptionsMessageShown(true)
-                AlertDialog.Builder(context)
-                        .setCustomTitle(DialogTitleWithImage(context, R.string.suggested_edits_unlock_translate_descriptions_dialog_title, R.drawable.ic_illustration_description_edit_trophy, true))
-                        .setMessage(R.string.suggested_edits_unlock_translate_descriptions_dialog_message)
-                        .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ ->
-                            SuggestedEditsFunnel.get(ONBOARDING_DIALOG)
-                            context.startActivity(EditTasksActivity.newIntent(context, EDIT_FEED_TRANSLATE_TITLE_DESC))
-                        }
-                        .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
-                        .show()
-            }
+            AlertDialog.Builder(context)
+                    .setCustomTitle(DialogTitleWithImage(context, R.string.suggested_edits_unlock_translate_descriptions_dialog_title, R.drawable.ic_illustration_description_edit_trophy, true))
+                    .setMessage(R.string.suggested_edits_unlock_translate_descriptions_dialog_message)
+                    .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ ->
+                        SuggestedEditsFunnel.get(ONBOARDING_DIALOG)
+                        context.startActivity(EditTasksActivity.newIntent(context, EDIT_FEED_TRANSLATE_TITLE_DESC))
+                    }
+                    .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
+                    .show()
         }
     }
 }

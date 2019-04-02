@@ -63,8 +63,7 @@ public final class NotificationEditorTasksHandler {
     }
 
     public static void maybeShowEditDescriptionUnlockNotification(@NonNull Context context, boolean forced) {
-        if (!WikipediaApp.getInstance().isAnyActivityResumed() && !Prefs.isSuggestedEditsAddDescriptionsMessageShown() || forced) {
-            Prefs.setSuggestedEditsAddDescriptionsMessageShown(true);
+        if (!WikipediaApp.getInstance().isAnyActivityResumed() || forced) {
             SuggestedEditsFunnel.get(Constants.InvokeSource.NOTIFICATION).pause();
             Intent intent = EditTasksActivity.newIntent(context, Constants.InvokeSource.EDIT_FEED_TITLE_DESC);
             NotificationCompat.Builder builder = NotificationPresenter.getDefaultBuilder(context);
@@ -78,8 +77,7 @@ public final class NotificationEditorTasksHandler {
     }
 
     public static void maybeShowTranslateDescriptionUnlockNotification(@NonNull Context context, boolean forced) {
-        if (!WikipediaApp.getInstance().isAnyActivityResumed() && !Prefs.isSuggestedEditsTranslateDescriptionsMessageShown() || forced) {
-            Prefs.setSuggestedEditsTranslateDescriptionsMessageShown(true);
+        if (!WikipediaApp.getInstance().isAnyActivityResumed() || forced) {
             SuggestedEditsFunnel.get(Constants.InvokeSource.NOTIFICATION).pause();
             Intent intent = EditTasksActivity.newIntent(context, Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC);
             NotificationCompat.Builder builder = NotificationPresenter.getDefaultBuilder(context);

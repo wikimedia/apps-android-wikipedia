@@ -840,22 +840,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_suggested_edits_translate_descriptions_unlocked, enabled);
     }
 
-    public static boolean isSuggestedEditsAddDescriptionsMessageShown() {
-        return getBoolean(R.string.preference_key_suggested_edits_add_descriptions_message_shown, false);
-    }
-
-    public static void setSuggestedEditsAddDescriptionsMessageShown(boolean unlocked) {
-        setBoolean(R.string.preference_key_suggested_edits_add_descriptions_message_shown, unlocked);
-    }
-
-    public static boolean isSuggestedEditsTranslateDescriptionsMessageShown() {
-        return getBoolean(R.string.preference_key_suggested_edits_translate_descriptions_message_shown, false);
-    }
-
-    public static void setSuggestedEditsTranslateDescriptionsMessageShown(boolean unlocked) {
-        setBoolean(R.string.preference_key_suggested_edits_translate_descriptions_message_shown, unlocked);
-    }
-
     public static boolean showTranslateDescriptionsTeaserTask() {
         return getBoolean(R.string.preference_key_show_multilingual_task, true);
     }
