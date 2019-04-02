@@ -117,6 +117,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
             }
             viewAddDescriptionButton.visibility = GONE
             viewArticleSubtitle.text = addedDescription
+            viewArticleExtract.maxLines = viewArticleExtract.maxLines - 1
             this.addedDescription = addedDescription!!
         }
     }
