@@ -4,13 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.view.MenuItem;
 
 import org.wikipedia.Constants;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
-import org.wikipedia.main.MainActivity;
 
 public class EditTasksActivity extends SingleFragmentActivity<EditTasksFragment> {
     public static Intent newIntent(@NonNull Context context, Constants.InvokeSource invokeSource) {
@@ -23,7 +20,14 @@ public class EditTasksActivity extends SingleFragmentActivity<EditTasksFragment>
         super.onCreate(savedInstanceState);
         SuggestedEditsFunnel.reset();
         if (getIntent().hasExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE)) {
-            SuggestedEditsFunnel.get((Constants.InvokeSource) getIntent().getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE));
+            Constants.InvokeSource source = (Constants.InvokeSource) getIntent().getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE);
+            SuggestedEditsFunnel.get(source);
+
+            if (source == Constants.InvokeSource.EDIT_FEED_TITLE_DESC
+                    || source == Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
+                startActivity(AddTitleDescriptionsActivity.Companion.newIntent(this, source));
+            }
+
         } else {
             SuggestedEditsFunnel.get();
         }
@@ -45,22 +49,6 @@ public class EditTasksActivity extends SingleFragmentActivity<EditTasksFragment>
     public void onDestroy() {
         super.onDestroy();
         SuggestedEditsFunnel.get().log();
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                if (!WikipediaApp.getInstance().haveMainActivity()) {
-                    startActivity(MainActivity.newIntent(this)
-                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                            .putExtra(Constants.INTENT_RETURN_TO_MAIN, true));
-                } else {
-                    finish();
-                }
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 
     public static Intent newIntent(@NonNull Context context) {

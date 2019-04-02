@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 
 import org.wikipedia.activity.SingleFragmentActivity
+import org.wikipedia.analytics.SuggestedEditsFunnel
 
 class MyContributionsActivity : SingleFragmentActivity<MyContributionsFragment>() {
 
@@ -12,6 +13,8 @@ class MyContributionsActivity : SingleFragmentActivity<MyContributionsFragment>(
         super.onCreate(savedInstanceState)
         supportActionBar!!.elevation = 0f
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+
+        SuggestedEditsFunnel.get().contributionsOpened()
     }
 
     override fun createFragment(): MyContributionsFragment {

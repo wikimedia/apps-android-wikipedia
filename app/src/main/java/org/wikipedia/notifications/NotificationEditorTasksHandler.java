@@ -11,7 +11,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
 import org.wikipedia.dataclient.mwapi.EditorTaskCounts;
-import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity;
+import org.wikipedia.editactionfeed.EditTasksActivity;
 import org.wikipedia.events.EditorTaskUnlockEvent;
 import org.wikipedia.settings.Prefs;
 
@@ -64,7 +64,7 @@ public final class NotificationEditorTasksHandler {
     public static void maybeShowEditDescriptionUnlockNotification(@NonNull Context context, boolean forced) {
         if (!WikipediaApp.getInstance().isAnyActivityResumed() || forced) {
             SuggestedEditsFunnel.get(Constants.InvokeSource.NOTIFICATION).pause();
-            Intent intent = AddTitleDescriptionsActivity.Companion.newIntent(context, Constants.InvokeSource.EDIT_FEED_TITLE_DESC);
+            Intent intent = EditTasksActivity.newIntent(context, Constants.InvokeSource.EDIT_FEED_TITLE_DESC);
             NotificationCompat.Builder builder = NotificationPresenter.getDefaultBuilder(context);
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             builder.addAction(0, context.getString(R.string.suggested_edits_unlock_notification_button), pendingIntent);
@@ -78,7 +78,7 @@ public final class NotificationEditorTasksHandler {
     public static void maybeShowTranslateDescriptionUnlockNotification(@NonNull Context context, boolean forced) {
         if (!WikipediaApp.getInstance().isAnyActivityResumed() || forced) {
             SuggestedEditsFunnel.get(Constants.InvokeSource.NOTIFICATION).pause();
-            Intent intent = AddTitleDescriptionsActivity.Companion.newIntent(context, Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC);
+            Intent intent = EditTasksActivity.newIntent(context, Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC);
             NotificationCompat.Builder builder = NotificationPresenter.getDefaultBuilder(context);
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             builder.addAction(0, context.getString(R.string.suggested_edits_unlock_notification_button), pendingIntent);

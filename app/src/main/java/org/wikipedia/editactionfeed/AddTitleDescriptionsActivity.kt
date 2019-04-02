@@ -38,17 +38,6 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            android.R.id.home -> {
-                NavUtils.navigateUpFromSameTask(this)
-                if (WikipediaApp.getInstance().haveMainActivity()) {
-                    NavUtils.navigateUpFromSameTask(this)
-                } else {
-                    startActivity(EditTasksActivity.newIntent(this))
-                }
-                finish()
-                return true
-            }
-
             R.id.menu_help -> {
                 FeedbackUtil.showAndroidAppEditingFAQ(baseContext)
                 true
@@ -75,7 +64,7 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
                     .setMessage(R.string.suggested_edits_unlock_add_descriptions_dialog_message)
                     .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ ->
                         SuggestedEditsFunnel.get(ONBOARDING_DIALOG)
-                        context.startActivity(AddTitleDescriptionsActivity.newIntent(context, EDIT_FEED_TITLE_DESC))
+                        context.startActivity(EditTasksActivity.newIntent(context, EDIT_FEED_TITLE_DESC))
                     }
                     .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
                     .show()
@@ -87,7 +76,7 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
                     .setMessage(R.string.suggested_edits_unlock_translate_descriptions_dialog_message)
                     .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ ->
                         SuggestedEditsFunnel.get(ONBOARDING_DIALOG)
-                        context.startActivity(AddTitleDescriptionsActivity.newIntent(context, EDIT_FEED_TRANSLATE_TITLE_DESC))
+                        context.startActivity(EditTasksActivity.newIntent(context, EDIT_FEED_TRANSLATE_TITLE_DESC))
                     }
                     .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
                     .show()

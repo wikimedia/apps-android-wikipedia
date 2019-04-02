@@ -92,14 +92,6 @@ public class SuggestedEditsFunnel extends TimedFunnel {
         }
     }
 
-    public SuggestedEditStats getAddDescriptionStats() {
-        return statsCollection.addDescriptionStats;
-    }
-
-    public SuggestedEditStats getTranslateDescriptionStats() {
-        return statsCollection.translateDescriptionStats;
-    }
-
     public void helpOpened() {
         helpOpenedCount++;
     }
