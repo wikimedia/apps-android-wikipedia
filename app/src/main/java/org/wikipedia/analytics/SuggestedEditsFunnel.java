@@ -27,7 +27,7 @@ public class SuggestedEditsFunnel extends TimedFunnel {
     private int contributionsOpenedCount = 0;
     private SuggestedEditStatsCollection statsCollection = new SuggestedEditStatsCollection();
 
-    public SuggestedEditsFunnel(WikipediaApp app, Constants.InvokeSource invokeSource) {
+    private SuggestedEditsFunnel(WikipediaApp app, Constants.InvokeSource invokeSource) {
         super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_ALL);
         this.invokeSource = invokeSource;
         this.parentSessionToken = app.getSessionFunnel().getSessionToken();
