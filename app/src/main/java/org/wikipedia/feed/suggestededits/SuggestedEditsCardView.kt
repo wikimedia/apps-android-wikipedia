@@ -35,6 +35,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     private var summary: RbPageSummary? = null
     private var sourceLangCode: String = app.language().appLanguageCode
     private var targetLangCode: String = app.language().appLanguageCodes.get(1)
+    var targetPageTitle: PageTitle? = null
 
 
     init {
@@ -47,6 +48,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         translation = card.isTranslation
         summary = card.summary
         sourceDescription = card.sourceDescription
+        targetPageTitle = card.targetPageTitle
         setLayoutDirectionByWikiSite(WikiSite.forLanguageCode(sourceLangCode), rootView!!)
         header(card)
         updateSourceDescriptionWithHighlight()
@@ -111,7 +113,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         cardView.setContentPadding(0, 0, 0, DimenUtil.roundedDpToPx(CARD_BOTTOM_PADDING))
         cardView.setOnClickListener {
             if (callback != null && card != null) {
-                callback!!.onSuggestedEditsCardClick(summary!!.getPageTitle(WikiSite.forLanguageCode(if (translation) targetLangCode else sourceLangCode)), sourceDescription, sourceLangCode, this)
+                callback!!.onSuggestedEditsCardClick(if (translation) targetPageTitle!! else summary!!.getPageTitle(WikiSite.forLanguageCode(sourceLangCode)), sourceDescription, sourceLangCode, this)
             }
         }
     }

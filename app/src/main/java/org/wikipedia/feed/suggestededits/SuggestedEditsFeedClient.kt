@@ -12,10 +12,12 @@ import org.wikipedia.editactionfeed.provider.MissingDescriptionProvider
 import org.wikipedia.feed.FeedCoordinator
 import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.feed.model.Card
+import org.wikipedia.page.PageTitle
 
 class SuggestedEditsFeedClient(var translation: Boolean) : FeedClient {
     private val disposables = CompositeDisposable()
     var sourceDescription: String = ""
+    var targetPageTitle: PageTitle? = null
     private val app = WikipediaApp.getInstance()
     var summary: RbPageSummary? = null
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
@@ -29,7 +31,8 @@ class SuggestedEditsFeedClient(var translation: Boolean) : FeedClient {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ pair ->
-                        sourceDescription = StringUtils.defaultString(pair.first)
+                        targetPageTitle = pair.first
+                        sourceDescription = StringUtils.defaultString(pair.second.description)
                         summary = pair.second
                         FeedCoordinator.postCardsToCallback(cb, if (pair == null) emptyList<Card>() else listOf(toSuggestedEditsCard(wiki)))
                     }, { cb.success(emptyList()) }))
@@ -53,7 +56,7 @@ class SuggestedEditsFeedClient(var translation: Boolean) : FeedClient {
 
     private fun toSuggestedEditsCard(wiki: WikiSite): SuggestedEditsCard {
 
-        return SuggestedEditsCard(wiki, translation, summary, sourceDescription)
+        return SuggestedEditsCard(wiki, translation, summary, sourceDescription, targetPageTitle)
     }
 
 }

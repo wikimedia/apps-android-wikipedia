@@ -296,7 +296,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             Prefs.setShowEditMenuOptionIndicator(false);
             drawerView.maybeShowIndicatorDots();
             startActivity(Prefs.showEditTaskOnboarding() ? SuggestedEditsOnboardingActivity.Companion.newIntent(MainActivity.this, Constants.InvokeSource.MAIN_ACTIVITY)
-                    : EditTasksActivity.newIntent(MainActivity.this));
+                    : EditTasksActivity.newIntent(MainActivity.this, Constants.InvokeSource.MAIN_ACTIVITY));
 
             closeMainDrawer();
         }
