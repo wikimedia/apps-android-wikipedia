@@ -16,6 +16,7 @@ import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.page.PageTitle
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -79,13 +80,13 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         if (TextUtils.isEmpty(summary!!.thumbnailUrl)) {
             viewArticleImage.visibility = View.GONE
             viewArticleExtract.visibility = View.VISIBLE
-            divider.visibility = View.VISIBLE
+            if (DeviceUtil.isdeviceInPortraitMode(context)) divider.visibility = View.VISIBLE
             viewArticleExtract.text = StringUtil.fromHtml(summary!!.extractHtml)
             viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {
             viewArticleImage.visibility = View.VISIBLE
             viewArticleExtract.visibility = View.GONE
-            divider.visibility = View.GONE
+            if (DeviceUtil.isdeviceInPortraitMode(context)) divider.visibility = View.GONE
             viewArticleImage.loadImage(Uri.parse(summary!!.thumbnailUrl))
         }
     }
@@ -100,7 +101,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         cardItemProgressBar.visibility = View.GONE
         viewArticleSubtitleContainer.visibility = View.GONE
         viewArticleExtract.visibility = View.GONE
-        divider.visibility = View.GONE
+        if (DeviceUtil.isdeviceInPortraitMode(context)) divider.visibility = View.GONE
         suggestedEditsItemRootView.setPadding(0, 0, 0, 0)
         val param = cardView.layoutParams as FrameLayout.LayoutParams
         param.setMargins(0, 0, 0, 0)

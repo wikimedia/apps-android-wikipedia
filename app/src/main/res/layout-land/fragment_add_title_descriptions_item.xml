@@ -1,4 +1,5 @@
 <FrameLayout
+    android:id="@+id/suggestedEditsItemRootView"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -45,6 +46,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <org.wikipedia.feed.view.CardHeaderView
+                android:id="@+id/headerView"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:visibility="gone" />
 
             <org.wikipedia.views.FaceAndColorDetectImageView
                 style="@style/SimpleDraweeViewPlaceholder.EditActionFeed"
