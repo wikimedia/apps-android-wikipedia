@@ -280,7 +280,7 @@
   <string name="gallery_menu_share">Label for menu item to share the current image.\n{{Identical|Share}}</string>
   <string name="gallery_share_error">Error message shown when there was a problem with sharing the image. The \"%s\" symbol is replaced with the actual error message from the system.</string>
   <string name="gallery_save_progress">Message shown when the current media item is being downloaded.</string>
-  <string name="gallery_save_success">Mesajo montrata pos sucesoza kopiado di la nun arkivo en la lokala aparato (komputero, posh-telefonilo, \'tablet\'...).</string>
+  <string name="gallery_save_success">Message shown when the current media item is downloaded successfully.</string>
   <string name="gallery_error_video_failed">Error message displayed when a video fails to be played on the device.</string>
   <string name="gallery_save_image_write_permission_rationale">Message shown to explain that an extra write permission is needed to save an image.</string>
   <string name="err_cannot_save_file">Error message when we detect that a file cannot be written to storage.</string>
@@ -615,14 +615,9 @@
   <string name="description_edit_tutorial_button_label_start_editing">Label for a button the user can push when ready to start editing.</string>
   <string name="description_edit_tutorial_promise">A statement that the user promises not to misuse the feature.</string>
   <string name="editactionfeed_add_title_descriptions">Title of screen where the user chooses articles that are missing descriptions to be added.</string>
-  <string name="editactionfeed_translate_descriptions">Title of screen where the user chooses descriptions to translate from one article to another.</string>
   <string name="editactionfeed_review_title_description">Title of the review title description page.</string>
   <string name="editactionfeed_add_description_button">A button text for adding description. Appears next to {{msg-wm|Wikipedia-android-strings-onboarding skip}}. (See also [https://phabricator.wikimedia.org/T214786 bug T214786].)</string>
   <string name="editactionfeed_my_contributions">A overflow menu text that leads to my contributions page</string>
-  <string name="editactionfeed_from_language">A label shows that the current selected Wikipedia language for fetching articles.</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">A button text for leading users to the help page of editing title descriptions.</string>
-  <string name="editactionfeed_translate_title_dialog_learn_more">Text on link to help page for translating title descriptions.\n{{Identical|Learn more}}</string>
-  <string name="editactionfeed_to_language">Label text indicating that the selected language is the one into which the description will be translated to.</string>
   <string name="editactionfeed_added_by_you">A label shows that the current article description was added by you.</string>
   <string name="editactionfeed_translated_by_you">A label shows that the current article description was translated by the user.</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
@@ -715,7 +710,6 @@
   <string name="translate_description_edit_disable_text">Hint message to users about why the translation tasks are locked and how they can be unlocked by making valid edits. %d is the number of edits.</string>
   <string name="multilingual_task_negative">Negative action button text for editing tasks.</string>
   <string name="multilingual_task_positive">Positive action button text for editing tasks.</string>
-  <string name="translation_source_description">Label text that indicated that the description text shown is of the source language %1$s is the language and %2$s is the description</string>
   <string name="translate_caption_task_title">Image caption translation tasks heading.</string>
   <string name="translate_caption_task_description">Image caption translation tasks explanation given to user.</string>
   <plurals name="edit_action_contribution_count">
@@ -738,4 +732,5 @@
   <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Short text\n\nLong text of the notification bar shown to user that the detail of this notification</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Short text\n\nLong text of the notification bar shown to user that the detail of this notification</string>
   <string name="suggested_edits_unlock_notification_button">Action button text for the dialog action that goes to the suggested edits screen</string>
+  <string name="suggested_edits_license_notice">Disclaimer that specifies the Terms of Use and CC license that applies to add descriptions. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
 </resources>

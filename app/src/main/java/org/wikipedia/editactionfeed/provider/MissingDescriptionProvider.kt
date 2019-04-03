@@ -63,7 +63,7 @@ object MissingDescriptionProvider {
                             .getWikidataLabelsAndDescriptions(StringUtils.join(qNumbers, '|'))
                 }
                 .map<Pair<PageTitle, PageTitle>> { response ->
-                    var sourceDescriptionAndTargetTitle: Pair<PageTitle, PageTitle>? = null
+                    var sourceAndTargetPageTitles: Pair<PageTitle, PageTitle>? = null
                     for (q in response.entities()!!.keys) {
                         val entity = response.entities()!![q]
                         if (entity == null
@@ -73,14 +73,14 @@ object MissingDescriptionProvider {
                                 || !entity.sitelinks().containsKey(targetWiki.dbName())) {
                             continue
                         }
-                        sourceDescriptionAndTargetTitle = Pair(PageTitle(entity.sitelinks()[targetWiki.dbName()]!!.title, targetWiki),
+                        sourceAndTargetPageTitles = Pair(PageTitle(entity.sitelinks()[targetWiki.dbName()]!!.title, targetWiki),
                                 PageTitle(entity.sitelinks()[sourceWiki.dbName()]!!.title, sourceWiki))
                         break
                     }
-                    if (sourceDescriptionAndTargetTitle == null) {
+                    if (sourceAndTargetPageTitles == null) {
                         throw ListEmptyException()
                     }
-                    sourceDescriptionAndTargetTitle
+                    sourceAndTargetPageTitles
                 }
                 .flatMap { sourceAndTargetPageTitles: Pair<PageTitle, PageTitle> -> getSummary(sourceAndTargetPageTitles) }
                 .retry { t: Throwable -> t is ListEmptyException }
@@ -98,7 +98,7 @@ object MissingDescriptionProvider {
                             .getWikidataLabelsAndDescriptions(StringUtils.join(qNumbers, '|'))
                 }
                 .map<Pair<PageTitle, PageTitle>> { response ->
-                    var sourceDescriptionAndTargetTitle: Pair<PageTitle, PageTitle>? = null
+                    var sourceAndTargetPageTitles: Pair<PageTitle, PageTitle>? = null
                     for (q in response.entities()!!.keys) {
                         val entity = response.entities()!![q]
                         if (entity == null
@@ -108,14 +108,14 @@ object MissingDescriptionProvider {
                                 || !entity.sitelinks().containsKey(targetWiki.dbName())) {
                             continue
                         }
-                        sourceDescriptionAndTargetTitle = Pair(PageTitle(entity.sitelinks()[sourceWiki.dbName()]!!.title, sourceWiki),
+                        sourceAndTargetPageTitles = Pair(PageTitle(entity.sitelinks()[sourceWiki.dbName()]!!.title, sourceWiki),
                                 PageTitle(entity.sitelinks()[targetWiki.dbName()]!!.title, targetWiki))
                         break
                     }
-                    if (sourceDescriptionAndTargetTitle == null) {
+                    if (sourceAndTargetPageTitles == null) {
                         throw ListEmptyException()
                     }
-                    sourceDescriptionAndTargetTitle
+                    sourceAndTargetPageTitles
                 }
                 .flatMap { sourceAndTargetPageTitles: Pair<PageTitle, PageTitle> -> getSummary(sourceAndTargetPageTitles) }
                 .retry { t: Throwable -> t is ListEmptyException }

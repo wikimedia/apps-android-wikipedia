@@ -215,12 +215,12 @@ public class EditTasksFragment extends Fragment {
             if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
                 if (Prefs.showTranslateDescriptionsTeaserTask()) {
                     displayedTasks.add(translateDescriptionsTeaserTask);
-                    translateDescriptionsTeaserTask.setDisabledDescriptionText(String.format(getString(R.string.image_caption_edit_disable_text), targetForTranslateDescriptions));
+                    translateDescriptionsTeaserTask.setDisabledDescriptionText(String.format(getString(R.string.translate_description_edit_disable_text), targetForTranslateDescriptions));
                     translateDescriptionsTeaserTask.setDisabled(!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked());
                 }
             } else {
                 displayedTasks.add(translateDescriptionsTask);
-                translateDescriptionsTask.setDisabledDescriptionText(String.format(getString(R.string.image_caption_edit_disable_text), targetForTranslateDescriptions));
+                translateDescriptionsTask.setDisabledDescriptionText(String.format(getString(R.string.translate_description_edit_disable_text), targetForTranslateDescriptions));
                 translateDescriptionsTask.setDisabled(!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked());
             }
 
