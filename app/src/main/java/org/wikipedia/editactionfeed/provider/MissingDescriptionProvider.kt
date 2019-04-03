@@ -15,25 +15,50 @@ import org.wikipedia.wikidata.Entities
 import java.util.*
 
 object MissingDescriptionProvider {
+    private val articlesWithMissingDescriptionCache : Stack<String> = Stack()
+    private var articlesWithMissingDescriptionCacheLang : String = ""
+    private val articlesWithTranslatableDescriptionCache : Stack<Pair<PageTitle, PageTitle>> = Stack()
+    private var articlesWithTranslatableDescriptionCacheFromLang : String = ""
+    private var articlesWithTranslatableDescriptionCacheToLang : String = ""
+
     // TODO: add a maximum-retry limit -- it's currently infinite, or until disposed.
 
     @Deprecated("Remove when the new API is deployed to production.")
     fun getNextArticleWithMissingDescription(wiki: WikiSite): Observable<RbPageSummary> {
-        return ServiceFactory.get(wiki).randomWithPageProps
-                .map<List<MwQueryPage>> { response ->
-                    val pages = ArrayList<MwQueryPage>()
-                    for (page in response.query()!!.pages()!!) {
-                        if (page.pageProps() == null || page.pageProps()!!.isDisambiguation || !TextUtils.isEmpty(page.description())) {
-                            continue
+        var cachedTitle = ""
+        synchronized(articlesWithMissingDescriptionCache) {
+            if (articlesWithMissingDescriptionCacheLang != wiki.languageCode()) {
+                // evict the cache if the language has changed.
+                articlesWithMissingDescriptionCache.clear()
+            }
+            if (!articlesWithMissingDescriptionCache.empty()) {
+                cachedTitle = articlesWithMissingDescriptionCache.pop()
+            }
+        }
+
+        return (if (!TextUtils.isEmpty(cachedTitle)) Observable.just(cachedTitle) else
+            ServiceFactory.get(wiki).randomWithPageProps
+                    .map<String> { response ->
+                        var title : String? = null
+                        synchronized(articlesWithMissingDescriptionCache) {
+                            articlesWithMissingDescriptionCacheLang = wiki.languageCode()
+                            for (page in response.query()!!.pages()!!) {
+                                if (page.pageProps() == null || page.pageProps()!!.isDisambiguation || !TextUtils.isEmpty(page.description())) {
+                                    continue
+                                }
+                                articlesWithMissingDescriptionCache.push(page.title())
+                            }
+                            if (!articlesWithMissingDescriptionCache.empty()) {
+                                title = articlesWithMissingDescriptionCache.pop()
+                            }
                         }
-                        pages.add(page)
+                        if (title == null) {
+                            throw ListEmptyException()
+                        }
+                        title
                     }
-                    if (pages.isEmpty()) {
-                        throw ListEmptyException()
-                    }
-                    pages
-                }
-                .flatMap { pages: List<MwQueryPage> -> ServiceFactory.getRest(wiki).getSummary(null, pages[0].title()) }
+                )
+                .flatMap { title -> ServiceFactory.getRest(wiki).getSummary(null, title) }
                 .retry { t: Throwable -> t is ListEmptyException }
     }
 
@@ -49,39 +74,57 @@ object MissingDescriptionProvider {
     @Deprecated("Remove when the new API is deployed to production.")
     fun getNextArticleWithMissingDescription(sourceWiki: WikiSite, targetLang: String, sourceLangMustExist: Boolean): Observable<Pair<PageTitle, RbPageSummary>> {
         val targetWiki = WikiSite.forLanguageCode(targetLang)
+        var cachedPair: Pair<PageTitle, PageTitle>? = null
+        synchronized(articlesWithTranslatableDescriptionCache) {
+            if (articlesWithTranslatableDescriptionCacheFromLang != sourceWiki.languageCode()
+                    || articlesWithTranslatableDescriptionCacheToLang != targetLang) {
+                // evict the cache if the language has changed.
+                articlesWithTranslatableDescriptionCache.clear()
+            }
+            if (!articlesWithTranslatableDescriptionCache.empty()) {
+                cachedPair = articlesWithTranslatableDescriptionCache.pop()
+            }
+        }
 
-        return ServiceFactory.get(sourceWiki).randomWithPageProps
-                .flatMap { response: MwQueryResponse ->
-                    val qNumbers = ArrayList<String>()
-                    for (page in response.query()!!.pages()!!) {
-                        if (page.pageProps() == null || page.pageProps()!!.isDisambiguation || TextUtils.isEmpty(page.pageProps()!!.wikiBaseItem)) {
-                            continue
+        return (if (cachedPair != null) Observable.just(cachedPair) else
+            ServiceFactory.get(sourceWiki).randomWithPageProps
+                    .flatMap { response: MwQueryResponse ->
+                        val qNumbers = ArrayList<String>()
+                        for (page in response.query()!!.pages()!!) {
+                            if (page.pageProps() == null || page.pageProps()!!.isDisambiguation || TextUtils.isEmpty(page.pageProps()!!.wikiBaseItem)) {
+                                continue
+                            }
+                            qNumbers.add(page.pageProps()!!.wikiBaseItem)
                         }
-                        qNumbers.add(page.pageProps()!!.wikiBaseItem)
+                        ServiceFactory.get(WikiSite(Service.WIKIDATA_URL))
+                                .getWikidataLabelsAndDescriptions(StringUtils.join(qNumbers, '|'))
                     }
-                    ServiceFactory.get(WikiSite(Service.WIKIDATA_URL))
-                            .getWikidataLabelsAndDescriptions(StringUtils.join(qNumbers, '|'))
-                }
-                .map<Pair<PageTitle, PageTitle>> { response ->
-                    var sourceAndTargetPageTitles: Pair<PageTitle, PageTitle>? = null
-                    for (q in response.entities()!!.keys) {
-                        val entity = response.entities()!![q]
-                        if (entity == null
-                                || entity.descriptions().containsKey(targetLang)
-                                || sourceLangMustExist && !entity.descriptions().containsKey(sourceWiki.languageCode())
-                                || !entity.sitelinks().containsKey(sourceWiki.dbName())
-                                || !entity.sitelinks().containsKey(targetWiki.dbName())) {
-                            continue
+                    .map<Pair<PageTitle, PageTitle>> { response ->
+                        var sourceAndTargetPageTitles: Pair<PageTitle, PageTitle>? = null
+                        synchronized(articlesWithTranslatableDescriptionCache) {
+                            articlesWithTranslatableDescriptionCacheFromLang = sourceWiki.languageCode()
+                            articlesWithTranslatableDescriptionCacheToLang = targetLang
+                            for (q in response.entities()!!.keys) {
+                                val entity = response.entities()!![q]
+                                if (entity == null
+                                        || entity.descriptions().containsKey(targetLang)
+                                        || sourceLangMustExist && !entity.descriptions().containsKey(sourceWiki.languageCode())
+                                        || !entity.sitelinks().containsKey(sourceWiki.dbName())
+                                        || !entity.sitelinks().containsKey(targetWiki.dbName())) {
+                                    continue
+                                }
+                                articlesWithTranslatableDescriptionCache.push(Pair(PageTitle(entity.sitelinks()[targetWiki.dbName()]!!.title, targetWiki),
+                                        PageTitle(entity.sitelinks()[sourceWiki.dbName()]!!.title, sourceWiki)))
+                            }
+                            if (!articlesWithTranslatableDescriptionCache.empty()) {
+                                sourceAndTargetPageTitles = articlesWithTranslatableDescriptionCache.pop()
+                            }
                         }
-                        sourceAndTargetPageTitles = Pair(PageTitle(entity.sitelinks()[targetWiki.dbName()]!!.title, targetWiki),
-                                PageTitle(entity.sitelinks()[sourceWiki.dbName()]!!.title, sourceWiki))
-                        break
-                    }
-                    if (sourceAndTargetPageTitles == null) {
-                        throw ListEmptyException()
-                    }
-                    sourceAndTargetPageTitles
-                }
+                        if (sourceAndTargetPageTitles == null) {
+                            throw ListEmptyException()
+                        }
+                        sourceAndTargetPageTitles
+                    })
                 .flatMap { sourceAndTargetPageTitles: Pair<PageTitle, PageTitle> -> getSummary(sourceAndTargetPageTitles) }
                 .retry { t: Throwable -> t is ListEmptyException }
     }
