@@ -13,14 +13,13 @@ import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.page.PageTitle
 import org.wikipedia.wikidata.Entities
 import java.util.*
-import kotlin.collections.ArrayList
 
 object MissingDescriptionProvider {
-    val articlesWithMissingDescriptionCache : Stack<String> = Stack()
-    var articlesWithMissingDescriptionCacheLang : String = ""
-    val articlesWithTranslatableDescriptionCache : Stack<Pair<PageTitle, PageTitle>> = Stack()
-    var articlesWithTranslatableDescriptionCacheFromLang : String = ""
-    var articlesWithTranslatableDescriptionCacheToLang : String = ""
+    private val articlesWithMissingDescriptionCache : Stack<String> = Stack()
+    private var articlesWithMissingDescriptionCacheLang : String = ""
+    private val articlesWithTranslatableDescriptionCache : Stack<Pair<PageTitle, PageTitle>> = Stack()
+    private var articlesWithTranslatableDescriptionCacheFromLang : String = ""
+    private var articlesWithTranslatableDescriptionCacheToLang : String = ""
 
     // TODO: add a maximum-retry limit -- it's currently infinite, or until disposed.
 
@@ -32,7 +31,7 @@ object MissingDescriptionProvider {
                 // evict the cache if the language has changed.
                 articlesWithMissingDescriptionCache.clear()
             }
-            if (articlesWithMissingDescriptionCache.size > 0) {
+            if (!articlesWithMissingDescriptionCache.empty()) {
                 cachedTitle = articlesWithMissingDescriptionCache.pop()
             }
         }
@@ -82,7 +81,7 @@ object MissingDescriptionProvider {
                 // evict the cache if the language has changed.
                 articlesWithTranslatableDescriptionCache.clear()
             }
-            if (articlesWithTranslatableDescriptionCache.size > 0) {
+            if (!articlesWithTranslatableDescriptionCache.empty()) {
                 cachedPair = articlesWithTranslatableDescriptionCache.pop()
             }
         }
