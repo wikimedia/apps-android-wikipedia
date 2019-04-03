@@ -73,7 +73,8 @@
                     android:textSize="24sp"
                     android:fontFamily="serif"
                     android:textColor="?attr/primary_text_color"
-                    android:lineSpacingExtra="8sp"
+                    android:lineSpacingExtra="4sp"
+                    android:lineHeight="32px"
                     android:maxLines="2"
                     android:ellipsize="end"
                     tools:text="Lorem ipsum"/>
@@ -137,7 +138,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_marginEnd="6dp"
-                        android:tint="?attr/edit_improve_tag_selected_drawable"
+                        android:tint="?attr/colorAccent"
                         android:contentDescription="@null"
                         app:srcCompat="@drawable/ic_add_circle_black_24dp"/>
 
@@ -145,7 +146,7 @@
                         android:id="@+id/callToActionText"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:textColor="?attr/edit_improve_tag_selected_drawable"
+                        android:textColor="?attr/colorAccent"
                         android:textSize="14sp"
                         android:text="@string/editactionfeed_add_description_button"
                         android:fontFamily="sans-serif-medium"
