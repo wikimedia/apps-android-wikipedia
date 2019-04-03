@@ -21,6 +21,7 @@ import org.wikipedia.notifications.NotificationEditorTasksHandler
 import org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER
 import org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.ViewUtil
@@ -39,6 +40,7 @@ class MyContributionsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener { this.updateUI() }
         contributionsRecyclerView.setHasFixedSize(true)
         contributionsRecyclerView.adapter = adapter
