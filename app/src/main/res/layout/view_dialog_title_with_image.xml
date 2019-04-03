@@ -22,6 +22,7 @@
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
         android:singleLine="false"
+        android:lineSpacingExtra="4sp"
         style="?android:attr/windowTitleStyle"
         tools:text="Lorem ipsum"/>
 
