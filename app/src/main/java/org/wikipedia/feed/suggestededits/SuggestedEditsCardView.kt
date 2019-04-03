@@ -27,16 +27,13 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private val disposables = CompositeDisposable()
-    val CARD_BOTTOM_PADDING = 16.0f
-    val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 6
-    var translation: Boolean = false
+    var isTranslation: Boolean = false
     private var sourceDescription: String = ""
     private val app = WikipediaApp.getInstance()
     private var summary: RbPageSummary? = null
     private var sourceLangCode: String = app.language().appLanguageCode
     private var targetLangCode: String = app.language().appLanguageCodes.get(1)
     var targetPageTitle: PageTitle? = null
-
 
     init {
         View.inflate(getContext(), R.layout.fragment_add_title_descriptions_item, this)
@@ -47,27 +44,23 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         sourceLangCode = app.language().appLanguageCode
         targetLangCode = app.language().appLanguageCodes.get(1)
         prepareViews()
-        translation = card.isTranslation
+        this.isTranslation = card.isTranslation
         summary = card.summary
         sourceDescription = card.sourceDescription
         targetPageTitle = card.targetPageTitle
-        setLayoutDirectionByWikiSite(WikiSite.forLanguageCode(sourceLangCode), rootView!!)
+        setLayoutDirectionByWikiSite(WikiSite.forLanguageCode(sourceLangCode), this)
         header(card)
         updateSourceDescriptionWithHighlight()
     }
 
     private fun updateSourceDescriptionWithHighlight() {
-        if (translation) {
+        if (isTranslation) {
             viewArticleSubtitleContainer.visibility = View.VISIBLE
             viewArticleSubtitleAddedBy.visibility = View.GONE
             viewArticleSubtitleEdit.visibility = View.GONE
             viewArticleSubtitle.text = sourceDescription
         }
         updateContents()
-    }
-
-    fun isTranslation(): Boolean {
-        return translation
     }
 
     override fun setCallback(callback: FeedAdapter.Callback?) {
@@ -78,7 +71,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     private fun updateContents() {
         viewAddDescriptionButton.visibility = View.VISIBLE
         viewArticleTitle.text = summary!!.normalizedTitle
-        callToActionText.text = if (translation) String.format(context.getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(targetLangCode)) else context.getString(R.string.editactionfeed_add_description_button)
+        callToActionText.text = if (isTranslation) String.format(context.getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(targetLangCode)) else context.getString(R.string.editactionfeed_add_description_button)
         showImageOrExtract()
     }
 
@@ -115,17 +108,15 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         cardView.setContentPadding(0, 0, 0, DimenUtil.roundedDpToPx(CARD_BOTTOM_PADDING))
         cardView.setOnClickListener {
             if (callback != null && card != null) {
-                callback!!.onSuggestedEditsCardClick(if (translation) targetPageTitle!! else summary!!.getPageTitle(WikiSite.forLanguageCode(sourceLangCode)), sourceDescription, sourceLangCode, this)
+                callback!!.onSuggestedEditsCardClick(if (isTranslation) targetPageTitle!! else summary!!.getPageTitle(WikiSite.forLanguageCode(sourceLangCode)), sourceDescription, sourceLangCode, this)
             }
         }
     }
-
 
     override fun onDetachedFromWindow() {
         disposables.clear()
         super.onDetachedFromWindow()
     }
-
 
     private fun header(card: SuggestedEditsCard) {
         headerView.visibility = View.VISIBLE
@@ -133,7 +124,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
                 .setSubtitle(card.subtitle())
                 .setImage(R.drawable.ic_mode_edit_white_24dp)
                 .setImageCircleColor(ResourceUtil.getThemedAttributeId(context, R.attr.material_theme_de_emphasised_color))
-                .setLangCode(if (translation) card.wikiSite().languageCode() else "")
+                .setLangCode(if (isTranslation) card.wikiSite().languageCode() else "")
                 .setCard(card)
                 .setCallback(callback)
     }
@@ -145,9 +136,13 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
             viewArticleSubtitleAddedBy.visibility = View.VISIBLE
             viewArticleSubtitleEdit.visibility = View.VISIBLE
             viewArticleSubtitle.text = addedDescription
-            if (translation) viewArticleSubtitleAddedBy.text = context.getString(R.string.editactionfeed_translated_by_you)
+            if (isTranslation) viewArticleSubtitleAddedBy.text = context.getString(R.string.editactionfeed_translated_by_you)
             else viewArticleSubtitleAddedBy.text = context.getString(R.string.editactionfeed_added_by_you)
         }
     }
 
+    companion object {
+        val CARD_BOTTOM_PADDING = 16.0f
+        val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 6
+    }
 }
