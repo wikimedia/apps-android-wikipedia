@@ -18,7 +18,6 @@ public class EditTasksActivity extends SingleFragmentActivity<EditTasksFragment>
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SuggestedEditsFunnel.reset();
         if (getIntent().hasExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE)) {
             Constants.InvokeSource source = (Constants.InvokeSource) getIntent().getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE);
             SuggestedEditsFunnel.get(source);
@@ -49,10 +48,7 @@ public class EditTasksActivity extends SingleFragmentActivity<EditTasksFragment>
     public void onDestroy() {
         super.onDestroy();
         SuggestedEditsFunnel.get().log();
-    }
-
-    public static Intent newIntent(@NonNull Context context) {
-        return new Intent(context, EditTasksActivity.class);
+        SuggestedEditsFunnel.reset();
     }
 
     @Override
