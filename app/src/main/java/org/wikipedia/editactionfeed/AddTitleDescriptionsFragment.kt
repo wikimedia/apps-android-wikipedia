@@ -79,8 +79,6 @@ class AddTitleDescriptionsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-
-        // TODO: add funnel?
         source = arguments?.getSerializable(EXTRA_SOURCE) as InvokeSource
         return inflater.inflate(R.layout.fragment_add_title_descriptions, container, false)
     }
