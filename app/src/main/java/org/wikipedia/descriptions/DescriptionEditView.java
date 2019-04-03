@@ -128,7 +128,7 @@ public class DescriptionEditView extends LinearLayout {
         pageSummaryText.setText(isTranslationEdit
                 ? translationSourceDescription
                 : StringUtil.fromHtml(pageSummary.getExtract()));
-        setConditionalLayoutDirection(pageSummaryText, (isTranslationEdit) ? translationSourceLanguageCode : pageTitle.getWikiSite().languageCode());
+        setConditionalLayoutDirection(pageSummaryContainer, (isTranslationEdit) ? translationSourceLanguageCode : pageTitle.getWikiSite().languageCode());
         readArticleBarContainer.setPageSummary(pageSummary, pageTitle.getWikiSite().languageCode());
         readArticleBarContainer.setOnClickListener(view -> performReadArticleClick());
         this.pageSummary = pageSummary;

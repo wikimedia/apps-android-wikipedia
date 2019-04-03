@@ -50,6 +50,7 @@ import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
 import static org.wikipedia.Constants.InvokeSource;
 import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC;
 import static org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION;
+import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
 public class EditTasksFragment extends Fragment {
     private Unbinder unbinder;
@@ -84,6 +85,7 @@ public class EditTasksFragment extends Fragment {
 
         showOneTimeOnboarding();
 
+        swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent));
         swipeRefreshLayout.setOnRefreshListener(this::updateUI);
 
         tasksRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));

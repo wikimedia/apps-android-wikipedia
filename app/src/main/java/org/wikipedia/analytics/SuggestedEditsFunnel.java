@@ -9,7 +9,7 @@ import org.wikipedia.Constants;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.json.GsonUtil;
 
-public class SuggestedEditsFunnel extends TimedFunnel {
+public final class SuggestedEditsFunnel extends TimedFunnel {
     private static SuggestedEditsFunnel INSTANCE;
 
     private static final String SCHEMA_NAME = "MobileWikiAppSuggestedEdits";
@@ -27,7 +27,7 @@ public class SuggestedEditsFunnel extends TimedFunnel {
     private int contributionsOpenedCount = 0;
     private SuggestedEditStatsCollection statsCollection = new SuggestedEditStatsCollection();
 
-    public SuggestedEditsFunnel(WikipediaApp app, Constants.InvokeSource invokeSource) {
+    private SuggestedEditsFunnel(WikipediaApp app, Constants.InvokeSource invokeSource) {
         super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_ALL);
         this.invokeSource = invokeSource;
         this.parentSessionToken = app.getSessionFunnel().getSessionToken();
