@@ -176,8 +176,8 @@ class AddTitleDescriptionsItemFragment : Fragment() {
     }
 
     companion object {
-        const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 6
-        const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 13
+        const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 5
+        const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 12
 
         fun newInstance(): AddTitleDescriptionsItemFragment {
             return AddTitleDescriptionsItemFragment()
