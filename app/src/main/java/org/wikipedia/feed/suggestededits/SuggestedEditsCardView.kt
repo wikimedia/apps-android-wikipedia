@@ -44,6 +44,8 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     override fun setCard(@NonNull card: SuggestedEditsCard) {
         super.setCard(card)
+        sourceLangCode = app.language().appLanguageCode
+        targetLangCode = app.language().appLanguageCodes.get(1)
         prepareViews()
         translation = card.isTranslation
         summary = card.summary
