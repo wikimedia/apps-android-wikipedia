@@ -198,7 +198,7 @@
                     android:clickable="true"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     app:srcCompat="@drawable/ic_info_outline_black_24dp"
-                    app:tint="?attr/main_toolbar_icon_color"/>
+                    app:tint="?attr/material_theme_secondary_color"/>
 
             </FrameLayout>
 
