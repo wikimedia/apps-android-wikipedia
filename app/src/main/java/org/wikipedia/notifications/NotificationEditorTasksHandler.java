@@ -84,7 +84,7 @@ public final class NotificationEditorTasksHandler {
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             builder.addAction(0, context.getString(R.string.suggested_edits_unlock_notification_button), pendingIntent);
             NotificationPresenter.showNotification(context, builder, 0, context.getString(R.string.suggested_edits_unlock_translate_descriptions_notification_title),
-                    context.getString(R.string.suggested_edits_unlock_translate_descriptions_notification_big_text),
+                    context.getString(R.string.suggested_edits_unlock_notification_text),
                     context.getString(R.string.suggested_edits_unlock_translate_descriptions_notification_big_text),
                     R.drawable.ic_mode_edit_white_24dp, R.color.accent50, intent);
         }
