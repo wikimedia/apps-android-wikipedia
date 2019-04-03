@@ -22,6 +22,7 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_add_title_descriptions.*
 import org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
 import org.wikipedia.Constants.InvokeSource
+import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.RandomizerFunnel
@@ -48,12 +49,13 @@ class AddTitleDescriptionsFragment : Fragment() {
     private var languageCodesToList: MutableList<String> = arrayListOf()
     var langFromCode: String = app.language().appLanguageCode
     var langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
-    var source: InvokeSource = InvokeSource.EDIT_FEED_TITLE_DESC
+    var source: InvokeSource = EDIT_FEED_TITLE_DESC
 
     private val topTitle: PageTitle?
         get() {
             val f = topChild
-            return titleFromPageName(f?.title, f?.addedDescription)
+
+            return if (source == EDIT_FEED_TITLE_DESC) titleFromPageName(f?.title, f?.addedDescription) else f?.targetPageTitle
         }
 
     private val topChild: AddTitleDescriptionsItemFragment?
@@ -172,7 +174,7 @@ class AddTitleDescriptionsFragment : Fragment() {
     }
 
     private fun titleFromPageName(pageName: String?, description: String?): PageTitle {
-        return PageTitle(pageName, WikiSite.forLanguageCode(if (source == InvokeSource.EDIT_FEED_TITLE_DESC) langFromCode else langToCode), null, description)
+        return PageTitle(pageName, WikiSite.forLanguageCode(if (source == EDIT_FEED_TITLE_DESC) langFromCode else langToCode), null, description)
     }
 
     fun onSelectPage() {
@@ -181,7 +183,7 @@ class AddTitleDescriptionsFragment : Fragment() {
                     ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
     }
-
+  
     private fun requestLanguagesAndBuildSpinner() {
         disposables.add(ServiceFactory.get(app.wikiSite).siteMatrix
                 .subscribeOn(Schedulers.io())

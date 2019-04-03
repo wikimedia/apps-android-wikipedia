@@ -23,6 +23,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.editactionfeed.provider.MissingDescriptionProvider
+import org.wikipedia.page.PageTitle
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -35,6 +36,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
     var sourceDescription: String = ""
     var addedDescription: String = ""
         internal set
+    var targetPageTitle: PageTitle? = null
 
     var pagerPosition = -1
 
@@ -53,7 +55,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setConditionalLayoutDirection(viewArticleContainer, if (parent().source == InvokeSource.EDIT_FEED_TITLE_DESC) parent().langFromCode else parent().langToCode)
+        setConditionalLayoutDirection(viewArticleContainer, parent().langFromCode)
         viewArticleImage.setLegacyVisibilityHandlingEnabled(true)
         cardItemErrorView.setBackClickListener { requireActivity().finish() }
         cardItemErrorView.setRetryClickListener {
@@ -92,7 +94,9 @@ class AddTitleDescriptionsItemFragment : Fragment() {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ pair ->
-                        sourceDescription = StringUtils.defaultString(pair.first)
+                        targetPageTitle = pair.first
+                        sourceDescription = StringUtils.defaultString(pair.second.description)
+
                         if (pagerPosition == 0) {
                             updateSourceDescriptionWithHighlight()
                         }
