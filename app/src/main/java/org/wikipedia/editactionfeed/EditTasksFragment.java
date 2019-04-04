@@ -153,7 +153,6 @@ public class EditTasksFragment extends Fragment {
     }
 
 
-    @SuppressWarnings("checkstyle:magicnumber")
     private void setUpTasks() {
         addDescriptionsTask = new EditTask();
         addDescriptionsTask.setTitle(getString(R.string.title_description_task_title));
@@ -237,11 +236,6 @@ public class EditTasksFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_suggested_edits_tasks, menu);
-    }
-
-    @Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        super.onPrepareOptionsMenu(menu);
     }
 
     @Override

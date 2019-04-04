@@ -32,7 +32,7 @@ class SuggestedEditsOnboardingFragment : Fragment() {
             if (source == FEED_CARD_SUGGESTED_EDITS_ADD_DESC || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
                 requireActivity().setResult(Activity.RESULT_OK)
             } else {
-                startActivity(EditTasksActivity.newIntent(requireActivity(), NAV_MENU))
+                startActivity(EditTasksActivity.newIntent(requireActivity(), SUGGESTED_EDITS_ONBOARDING))
             }
             requireActivity().finish()
         }
