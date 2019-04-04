@@ -1,6 +1,5 @@
 package org.wikipedia.dataclient.okhttp;
 
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -44,56 +43,6 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
     private static final String PCS_CSS_SITE = "/data/css/mobile/site";
 
     @NonNull public abstract PageViewModel getModel();
-
-    @SuppressWarnings("deprecation") @Override
-    public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
-        if (!SUPPORTED_SCHEMES.contains(Uri.parse(url).getScheme())) {
-            return null;
-        }
-
-        try {
-            if (url.contains(ASSETS_URL_PATH)) {
-                String[] urlArr = url.split(ASSETS_URL_PATH);
-                return new WebResourceResponse(MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(url)),
-                        "utf-8", WikipediaApp.getInstance().getAssets().open(urlArr[urlArr.length - 1]));
-            }
-
-            Response rsp = request(url);
-            if (CONTENT_TYPE_OGG.equals(rsp.header(HEADER_CONTENT_TYPE))) {
-                rsp.close();
-                return super.shouldInterceptRequest(view, url);
-            } else {
-                // noinspection ConstantConditions
-                return new WebResourceResponse(rsp.body().contentType().type() + "/" + rsp.body().contentType().subtype(),
-                        rsp.body().contentType().charset(Charset.defaultCharset()).name(),
-                        rsp.body().byteStream());
-            }
-        } catch (Exception e) {
-
-            if (url.contains(PCS_CSS_BASE)) {
-                // This means that we failed to fetch the base CSS for our page (probably due to
-                // being offline), so replace it with our pre-packaged fallback.
-                try {
-                    return new WebResourceResponse("text/css", "utf-8",
-                            WikipediaApp.getInstance().getAssets().open("styles.css"));
-                } catch (IOException ex) {
-                    // ignore silently
-                }
-            } else if (url.contains(PCS_CSS_PAGELIB)) {
-                // This means that we failed to fetch the page-library CSS (probably due to
-                // being offline), so replace it with our pre-packaged fallback.
-                try {
-                    return new WebResourceResponse("text/css", "utf-8",
-                            WikipediaApp.getInstance().getAssets().open("wikimedia-page-library.css"));
-                } catch (IOException ex) {
-                    // ignore silently
-                }
-            }
-
-            L.e(e);
-        }
-        return null;
-    }
 
     @Override public WebResourceResponse shouldInterceptRequest(WebView view,
                                                                 WebResourceRequest request) {
@@ -156,13 +105,6 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
     public boolean shouldOverrideKeyEvent(WebView view, KeyEvent event) {
         return ((event.isCtrlPressed() && event.getKeyCode() == KeyEvent.KEYCODE_F)
                 || (!event.isCtrlPressed() && event.getKeyCode() == KeyEvent.KEYCODE_F3));
-    }
-
-    @NonNull private Response request(String url) throws IOException {
-        Request.Builder builder = new Request.Builder()
-                .url(url)
-                .cacheControl(getModel().getCacheControl());
-        return OkHttpConnectionFactory.getClient().newCall(addHeaders(builder).build()).execute();
     }
 
     @NonNull private Response request(WebResourceRequest request) throws IOException {
