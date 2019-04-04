@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Alex Khimich
 * Andrew J.Kurbiko
 * Andriykopanytsia
@@ -532,9 +533,11 @@
   <string name="description_edit_tutorial_promise">Починаючи, я обіцяю не зловживати цією функцією.</string>
   <string name="editactionfeed_add_description_button">Додати опис</string>
   <string name="editactionfeed_my_contributions">Мій внесок</string>
-  <string name="editactionfeed_from_language">Від:</string>
-  <string name="editactionfeed_translate_title_dialog_learn_more">Дізнатися більше</string>
-  <string name="editactionfeed_to_language">До:</string>
+  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Можливо, пізніше</string>
+  <string name="multilingual_task_negative">Не для мене</string>
+  <string name="multilingual_task_positive">Додати мови</string>
+  <string name="translate_caption_task_title">Переклад підписів для зображень</string>
+  <string name="edit_tasks_onboarding_get_started">Розпочати</string>
   <string name="description_edit_revert_subtitle">Дякуємо за редагування Вікіпедії!</string>
   <string name="description_edit_revert_intro">Ми знаємо, що Ви старались як могли, але в одного з перевіряльників виникли сумніви. Ймовірні причини скасування Вашого редагування:</string>
   <string name="description_edit_revert_reason1">Ваше редагування не відповідало одній з &lt;a href=\"%1$s\"&gt;настанов&lt;/a&gt;.</string>
@@ -586,14 +589,4 @@
   <string name="main_drawer_close">Закрити</string>
   <string name="main_drawer_help">Допомога</string>
   <string name="main_drawer_login">Увійти до Вікіпедії</string>
-  <string name="multilingual_task_negative">Не для мене</string>
-  <string name="multilingual_task_positive">Додати мови</string>
-  <string name="translation_source_description">%s опис:</string>
-  <string name="translate_caption_task_title">Переклад підписів для зображень</string>
-  <string name="title_description_editing_skip">Пропустити</string>
-  <string name="title_description_get_started">Розпочати</string>
-  <string name="translate_description_get_started">Розпочати</string>
-  <string name="edit_tasks_onboarding_get_started">Розпочати</string>
-  <string name="translate_descriptions_maybe_later">Можливо, пізніше</string>
-  <string name="translate_descriptions_onboarding_got_it">Зрозуміло</string>
 </resources>

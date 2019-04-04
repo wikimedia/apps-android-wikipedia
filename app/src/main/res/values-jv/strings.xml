@@ -559,10 +559,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Prayogané salarik, tembungé cacahé antarané loro tekan rolas</string>
   <string name="description_edit_tutorial_button_label_start_editing">Wiwit mbesut</string>
   <string name="description_edit_tutorial_promise">Kanthi miwiti, kula jangji ora nyalahi panganggoné fitur iki.</string>
-  <string name="editactionfeed_from_language">Saka:</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">Sinaoni candhaké</string>
-  <string name="editactionfeed_translate_title_dialog_learn_more">Sinaoni candhaké</string>
-  <string name="editactionfeed_to_language">Menyang:</string>
+  <string name="suggested_edits_menu_info">Info</string>
   <string name="description_edit_revert_subtitle">Matur nuwun kanggo mbesut ing Wikipedia!</string>
   <string name="description_edit_revert_intro">Awak dhéwé sumurup panjenengan wis njajal sakatogé, nanging salah siji pamriksa sedhih. Alesané bokmanawa besutané panjenengan dibalèkaké ya iku:</string>
   <string name="description_edit_revert_reason1">kontribusi panjenengan ora ngetutake salah siji &lt;a href=\"%1$s\"&gt;pedoman&lt;/a&gt;.</string>
@@ -634,5 +631,4 @@
   <string name="main_drawer_close">Tutup</string>
   <string name="main_drawer_help">Pitulung</string>
   <string name="main_drawer_login">Mlebu log Wikipédia</string>
-  <string name="suggested_edits_menu_info">Info</string>
 </resources>
