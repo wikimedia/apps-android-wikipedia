@@ -23,6 +23,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.editactionfeed.provider.MissingDescriptionProvider
+import org.wikipedia.page.PageTitle
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -32,9 +33,10 @@ class AddTitleDescriptionsItemFragment : Fragment() {
     private val disposables = CompositeDisposable()
     private var summary: RbPageSummary? = null
     private val app = WikipediaApp.getInstance()
-    private var sourceDescription: String = ""
+    var sourceDescription: String = ""
     var addedDescription: String = ""
         internal set
+    var targetPageTitle: PageTitle? = null
 
     var pagerPosition = -1
 
@@ -53,7 +55,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setConditionalLayoutDirection(viewArticleContainer, if (parent().source == InvokeSource.EDIT_FEED_TITLE_DESC) parent().langFromCode else parent().langToCode)
+        setConditionalLayoutDirection(viewArticleContainer, parent().langFromCode)
         viewArticleImage.setLegacyVisibilityHandlingEnabled(true)
         cardItemErrorView.setBackClickListener { requireActivity().finish() }
         cardItemErrorView.setRetryClickListener {
@@ -66,7 +68,9 @@ class AddTitleDescriptionsItemFragment : Fragment() {
         }
 
         cardView.setOnClickListener {
-            parent().onSelectPage()
+            if (summary != null) {
+                parent().onSelectPage()
+            }
         }
 
     }
@@ -90,7 +94,9 @@ class AddTitleDescriptionsItemFragment : Fragment() {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ pair ->
-                        sourceDescription = StringUtils.defaultString(pair.first)
+                        targetPageTitle = pair.first
+                        sourceDescription = StringUtils.defaultString(pair.second.description)
+
                         if (pagerPosition == 0) {
                             updateSourceDescriptionWithHighlight()
                         }
@@ -117,6 +123,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
             }
             viewAddDescriptionButton.visibility = GONE
             viewArticleSubtitle.text = addedDescription
+            viewArticleExtract.maxLines = viewArticleExtract.maxLines - 1
             this.addedDescription = addedDescription!!
         }
     }
@@ -161,7 +168,6 @@ class AddTitleDescriptionsItemFragment : Fragment() {
         if (parent().source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
             val spannableDescription = SpannableString(sourceDescription)
             spannableDescription.setSpan(ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_text_color)), 0, sourceDescription.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-            parent().sourceDescription = sourceDescription
         }
     }
 
@@ -170,8 +176,8 @@ class AddTitleDescriptionsItemFragment : Fragment() {
     }
 
     companion object {
-        const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 6
-        const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 13
+        const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 5
+        const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 12
 
         fun newInstance(): AddTitleDescriptionsItemFragment {
             return AddTitleDescriptionsItemFragment()

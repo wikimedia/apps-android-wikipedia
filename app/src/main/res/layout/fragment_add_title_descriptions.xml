@@ -28,19 +28,6 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <android.support.v7.widget.AppCompatTextView
-                    android:id="@+id/fromLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="@string/editactionfeed_from_language"
-                    android:textColor="?attr/material_theme_de_emphasised_color"
-                    android:textSize="12sp"
-                    android:visibility="gone"/>
-
                 <android.support.v7.widget.AppCompatSpinner
                     android:id="@+id/wikiFromLanguageSpinner"
                     android:layout_width="wrap_content"
@@ -92,7 +79,8 @@
             android:id="@+id/bottomButtonContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:paddingBottom="8dp"
+            android:clipToPadding="false"
             app:layout_constraintBottom_toBottomOf="parent">
 
             <android.support.v7.widget.AppCompatImageView
@@ -107,7 +95,7 @@
                 android:layout_marginEnd="32dp"
                 app:tint="?attr/material_theme_de_emphasised_color"
                 app:srcCompat="@drawable/ic_replay_black_24dp"
-                app:layout_constraintRight_toLeftOf="@+id/nextButton"
+                app:layout_constraintEnd_toStartOf="@+id/nextButton"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 

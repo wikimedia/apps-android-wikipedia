@@ -198,6 +198,7 @@
     <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
     <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
     <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+    <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
     <string name="about_libraries_heading">Libraries used</string>
     <string name="about_contributors_heading">Contributors</string>
     <string name="about_translators_heading">Translators</string>
@@ -540,6 +541,8 @@
     <string name="preference_summary_notification_milestone">Certain edit counts are reached</string>
     <string name="preference_title_notification_thanks">Thanks</string>
     <string name="preference_summary_notification_thanks">Someone thanks you for an edit</string>
+    <string name="preference_title_notification_revert">Revert</string>
+    <string name="preference_summary_notification_revert">One of your contributions was reverted</string>
     <!-- /Notifications -->
 
     <!-- The Feed -->
@@ -603,6 +606,7 @@
     <string name="description_edit_article">Article</string>
     <string name="description_edit_read">Read</string>
     <string name="description_edit_add_description">Add title description</string>
+    <string name="description_edit_add_description_v2">Add description</string>
     <string name="description_edit_edit_description">Edit description</string>
     <string name="add_translation">Add %s translation</string>
     <string name="description_edit_cancel_hint">Cancel</string>
@@ -612,8 +616,6 @@
     <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
     <string name="description_edit_anon_limit">Thanks for your continued interest in editing descriptions! To make additional edits, please log in to your Wikipedia account.</string>
     <string name="description_edit_license_notice"><![CDATA[By changing the title description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
-    <string name="description_edit_task_unlock_title">Title descriptions editing task list has been unlocked!</string>
-    <string name="description_edit_task_unlock_body">We’ve noticed you like editing title descriptions, so we’ve compiled an “Editor tasks” list with more articles missing title descriptions to help you continue contributing!</string>
     <!-- /Description editing -->
 
     <!-- Description editing success -->
@@ -634,19 +636,48 @@
     <string name="description_edit_tutorial_promise">By starting, I promise not to misuse this feature.</string>
     <!-- /Description editing tutorial -->
 
-    <!-- Edit action feed -->
+    <!-- Suggested edits -->
     <string name="editactionfeed_add_title_descriptions">Add descriptions</string>
-    <string name="editactionfeed_translate_descriptions">Translate title descriptions</string>
     <string name="editactionfeed_review_title_description">Review description</string>
     <string name="editactionfeed_add_description_button">Add description</string>
     <string name="editactionfeed_my_contributions">My contributions</string>
-    <string name="editactionfeed_from_language">From: </string>
-    <string name="editactionfeed_add_title_dialog_learn_more">Learn more</string>
-    <string name="editactionfeed_translate_title_dialog_learn_more">Learn more</string>
-    <string name="editactionfeed_to_language">To: </string>
     <string name="editactionfeed_added_by_you">Added by you:</string>
     <string name="editactionfeed_translated_by_you">Translated by you:</string>
-    <!-- /Edit action feed -->
+    <string name="suggested_edits_unlock_add_descriptions_dialog_title">You unlocked the “Add descriptions“ task</string>
+    <string name="suggested_edits_unlock_add_descriptions_dialog_message">Congratulations on your third contribution! Since you’re super good at editing, we’ve compiled a list of articles missing descriptions. Could you help us to improve Wikipedia?</string>
+    <string name="suggested_edits_unlock_translate_descriptions_dialog_title">You unlocked the “Translate descriptions“ task</string>
+    <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Congratulations on your 50th contribution, we’re impressed! You’re using the app in multiple languages, so we’ve compiled a list of articles needing description translations. Could you continue to help us improving Wikipedia?</string>
+    <string name="suggested_edits_unlock_dialog_no">Maybe later</string>
+    <string name="suggested_edits_unlock_dialog_yes">Yes, let’s go</string>
+    <string name="suggested_edits_unlock_add_descriptions_notification_title">You unlocked “Add descriptions“</string>
+    <string name="suggested_edits_unlock_translate_descriptions_notification_title">You unlocked “Translate descriptions“</string>
+    <string name="suggested_edits_unlock_notification_text">Suggested edits</string>
+    <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Suggested edits\n\nCongratulations on your third contribution. Since you’re super good at editing, we’ve compiled a list of articles missing descriptions. Could you help us to improve Wikipedia?</string>
+    <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Suggested edits\n\nCongratulations on your 50th contribution, we’re impressed! You’re using the app in multiple languages, so we’ve compiled a list of articles needing description translations. Could you continue to help us improving Wikipedia?</string>
+    <string name="suggested_edits_unlock_notification_button">Yes, let’s go</string>
+    <string name="suggested_edits_license_notice"><![CDATA[By adding the title description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
+    <string name="suggested_edits_menu_info">Info</string>
+    <string name="title_description_task_title">Add descriptions</string>
+    <string name="title_description_task_description">Contribute to articles without descriptions</string>
+    <string name="image_caption_task_title">Caption images</string>
+    <string name="image_caption_task_description">Add captions to images</string>
+    <string name="multilingual_task_title">More tasks for multilingual editors</string>
+    <string name="multilingual_task_description">Translation tasks are available if you read and write in more than one Wikipedia language.</string>
+    <string name="translation_task_title">Translate descriptions</string>
+    <string name="translation_task_description">Translate descriptions across article languages.</string>
+    <string name="image_caption_edit_disable_text">Locked until you’ve made %d verified contributions</string>
+    <string name="translate_description_edit_disable_text">Locked until you’ve made %d verified contributions</string>
+    <string name="multilingual_task_negative">Not for me</string>
+    <string name="multilingual_task_positive">Add languages</string>
+    <string name="translate_caption_task_title">Translate image captions</string>
+    <string name="translate_caption_task_description">Translate captions into other languages</string>
+    <plurals name="edit_action_contribution_count">
+        <item quantity="one">1 contribution</item>
+        <item quantity="other">%d contributions</item>
+    </plurals>
+    <string name="description_edit_tutorial_message">Welcome to the new home for quick editing in the Wikipedia app. Your contributions are much appreciated. Happy editing!</string>
+    <string name="edit_tasks_onboarding_get_started">Get started</string>
+    <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->
     <string name="description_edit_revert_subtitle">Thanks for editing Wikipedia!</string>
@@ -745,40 +776,4 @@
     <string name="main_drawer_close">Close</string>
     <string name="main_drawer_help">Help</string>
     <string name="main_drawer_login">Log in / join Wikipedia</string>
-    <string name="title_description_task_title">Add descriptions</string>
-    <string name="title_description_task_description">Contribute to articles without descriptions</string>
-    <string name="image_caption_task_title">Caption images</string>
-    <string name="image_caption_task_description">Add captions to images</string>
-    <string name="multilingual_task_title">More tasks for multilingual editors</string>
-    <string name="multilingual_task_description">Translation tasks are available if you read and write in more than one Wikipedia language.</string>
-    <string name="translation_task_title">Translate descriptions</string>
-    <string name="translation_task_description">Translate descriptions across article languages.</string>
-    <string name="image_caption_edit_disable_text">Locked until you’ve made %d verified contributions</string>
-    <string name="translate_description_edit_disable_text">Locked until you’ve made %d verified contributions</string>
-    <string name="multilingual_task_negative">Not for me</string>
-    <string name="multilingual_task_positive">Add languages</string>
-    <string name="editing_level_text">LEVEL %d app editor</string>
-    <string name="translation_source_description">%s description:\n</string>
-    <string name="translate_caption_task_title">Translate image captions</string>
-    <string name="translate_caption_task_description">Translate captions into other languages</string>
-    <plurals name="edit_action_contribution_count">
-        <item quantity="one">1 contribution</item>
-        <item quantity="other">%d contributions</item>
-    </plurals>
-    <string name="add_title_descriptions_dialog_title">Add title descriptions</string>
-    <string name="add_title_descriptions_dialog_message">You can now help to improve Wikipedia by adding descriptions that appear below titles in articles. You can configure your languages at any time.</string>
-    <string name="add_translate_descriptions_dialog_title">You are translating title descriptions for the first time</string>
-    <string name="add_translate_descriptions_dialog_message">You can now help to improve Wikipedia by translating title descriptions. You can configure your languages and set a translation direction at any time.</string>
-    <string name="description_edit_tutorial_message">Welcome to the new home for quick editing in the Wikipedia app. Your contributions are much appreciated. Happy editing!</string>
-    <string name="translation_description_edit_task_unlock_title">Translating title descriptions editing has been unlocked!</string>
-    <string name="translation_description_edit_task_unlock_body">We’ve noticed you like editing title descriptions and read Wikipedia in multiple languages. Check out this task list which gives access to translating more title descriptions!</string>
-    <string name="title_description_editing_skip">Skip</string>
-    <string name="title_description_get_started">Get started</string>
-    <string name="translate_description_get_started">Get started</string>
-    <string name="edit_tasks_onboarding_get_started">Get started</string>
-    <string name="translate_descriptions_maybe_later">Maybe later</string>
-    <string name="title_descriptions_onboarding_got_it">Got it</string>
-    <string name="translate_descriptions_onboarding_got_it">Got it</string>
-    <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-    <string name="suggested_edits_menu_info">Info</string>
 </resources>

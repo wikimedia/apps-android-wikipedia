@@ -576,7 +576,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Terima kasih kerana minat anda terus dalam menyunting huraian! Untuk membuat suntingan tambahan, sila log masuk ke akaun Wikipedia anda.</string>
   <string name="description_edit_license_notice">Dengan menukar huraian tajuk, saya menyetujui &lt;a href=\"%1$s\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan saya tanpa tertarik balik dengan lesen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_task_unlock_title">Senarai tugasan penyuntingan tajuk telah dibuka kunci!</string>
+  <string name="description_edit_task_unlock_title" fuzzy="true">Senarai tugasan penyuntingan tajuk telah dibuka kunci!</string>
   <string name="description_edit_task_unlock_body" fuzzy="true">Kami telah melihat anda menyusun penerangan tajuk, jadi kami telah menyusun senarai \"Tugas editor aplikasi\" dengan lebih banyak rencana yang hilang penerangan tajuk untuk membantu anda terus menyumbang!</string>
   <string name="description_edit_success_saved">Huraian diterbitkan!</string>
   <string name="description_edit_success_encouragement">Anda baru sahaja menciptakan Wikipedia lebih baik untuk semua orang</string>
@@ -693,8 +693,8 @@
   <string name="add_translate_descriptions_dialog_title">Anda menerjemahkan huraian tajuk untuk kali pertama</string>
   <string name="add_translate_descriptions_dialog_message">Anda kini boleh membantu memperbaiki Wikipedia dengan menerjemahkan huraian tajuk. Anda boleh mengkonfigurasi bahasa anda dan menetapkan arahan terjemahan pada bila-bila masa.</string>
   <string name="description_edit_tutorial_message" fuzzy="true">Selamat datang ke rumah baru untuk penyuntingan dalam aplikasinya di Wikipedia. Di sini, kami akan mencadangkan peluang untuk menambah kandungan yang mungkin menarik minat anda. Sumbangan anda amat dihargai. Selamat menyunting!</string>
-  <string name="translation_description_edit_task_unlock_title">Menterjemahkan penyuntingan deskripsi tajuk telah dibuka kunci!</string>
-  <string name="translation_description_edit_task_unlock_body">Kami perhatikan anda seperti menyunting penerangan tajuk dan membaca Wikipedia dalam pelbagai bahasa. Semak senarai tugas ini yang memberikan akses kepada menterjemahkan lebih banyak penerangan tajuk!</string>
+  <string name="translation_description_edit_task_unlock_title" fuzzy="true">Menterjemahkan penyuntingan deskripsi tajuk telah dibuka kunci!</string>
+  <string name="translation_description_edit_task_unlock_body" fuzzy="true">Kami perhatikan anda seperti menyunting penerangan tajuk dan membaca Wikipedia dalam pelbagai bahasa. Semak senarai tugas ini yang memberikan akses kepada menterjemahkan lebih banyak penerangan tajuk!</string>
   <string name="title_description_editing_skip">Langkau</string>
   <string name="title_description_get_started">Memulakan</string>
   <string name="translate_description_get_started">Memulakan</string>

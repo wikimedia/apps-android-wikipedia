@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 /*package*/ abstract class TimedFunnel extends Funnel {
     private long startTime;
+    private long pauseTime;
 
     /*package*/ TimedFunnel(WikipediaApp app, String schemaName, int revision, int sampleRate) {
         this(app, schemaName, revision, sampleRate, null);
@@ -24,6 +25,17 @@ import java.util.concurrent.TimeUnit;
     protected JSONObject preprocessData(@NonNull JSONObject eventData) {
         preprocessData(eventData, getDurationFieldName(), getDurationSeconds());
         return super.preprocessData(eventData);
+    }
+
+    public void pause() {
+        pauseTime = System.currentTimeMillis();
+    }
+
+    public void resume() {
+        if (pauseTime > 0) {
+            startTime += (System.currentTimeMillis() - pauseTime);
+        }
+        pauseTime = 0;
     }
 
     /** Override me for deviant implementations. */

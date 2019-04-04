@@ -20,6 +20,7 @@ import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetView;
 
 import org.wikipedia.R;
+import org.wikipedia.analytics.SuggestedEditsFunnel;
 import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.PageActivity;
@@ -93,6 +94,7 @@ public final class FeedbackUtil {
     }
 
     public static void showAndroidAppEditingFAQ(Context context) {
+        SuggestedEditsFunnel.get().helpOpened();
         visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_edit_help_url)));
     }
 

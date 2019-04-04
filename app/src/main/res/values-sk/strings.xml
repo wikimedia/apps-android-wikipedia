@@ -557,7 +557,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Ďakujeme za Váš pokračujúci záujem o úpravu popisov! Pre ďalšie úpravy sa, prosím, prihláste do Vášho účtu na Wikipédii.</string>
   <string name="description_edit_license_notice">Zmenou popisu súhlasím s &lt;a href=\"%1$s\"&gt;Podmienkami používania&lt;/a&gt; a neodvolateľne súhlasím s podmienkami licencie &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_task_unlock_title">Tipy pre popisy článkov boli odomknuté!</string>
+  <string name="description_edit_task_unlock_title" fuzzy="true">Tipy pre popisy článkov boli odomknuté!</string>
   <string name="description_edit_task_unlock_body" fuzzy="true">Všimli sme si, že sa vám páči úprava popisov článkov a preto sme zostavili zoznam „Úlohy pre upravovanie z aplikácie“ s článkami, ktorým chýbajú popisy. Úlohy vám pomôžu prispievať do Wikipédie!</string>
   <string name="description_edit_success_saved">Popis bol uverejnený!</string>
   <string name="description_edit_success_encouragement">Wikipédia je vďaka vám lepšia než predtým</string>

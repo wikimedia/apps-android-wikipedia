@@ -31,6 +31,7 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard>
         super.setCard(card);
         header(card);
         set(new RecyclerAdapter(card.items()));
+        setLayoutDirectionByWikiSite(card.wikiSite(), getLayoutDirectionView());
     }
 
     private void header(@NonNull final BecauseYouReadCard card) {

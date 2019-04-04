@@ -27,6 +27,7 @@ import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.login.LoginClient.LoginFailedException;
+import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
@@ -81,9 +82,12 @@ public class DescriptionEditFragment extends Fragment {
             if (!AccountUtil.isLoggedIn()) {
                 Prefs.incrementTotalAnonDescriptionsEdited();
             } else {
-                Prefs.incrementTotalUserDescriptionsEdited();
+                // For good measure, poll the editor tasks API explicitly, since the user might have
+                // disabled polling of notifications, which is were the passive polling takes place.
+                NotificationPollBroadcastReceiver.pollEditorTaskCounts(requireContext());
             }
             Prefs.setLastDescriptionEditTime(new Date().getTime());
+            SuggestedEditsFunnel.get().success(invokeSource);
 
             if (getActivity() == null)  {
                 return;
@@ -95,7 +99,8 @@ public class DescriptionEditFragment extends Fragment {
             } else {
                 requireActivity().setResult(RESULT_OK,
                         new Intent().putExtra(EXTRA_SOURCE_ADDED_DESCRIPTION, editView.getDescription()));
-                finish();
+                hideSoftKeyboard(requireActivity());
+                requireActivity().finish();
             }
         }
     };
@@ -177,8 +182,7 @@ public class DescriptionEditFragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
-        if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS
-                && getActivity() != null) {
+        if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS && getActivity() != null) {
             if (callback() != null) {
                 callback().onDescriptionEditSuccess();
             }
@@ -205,11 +209,6 @@ public class DescriptionEditFragment extends Fragment {
             csrfClient = null;
         }
         disposables.clear();
-    }
-
-    private void finish() {
-        hideSoftKeyboard(requireActivity());
-        requireActivity().finish();
     }
 
     private Callback callback() {
@@ -322,6 +321,7 @@ public class DescriptionEditFragment extends Fragment {
             if (funnel != null && logError) {
                 funnel.logError(caught.getMessage());
             }
+            SuggestedEditsFunnel.get().cancel(invokeSource);
         }
 
         @Override
@@ -334,7 +334,8 @@ public class DescriptionEditFragment extends Fragment {
             if (reviewEnabled && editView.showingReviewContent()) {
                 editView.loadReviewContent(false);
             } else {
-                finish();
+                hideSoftKeyboard(requireActivity());
+                requireActivity().onBackPressed();
             }
         }
 
