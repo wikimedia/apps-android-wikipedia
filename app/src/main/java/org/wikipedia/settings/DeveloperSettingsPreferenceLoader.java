@@ -216,7 +216,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
         findPreference(context.getString(R.string.preference_key_dialog_with_image_test))
                 .setOnPreferenceClickListener(preference -> {
                     new AlertDialog.Builder(getActivity())
-                            .setCustomTitle(new DialogTitleWithImage(getActivity(), R.string.suggested_edits_unlock_add_descriptions_dialog_title, R.drawable.ic_illustration_description_edit_trophy, true))
+                            .setCustomTitle(new DialogTitleWithImage(getActivity(), R.string.suggested_edits_unlock_add_descriptions_dialog_title, R.drawable.ic_unlock_illustration_add, true))
                             .setMessage(R.string.suggested_edits_unlock_add_descriptions_dialog_message)
                             .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes, null)
                             .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
