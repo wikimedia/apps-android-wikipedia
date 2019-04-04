@@ -555,8 +555,12 @@
   <string name="editactionfeed_review_title_description" fuzzy="true">ပလေဝ်ဒါန် က္ဍိုပ်လိက် မဗမံက်ထ္ၜး</string>
   <string name="editactionfeed_add_description_button">ထပ် မဗၟံက်ထ္ၜး</string>
   <string name="editactionfeed_my_contributions">အရာ အဲ မကၠောန်လဝ်ဂမၠိုင်</string>
-  <string name="editactionfeed_from_language">နူ:</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">ဆက် လ္ၚတ်</string>
+  <string name="title_description_task_title" fuzzy="true">စုတ် က္ဍိုပ်လိက် ပရူပရာ</string>
+  <string name="title_description_task_description" fuzzy="true">တြးပ္တိတ် လိက်ပရေင် မဟွံမဲ ကုက္ဍိုပ်လိက်</string>
+  <string name="image_caption_task_title">ပရူ ဗီုရုပ်</string>
+  <string name="image_caption_task_description">စုတ် ပရူပရာ ပ္ဍဲ ဗီုရုပ်</string>
+  <string name="multilingual_task_title">ထပ်စုတ် မဒါန်ပလေဝ် ဘာသာနာနာ</string>
+  <string name="multilingual_task_description">အရာမကၠာဲစၠောအ်ဘာသာဂှ် သၟဟ်အစောံ ယဝ်ရ မၞိဟ်ဗှ် ကေုာံ ချူပ္ဍဲဘာသာဝဳကဳ ဂၠိုင်နူမွဲဘာသာမ္ဂး၊၊</string>
   <string name="description_edit_revert_subtitle">တင်ဂုန်ရ ဟိုတ် မပလေဝ်ဒါန်လဝ် ဝဳကဳပဳဒဳယာ!</string>
   <string name="description_edit_revert_intro">ပိုဲတီ ၜိုတ်ခိုဟ်မာန်ဂှ် မၞးဂစာန်တုဲ ကၠောန်လဝ်၊ ဆဂး မၞိဟ်မဗဵုမွဲဂှ် ဆေင်စပ်ဒၟံင် ကုလိက်ဂှ်တုဲ အရာမၞး မပလေဝ်ဒါန်လဝ်ဂှ် ကလေင်ပလေဝ်ပၠန် ဒှ်မာန်ရ၊၊</string>
   <string name="description_edit_revert_reason1">တရးပတိတ် မၞးဂှ် ဟွံဗက်အာ ပ္ဍဲအရာဏအ် &lt;a href=\"%1$s\"&gt;စၞောန်ဂၠံင်&lt;/a&gt;.</string>
@@ -627,10 +631,4 @@
   <string name="main_drawer_close">ကၟာတ်</string>
   <string name="main_drawer_help">ရီု</string>
   <string name="main_drawer_login">လုပ်ဇၟိက်/ ပါလုပ် ဝဳကဳပဳဒဳယာ</string>
-  <string name="title_description_task_title" fuzzy="true">စုတ် က္ဍိုပ်လိက် ပရူပရာ</string>
-  <string name="title_description_task_description" fuzzy="true">တြးပ္တိတ် လိက်ပရေင် မဟွံမဲ ကုက္ဍိုပ်လိက်</string>
-  <string name="image_caption_task_title">ပရူ ဗီုရုပ်</string>
-  <string name="image_caption_task_description">စုတ် ပရူပရာ ပ္ဍဲ ဗီုရုပ်</string>
-  <string name="multilingual_task_title">ထပ်စုတ် မဒါန်ပလေဝ် ဘာသာနာနာ</string>
-  <string name="multilingual_task_description">အရာမကၠာဲစၠောအ်ဘာသာဂှ် သၟဟ်အစောံ ယဝ်ရ မၞိဟ်ဗှ် ကေုာံ ချူပ္ဍဲဘာသာဝဳကဳ ဂၠိုင်နူမွဲဘာသာမ္ဂး၊၊</string>
 </resources>

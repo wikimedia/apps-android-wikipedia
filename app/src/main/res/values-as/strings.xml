@@ -385,7 +385,8 @@
   <string name="description_edit_tutorial_keep_it_short">সংক্ষিপ্ত ৰাখক</string>
   <string name="description_edit_tutorial_button_label_start_editing">সম্পাদনা আৰম্ভ কৰক</string>
   <string name="editactionfeed_my_contributions">মোৰ বৰঙণিসমূহ</string>
-  <string name="editactionfeed_from_language">পৰা:</string>
+  <string name="multilingual_task_negative">মোৰ বাবে নহয়</string>
+  <string name="multilingual_task_positive">ভাষা সংযোগ কৰক</string>
   <string name="description_edit_revert_subtitle">ৱিকিপিডিয়া সম্পাদনা কৰাৰ বাবে ধন্যবাদ!</string>
   <string name="onboarding_skip">এৰি যাওক</string>
   <string name="onboarding_continue">অব্যাহত ৰাখক</string>
@@ -400,6 +401,4 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">নালাগে দিয়ক</string>
   <string name="main_drawer_open">খোলক</string>
   <string name="main_drawer_help">সহায়</string>
-  <string name="multilingual_task_negative">মোৰ বাবে নহয়</string>
-  <string name="multilingual_task_positive">ভাষা সংযোগ কৰক</string>
 </resources>

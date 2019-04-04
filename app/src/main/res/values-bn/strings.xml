@@ -525,15 +525,13 @@
   <string name="description_edit_tutorial_button_label_start_editing">সম্পাদনা শুরু করুন</string>
   <string name="description_edit_tutorial_promise">শুরু করার দ্বারা, আমি প্রতিজ্ঞা করছি এই বৈশিষ্ট্যের অপব্যবহার করব না।</string>
   <string name="editactionfeed_add_title_descriptions">বিবরণ যোগ করুন</string>
-  <string name="editactionfeed_translate_descriptions">শিরোনামের বিবরণ অনুবাদ করুন</string>
   <string name="editactionfeed_review_title_description">বিবরণ পর্যালোচনা করুন</string>
   <string name="editactionfeed_add_description_button">বিবরণ যোগ করুন</string>
   <string name="editactionfeed_my_contributions">আমার অবদান</string>
-  <string name="editactionfeed_from_language">প্রেরক:</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">আরও জানুন</string>
-  <string name="editactionfeed_translate_title_dialog_learn_more">আরও জানুন</string>
-  <string name="editactionfeed_to_language">প্রাপক:</string>
   <string name="editactionfeed_translated_by_you">আপনার দ্বারা অনূদিত:</string>
+  <string name="suggested_edits_menu_info">তথ্য</string>
+  <string name="multilingual_task_negative">আমার জন্য নয়</string>
+  <string name="multilingual_task_positive">ভাষা যোগ করুন</string>
   <string name="description_edit_revert_subtitle">উইকিপিডিয়ায় সম্পাদনা করার জন্য ধন্যবাদ!</string>
   <string name="description_edit_revert_reason1">আপনার অবদান &lt;a href=\"%1$s\"&gt;নীতিমালা&lt;/a&gt; অনুসরণ করেনি।</string>
   <string name="description_edit_revert_reason2">আপনার অবদান পরীক্ষামূলক বা ধ্বংসপ্রবণতামূলক বলে মনে হচ্ছে।</string>
@@ -594,8 +592,4 @@
   <string name="main_drawer_close">বন্ধ করুন</string>
   <string name="main_drawer_help">সাহায্য</string>
   <string name="main_drawer_login">উইকিপিডিয়াতে প্রবেশ করুন/যোগ দিন</string>
-  <string name="multilingual_task_negative">আমার জন্য নয়</string>
-  <string name="multilingual_task_positive">ভাষা যোগ করুন</string>
-  <string name="translation_source_description">%s বিবরণ:</string>
-  <string name="suggested_edits_menu_info">তথ্য</string>
 </resources>
