@@ -216,7 +216,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
         findPreference(context.getString(R.string.preference_key_dialog_with_image_test))
                 .setOnPreferenceClickListener(preference -> {
                     new AlertDialog.Builder(getActivity())
-                            .setCustomTitle(new DialogTitleWithImage(getActivity(), R.string.suggested_edits_unlock_add_descriptions_dialog_title, R.drawable.ic_illustration_description_edit_trophy, true))
+                            .setCustomTitle(new DialogTitleWithImage(getActivity(), R.string.suggested_edits_unlock_add_descriptions_dialog_title, R.drawable.ic_unlock_illustration_add, true))
                             .setMessage(R.string.suggested_edits_unlock_add_descriptions_dialog_message)
                             .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes, null)
                             .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
@@ -226,28 +226,24 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
 
         findPreference(context.getString(R.string.preferences_developer_suggested_edits_add_description_dialog))
                 .setOnPreferenceClickListener(preference -> {
-                    Prefs.setEditActionAddDescriptionsUnlocked(false);
                     AddTitleDescriptionsActivity.Companion.showEditUnlockDialog(getActivity());
                     return true;
                 });
 
         findPreference(context.getString(R.string.preferences_developer_suggested_edits_add_description_notification))
                 .setOnPreferenceClickListener(preference -> {
-                    Prefs.setEditActionAddDescriptionsUnlocked(false);
                     NotificationEditorTasksHandler.maybeShowEditDescriptionUnlockNotification(getActivity(), true);
                     return true;
                 });
 
         findPreference(context.getString(R.string.preferences_developer_suggested_edits_translate_description_dialog))
                 .setOnPreferenceClickListener(preference -> {
-                    Prefs.setEditActionTranslateDescriptionsUnlocked(false);
                     AddTitleDescriptionsActivity.Companion.showTranslateUnlockDialog(getActivity());
                     return true;
                 });
 
         findPreference(context.getString(R.string.preferences_developer_suggested_edits_translate_description_notification))
                 .setOnPreferenceClickListener(preference -> {
-                    Prefs.setEditActionTranslateDescriptionsUnlocked(false);
                     NotificationEditorTasksHandler.maybeShowTranslateDescriptionUnlockNotification(getActivity(), true);
                     return true;
                 });

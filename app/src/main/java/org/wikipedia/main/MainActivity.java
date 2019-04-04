@@ -2,7 +2,6 @@ package org.wikipedia.main;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
@@ -36,7 +35,6 @@ import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.views.WikiDrawerLayout;
 
 import butterknife.BindView;
@@ -147,7 +145,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     }
 
     void setUpHomeMenuIcon() {
-        drawerIconDot.setVisibility(AccountUtil.isLoggedIn() && Prefs.showActionFeedIndicator() && ReleaseUtil.isPreBetaRelease() ? VISIBLE : GONE);
+        drawerIconDot.setVisibility(AccountUtil.isLoggedIn() && Prefs.showActionFeedIndicator() ? VISIBLE : GONE);
     }
 
     @OnClick(R.id.drawer_icon_layout) void onDrawerOpenClicked() {
@@ -237,16 +235,11 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     }
 
     protected void setToolbarElevationDefault() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getToolbar().setElevation(DimenUtil
-                    .dpToPx(DimenUtil.getDimension(R.dimen.toolbar_default_elevation)));
-        }
+        getToolbar().setElevation(DimenUtil.dpToPx(DimenUtil.getDimension(R.dimen.toolbar_default_elevation)));
     }
 
     protected void clearToolbarElevation() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getToolbar().setElevation(0f);
-        }
+        getToolbar().setElevation(0f);
     }
 
     private class DrawerViewCallback implements MainDrawerView.Callback {
@@ -263,6 +256,8 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
                             }
                             Prefs.setReadingListsLastSyncTime(null);
                             Prefs.setReadingListSyncEnabled(false);
+                            Prefs.setSuggestedEditsAddDescriptionsUnlocked(false);
+                            Prefs.setSuggestedEditsTranslateDescriptionsUnlocked(false);
                         }).show();
             } else {
                 getFragment().onLoginRequested();
@@ -293,7 +288,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         public void editingTasksClick() {
             Prefs.setShowEditMenuOptionIndicator(false);
             drawerView.maybeShowIndicatorDots();
-            startActivity(EditTasksActivity.newIntent(MainActivity.this));
+            startActivity(EditTasksActivity.newIntent(MainActivity.this, Constants.InvokeSource.NAV_MENU));
             closeMainDrawer();
         }
 

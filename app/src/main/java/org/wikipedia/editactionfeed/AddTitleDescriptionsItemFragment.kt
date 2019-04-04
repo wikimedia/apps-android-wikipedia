@@ -23,6 +23,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.editactionfeed.provider.MissingDescriptionProvider
+import org.wikipedia.page.PageTitle
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -35,6 +36,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
     var sourceDescription: String = ""
     var addedDescription: String = ""
         internal set
+    var targetPageTitle: PageTitle? = null
 
     var pagerPosition = -1
 
@@ -53,7 +55,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setConditionalLayoutDirection(viewArticleContainer, if (parent().source == InvokeSource.EDIT_FEED_TITLE_DESC) parent().langFromCode else parent().langToCode)
+        setConditionalLayoutDirection(viewArticleContainer, parent().langFromCode)
         viewArticleImage.setLegacyVisibilityHandlingEnabled(true)
         cardItemErrorView.setBackClickListener { requireActivity().finish() }
         cardItemErrorView.setRetryClickListener {
@@ -92,7 +94,9 @@ class AddTitleDescriptionsItemFragment : Fragment() {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ pair ->
-                        sourceDescription = StringUtils.defaultString(pair.first)
+                        targetPageTitle = pair.first
+                        sourceDescription = StringUtils.defaultString(pair.second.description)
+
                         if (pagerPosition == 0) {
                             updateSourceDescriptionWithHighlight()
                         }
@@ -145,7 +149,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
             viewArticleSubtitleContainer.visibility = VISIBLE
             viewArticleSubtitleAddedBy.visibility = GONE
             viewArticleSubtitleEdit.visibility = GONE
-            viewArticleSubtitle.text = sourceDescription
+            viewArticleSubtitle.text = StringUtils.capitalize(sourceDescription)
             callToActionText.text = String.format(getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(parent().langToCode))
         }
 
@@ -172,8 +176,8 @@ class AddTitleDescriptionsItemFragment : Fragment() {
     }
 
     companion object {
-        const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 6
-        const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 13
+        const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 5
+        const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 12
 
         fun newInstance(): AddTitleDescriptionsItemFragment {
             return AddTitleDescriptionsItemFragment()
