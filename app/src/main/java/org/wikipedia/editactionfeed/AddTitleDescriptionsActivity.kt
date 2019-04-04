@@ -58,7 +58,7 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
 
         fun showEditUnlockDialog(context: Context) {
             AlertDialog.Builder(context)
-                    .setCustomTitle(DialogTitleWithImage(context, R.string.suggested_edits_unlock_add_descriptions_dialog_title, R.drawable.ic_illustration_description_edit_trophy, true))
+                    .setCustomTitle(DialogTitleWithImage(context, R.string.suggested_edits_unlock_add_descriptions_dialog_title, R.drawable.ic_unlock_illustration_add, true))
                     .setMessage(R.string.suggested_edits_unlock_add_descriptions_dialog_message)
                     .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ ->
                         SuggestedEditsFunnel.get(ONBOARDING_DIALOG)
@@ -70,7 +70,7 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
 
         fun showTranslateUnlockDialog(context: Context) {
             AlertDialog.Builder(context)
-                    .setCustomTitle(DialogTitleWithImage(context, R.string.suggested_edits_unlock_translate_descriptions_dialog_title, R.drawable.ic_illustration_description_edit_trophy, true))
+                    .setCustomTitle(DialogTitleWithImage(context, R.string.suggested_edits_unlock_translate_descriptions_dialog_title, R.drawable.ic_unlock_illustration_translate, true))
                     .setMessage(R.string.suggested_edits_unlock_translate_descriptions_dialog_message)
                     .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ ->
                         SuggestedEditsFunnel.get(ONBOARDING_DIALOG)
