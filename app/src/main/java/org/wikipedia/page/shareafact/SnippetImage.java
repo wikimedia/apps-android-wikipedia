@@ -10,7 +10,6 @@ import android.graphics.Rect;
 import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -192,15 +191,8 @@ public final class SnippetImage {
         if (isArticleRTL) {
             left = WIDTH - HORIZONTAL_PADDING - textLayout.getWidth();
         }
-        int marginBottomTotal = marginBottom;
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            // versions < 5.0 don't compensate for bottom margin correctly when line
-            // spacing is less than 1.0, so we'll compensate ourselves
-            final int marginBoost = 10;
-            marginBottomTotal += marginBoost;
-        }
 
-        top = top - marginBottomTotal - textLayout.getHeight();
+        top = top - marginBottom - textLayout.getHeight();
         canvas.save();
         canvas.translate(left, top);
         textLayout.draw(canvas);

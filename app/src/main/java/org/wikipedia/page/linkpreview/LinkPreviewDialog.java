@@ -3,7 +3,6 @@ package org.wikipedia.page.linkpreview;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -101,12 +100,6 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
         titleText = rootView.findViewById(R.id.link_preview_title);
         setConditionalLayoutDirection(rootView, pageTitle.getWikiSite().languageCode());
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            // for <5.0, give the title a bit more bottom padding, since these versions
-            // incorrectly cut off the bottom of the text when line spacing is <1.
-            final int bottomPadding = 8;
-            ViewUtil.setBottomPaddingDp(titleText, bottomPadding);
-        }
 
         extractText = rootView.findViewById(R.id.link_preview_extract);
         thumbnailView = rootView.findViewById(R.id.link_preview_thumbnail);

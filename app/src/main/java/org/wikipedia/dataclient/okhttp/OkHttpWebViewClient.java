@@ -1,10 +1,7 @@
 package org.wikipedia.dataclient.okhttp;
 
-import android.annotation.TargetApi;
 import android.net.Uri;
-import android.os.Build;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.webkit.MimeTypeMap;
@@ -98,7 +95,6 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
         return null;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override public WebResourceResponse shouldInterceptRequest(WebView view,
                                                                 WebResourceRequest request) {
         if (!SUPPORTED_SCHEMES.contains(request.getUrl().getScheme())) {
@@ -169,7 +165,6 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
         return OkHttpConnectionFactory.getClient().newCall(addHeaders(builder).build()).execute();
     }
 
-    @TargetApi(21)
     @NonNull private Response request(WebResourceRequest request) throws IOException {
         Request.Builder builder = new Request.Builder()
                 .url(request.getUrl().toString())
