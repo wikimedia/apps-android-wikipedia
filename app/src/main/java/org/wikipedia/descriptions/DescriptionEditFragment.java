@@ -66,6 +66,7 @@ public class DescriptionEditFragment extends Fragment {
     private static final String ARG_INVOKE_SOURCE = "invokeSource";
     private static final String ARG_TRANSLATION_SOURCE_DESCRIPTION = "translationSourceDescription";
     private static final String ARG_TRANSLATION_SOURCE_LANGUAGE_CODE = "translationSourceLanguageCode";
+    private static final int DELAY_MILLIS = 300;
 
     @BindView(R.id.fragment_description_edit_view) DescriptionEditView editView;
     private Unbinder unbinder;
@@ -104,6 +105,12 @@ public class DescriptionEditFragment extends Fragment {
             }
         }
     };
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        editView.postDelayed(() -> editView.setVisibility(View.VISIBLE), DELAY_MILLIS);
+    }
 
     @NonNull
     public static DescriptionEditFragment newInstance(@NonNull PageTitle title,
