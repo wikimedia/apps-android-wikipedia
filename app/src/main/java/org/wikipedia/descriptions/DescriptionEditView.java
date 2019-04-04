@@ -126,7 +126,7 @@ public class DescriptionEditView extends LinearLayout {
                 WikipediaApp.getInstance().language().getAppLanguageCanonicalName(translationSourceLanguageCode))
                 : getContext().getString(R.string.description_edit_article));
         pageSummaryText.setText(isTranslationEdit
-                ? translationSourceDescription
+                ? StringUtils.capitalize(translationSourceDescription.toString())
                 : StringUtil.fromHtml(pageSummary.getExtract()));
         setConditionalLayoutDirection(pageSummaryContainer, (isTranslationEdit) ? translationSourceLanguageCode : pageTitle.getWikiSite().languageCode());
         readArticleBarContainer.setPageSummary(pageSummary, pageTitle.getWikiSite().languageCode());
