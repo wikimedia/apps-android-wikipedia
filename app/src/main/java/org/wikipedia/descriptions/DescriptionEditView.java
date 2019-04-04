@@ -132,6 +132,14 @@ public class DescriptionEditView extends LinearLayout {
         readArticleBarContainer.setPageSummary(pageSummary, pageTitle.getWikiSite().languageCode());
         readArticleBarContainer.setOnClickListener(view -> performReadArticleClick());
         this.pageSummary = pageSummary;
+
+        // The listener should be added after the page summary set up, otherwise it would be considered as a layout changed event.
+        addOnLayoutChangeListener((v, left, top, right, bottom, prevLeft, prevTop, prevRight, prevBottom) -> {
+            if (bottom > prevBottom) {
+                // the keyboard is hidden when the new bottom value is larger than before.
+                pageDescriptionText.clearFocus();
+            }
+        });
     }
 
     public void setSaveState(boolean saving) {
@@ -237,6 +245,7 @@ public class DescriptionEditView extends LinearLayout {
         ButterKnife.bind(this);
         FeedbackUtil.setToolbarButtonLongPressToast(saveButton, cancelButton, helpButton);
         setOrientation(VERTICAL);
+        pageDescriptionText.requestFocus();
     }
 
     private void updateSaveButtonEnabled() {

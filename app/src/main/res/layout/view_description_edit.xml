@@ -182,9 +182,7 @@
                         android:imeOptions="actionDone"
                         android:inputType="textMultiLine|textCapSentences"
                         android:textSize="16sp"
-                        android:hint="@string/description_edit_text_hint">
-                        <requestFocus />
-                    </org.wikipedia.views.PlainPasteEditText>
+                        android:hint="@string/description_edit_text_hint" />
                 </android.support.design.widget.TextInputLayout>
 
                 <ImageView
