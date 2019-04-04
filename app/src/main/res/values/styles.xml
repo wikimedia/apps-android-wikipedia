@@ -7,8 +7,8 @@
         <item name="longPreferenceStyle">@style/LongPreference</item>
         <item name="intPreferenceStyle">@style/IntPreference</item>
         <item name="android:buttonStyle">@style/App.Button</item>
-        <item name="android:windowActivityTransitions" tools:targetApi="21" >true</item>
-        <item name="android:windowContentTransitions" tools:targetApi="21" >true</item>
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowContentTransitions">true</item>
         <item name="android:windowBackground">@null</item>
         <item name="windowActionModeOverlay">true</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
@@ -153,7 +153,7 @@
         <item name="backgroundSplit">?attr/page_toolbar_color</item>
         <item name="titleTextStyle">@style/PageActionModeTitleStyle</item>
         <item name="subtitleTextStyle">@style/PageActionModeSubtitleStyle</item>
-        <item name="android:elevation" tools:targetApi="21">4dp</item>
+        <item name="android:elevation">4dp</item>
     </style>
 
     <style name="ActionModeTitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
