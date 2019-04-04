@@ -2,7 +2,6 @@ package org.wikipedia.main;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
@@ -236,16 +235,11 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     }
 
     protected void setToolbarElevationDefault() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getToolbar().setElevation(DimenUtil
-                    .dpToPx(DimenUtil.getDimension(R.dimen.toolbar_default_elevation)));
-        }
+        getToolbar().setElevation(DimenUtil.dpToPx(DimenUtil.getDimension(R.dimen.toolbar_default_elevation)));
     }
 
     protected void clearToolbarElevation() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getToolbar().setElevation(0f);
-        }
+        getToolbar().setElevation(0f);
     }
 
     private class DrawerViewCallback implements MainDrawerView.Callback {

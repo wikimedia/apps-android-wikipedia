@@ -1,9 +1,7 @@
 package org.wikipedia.settings;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 
@@ -31,7 +29,6 @@ public class LongPreference extends EditTextAutoSummarizePreference {
         init(attrs, defStyleAttr, DEFAULT_STYLE);
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public LongPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(attrs, defStyleAttr, defStyleRes);
