@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:textSize="14sp"
-        android:textColor="?attr/material_theme_de_emphasised_color"
+        android:textColor="?attr/material_theme_secondary_color"
         android:text="@string/description_edit_read"
         android:fontFamily="sans-serif-medium"
         android:paddingStart="16dp"

@@ -557,6 +557,9 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Dir hutt elo esouwuel déi traditionell wéi déi vereinfacht chinesesch Variante an Ären App sproochen agestallt. Wëllt dir d\'Astellunge vun de Sprooche vun Ären Appen änneren?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sproochen änneren</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nee, merci</string>
+  <string name="wikitext_numbered_list">Nummeréiert Lëscht</string>
+  <string name="wikitext_template">Schabloun</string>
+  <string name="wikitext_reference">Referenz</string>
   <string name="main_drawer_open">Opmaachen</string>
   <string name="main_drawer_close">Zoumaachen</string>
   <string name="main_drawer_help">Hëllef</string>

@@ -226,28 +226,24 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
 
         findPreference(context.getString(R.string.preferences_developer_suggested_edits_add_description_dialog))
                 .setOnPreferenceClickListener(preference -> {
-                    Prefs.setEditActionAddDescriptionsUnlocked(false);
                     AddTitleDescriptionsActivity.Companion.showEditUnlockDialog(getActivity());
                     return true;
                 });
 
         findPreference(context.getString(R.string.preferences_developer_suggested_edits_add_description_notification))
                 .setOnPreferenceClickListener(preference -> {
-                    Prefs.setEditActionAddDescriptionsUnlocked(false);
                     NotificationEditorTasksHandler.maybeShowEditDescriptionUnlockNotification(getActivity(), true);
                     return true;
                 });
 
         findPreference(context.getString(R.string.preferences_developer_suggested_edits_translate_description_dialog))
                 .setOnPreferenceClickListener(preference -> {
-                    Prefs.setEditActionTranslateDescriptionsUnlocked(false);
                     AddTitleDescriptionsActivity.Companion.showTranslateUnlockDialog(getActivity());
                     return true;
                 });
 
         findPreference(context.getString(R.string.preferences_developer_suggested_edits_translate_description_notification))
                 .setOnPreferenceClickListener(preference -> {
-                    Prefs.setEditActionTranslateDescriptionsUnlocked(false);
                     NotificationEditorTasksHandler.maybeShowTranslateDescriptionUnlockNotification(getActivity(), true);
                     return true;
                 });

@@ -293,5 +293,5 @@
   <string name="add_title_descriptions_dialog_message">ตอนนี้คุณสามารถช่วยปรับปรุงวิกิพีเดียโดยการเพิ่มคำอธิบายที่ปรากฏด้านล่างหัวข้อในบทความ คุณสามารถกำหนดค่าภาษาของคุณได้ตลอดเวลา</string>
   <string name="add_translate_descriptions_dialog_title">คุณกำลังแปลคำอธิบายหัวข้อเป็นครั้งแรก</string>
   <string name="description_edit_tutorial_message" fuzzy="true">ยินดีต้อนรับสู่บ้านใหม่สำหรับการแก้ไขในแอปบนวิกิพีเดีย ที่นี่เราจะแนะนำโอกาสในการเพิ่มเนื้อหาที่อาจเป็นที่สนใจแก่คุณ การช่วยเหลือของคุณได้รับการชื่นชมมาก ขอให้มีความสุขในการแก้ไข !</string>
-  <string name="translation_description_edit_task_unlock_title">การแปลคำอธิบายหัวข้อได้รับการปลดล็อกแล้ว !</string>
+  <string name="translation_description_edit_task_unlock_title" fuzzy="true">การแปลคำอธิบายหัวข้อได้รับการปลดล็อกแล้ว !</string>
 </resources>

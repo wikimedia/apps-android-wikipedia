@@ -3,16 +3,14 @@ package org.wikipedia.editactionfeed
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.NavUtils
 import android.support.v7.app.AlertDialog
 import android.view.Menu
 import android.view.MenuItem
 import org.wikipedia.Constants.InvokeSource
-import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC
-import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC
+import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
+import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.editactionfeed.AddTitleDescriptionsFragment.Companion.newInstance
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.views.DialogTitleWithImage
@@ -38,17 +36,6 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            android.R.id.home -> {
-                NavUtils.navigateUpFromSameTask(this)
-                if (WikipediaApp.getInstance().haveMainActivity()) {
-                    NavUtils.navigateUpFromSameTask(this)
-                } else {
-                    startActivity(EditTasksActivity.newIntent(this))
-                }
-                finish()
-                return true
-            }
-
             R.id.menu_help -> {
                 FeedbackUtil.showAndroidAppEditingFAQ(baseContext)
                 true
@@ -66,15 +53,17 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
         const val EXTRA_SOURCE_ADDED_DESCRIPTION = "addedDescription"
 
         fun newIntent(context: Context, source: InvokeSource): Intent {
-            return Intent(context, AddTitleDescriptionsActivity::class.java)
-                    .putExtra(EXTRA_SOURCE, source)
+            return Intent(context, AddTitleDescriptionsActivity::class.java).putExtra(EXTRA_SOURCE, source)
         }
 
         fun showEditUnlockDialog(context: Context) {
             AlertDialog.Builder(context)
                     .setCustomTitle(DialogTitleWithImage(context, R.string.suggested_edits_unlock_add_descriptions_dialog_title, R.drawable.ic_illustration_description_edit_trophy, true))
                     .setMessage(R.string.suggested_edits_unlock_add_descriptions_dialog_message)
-                    .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ -> context.startActivity(AddTitleDescriptionsActivity.newIntent(context, EDIT_FEED_TITLE_DESC)) }
+                    .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ ->
+                        SuggestedEditsFunnel.get(ONBOARDING_DIALOG)
+                        context.startActivity(EditTasksActivity.newIntent(context, EDIT_FEED_TITLE_DESC))
+                    }
                     .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
                     .show()
         }
@@ -83,7 +72,10 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
             AlertDialog.Builder(context)
                     .setCustomTitle(DialogTitleWithImage(context, R.string.suggested_edits_unlock_translate_descriptions_dialog_title, R.drawable.ic_illustration_description_edit_trophy, true))
                     .setMessage(R.string.suggested_edits_unlock_translate_descriptions_dialog_message)
-                    .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ -> context.startActivity(AddTitleDescriptionsActivity.newIntent(context, EDIT_FEED_TRANSLATE_TITLE_DESC)) }
+                    .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ ->
+                        SuggestedEditsFunnel.get(ONBOARDING_DIALOG)
+                        context.startActivity(EditTasksActivity.newIntent(context, EDIT_FEED_TRANSLATE_TITLE_DESC))
+                    }
                     .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
                     .show()
         }

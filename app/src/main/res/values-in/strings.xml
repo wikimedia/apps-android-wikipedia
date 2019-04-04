@@ -17,6 +17,7 @@
 * Riemogerz
 * Rizkiahmadz
 * Ulinfaizah
+* Veracious
 * WongKentir
 -->
 <resources>
@@ -130,6 +131,7 @@
   <string name="reset_password_button">Simpan dan masuk log</string>
   <string name="preference_title_logout">Keluar log</string>
   <string name="toast_logout_complete">Telah keluar log</string>
+  <string name="logout_prompt">Apakah Anda yakin ingin keluar log?</string>
   <string name="history_empty_title">Tidak ada artikel yang baru dilihat</string>
   <string name="history_empty_message">Lacak apa yang Anda sudah baca di sini.</string>
   <string name="history_offline_articles_toast">Beberapa artikel yang pernah diakses mungkin tidak dapat dibaca tanpa koneksi.</string>
@@ -587,8 +589,8 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Terima kasih atas kepercayaan Anda dalam menyunting deskripsi! Untuk melakukan penyuntingan tambahan, silakan masuk log ke akun Wikipedia Anda.</string>
   <string name="description_edit_license_notice">Dengan mengubah deskripsi judul, saya setuju terhadap &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt; dan melepas kontribusi saya di bawah lisensi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_task_unlock_title">Daftar tugas penyuntingan deskripsi judul telah dibuka!</string>
-  <string name="description_edit_task_unlock_body">Kami memperhatikan Anda suka menyunting deskripsi judul, oleh sebab itu kami susun daftar \"Tugas penyunting\" dengan lebih banyak artikel yang kehilangan deskripsi judul untuk membantu Anda terus berkontribusi!</string>
+  <string name="description_edit_task_unlock_title" fuzzy="true">Daftar tugas penyuntingan deskripsi judul telah dibuka!</string>
+  <string name="description_edit_task_unlock_body" fuzzy="true">Kami memperhatikan Anda suka menyunting deskripsi judul, oleh sebab itu kami susun daftar \"Tugas penyunting\" dengan lebih banyak artikel yang kehilangan deskripsi judul untuk membantu Anda terus berkontribusi!</string>
   <string name="description_edit_success_saved">Deskripsi diterbitkan!</string>
   <string name="description_edit_success_encouragement">Anda baru saja membuat Wikipedia lebih baik untuk semua orang</string>
   <string name="description_edit_success_done">Selesai</string>
@@ -675,6 +677,10 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Saat ini Anda memiliki varian bahasa Tionghoa Tradisional dan Sederhana yang disetel dalam bahasa aplikasi Anda. Perbarui pengaturan bahasa aplikasi Anda?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sunting bahasa</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Tidak, terima kasih</string>
+  <string name="wikitext_bold">Tebal</string>
+  <string name="wikitext_italic">Cetak miring</string>
+  <string name="wikitext_link">Pranala</string>
+  <string name="wikitext_template">Templat</string>
   <string name="main_drawer_open">Buka</string>
   <string name="main_drawer_close">Tutup</string>
   <string name="main_drawer_help">Bantuan</string>
@@ -704,8 +710,8 @@
   <string name="add_translate_descriptions_dialog_title">Anda menerjemahkan deskripsi judul untuk pertama kalinya</string>
   <string name="add_translate_descriptions_dialog_message">Anda sekarang dapat membantu meningkatkan Wikipedia dengan menerjemahkan deskripsi judul. Anda dapat mengonfigurasi bahasa Anda dan mengatur arah terjemahan kapan saja.</string>
   <string name="description_edit_tutorial_message">Selamat datang di rumah baru untuk penyuntingan cepat di aplikasi Wikipedia. Kontribusi Anda sangat kami hargai. Selamat menyunting!</string>
-  <string name="translation_description_edit_task_unlock_title">Menerjemahkan penyuntingan uraian judul telah dibuka!</string>
-  <string name="translation_description_edit_task_unlock_body">Kami perhatikan Anda suka menyunting deskripsi judul dan membaca Wikipedia dalam berbagai bahasa. Lihatlah daftar tugas ini yang memberikan akses untuk menerjemahkan lebih banyak deskripsi judul!</string>
+  <string name="translation_description_edit_task_unlock_title" fuzzy="true">Menerjemahkan penyuntingan uraian judul telah dibuka!</string>
+  <string name="translation_description_edit_task_unlock_body" fuzzy="true">Kami perhatikan Anda suka menyunting deskripsi judul dan membaca Wikipedia dalam berbagai bahasa. Lihatlah daftar tugas ini yang memberikan akses untuk menerjemahkan lebih banyak deskripsi judul!</string>
   <string name="title_description_editing_skip">Lewati</string>
   <string name="title_description_get_started">Memulai</string>
   <string name="translate_description_get_started">Memulai</string>
@@ -713,4 +719,5 @@
   <string name="translate_descriptions_maybe_later">Mungkin lain kali</string>
   <string name="title_descriptions_onboarding_got_it">Mengerti</string>
   <string name="translate_descriptions_onboarding_got_it">Mengerti</string>
+  <string name="suggested_edits_menu_info">Info</string>
 </resources>

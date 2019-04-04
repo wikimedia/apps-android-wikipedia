@@ -79,7 +79,8 @@
             android:id="@+id/bottomButtonContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:paddingBottom="8dp"
+            android:clipToPadding="false"
             app:layout_constraintBottom_toBottomOf="parent">
 
             <android.support.v7.widget.AppCompatImageView

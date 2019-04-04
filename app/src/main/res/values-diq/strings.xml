@@ -244,6 +244,11 @@
   <string name="onboarding_maybe_later">Belkiya badêna</string>
   <string name="onboarding_welcome_title_v2">Ensiklopediya xosere\n… 300 ra zêde zıwanan de</string>
   <string name="app_shortcuts_search">Cı geyre</string>
+  <string name="wikitext_bold">Qalınd</string>
+  <string name="wikitext_italic">Namıte</string>
+  <string name="wikitext_link">Gıre</string>
+  <string name="wikitext_template">Şablon</string>
+  <string name="wikitext_reference">Çıme</string>
   <string name="title_description_task_title">Arezekerdış cı ke</string>
   <string name="multilingual_task_positive">Zıwanan cı ke</string>
   <string name="translation_source_description">arezekerdışê %s:</string>
@@ -254,4 +259,5 @@
   <string name="translate_descriptions_maybe_later">Belkiya badêna</string>
   <string name="title_descriptions_onboarding_got_it">Mı fehm kerd!</string>
   <string name="translate_descriptions_onboarding_got_it">Mı fehm kerd!</string>
+  <string name="suggested_edits_menu_info">Melumat</string>
 </resources>
