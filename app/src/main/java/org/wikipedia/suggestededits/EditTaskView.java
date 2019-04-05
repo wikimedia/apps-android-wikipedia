@@ -1,4 +1,4 @@
-package org.wikipedia.editactionfeed;
+package org.wikipedia.suggestededits;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

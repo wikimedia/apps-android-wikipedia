@@ -21,7 +21,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.appshortcuts.AppShortcuts;
 import org.wikipedia.auth.AccountUtil;
-import org.wikipedia.editactionfeed.EditTasksActivity;
+import org.wikipedia.suggestededits.EditTasksActivity;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.navtab.NavTab;

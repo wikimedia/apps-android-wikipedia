@@ -1,4 +1,4 @@
-package org.wikipedia.editactionfeed
+package org.wikipedia.suggestededits
 
 import android.content.Context
 import android.content.Intent
@@ -11,21 +11,21 @@ import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
-import org.wikipedia.editactionfeed.AddTitleDescriptionsFragment.Companion.newInstance
+import org.wikipedia.suggestededits.AddDescriptionsFragment.Companion.newInstance
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.views.DialogTitleWithImage
 
-class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptionsFragment>() {
+class AddDescriptionsActivity : SingleFragmentActivity<AddDescriptionsFragment>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar!!.elevation = if (intent.getSerializableExtra(EXTRA_SOURCE) == EDIT_FEED_TITLE_DESC) 8f else 0f
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = getString(if (intent.getSerializableExtra(EXTRA_SOURCE) == EDIT_FEED_TITLE_DESC)
-            R.string.editactionfeed_add_title_descriptions else R.string.translation_task_title)
+            R.string.suggested_edits_add_descriptions else R.string.suggested_edits_translate_descriptions)
     }
 
-    override fun createFragment(): AddTitleDescriptionsFragment {
+    override fun createFragment(): AddDescriptionsFragment {
         return newInstance(intent.getSerializableExtra(EXTRA_SOURCE) as InvokeSource)
     }
 
@@ -53,7 +53,7 @@ class AddTitleDescriptionsActivity : SingleFragmentActivity<AddTitleDescriptions
         const val EXTRA_SOURCE_ADDED_DESCRIPTION = "addedDescription"
 
         fun newIntent(context: Context, source: InvokeSource): Intent {
-            return Intent(context, AddTitleDescriptionsActivity::class.java).putExtra(EXTRA_SOURCE, source)
+            return Intent(context, AddDescriptionsActivity::class.java).putExtra(EXTRA_SOURCE, source)
         }
 
         fun showEditUnlockDialog(context: Context) {

@@ -1,4 +1,4 @@
-package org.wikipedia.editactionfeed
+package org.wikipedia.suggestededits
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -90,7 +90,7 @@ class MyContributionsFragment : Fragment() {
                     NotificationEditorTasksHandler.dispatchEditorTaskResults(requireContext(), editorTaskCounts)
                     val totalEdits = editorTaskCounts.descriptionEditsPerLanguage!!.values.sum()
                     languageList = editorTaskCounts.descriptionEditsPerLanguage!!.keys.toList()
-                    contributionsText.text = resources.getQuantityString(R.plurals.edit_action_contribution_count, totalEdits, totalEdits)
+                    contributionsText.text = resources.getQuantityString(R.plurals.suggested_edits_contribution_count, totalEdits, totalEdits)
                     adapter.notifyDataSetChanged()
                 }, { throwable ->
                     L.e(throwable)

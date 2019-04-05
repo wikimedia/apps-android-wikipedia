@@ -580,7 +580,6 @@
     <string name="view_featured_article_footer_save_button_label">Save</string>
     <string name="view_static_card_save_button_label">Save</string>
     <string name="view_featured_article_footer_saved_button_label">Saved</string>
-    <string name="edit_tasks_activity_title">Editor tasks</string>
     <string name="feed_configure_activity_title">Customize the feed</string>
     <string name="feed_configure_menu_reset">Restore default view</string>
     <string name="feed_configure_menu_select_all">Show all</string>
@@ -607,6 +606,7 @@
     <string name="description_edit_read">Read</string>
     <string name="description_edit_add_description">Add title description</string>
     <string name="description_edit_add_description_v2">Add description</string>
+    <string name="description_edit_translate_description">Translate description</string>
     <string name="description_edit_edit_description">Edit description</string>
     <string name="add_translation">Add %s translation</string>
     <string name="description_edit_cancel_hint">Cancel</string>
@@ -637,12 +637,13 @@
     <!-- /Description editing tutorial -->
 
     <!-- Suggested edits -->
-    <string name="editactionfeed_add_title_descriptions">Add descriptions</string>
-    <string name="editactionfeed_review_title_description">Review description</string>
-    <string name="editactionfeed_add_description_button">Add description</string>
-    <string name="editactionfeed_my_contributions">My contributions</string>
-    <string name="editactionfeed_added_by_you">Added by you:</string>
-    <string name="editactionfeed_translated_by_you">Translated by you:</string>
+    <string name="suggested_edits_add_descriptions">Add descriptions</string>
+    <string name="suggested_edits_translate_descriptions">Translate descriptions</string>
+    <string name="suggested_edits_review_description">Review description</string>
+    <string name="suggested_edits_add_description_button">Add description</string>
+    <string name="suggested_edits_my_contributions">My contributions</string>
+    <string name="suggested_edits_added_by_you">Added by you:</string>
+    <string name="suggested_edits_translated_by_you">Translated by you:</string>
     <string name="suggested_edits_unlock_add_descriptions_dialog_title">You unlocked the “Add descriptions“ task</string>
     <string name="suggested_edits_unlock_add_descriptions_dialog_message">Congratulations on your third contribution! Since you’re super good at editing, we’ve compiled a list of articles missing descriptions. Could you help us to improve Wikipedia?</string>
     <string name="suggested_edits_unlock_translate_descriptions_dialog_title">You unlocked the “Translate descriptions“ task</string>
@@ -657,26 +658,27 @@
     <string name="suggested_edits_unlock_notification_button">Yes, let’s go</string>
     <string name="suggested_edits_license_notice"><![CDATA[By adding the title description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
     <string name="suggested_edits_menu_info">Info</string>
-    <string name="title_description_task_title">Add descriptions</string>
-    <string name="title_description_task_description">Contribute to articles without descriptions</string>
-    <string name="image_caption_task_title">Caption images</string>
-    <string name="image_caption_task_description">Add captions to images</string>
-    <string name="multilingual_task_title">More tasks for multilingual editors</string>
-    <string name="multilingual_task_description">Translation tasks are available if you read and write in more than one Wikipedia language.</string>
-    <string name="translation_task_title">Translate descriptions</string>
-    <string name="translation_task_description">Translate descriptions across article languages.</string>
-    <string name="image_caption_edit_disable_text">Locked until you’ve made %d verified contributions</string>
-    <string name="translate_description_edit_disable_text">Locked until you’ve made %d verified contributions</string>
-    <string name="multilingual_task_negative">Not for me</string>
-    <string name="multilingual_task_positive">Add languages</string>
-    <string name="translate_caption_task_title">Translate image captions</string>
-    <string name="translate_caption_task_description">Translate captions into other languages</string>
-    <plurals name="edit_action_contribution_count">
+    <string name="suggested_edits_tasks_activity_title">Editor tasks</string>
+    <string name="suggested_edits_task_add_description_title">Add descriptions</string>
+    <string name="suggested_edits_task_add_description_description">Contribute to articles without descriptions</string>
+    <string name="suggested_edits_task_image_caption_title">Caption images</string>
+    <string name="suggested_edits_task_image_caption_description">Add captions to images</string>
+    <string name="suggested_edits_task_multilingual_title">More tasks for multilingual editors</string>
+    <string name="suggested_edits_task_multilingual_description">Translation tasks are available if you read and write in more than one Wikipedia language.</string>
+    <string name="suggested_edits_task_translation_title">Translate descriptions</string>
+    <string name="suggested_edits_task_translation_description">Translate descriptions across article languages.</string>
+    <string name="suggested_edits_task_image_caption_edit_disable_text">Locked until you’ve made %d verified contributions</string>
+    <string name="suggested_edits_task_translate_description_edit_disable_text">Locked until you’ve made %d verified contributions</string>
+    <string name="suggested_edits_task_multilingual_negative">Not for me</string>
+    <string name="suggested_edits_task_multilingual_positive">Add languages</string>
+    <string name="suggested_edits_task_translate_caption_title">Translate image captions</string>
+    <string name="suggested_edits_task_translate_caption_description">Translate captions into other languages</string>
+    <plurals name="suggested_edits_contribution_count">
         <item quantity="one">1 contribution</item>
         <item quantity="other">%d contributions</item>
     </plurals>
-    <string name="description_edit_tutorial_message">Welcome to the new home for quick editing in the Wikipedia app. Your contributions are much appreciated. Happy editing!</string>
-    <string name="edit_tasks_onboarding_get_started">Get started</string>
+    <string name="suggested_edits_tutorial_message">Welcome to the new home for quick editing in the Wikipedia app. Your contributions are much appreciated. Happy editing!</string>
+    <string name="suggested_edits_tasks_onboarding_get_started">Get started</string>
     <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->

@@ -1,4 +1,4 @@
-package org.wikipedia.editactionfeed;
+package org.wikipedia.suggestededits;
 
 import android.content.Context;
 import android.content.Intent;
@@ -38,7 +38,7 @@ public class EditTasksActivity extends SingleFragmentActivity<EditTasksFragment>
                     && (source == Constants.InvokeSource.EDIT_FEED_TITLE_DESC
                     || source == Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC)) {
                 startImmediately = false;
-                startActivity(AddTitleDescriptionsActivity.Companion.newIntent(this, source));
+                startActivity(AddDescriptionsActivity.Companion.newIntent(this, source));
             }
 
         } else {

@@ -11,7 +11,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
 import org.wikipedia.dataclient.mwapi.EditorTaskCounts;
-import org.wikipedia.editactionfeed.EditTasksActivity;
+import org.wikipedia.suggestededits.EditTasksActivity;
 import org.wikipedia.events.EditorTaskUnlockEvent;
 import org.wikipedia.settings.Prefs;
 
