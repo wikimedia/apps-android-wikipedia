@@ -151,6 +151,7 @@ public class DescriptionEditFragment extends Fragment {
         editView.setCallback(new EditViewCallback());
         editView.editTaskEnabled(reviewEnabled);
         if (reviewEnabled) {
+            editView.setVisibility(View.GONE);
             editView.showProgressBar(true);
             loadPageSummary(savedInstanceState);
         }
@@ -196,6 +197,7 @@ public class DescriptionEditFragment extends Fragment {
                 .observeOn(AndroidSchedulers.mainThread())
                 .doFinally(() -> editView.showProgressBar(false))
                 .subscribe(summary -> {
+                    editView.setVisibility(View.VISIBLE);
                     editView.setPageSummary(summary);
                     if (savedInstanceState != null) {
                         editView.loadReviewContent(savedInstanceState.getBoolean(ARG_REVIEWING));
