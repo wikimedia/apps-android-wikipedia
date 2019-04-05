@@ -119,7 +119,7 @@ public class DescriptionEditView extends LinearLayout {
         headerText.setText(getContext().getString(headerTextRes));
     }
 
-    public void setPageSummary(@NonNull PageSummary pageSummary) {
+    public void updateLabelAndSummaryViews(@NonNull String extract) {
         pageSummaryContainer.setVisibility(View.VISIBLE);
         labelText.setText(isTranslationEdit
                 ? String.format(getContext().getString(R.string.description_edit_text_hint_per_language),
@@ -127,11 +127,17 @@ public class DescriptionEditView extends LinearLayout {
                 : getContext().getString(R.string.description_edit_article));
         pageSummaryText.setText(isTranslationEdit
                 ? StringUtils.capitalize(translationSourceDescription.toString())
-                : StringUtil.fromHtml(pageSummary.getExtract()));
+                : StringUtil.fromHtml(extract));
         setConditionalLayoutDirection(pageSummaryContainer, (isTranslationEdit) ? translationSourceLanguageCode : pageTitle.getWikiSite().languageCode());
+    }
+
+    public void setSummary(PageSummary summary) {
+        this.pageSummary = summary;
+    }
+
+    public void updateReadArticleBar(@NonNull PageSummary pageSummary) {
         readArticleBarContainer.setPageSummary(pageSummary, pageTitle.getWikiSite().languageCode());
         readArticleBarContainer.setOnClickListener(view -> performReadArticleClick());
-        this.pageSummary = pageSummary;
     }
 
     public void setSaveState(boolean saving) {

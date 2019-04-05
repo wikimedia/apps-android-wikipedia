@@ -60,13 +60,13 @@ public class DescriptionEditFragment extends Fragment {
     }
 
     private static final String ARG_TITLE = "title";
+    private static final String ARG_EXTRACT = "extract";
     private static final String ARG_REVIEW_ENABLED = "reviewEnabled";
     private static final String ARG_REVIEWING = "inReviewing";
     private static final String ARG_HIGHLIGHT_TEXT = "highlightText";
     private static final String ARG_INVOKE_SOURCE = "invokeSource";
     private static final String ARG_TRANSLATION_SOURCE_DESCRIPTION = "translationSourceDescription";
     private static final String ARG_TRANSLATION_SOURCE_LANGUAGE_CODE = "translationSourceLanguageCode";
-    private static final int DELAY_MILLIS = 300;
 
     @BindView(R.id.fragment_description_edit_view) DescriptionEditView editView;
     private Unbinder unbinder;
@@ -106,14 +106,9 @@ public class DescriptionEditFragment extends Fragment {
         }
     };
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        editView.postDelayed(() -> editView.setVisibility(View.VISIBLE), DELAY_MILLIS);
-    }
-
     @NonNull
     public static DescriptionEditFragment newInstance(@NonNull PageTitle title,
+                                                      @NonNull String extract,
                                                       @Nullable String highlightText,
                                                       boolean reviewEnabled,
                                                       @Nullable CharSequence translationSourceDescription,
@@ -122,6 +117,7 @@ public class DescriptionEditFragment extends Fragment {
         DescriptionEditFragment instance = new DescriptionEditFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TITLE, GsonMarshaller.marshal(title));
+        args.putString(ARG_EXTRACT, extract);
         args.putString(ARG_HIGHLIGHT_TEXT, highlightText);
         args.putBoolean(ARG_REVIEW_ENABLED, reviewEnabled);
         args.putCharSequence(ARG_TRANSLATION_SOURCE_DESCRIPTION, translationSourceDescription);
@@ -197,13 +193,20 @@ public class DescriptionEditFragment extends Fragment {
     }
 
     private void loadPageSummary(@Nullable Bundle savedInstanceState) {
+        if (reviewEnabled) {
+            editView.updateLabelAndSummaryViews(getArguments().getString(ARG_EXTRACT));
+        }
         disposables.add(PageClientFactory.create(pageTitle.getWikiSite(), pageTitle.namespace())
                 .summary(pageTitle.getWikiSite(), pageTitle.getPrefixedText(), null)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doFinally(() -> editView.showProgressBar(false))
                 .subscribe(summary -> {
-                    editView.setPageSummary(summary);
+                    editView.setSummary(summary);
+                    editView.updateReadArticleBar(summary);
+                    if (!reviewEnabled && summary.getExtract() != null) {
+                        editView.updateLabelAndSummaryViews(summary.getExtract());
+                    }
                     if (savedInstanceState != null) {
                         editView.loadReviewContent(savedInstanceState.getBoolean(ARG_REVIEWING));
                     }

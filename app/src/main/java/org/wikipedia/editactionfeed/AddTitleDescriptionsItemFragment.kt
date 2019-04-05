@@ -31,7 +31,7 @@ import org.wikipedia.util.log.L
 
 class AddTitleDescriptionsItemFragment : Fragment() {
     private val disposables = CompositeDisposable()
-    private var summary: RbPageSummary? = null
+    var summary: RbPageSummary? = null
     private val app = WikipediaApp.getInstance()
     var sourceDescription: String = ""
     var addedDescription: String = ""

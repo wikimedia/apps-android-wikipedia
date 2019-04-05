@@ -36,6 +36,7 @@ import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.EXTRA
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.AnimationUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 class AddTitleDescriptionsFragment : Fragment() {
@@ -177,7 +178,7 @@ class AddTitleDescriptionsFragment : Fragment() {
 
     fun onSelectPage() {
         if (topTitle != null) {
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, true, topChild!!.sourceDescription, langFromCode, source),
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, topChild!!.summary!!.extract!!, null, topChild!!.sourceDescription, langFromCode, source),
                     ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
     }
