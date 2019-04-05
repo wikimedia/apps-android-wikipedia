@@ -21,11 +21,11 @@ import com.getkeepsafe.taptargetview.TapTargetView;
 
 import org.wikipedia.R;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
-import org.wikipedia.suggestededits.AddDescriptionsActivity;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.ReadingListActivity;
+import org.wikipedia.suggestededits.AddDescriptionsActivity;
 
 import java.util.concurrent.TimeUnit;
 

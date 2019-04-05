@@ -43,8 +43,6 @@
 
     </FrameLayout>
 
-
-
     <FrameLayout
         android:id="@+id/user_contributions_button"
         android:layout_width="match_parent"
