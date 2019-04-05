@@ -487,5 +487,4 @@
     <item quantity="other">%d साल पहले</item>
   </plurals>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">নাই, নালাগে দিয়ক</string>
-  <string name="add_title_descriptions_dialog_title">शीर्षक विवरण जोड़ें</string>
 </resources>

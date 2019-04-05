@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Arsenekoumyk
 * ArslanX
 -->
@@ -203,9 +204,13 @@
   <string name="description_edit_success_done">Гьазир</string>
   <string name="description_edit_success_did_you_know">Билемисен?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Тюзлеп башламакъ</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">Толу</string>
-  <string name="editactionfeed_translate_title_dialog_learn_more">Толу</string>
   <string name="editactionfeed_translated_by_you">Мен гёчюргенлер:</string>
+  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Балики сонгра</string>
+  <string name="suggested_edits_menu_info">Маълумат</string>
+  <string name="title_description_task_title">Тасвир къошмакъ</string>
+  <string name="translation_task_title">Тасвирлени гёчюрювлери</string>
+  <string name="multilingual_task_positive">Тиллер къошмакъ</string>
+  <string name="edit_tasks_onboarding_get_started">Башламакъ</string>
   <string name="size_gb">%.2f ГБ</string>
   <string name="size_mb">%.2f МБ</string>
   <string name="onboarding_continue">Давамламакъ</string>
@@ -236,14 +241,4 @@
   <string name="main_drawer_open">Ачмакъ</string>
   <string name="main_drawer_close">Япмакъ</string>
   <string name="main_drawer_help">Кёмек</string>
-  <string name="title_description_task_title">Тасвир къошмакъ</string>
-  <string name="translation_task_title">Тасвирлени гёчюрювлери</string>
-  <string name="multilingual_task_positive">Тиллер къошмакъ</string>
-  <string name="title_description_get_started">Башламакъ</string>
-  <string name="translate_description_get_started">Башламакъ</string>
-  <string name="edit_tasks_onboarding_get_started">Башламакъ</string>
-  <string name="translate_descriptions_maybe_later">Балики сонгра</string>
-  <string name="title_descriptions_onboarding_got_it">Англадым</string>
-  <string name="translate_descriptions_onboarding_got_it">Англадым</string>
-  <string name="suggested_edits_menu_info">Маълумат</string>
 </resources>

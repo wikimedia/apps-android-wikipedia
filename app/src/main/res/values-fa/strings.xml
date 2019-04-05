@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * AliNabipr
 * Alifakoor
 * Alirezaaa
@@ -212,6 +213,7 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">کتابخانه‌های استفاده‌شده</string>
   <string name="about_contributors_heading">مشارکت‌کنندگان</string>
   <string name="about_translators_heading">مترجم‌ها</string>
@@ -578,16 +580,23 @@
   <string name="description_edit_tutorial_button_label_start_editing">آغاز ویرایش کردن</string>
   <string name="description_edit_tutorial_promise">پیش از استفاده، قول می‌دهم از این ویژگی سو‌ءاستفاده نکنم.</string>
   <string name="editactionfeed_add_title_descriptions">افزودن توضیحات</string>
-  <string name="editactionfeed_translate_descriptions">ترجمه توضیحات عنوان</string>
   <string name="editactionfeed_review_title_description">مرور توضیحات</string>
   <string name="editactionfeed_add_description_button">افزدون توضیحات</string>
   <string name="editactionfeed_my_contributions">مشارکت های من</string>
-  <string name="editactionfeed_from_language">از:</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">اطلاعات بیشتر</string>
-  <string name="editactionfeed_translate_title_dialog_learn_more">اطلاعات بیشتر</string>
-  <string name="editactionfeed_to_language">به:</string>
   <string name="editactionfeed_added_by_you">افزوده شده توسط شما:</string>
   <string name="editactionfeed_translated_by_you">ترجمه‌شده توسط شما:</string>
+  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">شاید بعداً</string>
+  <string name="title_description_task_title">افزودن توضیحات</string>
+  <string name="title_description_task_description">مشارکت در مقالات بدون توضیحات</string>
+  <string name="image_caption_task_title">زیر نویس تصویر</string>
+  <string name="image_caption_task_description">افزودن توضیح به تصویر</string>
+  <string name="multilingual_task_title">وظایف بیشتر برای ویرایشگران چندزبانه</string>
+  <string name="translation_task_title">ترجمه توضیحات</string>
+  <string name="multilingual_task_negative">برای شما نیست</string>
+  <string name="multilingual_task_positive">افزودن زبان</string>
+  <string name="translate_caption_task_title">ترجمه توضیحات تصویر</string>
+  <string name="translate_caption_task_description">ترجمه توضیحات تصویر به زبان های دیگر</string>
+  <string name="edit_tasks_onboarding_get_started">شروع شد</string>
   <string name="description_edit_revert_subtitle">از بابت ویرایش در ویکی‌پدیا ممنونیم!</string>
   <string name="description_edit_revert_intro">با وجودی که شما همهٔ تلاشتان را کردید، یکی از ویرایشگران با ویرایش شما مخالف است و آن را واگردانی کرده‌است که دلیل آن:</string>
   <string name="description_edit_revert_reason1">ویرایش شما طبق &lt;a href=\"%1$s\"&gt;شیوه‌نامه&lt;/a&gt; نیست.</string>
@@ -651,25 +660,4 @@
   <string name="main_drawer_close">بستن</string>
   <string name="main_drawer_help">راهنما</string>
   <string name="main_drawer_login">ورود / پیوستن به ویکیپدیا</string>
-  <string name="title_description_task_title">افزودن توضیحات</string>
-  <string name="title_description_task_description">مشارکت در مقالات بدون توضیحات</string>
-  <string name="image_caption_task_title">زیر نویس تصویر</string>
-  <string name="image_caption_task_description">افزودن توضیح به تصویر</string>
-  <string name="multilingual_task_title">وظایف بیشتر برای ویرایشگران چندزبانه</string>
-  <string name="translation_task_title">ترجمه توضیحات</string>
-  <string name="multilingual_task_negative">برای شما نیست</string>
-  <string name="multilingual_task_positive">افزودن زبان</string>
-  <string name="editing_level_text">ویرایشگر سطح %d نرم‌افزار</string>
-  <string name="translation_source_description">%s توضیح:</string>
-  <string name="translate_caption_task_title">ترجمه توضیحات تصویر</string>
-  <string name="translate_caption_task_description">ترجمه توضیحات تصویر به زبان های دیگر</string>
-  <string name="add_title_descriptions_dialog_title">افزودن توضیحات عنوان</string>
-  <string name="title_description_editing_skip">رها کردن</string>
-  <string name="title_description_get_started">شروع شد</string>
-  <string name="translate_description_get_started">شروع شد</string>
-  <string name="edit_tasks_onboarding_get_started">شروع شد</string>
-  <string name="translate_descriptions_maybe_later">شاید بعداً</string>
-  <string name="title_descriptions_onboarding_got_it">گرفتم</string>
-  <string name="translate_descriptions_onboarding_got_it">گرفتم</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
 </resources>

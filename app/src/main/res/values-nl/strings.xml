@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Elroy
 * Envlh
 * Festina90
@@ -136,6 +137,7 @@
   <string name="reset_password_button">Opslaan en aanmelden</string>
   <string name="preference_title_logout">Afmelden</string>
   <string name="toast_logout_complete">Afgemeld</string>
+  <string name="logout_prompt">Weet u zeker dat u wilt afmelden?</string>
   <string name="history_empty_title">Geen recent bekeken pagina\'s</string>
   <string name="history_empty_message">Blijf op de hoogte van wat u hier hebt gelezen.</string>
   <string name="history_offline_articles_toast">Sommige artikelen in de geschiedenis zijn mogelijk niet offline zichtbaar.</string>
@@ -532,6 +534,8 @@
   <string name="preference_summary_notification_milestone">Bepaalde bewerkingstellingen zijn bereikt</string>
   <string name="preference_title_notification_thanks">Bedankjes</string>
   <string name="preference_summary_notification_thanks">Iemand bedankt u voor een bewerking</string>
+  <string name="preference_title_notification_revert">Terugdraaien</string>
+  <string name="preference_summary_notification_revert">Een van uw bijdragen is ongedaan gemaakt</string>
   <string name="view_continue_reading_card_title">Verder lezen</string>
   <string name="view_because_you_read_card_title">Omdat u hebt gelezen</string>
   <string name="view_random_card_title">Randomizer</string>
@@ -583,10 +587,12 @@
   <string name="feed_configure_onboarding_action">Aanpassen</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Pas uw Explore-feed aan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;U kunt nu kiezen wat u in uw feed wilt laten zien en ook prioriteit geven aan uw favoriete soorten inhoud.</string>
   <string name="description_edit_text_hint">Titelbeschrijving</string>
+  <string name="description_edit_text_hint_per_language">%s beschrijving</string>
   <string name="description_edit_save">Publiceren</string>
   <string name="description_edit_article">Artikel</string>
   <string name="description_edit_read">Lezen</string>
   <string name="description_edit_add_description">Titelbeschrijving toevoegen</string>
+  <string name="description_edit_add_description_v2">Beschrijving toevoegen</string>
   <string name="description_edit_edit_description">Beschrijving bewerken</string>
   <string name="description_edit_cancel_hint">Annuleren</string>
   <string name="description_edit_help_title">Hulp: titelbeschrijvingen</string>
@@ -608,13 +614,28 @@
   <string name="description_edit_tutorial_button_label_start_editing">Begin met bewerken</string>
   <string name="description_edit_tutorial_promise">Door te beginnen, beloof ik geen misbruik te maken van deze functie.</string>
   <string name="editactionfeed_add_title_descriptions">Beschrijvingen toevoegen</string>
-  <string name="editactionfeed_translate_descriptions">Titelbeschrijvingen vertalen</string>
   <string name="editactionfeed_add_description_button">Beschrijving toevoegen</string>
   <string name="editactionfeed_my_contributions">Mijn bijdragen</string>
-  <string name="editactionfeed_from_language">Van:</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">meer lezen</string>
-  <string name="editactionfeed_translate_title_dialog_learn_more">Meer informatie</string>
-  <string name="editactionfeed_to_language">Naar:</string>
+  <string name="editactionfeed_added_by_you">Toegevoegd door u:</string>
+  <string name="editactionfeed_translated_by_you">Vertaald door u:</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Het bewerken van titelbeschrijvingen is ontgrendeld!</string>
+  <string name="suggested_edits_unlock_dialog_no">Misschien later</string>
+  <string name="suggested_edits_unlock_notification_text">Voorgestelde bewerkingen</string>
+  <string name="title_description_task_title">Beschrijvingen toevoegen</string>
+  <string name="title_description_task_description">Bijdragen aan artikels zonder beschrijvingen</string>
+  <string name="image_caption_task_description">Voeg titels toe aan plaatjes</string>
+  <string name="multilingual_task_title">Meer taken voor meertalige bewerkers</string>
+  <string name="multilingual_task_description">Vertalingstaken zijn beschikbaar wanneer u kunt lezen en schrijven in meer dan een Wikipedia taal.</string>
+  <string name="translation_task_title">Beschrijvingen vertalen</string>
+  <string name="multilingual_task_negative">Niet voor mij</string>
+  <string name="multilingual_task_positive">Talen toevoegen</string>
+  <string name="translate_caption_task_title">Afbeeldingsbijschriften vertalen</string>
+  <string name="translate_caption_task_description">Onderschriften vertalen in andere talen</string>
+  <plurals name="edit_action_contribution_count" fuzzy="true">
+    <item quantity="one">in-app contribution</item>
+    <item quantity="other">bijdragen in app</item>
+  </plurals>
+  <string name="edit_tasks_onboarding_get_started">Aan de slag</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
   <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan hebt, maar een van de beoordelaars zag een punt van zorg. Mogelijke redenen waarom uw bewerking is teruggedraaid, zijn:</string>
   <string name="description_edit_revert_reason1">uw bijdrage valt niet onder één van de &lt;a href=\"%1$s\"&gt;richtlijnen&lt;/a&gt;.</string>
@@ -681,36 +702,16 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">U heeft momenteel zowel traditioneel als versimpeld Chinees in de talen van uw app. De app-instellingen van talen updaten?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Talen aanpassen</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nee, bedankt</string>
+  <string name="wikitext_bold">Vet</string>
+  <string name="wikitext_italic">Cursief</string>
+  <string name="wikitext_link">Koppeling</string>
+  <string name="wikitext_bulleted_list">Ongenummerde lijst</string>
+  <string name="wikitext_numbered_list">Genummerde lijst</string>
+  <string name="wikitext_template">Sjabloon</string>
+  <string name="wikitext_reference">Referentie</string>
+  <string name="wikitext_preview_link">Voorvertoning koppeling</string>
   <string name="main_drawer_open">Openen</string>
   <string name="main_drawer_close">Sluiten</string>
   <string name="main_drawer_help">Hulp</string>
   <string name="main_drawer_login">Log in / aanmelden bij Wikipedia</string>
-  <string name="title_description_task_title">Beschrijvingen toevoegen</string>
-  <string name="title_description_task_description">Bijdragen aan artikels zonder beschrijvingen</string>
-  <string name="image_caption_task_description">Voeg titels toe aan plaatjes</string>
-  <string name="multilingual_task_title">Meer taken voor meertalige bewerkers</string>
-  <string name="multilingual_task_description">Vertalingstaken zijn beschikbaar wanneer u kunt lezen en schrijven in meer dan een Wikipedia taal.</string>
-  <string name="translation_task_title" fuzzy="true">Titelbeschrijvingen vertalen</string>
-  <string name="multilingual_task_negative">Niet voor mij</string>
-  <string name="multilingual_task_positive">Talen toevoegen</string>
-  <string name="editing_level_text">NIVEAU %d appbewerker</string>
-  <string name="translation_source_description">%s beschrijving:</string>
-  <string name="translate_caption_task_title">Afbeeldingsbijschriften vertalen</string>
-  <string name="translate_caption_task_description">Onderschriften vertalen in andere talen</string>
-  <plurals name="edit_action_contribution_count" fuzzy="true">
-    <item quantity="one">in-app contribution</item>
-    <item quantity="other">bijdragen in app</item>
-  </plurals>
-  <string name="add_title_descriptions_dialog_title">Titelbeschrijvingen toevoegen</string>
-  <string name="add_title_descriptions_dialog_message">Je kunt nu helpen Wikipedia te verbeteren door beschrijvingen toe te voegen die onder titels in artikelen verschijnen. Je kunt jouw talen op elk gewenst moment configureren.</string>
-  <string name="add_translate_descriptions_dialog_title">Je vertaalt voor het eerst titelbeschrijvingen</string>
-  <string name="add_translate_descriptions_dialog_message">Je kunt nu helpen om Wikipedia te verbeteren door titelbeschrijvingen te vertalen. Je kunt jouw talen instellen en op elk gewenst moment een vertaalrichting instellen.</string>
-  <string name="translation_description_edit_task_unlock_title" fuzzy="true">Het bewerken van titelbeschrijvingen is ontgrendeld!</string>
-  <string name="title_description_editing_skip">Overslaan</string>
-  <string name="title_description_get_started">Aan de slag</string>
-  <string name="translate_description_get_started">Aan de slag</string>
-  <string name="edit_tasks_onboarding_get_started">Aan de slag</string>
-  <string name="translate_descriptions_maybe_later">Misschien later</string>
-  <string name="title_descriptions_onboarding_got_it">Begrepen</string>
-  <string name="translate_descriptions_onboarding_got_it">Begrepen</string>
 </resources>

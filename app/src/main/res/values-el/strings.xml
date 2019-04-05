@@ -529,9 +529,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Ξεκινήστε την επεξεργασία</string>
   <string name="description_edit_tutorial_promise">Ξεκινώντας, υπόσχομαι να μην καταχραστώ τη λειτουργία.</string>
   <string name="editactionfeed_my_contributions">Οι συνεισφορές μου</string>
-  <string name="editactionfeed_from_language">Από:</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">Μάθετε περισσότερα</string>
-  <string name="editactionfeed_to_language">Προς:</string>
   <string name="description_edit_revert_subtitle">Ευχαριστούμε που επεξεργάζεστε την Βικιπαίδεια!</string>
   <string name="description_edit_revert_reason2">η συνεισφορά σας έμοιαζε περισσότερο σαν πειραματισμός ή βανδαλισμός.</string>
   <string name="description_edit_revert_history">Εάν ενδιαφέρεστε, δείτε το &lt;a href=\"%1$s\"&gt;ιστορικό επεξεργασιών&lt;/a&gt;.</string>
@@ -592,9 +589,4 @@
   <string name="main_drawer_close">Κλείσιμο</string>
   <string name="main_drawer_help">Βοήθεια</string>
   <string name="main_drawer_login">Σύνδεση / εγγραφή στη Βικιπαίδεια</string>
-  <string name="title_description_editing_skip">Παράλειψη</string>
-  <string name="title_description_get_started">Έναρξη</string>
-  <string name="translate_description_get_started">Αρχίσε</string>
-  <string name="title_descriptions_onboarding_got_it">Το κατάλαβα</string>
-  <string name="translate_descriptions_onboarding_got_it">Το κατάλαβα</string>
 </resources>
