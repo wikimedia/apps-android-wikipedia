@@ -629,7 +629,7 @@
   <string name="multilingual_task_positive">Engadir linguas</string>
   <string name="translate_caption_task_title">Traducir pés de imaxe</string>
   <string name="translate_caption_task_description">Traducir pés a outras linguas</string>
-  <plurals name="edit_action_contribution_count">
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 contribución</item>
     <item quantity="other">%d contribucións</item>
   </plurals>

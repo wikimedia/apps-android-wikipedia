@@ -611,7 +611,7 @@
   <string name="multilingual_task_positive">Tambahkan bahasa</string>
   <string name="translate_caption_task_title">Terjemahkan kapsyen imej</string>
   <string name="translate_caption_task_description">Terjemahkan kapsyen ke bahasa lain</string>
-  <plurals name="edit_action_contribution_count" fuzzy="true">
+  <plurals name="suggested_edits_contribution_count" fuzzy="true">
     <item quantity="one">sumbangan dalam apl</item>
     <item quantity="other">sumbangan dalam apl</item>
   </plurals>

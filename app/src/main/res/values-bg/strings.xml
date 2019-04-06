@@ -613,7 +613,7 @@
   <string name="multilingual_task_positive">Добавяне на езици</string>
   <string name="translate_caption_task_title">Превод на описания на картини</string>
   <string name="translate_caption_task_description">Превод на описания на други езици</string>
-  <plurals name="edit_action_contribution_count">
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 принос</item>
     <item quantity="other">%d приноса</item>
   </plurals>

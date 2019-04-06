@@ -635,7 +635,7 @@
   <string name="multilingual_task_positive">新增語言</string>
   <string name="translate_caption_task_title">翻譯圖片說明</string>
   <string name="translate_caption_task_description">翻譯說明成其它語言</string>
-  <plurals name="edit_action_contribution_count">
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 次貢獻</item>
     <item quantity="other">%d 次貢獻</item>
   </plurals>

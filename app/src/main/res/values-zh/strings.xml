@@ -635,7 +635,7 @@
   <string name="multilingual_task_positive">添加语言</string>
   <string name="translate_caption_task_title">翻译图片描述</string>
   <string name="translate_caption_task_description">将描述翻译为其他语言</string>
-  <plurals name="edit_action_contribution_count" fuzzy="true">
+  <plurals name="suggested_edits_contribution_count" fuzzy="true">
     <item quantity="one">in-app contribution</item>
     <item quantity="other">in-app contributions</item>
   </plurals>

@@ -672,7 +672,7 @@
   <string name="multilingual_task_positive">Добавить языки</string>
   <string name="translate_caption_task_title">Перевод подписей для изображений</string>
   <string name="translate_caption_task_description">Перевод подписей для изображений на другие языки</string>
-  <plurals name="edit_action_contribution_count">
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">одна правка</item>
     <item quantity="other">%d правки</item>
   </plurals>
