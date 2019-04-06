@@ -31,8 +31,8 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     private static final String EXTRA_TITLE = "title";
     private static final String EXTRA_HIGHLIGHT_TEXT = "highlightText";
     private static final String EXTRA_INVOKE_SOURCE = "invokeSource";
-    private static final String EXTRA_SOURCE_SUMMARY= "sourceSummary";
-    private static final String EXTRA_TARGET_SUMMARY= "targetSummary";
+    private static final String EXTRA_SOURCE_SUMMARY = "sourceSummary";
+    private static final String EXTRA_TARGET_SUMMARY = "targetSummary";
     private InvokeSource invokeSource;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
