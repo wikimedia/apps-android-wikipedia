@@ -647,7 +647,7 @@
   <string name="multilingual_task_positive">Añadir idiomas</string>
   <string name="translate_caption_task_title">Traduce la leyenda de la imagen</string>
   <string name="translate_caption_task_description">Traduce las leyendas a otros idiomas</string>
-  <plurals name="edit_action_contribution_count" fuzzy="true">
+  <plurals name="suggested_edits_contribution_count" fuzzy="true">
     <item quantity="one">contribución desde la aplicación</item>
     <item quantity="other">contribuciones desde la aplicación</item>
   </plurals>

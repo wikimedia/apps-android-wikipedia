@@ -633,7 +633,7 @@
   <string name="multilingual_task_positive">Afegeix llengües</string>
   <string name="translate_caption_task_title">Tradueix les llegendes de les imatges</string>
   <string name="translate_caption_task_description">Tradueix les llegendes en altres llengües</string>
-  <plurals name="edit_action_contribution_count">
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 contribució</item>
     <item quantity="other">%d contribucions</item>
   </plurals>
