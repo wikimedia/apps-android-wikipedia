@@ -31,9 +31,9 @@ import org.wikipedia.util.log.L
 
 class AddDescriptionsItemFragment : Fragment() {
     private val disposables = CompositeDisposable()
-    private var summary: RbPageSummary? = null
     private val app = WikipediaApp.getInstance()
-    var sourceDescription: String = ""
+    var sourceSummary: RbPageSummary? = null
+    var targetSummary: RbPageSummary? = null
     var addedDescription: String = ""
         internal set
     var targetPageTitle: PageTitle? = null
@@ -41,7 +41,7 @@ class AddDescriptionsItemFragment : Fragment() {
     var pagerPosition = -1
 
     val title: String?
-        get() = if (summary == null) null else summary!!.title
+        get() = if (sourceSummary == null) null else sourceSummary!!.title
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,12 +63,12 @@ class AddDescriptionsItemFragment : Fragment() {
             getArticleWithMissingDescription()
         }
         updateContents()
-        if (summary == null) {
+        if (sourceSummary == null) {
             getArticleWithMissingDescription()
         }
 
         cardView.setOnClickListener {
-            if (summary != null) {
+            if (sourceSummary != null) {
                 parent().onSelectPage()
             }
         }
@@ -86,7 +86,7 @@ class AddDescriptionsItemFragment : Fragment() {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ pageSummary ->
-                        summary = pageSummary
+                        sourceSummary = pageSummary
                         updateContents()
                     }, { this.setErrorState(it) }))
         } else {
@@ -94,13 +94,15 @@ class AddDescriptionsItemFragment : Fragment() {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ pair ->
-                        targetPageTitle = pair.first
-                        sourceDescription = StringUtils.defaultString(pair.second.description)
+
+                        sourceSummary = pair.second
+                        targetSummary = pair.first
+                        targetPageTitle = targetSummary!!.getPageTitle(WikiSite.forLanguageCode(targetSummary!!.lang))
 
                         if (pagerPosition == 0) {
                             updateSourceDescriptionWithHighlight()
                         }
-                        summary = pair.second
+
                         updateContents()
                     }, { this.setErrorState(it) })!!)
         }
@@ -138,36 +140,36 @@ class AddDescriptionsItemFragment : Fragment() {
 
     private fun updateContents() {
         cardItemErrorView.visibility = View.GONE
-        cardItemContainer.visibility = if (summary == null) View.GONE else View.VISIBLE
-        cardItemProgressBar.visibility = if (summary == null) View.VISIBLE else View.GONE
-        if (summary == null) {
+        cardItemContainer.visibility = if (sourceSummary == null) View.GONE else View.VISIBLE
+        cardItemProgressBar.visibility = if (sourceSummary == null) View.VISIBLE else View.GONE
+        if (sourceSummary == null) {
             return
         }
-        viewArticleTitle.text = summary!!.normalizedTitle
+        viewArticleTitle.text = sourceSummary!!.normalizedTitle
 
         if (parent().source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
             viewArticleSubtitleContainer.visibility = VISIBLE
             viewArticleSubtitleAddedBy.visibility = GONE
             viewArticleSubtitleEdit.visibility = GONE
-            viewArticleSubtitle.text = StringUtils.capitalize(sourceDescription)
+            viewArticleSubtitle.text = StringUtils.capitalize(sourceSummary!!.description)
             callToActionText.text = String.format(getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(parent().langToCode))
         }
 
-        viewArticleExtract.text = StringUtil.fromHtml(summary!!.extractHtml)
-        if (TextUtils.isEmpty(summary!!.thumbnailUrl)) {
+        viewArticleExtract.text = StringUtil.fromHtml(sourceSummary!!.extractHtml)
+        if (TextUtils.isEmpty(sourceSummary!!.thumbnailUrl)) {
             viewArticleImage.visibility = GONE
             viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {
             viewArticleImage.visibility = VISIBLE
-            viewArticleImage.loadImage(Uri.parse(summary!!.thumbnailUrl))
+            viewArticleImage.loadImage(Uri.parse(sourceSummary!!.thumbnailUrl))
             viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
         }
     }
 
     private fun updateSourceDescriptionWithHighlight() {
         if (parent().source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
-            val spannableDescription = SpannableString(sourceDescription)
-            spannableDescription.setSpan(ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_text_color)), 0, sourceDescription.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            val spannableDescription = SpannableString(sourceSummary!!.description)
+            spannableDescription.setSpan(ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_text_color)), 0, sourceSummary!!.description!!.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         }
     }
 

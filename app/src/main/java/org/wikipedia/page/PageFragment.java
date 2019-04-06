@@ -1010,7 +1010,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             startActivityForResult(DescriptionEditTutorialActivity.newIntent(requireContext(), text),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL);
         } else {
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), getTitle(), text, false, null, null, PAGE_ACTIVITY),
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), getTitle(), text, PAGE_ACTIVITY),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT);
         }
     }

@@ -177,7 +177,7 @@ class AddDescriptionsFragment : Fragment() {
 
     fun onSelectPage() {
         if (topTitle != null) {
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, true, topChild!!.sourceDescription, langFromCode, source),
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, topChild!!.sourceSummary, topChild!!.targetSummary, source),
                     ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
     }
