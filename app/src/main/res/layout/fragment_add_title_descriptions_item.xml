@@ -137,8 +137,7 @@
                     android:id="@+id/viewAddDescriptionButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp">
+                    android:layout_marginTop="5dp">
 
                     <ImageView
                         android:layout_width="20dp"
