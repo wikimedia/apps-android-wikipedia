@@ -7,7 +7,7 @@ import android.os.Bundle
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
 
-class MyContributionsActivity : SingleFragmentActivity<MyContributionsFragment>() {
+class SuggestedEditsContributionsActivity : SingleFragmentActivity<SuggestedEditsContributionsFragment>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,14 +17,14 @@ class MyContributionsActivity : SingleFragmentActivity<MyContributionsFragment>(
         SuggestedEditsFunnel.get().contributionsOpened()
     }
 
-    override fun createFragment(): MyContributionsFragment {
-        return MyContributionsFragment.newInstance()
+    override fun createFragment(): SuggestedEditsContributionsFragment {
+        return SuggestedEditsContributionsFragment.newInstance()
     }
 
     companion object {
 
         fun newIntent(context: Context): Intent {
-            return Intent(context, MyContributionsActivity::class.java)
+            return Intent(context, SuggestedEditsContributionsActivity::class.java)
         }
     }
 }
