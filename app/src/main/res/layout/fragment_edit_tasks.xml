@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="?android:attr/windowBackground"
     android:orientation="vertical"
-    tools:context="org.wikipedia.suggestededits.EditTasksActivity">
+    tools:context="org.wikipedia.suggestededits.SuggestedEditsTasksActivity">
 
     <FrameLayout
         android:id="@+id/edit_onboarding_view"

@@ -25,7 +25,7 @@ import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
-class AddDescriptionsItemFragment : Fragment() {
+class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
     private val disposables = CompositeDisposable()
     private val app = WikipediaApp.getInstance()
     var sourceSummary: RbPageSummary? = null
@@ -149,16 +149,16 @@ class AddDescriptionsItemFragment : Fragment() {
         }
     }
 
-    private fun parent(): AddDescriptionsFragment {
-        return requireActivity().supportFragmentManager.fragments[0] as AddDescriptionsFragment
+    private fun parent(): SuggestedEditsAddDescriptionsFragment {
+        return requireActivity().supportFragmentManager.fragments[0] as SuggestedEditsAddDescriptionsFragment
     }
 
     companion object {
         const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 5
         const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 12
 
-        fun newInstance(): AddDescriptionsItemFragment {
-            return AddDescriptionsItemFragment()
+        fun newInstance(): SuggestedEditsAddDescriptionsItemFragment {
+            return SuggestedEditsAddDescriptionsItemFragment()
         }
     }
 }

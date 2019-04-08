@@ -37,7 +37,7 @@ import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SiteInfoClient;
-import org.wikipedia.suggestededits.AddDescriptionsActivity;
+import org.wikipedia.suggestededits.SuggestedEditsAddDescriptionsActivity;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
@@ -248,9 +248,9 @@ public abstract class BaseActivity extends AppCompatActivity {
                 ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(BaseActivity.this);
             } else if (event instanceof EditorTaskUnlockEvent) {
                 if (((EditorTaskUnlockEvent) event).getNumTargetsPassed() == 1) {
-                    AddDescriptionsActivity.Companion.showEditUnlockDialog(BaseActivity.this);
+                    SuggestedEditsAddDescriptionsActivity.Companion.showEditUnlockDialog(BaseActivity.this);
                 } else if (((EditorTaskUnlockEvent) event).getNumTargetsPassed() == 2) {
-                    AddDescriptionsActivity.Companion.showTranslateUnlockDialog(BaseActivity.this);
+                    SuggestedEditsAddDescriptionsActivity.Companion.showTranslateUnlockDialog(BaseActivity.this);
                 }
             }
         }

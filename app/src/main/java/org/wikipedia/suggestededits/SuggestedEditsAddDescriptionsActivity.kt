@@ -11,11 +11,11 @@ import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
-import org.wikipedia.suggestededits.AddDescriptionsFragment.Companion.newInstance
+import org.wikipedia.suggestededits.SuggestedEditsAddDescriptionsFragment.Companion.newInstance
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.views.DialogTitleWithImage
 
-class AddDescriptionsActivity : SingleFragmentActivity<AddDescriptionsFragment>() {
+class SuggestedEditsAddDescriptionsActivity : SingleFragmentActivity<SuggestedEditsAddDescriptionsFragment>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +25,7 @@ class AddDescriptionsActivity : SingleFragmentActivity<AddDescriptionsFragment>(
             R.string.suggested_edits_add_descriptions else R.string.suggested_edits_translate_descriptions)
     }
 
-    override fun createFragment(): AddDescriptionsFragment {
+    override fun createFragment(): SuggestedEditsAddDescriptionsFragment {
         return newInstance(intent.getSerializableExtra(EXTRA_SOURCE) as InvokeSource)
     }
 
@@ -41,7 +41,7 @@ class AddDescriptionsActivity : SingleFragmentActivity<AddDescriptionsFragment>(
                 true
             }
             R.id.menu_my_contributions -> {
-                startActivity(MyContributionsActivity.newIntent(this))
+                startActivity(SuggestedEditsContributionsActivity.newIntent(this))
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -53,7 +53,7 @@ class AddDescriptionsActivity : SingleFragmentActivity<AddDescriptionsFragment>(
         const val EXTRA_SOURCE_ADDED_DESCRIPTION = "addedDescription"
 
         fun newIntent(context: Context, source: InvokeSource): Intent {
-            return Intent(context, AddDescriptionsActivity::class.java).putExtra(EXTRA_SOURCE, source)
+            return Intent(context, SuggestedEditsAddDescriptionsActivity::class.java).putExtra(EXTRA_SOURCE, source)
         }
 
         fun showEditUnlockDialog(context: Context) {
@@ -62,7 +62,7 @@ class AddDescriptionsActivity : SingleFragmentActivity<AddDescriptionsFragment>(
                     .setMessage(R.string.suggested_edits_unlock_add_descriptions_dialog_message)
                     .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ ->
                         SuggestedEditsFunnel.get(ONBOARDING_DIALOG)
-                        context.startActivity(EditTasksActivity.newIntent(context, EDIT_FEED_TITLE_DESC))
+                        context.startActivity(SuggestedEditsTasksActivity.newIntent(context, EDIT_FEED_TITLE_DESC))
                     }
                     .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
                     .show()
@@ -74,7 +74,7 @@ class AddDescriptionsActivity : SingleFragmentActivity<AddDescriptionsFragment>(
                     .setMessage(R.string.suggested_edits_unlock_translate_descriptions_dialog_message)
                     .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ ->
                         SuggestedEditsFunnel.get(ONBOARDING_DIALOG)
-                        context.startActivity(EditTasksActivity.newIntent(context, EDIT_FEED_TRANSLATE_TITLE_DESC))
+                        context.startActivity(SuggestedEditsTasksActivity.newIntent(context, EDIT_FEED_TRANSLATE_TITLE_DESC))
                     }
                     .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
                     .show()

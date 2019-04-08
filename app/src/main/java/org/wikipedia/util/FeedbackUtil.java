@@ -25,7 +25,7 @@ import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.ReadingListActivity;
-import org.wikipedia.suggestededits.AddDescriptionsActivity;
+import org.wikipedia.suggestededits.SuggestedEditsAddDescriptionsActivity;
 
 import java.util.concurrent.TimeUnit;
 
@@ -158,7 +158,7 @@ public final class FeedbackUtil {
             return activity.findViewById(R.id.random_coordinator_layout);
         } else if (activity instanceof ReadingListActivity) {
             return activity.findViewById(R.id.fragment_reading_list_coordinator);
-        } else if (activity instanceof AddDescriptionsActivity) {
+        } else if (activity instanceof SuggestedEditsAddDescriptionsActivity) {
             return activity.findViewById(R.id.addTitleDescriptionsCoordinatorLayout);
         } else {
             return activity.findViewById(android.R.id.content);

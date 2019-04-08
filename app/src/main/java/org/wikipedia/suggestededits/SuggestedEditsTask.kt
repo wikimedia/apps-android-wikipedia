@@ -2,7 +2,7 @@ package org.wikipedia.suggestededits
 
 import android.graphics.drawable.Drawable
 
-class EditTask {
+class SuggestedEditsTask {
 
     var title: String? = null
     var description: String? = null

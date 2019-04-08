@@ -26,7 +26,7 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.ViewUtil
 
-class MyContributionsFragment : Fragment() {
+class SuggestedEditsContributionsFragment : Fragment() {
 
     private val adapter = MyContributionsItemAdapter()
     private val disposables = CompositeDisposable()
@@ -129,8 +129,8 @@ class MyContributionsFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(): MyContributionsFragment {
-            return MyContributionsFragment()
+        fun newInstance(): SuggestedEditsContributionsFragment {
+            return SuggestedEditsContributionsFragment()
         }
     }
 }
