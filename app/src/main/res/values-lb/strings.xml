@@ -479,6 +479,7 @@
   <string name="description_edit_article">Artikel</string>
   <string name="description_edit_read">Liesen</string>
   <string name="description_edit_add_description">Beschreiwung vum Titel derbäisetzen</string>
+  <string name="description_edit_add_description_v2">Beschreiwung derbäisetzen</string>
   <string name="description_edit_edit_description">Beschreiwung änneren</string>
   <string name="add_translation">Iwwersetzung op %s derbäisetzen</string>
   <string name="description_edit_cancel_hint">Ofbriechen</string>
@@ -505,6 +506,7 @@
   <string name="editactionfeed_added_by_you">Vun Iech derbäigesat:</string>
   <string name="editactionfeed_translated_by_you">Vun Iech iwwersat:</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Vläicht méi spéit</string>
+  <string name="suggested_edits_unlock_notification_button">Jo, et geet lass</string>
   <string name="suggested_edits_menu_info">Informatioun</string>
   <string name="title_description_task_title">Beschreiwungen derbäisetzen</string>
   <string name="translation_task_title">Beschreiwungen iwwersetzen</string>
@@ -564,6 +566,8 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Dir hutt elo esouwuel déi traditionell wéi déi vereinfacht chinesesch Variante an Ären App sproochen agestallt. Wëllt dir d\'Astellunge vun de Sprooche vun Ären Appen änneren?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sproochen änneren</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nee, merci</string>
+  <string name="wikitext_bold">Fett</string>
+  <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_link">Link</string>
   <string name="wikitext_numbered_list">Nummeréiert Lëscht</string>
   <string name="wikitext_template">Schabloun</string>

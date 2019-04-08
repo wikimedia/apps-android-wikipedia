@@ -129,8 +129,7 @@
                     android:id="@+id/viewAddDescriptionButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="9dp"
-                    android:layout_marginBottom="5dp">
+                    android:layout_marginTop="9dp">
 
                     <ImageView
                         android:layout_width="20dp"
@@ -157,7 +156,7 @@
                 <View
                     android:layout_width="@dimen/divider_width_for_article"
                     android:layout_height="1dp"
-                    android:layout_marginTop="14dp"
+                    android:layout_marginTop="19dp"
                     android:background="?attr/material_theme_border_color"/>
 
                 <TextView

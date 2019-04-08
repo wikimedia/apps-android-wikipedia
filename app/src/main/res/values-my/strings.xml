@@ -508,6 +508,7 @@
   <string name="preference_summary_notification_milestone">သေချာသော တည်းဖြတ်မှုအရေအတွက် ရောက်ရှိခဲ့ပါသည်</string>
   <string name="preference_title_notification_thanks">ကျေးဇူးတင်ပါသည်</string>
   <string name="preference_summary_notification_thanks">တည်းဖြတ်မှုတစ်ခုအတွက် တစ်စုံတစ်ယောက်က သင့်ကိုကျေးဇူးတင်သည်</string>
+  <string name="preference_title_notification_revert">ပြန်ပြောင်းရန်</string>
   <string name="view_continue_reading_card_title">ဆက်လက်ဖတ်ရှုရန်</string>
   <string name="view_because_you_read_card_title">သင်ဖတ်ရှုခဲ့သောကြောင့်</string>
   <string name="view_random_card_title">ကျပန်းစဉ်</string>
@@ -563,6 +564,7 @@
   <string name="description_edit_article">ဆောင်းပါး</string>
   <string name="description_edit_read">ဖတ်ရန်</string>
   <string name="description_edit_add_description">ဖော်ပြချက်အတို ပေါင်းထည့်ရန်</string>
+  <string name="description_edit_add_description_v2">ဖော်ပြချက်ထည့်သွင်းပါ</string>
   <string name="description_edit_edit_description">ဖော်ပြချက် ပြင်ဆင်ရန်</string>
   <string name="description_edit_cancel_hint">မလုပ်တော့ပါ</string>
   <string name="description_edit_help_title">အကူအညီ:ခေါင်းစဉ် ဖော်ပြချက်များ</string>
@@ -588,6 +590,7 @@
   <string name="editactionfeed_add_description_button">ဖော်ပြချက်ထည့်သွင်းပါ</string>
   <string name="editactionfeed_my_contributions">ပံ့ပိုးထားမှုများ</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">နောက်ကြုံမှ</string>
+  <string name="suggested_edits_unlock_notification_text">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
   <string name="suggested_edits_menu_info">အချက်အလက်</string>
   <string name="title_description_task_title">ဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
   <string name="title_description_task_description">ဖော်ပြချက်မပါဘဲ ဆောင်းပါးများတွင် ပံ့ပိုးမည်</string>
