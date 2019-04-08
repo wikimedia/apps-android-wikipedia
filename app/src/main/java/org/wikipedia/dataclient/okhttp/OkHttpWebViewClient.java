@@ -118,7 +118,7 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
             }
             builder.header(header, request.getRequestHeaders().get(header));
         }
-        return OkHttpConnectionFactory.INSTANCE.getClient().newCall(addHeaders(builder).build()).execute();
+        return OkHttpConnectionFactory.getClient().newCall(addHeaders(builder).build()).execute();
     }
 
     private Request.Builder addHeaders(@NonNull Request.Builder builder) {

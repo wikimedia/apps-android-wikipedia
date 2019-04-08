@@ -53,7 +53,7 @@ public final class ServiceFactory {
 
     private static Retrofit createRetrofit(@NonNull WikiSite wiki, @NonNull String baseUrl) {
         return new Retrofit.Builder()
-                .client(OkHttpConnectionFactory.INSTANCE.getClient().newBuilder()
+                .client(OkHttpConnectionFactory.getClient().newBuilder()
                         .addInterceptor(new LanguageVariantHeaderInterceptor(wiki)).build())
                 .baseUrl(baseUrl)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
