@@ -157,7 +157,7 @@ public class SavedPageSyncService extends JobIntentService {
                                 .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_DELETE)
                                 .build();
                         try {
-                            OkHttpConnectionFactory.INSTANCE.getClient().newCall(request).execute();
+                            OkHttpConnectionFactory.getClient().newCall(request).execute();
                         } catch (Exception e) {
                             // ignore exceptions while deleting cached items.
                         }
@@ -322,7 +322,7 @@ public class SavedPageSyncService extends JobIntentService {
                 .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
                 .build();
 
-        Response rsp = OkHttpConnectionFactory.INSTANCE.getClient().newCall(request).execute();
+        Response rsp = OkHttpConnectionFactory.getClient().newCall(request).execute();
 
         // Note: raw non-Retrofit usage of OkHttp Requests requires that the Response body is read
         // for the cache to be written.
@@ -355,11 +355,11 @@ public class SavedPageSyncService extends JobIntentService {
     }
 
     private long responseSize(@NonNull Response rsp) {
-        return OkHttpConnectionFactory.INSTANCE.getSAVE_CACHE().getSizeOnDisk(rsp.request());
+        return OkHttpConnectionFactory.SAVE_CACHE.getSizeOnDisk(rsp.request());
     }
 
     private long responseSize(@NonNull retrofit2.Response rsp) {
-        return OkHttpConnectionFactory.INSTANCE.getSAVE_CACHE().getSizeOnDisk(rsp.raw().request());
+        return OkHttpConnectionFactory.SAVE_CACHE.getSizeOnDisk(rsp.raw().request());
     }
 
     @NonNull private PageClient newPageClient(@NonNull PageTitle title) {

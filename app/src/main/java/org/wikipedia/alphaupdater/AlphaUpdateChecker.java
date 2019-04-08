@@ -47,7 +47,7 @@ public class AlphaUpdateChecker extends RecurringTask {
         Response response = null;
         try {
             Request request = new Request.Builder().url(ALPHA_BUILD_DATA_URL).build();
-            response = OkHttpConnectionFactory.INSTANCE.getClient().newCall(request).execute();
+            response = OkHttpConnectionFactory.getClient().newCall(request).execute();
             hashString = response.body().string();
         } catch (IOException e) {
             // It's ok, we can do nothing.
