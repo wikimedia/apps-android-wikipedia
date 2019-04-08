@@ -79,18 +79,15 @@ public enum FeedContentType implements EnumCode {
             return isEnabled() ? new BecauseYouReadClient() : null;
         }
     },
-    SUGGESTED_EDITS(9, R.string.suggested_edits_add_descriptions, R.string.feed_item_type_add_description, false) {
+    SUGGESTED_EDITS(9, R.string.suggested_edits, R.string.feed_item_type_suggested_edits, false) {
         @Nullable
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
-            return isEnabled() && age % 2 == 0 && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline() && Prefs.isSuggestedEditsAddDescriptionsUnlocked() ? new SuggestedEditsFeedClient(false) : null;
-        }
-    },
-    SUGGESTED_TRANSLATION_EDITS(9, R.string.suggested_edits_translate_descriptions, R.string.feed_item_type_translate_description, false) {
-        @Nullable
-        @Override
-        public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
-            return isEnabled() && age % 2 != 0 && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline() && Prefs.isSuggestedEditsTranslateDescriptionsUnlocked() ? new SuggestedEditsFeedClient(true) : null;
+            if (age % 2 == 0 && isEnabled() && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline()) {
+                return Prefs.isSuggestedEditsAddDescriptionsUnlocked() ? new SuggestedEditsFeedClient(false) : null;
+            } else {
+                return Prefs.isSuggestedEditsTranslateDescriptionsUnlocked() ? new SuggestedEditsFeedClient(true) : null;
+            }
         }
     };
 

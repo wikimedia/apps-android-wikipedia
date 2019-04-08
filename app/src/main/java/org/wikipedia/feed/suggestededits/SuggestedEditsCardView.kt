@@ -16,7 +16,6 @@ import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter
@@ -106,7 +105,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         val param = cardView.layoutParams as FrameLayout.LayoutParams
         param.setMargins(0, 0, 0, 0)
         cardView.useCompatPadding = false
-        cardView.setContentPadding(0, 0, 0, DimenUtil.roundedDpToPx(CARD_BOTTOM_PADDING))
+        cardView.setContentPadding(0, 0, 0, 0)
         cardView.setOnClickListener {
             if (callback != null && card != null) {
                 callback!!.onSuggestedEditsCardClick(if (isTranslation) targetPageTitle!! else summary!!.getPageTitle(WikiSite.forLanguageCode(sourceLangCode)), sourceDescription, sourceLangCode, this)
@@ -143,7 +142,6 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     companion object {
-        val CARD_BOTTOM_PADDING = 16.0f
         val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 6
     }
 }

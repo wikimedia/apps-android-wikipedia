@@ -583,6 +583,7 @@
   <string name="feed_item_type_featured_image">Short description for Explore feed card that contains the daily featured image from Commons</string>
   <string name="feed_item_type_main_page">Short description for Explore feed card that contains a link to the Main Page</string>
   <string name="feed_item_type_randomizer">Short description for Explore feed card that generates random articles</string>
+  <string name="feed_item_type_suggested_edits">Short description for Explore feed card that suggests articles for adding or translating descriptions</string>
   <string name="feed_empty_message">Message informing the user that their Explore feed is currently empty.</string>
   <string name="feed_configure_onboarding_action">Button label for onboarding card that introduces the customization of the Explore feed.</string>
   <string name="feed_configure_onboarding_text">Onboarding text that describes the new functionality of customizing the Explore feed.</string>
@@ -720,10 +721,6 @@
   <string name="edit_tasks_onboarding_get_started">Text on button to start tasks from edit action feed.\n{{Identical|Get started}}</string>
   <string name="android_app_edit_help_url">URL leading to the help page for article editing from within the app. If you can find the appropriate language specific URL of the mobile site please do so.</string>
   <string name="suggested_edits">Title text for suggested edits card.</string>
-  <string name="suggested_edits_add_descriptions">Title text for suggested edits add descriptions card in customization screen.</string>
-  <string name="suggested_edits_translate_descriptions">Title text for suggested edits translate descriptions card in customization screen.</string>
-  <string name="feed_item_type_add_description">Short description for Explore feed card that contains suggestions for editing based on the editing history of the user.</string>
-  <string name="feed_item_type_translate_description">Short description for Explore feed card that contains suggestions for editing based on the translation history of the user.</string>
   <string name="suggested_edits_menu_info">Suggested edits menu label for accessing the editing FAQ.\n{{Identical|Info}}</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Title text of the dialog shown to user that the “Add descriptions“ task has been unlocked.</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Message text of the dialog shown to user that the “Add descriptions“ task has been unlocked.</string>
