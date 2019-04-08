@@ -129,6 +129,7 @@
   <string name="reset_password_button">Mentés és belépés</string>
   <string name="preference_title_logout">Kijelentkezés</string>
   <string name="toast_logout_complete">Kijelentkezve</string>
+  <string name="logout_prompt">Biztos vagy benne, hogy ki akarsz jelentkezni?</string>
   <string name="history_empty_title">Nincsenek nemrég megtekintett cikkek</string>
   <string name="history_empty_message">Itt követheted az elolvasott szócikkeket.</string>
   <string name="history_offline_articles_toast">Néhány szócikk lehet, hogy nem olvasható offline módban.</string>
@@ -523,6 +524,7 @@
   <string name="preference_summary_notification_milestone">Bizonyos számú szerkesztésszám elérése</string>
   <string name="preference_title_notification_thanks">Köszönetek</string>
   <string name="preference_summary_notification_thanks">Valaki megköszönte egy szerkesztésedet</string>
+  <string name="preference_summary_notification_revert">Közreműködéseid egyike vissza lett vonva.</string>
   <string name="view_continue_reading_card_title">Olvasás folytatása</string>
   <string name="view_because_you_read_card_title">Mert ezt olvastad:</string>
   <string name="view_random_card_title">Találomra</string>
@@ -575,7 +577,10 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Szabd testre a Felfedezés hírfolyamodat!&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Mostantól kiválaszthatod, hogy mi jelenjen meg a hírfolyamodban, és át is rendezheted azt, feljebb helyezve a kedvenc tartalomtípusaidat.</string>
   <string name="description_edit_text_hint">Cím leírása</string>
   <string name="description_edit_save">Közzététel</string>
+  <string name="description_edit_article">Szócikk</string>
+  <string name="description_edit_read">Olvasás</string>
   <string name="description_edit_add_description">Adj meg egy címleírást</string>
+  <string name="description_edit_add_description_v2">Leírás hozzáadása</string>
   <string name="description_edit_edit_description">Leírás szerkesztése</string>
   <string name="description_edit_cancel_hint">Mégse</string>
   <string name="description_edit_help_title">Segítség: címleírások</string>
@@ -585,6 +590,7 @@
   <string name="description_edit_anon_limit">Köszönjük a folyamatos érdeklődésedet a leírások szerkesztése iránt! További szerkesztéshez kérjük jelentkezz be a Wikipédia-fiókoddal.</string>
   <string name="description_edit_license_notice">A címleírás szerkesztésével elfogadom a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlanul &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; licenc alá helyezem a szerkesztéseimet.</string>
   <string name="description_edit_success_saved">Leírás közzétéve!</string>
+  <string name="description_edit_success_saved_snackbar">Leírás közzétéve!</string>
   <string name="description_edit_success_encouragement">Éppen mindenkinek jobbá tetted a Wikipédiát</string>
   <string name="description_edit_success_done">Kész</string>
   <string name="description_edit_success_did_you_know">Tudtad?</string>
@@ -599,9 +605,14 @@
   <string name="editactionfeed_review_title_description">Címleírás ellenőrzése</string>
   <string name="editactionfeed_add_description_button">Leírás hozzáadása</string>
   <string name="editactionfeed_my_contributions">Közreműködéseim</string>
+  <string name="editactionfeed_added_by_you">Általad hozzáadva:</string>
+  <string name="editactionfeed_translated_by_you">Általad fordítva:</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">A címleírás-szerkesztői feladatlista feloldásra került!</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Észrevettük, hogy szeretsz címleírásokat szerkeszteni, így összeállítottuk számodra a „Szerkesztői feladatok” listáját olyan cikkekkel, melyeknél hiányzik a címleírás.</string>
-  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Talán később</string>
+  <string name="suggested_edits_unlock_dialog_no">Talán később</string>
+  <string name="suggested_edits_unlock_dialog_yes">Igen, kezdjük</string>
+  <string name="suggested_edits_unlock_notification_button">Igen, kezdjük</string>
+  <string name="suggested_edits_menu_info">Információ</string>
   <string name="title_description_task_title">Címleírások hozzáadása</string>
   <string name="title_description_task_description">Működj közre a címleírások nélküli cikkeknél</string>
   <string name="image_caption_task_title">Képek feliratozása</string>
@@ -611,6 +622,7 @@
   <string name="image_caption_edit_disable_text">Zárolva, míg el nem végzel az alkalmazáson belül %d ellenőrzött szerkesztést</string>
   <string name="multilingual_task_negative">Nem nekem való</string>
   <string name="multilingual_task_positive">Nyelvek hozzáadása</string>
+  <string name="translate_caption_task_title">Képaláírások fordítása</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">egy közreműködés</item>
     <item quantity="other">%d közreműködés</item>
@@ -682,6 +694,13 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Jelenleg mind a hagyományos, mind az egyszerűsített kínai nyelvi változat is be van állítva az alkalmazásban. Módosítod az alkalmazás nyelvi beállításait?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Nyelvek szerkesztése</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Köszönöm, nem</string>
+  <string name="wikitext_bold">Félkövér</string>
+  <string name="wikitext_italic">Dőlt</string>
+  <string name="wikitext_link">Hivatkozás</string>
+  <string name="wikitext_bulleted_list">Felsorolásjeles lista</string>
+  <string name="wikitext_numbered_list">Számozott lista</string>
+  <string name="wikitext_template">Sablon</string>
+  <string name="wikitext_reference">Hivatkozás</string>
   <string name="main_drawer_open">Megnyit</string>
   <string name="main_drawer_close">Bezár</string>
   <string name="main_drawer_help">Segítség</string>

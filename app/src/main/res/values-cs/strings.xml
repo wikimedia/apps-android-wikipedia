@@ -21,8 +21,8 @@
 -->
 <resources>
   <string name="app_name_prod">Wikipedie</string>
-  <string name="app_name_beta">Wikipedie Beta</string>
-  <string name="app_name_alpha">Wikipedie Alfa</string>
+  <string name="app_name_beta">Wikipedie beta</string>
+  <string name="app_name_alpha">Wikipedie alfa</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_back">Zpět</string>
   <string name="page_tabs_back">Zpět</string>
@@ -593,7 +593,7 @@
   <string name="description_edit_add_description">Přidat popis článku</string>
   <string name="description_edit_add_description_v2">Přidat popis</string>
   <string name="description_edit_edit_description">Editovat popis</string>
-  <string name="add_translation">Přidáno %s překladů</string>
+  <string name="add_translation">Přidat překlad v jazyce %s</string>
   <string name="description_edit_cancel_hint">Zrušit</string>
   <string name="description_edit_help_title">Nápověda: popis článku</string>
   <string name="description_edit_help_about_wikidata">O Wikidatech</string>
@@ -616,7 +616,7 @@
   <string name="editactionfeed_add_title_descriptions">Přidat popis článku</string>
   <string name="editactionfeed_review_title_description">Náhled popisu článku</string>
   <string name="editactionfeed_add_description_button">Přidat popis</string>
-  <string name="editactionfeed_my_contributions">Mé příspěvky</string>
+  <string name="editactionfeed_my_contributions">Moje příspěvky</string>
   <string name="editactionfeed_added_by_you">Přidáno vámi:</string>
   <string name="editactionfeed_translated_by_you">Přeloženo vámi:</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Odemkli jste přidávání popisů!</string>
@@ -629,7 +629,7 @@
   <string name="suggested_edits_unlock_translate_descriptions_notification_title">Odemkli jste překládání popisů!</string>
   <string name="suggested_edits_unlock_notification_text">Navrhování editací</string>
   <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Navrhování editací\n\nGratulujeme k vašemu třetímu příspěvku! Vzhledem k tomu, že jste v editaci dobří, nabízíme vám seznam článků, kterým chybí popisy. Pomůžete nám vylepšit Wikipedii?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Navrhování editací\n\nGratulujeme k vašemu třetímu příspěvku, jsme ohromeni! Vzhledem k tomu, že jste v editaci dobří, nabízíme vám seznam článků, kterým chybí popisy. Pomůžete nám i nadále vylepšovat Wikipedii?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Navrhování editací\n\nGratulujeme k vašemu padesátému příspěvku, jsme ohromeni! Vzhledem k tomu, že jste v editaci velmi dobří, nabízíme vám seznam článků, kterým chybí překlad popisu z jiného jazyka. Pomůžete nám i nadále vylepšovat Wikipedii?</string>
   <string name="suggested_edits_unlock_notification_button">Ano, chci</string>
   <string name="suggested_edits_license_notice">Přidáním popisu souhlasím s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelně souhlasím s podmínkami licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informace</string>

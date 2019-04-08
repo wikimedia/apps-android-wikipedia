@@ -192,7 +192,7 @@
   <string name="reading_list_create_new">Newe vıraze</string>
   <string name="reading_list_added_to_named">Debya %s tede</string>
   <string name="reading_list_added_view_button">Listi Bıvin</string>
-  <string name="reading_list_sort">Ratın</string>
+  <string name="reading_list_sort">Weçine</string>
   <string name="reading_list_sort_by_name">Gorey nami ratın</string>
   <string name="reading_list_sort_by_name_desc">Gorey nami ratın (çep ra)</string>
   <string name="reading_list_sort_by_recent">Tarixê dekerdışi gore ratın (tewr newe)</string>
@@ -236,6 +236,8 @@
   <string name="editactionfeed_add_description_button">Arezekerdış cı ke</string>
   <string name="editactionfeed_my_contributions">İştirakê mı</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Belkiya badêna</string>
+  <string name="suggested_edits_unlock_dialog_yes">Eya, hadê şime</string>
+  <string name="suggested_edits_unlock_notification_button">Eya, hadê şime</string>
   <string name="suggested_edits_menu_info">Melumat</string>
   <string name="title_description_task_title">Arezekerdış cı ke</string>
   <string name="multilingual_task_positive">Zıwanan cı ke</string>

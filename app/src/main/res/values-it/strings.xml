@@ -595,7 +595,7 @@
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Hai sbloccato l\'attività \"Aggiungi descrizioni\"</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Hai sbloccato l\'attività \"Traduci descrizioni\"</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Congratulazioni per il tuo 50° contributo, siamo impressionati! Stai utilizzando l\'applicazione in più lingue, quindi abbiamo compilato un elenco di voci che richiedono traduzioni delle descrizione. Vuoi continuare ad aiutarci migliorando Wikipedia?</string>
-  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Forse più tardi</string>
+  <string name="suggested_edits_unlock_dialog_no">Forse più tardi</string>
   <string name="suggested_edits_unlock_dialog_yes">Si, partiamo</string>
   <string name="suggested_edits_unlock_add_descriptions_notification_title">Hai sbloccato \"Aggiungi descrizioni\"</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_title">Hai sbloccato \"Traduci descrizioni\"</string>
