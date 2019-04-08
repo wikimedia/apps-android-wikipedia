@@ -628,11 +628,19 @@
   <string name="editactionfeed_my_contributions">Minhas contribuições</string>
   <string name="editactionfeed_added_by_you">Adicionado por você:</string>
   <string name="editactionfeed_translated_by_you">Traduzido por você:</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Você desbloqueou \"Adicionar descrições\"</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Obrigado por suas contribuições contínuas! Como você é muito bom em editar, compilamos uma lista de artigos com descrições ausentes. Você poderia nos ajudar a melhorar a Wikipédia?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Você desbloqueou \"Traduzir descrições\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Obrigado por suas contribuições contínuas! Você está usando o aplicativo em vários idiomas, por isso compilamos uma lista de artigos que precisam de traduções descritivas. Você poderia continuar nos ajudando a melhorar a Wikipédia?</string>
-  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Talvez mais tarde</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Você desbloqueou a tarefa \"Adicionar descrições\"</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Parabéns pela sua terceira contribuição! Como você é muito bom em editar, compilamos uma lista de artigos com descrições ausentes. Você poderia nos ajudar a melhorar a Wikipedia?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Você desbloqueou a tarefa \"Traduzir descrições\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Parabéns pela sua 50ª contribuição, estamos impressionados! Você está usando o aplicativo em vários idiomas, por isso compilamos uma lista de artigos que precisam de traduções descritivas. Você poderia continuar nos ajudando a melhorar a Wikipédia?</string>
+  <string name="suggested_edits_unlock_dialog_no">Talvez mais tarde</string>
+  <string name="suggested_edits_unlock_dialog_yes">Sim, vamos lá</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">Você desbloqueou \"Adicionar descrições\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Você desbloqueou \"Traduzir descrições\"</string>
+  <string name="suggested_edits_unlock_notification_text">Edições sugeridas</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Edições sugeridas\n\nParabéns pela sua terceira contribuição. Como você é muito bom em editar, compilamos uma lista de artigos com descrições ausentes. Você poderia nos ajudar a melhorar a Wikipédia?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Edições sugeridas\n\nParabéns pela sua 50ª contribuição, estamos impressionados! Você está usando o aplicativo em vários idiomas, por isso compilamos uma lista de artigos que precisam de traduções descritivas. Você poderia continuar nos ajudando a melhorar a Wikipédia?</string>
+  <string name="suggested_edits_unlock_notification_button">Sim, vamos lá</string>
+  <string name="suggested_edits_license_notice">Adicionando a descrição do título, eu concordo com o &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e liberar irrevogavelmente minhas contribuições sob a licença &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informação</string>
   <string name="title_description_task_title">Adicionar descrições</string>
   <string name="title_description_task_description">Contribuir para artigos sem descrições</string>

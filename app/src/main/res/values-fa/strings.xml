@@ -140,6 +140,7 @@
   <string name="reset_password_button">ذخیره و ورود به سامانه</string>
   <string name="preference_title_logout">خروج از سامانه</string>
   <string name="toast_logout_complete">خارج شد</string>
+  <string name="logout_prompt">آیا اطمینان دارید که می‌خواهید خارج شوید؟</string>
   <string name="history_empty_title">اخیراً هیچ مقاله‌ای دیده نشده‌است</string>
   <string name="history_empty_message">پیگیری مواردی که قبلاً مطالعه کردید.</string>
   <string name="history_offline_articles_toast">برخی از مقالات در تاریخچه ممکن است در حالت آفلاین دیده نشوند.</string>
@@ -505,6 +506,8 @@
   <string name="preference_title_notification_milestone">نقطهٔ عطف</string>
   <string name="preference_title_notification_thanks">سپاس</string>
   <string name="preference_summary_notification_thanks">شخصی برای ویرایش از شما تشکر می‌کند.</string>
+  <string name="preference_title_notification_revert">واگردانی</string>
+  <string name="preference_summary_notification_revert">یکی از مشارکت‌های شما برگردانده شده است</string>
   <string name="view_continue_reading_card_title">ادامه دادن به خواندن</string>
   <string name="view_because_you_read_card_title">چون شما مطالعه می‌کنید</string>
   <string name="view_random_card_title">تصادفی</string>
@@ -585,7 +588,9 @@
   <string name="editactionfeed_my_contributions">مشارکت های من</string>
   <string name="editactionfeed_added_by_you">افزوده شده توسط شما:</string>
   <string name="editactionfeed_translated_by_you">ترجمه‌شده توسط شما:</string>
-  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">شاید بعداً</string>
+  <string name="suggested_edits_unlock_dialog_no">شاید بعداً</string>
+  <string name="suggested_edits_unlock_notification_text">ویرایش‌های پیشنهادی</string>
+  <string name="suggested_edits_menu_info">اطلاعات</string>
   <string name="title_description_task_title">افزودن توضیحات</string>
   <string name="title_description_task_description">مشارکت در مقالات بدون توضیحات</string>
   <string name="image_caption_task_title">زیر نویس تصویر</string>
@@ -656,6 +661,12 @@
   <string name="add_wikipedia_languages_text">افزودن زبان های ویکی پدیا</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ویرایش زبان ها</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">نه ممنون</string>
+  <string name="wikitext_bold">پررنگ</string>
+  <string name="wikitext_link">پیوند</string>
+  <string name="wikitext_bulleted_list">فهرست گلوله‌ای</string>
+  <string name="wikitext_numbered_list">فهرست شماره‌ای</string>
+  <string name="wikitext_template">الگو</string>
+  <string name="wikitext_reference">منبع</string>
   <string name="main_drawer_open">باز کن</string>
   <string name="main_drawer_close">بستن</string>
   <string name="main_drawer_help">راهنما</string>
