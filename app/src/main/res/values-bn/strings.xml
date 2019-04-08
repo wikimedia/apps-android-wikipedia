@@ -455,6 +455,7 @@
   <string name="preference_summary_notification_welcome">একটি অ্যাকাউন্ট তৈরি করা হয়েছে</string>
   <string name="preference_title_notification_milestone">মাইলফলক</string>
   <string name="preference_title_notification_thanks">ধন্যবাদ</string>
+  <string name="preference_title_notification_revert">প্রত্যাবর্তন</string>
   <string name="view_continue_reading_card_title">পড়া অব্যাহত রাখুন</string>
   <string name="view_because_you_read_card_title">কারণ আপনি পড়েছেন</string>
   <string name="view_random_card_title">অজানা পাতা</string>
@@ -504,6 +505,7 @@
   <string name="description_edit_text_hint">শিরোনামের বিবরণ</string>
   <string name="description_edit_save">প্রকাশ করুন</string>
   <string name="description_edit_add_description">শিরোনামের বিবরণ যোগ করুন</string>
+  <string name="description_edit_add_description_v2">বিবরণ যোগ করুন</string>
   <string name="description_edit_edit_description">বিবরণ সম্পাদনা করুন</string>
   <string name="add_translation">%s অনুবাদ যোগ করুন</string>
   <string name="description_edit_cancel_hint">বাতিল</string>
@@ -529,6 +531,7 @@
   <string name="editactionfeed_add_description_button">বিবরণ যোগ করুন</string>
   <string name="editactionfeed_my_contributions">আমার অবদান</string>
   <string name="editactionfeed_translated_by_you">আপনার দ্বারা অনূদিত:</string>
+  <string name="suggested_edits_unlock_notification_button">হ্যাঁ, চলুন</string>
   <string name="suggested_edits_menu_info">তথ্য</string>
   <string name="multilingual_task_negative">আমার জন্য নয়</string>
   <string name="multilingual_task_positive">ভাষা যোগ করুন</string>

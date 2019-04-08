@@ -602,11 +602,19 @@
   <string name="editactionfeed_my_contributions">Мои придонеси</string>
   <string name="editactionfeed_added_by_you">Додадено од вас:</string>
   <string name="editactionfeed_translated_by_you">Преведено од Вас:</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Го отклучивте „Додај описи“</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Ви благодариме за постојаните придонеси! Бидејќи сте одлични уредници, составивме список на статии кои немаат описи. Дали би ни помогнале да ја подобриме Википедија?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Го отклучивте „Преведи описи“</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Ви благодариме за постојаните придонеси! Го користите прилогот на повеќе јазици, па затоа составивме список на статии чии описи треба да се преведат. Дали би продолжиле да ни помагате во подобрувањето на Википедија?</string>
-  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Можеби подоцна</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Ја отклучивте задачата „Додај описи“</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Честитаме на вашиот трет придонес! Бидејќи сте одлични уредници, составивме список на статии кои немаат описи. Дали би ни помогнале да ја подобриме Википедија?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Ја отклучивте задачата „Преведи описи“</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Ви благодариме за постојаните придонеси! Го користите прилогот на повеќе јазици, па затоа составивме список на статии чии описи треба да се преведат. Дали би продолжиле да ни помагате во подобрувањето на Википедија?</string>
+  <string name="suggested_edits_unlock_dialog_no">Можеби подоцна</string>
+  <string name="suggested_edits_unlock_dialog_yes">Да, ајде</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">Го отклучивте „Додај описи“</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Го отклучивте „Преведи описи“</string>
+  <string name="suggested_edits_unlock_notification_text">Предложени уредувања</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Предложени уредувања\n\nЧеститаме на вашиот трет придонес! Бидејќи сте одлични уредници, составивме список на статии кои немаат описи. Дали би ни помогнале да ја подобриме Википедија?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Предложени уредувања\n\nВи благодариме за вашиот 50-ти придонес! Го користите прилогот на повеќе јазици, па затоа составивме список на статии чии описи треба да се преведат. Дали би продолжиле да ни помагате во подобрувањето на Википедија?</string>
+  <string name="suggested_edits_unlock_notification_button">Да, ајде</string>
+  <string name="suggested_edits_license_notice">Додавајќи го описот на насловот, се согласувам со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувам моите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;Криејтив комонс CC0&lt;/a&gt;</string>
   <string name="suggested_edits_menu_info">Инфо</string>
   <string name="title_description_task_title">Додај описи</string>
   <string name="title_description_task_description">Придонесувајте со статии без описи</string>
