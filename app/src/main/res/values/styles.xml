@@ -300,7 +300,7 @@
 
     <!-- Preferences -->
 
-    <style name="AppPreferenceTheme" parent="PreferenceThemeOverlay.v14.Material" >
+    <style name="AppPreferenceTheme" parent="PreferenceThemeOverlay" >
         <item name="preferenceFragmentCompatStyle">@style/AppPreferenceFragment</item>
         <item name="android:listPreferredItemPaddingLeft">@dimen/activity_horizontal_margin</item>
         <item name="android:listPreferredItemPaddingStart">@dimen/activity_horizontal_margin</item>
