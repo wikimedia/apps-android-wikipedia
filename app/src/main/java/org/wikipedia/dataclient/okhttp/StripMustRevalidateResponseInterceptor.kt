@@ -1,12 +1,9 @@
 package org.wikipedia.dataclient.okhttp
 
-import org.wikipedia.dataclient.okhttp.util.HttpUrlUtil
-
-import java.io.IOException
-
-import okhttp3.HttpUrl
 import okhttp3.Interceptor
 import okhttp3.Response
+import org.wikipedia.dataclient.okhttp.util.HttpUrlUtil
+import java.io.IOException
 
 /**
  * This interceptor strips away the `must-revalidate` directive from the Cache-Control header,

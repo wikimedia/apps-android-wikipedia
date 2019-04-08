@@ -1,5 +1,6 @@
 package org.wikipedia.dataclient.okhttp
 
+import android.support.annotation.NonNull
 import org.wikipedia.dataclient.okhttp.util.HttpUrlUtil
 import org.wikipedia.settings.RbSwitch
 
@@ -34,7 +35,7 @@ class StatusResponseInterceptor(private val cb: RbSwitch) : Interceptor {
         }
     }
 
-    private fun failure(url: HttpUrl, t: Throwable?) {
+    private fun failure(url: HttpUrl, @NonNull t: Throwable?) {
         if (HttpUrlUtil.isRestBase(url)) {
             cb.onRbRequestFailed(t)
         }
