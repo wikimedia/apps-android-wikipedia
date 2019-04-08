@@ -160,7 +160,10 @@ public class DescriptionEditFragment extends Fragment {
         editView.setCallback(new EditViewCallback());
         editView.editTaskEnabled(reviewEnabled);
         if (reviewEnabled) {
-            loadPageSummary(savedInstanceState);
+            editView.setPageSummaries(sourceSummary, targetSummary);
+            if (savedInstanceState != null) {
+                editView.loadReviewContent(savedInstanceState.getBoolean(ARG_REVIEWING));
+            }
         }
 
         if (funnel != null) {
@@ -194,13 +197,6 @@ public class DescriptionEditFragment extends Fragment {
             if (callback() != null) {
                 callback().onDescriptionEditSuccess();
             }
-        }
-    }
-
-    private void loadPageSummary(@Nullable Bundle savedInstanceState) {
-        editView.setPageSummaries(sourceSummary, targetSummary);
-        if (savedInstanceState != null) {
-            editView.loadReviewContent(savedInstanceState.getBoolean(ARG_REVIEWING));
         }
     }
 
