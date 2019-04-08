@@ -584,6 +584,7 @@
   <string name="description_edit_article">Artikel</string>
   <string name="description_edit_read">Läs</string>
   <string name="description_edit_add_description">Lägg till titelbeskrivning</string>
+  <string name="description_edit_add_description_v2">Lägg till beskrivning</string>
   <string name="description_edit_edit_description">Redigera beskrivningen</string>
   <string name="add_translation">Lägg till översättning på %s</string>
   <string name="description_edit_cancel_hint">Avbryt</string>
@@ -611,11 +612,19 @@
   <string name="editactionfeed_my_contributions">Mina bidrag</string>
   <string name="editactionfeed_added_by_you">Lades till av dig:</string>
   <string name="editactionfeed_translated_by_you">Översattes av dig:</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Du låste upp \"Lägg till beskrivningar\"</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Tack för dina fortsatta bidrag! Eftersom du är superbra på att redigera, har vi tagit fram en lista över artiklar som saknar beskrivningar. Kan du hjälpa oss att förbättra Wikipedia?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Du låste upp \"Översätt beskrivningar\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Tack för dina fortsatta bidrag! Du använder appen på flera språk, så vi har tagit fram en lista över artiklar som behöver få översatta beskrivningar. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
-  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Kanske senare</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Du låste upp uppgiften \"Lägg till beskrivningar\"</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Grattis till ditt tredje bidrag! Eftersom du är superbra på att redigera, har vi tagit fram en lista över artiklar som saknar beskrivningar. Kan du hjälpa oss att förbättra Wikipedia?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Du låste upp uppgiften \"Översätt beskrivningar\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Grattis till ditt 50:e bidrag, vi är imponerade! Du använder appen på flera språk, så vi har tagit fram en lista över artiklar som behöver få översatta beskrivningar. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
+  <string name="suggested_edits_unlock_dialog_no">Kanske senare</string>
+  <string name="suggested_edits_unlock_dialog_yes">Ja, nu kör vi</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">Du låste upp \"Lägg till beskrivningar\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Du låste upp \"Översätt beskrivningar\"</string>
+  <string name="suggested_edits_unlock_notification_text">Föreslagna redigeringar</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Föreslagna redigeringar\n\nGrattis till ditt tredje bidrag! Eftersom du är superbra på att redigera, har vi tagit fram en lista över artiklar som saknar beskrivningar. Kan du hjälpa oss att förbättra Wikipedia?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Föreslagna redigeringar\n\nGrattis till ditt 50:e bidrag, vi är imponerade! Du använder appen på flera språk, så vi har tagit fram en lista över artiklar som behöver få översatta beskrivningar. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
+  <string name="suggested_edits_unlock_notification_button">Ja, nu kör vi</string>
+  <string name="suggested_edits_license_notice">Genom att lägg till titelbeskrivningen samtycker jag till &lt;a href=\"%1$s\"&gt;användarvillkoren&lt;/a&gt; och till att oåterkalleligt släppa mina bidrag under licensen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Information</string>
   <string name="title_description_task_title">Lägg till beskrivningar</string>
   <string name="title_description_task_description">Bidra på artiklar utan beskrivningar</string>

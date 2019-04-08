@@ -5,6 +5,7 @@
 * ShockD
 * Spas.Z.Spasov
 * StanProg
+* Ted Masters
 * Termininja
 * Vlad5250
 * Vodnokon4e
@@ -594,11 +595,11 @@
   <string name="editactionfeed_add_description_button">Добавяне на описание</string>
   <string name="editactionfeed_my_contributions">Моите приноси</string>
   <string name="editactionfeed_added_by_you">Добавено от вас:</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Списъкът със задачи за редактиране на описания на заглавията е отключен!</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Забелязахме, че искате да редактирате описания на заглавия, затова сме съставили списък с „Задачи за приложен редактор“ с множество статии без описание на заглавията, които да ви помогнат в бъдещата ви работа!</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Преводът на описанията на заглавията е отключен!</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Забелязахме, че искате да редактирате описания на заглавия и да прочетете Уикипедия на няколко езика. Вижте списъка със задачи, който ви позволява да превеждате множество описания на заглавия!</string>
-  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Може би по-късно</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Отключихте задачата „Добавяне на описания“</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Поздравления за Вашия трети принос! Понеже Вие сте изключително добър в редактирането, ние съставихме списък на статиите с липсващи описания. Бихте ли ни помогнали да подобрим Уикипедия?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Отключихте задачата „Превод на описания“</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Поздравления за Вашите 50 приноса, впечатлени сме! Ползвате приложението в повече езици, затова съставихме списък от статии, които се нуждаят от превод на описанията. Бихте ли продължили да ни помагате, подобрявайки Уикипедия?</string>
+  <string name="suggested_edits_unlock_dialog_no">Може би после</string>
   <string name="title_description_task_title">Добавяне на описания</string>
   <string name="title_description_task_description">Допринесете към статии без описания</string>
   <string name="image_caption_task_title">Описания на картини</string>

@@ -201,6 +201,7 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.da</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.da</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Anvendte biblioteker</string>
   <string name="about_contributors_heading">Bidragsydere</string>
   <string name="about_translators_heading">Oversættere</string>
@@ -575,7 +576,9 @@
   <string name="description_edit_text_hint">Titelbeskrivelse</string>
   <string name="description_edit_save">Offentliggør</string>
   <string name="description_edit_article">Artikel</string>
+  <string name="description_edit_read">Læs</string>
   <string name="description_edit_add_description">Tilføj titelbeskrivelse</string>
+  <string name="description_edit_add_description_v2">Tilføj beskrivelse</string>
   <string name="description_edit_edit_description">Rediger beskrivelse</string>
   <string name="description_edit_cancel_hint">Annuller</string>
   <string name="description_edit_help_title">Hjælp: Titelbeskrivelser</string>
@@ -599,17 +602,23 @@
   <string name="editactionfeed_review_title_description">Korrekturlæs beskrivelse</string>
   <string name="editactionfeed_add_description_button">Tilføj beskrivelse</string>
   <string name="editactionfeed_my_contributions">Mine bidrag</string>
+  <string name="editactionfeed_added_by_you">Tilføjet af dig:</string>
   <string name="editactionfeed_translated_by_you">Oversat af dig:</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Listen over opgaver vedrørende redigering af titelbeskrivelser er blevet låst op!</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Vi har bemærket at du kan lide at redigere titelbeskrivelser, så vi har udformet en liste med flere artikler som mangler titelbeskrivelser for at hjælpe dig til at forsætte med at bidrage!</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Måske senere</string>
+  <string name="suggested_edits_unlock_dialog_yes">Ja, lad os komme igang</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">Du låste op for “Tilføj beskrivelser“</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Du låste op for “Oversæt beskrivelser“</string>
+  <string name="suggested_edits_unlock_notification_text">Foreslåede redigeringer</string>
+  <string name="suggested_edits_unlock_notification_button">Ja, lad os komme igang</string>
   <string name="title_description_task_title">Tilføj beskrivelser</string>
   <string name="title_description_task_description">Bidrag til artikler uden beskrivelser</string>
   <string name="image_caption_task_title">Billedtekstning</string>
   <string name="image_caption_task_description">Tilføj billedtekster til billeder</string>
   <string name="multilingual_task_title">Flere opgaver til flersprogede bidragsydere</string>
   <string name="multilingual_task_description">Oversættelsesopgaver er tilgængelige, hvis du læser og skriver på mere end et Wikipedia-sprog.</string>
-  <string name="translation_task_title" fuzzy="true">Oversæt titelbeskrivelser</string>
+  <string name="translation_task_title">Oversæt beskrivelser</string>
   <string name="translation_task_description" fuzzy="true">Oversæt titelbeskrivelser til andre sprog.</string>
   <string name="multilingual_task_negative">Ikke noget for mig</string>
   <string name="multilingual_task_positive">Tilføj sprog</string>
@@ -680,6 +689,11 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Du har både traditionel og forenklet kinesisk blandt dine sprog i appen. Vil du opdatere sprogindstillingerne?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Rediger sprog</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nej tak</string>
+  <string name="wikitext_bold">Fed</string>
+  <string name="wikitext_italic">Kursiv</string>
+  <string name="wikitext_numbered_list">Nummereret liste</string>
+  <string name="wikitext_template">Skabelon</string>
+  <string name="wikitext_reference">Reference</string>
   <string name="main_drawer_open">Åben</string>
   <string name="main_drawer_close">Luk</string>
   <string name="main_drawer_help">Hjælp</string>
