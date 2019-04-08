@@ -3,10 +3,7 @@ package org.wikipedia.suggestededits
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.text.Spannable
-import android.text.SpannableString
 import android.text.TextUtils
-import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -25,7 +22,6 @@ import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
-import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
@@ -94,24 +90,11 @@ class AddDescriptionsItemFragment : Fragment() {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ pair ->
-
                         sourceSummary = pair.second
                         targetSummary = pair.first
                         targetPageTitle = targetSummary!!.getPageTitle(WikiSite.forLanguageCode(targetSummary!!.lang))
-
-                        if (pagerPosition == 0) {
-                            updateSourceDescriptionWithHighlight()
-                        }
-
                         updateContents()
                     }, { this.setErrorState(it) })!!)
-        }
-    }
-
-    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
-        super.setUserVisibleHint(isVisibleToUser)
-        if (isAdded && isVisibleToUser) {
-            updateSourceDescriptionWithHighlight()
         }
     }
 
@@ -163,13 +146,6 @@ class AddDescriptionsItemFragment : Fragment() {
             viewArticleImage.visibility = VISIBLE
             viewArticleImage.loadImage(Uri.parse(sourceSummary!!.thumbnailUrl))
             viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
-        }
-    }
-
-    private fun updateSourceDescriptionWithHighlight() {
-        if (parent().source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
-            val spannableDescription = SpannableString(sourceSummary!!.description)
-            spannableDescription.setSpan(ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_text_color)), 0, sourceSummary!!.description!!.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         }
     }
 

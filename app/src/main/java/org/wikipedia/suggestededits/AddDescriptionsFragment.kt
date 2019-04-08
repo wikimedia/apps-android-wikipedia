@@ -54,8 +54,12 @@ class AddDescriptionsFragment : Fragment() {
     private val topTitle: PageTitle?
         get() {
             val f = topChild
-
-            return if (source == EDIT_FEED_TITLE_DESC) titleFromPageName(f?.title, f?.addedDescription) else f?.targetPageTitle
+            return if (source == EDIT_FEED_TITLE_DESC) {
+                titleFromPageName(f?.title, f?.addedDescription)
+            } else {
+                f?.targetPageTitle?.description = f?.addedDescription
+                f?.targetPageTitle
+            }
         }
 
     private val topChild: AddDescriptionsItemFragment?
