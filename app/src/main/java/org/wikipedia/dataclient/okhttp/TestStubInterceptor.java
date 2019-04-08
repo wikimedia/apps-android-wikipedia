@@ -1,10 +1,9 @@
 package org.wikipedia.dataclient.okhttp;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import java.io.IOException;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import okhttp3.Interceptor;
 import okhttp3.Response;
 

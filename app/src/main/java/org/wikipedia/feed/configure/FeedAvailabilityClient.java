@@ -1,8 +1,5 @@
 package org.wikipedia.feed.configure;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
-
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.dataclient.RestService;
@@ -12,6 +9,8 @@ import org.wikipedia.dataclient.WikiSite;
 import java.util.Collections;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import retrofit2.Call;
 import retrofit2.Response;
 

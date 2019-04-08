@@ -1,8 +1,6 @@
 package org.wikipedia.feed.offline;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.widget.LinearLayout;
 import android.widget.Space;
 
@@ -11,6 +9,8 @@ import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedCardView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

@@ -3,7 +3,6 @@ package org.wikipedia.page;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.graphics.Typeface;
-import android.support.annotation.NonNull;
 import android.util.SparseIntArray;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -36,6 +35,8 @@ import org.wikipedia.views.PageScrollerView;
 import org.wikipedia.views.SwipeableListView;
 
 import java.util.ArrayList;
+
+import androidx.annotation.NonNull;
 
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;

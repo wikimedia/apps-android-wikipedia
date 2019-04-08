@@ -3,7 +3,6 @@ package org.wikipedia.util;
 import android.content.Context;
 import android.icu.text.RelativeDateTimeFormatter;
 import android.os.Build;
-import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -17,6 +16,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
+
+import androidx.annotation.NonNull;
 
 public final class DateUtil {
 

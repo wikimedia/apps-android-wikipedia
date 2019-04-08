@@ -2,10 +2,11 @@ package org.wikipedia.database;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.support.annotation.NonNull;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.Loader;
-import android.support.v4.widget.CursorAdapter;
+
+import androidx.annotation.NonNull;
+import androidx.cursoradapter.widget.CursorAdapter;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.Loader;
 
 public abstract class CursorAdapterLoaderCallback implements LoaderManager.LoaderCallbacks<Cursor> {
     @NonNull private final Context context;

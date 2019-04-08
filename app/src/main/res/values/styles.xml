@@ -96,19 +96,19 @@
         <item name="background">@color/green50</item>
     </style>
 
-    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
         <item name="colorControlNormal">?attr/main_toolbar_icon_color</item>
         <item name="colorControlActivated">@color/base30</item>
         <item name="colorControlHighlight">@color/base30</item>
     </style>
 
-    <style name="PageToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+    <style name="PageToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
         <item name="colorControlNormal">?attr/page_toolbar_icon_color</item>
         <item name="colorControlActivated">?android:attr/textColorTertiary</item>
         <item name="colorControlHighlight">?android:attr/textColorTertiary</item>
     </style>
 
-    <style name="TabToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+    <style name="TabToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
         <item name="colorControlNormal">?attr/main_toolbar_icon_color</item>
         <item name="colorControlActivated">?attr/main_toolbar_icon_color</item>
         <item name="colorControlHighlight">?attr/main_toolbar_icon_color</item>

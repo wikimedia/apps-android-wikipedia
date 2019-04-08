@@ -3,13 +3,6 @@ package org.wikipedia.util;
 import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.text.method.LinkMovementMethod;
 import android.view.Gravity;
 import android.view.View;
@@ -18,6 +11,7 @@ import android.widget.Toast;
 
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetView;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.wikipedia.R;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
@@ -28,6 +22,13 @@ import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.ReadingListActivity;
 
 import java.util.concurrent.TimeUnit;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 

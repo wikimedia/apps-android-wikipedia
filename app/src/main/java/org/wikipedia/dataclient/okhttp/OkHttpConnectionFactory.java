@@ -1,7 +1,5 @@
 package org.wikipedia.dataclient.okhttp;
 
-import android.support.annotation.NonNull;
-
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.settings.Prefs;
@@ -9,6 +7,7 @@ import org.wikipedia.settings.RbSwitch;
 
 import java.io.File;
 
+import androidx.annotation.NonNull;
 import okhttp3.Cache;
 import okhttp3.CacheDelegate;
 import okhttp3.OkHttpClient;

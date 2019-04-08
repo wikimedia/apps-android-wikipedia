@@ -1,8 +1,5 @@
 package org.wikipedia.json;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import com.google.gson.reflect.TypeToken;
 
 import org.wikipedia.crash.RemoteLogException;
@@ -11,6 +8,9 @@ import org.wikipedia.util.log.L;
 
 import java.util.Collections;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public final class TabUnmarshaller {
     private static final TypeToken<List<Tab>> TYPE_TOKEN = new TypeToken<List<Tab>>() { };

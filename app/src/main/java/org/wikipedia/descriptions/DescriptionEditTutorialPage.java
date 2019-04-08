@@ -1,11 +1,11 @@
 package org.wikipedia.descriptions;
 
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-
 import org.wikipedia.R;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
+
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
 
 enum DescriptionEditTutorialPage implements EnumCode {
     PAGE_ONE(R.layout.inflate_description_edit_tutorial_page_one),

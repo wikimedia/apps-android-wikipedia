@@ -1,8 +1,5 @@
 package org.wikipedia.settings;
 
-import android.support.annotation.IntRange;
-import android.support.annotation.Nullable;
-
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
@@ -10,6 +7,9 @@ import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.util.ReleaseUtil;
 
 import java.util.Random;
+
+import androidx.annotation.IntRange;
+import androidx.annotation.Nullable;
 
 import static java.net.HttpURLConnection.HTTP_NOT_FOUND;
 

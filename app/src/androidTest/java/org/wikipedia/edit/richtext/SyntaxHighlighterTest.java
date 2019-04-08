@@ -1,6 +1,5 @@
 package org.wikipedia.edit.richtext;
 
-import android.support.annotation.NonNull;
 import android.view.ContextThemeWrapper;
 import android.widget.EditText;
 
@@ -10,7 +9,9 @@ import org.wikipedia.testlib.TestLatch;
 
 import java.util.List;
 
-import static android.support.test.InstrumentationRegistry.getTargetContext;
+import androidx.annotation.NonNull;
+
+import static androidx.test.InstrumentationRegistry.getTargetContext;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;

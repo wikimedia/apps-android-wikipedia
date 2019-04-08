@@ -1,8 +1,6 @@
 package org.wikipedia.feed.mostread;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.view.ListCardItemView;
@@ -14,6 +12,9 @@ import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class MostReadCardView extends ListCardView<MostReadListCard>
         implements ItemTouchHelperSwipeAdapter.SwipeableView {

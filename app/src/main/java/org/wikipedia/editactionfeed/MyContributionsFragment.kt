@@ -1,9 +1,6 @@
 package org.wikipedia.editactionfeed
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.*
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -26,7 +23,7 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.ViewUtil
 
-class MyContributionsFragment : Fragment() {
+class MyContributionsFragment : androidx.fragment.app.Fragment() {
 
     private val adapter = MyContributionsItemAdapter()
     private val disposables = CompositeDisposable()
@@ -44,7 +41,7 @@ class MyContributionsFragment : Fragment() {
         swipeRefreshLayout.setOnRefreshListener { this.updateUI() }
         contributionsRecyclerView.setHasFixedSize(true)
         contributionsRecyclerView.adapter = adapter
-        contributionsRecyclerView.layoutManager = LinearLayoutManager(activity)
+        contributionsRecyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity)
         username.text = AccountUtil.getUserName()
         fetchUserContributions()
     }
@@ -98,7 +95,7 @@ class MyContributionsFragment : Fragment() {
                 }))
     }
 
-    private inner class MyContributionsItemAdapter : RecyclerView.Adapter<ItemViewHolder>() {
+    private inner class MyContributionsItemAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<ItemViewHolder>() {
 
         override fun getItemCount(): Int {
             return languageList.size

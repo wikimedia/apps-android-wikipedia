@@ -1,7 +1,5 @@
 package org.wikipedia.dataclient;
 
-import android.support.annotation.NonNull;
-import android.support.v4.util.LruCache;
 import android.text.TextUtils;
 
 import org.wikipedia.WikipediaApp;
@@ -11,6 +9,8 @@ import org.wikipedia.settings.Prefs;
 
 import java.io.IOException;
 
+import androidx.annotation.NonNull;
+import androidx.collection.LruCache;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;

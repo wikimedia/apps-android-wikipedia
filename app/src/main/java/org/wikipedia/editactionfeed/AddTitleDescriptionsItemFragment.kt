@@ -2,7 +2,6 @@ package org.wikipedia.editactionfeed
 
 import android.net.Uri
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.TextUtils
@@ -29,7 +28,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
-class AddTitleDescriptionsItemFragment : Fragment() {
+class AddTitleDescriptionsItemFragment : androidx.fragment.app.Fragment() {
     private val disposables = CompositeDisposable()
     private var summary: RbPageSummary? = null
     private val app = WikipediaApp.getInstance()

@@ -2,8 +2,6 @@ package org.wikipedia.feed.news;
 
 import android.graphics.Typeface;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
 
@@ -16,6 +14,9 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class NewsItemCard extends Card {
     @NonNull private NewsItem newsItem;

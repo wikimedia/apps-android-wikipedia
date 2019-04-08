@@ -7,7 +7,7 @@
     android:background="?attr/selectableItemBackground"
     android:clickable="true">
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:scaleType="center"
@@ -23,7 +23,7 @@
         android:text="@string/search_hint"
         android:textColor="?attr/material_theme_de_emphasised_color" />
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/voice_search_button"
         android:layout_width="48dp"
         android:layout_height="48dp"

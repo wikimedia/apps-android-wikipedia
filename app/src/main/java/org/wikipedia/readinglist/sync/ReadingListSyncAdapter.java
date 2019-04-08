@@ -7,7 +7,6 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.SyncResult;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.widget.Toast;
 
@@ -38,6 +37,8 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import androidx.annotation.NonNull;
 
 import static org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingList;
 import static org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntry;

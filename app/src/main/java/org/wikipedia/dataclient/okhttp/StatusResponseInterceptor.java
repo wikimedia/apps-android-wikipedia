@@ -1,13 +1,12 @@
 package org.wikipedia.dataclient.okhttp;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import org.wikipedia.dataclient.okhttp.util.HttpUrlUtil;
 import org.wikipedia.settings.RbSwitch;
 
 import java.io.IOException;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.Response;
