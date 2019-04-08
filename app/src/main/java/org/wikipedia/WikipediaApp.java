@@ -185,7 +185,7 @@ public class WikipediaApp extends Application {
         enableWebViewDebugging();
 
         ImagePipelineConfig config = ImagePipelineConfig.newBuilder(this)
-                .setNetworkFetcher(new CacheableOkHttpNetworkFetcher(OkHttpConnectionFactory.INSTANCE.getClient()))
+                .setNetworkFetcher(new CacheableOkHttpNetworkFetcher(OkHttpConnectionFactory.getClient()))
                 .setFileCacheFactory(DisabledCache.factory())
                 .build();
         try {
