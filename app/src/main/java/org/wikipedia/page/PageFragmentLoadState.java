@@ -420,7 +420,7 @@ public class PageFragmentLoadState {
                 .put("showImages", Prefs.isImageDownloadEnabled())
                 .put("collapseTables", Prefs.isCollapseTablesEnabled())
                 .put("theme", app.getCurrentTheme().getMarshallingId())
-                .put("dimImages", Prefs.shouldDimDarkModeImages());
+                .put("dimImages", app.getCurrentTheme().isDark() && Prefs.shouldDimDarkModeImages());
     }
 
     private JSONObject leadSectionPayload(@NonNull Page page) {
