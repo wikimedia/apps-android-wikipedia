@@ -33,6 +33,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 import static org.wikipedia.feed.mostread.MostReadArticlesActivity.MOST_READ_CARD;
+import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class MostReadFragment extends Fragment {
 
@@ -58,6 +59,7 @@ public class MostReadFragment extends Fragment {
         MostReadListCard card = GsonUnmarshaller.unmarshal(MostReadListCard.class, requireActivity().getIntent().getStringExtra(MOST_READ_CARD));
 
         getAppCompatActivity().getSupportActionBar().setTitle(String.format(getString(R.string.top_on_this_day), card.subtitle()));
+        setConditionalLayoutDirection(view, card.wikiSite().languageCode());
 
         initRecycler();
         mostReadLinks.setAdapter(new RecyclerAdapter(card.items(), new Callback()));

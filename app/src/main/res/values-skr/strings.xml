@@ -11,8 +11,6 @@
   <string name="nav_item_forward">اڳوں تے بھیڄو</string>
   <string name="search_hint">وکی ڈیٹا وچ ڳولو</string>
   <string name="search_hint_search_history">ڳولݨ دی تاریخ ہسٹری</string>
-  <string name="search_hint_search_my_lists">میݙیاں لسٹاں ڳولو</string>
-  <string name="search_hint_search_reading_list">پڑھݨ لسٹاں ڳولو</string>
   <string name="search_hint_search_languages">زبان دی ڳول</string>
   <string name="nav_item_history">تاریخچہ</string>
   <string name="error_network_error">انٹرنیٹ نال جوڑ نی تھی سڳا</string>
@@ -233,6 +231,7 @@
   <string name="preference_title_notification_welcome">ست بسم اللہ</string>
   <string name="preference_title_notification_milestone">سنگ میل</string>
   <string name="preference_title_notification_thanks">شکریہ</string>
+  <string name="preference_title_notification_revert">واپس</string>
   <string name="view_featured_image_card_download">ڈاؤن لوڈ ، لہاوݨ</string>
   <string name="menu_feed_card_dismiss">ایں کارڈ کوں لکاؤ</string>
   <string name="menu_feed_overflow_label">ٻئے اختیار</string>
@@ -252,12 +251,7 @@
   <string name="description_edit_success_done">مکمل</string>
   <string name="description_edit_success_did_you_know">بھلا تساں ڄاݨدے ہو؟</string>
   <string name="description_edit_tutorial_button_label_start_editing">لکھݨ شروع کرو</string>
-  <string name="description_edit_help_about_title">تعارف</string>
-  <string name="description_edit_help_tips_examples">مثال دے طور تے</string>
-  <string name="description_edit_help_more_info">ٻیاں معلومات</string>
-  <string name="editactionfeed_from_language">توں:</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">ٻیا سِکھو</string>
-  <string name="editactionfeed_to_language">کوں:</string>
+  <string name="suggested_edits_menu_info">معلومات</string>
   <string name="size_gb">%.2f جی بی</string>
   <string name="size_mb">%.2f ایم بی</string>
   <string name="onboarding_skip">چھوڑو</string>
@@ -280,8 +274,14 @@
   <string name="more_language_options">ٻئے</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">زباناں وچ تبدیلی کرو</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">کو، شکریہ</string>
+  <string name="wikitext_bold">موٹا</string>
+  <string name="wikitext_italic">ترچھا</string>
+  <string name="wikitext_link">ربط</string>
+  <string name="wikitext_bulleted_list">ڳولی لڳی تندیر</string>
+  <string name="wikitext_numbered_list">عدد لڳی تندیر</string>
+  <string name="wikitext_template">سانچہ</string>
+  <string name="wikitext_reference">حوالہ</string>
   <string name="main_drawer_open">کھولو</string>
   <string name="main_drawer_close">بند کرو</string>
   <string name="main_drawer_help">مدد</string>
-  <string name="translation_source_description">%s وضاحت:</string>
 </resources>

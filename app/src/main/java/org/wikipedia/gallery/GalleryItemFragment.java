@@ -118,7 +118,9 @@ public class GalleryItemFragment extends Fragment {
         imageView.setTapListener(new DoubleTapGestureListener(imageView) {
             @Override
             public boolean onSingleTapConfirmed(MotionEvent e) {
-                parentActivity.toggleControls();
+                if (isAdded()) {
+                    parentActivity.toggleControls();
+                }
                 return true;
             }
         });

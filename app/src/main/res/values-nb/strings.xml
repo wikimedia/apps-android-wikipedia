@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
+* AnB
 * Chameleon222
 * Citadell
 * Danmichaelo
@@ -20,32 +22,40 @@
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_back">Tilbake</string>
+  <string name="page_tabs_back">Tilbake</string>
   <string name="nav_item_forward">Fremover</string>
   <string name="search_hint">Søk i Wikipedia</string>
   <string name="search_hint_search_history">Søkehistorikk</string>
-  <string name="search_hint_search_my_lists">Søk i listene mine</string>
-  <string name="search_hint_search_reading_list">Søk i leseliste</string>
   <string name="search_hint_search_languages">Søk etter språk</string>
   <string name="nav_item_history">Logg</string>
   <string name="error_network_error">Kan ikke koble til internett.</string>
   <string name="page_error_retry">Prøv igjen</string>
+  <string name="card_offline_error_retry">Prøv igjen</string>
+  <string name="storage_access_error_retry">Prøv igjen</string>
+  <string name="article_load_error_retry">Prøv igjen</string>
+  <string name="offline_load_error_retry">Prøv igjen</string>
   <string name="page_error_back_to_main">Gå tilbake</string>
+  <string name="error_back">Gå tilbake</string>
   <string name="menu_clear_all_history">Tøm logg</string>
   <string name="history_item_deleted">%s ble fjernet fra historikken</string>
   <string name="history_items_deleted">%d artikler ble fjernet fra historikken</string>
   <string name="history_item_delete_undo">Angre</string>
+  <string name="notification_archive_undo">Angre</string>
   <string name="app_settings">Innstillinger for appen</string>
   <string name="dialog_title_clear_history">Tøm besøkslogg</string>
   <string name="dialog_message_clear_history">Dette vil slette hele besøksloggen og lukke alle åpne faner. Er du sikker?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
   <string name="dialog_message_clear_history_no">Nei</string>
   <string name="share_via">Del via</string>
+  <string name="image_share_via">Del via</string>
   <string name="search_redirect_from">Omdirigert fra %s</string>
   <string name="menu_page_show_tabs">Vis faner</string>
   <string name="menu_page_other_languages">Endre språk</string>
   <string name="menu_page_find_in_page">Søk i siden</string>
+  <string name="edit_section_find_in_page">Finn på siden</string>
   <string name="menu_page_font_and_theme">Skrift og utseende</string>
   <string name="menu_page_add_to_list">Legg til i leseliste</string>
+  <string name="feed_card_add_to_list">Legg til i leseliste</string>
   <string name="menu_page_share">Del lenke</string>
   <string name="menu_page_open_a_new_tab">Åpne en ny fane</string>
   <string name="menu_page_reading_lists">Leselister</string>
@@ -56,6 +66,9 @@
   <string name="menu_text_select_copy">Kopier</string>
   <string name="menu_text_select_define">Definer</string>
   <string name="menu_text_select_share">Del</string>
+  <string name="share">Del</string>
+  <string name="on_this_day_page_share">Del</string>
+  <string name="reading_list_page_share">Del</string>
   <string name="menu_text_select_edit_here">Rediger her</string>
   <string name="nav_item_nearby">I nærheten</string>
   <string name="nearby_zoom_to_location">Zoom til et sted på kartet</string>
@@ -97,8 +110,13 @@
   <string name="nav_item_login">Logg inn på Wikipedia</string>
   <string name="login_username_hint">Brukernavn</string>
   <string name="login_password_hint">Passord</string>
+  <string name="account_creation_password_hint">Passord</string>
   <string name="login_2fa_hint">Totrinnsautentiseringskode</string>
   <string name="login_2fa_other_workflow_error_msg">Totrinnsautentisering kreves! Gå tilbake til hovedaktiviteten og logg inn med totrinnsautentiseringskoden din før du prøver igjen.</string>
+  <string name="onboarding_card_login">Logg inn</string>
+  <string name="page_editing_login">Logg inn</string>
+  <string name="reading_lists_sync_login">Logg inn</string>
+  <string name="create_account_login">Logg inn</string>
   <string name="menu_login">Logg inn</string>
   <string name="login_activity_title">Logg inn på Wikipedia</string>
   <string name="login_in_progress_dialog_message">Logger deg inn…</string>
@@ -524,11 +542,13 @@
   <string name="view_continue_reading_card_subtitle_today">i dag</string>
   <string name="view_continue_reading_card_subtitle_read_date">Lest %s</string>
   <string name="view_announcement_card_negative_action">Nei takk</string>
+  <string name="onboarding_negative_action">Nei takk</string>
   <string name="view_offline_card_text">Innholdet kan ikke lastes når du er offline.</string>
   <string name="view_featured_article_card_title">Utvalgt artikkel</string>
   <string name="view_featured_article_footer_save_button_label">Lagre</string>
+  <string name="view_static_card_save_button_label">Lagre</string>
   <string name="view_featured_article_footer_saved_button_label">Lagret</string>
-  <string name="edit_tasks_activity_title">Redigeringsoppgaver i appen</string>
+  <string name="edit_tasks_activity_title" fuzzy="true">Redigeringsoppgaver i appen</string>
   <string name="feed_configure_activity_title">Tilpass hva som vises</string>
   <string name="feed_configure_menu_reset">Tilbakestill standardvisningen</string>
   <string name="feed_configure_menu_select_all">Vis alt</string>
@@ -553,12 +573,9 @@
   <string name="description_edit_help_title">Hjelp: Tittelbeskrivelser</string>
   <string name="description_edit_help_about_wikidata">Om Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Wikidata-guide for å skrive beskrivelser</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/nb</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Takk for at du fortsetter med å legge inn beskrivelser! Logg inn med Wikipedia-kontoen din om du ønsker å gjøre flere redigeringer.</string>
   <string name="description_edit_license_notice">Ved å endre tittelbeskrivelsen aksepterer jeg &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt; og samtykker til å ugjenkallelig slippe bidragene mine under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-lisensen.</string>
-  <string name="description_edit_task_unlock_title">Listen over tittelbeskrivelsesredigeringsoppgaver har blitt låst opp!</string>
-  <string name="description_edit_task_unlock_body">Vi har lagt merke til at du gjerne redigerer tittelbeskrivelser, så vi har laget en liste med flere artikler som mangler tittelbeskrivelser som du hjelpe til med å beskrive!</string>
   <string name="description_edit_success_saved">Beskrivelsen ble publisert!</string>
   <string name="description_edit_success_encouragement">Du har akkurat bidratt til å gjøre Wikipedia litt bedre for alle</string>
   <string name="description_edit_success_done">Ferdig</string>
@@ -570,23 +587,28 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideelt éi linje, mellom to og tolv ord</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begynn å redigere</string>
   <string name="description_edit_tutorial_promise">Ved å begynne lover jeg å ikke misbruke denne funksjonen.</string>
-  <string name="description_edit_help_about_title">Om</string>
-  <string name="description_edit_help_description">En tittelbeskrivelse sammenfatter en artikkel for å hjelpe lesere med å raskt forstå hva den handler om.</string>
-  <string name="description_edit_help_tips">Tips for å skrive beskrivelser</string>
-  <string name="description_edit_help_tips_description">Gode beskrivelser får plass på én linje og er mellom to og tolv ord lange. De begynner ikke med stor forbokstav med mindre første ord er et egennavn.</string>
-  <string name="description_edit_help_tips_examples">Eksempler:</string>
-  <string name="description_edit_help_tips_example1">maleri av Leonardo da Vinci</string>
-  <string name="description_edit_help_tips_example1_hint">tittelbeskrivelse for en artikkel om Mona Lisa</string>
-  <string name="description_edit_help_tips_example2">jordas høyeste fjell</string>
-  <string name="description_edit_help_tips_example2_hint">tittelbeskrivelse for en artikkel om Mount Everest</string>
-  <string name="description_edit_help_more_info">Mer informasjon</string>
-  <string name="description_edit_help_meta_info">Beskrivelser lagres og vedlikeholdes på Wikidata, et prosjekt fra Wikimedia Foundation for å skape en fri, samarbeidsbasert, flerspråklig andrehåndsdatabase for å støtte Wikipedia og andre prosjekter.</string>
-  <string name="editactionfeed_add_title_descriptions">Om tittelbeskrivelser</string>
-  <string name="editactionfeed_review_title_description">Korrekturles tittelbeskrivelser</string>
+  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Om tittelbeskrivelser</string>
+  <string name="editactionfeed_review_title_description" fuzzy="true">Korrekturles tittelbeskrivelser</string>
   <string name="editactionfeed_add_description_button">Legg til beskrivelse</string>
   <string name="editactionfeed_my_contributions">Mine bidrag</string>
-  <string name="editactionfeed_from_language">Fra:</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">Lær mer</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Listen over tittelbeskrivelsesredigeringsoppgaver har blitt låst opp!</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Vi har lagt merke til at du gjerne redigerer tittelbeskrivelser, så vi har laget en liste med flere artikler som mangler tittelbeskrivelser som du hjelpe til med å beskrive!</string>
+  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Kanskje senere</string>
+  <string name="title_description_task_title" fuzzy="true">Legg til tittelbeskrivelser</string>
+  <string name="title_description_task_description" fuzzy="true">Bidra til artikler uten tittelbeskrivelser</string>
+  <string name="image_caption_task_title">Bildetekster</string>
+  <string name="image_caption_task_description">Legg til bildetekster til bilder</string>
+  <string name="multilingual_task_title">Flere oppgaver for flerspråklige bidragsytere</string>
+  <string name="multilingual_task_description">Oversettelsesoppgaver er tilgjengelige hvis du leser eller skriver flere Wikipedia-språk.</string>
+  <string name="translation_task_title">Oversett beskrivelser</string>
+  <string name="image_caption_edit_disable_text" fuzzy="true">Ikke tilgjengelig før du har gjort %d verifiserte redigeringer fra appen.</string>
+  <string name="multilingual_task_negative">Passer ikke for meg</string>
+  <string name="multilingual_task_positive">Legg til språk</string>
+  <plurals name="edit_action_contribution_count" fuzzy="true">
+    <item quantity="one">bidrag fra appen</item>
+    <item quantity="other">bidrag fra appen</item>
+  </plurals>
+  <string name="edit_tasks_onboarding_get_started">Kom i gang</string>
   <string name="description_edit_revert_subtitle">Takk for at du redigerer Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi forstår at du forsøkte ditt beste, men en av korrekturleserne hadde en innvending. Noen mulige årsaker til at redigeringen din ble tilbakestilt kan være:</string>
   <string name="description_edit_revert_reason1">bidraget var ikke i tråd med en av &lt;a href=\"%1$s\"&gt;retningslinjene&lt;/a&gt;.</string>
@@ -617,7 +639,7 @@
   <string name="onboarding_got_it">Skjønner</string>
   <string name="onboarding_multilingual_secondary_text">Følgende ble funnet på enheten din:</string>
   <string name="onboarding_multilingual_add_language_text">Legg til eller endre språk</string>
-  <string name="onboarding_welcome_title_v2" fuzzy="true">Den frie encyklopedien\n…på nesten 300 språk</string>
+  <string name="onboarding_welcome_title_v2">Den frie encyklopedien\n…på over 300 språk</string>
   <string name="app_shortcuts_random">Tilfeldig</string>
   <string name="app_shortcuts_continue_reading">Fortsett å lese</string>
   <string name="app_shortcuts_search">Søk</string>
@@ -657,18 +679,4 @@
   <string name="main_drawer_close">Lukk</string>
   <string name="main_drawer_help">Hjelp</string>
   <string name="main_drawer_login">Logg inn / bli med på Wikipedia</string>
-  <string name="title_description_task_title">Legg til tittelbeskrivelser</string>
-  <string name="title_description_task_description">Bidra til artikler uten tittelbeskrivelser</string>
-  <string name="image_caption_task_title">Bildetekster</string>
-  <string name="image_caption_task_description">Legg til bildetekster til bilder</string>
-  <string name="multilingual_task_title">Flere oppgaver for flerspråklige bidragsytere</string>
-  <string name="multilingual_task_description">Oversettelsesoppgaver er tilgjengelige hvis du leser eller skriver flere Wikipedia-språk.</string>
-  <string name="image_caption_edit_disable_text">Ikke tilgjengelig før du har gjort %d verifiserte redigeringer fra appen.</string>
-  <string name="multilingual_task_negative">Passer ikke for meg</string>
-  <string name="multilingual_task_positive">Legg til språk</string>
-  <string name="editing_level_text">NIVÅ %d appredigerer</string>
-  <plurals name="edit_action_contribution_count">
-    <item quantity="one">bidrag fra appen</item>
-    <item quantity="other">bidrag fra appen</item>
-  </plurals>
 </resources>

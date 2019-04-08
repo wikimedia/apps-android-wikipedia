@@ -15,8 +15,6 @@
   <string name="nav_item_forward">Pêşve</string>
   <string name="search_hint">Li Wîkîpediyayê bigere</string>
   <string name="search_hint_search_history">Dîroka lêgerînê</string>
-  <string name="search_hint_search_my_lists">Di lîsteyên min de bigere</string>
-  <string name="search_hint_search_reading_list">Di lîsteya xwendinê de bigere</string>
   <string name="search_hint_search_languages">Li zimanekî bigere</string>
   <string name="nav_item_history">Dîrok</string>
   <string name="error_network_error">Ji înternetê re nikara bê girêdan.</string>
@@ -234,7 +232,6 @@
   <string name="view_featured_article_footer_saved_button_label">Hat tomarkirin</string>
   <string name="description_edit_save">Biweșîne</string>
   <string name="description_edit_cancel_hint">Betal bike</string>
-  <string name="editactionfeed_to_language">Bo:</string>
   <string name="languages_list_activity_title">Zimaneke lê zêde bike</string>
   <string name="wikipedia_languages_title">Zimanên Wîkîpediyayê</string>
   <string name="wikipedia_languages_your_languages_text">Zimanên te</string>

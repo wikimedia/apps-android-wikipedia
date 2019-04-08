@@ -1,7 +1,6 @@
 package org.wikipedia.feed.view;
 
 import android.content.Context;
-import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.CardView;
@@ -37,9 +36,7 @@ public abstract class DefaultFeedCardView<T extends Card> extends CardView imple
 
     protected void setAllowOverflow(boolean enabled) {
         setClipChildren(!enabled);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            setClipToOutline(!enabled);
-        }
+        setClipToOutline(!enabled);
     }
 
     @Nullable protected FeedAdapter.Callback getCallback() {

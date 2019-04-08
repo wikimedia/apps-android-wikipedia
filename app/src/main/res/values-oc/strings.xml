@@ -14,8 +14,6 @@
   <string name="wikimedia">Wikimèdia</string>
   <string name="search_hint">Recercar dins Wikipèdia</string>
   <string name="search_hint_search_history">Recercar dins l\'istoric</string>
-  <string name="search_hint_search_my_lists">Recercar dins mas listas</string>
-  <string name="search_hint_search_reading_list">Recercar dins ma lista de lectura</string>
   <string name="nav_item_history">Istoric</string>
   <string name="error_network_error">Impossible de se connectar a Internet.</string>
   <string name="page_error_retry">Ensajar tornarmai</string>
@@ -268,7 +266,6 @@
   <string name="description_edit_help_title">Ajuda : descripcions dels títols</string>
   <string name="description_edit_help_about_wikidata">A prepaus de Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guida Wikidata per escriure de descripcions</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/oc</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_success_saved">Descripcion publicada !</string>
   <string name="description_edit_success_done">Fait</string>
@@ -276,7 +273,4 @@
   <string name="description_edit_tutorial_title_descriptions">Descripcions del títol</string>
   <string name="description_edit_tutorial_keep_it_short">Siatz brèu</string>
   <string name="description_edit_tutorial_button_label_start_editing">Començatz d\'editar</string>
-  <string name="description_edit_help_about_title">A prepaus</string>
-  <string name="description_edit_help_tips_examples">Per exemple :</string>
-  <string name="description_edit_help_more_info">Mai d’informacions</string>
 </resources>

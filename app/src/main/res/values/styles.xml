@@ -7,8 +7,8 @@
         <item name="longPreferenceStyle">@style/LongPreference</item>
         <item name="intPreferenceStyle">@style/IntPreference</item>
         <item name="android:buttonStyle">@style/App.Button</item>
-        <item name="android:windowActivityTransitions" tools:targetApi="21" >true</item>
-        <item name="android:windowContentTransitions" tools:targetApi="21" >true</item>
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowContentTransitions">true</item>
         <item name="android:windowBackground">@null</item>
         <item name="windowActionModeOverlay">true</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
@@ -20,6 +20,10 @@
         <item name="autoCompleteTextViewStyle">@style/SearchViewEditTextStyle</item>
         <item name="android:listViewStyle">@style/ListView</item>
         <item name="android:textViewStyle">@style/RtlAwareTextView</item>
+
+        <item name="alertDialogTheme">@style/AlertDialogStyle</item>
+        <!-- Theme for dialog after long pressing on internal links -->
+        <item name="android:alertDialogTheme">@style/LongPressAlertDialogStyle</item>
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme">
@@ -49,6 +53,7 @@
         <item name="actionBarTheme">@style/PageToolbarTheme</item>
         <item name="actionBarStyle">@style/PageToolbarStyle</item>
         <item name="autoCompleteTextViewStyle">@style/PageSearchViewEditTextStyle</item>
+        <item name="actionModeCloseButtonStyle">@style/ActionModeCloseButtonStyle</item>
     </style>
 
     <style name="AppTheme.ActionBar.LanguagesList">
@@ -148,7 +153,7 @@
         <item name="backgroundSplit">?attr/page_toolbar_color</item>
         <item name="titleTextStyle">@style/PageActionModeTitleStyle</item>
         <item name="subtitleTextStyle">@style/PageActionModeSubtitleStyle</item>
-        <item name="android:elevation" tools:targetApi="21">4dp</item>
+        <item name="android:elevation">4dp</item>
     </style>
 
     <style name="ActionModeTitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
@@ -192,10 +197,6 @@
     <style name="LanguagesListSearchViewEditTextStyle" parent="SearchViewEditTextStyle">
         <item name="android:textColor">?attr/primary_text_color</item>
         <item name="android:textColorHint">?attr/page_toolbar_icon_color</item>
-    </style>
-
-    <style name="FindInPageSearchViewStyle" parent="@style/Widget.AppCompat.SearchView">
-        <item name="android:textSize">16sp</item>
     </style>
 
     <style name="ListView" parent="@style/Widget.AppCompat.ListView">
@@ -335,21 +336,17 @@
 
     <style name="SimpleDraweeViewPlaceholder">
         <item name="actualImageScaleType">centerCrop</item>
-        <item name="placeholderImage">@drawable/ic_image_gray_24dp</item>
+        <item name="placeholderImage">?attr/thumbnail_image_placeholder</item>
         <item name="placeholderImageScaleType">fitCenter</item>
-        <item name="failureImage">@drawable/ic_image_gray_24dp</item>
+        <item name="failureImage">?attr/thumbnail_image_placeholder</item>
         <item name="failureImageScaleType">fitCenter</item>
         <item name="fadeDuration">0</item>
-        <item name="backgroundImage">@color/base80</item>
-    </style>
-
-    <style name="SimpleDraweeViewPlaceholder.Article">
-        <item name="placeholderImage">@drawable/ic_image_gray_opaque_24dp</item>
-        <item name="failureImage">@drawable/ic_image_gray_opaque_24dp</item>
-        <item name="backgroundImage">@android:color/white</item>
+        <item name="backgroundImage">?attr/paper_color</item>
     </style>
 
     <style name="SimpleDraweeViewPlaceholder.EditActionFeed">
+        <item name="placeholderImage">@drawable/ic_image_gray_transparent_24dp</item>
+        <item name="failureImage">@drawable/ic_image_gray_transparent_24dp</item>
         <item name="backgroundImage">@color/base30</item>
     </style>
 
@@ -357,9 +354,8 @@
         <item name="android:layout_width">28dp</item>
         <item name="android:layout_height">28dp</item>
         <item name="android:contentDescription">@null</item>
-        <item name="placeholderImage">@color/base70</item>
-        <item name="failureImage">@color/base70</item>
-        <item name="backgroundImage">@color/base70</item>
+        <item name="placeholderImage">?attr/material_theme_border_color</item>
+        <item name="failureImage">?attr/material_theme_border_color</item>
         <item name="roundedCornerRadius">2dp</item>
         <item name="roundTopLeft">false</item>
         <item name="roundTopRight">false</item>
@@ -401,7 +397,7 @@
     <style name="MaterialListSectionHeader">
         <item name="android:textSize">14sp</item>
         <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textColor">?attr/colorAccent</item>
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
@@ -443,15 +439,33 @@
 
     <style name="DialogTitleTextAppearance" parent="TextAppearance.AppCompat.Title">
         <item name="android:textSize">20sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif</item>
     </style>
 
     <style name="CustomChipStyle">
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textColor">?attr/section_title_color</item>
+        <item name="android:textColor">?attr/chip_text_color</item>
         <item name="android:lineSpacingExtra">2sp</item>
-        <item name="android:letterSpacing" tools:targetApi="lollipop">0.01</item>
     </style>
 
+    <style name="AlertDialogStyle" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="android:colorBackground">?attr/paper_color</item>
+        <item name="android:textColorPrimary">?attr/material_theme_secondary_color</item>
+        <item name="android:windowTitleStyle">@style/DialogTitleAppearance</item>
+        <item name="android:textAppearanceMedium">@style/DialogTitleTextAppearance</item>
+        <item name="buttonBarButtonStyle">@style/AlertDialogButtonStyle</item>
+        <item name="android:lineSpacingExtra">@dimen/dialog_line_spacing_extra</item>
+    </style>
+
+    <style name="LongPressAlertDialogStyle" parent="AlertDialogStyle">
+        <item name="android:backgroundTint" tools:targetApi="21">?attr/paper_color</item>
+        <item name="android:background">?attr/paper_color</item>
+    </style>
+
+    <style name="DescriptionEditViewHintTextStyle">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?attr/colorAccent</item>
+    </style>
 </resources>

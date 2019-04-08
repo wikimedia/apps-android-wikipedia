@@ -392,6 +392,9 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Styl
     }
 
     private void fetchNearbyPages() {
+        if (mapView == null) {
+            return;
+        }
         final int fetchTaskDelayMillis = 500;
         mapView.removeCallbacks(fetchTaskRunnable);
         mapView.postDelayed(fetchTaskRunnable, fetchTaskDelayMillis);

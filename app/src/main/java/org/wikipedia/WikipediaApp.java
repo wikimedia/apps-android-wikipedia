@@ -435,4 +435,8 @@ public class WikipediaApp extends Application {
     public boolean haveMainActivity() {
         return activityLifecycleHandler.haveMainActivity();
     }
+
+    public boolean isAnyActivityResumed() {
+        return activityLifecycleHandler.isAnyActivityResumed();
+    }
 }

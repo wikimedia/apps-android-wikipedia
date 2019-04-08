@@ -6,10 +6,10 @@ import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import android.util.Log;
 
 import org.wikipedia.dataclient.page.PageLeadProperties;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.log.L;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -68,7 +68,7 @@ public class PageProperties implements Parcelable {
             try {
                 lastModified.setTime(getIso8601DateFormat().parse(lastModifiedText).getTime());
             } catch (ParseException e) {
-                Log.d("PageProperties", "Failed to parse date: " + lastModifiedText);
+                L.d("Failed to parse date: " + lastModifiedText);
             }
         }
         // assume formatversion=2 is used so we get real booleans from the API

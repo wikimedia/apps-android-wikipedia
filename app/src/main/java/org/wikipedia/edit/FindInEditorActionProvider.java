@@ -3,6 +3,7 @@ package org.wikipedia.edit;
 import android.graphics.Rect;
 import android.support.annotation.NonNull;
 import android.view.ActionMode;
+import android.view.View;
 import android.widget.ScrollView;
 
 import org.wikipedia.edit.richtext.SyntaxHighlighter;
@@ -18,6 +19,7 @@ public class FindInEditorActionProvider extends FindInPageActionProvider
     @NonNull private final SyntaxHighlighter syntaxHighlighter;
 
     private ScrollView scrollView;
+    private String searchQuery;
 
     public FindInEditorActionProvider(@NonNull ScrollView scrollView,
                                       @NonNull PlainPasteEditText textView,
@@ -29,6 +31,13 @@ public class FindInEditorActionProvider extends FindInPageActionProvider
         this.syntaxHighlighter = syntaxHighlighter;
         this.actionMode = actionMode;
         setListener(this);
+    }
+
+    @Override
+    public View onCreateActionView() {
+        View view = super.onCreateActionView();
+        setSearchViewQuery((String) textView.getTag());
+        return view;
     }
 
     public void findInPage(String s) {
@@ -68,6 +77,7 @@ public class FindInEditorActionProvider extends FindInPageActionProvider
 
     @Override
     public void onCloseClicked() {
+        textView.setTag(searchQuery);
         actionMode.finish();
     }
 
@@ -79,5 +89,6 @@ public class FindInEditorActionProvider extends FindInPageActionProvider
             textView.clearMatches(syntaxHighlighter);
             syntaxHighlighter.applyFindTextSyntax(text, null);
         }
+        searchQuery = text;
     }
 }

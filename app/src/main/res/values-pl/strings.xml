@@ -5,6 +5,7 @@
 * Chrumps
 * CiaPan
 * Darellur
+* Dbrant
 * DeRudySoulStorm
 * Debeet
 * Devwebtel
@@ -36,8 +37,6 @@
   <string name="nav_item_forward">Dalej</string>
   <string name="search_hint">Szukaj w Wikipedii</string>
   <string name="search_hint_search_history">Historia wyszukiwania</string>
-  <string name="search_hint_search_my_lists">Przeszukaj moje listy</string>
-  <string name="search_hint_search_reading_list">Przeszukaj listę do przeczytania</string>
   <string name="search_hint_search_languages">Szukaj języka</string>
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Nie można połączyć z internetem.</string>
@@ -61,7 +60,7 @@
   <string name="menu_page_add_to_list">Dodaj do listy czytanych</string>
   <string name="menu_page_share">Udostępnij łącze</string>
   <string name="menu_page_open_a_new_tab">Otwórz nową kartę</string>
-  <string name="menu_page_reading_lists">Lity do przeczytania</string>
+  <string name="menu_page_reading_lists">Listy do przeczytania</string>
   <string name="menu_page_recently_viewed">Niedawno odwiedzone</string>
   <string name="menu_long_press_open_page">Otwórz</string>
   <string name="menu_long_press_open_in_new_tab">Otwórz w nowej karcie</string>
@@ -532,7 +531,6 @@
   <string name="description_edit_cancel_hint">Anuluj</string>
   <string name="description_edit_help_about_wikidata">O Wikidanych</string>
   <string name="description_edit_help_wikidata_guide">Wytyczne Wikidanych dotyczące tworzenia opisów</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/pl</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_success_saved">Opis opublikowany!</string>
   <string name="description_edit_success_done">Gotowe</string>
@@ -541,18 +539,11 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Najlepiej jedna linia, od dwóch do dwunastu wyrazów.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Rozpocznij edycję</string>
   <string name="description_edit_tutorial_promise">Rozpoczynając, obiecuję nie nadużywać tej funkcji.</string>
-  <string name="description_edit_help_about_title">Informacje</string>
-  <string name="description_edit_help_tips">Jak tworzyć opisy</string>
-  <string name="description_edit_help_tips_examples">Na przykład:</string>
-  <string name="description_edit_help_tips_example1">obraz Leonarda da Vinci</string>
-  <string name="description_edit_help_tips_example1_hint">opis tytułu dla artykułu o Mona Lisie</string>
-  <string name="description_edit_help_tips_example2">najwyższy szczyt Ziemi</string>
-  <string name="description_edit_help_tips_example2_hint">opis tytułu dla artykułu o Mount Everest</string>
-  <string name="description_edit_help_more_info">Więcej informacji</string>
-  <string name="editactionfeed_add_title_descriptions">Dodaj opisy tytułów</string>
+  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Dodaj opisy tytułów</string>
   <string name="editactionfeed_add_description_button">Dodaj opis</string>
   <string name="editactionfeed_my_contributions">Mój wkład</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">Dowiedz się więcej</string>
+  <string name="title_description_task_title" fuzzy="true">Dodaj opisy tytułów</string>
+  <string name="multilingual_task_positive">Dodaj języki</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_reason2">twój wpis wyglądał na eksperyment lub wandalizm.</string>
   <string name="description_edit_revert_history">Jeśli Cię to interesuje, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>
@@ -606,6 +597,4 @@
   <string name="main_drawer_close">Zamknij</string>
   <string name="main_drawer_help">Pomoc</string>
   <string name="main_drawer_login">Zaloguj się / dołącz do Wikipedii</string>
-  <string name="title_description_task_title">Dodaj opisy tytułów</string>
-  <string name="multilingual_task_positive">Dodaj języki</string>
 </resources>

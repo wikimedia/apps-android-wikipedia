@@ -31,8 +31,6 @@
   <string name="wikimedia">विकिमीडिया</string>
   <string name="search_hint">विकिपीडिया में खोजें</string>
   <string name="search_hint_search_history">इतिहास खोजें</string>
-  <string name="search_hint_search_my_lists">मेरी सूचियाँ खोजें</string>
-  <string name="search_hint_search_reading_list">पढ़ने वाली सूची खोजें</string>
   <string name="search_hint_search_languages">भाषा के लिए खोजें</string>
   <string name="nav_item_history">इतिहास</string>
   <string name="error_network_error">इंटरनेट से कनेक्ट नहीं किया जा सकता।</string>
@@ -441,7 +439,6 @@
   <string name="description_edit_help_title">सहायता:शीर्षक वर्णन</string>
   <string name="description_edit_help_about_wikidata">विकिडेटा के बारे में</string>
   <string name="description_edit_help_wikidata_guide">वर्णन लिखने के लिए विकिडेटा गाइड</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/विकिडेटा:परिचय</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/सहायता:वर्णन#हिंदी_में_वर्णन हेतु_मार्गदर्शन</string>
   <string name="description_edit_anon_limit">विवरण संपादन में आपकी निरंतर रुचि के लिए धन्यवाद! अतिरिक्त संपादन करने के लिए कृपया अपने विकिपीडिया खाते में प्रवेश करें।</string>
   <string name="description_edit_license_notice">शीर्षक विवरण बदलने पर मैं  &lt;a href=\"%1$s\"&gt;उपयोग शर्तों&lt;/a&gt; से सहमत हूँ और  बिना परिवर्तन के अपने योगदानों को &lt;a href=\"%2$s\"&gt;क्रिएटिव कॉमन्स CC0&lt;/a&gt; लाइसेंस के अंतर्गत रिलीज़ करता हूँ।</string>
@@ -456,17 +453,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">एक लाइन, दो से बारह शब्दों की उपयुक्त है</string>
   <string name="description_edit_tutorial_button_label_start_editing">संपादन शुरू करें</string>
   <string name="description_edit_tutorial_promise">शुरू करने से, मैं यह वादा करता हूँ कि इस सुविधा का दुरुपयोग नहीं करूँगा(गी)।</string>
-  <string name="description_edit_help_about_title">बारे में</string>
-  <string name="description_edit_help_description">शीर्षक विवरण लेख के सार के रूप में पाठकों को एक नज़र में विषय को समझने में सहायता करता है।</string>
-  <string name="description_edit_help_tips">विवरण बनाने के लिए सुझाव</string>
-  <string name="description_edit_help_tips_description">विवरण एक लाइन में अच्छी तरह से फिट हो जाने चाहिए और दो से बारह शब्दों के बीच हों।</string>
-  <string name="description_edit_help_tips_examples">उदाहरण के लिए:</string>
-  <string name="description_edit_help_tips_example1">लियोनार्डो द विन्ची द्वारा पेंटिंग</string>
-  <string name="description_edit_help_tips_example1_hint">मोना लिसा के बारे में लेख के लिए शीर्षक विवरण</string>
-  <string name="description_edit_help_tips_example2">पृथ्वी का सबसे ऊंचा पर्वत</string>
-  <string name="description_edit_help_tips_example2_hint">माउंट एवेरेस्ट के बारे में लेख के लिए शीर्षक विवरण</string>
-  <string name="description_edit_help_more_info">अधिक जानकारी</string>
-  <string name="description_edit_help_meta_info">विवरणों को विकिडेटा द्वारा स्टोर और मेन्टेन किया जाता है जो विकिपीडिया और अन्य परियोजनाओं को मुक्त, सहयोग युक्त, बहुभाषी, सेकेंडरी डेटाबेस सपोर्ट देता, विकिमीडिया फाउंडेशन का एक प्रोजेक्ट है।</string>
   <string name="description_edit_revert_subtitle">विकिपीडिया में संपादन के लिए धन्यवाद!</string>
   <string name="description_edit_revert_intro">हम जानते हैं अपने अपना अधिकतम प्रयास किया लेकिन समीक्षक में से एक को चिंता है।\nआपके संपादन को वापस किये जाने के संभावित कारण हैं:</string>
   <string name="description_edit_revert_reason1">आपके योगदान द्वारा &lt;a href=\"%1$s\"&gt;निर्देशों&lt;/a&gt; में से एक का पालन नहीं किया गया।</string>
@@ -501,5 +487,4 @@
     <item quantity="other">%d साल पहले</item>
   </plurals>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">নাই, নালাগে দিয়ক</string>
-  <string name="add_title_descriptions_dialog_title">शीर्षक विवरण जोड़ें</string>
 </resources>

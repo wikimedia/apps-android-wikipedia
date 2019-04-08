@@ -15,7 +15,6 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.UriUtil;
 
@@ -70,7 +69,7 @@ public class MainDrawerView extends ScrollView {
             accountAvatar.setVisibility(View.VISIBLE);
             accountWikiGlobe.setVisibility(View.GONE);
             notificationsContainer.setVisibility(View.VISIBLE);
-            if (ReleaseUtil.isPreBetaRelease() && Prefs.isActionEditDescriptionsUnlocked()) {
+            if (Prefs.isSuggestedEditsAddDescriptionsUnlocked()) {
                 editTasksContainer.setVisibility(VISIBLE);
             }
             maybeShowIndicatorDots();
