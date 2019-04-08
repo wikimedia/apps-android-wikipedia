@@ -28,7 +28,7 @@ public class RemoteConfigRefreshTask extends RecurringTask {
         Response response = null;
         try {
             Request request = new Request.Builder().url(REMOTE_CONFIG_URL).build();
-            response = OkHttpConnectionFactory.getClient().newCall(request).execute();
+            response = OkHttpConnectionFactory.INSTANCE.getClient().newCall(request).execute();
             JSONObject config = new JSONObject(response.body().string());
             WikipediaApp.getInstance().getRemoteConfig().updateConfig(config);
             RbSwitch.INSTANCE.update();

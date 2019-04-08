@@ -21,7 +21,7 @@ public abstract class MockWebServerTest {
     private final TestWebServer server = new TestWebServer();
 
     @Before public void setUp() throws Throwable {
-        OkHttpClient.Builder builder = OkHttpConnectionFactory.getClient().newBuilder();
+        OkHttpClient.Builder builder = OkHttpConnectionFactory.INSTANCE.getClient().newBuilder();
         okHttpClient = builder.dispatcher(new Dispatcher(new ImmediateExecutorService())).build();
         server.setUp();
     }

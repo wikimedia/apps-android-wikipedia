@@ -40,7 +40,6 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
     private static final String ASSETS_URL_PATH = "/android_asset/";
     private static final String PCS_CSS_BASE = "/data/css/mobile/base";
     private static final String PCS_CSS_PAGELIB = "/data/css/mobile/pagelib";
-    private static final String PCS_CSS_SITE = "/data/css/mobile/site";
 
     @NonNull public abstract PageViewModel getModel();
 
@@ -119,7 +118,7 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
             }
             builder.header(header, request.getRequestHeaders().get(header));
         }
-        return OkHttpConnectionFactory.getClient().newCall(addHeaders(builder).build()).execute();
+        return OkHttpConnectionFactory.INSTANCE.getClient().newCall(addHeaders(builder).build()).execute();
     }
 
     private Request.Builder addHeaders(@NonNull Request.Builder builder) {
