@@ -54,6 +54,11 @@ class MyContributionsFragment : Fragment() {
         setHasOptionsMenu(true)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        disposables.clear()
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
         inflater!!.inflate(R.menu.menu_suggested_edits_tasks, menu)
     }
@@ -118,7 +123,7 @@ class MyContributionsFragment : Fragment() {
         internal fun bindItem(langCode: String) {
             ViewUtil.formatLangButton(itemView.languageCode, langCode, LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER)
             itemView.languageCode.text = langCode
-            itemView.languageTitle.text = WikipediaApp.getInstance().language().getAppLanguageCanonicalName(langCode)
+            itemView.languageTitle.text = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(langCode)
             itemView.editCount.text = editorTaskCounts.descriptionEditsPerLanguage!![langCode].toString()
         }
     }
