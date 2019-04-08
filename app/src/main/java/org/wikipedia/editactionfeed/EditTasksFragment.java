@@ -88,7 +88,7 @@ public class EditTasksFragment extends Fragment {
         swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent));
         swipeRefreshLayout.setOnRefreshListener(this::updateUI);
 
-        tasksRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        tasksRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
         final int topDecorationDp = 16;
         tasksRecyclerView.addItemDecoration(new HeaderMarginItemDecoration(topDecorationDp, 0));
         tasksRecyclerView.addItemDecoration(new FooterMarginItemDecoration(0, topDecorationDp));

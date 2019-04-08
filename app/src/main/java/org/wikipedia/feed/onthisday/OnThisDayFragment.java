@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -65,7 +64,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     @BindView(R.id.on_this_day_progress) ProgressBar progressBar;
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.app_bar) AppBarLayout appBarLayout;
-    @BindView(R.id.linear_layout) LinearLayout linearLayout;
     @BindView(R.id.on_this_day_error_view) WikiErrorView errorView;
     @BindView(R.id.indicator_date) TextView indicatorDate;
     @BindView(R.id.indicator_layout) FrameLayout indicatorLayout;
@@ -102,7 +100,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         wiki = requireActivity().getIntent().getParcelableExtra(WIKISITE);
         date = DateUtil.getDefaultDateFor(age);
         setUpToolbar();
-        eventsRecycler.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        eventsRecycler.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
 
         final int topDecorationDp = 24;
         eventsRecycler.addItemDecoration(new HeaderMarginItemDecoration(topDecorationDp, 0));

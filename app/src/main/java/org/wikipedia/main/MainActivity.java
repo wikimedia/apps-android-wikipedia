@@ -3,7 +3,6 @@ package org.wikipedia.main;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 
 import org.wikipedia.Constants;
@@ -43,7 +42,6 @@ import butterknife.OnClick;
 import io.reactivex.Completable;
 import io.reactivex.schedulers.Schedulers;
 
-import static android.view.Gravity.START;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_INITIAL_ONBOARDING;
@@ -149,7 +147,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     }
 
     @OnClick(R.id.drawer_icon_layout) void onDrawerOpenClicked() {
-        drawerLayout.openDrawer(START);
+        drawerLayout.openDrawer(GravityCompat.START);
     }
 
     @Override
@@ -196,8 +194,8 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(Gravity.START)) {
-            drawerLayout.closeDrawer(Gravity.START);
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
             return;
         }
         if (getFragment().onBackPressed()) {
