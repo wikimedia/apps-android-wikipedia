@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Dr Lotus Black
 * Khunnaingko
 * Lionslayer
@@ -583,14 +584,17 @@
   <string name="description_edit_tutorial_button_label_start_editing">စတင်တည်းဖြတ်</string>
   <string name="description_edit_tutorial_promise">စတင်ခြင်းဖြင့် ဤအင်္ဂရပ်ကို တလွဲအသုံးမပြုပါဟု ကတိပြုပါသည်။</string>
   <string name="editactionfeed_add_title_descriptions" fuzzy="true">ခေါင်းစဉ်ဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
-  <string name="editactionfeed_translate_descriptions">ခေါင်းစဉ်ဖော်ပြချက်များကို ဘာသာပြန်ရန်</string>
   <string name="editactionfeed_review_title_description" fuzzy="true">ခေါင်းစဉ်ဖော်ပြချက် ပြန်လည်ဆန်းစစ်ရန်</string>
   <string name="editactionfeed_add_description_button">ဖော်ပြချက်ထည့်သွင်းပါ</string>
   <string name="editactionfeed_my_contributions">ပံ့ပိုးထားမှုများ</string>
-  <string name="editactionfeed_from_language">မှ -</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">ပိုမို လေ့လာရန်</string>
-  <string name="editactionfeed_translate_title_dialog_learn_more">ပိုမို လေ့လာရန်</string>
-  <string name="editactionfeed_to_language">သို့:</string>
+  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">နောက်ကြုံမှ</string>
+  <string name="suggested_edits_menu_info">အချက်အလက်</string>
+  <string name="title_description_task_title">ဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
+  <string name="title_description_task_description">ဖော်ပြချက်မပါဘဲ ဆောင်းပါးများတွင် ပံ့ပိုးမည်</string>
+  <string name="translation_task_title">ဖော်ပြချက်များကို ဘာသာပြန်ရန်</string>
+  <string name="multilingual_task_negative">မိမိအတွက် မဟုတ်ပါ</string>
+  <string name="multilingual_task_positive">ဘာသာစကားများ ထည့်သွင်းရန်</string>
+  <string name="edit_tasks_onboarding_get_started">စတင်ပါ</string>
   <string name="description_edit_revert_subtitle">ဝီကီပီဒီးယား တည်းဖြတ်မှုအတွက် ကျေးဇူးတင်ပါသည်</string>
   <string name="description_edit_revert_intro">သင် အကောင်းဆုံးကြိုးစားခဲ့မှန်း ကျွန်ုပ်တို့ သိရှိပါသည်၊ သို့သော် ပြန်လည်စစ်ဆေးသူများထဲက တစ်ယောက်တွင် စိုးရိမ်မှုတစ်ခု ရှိခဲ့သည်။ သင်၏တည်းဖြတ်မှုကို နောက်ပြန်ပြင်လိုက်သည့် ဖြစ်နိုင်ခြေရှိသော အကြောင်းပြချက်တွင်:</string>
   <string name="description_edit_revert_reason1">သင်၏ပံပိုးမှုသည် &lt;a href=\"%1$s\"&gt;လမ်းညွှန်များ&lt;/a&gt;များထဲကတစ်ခုနှင့် မကိုက်ညီပါ။</string>
@@ -662,19 +666,4 @@
   <string name="main_drawer_close">ပိတ်ရန်</string>
   <string name="main_drawer_help">အကူအညီ</string>
   <string name="main_drawer_login">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် / ပါဝင်ရန်</string>
-  <string name="title_description_task_title">ဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
-  <string name="title_description_task_description">ဖော်ပြချက်မပါဘဲ ဆောင်းပါးများတွင် ပံ့ပိုးမည်</string>
-  <string name="translation_task_title">ဖော်ပြချက်များကို ဘာသာပြန်ရန်</string>
-  <string name="multilingual_task_negative">မိမိအတွက် မဟုတ်ပါ</string>
-  <string name="multilingual_task_positive">ဘာသာစကားများ ထည့်သွင်းရန်</string>
-  <string name="translation_source_description">%s ဖော်ပြချက်:</string>
-  <string name="add_title_descriptions_dialog_title">ခေါင်းစဉ်ဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
-  <string name="title_description_editing_skip">ကျော်ရန်</string>
-  <string name="title_description_get_started">စတင်ပါ</string>
-  <string name="translate_description_get_started">စတင်ပါ</string>
-  <string name="edit_tasks_onboarding_get_started">စတင်ပါ</string>
-  <string name="translate_descriptions_maybe_later">နောက်ကြုံမှ</string>
-  <string name="title_descriptions_onboarding_got_it">ရပြီဟေ့</string>
-  <string name="translate_descriptions_onboarding_got_it">ရပြီဟေ့</string>
-  <string name="suggested_edits_menu_info">အချက်အလက်</string>
 </resources>

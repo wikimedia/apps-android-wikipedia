@@ -76,6 +76,7 @@ function setWindowAttributes( payload ) {
     window.siteLanguage = payload.siteLanguage;
     window.showImages = payload.showImages;
     window.collapseTables = payload.collapseTables;
+    window.dimImages = payload.dimImages;
 }
 
 function setTitleElement( parentNode, section ) {
@@ -98,6 +99,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     setWindowAttributes(payload);
     window.offline = false;
 
+    pagelib.DimImagesTransform.dim( window, window.dimImages );
 
     var contentElem = document.getElementById( "content" );
     contentElem.setAttribute( "dir", window.directionality );
