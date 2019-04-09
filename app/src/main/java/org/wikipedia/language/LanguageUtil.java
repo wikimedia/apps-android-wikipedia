@@ -122,13 +122,11 @@ public final class LanguageUtil {
     }
 
     @NonNull private static String chineseLanguageCodeToWikiLanguageCode(@NonNull Locale locale) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            String script = locale.getScript();
-            switch (script) {
-                case "Hans": return AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
-                case "Hant": return AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
-                default: break;
-            }
+        String script = locale.getScript();
+        switch (script) {
+            case "Hans": return AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
+            case "Hant": return AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
+            default: break;
         }
 
         // Guess based on country. If the guess is incorrect, the user must explicitly choose the

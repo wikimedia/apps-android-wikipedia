@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * 1917 Ekim Devrimi
+* Abijeet Patro
 * Gorizon
 * Gırd
 * Kumkumuk
@@ -164,7 +165,7 @@
   <string name="alpha_update_notification_title">Alfa rovane kerdışa newi est a</string>
   <string name="alpha_update_notification_text">Qandé ronayışi dest pan</string>
   <string name="dialog_close_description">Kip ke</string>
-  <string name="preference_title_show_images">Resiman bıasne</string>
+  <string name="preference_title_show_images">Resıman bımocne</string>
   <string name="gallery_menu_share">Vıla ke</string>
   <string name="snippet_share_intro">\"%1$s\" dı @Wikipedia: %2$s</string>
   <string name="menu_new_tab">Taba newi</string>
@@ -191,7 +192,7 @@
   <string name="reading_list_create_new">Newe vıraze</string>
   <string name="reading_list_added_to_named">Debya %s tede</string>
   <string name="reading_list_added_view_button">Listi Bıvin</string>
-  <string name="reading_list_sort">Ratın</string>
+  <string name="reading_list_sort">Weçine</string>
   <string name="reading_list_sort_by_name">Gorey nami ratın</string>
   <string name="reading_list_sort_by_name_desc">Gorey nami ratın (çep ra)</string>
   <string name="reading_list_sort_by_recent">Tarixê dekerdışi gore ratın (tewr newe)</string>
@@ -223,31 +224,33 @@
   <string name="view_static_card_save_button_label">Qeyd ke</string>
   <string name="view_featured_article_footer_saved_button_label">Qeyd bi</string>
   <string name="description_edit_text_hint">Şınasnayış sernamey</string>
+  <string name="description_edit_text_hint_per_language">arezekerdışê %s</string>
   <string name="description_edit_save">Bıweşane</string>
+  <string name="description_edit_article">Meqale</string>
+  <string name="description_edit_read">Bıwane</string>
   <string name="description_edit_add_description">Şınasnayışê sernamey cı kerê</string>
   <string name="description_edit_cancel_hint">Bıtexelne</string>
   <string name="description_edit_success_done">Temam</string>
   <string name="description_edit_success_did_you_know">Tı zanê?</string>
+  <string name="editactionfeed_add_title_descriptions">Arezekerdış cı ke</string>
   <string name="editactionfeed_add_description_button">Arezekerdış cı ke</string>
   <string name="editactionfeed_my_contributions">İştirakê mı</string>
-  <string name="editactionfeed_from_language">Rıştoğ:</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">Tayêna bımuse</string>
-  <string name="editactionfeed_translate_title_dialog_learn_more">Tayêna bımuse</string>
-  <string name="editactionfeed_to_language">Gırewtoğ:</string>
+  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Belkiya badêna</string>
+  <string name="suggested_edits_unlock_dialog_yes">Eya, hadê şime</string>
+  <string name="suggested_edits_unlock_notification_button">Eya, hadê şime</string>
+  <string name="suggested_edits_menu_info">Melumat</string>
+  <string name="title_description_task_title">Arezekerdış cı ke</string>
+  <string name="multilingual_task_positive">Zıwanan cı ke</string>
+  <string name="edit_tasks_onboarding_get_started">Dest pêke</string>
   <string name="onboarding_skip">Ravêre</string>
   <string name="onboarding_continue">Dewam ke</string>
   <string name="onboarding_get_started">Dest pêke</string>
   <string name="onboarding_maybe_later">Belkiya badêna</string>
   <string name="onboarding_welcome_title_v2">Ensiklopediya xosere\n… 300 ra zêde zıwanan de</string>
   <string name="app_shortcuts_search">Cı geyre</string>
-  <string name="title_description_task_title">Arezekerdış cı ke</string>
-  <string name="multilingual_task_positive">Zıwanan cı ke</string>
-  <string name="translation_source_description">arezekerdışê %s:</string>
-  <string name="title_description_editing_skip">Ravêre</string>
-  <string name="title_description_get_started">Dest pêke</string>
-  <string name="translate_description_get_started">Dest pêke</string>
-  <string name="edit_tasks_onboarding_get_started">Dest pêke</string>
-  <string name="translate_descriptions_maybe_later">Belkiya badêna</string>
-  <string name="title_descriptions_onboarding_got_it">Mı fehm kerd!</string>
-  <string name="translate_descriptions_onboarding_got_it">Mı fehm kerd!</string>
+  <string name="wikitext_bold">Qalınd</string>
+  <string name="wikitext_italic">Namıte</string>
+  <string name="wikitext_link">Gıre</string>
+  <string name="wikitext_template">Şablon</string>
+  <string name="wikitext_reference">Çıme</string>
 </resources>

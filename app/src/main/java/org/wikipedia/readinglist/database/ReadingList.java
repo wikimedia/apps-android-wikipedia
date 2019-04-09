@@ -188,7 +188,7 @@ public class ReadingList implements Serializable {
             case SORT_BY_NAME_ASC:
                 Collections.sort(lists, (lhs, rhs) -> {
                     if (lhs instanceof ReadingList && rhs instanceof ReadingList) {
-                        return ((ReadingList) lhs).accentAndCaseInvariantTitle().compareTo(((ReadingList) lhs).accentAndCaseInvariantTitle());
+                        return ((ReadingList) lhs).accentAndCaseInvariantTitle().compareTo(((ReadingList) rhs).accentAndCaseInvariantTitle());
                     } else {
                         return 0;
                     }

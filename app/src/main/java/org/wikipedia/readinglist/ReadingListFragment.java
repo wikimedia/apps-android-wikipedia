@@ -553,11 +553,9 @@ public class ReadingListFragment extends Fragment implements
             recyclerView.post(() -> {
                 if (isAdded()) {
                     DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar, toolbarExpanded && transparentStatusBarEnabled);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        requireActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                        requireActivity().getWindow().setStatusBarColor(transparentStatusBarEnabled
-                                ? Color.TRANSPARENT : ResourceUtil.getThemedColor(requireActivity(), R.attr.main_status_bar_color));
-                    }
+                    requireActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                    requireActivity().getWindow().setStatusBarColor(transparentStatusBarEnabled
+                            ? Color.TRANSPARENT : ResourceUtil.getThemedColor(requireActivity(), R.attr.main_status_bar_color));
                 }
             });
             // prevent swiping when collapsing the view

@@ -45,6 +45,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class SearchResultsFragment extends Fragment {
     public interface Callback {
@@ -149,6 +150,10 @@ public class SearchResultsFragment extends Fragment {
 
     public boolean isShowing() {
         return searchResultsDisplay.getVisibility() == View.VISIBLE;
+    }
+
+    public void setLayoutDirection(@NonNull String langCode) {
+        setConditionalLayoutDirection(searchResultsList, langCode);
     }
 
     /**

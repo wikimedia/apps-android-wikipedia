@@ -519,6 +519,7 @@ public class EditSectionActivity extends BaseActivity {
         menu.findItem(R.id.menu_edit_zoom_out).setVisible(!editPreviewFragment.isActive());
         menu.findItem(R.id.menu_edit_undo).setVisible((android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) && !editPreviewFragment.isActive());
         menu.findItem(R.id.menu_edit_redo).setVisible((android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) && !editPreviewFragment.isActive());
+        menu.findItem(R.id.menu_find_in_editor).setVisible(!editPreviewFragment.isActive());
 
         if (abusefilterEditResult != null) {
             item.setEnabled(abusefilterEditResult.getType() != EditAbuseFilterResult.TYPE_ERROR);
@@ -542,9 +543,6 @@ public class EditSectionActivity extends BaseActivity {
     public void onActionModeStarted(ActionMode mode) {
         super.onActionModeStarted(mode);
         if (mode.getTag() == null) {
-            Menu menu = mode.getMenu();
-            menu.clear();
-            mode.getMenuInflater().inflate(R.menu.menu_text_select, menu);
             // since we disabled the close button in the AndroidManifest.xml, we need to manually setup a close button when in an action mode if long pressed on texts.
             ViewUtil.setCloseButtonInActionMode(EditSectionActivity.this, mode);
         }

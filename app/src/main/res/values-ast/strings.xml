@@ -523,13 +523,13 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalizar la canal Esplorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora puedes esbillar lo que desees ver na to canal, y tamién dar prioridá a les tos tribes de conteníu favorites.</string>
   <string name="description_edit_text_hint">Descripción del títulu</string>
   <string name="description_edit_save">Espublizar</string>
+  <string name="description_edit_article">Artículu</string>
   <string name="description_edit_add_description">Amestar una descripción del títulu</string>
   <string name="description_edit_edit_description">Editar la descripción</string>
   <string name="description_edit_cancel_hint">Encaboxar</string>
   <string name="description_edit_help_title">Ayuda: descripción de títulos</string>
   <string name="description_edit_help_about_wikidata">Tocante a Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guía de Wikidata pa escribir descripciones</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">¡Gracies pol to interés continuáu na edición de descripciones! Pa realizar más cambeos, anicia sesión na to cuenta de Wikipedia.</string>
   <string name="description_edit_license_notice">Al camudar la descripción del títulu, aceptes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt; y a lliberar ensin torgues les tos contribuciones baxo los términos de la llicencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
@@ -544,17 +544,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente, una llinia; ente dos y doce palabres</string>
   <string name="description_edit_tutorial_button_label_start_editing">Principiar a editar</string>
   <string name="description_edit_tutorial_promise">Al empezar, prometo a nun faer mal usu d\'esta carauterística.</string>
-  <string name="description_edit_help_about_title">Tocante a</string>
-  <string name="description_edit_help_description">Les descripciones de títulos resumen un artículu p\'ayudar a que los llectores entiendan la tema d\'una güeyada.</string>
-  <string name="description_edit_help_tips">Gabitos pa crear descripciones</string>
-  <string name="description_edit_help_tips_description">Idealmente, les descripciones tendríen de caber n\'una llinia, y tener ente dos y dolce palabres. Nun tán en mayúscules, nun siendo que la primera palabra sía un nome propiu.</string>
-  <string name="description_edit_help_tips_examples">Por casu:</string>
-  <string name="description_edit_help_tips_example1">pintura de Leonardo da Vinci</string>
-  <string name="description_edit_help_tips_example1_hint">descripción del títulu pa un artículu sobro la Mona Lisa</string>
-  <string name="description_edit_help_tips_example2">El monte más altu de la tierra</string>
-  <string name="description_edit_help_tips_example2_hint">descripción del títulu pa un artículu sobro\'l Monte Everest</string>
-  <string name="description_edit_help_more_info">Más información</string>
-  <string name="description_edit_help_meta_info">Les descripciones almacénense y caltienense\'n Wikidata, un proyectu de la Fundación Wikimedia qu\'apurre una base de datos secundaria, llibre, collaborativa y multillingüe, que da encontu a Wikipedia y a otros proyectos.</string>
   <string name="description_edit_revert_subtitle">¡Gracies por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos que tentasti faelo lo meyor posible, pero unu de los revisores tuvo una esmolición. Les posibles razones poles que se revertió la edición incluyen:</string>
   <string name="description_edit_revert_reason1">la to contribución nun siguió dalgunes de les &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>

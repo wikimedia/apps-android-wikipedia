@@ -40,6 +40,11 @@ class NotificationSettingsPreferenceLoader extends BasePreferenceLoader {
         drawable = VectorDrawableCompat.create(getActivity().getResources(), R.drawable.ic_usertalk_constructive, null);
         DrawableCompat.setTint(drawable, ContextCompat.getColor(getActivity(), R.color.green50));
         pref.setIcon(drawable);
+
+        pref = findPreference(R.string.preference_key_notification_revert_enable);
+        drawable = VectorDrawableCompat.create(getActivity().getResources(), R.drawable.ic_rotate_left_white_24dp, null);
+        DrawableCompat.setTint(drawable, ResourceUtil.getThemedColor(getActivity(), R.attr.colorError));
+        pref.setIcon(drawable);
     }
 
     private final class PollPreferenceListener implements Preference.OnPreferenceChangeListener {

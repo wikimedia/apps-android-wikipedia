@@ -7,8 +7,8 @@
         <item name="longPreferenceStyle">@style/LongPreference</item>
         <item name="intPreferenceStyle">@style/IntPreference</item>
         <item name="android:buttonStyle">@style/App.Button</item>
-        <item name="android:windowActivityTransitions" tools:targetApi="21" >true</item>
-        <item name="android:windowContentTransitions" tools:targetApi="21" >true</item>
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowContentTransitions">true</item>
         <item name="android:windowBackground">@null</item>
         <item name="windowActionModeOverlay">true</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
@@ -146,7 +146,7 @@
         <item name="backgroundSplit">?attr/page_toolbar_color</item>
         <item name="titleTextStyle">@style/PageActionModeTitleStyle</item>
         <item name="subtitleTextStyle">@style/PageActionModeSubtitleStyle</item>
-        <item name="android:elevation" tools:targetApi="21">4dp</item>
+        <item name="android:elevation">4dp</item>
     </style>
 
     <style name="ActionModeTitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
@@ -329,17 +329,11 @@
 
     <style name="SimpleDraweeViewPlaceholder">
         <item name="actualImageScaleType">centerCrop</item>
-        <item name="placeholderImage">@drawable/ic_image_gray_24dp</item>
+        <item name="placeholderImage">?attr/thumbnail_image_placeholder</item>
         <item name="placeholderImageScaleType">fitCenter</item>
-        <item name="failureImage">@drawable/ic_image_gray_24dp</item>
+        <item name="failureImage">?attr/thumbnail_image_placeholder</item>
         <item name="failureImageScaleType">fitCenter</item>
         <item name="fadeDuration">0</item>
-        <item name="backgroundImage">?attr/paper_color</item>
-    </style>
-
-    <style name="SimpleDraweeViewPlaceholder.Article">
-        <item name="placeholderImage">?attr/thumbnail_image_placeholder</item>
-        <item name="failureImage">?attr/thumbnail_image_placeholder</item>
         <item name="backgroundImage">?attr/paper_color</item>
     </style>
 
@@ -355,7 +349,6 @@
         <item name="android:contentDescription">@null</item>
         <item name="placeholderImage">?attr/material_theme_border_color</item>
         <item name="failureImage">?attr/material_theme_border_color</item>
-        <item name="backgroundImage">?attr/paper_color</item>
         <item name="roundedCornerRadius">2dp</item>
         <item name="roundTopLeft">false</item>
         <item name="roundTopRight">false</item>
@@ -463,4 +456,9 @@
         <item name="android:background">?attr/paper_color</item>
     </style>
 
+    <style name="DescriptionEditViewHintTextStyle">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?attr/colorAccent</item>
+    </style>
 </resources>

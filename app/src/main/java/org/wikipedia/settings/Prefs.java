@@ -474,22 +474,6 @@ public final class Prefs {
         setInt(R.string.preference_key_total_anon_descriptions_edited, getTotalAnonDescriptionsEdited() + 1);
     }
 
-    public static int getTotalUserDescriptionsEdited() {
-        return getInt(R.string.preference_key_total_user_descriptions_edited, 0);
-    }
-
-    public static void incrementTotalUserDescriptionsEdited() {
-        setInt(R.string.preference_key_total_user_descriptions_edited, getTotalUserDescriptionsEdited() + 1);
-    }
-
-    public static int getTotalUserDescriptionsReverted() {
-        return getInt(R.string.preference_key_total_user_descriptions_edited, 0);
-    }
-
-    public static void incrementTotalUserDescriptionsReverted() {
-        setInt(R.string.preference_key_total_user_descriptions_edited, getTotalUserDescriptionsReverted() + 1);
-    }
-
     public static boolean isReadingListSyncEnabled() {
         return getBoolean(R.string.preference_key_sync_reading_lists, false);
     }
@@ -570,7 +554,7 @@ public final class Prefs {
     }
 
     public static boolean notificationPollEnabled() {
-        return getBoolean(R.string.preference_key_notification_poll_enable, false);
+        return getBoolean(R.string.preference_key_notification_poll_enable, true);
     }
 
     public static void setNotificationPollEnabled(boolean enabled) {
@@ -595,6 +579,10 @@ public final class Prefs {
 
     public static boolean notificationThanksEnabled() {
         return getBoolean(R.string.preference_key_notification_thanks_enable, true);
+    }
+
+    public static boolean notificationRevertEnabled() {
+        return getBoolean(R.string.preference_key_notification_revert_enable, true);
     }
 
     public static boolean showAllNotifications() {
@@ -828,14 +816,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_edit_tasks_onboarding, showOnboarding);
     }
 
-    public static boolean isActionEditDescriptionsUnlocked() {
-        return getBoolean(R.string.preference_key_action_edit_descriptions_unlocked, false);
-    }
-
-    public static void setActionEditDescriptionsUnlocked(boolean unlocked) {
-        setBoolean(R.string.preference_key_action_edit_descriptions_unlocked, unlocked);
-    }
-
     public static boolean shouldShowHistoryOfflineArticlesToast() {
         return getBoolean(R.string.preference_key_history_offline_articles_toast, true);
     }
@@ -844,42 +824,27 @@ public final class Prefs {
         setBoolean(R.string.preference_key_history_offline_articles_toast, showToast);
     }
 
-    public static boolean showEditActionAddTitleDescriptionsOnboarding() {
-        return getBoolean(R.string.preference_key_show_edit_action_add_title_descriptions_onboarding, true);
+    public static boolean isSuggestedEditsAddDescriptionsUnlocked() {
+        return getBoolean(R.string.preference_key_suggested_edits_add_descriptions_unlocked, false);
     }
 
-    public static void setShowEditActionAddTitleDescriptionsOnboarding(boolean enabled) {
-        setBoolean(R.string.preference_key_show_edit_action_add_title_descriptions_onboarding, enabled);
+    public static void setSuggestedEditsAddDescriptionsUnlocked(boolean unlocked) {
+        setBoolean(R.string.preference_key_suggested_edits_add_descriptions_unlocked, unlocked);
     }
 
-    public static boolean showEditActionTranslateDescriptionsOnboarding() {
-        return getBoolean(R.string.preference_key_show_edit_action_translate_descriptions_onboarding, true);
+    public static boolean isSuggestedEditsTranslateDescriptionsUnlocked() {
+        return getBoolean(R.string.preference_key_suggested_edits_translate_descriptions_unlocked, false);
     }
 
-    public static void setShowEditActionTranslateDescriptionsOnboarding(boolean enabled) {
-        setBoolean(R.string.preference_key_show_edit_action_translate_descriptions_onboarding, enabled);
+    public static void setSuggestedEditsTranslateDescriptionsUnlocked(boolean enabled) {
+        setBoolean(R.string.preference_key_suggested_edits_translate_descriptions_unlocked, enabled);
     }
 
-    public static boolean isEditActionTranslateDescriptionsUnlocked() {
-        return getBoolean(R.string.preference_key_edit_action_translate_descriptions_unlocked, false);
-    }
-
-    public static void setEditActionTranslateDescriptionsUnlocked(boolean enabled) {
-        setBoolean(R.string.preference_key_edit_action_translate_descriptions_unlocked, enabled);
-    }
-
-    public static boolean showEditActionTranslateDescriptionsUnlockedDialog() {
-        return getBoolean(R.string.preference_key_show_edit_action_translate_descriptions_unlock_dialog, true);
-    }
-
-    public static void setShowEditActionTranslateDescriptionsUnlockedDialog(boolean enabled) {
-        setBoolean(R.string.preference_key_show_edit_action_translate_descriptions_unlock_dialog, enabled);
-    }
-    public static boolean showMultilingualTask() {
+    public static boolean showTranslateDescriptionsTeaserTask() {
         return getBoolean(R.string.preference_key_show_multilingual_task, true);
     }
 
-    public static void setShowMultilingualTask(boolean showTask) {
+    public static void setShowTranslateDescriptionsTeaserTask(boolean showTask) {
         setBoolean(R.string.preference_key_show_multilingual_task, showTask);
     }
 
