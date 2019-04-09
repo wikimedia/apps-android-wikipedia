@@ -635,7 +635,7 @@
   <string name="multilingual_task_positive">Sprachen hinzufügen</string>
   <string name="translate_caption_task_title">Bildbeschreibungen übersetzen</string>
   <string name="translate_caption_task_description">Beschreibungen in andere Sprachen übersetzen</string>
-  <plurals name="edit_action_contribution_count">
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">Ein Beitrag</item>
     <item quantity="other">%d Beiträge</item>
   </plurals>

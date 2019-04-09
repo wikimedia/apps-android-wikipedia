@@ -602,7 +602,7 @@
   <string name="image_caption_edit_disable_text" fuzzy="true">Zamknuté, kým neurobíte %d overených úprav v aplikácii</string>
   <string name="multilingual_task_negative">Nie je pre mňa</string>
   <string name="multilingual_task_positive">Pridať jazyky</string>
-  <plurals name="edit_action_contribution_count" fuzzy="true">
+  <plurals name="suggested_edits_contribution_count" fuzzy="true">
     <item quantity="one">príspevok v aplikácii</item>
     <item quantity="other">príspevky v aplikácii</item>
   </plurals>

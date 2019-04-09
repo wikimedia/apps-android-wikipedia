@@ -629,7 +629,7 @@
   <string name="multilingual_task_positive">Lisää kieliä</string>
   <string name="translate_caption_task_title">Käännä kuvatekstit</string>
   <string name="translate_caption_task_description">Käännä kuvatekstit muille kielille</string>
-  <plurals name="edit_action_contribution_count">
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 muokkaus</item>
     <item quantity="other">%d muokkausta</item>
   </plurals>

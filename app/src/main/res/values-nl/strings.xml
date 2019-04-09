@@ -631,7 +631,7 @@
   <string name="multilingual_task_positive">Talen toevoegen</string>
   <string name="translate_caption_task_title">Afbeeldingsbijschriften vertalen</string>
   <string name="translate_caption_task_description">Onderschriften vertalen in andere talen</string>
-  <plurals name="edit_action_contribution_count" fuzzy="true">
+  <plurals name="suggested_edits_contribution_count" fuzzy="true">
     <item quantity="one">in-app contribution</item>
     <item quantity="other">bijdragen in app</item>
   </plurals>

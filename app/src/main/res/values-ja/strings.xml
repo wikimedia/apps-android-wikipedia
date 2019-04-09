@@ -630,7 +630,7 @@
   <string name="multilingual_task_positive">言語を追加</string>
   <string name="translate_caption_task_title">画像キャプションの編集</string>
   <string name="translate_caption_task_description">画像のキャプションを他の言語に翻訳</string>
-  <plurals name="edit_action_contribution_count">
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 件の貢献</item>
     <item quantity="other">%d 件の貢献</item>
   </plurals>

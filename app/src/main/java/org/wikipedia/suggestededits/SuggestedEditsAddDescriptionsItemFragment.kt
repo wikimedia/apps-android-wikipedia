@@ -1,4 +1,4 @@
-package org.wikipedia.editactionfeed
+package org.wikipedia.suggestededits
 
 import android.net.Uri
 import android.os.Bundle
@@ -22,14 +22,14 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
-import org.wikipedia.editactionfeed.provider.MissingDescriptionProvider
 import org.wikipedia.page.PageTitle
+import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
-class AddTitleDescriptionsItemFragment : Fragment() {
+class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
     private val disposables = CompositeDisposable()
     private var summary: RbPageSummary? = null
     private val app = WikipediaApp.getInstance()
@@ -119,7 +119,7 @@ class AddTitleDescriptionsItemFragment : Fragment() {
             if (parent().source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
                 viewArticleSubtitleAddedBy.visibility = VISIBLE
                 viewArticleSubtitleEdit.visibility = VISIBLE
-                viewArticleSubtitleAddedBy.text = getString(R.string.editactionfeed_translated_by_you)
+                viewArticleSubtitleAddedBy.text = getString(R.string.suggested_edits_translated_by_you)
             }
             viewAddDescriptionButton.visibility = GONE
             viewArticleSubtitle.text = addedDescription
@@ -171,16 +171,16 @@ class AddTitleDescriptionsItemFragment : Fragment() {
         }
     }
 
-    private fun parent(): AddTitleDescriptionsFragment {
-        return requireActivity().supportFragmentManager.fragments[0] as AddTitleDescriptionsFragment
+    private fun parent(): SuggestedEditsAddDescriptionsFragment {
+        return requireActivity().supportFragmentManager.fragments[0] as SuggestedEditsAddDescriptionsFragment
     }
 
     companion object {
         const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 5
         const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 12
 
-        fun newInstance(): AddTitleDescriptionsItemFragment {
-            return AddTitleDescriptionsItemFragment()
+        fun newInstance(): SuggestedEditsAddDescriptionsItemFragment {
+            return SuggestedEditsAddDescriptionsItemFragment()
         }
     }
 }

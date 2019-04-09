@@ -625,7 +625,7 @@
   <string name="multilingual_task_positive">Tambah bahasa</string>
   <string name="translate_caption_task_title">Terjemahkan keterangan gambar</string>
   <string name="translate_caption_task_description">Terjemahkan keterangan ke bahasa lain</string>
-  <plurals name="edit_action_contribution_count">
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">%d kontribusi dalam aplikasi</item>
     <item quantity="other">%d kontribusi dalam aplikasi</item>
   </plurals>

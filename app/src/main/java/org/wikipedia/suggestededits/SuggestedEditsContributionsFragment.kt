@@ -1,4 +1,4 @@
-package org.wikipedia.editactionfeed
+package org.wikipedia.suggestededits
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -26,7 +26,7 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.ViewUtil
 
-class MyContributionsFragment : Fragment() {
+class SuggestedEditsContributionsFragment : Fragment() {
 
     private val adapter = MyContributionsItemAdapter()
     private val disposables = CompositeDisposable()
@@ -95,7 +95,7 @@ class MyContributionsFragment : Fragment() {
                     NotificationEditorTasksHandler.dispatchEditorTaskResults(requireContext(), editorTaskCounts)
                     val totalEdits = editorTaskCounts.descriptionEditsPerLanguage!!.values.sum()
                     languageList = editorTaskCounts.descriptionEditsPerLanguage!!.keys.toList()
-                    contributionsText.text = resources.getQuantityString(R.plurals.edit_action_contribution_count, totalEdits, totalEdits)
+                    contributionsText.text = resources.getQuantityString(R.plurals.suggested_edits_contribution_count, totalEdits, totalEdits)
                     adapter.notifyDataSetChanged()
                 }, { throwable ->
                     L.e(throwable)
@@ -129,8 +129,8 @@ class MyContributionsFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(): MyContributionsFragment {
-            return MyContributionsFragment()
+        fun newInstance(): SuggestedEditsContributionsFragment {
+            return SuggestedEditsContributionsFragment()
         }
     }
 }

@@ -647,7 +647,7 @@
   <string name="multilingual_task_positive">Přidat jazyky</string>
   <string name="translate_caption_task_title">Překládat popisy obrázků</string>
   <string name="translate_caption_task_description">Přeložit popisy obrázků do jiných jazyků</string>
-  <plurals name="edit_action_contribution_count">
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 příspěvek</item>
     <item quantity="few">%d příspěvky</item>
     <item quantity="other">%d příspěvků</item>

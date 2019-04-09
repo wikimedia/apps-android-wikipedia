@@ -145,10 +145,10 @@
             android:theme="@style/AppTheme.ActionBar.LanguagesList"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
-            android:name=".editactionfeed.AddTitleDescriptionsActivity"
+            android:name=".suggestededits.SuggestedEditsAddDescriptionsActivity"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.ActionBar"
-            android:parentActivityName=".editactionfeed.EditTasksActivity"/>
+            android:parentActivityName=".suggestededits.SuggestedEditsTasksActivity"/>
         <activity
             android:name=".edit.EditSectionActivity"
             android:theme="@style/AppTheme.ActionBar.Page"
@@ -253,14 +253,14 @@
             android:theme="@style/AppTheme" />
 
         <activity
-            android:name=".editactionfeed.EditTasksActivity"
+            android:name=".suggestededits.SuggestedEditsTasksActivity"
             android:launchMode="singleTask"
-            android:label="@string/edit_tasks_activity_title"
+            android:label="@string/suggested_edits_tasks_activity_title"
             android:theme="@style/AppTheme.ActionBar" />
 
         <activity
-            android:name=".editactionfeed.MyContributionsActivity"
-            android:label="@string/editactionfeed_my_contributions"
+            android:name=".suggestededits.SuggestedEditsContributionsActivity"
+            android:label="@string/suggested_edits_my_contributions"
             android:theme="@style/AppTheme.ActionBar" />
 
         <provider

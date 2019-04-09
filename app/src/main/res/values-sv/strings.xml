@@ -640,7 +640,7 @@
   <string name="multilingual_task_positive">Lägg till språk</string>
   <string name="translate_caption_task_title">Översätt bildtexter</string>
   <string name="translate_caption_task_description">Översätt bildtexter till andra språk</string>
-  <plurals name="edit_action_contribution_count">
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 bidrag</item>
     <item quantity="other">%d bidrag</item>
   </plurals>

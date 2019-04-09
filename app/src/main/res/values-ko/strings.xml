@@ -622,7 +622,7 @@
   <string name="multilingual_task_positive">언어 추가</string>
   <string name="translate_caption_task_title">이미지 설명 번역하기</string>
   <string name="translate_caption_task_description">설명을 다른 언어로 번역하기</string>
-  <plurals name="edit_action_contribution_count">
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1개 기여</item>
     <item quantity="other">%d개 기여</item>
   </plurals>
