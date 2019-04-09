@@ -15,25 +15,43 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.TimeZone;
 
 public final class DateUtil {
+    private static Map<String, SimpleDateFormat> DATE_FORMATS = new HashMap<>();
 
-    public static SimpleDateFormat getIso8601DateFormatShort() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ROOT);
-        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-        return simpleDateFormat;
+    // TODO: Switch to DateTimeFormatter when minSdk = 26.
+
+    public static synchronized String iso8601DateFormat(Date date) {
+        String pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'";
+        if (!DATE_FORMATS.containsKey(pattern)) {
+            SimpleDateFormat df = new SimpleDateFormat(pattern, Locale.ROOT);
+            df.setTimeZone(TimeZone.getTimeZone("UTC"));
+            DATE_FORMATS.put(pattern, df);
+        }
+        return DATE_FORMATS.get(pattern).format(date);
     }
 
-    public static SimpleDateFormat getIso8601DateFormat() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT);
-        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-        return simpleDateFormat;
+    public static synchronized Date iso8601DateParse(String date) throws ParseException {
+        String pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'";
+        if (!DATE_FORMATS.containsKey(pattern)) {
+            SimpleDateFormat df = new SimpleDateFormat(pattern, Locale.ROOT);
+            df.setTimeZone(TimeZone.getTimeZone("UTC"));
+            DATE_FORMATS.put(pattern, df);
+        }
+        return DATE_FORMATS.get(pattern).parse(date);
     }
 
-    public static SimpleDateFormat getIso8601LocalDateFormat() {
-        return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.ROOT);
+    public static synchronized String iso8601LocalDateFormat(Date date) {
+        String pattern = "yyyy-MM-dd'T'HH:mm:ssZ";
+        if (!DATE_FORMATS.containsKey(pattern)) {
+            SimpleDateFormat df = new SimpleDateFormat(pattern, Locale.ROOT);
+            DATE_FORMATS.put(pattern, df);
+        }
+        return DATE_FORMATS.get(pattern).format(date);
     }
 
     public static String getFeedCardDayHeaderDate(int age) {
@@ -68,8 +86,11 @@ public final class DateUtil {
         return getDateStringWithSkeletonPattern(date, "MMM d");
     }
 
-    private static String getDateStringWithSkeletonPattern(@NonNull Date date, @NonNull String pattern) {
-        return new SimpleDateFormat(android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault()).format(date);
+    private static synchronized String getDateStringWithSkeletonPattern(@NonNull Date date, @NonNull String pattern) {
+        if (!DATE_FORMATS.containsKey(pattern)) {
+            DATE_FORMATS.put(pattern, new SimpleDateFormat(android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault()));
+        }
+        return DATE_FORMATS.get(pattern).format(date);
     }
 
     public static String getShortDateString(@NonNull Date date) {
@@ -92,14 +113,18 @@ public final class DateUtil {
         return calendar;
     }
 
-    public static Date getHttpLastModifiedDate(@NonNull String dateStr) throws ParseException {
-        SimpleDateFormat df = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH);
-        df.setTimeZone(TimeZone.getTimeZone("UTC"));
-        return df.parse(dateStr);
+    public static synchronized Date getHttpLastModifiedDate(@NonNull String dateStr) throws ParseException {
+        String pattern = "EEE, dd MMM yyyy HH:mm:ss zzz";
+        if (!DATE_FORMATS.containsKey(pattern)) {
+            SimpleDateFormat df = new SimpleDateFormat(pattern, Locale.ENGLISH);
+            df.setTimeZone(TimeZone.getTimeZone("UTC"));
+            DATE_FORMATS.put(pattern, df);
+        }
+        return DATE_FORMATS.get(pattern).parse(dateStr);
     }
 
     public static String getReadingListsLastSyncDateString(@NonNull String dateStr) throws ParseException {
-        return getDateStringWithSkeletonPattern(getIso8601DateFormat().parse(dateStr), "d MMM yyyy HH:mm");
+        return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), "d MMM yyyy HH:mm");
     }
 
     @NonNull public static String yearToStringWithEra(int year) {
