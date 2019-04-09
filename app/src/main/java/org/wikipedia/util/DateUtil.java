@@ -26,32 +26,15 @@ public final class DateUtil {
     // TODO: Switch to DateTimeFormatter when minSdk = 26.
 
     public static synchronized String iso8601DateFormat(Date date) {
-        String pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'";
-        if (!DATE_FORMATS.containsKey(pattern)) {
-            SimpleDateFormat df = new SimpleDateFormat(pattern, Locale.ROOT);
-            df.setTimeZone(TimeZone.getTimeZone("UTC"));
-            DATE_FORMATS.put(pattern, df);
-        }
-        return DATE_FORMATS.get(pattern).format(date);
+        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true).format(date);
     }
 
     public static synchronized Date iso8601DateParse(String date) throws ParseException {
-        String pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'";
-        if (!DATE_FORMATS.containsKey(pattern)) {
-            SimpleDateFormat df = new SimpleDateFormat(pattern, Locale.ROOT);
-            df.setTimeZone(TimeZone.getTimeZone("UTC"));
-            DATE_FORMATS.put(pattern, df);
-        }
-        return DATE_FORMATS.get(pattern).parse(date);
+        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true).parse(date);
     }
 
     public static synchronized String iso8601LocalDateFormat(Date date) {
-        String pattern = "yyyy-MM-dd'T'HH:mm:ssZ";
-        if (!DATE_FORMATS.containsKey(pattern)) {
-            SimpleDateFormat df = new SimpleDateFormat(pattern, Locale.ROOT);
-            DATE_FORMATS.put(pattern, df);
-        }
-        return DATE_FORMATS.get(pattern).format(date);
+        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.ROOT, false).format(date);
     }
 
     public static String getFeedCardDayHeaderDate(int age) {
@@ -87,10 +70,18 @@ public final class DateUtil {
     }
 
     private static synchronized String getDateStringWithSkeletonPattern(@NonNull Date date, @NonNull String pattern) {
+        return getCachedDateFormat(android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault(), false).format(date);
+    }
+
+    private static SimpleDateFormat getCachedDateFormat(String pattern, Locale locale, boolean utc) {
         if (!DATE_FORMATS.containsKey(pattern)) {
-            DATE_FORMATS.put(pattern, new SimpleDateFormat(android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault()));
+            SimpleDateFormat df = new SimpleDateFormat(pattern, locale);
+            if (utc) {
+                df.setTimeZone(TimeZone.getTimeZone("UTC"));
+            }
+            DATE_FORMATS.put(pattern, df);
         }
-        return DATE_FORMATS.get(pattern).format(date);
+        return DATE_FORMATS.get(pattern);
     }
 
     public static String getShortDateString(@NonNull Date date) {
@@ -114,13 +105,7 @@ public final class DateUtil {
     }
 
     public static synchronized Date getHttpLastModifiedDate(@NonNull String dateStr) throws ParseException {
-        String pattern = "EEE, dd MMM yyyy HH:mm:ss zzz";
-        if (!DATE_FORMATS.containsKey(pattern)) {
-            SimpleDateFormat df = new SimpleDateFormat(pattern, Locale.ENGLISH);
-            df.setTimeZone(TimeZone.getTimeZone("UTC"));
-            DATE_FORMATS.put(pattern, df);
-        }
-        return DATE_FORMATS.get(pattern).parse(dateStr);
+        return getCachedDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH, true).parse(dateStr);
     }
 
     public static String getReadingListsLastSyncDateString(@NonNull String dateStr) throws ParseException {
