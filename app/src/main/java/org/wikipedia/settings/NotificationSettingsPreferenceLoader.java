@@ -8,11 +8,11 @@ import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.util.ResourceUtil;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
-import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 
 class NotificationSettingsPreferenceLoader extends BasePreferenceLoader {
 
@@ -28,22 +28,22 @@ class NotificationSettingsPreferenceLoader extends BasePreferenceLoader {
         pref.setOnPreferenceChangeListener(new PollPreferenceListener());
 
         pref = findPreference(R.string.preference_key_notification_welcome_enable);
-        Drawable drawable = VectorDrawableCompat.create(getActivity().getResources(), R.drawable.ic_wikipedia_w, null);
+        Drawable drawable = AppCompatResources.getDrawable(getActivity(), R.drawable.ic_wikipedia_w);
         DrawableCompat.setTint(drawable, ResourceUtil.getThemedColor(getActivity(), R.attr.primary_text_color));
         pref.setIcon(drawable);
 
         pref = findPreference(R.string.preference_key_notification_milestone_enable);
-        drawable = VectorDrawableCompat.create(getActivity().getResources(), R.drawable.ic_mode_edit_white_24dp, null);
+        drawable = AppCompatResources.getDrawable(getActivity(), R.drawable.ic_mode_edit_white_24dp);
         DrawableCompat.setTint(drawable, ResourceUtil.getThemedColor(getActivity(), R.attr.colorAccent));
         pref.setIcon(drawable);
 
         pref = findPreference(R.string.preference_key_notification_thanks_enable);
-        drawable = VectorDrawableCompat.create(getActivity().getResources(), R.drawable.ic_usertalk_constructive, null);
+        drawable = AppCompatResources.getDrawable(getActivity(), R.drawable.ic_usertalk_constructive);
         DrawableCompat.setTint(drawable, ContextCompat.getColor(getActivity(), R.color.green50));
         pref.setIcon(drawable);
 
         pref = findPreference(R.string.preference_key_notification_revert_enable);
-        drawable = VectorDrawableCompat.create(getActivity().getResources(), R.drawable.ic_rotate_left_white_24dp, null);
+        drawable = AppCompatResources.getDrawable(getActivity(), R.drawable.ic_rotate_left_white_24dp);
         DrawableCompat.setTint(drawable, ResourceUtil.getThemedColor(getActivity(), R.attr.colorError));
         pref.setIcon(drawable);
     }

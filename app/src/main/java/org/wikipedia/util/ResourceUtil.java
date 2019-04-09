@@ -20,9 +20,9 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
-import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 
 public final class ResourceUtil {
     // See Resources.getIdentifier().
@@ -46,7 +46,7 @@ public final class ResourceUtil {
 
     @NonNull
     public static Bitmap bitmapFromVectorDrawable(@NonNull Context context, @DrawableRes int id, @ColorRes Integer tintColor) {
-        Drawable vectorDrawable = VectorDrawableCompat.create(context.getResources(), id, null);
+        Drawable vectorDrawable = AppCompatResources.getDrawable(context, id);
         int width = vectorDrawable.getIntrinsicWidth();
         int height = vectorDrawable.getIntrinsicHeight();
         vectorDrawable.setBounds(0, 0, width, height);
