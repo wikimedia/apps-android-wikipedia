@@ -14,6 +14,7 @@
         android:paddingRight="8dp"
         android:clipToPadding="false"
         android:clipChildren="false"
+        android:background="?attr/page_toolbar_color"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

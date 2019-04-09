@@ -31,7 +31,6 @@ import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 
-import java.text.Collator;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -46,6 +45,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class SearchResultsFragment extends Fragment {
     public interface Callback {
@@ -150,6 +150,10 @@ public class SearchResultsFragment extends Fragment {
 
     public boolean isShowing() {
         return searchResultsDisplay.getVisibility() == View.VISIBLE;
+    }
+
+    public void setLayoutDirection(@NonNull String langCode) {
+        setConditionalLayoutDirection(searchResultsList, langCode);
     }
 
     /**
@@ -505,19 +509,7 @@ public class SearchResultsFragment extends Fragment {
             }
 
             // highlight search term within the text
-            String displayText = result.getPageTitle().getDisplayText();
-            int startIndex = indexOf(displayText, currentSearchTerm);
-            if (startIndex >= 0) {
-                displayText = displayText.substring(0, startIndex)
-                      + "<strong>"
-                      + displayText.substring(startIndex, startIndex + currentSearchTerm.length())
-                      + "</strong>"
-                      + displayText.substring(startIndex + currentSearchTerm.length(),
-                                              displayText.length());
-                pageTitleText.setText(StringUtil.fromHtml(displayText));
-            } else {
-                pageTitleText.setText(displayText);
-            }
+            StringUtil.boldenKeywordText(pageTitleText, result.getPageTitle().getDisplayText(), currentSearchTerm);
 
             ViewUtil.loadImageUrlInto(convertView.findViewById(R.id.page_list_item_image),
                     result.getPageTitle().getThumbUrl());
@@ -535,18 +527,6 @@ public class SearchResultsFragment extends Fragment {
             }
 
             return convertView;
-        }
-
-        // case insensitive indexOf, also more lenient with similar chars, like chars with accents
-        private int indexOf(String original, String search) {
-            Collator collator = Collator.getInstance();
-            collator.setStrength(Collator.PRIMARY);
-            for (int i = 0; i <= original.length() - search.length(); i++) {
-                if (collator.equals(search, original.substring(i, i + search.length()))) {
-                    return i;
-                }
-            }
-            return -1;
         }
     }
 

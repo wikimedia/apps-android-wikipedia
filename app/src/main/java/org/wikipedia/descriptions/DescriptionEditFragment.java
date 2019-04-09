@@ -14,6 +14,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.DescriptionEditFunnel;
+import org.wikipedia.analytics.SuggestedEditsFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.Service;
@@ -26,6 +27,7 @@ import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.login.LoginClient.LoginFailedException;
+import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
@@ -42,10 +44,12 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
+import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS;
 import static org.wikipedia.Constants.InvokeSource;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_DISALLOWED;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_WARNING;
+import static org.wikipedia.suggestededits.SuggestedEditsAddDescriptionsActivity.EXTRA_SOURCE_ADDED_DESCRIPTION;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class DescriptionEditFragment extends Fragment {
@@ -59,8 +63,9 @@ public class DescriptionEditFragment extends Fragment {
     private static final String ARG_REVIEW_ENABLED = "reviewEnabled";
     private static final String ARG_REVIEWING = "inReviewing";
     private static final String ARG_HIGHLIGHT_TEXT = "highlightText";
-    private static final String ARG_TRANSLATION_SOURCE_LANG_DESC = "source_lang_desc";
-    private static final String ARG_INVOKE_SOURCE = "invoke_source";
+    private static final String ARG_INVOKE_SOURCE = "invokeSource";
+    private static final String ARG_TRANSLATION_SOURCE_DESCRIPTION = "translationSourceDescription";
+    private static final String ARG_TRANSLATION_SOURCE_LANGUAGE_CODE = "translationSourceLanguageCode";
 
     @BindView(R.id.fragment_description_edit_view) DescriptionEditView editView;
     private Unbinder unbinder;
@@ -69,7 +74,7 @@ public class DescriptionEditFragment extends Fragment {
     @Nullable private String highlightText;
     @Nullable private CsrfTokenClient csrfClient;
     @Nullable private DescriptionEditFunnel funnel;
-    private int source;
+    private InvokeSource invokeSource;
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private Runnable successRunnable = new Runnable() {
@@ -77,28 +82,44 @@ public class DescriptionEditFragment extends Fragment {
             if (!AccountUtil.isLoggedIn()) {
                 Prefs.incrementTotalAnonDescriptionsEdited();
             } else {
-                Prefs.incrementTotalUserDescriptionsEdited();
+                // For good measure, poll the editor tasks API explicitly, since the user might have
+                // disabled polling of notifications, which is were the passive polling takes place.
+                NotificationPollBroadcastReceiver.pollEditorTaskCounts(requireContext());
             }
             Prefs.setLastDescriptionEditTime(new Date().getTime());
+            SuggestedEditsFunnel.get().success(invokeSource);
 
             if (getActivity() == null)  {
                 return;
             }
             editView.setSaveState(false);
-            startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext()),
-                    ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS);
+            if (!reviewEnabled) {
+                startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext()),
+                        ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS);
+            } else {
+                requireActivity().setResult(RESULT_OK,
+                        new Intent().putExtra(EXTRA_SOURCE_ADDED_DESCRIPTION, editView.getDescription()));
+                hideSoftKeyboard(requireActivity());
+                requireActivity().finish();
+            }
         }
     };
 
     @NonNull
-    public static DescriptionEditFragment newInstance(@NonNull PageTitle title, @Nullable String highlightText, boolean reviewEnabled, int source, CharSequence sourceDescription) {
+    public static DescriptionEditFragment newInstance(@NonNull PageTitle title,
+                                                      @Nullable String highlightText,
+                                                      boolean reviewEnabled,
+                                                      @Nullable CharSequence translationSourceDescription,
+                                                      @Nullable String translationSourceLangCode,
+                                                      @NonNull InvokeSource source) {
         DescriptionEditFragment instance = new DescriptionEditFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TITLE, GsonMarshaller.marshal(title));
         args.putString(ARG_HIGHLIGHT_TEXT, highlightText);
         args.putBoolean(ARG_REVIEW_ENABLED, reviewEnabled);
-        args.putInt(ARG_INVOKE_SOURCE, source);
-        args.putCharSequence(ARG_TRANSLATION_SOURCE_LANG_DESC, sourceDescription);
+        args.putCharSequence(ARG_TRANSLATION_SOURCE_DESCRIPTION, translationSourceDescription);
+        args.putString(ARG_TRANSLATION_SOURCE_LANGUAGE_CODE, translationSourceLangCode);
+        args.putSerializable(ARG_INVOKE_SOURCE, source);
         instance.setArguments(args);
         return instance;
     }
@@ -111,6 +132,7 @@ public class DescriptionEditFragment extends Fragment {
                 ? DescriptionEditFunnel.Type.NEW
                 : DescriptionEditFunnel.Type.EXISTING;
         highlightText = getArguments().getString(ARG_HIGHLIGHT_TEXT);
+        invokeSource = (InvokeSource) getArguments().getSerializable(ARG_INVOKE_SOURCE);
         funnel = new DescriptionEditFunnel(WikipediaApp.getInstance(), pageTitle, type);
         funnel.logStart();
     }
@@ -121,14 +143,16 @@ public class DescriptionEditFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_description_edit, container, false);
         unbinder = ButterKnife.bind(this, view);
-        source = getArguments().getInt(ARG_INVOKE_SOURCE, InvokeSource.PAGE_ACTIVITY.ordinal());
-        editView.setTranslationEdit(source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC.ordinal());
-        editView.setTranslationSourceLanguageDescription(getArguments().getCharSequence(ARG_TRANSLATION_SOURCE_LANG_DESC));
+        editView.setTranslationEdit(invokeSource == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC);
+        editView.setTranslationSources(getArguments().getCharSequence(ARG_TRANSLATION_SOURCE_DESCRIPTION),
+                getArguments().getString(ARG_TRANSLATION_SOURCE_LANGUAGE_CODE));
         editView.setPageTitle(pageTitle);
         editView.setHighlightText(highlightText);
         editView.setCallback(new EditViewCallback());
-
+        editView.editTaskEnabled(reviewEnabled);
         if (reviewEnabled) {
+            editView.setVisibility(View.GONE);
+            editView.showProgressBar(true);
             loadPageSummary(savedInstanceState);
         }
 
@@ -159,8 +183,7 @@ public class DescriptionEditFragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
-        if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS
-                && getActivity() != null) {
+        if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS && getActivity() != null) {
             if (callback() != null) {
                 callback().onDescriptionEditSuccess();
             }
@@ -172,13 +195,10 @@ public class DescriptionEditFragment extends Fragment {
                 .summary(pageTitle.getWikiSite(), pageTitle.getPrefixedText(), null)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doFinally(() -> editView.showProgressBar(false))
                 .subscribe(summary -> {
+                    editView.setVisibility(View.VISIBLE);
                     editView.setPageSummary(summary);
-                    editView.getPageSummaryContainer().setOnClickListener(view -> {
-                        if (callback() != null) {
-                            callback().onPageSummaryContainerClicked(pageTitle);
-                        }
-                    });
                     if (savedInstanceState != null) {
                         editView.loadReviewContent(savedInstanceState.getBoolean(ARG_REVIEWING));
                     }
@@ -191,11 +211,6 @@ public class DescriptionEditFragment extends Fragment {
             csrfClient = null;
         }
         disposables.clear();
-    }
-
-    private void finish() {
-        hideSoftKeyboard(requireActivity());
-        requireActivity().finish();
     }
 
     private Callback callback() {
@@ -258,8 +273,10 @@ public class DescriptionEditFragment extends Fragment {
                                 ? response.query().siteInfo().lang() : pageTitle.getWikiSite().languageCode();
                         return ServiceFactory.get(wikiData).postDescriptionEdit(languageCode,
                                 pageTitle.getWikiSite().languageCode(), pageTitle.getWikiSite().dbName(),
-                                pageTitle.getConvertedText(), editView.getDescription(), editToken,
-                                AccountUtil.isLoggedIn() ? "user" : null);
+                                pageTitle.getConvertedText(), editView.getDescription(),
+                                invokeSource == InvokeSource.EDIT_FEED_TITLE_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
+                                        : invokeSource == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null,
+                                editToken, AccountUtil.isLoggedIn() ? "user" : null);
                     })
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -306,11 +323,12 @@ public class DescriptionEditFragment extends Fragment {
             if (funnel != null && logError) {
                 funnel.logError(caught.getMessage());
             }
+            SuggestedEditsFunnel.get().cancel(invokeSource);
         }
 
         @Override
         public void onHelpClick() {
-            startActivity(DescriptionEditHelpActivity.newIntent(requireContext()));
+            FeedbackUtil.showAndroidAppEditingFAQ(requireContext());
         }
 
         @Override
@@ -318,8 +336,14 @@ public class DescriptionEditFragment extends Fragment {
             if (reviewEnabled && editView.showingReviewContent()) {
                 editView.loadReviewContent(false);
             } else {
-                finish();
+                hideSoftKeyboard(requireActivity());
+                requireActivity().onBackPressed();
             }
+        }
+
+        @Override
+        public void onReadArticleClick() {
+            callback().onPageSummaryContainerClicked(pageTitle);
         }
     }
 }

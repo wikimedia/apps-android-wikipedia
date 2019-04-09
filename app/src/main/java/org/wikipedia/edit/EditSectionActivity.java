@@ -3,6 +3,7 @@ package org.wikipedia.edit;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -53,6 +54,7 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.PlainPasteEditText;
 import org.wikipedia.views.ViewAnimations;
+import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 import org.wikipedia.views.WikiTextKeyboardView;
 
@@ -515,8 +517,9 @@ public class EditSectionActivity extends BaseActivity {
         item.setTitle(getString(editPreviewFragment.isActive() ? R.string.edit_done : R.string.edit_next));
         menu.findItem(R.id.menu_edit_zoom_in).setVisible(!editPreviewFragment.isActive());
         menu.findItem(R.id.menu_edit_zoom_out).setVisible(!editPreviewFragment.isActive());
-        menu.findItem(R.id.menu_edit_undo).setVisible(!editPreviewFragment.isActive());
-        menu.findItem(R.id.menu_edit_redo).setVisible(!editPreviewFragment.isActive());
+        menu.findItem(R.id.menu_edit_undo).setVisible((android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) && !editPreviewFragment.isActive());
+        menu.findItem(R.id.menu_edit_redo).setVisible((android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) && !editPreviewFragment.isActive());
+        menu.findItem(R.id.menu_find_in_editor).setVisible(!editPreviewFragment.isActive());
 
         if (abusefilterEditResult != null) {
             item.setEnabled(abusefilterEditResult.getType() != EditAbuseFilterResult.TYPE_ERROR);
@@ -534,6 +537,15 @@ public class EditSectionActivity extends BaseActivity {
         v.setEnabled(item.isEnabled());
         v.setOnClickListener((view) -> onOptionsItemSelected((MenuItem) view.getTag()));
         return true;
+    }
+
+    @Override
+    public void onActionModeStarted(ActionMode mode) {
+        super.onActionModeStarted(mode);
+        if (mode.getTag() == null) {
+            // since we disabled the close button in the AndroidManifest.xml, we need to manually setup a close button when in an action mode if long pressed on texts.
+            ViewUtil.setCloseButtonInActionMode(EditSectionActivity.this, mode);
+        }
     }
 
     public void showError(@Nullable Throwable caught) {

@@ -29,6 +29,7 @@
 
     <attr name="multi_select_background_color" format="reference" />
     <attr name="searchItemBackground" format="reference" />
+    <attr name="thumbnail_image_placeholder" format="reference"/>
 
     <attr name="material_theme_primary_color" format="color" />
     <attr name="material_theme_secondary_color" format="color" />
@@ -46,8 +47,12 @@
     <attr name="thumb_off_color" format="color" />
     <attr name="track_off_color" format="color" />
     <attr name="toc_h1_h2_color" format="color" />
+    <attr name="toc_scroller_button_color" format="color" />
+    <attr name="button_background_color" format="color" />
     <attr name="text_highlight_color" format="color" />
-    <attr name="text_highlight_color_translucent" format="color" />
+    <attr name="tab_placeholder_text_color" format="color" />
+    <attr name="chip_background_color" format="color"/>
+    <attr name="chip_text_color" format="color"/>
 
     <declare-styleable name="AutoFitRecyclerView">
         <attr name="minColumnWidth" format="dimension" />

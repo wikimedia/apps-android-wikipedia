@@ -20,10 +20,12 @@ import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetView;
 
 import org.wikipedia.R;
+import org.wikipedia.analytics.SuggestedEditsFunnel;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.ReadingListActivity;
+import org.wikipedia.suggestededits.SuggestedEditsAddDescriptionsActivity;
 
 import java.util.concurrent.TimeUnit;
 
@@ -91,6 +93,11 @@ public final class FeedbackUtil {
         visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_request_an_account_url)));
     }
 
+    public static void showAndroidAppEditingFAQ(Context context) {
+        SuggestedEditsFunnel.get().helpOpened();
+        visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_edit_help_url)));
+    }
+
     public static void setToolbarButtonLongPressToast(View... views) {
         for (View v : views) {
             v.setOnLongClickListener(TOOLBAR_LONG_CLICK_LISTENER);
@@ -151,6 +158,8 @@ public final class FeedbackUtil {
             return activity.findViewById(R.id.random_coordinator_layout);
         } else if (activity instanceof ReadingListActivity) {
             return activity.findViewById(R.id.fragment_reading_list_coordinator);
+        } else if (activity instanceof SuggestedEditsAddDescriptionsActivity) {
+            return activity.findViewById(R.id.addTitleDescriptionsCoordinatorLayout);
         } else {
             return activity.findViewById(android.R.id.content);
         }

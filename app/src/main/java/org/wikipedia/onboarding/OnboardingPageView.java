@@ -1,11 +1,9 @@
 package org.wikipedia.onboarding;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -82,7 +80,6 @@ public class OnboardingPageView extends LinearLayout {
         init(attrs, defStyleAttr, 0);
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public OnboardingPageView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(attrs, defStyleAttr, defStyleRes);
@@ -119,11 +116,19 @@ public class OnboardingPageView extends LinearLayout {
             listDataType = array.getString(R.styleable.OnboardingPageView_dataType);
             boolean showListView = array.getBoolean(R.styleable.OnboardingPageView_showListView, false);
             Drawable background = array.getDrawable(R.styleable.OnboardingPageView_background);
+            float imageSize = array.getDimension(R.styleable.OnboardingPageView_imageSize, 0);
 
             if (background != null) {
                 setBackground(background);
             }
             imageViewCentered.setImageDrawable(centeredImage);
+            if (imageSize > 0 && centeredImage != null && centeredImage.getIntrinsicHeight() > 0) {
+                float aspect = (float)centeredImage.getIntrinsicWidth() / centeredImage.getIntrinsicHeight();
+                ViewGroup.LayoutParams params = imageViewCentered.getLayoutParams();
+                params.width = (int) imageSize;
+                params.height = (int) (imageSize / aspect);
+                imageViewCentered.setLayoutParams(params);
+            }
             primaryTextView.setText(primaryText);
             secondaryTextView.setText(StringUtil.fromHtml(secondaryText));
             tertiaryTextView.setText(tertiaryText);

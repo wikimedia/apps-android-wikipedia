@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -20,6 +19,7 @@ import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.view.ActionMode;
 import android.view.KeyEvent;
@@ -146,8 +146,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         try {
             setContentView(R.layout.activity_page);
         } catch (Exception e) {
-            if (e.getMessage().contains("WebView")
-                    || ThrowableUtil.getInnermostThrowable(e).getMessage().contains("WebView")) {
+            if ((!TextUtils.isEmpty(e.getMessage()) && e.getMessage().toLowerCase().contains("webview"))
+                    || (!TextUtils.isEmpty(ThrowableUtil.getInnermostThrowable(e).getMessage())
+                    && ThrowableUtil.getInnermostThrowable(e).getMessage().toLowerCase().contains("webview"))) {
                 // If the system failed to inflate our activity because of the WebView (which could
                 // be one of several types of exceptions), it likely means that the system WebView
                 // is in the process of being updated. In this case, show the user a message and
@@ -220,7 +221,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     private void finishActionMode() {
-        for (ActionMode mode : currentActionModes) {
+        Set<ActionMode> actionModesToFinish = new HashSet<>(currentActionModes);
+        for (ActionMode mode : actionModesToFinish) {
             mode.finish();
         }
         currentActionModes.clear();
@@ -585,10 +587,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @Override
     public void onPageSetToolbarElevationEnabled(boolean enabled) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            toolbarContainerView.setElevation(DimenUtil
-                    .dpToPx(enabled ? DimenUtil.getDimension(R.dimen.toolbar_default_elevation) : 0));
-        }
+        toolbarContainerView.setElevation(DimenUtil.dpToPx(enabled ? DimenUtil.getDimension(R.dimen.toolbar_default_elevation) : 0));
     }
 
     @Override

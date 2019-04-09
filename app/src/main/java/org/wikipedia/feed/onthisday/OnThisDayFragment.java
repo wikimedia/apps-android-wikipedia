@@ -2,7 +2,6 @@ package org.wikipedia.feed.onthisday;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -111,8 +110,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
 
         errorView.setBackClickListener(v -> requireActivity().finish());
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
-                && requireActivity().getWindow().getSharedElementEnterTransition() != null
+        if (requireActivity().getWindow().getSharedElementEnterTransition() != null
                 && savedInstanceState == null) {
             final int animDelay = 500;
             dayText.postDelayed(() -> {

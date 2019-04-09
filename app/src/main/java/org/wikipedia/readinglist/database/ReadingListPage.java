@@ -9,7 +9,9 @@ import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
 
-public class ReadingListPage {
+import java.io.Serializable;
+
+public class ReadingListPage implements Serializable {
     public static final int STATUS_QUEUE_FOR_SAVE = 0;
     public static final int STATUS_SAVED = 1;
     public static final int STATUS_QUEUE_FOR_DELETE = 2;
