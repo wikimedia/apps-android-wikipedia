@@ -6,6 +6,7 @@ import org.wikipedia.settings.Prefs;
 
 import androidx.annotation.NonNull;
 
+
 public class LinkPreviewFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppLinkPreview";
     private static final int REV_ID = 18531254;

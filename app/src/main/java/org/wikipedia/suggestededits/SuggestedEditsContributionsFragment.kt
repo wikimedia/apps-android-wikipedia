@@ -2,6 +2,7 @@ package org.wikipedia.suggestededits
 
 import android.os.Bundle
 import android.view.*
+import androidx.fragment.app.Fragment
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers

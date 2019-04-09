@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -278,13 +279,8 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
             return Integer.MAX_VALUE
         }
 
-<<<<<<< HEAD:app/src/main/java/org/wikipedia/editactionfeed/AddTitleDescriptionsFragment.kt
-        override fun getItem(position: Int): androidx.fragment.app.Fragment {
-            val f = AddTitleDescriptionsItemFragment.newInstance()
-=======
         override fun getItem(position: Int): Fragment {
             val f = SuggestedEditsAddDescriptionsItemFragment.newInstance()
->>>>>>> master:app/src/main/java/org/wikipedia/suggestededits/SuggestedEditsAddDescriptionsFragment.kt
             f.pagerPosition = position
             return f
         }
