@@ -11,10 +11,12 @@ import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 
+import static org.wikipedia.Constants.InvokeSource.CONTEXT_MENU;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.UriUtil.isValidPageLink;
 
@@ -92,8 +94,7 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
                 contextMenuListener.onShareLink(title);
                 return true;
             case R.id.menu_long_press_add_to_list:
-                contextMenuListener.onAddToList(title,
-                        Constants.InvokeSource.CONTEXT_MENU);
+                contextMenuListener.onAddToList(title, CONTEXT_MENU);
                 return true;
             default:
             return false;
@@ -105,7 +106,7 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
         void onOpenInNewTab(PageTitle title, HistoryEntry entry);
         void onCopyLink(PageTitle title);
         void onShareLink(PageTitle title);
-        void onAddToList(PageTitle title, Constants.InvokeSource source);
+        void onAddToList(PageTitle title, InvokeSource source);
     }
 
     public interface ListViewContextMenuListener extends ContextMenuListener {

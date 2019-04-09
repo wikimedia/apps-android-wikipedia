@@ -70,6 +70,8 @@ import butterknife.OnPageChange;
 import butterknife.Unbinder;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY;
+import static org.wikipedia.Constants.InvokeSource.FEED;
+import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
 
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
         NearbyFragment.Callback, HistoryFragment.Callback, FloatingQueueView.Callback,
@@ -248,8 +250,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Override public void onFeedAddPageToList(HistoryEntry entry) {
         bottomSheetPresenter.show(getChildFragmentManager(),
-                AddToReadingListDialog.newInstance(entry.getTitle(),
-                        Constants.InvokeSource.FEED));
+                AddToReadingListDialog.newInstance(entry.getTitle(), FEED));
     }
 
     @Override
@@ -358,8 +359,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Override
     public void onLinkPreviewAddToList(@NonNull PageTitle title) {
         bottomSheetPresenter.show(getChildFragmentManager(),
-                AddToReadingListDialog.newInstance(title,
-                        Constants.InvokeSource.LINK_PREVIEW_MENU));
+                AddToReadingListDialog.newInstance(title, LINK_PREVIEW_MENU));
     }
 
     @Override

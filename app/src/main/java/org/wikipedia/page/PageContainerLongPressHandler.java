@@ -2,7 +2,7 @@ package org.wikipedia.page;
 
 import android.support.annotation.NonNull;
 
-import org.wikipedia.Constants;
+import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.LongPressHandler;
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
@@ -42,7 +42,7 @@ public class PageContainerLongPressHandler implements LongPressHandler.ContextMe
     }
 
     @Override
-    public void onAddToList(PageTitle title, Constants.InvokeSource source) {
+    public void onAddToList(PageTitle title, InvokeSource source) {
         fragment.addToReadingList(title, source);
     }
 

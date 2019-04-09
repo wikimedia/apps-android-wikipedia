@@ -18,7 +18,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.FeedFunnel;
@@ -44,6 +43,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_ACTIVITY;
 
 public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implements ItemTouchHelperSwipeAdapter.SwipeableView, OnThisDayActionsDialog.Callback {
     @BindView(R.id.view_on_this_day_card_header) CardHeaderView headerView;
@@ -92,9 +93,8 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
 
     @Override
     public void onAddPageToList(@NonNull HistoryEntry entry) {
-        bottomSheetPresenter.show(((AppCompatActivity)getContext()).getSupportFragmentManager(),
-                AddToReadingListDialog.newInstance(entry.getTitle(),
-                        Constants.InvokeSource.ON_THIS_DAY_ACTIVITY));
+        bottomSheetPresenter.show(((AppCompatActivity) getContext()).getSupportFragmentManager(),
+                AddToReadingListDialog.newInstance(entry.getTitle(), ON_THIS_DAY_ACTIVITY));
     }
 
     @Override

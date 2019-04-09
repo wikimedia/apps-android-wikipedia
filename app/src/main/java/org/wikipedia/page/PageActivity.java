@@ -34,6 +34,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import org.wikipedia.Constants;
+import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
@@ -83,6 +84,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_SETTINGS;
+import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
@@ -464,7 +466,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         bottomSheetPresenter.dismiss(getSupportFragmentManager());
     }
 
-    public void showAddToListDialog(@NonNull PageTitle title, @NonNull Constants.InvokeSource source) {
+    public void showAddToListDialog(@NonNull PageTitle title, @NonNull InvokeSource source) {
         bottomSheetPresenter.showAddToListDialog(getSupportFragmentManager(), title, source, listDialogDismissListener);
     }
 
@@ -550,8 +552,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public void onPageAddToReadingList(@NonNull PageTitle title,
-                                       @NonNull Constants.InvokeSource source) {
+    public void onPageAddToReadingList(@NonNull PageTitle title, @NonNull InvokeSource source) {
         showAddToListDialog(title, source);
     }
 
@@ -603,7 +604,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @Override
     public void onLinkPreviewAddToList(@NonNull PageTitle title) {
-        showAddToListDialog(title, Constants.InvokeSource.LINK_PREVIEW_MENU);
+        showAddToListDialog(title, LINK_PREVIEW_MENU);
     }
 
     @Override

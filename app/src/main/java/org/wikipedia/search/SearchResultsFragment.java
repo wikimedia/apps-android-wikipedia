@@ -16,7 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import org.apache.commons.lang3.StringUtils;
-import org.wikipedia.Constants;
+import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.LongPressHandler;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -50,8 +50,7 @@ import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 public class SearchResultsFragment extends Fragment {
     public interface Callback {
         void onSearchResultCopyLink(@NonNull PageTitle title);
-        void onSearchResultAddToList(@NonNull PageTitle title,
-                                     @NonNull Constants.InvokeSource source);
+        void onSearchResultAddToList(@NonNull PageTitle title, @NonNull InvokeSource source);
         void onSearchResultShareLink(@NonNull PageTitle title);
         void onSearchProgressBar(boolean enabled);
         void navigateToTitle(@NonNull PageTitle item, boolean inNewTab, int position);
@@ -455,8 +454,7 @@ public class SearchResultsFragment extends Fragment {
         }
 
         @Override
-        public void onAddToList(@NonNull PageTitle title,
-                                @NonNull Constants.InvokeSource source) {
+        public void onAddToList(@NonNull PageTitle title, @NonNull InvokeSource source) {
             Callback callback = callback();
             if (callback != null) {
                 callback.onSearchResultAddToList(title, source);

@@ -35,6 +35,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
+import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
+
 public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private List<PageTitle> titles;
     private ReadingListAdapter adapter;
@@ -46,6 +48,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private List<ReadingList> readingLists = new ArrayList<>();
+    private static final String PAGETITLES_LIST = "titles";
 
     @Nullable private DialogInterface.OnDismissListener dismissListener;
     private ReadingListItemCallback listItemCallback = new ReadingListItemCallback();
@@ -67,8 +70,8 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                                                      @Nullable DialogInterface.OnDismissListener listener) {
         AddToReadingListDialog dialog = new AddToReadingListDialog();
         Bundle args = new Bundle();
-        args.putParcelableArrayList("titles", new ArrayList<Parcelable>(titles));
-        args.putSerializable("source", source);
+        args.putParcelableArrayList(PAGETITLES_LIST, new ArrayList<Parcelable>(titles));
+        args.putSerializable(INTENT_EXTRA_INVOKE_SOURCE, source);
         dialog.setArguments(args);
         dialog.setOnDismissListener(listener);
         return dialog;
@@ -77,8 +80,8 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        titles = getArguments().getParcelableArrayList("titles");
-        invokeSource = (InvokeSource) getArguments().getSerializable("source");
+        titles = getArguments().getParcelableArrayList(PAGETITLES_LIST);
+        invokeSource = (InvokeSource) getArguments().getSerializable(INTENT_EXTRA_INVOKE_SOURCE);
         adapter = new ReadingListAdapter();
     }
 

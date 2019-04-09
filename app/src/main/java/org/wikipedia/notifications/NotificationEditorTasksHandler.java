@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
 
-import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
@@ -15,6 +14,9 @@ import org.wikipedia.events.EditorTaskUnlockEvent;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.suggestededits.SuggestedEditsTasksActivity;
 
+import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC;
+import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC;
+import static org.wikipedia.Constants.InvokeSource.NOTIFICATION;
 import static org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION;
 
 public final class NotificationEditorTasksHandler {
@@ -64,8 +66,8 @@ public final class NotificationEditorTasksHandler {
 
     public static void maybeShowEditDescriptionUnlockNotification(@NonNull Context context, boolean forced) {
         if (!WikipediaApp.getInstance().isAnyActivityResumed() || forced) {
-            SuggestedEditsFunnel.get(Constants.InvokeSource.NOTIFICATION).pause();
-            Intent intent = SuggestedEditsTasksActivity.newIntent(context, Constants.InvokeSource.EDIT_FEED_TITLE_DESC);
+            SuggestedEditsFunnel.get(NOTIFICATION).pause();
+            Intent intent = SuggestedEditsTasksActivity.newIntent(context, EDIT_FEED_TITLE_DESC);
             NotificationCompat.Builder builder = NotificationPresenter.getDefaultBuilder(context);
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             builder.addAction(0, context.getString(R.string.suggested_edits_unlock_notification_button), pendingIntent);
@@ -78,8 +80,8 @@ public final class NotificationEditorTasksHandler {
 
     public static void maybeShowTranslateDescriptionUnlockNotification(@NonNull Context context, boolean forced) {
         if (!WikipediaApp.getInstance().isAnyActivityResumed() || forced) {
-            SuggestedEditsFunnel.get(Constants.InvokeSource.NOTIFICATION).pause();
-            Intent intent = SuggestedEditsTasksActivity.newIntent(context, Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC);
+            SuggestedEditsFunnel.get(NOTIFICATION).pause();
+            Intent intent = SuggestedEditsTasksActivity.newIntent(context, EDIT_FEED_TRANSLATE_TITLE_DESC);
             NotificationCompat.Builder builder = NotificationPresenter.getDefaultBuilder(context);
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             builder.addAction(0, context.getString(R.string.suggested_edits_unlock_notification_button), pendingIntent);
