@@ -1,4 +1,4 @@
-package org.wikipedia.editactionfeed;
+package org.wikipedia.suggestededits;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,12 +10,12 @@ import org.wikipedia.analytics.SuggestedEditsFunnel;
 
 import androidx.annotation.NonNull;
 
-public class EditTasksActivity extends SingleFragmentActivity<EditTasksFragment> {
+public class SuggestedEditsTasksActivity extends SingleFragmentActivity<SuggestedEditsTasksFragment> {
     private static final String EXTRA_START_IMMEDIATELY = "startImmediately";
     private boolean startImmediately;
 
     public static Intent newIntent(@NonNull Context context, Constants.InvokeSource invokeSource) {
-        Intent intent = new Intent(context, EditTasksActivity.class)
+        Intent intent = new Intent(context, SuggestedEditsTasksActivity.class)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource);
         if (invokeSource == Constants.InvokeSource.EDIT_FEED_TITLE_DESC
                 || invokeSource == Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
@@ -39,7 +39,7 @@ public class EditTasksActivity extends SingleFragmentActivity<EditTasksFragment>
                     && (source == Constants.InvokeSource.EDIT_FEED_TITLE_DESC
                     || source == Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC)) {
                 startImmediately = false;
-                startActivity(AddTitleDescriptionsActivity.Companion.newIntent(this, source));
+                startActivity(SuggestedEditsAddDescriptionsActivity.Companion.newIntent(this, source));
             }
 
         } else {
@@ -72,7 +72,7 @@ public class EditTasksActivity extends SingleFragmentActivity<EditTasksFragment>
     }
 
     @Override
-    protected EditTasksFragment createFragment() {
-        return EditTasksFragment.newInstance();
+    protected SuggestedEditsTasksFragment createFragment() {
+        return SuggestedEditsTasksFragment.newInstance();
     }
 }

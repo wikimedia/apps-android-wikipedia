@@ -636,7 +636,7 @@
   <string name="multilingual_task_positive">Adicionar línguas</string>
   <string name="translate_caption_task_title">Traduzir legendas de imagem</string>
   <string name="translate_caption_task_description">Traduzir legendas para outras línguas</string>
-  <plurals name="edit_action_contribution_count">
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 contribuição</item>
     <item quantity="other">%d contribuições</item>
   </plurals>

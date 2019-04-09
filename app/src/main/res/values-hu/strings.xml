@@ -623,7 +623,7 @@
   <string name="multilingual_task_negative">Nem nekem való</string>
   <string name="multilingual_task_positive">Nyelvek hozzáadása</string>
   <string name="translate_caption_task_title">Képaláírások fordítása</string>
-  <plurals name="edit_action_contribution_count">
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">egy közreműködés</item>
     <item quantity="other">%d közreműködés</item>
   </plurals>

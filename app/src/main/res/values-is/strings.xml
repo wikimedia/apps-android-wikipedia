@@ -631,7 +631,7 @@
   <string name="multilingual_task_positive">Bæta við tungumálum</string>
   <string name="translate_caption_task_title">Þýða myndatexta</string>
   <string name="translate_caption_task_description">Þýða myndatexta yfir á önnur tungumál</string>
-  <plurals name="edit_action_contribution_count">
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 framlag</item>
     <item quantity="other">%d framlög</item>
   </plurals>

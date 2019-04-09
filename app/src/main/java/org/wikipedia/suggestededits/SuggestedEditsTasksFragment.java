@@ -1,4 +1,4 @@
-package org.wikipedia.editactionfeed;
+package org.wikipedia.suggestededits;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -52,7 +52,7 @@ import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DES
 import static org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
-public class EditTasksFragment extends Fragment {
+public class SuggestedEditsTasksFragment extends Fragment {
     private Unbinder unbinder;
     @BindView(R.id.edit_onboarding_view) View editOnboardingView;
     @BindView(R.id.username) TextView username;
@@ -61,19 +61,19 @@ public class EditTasksFragment extends Fragment {
     @BindView(R.id.suggested_edits_swipe_refresh) SwipeRefreshLayout swipeRefreshLayout;
     @BindView(R.id.progress_bar) View progressBar;
 
-    private EditTask addDescriptionsTask;
-    private EditTask translateDescriptionsTeaserTask;
-    private EditTask translateDescriptionsTask;
-    private EditTask addImageCaptionsTask;
-    private EditTask translateImageCaptionsTask;
+    private SuggestedEditsTask addDescriptionsTask;
+    private SuggestedEditsTask translateDescriptionsTeaserTask;
+    private SuggestedEditsTask translateDescriptionsTask;
+    private SuggestedEditsTask addImageCaptionsTask;
+    private SuggestedEditsTask translateImageCaptionsTask;
 
-    private List<EditTask> displayedTasks = new ArrayList<>();
+    private List<SuggestedEditsTask> displayedTasks = new ArrayList<>();
     private TaskViewCallback callback = new TaskViewCallback();
 
     private CompositeDisposable disposables = new CompositeDisposable();
 
-    public static EditTasksFragment newInstance() {
-        return new EditTasksFragment();
+    public static SuggestedEditsTasksFragment newInstance() {
+        return new SuggestedEditsTasksFragment();
     }
 
     @Override
@@ -99,19 +99,19 @@ public class EditTasksFragment extends Fragment {
         return view;
     }
 
-    class RecyclerAdapter extends DefaultRecyclerAdapter<EditTask, EditTaskView> {
+    class RecyclerAdapter extends DefaultRecyclerAdapter<SuggestedEditsTask, SuggestedEditsTaskView> {
 
-        RecyclerAdapter(@NonNull List<EditTask> tasks) {
+        RecyclerAdapter(@NonNull List<SuggestedEditsTask> tasks) {
             super(tasks);
         }
 
         @NonNull
-        @Override public DefaultViewHolder<EditTaskView> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new DefaultViewHolder<>(new EditTaskView(parent.getContext()));
+        @Override public DefaultViewHolder<SuggestedEditsTaskView> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new DefaultViewHolder<>(new SuggestedEditsTaskView(parent.getContext()));
         }
 
         @Override
-        public void onBindViewHolder(@NonNull DefaultViewHolder<EditTaskView> holder, int i) {
+        public void onBindViewHolder(@NonNull DefaultViewHolder<SuggestedEditsTaskView> holder, int i) {
             holder.getView().setUpViews(items().get(i), callback);
         }
     }
@@ -142,7 +142,7 @@ public class EditTasksFragment extends Fragment {
                     for (int count : editorTaskCounts.getDescriptionEditsPerLanguage().values()) {
                         totalEdits += count;
                     }
-                    contributionsText.setText(getResources().getQuantityString(R.plurals.edit_action_contribution_count, totalEdits, totalEdits));
+                    contributionsText.setText(getResources().getQuantityString(R.plurals.suggested_edits_contribution_count, totalEdits, totalEdits));
                     updateDisplayedTasks(editorTaskCounts);
                 }, throwable -> {
                     L.e(throwable);
@@ -162,41 +162,41 @@ public class EditTasksFragment extends Fragment {
     }
 
     private void setUpTasks() {
-        addDescriptionsTask = new EditTask();
-        addDescriptionsTask.setTitle(getString(R.string.title_description_task_title));
-        addDescriptionsTask.setDescription(getString(R.string.title_description_task_description));
+        addDescriptionsTask = new SuggestedEditsTask();
+        addDescriptionsTask.setTitle(getString(R.string.suggested_edits_task_add_description_title));
+        addDescriptionsTask.setDescription(getString(R.string.suggested_edits_task_add_description_description));
         addDescriptionsTask.setImagePlaceHolderShown(true);
         addDescriptionsTask.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_short_text_white_24dp));
         addDescriptionsTask.setNoActionLayout(true);
 
-        translateDescriptionsTeaserTask = new EditTask();
-        translateDescriptionsTeaserTask.setTitle(getString(R.string.multilingual_task_title));
-        translateDescriptionsTeaserTask.setDescription(getString(R.string.multilingual_task_description));
+        translateDescriptionsTeaserTask = new SuggestedEditsTask();
+        translateDescriptionsTeaserTask.setTitle(getString(R.string.suggested_edits_task_multilingual_title));
+        translateDescriptionsTeaserTask.setDescription(getString(R.string.suggested_edits_task_multilingual_description));
         translateDescriptionsTeaserTask.setImagePlaceHolderShown(false);
         translateDescriptionsTeaserTask.setNoActionLayout(false);
         translateDescriptionsTeaserTask.setDisabled(!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked());
-        translateDescriptionsTeaserTask.setEnabledPositiveActionString(getString(R.string.multilingual_task_positive));
-        translateDescriptionsTeaserTask.setEnabledNegativeActionString(getString(R.string.multilingual_task_negative));
+        translateDescriptionsTeaserTask.setEnabledPositiveActionString(getString(R.string.suggested_edits_task_multilingual_positive));
+        translateDescriptionsTeaserTask.setEnabledNegativeActionString(getString(R.string.suggested_edits_task_multilingual_negative));
 
-        translateDescriptionsTask = new EditTask();
-        translateDescriptionsTask.setTitle(getString(R.string.translation_task_title));
-        translateDescriptionsTask.setDescription(getString(R.string.translation_task_description));
+        translateDescriptionsTask = new SuggestedEditsTask();
+        translateDescriptionsTask.setTitle(getString(R.string.suggested_edits_task_translation_title));
+        translateDescriptionsTask.setDescription(getString(R.string.suggested_edits_task_translation_description));
         translateDescriptionsTask.setImagePlaceHolderShown(true);
         translateDescriptionsTask.setNoActionLayout(true);
         translateDescriptionsTask.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_icon_translate_title_descriptions));
         translateDescriptionsTask.setNoActionLayout(Prefs.isSuggestedEditsTranslateDescriptionsUnlocked());
         translateDescriptionsTask.setDisabled(!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked());
 
-        addImageCaptionsTask = new EditTask();
-        addImageCaptionsTask.setTitle(getString(R.string.image_caption_task_title));
-        addImageCaptionsTask.setDescription(getString(R.string.image_caption_task_description));
+        addImageCaptionsTask = new SuggestedEditsTask();
+        addImageCaptionsTask.setTitle(getString(R.string.suggested_edits_task_image_caption_title));
+        addImageCaptionsTask.setDescription(getString(R.string.suggested_edits_task_image_caption_description));
         addImageCaptionsTask.setImagePlaceHolderShown(true);
         addImageCaptionsTask.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_icon_caption_images));
         addImageCaptionsTask.setDisabled(true);
 
-        translateImageCaptionsTask = new EditTask();
-        translateImageCaptionsTask.setTitle(getString(R.string.translate_caption_task_title));
-        translateImageCaptionsTask.setDescription(getString(R.string.translate_caption_task_description));
+        translateImageCaptionsTask = new SuggestedEditsTask();
+        translateImageCaptionsTask.setTitle(getString(R.string.suggested_edits_task_translate_caption_title));
+        translateImageCaptionsTask.setDescription(getString(R.string.suggested_edits_task_translate_caption_description));
         translateImageCaptionsTask.setImagePlaceHolderShown(true);
         translateImageCaptionsTask.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_icon_translate_title_descriptions));
         translateImageCaptionsTask.setDisabled(true);
@@ -217,12 +217,12 @@ public class EditTasksFragment extends Fragment {
             if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
                 if (Prefs.showTranslateDescriptionsTeaserTask()) {
                     displayedTasks.add(translateDescriptionsTeaserTask);
-                    translateDescriptionsTeaserTask.setDisabledDescriptionText(String.format(getString(R.string.translate_description_edit_disable_text), targetForTranslateDescriptions));
+                    translateDescriptionsTeaserTask.setDisabledDescriptionText(String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForTranslateDescriptions));
                     translateDescriptionsTeaserTask.setDisabled(!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked());
                 }
             } else {
                 displayedTasks.add(translateDescriptionsTask);
-                translateDescriptionsTask.setDisabledDescriptionText(String.format(getString(R.string.translate_description_edit_disable_text), targetForTranslateDescriptions));
+                translateDescriptionsTask.setDisabledDescriptionText(String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForTranslateDescriptions));
                 translateDescriptionsTask.setDisabled(!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked());
             }
 
@@ -271,7 +271,7 @@ public class EditTasksFragment extends Fragment {
 
     @OnClick(R.id.user_contributions_button)
     void onUserContributionsClicked() {
-        startActivity(MyContributionsActivity.Companion.newIntent(requireContext()));
+        startActivity(SuggestedEditsContributionsActivity.Companion.newIntent(requireContext()));
     }
 
     @Override
@@ -284,9 +284,9 @@ public class EditTasksFragment extends Fragment {
         }
     }
 
-    private class TaskViewCallback implements EditTaskView.Callback {
+    private class TaskViewCallback implements SuggestedEditsTaskView.Callback {
         @Override
-        public void onPositiveActionClick(EditTask task) {
+        public void onPositiveActionClick(SuggestedEditsTask task) {
             if (task.equals(translateDescriptionsTeaserTask)) {
                 requireActivity().startActivityForResult(WikipediaLanguagesActivity.newIntent(requireActivity(),
                         LanguageSettingsInvokeSource.DESCRIPTION_EDITING.text()), ACTIVITY_REQUEST_ADD_A_LANGUAGE);
@@ -294,7 +294,7 @@ public class EditTasksFragment extends Fragment {
         }
 
         @Override
-        public void onNegativeActionClick(EditTask task) {
+        public void onNegativeActionClick(SuggestedEditsTask task) {
             if (task.equals(translateDescriptionsTeaserTask)) {
                 int multilingualTaskPosition = displayedTasks.indexOf(translateDescriptionsTeaserTask);
                 displayedTasks.remove(translateDescriptionsTeaserTask);
@@ -304,12 +304,12 @@ public class EditTasksFragment extends Fragment {
         }
 
         @Override
-        public void onViewClick(EditTask task) {
+        public void onViewClick(SuggestedEditsTask task) {
             if (task.equals(addDescriptionsTask)) {
-                startActivity(AddTitleDescriptionsActivity.Companion.newIntent(requireActivity(), InvokeSource.EDIT_FEED_TITLE_DESC));
+                startActivity(SuggestedEditsAddDescriptionsActivity.Companion.newIntent(requireActivity(), InvokeSource.EDIT_FEED_TITLE_DESC));
             } else if (task.equals(translateDescriptionsTask)) {
                 if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() > 1) {
-                    startActivity(AddTitleDescriptionsActivity.Companion.newIntent(requireActivity(), EDIT_FEED_TRANSLATE_TITLE_DESC));
+                    startActivity(SuggestedEditsAddDescriptionsActivity.Companion.newIntent(requireActivity(), EDIT_FEED_TRANSLATE_TITLE_DESC));
                 }
             }
         }

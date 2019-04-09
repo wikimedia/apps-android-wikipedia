@@ -113,9 +113,9 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     private void setReviewHeaderText(boolean inReview) {
-        int headerTextRes = inReview ? R.string.editactionfeed_review_title_description
+        int headerTextRes = inReview ? R.string.suggested_edits_review_description
                 : TextUtils.isEmpty(originalDescription)
-                ? (isTranslationEdit ? R.string.translation_task_title : R.string.description_edit_add_description_v2)
+                ? (isTranslationEdit ? R.string.description_edit_translate_description : R.string.description_edit_add_description_v2)
                 : R.string.description_edit_edit_description;
         headerText.setText(getContext().getString(headerTextRes));
     }

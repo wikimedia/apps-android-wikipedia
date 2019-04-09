@@ -1,4 +1,4 @@
-package org.wikipedia.editactionfeed;
+package org.wikipedia.suggestededits;
 
 import android.content.Context;
 import android.view.View;
@@ -14,11 +14,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-class EditTaskView extends FrameLayout {
+class SuggestedEditsTaskView extends FrameLayout {
     public interface Callback {
-        void onPositiveActionClick(EditTask task);
-        void onNegativeActionClick(EditTask task);
-        void onViewClick(EditTask task);
+        void onPositiveActionClick(SuggestedEditsTask task);
+        void onNegativeActionClick(SuggestedEditsTask task);
+        void onViewClick(SuggestedEditsTask task);
     }
     @BindView(R.id.task_info_layout) View taskInfoLayout;
     @BindView(R.id.title) TextView title;
@@ -30,10 +30,10 @@ class EditTaskView extends FrameLayout {
     @BindView(R.id.disabled_text) TextView disabledTextView;
     @BindView(R.id.positive_button) TextView enabledPositiveActionButton;
     @BindView(R.id.negative_button) TextView enabledNegativeActionButton;
-    private EditTask task;
+    private SuggestedEditsTask task;
     private Callback callback;
 
-    EditTaskView(@NonNull Context context) {
+    SuggestedEditsTaskView(@NonNull Context context) {
         super(context);
         init();
     }
@@ -45,20 +45,20 @@ class EditTaskView extends FrameLayout {
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
-    void setUpViews(EditTask editTask, Callback callback) {
-        this.task = editTask;
+    void setUpViews(SuggestedEditsTask suggestedEditsTask, Callback callback) {
+        this.task = suggestedEditsTask;
         this.callback = callback;
-        title.setText(editTask.getTitle());
-        description.setText(editTask.getDescription());
-        image.setVisibility(editTask.getImagePlaceHolderShown() ? VISIBLE : GONE);
-        image.setImageDrawable(editTask.getImageDrawable());
-        taskInfoLayout.setAlpha(editTask.getDisabled() ? 0.56f : 1.0f);
-        enabledActionLayout.setVisibility(editTask.getDisabled() ? GONE : VISIBLE);
-        disabledActionLayout.setVisibility(editTask.getDisabled() ? VISIBLE : GONE);
-        disabledTextView.setText(editTask.getDisabledDescriptionText());
-        enabledPositiveActionButton.setText(editTask.getEnabledPositiveActionString());
-        enabledNegativeActionButton.setText(editTask.getEnabledNegativeActionString());
-        actionLayout.setVisibility(editTask.getNoActionLayout() ? GONE : VISIBLE);
+        title.setText(suggestedEditsTask.getTitle());
+        description.setText(suggestedEditsTask.getDescription());
+        image.setVisibility(suggestedEditsTask.getImagePlaceHolderShown() ? VISIBLE : GONE);
+        image.setImageDrawable(suggestedEditsTask.getImageDrawable());
+        taskInfoLayout.setAlpha(suggestedEditsTask.getDisabled() ? 0.56f : 1.0f);
+        enabledActionLayout.setVisibility(suggestedEditsTask.getDisabled() ? GONE : VISIBLE);
+        disabledActionLayout.setVisibility(suggestedEditsTask.getDisabled() ? VISIBLE : GONE);
+        disabledTextView.setText(suggestedEditsTask.getDisabledDescriptionText());
+        enabledPositiveActionButton.setText(suggestedEditsTask.getEnabledPositiveActionString());
+        enabledNegativeActionButton.setText(suggestedEditsTask.getEnabledNegativeActionString());
+        actionLayout.setVisibility(suggestedEditsTask.getNoActionLayout() ? GONE : VISIBLE);
     }
 
     @OnClick(R.id.positive_button)

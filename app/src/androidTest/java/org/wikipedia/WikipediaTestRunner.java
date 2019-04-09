@@ -22,7 +22,7 @@ public class WikipediaTestRunner extends AndroidJUnitRunner {
     @Override
     public void onStart() {
         deviceRequirementsCheck();
-        TestStubInterceptor.setCallback(new MockInstrumentationInterceptor(InstrumentationRegistry.getContext()));
+        TestStubInterceptor.Companion.setCALLBACK(new MockInstrumentationInterceptor(InstrumentationRegistry.getContext()));
         clearAppInfo();
         disableOnboarding();
         cleanUpComparisonResults();

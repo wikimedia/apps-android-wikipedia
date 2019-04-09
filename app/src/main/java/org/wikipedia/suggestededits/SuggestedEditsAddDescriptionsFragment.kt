@@ -1,4 +1,4 @@
-package org.wikipedia.editactionfeed
+package org.wikipedia.suggestededits
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
@@ -28,14 +28,14 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
-import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.EXTRA_SOURCE
-import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.EXTRA_SOURCE_ADDED_DESCRIPTION
 import org.wikipedia.page.PageTitle
+import org.wikipedia.suggestededits.SuggestedEditsAddDescriptionsActivity.Companion.EXTRA_SOURCE
+import org.wikipedia.suggestededits.SuggestedEditsAddDescriptionsActivity.Companion.EXTRA_SOURCE_ADDED_DESCRIPTION
 import org.wikipedia.util.AnimationUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.log.L
 
-class AddTitleDescriptionsFragment : androidx.fragment.app.Fragment() {
+class SuggestedEditsAddDescriptionsFragment : Fragment() {
     private val viewPagerListener = ViewPagerListener()
     private var funnel: RandomizerFunnel? = null
     private val disposables = CompositeDisposable()
@@ -55,11 +55,11 @@ class AddTitleDescriptionsFragment : androidx.fragment.app.Fragment() {
             return if (source == EDIT_FEED_TITLE_DESC) titleFromPageName(f?.title, f?.addedDescription) else f?.targetPageTitle
         }
 
-    private val topChild: AddTitleDescriptionsItemFragment?
+    private val topChild: SuggestedEditsAddDescriptionsItemFragment?
         get() {
             val fm = fragmentManager
             for (f in fm!!.fragments) {
-                if (f is AddTitleDescriptionsItemFragment && f.pagerPosition == addTitleDescriptionsItemPager.currentItem) {
+                if (f is SuggestedEditsAddDescriptionsItemFragment && f.pagerPosition == addTitleDescriptionsItemPager.currentItem) {
                     return f
                 }
             }
@@ -278,8 +278,13 @@ class AddTitleDescriptionsFragment : androidx.fragment.app.Fragment() {
             return Integer.MAX_VALUE
         }
 
+<<<<<<< HEAD:app/src/main/java/org/wikipedia/editactionfeed/AddTitleDescriptionsFragment.kt
         override fun getItem(position: Int): androidx.fragment.app.Fragment {
             val f = AddTitleDescriptionsItemFragment.newInstance()
+=======
+        override fun getItem(position: Int): Fragment {
+            val f = SuggestedEditsAddDescriptionsItemFragment.newInstance()
+>>>>>>> master:app/src/main/java/org/wikipedia/suggestededits/SuggestedEditsAddDescriptionsFragment.kt
             f.pagerPosition = position
             return f
         }
@@ -315,8 +320,8 @@ class AddTitleDescriptionsFragment : androidx.fragment.app.Fragment() {
     }
 
     companion object {
-        fun newInstance(source: InvokeSource): AddTitleDescriptionsFragment {
-            val addTitleDescriptionsFragment = AddTitleDescriptionsFragment()
+        fun newInstance(source: InvokeSource): SuggestedEditsAddDescriptionsFragment {
+            val addTitleDescriptionsFragment = SuggestedEditsAddDescriptionsFragment()
             val args = Bundle()
             args.putSerializable(EXTRA_SOURCE, source)
             addTitleDescriptionsFragment.arguments = args

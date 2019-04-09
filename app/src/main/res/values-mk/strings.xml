@@ -630,7 +630,7 @@
   <string name="multilingual_task_positive">Додај јазици</string>
   <string name="translate_caption_task_title">Превод на описи на слики</string>
   <string name="translate_caption_task_description">Превод на описи на други јазици</string>
-  <plurals name="edit_action_contribution_count">
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 придонес од прилог</item>
     <item quantity="other">%d придонеси од прилози</item>
   </plurals>
