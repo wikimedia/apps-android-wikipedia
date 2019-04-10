@@ -3,7 +3,7 @@
     //TODO: Remove the override of the private attributes in values/sw360dp/v13/preference.xml
      when a better solution is found in androidx for removing the iconReserved space.
 -->
-<android.support.v7.preference.PreferenceScreen
+<androidx.preference.PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/preferences_general_heading">
         <org.wikipedia.settings.PreferenceMultiLine
@@ -67,4 +67,4 @@
             android:title="@string/preference_title_auto_upload_crash_reports"
             android:summary="@string/preference_summary_auto_upload_crash_reports" />
     </PreferenceCategory>
-</android.support.v7.preference.PreferenceScreen>
+</androidx.preference.PreferenceScreen>

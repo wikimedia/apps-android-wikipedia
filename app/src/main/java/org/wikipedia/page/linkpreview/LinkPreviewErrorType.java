@@ -1,12 +1,12 @@
 package org.wikipedia.page.linkpreview;
 
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-
 import org.wikipedia.R;
 import org.wikipedia.util.ThrowableUtil;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 
 enum LinkPreviewErrorType {
     // Note: The string resource corresponding to the 'text' field will be updated programmatically

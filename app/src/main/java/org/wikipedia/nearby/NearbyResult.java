@@ -1,13 +1,13 @@
 package org.wikipedia.nearby;
 
-import android.support.annotation.NonNull;
-
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.mwapi.NearbyPage;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import androidx.annotation.NonNull;
 
 class NearbyResult {
     @NonNull private final List<NearbyPage> pages = new ArrayList<>();

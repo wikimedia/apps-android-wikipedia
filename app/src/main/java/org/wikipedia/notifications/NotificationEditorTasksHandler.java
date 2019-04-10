@@ -3,8 +3,6 @@ package org.wikipedia.notifications;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v4.app.NotificationCompat;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -17,6 +15,9 @@ import org.wikipedia.suggestededits.SuggestedEditsTasksActivity;
 import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC;
 import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC;
 import static org.wikipedia.Constants.InvokeSource.NOTIFICATION;
+import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+
 import static org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION;
 
 public final class NotificationEditorTasksHandler {

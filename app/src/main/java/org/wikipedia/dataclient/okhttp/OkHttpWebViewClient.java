@@ -1,6 +1,5 @@
 package org.wikipedia.dataclient.okhttp;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.webkit.MimeTypeMap;
@@ -23,6 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import androidx.annotation.NonNull;
 import okhttp3.Headers;
 import okhttp3.Request;
 import okhttp3.Response;

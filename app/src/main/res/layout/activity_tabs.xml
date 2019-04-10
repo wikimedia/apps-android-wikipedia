@@ -17,7 +17,7 @@
         app:tabBackgroundColor="?attr/main_toolbar_color"
         app:tabContentBackgroundColor="?attr/paper_color"/>
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/tab_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -49,6 +49,6 @@
                     tools:text="3"/>
             </FrameLayout>
         </LinearLayout>
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
 </FrameLayout>

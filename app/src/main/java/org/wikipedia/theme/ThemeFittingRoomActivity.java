@@ -3,10 +3,11 @@ package org.wikipedia.theme;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
+
+import androidx.annotation.NonNull;
 
 public class ThemeFittingRoomActivity extends SingleFragmentActivity<ThemeFittingRoomFragment>
         implements ThemeChooserDialog.Callback {

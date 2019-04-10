@@ -1,12 +1,12 @@
 package org.wikipedia.test;
 
-import android.support.annotation.NonNull;
-
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+
+import androidx.annotation.NonNull;
 
 public final class TestFileUtil {
     private static final String RAW_DIR = "src/test/res/raw/";

@@ -3,7 +3,6 @@ package org.wikipedia.suggestededits;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 
 import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.activity.SingleFragmentActivity;
@@ -12,6 +11,7 @@ import org.wikipedia.analytics.SuggestedEditsFunnel;
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC;
 import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC;
+import androidx.annotation.NonNull;
 
 public class SuggestedEditsTasksActivity extends SingleFragmentActivity<SuggestedEditsTasksFragment> {
     private static final String EXTRA_START_IMMEDIATELY = "startImmediately";

@@ -113,7 +113,7 @@
 
             </LinearLayout>
 
-            <android.support.v7.widget.AppCompatImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginEnd="16dp"
@@ -157,7 +157,7 @@
                 style="@style/MaterialListTitle"
                 android:text="@string/talk_page_link_text"/>
 
-            <android.support.v7.widget.AppCompatImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginEnd="16dp"
@@ -216,7 +216,7 @@
             android:layout_height="4dp"
             android:background="@drawable/toolbar_bottom_shadow"/>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/read_more_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -249,7 +249,7 @@
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
         <ImageView
             android:layout_width="120dp"

@@ -1,12 +1,13 @@
 package org.wikipedia.espresso.util;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.util.DisplayMetrics;
 import android.view.ViewConfiguration;
 import android.view.WindowManager;
 
 import java.util.Locale;
+
+import androidx.annotation.NonNull;
 
 import static org.wikipedia.espresso.Constants.DEFAULT_LANGUAGE_OF_TESTING_DEVICE;
 import static org.wikipedia.espresso.Constants.HEIGHT_OF_TESTING_DEVICE;

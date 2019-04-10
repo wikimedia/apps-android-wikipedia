@@ -2,7 +2,6 @@ package org.wikipedia.analytics;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
 
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
@@ -10,6 +9,8 @@ import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.util.StringUtil;
 
 import java.util.concurrent.TimeUnit;
+
+import androidx.annotation.NonNull;
 
 // https://meta.wikimedia.org/wiki/Schema:MobileWikiAppDailyStats
 public class DailyStatsFunnel extends Funnel {

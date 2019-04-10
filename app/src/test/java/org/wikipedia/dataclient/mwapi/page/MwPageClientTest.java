@@ -1,13 +1,12 @@
 package org.wikipedia.dataclient.mwapi.page;
 
-import android.support.annotation.NonNull;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.wikipedia.dataclient.page.BasePageClientTest;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageLead;
 
+import androidx.annotation.NonNull;
 import io.reactivex.observers.TestObserver;
 import retrofit2.Response;
 

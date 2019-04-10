@@ -11,6 +11,8 @@ import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 
+import androidx.annotation.NonNull;
+
 public class PageContainerLongPressHandler implements LongPressHandler.ContextMenuListener,
         LongPressHandler.WebViewContextMenuListener{
     @NonNull

@@ -1,10 +1,11 @@
 package org.wikipedia.readinglist.sync;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
 import org.wikipedia.views.NotificationWithProgressBar;
+
+import androidx.annotation.NonNull;
 
 public final class ReadingListSyncNotification {
 
