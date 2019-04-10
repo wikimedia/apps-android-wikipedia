@@ -2,8 +2,9 @@ package org.wikipedia.views;
 
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
-import android.support.annotation.NonNull;
 import android.view.View;
+
+import androidx.annotation.NonNull;
 
 /**
  * A {@link Drawable.Callback} for any {@link Drawable} on any {@link View}.

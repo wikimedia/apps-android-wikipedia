@@ -1,8 +1,6 @@
 package org.wikipedia.feed.mostread;
 
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.wikipedia.dataclient.WikiSite;
@@ -10,6 +8,9 @@ import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.page.PageTitle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class MostReadItemCard extends Card {
     @NonNull private final RbPageSummary page;

@@ -2,8 +2,6 @@ package org.wikipedia.descriptions;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -17,6 +15,8 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

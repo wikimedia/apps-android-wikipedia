@@ -2,7 +2,6 @@ package org.wikipedia.database;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import org.wikipedia.database.column.Column;
@@ -10,6 +9,8 @@ import org.wikipedia.database.column.Column;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+
+import androidx.annotation.NonNull;
 
 public final class DbUtil {
     public static String namesCsv(Column<?>... cols) {

@@ -1,11 +1,11 @@
 package org.wikipedia.analytics;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.notifications.Notification;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class NotificationFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppNotificationInteraction";

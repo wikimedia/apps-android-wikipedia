@@ -1,14 +1,14 @@
 package org.wikipedia.dataclient.mwapi;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.json.PostProcessingTypeAdapter;
 import org.wikipedia.model.BaseModel;
 
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public abstract class MwResponse extends BaseModel implements PostProcessingTypeAdapter.PostProcessable {
     @SuppressWarnings({"unused"}) @Nullable private List<MwServiceError> errors;

@@ -3,7 +3,6 @@ package org.wikipedia.util;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.support.annotation.DimenRes;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
@@ -12,6 +11,8 @@ import android.view.Window;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+
+import androidx.annotation.DimenRes;
 
 public final class DimenUtil {
     public static float dpToPx(float dp) {
@@ -110,7 +111,7 @@ public final class DimenUtil {
      */
     public static int getToolbarHeightPx(Context context) {
         final TypedArray styledAttributes = context.getTheme().obtainStyledAttributes(new int[] {
-                android.support.v7.appcompat.R.attr.actionBarSize
+                androidx.appcompat.R.attr.actionBarSize
         });
         int size = styledAttributes.getDimensionPixelSize(0, 0);
         styledAttributes.recycle();

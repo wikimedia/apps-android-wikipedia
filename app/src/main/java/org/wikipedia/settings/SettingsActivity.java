@@ -2,9 +2,10 @@ package org.wikipedia.settings;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 
 import org.wikipedia.activity.SingleFragmentActivity;
+
+import androidx.annotation.NonNull;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
 

@@ -7,7 +7,7 @@
     android:padding="16dp"
     android:orientation="vertical">
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_input_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -19,9 +19,9 @@
             android:textColor="?attr/material_theme_primary_color"
             android:textColorHint="?attr/material_theme_de_emphasised_color"
             android:textSize="16sp" />
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/secondary_text_input_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -33,6 +33,6 @@
             android:textColor="?attr/material_theme_primary_color"
             android:textColorHint="?attr/material_theme_de_emphasised_color"
             android:textSize="16sp" />
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>

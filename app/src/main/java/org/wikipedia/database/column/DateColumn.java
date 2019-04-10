@@ -1,9 +1,10 @@
 package org.wikipedia.database.column;
 
 import android.database.Cursor;
-import android.support.annotation.NonNull;
 
 import java.util.Date;
+
+import androidx.annotation.NonNull;
 
 public class DateColumn extends Column<Date> {
     public DateColumn(@NonNull String tbl, @NonNull String name, @NonNull String type) {

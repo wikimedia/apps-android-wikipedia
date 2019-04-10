@@ -1,12 +1,12 @@
 package org.wikipedia.feed.onboarding;
 
 
-import android.support.annotation.NonNull;
-
 import org.wikipedia.R;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.feed.announcement.Announcement;
 import org.wikipedia.feed.model.CardType;
+
+import androidx.annotation.NonNull;
 
 public class ReadingListsSyncOnboardingCard extends OnboardingCard {
     public ReadingListsSyncOnboardingCard(@NonNull Announcement announcement) {

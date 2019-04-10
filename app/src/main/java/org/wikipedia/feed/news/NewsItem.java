@@ -1,8 +1,6 @@
 package org.wikipedia.feed.news;
 
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
@@ -11,6 +9,9 @@ import org.wikipedia.json.annotations.Required;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import static org.wikipedia.dataclient.Service.PREFERRED_THUMB_SIZE;
 import static org.wikipedia.util.ImageUrlUtil.getUrlForSize;

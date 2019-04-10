@@ -2,10 +2,10 @@ package org.wikipedia.descriptions
 
 import android.content.Context
 import android.net.Uri
-import android.support.constraint.ConstraintLayout
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.View
+import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.view_description_edit_review.view.*
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R

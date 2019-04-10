@@ -1,12 +1,12 @@
 package org.wikipedia.analytics;
 
-import android.support.annotation.NonNull;
-
 import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.page.PageTitle;
+
+import androidx.annotation.NonNull;
 
 public class EditFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppEdit";

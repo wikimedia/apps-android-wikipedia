@@ -1,15 +1,15 @@
 package org.wikipedia.onboarding;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.page.LinkMovementMethodExt;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

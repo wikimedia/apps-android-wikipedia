@@ -10,8 +10,6 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
@@ -21,6 +19,9 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.log.L;
 
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 
 public final class DeviceUtil {
 

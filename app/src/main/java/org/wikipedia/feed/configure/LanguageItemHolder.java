@@ -2,14 +2,15 @@ package org.wikipedia.feed.configure;
 
 import android.content.Context;
 import android.graphics.PorterDuff;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DefaultViewHolder;
+
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 
 public class LanguageItemHolder extends DefaultViewHolder<View> {
     private Context context;
