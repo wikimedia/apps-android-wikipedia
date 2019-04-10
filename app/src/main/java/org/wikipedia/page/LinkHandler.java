@@ -2,8 +2,6 @@ package org.wikipedia.page;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.json.JSONException;
@@ -15,6 +13,9 @@ import org.wikipedia.util.log.L;
 
 import java.util.Arrays;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import static org.wikipedia.util.UriUtil.decodeURL;
 import static org.wikipedia.util.UriUtil.handleExternalLink;

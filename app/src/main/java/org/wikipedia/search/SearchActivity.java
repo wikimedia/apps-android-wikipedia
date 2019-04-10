@@ -2,12 +2,13 @@ package org.wikipedia.search;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.analytics.IntentFunnel;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class SearchActivity extends SingleFragmentActivity<SearchFragment> {
     static final String INVOKE_SOURCE_EXTRA = "invokeSource";

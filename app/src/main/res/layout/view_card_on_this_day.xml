@@ -14,7 +14,7 @@
         android:layout_height="48dp" />
 
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/view_on_this_day_rtl_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -115,7 +115,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:background="?attr/material_theme_border_color" />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/more_events_layout"

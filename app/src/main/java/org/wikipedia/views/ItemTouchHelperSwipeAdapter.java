@@ -1,9 +1,9 @@
 package org.wikipedia.views;
 
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class ItemTouchHelperSwipeAdapter extends ItemTouchHelper.SimpleCallback {
     public interface Callback {

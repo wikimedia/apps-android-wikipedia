@@ -1,9 +1,9 @@
 package org.wikipedia.page.action;
 
-import android.support.annotation.NonNull;
-
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
+
+import androidx.annotation.NonNull;
 
 public enum PageActionTab implements EnumCode {
     ADD_TO_READING_LIST() {

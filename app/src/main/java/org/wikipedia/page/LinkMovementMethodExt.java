@@ -1,7 +1,5 @@
 package org.wikipedia.page;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.Layout;
 import android.text.Spannable;
 import android.text.method.LinkMovementMethod;
@@ -11,6 +9,9 @@ import android.widget.TextView;
 
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import static org.wikipedia.util.UriUtil.decodeURL;
 

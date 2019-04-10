@@ -1,8 +1,8 @@
 package org.wikipedia.feed.announcement;
 
-import android.support.annotation.NonNull;
-
 import org.wikipedia.feed.model.CardType;
+
+import androidx.annotation.NonNull;
 
 public class SurveyCard extends AnnouncementCard {
 

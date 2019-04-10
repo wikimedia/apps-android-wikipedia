@@ -1,7 +1,5 @@
 package org.wikipedia.readinglist.sync;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.wikipedia.dataclient.ServiceFactory;
@@ -12,6 +10,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import retrofit2.Response;
 
 import static org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingList;

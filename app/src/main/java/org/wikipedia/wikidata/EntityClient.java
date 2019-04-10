@@ -1,14 +1,13 @@
 package org.wikipedia.wikidata;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
-
 import com.google.gson.JsonParseException;
 
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import retrofit2.Call;
 import retrofit2.Response;
 

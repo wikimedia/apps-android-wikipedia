@@ -2,7 +2,6 @@ package org.wikipedia.util;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
 
@@ -13,6 +12,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+
+import androidx.annotation.NonNull;
 
 public final class FileUtil {
     public static final int JPEG_QUALITY = 85;

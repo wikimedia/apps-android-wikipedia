@@ -1,7 +1,6 @@
 package org.wikipedia.recurring;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -9,6 +8,8 @@ import org.wikipedia.analytics.DailyStatsFunnel;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+
+import androidx.annotation.NonNull;
 
 public class DailyEventTask extends RecurringTask {
     @NonNull private final String name;

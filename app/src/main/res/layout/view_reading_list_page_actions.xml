@@ -42,7 +42,7 @@
             app:srcCompat="@drawable/ic_offline_pin_black_24dp"
             android:tint="?attr/secondary_text_color"
             android:contentDescription="@null"/>
-        <android.support.v7.widget.SwitchCompat
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/reading_list_item_offline_switch"
             android:layout_width="0dp"
             android:layout_height="54dp"

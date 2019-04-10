@@ -1,10 +1,10 @@
 package org.wikipedia.util;
 
-import android.support.annotation.NonNull;
-
 import org.wikipedia.page.PageTitle;
 
 import java.util.List;
+
+import androidx.annotation.NonNull;
 
 import static org.wikipedia.Constants.API_QUERY_MAX_TITLES;
 

@@ -1,12 +1,12 @@
 package org.wikipedia.dataclient.mwapi;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import org.wikipedia.model.BaseModel;
 
 import java.util.List;
 import java.util.Map;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 class MwAuthManagerInfo extends BaseModel {
     @SuppressWarnings("unused,NullableProblems") @NonNull private List<Request> requests;

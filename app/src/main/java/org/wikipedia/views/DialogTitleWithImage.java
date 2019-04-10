@@ -2,15 +2,15 @@ package org.wikipedia.views;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
-import android.support.v7.widget.AppCompatImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.wikipedia.R;
 
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+import androidx.appcompat.widget.AppCompatImageView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

@@ -1,8 +1,8 @@
 package org.wikipedia.test;
 
-import android.support.annotation.NonNull;
-
 import java.util.concurrent.Executor;
+
+import androidx.annotation.NonNull;
 
 public class ImmediateExecutor implements Executor {
     @Override

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:paddingBottom="20dp">
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
                     android:ellipsize="end"
                     tools:text="Lorem ipsum"/>
 
-                <android.support.constraint.ConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/viewArticleSubtitleContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"/>
 
-                </android.support.constraint.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
                     android:id="@+id/viewAddDescriptionButton"
@@ -183,5 +183,5 @@
             </LinearLayout>
 
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 </FrameLayout>

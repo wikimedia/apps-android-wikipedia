@@ -12,7 +12,7 @@
     tools:visibility="visible"
     android:background="?attr/paper_color">
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/edit_summary_tag_other_hint">
@@ -26,6 +26,6 @@
                 android:maxLength="255"
                 android:textColor="?attr/primary_text_color"
                 android:maxLines="1" />
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>

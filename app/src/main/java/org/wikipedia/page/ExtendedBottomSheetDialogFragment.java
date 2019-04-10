@@ -2,8 +2,9 @@ package org.wikipedia.page;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.design.widget.BottomSheetDialogFragment;
 import android.view.ViewGroup;
+
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
