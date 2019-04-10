@@ -16,6 +16,7 @@ import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.ReleaseUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -83,10 +84,14 @@ public enum FeedContentType implements EnumCode {
         @Nullable
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
-            if (age % 2 == 0 && isEnabled() && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline()) {
-                return Prefs.isSuggestedEditsAddDescriptionsUnlocked() ? new SuggestedEditsFeedClient(false) : null;
+            if (ReleaseUtil.isPreBetaRelease()) {
+                if (age % 2 == 0 && isEnabled() && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline()) {
+                    return Prefs.isSuggestedEditsAddDescriptionsUnlocked() ? new SuggestedEditsFeedClient(false) : null;
+                } else {
+                    return Prefs.isSuggestedEditsTranslateDescriptionsUnlocked() ? new SuggestedEditsFeedClient(true) : null;
+                }
             } else {
-                return Prefs.isSuggestedEditsTranslateDescriptionsUnlocked() ? new SuggestedEditsFeedClient(true) : null;
+                return null;
             }
         }
     };
