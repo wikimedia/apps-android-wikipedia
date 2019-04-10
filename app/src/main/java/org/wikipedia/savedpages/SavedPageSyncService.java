@@ -165,6 +165,38 @@ public class SavedPageSyncService extends JobIntentService {
                 }, L::d);
     }
 
+    @SuppressLint("CheckResult")
+    public void movePageContents(@NonNull ReadingListPage page) {
+        PageTitle pageTitle = ReadingListPage.toPageTitle(page);
+        Observable.zip(reqPageLead(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_TEMP_SAVE, pageTitle),
+                reqPageSections(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_TEMP_SAVE, pageTitle), (leadRsp, sectionsRsp) -> {
+                    Set<String> imageUrls = new HashSet<>();
+                    if (leadRsp.body() != null) {
+                        imageUrls.addAll(pageImageUrlParser.parse(leadRsp.body()));
+                        if (!TextUtils.isEmpty(pageTitle.getThumbUrl())) {
+                            imageUrls.add(pageTitle.getThumbUrl());
+                        }
+                    }
+                    if (sectionsRsp.body() != null) {
+                        imageUrls.addAll(pageImageUrlParser.parse(sectionsRsp.body()));
+                    }
+                    return imageUrls;
+                })
+                .subscribeOn(Schedulers.io())
+                .subscribe(imageUrls -> {
+                    for (String url : imageUrls) {
+                        Request request = makeImageRequest(pageTitle.getWikiSite(), url)
+                                .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_TEMP_SAVE)
+                                .build();
+                        try {
+                            OkHttpConnectionFactory.getClient().newCall(request).execute();
+                        } catch (Exception e) {
+                            // ignore exceptions while deleting cached items.
+                        }
+                    }
+                }, L::d);
+    }
+
     private int savePages(List<ReadingListPage> queue) {
         int itemsTotal = queue.size();
         int itemsSaved = 0;

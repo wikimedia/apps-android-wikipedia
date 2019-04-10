@@ -2,6 +2,7 @@ package okhttp3;
 
 import android.support.annotation.NonNull;
 
+import java.io.File;
 import java.io.IOException;
 
 import okhttp3.internal.Util;
@@ -57,6 +58,15 @@ public class CacheDelegate {
             //
         }
         return totalSize;
+    }
+
+    public boolean copyToFolder(@NonNull String url, @NonNull Cache destination) {
+        String metadataFileName = "/" + key(url) + "." + OKHTTP_METADATA_FILE_INDEX;
+        String rawBodyFileName = "/" + key(url) + "." + OKHTTP_RAW_BODY_FILE_INDEX;
+        File metadata = new File (cache.cache.getDirectory() + metadataFileName);
+        File rawBody = new File (cache.cache.getDirectory() + rawBodyFileName);
+        return metadata.renameTo(new File(destination.cache.getDirectory() + metadataFileName))
+                && rawBody.renameTo(new File(destination.cache.getDirectory() + rawBodyFileName));
     }
 
     // Copy of Cache.key()

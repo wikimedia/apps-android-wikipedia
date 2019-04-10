@@ -3,6 +3,7 @@ package org.wikipedia.dataclient.okhttp;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.log.L;
 
 import java.io.IOException;
 
@@ -25,12 +26,14 @@ import okio.Timeout;
 
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static okhttp3.internal.Util.discard;
+import static org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.SAVE_TEMP_CACHE;
 
 public class OfflineCacheInterceptor implements Interceptor {
     public static final String SAVE_HEADER = "X-Offline-Save";
     public static final String SAVE_HEADER_SAVE = "save";
     public static final String SAVE_HEADER_DELETE = "delete";
     public static final String SAVE_HEADER_NONE = "none";
+    public static final String SAVE_HEADER_TEMP_SAVE = "temp-save";
 
     @NonNull private final CacheDelegate cacheDelegate;
 
@@ -50,6 +53,16 @@ public class OfflineCacheInterceptor implements Interceptor {
             cacheCandidate = cacheDelegate.internalCache().get(request);
         }
 
+        if (SAVE_HEADER_TEMP_SAVE.equals(request.header(SAVE_HEADER))) {
+            cacheCandidate = cacheDelegate.internalCache().get(request);
+            if (cacheCandidate != null) {
+                // Move the current cache to the temporary cache folder
+                boolean result = cacheDelegate.copyToFolder(request.url().toString(), SAVE_TEMP_CACHE);
+                L.d("OfflineCacheInterceptor cache moved..." + result);
+                return cacheCandidate;
+            }
+        }
+
         if (cacheCandidate != null) {
             // Tack on our special header onto it, so that receivers of the cache response
             // can know that it came from the offline cache.
@@ -60,6 +73,7 @@ public class OfflineCacheInterceptor implements Interceptor {
 
         // If we're asked to delete the cached response, then delete it!
         if (SAVE_HEADER_DELETE.equals(request.header(SAVE_HEADER))) {
+            cacheCandidate.request().url();
             // If we don't actually have a cache candidate, then something is very wrong.
             if (cacheCandidate == null) {
                 throw new IOException("Requested to delete nonexistent cached response.");

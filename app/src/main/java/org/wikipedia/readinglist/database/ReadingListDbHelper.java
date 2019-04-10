@@ -606,6 +606,22 @@ public class ReadingListDbHelper {
         return pages;
     }
 
+    @NonNull
+    public List<ReadingListPage> getAllPages() {
+        List<ReadingListPage> pages = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        try (Cursor cursor = db.query(ReadingListPageContract.TABLE, null,
+                ReadingListPageContract.Col.STATUS.getName() + " != ? AND "
+                        + ReadingListPageContract.Col.OFFLINE.getName() + " = ?",
+                new String[]{Integer.toString(ReadingListPage.STATUS_QUEUE_FOR_DELETE), Integer.toString(1)},
+                null, null, null)) {
+            while (cursor.moveToNext()) {
+                pages.add(ReadingListPage.DATABASE_TABLE.fromCursor(cursor));
+            }
+        }
+        return pages;
+    }
+
     public void resetUnsavedPageStatus() {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
