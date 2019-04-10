@@ -1,7 +1,5 @@
 package org.wikipedia.page;
 
-import android.support.annotation.NonNull;
-
 import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.LongPressHandler;
 import org.wikipedia.R;
