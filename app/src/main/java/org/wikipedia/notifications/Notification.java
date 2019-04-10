@@ -130,7 +130,7 @@ public class Notification {
 
         public Date date() {
             try {
-                return DateUtil.getIso8601DateFormat().parse(utciso8601);
+                return DateUtil.iso8601DateParse(utciso8601);
             } catch (ParseException e) {
                 L.e(e);
                 return new Date();

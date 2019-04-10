@@ -71,7 +71,7 @@ abstract class Funnel {
      * @return Event Data to be sent to server
      */
     protected JSONObject preprocessData(@NonNull JSONObject eventData) {
-        preprocessData(eventData, DEFAULT_TIMESTAMP_KEY, DateUtil.getIso8601LocalDateFormat().format(new Date()));
+        preprocessData(eventData, DEFAULT_TIMESTAMP_KEY, DateUtil.iso8601LocalDateFormat(new Date()));
         preprocessData(eventData, DEFAULT_APP_INSTALL_ID_KEY, app.getAppInstallID());
         preprocessSessionToken(eventData);
         return eventData;

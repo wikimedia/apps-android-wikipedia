@@ -62,7 +62,7 @@ public class Announcement extends BaseModel {
 
     @Nullable Date startTime() {
         try {
-            return DateUtil.getIso8601DateFormat().parse(startTime);
+            return DateUtil.iso8601DateParse(startTime);
         } catch (ParseException e) {
             return null;
         }
@@ -70,7 +70,7 @@ public class Announcement extends BaseModel {
 
     @Nullable Date endTime() {
         try {
-            return DateUtil.getIso8601DateFormat().parse(endTime);
+            return DateUtil.iso8601DateParse(endTime);
         } catch (ParseException e) {
             return null;
         }
