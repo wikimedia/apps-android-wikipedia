@@ -3,8 +3,6 @@ package org.wikipedia.readinglist.database;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.wikipedia.R;
@@ -21,6 +19,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class ReadingListDbHelper {
     private static ReadingListDbHelper INSTANCE;

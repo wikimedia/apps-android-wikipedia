@@ -1,10 +1,10 @@
 package org.wikipedia.gallery;
 
-import android.support.annotation.Nullable;
-
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
+
+import androidx.annotation.Nullable;
 
 /**
  * Gson POJO for a standard video info object as returned by the API VideoInfo module

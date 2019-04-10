@@ -1,9 +1,10 @@
 package org.wikipedia.database.column;
 
 import android.database.Cursor;
-import android.support.annotation.NonNull;
 
 import org.wikipedia.model.CodeEnum;
+
+import androidx.annotation.NonNull;
 
 public class CodeEnumColumn<T> extends Column<T> {
     @NonNull private final CodeEnum<T> codeEnum;

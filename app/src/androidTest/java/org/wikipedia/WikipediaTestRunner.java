@@ -3,8 +3,6 @@ package org.wikipedia;
 import android.content.SharedPreferences;
 import android.os.Environment;
 import android.preference.PreferenceManager;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.runner.AndroidJUnitRunner;
 
 import org.wikipedia.dataclient.okhttp.TestStubInterceptor;
 import org.wikipedia.espresso.MockInstrumentationInterceptor;
@@ -14,6 +12,9 @@ import org.wikipedia.settings.PrefsIoUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.File;
+
+import androidx.test.InstrumentationRegistry;
+import androidx.test.runner.AndroidJUnitRunner;
 
 import static org.wikipedia.espresso.Constants.TEST_COMPARISON_OUTPUT_FOLDER;
 

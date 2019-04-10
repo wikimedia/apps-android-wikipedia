@@ -3,7 +3,8 @@ package org.wikipedia.util;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 public final class ClipboardUtil {
     public static void setPlainText(@Nullable Context context,

@@ -1,9 +1,9 @@
 package org.wikipedia.page;
 
-import android.support.annotation.NonNull;
-
 import org.wikipedia.analytics.FindInPageFunnel;
 import org.wikipedia.views.FindInPageActionProvider;
+
+import androidx.annotation.NonNull;
 
 public class FindInWebPageActionProvider extends FindInPageActionProvider
         implements FindInPageActionProvider.FindInPageListener {

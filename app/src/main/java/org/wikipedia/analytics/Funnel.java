@@ -1,9 +1,5 @@
 package org.wikipedia.analytics;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-
 import com.google.gson.annotations.SerializedName;
 
 import org.json.JSONException;
@@ -16,6 +12,10 @@ import org.wikipedia.util.log.L;
 
 import java.util.Date;
 import java.util.UUID;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 
 /** Schemas for this abstract funnel are expected to have appInstallID and sessionToken fields. When
  * these fields are not present or differently named, preprocess* or get*Field should be overridden. */
@@ -71,7 +71,7 @@ abstract class Funnel {
      * @return Event Data to be sent to server
      */
     protected JSONObject preprocessData(@NonNull JSONObject eventData) {
-        preprocessData(eventData, DEFAULT_TIMESTAMP_KEY, DateUtil.getIso8601LocalDateFormat().format(new Date()));
+        preprocessData(eventData, DEFAULT_TIMESTAMP_KEY, DateUtil.iso8601LocalDateFormat(new Date()));
         preprocessData(eventData, DEFAULT_APP_INSTALL_ID_KEY, app.getAppInstallID());
         preprocessSessionToken(eventData);
         return eventData;

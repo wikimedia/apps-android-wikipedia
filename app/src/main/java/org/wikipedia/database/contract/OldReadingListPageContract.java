@@ -1,8 +1,5 @@
 package org.wikipedia.database.contract;
 
-import android.support.annotation.NonNull;
-import android.support.v4.util.ArraySet;
-
 import org.wikipedia.database.column.CsvColumn;
 import org.wikipedia.database.column.IdColumn;
 import org.wikipedia.database.column.IntColumn;
@@ -12,6 +9,9 @@ import org.wikipedia.database.column.StrColumn;
 
 import java.util.Collection;
 import java.util.Set;
+
+import androidx.annotation.NonNull;
+import androidx.collection.ArraySet;
 
 @SuppressWarnings("checkstyle:interfaceistype")
 public interface OldReadingListPageContract {

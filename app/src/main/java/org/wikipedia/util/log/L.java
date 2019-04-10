@@ -1,10 +1,11 @@
 package org.wikipedia.util.log;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
 
 import org.wikipedia.util.ReleaseUtil;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /** Logging utility like {@link Log} but with implied tags. */
 public final class L {

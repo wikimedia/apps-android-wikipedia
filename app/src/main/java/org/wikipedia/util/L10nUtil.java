@@ -3,8 +3,6 @@ package org.wikipedia.util;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
 import android.util.SparseArray;
 import android.view.View;
 
@@ -19,6 +17,9 @@ import org.wikipedia.page.PageTitle;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 
 import static android.text.format.DateUtils.SECOND_IN_MILLIS;
 import static android.text.format.DateUtils.getRelativeTimeSpanString;

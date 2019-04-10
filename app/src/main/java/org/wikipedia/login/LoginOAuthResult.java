@@ -1,9 +1,9 @@
 package org.wikipedia.login;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import org.wikipedia.dataclient.WikiSite;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 class LoginOAuthResult extends LoginResult {
 

@@ -1,7 +1,5 @@
 package org.wikipedia.richtext;
 
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -15,6 +13,9 @@ import org.wikipedia.util.StringUtil;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
 
 public final class RichTextUtil {
     @NonNull public static Spannable setSpans(@NonNull Spannable spannable,

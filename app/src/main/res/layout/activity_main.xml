@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/single_fragment_toolbar"
             style="@style/ToolbarStyle"
             android:layout_width="match_parent"
@@ -72,7 +72,7 @@
                     app:srcCompat="@drawable/feed_header_wordmark"
                     app:tint="?attr/main_toolbar_title_color" />
             </LinearLayout>
-        </android.support.v7.widget.Toolbar>
+        </androidx.appcompat.widget.Toolbar>
     </FrameLayout>
 
     <org.wikipedia.main.MainDrawerView

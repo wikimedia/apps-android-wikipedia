@@ -1,11 +1,11 @@
 package org.wikipedia.analytics;
 
-import android.support.annotation.NonNull;
-
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
+
+import androidx.annotation.NonNull;
 
 // https://meta.wikimedia.org/wiki/Schema:MobileWikiAppShareAFact
 public class ShareAFactFunnel extends Funnel {

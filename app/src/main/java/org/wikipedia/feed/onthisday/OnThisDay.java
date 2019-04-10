@@ -1,8 +1,5 @@
 package org.wikipedia.feed.onthisday;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.json.annotations.Required;
@@ -12,6 +9,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class OnThisDay {
 

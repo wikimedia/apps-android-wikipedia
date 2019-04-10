@@ -1,12 +1,12 @@
 package org.wikipedia.dataclient.page;
 
-import android.support.annotation.NonNull;
-
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.page.MwPageClient;
 import org.wikipedia.dataclient.restbase.page.RbPageClient;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.settings.RbSwitch;
+
+import androidx.annotation.NonNull;
 
 /**
  * This redirection exists because we want to be able to switch between the traditional

@@ -1,7 +1,6 @@
 package org.wikipedia.concurrency;
 
-import android.support.annotation.NonNull;
-
+import androidx.annotation.NonNull;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.CheckReturnValue;

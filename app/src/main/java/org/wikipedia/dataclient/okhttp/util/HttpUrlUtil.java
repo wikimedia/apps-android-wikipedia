@@ -1,11 +1,10 @@
 package org.wikipedia.dataclient.okhttp.util;
 
-import android.support.annotation.NonNull;
-
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import okhttp3.HttpUrl;
 
 public final class HttpUrlUtil {

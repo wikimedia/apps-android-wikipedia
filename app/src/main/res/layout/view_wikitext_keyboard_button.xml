@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:parentTag="android.support.v7.widget.CardView"
+    tools:parentTag="androidx.cardview.widget.CardView"
     tools:layout_width="wrap_content"
     tools:layout_height="48dp">
 

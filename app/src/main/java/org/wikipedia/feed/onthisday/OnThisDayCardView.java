@@ -2,14 +2,6 @@ package org.wikipedia.feed.onthisday;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,6 +32,14 @@ import org.wikipedia.views.MarginItemDecoration;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -57,8 +57,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     @BindView(R.id.pages_recycler) RecyclerView pagesRecycler;
     @BindView(R.id.gradient_layout) View gradientLayout;
     @BindView(R.id.radio_image_view) View radio;
-    @BindView(R.id.view_on_this_day_top_container) View topContainer;
-    @BindView(R.id.view_on_this_day_text_container) View textContainer;
+    @BindView(R.id.view_on_this_day_rtl_container) View rtlContainer;
     private FeedFunnel funnel = new FeedFunnel(WikipediaApp.getInstance());
 
     private int age;
@@ -79,6 +78,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     }
 
     private void initRecycler() {
+        pagesRecycler.setHasFixedSize(true);
         pagesRecycler.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         pagesRecycler.addItemDecoration(new MarginItemDecoration(getContext(),
                 R.dimen.view_horizontal_scrolling_list_card_item_margin_horizontal,
@@ -166,8 +166,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     public void setCard(@NonNull OnThisDayCard card) {
         super.setCard(card);
         this.age = card.getAge();
-        setLayoutDirectionByWikiSite(card.wikiSite(), topContainer);
-        setLayoutDirectionByWikiSite(card.wikiSite(), textContainer);
+        setLayoutDirectionByWikiSite(card.wikiSite(), rtlContainer);
         setPagesRecycler(card);
         header(card);
     }

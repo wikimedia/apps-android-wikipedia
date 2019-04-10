@@ -4,16 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.view.ActionMode;
-import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.View;
 
 import org.wikipedia.Constants;
@@ -40,6 +30,15 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.WikiDrawerLayout;
 
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.view.ActionMode;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -48,7 +47,6 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-import static android.view.Gravity.START;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_INITIAL_ONBOARDING;
@@ -168,7 +166,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     }
 
     @OnClick(R.id.drawer_icon_layout) void onDrawerOpenClicked() {
-        drawerLayout.openDrawer(START);
+        drawerLayout.openDrawer(GravityCompat.START);
     }
 
     @Override
@@ -215,8 +213,8 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(Gravity.START)) {
-            drawerLayout.closeDrawer(Gravity.START);
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
             return;
         }
         if (getFragment().onBackPressed()) {

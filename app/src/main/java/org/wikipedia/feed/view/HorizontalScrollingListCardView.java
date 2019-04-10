@@ -1,10 +1,6 @@
 package org.wikipedia.feed.view;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
 import org.wikipedia.R;
@@ -17,12 +13,18 @@ import org.wikipedia.views.MarginItemDecoration;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 public abstract class HorizontalScrollingListCardView<T extends Card> extends ListCardView<T> {
     public HorizontalScrollingListCardView(@NonNull Context context) {
         super(context);
     }
 
     @Override protected void initRecycler(@NonNull RecyclerView recyclerView) {
+        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         recyclerView.addItemDecoration(new MarginItemDecoration(getContext(),
                 R.dimen.view_horizontal_scrolling_list_card_item_margin_horizontal,

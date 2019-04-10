@@ -5,12 +5,13 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.location.Location;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.announcement.GeoIPCookieUnmarshaller;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public final class GeoUtil {
 

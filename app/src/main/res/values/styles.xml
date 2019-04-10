@@ -81,9 +81,6 @@
         <item name="colorAccent">@color/accent50</item>
     </style>
 
-    <style name="AppTheme.GreenActionMode">
-        <item name="actionModeStyle">@style/ActionModeGreen</item>
-    </style>
 
     <style name="AlertDialogButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
         <item name="android:textAlignment">textEnd</item>
@@ -92,23 +89,19 @@
         <item name="android:paddingEnd">16dp</item>
     </style>
 
-    <style name="ActionModeGreen" parent="Widget.AppCompat.ActionMode">
-        <item name="background">@color/green50</item>
-    </style>
-
-    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
         <item name="colorControlNormal">?attr/main_toolbar_icon_color</item>
         <item name="colorControlActivated">@color/base30</item>
         <item name="colorControlHighlight">@color/base30</item>
     </style>
 
-    <style name="PageToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+    <style name="PageToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
         <item name="colorControlNormal">?attr/page_toolbar_icon_color</item>
         <item name="colorControlActivated">?android:attr/textColorTertiary</item>
         <item name="colorControlHighlight">?android:attr/textColorTertiary</item>
     </style>
 
-    <style name="TabToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+    <style name="TabToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
         <item name="colorControlNormal">?attr/main_toolbar_icon_color</item>
         <item name="colorControlActivated">?attr/main_toolbar_icon_color</item>
         <item name="colorControlHighlight">?attr/main_toolbar_icon_color</item>
@@ -300,7 +293,7 @@
 
     <!-- Preferences -->
 
-    <style name="AppPreferenceTheme" parent="PreferenceThemeOverlay.v14.Material" >
+    <style name="AppPreferenceTheme" parent="PreferenceThemeOverlay" >
         <item name="preferenceFragmentCompatStyle">@style/AppPreferenceFragment</item>
         <item name="android:listPreferredItemPaddingLeft">@dimen/activity_horizontal_margin</item>
         <item name="android:listPreferredItemPaddingStart">@dimen/activity_horizontal_margin</item>
