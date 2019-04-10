@@ -1,8 +1,8 @@
 package org.wikipedia.language;
 
-import android.support.annotation.NonNull;
-
 import java.util.Locale;
+
+import androidx.annotation.NonNull;
 
 public final class AcceptLanguageUtil {
     private static final float APP_LANGUAGE_QUALITY = .9f;

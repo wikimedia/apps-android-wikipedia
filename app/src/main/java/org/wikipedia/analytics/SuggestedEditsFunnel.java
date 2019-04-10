@@ -1,7 +1,5 @@
 package org.wikipedia.analytics;
 
-import android.support.annotation.NonNull;
-
 import com.google.gson.annotations.SerializedName;
 
 import org.json.JSONObject;
@@ -11,6 +9,8 @@ import org.wikipedia.json.GsonUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.NonNull;
 
 public final class SuggestedEditsFunnel extends TimedFunnel {
     private static SuggestedEditsFunnel INSTANCE;

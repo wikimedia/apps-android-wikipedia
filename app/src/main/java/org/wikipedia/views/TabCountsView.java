@@ -1,9 +1,10 @@
 package org.wikipedia.views;
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+
+import androidx.appcompat.widget.AppCompatTextView;
 
 public class TabCountsView extends AppCompatTextView {
 

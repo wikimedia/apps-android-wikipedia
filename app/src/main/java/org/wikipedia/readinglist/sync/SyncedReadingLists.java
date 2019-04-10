@@ -1,8 +1,5 @@
 package org.wikipedia.readinglist.sync;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
@@ -11,6 +8,9 @@ import org.wikipedia.json.annotations.Required;
 
 import java.text.Normalizer;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class SyncedReadingLists {
 

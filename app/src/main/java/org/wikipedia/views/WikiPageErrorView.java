@@ -1,8 +1,9 @@
 package org.wikipedia.views;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+
+import androidx.annotation.Nullable;
 
 import static org.wikipedia.util.ThrowableUtil.isOffline;
 

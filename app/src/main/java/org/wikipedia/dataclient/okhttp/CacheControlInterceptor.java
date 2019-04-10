@@ -1,10 +1,9 @@
 package org.wikipedia.dataclient.okhttp;
 
-import android.support.annotation.NonNull;
-
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import androidx.annotation.NonNull;
 import okhttp3.Interceptor;
 import okhttp3.Response;
 

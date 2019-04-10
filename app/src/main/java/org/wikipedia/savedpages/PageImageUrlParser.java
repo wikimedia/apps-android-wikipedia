@@ -1,8 +1,5 @@
 package org.wikipedia.savedpages;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -20,6 +17,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 
 public class PageImageUrlParser {
     @NonNull private final ImageTagParser imageParser;

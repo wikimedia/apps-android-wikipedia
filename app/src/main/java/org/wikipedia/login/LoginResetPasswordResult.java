@@ -1,9 +1,9 @@
 package org.wikipedia.login;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import org.wikipedia.dataclient.WikiSite;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 class LoginResetPasswordResult extends LoginResult {
     LoginResetPasswordResult(@NonNull WikiSite site, @NonNull String status, @Nullable String userName,

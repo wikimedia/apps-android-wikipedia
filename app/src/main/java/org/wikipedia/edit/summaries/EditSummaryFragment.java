@@ -1,8 +1,6 @@
 package org.wikipedia.edit.summaries;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +12,9 @@ import org.wikipedia.R;
 import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.views.ViewAnimations;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.DeviceUtil.showSoftKeyboard;

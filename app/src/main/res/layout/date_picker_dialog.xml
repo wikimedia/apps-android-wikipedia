@@ -86,7 +86,7 @@
                 app:srcCompat="@drawable/ic_chevron_forward_gray" />
         </LinearLayout>
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/grid"
             android:layout_marginTop="24dp"
             android:layout_width="match_parent"

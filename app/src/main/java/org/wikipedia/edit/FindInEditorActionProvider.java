@@ -1,7 +1,6 @@
 package org.wikipedia.edit;
 
 import android.graphics.Rect;
-import android.support.annotation.NonNull;
 import android.view.ActionMode;
 import android.view.View;
 import android.widget.ScrollView;
@@ -10,6 +9,8 @@ import org.wikipedia.edit.richtext.SyntaxHighlighter;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.FindInPageActionProvider;
 import org.wikipedia.views.PlainPasteEditText;
+
+import androidx.annotation.NonNull;
 
 
 public class FindInEditorActionProvider extends FindInPageActionProvider

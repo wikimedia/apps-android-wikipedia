@@ -1,11 +1,10 @@
 package org.wikipedia.dataclient.okhttp;
 
-import android.support.annotation.NonNull;
-
 import org.wikipedia.settings.Prefs;
 
 import java.io.IOException;
 
+import androidx.annotation.NonNull;
 import okhttp3.CacheDelegate;
 import okhttp3.Interceptor;
 import okhttp3.Request;

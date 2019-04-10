@@ -1,7 +1,6 @@
 package org.wikipedia.page;
 
 import android.annotation.SuppressLint;
-import android.support.annotation.NonNull;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.page.PageClient;
@@ -10,6 +9,7 @@ import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.util.log.L;
 
+import androidx.annotation.NonNull;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;

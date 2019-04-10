@@ -7,7 +7,6 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.URLSpan;
@@ -30,6 +29,7 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
+import androidx.annotation.NonNull;
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
 
