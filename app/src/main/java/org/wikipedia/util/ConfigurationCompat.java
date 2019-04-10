@@ -2,9 +2,10 @@ package org.wikipedia.util;
 
 import android.content.res.Configuration;
 import android.os.Build;
-import android.support.annotation.NonNull;
 
 import java.util.Locale;
+
+import androidx.annotation.NonNull;
 
 public final class ConfigurationCompat {
 

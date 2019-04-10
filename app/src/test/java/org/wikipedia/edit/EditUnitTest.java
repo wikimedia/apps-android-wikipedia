@@ -1,8 +1,6 @@
 package org.wikipedia.edit;
 
 
-import android.support.annotation.NonNull;
-
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.wikipedia.dataclient.Service;
@@ -11,6 +9,7 @@ import org.wikipedia.edit.EditClient.Callback;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.test.MockWebServerTest;
 
+import androidx.annotation.NonNull;
 import retrofit2.Call;
 
 import static org.hamcrest.MatcherAssert.assertThat;

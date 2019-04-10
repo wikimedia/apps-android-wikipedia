@@ -1,9 +1,9 @@
 package org.wikipedia.analytics;
 
-import android.support.annotation.NonNull;
-
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
+
+import androidx.annotation.NonNull;
 
 public class AppLanguageSearchingFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppLanguageSearching";

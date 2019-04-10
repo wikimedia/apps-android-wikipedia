@@ -1,9 +1,9 @@
 package org.wikipedia.html;
 
-import android.support.annotation.FloatRange;
-import android.support.annotation.NonNull;
-
 import java.util.Locale;
+
+import androidx.annotation.FloatRange;
+import androidx.annotation.NonNull;
 
 public class PixelDensityDescriptorParser {
     /** @throws ParseException */

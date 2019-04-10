@@ -1,12 +1,12 @@
 package org.wikipedia.analytics;
 
-import android.support.annotation.NonNull;
-
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.model.CardType;
 
 import java.util.Arrays;
 import java.util.List;
+
+import androidx.annotation.NonNull;
 
 public class FeedFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppFeed";

@@ -1,11 +1,11 @@
 package org.wikipedia.analytics;
 
-import android.support.annotation.NonNull;
-
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
+
+import androidx.annotation.NonNull;
 
 public class GalleryFunnel extends TimedFunnel {
     public static final int SOURCE_LEAD_IMAGE = 0;

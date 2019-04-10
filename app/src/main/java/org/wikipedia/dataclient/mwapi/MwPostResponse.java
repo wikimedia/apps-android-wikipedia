@@ -1,6 +1,6 @@
 package org.wikipedia.dataclient.mwapi;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 public class MwPostResponse extends MwResponse {
     @Nullable @SuppressWarnings("unused") private String options;

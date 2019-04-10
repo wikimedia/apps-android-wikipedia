@@ -1,7 +1,5 @@
 package org.wikipedia.page;
 
-import android.support.annotation.NonNull;
-
 import org.wikipedia.LongPressHandler;
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
@@ -10,6 +8,8 @@ import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
+
+import androidx.annotation.NonNull;
 
 public class PageContainerLongPressHandler implements LongPressHandler.ContextMenuListener,
         LongPressHandler.WebViewContextMenuListener{

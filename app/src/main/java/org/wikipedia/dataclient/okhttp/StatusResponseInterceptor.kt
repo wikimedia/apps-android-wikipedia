@@ -1,6 +1,6 @@
 package org.wikipedia.dataclient.okhttp
 
-import android.support.annotation.NonNull
+import androidx.annotation.NonNull
 import org.wikipedia.dataclient.okhttp.util.HttpUrlUtil
 import org.wikipedia.settings.RbSwitch
 

@@ -17,7 +17,7 @@
             android:layout_height="0dp"
             android:layout_weight="1">
 
-            <android.support.design.widget.CoordinatorLayout
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:id="@+id/fragment_main_coordinator"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -37,7 +37,7 @@
                     android:layout_marginStart="@dimen/floating_queue_container_margin"
                     android:layout_marginEnd="@dimen/floating_queue_container_margin"
                     app:layout_behavior="org.wikipedia.random.BottomViewBehavior"/>
-            </android.support.design.widget.CoordinatorLayout>
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
         </FrameLayout>
 

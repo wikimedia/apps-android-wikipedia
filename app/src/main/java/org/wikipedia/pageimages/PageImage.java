@@ -2,8 +2,6 @@ package org.wikipedia.pageimages;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.v4.util.ArrayMap;
 import android.text.TextUtils;
 
 import org.wikipedia.dataclient.WikiSite;
@@ -12,6 +10,9 @@ import org.wikipedia.page.PageTitle;
 
 import java.util.List;
 import java.util.Map;
+
+import androidx.annotation.NonNull;
+import androidx.collection.ArrayMap;
 
 public class PageImage implements Parcelable {
     public static final PageImageDatabaseTable DATABASE_TABLE = new PageImageDatabaseTable();

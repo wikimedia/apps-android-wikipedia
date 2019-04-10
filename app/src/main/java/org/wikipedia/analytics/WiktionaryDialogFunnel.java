@@ -1,10 +1,10 @@
 package org.wikipedia.analytics;
 
-import android.support.annotation.NonNull;
-
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.ReleaseUtil;
+
+import androidx.annotation.NonNull;
 
 // https://meta.wikimedia.org/wiki/Schema:MobileWikiAppWiktionaryPopup
 public class WiktionaryDialogFunnel extends TimedFunnel {

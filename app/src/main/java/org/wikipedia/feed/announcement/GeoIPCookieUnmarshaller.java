@@ -1,12 +1,13 @@
 package org.wikipedia.feed.announcement;
 
 import android.location.Location;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 
 /*
 This currently supports the "v4" version of the GeoIP cookie.

@@ -2,15 +2,16 @@ package org.wikipedia.views;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.annotation.AttrRes;
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 
 import org.wikipedia.R;
 import org.wikipedia.util.log.L;
+
+import androidx.annotation.AttrRes;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
 /** {@link RecyclerView} that invokes a callback when the number of columns should be updated. */
 public class AutoFitRecyclerView extends RecyclerView {

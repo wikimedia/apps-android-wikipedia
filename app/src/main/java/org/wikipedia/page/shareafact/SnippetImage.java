@@ -10,10 +10,6 @@ import android.graphics.Rect;
 import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.text.Layout;
 import android.text.Spanned;
 import android.text.StaticLayout;
@@ -24,6 +20,11 @@ import org.wikipedia.R;
 import org.wikipedia.gallery.ImageLicense;
 import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.StringUtil;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 
 import static android.text.Layout.Alignment.ALIGN_NORMAL;
 import static android.text.Layout.Alignment.ALIGN_OPPOSITE;
