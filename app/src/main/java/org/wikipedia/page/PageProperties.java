@@ -15,7 +15,7 @@ import java.text.ParseException;
 import java.util.Date;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.wikipedia.util.DateUtil.getIso8601DateFormat;
+import static org.wikipedia.util.DateUtil.iso8601DateParse;
 
 /**
  * Immutable class that contains metadata associated with a PageTitle.
@@ -66,7 +66,7 @@ public class PageProperties implements Parcelable {
         String lastModifiedText = core.getLastModified();
         if (lastModifiedText != null) {
             try {
-                lastModified.setTime(getIso8601DateFormat().parse(lastModifiedText).getTime());
+                lastModified.setTime(iso8601DateParse(lastModifiedText).getTime());
             } catch (ParseException e) {
                 L.d("Failed to parse date: " + lastModifiedText);
             }
