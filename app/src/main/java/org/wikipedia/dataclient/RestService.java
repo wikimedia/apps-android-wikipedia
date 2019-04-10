@@ -116,7 +116,7 @@ public interface RestService {
     @NonNull Observable<Gallery> getMedia(@Path("title") String title);
 
     @GET("feed/onthisday/events/{mm}/{dd}")
-    @NonNull Call<OnThisDay> getOnThisDay(@Path("mm") int month, @Path("dd") int day);
+    @NonNull Observable<OnThisDay> getOnThisDay(@Path("mm") int month, @Path("dd") int day);
 
     @Headers(ACCEPT_HEADER_PREFIX + "announcements/0.1.0\"")
     @GET("feed/announcements")
