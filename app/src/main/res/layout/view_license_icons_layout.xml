@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     tools:parentTag="android.widget.LinearLayout">
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/gallery_license_icon"
         android:layout_width="18dp"
         android:layout_height="18dp"
@@ -14,7 +14,7 @@
         app:tint="@color/white70"
         tools:src="@drawable/ic_license_cc" />
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/gallery_license_icon_by"
         android:layout_width="18dp"
         android:layout_height="18dp"
@@ -24,7 +24,7 @@
         android:visibility="gone"
         tools:src="@drawable/ic_license_by" />
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/gallery_license_icon_sa"
         android:layout_width="18dp"
         android:layout_height="18dp"

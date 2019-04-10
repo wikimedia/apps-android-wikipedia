@@ -2,15 +2,15 @@ package org.wikipedia.views;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.annotation.NonNull;
-import android.support.v4.view.ActionProvider;
-import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 
 import org.wikipedia.R;
 import org.wikipedia.util.DeviceUtil;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
+import androidx.core.view.ActionProvider;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -74,7 +74,7 @@ public class SearchActionProvider extends ActionProvider {
         });
 
         // remove focus line from search plate
-        View searchEditPlate = searchView.findViewById(android.support.v7.appcompat.R.id.search_plate);
+        View searchEditPlate = searchView.findViewById(androidx.appcompat.R.id.search_plate);
         searchEditPlate.setBackgroundColor(Color.TRANSPARENT);
 
         DeviceUtil.showSoftKeyboard(searchView);

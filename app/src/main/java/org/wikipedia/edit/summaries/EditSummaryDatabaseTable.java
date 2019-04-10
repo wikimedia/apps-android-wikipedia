@@ -2,7 +2,6 @@ package org.wikipedia.edit.summaries;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.support.annotation.NonNull;
 
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
@@ -10,6 +9,8 @@ import org.wikipedia.database.contract.EditHistoryContract;
 import org.wikipedia.database.contract.EditHistoryContract.Col;
 
 import java.util.Date;
+
+import androidx.annotation.NonNull;
 
 public class EditSummaryDatabaseTable extends DatabaseTable<EditSummary> {
     private static final int DB_VER_INTRODUCED = 2;

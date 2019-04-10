@@ -1,9 +1,6 @@
 package org.wikipedia.edit;
 
 import android.content.Intent;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.PopupMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +18,10 @@ import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.Section;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.log.L;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.PopupMenu;
 
 public class EditHandler implements CommunicationBridge.JSEventListener {
     public static final int RESULT_REFRESH_PAGE = 1;

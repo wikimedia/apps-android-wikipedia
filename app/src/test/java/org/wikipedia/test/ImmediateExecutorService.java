@@ -1,10 +1,10 @@
 package org.wikipedia.test;
 
-import android.support.annotation.NonNull;
-
 import java.util.List;
 import java.util.concurrent.AbstractExecutorService;
 import java.util.concurrent.TimeUnit;
+
+import androidx.annotation.NonNull;
 
 public final class ImmediateExecutorService extends AbstractExecutorService {
     @Override public void shutdown() {

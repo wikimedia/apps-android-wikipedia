@@ -1,8 +1,8 @@
 package org.wikipedia.feed.model;
 
-import android.support.annotation.NonNull;
-
 import java.util.Calendar;
+
+import androidx.annotation.NonNull;
 
 import static java.util.TimeZone.getTimeZone;
 

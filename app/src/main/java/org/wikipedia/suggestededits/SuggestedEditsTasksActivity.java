@@ -3,11 +3,12 @@ package org.wikipedia.suggestededits;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 
 import org.wikipedia.Constants;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
+
+import androidx.annotation.NonNull;
 
 public class SuggestedEditsTasksActivity extends SingleFragmentActivity<SuggestedEditsTasksFragment> {
     private static final String EXTRA_START_IMMEDIATELY = "startImmediately";

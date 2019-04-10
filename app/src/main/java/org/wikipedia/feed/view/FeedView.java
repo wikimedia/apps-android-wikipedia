@@ -1,10 +1,6 @@
 package org.wikipedia.feed.view;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -15,6 +11,11 @@ import org.wikipedia.views.AutoFitRecyclerView;
 import org.wikipedia.views.HeaderMarginItemDecoration;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 import org.wikipedia.views.MarginItemDecoration;
+
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import static org.wikipedia.util.DimenUtil.getDimension;
 import static org.wikipedia.util.DimenUtil.roundedDpToPx;

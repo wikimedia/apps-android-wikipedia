@@ -2,14 +2,15 @@ package org.wikipedia.search;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.page.PageTitle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class SearchResult extends BaseModel implements Parcelable {
     private PageTitle pageTitle;

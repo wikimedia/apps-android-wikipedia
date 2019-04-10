@@ -1,8 +1,5 @@
 package org.wikipedia.html;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
@@ -11,6 +8,9 @@ import org.jsoup.nodes.Element;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class ImageTagParser {
     @NonNull private static final String TAG_NAME = "img";

@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     tools:background="?attr/paper_color">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_drawer_account_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -68,12 +68,12 @@
             style="@style/TransparentButton"
             android:text="@string/main_drawer_login" />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/main_drawer_settings_container"
         style="@style/SideDrawerMenuItem">
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
@@ -92,7 +92,7 @@
     <LinearLayout
         android:id="@+id/main_drawer_notifications_container"
         style="@style/SideDrawerMenuItem">
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
@@ -111,7 +111,7 @@
     <LinearLayout
         android:id="@+id/main_drawer_configure_container"
         style="@style/SideDrawerMenuItem">
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
@@ -136,7 +136,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp">
 
-            <android.support.v7.widget.AppCompatImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:contentDescription="@null"
@@ -173,7 +173,7 @@
     <LinearLayout
         android:id="@+id/main_drawer_donate_container"
         style="@style/SideDrawerMenuItem">
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
@@ -188,7 +188,7 @@
             android:layout_weight="1"
             android:text="@string/nav_item_donate" />
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
@@ -202,7 +202,7 @@
         android:id="@+id/main_drawer_about_container"
         style="@style/SideDrawerMenuItem">
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
@@ -223,7 +223,7 @@
         android:id="@+id/main_drawer_help_container"
         style="@style/SideDrawerMenuItem">
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
@@ -239,7 +239,7 @@
             android:layout_weight="1"
             android:text="@string/main_drawer_help" />
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"

@@ -1,6 +1,6 @@
 package org.wikipedia.createaccount;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * Exception thrown when an account creation request FAILs

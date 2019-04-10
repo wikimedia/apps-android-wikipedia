@@ -1,11 +1,10 @@
 package org.wikipedia.dataclient.page;
 
-import android.support.annotation.NonNull;
-
 import org.junit.Test;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.test.MockRetrofitTest;
 
+import androidx.annotation.NonNull;
 import io.reactivex.observers.TestObserver;
 import okhttp3.CacheControl;
 import retrofit2.Response;

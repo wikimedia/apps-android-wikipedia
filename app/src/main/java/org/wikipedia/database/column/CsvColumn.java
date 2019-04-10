@@ -2,8 +2,6 @@ package org.wikipedia.database.column;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.text.StrMatcher;
@@ -11,6 +9,9 @@ import org.apache.commons.lang3.text.StrTokenizer;
 
 import java.util.ArrayList;
 import java.util.Collection;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 // TODO: replace with table constraints when the database layer is more flexible.
 public abstract class CsvColumn<T> extends Column<T> {

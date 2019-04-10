@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -27,7 +27,7 @@
         app:layout_constraintTop_toBottomOf="@id/view_featured_article_card_image"
         android:background="?attr/material_theme_border_color"/>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/view_featured_article_card_text_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
             android:textColor="?attr/primary_text_color"
             tools:text="Lorem ipsum"/>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <org.wikipedia.feed.view.ActionFooterView
         android:id="@+id/view_featured_article_card_footer"
@@ -87,4 +87,4 @@
         android:layout_height="@dimen/view_card_footer_height"
         app:layout_constraintTop_toBottomOf="@id/view_featured_article_card_text_container"/>
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

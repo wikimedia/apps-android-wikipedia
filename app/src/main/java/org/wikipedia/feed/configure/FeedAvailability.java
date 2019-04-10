@@ -1,11 +1,11 @@
 package org.wikipedia.feed.configure;
 
-import android.support.annotation.NonNull;
-
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Collections;
 import java.util.List;
+
+import androidx.annotation.NonNull;
 
 @SuppressWarnings("unused")
 public class FeedAvailability {

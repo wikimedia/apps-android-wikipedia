@@ -1,13 +1,13 @@
 package org.wikipedia.feed.mainpage;
 
-import android.support.annotation.NonNull;
-
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.dataclient.DummyClient;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.SiteInfoClient;
+
+import androidx.annotation.NonNull;
 
 public class MainPageClient extends DummyClient {
     @Override public Card getNewCard(WikiSite wiki) {

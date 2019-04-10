@@ -2,8 +2,6 @@ package org.wikipedia.edit.richtext;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
 import android.text.TextPaint;
 import android.text.style.ForegroundColorSpan;
 
@@ -12,6 +10,9 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 
 public class ColorSpanEx extends ForegroundColorSpan implements SpanExtents {
     public static final Parcelable.Creator<ColorSpanEx> CREATOR = new Parcelable.Creator<ColorSpanEx>() {

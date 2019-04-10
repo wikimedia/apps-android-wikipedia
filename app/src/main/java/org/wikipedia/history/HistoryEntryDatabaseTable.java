@@ -2,7 +2,6 @@ package org.wikipedia.history;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.support.annotation.NonNull;
 
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
@@ -12,6 +11,8 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
 
 import java.util.Date;
+
+import androidx.annotation.NonNull;
 
 public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
     private static final int DB_VER_NAMESPACE_ADDED = 6;

@@ -1,8 +1,8 @@
 package org.wikipedia.feed.model;
 
-import android.support.annotation.NonNull;
-
 import org.wikipedia.dataclient.WikiSite;
+
+import androidx.annotation.NonNull;
 
 public abstract class WikiSiteCard extends Card {
     @NonNull private WikiSite wiki;

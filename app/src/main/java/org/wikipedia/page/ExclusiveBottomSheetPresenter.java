@@ -2,12 +2,13 @@ package org.wikipedia.page;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentManager;
 
 import org.wikipedia.readinglist.AddToReadingListDialog;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
 
 public class ExclusiveBottomSheetPresenter {
     private static final String BOTTOM_SHEET_FRAGMENT_TAG = "bottom_sheet_fragment";

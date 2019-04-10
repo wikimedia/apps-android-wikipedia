@@ -1,10 +1,10 @@
 package org.wikipedia.dataclient.page;
 
-import android.support.annotation.NonNull;
-
 import org.wikipedia.page.Section;
 
 import java.util.List;
+
+import androidx.annotation.NonNull;
 
 /**
  * Gson POJI for loading remaining page content.
