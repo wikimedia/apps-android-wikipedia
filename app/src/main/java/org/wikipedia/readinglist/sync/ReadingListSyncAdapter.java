@@ -197,7 +197,7 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
                             // with the remote collection, or delete them.
                             // However, let's issue a request to the changes endpoint, so that
                             // it can throw an exception if lists are not set up for the user.
-                            client.getChangesSince(DateUtil.getIso8601DateFormat().format(new Date()));
+                            client.getChangesSince(DateUtil.iso8601DateFormat(new Date()));
                             // Exception wasn't thrown, so post the bus event.
                             WikipediaApp.getInstance().getBus().post(new ReadingListsMergeLocalDialogEvent());
                             return;
@@ -593,7 +593,7 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
         }
         try {
             Date date = DateUtil.getHttpLastModifiedDate(lastDateHeader);
-            return DateUtil.getIso8601DateFormat().format(date);
+            return DateUtil.iso8601DateFormat(date);
         } catch (ParseException e) {
             return lastSyncTime;
         }
