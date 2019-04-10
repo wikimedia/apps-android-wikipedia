@@ -23,6 +23,7 @@ public abstract class HorizontalScrollingListCardView<T extends Card> extends Li
     }
 
     @Override protected void initRecycler(@NonNull RecyclerView recyclerView) {
+        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         recyclerView.addItemDecoration(new MarginItemDecoration(getContext(),
                 R.dimen.view_horizontal_scrolling_list_card_item_margin_horizontal,
