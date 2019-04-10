@@ -49,9 +49,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.feed.onthisday.OnThisDayActivity.AGE;
 import static org.wikipedia.feed.onthisday.OnThisDayActivity.WIKISITE;
@@ -69,8 +69,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     @BindView(R.id.indicator_date) TextView indicatorDate;
     @BindView(R.id.indicator_layout) FrameLayout indicatorLayout;
     @BindView(R.id.toolbar_day) TextView toolbarDay;
-    @BindView(R.id.drop_down_toolbar)
-    ImageView toolbarDropDown;
+    @BindView(R.id.drop_down_toolbar) ImageView toolbarDropDown;
 
     @Nullable private OnThisDay onThisDay;
     private Calendar date;
@@ -80,6 +79,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     public static final float HALF_ALPHA = 0.5f;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private WikiSite wiki;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     @NonNull
     public static OnThisDayFragment newInstance(int age, WikiSite wikiSite) {
@@ -152,42 +152,25 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         eventsRecycler.setVisibility(View.GONE);
         errorView.setVisibility(View.GONE);
 
-        ServiceFactory.getRest(wiki).getOnThisDay(month + 1, date).enqueue(new Callback<OnThisDay>() {
-            @Override
-            public void onResponse(@NonNull Call<OnThisDay> call, @NonNull Response<OnThisDay> response) {
-                if (!isAdded()) {
-                    return;
-                }
-                onThisDay = response.body();
-                if (onThisDay == null || onThisDay.events().isEmpty()) {
-                    setErrorState(new RuntimeException("Incorrect response format."));
-                    return;
-                }
-                progressBar.setVisibility(View.GONE);
-                eventsRecycler.setVisibility(View.VISIBLE);
-                eventsRecycler.setAdapter(new RecyclerAdapter(onThisDay.events(), wiki));
-                List<OnThisDay.Event> events = onThisDay.events();
-                int beginningYear = events.get(events.size() - 1).year();
-                dayInfoTextView.setText(String.format(getString(R.string.events_count_text), Integer.toString(events.size()),
-                        DateUtil.yearToStringWithEra(beginningYear), events.get(0).year()));
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<OnThisDay> call, @NonNull Throwable t) {
-                if (!isAdded()) {
-                    return;
-                }
-                setErrorState(t);
-            }
-        });
-    }
-
-    private void setErrorState(@NonNull Throwable t) {
-        L.e(t);
-        errorView.setError(t);
-        errorView.setVisibility(View.VISIBLE);
-        progressBar.setVisibility(View.GONE);
-        eventsRecycler.setVisibility(View.GONE);
+        disposables.add(ServiceFactory.getRest(wiki).getOnThisDay(month + 1, date)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> {
+                    onThisDay = response;
+                    progressBar.setVisibility(View.GONE);
+                    eventsRecycler.setVisibility(View.VISIBLE);
+                    eventsRecycler.setAdapter(new RecyclerAdapter(onThisDay.events(), wiki));
+                    List<OnThisDay.Event> events = onThisDay.events();
+                    int beginningYear = events.get(events.size() - 1).year();
+                    dayInfoTextView.setText(String.format(getString(R.string.events_count_text), Integer.toString(events.size()),
+                            DateUtil.yearToStringWithEra(beginningYear), events.get(0).year()));
+                }, throwable -> {
+                    L.e(throwable);
+                    errorView.setError(throwable);
+                    errorView.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.GONE);
+                    eventsRecycler.setVisibility(View.GONE);
+                }));
     }
 
     private void setUpToolbar() {
@@ -218,6 +201,8 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
 
     @Override
     public void onDestroyView() {
+        disposables.clear();
+        eventsRecycler.setAdapter(null);
         if (funnel != null && eventsRecycler.getAdapter() != null) {
             funnel.done(eventsRecycler.getAdapter().getItemCount());
             funnel = null;
