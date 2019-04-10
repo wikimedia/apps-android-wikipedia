@@ -556,7 +556,7 @@
   <string name="multilingual_task_positive">Тылы эбии</string>
   <string name="translate_caption_task_title">Ойуу суругун тылбааһа</string>
   <string name="translate_caption_task_description">Ойуу суругун атын тылларга тылбааһа</string>
-  <plurals name="edit_action_contribution_count" fuzzy="true">
+  <plurals name="suggested_edits_contribution_count" fuzzy="true">
     <item quantity="one">уларытыы</item>
     <item quantity="other">уларытыылар</item>
   </plurals>

@@ -616,7 +616,7 @@
   <string name="multilingual_task_positive">Aggiungi lingue</string>
   <string name="translate_caption_task_title">Traduci didascalie immagini</string>
   <string name="translate_caption_task_description">Traduci didascalie in altre lingue</string>
-  <plurals name="edit_action_contribution_count">
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 contributo</item>
     <item quantity="other">%d contributi</item>
   </plurals>

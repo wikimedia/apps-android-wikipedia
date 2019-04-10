@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="?paper_color"
     android:orientation="vertical"
-    tools:context="org.wikipedia.editactionfeed.MyContributionsActivity">
+    tools:context="org.wikipedia.suggestededits.SuggestedEditsContributionsActivity">
 
     <FrameLayout
         android:layout_width="match_parent"

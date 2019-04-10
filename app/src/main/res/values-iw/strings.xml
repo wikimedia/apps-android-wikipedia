@@ -629,7 +629,7 @@
   <string name="multilingual_task_positive">הוספת שפות</string>
   <string name="translate_caption_task_title">תרגום כיתובי תמונה</string>
   <string name="translate_caption_task_description">תרגום כיתובים לשפות אחרות</string>
-  <plurals name="edit_action_contribution_count">
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">תרומה אחת</item>
     <item quantity="other">%d תרומות</item>
   </plurals>

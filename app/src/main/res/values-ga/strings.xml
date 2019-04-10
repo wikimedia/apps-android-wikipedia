@@ -558,7 +558,7 @@
   <string name="multilingual_task_title">Tuilleadh tascanna d\'eagarthóirí ilteangacha</string>
   <string name="multilingual_task_negative">Ní domsa é</string>
   <string name="multilingual_task_positive">Cuir teangacha leis</string>
-  <plurals name="edit_action_contribution_count" fuzzy="true">
+  <plurals name="suggested_edits_contribution_count" fuzzy="true">
     <item quantity="one">dréacht san aip</item>
     <item quantity="other">dréachtaí san aip</item>
   </plurals>

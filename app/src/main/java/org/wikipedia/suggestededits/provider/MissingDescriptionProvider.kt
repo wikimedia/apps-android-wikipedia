@@ -1,4 +1,4 @@
-package org.wikipedia.editactionfeed.provider
+package org.wikipedia.suggestededits.provider
 
 import android.text.TextUtils
 import io.reactivex.Observable
