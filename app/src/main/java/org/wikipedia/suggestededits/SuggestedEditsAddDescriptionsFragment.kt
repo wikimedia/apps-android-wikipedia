@@ -14,6 +14,8 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.viewpager.widget.ViewPager
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -274,7 +276,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
         }
     }
 
-    private class ViewPagerAdapter internal constructor(activity: AppCompatActivity): androidx.fragment.app.FragmentStatePagerAdapter(activity.supportFragmentManager) {
+    private class ViewPagerAdapter internal constructor(activity: AppCompatActivity): FragmentStatePagerAdapter(activity.supportFragmentManager) {
 
         override fun getCount(): Int {
             return Integer.MAX_VALUE
@@ -287,7 +289,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
         }
     }
 
-    private inner class ViewPagerListener : androidx.viewpager.widget.ViewPager.OnPageChangeListener {
+    private inner class ViewPagerListener : ViewPager.OnPageChangeListener {
         private var prevPosition: Int = 0
         private var nextPageSelectedAutomatic: Boolean = false
 
