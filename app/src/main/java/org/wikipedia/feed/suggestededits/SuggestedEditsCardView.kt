@@ -70,7 +70,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     private fun updateContents() {
         viewAddDescriptionButton.visibility = View.VISIBLE
         viewArticleTitle.text = summary!!.normalizedTitle
-        callToActionText.text = if (isTranslation) String.format(context.getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(targetLangCode)) else context.getString(R.string.editactionfeed_add_description_button)
+        callToActionText.text = if (isTranslation) String.format(context.getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(targetLangCode)) else context.getString(R.string.suggested_edits_add_description_button)
         showImageOrExtract()
     }
 
@@ -136,8 +136,8 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
             viewArticleSubtitleAddedBy.visibility = View.VISIBLE
             viewArticleSubtitleEdit.visibility = View.VISIBLE
             viewArticleSubtitle.text = addedDescription
-            if (isTranslation) viewArticleSubtitleAddedBy.text = context.getString(R.string.editactionfeed_translated_by_you)
-            else viewArticleSubtitleAddedBy.text = context.getString(R.string.editactionfeed_added_by_you)
+            if (isTranslation) viewArticleSubtitleAddedBy.text = context.getString(R.string.suggested_edits_translated_by_you)
+            else viewArticleSubtitleAddedBy.text = context.getString(R.string.suggested_edits_added_by_you)
         }
     }
 

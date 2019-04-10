@@ -8,11 +8,11 @@ import org.apache.commons.lang3.StringUtils
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
-import org.wikipedia.editactionfeed.provider.MissingDescriptionProvider
 import org.wikipedia.feed.FeedCoordinator
 import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.feed.model.Card
 import org.wikipedia.page.PageTitle
+import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 
 class SuggestedEditsFeedClient(var translation: Boolean) : FeedClient {
     private val disposables = CompositeDisposable()

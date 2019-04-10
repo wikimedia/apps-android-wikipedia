@@ -12,8 +12,8 @@ import org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.R
-import org.wikipedia.editactionfeed.EditTasksActivity
 import org.wikipedia.settings.Prefs
+import org.wikipedia.suggestededits.SuggestedEditsTasksActivity
 
 
 class SuggestedEditsOnboardingFragment : Fragment() {
@@ -32,7 +32,7 @@ class SuggestedEditsOnboardingFragment : Fragment() {
             if (source == FEED_CARD_SUGGESTED_EDITS_ADD_DESC || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
                 requireActivity().setResult(Activity.RESULT_OK)
             } else {
-                startActivity(EditTasksActivity.newIntent(requireActivity(), SUGGESTED_EDITS_ONBOARDING))
+                startActivity(SuggestedEditsTasksActivity.newIntent(requireActivity(), SUGGESTED_EDITS_ONBOARDING))
             }
             requireActivity().finish()
         }
