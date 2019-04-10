@@ -645,16 +645,16 @@
     <string name="suggested_edits_added_by_you">Added by you:</string>
     <string name="suggested_edits_translated_by_you">Translated by you:</string>
     <string name="suggested_edits_unlock_add_descriptions_dialog_title">You unlocked the "Add descriptions" task</string>
-    <string name="suggested_edits_unlock_add_descriptions_dialog_message">Congratulations on your third contribution! Since you’re super good at editing, we’ve compiled a list of articles missing descriptions. Could you help us to improve Wikipedia?</string>
+    <string name="suggested_edits_unlock_add_descriptions_dialog_message">Thanks for all your contributions! Since you’re super good at editing, we’ve compiled a list of articles missing descriptions. Could you help us to improve Wikipedia?</string>
     <string name="suggested_edits_unlock_translate_descriptions_dialog_title">You unlocked the "Translate descriptions" task</string>
-    <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Congratulations on your 50th contribution, we’re impressed! You’re using the app in multiple languages, so we’ve compiled a list of articles needing description translations. Could you continue to help us improving Wikipedia?</string>
+    <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Congratulations on your many contributions, we’re impressed! You’re using the app in multiple languages, so we’ve compiled a list of articles needing description translations. Could you continue to help us improving Wikipedia?</string>
     <string name="suggested_edits_unlock_dialog_no">Maybe later</string>
     <string name="suggested_edits_unlock_dialog_yes">Yes, let’s go</string>
     <string name="suggested_edits_unlock_add_descriptions_notification_title">You unlocked "Add descriptions"</string>
     <string name="suggested_edits_unlock_translate_descriptions_notification_title">You unlocked "Translate descriptions"</string>
     <string name="suggested_edits_unlock_notification_text">Suggested edits</string>
-    <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Suggested edits\n\nCongratulations on your third contribution. Since you’re super good at editing, we’ve compiled a list of articles missing descriptions. Could you help us to improve Wikipedia?</string>
-    <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Suggested edits\n\nCongratulations on your 50th contribution, we’re impressed! You’re using the app in multiple languages, so we’ve compiled a list of articles needing description translations. Could you continue to help us improving Wikipedia?</string>
+    <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Suggested edits\n\nThanks for all your contributions. Since you’re super good at editing, we’ve compiled a list of articles missing descriptions. Could you help us to improve Wikipedia?</string>
+    <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Suggested edits\n\nCongratulations on your many contributions, we’re impressed! You’re using the app in multiple languages, so we’ve compiled a list of articles needing description translations. Could you continue to help us improving Wikipedia?</string>
     <string name="suggested_edits_unlock_notification_button">Yes, let’s go</string>
     <string name="suggested_edits_license_notice"><![CDATA[By adding the title description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
     <string name="suggested_edits_menu_info">Info</string>
