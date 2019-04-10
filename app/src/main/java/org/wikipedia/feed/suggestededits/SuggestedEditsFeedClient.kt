@@ -27,7 +27,7 @@ class SuggestedEditsFeedClient(var translation: Boolean) : FeedClient {
 
     private fun getArticleWithMissingDescription(cb: FeedClient.Callback, wiki: WikiSite) {
         if (translation) {
-            disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(app.language().appLanguageCodes.get(0)), app.language().appLanguageCodes.get(1), true)
+            disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(app.language().appLanguageCodes[0]), app.language().appLanguageCodes[1], true)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ pair ->

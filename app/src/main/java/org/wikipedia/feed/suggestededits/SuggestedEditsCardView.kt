@@ -9,6 +9,7 @@ import android.widget.FrameLayout
 import io.reactivex.annotations.NonNull
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.fragment_add_title_descriptions_item.view.*
+import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
@@ -30,8 +31,8 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     private var sourceDescription: String = ""
     private val app = WikipediaApp.getInstance()
     private var summary: RbPageSummary? = null
-    private var sourceLangCode: String = app.language().appLanguageCode
-    private var targetLangCode: String = app.language().appLanguageCodes.get(1)
+    private var sourceLangCode: String = app.language().appLanguageCodes[0]
+    private var targetLangCode: String = app.language().appLanguageCodes[1]
     var targetPageTitle: PageTitle? = null
 
     init {
@@ -40,8 +41,8 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     override fun setCard(@NonNull card: SuggestedEditsCard) {
         super.setCard(card)
-        sourceLangCode = app.language().appLanguageCode
-        targetLangCode = app.language().appLanguageCodes.get(1)
+        sourceLangCode = app.language().appLanguageCodes[0]
+        targetLangCode = app.language().appLanguageCodes[1]
         prepareViews()
         this.isTranslation = card.isTranslation
         summary = card.summary
@@ -135,13 +136,13 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
             viewAddDescriptionButton.visibility = View.GONE
             viewArticleSubtitleAddedBy.visibility = View.VISIBLE
             viewArticleSubtitleEdit.visibility = View.VISIBLE
-            viewArticleSubtitle.text = addedDescription
+            viewArticleSubtitle.text = StringUtils.capitalize(addedDescription)
             if (isTranslation) viewArticleSubtitleAddedBy.text = context.getString(R.string.suggested_edits_translated_by_you)
             else viewArticleSubtitleAddedBy.text = context.getString(R.string.suggested_edits_added_by_you)
         }
     }
 
     companion object {
-        val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 6
+        const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 6
     }
 }
