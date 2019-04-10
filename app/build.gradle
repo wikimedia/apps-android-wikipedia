@@ -54,9 +54,9 @@ android {
 
     defaultConfig {
         applicationId 'org.wikipedia'
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 28
-        versionCode 276
+        versionCode 278
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
         vectorDrawables.useSupportLibrary = true
@@ -193,35 +193,26 @@ dependencies {
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
     // Debug with ./gradlew -q app:dependencies --configuration compile
 
-    String okHttpVersion = '3.12.1'
-    String supportVersion = '28.0.0'
+    String okHttpVersion = '3.14.0'
     String retrofitVersion = '2.5.0'
-    String espressoVersion = '3.0.1'
-    String butterKnifeVersion = '8.8.1'
+    String espressoVersion = '3.1.1'
     String frescoVersion = '1.13.0' // When updating this version, resync file copies under app/src/main/java/com/facebook
-    String testingSupportVersion = '1.0.2'
     String mockitoCore = 'org.mockito:mockito-core:1.9.5'
     String leakCanaryVersion = '1.6.2'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    implementation "com.android.support:support-compat:$supportVersion"
-    implementation "com.android.support:support-core-utils:$supportVersion"
-    implementation "com.android.support:support-core-ui:$supportVersion"
-    implementation "com.android.support:support-fragment:$supportVersion"
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation "com.google.android.material:material:1.0.0"
+    implementation "androidx.core:core:1.0.1"
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation "androidx.fragment:fragment:1.0.0"
+    implementation "androidx.palette:palette:1.0.0"
+    implementation "androidx.preference:preference:1.0.0"
+    implementation "androidx.recyclerview:recyclerview:1.0.0"
 
-    implementation "com.android.support:cardview-v7:$supportVersion"
-    implementation "com.android.support:design:$supportVersion"
-    implementation "com.android.support:recyclerview-v7:$supportVersion"
-    implementation "com.android.support:palette-v7:$supportVersion"
-    implementation "com.android.support:preference-v14:$supportVersion"
-
-    implementation "com.dmitrybrant:wikimedia-android-data-client:0.0.13"
-    implementation ('com.github.michael-rapp:chrome-like-tab-switcher:0.3.7') {
-        // TODO: remove when this component updates its own dependency on Support 28.0.0
-        exclude group: 'com.android.support'
-    }
+    implementation "com.dmitrybrant:wikimedia-android-data-client:0.0.14"
+    implementation 'com.github.michael-rapp:chrome-like-tab-switcher:0.4.4'
     implementation 'com.duolingo.open:rtl-viewpager:1.0.3'
     implementation "com.facebook.fresco:animated-gif:$frescoVersion"
     implementation "com.facebook.fresco:fresco:$frescoVersion"
@@ -235,14 +226,14 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:2.2.3"
     implementation "io.reactivex.rxjava2:rxandroid:2.1.0"
     implementation 'com.getkeepsafe.taptargetview:taptargetview:1.12.0'
-    implementation "com.jakewharton:butterknife:$butterKnifeVersion"
+    implementation "com.jakewharton:butterknife:10.1.0"
     implementation "com.mapbox.mapboxsdk:mapbox-android-sdk:7.0.1"
     implementation 'com.mapbox.mapboxsdk:mapbox-android-plugin-annotation-v7:0.4.0'
     implementation 'net.hockeyapp.android:HockeySDK:5.1.1'
     implementation 'org.apache.commons:commons-lang3:3.8.1'
     implementation 'org.jsoup:jsoup:1.11.3'
 
-    annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:10.1.0"
 
     android.productFlavors.each { flavor ->
         String dep
@@ -265,12 +256,10 @@ dependencies {
     androidTestImplementation 'com.crittercism.dexmaker:dexmaker-mockito:1.4'
     androidTestRuntimeOnly 'com.crittercism.dexmaker:dexmaker-dx:1.4'
 
-    // Required by Android JUnit Runner.
-    androidTestImplementation "com.android.support:support-annotations:$supportVersion"
-    androidTestImplementation "com.android.support.test:rules:$testingSupportVersion" // JUnit Rules
-    androidTestImplementation "com.android.support.test:runner:$testingSupportVersion" // Android JUnit Runner
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoVersion"
-    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$espressoVersion"
+    androidTestImplementation "androidx.test:rules:1.1.1" // JUnit Rules
+    androidTestImplementation "androidx.test:runner:1.1.1" // Android JUnit Runner
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
 
 }
 

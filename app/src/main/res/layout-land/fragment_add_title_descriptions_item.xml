@@ -7,7 +7,7 @@
     android:paddingStart="15dp"
     android:paddingEnd="40dp">
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
                     android:ellipsize="end"
                     tools:text="Lorem ipsum"/>
 
-                <android.support.constraint.ConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/viewArticleSubtitleContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -88,7 +88,7 @@
                         android:id="@+id/viewArticleSubtitleAddedBy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/editactionfeed_added_by_you"
+                        android:text="@string/suggested_edits_added_by_you"
                         android:textStyle="italic"
                         android:textColor="?attr/secondary_text_color"
                         android:textSize="14sp"
@@ -123,14 +123,13 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"/>
 
-                </android.support.constraint.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
                     android:id="@+id/viewAddDescriptionButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp">
+                    android:layout_marginTop="9dp">
 
                     <ImageView
                         android:layout_width="20dp"
@@ -146,7 +145,7 @@
                         android:layout_height="match_parent"
                         android:textColor="@color/accent50"
                         android:textSize="14sp"
-                        android:text="@string/editactionfeed_add_description_button"
+                        android:text="@string/suggested_edits_add_description_button"
                         android:fontFamily="sans-serif-medium"
                         android:letterSpacing="0.01"
                         android:lineSpacingExtra="6sp"
@@ -175,5 +174,5 @@
             </LinearLayout>
 
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 </FrameLayout>

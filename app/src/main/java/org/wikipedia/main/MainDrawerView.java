@@ -2,7 +2,6 @@ package org.wikipedia.main;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +17,7 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.UriUtils;
 
+import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

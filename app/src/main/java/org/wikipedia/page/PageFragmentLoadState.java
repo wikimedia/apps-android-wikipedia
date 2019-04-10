@@ -3,9 +3,6 @@ package org.wikipedia.page;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import android.view.View;
@@ -47,6 +44,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import io.reactivex.Completable;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -420,7 +420,7 @@ public class PageFragmentLoadState {
                 .put("showImages", Prefs.isImageDownloadEnabled())
                 .put("collapseTables", Prefs.isCollapseTablesEnabled())
                 .put("theme", app.getCurrentTheme().getMarshallingId())
-                .put("dimImages", Prefs.shouldDimDarkModeImages());
+                .put("dimImages", app.getCurrentTheme().isDark() && Prefs.shouldDimDarkModeImages());
     }
 
     private JSONObject leadSectionPayload(@NonNull Page page) {

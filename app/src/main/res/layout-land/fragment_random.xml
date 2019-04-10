@@ -1,4 +1,4 @@
-<android.support.design.widget.CoordinatorLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/random_coordinator_layout"
@@ -8,7 +8,7 @@
     android:transitionName="@string/transition_random_activity"
     android:orientation="vertical">
 
-    <android.support.v4.view.ViewPagerWithVelocity
+    <androidx.viewpager.widget.ViewPagerWithVelocity
         android:id="@+id/random_item_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,10 +22,11 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
             android:layout_gravity="center_vertical"
+            android:padding="16dp"
+            android:clipToPadding="false"
             android:orientation="vertical"
-            android:gravity="center_vertical">
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/random_back_button"
@@ -39,7 +40,7 @@
                 android:tint="?attr/themed_icon_color"
                 android:contentDescription="@null"/>
 
-            <android.support.design.widget.FloatingActionButton
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/random_next_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -68,4 +69,4 @@
 
     </FrameLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,8 +1,5 @@
 package org.wikipedia.feed.news;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
-
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.ListCard;
@@ -11,6 +8,9 @@ import org.wikipedia.feed.model.UtcDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 
 public class NewsListCard extends ListCard<NewsItemCard> {
     @NonNull private UtcDate date;

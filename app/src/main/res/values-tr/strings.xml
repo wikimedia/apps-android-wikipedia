@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * 1917 Ekim Devrimi
+* Abijeet Patro
 * Alidemirtas
 * Bulgu
 * Envlh
@@ -214,6 +215,7 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.tr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.tr</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Kullanılan kütüphaneler</string>
   <string name="about_contributors_heading">Katkıda bulunanlar</string>
   <string name="about_translators_heading">Çevirmenler</string>
@@ -603,8 +605,6 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Tanımları düzenlemeye olan ilginiz için teşekkürler! Daha fazla değişiklik yapmak için lütfen Vikipedi hesabınıza giriş yapın.</string>
   <string name="description_edit_license_notice">Başlık tanımını değiştirerek &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarımı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansıyla yayımlamayı kabul ediyorum.</string>
-  <string name="description_edit_task_unlock_title" fuzzy="true">Başlık açıklaması düzenleme görev listesi açıldı!</string>
-  <string name="description_edit_task_unlock_body" fuzzy="true">Başlık açıklamalarını düzenlemeyi sevdiğini fark ettik. Bu nedenle katkıda bulunmaya devam etmene yardımcı olacak eksik başlık açıklamasına sahip daha çok maddeye sahip bir \"Editör görevi\" listesini senin için derledik!</string>
   <string name="description_edit_success_saved">Açıklama yayımlandı!</string>
   <string name="description_edit_success_saved_snackbar">Açıklama yayımlandı!</string>
   <string name="description_edit_success_encouragement">Vikipedi\'yi herkes için daha iyi hâle getirdin</string>
@@ -618,16 +618,37 @@
   <string name="description_edit_tutorial_button_label_start_editing">Düzenlemeye başla</string>
   <string name="description_edit_tutorial_promise">Başlarken bu özelliği kötüye kullanmayacağıma söz veriyorum.</string>
   <string name="editactionfeed_add_title_descriptions">Açıklama ekle</string>
-  <string name="editactionfeed_translate_descriptions">Başlık açıklamalarını çevir</string>
   <string name="editactionfeed_review_title_description">Yorum açıklaması</string>
   <string name="editactionfeed_add_description_button">Açıklama ekle</string>
   <string name="editactionfeed_my_contributions">Katkılarım</string>
-  <string name="editactionfeed_from_language">Kaynak:</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">Daha fazla bilgi</string>
-  <string name="editactionfeed_translate_title_dialog_learn_more">Daha fazla bilgi</string>
-  <string name="editactionfeed_to_language">Hedef:</string>
   <string name="editactionfeed_added_by_you">Sizin eklediğiniz:</string>
   <string name="editactionfeed_translated_by_you">Senin çevirdiklerin:</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Başlık açıklaması düzenleme görev listesi açıldı!</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Başlık açıklamalarını düzenlemeyi sevdiğini fark ettik. Bu nedenle katkıda bulunmaya devam etmene yardımcı olacak eksik başlık açıklamasına sahip daha çok maddeye sahip bir \"Editör görevi\" listesini senin için derledik!</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Başlık açıklamaları çevirilerine dair düzenleme kilidi açıldı!</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Başlık açıklamalarını düzenlemek istediğinizi fark ettik ve birden çok dilde Vikipwsi\'yi okuyun. Daha fazla başlık açıklaması çevirmeye izin veren bu görev listesine göz atın!</string>
+  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Belki daha sonra</string>
+  <string name="suggested_edits_menu_info">Bilgi</string>
+  <string name="title_description_task_title">Tanım ekle</string>
+  <string name="title_description_task_description">Tanımı olmayan sayfalara katkı yap</string>
+  <string name="image_caption_task_title">Resimlere altyazı koy</string>
+  <string name="image_caption_task_description">Resimlere resim yazıları ekle</string>
+  <string name="multilingual_task_title">Çok dilli editörler için daha fazla görev</string>
+  <string name="multilingual_task_description">Eğer birden fazla Vikipedi dilinde okuyup yazabiliyorsanız, çeviri görevleri size göredir.</string>
+  <string name="translation_task_title">Açıklamaları çevir</string>
+  <string name="translation_task_description">Madde dillerinde açıklamaları çevirin.</string>
+  <string name="image_caption_edit_disable_text">%d doğrulanmış katkı yapana kadar kilitlendi</string>
+  <string name="translate_description_edit_disable_text">%d doğrulanmış katkı yapana kadar kilitlendi</string>
+  <string name="multilingual_task_negative">Bana göre değil</string>
+  <string name="multilingual_task_positive">Dil ekle</string>
+  <string name="translate_caption_task_title">Resim başlıklarını çevir</string>
+  <string name="translate_caption_task_description">Resim başlıklarını diğer dillere çevir</string>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="one">1 katkı</item>
+    <item quantity="other">%d katkı</item>
+  </plurals>
+  <string name="description_edit_tutorial_message">Vikipedi uygulamasında hızlı düzenleme için yeni anasayfaya hoş geldiniz. Katkılarınıza oldukça değer verilmektedir. İyi düzenlemeler!</string>
+  <string name="edit_tasks_onboarding_get_started">Başla</string>
   <string name="description_edit_revert_subtitle">Vikipedi\'yi düzenlediğiniz için teşekkürler!</string>
   <string name="description_edit_revert_intro">Elinizden geleni yaptığınızı biliyoruz ama incleyenlerden biri, bir sıkıntı gördü. Değişikliğiniz geri alınmasının muhtemel sebepleri şunlar olabilir:</string>
   <string name="description_edit_revert_reason1">katkınız &lt;a href=\"%1$s\"&gt;kurallardan&lt;/a&gt; birine uymuyordu.</string>
@@ -706,40 +727,4 @@
   <string name="main_drawer_close">Kapat</string>
   <string name="main_drawer_help">Yardım</string>
   <string name="main_drawer_login">Vikipedi\'ye giriş yapın / kaydolun</string>
-  <string name="title_description_task_title">Tanım ekle</string>
-  <string name="title_description_task_description">Tanımı olmayan sayfalara katkı yap</string>
-  <string name="image_caption_task_title">Resimlere altyazı koy</string>
-  <string name="image_caption_task_description">Resimlere resim yazıları ekle</string>
-  <string name="multilingual_task_title">Çok dilli editörler için daha fazla görev</string>
-  <string name="multilingual_task_description">Eğer birden fazla Vikipedi dilinde okuyup yazabiliyorsanız, çeviri görevleri size göredir.</string>
-  <string name="translation_task_title">Açıklamaları çevir</string>
-  <string name="translation_task_description">Madde dillerinde açıklamaları çevirin.</string>
-  <string name="image_caption_edit_disable_text">%d doğrulanmış katkı yapana kadar kilitlendi</string>
-  <string name="translate_description_edit_disable_text">%d doğrulanmış katkı yapana kadar kilitlendi</string>
-  <string name="multilingual_task_negative">Bana göre değil</string>
-  <string name="multilingual_task_positive">Dil ekle</string>
-  <string name="editing_level_text">%d. SEVİYE app editör</string>
-  <string name="translation_source_description">%s açıklama:</string>
-  <string name="translate_caption_task_title">Resim başlıklarını çevir</string>
-  <string name="translate_caption_task_description">Resim başlıklarını diğer dillere çevir</string>
-  <plurals name="edit_action_contribution_count">
-    <item quantity="one">1 katkı</item>
-    <item quantity="other">%d katkı</item>
-  </plurals>
-  <string name="add_title_descriptions_dialog_title">Başlık tanımları ekle</string>
-  <string name="add_title_descriptions_dialog_message">Artık madde başlıklarının altında görünen açıklamaları ekleyerek Vikipedi\'yi iyileştirmeye yardımcı olabilirsiniz. Dillerinizi istediğiniz zaman yapılandırabilirsiniz.</string>
-  <string name="add_translate_descriptions_dialog_title">İlk defa başlık açıklamalarını çeviriyorsunuz</string>
-  <string name="add_translate_descriptions_dialog_message">Artık başlık açıklamalarını çevirerek Vikipedi\'yi iyileştirmede yardımcı olabilirsiniz. Dillerinizi yapılandırabilir ve istediğiniz zaman bir çeviri yönü belirleyebilirsiniz.</string>
-  <string name="description_edit_tutorial_message">Vikipedi uygulamasında hızlı düzenleme için yeni anasayfaya hoş geldiniz. Katkılarınıza oldukça değer verilmektedir. İyi düzenlemeler!</string>
-  <string name="translation_description_edit_task_unlock_title" fuzzy="true">Başlık açıklamaları çevirilerine dair düzenleme kilidi açıldı!</string>
-  <string name="translation_description_edit_task_unlock_body" fuzzy="true">Başlık açıklamalarını düzenlemek istediğinizi fark ettik ve birden çok dilde Vikipwsi\'yi okuyun. Daha fazla başlık açıklaması çevirmeye izin veren bu görev listesine göz atın!</string>
-  <string name="title_description_editing_skip">Atla</string>
-  <string name="title_description_get_started">Başla</string>
-  <string name="translate_description_get_started">Başla</string>
-  <string name="edit_tasks_onboarding_get_started">Başla</string>
-  <string name="translate_descriptions_maybe_later">Belki daha sonra</string>
-  <string name="title_descriptions_onboarding_got_it">Anladım</string>
-  <string name="translate_descriptions_onboarding_got_it">Anladım</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_menu_info">Bilgi</string>
 </resources>

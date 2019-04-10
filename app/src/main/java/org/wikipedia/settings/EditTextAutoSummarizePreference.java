@@ -1,13 +1,12 @@
 package org.wikipedia.settings;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.os.Build;
-import android.support.v7.preference.EditTextPreference;
 import android.util.AttributeSet;
 
 import org.wikipedia.R;
+
+import androidx.preference.EditTextPreference;
 
 public class EditTextAutoSummarizePreference extends EditTextPreference {
     protected static final int DEFAULT_STYLE_ATTR = R.attr.editTextAutoSummarizePreferenceStyle;
@@ -30,7 +29,6 @@ public class EditTextAutoSummarizePreference extends EditTextPreference {
         init(attrs, defStyleAttr, DEFAULT_STYLE);
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public EditTextAutoSummarizePreference(Context context, AttributeSet attrs, int defStyleAttr,
            int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);

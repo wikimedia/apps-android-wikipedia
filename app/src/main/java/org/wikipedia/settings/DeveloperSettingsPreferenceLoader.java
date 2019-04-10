@@ -1,19 +1,12 @@
 package org.wikipedia.settings;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceFragmentCompat;
-import android.support.v7.preference.TwoStatePreference;
 import android.text.TextUtils;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.crash.RemoteLogException;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity;
-import org.wikipedia.editactionfeed.provider.MissingDescriptionProvider;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.notifications.NotificationEditorTasksHandler;
 import org.wikipedia.page.PageActivity;
@@ -21,6 +14,8 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
+import org.wikipedia.suggestededits.SuggestedEditsAddDescriptionsActivity;
+import org.wikipedia.suggestededits.provider.MissingDescriptionProvider;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.DialogTitleWithImage;
@@ -28,6 +23,11 @@ import org.wikipedia.views.DialogTitleWithImage;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.TwoStatePreference;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
@@ -226,7 +226,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
 
         findPreference(context.getString(R.string.preferences_developer_suggested_edits_add_description_dialog))
                 .setOnPreferenceClickListener(preference -> {
-                    AddTitleDescriptionsActivity.Companion.showEditUnlockDialog(getActivity());
+                    SuggestedEditsAddDescriptionsActivity.Companion.showEditUnlockDialog(getActivity());
                     return true;
                 });
 
@@ -238,7 +238,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
 
         findPreference(context.getString(R.string.preferences_developer_suggested_edits_translate_description_dialog))
                 .setOnPreferenceClickListener(preference -> {
-                    AddTitleDescriptionsActivity.Companion.showTranslateUnlockDialog(getActivity());
+                    SuggestedEditsAddDescriptionsActivity.Companion.showTranslateUnlockDialog(getActivity());
                     return true;
                 });
 

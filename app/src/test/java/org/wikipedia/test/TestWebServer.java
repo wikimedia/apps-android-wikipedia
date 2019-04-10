@@ -1,11 +1,10 @@
 package org.wikipedia.test;
 
-import android.support.annotation.NonNull;
-
 import org.wikipedia.testlib.TestConstants;
 
 import java.io.IOException;
 
+import androidx.annotation.NonNull;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import okhttp3.mockwebserver.RecordedRequest;

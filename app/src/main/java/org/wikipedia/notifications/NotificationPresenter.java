@@ -10,12 +10,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.net.Uri;
-import android.os.Build;
-import android.support.annotation.ColorRes;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 
 import org.wikipedia.Constants;
@@ -23,6 +17,12 @@ import org.wikipedia.R;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
+
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
 
 public final class NotificationPresenter {
     private static final int REQUEST_CODE_ACTIVITY = 0;
@@ -103,7 +103,7 @@ public final class NotificationPresenter {
                                         @DrawableRes int icon, @ColorRes int color, @NonNull Intent bodyIntent) {
         builder.setContentIntent(PendingIntent.getActivity(context, REQUEST_CODE_ACTIVITY, bodyIntent, PendingIntent.FLAG_UPDATE_CURRENT))
                 .setLargeIcon(drawNotificationBitmap(context, color, icon))
-                .setSmallIcon(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? R.drawable.ic_wikipedia_w : R.mipmap.launcher)
+                .setSmallIcon(R.drawable.ic_wikipedia_w)
                 .setColor(ContextCompat.getColor(context, color))
                 .setContentTitle(title)
                 .setContentText(text)

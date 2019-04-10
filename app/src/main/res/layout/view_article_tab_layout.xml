@@ -1,8 +1,8 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:parentTag="android.support.constraint.ConstraintLayout">
-    <android.support.v7.widget.AppCompatImageView
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/article_menu_bookmark"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -12,7 +12,7 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_bookmark_border_white_24dp" />
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/article_menu_share"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -22,7 +22,7 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         app:layout_constraintStart_toEndOf="@+id/article_menu_bookmark"
         app:srcCompat="@drawable/ic_share_white_24dp" />
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/article_menu_change_language"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -32,7 +32,7 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         app:layout_constraintStart_toEndOf="@+id/article_menu_share"
         app:srcCompat="@drawable/ic_translate_white_24dp" />
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/article_menu_find_in_page"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -42,7 +42,7 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         app:layout_constraintStart_toEndOf="@+id/article_menu_change_language"
         app:srcCompat="@drawable/ic_find_in_page" />
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/article_menu_font_and_theme"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -52,7 +52,7 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         app:layout_constraintStart_toEndOf="@+id/article_menu_find_in_page"
         app:srcCompat="@drawable/ic_format_size_white_24dp" />
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/article_menu_show_toc"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

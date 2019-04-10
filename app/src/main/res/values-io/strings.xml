@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Algentem
 * Joao Xavier
 * Robin van der Vliet
@@ -336,16 +337,10 @@
   <string name="description_edit_help_about_wikidata">Pri Wikidonaji</string>
   <string name="description_edit_success_did_you_know">Ka tu savis?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Komencar redaktar</string>
-  <string name="editactionfeed_translate_title_dialog_learn_more">Lernez pluse</string>
+  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Posible pose</string>
+  <string name="edit_tasks_onboarding_get_started">Por komencar</string>
   <string name="onboarding_continue">Durar</string>
   <string name="onboarding_welcome_title_v2">La libera Enciklopedio\n…en plua kam 300 lingui</string>
   <string name="this_year">Cayare</string>
   <string name="languages_list_all_text">Omna lingui</string>
-  <string name="title_description_editing_skip">Saltar</string>
-  <string name="title_description_get_started">Por komencar</string>
-  <string name="translate_description_get_started">Por komencar</string>
-  <string name="edit_tasks_onboarding_get_started">Por komencar</string>
-  <string name="translate_descriptions_maybe_later">Posible pose</string>
-  <string name="title_descriptions_onboarding_got_it">Me komprenas</string>
-  <string name="translate_descriptions_onboarding_got_it">Me komprenas</string>
 </resources>

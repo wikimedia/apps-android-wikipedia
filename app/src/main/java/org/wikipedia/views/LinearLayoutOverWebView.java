@@ -1,13 +1,14 @@
 package org.wikipedia.views;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.widget.LinearLayout;
 
 import org.wikipedia.util.DimenUtil;
+
+import androidx.annotation.NonNull;
 
 public class LinearLayoutOverWebView extends LinearLayout {
     private ObservableWebView webView;

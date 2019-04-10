@@ -1,7 +1,6 @@
 package org.wikipedia.settings;
 
 import android.os.Bundle;
-import android.support.v7.preference.SwitchPreferenceCompat;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -13,6 +12,7 @@ import org.wikipedia.events.ReadingListsEnabledStatusEvent;
 import org.wikipedia.events.ReadingListsMergeLocalDialogEvent;
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent;
 
+import androidx.preference.SwitchPreferenceCompat;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 

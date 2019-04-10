@@ -16,7 +16,7 @@
         android:layout_width="1dp"
         android:layout_height="20dp" />
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/years_text_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
             android:textSize="12sp"
             android:maxLines="1"
             tools:text="123 years ago" />
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/year_layout"
@@ -107,7 +107,7 @@
         android:textSize="16sp"
         tools:text="Thomas Edison films American sharpshooter Annie Oakley, which is instrumental in her hiring by Buffalo Bill for his Wild West Show." />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pages_recycler"
         android:layout_width="match_parent"
         android:layout_height="72dp"

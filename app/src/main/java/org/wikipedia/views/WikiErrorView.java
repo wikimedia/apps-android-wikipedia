@@ -2,11 +2,6 @@ package org.wikipedia.views;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,6 +12,11 @@ import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.dataclient.mwapi.MwException;
 
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.core.content.ContextCompat;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

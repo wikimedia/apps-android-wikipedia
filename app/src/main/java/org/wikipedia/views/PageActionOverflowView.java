@@ -3,12 +3,6 @@ package org.wikipedia.views;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.widget.PopupWindowCompat;
-import android.support.v7.widget.AppCompatImageView;
-import android.support.v7.widget.CardView;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +11,12 @@ import android.widget.PopupWindow;
 
 import org.wikipedia.R;
 import org.wikipedia.page.tabs.Tab;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.core.widget.PopupWindowCompat;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -50,9 +47,7 @@ public class PageActionOverflowView extends FrameLayout {
                 ViewGroup.LayoutParams.WRAP_CONTENT, true);
         popupWindowHost.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         PopupWindowCompat.setOverlapAnchor(popupWindowHost, true);
-        final int compatOffset = 8;
-        PopupWindowCompat.showAsDropDown(popupWindowHost, anchorView, 0, Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP
-                ? -DimenUtil.getToolbarHeightPx(anchorView.getContext()) + DimenUtil.roundedDpToPx(compatOffset) : 0, Gravity.END);
+        PopupWindowCompat.showAsDropDown(popupWindowHost, anchorView, 0, 0, Gravity.END);
 
 
         final float disabledAlpha = 0.5f;
@@ -97,11 +92,6 @@ public class PageActionOverflowView extends FrameLayout {
     private void init() {
         inflate(getContext(), R.layout.view_page_action_overflow, this);
         ButterKnife.bind(this);
-
-        CardView cardContainer = findViewById(R.id.page_action_overflow_card_container);
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            cardContainer.setPreventCornerOverlap(false);
-        }
 
         FeedbackUtil.setToolbarButtonLongPressToast(forwardButton, backButton);
     }

@@ -1,10 +1,5 @@
 package org.wikipedia.language;
 
-import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -14,6 +9,9 @@ import org.robolectric.ParameterizedRobolectricTestRunner.Parameters;
 
 import java.util.Arrays;
 import java.util.Locale;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -39,7 +37,7 @@ public class LanguageUtilTest {
             super(input, expected);
         }
 
-        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP) @Test public void test() {
+        @Test public void test() {
             Locale locale = Locale.forLanguageTag(input());
             test(locale, expected());
         }
@@ -59,7 +57,7 @@ public class LanguageUtilTest {
             super(input, expected);
         }
 
-        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP) @Test public void test() {
+        @Test public void test() {
             test(input(), expected());
         }
     }

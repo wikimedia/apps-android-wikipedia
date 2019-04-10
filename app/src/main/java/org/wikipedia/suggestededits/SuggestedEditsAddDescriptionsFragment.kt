@@ -1,13 +1,9 @@
-package org.wikipedia.editactionfeed
+package org.wikipedia.suggestededits
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.graphics.drawable.Animatable
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentStatePagerAdapter
-import android.support.v4.view.ViewPager
-import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +12,8 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -31,14 +29,14 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
-import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.EXTRA_SOURCE
-import org.wikipedia.editactionfeed.AddTitleDescriptionsActivity.Companion.EXTRA_SOURCE_ADDED_DESCRIPTION
 import org.wikipedia.page.PageTitle
+import org.wikipedia.suggestededits.SuggestedEditsAddDescriptionsActivity.Companion.EXTRA_SOURCE
+import org.wikipedia.suggestededits.SuggestedEditsAddDescriptionsActivity.Companion.EXTRA_SOURCE_ADDED_DESCRIPTION
 import org.wikipedia.util.AnimationUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.log.L
 
-class AddTitleDescriptionsFragment : Fragment() {
+class SuggestedEditsAddDescriptionsFragment : Fragment() {
     private val viewPagerListener = ViewPagerListener()
     private var funnel: RandomizerFunnel? = null
     private val disposables = CompositeDisposable()
@@ -58,11 +56,11 @@ class AddTitleDescriptionsFragment : Fragment() {
             return if (source == EDIT_FEED_TITLE_DESC) titleFromPageName(f?.title, f?.addedDescription) else f?.targetPageTitle
         }
 
-    private val topChild: AddTitleDescriptionsItemFragment?
+    private val topChild: SuggestedEditsAddDescriptionsItemFragment?
         get() {
             val fm = fragmentManager
             for (f in fm!!.fragments) {
-                if (f is AddTitleDescriptionsItemFragment && f.pagerPosition == addTitleDescriptionsItemPager.currentItem) {
+                if (f is SuggestedEditsAddDescriptionsItemFragment && f.pagerPosition == addTitleDescriptionsItemPager.currentItem) {
                     return f
                 }
             }
@@ -275,20 +273,20 @@ class AddTitleDescriptionsFragment : Fragment() {
         }
     }
 
-    private class ViewPagerAdapter internal constructor(activity: AppCompatActivity): FragmentStatePagerAdapter(activity.supportFragmentManager) {
+    private class ViewPagerAdapter internal constructor(activity: AppCompatActivity): androidx.fragment.app.FragmentStatePagerAdapter(activity.supportFragmentManager) {
 
         override fun getCount(): Int {
             return Integer.MAX_VALUE
         }
 
         override fun getItem(position: Int): Fragment {
-            val f = AddTitleDescriptionsItemFragment.newInstance()
+            val f = SuggestedEditsAddDescriptionsItemFragment.newInstance()
             f.pagerPosition = position
             return f
         }
     }
 
-    private inner class ViewPagerListener : ViewPager.OnPageChangeListener {
+    private inner class ViewPagerListener : androidx.viewpager.widget.ViewPager.OnPageChangeListener {
         private var prevPosition: Int = 0
         private var nextPageSelectedAutomatic: Boolean = false
 
@@ -318,8 +316,8 @@ class AddTitleDescriptionsFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(source: InvokeSource): AddTitleDescriptionsFragment {
-            val addTitleDescriptionsFragment = AddTitleDescriptionsFragment()
+        fun newInstance(source: InvokeSource): SuggestedEditsAddDescriptionsFragment {
+            val addTitleDescriptionsFragment = SuggestedEditsAddDescriptionsFragment()
             val args = Bundle()
             args.putSerializable(EXTRA_SOURCE, source)
             addTitleDescriptionsFragment.arguments = args

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.RemoteException;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +17,9 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.ContentProviderClientCompat;
 
 import java.util.Date;
+
+import androidx.annotation.NonNull;
+import androidx.cursoradapter.widget.CursorAdapter;
 
 import static org.wikipedia.util.L10nUtil.setConditionalTextDirection;
 
@@ -73,7 +75,7 @@ public class EditSummaryHandler {
         return false;
     }
 
-    private  class EditSummaryAdapter extends android.support.v4.widget.CursorAdapter {
+    private  class EditSummaryAdapter extends CursorAdapter {
         EditSummaryAdapter(Context context, Cursor c, boolean autoRequery) {
             super(context, c, autoRequery);
         }

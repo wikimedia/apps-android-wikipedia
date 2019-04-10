@@ -7,14 +7,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Build;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
-import android.support.v4.app.NotificationCompat;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.util.MathUtil;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+import androidx.core.app.NotificationCompat;
 
 public class NotificationWithProgressBar {
     private boolean canceled;
@@ -65,7 +66,7 @@ public class NotificationWithProgressBar {
                     .createNotificationChannel(mChannel);
         }
 
-        builderIcon = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? getNotificationIcon() : R.mipmap.launcher;
+        builderIcon = getNotificationIcon();
         builderTitle = String.format(context.getResources().getQuantityString(getNotificationTitle(), total), total);
         builderInfo = (int) MathUtil.percentage(progress, total) + "%";
         builderDescription = String.format(context.getResources().getQuantityString(getNotificationDescription(), total - progress), total - progress);
@@ -124,8 +125,7 @@ public class NotificationWithProgressBar {
                                                              @DrawableRes int buttonDrawable,
                                                              @StringRes int buttonText,
                                                              int requestCode) {
-        return new NotificationCompat.Action.Builder(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? buttonDrawable : android.R.color.transparent,
-                context.getString(buttonText),
+        return new NotificationCompat.Action.Builder(buttonDrawable, context.getString(buttonText),
                 pendingIntentBuilder(context, targetClass, intentExtra, requestCode)).build();
     }
 

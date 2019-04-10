@@ -7,12 +7,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -32,6 +31,8 @@ import org.wikipedia.views.WikiErrorView;
 
 import java.util.Collections;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

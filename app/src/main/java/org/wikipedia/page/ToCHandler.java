@@ -2,10 +2,7 @@ package org.wikipedia.page;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-import android.graphics.PorterDuff;
 import android.graphics.Typeface;
-import android.os.Build;
-import android.support.annotation.NonNull;
 import android.util.SparseIntArray;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -31,7 +28,6 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.L10nUtil;
-import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
@@ -39,6 +35,8 @@ import org.wikipedia.views.PageScrollerView;
 import org.wikipedia.views.SwipeableListView;
 
 import java.util.ArrayList;
+
+import androidx.annotation.NonNull;
 
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
@@ -124,14 +122,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
                 // ignore
             }
         });
-
-        // TODO: remove after no longer support API19 and use the elevation
-        if (android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            scrollerView.setBackgroundResource(ResourceUtil.getThemedAttributeId(fragment.requireContext(), R.attr.toc_scroller_button_drawable));
-        } else {
-            scrollerView.setBackgroundResource(R.drawable.shape_circle);
-            scrollerView.getBackground().setColorFilter(ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.toc_scroller_button_color), PorterDuff.Mode.SRC_IN);
-        }
 
         scrollerView.setCallback(new ScrollerCallback());
         setScrollerPosition();

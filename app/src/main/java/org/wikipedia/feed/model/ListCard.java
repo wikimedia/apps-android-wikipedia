@@ -1,11 +1,11 @@
 package org.wikipedia.feed.model;
 
-import android.support.annotation.NonNull;
-
 import org.wikipedia.dataclient.WikiSite;
 
 import java.util.Collections;
 import java.util.List;
+
+import androidx.annotation.NonNull;
 
 public abstract class ListCard<T extends Card> extends WikiSiteCard {
     @NonNull private final List<T> items;

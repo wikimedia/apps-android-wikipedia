@@ -1,7 +1,5 @@
 package org.wikipedia.readinglist.database;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.apache.commons.lang3.StringUtils;
@@ -12,6 +10,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class ReadingList implements Serializable {
     public static final int SORT_BY_NAME_ASC = 0;

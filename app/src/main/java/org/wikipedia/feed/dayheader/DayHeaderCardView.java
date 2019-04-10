@@ -1,8 +1,6 @@
 package org.wikipedia.feed.dayheader;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -10,6 +8,9 @@ import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedCardView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class DayHeaderCardView extends FrameLayout implements FeedCardView<Card> {
     private Card card;

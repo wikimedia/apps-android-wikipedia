@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Bjankuloski06
 * Vlad5250
 * Монтехристо
@@ -190,6 +191,7 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.mk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.mk</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Користени библиотеки</string>
   <string name="about_contributors_heading">Учесници</string>
   <string name="about_translators_heading">Преведувачи</string>
@@ -572,6 +574,7 @@
   <string name="description_edit_article">Статија</string>
   <string name="description_edit_read">Прочитај</string>
   <string name="description_edit_add_description">Додај опис на насловот</string>
+  <string name="description_edit_add_description_v2">Додај опис</string>
   <string name="description_edit_edit_description">Уреди опис</string>
   <string name="add_translation">Стави превод на %s</string>
   <string name="description_edit_cancel_hint">Откажи</string>
@@ -581,8 +584,6 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English?uselang=mk</string>
   <string name="description_edit_anon_limit">Ви благодариме за постојаниот интерес за уредување на описите! За да направите уште уредувања, ќе мора да се најавите со вашата сметка на Википедија.</string>
   <string name="description_edit_license_notice">Менувајќи го описот на насловот, се согласувам со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувам моите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;Криејтив комонс CC0&lt;/a&gt;</string>
-  <string name="description_edit_task_unlock_title">Го отклучивте „Додај описи“</string>
-  <string name="description_edit_task_unlock_body">Ви благодариме за постојаните придонеси! Бидејќи сте одлични уредници, составивме список на статии кои немаат описи. Дали би ни помогнале да ја подобриме Википедија?</string>
   <string name="description_edit_success_saved">Описот е објавен!</string>
   <string name="description_edit_success_saved_snackbar">Описот е објавен!</string>
   <string name="description_edit_success_encouragement">Штотуку ја подобривте Википедија за сите</string>
@@ -596,16 +597,45 @@
   <string name="description_edit_tutorial_button_label_start_editing">Почнете со уредување</string>
   <string name="description_edit_tutorial_promise">Почнувајќи, ветувам дека нема да ја злоупотребувам функцијава.</string>
   <string name="editactionfeed_add_title_descriptions">Додај описи</string>
-  <string name="editactionfeed_translate_descriptions">Превод на описи на наслови</string>
   <string name="editactionfeed_review_title_description">Преглед на описот</string>
   <string name="editactionfeed_add_description_button">Додај опис</string>
   <string name="editactionfeed_my_contributions">Мои придонеси</string>
-  <string name="editactionfeed_from_language">Од:</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">Дознајте повеќе</string>
-  <string name="editactionfeed_translate_title_dialog_learn_more">Дознајте повеќе</string>
-  <string name="editactionfeed_to_language">На:</string>
   <string name="editactionfeed_added_by_you">Додадено од вас:</string>
   <string name="editactionfeed_translated_by_you">Преведено од Вас:</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Ја отклучивте задачата „Додај описи“</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Честитаме на вашиот трет придонес! Бидејќи сте одлични уредници, составивме список на статии кои немаат описи. Дали би ни помогнале да ја подобриме Википедија?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Ја отклучивте задачата „Преведи описи“</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Ви благодариме за постојаните придонеси! Го користите прилогот на повеќе јазици, па затоа составивме список на статии чии описи треба да се преведат. Дали би продолжиле да ни помагате во подобрувањето на Википедија?</string>
+  <string name="suggested_edits_unlock_dialog_no">Можеби подоцна</string>
+  <string name="suggested_edits_unlock_dialog_yes">Да, ајде</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">Го отклучивте „Додај описи“</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Го отклучивте „Преведи описи“</string>
+  <string name="suggested_edits_unlock_notification_text">Предложени уредувања</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Предложени уредувања\n\nЧеститаме на вашиот трет придонес! Бидејќи сте одлични уредници, составивме список на статии кои немаат описи. Дали би ни помогнале да ја подобриме Википедија?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Предложени уредувања\n\nВи благодариме за вашиот 50-ти придонес! Го користите прилогот на повеќе јазици, па затоа составивме список на статии чии описи треба да се преведат. Дали би продолжиле да ни помагате во подобрувањето на Википедија?</string>
+  <string name="suggested_edits_unlock_notification_button">Да, ајде</string>
+  <string name="suggested_edits_license_notice">Додавајќи го описот на насловот, се согласувам со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувам моите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;Криејтив комонс CC0&lt;/a&gt;</string>
+  <string name="suggested_edits_menu_info">Инфо</string>
+  <string name="title_description_task_title">Додај описи</string>
+  <string name="title_description_task_description">Придонесувајте со статии без описи</string>
+  <string name="image_caption_task_title">Описи на слики</string>
+  <string name="image_caption_task_description">Додај описи на слики</string>
+  <string name="multilingual_task_title">Повеќе задачи за повеќејазични уредници</string>
+  <string name="multilingual_task_description">Има преводни задачи на располагање доколку читате и пишувате на Википедија на повеќе од еден јазик.</string>
+  <string name="translation_task_title">Превод на описи</string>
+  <string name="translation_task_description">Превод на описи на други јазици</string>
+  <string name="image_caption_edit_disable_text">Заклучено додека не направите %d проверени уредувања</string>
+  <string name="translate_description_edit_disable_text">Заклучено додека не уредите %d проверени описи</string>
+  <string name="multilingual_task_negative">Не е за мене</string>
+  <string name="multilingual_task_positive">Додај јазици</string>
+  <string name="translate_caption_task_title">Превод на описи на слики</string>
+  <string name="translate_caption_task_description">Превод на описи на други јазици</string>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="one">1 придонес од прилог</item>
+    <item quantity="other">%d придонеси од прилози</item>
+  </plurals>
+  <string name="description_edit_tutorial_message">Добре дојдовте во новиот дом за брзо уредување од прилогот на Википедија. Вашите придонеси се мошне ценети. Среќно уредување!</string>
+  <string name="edit_tasks_onboarding_get_started">Започни</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>
@@ -684,40 +714,4 @@
   <string name="main_drawer_close">Затвори</string>
   <string name="main_drawer_help">Помош</string>
   <string name="main_drawer_login">Најава / придружување на Википедија</string>
-  <string name="title_description_task_title">Додај описи</string>
-  <string name="title_description_task_description">Придонесувајте со статии без описи</string>
-  <string name="image_caption_task_title">Описи на слики</string>
-  <string name="image_caption_task_description">Додај описи на слики</string>
-  <string name="multilingual_task_title">Повеќе задачи за повеќејазични уредници</string>
-  <string name="multilingual_task_description">Има преводни задачи на располагање доколку читате и пишувате на Википедија на повеќе од еден јазик.</string>
-  <string name="translation_task_title">Превод на описи</string>
-  <string name="translation_task_description">Превод на описи на други јазици</string>
-  <string name="image_caption_edit_disable_text">Заклучено додека не направите %d проверени уредувања</string>
-  <string name="translate_description_edit_disable_text">Заклучено додека не уредите %d проверени описи</string>
-  <string name="multilingual_task_negative">Не е за мене</string>
-  <string name="multilingual_task_positive">Додај јазици</string>
-  <string name="editing_level_text">Приложен уредник од %d app. степен</string>
-  <string name="translation_source_description">Опис на %s:</string>
-  <string name="translate_caption_task_title">Превод на описи на слики</string>
-  <string name="translate_caption_task_description">Превод на описи на други јазици</string>
-  <plurals name="edit_action_contribution_count">
-    <item quantity="one">1 придонес од прилог</item>
-    <item quantity="other">%d придонеси од прилози</item>
-  </plurals>
-  <string name="add_title_descriptions_dialog_title">Додај описи на насловот</string>
-  <string name="add_title_descriptions_dialog_message">Сега можете да помогнете со уредувањето на Википедија додавајќи описи кои се јавуваат под насловите на статиите. Јазиците можете да ги прилагодите во секое време.</string>
-  <string name="add_translate_descriptions_dialog_title">Преведувате описи на наслови за првпат.</string>
-  <string name="add_translate_descriptions_dialog_message">Сега можете да помогнете со подобрувањето на Википедија преведувајќи описи на наслови. Можете да ги прилагодите јазиците и да зададете насока на преведување во секое време.</string>
-  <string name="description_edit_tutorial_message">Добре дојдовте во новиот дом за брзо уредување од прилогот на Википедија. Вашите придонеси се мошне ценети. Среќно уредување!</string>
-  <string name="translation_description_edit_task_unlock_title">Го отклучивте „Преведи описи“</string>
-  <string name="translation_description_edit_task_unlock_body">Ви благодариме за постојаните придонеси! Го користите прилогот на повеќе јазици, па затоа составивме список на статии чии описи треба да се преведат. Дали би продолжиле да ни помагате во подобрувањето на Википедија?</string>
-  <string name="title_description_editing_skip">Прескокни</string>
-  <string name="title_description_get_started">Започни</string>
-  <string name="translate_description_get_started">Започни</string>
-  <string name="edit_tasks_onboarding_get_started">Започни</string>
-  <string name="translate_descriptions_maybe_later">Можеби подоцна</string>
-  <string name="title_descriptions_onboarding_got_it">Јасно</string>
-  <string name="translate_descriptions_onboarding_got_it">Јасно</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_menu_info">Инфо</string>
 </resources>

@@ -3,7 +3,6 @@ package org.wikipedia.readinglist.database;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.annotation.NonNull;
 import android.util.Base64;
 
 import org.wikipedia.R;
@@ -22,6 +21,8 @@ import org.wikipedia.util.log.L;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+
+import androidx.annotation.NonNull;
 
 public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
     private static final int DB_VER_INTRODUCED = 18;

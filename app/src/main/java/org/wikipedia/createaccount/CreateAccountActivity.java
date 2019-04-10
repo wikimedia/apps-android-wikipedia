@@ -4,9 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -14,6 +11,8 @@ import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -35,6 +34,8 @@ import org.wikipedia.views.WikiErrorView;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

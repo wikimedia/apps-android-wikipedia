@@ -1,8 +1,6 @@
 package org.wikipedia.views;
 
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.SearchView;
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -16,6 +14,9 @@ import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.FeedbackUtil;
 
 import java.util.Arrays;
+
+import androidx.appcompat.widget.SearchView;
+import androidx.core.content.ContextCompat;
 
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
@@ -31,7 +32,7 @@ public class CabSearchView extends SearchView {
     }
 
     public CabSearchView(Context context, AttributeSet attrs) {
-        this(context, attrs, android.support.v7.appcompat.R.attr.searchViewStyle);
+        this(context, attrs, androidx.appcompat.R.attr.searchViewStyle);
     }
 
     public CabSearchView(Context context, AttributeSet attrs, int defStyleAttr) {

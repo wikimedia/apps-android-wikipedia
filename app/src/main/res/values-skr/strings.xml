@@ -251,9 +251,7 @@
   <string name="description_edit_success_done">مکمل</string>
   <string name="description_edit_success_did_you_know">بھلا تساں ڄاݨدے ہو؟</string>
   <string name="description_edit_tutorial_button_label_start_editing">لکھݨ شروع کرو</string>
-  <string name="editactionfeed_from_language">توں:</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">ٻیا سِکھو</string>
-  <string name="editactionfeed_to_language">کوں:</string>
+  <string name="suggested_edits_menu_info">معلومات</string>
   <string name="size_gb">%.2f جی بی</string>
   <string name="size_mb">%.2f ایم بی</string>
   <string name="onboarding_skip">چھوڑو</string>
@@ -279,10 +277,11 @@
   <string name="wikitext_bold">موٹا</string>
   <string name="wikitext_italic">ترچھا</string>
   <string name="wikitext_link">ربط</string>
+  <string name="wikitext_bulleted_list">ڳولی لڳی تندیر</string>
+  <string name="wikitext_numbered_list">عدد لڳی تندیر</string>
   <string name="wikitext_template">سانچہ</string>
+  <string name="wikitext_reference">حوالہ</string>
   <string name="main_drawer_open">کھولو</string>
   <string name="main_drawer_close">بند کرو</string>
   <string name="main_drawer_help">مدد</string>
-  <string name="translation_source_description">%s وضاحت:</string>
-  <string name="suggested_edits_menu_info">معلومات</string>
 </resources>

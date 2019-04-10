@@ -1,7 +1,8 @@
 package org.wikipedia.database.column;
 
 import android.provider.BaseColumns;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 public class IdColumn extends LongColumn {
     public IdColumn(@NonNull String tbl) {

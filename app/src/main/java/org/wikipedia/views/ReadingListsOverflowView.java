@@ -3,11 +3,6 @@ package org.wikipedia.views;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.widget.PopupWindowCompat;
-import android.support.v7.widget.CardView;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
@@ -19,10 +14,12 @@ import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.DimenUtil;
 
 import java.text.ParseException;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.widget.PopupWindowCompat;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -50,9 +47,7 @@ public class ReadingListsOverflowView extends FrameLayout {
                 ViewGroup.LayoutParams.WRAP_CONTENT, true);
         popupWindowHost.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         PopupWindowCompat.setOverlapAnchor(popupWindowHost, true);
-        final int compatOffset = 8;
-        PopupWindowCompat.showAsDropDown(popupWindowHost, anchorView, 0, Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP
-                ? -DimenUtil.getToolbarHeightPx(anchorView.getContext()) + DimenUtil.roundedDpToPx(compatOffset) : 0, Gravity.END);
+        PopupWindowCompat.showAsDropDown(popupWindowHost, anchorView, 0, 0, Gravity.END);
 
         String lastSyncTime = Prefs.getReadingListsLastSyncTime();
         lastSync.setVisibility(TextUtils.isEmpty(lastSyncTime) ? View.GONE : View.VISIBLE);
@@ -94,10 +89,5 @@ public class ReadingListsOverflowView extends FrameLayout {
     private void init() {
         inflate(getContext(), R.layout.view_reading_lists_overflow, this);
         ButterKnife.bind(this);
-
-        CardView cardContainer = findViewById(R.id.reading_lists_overflow_card_container);
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            cardContainer.setPreventCornerOverlap(false);
-        }
     }
 }

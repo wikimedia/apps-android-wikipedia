@@ -4,12 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,6 +36,12 @@ import org.wikipedia.views.ViewUtil;
 
 import java.util.Locale;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -430,7 +430,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
 
         // remove focus line from search plate
         View searchEditPlate = searchView
-                .findViewById(android.support.v7.appcompat.R.id.search_plate);
+                .findViewById(androidx.appcompat.R.id.search_plate);
         searchEditPlate.setBackgroundColor(Color.TRANSPARENT);
     }
 

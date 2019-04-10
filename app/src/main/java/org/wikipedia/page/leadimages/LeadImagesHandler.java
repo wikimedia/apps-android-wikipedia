@@ -2,9 +2,6 @@ package org.wikipedia.page.leadimages;
 
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.view.View;
 
@@ -21,6 +18,10 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.ObservableWebView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
 
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;

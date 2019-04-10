@@ -1,15 +1,13 @@
 package org.wikipedia.page;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomSheetBehavior;
-import android.support.design.widget.BottomSheetDialog;
-import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.rd.PageIndicatorView;
 
 import org.wikipedia.R;
@@ -20,6 +18,8 @@ import org.wikipedia.views.WrapContentViewPager;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.PagerAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

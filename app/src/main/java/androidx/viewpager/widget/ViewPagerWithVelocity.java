@@ -1,4 +1,4 @@
-package android.support.v4.view;
+package androidx.viewpager.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;

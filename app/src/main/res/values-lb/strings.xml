@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Envlh
 * Les Meloures
 * Robby
@@ -166,6 +167,7 @@
   <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Benotzt Bibliothéiken</string>
   <string name="about_contributors_heading">Auteuren</string>
   <string name="about_translators_heading">Iwwersetzer</string>
@@ -434,6 +436,7 @@
   <string name="preference_title_notification_milestone">Meilesteen</string>
   <string name="preference_title_notification_thanks">Merci</string>
   <string name="preference_summary_notification_thanks">Et seet Een Iech Merci fir eng Ännerung</string>
+  <string name="preference_title_notification_revert">Zrécksetzen</string>
   <string name="view_continue_reading_card_title">Virufuere mat Liesen</string>
   <string name="view_because_you_read_card_title">Well Dir liest</string>
   <string name="view_random_card_title">Zoufallsgenerator</string>
@@ -476,6 +479,7 @@
   <string name="description_edit_article">Artikel</string>
   <string name="description_edit_read">Liesen</string>
   <string name="description_edit_add_description">Beschreiwung vum Titel derbäisetzen</string>
+  <string name="description_edit_add_description_v2">Beschreiwung derbäisetzen</string>
   <string name="description_edit_edit_description">Beschreiwung änneren</string>
   <string name="add_translation">Iwwersetzung op %s derbäisetzen</string>
   <string name="description_edit_cancel_hint">Ofbriechen</string>
@@ -499,11 +503,16 @@
   <string name="editactionfeed_add_title_descriptions">Beschreiwungen derbäisetzen</string>
   <string name="editactionfeed_review_title_description">Beschreiwung iwwerliesen</string>
   <string name="editactionfeed_add_description_button">Beschreiwung derbäisetzen</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">Fir méi ze wëssen</string>
-  <string name="editactionfeed_translate_title_dialog_learn_more">Fir méi ze wëssen</string>
-  <string name="editactionfeed_to_language">Fir:</string>
   <string name="editactionfeed_added_by_you">Vun Iech derbäigesat:</string>
   <string name="editactionfeed_translated_by_you">Vun Iech iwwersat:</string>
+  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Vläicht méi spéit</string>
+  <string name="suggested_edits_unlock_notification_button">Jo, et geet lass</string>
+  <string name="suggested_edits_menu_info">Informatioun</string>
+  <string name="title_description_task_title">Beschreiwungen derbäisetzen</string>
+  <string name="translation_task_title">Beschreiwungen iwwersetzen</string>
+  <string name="multilingual_task_negative">Net fir mech</string>
+  <string name="multilingual_task_positive">Sproochen derbäisetzen</string>
+  <string name="edit_tasks_onboarding_get_started">Fir unzefänken</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>
@@ -557,23 +566,13 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Dir hutt elo esouwuel déi traditionell wéi déi vereinfacht chinesesch Variante an Ären App sproochen agestallt. Wëllt dir d\'Astellunge vun de Sprooche vun Ären Appen änneren?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sproochen änneren</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nee, merci</string>
+  <string name="wikitext_bold">Fett</string>
+  <string name="wikitext_italic">Kursiv</string>
+  <string name="wikitext_link">Link</string>
   <string name="wikitext_numbered_list">Nummeréiert Lëscht</string>
   <string name="wikitext_template">Schabloun</string>
   <string name="wikitext_reference">Referenz</string>
   <string name="main_drawer_open">Opmaachen</string>
   <string name="main_drawer_close">Zoumaachen</string>
   <string name="main_drawer_help">Hëllef</string>
-  <string name="title_description_task_title">Beschreiwungen derbäisetzen</string>
-  <string name="translation_task_title">Beschreiwungen iwwersetzen</string>
-  <string name="multilingual_task_negative">Net fir mech</string>
-  <string name="multilingual_task_positive">Sproochen derbäisetzen</string>
-  <string name="translation_source_description">%s Beschreiwung:</string>
-  <string name="title_description_editing_skip">Iwwersprangen</string>
-  <string name="title_description_get_started">Fir unzefänken</string>
-  <string name="translate_description_get_started">Fir unzefänken</string>
-  <string name="edit_tasks_onboarding_get_started">Fir unzefänken</string>
-  <string name="translate_descriptions_maybe_later">Vläicht méi spéit</string>
-  <string name="title_descriptions_onboarding_got_it">Verstan</string>
-  <string name="translate_descriptions_onboarding_got_it">Verstan</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
 </resources>
