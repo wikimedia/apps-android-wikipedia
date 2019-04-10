@@ -1,6 +1,5 @@
 package org.wikipedia.main;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,7 +18,6 @@ import org.wikipedia.notifications.NotificationActivity;
 import org.wikipedia.onboarding.InitialOnboardingActivity;
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
-import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
@@ -27,7 +25,6 @@ import org.wikipedia.suggestededits.SuggestedEditsTasksActivity;
 import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.log.L;
 import org.wikipedia.views.WikiDrawerLayout;
 
 import androidx.annotation.LayoutRes;
@@ -43,8 +40,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.reactivex.Completable;
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 import static android.view.View.GONE;
@@ -109,20 +104,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         drawerView.setCallback(new DrawerViewCallback());
         shouldShowMainDrawer(true);
         setUpHomeMenuIcon();
-
-        cleanup();
-    }
-
-    @SuppressLint("CheckResult")
-    private void cleanup() {
-        L.d("Recurring cleanup ");
-        Observable.fromIterable(ReadingListDbHelper.instance().getAllPages())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(page -> {
-                    new SavedPageSyncService().movePageContents(page);
-
-                }, L::d);
     }
 
     @Override

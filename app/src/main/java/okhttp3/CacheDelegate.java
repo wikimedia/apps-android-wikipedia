@@ -1,10 +1,11 @@
 package okhttp3;
 
-import androidx.annotation.NonNull;
+import org.wikipedia.util.FileUtil;
 
 import java.io.File;
 import java.io.IOException;
 
+import androidx.annotation.NonNull;
 import okhttp3.internal.Util;
 import okhttp3.internal.cache.DiskLruCache;
 import okhttp3.internal.cache.InternalCache;
@@ -60,13 +61,26 @@ public class CacheDelegate {
         return totalSize;
     }
 
-    public boolean copyToFolder(@NonNull String url, @NonNull Cache destination) {
+    public void delete() {
+        FileUtil.deleteRecursively(cache.cache.getDirectory());
+    }
+
+    public boolean moveCacheFilesToDirectory(@NonNull String url, @NonNull CacheDelegate destination) {
         String metadataFileName = "/" + key(url) + "." + OKHTTP_METADATA_FILE_INDEX;
         String rawBodyFileName = "/" + key(url) + "." + OKHTTP_RAW_BODY_FILE_INDEX;
         File metadata = new File (cache.cache.getDirectory() + metadataFileName);
         File rawBody = new File (cache.cache.getDirectory() + rawBodyFileName);
-        return metadata.renameTo(new File(destination.cache.getDirectory() + metadataFileName))
-                && rawBody.renameTo(new File(destination.cache.getDirectory() + rawBodyFileName));
+        return metadata.renameTo(new File(destination.cache.cache.getDirectory() + metadataFileName))
+                && rawBody.renameTo(new File(destination.cache.cache.getDirectory() + rawBodyFileName));
+    }
+
+    public boolean moveAllCacheFilesToDirectory(@NonNull CacheDelegate destination) {
+        boolean result;
+        String targetDirectoryPath = destination.cache.cache.getDirectory().getPath();
+        destination.delete();
+        result = cache.cache.getDirectory().renameTo(new File(targetDirectoryPath));
+        delete();
+        return result;
     }
 
     // Copy of Cache.key()

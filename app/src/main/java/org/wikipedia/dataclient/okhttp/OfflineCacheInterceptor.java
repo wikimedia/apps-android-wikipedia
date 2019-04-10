@@ -56,8 +56,10 @@ public class OfflineCacheInterceptor implements Interceptor {
             cacheCandidate = cacheDelegate.internalCache().get(request);
             if (cacheCandidate != null) {
                 // Move the current cache to the temporary cache folder
-                boolean result = cacheDelegate.copyToFolder(request.url().toString(), SAVE_TEMP_CACHE);
-                L.d("OfflineCacheInterceptor cache moved..." + result);
+                boolean result = cacheDelegate.moveCacheFilesToDirectory(request.url().toString(), SAVE_TEMP_CACHE);
+                if (!result) {
+                    L.d("Move file cache failed: " + request.url().toString());
+                }
                 return cacheCandidate;
             }
         }

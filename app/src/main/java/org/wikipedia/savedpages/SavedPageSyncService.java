@@ -34,6 +34,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -44,6 +45,8 @@ import okhttp3.CacheControl;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import static org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.SAVE_CACHE;
+import static org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.SAVE_TEMP_CACHE;
 import static org.wikipedia.views.CircularProgressBar.MAX_PROGRESS;
 
 public class SavedPageSyncService extends JobIntentService {
@@ -166,35 +169,51 @@ public class SavedPageSyncService extends JobIntentService {
     }
 
     @SuppressLint("CheckResult")
-    public void movePageContents(@NonNull ReadingListPage page) {
-        PageTitle pageTitle = ReadingListPage.toPageTitle(page);
-        Observable.zip(reqPageLead(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_TEMP_SAVE, pageTitle),
-                reqPageSections(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_TEMP_SAVE, pageTitle), (leadRsp, sectionsRsp) -> {
-                    Set<String> imageUrls = new HashSet<>();
-                    if (leadRsp.body() != null) {
-                        imageUrls.addAll(pageImageUrlParser.parse(leadRsp.body()));
-                        if (!TextUtils.isEmpty(pageTitle.getThumbUrl())) {
-                            imageUrls.add(pageTitle.getThumbUrl());
+    public void cleanUpJunkFiles(@NonNull List<ReadingListPage> pages) {
+        if (pages.size() == 0) {
+            SAVE_CACHE.delete();
+            L.d("Recurring task of cleaning up junk offline data: basic clean up");
+            return;
+        }
+
+        AtomicInteger processedPages = new AtomicInteger();
+        for (ReadingListPage page : pages) {
+            PageTitle pageTitle = ReadingListPage.toPageTitle(page);
+            Observable.zip(reqPageLead(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_TEMP_SAVE, pageTitle),
+                    reqPageSections(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_TEMP_SAVE, pageTitle), (leadRsp, sectionsRsp) -> {
+                        Set<String> imageUrls = new HashSet<>();
+                        if (leadRsp.body() != null) {
+                            imageUrls.addAll(pageImageUrlParser.parse(leadRsp.body()));
+                            if (!TextUtils.isEmpty(pageTitle.getThumbUrl())) {
+                                imageUrls.add(pageTitle.getThumbUrl());
+                            }
                         }
-                    }
-                    if (sectionsRsp.body() != null) {
-                        imageUrls.addAll(pageImageUrlParser.parse(sectionsRsp.body()));
-                    }
-                    return imageUrls;
-                })
-                .subscribeOn(Schedulers.io())
-                .subscribe(imageUrls -> {
-                    for (String url : imageUrls) {
-                        Request request = makeImageRequest(pageTitle.getWikiSite(), url)
-                                .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_TEMP_SAVE)
-                                .build();
-                        try {
-                            OkHttpConnectionFactory.getClient().newCall(request).execute();
-                        } catch (Exception e) {
-                            // ignore exceptions while deleting cached items.
+                        if (sectionsRsp.body() != null) {
+                            imageUrls.addAll(pageImageUrlParser.parse(sectionsRsp.body()));
                         }
-                    }
-                }, L::d);
+                        return imageUrls;
+                    })
+                    .subscribeOn(Schedulers.io())
+                    .subscribe(imageUrls -> {
+                        for (String url : imageUrls) {
+                            Request request = makeImageRequest(pageTitle.getWikiSite(), url)
+                                    .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_TEMP_SAVE)
+                                    .build();
+                            try {
+                                OkHttpConnectionFactory.getClient().newCall(request).execute();
+                            } catch (Exception e) {
+                                // ignore exceptions while deleting cached items.
+                            }
+                        }
+
+                        processedPages.getAndIncrement();
+                        if (processedPages.get() == pages.size()) {
+                            // move all pages cache from temporary folder to the original folder.
+                            boolean result = SAVE_TEMP_CACHE.moveAllCacheFilesToDirectory(SAVE_CACHE);
+                            L.d("Recurring task of cleaning up junk offline data successfully? " + result);
+                        }
+                    }, L::d);
+        }
     }
 
     private int savePages(List<ReadingListPage> queue) {
