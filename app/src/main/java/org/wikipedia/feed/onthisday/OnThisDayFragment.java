@@ -155,9 +155,9 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         disposables.add(ServiceFactory.getRest(wiki).getOnThisDay(month + 1, date)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doFinally(() -> progressBar.setVisibility(View.GONE))
                 .subscribe(response -> {
                     onThisDay = response;
-                    progressBar.setVisibility(View.GONE);
                     eventsRecycler.setVisibility(View.VISIBLE);
                     eventsRecycler.setAdapter(new RecyclerAdapter(onThisDay.events(), wiki));
                     List<OnThisDay.Event> events = onThisDay.events();
@@ -168,7 +168,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
                     L.e(throwable);
                     errorView.setError(throwable);
                     errorView.setVisibility(View.VISIBLE);
-                    progressBar.setVisibility(View.GONE);
                     eventsRecycler.setVisibility(View.GONE);
                 }));
     }
