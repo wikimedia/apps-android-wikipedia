@@ -3,7 +3,6 @@ package org.wikipedia.util;
 import android.content.Context;
 import android.icu.text.RelativeDateTimeFormatter;
 import android.os.Build;
-import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -11,6 +10,8 @@ import org.wikipedia.feed.model.UtcDate;
 
 import java.util.Calendar;
 import java.util.Date;
+
+import androidx.annotation.NonNull;
 
 public final class DateUtils {
     public static String getFeedCardDayHeaderDate(int age) {

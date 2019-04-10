@@ -1,7 +1,5 @@
 package org.wikipedia;
 
-import android.support.annotation.NonNull;
-
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
@@ -13,6 +11,7 @@ import org.wikipedia.util.ReleaseUtil;
 
 import java.io.IOException;
 
+import androidx.annotation.NonNull;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
