@@ -73,7 +73,6 @@ public class OfflineCacheInterceptor implements Interceptor {
 
         // If we're asked to delete the cached response, then delete it!
         if (SAVE_HEADER_DELETE.equals(request.header(SAVE_HEADER))) {
-            cacheCandidate.request().url();
             // If we don't actually have a cache candidate, then something is very wrong.
             if (cacheCandidate == null) {
                 throw new IOException("Requested to delete nonexistent cached response.");
