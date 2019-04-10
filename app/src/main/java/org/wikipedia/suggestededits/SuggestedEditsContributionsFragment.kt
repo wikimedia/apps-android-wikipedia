@@ -3,6 +3,7 @@ package org.wikipedia.suggestededits
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -101,7 +102,7 @@ class SuggestedEditsContributionsFragment : Fragment() {
                 }))
     }
 
-    private inner class MyContributionsItemAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<ItemViewHolder>() {
+    private inner class MyContributionsItemAdapter : RecyclerView.Adapter<ItemViewHolder>() {
 
         override fun getItemCount(): Int {
             return languageList.size
