@@ -17,7 +17,7 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * Mainly to clean up junk offline data when saving/removing articles from reading lists.
  */
-public class ReadingListCacheCleanupTask extends RecurringTask {
+public class ReadingListJunkCacheCleanupTask extends RecurringTask {
     private static final long RUN_INTERVAL_MILLI = TimeUnit.DAYS.toMillis(30);
 
     @Override
