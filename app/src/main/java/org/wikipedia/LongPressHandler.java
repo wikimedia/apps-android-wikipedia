@@ -14,9 +14,10 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 
-import static org.wikipedia.Constants.InvokeSource.CONTEXT_MENU;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import static org.wikipedia.Constants.InvokeSource.CONTEXT_MENU;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.UriUtil.isValidPageLink;
 

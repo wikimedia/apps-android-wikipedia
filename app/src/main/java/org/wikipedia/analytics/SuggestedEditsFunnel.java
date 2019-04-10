@@ -7,12 +7,13 @@ import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.json.GsonUtil;
 
+import androidx.annotation.NonNull;
+
 import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC;
 import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC;
 import static org.wikipedia.Constants.InvokeSource.NAV_MENU;
 import static org.wikipedia.Constants.InvokeSource.NOTIFICATION;
 import static org.wikipedia.Constants.InvokeSource.ONBOARDING_DIALOG;
-import androidx.annotation.NonNull;
 
 public final class SuggestedEditsFunnel extends TimedFunnel {
     private static SuggestedEditsFunnel INSTANCE;
