@@ -13,6 +13,7 @@ import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 import org.wikipedia.views.MarginItemDecoration;
 
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -62,7 +63,7 @@ public class FeedView extends AutoFitRecyclerView {
         setVerticalScrollBarEnabled(true);
         recyclerLayoutManager = new StaggeredGridLayoutManager(getColumns(),
                 StaggeredGridLayoutManager.VERTICAL);
-        setItemAnimator(new FeedItemAnimator());
+        setItemAnimator(new DefaultItemAnimator());
         setLayoutManager(recyclerLayoutManager);
         addItemDecoration(new MarginItemDecoration(getContext(),
                 R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical,
