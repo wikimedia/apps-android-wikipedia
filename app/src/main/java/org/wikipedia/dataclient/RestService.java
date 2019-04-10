@@ -11,7 +11,7 @@ import org.wikipedia.dataclient.restbase.page.RbPageRemaining;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.feed.aggregated.AggregatedFeedContent;
 import org.wikipedia.feed.announcement.AnnouncementList;
-import org.wikipedia.feed.configure.FeedAvailabilityClient;
+import org.wikipedia.feed.configure.FeedAvailability;
 import org.wikipedia.feed.onthisday.OnThisDay;
 import org.wikipedia.gallery.Gallery;
 import org.wikipedia.readinglist.sync.SyncedReadingLists;
@@ -129,7 +129,7 @@ public interface RestService {
                                                                  @Path("day") String day);
 
     @GET("feed/availability")
-    @NonNull Call<FeedAvailabilityClient.FeedAvailability> getFeedAvailability();
+    @NonNull Observable<FeedAvailability> getFeedAvailability();
 
 
     // ------- Reading lists -------
