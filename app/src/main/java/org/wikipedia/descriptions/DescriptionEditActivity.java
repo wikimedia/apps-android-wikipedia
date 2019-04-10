@@ -96,10 +96,10 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     @Override
     public DescriptionEditFragment createFragment() {
         invokeSource = (InvokeSource) getIntent().getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE);
-        SuggestedEditsFunnel.get().click(invokeSource);
+        PageTitle title = GsonUnmarshaller.unmarshal(PageTitle.class, getIntent().getStringExtra(EXTRA_TITLE));
+        SuggestedEditsFunnel.get().click(title.getDisplayText(), invokeSource);
 
-        return DescriptionEditFragment.newInstance(GsonUnmarshaller.unmarshal(PageTitle.class,
-                getIntent().getStringExtra(EXTRA_TITLE)),
+        return DescriptionEditFragment.newInstance(title,
                 getIntent().getStringExtra(EXTRA_HIGHLIGHT_TEXT),
                 getIntent().getBooleanExtra(EXTRA_REVIEW_ENABLE, false),
                 getIntent().getCharSequenceExtra(EXTRA_TRANSLATION_SOURCE_DESCRIPTION),
