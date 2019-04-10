@@ -3,8 +3,6 @@ package org.wikipedia.edit.richtext;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
 import android.text.Editable;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -20,6 +18,8 @@ import java.util.List;
 import java.util.Stack;
 import java.util.concurrent.Callable;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;

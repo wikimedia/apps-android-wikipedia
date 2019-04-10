@@ -3,8 +3,6 @@ package org.wikipedia.notifications;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v4.app.NotificationCompat;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -14,6 +12,9 @@ import org.wikipedia.dataclient.mwapi.EditorTaskCounts;
 import org.wikipedia.events.EditorTaskUnlockEvent;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.suggestededits.SuggestedEditsTasksActivity;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
 
 import static org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION;
 

@@ -1,12 +1,13 @@
 package org.wikipedia.media;
 
 import android.media.MediaPlayer;
-import android.support.annotation.NonNull;
 
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
+
+import androidx.annotation.NonNull;
 
 public class MediaPlayerImplementation {
     private static final boolean VERBOSE = false;

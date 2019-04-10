@@ -3,12 +3,13 @@ package org.wikipedia.onboarding;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ResourceUtil;
+
+import androidx.annotation.NonNull;
 
 public class InitialOnboardingActivity
         extends SingleFragmentActivity<InitialOnboardingFragment>

@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.net.Uri;
-import android.support.annotation.Nullable;
 import android.widget.Toast;
 
 import com.facebook.common.executors.UiThreadImmediateExecutorService;
@@ -18,6 +17,8 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
 import org.wikipedia.WikipediaApp;
+
+import androidx.annotation.Nullable;
 
 public abstract class ImagePipelineBitmapGetter {
     private String imageUrl;

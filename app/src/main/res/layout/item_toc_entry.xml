@@ -21,7 +21,7 @@
         android:layout_marginEnd="32dp"
         tools:text="Sample Table of Contents entry" />
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/page_toc_item_bullet"
         android:layout_width="8dp"
         android:layout_height="8dp"

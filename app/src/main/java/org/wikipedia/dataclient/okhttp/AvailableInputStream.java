@@ -1,9 +1,9 @@
 package org.wikipedia.dataclient.okhttp;
 
-import android.support.annotation.NonNull;
-
 import java.io.IOException;
 import java.io.InputStream;
+
+import androidx.annotation.NonNull;
 
 /**
  * This is a subclass of InputStream that implements the available() method reliably enough

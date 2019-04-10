@@ -1,10 +1,10 @@
 package org.wikipedia.settings;
 
-import android.support.annotation.Nullable;
-
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
+
+import androidx.annotation.Nullable;
 
 public class SiteInfo {
     @SuppressWarnings("unused") @Nullable private String mainpage;

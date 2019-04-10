@@ -1,10 +1,9 @@
 package org.wikipedia.page;
 
-import android.support.annotation.Nullable;
-
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.readinglist.database.ReadingListPage;
 
+import androidx.annotation.Nullable;
 import okhttp3.CacheControl;
 
 /**

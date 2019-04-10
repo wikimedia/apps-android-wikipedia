@@ -12,7 +12,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 
-import static android.support.test.InstrumentationRegistry.getInstrumentation;
+import static androidx.test.InstrumentationRegistry.getInstrumentation;
 import static org.wikipedia.espresso.Constants.SCREENSHOT_COMPARE_PERCENT_TOLERANCE;
 import static org.wikipedia.espresso.Constants.TEST_COMPARISON_OUTPUT_FOLDER;
 import static org.wikipedia.espresso.Constants.TEST_OUTPUT_FOLDER;

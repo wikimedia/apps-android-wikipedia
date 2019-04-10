@@ -1,10 +1,10 @@
 package org.wikipedia.analytics;
 
-import android.support.annotation.NonNull;
-
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
+
+import androidx.annotation.NonNull;
 
 public class FindInPageFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppFindInPage";

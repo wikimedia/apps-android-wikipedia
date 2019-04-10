@@ -2,11 +2,12 @@ package org.wikipedia.feed.mostread;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
+
+import androidx.annotation.NonNull;
 
 public class MostReadArticlesActivity extends SingleFragmentActivity<MostReadFragment> {
     protected static final String MOST_READ_CARD = "item";

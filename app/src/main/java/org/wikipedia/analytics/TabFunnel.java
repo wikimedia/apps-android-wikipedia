@@ -1,11 +1,11 @@
 package org.wikipedia.analytics;
 
-import android.support.annotation.Nullable;
-
 import org.wikipedia.WikipediaApp;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.Nullable;
 
 public class TabFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppTabs";
