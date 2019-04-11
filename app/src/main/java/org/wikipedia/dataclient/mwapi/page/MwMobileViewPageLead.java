@@ -1,9 +1,6 @@
 package org.wikipedia.dataclient.mwapi.page;
 
 import android.location.Location;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -22,6 +19,10 @@ import org.wikipedia.util.UriUtil;
 
 import java.util.Collections;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 
 import static org.wikipedia.dataclient.Service.PREFERRED_THUMB_SIZE;
 import static org.wikipedia.util.ImageUrlUtil.getUrlForSize;
@@ -64,6 +65,10 @@ public class MwMobileViewPageLead extends MwResponse implements PageLead {
             // Ticket: https://phabricator.wikimedia.org/T206891#4672777
             // We can the original prefixed title text (the one we used for calling API) to build the PageTitle
             title = new PageTitle(originalPrefixedText, title.getWikiSite(), title.getThumbUrl());
+        }
+
+        if (mobileview.getRedirected() != null) {
+            title.setConvertedText(mobileview.getRedirected());
         }
 
         title.setDescription(mobileview.getDescription());

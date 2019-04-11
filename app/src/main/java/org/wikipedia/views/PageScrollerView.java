@@ -1,12 +1,13 @@
 package org.wikipedia.views;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
 import org.wikipedia.util.DimenUtil;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
 
 public class PageScrollerView extends AppCompatImageView {
     public interface Callback {

@@ -1,8 +1,5 @@
 package org.wikipedia.page;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.language.AppLanguageLookUpTable;
@@ -13,6 +10,9 @@ import org.wikipedia.staticdata.FileAliasData;
 import org.wikipedia.staticdata.SpecialAliasData;
 
 import java.util.Locale;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /** An enumeration describing the different possible namespace codes. Do not attempt to use this
  *  class to preserve URL path information such as Talk: or User: or localization.

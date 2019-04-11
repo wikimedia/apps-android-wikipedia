@@ -1,8 +1,6 @@
 package org.wikipedia.feed.image;
 
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -10,6 +8,9 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.util.DateUtil;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class FeaturedImageCard extends Card {
     @NonNull private FeaturedImage featuredImage;

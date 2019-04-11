@@ -2,9 +2,6 @@ package org.wikipedia.settings;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.preference.PreferenceViewHolder;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
@@ -12,6 +9,10 @@ import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.util.ResourceUtil;
+
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.preference.PreferenceViewHolder;
 
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 

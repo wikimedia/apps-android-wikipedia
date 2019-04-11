@@ -6,11 +6,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -33,12 +28,12 @@ import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.captcha.CaptchaHandler;
 import org.wikipedia.captcha.CaptchaResult;
 import org.wikipedia.csrf.CsrfTokenClient;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.mwapi.MwException;
-import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.edit.preview.EditPreviewFragment;
 import org.wikipedia.edit.richtext.SyntaxHighlighter;
 import org.wikipedia.edit.summaries.EditSummaryFragment;
-import org.wikipedia.edit.wikitext.WikitextClient;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.login.LoginClient;
@@ -60,8 +55,16 @@ import org.wikipedia.views.WikiTextKeyboardView;
 
 import java.util.concurrent.TimeUnit;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
@@ -117,6 +120,7 @@ public class EditSectionActivity extends BaseActivity {
     private ProgressDialog progressDialog;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private ActionMode actionMode;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     private Runnable successRunnable = new Runnable() {
         @Override public void run() {
@@ -220,6 +224,7 @@ public class EditSectionActivity extends BaseActivity {
 
     @Override
     public void onDestroy() {
+        disposables.clear();
         captchaHandler.dispose();
         cancelCalls();
         if (progressDialog.isShowing()) {
@@ -620,23 +625,20 @@ public class EditSectionActivity extends BaseActivity {
 
     private void fetchSectionText() {
         if (sectionWikitext == null) {
-            new WikitextClient().request(title.getWikiSite(), title, sectionID, new WikitextClient.Callback() {
-                @Override
-                public void success(@NonNull Call<MwQueryResponse> call, @NonNull String normalizedTitle,
-                                    @NonNull String wikitext, @Nullable String timeStamp) {
-                    title = new PageTitle(normalizedTitle, title.getWikiSite());
-                    sectionWikitext = wikitext;
-                    baseTimeStamp = timeStamp;
-                    displaySectionText();
-                }
-
-                @Override
-                public void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
-                    sectionProgress.setVisibility(View.GONE);
-                    showError(caught);
-                    L.e(caught);
-                }
-            });
+            disposables.add(ServiceFactory.get(title.getWikiSite()).getWikiTextForSection(title.getConvertedText(), sectionID)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(response -> {
+                        MwQueryPage.Revision rev = response.query().firstPage().revisions().get(0);
+                        title = new PageTitle(response.query().firstPage().title(), title.getWikiSite());
+                        sectionWikitext = rev.content();
+                        baseTimeStamp = rev.timeStamp();
+                        displaySectionText();
+                    }, throwable -> {
+                        sectionProgress.setVisibility(View.GONE);
+                        showError(throwable);
+                        L.e(throwable);
+                    }));
         } else {
             displaySectionText();
         }

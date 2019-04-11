@@ -1,8 +1,5 @@
 package org.wikipedia.gallery;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
@@ -12,6 +9,9 @@ import org.wikipedia.util.StringUtil;
 
 import java.io.Serializable;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import static org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE;
 

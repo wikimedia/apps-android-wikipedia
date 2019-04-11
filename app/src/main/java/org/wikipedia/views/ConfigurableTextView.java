@@ -1,9 +1,10 @@
 package org.wikipedia.views;
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatTextView;
 import android.text.Spanned;
 import android.util.AttributeSet;
+
+import androidx.appcompat.widget.AppCompatTextView;
 
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 

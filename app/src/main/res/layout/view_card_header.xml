@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:layout_width="match_parent"
     tools:layout_height="@dimen/view_card_header_height"
-    tools:parentTag="android.support.constraint.ConstraintLayout">
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/view_card_header_image"
         android:layout_width="24dp"
         android:layout_height="24dp"
@@ -52,7 +52,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Lorem ipsum" />
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/view_list_card_header_lang_background"
         android:layout_width="0dp"
         android:layout_height="16dp"

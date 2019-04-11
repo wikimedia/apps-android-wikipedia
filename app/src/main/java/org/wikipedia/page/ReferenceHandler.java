@@ -1,7 +1,5 @@
 package org.wikipedia.page;
 
-import android.support.annotation.NonNull;
-
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -10,6 +8,8 @@ import org.wikipedia.bridge.CommunicationBridge;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.NonNull;
 
 /**
  * Handles any reference links coming from a {@link PageFragment}

@@ -104,7 +104,7 @@
             android:layout_height="match_parent"
             android:visibility="gone" />
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/view_description_edit_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -174,7 +174,7 @@
                         <!-- todo: this class has a lot of ViewGroups. TextInputLayout (a subclass of LinearLayout)
                                    adds another. try to collapse this group into others. the same change should
                                    probably be attempted for other TextInputLayout usages -->
-                        <android.support.design.widget.TextInputLayout
+                        <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/view_description_edit_text_layout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -196,7 +196,7 @@
                                 android:hint="@string/description_edit_text_hint">
                                 <requestFocus />
                             </org.wikipedia.views.PlainPasteEditText>
-                        </android.support.design.widget.TextInputLayout>
+                        </com.google.android.material.textfield.TextInputLayout>
 
                         <ImageView
                             android:id="@+id/view_description_edit_help_button"
@@ -236,7 +236,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view_description_edit_scrollview"/>
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 

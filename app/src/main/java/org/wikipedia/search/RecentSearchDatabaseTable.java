@@ -2,7 +2,6 @@ package org.wikipedia.search;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.support.annotation.NonNull;
 
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
@@ -10,6 +9,8 @@ import org.wikipedia.database.contract.SearchHistoryContract;
 import org.wikipedia.database.contract.SearchHistoryContract.Col;
 
 import java.util.Date;
+
+import androidx.annotation.NonNull;
 
 public class RecentSearchDatabaseTable extends DatabaseTable<RecentSearch> {
     private static final int DB_VER_INTRODUCED = 5;

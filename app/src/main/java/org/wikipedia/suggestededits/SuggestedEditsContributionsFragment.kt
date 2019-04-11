@@ -1,10 +1,9 @@
-package org.wikipedia.editactionfeed
+package org.wikipedia.suggestededits
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.*
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -26,7 +25,7 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.ViewUtil
 
-class MyContributionsFragment : Fragment() {
+class SuggestedEditsContributionsFragment : Fragment() {
 
     private val adapter = MyContributionsItemAdapter()
     private val disposables = CompositeDisposable()
@@ -44,7 +43,7 @@ class MyContributionsFragment : Fragment() {
         swipeRefreshLayout.setOnRefreshListener { this.updateUI() }
         contributionsRecyclerView.setHasFixedSize(true)
         contributionsRecyclerView.adapter = adapter
-        contributionsRecyclerView.layoutManager = LinearLayoutManager(activity)
+        contributionsRecyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity)
         username.text = AccountUtil.getUserName()
         fetchUserContributions()
     }
@@ -95,7 +94,7 @@ class MyContributionsFragment : Fragment() {
                     NotificationEditorTasksHandler.dispatchEditorTaskResults(requireContext(), editorTaskCounts)
                     val totalEdits = editorTaskCounts.descriptionEditsPerLanguage!!.values.sum()
                     languageList = editorTaskCounts.descriptionEditsPerLanguage!!.keys.toList()
-                    contributionsText.text = resources.getQuantityString(R.plurals.edit_action_contribution_count, totalEdits, totalEdits)
+                    contributionsText.text = resources.getQuantityString(R.plurals.suggested_edits_contribution_count, totalEdits, totalEdits)
                     adapter.notifyDataSetChanged()
                 }, { throwable ->
                     L.e(throwable)
@@ -129,8 +128,8 @@ class MyContributionsFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(): MyContributionsFragment {
-            return MyContributionsFragment()
+        fun newInstance(): SuggestedEditsContributionsFragment {
+            return SuggestedEditsContributionsFragment()
         }
     }
 }

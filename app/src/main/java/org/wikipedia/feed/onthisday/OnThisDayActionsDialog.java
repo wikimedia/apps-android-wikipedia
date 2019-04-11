@@ -1,8 +1,6 @@
 package org.wikipedia.feed.onthisday;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +10,9 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.util.ResourceUtil;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class OnThisDayActionsDialog extends ExtendedBottomSheetDialogFragment {
     public interface Callback {

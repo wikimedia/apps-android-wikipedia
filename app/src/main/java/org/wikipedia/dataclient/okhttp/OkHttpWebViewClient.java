@@ -1,6 +1,5 @@
 package org.wikipedia.dataclient.okhttp;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.webkit.MimeTypeMap;
@@ -23,6 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import androidx.annotation.NonNull;
 import okhttp3.Headers;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -40,7 +40,6 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
     private static final String ASSETS_URL_PATH = "/android_asset/";
     private static final String PCS_CSS_BASE = "/data/css/mobile/base";
     private static final String PCS_CSS_PAGELIB = "/data/css/mobile/pagelib";
-    private static final String PCS_CSS_SITE = "/data/css/mobile/site";
 
     @NonNull public abstract PageViewModel getModel();
 

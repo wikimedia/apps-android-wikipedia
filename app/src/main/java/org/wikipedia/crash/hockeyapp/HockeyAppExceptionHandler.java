@@ -1,10 +1,10 @@
 package org.wikipedia.crash.hockeyapp;
 
-import android.support.annotation.Nullable;
-
 import net.hockeyapp.android.ExceptionHandler;
 
 import org.wikipedia.util.log.L;
+
+import androidx.annotation.Nullable;
 
 /** Wrapper around {@link ExceptionHandler} that calls {@link HockeyAppCrashListener#onCrash()}. */
 class HockeyAppExceptionHandler extends ExceptionHandler {

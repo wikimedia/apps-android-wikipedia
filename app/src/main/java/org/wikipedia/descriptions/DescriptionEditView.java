@@ -1,10 +1,6 @@
 package org.wikipedia.descriptions;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.design.widget.TextInputLayout;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
@@ -14,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
@@ -25,6 +23,9 @@ import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.PlainPasteEditText;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -112,9 +113,9 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     private void setReviewHeaderText(boolean inReview) {
-        int headerTextRes = inReview ? R.string.editactionfeed_review_title_description
+        int headerTextRes = inReview ? R.string.suggested_edits_review_description
                 : TextUtils.isEmpty(originalDescription)
-                ? (isTranslationEdit ? R.string.translation_task_title : R.string.description_edit_add_description_v2)
+                ? (isTranslationEdit ? R.string.description_edit_translate_description : R.string.description_edit_add_description_v2)
                 : R.string.description_edit_edit_description;
         headerText.setText(getContext().getString(headerTextRes));
     }

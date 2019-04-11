@@ -1,7 +1,5 @@
 package org.wikipedia.feed.announcement;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import com.google.gson.annotations.SerializedName;
@@ -14,6 +12,9 @@ import java.text.ParseException;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
@@ -61,7 +62,7 @@ public class Announcement extends BaseModel {
 
     @Nullable Date startTime() {
         try {
-            return DateUtil.getIso8601DateFormat().parse(startTime);
+            return DateUtil.iso8601DateParse(startTime);
         } catch (ParseException e) {
             return null;
         }
@@ -69,7 +70,7 @@ public class Announcement extends BaseModel {
 
     @Nullable Date endTime() {
         try {
-            return DateUtil.getIso8601DateFormat().parse(endTime);
+            return DateUtil.iso8601DateParse(endTime);
         } catch (ParseException e) {
             return null;
         }

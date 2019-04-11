@@ -1,7 +1,6 @@
 package org.wikipedia.feed.becauseyouread;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 
 import org.wikipedia.Constants;
 import org.wikipedia.dataclient.ServiceFactory;
@@ -16,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;

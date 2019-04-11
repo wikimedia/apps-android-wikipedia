@@ -1,13 +1,16 @@
 package org.wikipedia.analytics;
 
-import android.support.annotation.NonNull;
-
 import com.google.gson.annotations.SerializedName;
 
 import org.json.JSONObject;
 import org.wikipedia.Constants;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.json.GsonUtil;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import androidx.annotation.NonNull;
 
 public final class SuggestedEditsFunnel extends TimedFunnel {
     private static SuggestedEditsFunnel INSTANCE;
@@ -26,6 +29,7 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
     private int helpOpenedCount = 0;
     private int contributionsOpenedCount = 0;
     private SuggestedEditStatsCollection statsCollection = new SuggestedEditStatsCollection();
+    private List<String> uniqueTitles = new ArrayList<>();
 
     private SuggestedEditsFunnel(WikipediaApp app, Constants.InvokeSource invokeSource) {
         super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_ALL);
@@ -60,11 +64,23 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
         }
     }
 
-    public void click(Constants.InvokeSource source) {
+    public void click(String title, Constants.InvokeSource source) {
+        SuggestedEditStats stats;
         if (source == Constants.InvokeSource.EDIT_FEED_TITLE_DESC) {
-            statsCollection.addDescriptionStats.clicks++;
+            stats = statsCollection.addDescriptionStats;
         } else if (source == Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
-            statsCollection.translateDescriptionStats.clicks++;
+            stats = statsCollection.translateDescriptionStats;
+        } else {
+            return;
+        }
+        stats.clicks++;
+        if (!uniqueTitles.contains(title)) {
+            uniqueTitles.add(title);
+            final int maxItems = 100;
+            if (uniqueTitles.size() > maxItems) {
+                uniqueTitles.remove(0);
+            }
+            stats.suggestionsClicked++;
         }
     }
 
@@ -119,6 +135,7 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
     private static class SuggestedEditStats {
         private int impressions;
         private int clicks;
+        @SerializedName("suggestions_clicked") private int suggestionsClicked;
         private int cancels;
         private int successes;
         private int failures;

@@ -1,6 +1,6 @@
 package org.wikipedia.media;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 public class DefaultAvPlayer implements AvPlayer {
     @NonNull private final MediaPlayerImplementation player;

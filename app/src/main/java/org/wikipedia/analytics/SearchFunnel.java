@@ -1,11 +1,11 @@
 package org.wikipedia.analytics;
 
-import android.support.annotation.NonNull;
-
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.util.StringUtil;
+
+import androidx.annotation.NonNull;
 
 public class SearchFunnel extends Funnel {
     /**

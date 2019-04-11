@@ -1,11 +1,11 @@
 package org.wikipedia.edit.preview;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class EditPreview extends MwPostResponse {
     @SuppressWarnings("unused") @Nullable private Parse parse;
