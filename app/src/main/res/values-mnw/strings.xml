@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Aue Nai
 * Htawmonzel
 * Ninjastrikers
@@ -224,7 +225,7 @@
   <string name="preference_summary_show_images">ပတိုန်ပၠောပ် ဗီုရုပ် ပ္ဍဲမုက်လိက်ဏအ် ဂွံမာန် ဂွံဟွံမာန်၊၊ ယဝ်ရအေန်တာနေတ်မ္ဂး အသိင်အောန် (ဟွံ) ဒါတာမၞး ဟွံမွဲ ကွေဟ်ဟ်မ္ဂး လ္ပစကာ ပ္ဍဲဒၞာဲဏအ်ညိ၊၊</string>
   <string name="preference_title_download_only_over_wifi">တံင်လုပ်ကေတ် နကဵု Wi-Fi မွဲဟေင်</string>
   <string name="dialog_title_download_only_over_wifi">ဗမံက်ထ္ၜး တံင်လုပ် downloand မသုင်စောဲ မဝ်ဗိုင် ဒါတာ？</string>
-  <string name="dialog_text_download_only_over_wifi">မၞး ပံက်လဝ် ＂တံင်လုပ်ကေတ် နကဵု Wi-Fi မွဲဟေင်＂ပ္ဍဲ ဒၞာဲမဖျေဟ်ဒၞာဲ၊၊ မၞးမိက်ဂွံ ကဵုအခေါင် သုင်စောဲ မဝ်ဗိုင်ဒါတာမၞး သွက်တံင်လုပ် ဏအ် ဟေင်ဟာ？</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">မၞး ပံက်လဝ် ＂တံင်လုပ်ကေတ် နကဵု Wi-Fi မွဲဟေင်＂ပ္ဍဲ ဒၞာဲမဖျေဟ်ဒၞာဲ၊၊ မၞးမိက်ဂွံ ကဵုအခေါင် သုင်စောဲ မဝ်ဗိုင်ဒါတာမၞး သွက်တံင်လုပ် ဏအ် ဟေင်ဟာ？</string>
   <string name="dialog_title_download_only_over_wifi_allow">ကဵုအခေါင်</string>
   <string name="read_more_section">ဆက် ဗှ်</string>
   <string name="about_article_section">ပရူ လိက်ပရေင် ဏအ်</string>
@@ -551,16 +552,16 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">ခိုဟ်အိုတ် မွဲပၞောန် နွံစ မလိက် အကြာ ၂ မ ကဵု ၁၂ မ</string>
   <string name="description_edit_tutorial_button_label_start_editing">စ ပလေဝ်ဒါန်</string>
   <string name="description_edit_tutorial_promise">နကဵု မစဟီု၊ အဲဒုင်ဝှဲ ဒဒှ်ရ အဲဟွံပလီု (ဝါ) ဟွံသုင်စောဲ လပါ်ပရေအ် လိက်ဏအ်ရ၊၊</string>
-  <string name="editactionfeed_add_title_descriptions" fuzzy="true">စုတ် က္ဍိုပ်လိက် ပရူပရာ</string>
-  <string name="editactionfeed_review_title_description" fuzzy="true">ပလေဝ်ဒါန် က္ဍိုပ်လိက် မဗမံက်ထ္ၜး</string>
-  <string name="editactionfeed_add_description_button">ထပ် မဗၟံက်ထ္ၜး</string>
-  <string name="editactionfeed_my_contributions">အရာ အဲ မကၠောန်လဝ်ဂမၠိုင်</string>
-  <string name="title_description_task_title" fuzzy="true">စုတ် က္ဍိုပ်လိက် ပရူပရာ</string>
-  <string name="title_description_task_description" fuzzy="true">တြးပ္တိတ် လိက်ပရေင် မဟွံမဲ ကုက္ဍိုပ်လိက်</string>
-  <string name="image_caption_task_title">ပရူ ဗီုရုပ်</string>
-  <string name="image_caption_task_description">စုတ် ပရူပရာ ပ္ဍဲ ဗီုရုပ်</string>
-  <string name="multilingual_task_title">ထပ်စုတ် မဒါန်ပလေဝ် ဘာသာနာနာ</string>
-  <string name="multilingual_task_description">အရာမကၠာဲစၠောအ်ဘာသာဂှ် သၟဟ်အစောံ ယဝ်ရ မၞိဟ်ဗှ် ကေုာံ ချူပ္ဍဲဘာသာဝဳကဳ ဂၠိုင်နူမွဲဘာသာမ္ဂး၊၊</string>
+  <string name="suggested_edits_add_descriptions">စုတ် က္ဍိုပ်လိက် ပရူပရာ</string>
+  <string name="suggested_edits_review_description">ပလေဝ်ဒါန် က္ဍိုပ်လိက် မဗမံက်ထ္ၜး</string>
+  <string name="suggested_edits_add_description_button">ထပ် မဗၟံက်ထ္ၜး</string>
+  <string name="suggested_edits_my_contributions">အရာ အဲ မကၠောန်လဝ်ဂမၠိုင်</string>
+  <string name="suggested_edits_task_add_description_title">စုတ် က္ဍိုပ်လိက် ပရူပရာ</string>
+  <string name="suggested_edits_task_add_description_description">တြးပ္တိတ် လိက်ပရေင် မဟွံမဲ ကုက္ဍိုပ်လိက်</string>
+  <string name="suggested_edits_task_image_caption_title">ပရူ ဗီုရုပ်</string>
+  <string name="suggested_edits_task_image_caption_description">စုတ် ပရူပရာ ပ္ဍဲ ဗီုရုပ်</string>
+  <string name="suggested_edits_task_multilingual_title">ထပ်စုတ် မဒါန်ပလေဝ် ဘာသာနာနာ</string>
+  <string name="suggested_edits_task_multilingual_description">အရာမကၠာဲစၠောအ်ဘာသာဂှ် သၟဟ်အစောံ ယဝ်ရ မၞိဟ်ဗှ် ကေုာံ ချူပ္ဍဲဘာသာဝဳကဳ ဂၠိုင်နူမွဲဘာသာမ္ဂး၊၊</string>
   <string name="description_edit_revert_subtitle">တင်ဂုန်ရ ဟိုတ် မပလေဝ်ဒါန်လဝ် ဝဳကဳပဳဒဳယာ!</string>
   <string name="description_edit_revert_intro">ပိုဲတီ ၜိုတ်ခိုဟ်မာန်ဂှ် မၞးဂစာန်တုဲ ကၠောန်လဝ်၊ ဆဂး မၞိဟ်မဗဵုမွဲဂှ် ဆေင်စပ်ဒၟံင် ကုလိက်ဂှ်တုဲ အရာမၞး မပလေဝ်ဒါန်လဝ်ဂှ် ကလေင်ပလေဝ်ပၠန် ဒှ်မာန်ရ၊၊</string>
   <string name="description_edit_revert_reason1">တရးပတိတ် မၞးဂှ် ဟွံဗက်အာ ပ္ဍဲအရာဏအ် &lt;a href=\"%1$s\"&gt;စၞောန်ဂၠံင်&lt;/a&gt;.</string>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Dibya Dutta
 * Gitartha.bordoloi
 * Onubadok
@@ -224,7 +225,7 @@
   <string name="preference_summary_show_images">পৃষ্ঠাত ছবিৰ ল\'ডিং সক্ৰিয় বা নিষ্ক্ৰিয় কৰক। আপোনাৰ ইণ্টাৰনেট সংযোগ লেহেমীয়া হ\'লে বা আপোনাৰ ডে\'টা প্লেন সীমিত হ\'লে এই ছেটিংটো অচিহ্নিত কৰক।</string>
   <string name="preference_title_download_only_over_wifi">মাত্ৰ ৱাই-ফাইৰ জৰিয়তে ডাউনল\'ড কৰক</string>
   <string name="dialog_title_download_only_over_wifi">ম\'বাইল ডে\'টা ব্যৱহাৰ কৰি ডাউনল\'ড কৰাটো নিশ্চিতনে?</string>
-  <string name="dialog_text_download_only_over_wifi">আপুনি ছেটিংছত “কেৱল Wi-Fiৰ ডাউনল\'ড কৰিব” বিকল্প সক্ৰিয় কৰি থৈছে। আপুনি কেৱল এই ডাউনল\'ডৰ বাবে ম\'বাইল ডে\'টা প্লেন ব্যৱহাৰ কৰিব খুজিছে?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">আপুনি ছেটিংছত “কেৱল Wi-Fiৰ ডাউনল\'ড কৰিব” বিকল্প সক্ৰিয় কৰি থৈছে। আপুনি কেৱল এই ডাউনল\'ডৰ বাবে ম\'বাইল ডে\'টা প্লেন ব্যৱহাৰ কৰিব খুজিছে?</string>
   <string name="dialog_title_download_only_over_wifi_allow">অনুমতি দিয়ক</string>
   <string name="read_more_section">আৰু পঢ়ক</string>
   <string name="about_article_section">এই প্ৰবন্ধ সম্পৰ্কে</string>
@@ -384,9 +385,9 @@
   <string name="description_edit_tutorial_title_descriptions">শিৰোনামৰ বিৱৰণ</string>
   <string name="description_edit_tutorial_keep_it_short">সংক্ষিপ্ত ৰাখক</string>
   <string name="description_edit_tutorial_button_label_start_editing">সম্পাদনা আৰম্ভ কৰক</string>
-  <string name="editactionfeed_my_contributions">মোৰ বৰঙণিসমূহ</string>
-  <string name="multilingual_task_negative">মোৰ বাবে নহয়</string>
-  <string name="multilingual_task_positive">ভাষা সংযোগ কৰক</string>
+  <string name="suggested_edits_my_contributions">মোৰ বৰঙণিসমূহ</string>
+  <string name="suggested_edits_task_multilingual_negative">মোৰ বাবে নহয়</string>
+  <string name="suggested_edits_task_multilingual_positive">ভাষা সংযোগ কৰক</string>
   <string name="description_edit_revert_subtitle">ৱিকিপিডিয়া সম্পাদনা কৰাৰ বাবে ধন্যবাদ!</string>
   <string name="onboarding_skip">এৰি যাওক</string>
   <string name="onboarding_continue">অব্যাহত ৰাখক</string>

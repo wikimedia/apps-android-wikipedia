@@ -252,7 +252,7 @@
   <string name="preference_summary_show_images">Овозможи или оневозможи вчитување на слики во страниците. Отштиклирајте ја поставкава ако сегашната семрежна врска ви е бавна, или пак ако имате ограничен податочен пакет.</string>
   <string name="preference_title_download_only_over_wifi">Преземај само преку Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Го потврдувате преземањето со мобилни податоци?</string>
-  <string name="dialog_text_download_only_over_wifi">Ја имате вклучено поставката „Преземај само преку Wi-Fi“. Дали би сакале да дозволите преземање со мобилни податоци само во овој случај?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Ја имате вклучено поставката „Преземај само преку Wi-Fi“. Дали би сакале да дозволите преземање со мобилни податоци само во овој случај?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Дозволи</string>
   <string name="read_more_section">Прочитајте повеќе</string>
   <string name="about_article_section">За статијава</string>
@@ -551,7 +551,6 @@
   <string name="view_featured_article_footer_save_button_label">Зачувај</string>
   <string name="view_static_card_save_button_label">Зачувај</string>
   <string name="view_featured_article_footer_saved_button_label">Зачувано</string>
-  <string name="edit_tasks_activity_title">Уреднички задачи</string>
   <string name="feed_configure_activity_title">Прилагоди го доводот</string>
   <string name="feed_configure_menu_reset">Поврати основен изглед</string>
   <string name="feed_configure_menu_select_all">Прикажи сè</string>
@@ -596,46 +595,47 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">По можност еден ред, од два до дванаесет збора</string>
   <string name="description_edit_tutorial_button_label_start_editing">Почнете со уредување</string>
   <string name="description_edit_tutorial_promise">Почнувајќи, ветувам дека нема да ја злоупотребувам функцијава.</string>
-  <string name="editactionfeed_add_title_descriptions">Додај описи</string>
-  <string name="editactionfeed_review_title_description">Преглед на описот</string>
-  <string name="editactionfeed_add_description_button">Додај опис</string>
-  <string name="editactionfeed_my_contributions">Мои придонеси</string>
-  <string name="editactionfeed_added_by_you">Додадено од вас:</string>
-  <string name="editactionfeed_translated_by_you">Преведено од Вас:</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Ја отклучивте задачата „Додај описи“</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Честитаме на вашиот трет придонес! Бидејќи сте одлични уредници, составивме список на статии кои немаат описи. Дали би ни помогнале да ја подобриме Википедија?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Ја отклучивте задачата „Преведи описи“</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Ви благодариме за постојаните придонеси! Го користите прилогот на повеќе јазици, па затоа составивме список на статии чии описи треба да се преведат. Дали би продолжиле да ни помагате во подобрувањето на Википедија?</string>
+  <string name="suggested_edits_add_descriptions">Додај описи</string>
+  <string name="suggested_edits_review_description">Преглед на описот</string>
+  <string name="suggested_edits_add_description_button">Додај опис</string>
+  <string name="suggested_edits_my_contributions">Мои придонеси</string>
+  <string name="suggested_edits_added_by_you">Додадено од вас:</string>
+  <string name="suggested_edits_translated_by_you">Преведено од Вас:</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Ја отклучивте задачата „Додај описи“</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Честитаме на вашиот трет придонес! Бидејќи сте одлични уредници, составивме список на статии кои немаат описи. Дали би ни помогнале да ја подобриме Википедија?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Ја отклучивте задачата „Преведи описи“</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Ви благодариме за постојаните придонеси! Го користите прилогот на повеќе јазици, па затоа составивме список на статии чии описи треба да се преведат. Дали би продолжиле да ни помагате во подобрувањето на Википедија?</string>
   <string name="suggested_edits_unlock_dialog_no">Можеби подоцна</string>
   <string name="suggested_edits_unlock_dialog_yes">Да, ајде</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Го отклучивте „Додај описи“</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Го отклучивте „Преведи описи“</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">Го отклучивте „Додај описи“</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">Го отклучивте „Преведи описи“</string>
   <string name="suggested_edits_unlock_notification_text">Предложени уредувања</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Предложени уредувања\n\nЧеститаме на вашиот трет придонес! Бидејќи сте одлични уредници, составивме список на статии кои немаат описи. Дали би ни помогнале да ја подобриме Википедија?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Предложени уредувања\n\nВи благодариме за вашиот 50-ти придонес! Го користите прилогот на повеќе јазици, па затоа составивме список на статии чии описи треба да се преведат. Дали би продолжиле да ни помагате во подобрувањето на Википедија?</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text" fuzzy="true">Предложени уредувања\n\nЧеститаме на вашиот трет придонес! Бидејќи сте одлични уредници, составивме список на статии кои немаат описи. Дали би ни помогнале да ја подобриме Википедија?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text" fuzzy="true">Предложени уредувања\n\nВи благодариме за вашиот 50-ти придонес! Го користите прилогот на повеќе јазици, па затоа составивме список на статии чии описи треба да се преведат. Дали би продолжиле да ни помагате во подобрувањето на Википедија?</string>
   <string name="suggested_edits_unlock_notification_button">Да, ајде</string>
   <string name="suggested_edits_license_notice">Додавајќи го описот на насловот, се согласувам со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувам моите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;Криејтив комонс CC0&lt;/a&gt;</string>
   <string name="suggested_edits_menu_info">Инфо</string>
-  <string name="title_description_task_title">Додај описи</string>
-  <string name="title_description_task_description">Придонесувајте со статии без описи</string>
-  <string name="image_caption_task_title">Описи на слики</string>
-  <string name="image_caption_task_description">Додај описи на слики</string>
-  <string name="multilingual_task_title">Повеќе задачи за повеќејазични уредници</string>
-  <string name="multilingual_task_description">Има преводни задачи на располагање доколку читате и пишувате на Википедија на повеќе од еден јазик.</string>
-  <string name="translation_task_title">Превод на описи</string>
-  <string name="translation_task_description">Превод на описи на други јазици</string>
-  <string name="image_caption_edit_disable_text">Заклучено додека не направите %d проверени уредувања</string>
-  <string name="translate_description_edit_disable_text">Заклучено додека не уредите %d проверени описи</string>
-  <string name="multilingual_task_negative">Не е за мене</string>
-  <string name="multilingual_task_positive">Додај јазици</string>
-  <string name="translate_caption_task_title">Превод на описи на слики</string>
-  <string name="translate_caption_task_description">Превод на описи на други јазици</string>
+  <string name="suggested_edits_tasks_activity_title">Уреднички задачи</string>
+  <string name="suggested_edits_task_add_description_title">Додај описи</string>
+  <string name="suggested_edits_task_add_description_description">Придонесувајте со статии без описи</string>
+  <string name="suggested_edits_task_image_caption_title">Описи на слики</string>
+  <string name="suggested_edits_task_image_caption_description">Додај описи на слики</string>
+  <string name="suggested_edits_task_multilingual_title">Повеќе задачи за повеќејазични уредници</string>
+  <string name="suggested_edits_task_multilingual_description">Има преводни задачи на располагање доколку читате и пишувате на Википедија на повеќе од еден јазик.</string>
+  <string name="suggested_edits_task_translation_title">Превод на описи</string>
+  <string name="suggested_edits_task_translation_description">Превод на описи на други јазици</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Заклучено додека не направите %d проверени уредувања</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Заклучено додека не уредите %d проверени описи</string>
+  <string name="suggested_edits_task_multilingual_negative">Не е за мене</string>
+  <string name="suggested_edits_task_multilingual_positive">Додај јазици</string>
+  <string name="suggested_edits_task_translate_caption_title">Превод на описи на слики</string>
+  <string name="suggested_edits_task_translate_caption_description">Превод на описи на други јазици</string>
   <plurals name="suggested_edits_contribution_count">
-    <item quantity="one">1 придонес од прилог</item>
-    <item quantity="other">%d придонеси од прилози</item>
+    <item quantity="one">1 придонес</item>
+    <item quantity="other">%d придонеси</item>
   </plurals>
-  <string name="description_edit_tutorial_message">Добре дојдовте во новиот дом за брзо уредување од прилогот на Википедија. Вашите придонеси се мошне ценети. Среќно уредување!</string>
-  <string name="edit_tasks_onboarding_get_started">Започни</string>
+  <string name="suggested_edits_tutorial_message">Добре дојдовте во новиот дом за брзо уредување од прилогот на Википедија. Вашите придонеси се мошне ценети. Среќно уредување!</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">Започни</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>

@@ -252,7 +252,7 @@
   <string name="preference_summary_show_images">Activează sau dezactivează încărcarea imaginilor în pagini. Debifați această opțiune dacă aveți o conexiune la internet slabă sau dacă abonamentul dumneavoastră de date este limitat.</string>
   <string name="preference_title_download_only_over_wifi">Descărcați numai prin Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Confirmați descărcarea utilizând datele mobile?</string>
-  <string name="dialog_text_download_only_over_wifi">Ați pornit \"Descărcați numai prin Wi-Fi\" in setări. Doriți să permiteți planul utilizării datelor mobile pentru această descărcare?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Ați pornit \"Descărcați numai prin Wi-Fi\" in setări. Doriți să permiteți planul utilizării datelor mobile pentru această descărcare?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Permite</string>
   <string name="read_more_section">Citiți mai multe</string>
   <string name="about_article_section">Despre acest articol</string>
@@ -371,6 +371,6 @@
   </plurals>
   <string name="view_offline_card_text">Conținutul nu poate fi incărcat in modul offline.</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Traducerea editării descrierilor titlurilor a fost deblocată!</string>
-  <string name="translate_caption_task_description">Traduceți subtitrările în alte limbi</string>
+  <string name="suggested_edits_task_translate_caption_description">Traduceți subtitrările în alte limbi</string>
   <string name="more_language_options">mai mult</string>
 </resources>
