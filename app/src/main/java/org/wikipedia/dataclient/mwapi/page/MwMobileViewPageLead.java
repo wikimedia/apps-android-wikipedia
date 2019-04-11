@@ -67,6 +67,10 @@ public class MwMobileViewPageLead extends MwResponse implements PageLead {
             title = new PageTitle(originalPrefixedText, title.getWikiSite(), title.getThumbUrl());
         }
 
+        if (mobileview.getRedirected() != null) {
+            title.setConvertedText(mobileview.getRedirected());
+        }
+
         title.setDescription(mobileview.getDescription());
         return title;
     }
