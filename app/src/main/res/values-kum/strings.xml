@@ -221,17 +221,17 @@
   <string name="description_edit_success_done">Гьазир</string>
   <string name="description_edit_success_did_you_know">Билемисен?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Тюзлеп башламакъ</string>
-  <string name="editactionfeed_added_by_you">Сен къошгъансан:</string>
-  <string name="editactionfeed_translated_by_you">Мен гёчюргенлер:</string>
+  <string name="suggested_edits_added_by_you">Сен къошгъансан:</string>
+  <string name="suggested_edits_translated_by_you">Мен гёчюргенлер:</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Балики сонгра</string>
   <string name="suggested_edits_unlock_dialog_yes">Гетдик</string>
   <string name="suggested_edits_unlock_notification_button">Гетдик</string>
   <string name="suggested_edits_menu_info">Маълумат</string>
-  <string name="title_description_task_title">Тасвир къошмакъ</string>
-  <string name="translation_task_title">Тасвирлени гёчюрювлери</string>
-  <string name="multilingual_task_negative">Магъа тюгюл</string>
-  <string name="multilingual_task_positive">Тиллер къошмакъ</string>
-  <string name="edit_tasks_onboarding_get_started">Башламакъ</string>
+  <string name="suggested_edits_task_add_description_title">Тасвир къошмакъ</string>
+  <string name="suggested_edits_task_translation_title">Тасвирлени гёчюрювлери</string>
+  <string name="suggested_edits_task_multilingual_negative">Магъа тюгюл</string>
+  <string name="suggested_edits_task_multilingual_positive">Тиллер къошмакъ</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">Башламакъ</string>
   <string name="size_gb">%.2f ГБ</string>
   <string name="size_mb">%.2f МБ</string>
   <string name="onboarding_continue">Давамламакъ</string>

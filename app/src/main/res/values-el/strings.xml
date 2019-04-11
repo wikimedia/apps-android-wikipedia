@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Auslaender
 * Evropi
 * GR
@@ -528,7 +529,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ιδανικά μια γραμμή, μεταξύ δύο και δώδεκα λέξεων</string>
   <string name="description_edit_tutorial_button_label_start_editing">Ξεκινήστε την επεξεργασία</string>
   <string name="description_edit_tutorial_promise">Ξεκινώντας, υπόσχομαι να μην καταχραστώ τη λειτουργία.</string>
-  <string name="editactionfeed_my_contributions">Οι συνεισφορές μου</string>
+  <string name="suggested_edits_my_contributions">Οι συνεισφορές μου</string>
   <string name="description_edit_revert_subtitle">Ευχαριστούμε που επεξεργάζεστε την Βικιπαίδεια!</string>
   <string name="description_edit_revert_reason2">η συνεισφορά σας έμοιαζε περισσότερο σαν πειραματισμός ή βανδαλισμός.</string>
   <string name="description_edit_revert_history">Εάν ενδιαφέρεστε, δείτε το &lt;a href=\"%1$s\"&gt;ιστορικό επεξεργασιών&lt;/a&gt;.</string>
