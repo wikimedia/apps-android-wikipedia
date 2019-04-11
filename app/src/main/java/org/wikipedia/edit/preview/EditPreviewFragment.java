@@ -18,6 +18,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
 import org.wikipedia.edit.EditSectionActivity;
@@ -41,7 +42,9 @@ import java.util.Locale;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-import retrofit2.Call;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
@@ -63,6 +66,7 @@ public class EditPreviewFragment extends Fragment {
 
     private ProgressDialog progressDialog;
     private EditFunnel funnel;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -267,31 +271,22 @@ public class EditPreviewFragment extends Fragment {
         hideSoftKeyboard(requireActivity());
         progressDialog.show();
 
-        new EditPreviewClient().request(parentActivity.getPageTitle().getWikiSite(), title, wikiText,
-                new EditPreviewClient.Callback() {
-            @Override
-            public void success(@NonNull Call<EditPreview> call, @NonNull String preview) {
-                if (!progressDialog.isShowing()) {
-                    // no longer attached to activity!
-                    return;
-                }
-                displayPreview(preview);
-                previewHTML = preview;
-                parentActivity.supportInvalidateOptionsMenu();
-                progressDialog.dismiss();
-            }
-
-            @Override
-            public void failure(@NonNull Call<EditPreview> call, @NonNull Throwable caught) {
-                if (!progressDialog.isShowing()) {
-                    // no longer attached to activity!
-                    return;
-                }
-                progressDialog.dismiss();
-                parentActivity.showError(caught);
-                L.e(caught);
-            }
-        });
+        disposables.add(ServiceFactory.get(parentActivity.getPageTitle().getWikiSite()).postEditPreview(title.getPrefixedText(), wikiText)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doFinally(() -> {
+                    if (progressDialog.isShowing()) {
+                        progressDialog.dismiss();
+                    }
+                })
+                .subscribe(response -> {
+                    displayPreview(response.result());
+                    previewHTML = response.result();
+                    parentActivity.supportInvalidateOptionsMenu();
+                }, throwable -> {
+                    parentActivity.showError(throwable);
+                    L.e(throwable);
+                }));
     }
 
     /**
@@ -322,6 +317,7 @@ public class EditPreviewFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
+        disposables.clear();
         webview.destroy();
         super.onDestroyView();
     }
