@@ -48,7 +48,7 @@ public final class Constants {
 
     public static final int PREFERRED_GALLERY_IMAGE_SIZE = 1280;
 
-    public static final int MAX_TABS = 100;
+    public static final int MAX_TABS = 999;
     public static final int MAX_READING_LIST_ARTICLE_LIMIT = 5000;
     public static final int MAX_READING_LISTS_LIMIT = 100;
 
