@@ -3,7 +3,6 @@ package org.wikipedia.edit;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -488,12 +487,6 @@ public class EditSectionActivity extends BaseActivity {
             case R.id.menu_save_section:
                 clickNextButton();
                 return true;
-            case R.id.menu_edit_undo:
-                sectionText.undo();
-                return true;
-            case R.id.menu_edit_redo:
-                sectionText.redo();
-                return true;
             case R.id.menu_edit_zoom_in:
                 Prefs.setEditingTextSizeExtra(Prefs.getEditingTextSizeExtra() + 1);
                 updateTextSize();
@@ -517,8 +510,6 @@ public class EditSectionActivity extends BaseActivity {
         item.setTitle(getString(editPreviewFragment.isActive() ? R.string.edit_done : R.string.edit_next));
         menu.findItem(R.id.menu_edit_zoom_in).setVisible(!editPreviewFragment.isActive());
         menu.findItem(R.id.menu_edit_zoom_out).setVisible(!editPreviewFragment.isActive());
-        menu.findItem(R.id.menu_edit_undo).setVisible((android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) && !editPreviewFragment.isActive());
-        menu.findItem(R.id.menu_edit_redo).setVisible((android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) && !editPreviewFragment.isActive());
         menu.findItem(R.id.menu_find_in_editor).setVisible(!editPreviewFragment.isActive());
 
         if (abusefilterEditResult != null) {
