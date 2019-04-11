@@ -65,11 +65,13 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
     }
 
     public void click(String title, Constants.InvokeSource source) {
-        SuggestedEditStats stats = null;
+        SuggestedEditStats stats;
         if (source == Constants.InvokeSource.EDIT_FEED_TITLE_DESC) {
             stats = statsCollection.addDescriptionStats;
         } else if (source == Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
             stats = statsCollection.translateDescriptionStats;
+        } else {
+            return;
         }
         stats.clicks++;
         if (!uniqueTitles.contains(title)) {
