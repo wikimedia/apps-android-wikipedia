@@ -279,7 +279,7 @@
   <string name="preference_summary_show_images">Abilitare o disabilitare il caricamento delle immagini nelle pagine. Deseleziona questa impostazione se la tua connessione Internet è lenta, o se il tuo traffico dati è limitato.</string>
   <string name="preference_title_download_only_over_wifi">Scarica solo tramite Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Conferma il download utilizzando i dati mobili?</string>
-  <string name="dialog_text_download_only_over_wifi">Hai \"Scarica solo su Wi-Fi\" attivato nelle impostazioni. Vuoi consentire l\'utilizzo del piano dati mobile solo per questo download?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Hai \"Scarica solo su Wi-Fi\" attivato nelle impostazioni. Vuoi consentire l\'utilizzo del piano dati mobile solo per questo download?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Consenti</string>
   <string name="read_more_section">Per saperne di più</string>
   <string name="about_article_section">Su questa voce</string>
@@ -573,6 +573,7 @@
   <string name="description_edit_read">Leggi</string>
   <string name="description_edit_add_description">Aggiungi una descrizione del titolo</string>
   <string name="description_edit_add_description_v2">Aggiungi descrizione</string>
+  <string name="description_edit_translate_description">Traduci la descrizione del titolo</string>
   <string name="description_edit_edit_description">Modifica descrizione</string>
   <string name="add_translation">Aggiungi traduzione in %s</string>
   <string name="description_edit_cancel_hint">Annulla</string>
@@ -587,41 +588,42 @@
   <string name="description_edit_tutorial_title_descriptions">Descrizioni del titolo</string>
   <string name="description_edit_tutorial_keep_it_short">Sii breve</string>
   <string name="description_edit_tutorial_button_label_start_editing">Inizia a modificare</string>
-  <string name="editactionfeed_add_title_descriptions">Aggiungi descrizioni</string>
-  <string name="editactionfeed_add_description_button">Aggiungi descrizione</string>
-  <string name="editactionfeed_my_contributions">I miei contributi</string>
-  <string name="editactionfeed_added_by_you">Aggiunto da te:</string>
-  <string name="editactionfeed_translated_by_you">Tradotto da te:</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Hai sbloccato l\'attività \"Aggiungi descrizioni\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Hai sbloccato l\'attività \"Traduci descrizioni\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Congratulazioni per il tuo 50° contributo, siamo impressionati! Stai utilizzando l\'applicazione in più lingue, quindi abbiamo compilato un elenco di voci che richiedono traduzioni delle descrizione. Vuoi continuare ad aiutarci migliorando Wikipedia?</string>
+  <string name="suggested_edits_add_descriptions">Aggiungi descrizioni</string>
+  <string name="suggested_edits_translate_descriptions">Traduci descrizioni</string>
+  <string name="suggested_edits_add_description_button">Aggiungi descrizione</string>
+  <string name="suggested_edits_my_contributions">I miei contributi</string>
+  <string name="suggested_edits_added_by_you">Aggiunto da te:</string>
+  <string name="suggested_edits_translated_by_you">Tradotto da te:</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Hai sbloccato l\'attività \"Aggiungi descrizioni\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Hai sbloccato l\'attività \"Traduci descrizioni\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Congratulazioni per il tuo 50° contributo, siamo impressionati! Stai utilizzando l\'applicazione in più lingue, quindi abbiamo compilato un elenco di voci che richiedono traduzioni delle descrizione. Vuoi continuare ad aiutarci migliorando Wikipedia?</string>
   <string name="suggested_edits_unlock_dialog_no">Forse più tardi</string>
   <string name="suggested_edits_unlock_dialog_yes">Si, partiamo</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Hai sbloccato \"Aggiungi descrizioni\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Hai sbloccato \"Traduci descrizioni\"</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">Hai sbloccato \"Aggiungi descrizioni\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">Hai sbloccato \"Traduci descrizioni\"</string>
   <string name="suggested_edits_unlock_notification_text">Modifiche suggerite</string>
   <string name="suggested_edits_unlock_notification_button">Si, partiamo</string>
   <string name="suggested_edits_menu_info">Informazioni</string>
-  <string name="title_description_task_title">Aggiungi descrizioni</string>
-  <string name="title_description_task_description">Contribuire alle voci senza descrizioni</string>
-  <string name="image_caption_task_title">Didascalia immagini</string>
-  <string name="image_caption_task_description">Aggiungi didascalie alle immagini</string>
-  <string name="multilingual_task_title">Più attività per editori multilingue</string>
-  <string name="multilingual_task_description">Le attività di traduzione sono disponibili se leggi e scrivi in ​​più di una lingua di Wikipedia.</string>
-  <string name="translation_task_title">Traduci descrizioni</string>
-  <string name="translation_task_description">Traduci le descrizioni attraverso le lingue della voce.</string>
-  <string name="image_caption_edit_disable_text">Bloccato fino a quando non avrai apportato %d contributi verificati</string>
-  <string name="translate_description_edit_disable_text">Bloccato fino a quando non avrai apportato %d contributi verificati</string>
-  <string name="multilingual_task_negative">Non per me</string>
-  <string name="multilingual_task_positive">Aggiungi lingue</string>
-  <string name="translate_caption_task_title">Traduci didascalie immagini</string>
-  <string name="translate_caption_task_description">Traduci didascalie in altre lingue</string>
-  <plurals name="edit_action_contribution_count">
+  <string name="suggested_edits_task_add_description_title">Aggiungi descrizioni</string>
+  <string name="suggested_edits_task_add_description_description">Contribuire alle voci senza descrizioni</string>
+  <string name="suggested_edits_task_image_caption_title">Didascalia immagini</string>
+  <string name="suggested_edits_task_image_caption_description">Aggiungi didascalie alle immagini</string>
+  <string name="suggested_edits_task_multilingual_title">Più attività per editori multilingue</string>
+  <string name="suggested_edits_task_multilingual_description">Le attività di traduzione sono disponibili se leggi e scrivi in ​​più di una lingua di Wikipedia.</string>
+  <string name="suggested_edits_task_translation_title">Traduci descrizioni</string>
+  <string name="suggested_edits_task_translation_description">Traduci le descrizioni attraverso le lingue della voce.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Bloccato fino a quando non avrai apportato %d contributi verificati</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Bloccato fino a quando non avrai apportato %d contributi verificati</string>
+  <string name="suggested_edits_task_multilingual_negative">Non per me</string>
+  <string name="suggested_edits_task_multilingual_positive">Aggiungi lingue</string>
+  <string name="suggested_edits_task_translate_caption_title">Traduci didascalie immagini</string>
+  <string name="suggested_edits_task_translate_caption_description">Traduci didascalie in altre lingue</string>
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 contributo</item>
     <item quantity="other">%d contributi</item>
   </plurals>
-  <string name="description_edit_tutorial_message">Benvenuto nella nuova pagina principale per la modifica rapida nell\'applicazione Wikipedia. I tuoi contributi sono molto apprezzati. Buona modifica!</string>
-  <string name="edit_tasks_onboarding_get_started">Inizia</string>
+  <string name="suggested_edits_tutorial_message">Benvenuto nella nuova pagina principale per la modifica rapida nell\'applicazione Wikipedia. I tuoi contributi sono molto apprezzati. Buona modifica!</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">Inizia</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
   <string name="description_edit_revert_reason2">il tuo contributo sembra essere un esperimento o un vandalismo.</string>
   <string name="description_edit_revert_history">Se sei interessato, vedi la &lt;a href=\"%1$s\"&gt;cronologia delle modifiche&lt;/a&gt;.</string>

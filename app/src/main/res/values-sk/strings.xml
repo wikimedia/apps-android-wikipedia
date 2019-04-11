@@ -257,7 +257,7 @@
   <string name="preference_summary_show_images">Zapnite alebo vypnite načítavanie obrázkov na stránkach. Toto nastavenie zaškrtnite, ak je vaše internetové pripojenie pomalé alebo máte obmedzený dátový program.</string>
   <string name="preference_title_download_only_over_wifi">Preberať len cez Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Chcete potvrdiť prevzatie pomocou mobilných dát?</string>
-  <string name="dialog_text_download_only_over_wifi">Máte zapnutú funkciu „Preberať len cez Wi-Fi“ v Nastaveniach. Chcete povoliť používaniemobilných dát iba pre toto preberanie?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Máte zapnutú funkciu „Preberať len cez Wi-Fi“ v Nastaveniach. Chcete povoliť používaniemobilných dát iba pre toto preberanie?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Povoliť</string>
   <string name="read_more_section">Prečítajte si viac</string>
   <string name="about_article_section">O tomto článku</string>
@@ -548,7 +548,6 @@
   <string name="view_featured_article_card_title">Odporúčaný článok</string>
   <string name="view_featured_article_footer_save_button_label">Uložiť</string>
   <string name="view_featured_article_footer_saved_button_label">Uložené</string>
-  <string name="edit_tasks_activity_title" fuzzy="true">Úlohy pre upravovanie z aplikácie</string>
   <string name="feed_configure_activity_title">Prispôsobiť kanál Objaviť</string>
   <string name="feed_configure_menu_reset">Obnoviť predvolené zobrazenie</string>
   <string name="feed_configure_menu_select_all">Zobraziť všetko</string>
@@ -587,22 +586,23 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">V ideálnom prípade jeden riadok s dvoma až dvanástimi slovami</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začať s úpravami</string>
   <string name="description_edit_tutorial_promise">Sľubujem, že nezneužijem túto funkciu.</string>
-  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Pridať popis článku</string>
-  <string name="editactionfeed_review_title_description" fuzzy="true">Náhľad popisu článku</string>
-  <string name="editactionfeed_add_description_button">Pridať popis</string>
-  <string name="editactionfeed_my_contributions">Moje príspevky</string>
+  <string name="suggested_edits_add_descriptions">Pridať popis článku</string>
+  <string name="suggested_edits_review_description">Náhľad popisu článku</string>
+  <string name="suggested_edits_add_description_button">Pridať popis</string>
+  <string name="suggested_edits_my_contributions">Moje príspevky</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Tipy pre popisy článkov boli odomknuté!</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Všimli sme si, že sa vám páči úprava popisov článkov a preto sme zostavili zoznam „Úlohy pre upravovanie z aplikácie“ s článkami, ktorým chýbajú popisy. Úlohy vám pomôžu prispievať do Wikipédie!</string>
-  <string name="title_description_task_title" fuzzy="true">Pridať popis článku</string>
-  <string name="title_description_task_description" fuzzy="true">Prispieť článkom bez popisu</string>
-  <string name="image_caption_task_title">Popisy obrázkov</string>
-  <string name="image_caption_task_description">Pridať popisy k obrázkom</string>
-  <string name="multilingual_task_title">Viac úkolov pre viacjazyčné editory</string>
-  <string name="multilingual_task_description">Tipy na preklad sú k dispozícii, ak čítate a píšete vo viac ako jednom jazyku Wikipédie.</string>
-  <string name="image_caption_edit_disable_text" fuzzy="true">Zamknuté, kým neurobíte %d overených úprav v aplikácii</string>
-  <string name="multilingual_task_negative">Nie je pre mňa</string>
-  <string name="multilingual_task_positive">Pridať jazyky</string>
-  <plurals name="edit_action_contribution_count" fuzzy="true">
+  <string name="suggested_edits_tasks_activity_title">Úlohy pre upravovanie z aplikácie</string>
+  <string name="suggested_edits_task_add_description_title">Pridať popis článku</string>
+  <string name="suggested_edits_task_add_description_description">Prispieť článkom bez popisu</string>
+  <string name="suggested_edits_task_image_caption_title">Popisy obrázkov</string>
+  <string name="suggested_edits_task_image_caption_description">Pridať popisy k obrázkom</string>
+  <string name="suggested_edits_task_multilingual_title">Viac úkolov pre viacjazyčné editory</string>
+  <string name="suggested_edits_task_multilingual_description">Tipy na preklad sú k dispozícii, ak čítate a píšete vo viac ako jednom jazyku Wikipédie.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Zamknuté, kým neurobíte %d overených úprav v aplikácii</string>
+  <string name="suggested_edits_task_multilingual_negative">Nie je pre mňa</string>
+  <string name="suggested_edits_task_multilingual_positive">Pridať jazyky</string>
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">príspevok v aplikácii</item>
     <item quantity="other">príspevky v aplikácii</item>
   </plurals>

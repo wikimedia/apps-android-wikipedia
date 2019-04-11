@@ -259,7 +259,7 @@
   <string name="preference_summary_show_images">Activar ou desactivar a carga de imaxes nas páxinas. Desmarque esta opción se a súa conexión á internet é lenta, ou se o seu plan de datos é limitado.</string>
   <string name="preference_title_download_only_over_wifi">Descargar só mediante Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Confirma a descarga usando datos móbiles?</string>
-  <string name="dialog_text_download_only_over_wifi">Ten activado \"Descargar só mediante Wi-Fi\". Quere permitir o uso do plan de datos móbiles só durante esta descarga?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Ten activado \"Descargar só mediante Wi-Fi\". Quere permitir o uso do plan de datos móbiles só durante esta descarga?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Permitir</string>
   <string name="read_more_section">Ler máis</string>
   <string name="about_article_section">Acerca deste artigo</string>
@@ -558,7 +558,6 @@
   <string name="view_featured_article_footer_save_button_label">Gardar</string>
   <string name="view_static_card_save_button_label">Gardar</string>
   <string name="view_featured_article_footer_saved_button_label">Gardado</string>
-  <string name="edit_tasks_activity_title">Tarefas de editor</string>
   <string name="feed_configure_activity_title">Configurar a canle</string>
   <string name="feed_configure_menu_reset">Restablecer vista predeterminada</string>
   <string name="feed_configure_menu_select_all">Amosar todo</string>
@@ -603,38 +602,39 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente unha liña, entre dúas e unha ducia de palabras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Comezar a editar</string>
   <string name="description_edit_tutorial_promise">Ó comezar, comprométome a non abusar desta funcionalidade.</string>
-  <string name="editactionfeed_add_title_descriptions">Engadir descricións</string>
-  <string name="editactionfeed_review_title_description">Revisar descrición</string>
-  <string name="editactionfeed_add_description_button">Engadir descrición</string>
-  <string name="editactionfeed_my_contributions">As miñas contribucións</string>
-  <string name="editactionfeed_added_by_you">Engadidas por vostedeː</string>
-  <string name="editactionfeed_translated_by_you">Traducidas por vostedeː</string>
+  <string name="suggested_edits_add_descriptions">Engadir descricións</string>
+  <string name="suggested_edits_review_description">Revisar descrición</string>
+  <string name="suggested_edits_add_description_button">Engadir descrición</string>
+  <string name="suggested_edits_my_contributions">As miñas contribucións</string>
+  <string name="suggested_edits_added_by_you">Engadidas por vostedeː</string>
+  <string name="suggested_edits_translated_by_you">Traducidas por vostedeː</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Desbloqueou \"Engadir descricións\"</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Grazas polas súas achegas constantesǃ Porque é moi bo editando, compilamos unha lista de artigos nos que falta a descrición de título. Pode axudarnos a mellorar a Wikipedia?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Desbloqueou \"Traducir descricións\"</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Grazas pola súa contribución constanteǃ Está a usar a aplicación en varias linguas, por iso compilamos unha lista de artigos que precisan traducións de descricións. Pode continuar a axudarnos a mellorar Wikipedia?</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Quizais máis tarde</string>
   <string name="suggested_edits_menu_info">Información</string>
-  <string name="title_description_task_title">Engadir descricións</string>
-  <string name="title_description_task_description">Contribuír ós artigos sen descricións</string>
-  <string name="image_caption_task_title">Engadir pés ás imaxes</string>
-  <string name="image_caption_task_description">Engadir pés ás imaxes</string>
-  <string name="multilingual_task_title">Máis tarefas para editores multilingües</string>
-  <string name="multilingual_task_description">Hai tarefas de tradución se vostede le e escribe en máis dunha lingua de Wikipedia.</string>
-  <string name="translation_task_title">Traducir descricións</string>
-  <string name="translation_task_description">Traducir descricións nas linguas dos artigos.</string>
-  <string name="image_caption_edit_disable_text">Bloqueado ata que teña feito %d contribucións verificadas</string>
-  <string name="translate_description_edit_disable_text">Bloqueado ata que teña feito %d contribucións verificadas</string>
-  <string name="multilingual_task_negative">Non é para min</string>
-  <string name="multilingual_task_positive">Engadir linguas</string>
-  <string name="translate_caption_task_title">Traducir pés de imaxe</string>
-  <string name="translate_caption_task_description">Traducir pés a outras linguas</string>
-  <plurals name="edit_action_contribution_count">
+  <string name="suggested_edits_tasks_activity_title">Tarefas de editor</string>
+  <string name="suggested_edits_task_add_description_title">Engadir descricións</string>
+  <string name="suggested_edits_task_add_description_description">Contribuír ós artigos sen descricións</string>
+  <string name="suggested_edits_task_image_caption_title">Engadir pés ás imaxes</string>
+  <string name="suggested_edits_task_image_caption_description">Engadir pés ás imaxes</string>
+  <string name="suggested_edits_task_multilingual_title">Máis tarefas para editores multilingües</string>
+  <string name="suggested_edits_task_multilingual_description">Hai tarefas de tradución se vostede le e escribe en máis dunha lingua de Wikipedia.</string>
+  <string name="suggested_edits_task_translation_title">Traducir descricións</string>
+  <string name="suggested_edits_task_translation_description">Traducir descricións nas linguas dos artigos.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Bloqueado ata que teña feito %d contribucións verificadas</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Bloqueado ata que teña feito %d contribucións verificadas</string>
+  <string name="suggested_edits_task_multilingual_negative">Non é para min</string>
+  <string name="suggested_edits_task_multilingual_positive">Engadir linguas</string>
+  <string name="suggested_edits_task_translate_caption_title">Traducir pés de imaxe</string>
+  <string name="suggested_edits_task_translate_caption_description">Traducir pés a outras linguas</string>
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 contribución</item>
     <item quantity="other">%d contribucións</item>
   </plurals>
-  <string name="description_edit_tutorial_message">Benvido á nova páxina inicial de edición rápida da aplicación da Wikipedia. As súas contribucións son moi apreciadas. Boas ediciónsǃ</string>
-  <string name="edit_tasks_onboarding_get_started">Comezar</string>
+  <string name="suggested_edits_tutorial_message">Benvido á nova páxina inicial de edición rápida da aplicación da Wikipedia. As súas contribucións son moi apreciadas. Boas ediciónsǃ</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">Comezar</string>
   <string name="description_edit_revert_subtitle">Grazas por editar a Wikipediaǃ</string>
   <string name="description_edit_revert_intro">Sabemos que intentou facelo o mellor posible, pero un dos nosos revisores atopou un problema. Posibles razóns polas que a súa edición foi revertida inclúenː</string>
   <string name="description_edit_revert_reason1">a súa contribución non segue unha das &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>

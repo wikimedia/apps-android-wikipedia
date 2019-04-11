@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Bert Jickty
 * Envlh
 * HalanTul
@@ -232,7 +233,7 @@
   <string name="preference_summary_show_images">Ойуулары көрдөрөрү холбооһун эбэтэр араарыы. Бытаан эбэтэр сыаналаах интэриниэттээх буоллаххына чыычааҕын устан кэбис.</string>
   <string name="preference_title_download_only_over_wifi">Wi-Fi баар эрэ буоллаҕына хачайдыырга</string>
   <string name="dialog_title_download_only_over_wifi">Мобил ситиминэн хачайдыыры ыйытарга?</string>
-  <string name="dialog_text_download_only_over_wifi">Туруорууларгар «Wi-Fi баар эрэ буоллаҕына хачайдыырга» диэбиккин. Мобил ситими хачайдыырга билигин эрэ туттаары гынаҕын дуо?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Туруорууларгар «Wi-Fi баар эрэ буоллаҕына хачайдыырга» диэбиккин. Мобил ситими хачайдыырга билигин эрэ туттаары гынаҕын дуо?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Көҥүллүүргэ</string>
   <string name="read_more_section">Бу туһунан сиһилии</string>
   <string name="about_article_section">Бу ыстатыйа туһунан</string>
@@ -503,7 +504,6 @@
   <string name="view_featured_article_card_title">Бастыҥ ыстатыйа</string>
   <string name="view_featured_article_footer_save_button_label">Бигэргэт</string>
   <string name="view_featured_article_footer_saved_button_label">Бигэргэннэ</string>
-  <string name="edit_tasks_activity_title" fuzzy="true">Сорудахтар</string>
   <string name="feed_configure_activity_title">Лиэнтэни нарылаа</string>
   <string name="feed_configure_menu_reset">Анаан этиллибэтэҕинэ турар сиидэлэри сөргүтүү</string>
   <string name="feed_configure_menu_select_all">Барытын көрдөр</string>
@@ -540,27 +540,28 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Биир сурааһын, иккиттэн уон иккигэ диэри тыл буолара ордук</string>
   <string name="description_edit_tutorial_button_label_start_editing">Уларытыыны саҕалаа</string>
   <string name="description_edit_tutorial_promise">Саҕалыырбар бу кыаҕы сөпкө туһаныам диэн мэктиэлиибин.</string>
-  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Кылгас быһаарыы эбии</string>
-  <string name="editactionfeed_review_title_description" fuzzy="true">Быһаарыылары тургутуу</string>
-  <string name="editactionfeed_add_description_button">Быһааран суруй</string>
-  <string name="editactionfeed_my_contributions">Бэйэм суруйуум</string>
-  <string name="title_description_task_title" fuzzy="true">Кылгас быһаарыы эбии</string>
-  <string name="title_description_task_description" fuzzy="true">Кылгас быһаарыылары суруйууга кыттарга</string>
-  <string name="image_caption_task_title">Ойуу суруга</string>
-  <string name="image_caption_task_description">Ойууга сурук эбии</string>
-  <string name="multilingual_task_title">Элбэх тылы билэр дьоҥҥо соруктар</string>
-  <string name="multilingual_task_description">Тылбаастыырга сорудах Бикипиэдьийэҕэ соҕотох тылтан элбэҕинэн ааҕар эбэтэр суруйар буоллаххына көстүөҕэ.</string>
-  <string name="translation_task_title" fuzzy="true">Кылгас быһаарыы тылбааһа</string>
-  <string name="translation_task_description" fuzzy="true">Быһаарыы суругун атын тылларга тылбааһа.</string>
-  <string name="multilingual_task_negative">Миэхэ буолбатах</string>
-  <string name="multilingual_task_positive">Тылы эбии</string>
-  <string name="translate_caption_task_title">Ойуу суругун тылбааһа</string>
-  <string name="translate_caption_task_description">Ойуу суругун атын тылларга тылбааһа</string>
-  <plurals name="edit_action_contribution_count" fuzzy="true">
+  <string name="suggested_edits_add_descriptions">Кылгас быһаарыы эбии</string>
+  <string name="suggested_edits_review_description">Быһаарыылары тургутуу</string>
+  <string name="suggested_edits_add_description_button">Быһааран суруй</string>
+  <string name="suggested_edits_my_contributions">Бэйэм суруйуум</string>
+  <string name="suggested_edits_tasks_activity_title">Сорудахтар</string>
+  <string name="suggested_edits_task_add_description_title">Кылгас быһаарыы эбии</string>
+  <string name="suggested_edits_task_add_description_description">Кылгас быһаарыылары суруйууга кыттарга</string>
+  <string name="suggested_edits_task_image_caption_title">Ойуу суруга</string>
+  <string name="suggested_edits_task_image_caption_description">Ойууга сурук эбии</string>
+  <string name="suggested_edits_task_multilingual_title">Элбэх тылы билэр дьоҥҥо соруктар</string>
+  <string name="suggested_edits_task_multilingual_description">Тылбаастыырга сорудах Бикипиэдьийэҕэ соҕотох тылтан элбэҕинэн ааҕар эбэтэр суруйар буоллаххына көстүөҕэ.</string>
+  <string name="suggested_edits_task_translation_title">Кылгас быһаарыы тылбааһа</string>
+  <string name="suggested_edits_task_translation_description">Быһаарыы суругун атын тылларга тылбааһа.</string>
+  <string name="suggested_edits_task_multilingual_negative">Миэхэ буолбатах</string>
+  <string name="suggested_edits_task_multilingual_positive">Тылы эбии</string>
+  <string name="suggested_edits_task_translate_caption_title">Ойуу суругун тылбааһа</string>
+  <string name="suggested_edits_task_translate_caption_description">Ойуу суругун атын тылларга тылбааһа</string>
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">уларытыы</item>
     <item quantity="other">уларытыылар</item>
   </plurals>
-  <string name="description_edit_tutorial_message" fuzzy="true">Бикипиэдьийэни уларытар саҥа дьибилгэккэ киирдиҥ. Манна саҥаны эбэр кыахтаныаҥ, онтон астыныаҥ дии саныыбыт. Эн суруйууҥ наһаа туһалаах! Үөрэ-көтө суруй.</string>
+  <string name="suggested_edits_tutorial_message">Бикипиэдьийэни уларытар саҥа дьибилгэккэ киирдиҥ. Манна саҥаны эбэр кыахтаныаҥ, онтон астыныаҥ дии саныыбыт. Эн суруйууҥ наһаа туһалаах! Үөрэ-көтө суруй.</string>
   <string name="description_edit_revert_subtitle">Бикипиэдьийэни тупсарбыккар махтал!</string>
   <string name="description_edit_revert_intro">Туһалааҕы оҥоро сатаабыккын эрээри, тугу эрэ сыыспыккын. Көннөрүүгүн төннөрбүт төрүөт маннык буолуон сөп:</string>
   <string name="description_edit_revert_reason1">көннөрүүҥ &lt;a href=\"%1$s\"&gt;тутаах тулаанныртан&lt;/a&gt; биирдэстэригэр сөп түбэспэтэх.</string>

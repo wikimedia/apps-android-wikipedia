@@ -266,7 +266,7 @@
   <string name="preference_summary_show_images">Mengaktifkan atau menonaktifkan pemuatan gambar dalam halaman. Hapus centang pengaturan ini jika sambungan Internet Anda lambat, atau jika paket data Anda terbatas.</string>
   <string name="preference_title_download_only_over_wifi">Unduh hanya melalui Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Konfirmasikan unduhan menggunakan data seluler?</string>
-  <string name="dialog_text_download_only_over_wifi">Anda memiliki \"Unduh hanya melalui Wi-Fi\" yang diaktifkan di pengaturan. Apakah Anda ingin mengizinkan menggunakan paket data seluler Anda untuk unduhan ini saja?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Anda memiliki \"Unduh hanya melalui Wi-Fi\" yang diaktifkan di pengaturan. Apakah Anda ingin mengizinkan menggunakan paket data seluler Anda untuk unduhan ini saja?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Izinkan</string>
   <string name="read_more_section">Baca lebih lanjut</string>
   <string name="about_article_section">Mengenai artikel ini</string>
@@ -562,7 +562,6 @@
   <string name="view_featured_article_footer_save_button_label">Simpan</string>
   <string name="view_static_card_save_button_label">Simpan</string>
   <string name="view_featured_article_footer_saved_button_label">Tersimpan</string>
-  <string name="edit_tasks_activity_title">Tugas penyunting</string>
   <string name="feed_configure_activity_title">Sesuaikan umpan</string>
   <string name="feed_configure_menu_reset">Pulihkan tampilan baku</string>
   <string name="feed_configure_menu_select_all">Tampilkan semua</string>
@@ -582,6 +581,7 @@
   <string name="description_edit_text_hint">Deskripsi judul</string>
   <string name="description_edit_save">Terbitkan</string>
   <string name="description_edit_add_description">Tambah deskripsi judul</string>
+  <string name="description_edit_translate_description">Terjemahkan deskripsi judul</string>
   <string name="description_edit_edit_description">Sunting deskripsi</string>
   <string name="description_edit_cancel_hint">Batal</string>
   <string name="description_edit_help_title">Bantuan: deskripsi judul</string>
@@ -601,36 +601,37 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealnya satu baris, antara 2-12 kata</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mulai menyunting</string>
   <string name="description_edit_tutorial_promise">Dengan memulai, saya berjanji untuk tidak menyalahgunakan fitur ini.</string>
-  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Tambahkan deskripsi judul</string>
-  <string name="editactionfeed_review_title_description" fuzzy="true">Tinjau deskripsi judul</string>
-  <string name="editactionfeed_add_description_button">Tambahkan deskripsi</string>
-  <string name="editactionfeed_my_contributions">Kontribusi saya</string>
+  <string name="suggested_edits_add_descriptions">Tambahkan deskripsi judul</string>
+  <string name="suggested_edits_review_description">Tinjau deskripsi judul</string>
+  <string name="suggested_edits_add_description_button">Tambahkan deskripsi</string>
+  <string name="suggested_edits_my_contributions">Kontribusi saya</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Daftar tugas penyuntingan deskripsi judul telah dibuka!</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Kami memperhatikan Anda suka menyunting deskripsi judul, oleh sebab itu kami susun daftar \"Tugas penyunting\" dengan lebih banyak artikel yang kehilangan deskripsi judul untuk membantu Anda terus berkontribusi!</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Menerjemahkan penyuntingan uraian judul telah dibuka!</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Kami perhatikan Anda suka menyunting deskripsi judul dan membaca Wikipedia dalam berbagai bahasa. Lihatlah daftar tugas ini yang memberikan akses untuk menerjemahkan lebih banyak deskripsi judul!</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Mungkin lain kali</string>
   <string name="suggested_edits_menu_info">Info</string>
-  <string name="title_description_task_title" fuzzy="true">Tambahkan deskripsi judul</string>
-  <string name="title_description_task_description" fuzzy="true">Menyumbang ke artikel tanpa deskripsi judul</string>
-  <string name="image_caption_task_title">Keterangan gambar</string>
-  <string name="image_caption_task_description">Tambahkan keterangan ke gambar</string>
-  <string name="multilingual_task_title">Lebih banyak tugas untuk penyunting multibahasa</string>
-  <string name="multilingual_task_description">Tugas terjemahan tersedia jika Anda membaca dan menulis dalam lebih dari satu bahasa Wikipedia.</string>
-  <string name="translation_task_title">Terjemahkan deskripsi</string>
-  <string name="translation_task_description">Terjemahkan deskripsi artikel lintas bahasa.</string>
-  <string name="image_caption_edit_disable_text">Terkunci hingga Anda membuat %d kontribusi yang terverifikasi</string>
-  <string name="translate_description_edit_disable_text">Terkunci hingga Anda membuat %d kontribusi yang terverifikasi</string>
-  <string name="multilingual_task_negative">Bukan untuk saya</string>
-  <string name="multilingual_task_positive">Tambah bahasa</string>
-  <string name="translate_caption_task_title">Terjemahkan keterangan gambar</string>
-  <string name="translate_caption_task_description">Terjemahkan keterangan ke bahasa lain</string>
-  <plurals name="edit_action_contribution_count">
+  <string name="suggested_edits_tasks_activity_title">Tugas penyunting</string>
+  <string name="suggested_edits_task_add_description_title">Tambahkan deskripsi judul</string>
+  <string name="suggested_edits_task_add_description_description">Menyumbang ke artikel tanpa deskripsi judul</string>
+  <string name="suggested_edits_task_image_caption_title">Keterangan gambar</string>
+  <string name="suggested_edits_task_image_caption_description">Tambahkan keterangan ke gambar</string>
+  <string name="suggested_edits_task_multilingual_title">Lebih banyak tugas untuk penyunting multibahasa</string>
+  <string name="suggested_edits_task_multilingual_description">Tugas terjemahan tersedia jika Anda membaca dan menulis dalam lebih dari satu bahasa Wikipedia.</string>
+  <string name="suggested_edits_task_translation_title">Terjemahkan deskripsi</string>
+  <string name="suggested_edits_task_translation_description">Terjemahkan deskripsi artikel lintas bahasa.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Terkunci hingga Anda membuat %d kontribusi yang terverifikasi</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Terkunci hingga Anda membuat %d kontribusi yang terverifikasi</string>
+  <string name="suggested_edits_task_multilingual_negative">Bukan untuk saya</string>
+  <string name="suggested_edits_task_multilingual_positive">Tambah bahasa</string>
+  <string name="suggested_edits_task_translate_caption_title">Terjemahkan keterangan gambar</string>
+  <string name="suggested_edits_task_translate_caption_description">Terjemahkan keterangan ke bahasa lain</string>
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">%d kontribusi dalam aplikasi</item>
     <item quantity="other">%d kontribusi dalam aplikasi</item>
   </plurals>
-  <string name="description_edit_tutorial_message">Selamat datang di rumah baru untuk penyuntingan cepat di aplikasi Wikipedia. Kontribusi Anda sangat kami hargai. Selamat menyunting!</string>
-  <string name="edit_tasks_onboarding_get_started">Memulai</string>
+  <string name="suggested_edits_tutorial_message">Selamat datang di rumah baru untuk penyuntingan cepat di aplikasi Wikipedia. Kontribusi Anda sangat kami hargai. Selamat menyunting!</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">Memulai</string>
   <string name="description_edit_revert_subtitle">Terima kasih telah menyunting di Wikipedia!</string>
   <string name="description_edit_revert_intro">Kami tahu Anda mencoba yang terbaik, tapi salah satu peninjau memiliki kekhawatiran. Kemungkinan alasan penyuntingan Anda telah dibalikkan meliputi:</string>
   <string name="description_edit_revert_reason1">kontribusi Anda tidak mengikuti salah satu &lt;a href=\"%1$s\"&gt;pedoman&lt;/a&gt;.</string>

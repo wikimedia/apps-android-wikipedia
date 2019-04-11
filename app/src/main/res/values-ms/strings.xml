@@ -253,7 +253,7 @@
   <string name="preference_summary_show_images">Hidupkan atau matikan ciri-ciri memuatkan gambar dalam laman. Anda disaran supaya mematikan ciri-ciri ini jika sambungan internet anda perlahan ataupun pelan data anda terhad.</string>
   <string name="preference_title_download_only_over_wifi">Muat turun hanya melalui Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Sahkan muat turun menggunakan data mudah alih?</string>
-  <string name="dialog_text_download_only_over_wifi">Anda mempunyai \"Muat turun sahaja melalui Wi-Fi\" dihidupkan dalam tetapan. Adakah anda mahu membenarkan menggunakan pelan data mudah alih anda untuk muat turun ini sahaja?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Anda mempunyai \"Muat turun sahaja melalui Wi-Fi\" dihidupkan dalam tetapan. Adakah anda mahu membenarkan menggunakan pelan data mudah alih anda untuk muat turun ini sahaja?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Benarkan</string>
   <string name="read_more_section">Selanjutnya</string>
   <string name="about_article_section">Mengenai rencana ini</string>
@@ -549,7 +549,6 @@
   <string name="view_featured_article_footer_save_button_label">Simpan</string>
   <string name="view_static_card_save_button_label">Simpan</string>
   <string name="view_featured_article_footer_saved_button_label">Disimpan</string>
-  <string name="edit_tasks_activity_title" fuzzy="true">Tugas editor aplikasi</string>
   <string name="feed_configure_activity_title">Ubahsuai suapan</string>
   <string name="feed_configure_menu_reset">Pulihkan pandangan lalai</string>
   <string name="feed_configure_menu_select_all">Paparkan semua</string>
@@ -588,35 +587,36 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Sebaik-baiknya satu baris, antara dua hingga dua belas perkataan</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mula menyunting</string>
   <string name="description_edit_tutorial_promise">Dengan bermula, saya berjanji tidak akan menyalahgunakan ciri ini.</string>
-  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Tambah penerangan tajuk</string>
-  <string name="editactionfeed_review_title_description" fuzzy="true">Kaji penerangan tajuk</string>
-  <string name="editactionfeed_add_description_button">Tambah penerangan</string>
-  <string name="editactionfeed_my_contributions">Sumbangan saya</string>
+  <string name="suggested_edits_add_descriptions">Tambah penerangan tajuk</string>
+  <string name="suggested_edits_review_description">Kaji penerangan tajuk</string>
+  <string name="suggested_edits_add_description_button">Tambah penerangan</string>
+  <string name="suggested_edits_my_contributions">Sumbangan saya</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Senarai tugasan penyuntingan tajuk telah dibuka kunci!</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Kami telah melihat anda menyusun penerangan tajuk, jadi kami telah menyusun senarai \"Tugas editor aplikasi\" dengan lebih banyak rencana yang hilang penerangan tajuk untuk membantu anda terus menyumbang!</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Menterjemahkan penyuntingan deskripsi tajuk telah dibuka kunci!</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Kami perhatikan anda seperti menyunting penerangan tajuk dan membaca Wikipedia dalam pelbagai bahasa. Semak senarai tugas ini yang memberikan akses kepada menterjemahkan lebih banyak penerangan tajuk!</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Lain kalilah</string>
-  <string name="title_description_task_title" fuzzy="true">Tambah penerangan tajuk</string>
-  <string name="title_description_task_description" fuzzy="true">Sumbangan kepada rencana tanpa penerangan tajuk</string>
-  <string name="image_caption_task_title">Keterangan imej</string>
-  <string name="image_caption_task_description">Tambah kapsyen ke imej</string>
-  <string name="multilingual_task_title">Lebih banyak tugas untuk editor berbilang bahasa</string>
-  <string name="multilingual_task_description">Tugas penterjemahan tersedia jika anda membaca dan menulis dalam lebih dari satu bahasa Wikipedia.</string>
-  <string name="translation_task_title" fuzzy="true">Terjemah penerangan tajuk</string>
-  <string name="translation_task_description" fuzzy="true">Terjemahkan penerangan tajuk ke dalam bahasa lain.</string>
-  <string name="image_caption_edit_disable_text" fuzzy="true">Dikunci sehingga anda telah membuat %d suntingan dalam aplikasinya yang disahkan</string>
-  <string name="translate_description_edit_disable_text" fuzzy="true">Dikunci sehingga anda telah menyunting %d penerangan tajuk</string>
-  <string name="multilingual_task_negative">Bukan untuk saya</string>
-  <string name="multilingual_task_positive">Tambahkan bahasa</string>
-  <string name="translate_caption_task_title">Terjemahkan kapsyen imej</string>
-  <string name="translate_caption_task_description">Terjemahkan kapsyen ke bahasa lain</string>
-  <plurals name="edit_action_contribution_count" fuzzy="true">
+  <string name="suggested_edits_tasks_activity_title">Tugas editor aplikasi</string>
+  <string name="suggested_edits_task_add_description_title">Tambah penerangan tajuk</string>
+  <string name="suggested_edits_task_add_description_description">Sumbangan kepada rencana tanpa penerangan tajuk</string>
+  <string name="suggested_edits_task_image_caption_title">Keterangan imej</string>
+  <string name="suggested_edits_task_image_caption_description">Tambah kapsyen ke imej</string>
+  <string name="suggested_edits_task_multilingual_title">Lebih banyak tugas untuk editor berbilang bahasa</string>
+  <string name="suggested_edits_task_multilingual_description">Tugas penterjemahan tersedia jika anda membaca dan menulis dalam lebih dari satu bahasa Wikipedia.</string>
+  <string name="suggested_edits_task_translation_title">Terjemah penerangan tajuk</string>
+  <string name="suggested_edits_task_translation_description">Terjemahkan penerangan tajuk ke dalam bahasa lain.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Dikunci sehingga anda telah membuat %d suntingan dalam aplikasinya yang disahkan</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Dikunci sehingga anda telah menyunting %d penerangan tajuk</string>
+  <string name="suggested_edits_task_multilingual_negative">Bukan untuk saya</string>
+  <string name="suggested_edits_task_multilingual_positive">Tambahkan bahasa</string>
+  <string name="suggested_edits_task_translate_caption_title">Terjemahkan kapsyen imej</string>
+  <string name="suggested_edits_task_translate_caption_description">Terjemahkan kapsyen ke bahasa lain</string>
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">sumbangan dalam apl</item>
     <item quantity="other">sumbangan dalam apl</item>
   </plurals>
-  <string name="description_edit_tutorial_message" fuzzy="true">Selamat datang ke rumah baru untuk penyuntingan dalam aplikasinya di Wikipedia. Di sini, kami akan mencadangkan peluang untuk menambah kandungan yang mungkin menarik minat anda. Sumbangan anda amat dihargai. Selamat menyunting!</string>
-  <string name="edit_tasks_onboarding_get_started">Memulakan</string>
+  <string name="suggested_edits_tutorial_message">Selamat datang ke rumah baru untuk penyuntingan dalam aplikasinya di Wikipedia. Di sini, kami akan mencadangkan peluang untuk menambah kandungan yang mungkin menarik minat anda. Sumbangan anda amat dihargai. Selamat menyunting!</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">Memulakan</string>
   <string name="description_edit_revert_subtitle">Terima kasih kerana menyunting di Wikipedia!</string>
   <string name="description_edit_revert_intro">Kami tahu anda mencuba yang terbaik, tetapi salah satu pengulas mempunyai kebimbangan. Sebab yang mungkin suntingan anda ditukar semula termasuk:</string>
   <string name="description_edit_revert_reason1">sumbangan anda tidak mengikuti salah satu daripada &lt;a href=\"%1$s\"&gt;garis panduan&lt;/a&gt;.</string>

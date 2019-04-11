@@ -281,7 +281,7 @@
   <string name="preference_summary_show_images">Activar o desactivar la carga de imágenes en las páginas. Desmarca esta opción si tu conexión de Internet es lenta, o si tu plan de datos es limitado.</string>
   <string name="preference_title_download_only_over_wifi">Descargar solo mediante wifi</string>
   <string name="dialog_title_download_only_over_wifi">¿Confirmas la descarga a través de datos móviles?</string>
-  <string name="dialog_text_download_only_over_wifi">Has activado «Descargar solo mediante wifi». ¿Quieres permitir el uso del plan de datos móviles durante esta descarga solamente?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Has activado «Descargar solo mediante wifi». ¿Quieres permitir el uso del plan de datos móviles durante esta descarga solamente?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Permitir</string>
   <string name="read_more_section">Más información</string>
   <string name="about_article_section">Acerca de este artículo</string>
@@ -577,7 +577,6 @@
   <string name="view_featured_article_footer_save_button_label">Guardar</string>
   <string name="view_static_card_save_button_label">\nGuardar</string>
   <string name="view_featured_article_footer_saved_button_label">Guardado</string>
-  <string name="edit_tasks_activity_title" fuzzy="true">Tareas de editor de la aplicación</string>
   <string name="feed_configure_activity_title">Personalizar el canal</string>
   <string name="feed_configure_menu_reset">Restablecer vista predeterminada</string>
   <string name="feed_configure_menu_select_all">Mostrar todo</string>
@@ -621,38 +620,39 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente una línea, entre dos y doce palabras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Empezar a editar</string>
   <string name="description_edit_tutorial_promise">Al empezar, me comprometo a no hacer mal uso de esta funcionalidad.</string>
-  <string name="editactionfeed_add_title_descriptions">Añadir descripciones</string>
-  <string name="editactionfeed_review_title_description">Revisar descripción</string>
-  <string name="editactionfeed_add_description_button">Añadir descripción</string>
-  <string name="editactionfeed_my_contributions">Mis contribuciones</string>
-  <string name="editactionfeed_added_by_you">Añadidas por ti:</string>
-  <string name="editactionfeed_translated_by_you">Traducidas por ti:</string>
+  <string name="suggested_edits_add_descriptions">Añadir descripciones</string>
+  <string name="suggested_edits_review_description">Revisar descripción</string>
+  <string name="suggested_edits_add_description_button">Añadir descripción</string>
+  <string name="suggested_edits_my_contributions">Mis contribuciones</string>
+  <string name="suggested_edits_added_by_you">Añadidas por ti:</string>
+  <string name="suggested_edits_translated_by_you">Traducidas por ti:</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">¡Se desbloqueó la lista de tareas de edición de descripciones de título!</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">\n¡Hemos notado que te gusta editar descripciones de título, así que hemos recopilado una lista de \"Tareas de editor\" con más artículos a los que le faltan descripciones de título para ayudarte a continuar contribuyendo!</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">¡La edición de traducciones de descripciones de título ha sido desbloqueada!</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">\nHemos notado que te gusta editar descripciones de título y que lees Wikipedia en varios idiomas. ¡Comprueba esta lista de tareas que te da acceso a traducir más descripciones de título!</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">\n\nQuizá más tarde</string>
   <string name="suggested_edits_menu_info">Información</string>
-  <string name="title_description_task_title">Añadir descripciones</string>
-  <string name="title_description_task_description" fuzzy="true">Contribuye a artículos sin descripciones de título</string>
-  <string name="image_caption_task_title">Adición de leyendas a imágenes</string>
-  <string name="image_caption_task_description">Añadir títulos a imágenes</string>
-  <string name="multilingual_task_title">Más tareas para editores plurilingües</string>
-  <string name="multilingual_task_description">Las tareas de traducción estarán disponibles si lees y escribes en más de un idioma de Wikipedia.</string>
-  <string name="translation_task_title" fuzzy="true">Traducir descripciones de titulo</string>
-  <string name="translation_task_description" fuzzy="true">Traducir descripciones de titulo a otros idiomas.</string>
-  <string name="image_caption_edit_disable_text" fuzzy="true">Deshabilitado hasta que hayas hecho %d ediciones verificadas desde la aplicación.</string>
-  <string name="translate_description_edit_disable_text" fuzzy="true">Deshabilitado hasta que hayas editado %d descripciones de titulo</string>
-  <string name="multilingual_task_negative">No para mí</string>
-  <string name="multilingual_task_positive">Añadir idiomas</string>
-  <string name="translate_caption_task_title">Traduce la leyenda de la imagen</string>
-  <string name="translate_caption_task_description">Traduce las leyendas a otros idiomas</string>
-  <plurals name="edit_action_contribution_count" fuzzy="true">
+  <string name="suggested_edits_tasks_activity_title">Tareas de editor de la aplicación</string>
+  <string name="suggested_edits_task_add_description_title">Añadir descripciones</string>
+  <string name="suggested_edits_task_add_description_description">Contribuye a artículos sin descripciones de título</string>
+  <string name="suggested_edits_task_image_caption_title">Adición de leyendas a imágenes</string>
+  <string name="suggested_edits_task_image_caption_description">Añadir títulos a imágenes</string>
+  <string name="suggested_edits_task_multilingual_title">Más tareas para editores plurilingües</string>
+  <string name="suggested_edits_task_multilingual_description">Las tareas de traducción estarán disponibles si lees y escribes en más de un idioma de Wikipedia.</string>
+  <string name="suggested_edits_task_translation_title">Traducir descripciones de titulo</string>
+  <string name="suggested_edits_task_translation_description">Traducir descripciones de titulo a otros idiomas.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Deshabilitado hasta que hayas hecho %d ediciones verificadas desde la aplicación.</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Deshabilitado hasta que hayas editado %d descripciones de titulo</string>
+  <string name="suggested_edits_task_multilingual_negative">No para mí</string>
+  <string name="suggested_edits_task_multilingual_positive">Añadir idiomas</string>
+  <string name="suggested_edits_task_translate_caption_title">Traduce la leyenda de la imagen</string>
+  <string name="suggested_edits_task_translate_caption_description">Traduce las leyendas a otros idiomas</string>
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">contribución desde la aplicación</item>
     <item quantity="other">contribuciones desde la aplicación</item>
   </plurals>
-  <string name="description_edit_tutorial_message">\nBienvenido a la página de inicio de edición en la app de Wikipedia. Aquí te mostraremos sugerencias para añadir contenido que te pueda ser de interés. Apreciamos mucho tus contribuciones. ¡Que lo pases bien!</string>
-  <string name="edit_tasks_onboarding_get_started">\nEmpezar</string>
+  <string name="suggested_edits_tutorial_message">\nBienvenido a la página de inicio de edición en la app de Wikipedia. Aquí te mostraremos sugerencias para añadir contenido que te pueda ser de interés. Apreciamos mucho tus contribuciones. ¡Que lo pases bien!</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">\nEmpezar</string>
   <string name="description_edit_revert_subtitle">¡Gracias por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos intentaste hacer lo mejor, pero uno de los revisores tuvo una preocupación. Posibles razones por las que tu edición se revirtió incluyen:</string>
   <string name="description_edit_revert_reason1">tu contribución no siguió algunas de las &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>

@@ -271,7 +271,7 @@
   <string name="preference_summary_show_images">启用或停用页面中图像的加载功能。当您的网络连接过慢，或数据流量有限时，请不要选择该设置。</string>
   <string name="preference_title_download_only_over_wifi">只在有Wi-Fi的情况下下载</string>
   <string name="dialog_title_download_only_over_wifi">确认使用移动数据下载么？</string>
-  <string name="dialog_text_download_only_over_wifi">您已在设置中启用“只在有Wi-Fi的情况下下载”。您是否希望只在这次使用您的移动数据计划下载？</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">您已在设置中启用“只在有Wi-Fi的情况下下载”。您是否希望只在这次使用您的移动数据计划下载？</string>
   <string name="dialog_title_download_only_over_wifi_allow">允许</string>
   <string name="read_more_section">阅读更多</string>
   <string name="about_article_section">关于此条目</string>
@@ -568,7 +568,6 @@
   <string name="view_featured_article_footer_save_button_label">保存</string>
   <string name="view_static_card_save_button_label">保存</string>
   <string name="view_featured_article_footer_saved_button_label">已保存</string>
-  <string name="edit_tasks_activity_title">编者任务</string>
   <string name="feed_configure_activity_title">自定义订阅源</string>
   <string name="feed_configure_menu_reset">恢复默认视图</string>
   <string name="feed_configure_menu_select_all">显示全部</string>
@@ -590,6 +589,7 @@
   <string name="description_edit_save">发布</string>
   <string name="description_edit_add_description">添加标题描述</string>
   <string name="description_edit_add_description_v2">添加描述</string>
+  <string name="description_edit_translate_description" fuzzy="true">翻译标题描述</string>
   <string name="description_edit_edit_description">编辑描述</string>
   <string name="add_translation">添加%s翻译</string>
   <string name="description_edit_cancel_hint">取消</string>
@@ -610,37 +610,38 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">一般应为一行，2~12个字之间</string>
   <string name="description_edit_tutorial_button_label_start_editing">开始编辑</string>
   <string name="description_edit_tutorial_promise">通过开始，我承诺不会滥用该功能。</string>
-  <string name="editactionfeed_add_title_descriptions" fuzzy="true">添加标题描述</string>
-  <string name="editactionfeed_review_title_description" fuzzy="true">巡查标题描述</string>
-  <string name="editactionfeed_add_description_button">添加描述</string>
-  <string name="editactionfeed_my_contributions">我的贡献</string>
-  <string name="editactionfeed_added_by_you">由您添加：</string>
-  <string name="editactionfeed_translated_by_you">由您翻译：</string>
+  <string name="suggested_edits_add_descriptions">添加标题描述</string>
+  <string name="suggested_edits_review_description">巡查标题描述</string>
+  <string name="suggested_edits_add_description_button">添加描述</string>
+  <string name="suggested_edits_my_contributions">我的贡献</string>
+  <string name="suggested_edits_added_by_you">由您添加：</string>
+  <string name="suggested_edits_translated_by_you">由您翻译：</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">“词条描述”编辑任务列表已解锁！</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">我们注意到您偏好编辑条目描述，故我们汇编了一个内含缺少标题描述的条目的“应用程序编者任务”列表来助你持续贡献！</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">编辑标题描述功能已解锁！</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">我们注意到您喜欢编辑标题描述，同时也常阅读多种语言版本的维基百科词条。欢迎查看此列表并帮助我们翻译更多的标题描述。</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">以后再说</string>
-  <string name="title_description_task_title" fuzzy="true">添加标题描述</string>
-  <string name="title_description_task_description" fuzzy="true">跳过概述并直接编辑文章</string>
-  <string name="image_caption_task_title">图片描述</string>
-  <string name="image_caption_task_description">为图片添加描述</string>
-  <string name="multilingual_task_title">更多语言 更多任务</string>
-  <string name="multilingual_task_description">如果你掌握多种语言，那么你可以接收更多的翻译任务。</string>
-  <string name="translation_task_title" fuzzy="true">翻译标题描述</string>
-  <string name="translation_task_description" fuzzy="true">将标题说明翻译成其他语言。</string>
-  <string name="image_caption_edit_disable_text" fuzzy="true">在应用内完成%d次经验证的编辑后方可解锁</string>
-  <string name="translate_description_edit_disable_text" fuzzy="true">完成%d次词条概述后方可解锁</string>
-  <string name="multilingual_task_negative">还是算了</string>
-  <string name="multilingual_task_positive">添加语言</string>
-  <string name="translate_caption_task_title">翻译图片描述</string>
-  <string name="translate_caption_task_description">将描述翻译为其他语言</string>
-  <plurals name="edit_action_contribution_count" fuzzy="true">
+  <string name="suggested_edits_tasks_activity_title">编者任务</string>
+  <string name="suggested_edits_task_add_description_title">添加标题描述</string>
+  <string name="suggested_edits_task_add_description_description">跳过概述并直接编辑文章</string>
+  <string name="suggested_edits_task_image_caption_title">图片描述</string>
+  <string name="suggested_edits_task_image_caption_description">为图片添加描述</string>
+  <string name="suggested_edits_task_multilingual_title">更多语言 更多任务</string>
+  <string name="suggested_edits_task_multilingual_description">如果你掌握多种语言，那么你可以接收更多的翻译任务。</string>
+  <string name="suggested_edits_task_translation_title">翻译标题描述</string>
+  <string name="suggested_edits_task_translation_description">将标题说明翻译成其他语言。</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">在应用内完成%d次经验证的编辑后方可解锁</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">完成%d次词条概述后方可解锁</string>
+  <string name="suggested_edits_task_multilingual_negative">还是算了</string>
+  <string name="suggested_edits_task_multilingual_positive">添加语言</string>
+  <string name="suggested_edits_task_translate_caption_title">翻译图片描述</string>
+  <string name="suggested_edits_task_translate_caption_description">将描述翻译为其他语言</string>
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">in-app contribution</item>
     <item quantity="other">in-app contributions</item>
   </plurals>
-  <string name="description_edit_tutorial_message" fuzzy="true">欢迎来到维基百科的新版应用内编辑界面。在这里，我们会提供你感兴趣的内容供你编辑。向你的贡献致敬！祝编辑愉快~</string>
-  <string name="edit_tasks_onboarding_get_started">入门</string>
+  <string name="suggested_edits_tutorial_message">欢迎来到维基百科的新版应用内编辑界面。在这里，我们会提供你感兴趣的内容供你编辑。向你的贡献致敬！祝编辑愉快~</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">入门</string>
   <string name="description_edit_revert_subtitle">感谢编辑维基百科！</string>
   <string name="description_edit_revert_intro">我们知道您做出了最大的努力，但有位复核者还是回退了您的编辑。您的编辑被回退的原因可能包括：</string>
   <string name="description_edit_revert_reason1">您的贡献没有遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>

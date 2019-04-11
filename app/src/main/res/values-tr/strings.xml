@@ -276,7 +276,7 @@
   <string name="preference_summary_show_images">Sayfalardaki resimlerin yüklenmesini etkinleştirin veya devre dışı bırakın. İnternet bağlantınız yavaş ya da veri paketiniz sınırlı ise bu seçeneği işaretlemeyin.</string>
   <string name="preference_title_download_only_over_wifi">Sadece Wi-Fi ile indir</string>
   <string name="dialog_title_download_only_over_wifi">Mobil veri ile indirmeyi onayla?</string>
-  <string name="dialog_text_download_only_over_wifi">Ayarlarda \"Sadece Wi-Fi ile indir\" seçtiniz. Sadece bu indirme için mobil verinizi kullanmaya izin vermek istiyor musunuz?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Ayarlarda \"Sadece Wi-Fi ile indir\" seçtiniz. Sadece bu indirme için mobil verinizi kullanmaya izin vermek istiyor musunuz?</string>
   <string name="dialog_title_download_only_over_wifi_allow">İzin ver</string>
   <string name="read_more_section">Devamı</string>
   <string name="about_article_section">Bu madde hakkında</string>
@@ -573,7 +573,6 @@
   <string name="view_featured_article_footer_save_button_label">Kaydet</string>
   <string name="view_static_card_save_button_label">Kaydet</string>
   <string name="view_featured_article_footer_saved_button_label">Kaydedildi</string>
-  <string name="edit_tasks_activity_title">Editör görevleri</string>
   <string name="feed_configure_activity_title">Beslemeyi özelleştir</string>
   <string name="feed_configure_menu_reset">Varsayılan görünümü geri yükle</string>
   <string name="feed_configure_menu_select_all">Hepsini göster</string>
@@ -617,38 +616,39 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">İdeal olarak iki ila on iki kelimelik bir cümle</string>
   <string name="description_edit_tutorial_button_label_start_editing">Düzenlemeye başla</string>
   <string name="description_edit_tutorial_promise">Başlarken bu özelliği kötüye kullanmayacağıma söz veriyorum.</string>
-  <string name="editactionfeed_add_title_descriptions">Açıklama ekle</string>
-  <string name="editactionfeed_review_title_description">Yorum açıklaması</string>
-  <string name="editactionfeed_add_description_button">Açıklama ekle</string>
-  <string name="editactionfeed_my_contributions">Katkılarım</string>
-  <string name="editactionfeed_added_by_you">Sizin eklediğiniz:</string>
-  <string name="editactionfeed_translated_by_you">Senin çevirdiklerin:</string>
+  <string name="suggested_edits_add_descriptions">Açıklama ekle</string>
+  <string name="suggested_edits_review_description">Yorum açıklaması</string>
+  <string name="suggested_edits_add_description_button">Açıklama ekle</string>
+  <string name="suggested_edits_my_contributions">Katkılarım</string>
+  <string name="suggested_edits_added_by_you">Sizin eklediğiniz:</string>
+  <string name="suggested_edits_translated_by_you">Senin çevirdiklerin:</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Başlık açıklaması düzenleme görev listesi açıldı!</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Başlık açıklamalarını düzenlemeyi sevdiğini fark ettik. Bu nedenle katkıda bulunmaya devam etmene yardımcı olacak eksik başlık açıklamasına sahip daha çok maddeye sahip bir \"Editör görevi\" listesini senin için derledik!</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Başlık açıklamaları çevirilerine dair düzenleme kilidi açıldı!</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Başlık açıklamalarını düzenlemek istediğinizi fark ettik ve birden çok dilde Vikipwsi\'yi okuyun. Daha fazla başlık açıklaması çevirmeye izin veren bu görev listesine göz atın!</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Belki daha sonra</string>
   <string name="suggested_edits_menu_info">Bilgi</string>
-  <string name="title_description_task_title">Tanım ekle</string>
-  <string name="title_description_task_description">Tanımı olmayan sayfalara katkı yap</string>
-  <string name="image_caption_task_title">Resimlere altyazı koy</string>
-  <string name="image_caption_task_description">Resimlere resim yazıları ekle</string>
-  <string name="multilingual_task_title">Çok dilli editörler için daha fazla görev</string>
-  <string name="multilingual_task_description">Eğer birden fazla Vikipedi dilinde okuyup yazabiliyorsanız, çeviri görevleri size göredir.</string>
-  <string name="translation_task_title">Açıklamaları çevir</string>
-  <string name="translation_task_description">Madde dillerinde açıklamaları çevirin.</string>
-  <string name="image_caption_edit_disable_text">%d doğrulanmış katkı yapana kadar kilitlendi</string>
-  <string name="translate_description_edit_disable_text">%d doğrulanmış katkı yapana kadar kilitlendi</string>
-  <string name="multilingual_task_negative">Bana göre değil</string>
-  <string name="multilingual_task_positive">Dil ekle</string>
-  <string name="translate_caption_task_title">Resim başlıklarını çevir</string>
-  <string name="translate_caption_task_description">Resim başlıklarını diğer dillere çevir</string>
-  <plurals name="edit_action_contribution_count">
+  <string name="suggested_edits_tasks_activity_title">Editör görevleri</string>
+  <string name="suggested_edits_task_add_description_title">Tanım ekle</string>
+  <string name="suggested_edits_task_add_description_description">Tanımı olmayan sayfalara katkı yap</string>
+  <string name="suggested_edits_task_image_caption_title">Resimlere altyazı koy</string>
+  <string name="suggested_edits_task_image_caption_description">Resimlere resim yazıları ekle</string>
+  <string name="suggested_edits_task_multilingual_title">Çok dilli editörler için daha fazla görev</string>
+  <string name="suggested_edits_task_multilingual_description">Eğer birden fazla Vikipedi dilinde okuyup yazabiliyorsanız, çeviri görevleri size göredir.</string>
+  <string name="suggested_edits_task_translation_title">Açıklamaları çevir</string>
+  <string name="suggested_edits_task_translation_description">Madde dillerinde açıklamaları çevirin.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">%d doğrulanmış katkı yapana kadar kilitlendi</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">%d doğrulanmış katkı yapana kadar kilitlendi</string>
+  <string name="suggested_edits_task_multilingual_negative">Bana göre değil</string>
+  <string name="suggested_edits_task_multilingual_positive">Dil ekle</string>
+  <string name="suggested_edits_task_translate_caption_title">Resim başlıklarını çevir</string>
+  <string name="suggested_edits_task_translate_caption_description">Resim başlıklarını diğer dillere çevir</string>
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 katkı</item>
     <item quantity="other">%d katkı</item>
   </plurals>
-  <string name="description_edit_tutorial_message">Vikipedi uygulamasında hızlı düzenleme için yeni anasayfaya hoş geldiniz. Katkılarınıza oldukça değer verilmektedir. İyi düzenlemeler!</string>
-  <string name="edit_tasks_onboarding_get_started">Başla</string>
+  <string name="suggested_edits_tutorial_message">Vikipedi uygulamasında hızlı düzenleme için yeni anasayfaya hoş geldiniz. Katkılarınıza oldukça değer verilmektedir. İyi düzenlemeler!</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">Başla</string>
   <string name="description_edit_revert_subtitle">Vikipedi\'yi düzenlediğiniz için teşekkürler!</string>
   <string name="description_edit_revert_intro">Elinizden geleni yaptığınızı biliyoruz ama incleyenlerden biri, bir sıkıntı gördü. Değişikliğiniz geri alınmasının muhtemel sebepleri şunlar olabilir:</string>
   <string name="description_edit_revert_reason1">katkınız &lt;a href=\"%1$s\"&gt;kurallardan&lt;/a&gt; birine uymuyordu.</string>
