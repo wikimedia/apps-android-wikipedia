@@ -24,7 +24,7 @@ public class WikitextClient {
 
     @VisibleForTesting Call<MwQueryResponse> request(@NonNull Service service, @NonNull final PageTitle title,
                                                      final int sectionID, @NonNull final Callback cb) {
-        Call<MwQueryResponse> call = service.getWikiTextForSection(title.getPrefixedText(), sectionID);
+        Call<MwQueryResponse> call = service.getWikiTextForSection(title.getConvertedText(), sectionID);
         call.enqueue(new retrofit2.Callback<MwQueryResponse>() {
             @Override
             public void onResponse(@NonNull Call<MwQueryResponse> call, @NonNull Response<MwQueryResponse> response) {
