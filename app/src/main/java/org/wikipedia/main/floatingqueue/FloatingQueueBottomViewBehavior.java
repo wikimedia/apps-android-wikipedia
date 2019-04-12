@@ -5,20 +5,14 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import org.wikipedia.R;
+import org.wikipedia.random.BottomViewBehavior;
 
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
-public class FloatingQueueBottomViewBehavior extends CoordinatorLayout.Behavior<ViewGroup> {
+public class FloatingQueueBottomViewBehavior extends BottomViewBehavior {
     public FloatingQueueBottomViewBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
-    }
-
-    @Override
-    public boolean layoutDependsOn(CoordinatorLayout parent, ViewGroup child, View dependency) {
-        return dependency instanceof Snackbar.SnackbarLayout;
     }
 
     @Override
