@@ -31,8 +31,8 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     private var sourceDescription: String = ""
     private val app = WikipediaApp.getInstance()
     private var summary: RbPageSummary? = null
-    private var sourceLangCode: String = app.language().appLanguageCodes[0]
-    private var targetLangCode: String = app.language().appLanguageCodes[1]
+    private var sourceLangCode: String? = null
+    private var targetLangCode: String? = null
     var targetPageTitle: PageTitle? = null
 
     init {
@@ -48,18 +48,8 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         summary = card.summary
         sourceDescription = card.sourceDescription
         targetPageTitle = card.targetPageTitle
-        setLayoutDirectionByWikiSite(WikiSite.forLanguageCode(sourceLangCode), this)
+        setLayoutDirectionByWikiSite(WikiSite.forLanguageCode(sourceLangCode!!), this)
         header(card)
-        updateSourceDescriptionWithHighlight()
-    }
-
-    private fun updateSourceDescriptionWithHighlight() {
-        if (isTranslation) {
-            viewArticleSubtitleContainer.visibility = View.VISIBLE
-            viewArticleSubtitleAddedBy.visibility = View.GONE
-            viewArticleSubtitleEdit.visibility = View.GONE
-            viewArticleSubtitle.text = sourceDescription
-        }
         updateContents()
     }
 
@@ -69,6 +59,12 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private fun updateContents() {
+        if (isTranslation) {
+            viewArticleSubtitleContainer.visibility = View.VISIBLE
+            viewArticleSubtitleAddedBy.visibility = View.GONE
+            viewArticleSubtitleEdit.visibility = View.GONE
+            viewArticleSubtitle.text = sourceDescription
+        }
         viewAddDescriptionButton.visibility = View.VISIBLE
         viewArticleTitle.text = summary!!.normalizedTitle
         callToActionText.text = if (isTranslation) String.format(context.getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(targetLangCode)) else context.getString(R.string.suggested_edits_add_description_button)
@@ -109,7 +105,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         cardView.setContentPadding(0, 0, 0, 0)
         cardView.setOnClickListener {
             if (callback != null && card != null) {
-                callback!!.onSuggestedEditsCardClick(if (isTranslation) targetPageTitle!! else summary!!.getPageTitle(WikiSite.forLanguageCode(sourceLangCode)), sourceDescription, sourceLangCode, this)
+                callback!!.onSuggestedEditsCardClick(if (isTranslation) targetPageTitle!! else summary!!.getPageTitle(WikiSite.forLanguageCode(sourceLangCode!!)), sourceDescription, sourceLangCode!!, this)
             }
         }
     }

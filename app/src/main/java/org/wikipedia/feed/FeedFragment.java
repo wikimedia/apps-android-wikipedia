@@ -240,6 +240,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             if (suggestedEditsCardView != null) {
                 suggestedEditsCardView.showAddedDescriptionView(data.getStringExtra(EXTRA_SOURCE_ADDED_DESCRIPTION));
             }
+            descriptionEditPageTitle.setDescription(data.getStringExtra(EXTRA_SOURCE_ADDED_DESCRIPTION));
             FeedbackUtil.showMessage(this, R.string.description_edit_success_saved_snackbar);
         } else if (requestCode == ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING && resultCode == RESULT_OK) {
             startDescriptionEditScreen();
