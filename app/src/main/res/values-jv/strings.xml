@@ -242,7 +242,7 @@
   <string name="preference_summary_show_images">Ngurubaké utawa matèni momotan gambar ing kaca iki. Ilangi tandha cénthang ing setèlan iki yèn sambungan Internèté panjenengan rendhet, utawa yèn rancangan dhatané panjenengan winates.</string>
   <string name="preference_title_download_only_over_wifi">Undhuh mung lumantar Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Konfirmasi ngundhuh sarana dhata mobil?</string>
-  <string name="dialog_text_download_only_over_wifi">Panjenengan ngurubaké \"Undhuh mung lumantar Wi-Fi\" ing setèlan. Apa panjenengan ngidinaké nganggo rancangan dhata mobilé panjenengan kanggo ngundhuh iki?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Panjenengan ngurubaké \"Undhuh mung lumantar Wi-Fi\" ing setèlan. Apa panjenengan ngidinaké nganggo rancangan dhata mobilé panjenengan kanggo ngundhuh iki?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Idinaké</string>
   <string name="read_more_section">Waca candhaké</string>
   <string name="about_article_section">Bab artikel iki</string>
