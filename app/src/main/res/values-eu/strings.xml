@@ -227,7 +227,7 @@
   <string name="preference_summary_show_images">Gaitu edo ezgaitu irudien karga orrialdeetan. Kendu aukera hau Internet konexioa geldoa bada, edo zure datu plana mugatua bada.</string>
   <string name="preference_title_download_only_over_wifi">Jaitsi Wi-Fi sarea bakarrik erabilita</string>
   <string name="dialog_title_download_only_over_wifi">Datu mugikorren bidezko jaitsiera berresten duzu?</string>
-  <string name="dialog_text_download_only_over_wifi">\"Jaitsi Wi-Fi sarea bakarrik erabilita\" piztu duzu ezarpenetan. Datu mugikorren erabilera baimendu nahi duzu, jaitsiera honetarako bakarrik?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">\"Jaitsi Wi-Fi sarea bakarrik erabilita\" piztu duzu ezarpenetan. Datu mugikorren erabilera baimendu nahi duzu, jaitsiera honetarako bakarrik?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Baimendu</string>
   <string name="read_more_section">Irakurri gehiago</string>
   <string name="about_article_section">Artikulu honi buruz</string>

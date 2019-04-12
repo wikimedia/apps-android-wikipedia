@@ -271,7 +271,7 @@
   <string name="preference_summary_show_images">Laden van afbeeldingen in pagina\'s in- of uitschakelen. Schakel deze instelling uit als uw internetverbinding langzaam is, of als u een beperkte hoeveelheid data kunt gebruiken.</string>
   <string name="preference_title_download_only_over_wifi">Alleen downloaden via Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Bevestig downloaden via mobiele data</string>
-  <string name="dialog_text_download_only_over_wifi">U heeft \"Alleen downloaden via wifi\" ingeschakeld in de instellingen. Wilt u toestaan dat uw mobiele data-abonnement alleen voor deze download wordt gebruikt?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">U heeft \"Alleen downloaden via wifi\" ingeschakeld in de instellingen. Wilt u toestaan dat uw mobiele data-abonnement alleen voor deze download wordt gebruikt?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Toestaan</string>
   <string name="read_more_section">Meer lezen</string>
   <string name="about_article_section">Over deze pagina</string>
@@ -569,7 +569,6 @@
   <string name="view_featured_article_footer_save_button_label">Opslaan</string>
   <string name="view_static_card_save_button_label">Opslaan</string>
   <string name="view_featured_article_footer_saved_button_label">Opgeslagen</string>
-  <string name="edit_tasks_activity_title" fuzzy="true">App-bewerkertaken</string>
   <string name="feed_configure_activity_title">Overzicht bewerken</string>
   <string name="feed_configure_menu_reset">Standaardoverzicht terugzetten</string>
   <string name="feed_configure_menu_select_all">Alles weergeven</string>
@@ -593,6 +592,7 @@
   <string name="description_edit_read">Lezen</string>
   <string name="description_edit_add_description">Titelbeschrijving toevoegen</string>
   <string name="description_edit_add_description_v2">Beschrijving toevoegen</string>
+  <string name="description_edit_translate_description" fuzzy="true">Vertaal titelbeschrijvingen</string>
   <string name="description_edit_edit_description">Beschrijving bewerken</string>
   <string name="description_edit_cancel_hint">Annuleren</string>
   <string name="description_edit_help_title">Hulp: titelbeschrijvingen</string>
@@ -613,29 +613,30 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealiter één regel, tussen twee en twaalf woorden</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begin met bewerken</string>
   <string name="description_edit_tutorial_promise">Door te beginnen, beloof ik geen misbruik te maken van deze functie.</string>
-  <string name="editactionfeed_add_title_descriptions">Beschrijvingen toevoegen</string>
-  <string name="editactionfeed_add_description_button">Beschrijving toevoegen</string>
-  <string name="editactionfeed_my_contributions">Mijn bijdragen</string>
-  <string name="editactionfeed_added_by_you">Toegevoegd door u:</string>
-  <string name="editactionfeed_translated_by_you">Vertaald door u:</string>
+  <string name="suggested_edits_add_descriptions">Beschrijvingen toevoegen</string>
+  <string name="suggested_edits_add_description_button">Beschrijving toevoegen</string>
+  <string name="suggested_edits_my_contributions">Mijn bijdragen</string>
+  <string name="suggested_edits_added_by_you">Toegevoegd door u:</string>
+  <string name="suggested_edits_translated_by_you">Vertaald door u:</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Het bewerken van titelbeschrijvingen is ontgrendeld!</string>
   <string name="suggested_edits_unlock_dialog_no">Misschien later</string>
   <string name="suggested_edits_unlock_notification_text">Voorgestelde bewerkingen</string>
-  <string name="title_description_task_title">Beschrijvingen toevoegen</string>
-  <string name="title_description_task_description">Bijdragen aan artikels zonder beschrijvingen</string>
-  <string name="image_caption_task_description">Voeg titels toe aan plaatjes</string>
-  <string name="multilingual_task_title">Meer taken voor meertalige bewerkers</string>
-  <string name="multilingual_task_description">Vertalingstaken zijn beschikbaar wanneer u kunt lezen en schrijven in meer dan een Wikipedia taal.</string>
-  <string name="translation_task_title">Beschrijvingen vertalen</string>
-  <string name="multilingual_task_negative">Niet voor mij</string>
-  <string name="multilingual_task_positive">Talen toevoegen</string>
-  <string name="translate_caption_task_title">Afbeeldingsbijschriften vertalen</string>
-  <string name="translate_caption_task_description">Onderschriften vertalen in andere talen</string>
-  <plurals name="suggested_edits_contribution_count" fuzzy="true">
+  <string name="suggested_edits_tasks_activity_title">App-bewerkertaken</string>
+  <string name="suggested_edits_task_add_description_title">Beschrijvingen toevoegen</string>
+  <string name="suggested_edits_task_add_description_description">Bijdragen aan artikels zonder beschrijvingen</string>
+  <string name="suggested_edits_task_image_caption_description">Voeg titels toe aan plaatjes</string>
+  <string name="suggested_edits_task_multilingual_title">Meer taken voor meertalige bewerkers</string>
+  <string name="suggested_edits_task_multilingual_description">Vertalingstaken zijn beschikbaar wanneer u kunt lezen en schrijven in meer dan een Wikipedia taal.</string>
+  <string name="suggested_edits_task_translation_title">Beschrijvingen vertalen</string>
+  <string name="suggested_edits_task_multilingual_negative">Niet voor mij</string>
+  <string name="suggested_edits_task_multilingual_positive">Talen toevoegen</string>
+  <string name="suggested_edits_task_translate_caption_title">Afbeeldingsbijschriften vertalen</string>
+  <string name="suggested_edits_task_translate_caption_description">Onderschriften vertalen in andere talen</string>
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">in-app contribution</item>
     <item quantity="other">bijdragen in app</item>
   </plurals>
-  <string name="edit_tasks_onboarding_get_started">Aan de slag</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">Aan de slag</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
   <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan hebt, maar een van de beoordelaars zag een punt van zorg. Mogelijke redenen waarom uw bewerking is teruggedraaid, zijn:</string>
   <string name="description_edit_revert_reason1">uw bijdrage valt niet onder één van de &lt;a href=\"%1$s\"&gt;richtlijnen&lt;/a&gt;.</string>
