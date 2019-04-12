@@ -318,7 +318,11 @@ public class EditPreviewFragment extends Fragment {
     @Override
     public void onDestroyView() {
         disposables.clear();
-        webview.destroy();
+        if (webview != null) {
+            webview.clearAllListeners();
+            ((ViewGroup) webview.getParent()).removeView(webview);
+            webview = null;
+        }
         super.onDestroyView();
     }
 
