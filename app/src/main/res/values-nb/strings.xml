@@ -253,7 +253,7 @@
   <string name="preference_summary_show_images">Skru av eller på lasting av bilder på sidene. Fjern avkryssingen om du har en treg internettforbindelse, eller ikke vil bruke så mye data.</string>
   <string name="preference_title_download_only_over_wifi">Last kun ned over Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Last ned over mobildata?</string>
-  <string name="dialog_text_download_only_over_wifi">Du har skrudd på «Last kun ned over Wi-Fi» i innstillingene dine. Vil du allikevel laste ned denne nedlastingen over mobildata?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Du har skrudd på «Last kun ned over Wi-Fi» i innstillingene dine. Vil du allikevel laste ned denne nedlastingen over mobildata?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Tillat</string>
   <string name="read_more_section">Les mer</string>
   <string name="about_article_section">Om denne artikkelen</string>
@@ -548,7 +548,6 @@
   <string name="view_featured_article_footer_save_button_label">Lagre</string>
   <string name="view_static_card_save_button_label">Lagre</string>
   <string name="view_featured_article_footer_saved_button_label">Lagret</string>
-  <string name="edit_tasks_activity_title" fuzzy="true">Redigeringsoppgaver i appen</string>
   <string name="feed_configure_activity_title">Tilpass hva som vises</string>
   <string name="feed_configure_menu_reset">Tilbakestill standardvisningen</string>
   <string name="feed_configure_menu_select_all">Vis alt</string>
@@ -587,28 +586,29 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideelt éi linje, mellom to og tolv ord</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begynn å redigere</string>
   <string name="description_edit_tutorial_promise">Ved å begynne lover jeg å ikke misbruke denne funksjonen.</string>
-  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Om tittelbeskrivelser</string>
-  <string name="editactionfeed_review_title_description" fuzzy="true">Korrekturles tittelbeskrivelser</string>
-  <string name="editactionfeed_add_description_button">Legg til beskrivelse</string>
-  <string name="editactionfeed_my_contributions">Mine bidrag</string>
+  <string name="suggested_edits_add_descriptions">Om tittelbeskrivelser</string>
+  <string name="suggested_edits_review_description">Korrekturles tittelbeskrivelser</string>
+  <string name="suggested_edits_add_description_button">Legg til beskrivelse</string>
+  <string name="suggested_edits_my_contributions">Mine bidrag</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Listen over tittelbeskrivelsesredigeringsoppgaver har blitt låst opp!</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Vi har lagt merke til at du gjerne redigerer tittelbeskrivelser, så vi har laget en liste med flere artikler som mangler tittelbeskrivelser som du hjelpe til med å beskrive!</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Kanskje senere</string>
-  <string name="title_description_task_title" fuzzy="true">Legg til tittelbeskrivelser</string>
-  <string name="title_description_task_description" fuzzy="true">Bidra til artikler uten tittelbeskrivelser</string>
-  <string name="image_caption_task_title">Bildetekster</string>
-  <string name="image_caption_task_description">Legg til bildetekster til bilder</string>
-  <string name="multilingual_task_title">Flere oppgaver for flerspråklige bidragsytere</string>
-  <string name="multilingual_task_description">Oversettelsesoppgaver er tilgjengelige hvis du leser eller skriver flere Wikipedia-språk.</string>
-  <string name="translation_task_title">Oversett beskrivelser</string>
-  <string name="image_caption_edit_disable_text" fuzzy="true">Ikke tilgjengelig før du har gjort %d verifiserte redigeringer fra appen.</string>
-  <string name="multilingual_task_negative">Passer ikke for meg</string>
-  <string name="multilingual_task_positive">Legg til språk</string>
-  <plurals name="suggested_edits_contribution_count" fuzzy="true">
+  <string name="suggested_edits_tasks_activity_title">Redigeringsoppgaver i appen</string>
+  <string name="suggested_edits_task_add_description_title">Legg til tittelbeskrivelser</string>
+  <string name="suggested_edits_task_add_description_description">Bidra til artikler uten tittelbeskrivelser</string>
+  <string name="suggested_edits_task_image_caption_title">Bildetekster</string>
+  <string name="suggested_edits_task_image_caption_description">Legg til bildetekster til bilder</string>
+  <string name="suggested_edits_task_multilingual_title">Flere oppgaver for flerspråklige bidragsytere</string>
+  <string name="suggested_edits_task_multilingual_description">Oversettelsesoppgaver er tilgjengelige hvis du leser eller skriver flere Wikipedia-språk.</string>
+  <string name="suggested_edits_task_translation_title">Oversett beskrivelser</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Ikke tilgjengelig før du har gjort %d verifiserte redigeringer fra appen.</string>
+  <string name="suggested_edits_task_multilingual_negative">Passer ikke for meg</string>
+  <string name="suggested_edits_task_multilingual_positive">Legg til språk</string>
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">bidrag fra appen</item>
     <item quantity="other">bidrag fra appen</item>
   </plurals>
-  <string name="edit_tasks_onboarding_get_started">Kom i gang</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">Kom i gang</string>
   <string name="description_edit_revert_subtitle">Takk for at du redigerer Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi forstår at du forsøkte ditt beste, men en av korrekturleserne hadde en innvending. Noen mulige årsaker til at redigeringen din ble tilbakestilt kan være:</string>
   <string name="description_edit_revert_reason1">bidraget var ikke i tråd med en av &lt;a href=\"%1$s\"&gt;retningslinjene&lt;/a&gt;.</string>

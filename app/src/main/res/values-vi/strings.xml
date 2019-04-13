@@ -229,7 +229,7 @@
   <string name="preference_summary_show_images">Bật/tắt việc tải các hình ảnh trong trang. Tắt hình ảnh nếu có kết nối mạng chậm hoặc dữ liệu bị hạn chế.</string>
   <string name="preference_title_download_only_over_wifi">Chỉ tải xuống qua Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Bạn có chắc chắn muốn tải về qua dữ liệu di động?</string>
-  <string name="dialog_text_download_only_over_wifi">Bạn đã bật “Chỉ tải xuống qua Wi-Fi” trong tùy chọn. Bạn có muốn cho phép sử dụng dữ liệu di động cho tác vụ tải về này nói riêng?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Bạn đã bật “Chỉ tải xuống qua Wi-Fi” trong tùy chọn. Bạn có muốn cho phép sử dụng dữ liệu di động cho tác vụ tải về này nói riêng?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Cho phép</string>
   <string name="read_more_section">Đọc tiếp</string>
   <string name="about_article_section">Thông tin về bài viết</string>

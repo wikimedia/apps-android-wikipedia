@@ -77,7 +77,7 @@
   <string name="langlinks_no_match">Zıwan nêvineya</string>
   <string name="langlinks_activity_title">Zıwanê bini</string>
   <string name="langlinks_your_wikipedia_languages">Zıwanê Wikipedia ya şıma</string>
-  <string name="menu_save_changes">Vırnayışan qeyd ke</string>
+  <string name="menu_save_changes">Vurnayışan qeyd ke</string>
   <string name="dialog_saving_in_progress">Weşaniyeno...</string>
   <string name="edit_saved_successfully">Vurnayış qeyd bi!</string>
   <string name="dialog_message_edit_failed">Vırnayış xırabiya!</string>
@@ -232,16 +232,16 @@
   <string name="description_edit_cancel_hint">Bıtexelne</string>
   <string name="description_edit_success_done">Temam</string>
   <string name="description_edit_success_did_you_know">Tı zanê?</string>
-  <string name="editactionfeed_add_title_descriptions">Arezekerdış cı ke</string>
-  <string name="editactionfeed_add_description_button">Arezekerdış cı ke</string>
-  <string name="editactionfeed_my_contributions">İştirakê mı</string>
+  <string name="suggested_edits_add_descriptions">Arezekerdış cı ke</string>
+  <string name="suggested_edits_add_description_button">Arezekerdış cı ke</string>
+  <string name="suggested_edits_my_contributions">İştirakê mı</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Belkiya badêna</string>
   <string name="suggested_edits_unlock_dialog_yes">Eya, hadê şime</string>
   <string name="suggested_edits_unlock_notification_button">Eya, hadê şime</string>
   <string name="suggested_edits_menu_info">Melumat</string>
-  <string name="title_description_task_title">Arezekerdış cı ke</string>
-  <string name="multilingual_task_positive">Zıwanan cı ke</string>
-  <string name="edit_tasks_onboarding_get_started">Dest pêke</string>
+  <string name="suggested_edits_task_add_description_title">Arezekerdış cı ke</string>
+  <string name="suggested_edits_task_multilingual_positive">Zıwanan cı ke</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">Dest pêke</string>
   <string name="onboarding_skip">Ravêre</string>
   <string name="onboarding_continue">Dewam ke</string>
   <string name="onboarding_get_started">Dest pêke</string>

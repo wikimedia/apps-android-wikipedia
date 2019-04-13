@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Anj.balaji
 * AntanO
 * Balajijagadesh
@@ -494,10 +495,10 @@
   <string name="description_edit_tutorial_keep_it_short">இதை குறைவாக வைக்கவும்p</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">ஒரு வரியில், இரண்டிலிருந்து பன்னிரண்டு வார்த்தைகளில்</string>
   <string name="description_edit_tutorial_button_label_start_editing">தொகுக்கக் துவங்கவும்</string>
-  <string name="editactionfeed_my_contributions">என் பங்களிப்புக்கள்</string>
-  <string name="title_description_task_title">விளக்கங்களைச் சேர்க்கவும்</string>
-  <string name="multilingual_task_positive">மொழிகளைச் சேர்க்கவும்</string>
-  <string name="edit_tasks_onboarding_get_started">தொடங்கவும்</string>
+  <string name="suggested_edits_my_contributions">என் பங்களிப்புக்கள்</string>
+  <string name="suggested_edits_task_add_description_title">விளக்கங்களைச் சேர்க்கவும்</string>
+  <string name="suggested_edits_task_multilingual_positive">மொழிகளைச் சேர்க்கவும்</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">தொடங்கவும்</string>
   <string name="description_edit_revert_subtitle">விக்கிப்பீடியாவில் தொகுத்ததற்கு நன்றி!!</string>
   <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">1 நிமிடம் மீதி</item>
