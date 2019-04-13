@@ -104,7 +104,7 @@ public class ConfigureItemView extends FrameLayout {
         new AlertDialog.Builder(getContext())
                 .setView(view)
                 .setTitle(contentType.titleId())
-                .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                .setPositiveButton(R.string.customize_lang_selection_dialog_ok_button_text, (dialog, which) -> {
                     contentType.getLangCodesDisabled().clear();
                     contentType.getLangCodesDisabled().addAll(tempDisabledList);
                     adapter.notifyDataSetChanged();
@@ -120,7 +120,7 @@ public class ConfigureItemView extends FrameLayout {
                     }
                     onSwitch.setChecked(atLeastOneEnabled);
                 })
-                .setNegativeButton(android.R.string.cancel, null)
+                .setNegativeButton(R.string.customize_lang_selection_dialog_cancel_button_text, null)
                 .create()
                 .show();
     }

@@ -123,7 +123,7 @@ public final class TextInputDialog extends AlertDialog {
     private TextInputDialog(@NonNull Context context) {
         super(context);
 
-        setButton(BUTTON_POSITIVE, getContext().getString(android.R.string.ok),
+        setButton(BUTTON_POSITIVE, getContext().getString(R.string.text_input_dialog_ok_button_text),
                 (dialog,  which) -> {
                     //DeviceUtil.hideSoftKeyboard(editText);
                     if (callback != null) {
@@ -131,7 +131,7 @@ public final class TextInputDialog extends AlertDialog {
                     }
                 });
 
-        setButton(BUTTON_NEGATIVE, getContext().getString(android.R.string.cancel),
+        setButton(BUTTON_NEGATIVE, getContext().getString(R.string.text_input_dialog_cancel_button_text),
                 (dialog,  which) -> {
                     //DeviceUtil.hideSoftKeyboard(editText);
                     if (callback != null) {

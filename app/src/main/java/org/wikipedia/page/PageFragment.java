@@ -996,7 +996,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                         .setMessage(R.string.description_edit_anon_limit)
                         .setPositiveButton(R.string.page_editing_login, (DialogInterface dialogInterface, int i) ->
                                 startActivity(LoginActivity.newIntent(requireContext(), LoginFunnel.SOURCE_EDIT)))
-                        .setNegativeButton(android.R.string.cancel, null)
+                        .setNegativeButton(R.string.editing_login_cancel_button_text, null)
                         .show();
             } else {
                 startDescriptionEditActivity(text);

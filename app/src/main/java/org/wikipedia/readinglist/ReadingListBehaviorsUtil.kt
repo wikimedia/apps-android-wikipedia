@@ -96,12 +96,12 @@ object ReadingListBehaviorsUtil {
         if (showDialog) {
             val alert = AlertDialog.Builder(activity)
             alert.setMessage(activity.getString(R.string.reading_list_delete_confirm, readingList.title()))
-            alert.setPositiveButton(android.R.string.yes) { _, _ ->
+            alert.setPositiveButton(R.string.delete_list_dialog_ok_button_text) { _, _ ->
                 ReadingListDbHelper.instance().deleteList(readingList)
                 ReadingListDbHelper.instance().markPagesForDeletion(readingList, readingList.pages(), false)
                 callback.onCompleted()
             }
-            alert.setNegativeButton(android.R.string.no, null)
+            alert.setNegativeButton(R.string.delete_list_dialog_cancel_button_text, null)
             alert.create().show()
         } else {
             ReadingListDbHelper.instance().deleteList(readingList)
@@ -242,7 +242,7 @@ object ReadingListBehaviorsUtil {
                                     .setTitle(R.string.reading_list_confirm_remove_article_from_offline_title)
                                     .setMessage(getConfirmToggleOfflineMessage(activity, page, lists))
                                     .setPositiveButton(R.string.reading_list_confirm_remove_article_from_offline) { _, _ -> toggleOffline(activity, page, callback) }
-                                    .setNegativeButton(android.R.string.cancel, null)
+                                    .setNegativeButton(R.string.remove_from_offline_cancel_button_text, null)
                                     .create()
                             dialog.show()
                         } else {
@@ -282,7 +282,7 @@ object ReadingListBehaviorsUtil {
                 .setTitle(R.string.dialog_title_download_only_over_wifi)
                 .setMessage(R.string.dialog_text_download_only_over_wifi)
                 .setPositiveButton(R.string.dialog_title_download_only_over_wifi_allow, listener)
-                .setNegativeButton(android.R.string.cancel, null)
+                .setNegativeButton(R.string.download_using_mobile_data_cancel_button_text, null)
                 .show()
     }
 

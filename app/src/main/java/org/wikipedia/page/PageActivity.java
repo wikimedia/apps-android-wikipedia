@@ -799,7 +799,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         new AlertDialog.Builder(this)
                 .setTitle(R.string.notification_reverted_title)
                 .setView(new DescriptionEditRevertHelpView(this, qNumber))
-                .setPositiveButton(android.R.string.ok, null)
+                .setPositiveButton(R.string.reverted_edit_dialog_ok_button_text, null)
                 .create()
                 .show();
     }

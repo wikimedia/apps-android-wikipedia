@@ -182,11 +182,11 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                                                 PageTitle title = new PageTitle(summary.getNormalizedTitle(), WikipediaApp.getInstance().getWikiSite());
                                                 getActivity().startActivity(PageActivity.newIntentForNewTab(getActivity(), new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title));
                                             })
-                                            .setNegativeButton(android.R.string.cancel, null)
+                                            .setNegativeButton(R.string.cancel, null)
                                             .show(),
                                     throwable -> new AlertDialog.Builder(getActivity())
                                             .setMessage(throwable.getMessage())
-                                            .setPositiveButton(android.R.string.ok, null)
+                                            .setPositiveButton(R.string.ok, null)
                                             .show());
                     return true;
                 });
@@ -204,11 +204,11 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                                                 PageTitle title = new PageTitle(pair.getSecond().getNormalizedTitle(), WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getAppLanguageCodes().get(1)));
                                                 getActivity().startActivity(PageActivity.newIntentForNewTab(getActivity(), new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title));
                                             })
-                                            .setNegativeButton(android.R.string.cancel, null)
+                                            .setNegativeButton(R.string.cancel, null)
                                             .show(),
                                     throwable -> new AlertDialog.Builder(getActivity())
                                             .setMessage(throwable.getMessage())
-                                            .setPositiveButton(android.R.string.ok, null)
+                                            .setPositiveButton(R.string.ok, null)
                                             .show());
                     return true;
                 });

@@ -245,7 +245,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             if (AccountUtil.isLoggedIn()) {
                 new AlertDialog.Builder(MainActivity.this)
                         .setMessage(R.string.logout_prompt)
-                        .setNegativeButton(android.R.string.cancel, null)
+                        .setNegativeButton(R.string.log_out_dialog_cancel_button_text, null)
                         .setPositiveButton(R.string.preference_title_logout, (dialog, which) -> {
                             WikipediaApp.getInstance().logOut();
                             FeedbackUtil.showMessage(MainActivity.this, R.string.toast_logout_complete);
