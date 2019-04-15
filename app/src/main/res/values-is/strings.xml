@@ -253,7 +253,7 @@
   <string name="preference_summary_show_images">Virkja eða afvirkja hleðslu mynda í síðum. Taktu hakið úr þessu ef nettengingin þín er hægvirk, eða ef þú þarft að borga aukalega fyrir gagnamagnið.</string>
   <string name="preference_title_download_only_over_wifi">Einungis sækja í gegnum Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Staðfesta að sækja á farsímagagnasambandi?</string>
-  <string name="dialog_text_download_only_over_wifi">Þú ert með kveikt á \"Einungis sækja í gegnum Wi-Fi\" í stillingunum. Viltu að leyft sé að nota farsímagagnasamband til að sækja aðeins þetta niðurhal?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Þú ert með kveikt á \"Einungis sækja í gegnum Wi-Fi\" í stillingunum. Viltu að leyft sé að nota farsímagagnasamband til að sækja aðeins þetta niðurhal?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Leyfa</string>
   <string name="read_more_section">Lesa meira</string>
   <string name="about_article_section">Um þessa grein</string>
@@ -552,7 +552,6 @@
   <string name="view_featured_article_footer_save_button_label">Vista</string>
   <string name="view_static_card_save_button_label">Vista</string>
   <string name="view_featured_article_footer_saved_button_label">Vistað</string>
-  <string name="edit_tasks_activity_title">Verkefni fyrir ritstýringu</string>
   <string name="feed_configure_activity_title">Sérsníða streymið</string>
   <string name="feed_configure_menu_reset">Endurheimta sjálfgefna sýn</string>
   <string name="feed_configure_menu_select_all">Birta allt</string>
@@ -597,46 +596,47 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Helst ein lína, frá tveimur til tólf orða langt</string>
   <string name="description_edit_tutorial_button_label_start_editing">Hefja breytingar</string>
   <string name="description_edit_tutorial_promise">Ef ég byrja, lofa ég að misnota ekki þennan eiginleika.</string>
-  <string name="editactionfeed_add_title_descriptions">Bæta við lýsingum</string>
-  <string name="editactionfeed_review_title_description">Yfirfara lýsingu</string>
-  <string name="editactionfeed_add_description_button">Bæta við lýsingu</string>
-  <string name="editactionfeed_my_contributions">Framlögin mín</string>
-  <string name="editactionfeed_added_by_you">Bætt við af þér:</string>
-  <string name="editactionfeed_translated_by_you">Þýtt af þér:</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">\"Bæta við lýsingum\" hefur verið aflæst</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Við höfum tekið eftir að þú ert oft að breyta efni, þannig að við höfum tekið saman lista yfir greinar sem vantar lýsingar, svo þú getir haldið áfram að leggja þitt af mörkum!</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Þú aflæstir \"Þýða lýsingar\" verkinu</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Til hamingju með 50. framlagið þitt, við erum full aðdáunar! Við höfum tekið eftir að þú notar forritið á mörgum tungumálum, þannig að við höfum tekið saman lista yfir greinar sem vantar þýðingar á lýsingum, svo þú getir haldið áfram að leggja þitt af mörkum!</string>
+  <string name="suggested_edits_add_descriptions">Bæta við lýsingum</string>
+  <string name="suggested_edits_review_description">Yfirfara lýsingu</string>
+  <string name="suggested_edits_add_description_button">Bæta við lýsingu</string>
+  <string name="suggested_edits_my_contributions">Framlögin mín</string>
+  <string name="suggested_edits_added_by_you">Bætt við af þér:</string>
+  <string name="suggested_edits_translated_by_you">Þýtt af þér:</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">\"Bæta við lýsingum\" hefur verið aflæst</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Við höfum tekið eftir að þú ert oft að breyta efni, þannig að við höfum tekið saman lista yfir greinar sem vantar lýsingar, svo þú getir haldið áfram að leggja þitt af mörkum!</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Þú aflæstir \"Þýða lýsingar\" verkinu</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Til hamingju með 50. framlagið þitt, við erum full aðdáunar! Við höfum tekið eftir að þú notar forritið á mörgum tungumálum, þannig að við höfum tekið saman lista yfir greinar sem vantar þýðingar á lýsingum, svo þú getir haldið áfram að leggja þitt af mörkum!</string>
   <string name="suggested_edits_unlock_dialog_no">Kannski síðar</string>
   <string name="suggested_edits_unlock_dialog_yes">Já, í gang með þetta</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Þú aflæstir \"Bæta við lýsingum\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Þú aflæstir \"Þýða lýsingar\"</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">Þú aflæstir \"Bæta við lýsingum\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">Þú aflæstir \"Þýða lýsingar\"</string>
   <string name="suggested_edits_unlock_notification_text">Tillögur að breytingum</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Tillögur að breytingum\n\nTil hamingju með þriðja framlagið þitt. Við höfum tekið eftir að þú ert fær í að breyta efni, þannig að við höfum tekið saman lista yfir greinar sem vantar lýsingar, svo þú getir haldið áfram að leggja þitt af mörkum!</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Tillögur að breytingum\n\nTil hamingju með 50. framlagið þitt, við erum full aðdáunar! Við höfum tekið eftir að þú notar forritið á mörgum tungumálum, þannig að við höfum tekið saman lista yfir greinar sem vantar þýðingar á lýsingum, svo þú getir haldið áfram að leggja þitt af mörkum!</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text" fuzzy="true">Tillögur að breytingum\n\nTil hamingju með þriðja framlagið þitt. Við höfum tekið eftir að þú ert fær í að breyta efni, þannig að við höfum tekið saman lista yfir greinar sem vantar lýsingar, svo þú getir haldið áfram að leggja þitt af mörkum!</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text" fuzzy="true">Tillögur að breytingum\n\nTil hamingju með 50. framlagið þitt, við erum full aðdáunar! Við höfum tekið eftir að þú notar forritið á mörgum tungumálum, þannig að við höfum tekið saman lista yfir greinar sem vantar þýðingar á lýsingum, svo þú getir haldið áfram að leggja þitt af mörkum!</string>
   <string name="suggested_edits_unlock_notification_button">Já, í gang með þetta</string>
   <string name="suggested_edits_license_notice">Með því að breyta lýsingu á þessum titli, samþykki ég &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt; og að ég gefi óafturkræft út framlög mín með &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; notkunarleyfi.</string>
   <string name="suggested_edits_menu_info">Upplýsingar</string>
-  <string name="title_description_task_title">Bæta við lýsingum</string>
-  <string name="title_description_task_description">Leggðu þitt af mörkum í greinum án lýsingar</string>
-  <string name="image_caption_task_title">Setja myndatexta</string>
-  <string name="image_caption_task_description">Bæta texta við myndir</string>
-  <string name="multilingual_task_title">Fleiri verkefni fyrir margtyngda ritara</string>
-  <string name="multilingual_task_description">Þýðingaverkefni eru tiltæk ef þú lest og skrifar á fleiri en einu Wikipedia-tungumáli.</string>
-  <string name="translation_task_title">Þýða lýsingar</string>
-  <string name="translation_task_description">Þýða lýsingar yfir á önnur tungumál.</string>
-  <string name="image_caption_edit_disable_text">Læst þangað til þú hefur gert %d yfirfarnar breytingar</string>
-  <string name="translate_description_edit_disable_text">Læst þangað til þú hefur gert %d yfirfarnar breytingar</string>
-  <string name="multilingual_task_negative">Ekkert fyrir mig</string>
-  <string name="multilingual_task_positive">Bæta við tungumálum</string>
-  <string name="translate_caption_task_title">Þýða myndatexta</string>
-  <string name="translate_caption_task_description">Þýða myndatexta yfir á önnur tungumál</string>
+  <string name="suggested_edits_tasks_activity_title">Verkefni fyrir ritstýringu</string>
+  <string name="suggested_edits_task_add_description_title">Bæta við lýsingum</string>
+  <string name="suggested_edits_task_add_description_description">Leggðu þitt af mörkum í greinum án lýsingar</string>
+  <string name="suggested_edits_task_image_caption_title">Setja myndatexta</string>
+  <string name="suggested_edits_task_image_caption_description">Bæta texta við myndir</string>
+  <string name="suggested_edits_task_multilingual_title">Fleiri verkefni fyrir margtyngda ritara</string>
+  <string name="suggested_edits_task_multilingual_description">Þýðingaverkefni eru tiltæk ef þú lest og skrifar á fleiri en einu Wikipedia-tungumáli.</string>
+  <string name="suggested_edits_task_translation_title">Þýða lýsingar</string>
+  <string name="suggested_edits_task_translation_description">Þýða lýsingar yfir á önnur tungumál.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Læst þangað til þú hefur gert %d yfirfarnar breytingar</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Læst þangað til þú hefur gert %d yfirfarnar breytingar</string>
+  <string name="suggested_edits_task_multilingual_negative">Ekkert fyrir mig</string>
+  <string name="suggested_edits_task_multilingual_positive">Bæta við tungumálum</string>
+  <string name="suggested_edits_task_translate_caption_title">Þýða myndatexta</string>
+  <string name="suggested_edits_task_translate_caption_description">Þýða myndatexta yfir á önnur tungumál</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 framlag</item>
     <item quantity="other">%d framlög</item>
   </plurals>
-  <string name="description_edit_tutorial_message">Velkomin í nýju miðstöðina fyrir flýtibreytingar í Wikipedia-forritinu. Við kunnum vel að meta öll þín framlög. Skemmtu þér vel!</string>
-  <string name="edit_tasks_onboarding_get_started">Komast í gang</string>
+  <string name="suggested_edits_tutorial_message">Velkomin í nýju miðstöðina fyrir flýtibreytingar í Wikipedia-forritinu. Við kunnum vel að meta öll þín framlög. Skemmtu þér vel!</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">Komast í gang</string>
   <string name="description_edit_revert_subtitle">Takk fyrir framlag þitt til Wikipedia!</string>
   <string name="description_edit_revert_intro">Við vitum að þú reyndir þitt besta, en einn í yfirlestrarhópnum var í vafa. Hugsanlegar ástæður fyrir því að breytingunni þinni var hafnað, gætu meðal annars verið:</string>
   <string name="description_edit_revert_reason1">framlagið þitt fylgdi ekki einhverju atriðanna í &lt;a href=\"%1$s\"&gt;leiðbeiningunum&lt;/a&gt;.</string>

@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.wikipedia.Constants;
+import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.IntentFunnel;
@@ -307,8 +308,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     }
 
     @Override
-    public void onSearchResultAddToList(@NonNull PageTitle title,
-                                        @NonNull AddToReadingListDialog.InvokeSource source) {
+    public void onSearchResultAddToList(@NonNull PageTitle title, @NonNull InvokeSource source) {
         bottomSheetPresenter.show(getChildFragmentManager(), AddToReadingListDialog.newInstance(title, source));
     }
 

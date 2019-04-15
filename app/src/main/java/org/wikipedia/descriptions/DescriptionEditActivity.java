@@ -23,6 +23,8 @@ import androidx.annotation.Nullable;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource;
+import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
+import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionEditFragment>
@@ -63,7 +65,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     public void onPageSummaryContainerClicked(@NonNull PageTitle pageTitle) {
         bottomSheetPresenter.show(getSupportFragmentManager(),
                 LinkPreviewDialog.newInstance(new HistoryEntry(pageTitle,
-                        getIntent().hasExtra(EXTRA_INVOKE_SOURCE) && getIntent().getSerializableExtra(EXTRA_INVOKE_SOURCE) == InvokeSource.PAGE_ACTIVITY
+                        getIntent().hasExtra(EXTRA_INVOKE_SOURCE) && getIntent().getSerializableExtra(EXTRA_INVOKE_SOURCE) == PAGE_ACTIVITY
                                 ? HistoryEntry.SOURCE_EDIT_DESCRIPTION : HistoryEntry.SOURCE_SUGGESTED_EDITS),
                         null));
     }
@@ -80,8 +82,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     @Override
     public void onLinkPreviewAddToList(@NonNull PageTitle title) {
         bottomSheetPresenter.show(getSupportFragmentManager(),
-                AddToReadingListDialog.newInstance(title,
-                        AddToReadingListDialog.InvokeSource.LINK_PREVIEW_MENU));
+                AddToReadingListDialog.newInstance(title, LINK_PREVIEW_MENU));
     }
 
     @Override

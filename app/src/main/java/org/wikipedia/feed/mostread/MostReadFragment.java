@@ -32,6 +32,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+import static org.wikipedia.Constants.InvokeSource.MOST_READ_ACTIVITY;
 import static org.wikipedia.feed.mostread.MostReadArticlesActivity.MOST_READ_CARD;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
@@ -117,8 +118,7 @@ public class MostReadFragment extends Fragment {
         @Override
         public void onAddPageToList(@NonNull HistoryEntry entry) {
             bottomSheetPresenter.show(getChildFragmentManager(),
-                    AddToReadingListDialog.newInstance(entry.getTitle(),
-                            AddToReadingListDialog.InvokeSource.MOST_READ_ACTIVITY));
+                    AddToReadingListDialog.newInstance(entry.getTitle(), MOST_READ_ACTIVITY));
         }
 
         @Override

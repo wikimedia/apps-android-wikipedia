@@ -221,7 +221,7 @@
   <string name="preference_summary_show_images">Cumasaigh no díchumasaigh íomhánna a lódáil ar leathanaigh. Díthiceáil an socrú seo má tá do nasc Idirlín mall, nó má tá do phlean sonraí teoranta.</string>
   <string name="preference_title_download_only_over_wifi">Íoslódáil trí Wi-Fi amháin</string>
   <string name="dialog_title_download_only_over_wifi">Deimhnigh sonraí móibíleacha a úsáid don íoslódáil?</string>
-  <string name="dialog_text_download_only_over_wifi">Tá “Íoslódáil trí Wi-Fi amháin” casta air i do chuid socruithe. Ar mhaith leat ceadú go húsáidfear do phlean sonraí móibíleacha don íoslódáil amháin seo?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Tá “Íoslódáil trí Wi-Fi amháin” casta air i do chuid socruithe. Ar mhaith leat ceadú go húsáidfear do phlean sonraí móibíleacha don íoslódáil amháin seo?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Ceadaigh</string>
   <string name="read_more_section">Léigh tuilleadh</string>
   <string name="about_article_section">Maidir leis an alt seo</string>
@@ -510,7 +510,6 @@
   <string name="view_featured_article_card_title">Alt roghnaithe</string>
   <string name="view_featured_article_footer_save_button_label">Sábháil</string>
   <string name="view_featured_article_footer_saved_button_label">Sábháilte</string>
-  <string name="edit_tasks_activity_title" fuzzy="true">Tascanna d\'eagarthóirí aipe</string>
   <string name="feed_configure_activity_title">Cuir an fotha in oiriúint</string>
   <string name="feed_configure_menu_reset">Cuir amharc réamhshocraithe ar ais</string>
   <string name="feed_configure_menu_select_all">Taispeáin uile</string>
@@ -548,17 +547,18 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Líne amháin dá bhféadfaí é, idir aon fhocal amháin agus dhá fhocal déag</string>
   <string name="description_edit_tutorial_button_label_start_editing">Cuir in eagar</string>
   <string name="description_edit_tutorial_promise">Agus mé ag tosú, geallaim nach mbainfidh mé mí-úsáid as an ngné seo.</string>
-  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Cuir sainchuntais theideal leis</string>
-  <string name="editactionfeed_review_title_description" fuzzy="true">Athbhreithnigh sainchuntas teidil</string>
-  <string name="editactionfeed_add_description_button">Cuir sainchuntas leis</string>
+  <string name="suggested_edits_add_descriptions">Cuir sainchuntais theideal leis</string>
+  <string name="suggested_edits_review_description">Athbhreithnigh sainchuntas teidil</string>
+  <string name="suggested_edits_add_description_button">Cuir sainchuntas leis</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Thugamar faoi deara gur maith leat sainchuntais theideal a chur ar eagar. Dá thoradh sin táimid tar éis liosta de \"Thascanna d\'eagarthóirí aipe\" a chur le chéile, ina gheobhaidh tú a thuilleadh alt atá sainchuntais theideal in easnamh orthu, mar chabhair le do chuid eagarthóireachta!</string>
-  <string name="title_description_task_title" fuzzy="true">Cuir sainchuntais theideal leis</string>
-  <string name="image_caption_task_title">Fotheidil íomhánna</string>
-  <string name="image_caption_task_description">Cuir fotheidil le híomhánna</string>
-  <string name="multilingual_task_title">Tuilleadh tascanna d\'eagarthóirí ilteangacha</string>
-  <string name="multilingual_task_negative">Ní domsa é</string>
-  <string name="multilingual_task_positive">Cuir teangacha leis</string>
-  <plurals name="suggested_edits_contribution_count" fuzzy="true">
+  <string name="suggested_edits_tasks_activity_title">Tascanna d\'eagarthóirí aipe</string>
+  <string name="suggested_edits_task_add_description_title">Cuir sainchuntais theideal leis</string>
+  <string name="suggested_edits_task_image_caption_title">Fotheidil íomhánna</string>
+  <string name="suggested_edits_task_image_caption_description">Cuir fotheidil le híomhánna</string>
+  <string name="suggested_edits_task_multilingual_title">Tuilleadh tascanna d\'eagarthóirí ilteangacha</string>
+  <string name="suggested_edits_task_multilingual_negative">Ní domsa é</string>
+  <string name="suggested_edits_task_multilingual_positive">Cuir teangacha leis</string>
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">dréacht san aip</item>
     <item quantity="other">dréachtaí san aip</item>
   </plurals>

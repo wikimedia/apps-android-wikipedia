@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Alan ffm
 * Alchemik
 * Chrumps
@@ -250,7 +251,7 @@
   <string name="preference_summary_show_images">Włącz lub wyłącz pobieranie obrazków na stronach. Odznacz to pole wyboru, jeśli masz wolne połączenie internetowe lub  ograniczony limit transferu danych.</string>
   <string name="preference_title_download_only_over_wifi">Pobieraj tylko przez Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Potwierdź pobieranie za pomocą komórkowej transmisji danych?</string>
-  <string name="dialog_text_download_only_over_wifi">Masz włączoną opcję \"Pobieraj tylko przez Wi-Fi\" w Ustawieniach. Czy chcesz zezwolić na użycie komórkowej transmisji danych tylko do tego pobierania?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Masz włączoną opcję \"Pobieraj tylko przez Wi-Fi\" w Ustawieniach. Czy chcesz zezwolić na użycie komórkowej transmisji danych tylko do tego pobierania?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Zezwól</string>
   <string name="read_more_section">Czytaj więcej</string>
   <string name="about_article_section">O tym artykule</string>
@@ -539,11 +540,11 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Najlepiej jedna linia, od dwóch do dwunastu wyrazów.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Rozpocznij edycję</string>
   <string name="description_edit_tutorial_promise">Rozpoczynając, obiecuję nie nadużywać tej funkcji.</string>
-  <string name="editactionfeed_add_title_descriptions" fuzzy="true">Dodaj opisy tytułów</string>
-  <string name="editactionfeed_add_description_button">Dodaj opis</string>
-  <string name="editactionfeed_my_contributions">Mój wkład</string>
-  <string name="title_description_task_title" fuzzy="true">Dodaj opisy tytułów</string>
-  <string name="multilingual_task_positive">Dodaj języki</string>
+  <string name="suggested_edits_add_descriptions">Dodaj opisy tytułów</string>
+  <string name="suggested_edits_add_description_button">Dodaj opis</string>
+  <string name="suggested_edits_my_contributions">Mój wkład</string>
+  <string name="suggested_edits_task_add_description_title">Dodaj opisy tytułów</string>
+  <string name="suggested_edits_task_multilingual_positive">Dodaj języki</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_reason2">twój wpis wyglądał na eksperyment lub wandalizm.</string>
   <string name="description_edit_revert_history">Jeśli Cię to interesuje, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>

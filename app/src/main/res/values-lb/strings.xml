@@ -480,6 +480,7 @@
   <string name="description_edit_read">Liesen</string>
   <string name="description_edit_add_description">Beschreiwung vum Titel derbäisetzen</string>
   <string name="description_edit_add_description_v2">Beschreiwung derbäisetzen</string>
+  <string name="description_edit_translate_description">Titelbeschreiwung iwwersetzen</string>
   <string name="description_edit_edit_description">Beschreiwung änneren</string>
   <string name="add_translation">Iwwersetzung op %s derbäisetzen</string>
   <string name="description_edit_cancel_hint">Ofbriechen</string>
@@ -500,19 +501,20 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealerweis eng Linn, mat tëscht zwee an zwielef Wierder</string>
   <string name="description_edit_tutorial_button_label_start_editing">Ufänke mat Änneren</string>
   <string name="description_edit_tutorial_promise">Ech verspriechen dës Funktioun net ze mëssbrauchen.</string>
-  <string name="editactionfeed_add_title_descriptions">Beschreiwungen derbäisetzen</string>
-  <string name="editactionfeed_review_title_description">Beschreiwung iwwerliesen</string>
-  <string name="editactionfeed_add_description_button">Beschreiwung derbäisetzen</string>
-  <string name="editactionfeed_added_by_you">Vun Iech derbäigesat:</string>
-  <string name="editactionfeed_translated_by_you">Vun Iech iwwersat:</string>
+  <string name="suggested_edits_add_descriptions">Beschreiwungen derbäisetzen</string>
+  <string name="suggested_edits_translate_descriptions">Beschreiwungen iwwersetzen</string>
+  <string name="suggested_edits_review_description">Beschreiwung iwwerliesen</string>
+  <string name="suggested_edits_add_description_button">Beschreiwung derbäisetzen</string>
+  <string name="suggested_edits_added_by_you">Vun Iech derbäigesat:</string>
+  <string name="suggested_edits_translated_by_you">Vun Iech iwwersat:</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Vläicht méi spéit</string>
   <string name="suggested_edits_unlock_notification_button">Jo, et geet lass</string>
   <string name="suggested_edits_menu_info">Informatioun</string>
-  <string name="title_description_task_title">Beschreiwungen derbäisetzen</string>
-  <string name="translation_task_title">Beschreiwungen iwwersetzen</string>
-  <string name="multilingual_task_negative">Net fir mech</string>
-  <string name="multilingual_task_positive">Sproochen derbäisetzen</string>
-  <string name="edit_tasks_onboarding_get_started">Fir unzefänken</string>
+  <string name="suggested_edits_task_add_description_title">Beschreiwungen derbäisetzen</string>
+  <string name="suggested_edits_task_translation_title">Beschreiwungen iwwersetzen</string>
+  <string name="suggested_edits_task_multilingual_negative">Net fir mech</string>
+  <string name="suggested_edits_task_multilingual_positive">Sproochen derbäisetzen</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">Fir unzefänken</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>

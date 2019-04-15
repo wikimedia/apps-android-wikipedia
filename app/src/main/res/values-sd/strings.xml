@@ -207,7 +207,7 @@
   <string name="preference_summary_show_images">صفحن ۾ عڪسن جو لوڊ ٿيڻ لائق يا نالائق بڻايو. هن ترتيب تان نشان هٽايو جيڪڏهن توهانجو انٽرنيٽ ڪنيڪشن آهستي آهي، يا توهان جو ڊيٽا منصوبو محدود آهي.</string>
   <string name="preference_title_download_only_over_wifi">رڳو واءِ فاءِ ذريعي ڊائونلوڊ ڪيو</string>
   <string name="dialog_title_download_only_over_wifi">موبائيل ڊيٽا سان ڊائونلوڊ ڪرڻ چاهيو ٿا؟</string>
-  <string name="dialog_text_download_only_over_wifi">اوهان جي ترجيحن ۾ ”صرف واءِ فاءِ ذريعي ڊائونلوڊ ڪيو“ کليل آهي. ڇا اوهان اجازت ڏيندو تہ موبائيل ڊيٽا سان ڊائونلوڊ ڪيون؟</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">اوهان جي ترجيحن ۾ ”صرف واءِ فاءِ ذريعي ڊائونلوڊ ڪيو“ کليل آهي. ڇا اوهان اجازت ڏيندو تہ موبائيل ڊيٽا سان ڊائونلوڊ ڪيون؟</string>
   <string name="dialog_title_download_only_over_wifi_allow">اجازت آهي</string>
   <string name="read_more_section">وڌيڪ پڙهو</string>
   <string name="about_article_section">هن مضمون بابت</string>
