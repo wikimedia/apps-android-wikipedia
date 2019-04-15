@@ -1,6 +1,7 @@
 package org.wikipedia.views;
 
 import android.content.Context;
+import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
@@ -11,6 +12,7 @@ import org.wikipedia.R;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -21,6 +23,10 @@ public class WikiTextKeyboardView extends FrameLayout {
 
     @Nullable private Callback callback;
     private PlainPasteEditText editText;
+
+    @BindView(R.id.wikitext_button_undo) View undoButton;
+    @BindView(R.id.wikitext_button_redo) View redoButton;
+    @BindView(R.id.wikitext_undo_redo_separator) View undoRedoSeparator;
 
     public WikiTextKeyboardView(Context context) {
         super(context);
@@ -40,6 +46,10 @@ public class WikiTextKeyboardView extends FrameLayout {
     private void init() {
         inflate(getContext(), R.layout.view_wikitext_keyboard, this);
         ButterKnife.bind(this);
+
+        undoButton.setVisibility(android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP ? VISIBLE : GONE);
+        redoButton.setVisibility(android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP ? VISIBLE : GONE);
+        undoRedoSeparator.setVisibility(android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP ? VISIBLE : GONE);
     }
 
     public void setCallback(@Nullable Callback callback) {
@@ -66,6 +76,14 @@ public class WikiTextKeyboardView extends FrameLayout {
         if (editText.getInputConnection() != null) {
             toggleSyntaxAroundCurrentSelection(editText.getInputConnection(), "'''", "'''");
         }
+    }
+
+    @OnClick(R.id.wikitext_button_undo) void onClickButtonUndo(View v) {
+        editText.undo();
+    }
+
+    @OnClick(R.id.wikitext_button_redo) void onClickButtonRedo(View v) {
+        editText.redo();
     }
 
     @OnClick(R.id.wikitext_button_template) void onClickButtonTemplate(View v) {

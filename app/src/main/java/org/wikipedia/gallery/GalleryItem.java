@@ -21,17 +21,15 @@ public class GalleryItem implements Serializable {
     @SuppressWarnings("unused,NullableProblems") @Nullable @SerializedName("audio_type") private String audioType;
     @SuppressWarnings("unused") @Nullable private TextInfo caption;
     @SuppressWarnings("unused") private boolean showInGallery;
-    @SuppressWarnings("unused") @NonNull private Titles titles;
+    @SuppressWarnings("unused,NullableProblems") @NonNull private Titles titles;
     @SuppressWarnings("unused") @Nullable private ImageInfo thumbnail;
     @SuppressWarnings("unused") @Nullable private ImageInfo original;
     @SuppressWarnings("unused") @Nullable private List<VideoInfo> sources;
     @SuppressWarnings("unused,NullableProblems") @Nullable @SerializedName("file_page") private String filePage;
     @SuppressWarnings("unused") @Nullable private ArtistInfo artist;
     @SuppressWarnings("unused") private double duration;
-    @SuppressWarnings("unused") @NonNull private ImageLicense license;
+    @SuppressWarnings("unused,NullableProblems") @NonNull private ImageLicense license;
     @SuppressWarnings("unused") @Nullable private TextInfo description;
-    // FIXME: The type of credit will return either string or another type of object
-    // @SuppressWarnings("unused") @Nullable private String credit;
 
     public GalleryItem() {
     }
@@ -106,7 +104,7 @@ public class GalleryItem implements Serializable {
 
     @Nullable
     public VideoInfo getOriginalVideoSource() {
-        // TODO: the getSources has different levels of source,
+        // The getSources has different levels of source,
         // should have an option that allows user to chose which quality to play
         return sources == null || sources.size() == 0
                 ? null : sources.get(sources.size() - 1);
@@ -151,8 +149,6 @@ public class GalleryItem implements Serializable {
         }
         return description;
     }
-
-    // TODO: Move the following models into a folder
 
     public static class Titles implements Serializable {
         @SuppressWarnings("unused,NullableProblems") @Nullable private String canonical;
