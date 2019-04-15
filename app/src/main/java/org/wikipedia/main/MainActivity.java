@@ -45,6 +45,7 @@ import io.reactivex.schedulers.Schedulers;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_INITIAL_ONBOARDING;
+import static org.wikipedia.Constants.InvokeSource.NAV_MENU;
 
 public class MainActivity extends SingleFragmentActivity<MainFragment>
         implements MainFragment.Callback {
@@ -286,7 +287,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         public void editingTasksClick() {
             Prefs.setShowEditMenuOptionIndicator(false);
             drawerView.maybeShowIndicatorDots();
-            startActivity(SuggestedEditsTasksActivity.newIntent(MainActivity.this, Constants.InvokeSource.NAV_MENU));
+            startActivity(SuggestedEditsTasksActivity.newIntent(MainActivity.this, NAV_MENU));
             closeMainDrawer();
         }
 

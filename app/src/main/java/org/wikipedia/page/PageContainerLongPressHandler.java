@@ -1,10 +1,10 @@
 package org.wikipedia.page;
 
+import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.LongPressHandler;
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
@@ -42,7 +42,7 @@ public class PageContainerLongPressHandler implements LongPressHandler.ContextMe
     }
 
     @Override
-    public void onAddToList(PageTitle title, AddToReadingListDialog.InvokeSource source) {
+    public void onAddToList(PageTitle title, InvokeSource source) {
         fragment.addToReadingList(title, source);
     }
 

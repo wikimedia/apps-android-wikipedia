@@ -53,6 +53,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
+import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_ACTIVITY;
 import static org.wikipedia.feed.onthisday.OnThisDayActivity.AGE;
 import static org.wikipedia.feed.onthisday.OnThisDayActivity.WIKISITE;
 
@@ -256,8 +257,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     @Override
     public void onAddPageToList(@NonNull HistoryEntry entry) {
         bottomSheetPresenter.show(getChildFragmentManager(),
-                AddToReadingListDialog.newInstance(entry.getTitle(),
-                        AddToReadingListDialog.InvokeSource.ON_THIS_DAY_ACTIVITY));
+                AddToReadingListDialog.newInstance(entry.getTitle(), ON_THIS_DAY_ACTIVITY));
     }
 
     @Override
