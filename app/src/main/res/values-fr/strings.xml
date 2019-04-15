@@ -658,7 +658,7 @@
   <string name="suggested_edits_task_translate_caption_title">Traduire les légendes des images</string>
   <string name="suggested_edits_task_translate_caption_description">Traduire les légendes dans d\'autres langues</string>
   <plurals name="suggested_edits_contribution_count">
-    <item quantity="one">1 contribution</item>
+    <item quantity="one">contribution</item>
     <item quantity="other">%d contributions</item>
   </plurals>
   <string name="suggested_edits_tutorial_message">Bienvenue dans le nouvel accueil pour la modification rapide dans l’application de Wikipédia. Vos contributions sont toujours très appréciées. Bonnes modifications!</string>
