@@ -41,6 +41,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
+import static org.wikipedia.Constants.InvokeSource.RANDOM_ACTIVITY;
+
 public class RandomFragment extends Fragment {
     @BindView(R.id.random_item_pager) ViewPager randomPager;
     @BindView(R.id.random_next_button) FloatingActionButton nextButton;
@@ -153,8 +155,7 @@ public class RandomFragment extends Fragment {
     public void onAddPageToList(@NonNull PageTitle title) {
         bottomSheetPresenter.show(getChildFragmentManager(),
                 AddToReadingListDialog.newInstance(title,
-                        AddToReadingListDialog.InvokeSource.RANDOM_ACTIVITY,
-                        (DialogInterface dialogInterface) -> updateSaveShareButton(title)));
+                        RANDOM_ACTIVITY, (DialogInterface dialogInterface) -> updateSaveShareButton(title)));
     }
 
     @SuppressWarnings("magicnumber")

@@ -55,6 +55,17 @@ public final class Constants {
     public static final int MIN_LANGUAGES_TO_UNLOCK_TRANSLATION = 2;
 
     public enum InvokeSource {
+        BOOKMARK_BUTTON,
+        CONTEXT_MENU,
+        LINK_PREVIEW_MENU,
+        PAGE_OVERFLOW_MENU,
+        FEED,
+        NEWS_ACTIVITY,
+        READING_LIST_ACTIVITY,
+        MOST_READ_ACTIVITY,
+        RANDOM_ACTIVITY,
+        ON_THIS_DAY_ACTIVITY,
+        READ_MORE_BOOKMARK_BUTTON,
         PAGE_ACTIVITY,
         EDIT_FEED_TITLE_DESC,
         EDIT_FEED_TRANSLATE_TITLE_DESC,
