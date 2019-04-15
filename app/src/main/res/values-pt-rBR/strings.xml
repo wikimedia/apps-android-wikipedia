@@ -278,7 +278,7 @@
   <string name="preference_summary_show_images">Habilita ou desabilita o carregamento de imagens em páginas. Desmarque esta opção caso sua conexão à Internet for lenta ou caso seu plano de dados for limitado.</string>
   <string name="preference_title_download_only_over_wifi">Transferir apenas por Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Confirmar o download usando dados móveis?</string>
-  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Você tem \"Fazer o download apenas via Wi-Fi\" ativado nas configurações. Deseja permitir o uso do seu plano de dados móveis somente para este download?</string>
+  <string name="dialog_text_download_only_over_wifi">Você tem \"Fazer o download apenas via Wi-Fi\" ativado nas configurações. Deseja permitir o uso do seu plano de dados móveis somente para este download?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Permitir</string>
   <string name="read_more_section">Ler mais</string>
   <string name="about_article_section">Sobre este artigo</string>
@@ -629,17 +629,17 @@
   <string name="suggested_edits_my_contributions">Minhas contribuições</string>
   <string name="suggested_edits_added_by_you">Adicionado por você:</string>
   <string name="suggested_edits_translated_by_you">Traduzido por você:</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Você desbloqueou a tarefa \"Adicionar descrições\"</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Parabéns pela sua terceira contribuição! Como você é muito bom em editar, compilamos uma lista de artigos com descrições ausentes. Você poderia nos ajudar a melhorar a Wikipedia?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Você desbloqueou a tarefa \"Traduzir descrições\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Parabéns pela sua 50ª contribuição, estamos impressionados! Você está usando o aplicativo em vários idiomas, por isso compilamos uma lista de artigos que precisam de traduções descritivas. Você poderia continuar nos ajudando a melhorar a Wikipédia?</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Você desbloqueou a tarefa \"Adicionar descrições\"</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Obrigado por todas as suas contribuições! Como você é muito bom em editar, compilamos uma lista de artigos com descrições ausentes. Você poderia nos ajudar a melhorar a Wikipedia?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Você desbloqueou a tarefa \"Traduzir descrições\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Parabéns pelas suas muitas contribuições, estamos impressionados! Você está usando o aplicativo em vários idiomas, por isso compilamos uma lista de artigos que precisam de traduções descritivas. Você poderia continuar nos ajudando a melhorar a Wikipédia?</string>
   <string name="suggested_edits_unlock_dialog_no">Talvez mais tarde</string>
   <string name="suggested_edits_unlock_dialog_yes">Sim, vamos lá</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">Você desbloqueou \"Adicionar descrições\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">Você desbloqueou \"Traduzir descrições\"</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">Você desbloqueou \"Adicionar descrições\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Você desbloqueou \"Traduzir descrições\"</string>
   <string name="suggested_edits_unlock_notification_text">Edições sugeridas</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text" fuzzy="true">Edições sugeridas\n\nParabéns pela sua terceira contribuição. Como você é muito bom em editar, compilamos uma lista de artigos com descrições ausentes. Você poderia nos ajudar a melhorar a Wikipédia?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text" fuzzy="true">Edições sugeridas\n\nParabéns pela sua 50ª contribuição, estamos impressionados! Você está usando o aplicativo em vários idiomas, por isso compilamos uma lista de artigos que precisam de traduções descritivas. Você poderia continuar nos ajudando a melhorar a Wikipédia?</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Edições sugeridas\n\nObrigado por todas as suas contribuições. Como você é muito bom em editar, compilamos uma lista de artigos com descrições ausentes. Você poderia nos ajudar a melhorar a Wikipédia?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Edições sugeridas\n\nParabéns pelas suas muitas contribuições, estamos impressionados! Você está usando o aplicativo em vários idiomas, por isso compilamos uma lista de artigos que precisam de traduções descritivas. Você poderia continuar nos ajudando a melhorar a Wikipédia?</string>
   <string name="suggested_edits_unlock_notification_button">Sim, vamos lá</string>
   <string name="suggested_edits_license_notice">Adicionando a descrição do título, eu concordo com o &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e liberar irrevogavelmente minhas contribuições sob a licença &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informação</string>

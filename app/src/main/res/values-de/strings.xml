@@ -257,7 +257,7 @@
   <string name="preference_summary_show_images">Aktiviere oder deaktiviere das Laden von Bildern in Seiten. Entmarkiere diese Einstellung, falls deine Internetverbindung langsam oder dein Datenvolumen beschränkt ist.</string>
   <string name="preference_title_download_only_over_wifi">Nur über WLAN herunterladen</string>
   <string name="dialog_title_download_only_over_wifi">Herunterladen über mobile Daten bestätigen?</string>
-  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Du hast die Einstellung „Nur über WLAN herunterladen“ angeschaltet. Möchtest du die Verwendung deines mobilen Datenplans nur für diesen Download erlauben?</string>
+  <string name="dialog_text_download_only_over_wifi">Du hast die Einstellung „Nur über WLAN herunterladen“ angeschaltet. Möchtest du die Verwendung deines mobilen Datenplans nur für diesen Download erlauben?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Erlauben</string>
   <string name="read_more_section">Mehr lesen</string>
   <string name="about_article_section">Über diesen Artikel</string>
