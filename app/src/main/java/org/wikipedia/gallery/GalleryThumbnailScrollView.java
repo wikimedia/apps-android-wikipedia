@@ -73,7 +73,6 @@ public class GalleryThumbnailScrollView extends RecyclerView {
         @Override
         public void onClick(View v) {
             if (mListener != null) {
-                // TODO: check which title will be used here
                 mListener.onGalleryItemClicked(mGalleryItem.getTitles().getCanonical());
             }
         }
