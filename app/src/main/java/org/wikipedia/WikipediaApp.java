@@ -53,6 +53,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 
@@ -380,6 +381,7 @@ public class WikipediaApp extends Application {
 
     private void initExceptionHandling() {
         crashReporter = new HockeyAppCrashReporter(getString(R.string.hockeyapp_app_id), consentAccessor());
+        putCrashReportProperty("locale", Locale.getDefault().toString());
         L.setRemoteLogger(crashReporter);
     }
 
