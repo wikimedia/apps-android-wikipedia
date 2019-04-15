@@ -122,7 +122,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         void onPageUpdateProgressBar(boolean visible, boolean indeterminate, int value);
         void onPageShowThemeChooser();
         void onPageStartSupportActionMode(@NonNull ActionMode.Callback callback);
-        void onPageShowToolbar();
         void onPageHideSoftKeyboard();
         void onPageAddToReadingList(@NonNull PageTitle title, @NonNull InvokeSource source);
         void onPageRemoveFromReadingLists(@NonNull PageTitle title);
@@ -730,7 +729,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 funnel.setPageHeight(webView.getContentHeight());
                 funnel.logDone();
                 webView.clearMatches();
-                showToolbar();
                 hideSoftKeyboard();
                 setToolbarElevationEnabled(true);
             }
@@ -1136,13 +1134,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public void startSupportActionMode(@NonNull ActionMode.Callback actionModeCallback) {
         if (callback() != null) {
             callback().onPageStartSupportActionMode(actionModeCallback);
-        }
-    }
-
-    public void showToolbar() {
-        Callback callback = callback();
-        if (callback != null) {
-            callback.onPageShowToolbar();
         }
     }
 

@@ -248,7 +248,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @Override
     public boolean onSearchRequested() {
-        showToolbar();
         openSearchActivity(SearchInvokeSource.TOOLBAR, null);
         return true;
     }
@@ -269,10 +268,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         } else {
             supportFinishAfterTransition();
         }
-    }
-
-    public void showToolbar() {
-        // TODO: make toolbar visible, via CoordinatorLayout
     }
 
     /** @return True if the contextual action bar is open. */
@@ -540,11 +535,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Override
     public void onPageStartSupportActionMode(@NonNull ActionMode.Callback callback) {
         startActionMode(callback);
-    }
-
-    @Override
-    public void onPageShowToolbar() {
-        showToolbar();
     }
 
     @Override
