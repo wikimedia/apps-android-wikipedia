@@ -541,7 +541,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
         galleryAdapter.notifyFragments(galleryPager.getCurrentItem());
 
-        // TODO: check whether using caption or description
         CharSequence descriptionStr = "";
         if (item.getDescription() != null && item.getDescription().getHtml() != null) {
             descriptionStr = StringUtil.fromHtml(item.getDescription().getHtml());
@@ -578,7 +577,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         // Give the license URL to the icon, to be received by the click handler (may be null).
         licenseIcon.setTag(item.getLicense().getLicenseUrl());
 
-        // TODO: show artist or credit?!
         String creditStr = "";
         if (item.getArtist() != null) {
             creditStr = item.getArtist().getName() == null ? StringUtil.fromHtml(item.getArtist().getHtml()).toString().trim() : item.getArtist().getName();
