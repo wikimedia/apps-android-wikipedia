@@ -263,7 +263,7 @@
   <string name="preference_summary_show_images">Activa o desactiva la càrrega d\'imatges a les pàgines. Desactiveu aquest paràmetre si teniu una connexió a Internet lenta o dades limitades.</string>
   <string name="preference_title_download_only_over_wifi">Baixa només amb Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Confirmeu la descarrega fent servir les dades del mòbil?</string>
-  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Teniu activat «Baixa només amb Wi-Fi» a la configuració. Voleu permetre utilitzar dades mòbils només per a aquesta baixada?</string>
+  <string name="dialog_text_download_only_over_wifi">Teniu activat «Baixa només amb Wi-Fi» a la configuració. Voleu permetre utilitzar dades mòbils només per a aquesta baixada?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Permet</string>
   <string name="read_more_section">Llegir més</string>
   <string name="about_article_section">Sobre aquest article</string>
@@ -608,16 +608,25 @@
   <string name="description_edit_tutorial_button_label_start_editing">Comença a editar</string>
   <string name="description_edit_tutorial_promise">En començar, prometeu que no fareu mal ús d\'aquesta funcionalitat.</string>
   <string name="suggested_edits_add_descriptions">Afegeix descripcions</string>
+  <string name="suggested_edits_translate_descriptions">Tradueix les descripcions</string>
   <string name="suggested_edits_review_description">Revisa la descripció</string>
   <string name="suggested_edits_add_description_button">Afegeix una descripció</string>
   <string name="suggested_edits_my_contributions">Les meves contribucions</string>
   <string name="suggested_edits_added_by_you">Afegides per vós:</string>
   <string name="suggested_edits_translated_by_you">Traduïdes per vós:</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">S\'ha desbloquejat la llista de tasques d\'edició de les descripcions de títol!</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Hem notat que us agrada editar les descripcions de títol. Per això hem compilat una llista de «tasques d\'editor» amb més articles que no tenen descripcions de títol perquè pugueu continuar contribuint-hi!</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">S\'ha desbloquejat la traducció de les descripcions dels títols!</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Hem notat que us agrada editar descripcions de títol i llegir la Viquipèdia en més d\'una llengua. Feu un cop d\'ull a aquesta llista de tasques, que us dóna accés a la traducció de més descripcions de títols!</string>
-  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Potser més tard</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">S\'ha desbloquejat la llista de tasques d\'addició de descripcions</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Gràcies per les vostres contribucions! Atès que ho feu molt bé editant, hem compilat una llista d\'articles que no tenen descripcions. Ens ajudeu a millorar la Viquipèdia?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">S\'ha desbloquejat la tasca de traducció de les descripcions</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Enhorabona per totes les contribucions que heu fet. Estem impressionats! Atès que feu servir l\'aplicació en més d\'una llengua, hem compilat una llista d\'articles que necessiten una traducció de les descripcions. Ens podeu continuar ajudant a millorar la Viquipèdia?</string>
+  <string name="suggested_edits_unlock_dialog_no">Potser més tard</string>
+  <string name="suggested_edits_unlock_dialog_yes">Sí, som-hi</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">Heu desbloquejat l\'addició de descripcions</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Heu desbloquejat la traducció de les descripcions</string>
+  <string name="suggested_edits_unlock_notification_text">Edicions suggerides</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Edicions suggerides\n\nGràcies per les vostres contribucions. Atès que ho feu molt bé editant, hem compilat una llista d\'articles que no tenen descripcions. Ens ajudeu a millorar la Viquipèdia?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Edicions suggerides\n\nEnhorabona per totes les contribucions que heu fet. Estem impressionats! Atès que feu servir l\'aplicació en més d\'una llengua, hem compilat una llista d\'articles que necessiten una traducció de les descripcions. Ens podeu continuar ajudant a millorar la Viquipèdia?</string>
+  <string name="suggested_edits_unlock_notification_button">Sí, som-hi</string>
+  <string name="suggested_edits_license_notice">En afegir la descripció del títol, estic d\'acord amb els &lt;a href=\"%1$s\"&gt;termes d\'ús&lt;/a&gt; i allibero irrevocablement les meves contribucions sota la llicència &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informació</string>
   <string name="suggested_edits_tasks_activity_title">Tasques d\'editor</string>
   <string name="suggested_edits_task_add_description_title">Afegeix descripcions</string>

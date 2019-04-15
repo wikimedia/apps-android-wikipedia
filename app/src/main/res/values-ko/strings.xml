@@ -267,7 +267,7 @@
   <string name="preference_summary_show_images">문서에서 그림 불러오기를 사용하거나 사용하지 않습니다. 인터넷 연결이 느리거나, 데이터 요금제가 제한되어 있다면 이 설정의 체크를 제거하세요.</string>
   <string name="preference_title_download_only_over_wifi">와이파이를 통해서만 다운로드</string>
   <string name="dialog_title_download_only_over_wifi">모바일 데이터를 사용하여 다운로드합니까?</string>
-  <string name="dialog_text_download_only_over_wifi" fuzzy="true">설정에서 \"와이파이를 통해서만 다운로드\"가 꺼져 있습니다. 이 다운로드에 한해서만 모바일 데이터 계획을 사용하는 것을 허용하시겠습니까?</string>
+  <string name="dialog_text_download_only_over_wifi">설정에서 \"와이파이를 통해서만 다운로드\"가 꺼져 있습니다. 이 다운로드에 한해서만 모바일 데이터 계획을 사용하는 것을 허용하시겠습니까?</string>
   <string name="dialog_title_download_only_over_wifi_allow">허용</string>
   <string name="read_more_section">더 읽어보기</string>
   <string name="about_article_section">이 문서의 정보</string>
@@ -611,12 +611,12 @@
   <string name="suggested_edits_my_contributions">내 기여</string>
   <string name="suggested_edits_added_by_you">내가 추가함:</string>
   <string name="suggested_edits_translated_by_you">내가 번역함:</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">\"설명 추가\" 작업의 잠금을 해제하였습니다</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">\"번역 설명\" 작업의 잠금을 해제하였습니다</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">\"설명 추가\" 작업의 잠금을 해제하였습니다</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">\"설명 번역하기\" 작업의 잠금을 해제하였습니다</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">꾸준히 기여해 주셔서 감사드립니다! 여러 언어로 이 앱을 사용하고 계시므로 설명 번역이 필요한 문서 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 계속 지원해 주시겠습니까?</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">나중에</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">\"번역 추가\"의 잠금을 해제하였습니다</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">\"번역 설명\"의 잠금을 해제하였습니다</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">\"번역 추가\"의 잠금을 해제하였습니다</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">\"설명 번역하기\"의 잠금을 해제하였습니다</string>
   <string name="suggested_edits_menu_info">정보</string>
   <string name="suggested_edits_task_add_description_title">설명 추가</string>
   <string name="suggested_edits_task_add_description_description">설명 없이 문서에 기여</string>
