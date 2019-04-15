@@ -23,6 +23,7 @@ import kotlinx.android.synthetic.main.fragment_add_title_descriptions.*
 import org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC
+import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.RandomizerFunnel
@@ -227,7 +228,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
 
     private fun setInitialUiState() {
         wikiLanguageDropdownContainer.visibility = if (app.language().appLanguageCodes.size > 1
-                && source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) VISIBLE else GONE
+                && source == EDIT_FEED_TRANSLATE_TITLE_DESC) VISIBLE else GONE
     }
 
     private fun updateFromLanguageSpinner() {

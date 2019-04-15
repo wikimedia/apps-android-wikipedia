@@ -14,7 +14,8 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_add_title_descriptions_item.*
 import org.apache.commons.lang3.StringUtils
-import org.wikipedia.Constants.InvokeSource
+import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC
+import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
@@ -77,7 +78,7 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
     }
 
     private fun getArticleWithMissingDescription() {
-        if (parent().source == InvokeSource.EDIT_FEED_TITLE_DESC) {
+        if (parent().source == EDIT_FEED_TITLE_DESC) {
             disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -101,7 +102,7 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
     fun showAddedDescriptionView(addedDescription: String?) {
         if (!TextUtils.isEmpty(addedDescription)) {
             viewArticleSubtitleContainer.visibility = VISIBLE
-            if (parent().source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
+            if (parent().source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
                 viewArticleSubtitleAddedBy.visibility = VISIBLE
                 viewArticleSubtitleEdit.visibility = VISIBLE
                 viewArticleSubtitleAddedBy.text = getString(R.string.suggested_edits_translated_by_you)
@@ -130,7 +131,7 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
         }
         viewArticleTitle.text = sourceSummary!!.normalizedTitle
 
-        if (parent().source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
+        if (parent().source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
             viewArticleSubtitleContainer.visibility = VISIBLE
             viewArticleSubtitleAddedBy.visibility = GONE
             viewArticleSubtitleEdit.visibility = GONE

@@ -223,7 +223,7 @@
   <string name="preference_summary_show_images">Omogućite ili onemogućite učitavanje slika na stranicama. Uklonite oznaku sa ovog podešavanja ako je vaša veza sa internetom spora ili vam je ograničena tarifa za prenos podataka.</string>
   <string name="preference_title_download_only_over_wifi">Preuzimaj samo preko Wi-Fi-a</string>
   <string name="dialog_title_download_only_over_wifi">Potvrditi preuzimanje sa mobilnim podacima?</string>
-  <string name="dialog_text_download_only_over_wifi">U podešavanjima ste omogućili opciju „Preuzimaj samo preko Wi-Fi-a”. Želite li da dozvolite preuzimanje sa mobilnim podacima samo u ovom slučaju?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">U podešavanjima ste omogućili opciju „Preuzimaj samo preko Wi-Fi-a”. Želite li da dozvolite preuzimanje sa mobilnim podacima samo u ovom slučaju?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Dozvoli</string>
   <string name="read_more_section">Pročitajte više</string>
   <string name="about_article_section">O ovom članku</string>
