@@ -382,6 +382,8 @@ public class WikipediaApp extends Application {
     private void initExceptionHandling() {
         crashReporter = new HockeyAppCrashReporter(getString(R.string.hockeyapp_app_id), consentAccessor());
         putCrashReportProperty("locale", Locale.getDefault().toString());
+        putCrashReportProperty("app_primary_language", appLanguageState.getAppLanguageCode());
+        putCrashReportProperty("app_languages", appLanguageState.getAppLanguageCodes().toString());
         L.setRemoteLogger(crashReporter);
     }
 
