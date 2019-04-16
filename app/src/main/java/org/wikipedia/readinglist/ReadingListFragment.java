@@ -84,6 +84,7 @@ import io.reactivex.schedulers.Schedulers;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
+import static org.wikipedia.Constants.InvokeSource.READING_LIST_ACTIVITY;
 import static org.wikipedia.readinglist.ReadingListActivity.EXTRA_READING_LIST_ID;
 import static org.wikipedia.readinglist.ReadingListsFragment.ARTICLE_ITEM_IMAGE_DIMENSION;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
@@ -492,8 +493,7 @@ public class ReadingListFragment extends Fragment implements
                 titles.add(ReadingListPage.toPageTitle(page));
             }
             bottomSheetPresenter.show(getChildFragmentManager(),
-                    AddToReadingListDialog.newInstance(titles,
-                            AddToReadingListDialog.InvokeSource.READING_LIST_ACTIVITY));
+                    AddToReadingListDialog.newInstance(titles, READING_LIST_ACTIVITY));
             update();
         }
     }
@@ -523,7 +523,7 @@ public class ReadingListFragment extends Fragment implements
     public void onAddItemToOther(@NonNull ReadingListPage page) {
         bottomSheetPresenter.show(getChildFragmentManager(),
                 AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page),
-                        AddToReadingListDialog.InvokeSource.READING_LIST_ACTIVITY));
+                        READING_LIST_ACTIVITY));
     }
 
     @Override

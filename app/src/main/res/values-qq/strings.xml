@@ -625,12 +625,12 @@
   <string name="suggested_edits_translated_by_you">A label shows that the current article description was translated by the user.</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Title text of the dialog shown to user that the “Add descriptions“ task has been unlocked.</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Message text of the dialog shown to user that the “Add descriptions“ task has been unlocked.</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Title text of the dialog shown to user that the “Translate descriptions“ task has been unlocked.</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Title text of the dialog shown to user that the “Translate descriptions“ task has been unlocked. \"Translate descriptions\" is {{msg-wm|Wikipedia-android-strings-suggested edits task translation title}}.</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Message text of the dialog shown to user that the “Add descriptions“ task has been unlocked.</string>
   <string name="suggested_edits_unlock_dialog_no">Negative action button text for the dialog action that goes to the suggested edits screen.</string>
   <string name="suggested_edits_unlock_dialog_yes">Positive action button text for the dialog action that goes to the suggested edits screen</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Title text of the notification bar shown to user that the “Add descriptions“ task has been unlocked.</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Title text of the notification bar shown to user that the “Translate descriptions“ task has been unlocked.</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">Title text of the notification bar shown to user that the “Add descriptions“ task has been unlocked. \"Add descriptions\" is {{msg-wm|Wikipedia-android-strings-suggested edits add descriptions}}.</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Title text of the notification bar shown to user that the “Translate descriptions“ task has been unlocked. \"Translate descriptions\" is {{msg-wm|Wikipedia-android-strings-suggested edits task translation title}}.</string>
   <string name="suggested_edits_unlock_notification_text">Short text of the notification bar shown to user that the subject of this notification</string>
   <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Short text\n\nLong text of the notification bar shown to user that the detail of this notification</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Short text\n\nLong text of the notification bar shown to user that the detail of this notification</string>

@@ -3,6 +3,7 @@ package org.wikipedia.page;
 import android.app.Dialog;
 import android.content.DialogInterface;
 
+import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 
 import androidx.annotation.NonNull;
@@ -15,12 +16,12 @@ public class ExclusiveBottomSheetPresenter {
     private Dialog currentDialog;
 
     public void showAddToListDialog(@NonNull FragmentManager fm, @NonNull PageTitle title,
-                                    @NonNull AddToReadingListDialog.InvokeSource source) {
+                                    @NonNull InvokeSource source) {
         show(fm, AddToReadingListDialog.newInstance(title, source));
     }
 
     public void showAddToListDialog(@NonNull FragmentManager fm, @NonNull PageTitle title,
-                                    @NonNull AddToReadingListDialog.InvokeSource source,
+                                    @NonNull InvokeSource source,
                                     @Nullable DialogInterface.OnDismissListener listener) {
         show(fm, AddToReadingListDialog.newInstance(title, source, listener));
     }

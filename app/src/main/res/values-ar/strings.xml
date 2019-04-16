@@ -272,7 +272,7 @@
   <string name="preference_summary_show_images">تفعيل أو إلغاء تفعيل تحميل الصور في الصفحات. أزل اختيار هذا الإعداد إذا كان اتصالك بالإنترنت بطيئًا، أو إذا كانت خطة بياناتك محدودة.</string>
   <string name="preference_title_download_only_over_wifi">التنزيل عبر واي-فاي فقط</string>
   <string name="dialog_title_download_only_over_wifi">تأكيد التحميل باستخدام بيانات الهاتف المحمول؟</string>
-  <string name="dialog_text_download_only_over_wifi" fuzzy="true">تم تشغيل \"التنزيل عبر واي-فاي فقط\" في الإعدادات، هل تريد السماح باستخدام خطة بيانات المحمول الخاصة بك لهذا التنزيل فقط؟</string>
+  <string name="dialog_text_download_only_over_wifi">تم تشغيل \"التنزيل عبر واي-فاي فقط\" في الإعدادات، هل تريد السماح باستخدام خطة بيانات المحمول الخاصة بك لهذا التنزيل فقط؟</string>
   <string name="dialog_title_download_only_over_wifi_allow">السماح</string>
   <string name="read_more_section">اقرأ المزيد</string>
   <string name="about_article_section">حول هذه المقالة</string>
@@ -594,7 +594,7 @@
   <string name="description_edit_read">قراءة</string>
   <string name="description_edit_add_description">إضافة وصف للعنوان</string>
   <string name="description_edit_add_description_v2">إضافة وصف</string>
-  <string name="description_edit_translate_description">ترجمة وصف العنوان</string>
+  <string name="description_edit_translate_description">ترجمة الوصف</string>
   <string name="description_edit_edit_description">عدل الوصف</string>
   <string name="add_translation">أضف ترجمة ب%s</string>
   <string name="description_edit_cancel_hint">ألغ</string>
@@ -623,17 +623,17 @@
   <string name="suggested_edits_my_contributions">مساهماتي</string>
   <string name="suggested_edits_added_by_you">أُضِيف بواسطتك:</string>
   <string name="suggested_edits_translated_by_you">ترجمتها أنت:</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">لقد قمت بإلغاء حماية مهمة \"إضافة أوصاف\"</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">تهانينا على مساهمتك الثالثة! لأنك رائع في التحرير؛ فقد جمعنا قائمة بالمقالات التي تفتقر إلى الوصف، هل يمكنك مساعدتنا في تحسين ويكيبيديا؟</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">لقد قمت بإلغاء حماية مهمة \"ترجمة الأوصاف\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">مبروك على مساهمتك الـ50، نحن معجبون! أنت تستخدم التطبيق بلغات متعددة؛ لذا قمنا بتجميع قائمة بالمقالات التي تحتاج إلى ترجمة وصف، هل يمكنك الاستمرار في مساعدتنا على تحسين ويكيبيديا؟</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">لقد قمت بإلغاء حماية مهمة \"إضافة أوصاف\"</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message">شكرا على جميع مساهماتك! لأنك رائع في التحرير؛ فقد جمعنا قائمة بالمقالات التي تفتقر إلى الوصف، هل يمكنك مساعدتنا في تحسين ويكيبيديا؟</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">لقد قمت بإلغاء حماية مهمة \"ترجمة الأوصاف\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">مبروك على مساهماتك الكثيرة، نحن معجبون! أنت تستخدم التطبيق بلغات متعددة؛ لذا قمنا بتجميع قائمة بالمقالات التي تحتاج إلى ترجمة وصف، هل يمكنك الاستمرار في مساعدتنا على تحسين ويكيبيديا؟</string>
   <string name="suggested_edits_unlock_dialog_no">ربما لاحقا</string>
   <string name="suggested_edits_unlock_dialog_yes">نعم، هيا بنا</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">لقد قمت بإلغاء حماية \"إضافة أوصاف\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">لقد قمت بإلغاء حماية \"ترجمة الأوصاف\"</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">لقد قمت بإلغاء حماية \"إضافة أوصاف\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">لقد قمت بإلغاء حماية \"ترجمة الأوصاف\"</string>
   <string name="suggested_edits_unlock_notification_text">التعديلات المقترحة</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text" fuzzy="true">التعديلات المقترحة\n\nمبروك على مساهمتك الثالثة، نظرا لأنك رائع في التحرير؛ فقد جمعنا قائمة بالمقالات التي تفتقر إلى الوصف، هل يمكنك مساعدتنا في تحسين ويكيبيديا؟</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text" fuzzy="true">التعديلات المقترحة\nمبروك على مساهمتك الخمسين، ، لقد أعجبنا! أنت تستخدم التطبيق بلغات متعددة؛ لذا جمعنا قائمة بالمقالات التي تفتقر إلى ترجمة الوصف، هل يمكنك مساعدتنا في تحسين ويكيبيديا؟</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">التعديلات المقترحة\n\nشكرا على جميع مساهماتك، نظرا لأنك رائع في التحرير؛ فقد جمعنا قائمة بالمقالات التي تفتقر إلى الوصف، هل يمكنك مساعدتنا في تحسين ويكيبيديا؟</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">التعديلات المقترحة\nمبروك على مساهماتك الكثيرة، لقد أعجبنا! أنت تستخدم التطبيق بلغات متعددة؛ لذا جمعنا قائمة بالمقالات التي تفتقر إلى ترجمة الوصف، هل يمكنك مساعدتنا في تحسين ويكيبيديا؟</string>
   <string name="suggested_edits_unlock_notification_button">نعم، هيا بنا</string>
   <string name="suggested_edits_license_notice">بإضافة وصف العنوان، أوافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt; وإطلاق مساهماتي بشكل لا رجعة فيه بموجب ترخيص &lt;a href=\"%2$s\"&gt;المشاع الإبداعي CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">معلومات</string>

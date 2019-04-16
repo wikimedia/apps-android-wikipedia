@@ -73,6 +73,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
+import static org.wikipedia.Constants.InvokeSource.READING_LIST_ACTIVITY;
 import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_NAME_ASC;
 import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_NAME_DESC;
 import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_RECENT_ASC;
@@ -211,8 +212,7 @@ public class ReadingListsFragment extends Fragment implements
     @Override
     public void onAddItemToOther(@NonNull ReadingListPage page) {
         bottomSheetPresenter.show(getChildFragmentManager(),
-                AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page),
-                        AddToReadingListDialog.InvokeSource.READING_LIST_ACTIVITY));
+                AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page), READING_LIST_ACTIVITY));
     }
 
     @Override

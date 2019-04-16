@@ -4,21 +4,25 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import org.wikipedia.Constants;
+import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
 
 import androidx.annotation.NonNull;
 
+import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
+import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC;
+import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC;
+
 public class SuggestedEditsTasksActivity extends SingleFragmentActivity<SuggestedEditsTasksFragment> {
     private static final String EXTRA_START_IMMEDIATELY = "startImmediately";
     private boolean startImmediately;
 
-    public static Intent newIntent(@NonNull Context context, Constants.InvokeSource invokeSource) {
+    public static Intent newIntent(@NonNull Context context, InvokeSource invokeSource) {
         Intent intent = new Intent(context, SuggestedEditsTasksActivity.class)
-                .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource);
-        if (invokeSource == Constants.InvokeSource.EDIT_FEED_TITLE_DESC
-                || invokeSource == Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
+                .putExtra(INTENT_EXTRA_INVOKE_SOURCE, invokeSource);
+        if (invokeSource == EDIT_FEED_TITLE_DESC
+                || invokeSource == EDIT_FEED_TRANSLATE_TITLE_DESC) {
             intent.putExtra(EXTRA_START_IMMEDIATELY, true);
         }
         return intent;
@@ -31,13 +35,11 @@ public class SuggestedEditsTasksActivity extends SingleFragmentActivity<Suggeste
                 ? getIntent().getBooleanExtra(EXTRA_START_IMMEDIATELY, false)
                 : savedInstanceState.getBoolean(EXTRA_START_IMMEDIATELY, false);
 
-        if (getIntent().hasExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE)) {
-            Constants.InvokeSource source = (Constants.InvokeSource) getIntent().getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE);
+        if (getIntent().hasExtra(INTENT_EXTRA_INVOKE_SOURCE)) {
+            InvokeSource source = (InvokeSource) getIntent().getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE);
             SuggestedEditsFunnel.get(source);
 
-            if (startImmediately
-                    && (source == Constants.InvokeSource.EDIT_FEED_TITLE_DESC
-                    || source == Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC)) {
+            if (startImmediately && (source == EDIT_FEED_TITLE_DESC || source == EDIT_FEED_TRANSLATE_TITLE_DESC)) {
                 startImmediately = false;
                 startActivity(SuggestedEditsAddDescriptionsActivity.Companion.newIntent(this, source));
             }

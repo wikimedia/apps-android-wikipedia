@@ -45,6 +45,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+import static org.wikipedia.Constants.InvokeSource.NEWS_ACTIVITY;
 import static org.wikipedia.feed.news.NewsActivity.EXTRA_NEWS_ITEM;
 import static org.wikipedia.feed.news.NewsActivity.EXTRA_WIKI;
 import static org.wikipedia.richtext.RichTextUtil.stripHtml;
@@ -159,8 +160,7 @@ public class NewsFragment extends Fragment {
         @Override
         public void onAddPageToList(@NonNull HistoryEntry entry) {
             bottomSheetPresenter.show(getChildFragmentManager(),
-                    AddToReadingListDialog.newInstance(entry.getTitle(),
-                            AddToReadingListDialog.InvokeSource.NEWS_ACTIVITY));
+                    AddToReadingListDialog.newInstance(entry.getTitle(), NEWS_ACTIVITY));
         }
 
         @Override

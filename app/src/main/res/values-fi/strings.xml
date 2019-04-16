@@ -267,7 +267,7 @@
   <string name="preference_summary_show_images">Ota käyttöön tai poista käytöstä kuvien lataaminen sivuilla. Ota tämä asetus pois käytöstä, jos internet-yhteytesi on hidas tai liittymäsi datakatto on lähes täynnä.</string>
   <string name="preference_title_download_only_over_wifi">Lataa vain Wi-Fi-yhteyden kautta</string>
   <string name="dialog_title_download_only_over_wifi">Vahvista lataus mobiilidatalla?</string>
-  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Olet ottanut käyttöön \"Lataa vain Wi-Fi-yhteyden kautta\" -asetuksen. Haluatko käyttää mobiilidataasi vain tähän lataukseen?</string>
+  <string name="dialog_text_download_only_over_wifi">Olet ottanut käyttöön \"Lataa vain Wi-Fi-yhteyden kautta\" -asetuksen. Haluatko käyttää mobiilidataasi vain tähän lataukseen?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Salli</string>
   <string name="read_more_section">Lue lisää</string>
   <string name="about_article_section">Tietoja tästä artikkelista</string>
@@ -587,6 +587,7 @@
   <string name="description_edit_read">Lue</string>
   <string name="description_edit_add_description">Lisää otsikon kuvaus</string>
   <string name="description_edit_add_description_v2">Lisää kuvaus</string>
+  <string name="description_edit_translate_description">Käännä kuvaukset</string>
   <string name="description_edit_edit_description">Muokkaa kuvausta</string>
   <string name="add_translation">Lisää %s käännös</string>
   <string name="description_edit_cancel_hint">Peruuta</string>
@@ -609,12 +610,13 @@
   <string name="description_edit_tutorial_button_label_start_editing">Aloita muokkaaminen</string>
   <string name="description_edit_tutorial_promise">Aloittamalla lupaan olla väärinkäyttämättä tätä ominaisuutta.</string>
   <string name="suggested_edits_add_descriptions">Lisää kuvaukset</string>
+  <string name="suggested_edits_translate_descriptions">Käännä kuvaukset</string>
   <string name="suggested_edits_review_description">Esikatsele kuvausta</string>
   <string name="suggested_edits_add_description_button">Lisää kuvaus</string>
   <string name="suggested_edits_my_contributions">Omat muokkaukset</string>
   <string name="suggested_edits_added_by_you">Sinun lisäämäsi:</string>
   <string name="suggested_edits_translated_by_you">Sinun kääntämäsi:</string>
-  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Ehkä myöhemmin</string>
+  <string name="suggested_edits_unlock_dialog_no">Ehkä myöhemmin</string>
   <string name="suggested_edits_unlock_dialog_yes">Kyllä, mennään</string>
   <string name="suggested_edits_unlock_notification_button">Kyllä, mennään</string>
   <string name="suggested_edits_license_notice">Lisäämällä otsikon kuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssillä.</string>
