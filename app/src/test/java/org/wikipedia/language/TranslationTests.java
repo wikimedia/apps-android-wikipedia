@@ -28,26 +28,25 @@ public class TranslationTests {
 
     /** Add more if needed, but then also add some tests. */
     private static final String[] POSSIBLE_PARAMS = new String[] {"%s", "%1$s", "%2$s", "%d", "%1$d", "%2$d", "%.2f", "%1$.2f", "%2$.2f", "%3$.2f", "^1"};
-
+    private static final String[] UNSUPPORTED_TEXTS_REGEX = new String[] {"\\{\\{.*?\\}\\}", "\\[\\[.*?\\]\\]", "\\*\\*.*?\\*\\*", "''.*?''", "\\[.*?\\]"};
     private static final String[] BAD_NAMES = new String[]{"ldrtl", "sw360dp", "sw600dp", "sw720dp", "v19", "v21", "v23", "land"};
+
+    private static File baseFile;
+    private static File[] allFiles;
 
     @Test
     public void testAllTranslations() throws Throwable {
 
         StringBuilder mismatches = new StringBuilder();
 
-        File baseStringsXml = new File(RES_BASE + "/" + STRINGS_DIRECTORY, STRINGS_XML_NAME);
         // Step 1: collect counts of parameters in en/strings.xml
-        Map<String, List<Integer>> baseMap = findPossibleParamsInXML(baseStringsXml);
-
+        Map<String, List<Integer>> baseMap = findMatchedParamsInXML(getBaseFile(), POSSIBLE_PARAMS, true);
 
         // Step 2: finding parameters in other languages
-        File[] resDirs = RES_BASE.listFiles((File pathname) -> pathname.isDirectory() && pathname.getName().startsWith(STRINGS_DIRECTORY) && !hasBadName(pathname));
-        Arrays.sort(resDirs);
-        for (File dir : resDirs) {
+        for (File dir : getAllFiles()) {
             String lang = dir.getName().contains("-") ? dir.getName().substring(dir.getName().indexOf("-") + 1) : "en";
             File targetStringsXml = new File(dir, STRINGS_XML_NAME);
-            Map<String, List<Integer>> targetMap = findPossibleParamsInXML(targetStringsXml);
+            Map<String, List<Integer>> targetMap = findMatchedParamsInXML(targetStringsXml, POSSIBLE_PARAMS, true);
 
             // compare the counts inside the maps
             targetMap.forEach((targetKey, targetList) -> {
@@ -67,16 +66,13 @@ public class TranslationTests {
     }
 
     @Test
-    public void testPluralDeclaration() throws Throwable {
+    public void testPluralsDeclaration() throws Throwable {
 
         StringBuilder mismatches = new StringBuilder();
 
-        File baseStringsXml = new File(RES_BASE + "/" + STRINGS_DIRECTORY, STRINGS_XML_NAME);
-        List<String> baseList = findPluralsItemInXML(baseStringsXml);
+        List<String> baseList = findPluralsItemInXML(getBaseFile());
 
-        File[] resDirs = RES_BASE.listFiles((File pathname) -> pathname.isDirectory() && pathname.getName().startsWith(STRINGS_DIRECTORY) && !hasBadName(pathname));
-        Arrays.sort(resDirs);
-        for (File dir : resDirs) {
+        for (File dir : getAllFiles()) {
             String lang = dir.getName().contains("-") ? dir.getName().substring(dir.getName().indexOf("-") + 1) : "en";
             File targetStringsXml = new File(dir, STRINGS_XML_NAME);
             List<String> targetList = findPluralsItemInXML(targetStringsXml);
@@ -95,6 +91,55 @@ public class TranslationTests {
         }
 
         assertThat("\n" + mismatches.toString(), mismatches.length(), is(0));
+    }
+
+    @Test
+    public void testUnsupportedTexts() throws Throwable {
+
+        StringBuilder mismatches = new StringBuilder();
+
+        // Step 1: collect counts of parameters in en/strings.xml
+        Map<String, List<Integer>> baseMap = findMatchedParamsInXML(getBaseFile(), UNSUPPORTED_TEXTS_REGEX, false);
+
+        // Step 2: finding parameters in other languages
+        for (File dir : getAllFiles()) {
+            String lang = dir.getName().contains("-") ? dir.getName().substring(dir.getName().indexOf("-") + 1) : "en";
+            // Skip "qq" since it contains a lot of {{Identical}} tags
+            if (!lang.equals("qq")) {
+                File targetStringsXml = new File(dir, STRINGS_XML_NAME);
+                Map<String, List<Integer>> targetMap = findMatchedParamsInXML(targetStringsXml, UNSUPPORTED_TEXTS_REGEX, false);
+
+                // compare the counts inside the maps
+                targetMap.forEach((targetKey, targetList) -> {
+                    List<Integer> baseList = baseMap.get(targetKey);
+                    if (baseList != null && !baseList.equals(targetList)) {
+                        mismatches.append("Unsupported texts in ")
+                                .append(lang)
+                                .append("/")
+                                .append(STRINGS_XML_NAME).append(": ")
+                                .append(targetKey).append(" \n");
+                    }
+                });
+            }
+        }
+
+        // Step 3: check the result
+        assertThat("\n" + mismatches.toString(), mismatches.length(), is(0));
+    }
+
+    private File getBaseFile() {
+        if (baseFile == null) {
+            baseFile = new File(RES_BASE + "/" + STRINGS_DIRECTORY, STRINGS_XML_NAME);
+        }
+        return baseFile;
+    }
+
+    private File[] getAllFiles() {
+        if (allFiles == null) {
+            allFiles = RES_BASE.listFiles((File pathname) -> pathname.isDirectory() && pathname.getName().startsWith(STRINGS_DIRECTORY) && !hasBadName(pathname));
+            Arrays.sort(allFiles);
+        }
+        return allFiles;
     }
 
     private boolean hasBadName(File pathname) {
@@ -119,7 +164,7 @@ public class TranslationTests {
         return list;
     }
 
-    private Map<String, List<Integer>> findPossibleParamsInXML(@NonNull File xmlPath) throws Throwable {
+    private Map<String, List<Integer>> findMatchedParamsInXML(@NonNull File xmlPath, @NonNull String[] params, boolean quote) throws Throwable {
         Map<String, List<Integer>> map = new HashMap<>();
         Document document = Jsoup.parse(xmlPath, "UTF-8");
 
@@ -131,9 +176,9 @@ public class TranslationTests {
             String value = element.text();
 
             List<Integer> countList = new ArrayList<>();
-            for (String param : POSSIBLE_PARAMS) {
+            for (String param : params) {
                 int count = 0;
-                Pattern pattern = Pattern.compile(Pattern.quote(param));
+                Pattern pattern = Pattern.compile(quote ? Pattern.quote(param) : param);
                 Matcher matcher = pattern.matcher(value);
                 while (matcher.find()) {
                     count++;
@@ -157,9 +202,9 @@ public class TranslationTests {
                 String subValue = subElement.text();
 
                 List<Integer> countList = new ArrayList<>();
-                for (String param : POSSIBLE_PARAMS) {
+                for (String param : params) {
                     int count = 0;
-                    Pattern pattern = Pattern.compile(Pattern.quote(param));
+                    Pattern pattern = Pattern.compile(quote ? Pattern.quote(param) : param);
                     Matcher matcher = pattern.matcher(subValue);
                     while (matcher.find()) {
                         count++;
