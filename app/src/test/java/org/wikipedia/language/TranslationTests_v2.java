@@ -49,10 +49,10 @@ public class TranslationTests_v2 {
             Map<String, List<Integer>> targetMap = xmlReader(targetStringsXml);
 
             // compare the counts inside the maps
-            targetMap.forEach((key, list) -> {
-                List<Integer> baseList = baseMap.get(key);
-                if (baseList != null && !baseList.equals(list)) {
-                    mismatches.append("Parameters mismatched in " + lang + "/" + STRINGS_XML_NAME + ": " + key + " \n");
+            targetMap.forEach((targetKey, targetList) -> {
+                List<Integer> baseList = baseMap.get(targetKey);
+                if (baseList != null && !baseList.equals(targetList)) {
+                    mismatches.append("Parameters mismatched in " + lang + "/" + STRINGS_XML_NAME + ": " + targetKey + " \n");
                 }
             });
         }
@@ -72,11 +72,11 @@ public class TranslationTests_v2 {
 
     private Map<String, List<Integer>> xmlReader(@NonNull File xmlPath) throws Throwable{
         Map<String, List<Integer>> map = new HashMap<>();
+        Document document = Jsoup.parse(xmlPath, "UTF-8");
 
-        Document baseDocument = Jsoup.parse(xmlPath, "UTF-8");
-        Elements baseElements = baseDocument.select("string");
-
-        for (Element element : baseElements) {
+        // For string items: <string name="app_name_prod">Wikipedia</string>
+        Elements stringElements = document.select("string");
+        for (Element element : stringElements) {
             String name = element.attr("name");
             String value = element.text();
 
@@ -90,8 +90,34 @@ public class TranslationTests_v2 {
                 }
                 countList.add(count);
             }
-//            System.out.println("name " + name + "=> countList " + countList);
             map.put(name, countList);
+        }
+
+        // For plural items
+        // <plurals name="diff_years">
+        //     <item quantity="one">Last year</item>
+        //     <item quantity="other">%d years ago</item>
+        // </plurals>
+        Elements pluralsElements = document.select("plurals");
+        for (Element element : pluralsElements) {
+            String name = element.attr("name");
+            Elements pluralElements = element.select("item");
+            for (Element subElement : pluralElements) {
+                String subName = subElement.attr("quantity");
+                String subValue = subElement.text();
+
+                List<Integer> countList = new ArrayList<>();
+                for (String param : POSSIBLE_PARAMS) {
+                    int count = 0;
+                    Pattern pattern = Pattern.compile(Pattern.quote(param));
+                    Matcher matcher = pattern.matcher(subValue);
+                    while (matcher.find()) {
+                        count++;
+                    }
+                    countList.add(count);
+                }
+                map.put(name + "[" + subName + "]", countList);
+            }
         }
 
         return map;
