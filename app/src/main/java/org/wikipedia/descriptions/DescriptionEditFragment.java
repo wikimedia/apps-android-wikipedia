@@ -49,6 +49,7 @@ import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS;
 import static org.wikipedia.Constants.InvokeSource;
 import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC;
 import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_DISALLOWED;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_WARNING;
 import static org.wikipedia.suggestededits.SuggestedEditsAddDescriptionsActivity.EXTRA_SOURCE_ADDED_DESCRIPTION;
@@ -154,7 +155,7 @@ public class DescriptionEditFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_description_edit, container, false);
         unbinder = ButterKnife.bind(this, view);
-        editView.setTranslationEdit(invokeSource == EDIT_FEED_TRANSLATE_TITLE_DESC);
+        editView.setTranslationEdit(invokeSource == EDIT_FEED_TRANSLATE_TITLE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC);
         editView.setPageTitle(pageTitle);
         editView.setHighlightText(highlightText);
         editView.setCallback(new EditViewCallback());

@@ -258,6 +258,8 @@
             android:label="@string/suggested_edits_tasks_activity_title"
             android:theme="@style/AppTheme.ActionBar" />
 
+        <activity android:name=".onboarding.SuggestedEditsOnboardingActivity" />
+
         <activity
             android:name=".suggestededits.SuggestedEditsContributionsActivity"
             android:label="@string/suggested_edits_my_contributions"
