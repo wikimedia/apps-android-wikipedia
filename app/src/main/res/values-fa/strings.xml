@@ -611,10 +611,6 @@
   <string name="offline_read_final_rationale">اجازه دسترسی به حافظه دستگاه شما جهت استفاده از کتابخانه آفلاین مورد نیاز است.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">۱ دقیقه مانده</item>
-    <item quantity="other">%d دقیقه مانده</item>
-  </plurals>
   <string name="onboarding_skip">رها کردن</string>
   <string name="onboarding_continue">ادامه</string>
   <string name="onboarding_get_started">شروع شد</string>

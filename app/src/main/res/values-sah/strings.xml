@@ -570,10 +570,6 @@
   <string name="offline_read_permission_rationale">Ситимэ суох көрөр эрэсиими туттарга тэрилиҥ долоҕойугар угары көҥүллүөхтээххин.</string>
   <string name="size_gb">%.2f ГБ</string>
   <string name="size_mb">%.2f МБ</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">1 мүн. хаалла</item>
-    <item quantity="other">%d мүн. хаалла</item>
-  </plurals>
   <string name="onboarding_skip">Аһар</string>
   <string name="onboarding_continue">Салгыы</string>
   <string name="onboarding_get_started">Саҕалыырга</string>

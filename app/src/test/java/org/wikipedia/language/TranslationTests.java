@@ -27,8 +27,15 @@ public class TranslationTests {
     private static String STRINGS_XML_NAME = "strings.xml";
 
     /** Add more if needed, but then also add some tests. */
-    private static final String[] POSSIBLE_PARAMS = new String[] {"%s", "%1$s", "%2$s", "%d", "%1$d", "%2$d", "%.2f", "%1$.2f", "%2$.2f", "%3$.2f", "^1"};
-    private static final String[] UNSUPPORTED_TEXTS_REGEX = new String[] {"\\{\\{.*?\\}\\}", "\\[\\[.*?\\]\\]", "\\*\\*.*?\\*\\*", "''.*?''", "\\[.*?\\]"};
+    private static final String[] POSSIBLE_PARAMS = new String[] {"%s", "%1$s", "%2$s", "%3$s",
+                                                                "%d", "%1$d", "%2$d", "%3$d",
+                                                                "%.2f", "%1$.2f", "%2$.2f", "%3$.2f",
+                                                                "^1"};
+    private static final String[] UNSUPPORTED_TEXTS_REGEX = new String[] {"\\{\\{.*?\\}\\}",
+                                                                        "\\[\\[.*?\\]\\]",
+                                                                        "\\*\\*.*?\\*\\*",
+                                                                        "''.*?''",
+                                                                        "\\[.*?\\]"};
     private static final String[] BAD_NAMES = new String[]{"ldrtl", "sw360dp", "sw600dp", "sw720dp", "v19", "v21", "v23", "land"};
 
     private static File BASE_FILE;
@@ -77,17 +84,15 @@ public class TranslationTests {
             File targetStringsXml = new File(dir, STRINGS_XML_NAME);
             List<String> targetList = findPluralsItemInXML(targetStringsXml);
 
-            if (targetList.size() > baseList.size()) {
-                targetList.forEach(targetKey -> {
-                    if (!baseList.contains(targetKey)) {
-                        mismatches.append("Plurals item has no declaration in the base values folder in ")
-                                .append(lang)
-                                .append("/")
-                                .append(STRINGS_XML_NAME).append(": ")
-                                .append(targetKey).append(" \n");
-                    }
-                });
-            }
+            targetList.forEach(targetKey -> {
+                if (!baseList.contains(targetKey)) {
+                    mismatches.append("Plurals item has no declaration in the base values folder in ")
+                            .append(lang)
+                            .append("/")
+                            .append(STRINGS_XML_NAME).append(": ")
+                            .append(targetKey).append(" \n");
+                }
+            });
         }
 
         assertThat("\n" + mismatches.toString(), mismatches.length(), is(0));
