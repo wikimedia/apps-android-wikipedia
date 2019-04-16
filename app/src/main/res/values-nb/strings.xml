@@ -658,10 +658,6 @@
   <string name="offline_read_final_rationale">Tilgang til enhetslagring trengs for å bruke lokalt bibliotek.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">ett minutt igjen</item>
-    <item quantity="other">%d minutter igjen</item>
-  </plurals>
   <string name="onboarding_skip">Hopp over</string>
   <string name="onboarding_continue">Fortsett</string>
   <string name="onboarding_get_started">Kom i gang</string>

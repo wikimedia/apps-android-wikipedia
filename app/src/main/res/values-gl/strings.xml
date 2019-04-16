@@ -644,10 +644,6 @@
   <string name="offline_read_final_rationale">É preciso ter permiso de acceso ao almacenamento do seu dispositivo para usar a Biblioteca sen conexión.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">falta 1 minuto</item>
-    <item quantity="other">faltan %d minutos</item>
-  </plurals>
   <string name="onboarding_skip">Omitir</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Comezar</string>

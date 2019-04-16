@@ -657,10 +657,6 @@
   <string name="offline_read_final_rationale">השראה לגשת לאחסון במכשיר שלך נדרשת לשימוש בספרייה הלא־מקוונת שלך.</string>
   <string name="size_gb">%.2f ג\"ב</string>
   <string name="size_mb">%.2f מ\"ב</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">נשארה דקה</item>
-    <item quantity="other">נשארו %d דקות</item>
-  </plurals>
   <string name="onboarding_skip">לדלג</string>
   <string name="onboarding_continue">להמשיך</string>
   <string name="onboarding_get_started">להתחיל</string>

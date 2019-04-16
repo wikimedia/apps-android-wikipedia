@@ -642,10 +642,6 @@
   <string name="offline_read_final_rationale">오프라인 라이브러리를 사용하려면 장치에서 저장소의 접근 권한이 필요합니다.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">1분 남음</item>
-    <item quantity="other">%d분 남음</item>
-  </plurals>
   <string name="onboarding_skip">건너뛰기</string>
   <string name="onboarding_continue">계속</string>
   <string name="onboarding_get_started">시작하기</string>

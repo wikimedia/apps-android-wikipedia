@@ -658,10 +658,6 @@
   <string name="offline_read_final_rationale">Cal permís per accedir a l\'emmagatzemament del vostre dispositiu per utilitzar la Biblioteca fora de línia.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">queda 1 min</item>
-    <item quantity="other">queden %d mins</item>
-  </plurals>
   <string name="onboarding_skip">Omet</string>
   <string name="onboarding_continue">Continua</string>
   <string name="onboarding_get_started">Primers passos</string>
