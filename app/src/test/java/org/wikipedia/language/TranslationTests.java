@@ -31,8 +31,8 @@ public class TranslationTests {
     private static final String[] UNSUPPORTED_TEXTS_REGEX = new String[] {"\\{\\{.*?\\}\\}", "\\[\\[.*?\\]\\]", "\\*\\*.*?\\*\\*", "''.*?''", "\\[.*?\\]"};
     private static final String[] BAD_NAMES = new String[]{"ldrtl", "sw360dp", "sw600dp", "sw720dp", "v19", "v21", "v23", "land"};
 
-    private static File baseFile;
-    private static File[] allFiles;
+    private static File BASE_FILE;
+    private static File[] ALL_FILES;
 
     @Test
     public void testAllTranslations() throws Throwable {
@@ -128,18 +128,18 @@ public class TranslationTests {
     }
 
     private File getBaseFile() {
-        if (baseFile == null) {
-            baseFile = new File(RES_BASE + "/" + STRINGS_DIRECTORY, STRINGS_XML_NAME);
+        if (BASE_FILE == null) {
+            BASE_FILE = new File(RES_BASE + "/" + STRINGS_DIRECTORY, STRINGS_XML_NAME);
         }
-        return baseFile;
+        return BASE_FILE;
     }
 
     private File[] getAllFiles() {
-        if (allFiles == null) {
-            allFiles = RES_BASE.listFiles((File pathname) -> pathname.isDirectory() && pathname.getName().startsWith(STRINGS_DIRECTORY) && !hasBadName(pathname));
-            Arrays.sort(allFiles);
+        if (ALL_FILES == null) {
+            ALL_FILES = RES_BASE.listFiles((File pathname) -> pathname.isDirectory() && pathname.getName().startsWith(STRINGS_DIRECTORY) && !hasBadName(pathname));
+            Arrays.sort(ALL_FILES);
         }
-        return allFiles;
+        return ALL_FILES;
     }
 
     private boolean hasBadName(File pathname) {
