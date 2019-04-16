@@ -155,11 +155,6 @@ public class WikipediaApp extends Application {
         // https://developer.android.com/topic/performance/background-optimization.html#connectivity-action
         registerReceiver(connectivityReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
 
-        // HockeyApp exception handling interferes with the test runner, so enable it only for
-        // beta and stable releases
-        if (!ReleaseUtil.isPreBetaRelease()) {
-            initExceptionHandling();
-        }
 
         refWatcher = Prefs.isMemoryLeakTestEnabled() ? LeakCanary.install(this) : RefWatcher.DISABLED;
 
@@ -180,6 +175,12 @@ public class WikipediaApp extends Application {
         funnelManager = new FunnelManager(this);
         sessionFunnel = new SessionFunnel(this);
         database = new Database(this);
+
+        // HockeyApp exception handling interferes with the test runner, so enable it only for
+        // beta and stable releases
+        if (!ReleaseUtil.isPreBetaRelease()) {
+            initExceptionHandling();
+        }
 
         initTabs();
 
