@@ -559,7 +559,7 @@
   <string name="suggested_edits_task_translate_caption_description">Ойуу суругун атын тылларга тылбааһа</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">уларытыы</item>
-    <item quantity="other">уларытыылар</item>
+    <item quantity="other">%d уларытыылар</item>
   </plurals>
   <string name="suggested_edits_tutorial_message">Бикипиэдьийэни уларытар саҥа дьибилгэккэ киирдиҥ. Манна саҥаны эбэр кыахтаныаҥ, онтон астыныаҥ дии саныыбыт. Эн суруйууҥ наһаа туһалаах! Үөрэ-көтө суруй.</string>
   <string name="description_edit_revert_subtitle">Бикипиэдьийэни тупсарбыккар махтал!</string>

@@ -474,11 +474,11 @@
     <item quantity="other">Herunterladen der Artikel</item>
   </plurals>
   <plurals name="notification_syncing_title">
-    <item quantity="one">Lade einen Artikel herunter …</item>
+    <item quantity="one">Lade %1$d Artikel herunter …</item>
     <item quantity="other">Lade %1$d Artikel herunter …</item>
   </plurals>
   <plurals name="notification_syncing_description">
-    <item quantity="one">Ein Artikel verbleibend</item>
+    <item quantity="one">%1$d Artikel verbleibend</item>
     <item quantity="other">%1$d Artikel verbleibend</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_channel_name">
@@ -486,11 +486,11 @@
     <item quantity="other">Synchronisiere Leselisten</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_title">
-    <item quantity="one">Synchronisiere eine Liste …</item>
+    <item quantity="one">Synchronisiere %1$d Liste …</item>
     <item quantity="other">Synchronisiere %1$d Listen …</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_description">
-    <item quantity="one">noch eine Liste</item>
+    <item quantity="one">noch %1$d Liste</item>
     <item quantity="other">noch %1$d Listen</item>
   </plurals>
   <string name="notification_echo_channel_description">Wikipedia-Benachrichtigungen</string>

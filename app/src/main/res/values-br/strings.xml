@@ -467,7 +467,7 @@
   </plurals>
   <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">%1$d 1 roll a chom</item>
-    <item quantity="other">%d roll a chom</item>
+    <item quantity="other">%1$d roll a chom</item>
   </plurals>
   <string name="notification_echo_channel_description">Kemennoù Wikipedia</string>
   <string name="notifications_activity_title">Kemennoù</string>

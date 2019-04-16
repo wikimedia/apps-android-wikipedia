@@ -415,7 +415,7 @@
   </plurals>
   <plurals name="notification_syncing_reading_list_description">
     <item quantity="one">nach %1$d Lëscht</item>
-    <item quantity="other">nach %1$d%1$d Lëschten</item>
+    <item quantity="other">nach %1$d Lëschten</item>
   </plurals>
   <string name="notification_echo_channel_description">Wikipedia Notifikatiounen</string>
   <string name="notifications_activity_title">Notifikatiounen</string>

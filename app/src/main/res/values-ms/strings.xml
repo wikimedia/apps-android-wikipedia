@@ -613,7 +613,7 @@
   <string name="suggested_edits_task_translate_caption_description">Terjemahkan kapsyen ke bahasa lain</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">sumbangan dalam apl</item>
-    <item quantity="other">sumbangan dalam apl</item>
+    <item quantity="other">%d sumbangan dalam apl</item>
   </plurals>
   <string name="suggested_edits_tutorial_message">Selamat datang ke rumah baru untuk penyuntingan dalam aplikasinya di Wikipedia. Di sini, kami akan mencadangkan peluang untuk menambah kandungan yang mungkin menarik minat anda. Sumbangan anda amat dihargai. Selamat menyunting!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Memulakan</string>

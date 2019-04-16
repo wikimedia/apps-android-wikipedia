@@ -634,7 +634,7 @@
   <string name="suggested_edits_task_translate_caption_description">Onderschriften vertalen in andere talen</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">in-app contribution</item>
-    <item quantity="other">bijdragen in app</item>
+    <item quantity="other">%d bijdragen in app</item>
   </plurals>
   <string name="suggested_edits_tasks_onboarding_get_started">Aan de slag</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>

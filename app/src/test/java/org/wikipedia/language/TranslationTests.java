@@ -57,7 +57,7 @@ public class TranslationTests {
             });
         }
 
-        // Step ?
+        // Step 3: check the result
         assertThat("\n" + mismatches.toString(), mismatches.length(), is(0));
     }
 
@@ -74,7 +74,8 @@ public class TranslationTests {
         Map<String, List<Integer>> map = new HashMap<>();
         Document document = Jsoup.parse(xmlPath, "UTF-8");
 
-        // For string items: <string name="app_name_prod">Wikipedia</string>
+        // For string items
+        // <string name="app_name_prod">Wikipedia</string>
         Elements stringElements = document.select("string");
         for (Element element : stringElements) {
             String name = element.attr("name");

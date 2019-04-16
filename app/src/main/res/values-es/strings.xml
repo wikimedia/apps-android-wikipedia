@@ -651,7 +651,7 @@
   <string name="suggested_edits_task_translate_caption_description">Traduce las leyendas a otros idiomas</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">contribución desde la aplicación</item>
-    <item quantity="other">contribuciones desde la aplicación</item>
+    <item quantity="other">%d contribuciones desde la aplicación</item>
   </plurals>
   <string name="suggested_edits_tutorial_message">\nBienvenido a la página de inicio de edición en la app de Wikipedia. Aquí te mostraremos sugerencias para añadir contenido que te pueda ser de interés. Apreciamos mucho tus contribuciones. ¡Que lo pases bien!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">\nEmpezar</string>

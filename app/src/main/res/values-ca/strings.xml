@@ -496,7 +496,7 @@
     <item quantity="other">S\'estan sincronitzant %1$d llistes…</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_description">
-    <item quantity="one">%queda 1$d llista</item>
+    <item quantity="one">queda %1$d llista</item>
     <item quantity="other">queden %1$d llistes</item>
   </plurals>
   <string name="notification_echo_channel_description">Notificacions de la Viquipèdia</string>

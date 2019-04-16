@@ -560,7 +560,7 @@
   <string name="suggested_edits_task_multilingual_positive">Cuir teangacha leis</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">dréacht san aip</item>
-    <item quantity="other">dréachtaí san aip</item>
+    <item quantity="other">%d dréachtaí san aip</item>
   </plurals>
   <string name="description_edit_revert_subtitle">Go raibh maith agat as Vicipéid a chur in eagar!</string>
   <string name="description_edit_revert_intro">Tá súil againn go rinne tó do dhícheall, ach bhí imní ar cheann de na léirmheastóirí. Is féidir gurb iad seo a leanas i measc na bhfáthanna a filleadh d\'athrú ar an mbunleagan:</string>

@@ -499,7 +499,7 @@
   <plurals name="notification_archive_message">
     <item quantity="one">Notifikácia bola archivovaná</item>
     <item quantity="two">2 notifikácie boli archivované</item>
-    <item quantity="other">three=3 notifikácie boli archivované</item>
+    <item quantity="other">%d notifikácie boli archivované</item>
   </plurals>
   <string name="notifications_poll_enable_title">Povoliť upozornenia</string>
   <string name="notifications_poll_enable_positive">Povoliť</string>
@@ -604,7 +604,7 @@
   <string name="suggested_edits_task_multilingual_positive">Pridať jazyky</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">príspevok v aplikácii</item>
-    <item quantity="other">príspevky v aplikácii</item>
+    <item quantity="other">%d príspevky v aplikácii</item>
   </plurals>
   <string name="description_edit_revert_subtitle">Ďakujeme za úpravu Wikipédie!</string>
   <string name="description_edit_revert_intro">Vieme, že ste sa snažili, no jeden z našich redaktorov vyjadril obavu. Možné dôvody vrátenia vašej úpravy sú:</string>
