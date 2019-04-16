@@ -31,13 +31,14 @@ public class TranslationTests {
 
     private static final String[] BAD_NAMES = new String[]{"ldrtl", "sw360dp", "sw600dp", "sw720dp", "v19", "v21", "v23", "land"};
 
-    private StringBuilder mismatches = new StringBuilder();
+    @Test
+    public void testAllTranslations() throws Throwable {
 
-    @Test public void testAllTranslations() throws Throwable {
+        StringBuilder mismatches = new StringBuilder();
 
         File baseStringsXml = new File(RES_BASE + "/" + STRINGS_DIRECTORY, STRINGS_XML_NAME);
         // Step 1: collect counts of parameters in en/strings.xml
-        Map<String, List<Integer>> baseMap = xmlReader(baseStringsXml);
+        Map<String, List<Integer>> baseMap = findPossibleParamsInXML(baseStringsXml);
 
 
         // Step 2: finding parameters in other languages
@@ -46,18 +47,53 @@ public class TranslationTests {
         for (File dir : resDirs) {
             String lang = dir.getName().contains("-") ? dir.getName().substring(dir.getName().indexOf("-") + 1) : "en";
             File targetStringsXml = new File(dir, STRINGS_XML_NAME);
-            Map<String, List<Integer>> targetMap = xmlReader(targetStringsXml);
+            Map<String, List<Integer>> targetMap = findPossibleParamsInXML(targetStringsXml);
 
             // compare the counts inside the maps
             targetMap.forEach((targetKey, targetList) -> {
                 List<Integer> baseList = baseMap.get(targetKey);
                 if (baseList != null && !baseList.equals(targetList)) {
-                    mismatches.append("Parameters mismatched in " + lang + "/" + STRINGS_XML_NAME + ": " + targetKey + " \n");
+                    mismatches.append("Parameters mismatched in ")
+                            .append(lang)
+                            .append("/")
+                            .append(STRINGS_XML_NAME).append(": ")
+                            .append(targetKey).append(" \n");
                 }
             });
         }
 
         // Step 3: check the result
+        assertThat("\n" + mismatches.toString(), mismatches.length(), is(0));
+    }
+
+    @Test
+    public void testPluralDeclaration() throws Throwable {
+
+        StringBuilder mismatches = new StringBuilder();
+
+        File baseStringsXml = new File(RES_BASE + "/" + STRINGS_DIRECTORY, STRINGS_XML_NAME);
+        List<String> baseList = findPluralsItemInXML(baseStringsXml);
+
+        File[] resDirs = RES_BASE.listFiles((File pathname) -> pathname.isDirectory() && pathname.getName().startsWith(STRINGS_DIRECTORY) && !hasBadName(pathname));
+        Arrays.sort(resDirs);
+        for (File dir : resDirs) {
+            String lang = dir.getName().contains("-") ? dir.getName().substring(dir.getName().indexOf("-") + 1) : "en";
+            File targetStringsXml = new File(dir, STRINGS_XML_NAME);
+            List<String> targetList = findPluralsItemInXML(targetStringsXml);
+
+            if (targetList.size() > baseList.size()) {
+                targetList.forEach(targetKey -> {
+                    if (!baseList.contains(targetKey)) {
+                        mismatches.append("Plurals item has no declaration in the base values folder in ")
+                                .append(lang)
+                                .append("/")
+                                .append(STRINGS_XML_NAME).append(": ")
+                                .append(targetKey).append(" \n");
+                    }
+                });
+            }
+        }
+
         assertThat("\n" + mismatches.toString(), mismatches.length(), is(0));
     }
 
@@ -70,7 +106,20 @@ public class TranslationTests {
         return false;
     }
 
-    private Map<String, List<Integer>> xmlReader(@NonNull File xmlPath) throws Throwable {
+    private List<String> findPluralsItemInXML(@NonNull File xmlPath) throws Throwable {
+        List<String> list = new ArrayList<>();
+        Document document = Jsoup.parse(xmlPath, "UTF-8");
+
+        Elements pluralsElements = document.select("plurals");
+        for (Element element : pluralsElements) {
+            String name = element.attr("name");
+            list.add(name);
+        }
+
+        return list;
+    }
+
+    private Map<String, List<Integer>> findPossibleParamsInXML(@NonNull File xmlPath) throws Throwable {
         Map<String, List<Integer>> map = new HashMap<>();
         Document document = Jsoup.parse(xmlPath, "UTF-8");
 
