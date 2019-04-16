@@ -113,7 +113,7 @@ public class TranslationTests {
                 targetMap.forEach((targetKey, targetList) -> {
                     List<Integer> baseList = baseMap.get(targetKey);
                     if (baseList != null && !baseList.equals(targetList)) {
-                        mismatches.append("Unsupported texts in ")
+                        mismatches.append("Unsupported Wikitext/Markdown in ")
                                 .append(lang)
                                 .append("/")
                                 .append(STRINGS_XML_NAME).append(": ")
