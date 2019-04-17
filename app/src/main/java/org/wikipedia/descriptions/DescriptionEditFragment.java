@@ -49,6 +49,7 @@ import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS;
 import static org.wikipedia.Constants.InvokeSource;
 import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC;
 import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_ADD_DESC;
 import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_DISALLOWED;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_WARNING;
@@ -135,7 +136,10 @@ public class DescriptionEditFragment extends Fragment {
                 : DescriptionEditFunnel.Type.EXISTING;
         highlightText = getArguments().getString(ARG_HIGHLIGHT_TEXT);
         invokeSource = (InvokeSource) getArguments().getSerializable(ARG_INVOKE_SOURCE);
-        reviewEnabled = invokeSource == EDIT_FEED_TITLE_DESC || invokeSource == EDIT_FEED_TRANSLATE_TITLE_DESC;
+        reviewEnabled = invokeSource == EDIT_FEED_TITLE_DESC
+                || invokeSource == EDIT_FEED_TRANSLATE_TITLE_DESC
+                || invokeSource == FEED_CARD_SUGGESTED_EDITS_ADD_DESC
+                || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
 
         if (getArguments().getString(ARG_SOURCE_SUMMARY) != null) {
             sourceSummary = GsonUnmarshaller.unmarshal(RbPageSummary.class, getArguments().getString(ARG_SOURCE_SUMMARY));

@@ -16,24 +16,22 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
-import org.wikipedia.page.PageTitle
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter
 
 class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context), ItemTouchHelperSwipeAdapter.SwipeableView {
     interface Callback {
-        fun onSuggestedEditsCardClick(@NonNull pageTitle: PageTitle, @NonNull sourceDescription: String, @NonNull sourceLangCode: String, @NonNull view: SuggestedEditsCardView)
+        fun onSuggestedEditsCardClick(view: SuggestedEditsCardView)
     }
 
     private val disposables = CompositeDisposable()
-    var isTranslation: Boolean = false
     private var sourceDescription: String = ""
     private val app = WikipediaApp.getInstance()
-    private var summary: RbPageSummary? = null
-    private var sourceLangCode: String? = null
-    private var targetLangCode: String? = null
-    var targetPageTitle: PageTitle? = null
+    var isTranslation: Boolean = false
+    var sourceSummary: RbPageSummary? = null
+    var targetSummary: RbPageSummary? = null
+    var addedDescription: String? = null
 
     init {
         View.inflate(getContext(), R.layout.fragment_add_title_descriptions_item, this)
@@ -41,14 +39,11 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     override fun setCard(@NonNull card: SuggestedEditsCard) {
         super.setCard(card)
-        sourceLangCode = app.language().appLanguageCodes[0]
-        targetLangCode = app.language().appLanguageCodes[1]
         prepareViews()
         this.isTranslation = card.isTranslation
-        summary = card.summary
-        sourceDescription = card.sourceDescription
-        targetPageTitle = card.targetPageTitle
-        setLayoutDirectionByWikiSite(WikiSite.forLanguageCode(sourceLangCode!!), this)
+        sourceSummary = card.sourceSummary
+        targetSummary = card.targetSummary
+        setLayoutDirectionByWikiSite(WikiSite.forLanguageCode(sourceSummary!!.lang), this)
         header(card)
         updateContents()
     }
@@ -66,23 +61,23 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
             viewArticleSubtitle.text = sourceDescription
         }
         viewAddDescriptionButton.visibility = View.VISIBLE
-        viewArticleTitle.text = summary!!.normalizedTitle
-        callToActionText.text = if (isTranslation) String.format(context.getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(targetLangCode)) else context.getString(R.string.suggested_edits_add_description_button)
+        viewArticleTitle.text = sourceSummary!!.normalizedTitle
+        callToActionText.text = if (isTranslation) String.format(context.getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(targetSummary!!.lang)) else context.getString(R.string.suggested_edits_add_description_button)
         showImageOrExtract()
     }
 
     private fun showImageOrExtract() {
-        if (TextUtils.isEmpty(summary!!.thumbnailUrl)) {
+        if (TextUtils.isEmpty(sourceSummary!!.thumbnailUrl)) {
             viewArticleImage.visibility = View.GONE
             viewArticleExtract.visibility = View.VISIBLE
             divider.visibility = View.VISIBLE
-            viewArticleExtract.text = StringUtil.fromHtml(summary!!.extractHtml)
+            viewArticleExtract.text = StringUtil.fromHtml(sourceSummary!!.extractHtml)
             viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {
             viewArticleImage.visibility = View.VISIBLE
             viewArticleExtract.visibility = View.GONE
             divider.visibility = View.GONE
-            viewArticleImage.loadImage(Uri.parse(summary!!.thumbnailUrl))
+            viewArticleImage.loadImage(Uri.parse(sourceSummary!!.thumbnailUrl))
         }
     }
 
@@ -105,7 +100,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         cardView.setContentPadding(0, 0, 0, 0)
         cardView.setOnClickListener {
             if (callback != null && card != null) {
-                callback!!.onSuggestedEditsCardClick(if (isTranslation) targetPageTitle!! else summary!!.getPageTitle(WikiSite.forLanguageCode(sourceLangCode!!)), sourceDescription, sourceLangCode!!, this)
+                callback!!.onSuggestedEditsCardClick(this)
             }
         }
     }
@@ -135,6 +130,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
             viewArticleSubtitle.text = StringUtils.capitalize(addedDescription)
             if (isTranslation) viewArticleSubtitleAddedBy.text = context.getString(R.string.suggested_edits_translated_by_you)
             else viewArticleSubtitleAddedBy.text = context.getString(R.string.suggested_edits_added_by_you)
+            this.addedDescription = addedDescription
         }
     }
 

@@ -117,15 +117,15 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
     private fun setErrorState(t: Throwable) {
         L.e(t)
         cardItemErrorView.setError(t)
-        cardItemErrorView.visibility = View.VISIBLE
-        cardItemProgressBar.visibility = View.GONE
-        cardItemContainer.visibility = View.GONE
+        cardItemErrorView.visibility = VISIBLE
+        cardItemProgressBar.visibility = GONE
+        cardItemContainer.visibility = GONE
     }
 
     private fun updateContents() {
-        cardItemErrorView.visibility = View.GONE
-        cardItemContainer.visibility = if (sourceSummary == null) View.GONE else View.VISIBLE
-        cardItemProgressBar.visibility = if (sourceSummary == null) View.VISIBLE else View.GONE
+        cardItemErrorView.visibility = GONE
+        cardItemContainer.visibility = if (sourceSummary == null) GONE else VISIBLE
+        cardItemProgressBar.visibility = if (sourceSummary == null) VISIBLE else GONE
         if (sourceSummary == null) {
             return
         }
