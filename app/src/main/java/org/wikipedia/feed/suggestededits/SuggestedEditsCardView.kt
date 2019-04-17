@@ -36,19 +36,23 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     var addedDescription: String? = null
 
     init {
-        View.inflate(getContext(), R.layout.fragment_add_title_descriptions_item, this)
+        inflate(getContext(), R.layout.fragment_add_title_descriptions_item, this)
     }
 
     override fun setCard(@NonNull card: SuggestedEditsCard) {
         super.setCard(card)
         sourceLangCode = app.language().appLanguageCodes[0]
         targetLangCode = app.language().appLanguageCodes[1]
+
         prepareViews()
-        this.isTranslation = card.isTranslation
+
+        isTranslation = card.isTranslation
         summary = card.summary
         sourceDescription = card.sourceDescription
         targetPageTitle = card.targetPageTitle
+
         setLayoutDirectionByWikiSite(WikiSite.forLanguageCode(sourceLangCode!!), this)
+
         header(card)
         updateContents()
     }
