@@ -5,7 +5,6 @@ import android.content.Context
 import android.net.Uri
 import android.text.TextUtils
 import android.view.View
-import android.widget.FrameLayout
 import io.reactivex.annotations.NonNull
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.fragment_add_title_descriptions_item.view.*
@@ -33,7 +32,8 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     private var summary: RbPageSummary? = null
     private var sourceLangCode: String? = null
     private var targetLangCode: String? = null
-    var targetPageTitle: PageTitle? = null
+    private var targetPageTitle: PageTitle? = null
+    var addedDescription: String? = null
 
     init {
         View.inflate(getContext(), R.layout.fragment_add_title_descriptions_item, this)
@@ -87,6 +87,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private fun prepareViews() {
+        addedDescription = ""
         viewArticleContainer.minimumHeight = 0
         viewArticleExtract.text = ""
         viewArticleTitle.text = ""
@@ -99,7 +100,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         viewArticleExtract.visibility = View.GONE
         divider.visibility = View.GONE
         suggestedEditsItemRootView.setPadding(0, 0, 0, 0)
-        val param = cardView.layoutParams as FrameLayout.LayoutParams
+        val param = cardView.layoutParams as LayoutParams
         param.setMargins(0, 0, 0, 0)
         cardView.useCompatPadding = false
         cardView.setContentPadding(0, 0, 0, 0)
@@ -135,6 +136,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
             viewArticleSubtitle.text = StringUtils.capitalize(addedDescription)
             if (isTranslation) viewArticleSubtitleAddedBy.text = context.getString(R.string.suggested_edits_translated_by_you)
             else viewArticleSubtitleAddedBy.text = context.getString(R.string.suggested_edits_added_by_you)
+            this.addedDescription = addedDescription
         }
     }
 
