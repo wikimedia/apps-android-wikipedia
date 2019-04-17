@@ -57,7 +57,7 @@ public class CsrfTokenClientTest extends MockWebServerTest {
     }
 
     @Test public void testRequestResponseMalformed() throws Throwable {
-        server().enqueue("'");
+        enqueueMalformed();
 
         Callback cb = mock(Callback.class);
         request(cb);

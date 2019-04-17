@@ -1,8 +1,11 @@
 package org.wikipedia.captcha;
 
+import com.google.gson.stream.MalformedJsonException;
+
 import org.junit.Test;
 import org.wikipedia.test.MockRetrofitTest;
 
+import io.reactivex.Observable;
 import io.reactivex.observers.TestObserver;
 
 public class CaptchaClientTest extends MockRetrofitTest {
@@ -11,9 +14,7 @@ public class CaptchaClientTest extends MockRetrofitTest {
         enqueueFromFile("captcha.json");
         TestObserver<CaptchaResult> observer = new TestObserver<>();
 
-        getApiService().getNewCaptcha()
-                .map(response -> new CaptchaResult(response.captchaId()))
-                .subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertComplete().assertNoErrors()
                 .assertValue(result -> result.getCaptchaId().equals("1572672319"));
@@ -23,33 +24,31 @@ public class CaptchaClientTest extends MockRetrofitTest {
         enqueueFromFile("api_error.json");
         TestObserver<CaptchaResult> observer = new TestObserver<>();
 
-        getApiService().getNewCaptcha()
-                .map(response -> new CaptchaResult(response.captchaId()))
-                .subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseFailure() throws Throwable {
+    @Test public void testRequestResponseFailure() {
         enqueue404();
         TestObserver<CaptchaResult> observer = new TestObserver<>();
 
-        getApiService().getNewCaptcha()
-                .map(response -> new CaptchaResult(response.captchaId()))
-                .subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseMalformed() throws Throwable {
-        server().enqueue("'");
+    @Test public void testRequestResponseMalformed() {
+        enqueueMalformed();
         TestObserver<CaptchaResult> observer = new TestObserver<>();
 
-        getApiService().getNewCaptcha()
-                .map(response -> new CaptchaResult(response.captchaId()))
-                .subscribe(observer);
+        getObservable().subscribe(observer);
 
-        observer.assertError(Exception.class);
+        observer.assertError(MalformedJsonException.class);
     }
 
+    private Observable<CaptchaResult> getObservable() {
+        return getApiService().getNewCaptcha()
+                        .map(response -> new CaptchaResult(response.captchaId()));
+    }
 }

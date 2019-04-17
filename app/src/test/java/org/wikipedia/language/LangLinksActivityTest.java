@@ -15,7 +15,7 @@ import static org.junit.Assert.assertThat;
 @RunWith(RobolectricTestRunner.class)
 public class LangLinksActivityTest{
 
-    @Test public void testAddChineseEntriesForTraditionalChinese() throws Throwable {
+    @Test public void testAddChineseEntriesForTraditionalChinese() {
 
         PageTitle title = new PageTitle(null, "洋基體育場 (1923年)", WikiSite.forLanguageCode("zh-hant"));
         List<PageTitle> list = getBaseLanguageEntries();
@@ -25,7 +25,7 @@ public class LangLinksActivityTest{
         assertThat(list, is(getExpectedZhHantResults()));
     }
 
-    @Test public void testAddChineseEntriesForSimplifiedChinese() throws Throwable {
+    @Test public void testAddChineseEntriesForSimplifiedChinese() {
 
         PageTitle title = new PageTitle(null, "洋基体育场 (1923年)", WikiSite.forLanguageCode("zh-hans"));
         List<PageTitle> list = getBaseLanguageEntries();
@@ -34,7 +34,7 @@ public class LangLinksActivityTest{
         assertThat(list, is(getExpectedZhHansResults()));
     }
 
-    @Test public void testSkipAddChineseEntries() throws Throwable {
+    @Test public void testSkipAddChineseEntries() {
 
         PageTitle title = new PageTitle(null, "Yankee Stadium (1923)", WikiSite.forLanguageCode("da"));
         List<PageTitle> list = getBaseLanguageEntriesWithZhVariants();

@@ -55,7 +55,7 @@ public class EntityClientTest extends MockWebServerTest {
     }
 
     @Test public void testRequestMalformed() throws Throwable {
-        server().enqueue("(╯°□°）╯︵ ┻━┻");
+        enqueueMalformed();
         EntityClient.LabelCallback cb = mock(EntityClient.LabelCallback.class);
         request(cb, "Q123", "en");
         server().takeRequest();
