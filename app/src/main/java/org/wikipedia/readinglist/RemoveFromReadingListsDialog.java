@@ -52,7 +52,7 @@ public class RemoveFromReadingListsDialog {
 
         new AlertDialog.Builder(context)
                 .setTitle(R.string.reading_list_remove_from_lists)
-                .setPositiveButton(R.string.remove_from_list_dialog_ok_button_text, (dialog, which) -> {
+                .setPositiveButton(R.string.reading_list_remove_list_dialog_ok_button_text, (dialog, which) -> {
                     boolean atLeastOneSelected = false;
                     List<ReadingList> newLists = new ArrayList<>();
                     for (int i = 0; i < listNames.length; i++) {
@@ -67,7 +67,7 @@ public class RemoveFromReadingListsDialog {
                         callback.onDeleted(newLists, listsContainingPage.get(0).pages().get(0));
                     }
                 })
-                .setNegativeButton(R.string.remove_from_list_dialog_cancel_button_text, null)
+                .setNegativeButton(R.string.reading_list_remove_from_list_dialog_cancel_button_text, null)
                 .setMultiChoiceItems(listNames, selected, (dialog, which, checked) -> selected[which] = checked)
                 .create()
                 .show();

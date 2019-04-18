@@ -239,7 +239,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             } else if (event instanceof SplitLargeListsEvent) {
                 new AlertDialog.Builder(BaseActivity.this)
                         .setMessage(getString(R.string.split_reading_list_message, SiteInfoClient.getMaxPagesPerReadingList()))
-                        .setPositiveButton(R.string.split_large_lists_dialog_ok_button_text, null)
+                        .setPositiveButton(R.string.reading_list_split_dialog_ok_button_text, null)
                         .show();
             } else if (event instanceof ReadingListsNoLongerSyncedEvent) {
                 ReadingListSyncBehaviorDialogs.detectedRemoteTornDownDialog(BaseActivity.this);
