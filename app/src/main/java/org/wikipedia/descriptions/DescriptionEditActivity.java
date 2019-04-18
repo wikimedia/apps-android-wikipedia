@@ -6,6 +6,7 @@ import android.content.Intent;
 import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
@@ -31,28 +32,32 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
         implements DescriptionEditFragment.Callback, LinkPreviewDialog.Callback {
 
     private static final String EXTRA_TITLE = "title";
-    private static final String EXTRA_REVIEW_ENABLE = "review";
     private static final String EXTRA_HIGHLIGHT_TEXT = "highlightText";
-    private static final String EXTRA_TRANSLATION_SOURCE_DESCRIPTION = "translationSourceDescription";
-    private static final String EXTRA_TRANSLATION_SOURCE_LANGUAGE_CODE = "translationSourceLanguageCode";
     private static final String EXTRA_INVOKE_SOURCE = "invokeSource";
+    private static final String EXTRA_SOURCE_SUMMARY = "sourceSummary";
+    private static final String EXTRA_TARGET_SUMMARY = "targetSummary";
     private InvokeSource invokeSource;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
     public static Intent newIntent(@NonNull Context context,
                                    @NonNull PageTitle title,
                                    @Nullable String highlightText,
-                                   boolean reviewEnabled,
-                                   @Nullable CharSequence translationSourceDescription,
-                                   @Nullable String translationSourceLanguageCode,
                                    @NonNull InvokeSource invokeSource) {
         return new Intent(context, DescriptionEditActivity.class)
                 .putExtra(EXTRA_TITLE, GsonMarshaller.marshal(title))
                 .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
-                .putExtra(EXTRA_REVIEW_ENABLE, reviewEnabled)
-                .putExtra(EXTRA_TRANSLATION_SOURCE_DESCRIPTION, translationSourceDescription)
-                .putExtra(EXTRA_TRANSLATION_SOURCE_LANGUAGE_CODE, translationSourceLanguageCode)
                 .putExtra(EXTRA_INVOKE_SOURCE, invokeSource);
+    }
+
+
+    public static Intent newIntent(@NonNull Context context,
+                                   @NonNull PageTitle title,
+                                   @Nullable RbPageSummary sourceSummary,
+                                   @Nullable RbPageSummary targetSummary,
+                                   @NonNull InvokeSource invokeSource) {
+        return newIntent(context, title, null, invokeSource)
+                .putExtra(EXTRA_SOURCE_SUMMARY, sourceSummary == null ? null : GsonMarshaller.marshal(sourceSummary))
+                .putExtra(EXTRA_TARGET_SUMMARY, targetSummary == null ? null : GsonMarshaller.marshal(targetSummary));
     }
 
     @Override
@@ -103,9 +108,8 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
 
         return DescriptionEditFragment.newInstance(title,
                 getIntent().getStringExtra(EXTRA_HIGHLIGHT_TEXT),
-                getIntent().getBooleanExtra(EXTRA_REVIEW_ENABLE, false),
-                getIntent().getCharSequenceExtra(EXTRA_TRANSLATION_SOURCE_DESCRIPTION),
-                getIntent().getStringExtra(EXTRA_TRANSLATION_SOURCE_LANGUAGE_CODE),
+                getIntent().getStringExtra(EXTRA_SOURCE_SUMMARY),
+                getIntent().getStringExtra(EXTRA_TARGET_SUMMARY),
                 invokeSource);
     }
 
