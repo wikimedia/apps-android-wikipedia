@@ -564,6 +564,7 @@
   <string name="feed_item_type_featured_image">Слика на денот од Ризницата</string>
   <string name="feed_item_type_main_page">Главна страница на Википедија со содржини на денот</string>
   <string name="feed_item_type_randomizer">Дава случајни статии за читање</string>
+  <string name="feed_item_type_suggested_edits">Предлози за додавање содржина на Википедија</string>
   <string name="feed_empty_message">Нема ништо во тековникот „Истражи“</string>
   <string name="feed_configure_onboarding_action">Прилагоди</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Прилагодете си го тековникот „Истражи“&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Можете да изберете што да се прикажува во тековникот и да им дадете предност на вашите омилени видови содржини.</string>
@@ -636,6 +637,7 @@
     <item quantity="one">1 придонес</item>
     <item quantity="other">%d придонеси</item>
   </plurals>
+  <string name="suggested_edits">Предложени уредувања</string>
   <string name="suggested_edits_tutorial_message">Добре дојдовте во новиот дом за брзо уредување од прилогот на Википедија. Вашите придонеси се мошне ценети. Среќно уредување!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Започни</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>

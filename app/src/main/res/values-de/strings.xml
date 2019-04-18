@@ -569,6 +569,7 @@
   <string name="feed_item_type_featured_image">Täglich auf Wikimedia Commons vorgestelltes Bild</string>
   <string name="feed_item_type_main_page">Hauptseite der Wikipedia mit täglich vorgestelltem Inhalt</string>
   <string name="feed_item_type_randomizer">Zufällige Artikel zum Lesen erzeugen</string>
+  <string name="feed_item_type_suggested_edits">Vorschläge zum Hinzufügen von Inhalten zu Wikipedia</string>
   <string name="feed_empty_message">Es gibt nichts in deinem Entdecken-Feed</string>
   <string name="feed_configure_onboarding_action">Anpassen</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Passe deinen Entdecken-Feed an&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kannst jetzt auswählen, was auf deinem Feed angezeigt werden soll und auch deine Lieblingsinhalte priorisieren.</string>
@@ -641,6 +642,7 @@
     <item quantity="one">Ein Beitrag</item>
     <item quantity="other">%d Beiträge</item>
   </plurals>
+  <string name="suggested_edits">Vorgeschlagene Bearbeitungen</string>
   <string name="suggested_edits_tutorial_message">Willkommen bei der neuen Startseite zum schnellen Bearbeiten in der Wikipedia-App. Deine Beiträge werden hoch geschätzt. Fröhliches Bearbeiten!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Anfangen</string>
   <string name="description_edit_revert_subtitle">Vielen Dank für das Bearbeiten von Wikipedia!</string>
