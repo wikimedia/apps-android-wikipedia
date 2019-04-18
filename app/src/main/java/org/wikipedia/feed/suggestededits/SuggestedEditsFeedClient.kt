@@ -16,8 +16,8 @@ import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 
 class SuggestedEditsFeedClient(var translation: Boolean) : FeedClient {
     private val disposables = CompositeDisposable()
-    var sourceDescription: String = ""
-    var targetPageTitle: PageTitle? = null
+    private var sourceDescription: String = ""
+    private var targetPageTitle: PageTitle? = null
     private val app = WikipediaApp.getInstance()
     var summary: RbPageSummary? = null
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
