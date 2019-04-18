@@ -246,6 +246,7 @@
   <string name="suggested_edits_translate_descriptions">Tulkot aprakstus</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Varbūt vēlāk</string>
   <string name="suggested_edits_task_add_description_title">Pievienot aprakstus</string>
+  <string name="suggested_edits">Ieteiktie labojumi</string>
   <string name="onboarding_skip">Izlaist</string>
   <string name="onboarding_continue">Turpināt</string>
   <string name="onboarding_got_it">Sapratu</string>
