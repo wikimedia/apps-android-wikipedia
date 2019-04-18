@@ -23,6 +23,7 @@ import kotlinx.android.synthetic.main.fragment_add_title_descriptions.*
 import org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC
+import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.RandomizerFunnel
@@ -54,8 +55,12 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
     private val topTitle: PageTitle?
         get() {
             val f = topChild
-
-            return if (source == EDIT_FEED_TITLE_DESC) titleFromPageName(f?.title, f?.addedDescription) else f?.targetPageTitle
+            return if (source == EDIT_FEED_TITLE_DESC) {
+                titleFromPageName(f?.title, f?.addedDescription)
+            } else {
+                f?.targetPageTitle?.description = f?.addedDescription
+                f?.targetPageTitle
+            }
         }
 
     private val topChild: SuggestedEditsAddDescriptionsItemFragment?
@@ -177,7 +182,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
 
     fun onSelectPage() {
         if (topTitle != null) {
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, true, topChild!!.sourceDescription, langFromCode, source),
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, topChild!!.sourceSummary, topChild!!.targetSummary, source),
                     ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
     }
@@ -223,7 +228,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
 
     private fun setInitialUiState() {
         wikiLanguageDropdownContainer.visibility = if (app.language().appLanguageCodes.size > 1
-                && source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) VISIBLE else GONE
+                && source == EDIT_FEED_TRANSLATE_TITLE_DESC) VISIBLE else GONE
     }
 
     private fun updateFromLanguageSpinner() {
