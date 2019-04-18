@@ -9,7 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.view_description_edit_review.view.*
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
-import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 
@@ -34,8 +34,8 @@ class DescriptionEditReviewView @JvmOverloads constructor(
         visibility = GONE
     }
 
-    fun setPageSummary(pageSummary: PageSummary, description: String, languageCode: String) {
-        L10nUtil.setConditionalLayoutDirection(this, languageCode)
+    fun setPageSummary(pageSummary: RbPageSummary, description: String) {
+        L10nUtil.setConditionalLayoutDirection(this, pageSummary.lang)
         articleTitle!!.text = StringUtil.fromHtml(pageSummary.displayTitle)
         articleSubtitle!!.text = StringUtils.capitalize(description)
         articleExtract!!.text = StringUtil.fromHtml(pageSummary.extractHtml)

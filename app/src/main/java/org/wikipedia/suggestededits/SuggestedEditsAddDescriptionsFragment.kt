@@ -55,8 +55,12 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
     private val topTitle: PageTitle?
         get() {
             val f = topChild
-
-            return if (source == EDIT_FEED_TITLE_DESC) titleFromPageName(f?.title, f?.addedDescription) else f?.targetPageTitle
+            return if (source == EDIT_FEED_TITLE_DESC) {
+                titleFromPageName(f?.title, f?.addedDescription)
+            } else {
+                f?.targetPageTitle?.description = f?.addedDescription
+                f?.targetPageTitle
+            }
         }
 
     private val topChild: SuggestedEditsAddDescriptionsItemFragment?
@@ -178,7 +182,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
 
     fun onSelectPage() {
         if (topTitle != null) {
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, true, topChild!!.sourceDescription, langFromCode, source),
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, topChild!!.sourceSummary, topChild!!.targetSummary, source),
                     ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
     }

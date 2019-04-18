@@ -581,6 +581,7 @@
   <string name="feed_item_type_featured_image">Denní doporučný obrázek z Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Hlavní strana Wikipedie s každodenním obsahem</string>
   <string name="feed_item_type_randomizer">Vygenerujte si náhodný článek k přečtení</string>
+  <string name="feed_item_type_suggested_edits">Návrhy na přidávání obsahu do Wikipedie</string>
   <string name="feed_empty_message">Nic není ve Vašem kanále Objevit</string>
   <string name="feed_configure_onboarding_action">Přizpůsobit</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Přizpůsobte si svůj kanál Objevit&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Nyní si můžete vybrat, co se má zobrazovat na vaší stránce, a také upřednostňovat své oblíbené typy obsahu.</string>
@@ -654,6 +655,7 @@
     <item quantity="few">%d příspěvky</item>
     <item quantity="other">%d příspěvků</item>
   </plurals>
+  <string name="suggested_edits">Navrhování editací</string>
   <string name="suggested_edits_tutorial_message">Vítejte v novém domově pro jednoduchou editaci Wikipedie v aplikaci. Vaše příspěvky jsou velmi oceňovány. Hodně štěstí!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Začít</string>
   <string name="description_edit_revert_subtitle">Děkujeme za editaci Wikipedie!</string>

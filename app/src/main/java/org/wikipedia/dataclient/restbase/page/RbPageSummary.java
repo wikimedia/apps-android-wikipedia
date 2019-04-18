@@ -99,6 +99,10 @@ public class RbPageSummary implements PageSummary {
         return pageid;
     }
 
+    public String getLang() {
+        return lang;
+    }
+
     /**
      * For the thumbnail URL of the page
      */
