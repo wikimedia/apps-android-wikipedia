@@ -592,6 +592,7 @@
   <string name="feed_item_type_featured_image">Imagen destacada del día en Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Página principal de Wikipedia con contenido destacado diario</string>
   <string name="feed_item_type_randomizer">Generar artículos al azar para leer</string>
+  <string name="feed_item_type_suggested_edits">Sugerencias para añadir contenido a Wikipedia</string>
   <string name="feed_empty_message">No hay nada en el suministro Explorar</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personaliza el canal Explorar&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Ahora puedes escoger qué mostrar en tu suministro y priorizar tus tipos de contenido preferidos.</string>

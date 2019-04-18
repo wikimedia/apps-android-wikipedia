@@ -584,6 +584,7 @@
   <string name="feed_item_type_featured_image">صورة يومية مختارة من ويكيميديا ​​كومنز</string>
   <string name="feed_item_type_main_page">الصفحة الرئيسية لويكيبيديا مع المحتوى اليومي المختار</string>
   <string name="feed_item_type_randomizer">توليد مقالات عشوائية للقراءة</string>
+  <string name="feed_item_type_suggested_edits">اقتراحات لإضافة محتوى إلى ويكيبيديا</string>
   <string name="feed_empty_message">لا يوجد شيء في خلاصة استكشافك</string>
   <string name="feed_configure_onboarding_action">تخصيص</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;تخصيص خلاصة استكشافك&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;يمكنك الآن اختيار ما تريد عرضه على خلاصتك، وكذلك تحديد أولويات أنواع المحتوى المفضلة لديك.</string>
@@ -656,6 +657,7 @@
     <item quantity="one">مساهمة</item>
     <item quantity="other">%d مساهمات</item>
   </plurals>
+  <string name="suggested_edits">التعديلات المقترحة</string>
   <string name="suggested_edits_tutorial_message">مرحبا بك في البيت الجديد للتعديل السريع من تطبيق ويكيبيديا. مساهماتك مرحب بها جدا. تحرير سعيد!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">ابدأ</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>

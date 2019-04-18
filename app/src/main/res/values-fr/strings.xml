@@ -278,7 +278,7 @@
   <string name="preference_summary_show_images">Activer ou désactiver le chargement des images dans les pages. Décochez ce paramètre si votre connexion à Internet est lente, ou si votre volume de données est limité.</string>
   <string name="preference_title_download_only_over_wifi">Télécharger seulement par le Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Confirmer le téléchargement en utilisant les données mobiles ?</string>
-  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Vous avez « Télécharger seulement par Wi-Fi » activé dans les paramètres. Voulez-vous autoriser l’utilisation de votre plan de données mobiles pour ce téléchargement uniquement ?</string>
+  <string name="dialog_text_download_only_over_wifi">Vous avez activé «  Télécharger seulement par Wi-Fi  » dans les paramètres. Voulez-vous autoriser l’utilisation de votre plan de données mobiles pour ce téléchargement uniquement ?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Autoriser</string>
   <string name="read_more_section">En savoir plus</string>
   <string name="about_article_section">À propos de cet article</string>
@@ -589,6 +589,7 @@
   <string name="feed_item_type_featured_image">Image du jour en vedette de Wikimédia Communs</string>
   <string name="feed_item_type_main_page">Page d’accueil de Wikipédia avec le contenu vedette du jour</string>
   <string name="feed_item_type_randomizer">Générer des articles aléatoires à lire</string>
+  <string name="feed_item_type_suggested_edits">Suggestions pour ajouter du contenu à Wikipedia</string>
   <string name="feed_empty_message">Il n\'y a rien dans votre flux Explore</string>
   <string name="feed_configure_onboarding_action">Personnaliser</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personnaliser votre fil d’exploration&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Vous pouvez maintenant choisir ce que vous voulez montrer sur votre fil, et aussi prioriser vos types de contenu favoris.</string>
@@ -628,17 +629,17 @@
   <string name="suggested_edits_my_contributions">Mes contributions</string>
   <string name="suggested_edits_added_by_you">Ajouté par vous :</string>
   <string name="suggested_edits_translated_by_you">Traduit par vous :</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Vous avez déverrouillé la tâche « Ajouter les descriptions »</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Félicitations pour votre troisième contribution ! Comme vous êtes super bon en édition, nous avons compilé une liste d’articles pour lesquels il manque les descriptions. Pouvez-vous nous aider à améliorer Wikipédia ?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Vous avez déverrouillé la tâche « Traduire les descriptions »</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Félicitations pour votre cinquantième contribution, cela nous impressionne ! Vous utilisez l’application dans diverses langues, aussi avons-nous compilé une liste d’articles pour lesquels il manque la traduction des descriptions. Pouvez-vous continuer à nous aider à améliorer Wikipédia ?</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Vous avez déverrouillé la tâche «  Ajouter les descriptions  »</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Merci pour toutes vos contributions ! Comme vous êtes super bon en édition, nous avons compilé une liste d’articles pour lesquels il manque les descriptions. Pouvez-vous nous aider à améliorer Wikipédia ?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Vous avez déverrouillé la tâche «  Traduire les descriptions  »</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Félicitations pour vos nombreuses contributions, cela nous impressionne ! Vous utilisez l’application dans diverses langues, aussi avons-nous compilé une liste d’articles pour lesquels il manque la traduction des descriptions. Pouvez-vous continuer à nous aider à améliorer Wikipédia ?</string>
   <string name="suggested_edits_unlock_dialog_no">Peut-être plus tard</string>
   <string name="suggested_edits_unlock_dialog_yes">Oui, allons-y</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">Vous avez débloqué « Ajouter des descriptions »</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">Vous avez débloqué « Traduire les descriptions »</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">Vous avez débloqué «  Ajouter des descriptions  »</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Vous avez débloqué «  Traduire les descriptions  »</string>
   <string name="suggested_edits_unlock_notification_text">Modifications suggérées</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text" fuzzy="true">Modifications suggérées\n\nFélicitations pour votre troisième contribution. Comme vous êtes très bon en modification, nous avons compilé une liste d’articles sans description. Pouvez-vous nous aider à améliorer Wikipédia ?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text" fuzzy="true">Modifications suggérées\n\nFélicitations pour votre cinquantième contribution, nous sommes impressionnés ! Vous utilisez l’application dans plusieurs langues ; nous avons donc compilé une liste d’articles qui ont besoin de traduction de description. Pouvez-vous continuer à nous aider à améliorer Wikipédia ?</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Modifications suggérées\n\nMerci pour toutes vos contributions !. Comme vous êtes très bon en édition, nous avons compilé une liste d’articles sans description. Pouvez-vous nous aider à améliorer Wikipédia ?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Modifications suggérées\n\nFélicitations pour vos nombreuses contribution, nous sommes impressionnés ! Vous utilisez l’application dans plusieurs langues ; nous avons donc compilé une liste d’articles qui ont besoin de traduction de description. Pouvez-vous continuer à nous aider à améliorer Wikipédia ?</string>
   <string name="suggested_edits_unlock_notification_button">Oui, allons-y</string>
   <string name="suggested_edits_license_notice">En ajoutant la description du titre, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et met de façon irrévocable mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Info</string>
@@ -661,6 +662,7 @@
     <item quantity="one">contribution</item>
     <item quantity="other">%d contributions</item>
   </plurals>
+  <string name="suggested_edits">Modifications suggérées</string>
   <string name="suggested_edits_tutorial_message">Bienvenue dans le nouvel accueil pour la modification rapide dans l’application de Wikipédia. Vos contributions sont toujours très appréciées. Bonnes modifications!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Commencer</string>
   <string name="description_edit_revert_subtitle">Merci pour l’édition de Wikipédia !</string>

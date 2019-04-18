@@ -574,6 +574,7 @@
   <string name="feed_item_type_featured_image">תמונה יומית מומלצת מוויקישיתוף</string>
   <string name="feed_item_type_main_page">דף ראשי של ויקיפדיה עם תוכן יומי מומלץ</string>
   <string name="feed_item_type_randomizer">יצירת ערכים אקראיים לקריאה</string>
+  <string name="feed_item_type_suggested_edits">הצעות להוספת תוכן לוויקיפדיה</string>
   <string name="feed_empty_message">אין שום דבר בהזנת ה\"לחקור\" שלך</string>
   <string name="feed_configure_onboarding_action">התאמה אישית</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;תעשו התאמה אישית של ההזנה שלכם&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;אתם יכולים לבחור מה להציג בהזנה שלכם ולתעדף את סוגי התוכן שאתם אוהבים.</string>
@@ -646,6 +647,7 @@
     <item quantity="one">תרומה אחת</item>
     <item quantity="other">%d תרומות</item>
   </plurals>
+  <string name="suggested_edits">עריכות מוצעות</string>
   <string name="suggested_edits_tutorial_message">ברוך בואך לבית החדש לעריכה מהירה מתוך יישומון ויקיפדיה. אנו מאוד מעריכים את התרומות שלך. בהצלחה בעריכה!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">מדריך למתחילים</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
