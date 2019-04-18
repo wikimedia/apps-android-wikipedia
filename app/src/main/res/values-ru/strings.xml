@@ -293,7 +293,7 @@
   <string name="preference_summary_show_images">Включить или отключить загрузку изображений на страницах. Выключите эту настройку, если у вас медленное подключение к интернету или трафик на вашем тарифном плане ограничен.</string>
   <string name="preference_title_download_only_over_wifi">Скачивать только по Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Подтверждать скачивание по мобильной сети?</string>
-  <string name="dialog_text_download_only_over_wifi" fuzzy="true">В настройках вы указали «Скачивать только по Wi-Fi». Хотите только для текущей закачки использовать мобильную сеть?</string>
+  <string name="dialog_text_download_only_over_wifi">В настройках вы указали «Скачивать только по Wi-Fi». Хотите только для текущей закачки использовать мобильную сеть?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Разрешить</string>
   <string name="read_more_section">Связанные статьи</string>
   <string name="about_article_section">Об этой статье</string>
@@ -566,12 +566,12 @@
   <string name="view_random_card_title">Рандомизатор</string>
   <string name="view_random_card_subtitle">Полистайте подборку случайных статей Википедии.</string>
   <string name="view_random_card_action">Прочитать случайную статью</string>
-  <string name="view_next_random_article">Загрузить другую случайную статью</string>
+  <string name="view_next_random_article">Скачать другую случайную статью</string>
   <string name="view_main_page_card_title">Сегодня в Википедии</string>
   <string name="view_main_page_card_subtitle">Главная страница на %s</string>
   <string name="view_main_page_card_action">Посмотреть Заглавную страницу</string>
   <string name="view_featured_image_card_title">Изображение дня</string>
-  <string name="view_featured_image_card_download">Загрузить</string>
+  <string name="view_featured_image_card_download">Скачать</string>
   <string name="menu_feed_card_dismiss">Скрыть эту карточку</string>
   <string name="menu_feed_card_dismissed">Карточка скрыта.</string>
   <string name="menu_feed_card_edit_card_languages">Редактировать языки карточек</string>
@@ -607,6 +607,7 @@
   <string name="feed_item_type_featured_image">Избранное изображение дня с Викисклада</string>
   <string name="feed_item_type_main_page">Заглавная страница Википедии с ежедневно обновляемыми избранными материалами</string>
   <string name="feed_item_type_randomizer">Сгенерировать случайный список статей для чтения</string>
+  <string name="feed_item_type_suggested_edits">Предложено к редактированию кратких описаний</string>
   <string name="feed_empty_message">Ваша лента пуста</string>
   <string name="feed_configure_onboarding_action">Настроить</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Настройте свою ленту&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Теперь вы можете выбрать, что будет отображаться в ленте, а также определить приоритеты для выбранных типов содержимого.</string>
@@ -646,17 +647,17 @@
   <string name="suggested_edits_my_contributions">Мой вклад</string>
   <string name="suggested_edits_added_by_you">Добавлено вами:</string>
   <string name="suggested_edits_translated_by_you">Переведено вами:</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Вы разблокировали модуль \"Добавление кратких описаний\"</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Поздравляем со сделанной третьей правкой! Поскольку вы уже разбираетесь в редактировании, возможно вам будет интересен список статей, нуждающихся в кратких описаниях. Поможете улучшить Википедию?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Вы разблокировали модуль \"Перевод кратких описаний\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Поздравляем со сделанной пятидесятой правкой! Поскольку вы используете это приложение с разными языками, возможно вам будет интересен список статей, нуждающихся в переводе кратких описаний. Поможете улучшить Википедию таким образом?</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Вы разблокировали модуль \"Добавление кратких описаний\"</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Спасибо за ваш вклад! Поскольку вы уже разбираетесь в редактировании, возможно вам будет интересен список статей, нуждающихся в кратких описаниях. Поможете улучшить Википедию?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Вы разблокировали модуль \"Перевод кратких описаний\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Вы сделали уже довольного много правок. Поздравляем! Поскольку вы используете это приложение с разными языками, возможно вам будет интересен список статей, нуждающихся в переводе кратких описаний. Поможете улучшить Википедию таким образом?</string>
   <string name="suggested_edits_unlock_dialog_no">Может позже</string>
   <string name="suggested_edits_unlock_dialog_yes">Поехали!</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">Вы разблокировали проект \"Добавление кратких описаний\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">Вы разблокировали модуль \"Перевод кратких описаний\"</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">Вы разблокировали проект \"Добавление кратких описаний\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Вы разблокировали модуль \"Перевод кратких описаний\"</string>
   <string name="suggested_edits_unlock_notification_text">Предложение отредактировать</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text" fuzzy="true">Предложение отредактировать\n\nПоздравляем со сделанной третьей правкой! Поскольку вы уже разбираетесь в редактировании, возможно вам будет интересен список статей, нуждающихся в кратких описаниях. Поможете улучшить Википедию?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text" fuzzy="true">Предложение отредактировать\n\nПоздравляем со сделанной пятидесятой правкой! Поскольку вы используете это приложение с разными языками, возможно вам будет интересен список статей, нуждающихся в переводе кратких описаний. Поможете улучшить Википедию таким образом?</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Предложение отредактировать\n\nСпасибо за ваш вклад! Поскольку вы уже разбираетесь в редактировании, возможно вам будет интересен список статей, нуждающихся в кратких описаниях. Поможете улучшить Википедию?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Предложение отредактировать\n\nВы сделали уже довольного много правок. Поздравляем!  Поскольку вы используете это приложение с разными языками, возможно вам будет интересен список статей, нуждающихся в переводе кратких описаний. Поможете улучшить Википедию таким образом?</string>
   <string name="suggested_edits_unlock_notification_button">Поехали</string>
   <string name="suggested_edits_license_notice">Добавляя краткое описание, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Информация</string>
@@ -679,6 +680,7 @@
     <item quantity="one">одна правка</item>
     <item quantity="other">%d правки</item>
   </plurals>
+  <string name="suggested_edits">Предложено отредактировать</string>
   <string name="suggested_edits_tutorial_message">Добро пожаловать в новое приложение для быстрого редактирования Википедии. Ваш вклад весьма ценен. Приятного редактирования!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Начать</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>

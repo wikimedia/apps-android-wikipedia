@@ -11,6 +11,7 @@
 * Envlh
 * Green Zero
 * Gzhegozh
+* Ihor.Zinchenko
 * Movses
 * Piramidion
 * SimondR
@@ -312,7 +313,7 @@
   <string name="link_preview_disambiguation_description">Ця назва стосується більше ніж однієї сторінки</string>
   <string name="button_add_to_reading_list">Додати до списку для читання</string>
   <string name="page_offline_notice_cannot_load_while_offline">Статтю неможливо завантажити, перебуваючи поза мережею.</string>
-  <string name="page_offline_notice_add_to_reading_list">Підказка: Додайте статтю до списку для читання, і її буде завантажено, як тільки Ви отримаєте доступ до мережі.</string>
+  <string name="page_offline_notice_add_to_reading_list">Підказка: Додайте статтю до списку для читання, і її буде завантажено, щойно Ви отримаєте доступ до мережі.</string>
   <string name="page_offline_notice_last_date">Ви читаєте автономну версію цієї статті, збережену %s.</string>
   <string name="button_get_directions">Прокласти маршрут</string>
   <string name="error_no_maps_app">Не вдалося знайти жодної програми, яка прокладала б маршрут.</string>

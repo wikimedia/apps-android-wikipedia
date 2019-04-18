@@ -16,7 +16,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.dataclient.page.PageSummary;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -55,10 +55,8 @@ public class DescriptionEditView extends LinearLayout {
     @Nullable private String originalDescription;
     @Nullable private Callback callback;
     private PageTitle pageTitle;
-    private PageSummary pageSummary;
+    private RbPageSummary pageSummary;
     private boolean isTranslationEdit;
-    @Nullable private CharSequence translationSourceDescription;
-    @Nullable private String translationSourceLanguageCode;
 
     public interface Callback {
         void onSaveClick();
@@ -120,19 +118,21 @@ public class DescriptionEditView extends LinearLayout {
         headerText.setText(getContext().getString(headerTextRes));
     }
 
-    public void setPageSummary(@NonNull PageSummary pageSummary) {
+    public void setPageSummaries(@NonNull RbPageSummary sourceSummary, RbPageSummary targetSummary) {
+        // the page summary that will bring to the review screen
+        this.pageSummary = isTranslationEdit ? targetSummary : sourceSummary;
+
         pageSummaryContainer.setVisibility(View.VISIBLE);
         labelText.setText(isTranslationEdit
                 ? String.format(getContext().getString(R.string.description_edit_text_hint_per_language),
-                WikipediaApp.getInstance().language().getAppLanguageCanonicalName(translationSourceLanguageCode))
+                WikipediaApp.getInstance().language().getAppLanguageCanonicalName(sourceSummary.getLang()))
                 : getContext().getString(R.string.description_edit_article));
         pageSummaryText.setText(isTranslationEdit
-                ? StringUtils.capitalize(translationSourceDescription.toString())
-                : StringUtil.fromHtml(pageSummary.getExtract()));
-        setConditionalLayoutDirection(pageSummaryContainer, (isTranslationEdit) ? translationSourceLanguageCode : pageTitle.getWikiSite().languageCode());
-        readArticleBarContainer.setPageSummary(pageSummary, pageTitle.getWikiSite().languageCode());
+                ? StringUtils.capitalize(sourceSummary.getDescription())
+                : StringUtil.fromHtml(sourceSummary.getExtract()));
+        setConditionalLayoutDirection(pageSummaryContainer, (isTranslationEdit) ? sourceSummary.getLang() : pageTitle.getWikiSite().languageCode());
+        readArticleBarContainer.setPageSummary(pageSummary);
         readArticleBarContainer.setOnClickListener(view -> performReadArticleClick());
-        this.pageSummary = pageSummary;
     }
 
     public void setSaveState(boolean saving) {
@@ -147,7 +147,7 @@ public class DescriptionEditView extends LinearLayout {
     public void loadReviewContent(boolean enabled) {
         if (enabled) {
             setReviewHeaderText(true);
-            pageReviewContainer.setPageSummary(pageSummary, getDescription(), pageTitle.getWikiSite().languageCode());
+            pageReviewContainer.setPageSummary(pageSummary, getDescription());
             pageReviewContainer.show();
             readArticleBarContainer.hide();
             descriptionEditContainer.setVisibility(GONE);
@@ -261,12 +261,5 @@ public class DescriptionEditView extends LinearLayout {
 
     public void setTranslationEdit(boolean translationEdit) {
         isTranslationEdit = translationEdit;
-    }
-
-    public void setTranslationSources(@Nullable CharSequence description, @Nullable String languageCode) {
-        if (description != null && languageCode != null) {
-            this.translationSourceDescription = description;
-            this.translationSourceLanguageCode = languageCode;
-        }
     }
 }
