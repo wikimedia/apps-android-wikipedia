@@ -6,27 +6,24 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
-import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DateUtil
 
 class SuggestedEditsCard(wiki: WikiSite) : WikiSiteCard(wiki) {
     var wiki: WikiSite? = null
     var age: Int? = null
     var isTranslation: Boolean = false
-    var sourceDescription: String = ""
-    var summary: RbPageSummary? = null
-    var targetPageTitle: PageTitle? = null
+    var sourceSummary: RbPageSummary? = null
+    var targetSummary: RbPageSummary? = null
 
     override fun type(): CardType {
         return CardType.SUGGESTED_EDITS
     }
 
-    constructor(wiki: WikiSite, translation: Boolean, summary: RbPageSummary?, sourceDescription: String, targetPageTitle: PageTitle?) : this(wiki) {
+    constructor(wiki: WikiSite, translation: Boolean, sourceSummary: RbPageSummary?, targetSummary: RbPageSummary?) : this(wiki) {
         this.wiki = wiki
         this.isTranslation = translation
-        this.summary = summary
-        this.sourceDescription = sourceDescription
-        this.targetPageTitle = targetPageTitle
+        this.sourceSummary = sourceSummary
+        this.targetSummary = targetSummary
     }
 
     override fun title(): String {
