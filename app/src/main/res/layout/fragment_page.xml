@@ -46,7 +46,14 @@
                 android:id="@+id/fragment_page_coordinator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@+id/page_actions_tab_layout" />
+                app:layout_constraintBottom_toTopOf="@+id/page_actions_tab_layout_divider" />
+
+            <View
+                android:id="@+id/page_actions_tab_layout_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/chip_background_color"
+                app:layout_constraintBottom_toTopOf="@+id/page_actions_tab_layout"/>
 
             <org.wikipedia.page.PageActionTabLayout
                 android:id="@+id/page_actions_tab_layout"
