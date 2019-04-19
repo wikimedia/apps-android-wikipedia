@@ -22,7 +22,7 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -147,7 +147,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private PageHeaderView pageHeaderView;
     private BottomContentView bottomContentView;
     private ObservableWebView webView;
-    private ConstraintLayout containerView;
+    private CoordinatorLayout containerView;
     private SwipeRefreshLayoutWithScroll refreshView;
     private WikiPageErrorView errorView;
     private PageActionTabLayout tabLayout;
