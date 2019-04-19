@@ -390,8 +390,10 @@ public class WikipediaApp extends Application {
         // HockeyApp exception handling interferes with the test runner, so enable it only for beta and stable releases
         if (!ReleaseUtil.isPreBetaRelease()) {
             putCrashReportProperty("locale", Locale.getDefault().toString());
-            putCrashReportProperty("app_primary_language", appLanguageState.getAppLanguageCode());
-            putCrashReportProperty("app_languages", appLanguageState.getAppLanguageCodes().toString());
+            if (appLanguageState != null) {
+                putCrashReportProperty("app_primary_language", appLanguageState.getAppLanguageCode());
+                putCrashReportProperty("app_languages", appLanguageState.getAppLanguageCodes().toString());
+            }
         }
     }
 
