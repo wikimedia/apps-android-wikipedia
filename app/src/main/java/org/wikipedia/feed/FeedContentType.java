@@ -80,18 +80,17 @@ public enum FeedContentType implements EnumCode {
             return isEnabled() ? new BecauseYouReadClient() : null;
         }
     },
-    SUGGESTED_EDITS(9, R.string.suggested_edits_feed_card_title, R.string.feed_item_type_suggested_edits, false, true) {
+    SUGGESTED_EDITS(9, R.string.suggested_edits_feed_card_title, R.string.feed_item_type_suggested_edits, false, ReleaseUtil.isPreBetaRelease()) {
         @Nullable
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
-            if (ReleaseUtil.isPreBetaRelease()) {
-                if (age % 2 == 0 && isEnabled() && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline()) {
-                    return Prefs.isSuggestedEditsAddDescriptionsUnlocked() ? new SuggestedEditsFeedClient(false) : null;
-                } else {
-                    return Prefs.isSuggestedEditsTranslateDescriptionsUnlocked() ? new SuggestedEditsFeedClient(true) : null;
-                }
-            } else {
+            if (!ReleaseUtil.isPreBetaRelease()) {
                 return null;
+            }
+            if (age % 2 == 0 && isEnabled() && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline()) {
+                return Prefs.isSuggestedEditsAddDescriptionsUnlocked() ? new SuggestedEditsFeedClient(false) : null;
+            } else {
+                return Prefs.isSuggestedEditsTranslateDescriptionsUnlocked() ? new SuggestedEditsFeedClient(true) : null;
             }
         }
     };
@@ -105,7 +104,7 @@ public enum FeedContentType implements EnumCode {
     private boolean enabled = true;
 
     private boolean perLanguage;
-    private boolean isPreBeta;
+    private boolean showInConfig = true;
     private List<String> langCodesSupported = new ArrayList<>();
     private List<String> langCodesDisabled = new ArrayList<>();
 
@@ -133,8 +132,8 @@ public enum FeedContentType implements EnumCode {
         return enabled;
     }
 
-    public boolean isPreBeta() {
-        return isPreBeta;
+    public boolean showInConfig() {
+        return showInConfig;
     }
 
     public void setEnabled(boolean enabled) {
@@ -169,9 +168,9 @@ public enum FeedContentType implements EnumCode {
         this.perLanguage = perLanguage;
     }
 
-    FeedContentType(int code, @StringRes int titleId, @StringRes int subtitleId, boolean perLanguage, boolean isPreBeta) {
+    FeedContentType(int code, @StringRes int titleId, @StringRes int subtitleId, boolean perLanguage, boolean showInConfig) {
         this(code, titleId, subtitleId, perLanguage);
-        this.isPreBeta = isPreBeta;
+        this.showInConfig = showInConfig;
     }
 
     public static List<String> getAggregatedLanguages() {
