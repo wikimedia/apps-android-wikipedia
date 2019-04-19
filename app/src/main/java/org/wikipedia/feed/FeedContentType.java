@@ -80,7 +80,7 @@ public enum FeedContentType implements EnumCode {
             return isEnabled() ? new BecauseYouReadClient() : null;
         }
     },
-    SUGGESTED_EDITS(9, R.string.suggested_edits_feed_card_title, R.string.feed_item_type_suggested_edits, false) {
+    SUGGESTED_EDITS(9, R.string.suggested_edits_feed_card_title, R.string.feed_item_type_suggested_edits, false, true) {
         @Nullable
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
@@ -105,6 +105,7 @@ public enum FeedContentType implements EnumCode {
     private boolean enabled = true;
 
     private boolean perLanguage;
+    private boolean isPreBeta;
     private List<String> langCodesSupported = new ArrayList<>();
     private List<String> langCodesDisabled = new ArrayList<>();
 
@@ -130,6 +131,10 @@ public enum FeedContentType implements EnumCode {
 
     public boolean isEnabled() {
         return enabled;
+    }
+
+    public boolean isPreBeta() {
+        return isPreBeta;
     }
 
     public void setEnabled(boolean enabled) {
@@ -162,6 +167,11 @@ public enum FeedContentType implements EnumCode {
         this.titleId = titleId;
         this.subtitleId = subtitleId;
         this.perLanguage = perLanguage;
+    }
+
+    FeedContentType(int code, @StringRes int titleId, @StringRes int subtitleId, boolean perLanguage, boolean isPreBeta) {
+        this(code, titleId, subtitleId, perLanguage);
+        this.isPreBeta = isPreBeta;
     }
 
     public static List<String> getAggregatedLanguages() {

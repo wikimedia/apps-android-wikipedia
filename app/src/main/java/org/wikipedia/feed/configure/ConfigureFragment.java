@@ -16,6 +16,7 @@ import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.FeedContentType;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
@@ -168,7 +169,12 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
         List<String> appLanguages = WikipediaApp.getInstance().language().getAppLanguageCodes();
         Iterator<FeedContentType> i = orderedContentTypes.iterator();
         while (i.hasNext()) {
-            List<String> supportedLanguages = i.next().getLangCodesSupported();
+            FeedContentType feedContentType = i.next();
+            //Remove items if flagged for PreBeta
+            if (feedContentType.isPreBeta() && !ReleaseUtil.isPreBetaRelease()) {
+                i.remove();
+            }
+            List<String> supportedLanguages = feedContentType.getLangCodesSupported();
             if (supportedLanguages.isEmpty()) {
                 continue;
             }
