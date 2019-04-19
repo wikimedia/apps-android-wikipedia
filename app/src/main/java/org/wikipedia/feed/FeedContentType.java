@@ -84,15 +84,10 @@ public enum FeedContentType implements EnumCode {
         @Nullable
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
-            if (ReleaseUtil.isPreBetaRelease()) {
-                if (age % 2 == 0 && isEnabled() && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline()) {
-                    return Prefs.isSuggestedEditsAddDescriptionsUnlocked() ? new SuggestedEditsFeedClient(false) : null;
-                } else {
-                    return Prefs.isSuggestedEditsTranslateDescriptionsUnlocked() ? new SuggestedEditsFeedClient(true) : null;
-                }
-            } else {
-                return null;
+            if (ReleaseUtil.isPreBetaRelease() && isEnabled() && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline()) {
+                return Prefs.isSuggestedEditsAddDescriptionsUnlocked() ? new SuggestedEditsFeedClient(!(age % 2 == 0) && Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()) : null;
             }
+            return null;
         }
     };
 
