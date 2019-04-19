@@ -1,5 +1,7 @@
 package org.wikipedia.feed.aggregated;
 
+import androidx.annotation.Nullable;
+
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
@@ -9,8 +11,6 @@ import org.wikipedia.feed.news.NewsItem;
 import org.wikipedia.feed.onthisday.OnThisDay;
 
 import java.util.List;
-
-import androidx.annotation.Nullable;
 
 public class AggregatedFeedContent {
     @SuppressWarnings("unused") @Nullable private RbPageSummary tfa;

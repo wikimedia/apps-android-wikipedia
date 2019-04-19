@@ -8,14 +8,14 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 
-import org.wikipedia.Constants;
-import org.wikipedia.R;
-import org.wikipedia.util.MathUtil;
-
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.core.app.NotificationCompat;
+
+import org.wikipedia.Constants;
+import org.wikipedia.R;
+import org.wikipedia.util.MathUtil;
 
 public class NotificationWithProgressBar {
     private boolean canceled;

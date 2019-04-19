@@ -3,6 +3,9 @@ package org.wikipedia.feed.mainpage;
 import android.content.Context;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.R;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.StaticCardView;
@@ -10,9 +13,6 @@ import org.wikipedia.history.HistoryEntry;
 
 import java.text.DateFormat;
 import java.util.Date;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public class MainPageCardView extends StaticCardView<MainPageCard> {
     public MainPageCardView(@NonNull Context context) {

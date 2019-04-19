@@ -3,6 +3,9 @@ package org.wikipedia.language;
 import android.content.Context;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.settings.Prefs;
@@ -11,9 +14,6 @@ import org.wikipedia.util.StringUtil;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.language.AppLanguageLookUpTable.TEST_LANGUAGE_CODE;

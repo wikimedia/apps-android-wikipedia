@@ -5,9 +5,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
+import com.google.android.material.snackbar.Snackbar;
 
 public class BottomViewBehavior extends CoordinatorLayout.Behavior<ViewGroup> {
     public BottomViewBehavior(Context context, AttributeSet attrs) {

@@ -1,8 +1,8 @@
 package org.wikipedia.captcha;
 
-import org.wikipedia.dataclient.mwapi.MwResponse;
-
 import androidx.annotation.NonNull;
+
+import org.wikipedia.dataclient.mwapi.MwResponse;
 
 public class Captcha extends MwResponse {
     @SuppressWarnings("unused,NullableProblems") @NonNull private FancyCaptchaReload fancycaptchareload;

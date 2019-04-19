@@ -1,12 +1,12 @@
 package org.wikipedia.page;
 
-import org.wikipedia.settings.RbSwitch;
-
-import java.util.List;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
+
+import org.wikipedia.settings.RbSwitch;
+
+import java.util.List;
 
 /**
  * Represents a particular page along with its full contents.

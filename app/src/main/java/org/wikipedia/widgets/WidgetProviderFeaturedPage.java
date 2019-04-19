@@ -12,6 +12,8 @@ import android.text.TextUtils;
 import android.text.style.URLSpan;
 import android.widget.RemoteViews;
 
+import androidx.annotation.NonNull;
+
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -29,7 +31,6 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
-import androidx.annotation.NonNull;
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
 

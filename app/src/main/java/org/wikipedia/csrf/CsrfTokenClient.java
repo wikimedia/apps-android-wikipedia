@@ -3,6 +3,10 @@ package org.wikipedia.csrf;
 import android.text.TextUtils;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
@@ -17,9 +21,6 @@ import org.wikipedia.util.log.L;
 
 import java.io.IOException;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import retrofit2.Call;
 import retrofit2.Response;
 

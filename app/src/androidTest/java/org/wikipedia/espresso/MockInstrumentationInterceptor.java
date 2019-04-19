@@ -3,6 +3,8 @@ package org.wikipedia.espresso;
 import android.content.Context;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+
 import org.wikipedia.dataclient.okhttp.TestStubInterceptor;
 import org.wikipedia.util.FileUtil;
 
@@ -10,7 +12,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import androidx.annotation.NonNull;
 import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.Protocol;

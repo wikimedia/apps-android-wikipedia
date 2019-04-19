@@ -9,13 +9,13 @@ import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import static org.wikipedia.Constants.InvokeSource.CONTEXT_MENU;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
@@ -25,7 +25,8 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
         MenuItem.OnMenuItemClickListener {
     private final ContextMenuListener contextMenuListener;
     private final int historySource;
-    @Nullable private final String referrer;
+    @Nullable
+    private final String referrer;
 
     private PageTitle title;
     private HistoryEntry entry;

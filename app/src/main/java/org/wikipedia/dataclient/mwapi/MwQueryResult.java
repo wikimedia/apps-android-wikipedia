@@ -1,5 +1,8 @@
 package org.wikipedia.dataclient.mwapi;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
@@ -16,9 +19,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 @SuppressWarnings("unused")
 public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapter.PostProcessable {

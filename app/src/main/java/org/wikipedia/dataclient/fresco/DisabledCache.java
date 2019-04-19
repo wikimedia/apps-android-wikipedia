@@ -1,5 +1,7 @@
 package org.wikipedia.dataclient.fresco;
 
+import androidx.annotation.NonNull;
+
 import com.facebook.binaryresource.BinaryResource;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.cache.common.WriterCallback;
@@ -9,8 +11,6 @@ import com.facebook.cache.disk.FileCache;
 import com.facebook.imagepipeline.core.FileCacheFactory;
 
 import java.io.IOException;
-
-import androidx.annotation.NonNull;
 
 /**
  * A disabled dummy cache to provide to Fresco in order to prevent unwanted redundant disk caching.

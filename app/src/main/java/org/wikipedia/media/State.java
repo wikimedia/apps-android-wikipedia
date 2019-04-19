@@ -1,9 +1,9 @@
 package org.wikipedia.media;
 
-import org.apache.commons.lang3.StringUtils;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import org.apache.commons.lang3.StringUtils;
 
 class State {
     private enum LoadState {

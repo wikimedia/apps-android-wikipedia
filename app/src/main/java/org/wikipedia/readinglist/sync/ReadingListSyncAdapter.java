@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -37,8 +39,6 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import androidx.annotation.NonNull;
 
 import static org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingList;
 import static org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntry;

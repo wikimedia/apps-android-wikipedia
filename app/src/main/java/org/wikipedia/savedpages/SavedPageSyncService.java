@@ -4,6 +4,10 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.JobIntentService;
+
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.dataclient.WikiSite;
@@ -35,9 +39,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.app.JobIntentService;
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.CacheControl;
