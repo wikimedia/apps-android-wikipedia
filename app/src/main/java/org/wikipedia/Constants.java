@@ -75,17 +75,15 @@ public final class Constants {
         FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC,
         SUGGESTED_EDITS_ONBOARDING,
         ONBOARDING_DIALOG,
-        NOTIFICATION,
-        NAV_MENU,
         TOOLBAR,
         WIDGET,
         INTENT_SHARE,
         INTENT_PROCESS_TEXT,
         FEED_BAR,
         VOICE,
-        APP_SHORTCUTS;
+        APP_SHORTCUTS,
         FEED,
-        NOTIFICATION
+        NOTIFICATION;
     }
 
     private Constants() { }
