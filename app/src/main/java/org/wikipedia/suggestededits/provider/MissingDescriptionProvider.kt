@@ -72,7 +72,7 @@ object MissingDescriptionProvider {
     }
 
     @Deprecated("Remove when the new API is deployed to production.")
-    fun getNextArticleWithMissingDescription(sourceWiki: WikiSite, targetLang: String, sourceLangMustExist: Boolean): Observable<Pair<PageTitle, RbPageSummary>> {
+    fun getNextArticleWithMissingDescription(sourceWiki: WikiSite, targetLang: String, sourceLangMustExist: Boolean): Observable<Pair<RbPageSummary, RbPageSummary>> {
         val targetWiki = WikiSite.forLanguageCode(targetLang)
         var cachedPair: Pair<PageTitle, PageTitle>? = null
         synchronized(articlesWithTranslatableDescriptionCache) {
@@ -129,7 +129,7 @@ object MissingDescriptionProvider {
                 .retry { t: Throwable -> t is ListEmptyException }
     }
 
-    fun getNextArticleWithMissingDescriptionNew(sourceWiki: WikiSite, targetLang: String): Observable<Pair<PageTitle, RbPageSummary>> {
+    fun getNextArticleWithMissingDescriptionNew(sourceWiki: WikiSite, targetLang: String): Observable<Pair<RbPageSummary, RbPageSummary>> {
         val targetWiki = WikiSite.forLanguageCode(targetLang)
         return ServiceFactory.get(sourceWiki).getEditorTaskTranslatableDescriptions(sourceWiki.languageCode(), targetLang)
                 .flatMap { response: MwQueryResponse ->
@@ -164,10 +164,10 @@ object MissingDescriptionProvider {
                 .retry { t: Throwable -> t is ListEmptyException }
     }
 
-    private fun getSummary(titles: Pair<PageTitle, PageTitle>): Observable<Pair<PageTitle, RbPageSummary>> {
-        return Observable.zip(Observable.just(titles.first),
+    private fun getSummary(titles: Pair<PageTitle, PageTitle>): Observable<Pair<RbPageSummary, RbPageSummary>> {
+        return Observable.zip(ServiceFactory.getRest(titles.first.wikiSite).getSummary(null, titles.first.prefixedText),
                 ServiceFactory.getRest(titles.second.wikiSite).getSummary(null, titles.second.prefixedText),
-                BiFunction<PageTitle, RbPageSummary, Pair<PageTitle, RbPageSummary>> { source, target -> Pair(source, target) })
+                BiFunction<RbPageSummary, RbPageSummary, Pair<RbPageSummary, RbPageSummary>> { source, target -> Pair(source, target) })
     }
 
     fun getNextImageWithMissingCaption(lang: String): Observable<MwQueryPage> {

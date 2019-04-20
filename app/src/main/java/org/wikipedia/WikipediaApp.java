@@ -53,6 +53,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 
@@ -154,11 +155,7 @@ public class WikipediaApp extends Application {
         // https://developer.android.com/topic/performance/background-optimization.html#connectivity-action
         registerReceiver(connectivityReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
 
-        // HockeyApp exception handling interferes with the test runner, so enable it only for
-        // beta and stable releases
-        if (!ReleaseUtil.isPreBetaRelease()) {
-            initExceptionHandling();
-        }
+        initExceptionHandling();
 
         refWatcher = Prefs.isMemoryLeakTestEnabled() ? LeakCanary.install(this) : RefWatcher.DISABLED;
 
@@ -176,6 +173,8 @@ public class WikipediaApp extends Application {
         currentTheme = unmarshalCurrentTheme();
 
         appLanguageState = new AppLanguageState(this);
+        updateCrashReportProps();
+
         funnelManager = new FunnelManager(this);
         sessionFunnel = new SessionFunnel(this);
         database = new Database(this);
@@ -370,6 +369,7 @@ public class WikipediaApp extends Application {
 
     public synchronized void resetWikiSite() {
         wiki = null;
+        updateCrashReportProps();
     }
 
     public void logOut() {
@@ -379,8 +379,22 @@ public class WikipediaApp extends Application {
     }
 
     private void initExceptionHandling() {
-        crashReporter = new HockeyAppCrashReporter(getString(R.string.hockeyapp_app_id), consentAccessor());
-        L.setRemoteLogger(crashReporter);
+        // HockeyApp exception handling interferes with the test runner, so enable it only for beta and stable releases
+        if (!ReleaseUtil.isPreBetaRelease()) {
+            crashReporter = new HockeyAppCrashReporter(getString(R.string.hockeyapp_app_id), consentAccessor());
+            L.setRemoteLogger(crashReporter);
+        }
+    }
+
+    private void updateCrashReportProps() {
+        // HockeyApp exception handling interferes with the test runner, so enable it only for beta and stable releases
+        if (!ReleaseUtil.isPreBetaRelease()) {
+            putCrashReportProperty("locale", Locale.getDefault().toString());
+            if (appLanguageState != null) {
+                putCrashReportProperty("app_primary_language", appLanguageState.getAppLanguageCode());
+                putCrashReportProperty("app_languages", appLanguageState.getAppLanguageCodes().toString());
+            }
+        }
     }
 
     private HockeyAppCrashReporter.AutoUploadConsentAccessor consentAccessor() {

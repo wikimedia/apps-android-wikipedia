@@ -565,6 +565,7 @@
   <string name="feed_item_type_featured_image">Immagine in primo piano quotidiana di Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Pagina principale di Wikipedia con contenuti giornalieri in primo piano</string>
   <string name="feed_item_type_randomizer">Genera voci casuali da leggere</string>
+  <string name="feed_item_type_suggested_edits">Suggerimenti per aggiungere contenuti a Wikipedia</string>
   <string name="feed_configure_onboarding_action">Personalizza</string>
   <string name="description_edit_text_hint">Descrizione del titolo</string>
   <string name="description_edit_text_hint_per_language">descrizione in %s</string>
@@ -622,6 +623,7 @@
     <item quantity="one">1 contributo</item>
     <item quantity="other">%d contributi</item>
   </plurals>
+  <string name="suggested_edits">Modifiche suggerite</string>
   <string name="suggested_edits_tutorial_message">Benvenuto nella nuova pagina principale per la modifica rapida nell\'applicazione Wikipedia. I tuoi contributi sono molto apprezzati. Buona modifica!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Inizia</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>

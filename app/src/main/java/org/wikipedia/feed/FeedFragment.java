@@ -12,13 +12,13 @@ import android.view.ViewGroup;
 
 import com.google.android.material.snackbar.Snackbar;
 
-import org.jetbrains.annotations.NotNull;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FeedFunnel;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.feed.configure.ConfigureActivity;
 import org.wikipedia.feed.configure.ConfigureItemLanguageDialogView;
@@ -92,9 +92,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     private FeedScrollListener feedScrollListener = new FeedScrollListener();
     private boolean searchIconVisible;
     private SuggestedEditsCardView suggestedEditsCardView;
-    private PageTitle descriptionEditPageTitle;
-    private String sourceDescription;
-    private String sourceLangCode;
 
     public interface Callback {
         void onFeedSearchRequested();
@@ -240,7 +237,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             if (suggestedEditsCardView != null) {
                 suggestedEditsCardView.showAddedDescriptionView(data.getStringExtra(EXTRA_SOURCE_ADDED_DESCRIPTION));
             }
-            descriptionEditPageTitle.setDescription(data.getStringExtra(EXTRA_SOURCE_ADDED_DESCRIPTION));
             FeedbackUtil.showMessage(this, R.string.description_edit_success_saved_snackbar);
         } else if (requestCode == ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING && resultCode == RESULT_OK) {
             startDescriptionEditScreen();
@@ -248,7 +244,13 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     }
 
     private void startDescriptionEditScreen() {
-        startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), descriptionEditPageTitle, null, true, sourceDescription, sourceLangCode, suggestedEditsCardView.isTranslation() ? FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC : FEED_CARD_SUGGESTED_EDITS_ADD_DESC),
+        PageTitle pageTitle = suggestedEditsCardView.isTranslation()
+                ? suggestedEditsCardView.getTargetSummary().getPageTitle(WikiSite.forLanguageCode(suggestedEditsCardView.getTargetSummary().getLang()))
+                : suggestedEditsCardView.getSourceSummary().getPageTitle(WikiSite.forLanguageCode(suggestedEditsCardView.getSourceSummary().getLang()));
+        pageTitle.setDescription(suggestedEditsCardView.getAddedDescription());
+        startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), pageTitle,
+                suggestedEditsCardView.getSourceSummary(), suggestedEditsCardView.getTargetSummary(),
+                suggestedEditsCardView.isTranslation() ? FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC : FEED_CARD_SUGGESTED_EDITS_ADD_DESC),
                 ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }
 
@@ -533,11 +535,8 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public void onSuggestedEditsCardClick(@NotNull PageTitle pageTitle, @NotNull String sourceDescription, @NotNull String sourceLangCode, @NotNull SuggestedEditsCardView view) {
+        public void onSuggestedEditsCardClick(@NonNull SuggestedEditsCardView view) {
             suggestedEditsCardView = view;
-            descriptionEditPageTitle = pageTitle;
-            FeedFragment.this.sourceDescription = sourceDescription;
-            FeedFragment.this.sourceLangCode = sourceLangCode;
             if (Prefs.showEditTaskOnboarding()) {
                 startActivityForResult(SuggestedEditsOnboardingActivity.Companion.newIntent(requireContext(), FEED_CARD_SUGGESTED_EDITS_ADD_DESC),
                         ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING);
