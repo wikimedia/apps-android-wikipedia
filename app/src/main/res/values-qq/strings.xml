@@ -750,7 +750,6 @@
   <string name="remove_all_language_warning_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog when user tries to delete all languages from app languages list.</string>
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.</string>
   <string name="reading_list_delete_dialog_ok_button_text">Positive action button text in pop-up dialog for deleting a list.</string>
-  <string name="ok">Blanket positive action button text in pop-up dialog for developer settings use only.</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Negative action button text in warning pop-up dialog for accounts for which editing is blocked.</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Negative action button text in pop-up dialog for feed card language selection.</string>
@@ -763,6 +762,5 @@
   <string name="remove_language_dialog_cancel_button_text">Negative action button text in pop-up dialog for removing a language from app languages list.</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.</string>
   <string name="reading_list_delete_dialog_cancel_button_text">Negative action button text in pop-up dialog for deleting a list.</string>
-  <string name="cancel">Blanket negative action button text in pop-up dialog for developer settings use only.</string>
   <string name="android_app_edit_help_url">URL leading to the help page for article editing from within the app. If you can find the appropriate language specific URL of the mobile site please do so.</string>
 </resources>
