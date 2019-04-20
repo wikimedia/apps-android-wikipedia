@@ -15,7 +15,6 @@ import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource.WIDGET;
 
 public class SearchActivity extends SingleFragmentActivity<SearchFragment> {
-    static final String INVOKE_SOURCE_EXTRA = "invokeSource";
     static final String QUERY_EXTRA = "query";
 
     public static Intent newIntent(@NonNull Context context, InvokeSource source, @Nullable String query) {
