@@ -6,11 +6,11 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.view.View;
 
-import org.wikipedia.views.AlienDrawableCallback;
-
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import org.wikipedia.views.AlienDrawableCallback;
 
 public class AnimatedImageSpan extends DrawableSpan {
     private Drawable.Callback animateCallback;

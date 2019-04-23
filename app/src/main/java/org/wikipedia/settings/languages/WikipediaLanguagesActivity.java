@@ -3,10 +3,10 @@ package org.wikipedia.settings.languages;
 import android.content.Context;
 import android.content.Intent;
 
+import androidx.annotation.NonNull;
+
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
-
-import androidx.annotation.NonNull;
 
 public class WikipediaLanguagesActivity extends SingleFragmentActivity<WikipediaLanguagesFragment> {
     static final String INVOKE_SOURCE_EXTRA = "invokeSource";

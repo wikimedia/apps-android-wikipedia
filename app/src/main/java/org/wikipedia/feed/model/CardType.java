@@ -2,6 +2,8 @@ package org.wikipedia.feed.model;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
+
 import org.wikipedia.feed.FeedContentType;
 import org.wikipedia.feed.announcement.AnnouncementCardView;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadCardView;
@@ -20,8 +22,6 @@ import org.wikipedia.feed.suggestededits.SuggestedEditsCardView;
 import org.wikipedia.feed.view.FeedCardView;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
-
-import androidx.annotation.NonNull;
 
 public enum CardType implements EnumCode {
     SEARCH_BAR(0) {

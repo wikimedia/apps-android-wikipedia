@@ -9,6 +9,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.DialogFragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import org.wikipedia.R;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -16,11 +22,6 @@ import org.wikipedia.util.ResourceUtil;
 import java.util.Calendar;
 import java.util.Locale;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.DialogFragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -54,8 +55,8 @@ public class CustomDatePicker extends DialogFragment {
         setMonthString();
         setDayString();
         builder.setView(dialog)
-                .setPositiveButton(android.R.string.ok, (dialog, id) -> callback.onDatePicked(callbackDay.get(Calendar.MONTH), callbackDay.get(Calendar.DATE)))
-                .setNegativeButton(android.R.string.cancel, (dialog, id) -> dialog.dismiss());
+                .setPositiveButton(R.string.custom_date_picker_dialog_ok_button_text, (dialog, id) -> callback.onDatePicked(callbackDay.get(Calendar.MONTH), callbackDay.get(Calendar.DATE)))
+                .setNegativeButton(R.string.custom_date_picker_dialog_cancel_button_text, (dialog, id) -> dialog.dismiss());
 
         return builder.create();
     }

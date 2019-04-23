@@ -11,15 +11,16 @@ import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.widget.PopupWindowCompat;
+
 import org.wikipedia.R;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
 
 import java.text.ParseException;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.widget.PopupWindowCompat;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

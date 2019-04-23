@@ -3,13 +3,13 @@ package org.wikipedia.edit.richtext;
 import android.view.ContextThemeWrapper;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
+
 import org.junit.Test;
 import org.wikipedia.R;
 import org.wikipedia.testlib.TestLatch;
 
 import java.util.List;
-
-import androidx.annotation.NonNull;
 
 import static androidx.test.InstrumentationRegistry.getTargetContext;
 import static org.hamcrest.MatcherAssert.assertThat;

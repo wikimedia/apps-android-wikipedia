@@ -6,14 +6,14 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.log.L;
-
-import androidx.annotation.NonNull;
 
 public final class InstallReceiver extends BroadcastReceiver {
     private static final String INSTALL_ACTION = "com.android.vending.INSTALL_REFERRER";

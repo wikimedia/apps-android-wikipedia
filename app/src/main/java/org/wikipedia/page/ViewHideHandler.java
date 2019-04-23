@@ -3,11 +3,11 @@ package org.wikipedia.page;
 import android.view.Gravity;
 import android.view.View;
 
-import org.wikipedia.views.ObservableWebView;
-import org.wikipedia.views.ViewAnimations;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import org.wikipedia.views.ObservableWebView;
+import org.wikipedia.views.ViewAnimations;
 
 public abstract class ViewHideHandler
         implements ObservableWebView.OnScrollChangeListener,
