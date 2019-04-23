@@ -3,6 +3,12 @@ package org.wikipedia.settings;
 import android.content.Context;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.TwoStatePreference;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.crash.RemoteLogException;
@@ -23,11 +29,6 @@ import org.wikipedia.views.DialogTitleWithImage;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.TwoStatePreference;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 

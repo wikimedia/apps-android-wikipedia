@@ -2,12 +2,12 @@ package org.wikipedia.dataclient.mwapi.page;
 
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.page.Namespace;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 /**
  * Useful for link previews coming from MW API.

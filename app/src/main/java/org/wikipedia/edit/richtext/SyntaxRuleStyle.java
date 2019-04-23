@@ -4,11 +4,11 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 
-import org.wikipedia.R;
-import org.wikipedia.util.ResourceUtil;
-
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
+
+import org.wikipedia.R;
+import org.wikipedia.util.ResourceUtil;
 
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 

@@ -1,11 +1,11 @@
 package org.wikipedia.json;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.analytics.SessionData;
 import org.wikipedia.crash.RemoteLogException;
 import org.wikipedia.util.log.L;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public final class SessionUnmarshaller {
     @NonNull public static SessionData unmarshal(@Nullable String json) {

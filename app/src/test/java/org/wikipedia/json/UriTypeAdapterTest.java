@@ -2,6 +2,9 @@ package org.wikipedia.json;
 
 import android.net.Uri;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.ParameterizedRobolectricTestRunner;
@@ -9,9 +12,6 @@ import org.robolectric.ParameterizedRobolectricTestRunner.Parameters;
 import org.wikipedia.dataclient.Service;
 
 import java.util.Arrays;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;

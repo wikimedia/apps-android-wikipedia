@@ -9,14 +9,15 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 
-import org.wikipedia.R;
-import org.wikipedia.page.tabs.Tab;
-import org.wikipedia.util.FeedbackUtil;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.widget.PopupWindowCompat;
+
+import org.wikipedia.R;
+import org.wikipedia.page.tabs.Tab;
+import org.wikipedia.util.FeedbackUtil;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

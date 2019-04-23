@@ -2,6 +2,10 @@ package org.wikipedia.readinglist;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+
 import org.wikipedia.R;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
@@ -10,10 +14,6 @@ import org.wikipedia.readinglist.database.ReadingListPage;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 
 public class RemoveFromReadingListsDialog {
     public interface Callback {

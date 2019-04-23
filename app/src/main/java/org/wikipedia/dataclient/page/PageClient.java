@@ -1,9 +1,10 @@
 package org.wikipedia.dataclient.page;
 
-import org.wikipedia.dataclient.WikiSite;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import org.wikipedia.dataclient.WikiSite;
+
 import io.reactivex.Observable;
 import okhttp3.CacheControl;
 import okhttp3.Request;

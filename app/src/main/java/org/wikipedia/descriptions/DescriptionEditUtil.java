@@ -2,6 +2,8 @@ package org.wikipedia.descriptions;
 
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+
 import org.json.JSONArray;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.Page;
@@ -9,8 +11,6 @@ import org.wikipedia.page.PageProperties;
 import org.wikipedia.util.ReleaseUtil;
 
 import java.util.Arrays;
-
-import androidx.annotation.NonNull;
 
 public final class DescriptionEditUtil {
     static final String ABUSEFILTER_DISALLOWED = "abusefilter-disallowed";

@@ -5,14 +5,14 @@ import android.os.Parcelable;
 import android.text.TextPaint;
 import android.text.style.ForegroundColorSpan;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
-
-import androidx.annotation.ColorInt;
-import androidx.annotation.NonNull;
 
 public class ColorSpanEx extends ForegroundColorSpan implements SpanExtents {
     public static final Parcelable.Creator<ColorSpanEx> CREATOR = new Parcelable.Creator<ColorSpanEx>() {

@@ -2,14 +2,14 @@ package org.wikipedia.feed.dataclient;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
+
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.FeedCoordinator;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.searchbar.SearchCard;
 
 import java.util.Collections;
-
-import androidx.annotation.NonNull;
 
 /** A dummy client for providing static cards (main page, random) on tap to the FeedCoordinator. */
 public abstract class DummyClient implements FeedClient {

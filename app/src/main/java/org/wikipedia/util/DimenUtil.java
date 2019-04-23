@@ -9,10 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
+import androidx.annotation.DimenRes;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-
-import androidx.annotation.DimenRes;
 
 public final class DimenUtil {
     public static float dpToPx(float dp) {

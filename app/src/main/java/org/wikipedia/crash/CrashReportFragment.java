@@ -5,12 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.wikipedia.R;
-import org.wikipedia.activity.FragmentUtil;
-
 import androidx.annotation.IdRes;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import org.wikipedia.R;
+import org.wikipedia.activity.FragmentUtil;
 
 public class CrashReportFragment extends Fragment {
     public interface Callback {

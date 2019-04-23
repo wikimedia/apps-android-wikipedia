@@ -5,17 +5,17 @@ import android.graphics.PointF;
 import android.net.Uri;
 import android.util.AttributeSet;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
 import org.wikipedia.R;
-
-import androidx.annotation.ColorInt;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 

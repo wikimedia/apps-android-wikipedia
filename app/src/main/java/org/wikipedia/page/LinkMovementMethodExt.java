@@ -7,11 +7,11 @@ import android.text.style.URLSpan;
 import android.view.MotionEvent;
 import android.widget.TextView;
 
-import org.wikipedia.util.UriUtil;
-import org.wikipedia.util.log.L;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import org.wikipedia.util.UriUtil;
+import org.wikipedia.util.log.L;
 
 import static org.wikipedia.util.UriUtil.decodeURL;
 

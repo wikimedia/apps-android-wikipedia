@@ -5,14 +5,15 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
-import org.wikipedia.R;
-import org.wikipedia.feed.model.Card;
-import org.wikipedia.views.DrawableItemDecoration;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.wikipedia.R;
+import org.wikipedia.feed.model.Card;
+import org.wikipedia.views.DrawableItemDecoration;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

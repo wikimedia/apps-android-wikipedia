@@ -4,6 +4,9 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
@@ -11,9 +14,6 @@ import org.wikipedia.dataclient.mwapi.EditorTaskCounts;
 import org.wikipedia.events.EditorTaskUnlockEvent;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.suggestededits.SuggestedEditsTasksActivity;
-
-import androidx.annotation.NonNull;
-import androidx.core.app.NotificationCompat;
 
 import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC;
 import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC;

@@ -9,14 +9,14 @@ import android.util.TypedValue;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.SearchView;
+import androidx.core.content.ContextCompat;
+
 import org.wikipedia.R;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.FeedbackUtil;
 
 import java.util.Arrays;
-
-import androidx.appcompat.widget.SearchView;
-import androidx.core.content.ContextCompat;
 
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 

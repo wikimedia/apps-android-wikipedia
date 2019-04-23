@@ -4,15 +4,15 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+import androidx.collection.ArrayMap;
+
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.page.PageTitle;
 
 import java.util.List;
 import java.util.Map;
-
-import androidx.annotation.NonNull;
-import androidx.collection.ArrayMap;
 
 public class PageImage implements Parcelable {
     public static final PageImageDatabaseTable DATABASE_TABLE = new PageImageDatabaseTable();

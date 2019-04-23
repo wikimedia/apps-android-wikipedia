@@ -1,5 +1,8 @@
 package org.wikipedia.language;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -9,9 +12,6 @@ import org.robolectric.ParameterizedRobolectricTestRunner.Parameters;
 
 import java.util.Arrays;
 import java.util.Locale;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;

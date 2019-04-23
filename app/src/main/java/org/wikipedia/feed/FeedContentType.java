@@ -1,5 +1,9 @@
 package org.wikipedia.feed;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
@@ -18,10 +22,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 
 public enum FeedContentType implements EnumCode {
     NEWS(0, R.string.view_card_news_title, R.string.feed_item_type_news, true) {

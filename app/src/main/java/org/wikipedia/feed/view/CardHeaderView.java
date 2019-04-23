@@ -9,10 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.feed.model.Card;
-
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
@@ -24,6 +20,11 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
+
+import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.feed.model.Card;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

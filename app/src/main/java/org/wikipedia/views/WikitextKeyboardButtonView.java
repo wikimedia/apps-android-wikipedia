@@ -9,13 +9,14 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.AttrRes;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+
 import org.wikipedia.R;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 
-import androidx.annotation.AttrRes;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
