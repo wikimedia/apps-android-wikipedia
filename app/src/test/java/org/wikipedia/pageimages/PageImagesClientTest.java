@@ -1,5 +1,7 @@
 package org.wikipedia.pageimages;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
@@ -12,7 +14,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import androidx.annotation.NonNull;
 import io.reactivex.Observable;
 import io.reactivex.observers.TestObserver;
 
