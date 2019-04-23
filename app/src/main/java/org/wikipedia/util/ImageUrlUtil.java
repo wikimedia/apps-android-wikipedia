@@ -2,10 +2,10 @@ package org.wikipedia.util;
 
 import android.net.Uri;
 
+import androidx.annotation.NonNull;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import androidx.annotation.NonNull;
 
 public final class ImageUrlUtil {
     private static Pattern WIDTH_IN_IMAGE_URL_REGEX = Pattern.compile("/(\\d+)px-");

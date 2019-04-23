@@ -3,6 +3,9 @@ package org.wikipedia.feed.becauseyouread;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.model.CardType;
@@ -12,9 +15,6 @@ import org.wikipedia.page.PageTitle;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public class BecauseYouReadCard extends ListCard<BecauseYouReadItemCard> {
     @NonNull private HistoryEntry entry;

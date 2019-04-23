@@ -5,14 +5,15 @@ import android.net.Uri;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
+
 import org.wikipedia.R;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

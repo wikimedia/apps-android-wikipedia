@@ -1,11 +1,11 @@
 package org.wikipedia.dataclient.mwapi;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Map;
-
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 
 public class MwQueryResponse extends MwResponse {
 

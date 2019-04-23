@@ -5,6 +5,9 @@ import android.net.Uri;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.feed.model.Card;
@@ -14,9 +17,6 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public class NewsItemCard extends Card {
     @NonNull private NewsItem newsItem;

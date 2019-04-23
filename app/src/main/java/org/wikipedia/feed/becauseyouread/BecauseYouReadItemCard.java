@@ -3,13 +3,13 @@ package org.wikipedia.feed.becauseyouread;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.page.PageTitle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public class BecauseYouReadItemCard extends Card {
     @NonNull private final PageTitle title;

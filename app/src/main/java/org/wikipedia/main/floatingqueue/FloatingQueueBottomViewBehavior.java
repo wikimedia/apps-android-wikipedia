@@ -5,10 +5,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
 import org.wikipedia.R;
 import org.wikipedia.random.BottomViewBehavior;
-
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 public class FloatingQueueBottomViewBehavior extends BottomViewBehavior {
     public FloatingQueueBottomViewBehavior(Context context, AttributeSet attrs) {

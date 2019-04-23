@@ -11,6 +11,10 @@ import android.text.style.TypefaceSpan;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -23,10 +27,6 @@ import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-
-import androidx.annotation.IntRange;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public final class StringUtil {
     private static final String CSV_DELIMITER = ",";
