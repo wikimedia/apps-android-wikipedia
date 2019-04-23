@@ -6,7 +6,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
-import org.wikipedia.util.DateUtil
+import org.wikipedia.util.DateUtils
 
 class SuggestedEditsCard(wiki: WikiSite) : WikiSiteCard(wiki) {
     var wiki: WikiSite? = null
@@ -31,6 +31,6 @@ class SuggestedEditsCard(wiki: WikiSite) : WikiSiteCard(wiki) {
     }
 
     override fun subtitle(): String {
-        return DateUtil.getFeedCardDateString(0)
+        return DateUtils.getFeedCardDateString(0)
     }
 }

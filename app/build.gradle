@@ -211,7 +211,7 @@ dependencies {
     implementation "androidx.preference:preference:1.0.0"
     implementation "androidx.recyclerview:recyclerview:1.0.0"
 
-    implementation "com.dmitrybrant:wikimedia-android-data-client:0.0.17"
+    implementation "com.dmitrybrant:wikimedia-android-data-client:0.0.18"
     implementation 'com.github.michael-rapp:chrome-like-tab-switcher:0.4.4'
     implementation 'com.duolingo.open:rtl-viewpager:1.0.3'
     implementation "com.facebook.fresco:animated-gif:$frescoVersion"
