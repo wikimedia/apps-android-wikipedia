@@ -2,6 +2,9 @@ package org.wikipedia.util;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.json.JSONException;
 import org.wikipedia.R;
 import org.wikipedia.createaccount.CreateAccountException;
@@ -15,9 +18,6 @@ import java.net.UnknownHostException;
 import java.util.concurrent.TimeoutException;
 
 import javax.net.ssl.SSLException;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public final class ThrowableUtil {
 

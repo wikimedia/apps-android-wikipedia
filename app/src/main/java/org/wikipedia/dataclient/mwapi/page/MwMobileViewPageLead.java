@@ -2,6 +2,10 @@ package org.wikipedia.dataclient.mwapi.page;
 
 import android.location.Location;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
@@ -19,10 +23,6 @@ import org.wikipedia.util.UriUtil;
 
 import java.util.Collections;
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 
 import static org.wikipedia.dataclient.Service.PREFERRED_THUMB_SIZE;
 import static org.wikipedia.util.ImageUrlUtil.getUrlForSize;

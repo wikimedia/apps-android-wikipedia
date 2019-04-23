@@ -1,5 +1,7 @@
 package org.wikipedia.analytics;
 
+import androidx.annotation.NonNull;
+
 import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -9,8 +11,6 @@ import org.wikipedia.settings.Prefs;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import androidx.annotation.NonNull;
 
 public class NotificationPreferencesFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppNotificationPreferences";

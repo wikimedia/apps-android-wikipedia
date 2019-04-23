@@ -8,10 +8,11 @@ import android.view.View;
 import android.view.inputmethod.InputConnection;
 import android.widget.FrameLayout;
 
-import org.wikipedia.R;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import org.wikipedia.R;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

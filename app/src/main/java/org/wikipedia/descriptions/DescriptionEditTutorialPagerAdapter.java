@@ -4,10 +4,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.wikipedia.onboarding.OnboardingPageView;
-
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
+
+import org.wikipedia.onboarding.OnboardingPageView;
 
 class DescriptionEditTutorialPagerAdapter extends PagerAdapter {
     @NonNull private final OnboardingPageView.DefaultCallback viewCallback

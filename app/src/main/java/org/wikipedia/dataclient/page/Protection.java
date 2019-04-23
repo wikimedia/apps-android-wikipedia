@@ -1,10 +1,10 @@
 package org.wikipedia.dataclient.page;
 
-import java.util.Collections;
-import java.util.Set;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import java.util.Collections;
+import java.util.Set;
 
 /** Protection settings for a page */
 public class Protection {

@@ -3,6 +3,13 @@ package org.wikipedia.espresso.history;
 import android.Manifest;
 import android.content.Intent;
 
+import androidx.test.espresso.NoMatchingViewException;
+import androidx.test.espresso.PerformException;
+import androidx.test.espresso.ViewInteraction;
+import androidx.test.rule.ActivityTestRule;
+import androidx.test.rule.GrantPermissionRule;
+import androidx.test.runner.AndroidJUnit4;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,13 +19,6 @@ import org.wikipedia.espresso.util.ScreenshotTools;
 import org.wikipedia.espresso.util.ViewTools;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.navtab.NavTab;
-
-import androidx.test.espresso.NoMatchingViewException;
-import androidx.test.espresso.PerformException;
-import androidx.test.espresso.ViewInteraction;
-import androidx.test.rule.ActivityTestRule;
-import androidx.test.rule.GrantPermissionRule;
-import androidx.test.runner.AndroidJUnit4;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.Espresso.pressBack;

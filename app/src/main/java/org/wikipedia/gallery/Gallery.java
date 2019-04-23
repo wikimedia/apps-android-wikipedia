@@ -1,10 +1,10 @@
 package org.wikipedia.gallery;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Gallery {
     @SuppressWarnings("unused,NullableProblems") @Nullable private String revision;

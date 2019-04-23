@@ -1,8 +1,8 @@
 package org.wikipedia.feed.announcement;
 
-import org.wikipedia.feed.model.CardType;
-
 import androidx.annotation.NonNull;
+
+import org.wikipedia.feed.model.CardType;
 
 public class FundraisingCard extends AnnouncementCard {
 

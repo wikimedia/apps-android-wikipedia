@@ -1,5 +1,7 @@
 package org.wikipedia.savedpages;
 
+import androidx.annotation.NonNull;
+
 import org.junit.Test;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.html.ImageTagParser;
@@ -8,8 +10,6 @@ import org.wikipedia.page.Section;
 
 import java.util.Collections;
 import java.util.List;
-
-import androidx.annotation.NonNull;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;

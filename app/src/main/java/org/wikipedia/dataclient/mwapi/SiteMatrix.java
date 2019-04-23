@@ -1,13 +1,13 @@
 package org.wikipedia.dataclient.mwapi;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.JsonObject;
 
 import org.wikipedia.json.GsonUtil;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import androidx.annotation.NonNull;
 
 public class SiteMatrix extends MwResponse {
     @SuppressWarnings("unused,NullableProblems") @NonNull private JsonObject sitematrix;

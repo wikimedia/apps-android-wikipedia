@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -17,7 +19,6 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.UriUtil;
 
-import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

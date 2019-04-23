@@ -2,6 +2,9 @@ package org.wikipedia.page.linkpreview;
 
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
@@ -14,9 +17,6 @@ import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public class LinkPreviewContents {
     private static final int EXTRACT_MAX_SENTENCES = 2;

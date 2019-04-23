@@ -12,17 +12,17 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.text.TextUtils;
 
-import org.wikipedia.Constants;
-import org.wikipedia.R;
-import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.ResourceUtil;
-import org.wikipedia.util.StringUtil;
-
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
+
+import org.wikipedia.Constants;
+import org.wikipedia.R;
+import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.StringUtil;
 
 public final class NotificationPresenter {
     private static final int REQUEST_CODE_ACTIVITY = 0;

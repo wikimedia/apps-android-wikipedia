@@ -4,16 +4,16 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.text.TextUtils;
 
+import androidx.annotation.ArrayRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.R;
 
 import java.lang.ref.SoftReference;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
-
-import androidx.annotation.ArrayRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 /** Immutable look up table for all app supported languages. All article languages may not be
   * present in this table as it is statically bundled with the app. */
