@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+
 import org.wikipedia.Constants;
 import org.wikipedia.activity.SingleFragmentActivity;
-
-import androidx.annotation.NonNull;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 
