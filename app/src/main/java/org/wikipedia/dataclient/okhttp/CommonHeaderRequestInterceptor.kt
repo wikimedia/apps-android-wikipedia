@@ -1,14 +1,10 @@
 package org.wikipedia.dataclient.okhttp
 
-import org.wikipedia.WikipediaApp
-
-import java.io.IOException
-
 import okhttp3.Interceptor
-import okhttp3.Request
 import okhttp3.Response
-
+import org.wikipedia.WikipediaApp
 import org.wikipedia.settings.Prefs.isEventLoggingEnabled
+import java.io.IOException
 
 internal class CommonHeaderRequestInterceptor : Interceptor {
     @Throws(IOException::class)

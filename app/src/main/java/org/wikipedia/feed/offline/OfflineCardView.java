@@ -4,13 +4,14 @@ import android.content.Context;
 import android.widget.LinearLayout;
 import android.widget.Space;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedCardView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

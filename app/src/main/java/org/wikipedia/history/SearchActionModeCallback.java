@@ -4,11 +4,11 @@ import android.content.Context;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import org.wikipedia.views.SearchActionProvider;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.view.ActionMode;
 import androidx.core.view.MenuItemCompat;
+
+import org.wikipedia.views.SearchActionProvider;
 
 public abstract class SearchActionModeCallback implements ActionMode.Callback {
     public static final String ACTION_MODE_TAG = "searchActionMode";

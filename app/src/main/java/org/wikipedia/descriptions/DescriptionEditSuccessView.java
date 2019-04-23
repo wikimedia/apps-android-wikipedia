@@ -4,10 +4,11 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
+import androidx.annotation.Nullable;
+
 import org.wikipedia.R;
 import org.wikipedia.views.AppTextViewWithImages;
 
-import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

@@ -3,9 +3,9 @@ package org.wikipedia.feed.configure;
 import android.content.Context;
 import android.content.Intent;
 
-import org.wikipedia.activity.SingleFragmentActivity;
-
 import androidx.annotation.NonNull;
+
+import org.wikipedia.activity.SingleFragmentActivity;
 
 public class ConfigureActivity extends SingleFragmentActivity<ConfigureFragment> {
     public static final int CONFIGURATION_CHANGED_RESULT = 1;

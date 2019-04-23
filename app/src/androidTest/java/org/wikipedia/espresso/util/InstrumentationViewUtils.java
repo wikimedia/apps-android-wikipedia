@@ -1,9 +1,9 @@
 package org.wikipedia.espresso.util;
 
-import org.wikipedia.R;
-
 import androidx.test.espresso.Espresso;
 import androidx.test.espresso.ViewInteraction;
+
+import org.wikipedia.R;
 
 import static androidx.test.InstrumentationRegistry.getInstrumentation;
 import static androidx.test.espresso.Espresso.onView;

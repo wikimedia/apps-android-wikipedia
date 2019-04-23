@@ -4,9 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import org.wikipedia.activity.SingleFragmentActivity;
-
 import androidx.annotation.NonNull;
+
+import org.wikipedia.activity.SingleFragmentActivity;
 
 public class RandomActivity extends SingleFragmentActivity<RandomFragment> {
     public static final int INVOKE_SOURCE_FEED = 0;

@@ -2,11 +2,12 @@ package org.wikipedia.history;
 
 import android.database.Cursor;
 
+import androidx.annotation.NonNull;
+
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.database.contract.PageHistoryContract;
 
-import androidx.annotation.NonNull;
 import io.reactivex.functions.Action;
 
 /**
