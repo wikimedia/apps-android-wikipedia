@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
+import androidx.annotation.NonNull;
+
 import net.hockeyapp.android.CrashManager;
 import net.hockeyapp.android.ExceptionHandler;
 
@@ -16,8 +18,6 @@ import org.wikipedia.util.log.RemoteExceptionLogger;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import androidx.annotation.NonNull;
 
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;

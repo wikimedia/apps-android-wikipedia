@@ -2,10 +2,10 @@ package org.wikipedia.views;
 
 import android.view.View;
 
-import java.util.List;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
 
 public abstract class DefaultRecyclerAdapter<T, V extends View>
         extends RecyclerView.Adapter<DefaultViewHolder<V>> {

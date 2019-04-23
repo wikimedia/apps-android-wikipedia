@@ -5,14 +5,14 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.preference.PreferenceManager;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+
 import org.wikipedia.WikipediaApp;
 
 import java.util.Collections;
 import java.util.Set;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 
 /** Shared preferences input / output utility providing set* functionality that writes to SP on the
  * client's behalf, IO without client supplied {@link Context}, and wrappers for using string

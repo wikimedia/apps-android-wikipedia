@@ -8,16 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
-import com.google.android.material.textfield.TextInputLayout;
-
-import org.wikipedia.R;
-import org.wikipedia.util.DeviceUtil;
-
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AlertDialog;
+
+import com.google.android.material.textfield.TextInputLayout;
+
+import org.wikipedia.R;
+import org.wikipedia.util.DeviceUtil;
 
 public final class TextInputDialog extends AlertDialog {
 

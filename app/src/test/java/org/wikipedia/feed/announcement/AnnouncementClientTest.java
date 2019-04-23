@@ -1,5 +1,7 @@
 package org.wikipedia.feed.announcement;
 
+import androidx.annotation.NonNull;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.wikipedia.dataclient.RestService;
@@ -13,7 +15,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import androidx.annotation.NonNull;
 import retrofit2.Call;
 
 import static org.hamcrest.MatcherAssert.assertThat;

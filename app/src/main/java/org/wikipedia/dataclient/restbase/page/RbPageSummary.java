@@ -2,6 +2,9 @@ package org.wikipedia.dataclient.restbase.page;
 
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.dataclient.WikiSite;
@@ -9,9 +12,6 @@ import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.json.annotations.Required;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 /**
  * A standardized page summary object constructed by RESTBase, used for link previews and as the

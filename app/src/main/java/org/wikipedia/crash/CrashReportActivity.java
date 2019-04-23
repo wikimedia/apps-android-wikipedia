@@ -3,10 +3,10 @@ package org.wikipedia.crash;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
+
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.SingleFragmentActivity;
-
-import androidx.annotation.Nullable;
 
 public class CrashReportActivity extends SingleFragmentActivity<CrashReportFragment>
         implements CrashReportFragment.Callback {

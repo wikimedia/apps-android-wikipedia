@@ -5,11 +5,11 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 
-import org.wikipedia.R;
-
 import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
+import org.wikipedia.R;
 
 import static androidx.core.content.ContextCompat.getColor;
 import static androidx.core.graphics.drawable.DrawableCompat.setTint;

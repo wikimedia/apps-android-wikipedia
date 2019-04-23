@@ -1,8 +1,8 @@
 package org.wikipedia.html;
 
-import org.junit.Test;
-
 import androidx.annotation.NonNull;
+
+import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;

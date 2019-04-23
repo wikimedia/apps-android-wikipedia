@@ -1,5 +1,7 @@
 package org.wikipedia.util;
 
+import androidx.annotation.NonNull;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,8 +12,6 @@ import org.wikipedia.testlib.TestLatch;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import androidx.annotation.NonNull;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;

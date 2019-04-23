@@ -1,12 +1,13 @@
 package org.wikipedia.wikidata;
 
+import androidx.annotation.NonNull;
+
 import org.junit.Test;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.test.MockWebServerTest;
 import org.wikipedia.test.TestFileUtil;
 
-import androidx.annotation.NonNull;
 import retrofit2.Call;
 
 import static org.hamcrest.MatcherAssert.assertThat;

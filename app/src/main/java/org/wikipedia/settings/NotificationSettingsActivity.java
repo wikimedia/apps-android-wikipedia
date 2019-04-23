@@ -7,13 +7,13 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.analytics.NotificationPreferencesFunnel;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 
 public class NotificationSettingsActivity extends SingleFragmentActivity<NotificationSettingsFragment> {
     public static Intent newIntent(@NonNull Context ctx) {

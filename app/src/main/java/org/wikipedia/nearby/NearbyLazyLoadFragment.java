@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import org.wikipedia.WikipediaApp;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import org.wikipedia.WikipediaApp;
 
 public class NearbyLazyLoadFragment extends Fragment {
     private static final int CONTAINER_VIEW_ID = 0x8675309;

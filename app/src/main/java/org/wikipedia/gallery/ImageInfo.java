@@ -1,13 +1,13 @@
 package org.wikipedia.gallery;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 /**
  * Gson POJO for a standard image info object as returned by the API ImageInfo module

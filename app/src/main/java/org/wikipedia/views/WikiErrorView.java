@@ -9,14 +9,15 @@ import android.widget.LinearLayout;
 import android.widget.Space;
 import android.widget.TextView;
 
-import org.wikipedia.R;
-import org.wikipedia.dataclient.mwapi.MwException;
-
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.core.content.ContextCompat;
+
+import org.wikipedia.R;
+import org.wikipedia.dataclient.mwapi.MwException;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

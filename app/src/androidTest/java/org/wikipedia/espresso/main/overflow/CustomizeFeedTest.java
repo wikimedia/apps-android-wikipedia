@@ -3,6 +3,12 @@ package org.wikipedia.espresso.main.overflow;
 import android.Manifest;
 import android.view.View;
 
+import androidx.test.espresso.ViewInteraction;
+import androidx.test.espresso.contrib.RecyclerViewActions;
+import androidx.test.rule.ActivityTestRule;
+import androidx.test.rule.GrantPermissionRule;
+import androidx.test.runner.AndroidJUnit4;
+
 import org.hamcrest.core.IsInstanceOf;
 import org.junit.Rule;
 import org.junit.Test;
@@ -11,12 +17,6 @@ import org.wikipedia.R;
 import org.wikipedia.espresso.util.ScreenshotTools;
 import org.wikipedia.espresso.util.ViewTools;
 import org.wikipedia.main.MainActivity;
-
-import androidx.test.espresso.ViewInteraction;
-import androidx.test.espresso.contrib.RecyclerViewActions;
-import androidx.test.rule.ActivityTestRule;
-import androidx.test.rule.GrantPermissionRule;
-import androidx.test.runner.AndroidJUnit4;
 
 import static androidx.test.InstrumentationRegistry.getInstrumentation;
 import static androidx.test.espresso.Espresso.onView;

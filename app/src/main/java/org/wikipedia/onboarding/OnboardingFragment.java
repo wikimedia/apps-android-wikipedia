@@ -6,15 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.wikipedia.BackPressedHandler;
-import org.wikipedia.R;
-import org.wikipedia.activity.FragmentUtil;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+
+import org.wikipedia.BackPressedHandler;
+import org.wikipedia.R;
+import org.wikipedia.activity.FragmentUtil;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

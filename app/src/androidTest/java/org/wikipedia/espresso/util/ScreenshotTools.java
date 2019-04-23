@@ -4,6 +4,9 @@ import android.graphics.Bitmap;
 import android.os.Environment;
 import android.view.View;
 
+import androidx.test.espresso.UiController;
+import androidx.test.espresso.ViewAction;
+
 import org.hamcrest.Matcher;
 import org.wikipedia.util.log.L;
 
@@ -12,9 +15,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-
-import androidx.test.espresso.UiController;
-import androidx.test.espresso.ViewAction;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.matcher.ViewMatchers.isRoot;

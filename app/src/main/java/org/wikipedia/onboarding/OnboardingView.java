@@ -4,12 +4,13 @@ import android.content.Context;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.wikipedia.R;
-import org.wikipedia.page.LinkMovementMethodExt;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
+
+import org.wikipedia.R;
+import org.wikipedia.page.LinkMovementMethodExt;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

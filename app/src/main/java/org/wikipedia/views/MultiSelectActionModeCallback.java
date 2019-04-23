@@ -3,10 +3,10 @@ package org.wikipedia.views;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import org.wikipedia.R;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.view.ActionMode;
+
+import org.wikipedia.R;
 
 public abstract class MultiSelectActionModeCallback implements ActionMode.Callback {
     private static final String ACTION_MODE_TAG = "multiSelectActionMode";
