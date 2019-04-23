@@ -2,6 +2,9 @@ package org.wikipedia.feed.featured;
 
 import android.net.Uri;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -12,9 +15,6 @@ import org.wikipedia.feed.model.WikiSiteCard;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.DateUtils;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public class FeaturedArticleCard extends WikiSiteCard {
     @NonNull private RbPageSummary page;

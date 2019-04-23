@@ -2,6 +2,8 @@ package org.wikipedia.feed.onboarding;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
+
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.FeedCoordinator;
@@ -13,8 +15,6 @@ import org.wikipedia.util.UriUtils;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import androidx.annotation.NonNull;
 
 public class OnboardingClient implements FeedClient {
     @Override public void request(@NonNull Context context, @NonNull WikiSite wiki, int age,

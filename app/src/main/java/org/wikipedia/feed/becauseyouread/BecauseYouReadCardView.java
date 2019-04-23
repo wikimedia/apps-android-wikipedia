@@ -3,6 +3,9 @@ package org.wikipedia.feed.becauseyouread;
 import android.content.Context;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.ListCardItemView;
@@ -14,9 +17,6 @@ import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard>
         implements ItemTouchHelperSwipeAdapter.SwipeableView {

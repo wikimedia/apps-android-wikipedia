@@ -1,14 +1,12 @@
 package org.wikipedia.dataclient.okhttp
 
-import org.wikipedia.WikipediaApp
-import org.wikipedia.settings.Prefs
-
-import java.io.IOException
-import java.util.concurrent.TimeUnit
-
 import okhttp3.CacheControl
 import okhttp3.Interceptor
 import okhttp3.Response
+import org.wikipedia.WikipediaApp
+import org.wikipedia.settings.Prefs
+import java.io.IOException
+import java.util.concurrent.TimeUnit
 
 /**
  * This interceptor adds a `max-stale` parameter to the Cache-Control header that directs

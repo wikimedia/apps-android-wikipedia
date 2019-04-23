@@ -16,16 +16,16 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
+
 import org.wikipedia.R;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.gallery.ImageLicense;
 import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.StringUtil;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.core.graphics.drawable.DrawableCompat;
 
 import static android.text.Layout.Alignment.ALIGN_NORMAL;
 import static android.text.Layout.Alignment.ALIGN_OPPOSITE;

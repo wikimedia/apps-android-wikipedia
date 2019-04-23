@@ -6,6 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.viewpager.widget.PagerAdapter;
+
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.analytics.LoginFunnel;
@@ -16,11 +21,6 @@ import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
 import org.wikipedia.util.FeedbackUtil;
-
-import androidx.annotation.LayoutRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.viewpager.widget.PagerAdapter;
 
 import static org.wikipedia.util.UriUtils.handleExternalLink;
 

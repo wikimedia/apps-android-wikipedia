@@ -11,11 +11,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.database.contract.SearchHistoryContract;
-import org.wikipedia.util.FeedbackUtil;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.cursoradapter.widget.CursorAdapter;
@@ -23,6 +18,12 @@ import androidx.fragment.app.Fragment;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.CursorLoader;
 import androidx.loader.content.Loader;
+
+import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.database.contract.SearchHistoryContract;
+import org.wikipedia.util.FeedbackUtil;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

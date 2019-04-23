@@ -6,15 +6,15 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 
-import org.wikipedia.util.log.L;
-
-import java.lang.reflect.Field;
-
 import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.drawerlayout.widget.FixedDrawerLayout;
+
+import org.wikipedia.util.log.L;
+
+import java.lang.reflect.Field;
 
 /**
  * A thin wrapper around {@link FixedDrawerLayout} with additional functionality:

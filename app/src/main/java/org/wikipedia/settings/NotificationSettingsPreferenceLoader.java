@@ -2,17 +2,17 @@ package org.wikipedia.settings;
 
 import android.graphics.drawable.Drawable;
 
-import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
-import org.wikipedia.util.ResourceUtil;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+
+import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
+import org.wikipedia.util.ResourceUtil;
 
 class NotificationSettingsPreferenceLoader extends BasePreferenceLoader {
 

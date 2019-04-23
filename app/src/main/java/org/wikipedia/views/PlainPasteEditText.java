@@ -9,6 +9,9 @@ import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.wikipedia.edit.richtext.SpanExtents;
@@ -17,9 +20,6 @@ import org.wikipedia.util.ClipboardUtil;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import static android.text.InputType.TYPE_TEXT_FLAG_MULTI_LINE;
 

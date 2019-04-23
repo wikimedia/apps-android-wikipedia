@@ -5,10 +5,11 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.wikipedia.R;
-
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
+
+import org.wikipedia.R;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

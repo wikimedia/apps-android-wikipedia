@@ -7,15 +7,16 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.wikipedia.R;
-import org.wikipedia.feed.model.Card;
-import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
-
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.core.content.ContextCompat;
+
+import org.wikipedia.R;
+import org.wikipedia.feed.model.Card;
+import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

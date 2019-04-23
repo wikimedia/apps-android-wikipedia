@@ -4,6 +4,9 @@ import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -13,9 +16,6 @@ import org.wikipedia.util.log.L;
 
 import java.util.Arrays;
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import static org.wikipedia.util.UriUtil.decodeURL;
 import static org.wikipedia.util.UriUtils.handleExternalLink;

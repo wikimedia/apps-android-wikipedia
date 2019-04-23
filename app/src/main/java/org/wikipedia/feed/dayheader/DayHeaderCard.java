@@ -1,10 +1,10 @@
 package org.wikipedia.feed.dayheader;
 
+import androidx.annotation.NonNull;
+
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.util.DateUtils;
-
-import androidx.annotation.NonNull;
 
 public class DayHeaderCard extends Card {
     private int age;
