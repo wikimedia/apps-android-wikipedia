@@ -13,15 +13,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.apache.commons.lang3.StringUtils;
-import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.page.LinkMovementMethodExt;
-import org.wikipedia.util.StringUtil;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,6 +22,16 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.apache.commons.lang3.StringUtils;
+import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.page.LinkMovementMethodExt;
+import org.wikipedia.util.StringUtil;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;

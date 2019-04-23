@@ -10,15 +10,15 @@ import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.util.FileUtil;
 
 import java.io.File;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public class MediaDownloadReceiver extends BroadcastReceiver {
     private static final String FILE_NAMESPACE = "File:";

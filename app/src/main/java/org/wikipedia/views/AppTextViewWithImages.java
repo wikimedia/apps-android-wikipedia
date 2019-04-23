@@ -11,15 +11,15 @@ import android.text.TextUtils;
 import android.text.style.ImageSpan;
 import android.util.AttributeSet;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
+
+import java.util.ArrayList;
+import java.util.List;
 
 // Credit: https://stackoverflow.com/a/38977396
 public class AppTextViewWithImages extends AppTextView {

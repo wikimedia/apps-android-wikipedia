@@ -1,8 +1,8 @@
 package org.wikipedia.html;
 
-import org.wikipedia.model.BaseModel;
-
 import androidx.annotation.FloatRange;
+
+import org.wikipedia.model.BaseModel;
 
 public class PixelDensityDescriptor extends BaseModel {
     @FloatRange(from = 0, fromInclusive = false) private final float density;

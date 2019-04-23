@@ -3,6 +3,11 @@ package org.wikipedia.feed.view;
 import android.content.Context;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.util.DimenUtil;
@@ -12,11 +17,6 @@ import org.wikipedia.views.DontInterceptTouchListener;
 import org.wikipedia.views.MarginItemDecoration;
 
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 public abstract class HorizontalScrollingListCardView<T extends Card> extends ListCardView<T> {
     public HorizontalScrollingListCardView(@NonNull Context context) {

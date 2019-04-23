@@ -1,5 +1,7 @@
 package org.wikipedia.analytics;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
 import org.json.JSONObject;
@@ -9,8 +11,6 @@ import org.wikipedia.json.GsonUtil;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import androidx.annotation.NonNull;
 
 import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC;
 import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC;

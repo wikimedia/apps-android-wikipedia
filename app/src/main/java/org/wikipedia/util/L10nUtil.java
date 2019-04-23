@@ -6,6 +6,9 @@ import android.content.res.Resources;
 import android.util.SparseArray;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.R;
@@ -17,9 +20,6 @@ import org.wikipedia.page.PageTitle;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
 
 import static android.text.format.DateUtils.SECOND_IN_MILLIS;
 import static android.text.format.DateUtils.getRelativeTimeSpanString;

@@ -10,13 +10,14 @@ import android.text.style.BulletSpan;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

@@ -11,15 +11,15 @@ import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.cursoradapter.widget.CursorAdapter;
+
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.EditHistoryContract;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.ContentProviderClientCompat;
 
 import java.util.Date;
-
-import androidx.annotation.NonNull;
-import androidx.cursoradapter.widget.CursorAdapter;
 
 import static org.wikipedia.util.L10nUtil.setConditionalTextDirection;
 

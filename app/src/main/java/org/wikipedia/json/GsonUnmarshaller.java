@@ -1,10 +1,10 @@
 package org.wikipedia.json;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 public final class GsonUnmarshaller {
     /** @return Unmarshalled object. */

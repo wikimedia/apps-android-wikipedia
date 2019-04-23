@@ -8,14 +8,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.AppContentProviderContract;
 import org.wikipedia.util.log.L;
 
 import java.util.Arrays;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public class AppContentProvider extends ContentProvider {
     private static final boolean LOG = false;

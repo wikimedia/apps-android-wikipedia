@@ -1,10 +1,10 @@
 package org.wikipedia.analytics;
 
-import org.json.JSONObject;
-import org.wikipedia.WikipediaApp;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import org.json.JSONObject;
+import org.wikipedia.WikipediaApp;
 
 public class InstallReferrerFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppInstallReferrer";

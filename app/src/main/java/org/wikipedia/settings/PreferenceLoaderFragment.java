@@ -4,11 +4,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import org.wikipedia.R;
-import org.wikipedia.util.ResourceUtil;
-
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.wikipedia.R;
+import org.wikipedia.util.ResourceUtil;
 
 abstract class PreferenceLoaderFragment extends PreferenceFragmentCompat
         implements PreferenceLoader {

@@ -5,15 +5,15 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.dataclient.page.PageLeadProperties;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.log.L;
 
 import java.text.ParseException;
 import java.util.Date;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.util.DateUtil.iso8601DateParse;

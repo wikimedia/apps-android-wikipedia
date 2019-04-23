@@ -4,13 +4,13 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.page.PageTitle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public class SearchResult extends BaseModel implements Parcelable {
     private PageTitle pageTitle;

@@ -1,8 +1,8 @@
 package org.wikipedia.gallery;
 
-import com.google.gson.annotations.SerializedName;
-
 import androidx.annotation.Nullable;
+
+import com.google.gson.annotations.SerializedName;
 
 public class ArtistInfo extends TextInfo {
 

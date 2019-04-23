@@ -2,6 +2,9 @@ package org.wikipedia.feed.announcement;
 
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.json.annotations.Required;
@@ -12,9 +15,6 @@ import java.text.ParseException;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 

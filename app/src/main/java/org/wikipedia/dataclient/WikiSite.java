@@ -5,13 +5,13 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.language.AppLanguageLookUpTable;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.UriUtil;
-
-import androidx.annotation.NonNull;
 
 /**
  * The base URL and Wikipedia language code for a MediaWiki site. Examples:
